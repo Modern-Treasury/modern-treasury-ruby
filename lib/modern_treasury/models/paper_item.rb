@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::PaperItems#retrieve
-    class PaperItem < ModernTreasury::BaseModel
+    class PaperItem < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -55,7 +55,7 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::BooleanModel
 
       # @!attribute lockbox_number
       #   The identifier for the lockbox assigned by the bank.
@@ -154,14 +154,14 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # The current status of the paper item. One of `pending`, `completed`, or
       #   `returned`.
       #
       # @see ModernTreasury::Models::PaperItem#status
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         COMPLETED = :completed
         PENDING = :pending

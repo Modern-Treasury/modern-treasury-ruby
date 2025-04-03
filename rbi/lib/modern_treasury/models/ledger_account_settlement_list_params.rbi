@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LedgerAccountSettlementListParams < ModernTreasury::BaseModel
+    class LedgerAccountSettlementListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -86,7 +86,7 @@ module ModernTreasury
           settled_ledger_account_id: String,
           settlement_entry_direction: String,
           updated_at: T::Hash[Symbol, Time],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

@@ -30,10 +30,10 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mo
         as_of_date: Date,
         as_of_time: Time | nil,
         balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType,
-        balances: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance]),
+        balances: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance]),
         created_at: Time,
         internal_account_id: String,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
         object: String,
         updated_at: Time
       }
@@ -57,10 +57,10 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mo
         as_of_date: Date,
         as_of_time: Time | nil,
         balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType,
-        balances: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance]),
+        balances: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance]),
         created_at: Time,
         internal_account_id: String,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
         object: String,
         updated_at: Time
       }
@@ -87,10 +87,10 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mo
         as_of_date: Date,
         as_of_time: Time | nil,
         balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType,
-        balances: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance]),
+        balances: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance]),
         created_at: Time,
         internal_account_id: String,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
         object: String,
         updated_at: Time
       }

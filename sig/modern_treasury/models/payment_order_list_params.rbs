@@ -22,7 +22,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class PaymentOrderListParams < ModernTreasury::BaseModel
+    class PaymentOrderListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -126,7 +126,7 @@ module ModernTreasury
       type priority = :high | :normal
 
       module Priority
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         HIGH: :high
         NORMAL: :normal
@@ -148,7 +148,7 @@ module ModernTreasury
         | :sent
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         APPROVED: :approved
         CANCELLED: :cancelled
@@ -198,7 +198,7 @@ module ModernTreasury
         | :zengin
 
       module Type
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH: :ach
         AU_BECS: :au_becs

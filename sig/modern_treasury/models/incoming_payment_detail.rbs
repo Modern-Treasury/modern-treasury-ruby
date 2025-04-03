@@ -29,7 +29,7 @@ module ModernTreasury
         originating_account_number: String?
       }
 
-    class IncomingPaymentDetail < ModernTreasury::BaseModel
+    class IncomingPaymentDetail < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor amount: Integer
@@ -123,7 +123,7 @@ module ModernTreasury
         | :wallet_address
 
       module OriginatingAccountNumberType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         AU_NUMBER: :au_number
         CLABE: :clabe
@@ -163,7 +163,7 @@ module ModernTreasury
         | :za_national_clearing_code
 
       module OriginatingRoutingNumberType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ABA: :aba
         AU_BSB: :au_bsb
@@ -193,7 +193,7 @@ module ModernTreasury
       type status = :completed | :pending | :returned
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         COMPLETED: :completed
         PENDING: :pending
@@ -218,7 +218,7 @@ module ModernTreasury
         | :wire
 
       module Type
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH: :ach
         AU_BECS: :au_becs

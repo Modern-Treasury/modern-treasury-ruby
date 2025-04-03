@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::VirtualAccounts#create
-    class VirtualAccount < ModernTreasury::BaseModel
+    class VirtualAccount < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -13,7 +13,8 @@ module ModernTreasury
       #   An array of account detail objects.
       #
       #   @return [Array<ModernTreasury::Models::AccountDetail>]
-      required :account_details, -> { ModernTreasury::ArrayOf[ModernTreasury::Models::AccountDetail] }
+      required :account_details,
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::AccountDetail] }
 
       # @!attribute counterparty_id
       #   The ID of a counterparty that the virtual account belongs to. Optional.
@@ -71,14 +72,14 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::BooleanModel
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @return [Hash{Symbol=>String}]
-      required :metadata, ModernTreasury::HashOf[String]
+      required :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!attribute name
       #   The name of the virtual account.
@@ -96,7 +97,8 @@ module ModernTreasury
       #     internal account.
       #
       #   @return [Array<ModernTreasury::Models::RoutingDetail>]
-      required :routing_details, -> { ModernTreasury::ArrayOf[ModernTreasury::Models::RoutingDetail] }
+      required :routing_details,
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::RoutingDetail] }
 
       # @!attribute updated_at
       #
@@ -143,7 +145,7 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
     end
   end
 end

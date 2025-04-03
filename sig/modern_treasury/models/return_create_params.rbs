@@ -12,7 +12,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class ReturnCreateParams < ModernTreasury::BaseModel
+    class ReturnCreateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -46,7 +46,7 @@ module ModernTreasury
       type returnable_type = :incoming_payment_detail
 
       module ReturnableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         INCOMING_PAYMENT_DETAIL: :incoming_payment_detail
 
@@ -109,7 +109,7 @@ module ModernTreasury
         | :currencycloud
 
       module Code
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CODE_901: :"901"
         CODE_902: :"902"

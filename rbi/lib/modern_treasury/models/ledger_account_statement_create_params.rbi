@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LedgerAccountStatementCreateParams < ModernTreasury::BaseModel
+    class LedgerAccountStatementCreateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -40,7 +40,7 @@ module ModernTreasury
           ledger_account_id: String,
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

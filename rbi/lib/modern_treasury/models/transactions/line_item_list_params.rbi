@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     module Transactions
-      class LineItemListParams < ModernTreasury::BaseModel
+      class LineItemListParams < ModernTreasury::Internal::Type::BaseModel
         extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 
@@ -38,7 +38,7 @@ module ModernTreasury
             per_page: Integer,
             transaction_id: String,
             type: T.nilable(ModernTreasury::Models::Transactions::LineItemListParams::Type::OrSymbol),
-            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
           )
             .returns(T.attached_class)
         end
@@ -69,7 +69,7 @@ module ModernTreasury
         end
 
         module Type
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type) }

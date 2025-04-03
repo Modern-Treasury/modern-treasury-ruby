@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::Connections#list
-    class ConnectionListParams < ModernTreasury::BaseModel
+    class ConnectionListParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -51,7 +51,7 @@ module ModernTreasury
       #   #
       #   def initialize(after_cursor: nil, entity: nil, per_page: nil, vendor_customer_id: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
     end
   end
 end

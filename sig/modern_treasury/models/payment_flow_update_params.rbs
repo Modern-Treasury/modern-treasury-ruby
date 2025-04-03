@@ -4,7 +4,7 @@ module ModernTreasury
       { status: ModernTreasury::Models::PaymentFlowUpdateParams::status }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class PaymentFlowUpdateParams < ModernTreasury::BaseModel
+    class PaymentFlowUpdateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -20,7 +20,7 @@ module ModernTreasury
       type status = :cancelled
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CANCELLED: :cancelled
 

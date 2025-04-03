@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class EventListParams < ModernTreasury::BaseModel
+    class EventListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -56,7 +56,7 @@ module ModernTreasury
           event_time_start: Time,
           per_page: Integer,
           resource: String,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class Document < ModernTreasury::BaseModel
+    class Document < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -32,7 +32,7 @@ module ModernTreasury
       sig { returns(ModernTreasury::Models::Document::File) }
       attr_reader :file
 
-      sig { params(file: T.any(ModernTreasury::Models::Document::File, ModernTreasury::Internal::Util::AnyHash)).void }
+      sig { params(file: T.any(ModernTreasury::Models::Document::File, ModernTreasury::Internal::AnyHash)).void }
       attr_writer :file
 
       # This field will be true if this object exists in the live environment or false
@@ -55,11 +55,11 @@ module ModernTreasury
           id: String,
           created_at: Time,
           discarded_at: T.nilable(Time),
-          document_details: T::Array[T.any(ModernTreasury::Models::Document::DocumentDetail, ModernTreasury::Internal::Util::AnyHash)],
+          document_details: T::Array[T.any(ModernTreasury::Models::Document::DocumentDetail, ModernTreasury::Internal::AnyHash)],
           document_type: T.nilable(String),
           documentable_id: String,
           documentable_type: ModernTreasury::Models::Document::DocumentableType::OrSymbol,
-          file: T.any(ModernTreasury::Models::Document::File, ModernTreasury::Internal::Util::AnyHash),
+          file: T.any(ModernTreasury::Models::Document::File, ModernTreasury::Internal::AnyHash),
           live_mode: T::Boolean,
           object: String,
           source: String,
@@ -105,7 +105,7 @@ module ModernTreasury
       def to_hash
       end
 
-      class DocumentDetail < ModernTreasury::BaseModel
+      class DocumentDetail < ModernTreasury::Internal::Type::BaseModel
         sig { returns(String) }
         attr_accessor :id
 
@@ -180,7 +180,7 @@ module ModernTreasury
       #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
       #   `case`, `internal_account`, `decision`, or `external_account`.
       module DocumentableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::Document::DocumentableType) }
         OrSymbol =
@@ -208,7 +208,7 @@ module ModernTreasury
         end
       end
 
-      class File < ModernTreasury::BaseModel
+      class File < ModernTreasury::Internal::Type::BaseModel
         # The MIME content type of the document.
         sig { returns(T.nilable(String)) }
         attr_reader :content_type

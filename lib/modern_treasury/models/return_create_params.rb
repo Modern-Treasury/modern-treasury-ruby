@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::Returns#create
-    class ReturnCreateParams < ModernTreasury::BaseModel
+    class ReturnCreateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -38,7 +38,7 @@ module ModernTreasury
       #   The raw data from the return file that we get from the bank.
       #
       #   @return [Object, nil]
-      optional :data, ModernTreasury::Unknown, nil?: true
+      optional :data, ModernTreasury::Internal::Type::Unknown, nil?: true
 
       # @!attribute date_of_death
       #   If the return code is `R14` or `R15` this is the date the deceased counterparty
@@ -78,12 +78,12 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # The type of object being returned. Currently, this may only be
       #   incoming_payment_detail.
       module ReturnableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
 
@@ -96,7 +96,7 @@ module ModernTreasury
 
       # The return code. For ACH returns, this is the required ACH return code.
       module Code
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CODE_901 = :"901"
         CODE_902 = :"902"

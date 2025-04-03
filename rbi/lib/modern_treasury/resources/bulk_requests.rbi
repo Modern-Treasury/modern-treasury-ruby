@@ -11,7 +11,7 @@ module ModernTreasury
           resources: T::Array[
           T.any(
             ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest,
-            ModernTreasury::Internal::Util::AnyHash,
+            ModernTreasury::Internal::AnyHash,
             ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest,
             ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest,
             ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest,
@@ -26,7 +26,7 @@ module ModernTreasury
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )
@@ -54,7 +54,7 @@ module ModernTreasury
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )
@@ -79,7 +79,7 @@ module ModernTreasury
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )

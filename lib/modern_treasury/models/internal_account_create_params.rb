@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::InternalAccounts#create
-    class InternalAccountCreateParams < ModernTreasury::BaseModel
+    class InternalAccountCreateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -78,7 +78,7 @@ module ModernTreasury
       #     at the vendor specified by the given connection.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :vendor_attributes, ModernTreasury::HashOf[String]
+      optional :vendor_attributes, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -112,12 +112,12 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # Either "USD" or "CAD". Internal accounts created at Increase only supports
       #   "USD".
       module Currency
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         USD = :USD
         CAD = :CAD
@@ -129,7 +129,7 @@ module ModernTreasury
         #   def self.values; end
       end
 
-      class PartyAddress < ModernTreasury::BaseModel
+      class PartyAddress < ModernTreasury::Internal::Type::BaseModel
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]
         #
@@ -180,7 +180,7 @@ module ModernTreasury
         #   #
         #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
     end
   end

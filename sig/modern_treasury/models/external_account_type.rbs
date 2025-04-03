@@ -11,7 +11,7 @@ module ModernTreasury
       | :savings
 
     module ExternalAccountType
-      extend ModernTreasury::Enum
+      extend ModernTreasury::Internal::Type::Enum
 
       CASH: :cash
       CHECKING: :checking

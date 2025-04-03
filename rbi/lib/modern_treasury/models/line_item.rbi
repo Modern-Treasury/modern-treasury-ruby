@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LineItem < ModernTreasury::BaseModel
+    class LineItem < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -10,9 +10,7 @@ module ModernTreasury
       attr_reader :accounting
 
       sig do
-        params(
-          accounting: T.any(ModernTreasury::Models::LineItem::Accounting, ModernTreasury::Internal::Util::AnyHash)
-        )
+        params(accounting: T.any(ModernTreasury::Models::LineItem::Accounting, ModernTreasury::Internal::AnyHash))
           .void
       end
       attr_writer :accounting
@@ -67,7 +65,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          accounting: T.any(ModernTreasury::Models::LineItem::Accounting, ModernTreasury::Internal::Util::AnyHash),
+          accounting: T.any(ModernTreasury::Models::LineItem::Accounting, ModernTreasury::Internal::AnyHash),
           accounting_category_id: T.nilable(String),
           accounting_ledger_class_id: T.nilable(String),
           amount: Integer,
@@ -122,7 +120,7 @@ module ModernTreasury
       def to_hash
       end
 
-      class Accounting < ModernTreasury::BaseModel
+      class Accounting < ModernTreasury::Internal::Type::BaseModel
         # The ID of one of your accounting categories. Note that these will only be
         #   accessible if your accounting system has been connected.
         sig { returns(T.nilable(String)) }
@@ -145,7 +143,7 @@ module ModernTreasury
 
       # One of `payment_orders` or `expected_payments`.
       module ItemizableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::LineItem::ItemizableType) }
         OrSymbol =

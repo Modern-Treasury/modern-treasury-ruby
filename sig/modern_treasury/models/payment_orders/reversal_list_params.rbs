@@ -5,7 +5,7 @@ module ModernTreasury
         { after_cursor: String?, per_page: Integer }
         & ModernTreasury::Internal::Type::request_parameters
 
-      class ReversalListParams < ModernTreasury::BaseModel
+      class ReversalListParams < ModernTreasury::Internal::Type::BaseModel
         extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 

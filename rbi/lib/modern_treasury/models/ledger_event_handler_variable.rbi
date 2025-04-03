@@ -2,13 +2,13 @@
 
 module ModernTreasury
   module Models
-    class LedgerEventHandlerVariable < ModernTreasury::BaseModel
+    class LedgerEventHandlerVariable < ModernTreasury::Internal::Type::BaseModel
       sig { returns(ModernTreasury::Models::LedgerEventHandlerVariable::Query) }
       attr_reader :query
 
       sig do
         params(
-          query: T.any(ModernTreasury::Models::LedgerEventHandlerVariable::Query, ModernTreasury::Internal::Util::AnyHash)
+          query: T.any(ModernTreasury::Models::LedgerEventHandlerVariable::Query, ModernTreasury::Internal::AnyHash)
         )
           .void
       end
@@ -21,7 +21,7 @@ module ModernTreasury
 
       sig do
         params(
-          query: T.any(ModernTreasury::Models::LedgerEventHandlerVariable::Query, ModernTreasury::Internal::Util::AnyHash),
+          query: T.any(ModernTreasury::Models::LedgerEventHandlerVariable::Query, ModernTreasury::Internal::AnyHash),
           type: String
         )
           .returns(T.attached_class)
@@ -33,7 +33,7 @@ module ModernTreasury
       def to_hash
       end
 
-      class Query < ModernTreasury::BaseModel
+      class Query < ModernTreasury::Internal::Type::BaseModel
         # The LHS of the conditional.
         sig { returns(String) }
         attr_accessor :field

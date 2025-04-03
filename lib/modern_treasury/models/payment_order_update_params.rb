@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::PaymentOrders#update
-    class PaymentOrderUpdateParams < ModernTreasury::BaseModel
+    class PaymentOrderUpdateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -139,7 +139,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::PaymentOrderUpdateParams::LineItem>, nil]
       optional :line_items,
-               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderUpdateParams::LineItem] }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::PaymentOrderUpdateParams::LineItem] }
 
       # @!parse
       #   # @return [Array<ModernTreasury::Models::PaymentOrderUpdateParams::LineItem>]
@@ -150,7 +150,7 @@ module ModernTreasury
       #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -161,7 +161,7 @@ module ModernTreasury
       #     that this setting must also be turned on in your organization settings page.
       #
       #   @return [Boolean, nil]
-      optional :nsf_protected, ModernTreasury::BooleanModel
+      optional :nsf_protected, ModernTreasury::Internal::Type::BooleanModel
 
       # @!parse
       #   # @return [Boolean]
@@ -253,7 +253,7 @@ module ModernTreasury
       #     `null`, `send_remittance_advice` on the Counterparty is used.
       #
       #   @return [Boolean, nil]
-      optional :send_remittance_advice, ModernTreasury::BooleanModel, nil?: true
+      optional :send_remittance_advice, ModernTreasury::Internal::Type::BooleanModel, nil?: true
 
       # @!attribute statement_descriptor
       #   An optional descriptor which will appear in the receiver's statement. For
@@ -409,9 +409,9 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-      class Accounting < ModernTreasury::BaseModel
+      class Accounting < ModernTreasury::Internal::Type::BaseModel
         # @!attribute account_id
         #   The ID of one of your accounting categories. Note that these will only be
         #     accessible if your accounting system has been connected.
@@ -433,14 +433,14 @@ module ModernTreasury
         #   #
         #   def initialize(account_id: nil, class_id: nil, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
 
       # The party that will pay the fees for the payment order. Only applies to wire
       #   payment orders. Can be one of shared, sender, or receiver, which correspond
       #   respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
       module ChargeBearer
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         SHARED = :shared
         SENDER = :sender
@@ -458,7 +458,7 @@ module ModernTreasury
       #   `debit` pulls money from someone else's account to your own. Note that wire,
       #   rtp, and check payments will always be `credit`.
       module Direction
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CREDIT = :credit
         DEBIT = :debit
@@ -474,7 +474,7 @@ module ModernTreasury
       #   receiving account. Currently, this only supports falling back from RTP to ACH
       #   (type=rtp and fallback_type=ach)
       module FallbackType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH = :ach
 
@@ -489,7 +489,7 @@ module ModernTreasury
       #   `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
       #   currency matches the originating account currency.
       module ForeignExchangeIndicator
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         FIXED_TO_VARIABLE = :fixed_to_variable
         VARIABLE_TO_FIXED = :variable_to_fixed
@@ -501,7 +501,7 @@ module ModernTreasury
         #   def self.values; end
       end
 
-      class LineItem < ModernTreasury::BaseModel
+      class LineItem < ModernTreasury::Internal::Type::BaseModel
         # @!attribute amount
         #   Value in specified currency's smallest unit. e.g. $10 would be represented
         #     as 1000.
@@ -527,7 +527,7 @@ module ModernTreasury
         #     strings.
         #
         #   @return [Hash{Symbol=>String}, nil]
-        optional :metadata, ModernTreasury::HashOf[String]
+        optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
         # @!parse
         #   # @return [Hash{Symbol=>String}]
@@ -541,14 +541,14 @@ module ModernTreasury
         #   #
         #   def initialize(amount:, accounting_category_id: nil, description: nil, metadata: nil, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
 
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
       #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
       #   an overnight check rather than standard mail.
       module Priority
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         HIGH = :high
         NORMAL = :normal
@@ -560,12 +560,12 @@ module ModernTreasury
         #   def self.values; end
       end
 
-      class ReceivingAccount < ModernTreasury::BaseModel
+      class ReceivingAccount < ModernTreasury::Internal::Type::BaseModel
         # @!attribute [r] account_details
         #
         #   @return [Array<ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail>, nil]
         optional :account_details,
-                 -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail] }
+                 -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail] }
 
         # @!parse
         #   # @return [Array<ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail>]
@@ -585,7 +585,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail>, nil]
         optional :contact_details,
-                 -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail] }
+                 -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail] }
 
         # @!parse
         #   # @return [Array<ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail>]
@@ -611,7 +611,7 @@ module ModernTreasury
         #     strings.
         #
         #   @return [Hash{Symbol=>String}, nil]
-        optional :metadata, ModernTreasury::HashOf[String]
+        optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
         # @!parse
         #   # @return [Hash{Symbol=>String}]
@@ -677,7 +677,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail>, nil]
         optional :routing_details,
-                 -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail] }
+                 -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail] }
 
         # @!parse
         #   # @return [Array<ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail>]
@@ -719,9 +719,9 @@ module ModernTreasury
         #     super
         #   end
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-        class AccountDetail < ModernTreasury::BaseModel
+        class AccountDetail < ModernTreasury::Internal::Type::BaseModel
           # @!attribute account_number
           #
           #   @return [String]
@@ -743,11 +743,11 @@ module ModernTreasury
           #   #
           #   def initialize(account_number:, account_number_type: nil, **) = super
 
-          # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
           # @see ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail#account_number_type
           module AccountNumberType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             AU_NUMBER = :au_number
             CLABE = :clabe
@@ -768,7 +768,7 @@ module ModernTreasury
           end
         end
 
-        class ContactDetail < ModernTreasury::BaseModel
+        class ContactDetail < ModernTreasury::Internal::Type::BaseModel
           # @!attribute [r] contact_identifier
           #
           #   @return [String, nil]
@@ -794,11 +794,11 @@ module ModernTreasury
           #   #
           #   def initialize(contact_identifier: nil, contact_identifier_type: nil, **) = super
 
-          # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
           # @see ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail#contact_identifier_type
           module ContactIdentifierType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             EMAIL = :email
             PHONE_NUMBER = :phone_number
@@ -813,7 +813,7 @@ module ModernTreasury
         end
 
         # @see ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount#ledger_account
-        class LedgerAccount < ModernTreasury::BaseModel
+        class LedgerAccount < ModernTreasury::Internal::Type::BaseModel
           # @!attribute currency
           #   The currency of the ledger account.
           #
@@ -855,7 +855,7 @@ module ModernTreasury
           #     child of.
           #
           #   @return [Array<String>, nil]
-          optional :ledger_account_category_ids, ModernTreasury::ArrayOf[String]
+          optional :ledger_account_category_ids, ModernTreasury::Internal::Type::ArrayOf[String]
 
           # @!parse
           #   # @return [Array<String>]
@@ -890,7 +890,7 @@ module ModernTreasury
           #     strings.
           #
           #   @return [Hash{Symbol=>String}, nil]
-          optional :metadata, ModernTreasury::HashOf[String]
+          optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
           # @!parse
           #   # @return [Hash{Symbol=>String}]
@@ -930,7 +930,7 @@ module ModernTreasury
           #     super
           #   end
 
-          # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
           # If the ledger account links to another object in Modern Treasury, the type will
           #   be populated here, otherwise null. The value is one of internal_account or
@@ -938,7 +938,7 @@ module ModernTreasury
           #
           # @see ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount#ledgerable_type
           module LedgerableType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             COUNTERPARTY = :counterparty
             EXTERNAL_ACCOUNT = :external_account
@@ -954,7 +954,7 @@ module ModernTreasury
         end
 
         # @see ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount#party_address
-        class PartyAddress < ModernTreasury::BaseModel
+        class PartyAddress < ModernTreasury::Internal::Type::BaseModel
           # @!attribute country
           #   Country code conforms to [ISO 3166-1 alpha-2]
           #
@@ -1001,14 +1001,14 @@ module ModernTreasury
           #   #
           #   def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil, **) = super
 
-          # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
         end
 
         # Either `individual` or `business`.
         #
         # @see ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount#party_type
         module PartyType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           BUSINESS = :business
           INDIVIDUAL = :individual
@@ -1020,7 +1020,7 @@ module ModernTreasury
           #   def self.values; end
         end
 
-        class RoutingDetail < ModernTreasury::BaseModel
+        class RoutingDetail < ModernTreasury::Internal::Type::BaseModel
           # @!attribute routing_number
           #
           #   @return [String]
@@ -1049,11 +1049,11 @@ module ModernTreasury
           #   #
           #   def initialize(routing_number:, routing_number_type:, payment_type: nil, **) = super
 
-          # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
           # @see ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail#routing_number_type
           module RoutingNumberType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             ABA = :aba
             AU_BSB = :au_bsb
@@ -1086,7 +1086,7 @@ module ModernTreasury
 
           # @see ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail#payment_type
           module PaymentType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             ACH = :ach
             AU_BECS = :au_becs
@@ -1132,7 +1132,7 @@ module ModernTreasury
       #   use `approved`. To undo approval on a denied or approved payment order, use
       #   `needs_approval`.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         APPROVED = :approved
         CANCELLED = :cancelled

@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::LedgerEventHandlers#create
-    class LedgerEventHandlerCreateParams < ModernTreasury::BaseModel
+    class LedgerEventHandlerCreateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -48,13 +48,13 @@ module ModernTreasury
       #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String], nil?: true
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String], nil?: true
 
       # @!attribute variables
       #
       #   @return [Hash{Symbol=>ModernTreasury::Models::LedgerEventHandlerVariable}, nil]
       optional :variables,
-               -> { ModernTreasury::HashOf[ModernTreasury::Models::LedgerEventHandlerVariable] },
+               -> { ModernTreasury::Internal::Type::HashOf[ModernTreasury::Models::LedgerEventHandlerVariable] },
                nil?: true
 
       # @!parse
@@ -81,10 +81,10 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # @deprecated
-      class LedgerTransactionTemplate < ModernTreasury::BaseModel
+      class LedgerTransactionTemplate < ModernTreasury::Internal::Type::BaseModel
         # @!attribute description
         #   An optional description for internal use.
         #
@@ -103,7 +103,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry>]
         required :ledger_entries,
-                 -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry] }
+                 -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry] }
 
         # @!attribute status
         #   To post a ledger transaction at creation, use `posted`.
@@ -119,10 +119,10 @@ module ModernTreasury
         #   #
         #   def initialize(description:, effective_at:, ledger_entries:, status:, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
         # @deprecated
-        class LedgerEntry < ModernTreasury::BaseModel
+        class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
           # @!attribute amount
           #   The LHS of the conditional.
           #
@@ -148,12 +148,12 @@ module ModernTreasury
           #   #
           #   def initialize(amount:, direction:, ledger_account_id:, **) = super
 
-          # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
         end
       end
 
       # @deprecated
-      class Conditions < ModernTreasury::BaseModel
+      class Conditions < ModernTreasury::Internal::Type::BaseModel
         # @!attribute field
         #   The LHS of the conditional.
         #
@@ -179,7 +179,7 @@ module ModernTreasury
         #   #
         #   def initialize(field:, operator:, value:, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
     end
   end

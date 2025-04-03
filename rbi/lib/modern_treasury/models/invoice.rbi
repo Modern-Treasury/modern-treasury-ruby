@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class Invoice < ModernTreasury::BaseModel
+    class Invoice < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -27,10 +27,7 @@ module ModernTreasury
       sig do
         params(
           counterparty_billing_address: T.nilable(
-            T.any(
-              ModernTreasury::Models::Invoice::CounterpartyBillingAddress,
-              ModernTreasury::Internal::Util::AnyHash
-            )
+            T.any(ModernTreasury::Models::Invoice::CounterpartyBillingAddress, ModernTreasury::Internal::AnyHash)
           )
         )
           .void
@@ -48,10 +45,7 @@ module ModernTreasury
       sig do
         params(
           counterparty_shipping_address: T.nilable(
-            T.any(
-              ModernTreasury::Models::Invoice::CounterpartyShippingAddress,
-              ModernTreasury::Internal::Util::AnyHash
-            )
+            T.any(ModernTreasury::Models::Invoice::CounterpartyShippingAddress, ModernTreasury::Internal::AnyHash)
           )
         )
           .void
@@ -92,9 +86,7 @@ module ModernTreasury
 
       sig do
         params(
-          invoicer_address: T.nilable(
-            T.any(ModernTreasury::Models::Invoice::InvoicerAddress, ModernTreasury::Internal::Util::AnyHash)
-          )
+          invoicer_address: T.nilable(T.any(ModernTreasury::Models::Invoice::InvoicerAddress, ModernTreasury::Internal::AnyHash))
         )
           .void
       end
@@ -204,30 +196,22 @@ module ModernTreasury
           id: String,
           amount_paid: Integer,
           amount_remaining: Integer,
-          contact_details: T::Array[T.any(ModernTreasury::Models::Invoice::ContactDetail, ModernTreasury::Internal::Util::AnyHash)],
+          contact_details: T::Array[T.any(ModernTreasury::Models::Invoice::ContactDetail, ModernTreasury::Internal::AnyHash)],
           counterparty_billing_address: T.nilable(
-            T.any(
-              ModernTreasury::Models::Invoice::CounterpartyBillingAddress,
-              ModernTreasury::Internal::Util::AnyHash
-            )
+            T.any(ModernTreasury::Models::Invoice::CounterpartyBillingAddress, ModernTreasury::Internal::AnyHash)
           ),
           counterparty_id: String,
           counterparty_shipping_address: T.nilable(
-            T.any(
-              ModernTreasury::Models::Invoice::CounterpartyShippingAddress,
-              ModernTreasury::Internal::Util::AnyHash
-            )
+            T.any(ModernTreasury::Models::Invoice::CounterpartyShippingAddress, ModernTreasury::Internal::AnyHash)
           ),
           created_at: Time,
           currency: ModernTreasury::Models::Currency::OrSymbol,
           description: String,
           due_date: Time,
-          expected_payments: T::Array[T.any(ModernTreasury::Models::ExpectedPayment, ModernTreasury::Internal::Util::AnyHash)],
+          expected_payments: T::Array[T.any(ModernTreasury::Models::ExpectedPayment, ModernTreasury::Internal::AnyHash)],
           fallback_payment_method: T.nilable(String),
           hosted_url: String,
-          invoicer_address: T.nilable(
-            T.any(ModernTreasury::Models::Invoice::InvoicerAddress, ModernTreasury::Internal::Util::AnyHash)
-          ),
+          invoicer_address: T.nilable(T.any(ModernTreasury::Models::Invoice::InvoicerAddress, ModernTreasury::Internal::AnyHash)),
           ledger_account_settlement_id: T.nilable(String),
           live_mode: T::Boolean,
           metadata: T.nilable(T::Hash[Symbol, String]),
@@ -238,7 +222,7 @@ module ModernTreasury
           originating_account_id: String,
           payment_effective_date: T.nilable(Date),
           payment_method: T.nilable(ModernTreasury::Models::Invoice::PaymentMethod::OrSymbol),
-          payment_orders: T::Array[T.any(ModernTreasury::Models::PaymentOrder, ModernTreasury::Internal::Util::AnyHash)],
+          payment_orders: T::Array[T.any(ModernTreasury::Models::PaymentOrder, ModernTreasury::Internal::AnyHash)],
           payment_type: T.nilable(ModernTreasury::Models::Invoice::PaymentType::OrSymbol),
           pdf_url: T.nilable(String),
           receiving_account_id: T.nilable(String),
@@ -341,7 +325,7 @@ module ModernTreasury
       def to_hash
       end
 
-      class ContactDetail < ModernTreasury::BaseModel
+      class ContactDetail < ModernTreasury::Internal::Type::BaseModel
         sig { returns(String) }
         attr_accessor :id
 
@@ -412,7 +396,7 @@ module ModernTreasury
         end
 
         module ContactIdentifierType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType) }
@@ -435,7 +419,7 @@ module ModernTreasury
         end
       end
 
-      class CounterpartyBillingAddress < ModernTreasury::BaseModel
+      class CounterpartyBillingAddress < ModernTreasury::Internal::Type::BaseModel
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(String) }
         attr_accessor :country
@@ -493,7 +477,7 @@ module ModernTreasury
         end
       end
 
-      class CounterpartyShippingAddress < ModernTreasury::BaseModel
+      class CounterpartyShippingAddress < ModernTreasury::Internal::Type::BaseModel
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(String) }
         attr_accessor :country
@@ -551,7 +535,7 @@ module ModernTreasury
         end
       end
 
-      class InvoicerAddress < ModernTreasury::BaseModel
+      class InvoicerAddress < ModernTreasury::Internal::Type::BaseModel
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(String) }
         attr_accessor :country
@@ -612,7 +596,7 @@ module ModernTreasury
       # When opening an invoice, whether to show the embedded payment UI , automatically
       #   debit the recipient, or rely on manual payment from the recipient.
       module PaymentMethod
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::Invoice::PaymentMethod) }
         OrSymbol =
@@ -629,7 +613,7 @@ module ModernTreasury
 
       # One of `ach` or `eft`.
       module PaymentType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::Invoice::PaymentType) }
         OrSymbol =
@@ -645,7 +629,7 @@ module ModernTreasury
 
       # The status of the invoice.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::Invoice::Status) }
         OrSymbol = T.type_alias { T.any(Symbol, String, ModernTreasury::Models::Invoice::Status::TaggedSymbol) }

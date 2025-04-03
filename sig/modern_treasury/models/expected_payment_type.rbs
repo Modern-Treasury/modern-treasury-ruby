@@ -33,7 +33,7 @@ module ModernTreasury
       | :zengin
 
     module ExpectedPaymentType
-      extend ModernTreasury::Enum
+      extend ModernTreasury::Internal::Type::Enum
 
       ACH: :ach
       AU_BECS: :au_becs

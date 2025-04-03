@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class PaperItemListParams < ModernTreasury::BaseModel
+    class PaperItemListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -44,7 +44,7 @@ module ModernTreasury
           deposit_date_start: Date,
           lockbox_number: String,
           per_page: Integer,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

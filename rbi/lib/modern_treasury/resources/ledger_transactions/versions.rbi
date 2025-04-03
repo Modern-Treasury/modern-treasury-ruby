@@ -16,7 +16,7 @@ module ModernTreasury
             request_options: T.nilable(
               T.any(
                 ModernTreasury::RequestOptions,
-                ModernTreasury::Internal::Util::AnyHash
+                ModernTreasury::Internal::AnyHash
               )
             )
           )

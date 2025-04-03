@@ -3,9 +3,9 @@
 module ModernTreasury
   module Models
     module ExternalAccountVerifyResponse
-      extend ModernTreasury::Union
+      extend ModernTreasury::Internal::Type::Union
 
-      class ExternalAccountVerificationAttempt < ModernTreasury::BaseModel
+      class ExternalAccountVerificationAttempt < ModernTreasury::Internal::Type::BaseModel
         sig { returns(String) }
         attr_accessor :id
 
@@ -115,7 +115,7 @@ module ModernTreasury
         # The type of payment that can be made to this account. Can be `ach`, `eft`, or
         #   `rtp`.
         module PaymentType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias do
@@ -295,7 +295,7 @@ module ModernTreasury
 
         # The priority of the payment. Can be `normal` or `high`.
         module Priority
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias do
@@ -336,7 +336,7 @@ module ModernTreasury
         # The status of the verification attempt. Can be `pending_verification`,
         #   `verified`, `failed`, or `cancelled`.
         module Status
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias do

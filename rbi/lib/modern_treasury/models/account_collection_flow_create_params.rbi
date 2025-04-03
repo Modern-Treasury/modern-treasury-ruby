@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class AccountCollectionFlowCreateParams < ModernTreasury::BaseModel
+    class AccountCollectionFlowCreateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -33,7 +33,7 @@ module ModernTreasury
           counterparty_id: String,
           payment_types: T::Array[String],
           receiving_countries: T::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -56,7 +56,7 @@ module ModernTreasury
 
       # Optional. Array of 3-digit ISO country codes.
       module ReceivingCountry
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry) }

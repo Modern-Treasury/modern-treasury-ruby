@@ -5,7 +5,7 @@ module ModernTreasury
         { ledger_entry_ids: ::Array[String]? }
         & ModernTreasury::Internal::Type::request_parameters
 
-      class AccountEntryUpdateParams < ModernTreasury::BaseModel
+      class AccountEntryUpdateParams < ModernTreasury::Internal::Type::BaseModel
         extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 

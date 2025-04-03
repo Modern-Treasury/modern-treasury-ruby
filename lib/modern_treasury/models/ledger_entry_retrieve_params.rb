@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::LedgerEntries#retrieve
-    class LedgerEntryRetrieveParams < ModernTreasury::BaseModel
+    class LedgerEntryRetrieveParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -13,7 +13,7 @@ module ModernTreasury
       #     there is no balance available, null will be returned instead.
       #
       #   @return [Boolean, nil]
-      optional :show_balances, ModernTreasury::BooleanModel
+      optional :show_balances, ModernTreasury::Internal::Type::BooleanModel
 
       # @!parse
       #   # @return [Boolean]
@@ -25,7 +25,7 @@ module ModernTreasury
       #   #
       #   def initialize(show_balances: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
     end
   end
 end

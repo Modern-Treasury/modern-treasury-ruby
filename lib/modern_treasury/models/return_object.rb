@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::Returns#create
-    class ReturnObject < ModernTreasury::BaseModel
+    class ReturnObject < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -71,7 +71,7 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::BooleanModel
 
       # @!attribute object
       #
@@ -90,7 +90,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::ReturnObject::ReferenceNumber>]
       required :reference_numbers,
-               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ReturnObject::ReferenceNumber] }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ReturnObject::ReferenceNumber] }
 
       # @!attribute returnable_id
       #   The ID of the object being returned or `null`.
@@ -151,7 +151,7 @@ module ModernTreasury
       #   The raw data from the return file that we get from the bank.
       #
       #   @return [Object, nil]
-      optional :data, ModernTreasury::Unknown, nil?: true
+      optional :data, ModernTreasury::Internal::Type::Unknown, nil?: true
 
       # @!parse
       #   # @param id [String]
@@ -209,13 +209,13 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # The return code. For ACH returns, this is the required ACH return code.
       #
       # @see ModernTreasury::Models::ReturnObject#code
       module Code
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CODE_901 = :"901"
         CODE_902 = :"902"
@@ -278,7 +278,7 @@ module ModernTreasury
         #   def self.values; end
       end
 
-      class ReferenceNumber < ModernTreasury::BaseModel
+      class ReferenceNumber < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
         #
         #   @return [String]
@@ -294,7 +294,7 @@ module ModernTreasury
         #     if it exists in the test environment.
         #
         #   @return [Boolean]
-        required :live_mode, ModernTreasury::BooleanModel
+        required :live_mode, ModernTreasury::Internal::Type::BooleanModel
 
         # @!attribute object
         #
@@ -330,13 +330,13 @@ module ModernTreasury
         #   #
         #   def initialize(id:, created_at:, live_mode:, object:, reference_number:, reference_number_type:, updated_at:, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
         # The type of the reference number. Referring to the vendor payment id.
         #
         # @see ModernTreasury::Models::ReturnObject::ReferenceNumber#reference_number_type
         module ReferenceNumberType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           ACH_ORIGINAL_TRACE_NUMBER = :ach_original_trace_number
           ACH_TRACE_NUMBER = :ach_trace_number
@@ -426,7 +426,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::ReturnObject#returnable_type
       module ReturnableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
         PAPER_ITEM = :paper_item
@@ -445,7 +445,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::ReturnObject#role
       module Role
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ORIGINATING = :originating
         RECEIVING = :receiving
@@ -461,7 +461,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::ReturnObject#status
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         COMPLETED = :completed
         FAILED = :failed
@@ -482,7 +482,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::ReturnObject#type
       module Type
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH = :ach
         ACH_NOC = :ach_noc

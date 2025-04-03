@@ -11,7 +11,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class BulkRequestListParams < ModernTreasury::BaseModel
+    class BulkRequestListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -58,7 +58,7 @@ module ModernTreasury
       type action_type = :create | :update | :delete
 
       module ActionType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CREATE: :create
         UPDATE: :update
@@ -76,7 +76,7 @@ module ModernTreasury
         | :entity_link
 
       module ResourceType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         PAYMENT_ORDER: :payment_order
         LEDGER_ACCOUNT: :ledger_account
@@ -91,7 +91,7 @@ module ModernTreasury
       type status = :pending | :processing | :completed
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         PENDING: :pending
         PROCESSING: :processing

@@ -10,7 +10,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class LegalEntityListParams < ModernTreasury::BaseModel
+    class LegalEntityListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -48,7 +48,7 @@ module ModernTreasury
       type legal_entity_type = :business | :individual
 
       module LegalEntityType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         BUSINESS: :business
         INDIVIDUAL: :individual

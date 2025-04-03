@@ -26,10 +26,10 @@ class ModernTreasury::Test::Resources::ReturnsTest < ModernTreasury::Test::Resou
         failure_reason: String | nil,
         internal_account_id: String | nil,
         ledger_transaction_id: String | nil,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
         object: String,
         reason: String | nil,
-        reference_numbers: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::ReturnObject::ReferenceNumber]),
+        reference_numbers: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ReturnObject::ReferenceNumber]),
         returnable_id: String | nil,
         returnable_type: ModernTreasury::Models::ReturnObject::ReturnableType | nil,
         role: ModernTreasury::Models::ReturnObject::Role,
@@ -39,7 +39,7 @@ class ModernTreasury::Test::Resources::ReturnsTest < ModernTreasury::Test::Resou
         type: ModernTreasury::Models::ReturnObject::Type,
         updated_at: Time,
         additional_information: String | nil,
-        data: ModernTreasury::Unknown | nil
+        data: ModernTreasury::Internal::Type::Unknown | nil
       }
     end
   end
@@ -63,10 +63,10 @@ class ModernTreasury::Test::Resources::ReturnsTest < ModernTreasury::Test::Resou
         failure_reason: String | nil,
         internal_account_id: String | nil,
         ledger_transaction_id: String | nil,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
         object: String,
         reason: String | nil,
-        reference_numbers: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::ReturnObject::ReferenceNumber]),
+        reference_numbers: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ReturnObject::ReferenceNumber]),
         returnable_id: String | nil,
         returnable_type: ModernTreasury::Models::ReturnObject::ReturnableType | nil,
         role: ModernTreasury::Models::ReturnObject::Role,
@@ -76,7 +76,7 @@ class ModernTreasury::Test::Resources::ReturnsTest < ModernTreasury::Test::Resou
         type: ModernTreasury::Models::ReturnObject::Type,
         updated_at: Time,
         additional_information: String | nil,
-        data: ModernTreasury::Unknown | nil
+        data: ModernTreasury::Internal::Type::Unknown | nil
       }
     end
   end
@@ -107,10 +107,10 @@ class ModernTreasury::Test::Resources::ReturnsTest < ModernTreasury::Test::Resou
         failure_reason: String | nil,
         internal_account_id: String | nil,
         ledger_transaction_id: String | nil,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
         object: String,
         reason: String | nil,
-        reference_numbers: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::ReturnObject::ReferenceNumber]),
+        reference_numbers: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ReturnObject::ReferenceNumber]),
         returnable_id: String | nil,
         returnable_type: ModernTreasury::Models::ReturnObject::ReturnableType | nil,
         role: ModernTreasury::Models::ReturnObject::Role,
@@ -120,7 +120,7 @@ class ModernTreasury::Test::Resources::ReturnsTest < ModernTreasury::Test::Resou
         type: ModernTreasury::Models::ReturnObject::Type,
         updated_at: Time,
         additional_information: String | nil,
-        data: ModernTreasury::Unknown | nil
+        data: ModernTreasury::Internal::Type::Unknown | nil
       }
     end
   end

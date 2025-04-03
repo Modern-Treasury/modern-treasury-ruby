@@ -15,7 +15,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class LedgerAccountCreateParams < ModernTreasury::BaseModel
+    class LedgerAccountCreateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -69,7 +69,7 @@ module ModernTreasury
         :counterparty | :external_account | :internal_account | :virtual_account
 
       module LedgerableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         COUNTERPARTY: :counterparty
         EXTERNAL_ACCOUNT: :external_account

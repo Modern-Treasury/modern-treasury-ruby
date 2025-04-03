@@ -5,7 +5,7 @@ module ModernTreasury
         { invoice_id: String }
         & ModernTreasury::Internal::Type::request_parameters
 
-      class LineItemDeleteParams < ModernTreasury::BaseModel
+      class LineItemDeleteParams < ModernTreasury::Internal::Type::BaseModel
         extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 

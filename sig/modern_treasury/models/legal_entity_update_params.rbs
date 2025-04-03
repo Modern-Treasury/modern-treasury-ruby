@@ -29,7 +29,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class LegalEntityUpdateParams < ModernTreasury::BaseModel
+    class LegalEntityUpdateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -142,7 +142,7 @@ module ModernTreasury
           :line2 => String?
         }
 
-      class Address < ModernTreasury::BaseModel
+      class Address < ModernTreasury::Internal::Type::BaseModel
         attr_accessor country: String?
 
         attr_accessor line1: String?
@@ -177,7 +177,7 @@ module ModernTreasury
           :business | :mailing | :other | :po_box | :residential
 
         module AddressType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           BUSINESS: :business
           MAILING: :mailing
@@ -196,7 +196,7 @@ module ModernTreasury
           issuing_country: String?
         }
 
-      class Identification < ModernTreasury::BaseModel
+      class Identification < ModernTreasury::Internal::Type::BaseModel
         attr_accessor id_number: String
 
         attr_accessor id_type: ModernTreasury::Models::LegalEntityUpdateParams::Identification::id_type
@@ -235,7 +235,7 @@ module ModernTreasury
           | :vn_tin
 
         module IDType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           AR_CUIL: :ar_cuil
           AR_CUIT: :ar_cuit
@@ -272,7 +272,7 @@ module ModernTreasury
         | :trust
 
       module LegalStructure
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CORPORATION: :corporation
         LLC: :llc
@@ -286,7 +286,7 @@ module ModernTreasury
 
       type phone_number = { phone_number: String }
 
-      class PhoneNumber < ModernTreasury::BaseModel
+      class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
         attr_reader phone_number: String?
 
         def phone_number=: (String) -> String
@@ -299,7 +299,7 @@ module ModernTreasury
       type risk_rating = :low | :medium | :high
 
       module RiskRating
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         LOW: :low
         MEDIUM: :medium

@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::LedgerEntries#list
-    class LedgerEntryListParams < ModernTreasury::BaseModel
+    class LedgerEntryListParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -13,7 +13,7 @@ module ModernTreasury
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       #
       #   @return [Array<String>, nil]
-      optional :id, ModernTreasury::ArrayOf[String]
+      optional :id, ModernTreasury::Internal::Type::ArrayOf[String]
 
       # @!parse
       #   # @return [Array<String>]
@@ -52,7 +52,7 @@ module ModernTreasury
       #     transaction's effective time. Format ISO8601
       #
       #   @return [Hash{Symbol=>Time}, nil]
-      optional :effective_at, ModernTreasury::HashOf[Time]
+      optional :effective_at, ModernTreasury::Internal::Type::HashOf[Time]
 
       # @!parse
       #   # @return [Hash{Symbol=>Time}]
@@ -63,7 +63,7 @@ module ModernTreasury
       #     transaction's effective date. Format YYYY-MM-DD
       #
       #   @return [Hash{Symbol=>Date}, nil]
-      optional :effective_date, ModernTreasury::HashOf[Date]
+      optional :effective_date, ModernTreasury::Internal::Type::HashOf[Date]
 
       # @!parse
       #   # @return [Hash{Symbol=>Date}]
@@ -96,7 +96,7 @@ module ModernTreasury
       #     `ledger_account_lock_version%5Blte%5D=1000`.
       #
       #   @return [Hash{Symbol=>Integer}, nil]
-      optional :ledger_account_lock_version, ModernTreasury::HashOf[Integer]
+      optional :ledger_account_lock_version, ModernTreasury::Internal::Type::HashOf[Integer]
 
       # @!parse
       #   # @return [Hash{Symbol=>Integer}]
@@ -145,7 +145,7 @@ module ModernTreasury
       #     parameters.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -177,7 +177,7 @@ module ModernTreasury
       #     there is no balance available, null will be returned instead.
       #
       #   @return [Boolean, nil]
-      optional :show_balances, ModernTreasury::BooleanModel
+      optional :show_balances, ModernTreasury::Internal::Type::BooleanModel
 
       # @!parse
       #   # @return [Boolean]
@@ -189,7 +189,7 @@ module ModernTreasury
       #     deleted.
       #
       #   @return [Boolean, nil]
-      optional :show_deleted, ModernTreasury::BooleanModel
+      optional :show_deleted, ModernTreasury::Internal::Type::BooleanModel
 
       # @!parse
       #   # @return [Boolean]
@@ -212,7 +212,7 @@ module ModernTreasury
       #     updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
       #   @return [Hash{Symbol=>Time}, nil]
-      optional :updated_at, ModernTreasury::HashOf[Time]
+      optional :updated_at, ModernTreasury::Internal::Type::HashOf[Time]
 
       # @!parse
       #   # @return [Hash{Symbol=>Time}]
@@ -268,9 +268,9 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-      class OrderBy < ModernTreasury::BaseModel
+      class OrderBy < ModernTreasury::Internal::Type::BaseModel
         # @!attribute [r] created_at
         #
         #   @return [Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt, nil]
@@ -299,11 +299,11 @@ module ModernTreasury
         #   #
         #   def initialize(created_at: nil, effective_at: nil, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
         # @see ModernTreasury::Models::LedgerEntryListParams::OrderBy#created_at
         module CreatedAt
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           ASC = :asc
           DESC = :desc
@@ -317,7 +317,7 @@ module ModernTreasury
 
         # @see ModernTreasury::Models::LedgerEntryListParams::OrderBy#effective_at
         module EffectiveAt
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           ASC = :asc
           DESC = :desc
@@ -333,7 +333,7 @@ module ModernTreasury
       # Get all ledger entries that match the status specified. One of `pending`,
       #   `posted`, or `archived`.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         PENDING = :pending
         POSTED = :posted

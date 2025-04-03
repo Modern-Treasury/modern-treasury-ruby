@@ -9,7 +9,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class DocumentListParams < ModernTreasury::BaseModel
+    class DocumentListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -54,7 +54,7 @@ module ModernTreasury
         | :connections
 
       module DocumentableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CASES: :cases
         COUNTERPARTIES: :counterparties

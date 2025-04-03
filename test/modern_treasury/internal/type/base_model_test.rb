@@ -3,26 +3,26 @@
 require_relative "../../test_helper"
 
 class ModernTreasury::Test::PrimitiveModelTest < Minitest::Test
-  A = ModernTreasury::ArrayOf[-> { Integer }]
-  H = ModernTreasury::HashOf[-> { Integer }, nil?: true]
+  A = ModernTreasury::Internal::Type::ArrayOf[-> { Integer }]
+  H = ModernTreasury::Internal::Type::HashOf[-> { Integer }, nil?: true]
 
   module E
-    extend ModernTreasury::Enum
+    extend ModernTreasury::Internal::Type::Enum
   end
 
   module U
-    extend ModernTreasury::Union
+    extend ModernTreasury::Internal::Type::Union
   end
 
-  class B < ModernTreasury::BaseModel
+  class B < ModernTreasury::Internal::Type::BaseModel
     optional :a, Integer
     optional :b, B
   end
 
   def test_typing
     converters = [
-      ModernTreasury::Unknown,
-      ModernTreasury::BooleanModel,
+      ModernTreasury::Internal::Type::Unknown,
+      ModernTreasury::Internal::Type::BooleanModel,
       A,
       H,
       E,
@@ -39,11 +39,11 @@ class ModernTreasury::Test::PrimitiveModelTest < Minitest::Test
 
   def test_coerce
     cases = {
-      [ModernTreasury::Unknown, :a] => [{yes: 1}, :a],
+      [ModernTreasury::Internal::Type::Unknown, :a] => [{yes: 1}, :a],
       [NilClass, :a] => [{maybe: 1}, nil],
       [NilClass, nil] => [{yes: 1}, nil],
-      [ModernTreasury::BooleanModel, true] => [{yes: 1}, true],
-      [ModernTreasury::BooleanModel, "true"] => [{no: 1}, "true"],
+      [ModernTreasury::Internal::Type::BooleanModel, true] => [{yes: 1}, true],
+      [ModernTreasury::Internal::Type::BooleanModel, "true"] => [{no: 1}, "true"],
       [Integer, 1] => [{yes: 1}, 1],
       [Integer, 1.0] => [{maybe: 1}, 1],
       [Integer, "1"] => [{maybe: 1}, 1],
@@ -76,7 +76,7 @@ class ModernTreasury::Test::PrimitiveModelTest < Minitest::Test
 
   def test_dump
     cases = {
-      [ModernTreasury::Unknown, B.new(a: "one", b: B.new(a: 1.0))] => {a: "one", b: {a: 1}},
+      [ModernTreasury::Internal::Type::Unknown, B.new(a: "one", b: B.new(a: 1.0))] => {a: "one", b: {a: 1}},
       [A, B.new(a: "one", b: B.new(a: 1.0))] => {a: "one", b: {a: 1}},
       [H, B.new(a: "one", b: B.new(a: 1.0))] => {a: "one", b: {a: 1}},
       [E, B.new(a: "one", b: B.new(a: 1.0))] => {a: "one", b: {a: 1}},
@@ -85,8 +85,8 @@ class ModernTreasury::Test::PrimitiveModelTest < Minitest::Test
       [String, B.new(a: "one", b: B.new(a: 1.0))] => {a: "one", b: {a: 1}},
       [:b, B.new(a: "one", b: B.new(a: 1.0))] => {a: "one", b: {a: 1}},
       [nil, B.new(a: "one", b: B.new(a: 1.0))] => {a: "one", b: {a: 1}},
-      [ModernTreasury::BooleanModel, true] => true,
-      [ModernTreasury::BooleanModel, "true"] => "true",
+      [ModernTreasury::Internal::Type::BooleanModel, true] => true,
+      [ModernTreasury::Internal::Type::BooleanModel, "true"] => "true",
       [Integer, "1"] => "1",
       [Float, 1] => 1,
       [String, "one"] => "one",
@@ -126,27 +126,27 @@ end
 
 class ModernTreasury::Test::EnumModelTest < Minitest::Test
   module E1
-    extend ModernTreasury::Enum
+    extend ModernTreasury::Internal::Type::Enum
 
     TRUE = true
   end
 
   module E2
-    extend ModernTreasury::Enum
+    extend ModernTreasury::Internal::Type::Enum
 
     ONE = 1
     TWO = 2
   end
 
   module E3
-    extend ModernTreasury::Enum
+    extend ModernTreasury::Internal::Type::Enum
 
     ONE = 1.0
     TWO = 2.0
   end
 
   module E4
-    extend ModernTreasury::Enum
+    extend ModernTreasury::Internal::Type::Enum
 
     ONE = :one
     TWO = :two
@@ -216,14 +216,14 @@ class ModernTreasury::Test::EnumModelTest < Minitest::Test
 end
 
 class ModernTreasury::Test::CollectionModelTest < Minitest::Test
-  A1 = ModernTreasury::ArrayOf[-> { Integer }]
-  H1 = ModernTreasury::HashOf[Integer]
+  A1 = ModernTreasury::Internal::Type::ArrayOf[-> { Integer }]
+  H1 = ModernTreasury::Internal::Type::HashOf[Integer]
 
-  A2 = ModernTreasury::ArrayOf[H1]
-  H2 = ModernTreasury::HashOf[-> { A1 }]
+  A2 = ModernTreasury::Internal::Type::ArrayOf[H1]
+  H2 = ModernTreasury::Internal::Type::HashOf[-> { A1 }]
 
-  A3 = ModernTreasury::ArrayOf[Integer, nil?: true]
-  H3 = ModernTreasury::HashOf[Integer, nil?: true]
+  A3 = ModernTreasury::Internal::Type::ArrayOf[Integer, nil?: true]
+  H3 = ModernTreasury::Internal::Type::HashOf[Integer, nil?: true]
 
   def test_coerce
     cases = {
@@ -263,7 +263,7 @@ class ModernTreasury::Test::CollectionModelTest < Minitest::Test
 end
 
 class ModernTreasury::Test::BaseModelTest < Minitest::Test
-  class M1 < ModernTreasury::BaseModel
+  class M1 < ModernTreasury::Internal::Type::BaseModel
     required :a, Integer
   end
 
@@ -273,7 +273,7 @@ class ModernTreasury::Test::BaseModelTest < Minitest::Test
     optional :c, String
   end
 
-  class M3 < ModernTreasury::BaseModel
+  class M3 < ModernTreasury::Internal::Type::BaseModel
     optional :c, const: :c
     required :d, const: :d
   end
@@ -290,7 +290,7 @@ class ModernTreasury::Test::BaseModelTest < Minitest::Test
     end
   end
 
-  class M5 < ModernTreasury::BaseModel
+  class M5 < ModernTreasury::Internal::Type::BaseModel
     request_only do
       required :c, const: :c
     end
@@ -301,7 +301,7 @@ class ModernTreasury::Test::BaseModelTest < Minitest::Test
   end
 
   class M6 < M1
-    required :a, ModernTreasury::ArrayOf[M6]
+    required :a, ModernTreasury::Internal::Type::ArrayOf[M6]
   end
 
   def test_coerce
@@ -337,7 +337,7 @@ class ModernTreasury::Test::BaseModelTest < Minitest::Test
       assert_pattern do
         coerced = ModernTreasury::Internal::Type::Converter.coerce(target, input, state: state)
         assert_equal(coerced, coerced)
-        if coerced.is_a?(ModernTreasury::BaseModel)
+        if coerced.is_a?(ModernTreasury::Internal::Type::BaseModel)
           coerced.to_h => ^expect
         else
           coerced => ^expect
@@ -403,27 +403,27 @@ end
 
 class ModernTreasury::Test::UnionTest < Minitest::Test
   module U0
-    extend ModernTreasury::Union
+    extend ModernTreasury::Internal::Type::Union
   end
 
   module U1
-    extend ModernTreasury::Union
+    extend ModernTreasury::Internal::Type::Union
     variant const: :a
     variant const: 2
   end
 
-  class M1 < ModernTreasury::BaseModel
+  class M1 < ModernTreasury::Internal::Type::BaseModel
     required :t, const: :a, api_name: :type
     optional :c, String
   end
 
-  class M2 < ModernTreasury::BaseModel
+  class M2 < ModernTreasury::Internal::Type::BaseModel
     required :type, const: :b
     optional :c, String
   end
 
   module U2
-    extend ModernTreasury::Union
+    extend ModernTreasury::Internal::Type::Union
     discriminator :type
 
     variant :a, M1
@@ -431,7 +431,7 @@ class ModernTreasury::Test::UnionTest < Minitest::Test
   end
 
   module U3
-    extend ModernTreasury::Union
+    extend ModernTreasury::Internal::Type::Union
     discriminator :type
 
     variant :a, M1
@@ -439,37 +439,37 @@ class ModernTreasury::Test::UnionTest < Minitest::Test
   end
 
   module U4
-    extend ModernTreasury::Union
+    extend ModernTreasury::Internal::Type::Union
     discriminator :type
 
     variant String
     variant :a, M1
   end
 
-  class M3 < ModernTreasury::BaseModel
+  class M3 < ModernTreasury::Internal::Type::BaseModel
     optional :recur, -> { U5 }
     required :a, Integer
   end
 
-  class M4 < ModernTreasury::BaseModel
+  class M4 < ModernTreasury::Internal::Type::BaseModel
     optional :recur, -> { U5 }
-    required :a, ModernTreasury::ArrayOf[-> { U5 }]
+    required :a, ModernTreasury::Internal::Type::ArrayOf[-> { U5 }]
   end
 
-  class M5 < ModernTreasury::BaseModel
+  class M5 < ModernTreasury::Internal::Type::BaseModel
     optional :recur, -> { U5 }
-    required :b, ModernTreasury::ArrayOf[-> { U5 }]
+    required :b, ModernTreasury::Internal::Type::ArrayOf[-> { U5 }]
   end
 
   module U5
-    extend ModernTreasury::Union
+    extend ModernTreasury::Internal::Type::Union
 
     variant -> { M3 }
     variant -> { M4 }
   end
 
   module U6
-    extend ModernTreasury::Union
+    extend ModernTreasury::Internal::Type::Union
 
     variant -> { M3 }
     variant -> { M5 }
@@ -480,7 +480,7 @@ class ModernTreasury::Test::UnionTest < Minitest::Test
     tap do
       model.recur
       flunk
-    rescue ModernTreasury::ConversionError => e
+    rescue ModernTreasury::Errors::ConversionError => e
       assert_kind_of(ArgumentError, e.cause)
     end
   end
@@ -513,7 +513,7 @@ class ModernTreasury::Test::UnionTest < Minitest::Test
       assert_pattern do
         coerced = ModernTreasury::Internal::Type::Converter.coerce(target, input, state: state)
         assert_equal(coerced, coerced)
-        if coerced.is_a?(ModernTreasury::BaseModel)
+        if coerced.is_a?(ModernTreasury::Internal::Type::BaseModel)
           coerced.to_h => ^expect
         else
           coerced => ^expect
@@ -527,29 +527,29 @@ end
 
 class ModernTreasury::Test::BaseModelQoLTest < Minitest::Test
   module E1
-    extend ModernTreasury::Enum
+    extend ModernTreasury::Internal::Type::Enum
 
     A = 1
   end
 
   module E2
-    extend ModernTreasury::Enum
+    extend ModernTreasury::Internal::Type::Enum
 
     A = 1
   end
 
   module E3
-    extend ModernTreasury::Enum
+    extend ModernTreasury::Internal::Type::Enum
 
     A = 2
     B = 3
   end
 
-  class M1 < ModernTreasury::BaseModel
+  class M1 < ModernTreasury::Internal::Type::BaseModel
     required :a, Integer
   end
 
-  class M2 < ModernTreasury::BaseModel
+  class M2 < ModernTreasury::Internal::Type::BaseModel
     required :a, Integer, nil?: true
   end
 
@@ -559,9 +559,9 @@ class ModernTreasury::Test::BaseModelQoLTest < Minitest::Test
 
   def test_equality
     cases = {
-      [ModernTreasury::Unknown, ModernTreasury::Unknown] => true,
-      [ModernTreasury::BooleanModel, ModernTreasury::BooleanModel] => true,
-      [ModernTreasury::Unknown, ModernTreasury::BooleanModel] => false,
+      [ModernTreasury::Internal::Type::Unknown, ModernTreasury::Internal::Type::Unknown] => true,
+      [ModernTreasury::Internal::Type::BooleanModel, ModernTreasury::Internal::Type::BooleanModel] => true,
+      [ModernTreasury::Internal::Type::Unknown, ModernTreasury::Internal::Type::BooleanModel] => false,
       [E1, E2] => true,
       [E1, E3] => false,
       [M1, M2] => false,

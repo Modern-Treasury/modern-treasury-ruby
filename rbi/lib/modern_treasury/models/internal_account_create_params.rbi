@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class InternalAccountCreateParams < ModernTreasury::BaseModel
+    class InternalAccountCreateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -52,7 +52,7 @@ module ModernTreasury
         params(
           party_address: T.any(
             ModernTreasury::Models::InternalAccountCreateParams::PartyAddress,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           )
         )
           .void
@@ -78,10 +78,10 @@ module ModernTreasury
           parent_account_id: String,
           party_address: T.any(
             ModernTreasury::Models::InternalAccountCreateParams::PartyAddress,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           ),
           vendor_attributes: T::Hash[Symbol, String],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -122,7 +122,7 @@ module ModernTreasury
       # Either "USD" or "CAD". Internal accounts created at Increase only supports
       #   "USD".
       module Currency
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency) }
@@ -137,7 +137,7 @@ module ModernTreasury
         end
       end
 
-      class PartyAddress < ModernTreasury::BaseModel
+      class PartyAddress < ModernTreasury::Internal::Type::BaseModel
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(String) }
         attr_accessor :country

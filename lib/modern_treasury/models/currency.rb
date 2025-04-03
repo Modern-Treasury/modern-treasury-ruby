@@ -4,7 +4,7 @@ module ModernTreasury
   module Models
     # Three-letter ISO currency code.
     module Currency
-      extend ModernTreasury::Enum
+      extend ModernTreasury::Internal::Type::Enum
 
       AED = :AED
       AFN = :AFN

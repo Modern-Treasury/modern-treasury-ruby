@@ -5,7 +5,7 @@ module ModernTreasury
     # @deprecated
     #
     # @see ModernTreasury::Resources::LedgerEventHandlers#create
-    class LedgerEventHandler < ModernTreasury::BaseModel
+    class LedgerEventHandler < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -49,14 +49,14 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::BooleanModel
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      required :metadata, ModernTreasury::HashOf[String], nil?: true
+      required :metadata, ModernTreasury::Internal::Type::HashOf[String], nil?: true
 
       # @!attribute name
       #   Name of the ledger event handler.
@@ -78,7 +78,7 @@ module ModernTreasury
       #
       #   @return [Hash{Symbol=>ModernTreasury::Models::LedgerEventHandlerVariable}, nil]
       required :variables,
-               -> { ModernTreasury::HashOf[ModernTreasury::Models::LedgerEventHandlerVariable] },
+               -> { ModernTreasury::Internal::Type::HashOf[ModernTreasury::Models::LedgerEventHandlerVariable] },
                nil?: true
 
       # @!parse
@@ -115,12 +115,12 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # @deprecated
       #
       # @see ModernTreasury::Models::LedgerEventHandler#conditions
-      class Conditions < ModernTreasury::BaseModel
+      class Conditions < ModernTreasury::Internal::Type::BaseModel
         # @!attribute field
         #   The LHS of the conditional.
         #
@@ -146,13 +146,13 @@ module ModernTreasury
         #   #
         #   def initialize(field:, operator:, value:, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
 
       # @deprecated
       #
       # @see ModernTreasury::Models::LedgerEventHandler#ledger_transaction_template
-      class LedgerTransactionTemplate < ModernTreasury::BaseModel
+      class LedgerTransactionTemplate < ModernTreasury::Internal::Type::BaseModel
         # @!attribute description
         #   An optional description for internal use.
         #
@@ -171,7 +171,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry>]
         required :ledger_entries,
-                 -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry] }
+                 -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry] }
 
         # @!attribute status
         #   To post a ledger transaction at creation, use `posted`.
@@ -187,10 +187,10 @@ module ModernTreasury
         #   #
         #   def initialize(description:, effective_at:, ledger_entries:, status:, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
         # @deprecated
-        class LedgerEntry < ModernTreasury::BaseModel
+        class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
           # @!attribute amount
           #   The LHS of the conditional.
           #
@@ -216,7 +216,7 @@ module ModernTreasury
           #   #
           #   def initialize(amount:, direction:, ledger_account_id:, **) = super
 
-          # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
         end
       end
     end

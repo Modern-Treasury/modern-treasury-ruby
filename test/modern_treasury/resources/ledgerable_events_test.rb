@@ -14,11 +14,11 @@ class ModernTreasury::Test::Resources::LedgerableEventsTest < ModernTreasury::Te
       response => {
         id: String,
         created_at: Time,
-        custom_data: ModernTreasury::Unknown | nil,
+        custom_data: ModernTreasury::Internal::Type::Unknown | nil,
         description: String | nil,
         ledger_event_handler_id: String,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]) | nil,
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]) | nil,
         name: String,
         object: String,
         updated_at: Time
@@ -37,11 +37,11 @@ class ModernTreasury::Test::Resources::LedgerableEventsTest < ModernTreasury::Te
       response => {
         id: String,
         created_at: Time,
-        custom_data: ModernTreasury::Unknown | nil,
+        custom_data: ModernTreasury::Internal::Type::Unknown | nil,
         description: String | nil,
         ledger_event_handler_id: String,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]) | nil,
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]) | nil,
         name: String,
         object: String,
         updated_at: Time

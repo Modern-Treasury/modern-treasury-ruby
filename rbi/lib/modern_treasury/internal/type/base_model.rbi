@@ -22,7 +22,7 @@ module ModernTreasury
               T::Hash[
               Symbol,
               T.all(
-                ModernTreasury::BaseModel::KnownFieldShape,
+                ModernTreasury::Internal::Type::BaseModel::KnownFieldShape,
                 {type_fn: T.proc.returns(ModernTreasury::Internal::Type::Converter::Input)}
               )
               ]
@@ -37,7 +37,7 @@ module ModernTreasury
               T::Hash[
               Symbol,
               T.all(
-                ModernTreasury::BaseModel::KnownFieldShape,
+                ModernTreasury::Internal::Type::BaseModel::KnownFieldShape,
                 {type: ModernTreasury::Internal::Type::Converter::Input}
               )
               ]
@@ -62,7 +62,7 @@ module ModernTreasury
                 T.proc.returns(ModernTreasury::Internal::Type::Converter::Input),
                 ModernTreasury::Internal::Type::Converter::Input
               ),
-              spec: ModernTreasury::Internal::Util::AnyHash
+              spec: ModernTreasury::Internal::AnyHash
             )
               .void
           end
@@ -74,11 +74,11 @@ module ModernTreasury
             params(
               name_sym: Symbol,
               type_info: T.any(
-                ModernTreasury::Internal::Util::AnyHash,
+                ModernTreasury::Internal::AnyHash,
                 T.proc.returns(ModernTreasury::Internal::Type::Converter::Input),
                 ModernTreasury::Internal::Type::Converter::Input
               ),
-              spec: ModernTreasury::Internal::Util::AnyHash
+              spec: ModernTreasury::Internal::AnyHash
             )
               .void
           end
@@ -90,11 +90,11 @@ module ModernTreasury
             params(
               name_sym: Symbol,
               type_info: T.any(
-                ModernTreasury::Internal::Util::AnyHash,
+                ModernTreasury::Internal::AnyHash,
                 T.proc.returns(ModernTreasury::Internal::Type::Converter::Input),
                 ModernTreasury::Internal::Type::Converter::Input
               ),
-              spec: ModernTreasury::Internal::Util::AnyHash
+              spec: ModernTreasury::Internal::AnyHash
             )
               .void
           end
@@ -130,7 +130,11 @@ module ModernTreasury
           sig do
             override
               .params(
-                value: T.any(ModernTreasury::BaseModel, T::Hash[T.anything, T.anything], T.anything),
+                value: T.any(
+                  ModernTreasury::Internal::Type::BaseModel,
+                  T::Hash[T.anything, T.anything],
+                  T.anything
+                ),
                 state: ModernTreasury::Internal::Type::Converter::State
               )
               .returns(T.any(T.attached_class, T.anything))
@@ -166,7 +170,7 @@ module ModernTreasury
         #
         #   This method is not recursive. The returned value is shared by the object, so it
         #   should not be mutated.
-        sig { overridable.returns(ModernTreasury::Internal::Util::AnyHash) }
+        sig { overridable.returns(ModernTreasury::Internal::AnyHash) }
         def to_h
         end
 
@@ -178,11 +182,11 @@ module ModernTreasury
         #
         #   This method is not recursive. The returned value is shared by the object, so it
         #   should not be mutated.
-        sig { overridable.returns(ModernTreasury::Internal::Util::AnyHash) }
+        sig { overridable.returns(ModernTreasury::Internal::AnyHash) }
         def to_hash
         end
 
-        sig { params(keys: T.nilable(T::Array[Symbol])).returns(ModernTreasury::Internal::Util::AnyHash) }
+        sig { params(keys: T.nilable(T::Array[Symbol])).returns(ModernTreasury::Internal::AnyHash) }
         def deconstruct_keys(keys)
         end
 

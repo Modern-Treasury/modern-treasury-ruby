@@ -13,7 +13,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class LedgerAccountSettlementCreateParams < ModernTreasury::BaseModel
+    class LedgerAccountSettlementCreateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -52,7 +52,7 @@ module ModernTreasury
       type status = :pending | :posted
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         PENDING: :pending
         POSTED: :posted

@@ -17,14 +17,14 @@ class ModernTreasury::Test::Resources::AccountCollectionFlowsTest < ModernTreasu
     assert_pattern do
       response => {
         counterparty_id: String,
-        payment_types: ^(ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::PaymentType]),
+        payment_types: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::PaymentType]),
         id: String | nil,
         client_token: String | nil,
         created_at: Time | nil,
         external_account_id: String | nil,
-        live_mode: ModernTreasury::BooleanModel | nil,
+        live_mode: ModernTreasury::Internal::Type::BooleanModel | nil,
         object: String | nil,
-        receiving_countries: ^(ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry]) | nil,
+        receiving_countries: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry]) | nil,
         status: ModernTreasury::Models::AccountCollectionFlow::Status | nil,
         updated_at: Time | nil
       }
@@ -41,14 +41,14 @@ class ModernTreasury::Test::Resources::AccountCollectionFlowsTest < ModernTreasu
     assert_pattern do
       response => {
         counterparty_id: String,
-        payment_types: ^(ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::PaymentType]),
+        payment_types: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::PaymentType]),
         id: String | nil,
         client_token: String | nil,
         created_at: Time | nil,
         external_account_id: String | nil,
-        live_mode: ModernTreasury::BooleanModel | nil,
+        live_mode: ModernTreasury::Internal::Type::BooleanModel | nil,
         object: String | nil,
-        receiving_countries: ^(ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry]) | nil,
+        receiving_countries: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry]) | nil,
         status: ModernTreasury::Models::AccountCollectionFlow::Status | nil,
         updated_at: Time | nil
       }
@@ -65,14 +65,14 @@ class ModernTreasury::Test::Resources::AccountCollectionFlowsTest < ModernTreasu
     assert_pattern do
       response => {
         counterparty_id: String,
-        payment_types: ^(ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::PaymentType]),
+        payment_types: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::PaymentType]),
         id: String | nil,
         client_token: String | nil,
         created_at: Time | nil,
         external_account_id: String | nil,
-        live_mode: ModernTreasury::BooleanModel | nil,
+        live_mode: ModernTreasury::Internal::Type::BooleanModel | nil,
         object: String | nil,
-        receiving_countries: ^(ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry]) | nil,
+        receiving_countries: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry]) | nil,
         status: ModernTreasury::Models::AccountCollectionFlow::Status | nil,
         updated_at: Time | nil
       }
@@ -96,14 +96,14 @@ class ModernTreasury::Test::Resources::AccountCollectionFlowsTest < ModernTreasu
     assert_pattern do
       row => {
         counterparty_id: String,
-        payment_types: ^(ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::PaymentType]),
+        payment_types: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::PaymentType]),
         id: String | nil,
         client_token: String | nil,
         created_at: Time | nil,
         external_account_id: String | nil,
-        live_mode: ModernTreasury::BooleanModel | nil,
+        live_mode: ModernTreasury::Internal::Type::BooleanModel | nil,
         object: String | nil,
-        receiving_countries: ^(ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry]) | nil,
+        receiving_countries: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry]) | nil,
         status: ModernTreasury::Models::AccountCollectionFlow::Status | nil,
         updated_at: Time | nil
       }

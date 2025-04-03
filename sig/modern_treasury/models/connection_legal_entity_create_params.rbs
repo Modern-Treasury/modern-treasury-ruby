@@ -8,7 +8,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class ConnectionLegalEntityCreateParams < ModernTreasury::BaseModel
+    class ConnectionLegalEntityCreateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -63,7 +63,7 @@ module ModernTreasury
           website: String?
         }
 
-      class LegalEntity < ModernTreasury::BaseModel
+      class LegalEntity < ModernTreasury::Internal::Type::BaseModel
         attr_reader addresses: ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Address]?
 
         def addresses=: (
@@ -182,7 +182,7 @@ module ModernTreasury
             :line2 => String?
           }
 
-        class Address < ModernTreasury::BaseModel
+        class Address < ModernTreasury::Internal::Type::BaseModel
           attr_accessor country: String?
 
           attr_accessor line1: String?
@@ -217,7 +217,7 @@ module ModernTreasury
             :business | :mailing | :other | :po_box | :residential
 
           module AddressType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             BUSINESS: :business
             MAILING: :mailing
@@ -236,7 +236,7 @@ module ModernTreasury
             issuing_country: String?
           }
 
-        class Identification < ModernTreasury::BaseModel
+        class Identification < ModernTreasury::Internal::Type::BaseModel
           attr_accessor id_number: String
 
           attr_accessor id_type: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Identification::id_type
@@ -275,7 +275,7 @@ module ModernTreasury
             | :vn_tin
 
           module IDType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             AR_CUIL: :ar_cuil
             AR_CUIT: :ar_cuit
@@ -312,7 +312,7 @@ module ModernTreasury
             title: String?
           }
 
-        class LegalEntityAssociation < ModernTreasury::BaseModel
+        class LegalEntityAssociation < ModernTreasury::Internal::Type::BaseModel
           attr_accessor relationship_types: ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::relationship_type]
 
           attr_reader child_legal_entity: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity?
@@ -342,7 +342,7 @@ module ModernTreasury
           type relationship_type = :beneficial_owner | :control_person
 
           module RelationshipType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             BENEFICIAL_OWNER: :beneficial_owner
             CONTROL_PERSON: :control_person
@@ -379,7 +379,7 @@ module ModernTreasury
               website: String?
             }
 
-          class ChildLegalEntity < ModernTreasury::BaseModel
+          class ChildLegalEntity < ModernTreasury::Internal::Type::BaseModel
             attr_reader addresses: ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address]?
 
             def addresses=: (
@@ -495,7 +495,7 @@ module ModernTreasury
                 :line2 => String?
               }
 
-            class Address < ModernTreasury::BaseModel
+            class Address < ModernTreasury::Internal::Type::BaseModel
               attr_accessor country: String?
 
               attr_accessor line1: String?
@@ -530,7 +530,7 @@ module ModernTreasury
                 :business | :mailing | :other | :po_box | :residential
 
               module AddressType
-                extend ModernTreasury::Enum
+                extend ModernTreasury::Internal::Type::Enum
 
                 BUSINESS: :business
                 MAILING: :mailing
@@ -549,7 +549,7 @@ module ModernTreasury
                 issuing_country: String?
               }
 
-            class Identification < ModernTreasury::BaseModel
+            class Identification < ModernTreasury::Internal::Type::BaseModel
               attr_accessor id_number: String
 
               attr_accessor id_type: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::id_type
@@ -588,7 +588,7 @@ module ModernTreasury
                 | :vn_tin
 
               module IDType
-                extend ModernTreasury::Enum
+                extend ModernTreasury::Internal::Type::Enum
 
                 AR_CUIL: :ar_cuil
                 AR_CUIT: :ar_cuit
@@ -619,7 +619,7 @@ module ModernTreasury
             type legal_entity_type = :business | :individual
 
             module LegalEntityType
-              extend ModernTreasury::Enum
+              extend ModernTreasury::Internal::Type::Enum
 
               BUSINESS: :business
               INDIVIDUAL: :individual
@@ -636,7 +636,7 @@ module ModernTreasury
               | :trust
 
             module LegalStructure
-              extend ModernTreasury::Enum
+              extend ModernTreasury::Internal::Type::Enum
 
               CORPORATION: :corporation
               LLC: :llc
@@ -650,7 +650,7 @@ module ModernTreasury
 
             type phone_number = { phone_number: String }
 
-            class PhoneNumber < ModernTreasury::BaseModel
+            class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
               attr_reader phone_number: String?
 
               def phone_number=: (String) -> String
@@ -663,7 +663,7 @@ module ModernTreasury
             type risk_rating = :low | :medium | :high
 
             module RiskRating
-              extend ModernTreasury::Enum
+              extend ModernTreasury::Internal::Type::Enum
 
               LOW: :low
               MEDIUM: :medium
@@ -677,7 +677,7 @@ module ModernTreasury
         type legal_entity_type = :business | :individual
 
         module LegalEntityType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           BUSINESS: :business
           INDIVIDUAL: :individual
@@ -694,7 +694,7 @@ module ModernTreasury
           | :trust
 
         module LegalStructure
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           CORPORATION: :corporation
           LLC: :llc
@@ -708,7 +708,7 @@ module ModernTreasury
 
         type phone_number = { phone_number: String }
 
-        class PhoneNumber < ModernTreasury::BaseModel
+        class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
           attr_reader phone_number: String?
 
           def phone_number=: (String) -> String
@@ -721,7 +721,7 @@ module ModernTreasury
         type risk_rating = :low | :medium | :high
 
         module RiskRating
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           LOW: :low
           MEDIUM: :medium

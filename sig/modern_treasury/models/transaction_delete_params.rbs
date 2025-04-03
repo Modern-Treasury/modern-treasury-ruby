@@ -3,7 +3,7 @@ module ModernTreasury
     type transaction_delete_params =
       {  } & ModernTreasury::Internal::Type::request_parameters
 
-    class TransactionDeleteParams < ModernTreasury::BaseModel
+    class TransactionDeleteParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 

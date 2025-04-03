@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::ExpectedPayments#create
-    class ExpectedPayment < ModernTreasury::BaseModel
+    class ExpectedPayment < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -82,14 +82,14 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::BooleanModel
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @return [Hash{Symbol=>String}]
-      required :metadata, ModernTreasury::HashOf[String]
+      required :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!attribute object
       #
@@ -100,13 +100,13 @@ module ModernTreasury
       #   The reconciliation filters you have for this payment.
       #
       #   @return [Object, nil]
-      required :reconciliation_filters, ModernTreasury::Unknown, nil?: true
+      required :reconciliation_filters, ModernTreasury::Internal::Type::Unknown, nil?: true
 
       # @!attribute reconciliation_groups
       #   The reconciliation groups you have for this payment.
       #
       #   @return [Object, nil]
-      required :reconciliation_groups, ModernTreasury::Unknown, nil?: true
+      required :reconciliation_groups, ModernTreasury::Internal::Type::Unknown, nil?: true
 
       # @!attribute reconciliation_method
       #   One of manual if this expected payment was manually reconciled in the dashboard,
@@ -123,7 +123,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::ReconciliationRule>, nil]
       required :reconciliation_rule_variables,
-               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ReconciliationRule] },
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ReconciliationRule] },
                nil?: true
 
       # @!attribute remittance_information
@@ -233,14 +233,14 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
       #
       # @see ModernTreasury::Models::ExpectedPayment#direction
       module Direction
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CREDIT = :credit
         DEBIT = :debit
@@ -258,7 +258,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::ExpectedPayment#reconciliation_method
       module ReconciliationMethod
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         AUTOMATIC = :automatic
         MANUAL = :manual
@@ -274,7 +274,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::ExpectedPayment#status
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ARCHIVED = :archived
         PARTIALLY_RECONCILED = :partially_reconciled

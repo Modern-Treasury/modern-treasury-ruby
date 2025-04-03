@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     module Invoices
-      class InvoiceLineItem < ModernTreasury::BaseModel
+      class InvoiceLineItem < ModernTreasury::Internal::Type::BaseModel
         sig { returns(String) }
         attr_accessor :id
 
