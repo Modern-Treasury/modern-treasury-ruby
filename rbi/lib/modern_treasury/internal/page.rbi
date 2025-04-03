@@ -3,9 +3,9 @@
 module ModernTreasury
   module Internal
     class Page < ::Array
-      include ModernTreasury::Internal::Type::BasePage
-
       Elem = type_member
+
+      include ModernTreasury::Internal::Type::BasePage
 
       sig { returns(Integer) }
       attr_accessor :per_page
