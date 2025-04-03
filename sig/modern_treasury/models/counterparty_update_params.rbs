@@ -9,11 +9,11 @@ module ModernTreasury
         send_remittance_advice: bool,
         taxpayer_identifier: String
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
     class CounterpartyUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_reader email: String?
 

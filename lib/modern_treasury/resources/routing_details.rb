@@ -72,7 +72,7 @@ module ModernTreasury
       # @param per_page [Integer]
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Page<ModernTreasury::Models::RoutingDetail>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::RoutingDetail>]
       #
       # @see ModernTreasury::Models::RoutingDetailListParams
       def list(account_id, params)
@@ -85,7 +85,7 @@ module ModernTreasury
           method: :get,
           path: ["api/%1$s/%2$s/routing_details", accounts_type, account_id],
           query: parsed,
-          page: ModernTreasury::Page,
+          page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Models::RoutingDetail,
           options: options
         )

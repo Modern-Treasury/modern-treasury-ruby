@@ -8,11 +8,11 @@ module ModernTreasury
           balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportListParams::balance_report_type,
           per_page: Integer
         }
-        & ModernTreasury::request_parameters
+        & ModernTreasury::Internal::Type::request_parameters
 
       class BalanceReportListParams < ModernTreasury::BaseModel
-        extend ModernTreasury::Type::RequestParameters::Converter
-        include ModernTreasury::RequestParameters
+        extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        include ModernTreasury::Internal::Type::RequestParameters
 
         attr_accessor after_cursor: String?
 

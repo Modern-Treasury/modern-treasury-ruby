@@ -3,8 +3,8 @@
 module ModernTreasury
   module Models
     class LedgerAccountRetrieveParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # Use `balances[effective_at_lower_bound]` and
       #   `balances[effective_at_upper_bound]` to get the balances change between the two
@@ -17,7 +17,10 @@ module ModernTreasury
 
       sig do
         params(
-          balances: T.any(ModernTreasury::Models::LedgerAccountRetrieveParams::Balances, ModernTreasury::Util::AnyHash)
+          balances: T.any(
+            ModernTreasury::Models::LedgerAccountRetrieveParams::Balances,
+            ModernTreasury::Internal::Util::AnyHash
+          )
         )
           .void
       end
@@ -25,8 +28,11 @@ module ModernTreasury
 
       sig do
         params(
-          balances: T.any(ModernTreasury::Models::LedgerAccountRetrieveParams::Balances, ModernTreasury::Util::AnyHash),
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          balances: T.any(
+            ModernTreasury::Models::LedgerAccountRetrieveParams::Balances,
+            ModernTreasury::Internal::Util::AnyHash
+          ),
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

@@ -61,7 +61,7 @@ module ModernTreasury
       # @param returnable_type [Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType]
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Page<ModernTreasury::Models::ReturnObject>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::ReturnObject>]
       #
       # @see ModernTreasury::Models::ReturnListParams
       def list(params = {})
@@ -70,7 +70,7 @@ module ModernTreasury
           method: :get,
           path: "api/returns",
           query: parsed,
-          page: ModernTreasury::Page,
+          page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Models::ReturnObject,
           options: options
         )

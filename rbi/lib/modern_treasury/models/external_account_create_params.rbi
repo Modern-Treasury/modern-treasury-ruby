@@ -3,8 +3,8 @@
 module ModernTreasury
   module Models
     class ExternalAccountCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       sig { returns(T.nilable(String)) }
       attr_accessor :counterparty_id
@@ -14,7 +14,12 @@ module ModernTreasury
 
       sig do
         params(
-          account_details: T::Array[T.any(ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail, ModernTreasury::Util::AnyHash)]
+          account_details: T::Array[
+          T.any(
+            ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail,
+            ModernTreasury::Internal::Util::AnyHash
+          )
+          ]
         )
           .void
       end
@@ -32,7 +37,12 @@ module ModernTreasury
 
       sig do
         params(
-          contact_details: T::Array[T.any(ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail, ModernTreasury::Util::AnyHash)]
+          contact_details: T::Array[
+          T.any(
+            ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail,
+            ModernTreasury::Internal::Util::AnyHash
+          )
+          ]
         )
           .void
       end
@@ -48,7 +58,10 @@ module ModernTreasury
 
       sig do
         params(
-          ledger_account: T.any(ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount, ModernTreasury::Util::AnyHash)
+          ledger_account: T.any(
+            ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount,
+            ModernTreasury::Internal::Util::AnyHash
+          )
         )
           .void
       end
@@ -73,7 +86,10 @@ module ModernTreasury
 
       sig do
         params(
-          party_address: T.any(ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress, ModernTreasury::Util::AnyHash)
+          party_address: T.any(
+            ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress,
+            ModernTreasury::Internal::Util::AnyHash
+          )
         )
           .void
       end
@@ -109,7 +125,12 @@ module ModernTreasury
 
       sig do
         params(
-          routing_details: T::Array[T.any(ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail, ModernTreasury::Util::AnyHash)]
+          routing_details: T::Array[
+          T.any(
+            ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail,
+            ModernTreasury::Internal::Util::AnyHash
+          )
+          ]
         )
           .void
       end
@@ -118,19 +139,40 @@ module ModernTreasury
       sig do
         params(
           counterparty_id: T.nilable(String),
-          account_details: T::Array[T.any(ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail, ModernTreasury::Util::AnyHash)],
+          account_details: T::Array[
+          T.any(
+            ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail,
+            ModernTreasury::Internal::Util::AnyHash
+          )
+          ],
           account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
-          contact_details: T::Array[T.any(ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail, ModernTreasury::Util::AnyHash)],
-          ledger_account: T.any(ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount, ModernTreasury::Util::AnyHash),
+          contact_details: T::Array[
+          T.any(
+            ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail,
+            ModernTreasury::Internal::Util::AnyHash
+          )
+          ],
+          ledger_account: T.any(
+            ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount,
+            ModernTreasury::Internal::Util::AnyHash
+          ),
           metadata: T::Hash[Symbol, String],
           name: T.nilable(String),
-          party_address: T.any(ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress, ModernTreasury::Util::AnyHash),
+          party_address: T.any(
+            ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress,
+            ModernTreasury::Internal::Util::AnyHash
+          ),
           party_identifier: String,
           party_name: String,
           party_type: T.nilable(ModernTreasury::Models::ExternalAccountCreateParams::PartyType::OrSymbol),
           plaid_processor_token: String,
-          routing_details: T::Array[T.any(ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail, ModernTreasury::Util::AnyHash)],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          routing_details: T::Array[
+          T.any(
+            ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail,
+            ModernTreasury::Internal::Util::AnyHash
+          )
+          ],
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

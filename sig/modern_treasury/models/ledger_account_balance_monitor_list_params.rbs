@@ -8,11 +8,11 @@ module ModernTreasury
         metadata: ::Hash[Symbol, String],
         per_page: Integer
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
     class LedgerAccountBalanceMonitorListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_reader id: ::Array[String]?
 

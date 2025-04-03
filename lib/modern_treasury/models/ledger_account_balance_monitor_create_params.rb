@@ -5,8 +5,8 @@ module ModernTreasury
     # @see ModernTreasury::Resources::LedgerAccountBalanceMonitors#create
     class LedgerAccountBalanceMonitorCreateParams < ModernTreasury::BaseModel
       # @!parse
-      #   extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute alert_condition
       #   Describes the condition that must be satisfied for the monitor to be triggered.

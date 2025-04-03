@@ -14,10 +14,15 @@ module ModernTreasury
             balances: T::Array[
             T.any(
               ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             )
             ],
-            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+            request_options: T.nilable(
+              T.any(
+                ModernTreasury::RequestOptions,
+                ModernTreasury::Internal::Util::AnyHash
+              )
+            )
           )
             .returns(ModernTreasury::Models::InternalAccounts::BalanceReport)
         end
@@ -41,7 +46,12 @@ module ModernTreasury
           params(
             id: String,
             internal_account_id: String,
-            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+            request_options: T.nilable(
+              T.any(
+                ModernTreasury::RequestOptions,
+                ModernTreasury::Internal::Util::AnyHash
+              )
+            )
           )
             .returns(ModernTreasury::Models::InternalAccounts::BalanceReport)
         end
@@ -62,9 +72,14 @@ module ModernTreasury
             as_of_date: Date,
             balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::OrSymbol,
             per_page: Integer,
-            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+            request_options: T.nilable(
+              T.any(
+                ModernTreasury::RequestOptions,
+                ModernTreasury::Internal::Util::AnyHash
+              )
+            )
           )
-            .returns(ModernTreasury::Page[ModernTreasury::Models::InternalAccounts::BalanceReport])
+            .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::InternalAccounts::BalanceReport])
         end
         def list(
           internal_account_id,
@@ -84,7 +99,12 @@ module ModernTreasury
           params(
             id: String,
             internal_account_id: String,
-            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+            request_options: T.nilable(
+              T.any(
+                ModernTreasury::RequestOptions,
+                ModernTreasury::Internal::Util::AnyHash
+              )
+            )
           )
             .void
         end

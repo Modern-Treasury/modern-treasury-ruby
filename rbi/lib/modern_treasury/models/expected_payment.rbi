@@ -136,7 +136,9 @@ module ModernTreasury
           reconciliation_filters: T.nilable(T.anything),
           reconciliation_groups: T.nilable(T.anything),
           reconciliation_method: T.nilable(ModernTreasury::Models::ExpectedPayment::ReconciliationMethod::OrSymbol),
-          reconciliation_rule_variables: T.nilable(T::Array[T.any(ModernTreasury::Models::ReconciliationRule, ModernTreasury::Util::AnyHash)]),
+          reconciliation_rule_variables: T.nilable(
+            T::Array[T.any(ModernTreasury::Models::ReconciliationRule, ModernTreasury::Internal::Util::AnyHash)]
+          ),
           remittance_information: T.nilable(String),
           statement_descriptor: T.nilable(String),
           status: ModernTreasury::Models::ExpectedPayment::Status::OrSymbol,

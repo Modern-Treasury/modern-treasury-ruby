@@ -9,11 +9,11 @@ module ModernTreasury
         returnable_id: String,
         returnable_type: ModernTreasury::Models::ReturnListParams::returnable_type
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
     class ReturnListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor after_cursor: String?
 

@@ -56,7 +56,7 @@ class ModernTreasury::Test::Resources::PaymentOrders::ReversalsTest < ModernTrea
     response = @modern_treasury.payment_orders.reversals.list("payment_order_id")
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first

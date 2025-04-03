@@ -6,8 +6,8 @@ module ModernTreasury
       # @see ModernTreasury::Resources::InternalAccounts::BalanceReports#create
       class BalanceReportCreateParams < ModernTreasury::BaseModel
         # @!parse
-        #   extend ModernTreasury::Type::RequestParameters::Converter
-        include ModernTreasury::RequestParameters
+        #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        include ModernTreasury::Internal::Type::RequestParameters
 
         # @!attribute as_of_date
         #   The date of the balance report in local time.

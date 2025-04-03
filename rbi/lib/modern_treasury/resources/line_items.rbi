@@ -9,7 +9,12 @@ module ModernTreasury
           id: String,
           itemizable_type: ModernTreasury::Models::LineItemRetrieveParams::ItemizableType::OrSymbol,
           itemizable_id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::LineItem)
       end
@@ -31,7 +36,12 @@ module ModernTreasury
           itemizable_type: ModernTreasury::Models::LineItemUpdateParams::ItemizableType::OrSymbol,
           itemizable_id: String,
           metadata: T::Hash[Symbol, String],
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::LineItem)
       end
@@ -56,9 +66,14 @@ module ModernTreasury
           itemizable_type: ModernTreasury::Models::LineItemListParams::ItemizableType::OrSymbol,
           after_cursor: T.nilable(String),
           per_page: Integer,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
-          .returns(ModernTreasury::Page[ModernTreasury::Models::LineItem])
+          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::LineItem])
       end
       def list(
         # Path param: The ID of the payment order or expected payment.

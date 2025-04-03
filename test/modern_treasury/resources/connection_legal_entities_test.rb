@@ -76,7 +76,7 @@ class ModernTreasury::Test::Resources::ConnectionLegalEntitiesTest < ModernTreas
     response = @modern_treasury.connection_legal_entities.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first

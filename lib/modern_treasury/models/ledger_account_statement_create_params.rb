@@ -5,8 +5,8 @@ module ModernTreasury
     # @see ModernTreasury::Resources::LedgerAccountStatements#create
     class LedgerAccountStatementCreateParams < ModernTreasury::BaseModel
       # @!parse
-      #   extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute effective_at_lower_bound
       #   The inclusive lower bound of the effective_at timestamp of the ledger entries to

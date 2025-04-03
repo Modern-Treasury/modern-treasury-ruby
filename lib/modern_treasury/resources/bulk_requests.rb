@@ -58,7 +58,7 @@ module ModernTreasury
       # @param status [Symbol, ModernTreasury::Models::BulkRequestListParams::Status]
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Page<ModernTreasury::Models::BulkRequest>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::BulkRequest>]
       #
       # @see ModernTreasury::Models::BulkRequestListParams
       def list(params = {})
@@ -67,7 +67,7 @@ module ModernTreasury
           method: :get,
           path: "api/bulk_requests",
           query: parsed,
-          page: ModernTreasury::Page,
+          page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Models::BulkRequest,
           options: options
         )

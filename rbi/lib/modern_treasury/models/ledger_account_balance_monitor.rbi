@@ -12,7 +12,10 @@ module ModernTreasury
 
       sig do
         params(
-          alert_condition: T.any(ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition, ModernTreasury::Util::AnyHash)
+          alert_condition: T.any(
+            ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition,
+            ModernTreasury::Internal::Util::AnyHash
+          )
         )
           .void
       end
@@ -30,7 +33,7 @@ module ModernTreasury
         params(
           current_ledger_account_balance_state: T.any(
             ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
-            ModernTreasury::Util::AnyHash
+            ModernTreasury::Internal::Util::AnyHash
           )
         )
           .void
@@ -67,11 +70,14 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          alert_condition: T.any(ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition, ModernTreasury::Util::AnyHash),
+          alert_condition: T.any(
+            ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition,
+            ModernTreasury::Internal::Util::AnyHash
+          ),
           created_at: Time,
           current_ledger_account_balance_state: T.any(
             ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
-            ModernTreasury::Util::AnyHash
+            ModernTreasury::Internal::Util::AnyHash
           ),
           description: T.nilable(String),
           discarded_at: T.nilable(Time),
@@ -155,7 +161,7 @@ module ModernTreasury
           params(
             balances: T.any(
               ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             )
           )
             .void
@@ -177,7 +183,7 @@ module ModernTreasury
           params(
             balances: T.any(
               ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             ),
             ledger_account_lock_version: Integer,
             triggered: T::Boolean
@@ -216,7 +222,7 @@ module ModernTreasury
             params(
               available_balance: T.any(
                 ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance,
-                ModernTreasury::Util::AnyHash
+                ModernTreasury::Internal::Util::AnyHash
               )
             )
               .void
@@ -235,7 +241,7 @@ module ModernTreasury
             params(
               pending_balance: T.any(
                 ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance,
-                ModernTreasury::Util::AnyHash
+                ModernTreasury::Internal::Util::AnyHash
               )
             )
               .void
@@ -254,7 +260,7 @@ module ModernTreasury
             params(
               posted_balance: T.any(
                 ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance,
-                ModernTreasury::Util::AnyHash
+                ModernTreasury::Internal::Util::AnyHash
               )
             )
               .void
@@ -265,15 +271,15 @@ module ModernTreasury
             params(
               available_balance: T.any(
                 ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance,
-                ModernTreasury::Util::AnyHash
+                ModernTreasury::Internal::Util::AnyHash
               ),
               pending_balance: T.any(
                 ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance,
-                ModernTreasury::Util::AnyHash
+                ModernTreasury::Internal::Util::AnyHash
               ),
               posted_balance: T.any(
                 ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance,
-                ModernTreasury::Util::AnyHash
+                ModernTreasury::Internal::Util::AnyHash
               )
             )
               .returns(T.attached_class)

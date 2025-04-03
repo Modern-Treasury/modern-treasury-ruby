@@ -2,11 +2,11 @@ module ModernTreasury
   module Models
     type ledger_create_params =
       { name: String, description: String?, metadata: ::Hash[Symbol, String] }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
     class LedgerCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor name: String
 

@@ -202,7 +202,7 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < ModernTreasury::Test:
     response = @modern_treasury.payment_orders.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first

@@ -11,7 +11,12 @@ module ModernTreasury
           routing_number: String,
           routing_number_type: ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType::OrSymbol,
           payment_type: T.nilable(ModernTreasury::Models::RoutingDetailCreateParams::PaymentType::OrSymbol),
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::RoutingDetail)
       end
@@ -39,7 +44,12 @@ module ModernTreasury
           id: String,
           accounts_type: ModernTreasury::Models::AccountsType::OrSymbol,
           account_id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::RoutingDetail)
       end
@@ -60,9 +70,14 @@ module ModernTreasury
           accounts_type: ModernTreasury::Models::AccountsType::OrSymbol,
           after_cursor: T.nilable(String),
           per_page: Integer,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
-          .returns(ModernTreasury::Page[ModernTreasury::Models::RoutingDetail])
+          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::RoutingDetail])
       end
       def list(
         # Path param: The ID of the account.
@@ -83,7 +98,12 @@ module ModernTreasury
           id: String,
           accounts_type: ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType::OrSymbol,
           account_id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
           .void
       end

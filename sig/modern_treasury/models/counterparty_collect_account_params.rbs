@@ -7,11 +7,11 @@ module ModernTreasury
         fields: ::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field],
         send_email: bool
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
     class CounterpartyCollectAccountParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor direction: ModernTreasury::Models::transaction_direction
 

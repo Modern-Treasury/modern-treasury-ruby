@@ -124,7 +124,7 @@ module ModernTreasury
       # @param show_deleted [String]
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Page<ModernTreasury::Models::LegalEntity>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::LegalEntity>]
       #
       # @see ModernTreasury::Models::LegalEntityListParams
       def list(params = {})
@@ -133,7 +133,7 @@ module ModernTreasury
           method: :get,
           path: "api/legal_entities",
           query: parsed,
-          page: ModernTreasury::Page,
+          page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Models::LegalEntity,
           options: options
         )

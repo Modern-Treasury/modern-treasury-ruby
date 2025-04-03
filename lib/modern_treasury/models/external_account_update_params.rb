@@ -5,8 +5,8 @@ module ModernTreasury
     # @see ModernTreasury::Resources::ExternalAccounts#update
     class ExternalAccountUpdateParams < ModernTreasury::BaseModel
       # @!parse
-      #   extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute [r] account_type
       #   Can be `checking`, `savings` or `other`.

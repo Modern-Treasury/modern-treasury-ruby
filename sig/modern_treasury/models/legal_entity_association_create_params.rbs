@@ -9,11 +9,11 @@ module ModernTreasury
         ownership_percentage: Integer?,
         title: String?
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
     class LegalEntityAssociationCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor parent_legal_entity_id: String
 

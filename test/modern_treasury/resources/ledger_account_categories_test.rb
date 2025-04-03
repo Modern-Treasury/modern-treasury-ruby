@@ -88,7 +88,7 @@ class ModernTreasury::Test::Resources::LedgerAccountCategoriesTest < ModernTreas
     response = @modern_treasury.ledger_account_categories.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first

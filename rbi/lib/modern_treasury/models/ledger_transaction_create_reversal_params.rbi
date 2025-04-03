@@ -3,8 +3,8 @@
 module ModernTreasury
   module Models
     class LedgerTransactionCreateReversalParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # An optional free-form description for the reversal ledger transaction. Maximum
       #   of 1000 characters allowed.
@@ -77,7 +77,7 @@ module ModernTreasury
           ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType::OrSymbol,
           metadata: T::Hash[Symbol, String],
           status: ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

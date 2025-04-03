@@ -12,11 +12,11 @@ module ModernTreasury
         type: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::type_,
         virtual_account_id: String?
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
     class IncomingPaymentDetailCreateAsyncParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_reader amount: Integer?
 

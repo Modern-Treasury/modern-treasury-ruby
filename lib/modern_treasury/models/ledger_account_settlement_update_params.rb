@@ -5,8 +5,8 @@ module ModernTreasury
     # @see ModernTreasury::Resources::LedgerAccountSettlements#update
     class LedgerAccountSettlementUpdateParams < ModernTreasury::BaseModel
       # @!parse
-      #   extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute description
       #   The description of the ledger account settlement.

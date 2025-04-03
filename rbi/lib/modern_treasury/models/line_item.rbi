@@ -9,7 +9,12 @@ module ModernTreasury
       sig { returns(ModernTreasury::Models::LineItem::Accounting) }
       attr_reader :accounting
 
-      sig { params(accounting: T.any(ModernTreasury::Models::LineItem::Accounting, ModernTreasury::Util::AnyHash)).void }
+      sig do
+        params(
+          accounting: T.any(ModernTreasury::Models::LineItem::Accounting, ModernTreasury::Internal::Util::AnyHash)
+        )
+          .void
+      end
       attr_writer :accounting
 
       # The ID of one of your accounting categories. Note that these will only be
@@ -62,7 +67,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          accounting: T.any(ModernTreasury::Models::LineItem::Accounting, ModernTreasury::Util::AnyHash),
+          accounting: T.any(ModernTreasury::Models::LineItem::Accounting, ModernTreasury::Internal::Util::AnyHash),
           accounting_category_id: T.nilable(String),
           accounting_ledger_class_id: T.nilable(String),
           amount: Integer,

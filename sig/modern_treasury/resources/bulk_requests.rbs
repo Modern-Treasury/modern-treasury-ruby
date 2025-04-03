@@ -22,7 +22,7 @@ module ModernTreasury
         ?resource_type: ModernTreasury::Models::BulkRequestListParams::resource_type,
         ?status: ModernTreasury::Models::BulkRequestListParams::status,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Page[ModernTreasury::Models::BulkRequest]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::BulkRequest]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

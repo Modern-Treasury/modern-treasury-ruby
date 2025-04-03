@@ -5,8 +5,8 @@ module ModernTreasury
     # @see ModernTreasury::Resources::PaperItems#list
     class PaperItemListParams < ModernTreasury::BaseModel
       # @!parse
-      #   extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute after_cursor
       #

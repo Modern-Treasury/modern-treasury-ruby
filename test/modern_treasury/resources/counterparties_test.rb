@@ -85,7 +85,7 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < ModernTreasury::Test
     response = @modern_treasury.counterparties.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first

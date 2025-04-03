@@ -2,11 +2,11 @@ module ModernTreasury
   module Models
     type ledger_account_balance_monitor_update_params =
       { description: String, metadata: ::Hash[Symbol, String] }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
     class LedgerAccountBalanceMonitorUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_reader description: String?
 

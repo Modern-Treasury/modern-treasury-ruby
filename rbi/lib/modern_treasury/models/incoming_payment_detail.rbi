@@ -110,7 +110,7 @@ module ModernTreasury
 
       sig do
         params(
-          virtual_account: T.nilable(T.any(ModernTreasury::Models::VirtualAccount, ModernTreasury::Util::AnyHash))
+          virtual_account: T.nilable(T.any(ModernTreasury::Models::VirtualAccount, ModernTreasury::Internal::Util::AnyHash))
         )
           .void
       end
@@ -149,7 +149,7 @@ module ModernTreasury
           type: ModernTreasury::Models::IncomingPaymentDetail::Type::OrSymbol,
           updated_at: Time,
           vendor_id: T.nilable(String),
-          virtual_account: T.nilable(T.any(ModernTreasury::Models::VirtualAccount, ModernTreasury::Util::AnyHash)),
+          virtual_account: T.nilable(T.any(ModernTreasury::Models::VirtualAccount, ModernTreasury::Internal::Util::AnyHash)),
           virtual_account_id: T.nilable(String),
           originating_account_number: T.nilable(String)
         )

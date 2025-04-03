@@ -10,7 +10,12 @@ module ModernTreasury
           documentable_type: ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol,
           file: T.any(IO, StringIO),
           document_type: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::Document)
       end
@@ -29,7 +34,12 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::Document)
       end
@@ -47,9 +57,14 @@ module ModernTreasury
           documentable_id: String,
           documentable_type: ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol,
           per_page: Integer,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
-          .returns(ModernTreasury::Page[ModernTreasury::Models::Document])
+          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::Document])
       end
       def list(
         after_cursor: nil,

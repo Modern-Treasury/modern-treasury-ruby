@@ -85,7 +85,7 @@ class ModernTreasury::Test::Resources::ReturnsTest < ModernTreasury::Test::Resou
     response = @modern_treasury.returns.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first

@@ -3,8 +3,8 @@
 module ModernTreasury
   module Models
     class LedgerAccountSettlementCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # The id of the contra ledger account that sends to or receives funds from the
       #   settled ledger account.
@@ -60,7 +60,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           skip_settlement_ledger_transaction: T.nilable(T::Boolean),
           status: T.nilable(ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::OrSymbol),
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

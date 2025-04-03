@@ -23,7 +23,7 @@ module ModernTreasury
         ?type: ModernTreasury::Models::IncomingPaymentDetailListParams::type_,
         ?virtual_account_id: String,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Page[ModernTreasury::Models::IncomingPaymentDetail]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::IncomingPaymentDetail]
 
       def create_async: (
         ?amount: Integer,

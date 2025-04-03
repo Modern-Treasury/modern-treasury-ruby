@@ -5,8 +5,8 @@ module ModernTreasury
     # @see ModernTreasury::Resources::LegalEntities#create
     class LegalEntityCreateParams < ModernTreasury::BaseModel
       # @!parse
-      #   extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute legal_entity_type
       #   The type of legal entity.

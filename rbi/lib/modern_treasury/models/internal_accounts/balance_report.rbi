@@ -48,7 +48,12 @@ module ModernTreasury
             as_of_date: Date,
             as_of_time: T.nilable(Time),
             balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType::OrSymbol,
-            balances: T::Array[T.any(ModernTreasury::Models::InternalAccounts::BalanceReport::Balance, ModernTreasury::Util::AnyHash)],
+            balances: T::Array[
+            T.any(
+              ModernTreasury::Models::InternalAccounts::BalanceReport::Balance,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+            ],
             created_at: Time,
             internal_account_id: String,
             live_mode: T::Boolean,

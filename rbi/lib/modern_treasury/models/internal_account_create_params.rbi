@@ -3,8 +3,8 @@
 module ModernTreasury
   module Models
     class InternalAccountCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # The identifier of the financial institution the account belongs to.
       sig { returns(String) }
@@ -50,7 +50,10 @@ module ModernTreasury
 
       sig do
         params(
-          party_address: T.any(ModernTreasury::Models::InternalAccountCreateParams::PartyAddress, ModernTreasury::Util::AnyHash)
+          party_address: T.any(
+            ModernTreasury::Models::InternalAccountCreateParams::PartyAddress,
+            ModernTreasury::Internal::Util::AnyHash
+          )
         )
           .void
       end
@@ -73,9 +76,12 @@ module ModernTreasury
           counterparty_id: String,
           legal_entity_id: String,
           parent_account_id: String,
-          party_address: T.any(ModernTreasury::Models::InternalAccountCreateParams::PartyAddress, ModernTreasury::Util::AnyHash),
+          party_address: T.any(
+            ModernTreasury::Models::InternalAccountCreateParams::PartyAddress,
+            ModernTreasury::Internal::Util::AnyHash
+          ),
           vendor_attributes: T::Hash[Symbol, String],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

@@ -84,7 +84,7 @@ module ModernTreasury
       # @param status [String]
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Page<ModernTreasury::Models::PaymentFlow>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::PaymentFlow>]
       #
       # @see ModernTreasury::Models::PaymentFlowListParams
       def list(params = {})
@@ -93,7 +93,7 @@ module ModernTreasury
           method: :get,
           path: "api/payment_flows",
           query: parsed,
-          page: ModernTreasury::Page,
+          page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Models::PaymentFlow,
           options: options
         )

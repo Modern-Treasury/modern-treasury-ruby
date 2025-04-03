@@ -1,11 +1,12 @@
 module ModernTreasury
   module Models
     module Transactions
-      type line_item_retrieve_params = {  } & ModernTreasury::request_parameters
+      type line_item_retrieve_params =
+        {  } & ModernTreasury::Internal::Type::request_parameters
 
       class LineItemRetrieveParams < ModernTreasury::BaseModel
-        extend ModernTreasury::Type::RequestParameters::Converter
-        include ModernTreasury::RequestParameters
+        extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        include ModernTreasury::Internal::Type::RequestParameters
 
         def initialize: (?request_options: ModernTreasury::request_opts) -> void
 

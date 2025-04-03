@@ -3,8 +3,8 @@
 module ModernTreasury
   module Models
     class LedgerTransactionCreatePartialPostParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # An array of ledger entry objects to be set on the posted ledger transaction.
       #   There must be one entry for each of the existing entries with a lesser amount
@@ -41,13 +41,13 @@ module ModernTreasury
           posted_ledger_entries: T::Array[
           T.any(
             ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry,
-            ModernTreasury::Util::AnyHash
+            ModernTreasury::Internal::Util::AnyHash
           )
           ],
           description: String,
           effective_at: Time,
           metadata: T::Hash[Symbol, String],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

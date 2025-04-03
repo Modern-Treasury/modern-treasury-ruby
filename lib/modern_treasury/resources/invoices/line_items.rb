@@ -99,7 +99,7 @@ module ModernTreasury
         # @param per_page [Integer]
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::Page<ModernTreasury::Models::Invoices::InvoiceLineItem>]
+        # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::Invoices::InvoiceLineItem>]
         #
         # @see ModernTreasury::Models::Invoices::LineItemListParams
         def list(invoice_id, params = {})
@@ -108,7 +108,7 @@ module ModernTreasury
             method: :get,
             path: ["api/invoices/%1$s/invoice_line_items", invoice_id],
             query: parsed,
-            page: ModernTreasury::Page,
+            page: ModernTreasury::Internal::Page,
             model: ModernTreasury::Models::Invoices::InvoiceLineItem,
             options: options
           )

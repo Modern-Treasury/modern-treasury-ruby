@@ -3,8 +3,8 @@
 module ModernTreasury
   module Models
     class TransactionCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # Value in specified currency's smallest unit. e.g. $10 would be represented
       #   as 1000.
@@ -72,7 +72,7 @@ module ModernTreasury
           posted: T::Boolean,
           type: T.nilable(ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol),
           vendor_description: T.nilable(String),
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

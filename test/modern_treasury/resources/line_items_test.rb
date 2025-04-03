@@ -71,7 +71,7 @@ class ModernTreasury::Test::Resources::LineItemsTest < ModernTreasury::Test::Res
     response = @modern_treasury.line_items.list("itemizable_id", itemizable_type: :expected_payments)
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first

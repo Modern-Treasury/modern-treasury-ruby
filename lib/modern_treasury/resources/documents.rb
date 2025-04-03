@@ -57,7 +57,7 @@ module ModernTreasury
       # @param per_page [Integer]
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Page<ModernTreasury::Models::Document>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::Document>]
       #
       # @see ModernTreasury::Models::DocumentListParams
       def list(params = {})
@@ -66,7 +66,7 @@ module ModernTreasury
           method: :get,
           path: "api/documents",
           query: parsed,
-          page: ModernTreasury::Page,
+          page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Models::Document,
           options: options
         )

@@ -2,11 +2,11 @@ module ModernTreasury
   module Models
     type payment_flow_update_params =
       { status: ModernTreasury::Models::PaymentFlowUpdateParams::status }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
     class PaymentFlowUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor status: ModernTreasury::Models::PaymentFlowUpdateParams::status
 

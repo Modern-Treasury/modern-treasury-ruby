@@ -3,8 +3,8 @@
 module ModernTreasury
   module Models
     class BulkResultListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor
@@ -62,7 +62,7 @@ module ModernTreasury
           request_id: String,
           request_type: ModernTreasury::Models::BulkResultListParams::RequestType::OrSymbol,
           status: ModernTreasury::Models::BulkResultListParams::Status::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

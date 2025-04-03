@@ -1,10 +1,11 @@
 module ModernTreasury
   module Models
-    type counterparty_delete_params = {  } & ModernTreasury::request_parameters
+    type counterparty_delete_params =
+      {  } & ModernTreasury::Internal::Type::request_parameters
 
     class CounterpartyDeleteParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       def initialize: (?request_options: ModernTreasury::request_opts) -> void
 
