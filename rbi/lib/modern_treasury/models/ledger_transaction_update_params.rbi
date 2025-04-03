@@ -3,8 +3,8 @@
 module ModernTreasury
   module Models
     class LedgerTransactionUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # An optional description for internal use.
       sig { returns(T.nilable(String)) }
@@ -24,7 +24,12 @@ module ModernTreasury
 
       sig do
         params(
-          ledger_entries: T::Array[T.any(ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry, ModernTreasury::Util::AnyHash)]
+          ledger_entries: T::Array[
+          T.any(
+            ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry,
+            ModernTreasury::Internal::Util::AnyHash
+          )
+          ]
         )
           .void
       end
@@ -70,12 +75,17 @@ module ModernTreasury
         params(
           description: T.nilable(String),
           effective_at: Time,
-          ledger_entries: T::Array[T.any(ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry, ModernTreasury::Util::AnyHash)],
+          ledger_entries: T::Array[
+          T.any(
+            ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry,
+            ModernTreasury::Internal::Util::AnyHash
+          )
+          ],
           ledgerable_id: String,
           ledgerable_type: ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType::OrSymbol,
           metadata: T::Hash[Symbol, String],
           status: ModernTreasury::Models::LedgerTransactionUpdateParams::Status::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

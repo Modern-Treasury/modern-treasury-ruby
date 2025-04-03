@@ -1,7 +1,7 @@
 # typed: strong
 
 module ModernTreasury
-  class Client < ModernTreasury::Transport::BaseClient
+  class Client < ModernTreasury::Internal::Transport::BaseClient
     DEFAULT_MAX_RETRIES = 2
 
     DEFAULT_TIMEOUT_IN_SECONDS = T.let(60.0, Float)
@@ -130,7 +130,14 @@ module ModernTreasury
     # A test endpoint often used to confirm credentials and headers are being passed
     #   in correctly.
     sig do
-      params(request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)))
+      params(
+        request_options: T.nilable(
+          T.any(
+            ModernTreasury::RequestOptions,
+            ModernTreasury::Internal::Util::AnyHash
+          )
+        )
+      )
         .returns(ModernTreasury::Models::PingResponse)
     end
     def ping(request_options: {})

@@ -5,8 +5,8 @@ module ModernTreasury
     # @see ModernTreasury::Resources::LedgerAccountCategories#add_nested_category
     class LedgerAccountCategoryAddNestedCategoryParams < ModernTreasury::BaseModel
       # @!parse
-      #   extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute id
       #

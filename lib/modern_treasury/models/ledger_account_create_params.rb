@@ -5,8 +5,8 @@ module ModernTreasury
     # @see ModernTreasury::Resources::LedgerAccounts#create
     class LedgerAccountCreateParams < ModernTreasury::BaseModel
       # @!parse
-      #   extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute currency
       #   The currency of the ledger account.

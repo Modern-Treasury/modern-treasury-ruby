@@ -12,7 +12,10 @@ module ModernTreasury
 
       sig do
         params(
-          child_legal_entity: T.any(ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity, ModernTreasury::Util::AnyHash)
+          child_legal_entity: T.any(
+            ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity,
+            ModernTreasury::Internal::Util::AnyHash
+          )
         )
           .void
       end
@@ -54,7 +57,10 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          child_legal_entity: T.any(ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity, ModernTreasury::Util::AnyHash),
+          child_legal_entity: T.any(
+            ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity,
+            ModernTreasury::Internal::Util::AnyHash
+          ),
           created_at: Time,
           discarded_at: T.nilable(Time),
           live_mode: T::Boolean,
@@ -116,7 +122,7 @@ module ModernTreasury
 
         sig do
           params(
-            bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Util::AnyHash))
+            bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Internal::Util::AnyHash))
           )
             .void
         end
@@ -135,7 +141,9 @@ module ModernTreasury
 
         sig do
           params(
-            compliance_details: T.nilable(T.any(ModernTreasury::Models::LegalEntityComplianceDetail, ModernTreasury::Util::AnyHash))
+            compliance_details: T.nilable(
+              T.any(ModernTreasury::Models::LegalEntityComplianceDetail, ModernTreasury::Internal::Util::AnyHash)
+            )
           )
             .void
         end
@@ -242,7 +250,9 @@ module ModernTreasury
 
         sig do
           params(
-            wealth_and_employment_details: T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Util::AnyHash))
+            wealth_and_employment_details: T.nilable(
+              T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Internal::Util::AnyHash)
+            )
           )
             .void
         end
@@ -259,13 +269,15 @@ module ModernTreasury
             addresses: T::Array[
             T.any(
               ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             )
             ],
-            bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Util::AnyHash)),
+            bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Internal::Util::AnyHash)),
             business_name: T.nilable(String),
             citizenship_country: T.nilable(String),
-            compliance_details: T.nilable(T.any(ModernTreasury::Models::LegalEntityComplianceDetail, ModernTreasury::Util::AnyHash)),
+            compliance_details: T.nilable(
+              T.any(ModernTreasury::Models::LegalEntityComplianceDetail, ModernTreasury::Internal::Util::AnyHash)
+            ),
             created_at: Time,
             date_formed: T.nilable(Date),
             date_of_birth: T.nilable(Date),
@@ -276,10 +288,10 @@ module ModernTreasury
             identifications: T::Array[
             T.any(
               ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             )
             ],
-            industry_classifications: T::Array[T.any(ModernTreasury::Models::LegalEntityIndustryClassification, ModernTreasury::Util::AnyHash)],
+            industry_classifications: T::Array[T.any(ModernTreasury::Models::LegalEntityIndustryClassification, ModernTreasury::Internal::Util::AnyHash)],
             last_name: T.nilable(String),
             legal_entity_type: ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::OrSymbol,
             legal_structure: T.nilable(ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalStructure::OrSymbol),
@@ -290,7 +302,7 @@ module ModernTreasury
             phone_numbers: T::Array[
             T.any(
               ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::PhoneNumber,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             )
             ],
             politically_exposed_person: T.nilable(T::Boolean),
@@ -299,7 +311,9 @@ module ModernTreasury
             risk_rating: T.nilable(ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::RiskRating::OrSymbol),
             suffix: T.nilable(String),
             updated_at: Time,
-            wealth_and_employment_details: T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Util::AnyHash)),
+            wealth_and_employment_details: T.nilable(
+              T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Internal::Util::AnyHash)
+            ),
             website: T.nilable(String)
           )
             .returns(T.attached_class)

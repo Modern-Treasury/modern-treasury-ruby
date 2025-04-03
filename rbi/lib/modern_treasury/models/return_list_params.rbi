@@ -3,8 +3,8 @@
 module ModernTreasury
   module Models
     class ReturnListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor
@@ -54,7 +54,7 @@ module ModernTreasury
           per_page: Integer,
           returnable_id: String,
           returnable_type: ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

@@ -13,11 +13,11 @@ module ModernTreasury
         parent_ledger_account_category_id: String,
         per_page: Integer
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
     class LedgerAccountCategoryListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_reader id: ::Array[String]?
 

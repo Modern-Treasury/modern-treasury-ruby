@@ -28,7 +28,7 @@ module ModernTreasury
         ?per_page: Integer,
         ?updated_at: ::Hash[Symbol, Time],
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Page[ModernTreasury::Models::Ledger]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::Ledger]
 
       def delete: (
         String id,

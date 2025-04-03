@@ -13,7 +13,7 @@ module ModernTreasury
       # @param vendor_customer_id [String]
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Page<ModernTreasury::Models::Connection>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::Connection>]
       #
       # @see ModernTreasury::Models::ConnectionListParams
       def list(params = {})
@@ -22,7 +22,7 @@ module ModernTreasury
           method: :get,
           path: "api/connections",
           query: parsed,
-          page: ModernTreasury::Page,
+          page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Models::Connection,
           options: options
         )

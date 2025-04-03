@@ -6,8 +6,8 @@ module ModernTreasury
       # @see ModernTreasury::Resources::Invoices::LineItems#create
       class LineItemCreateParams < ModernTreasury::BaseModel
         # @!parse
-        #   extend ModernTreasury::Type::RequestParameters::Converter
-        include ModernTreasury::RequestParameters
+        #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        include ModernTreasury::Internal::Type::RequestParameters
 
         # @!attribute name
         #   The name of the line item, typically a product or SKU name.

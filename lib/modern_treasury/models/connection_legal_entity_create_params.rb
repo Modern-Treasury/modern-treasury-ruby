@@ -5,8 +5,8 @@ module ModernTreasury
     # @see ModernTreasury::Resources::ConnectionLegalEntities#create
     class ConnectionLegalEntityCreateParams < ModernTreasury::BaseModel
       # @!parse
-      #   extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute connection_id
       #   The ID of the connection.

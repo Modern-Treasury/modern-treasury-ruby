@@ -40,7 +40,7 @@ module ModernTreasury
         ?settlement_entry_direction: String,
         ?updated_at: ::Hash[Symbol, Time],
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Page[ModernTreasury::Models::LedgerAccountSettlement]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerAccountSettlement]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

@@ -1,11 +1,11 @@
 module ModernTreasury
   module Models
     type ledger_account_balance_monitor_delete_params =
-      {  } & ModernTreasury::request_parameters
+      {  } & ModernTreasury::Internal::Type::request_parameters
 
     class LedgerAccountBalanceMonitorDeleteParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       def initialize: (?request_options: ModernTreasury::request_opts) -> void
 

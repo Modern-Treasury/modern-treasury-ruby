@@ -3,8 +3,8 @@
 module ModernTreasury
   module Models
     class LedgerEntryRetrieveParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # If true, response will include the balances attached to the ledger entry. If
       #   there is no balance available, null will be returned instead.
@@ -17,7 +17,7 @@ module ModernTreasury
       sig do
         params(
           show_balances: T::Boolean,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

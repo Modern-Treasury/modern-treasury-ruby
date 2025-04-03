@@ -3,8 +3,8 @@
 module ModernTreasury
   module Models
     class VirtualAccountCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # The ID of the internal account that this virtual account is associated with.
       sig { returns(String) }
@@ -20,7 +20,12 @@ module ModernTreasury
 
       sig do
         params(
-          account_details: T::Array[T.any(ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail, ModernTreasury::Util::AnyHash)]
+          account_details: T::Array[
+          T.any(
+            ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail,
+            ModernTreasury::Internal::Util::AnyHash
+          )
+          ]
         )
           .void
       end
@@ -66,7 +71,10 @@ module ModernTreasury
 
       sig do
         params(
-          ledger_account: T.any(ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount, ModernTreasury::Util::AnyHash)
+          ledger_account: T.any(
+            ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount,
+            ModernTreasury::Internal::Util::AnyHash
+          )
         )
           .void
       end
@@ -86,7 +94,12 @@ module ModernTreasury
 
       sig do
         params(
-          routing_details: T::Array[T.any(ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail, ModernTreasury::Util::AnyHash)]
+          routing_details: T::Array[
+          T.any(
+            ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail,
+            ModernTreasury::Internal::Util::AnyHash
+          )
+          ]
         )
           .void
       end
@@ -96,15 +109,28 @@ module ModernTreasury
         params(
           internal_account_id: String,
           name: String,
-          account_details: T::Array[T.any(ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail, ModernTreasury::Util::AnyHash)],
+          account_details: T::Array[
+          T.any(
+            ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail,
+            ModernTreasury::Internal::Util::AnyHash
+          )
+          ],
           counterparty_id: String,
           credit_ledger_account_id: String,
           debit_ledger_account_id: String,
           description: String,
-          ledger_account: T.any(ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount, ModernTreasury::Util::AnyHash),
+          ledger_account: T.any(
+            ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount,
+            ModernTreasury::Internal::Util::AnyHash
+          ),
           metadata: T::Hash[Symbol, String],
-          routing_details: T::Array[T.any(ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail, ModernTreasury::Util::AnyHash)],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          routing_details: T::Array[
+          T.any(
+            ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail,
+            ModernTreasury::Internal::Util::AnyHash
+          )
+          ],
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

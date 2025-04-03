@@ -13,11 +13,11 @@ module ModernTreasury
         type: ModernTreasury::Models::TransactionCreateParams::type_?,
         vendor_description: String?
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
     class TransactionCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor amount: Integer
 

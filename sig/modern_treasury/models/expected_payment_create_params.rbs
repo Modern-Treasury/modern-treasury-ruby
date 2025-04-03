@@ -22,11 +22,11 @@ module ModernTreasury
         statement_descriptor: String?,
         type: ModernTreasury::Models::expected_payment_type?
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
     class ExpectedPaymentCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor amount_lower_bound: Integer?
 

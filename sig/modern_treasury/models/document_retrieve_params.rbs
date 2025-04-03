@@ -1,10 +1,11 @@
 module ModernTreasury
   module Models
-    type document_retrieve_params = {  } & ModernTreasury::request_parameters
+    type document_retrieve_params =
+      {  } & ModernTreasury::Internal::Type::request_parameters
 
     class DocumentRetrieveParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       def initialize: (?request_options: ModernTreasury::request_opts) -> void
 

@@ -4,8 +4,8 @@ module ModernTreasury
   module Models
     module Transactions
       class LineItemCreateParams < ModernTreasury::BaseModel
-        extend ModernTreasury::Type::RequestParameters::Converter
-        include ModernTreasury::RequestParameters
+        extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        include ModernTreasury::Internal::Type::RequestParameters
 
         # If a matching object exists in Modern Treasury, `amount` will be populated.
         #   Value in specified currency's smallest unit (taken from parent Transaction).
@@ -25,7 +25,7 @@ module ModernTreasury
             amount: Integer,
             expected_payment_id: String,
             transaction_id: String,
-            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
           )
             .returns(T.attached_class)
         end

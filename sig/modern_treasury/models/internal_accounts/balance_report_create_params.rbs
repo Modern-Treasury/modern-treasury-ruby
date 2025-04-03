@@ -8,11 +8,11 @@ module ModernTreasury
           balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::balance_report_type,
           balances: ::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance]
         }
-        & ModernTreasury::request_parameters
+        & ModernTreasury::Internal::Type::request_parameters
 
       class BalanceReportCreateParams < ModernTreasury::BaseModel
-        extend ModernTreasury::Type::RequestParameters::Converter
-        include ModernTreasury::RequestParameters
+        extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        include ModernTreasury::Internal::Type::RequestParameters
 
         attr_accessor as_of_date: Date
 

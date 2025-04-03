@@ -5,8 +5,8 @@ module ModernTreasury
     # @see ModernTreasury::Resources::Invoices#create
     class InvoiceCreateParams < ModernTreasury::BaseModel
       # @!parse
-      #   extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute counterparty_id
       #   The ID of the counterparty receiving the invoice.

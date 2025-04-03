@@ -8,7 +8,12 @@ module ModernTreasury
         params(
           id: String,
           show_balances: T::Boolean,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::LedgerEntry)
       end
@@ -27,7 +32,12 @@ module ModernTreasury
         params(
           id: String,
           metadata: T::Hash[Symbol, String],
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::LedgerEntry)
       end
@@ -58,15 +68,20 @@ module ModernTreasury
           ledger_account_statement_id: String,
           ledger_transaction_id: String,
           metadata: T::Hash[Symbol, String],
-          order_by: T.any(ModernTreasury::Models::LedgerEntryListParams::OrderBy, ModernTreasury::Util::AnyHash),
+          order_by: T.any(ModernTreasury::Models::LedgerEntryListParams::OrderBy, ModernTreasury::Internal::Util::AnyHash),
           per_page: Integer,
           show_balances: T::Boolean,
           show_deleted: T::Boolean,
           status: ModernTreasury::Models::LedgerEntryListParams::Status::OrSymbol,
           updated_at: T::Hash[Symbol, Time],
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
-          .returns(ModernTreasury::Page[ModernTreasury::Models::LedgerEntry])
+          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerEntry])
       end
       def list(
         # If you have specific IDs to retrieve in bulk, you can pass them as query

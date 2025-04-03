@@ -12,11 +12,11 @@ module ModernTreasury
         type: ModernTreasury::Models::IncomingPaymentDetailListParams::type_,
         virtual_account_id: String
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
     class IncomingPaymentDetailListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor after_cursor: String?
 

@@ -28,7 +28,7 @@ module ModernTreasury
         ?metadata: ::Hash[Symbol, String],
         ?per_page: Integer,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Page[ModernTreasury::Models::LedgerAccountBalanceMonitor]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerAccountBalanceMonitor]
 
       def delete: (
         String id,

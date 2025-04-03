@@ -35,7 +35,7 @@ module ModernTreasury
       # @param resource [String]
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Page<ModernTreasury::Models::Event>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::Event>]
       #
       # @see ModernTreasury::Models::EventListParams
       def list(params = {})
@@ -44,7 +44,7 @@ module ModernTreasury
           method: :get,
           path: "api/events",
           query: parsed,
-          page: ModernTreasury::Page,
+          page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Models::Event,
           options: options
         )

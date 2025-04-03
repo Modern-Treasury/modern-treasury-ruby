@@ -6,8 +6,8 @@ module ModernTreasury
       # @see ModernTreasury::Resources::PaymentOrders::Reversals#create
       class ReversalCreateParams < ModernTreasury::BaseModel
         # @!parse
-        #   extend ModernTreasury::Type::RequestParameters::Converter
-        include ModernTreasury::RequestParameters
+        #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        include ModernTreasury::Internal::Type::RequestParameters
 
         # @!attribute reason
         #   The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`,

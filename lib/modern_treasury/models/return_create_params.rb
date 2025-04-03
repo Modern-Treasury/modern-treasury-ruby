@@ -5,8 +5,8 @@ module ModernTreasury
     # @see ModernTreasury::Resources::Returns#create
     class ReturnCreateParams < ModernTreasury::BaseModel
       # @!parse
-      #   extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute returnable_id
       #   The ID of the object being returned or `null`.

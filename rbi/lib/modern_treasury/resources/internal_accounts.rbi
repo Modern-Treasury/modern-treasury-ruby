@@ -16,9 +16,17 @@ module ModernTreasury
           counterparty_id: String,
           legal_entity_id: String,
           parent_account_id: String,
-          party_address: T.any(ModernTreasury::Models::InternalAccountCreateParams::PartyAddress, ModernTreasury::Util::AnyHash),
+          party_address: T.any(
+            ModernTreasury::Models::InternalAccountCreateParams::PartyAddress,
+            ModernTreasury::Internal::Util::AnyHash
+          ),
           vendor_attributes: T::Hash[Symbol, String],
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::InternalAccount)
       end
@@ -51,7 +59,12 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::InternalAccount)
       end
@@ -71,7 +84,12 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           name: String,
           parent_account_id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::InternalAccount)
       end
@@ -104,9 +122,14 @@ module ModernTreasury
           payment_direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
           payment_type: ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol,
           per_page: Integer,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
-          .returns(ModernTreasury::Page[ModernTreasury::Models::InternalAccount])
+          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::InternalAccount])
       end
       def list(
         after_cursor: nil,

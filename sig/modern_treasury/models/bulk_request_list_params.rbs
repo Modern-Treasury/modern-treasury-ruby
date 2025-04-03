@@ -9,11 +9,11 @@ module ModernTreasury
         resource_type: ModernTreasury::Models::BulkRequestListParams::resource_type,
         status: ModernTreasury::Models::BulkRequestListParams::status
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
     class BulkRequestListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_reader action_type: ModernTreasury::Models::BulkRequestListParams::action_type?
 

@@ -75,7 +75,7 @@ module ModernTreasury
       # @param per_page [Integer]
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Page<ModernTreasury::Models::LineItem>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::LineItem>]
       #
       # @see ModernTreasury::Models::LineItemListParams
       def list(itemizable_id, params)
@@ -88,7 +88,7 @@ module ModernTreasury
           method: :get,
           path: ["api/%1$s/%2$s/line_items", itemizable_type, itemizable_id],
           query: parsed,
-          page: ModernTreasury::Page,
+          page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Models::LineItem,
           options: options
         )

@@ -16,7 +16,7 @@ module ModernTreasury
         # @param version [Hash{Symbol=>Integer}]
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion>]
+        # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion>]
         #
         # @see ModernTreasury::Models::LedgerTransactions::VersionListParams
         def list(params = {})
@@ -25,7 +25,7 @@ module ModernTreasury
             method: :get,
             path: "api/ledger_transaction_versions",
             query: parsed,
-            page: ModernTreasury::Page,
+            page: ModernTreasury::Internal::Page,
             model: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion,
             options: options
           )

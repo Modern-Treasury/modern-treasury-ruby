@@ -11,11 +11,11 @@ module ModernTreasury
           quantity: Integer,
           unit_amount_decimal: String
         }
-        & ModernTreasury::request_parameters
+        & ModernTreasury::Internal::Type::request_parameters
 
       class LineItemCreateParams < ModernTreasury::BaseModel
-        extend ModernTreasury::Type::RequestParameters::Converter
-        include ModernTreasury::RequestParameters
+        extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        include ModernTreasury::Internal::Type::RequestParameters
 
         attr_accessor name: String
 

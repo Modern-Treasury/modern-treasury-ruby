@@ -11,10 +11,15 @@ module ModernTreasury
             reason: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::OrSymbol,
             ledger_transaction: T.any(
               ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             ),
             metadata: T::Hash[Symbol, String],
-            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+            request_options: T.nilable(
+              T.any(
+                ModernTreasury::RequestOptions,
+                ModernTreasury::Internal::Util::AnyHash
+              )
+            )
           )
             .returns(ModernTreasury::Models::PaymentOrders::Reversal)
         end
@@ -41,7 +46,12 @@ module ModernTreasury
           params(
             reversal_id: String,
             payment_order_id: String,
-            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+            request_options: T.nilable(
+              T.any(
+                ModernTreasury::RequestOptions,
+                ModernTreasury::Internal::Util::AnyHash
+              )
+            )
           )
             .returns(ModernTreasury::Models::PaymentOrders::Reversal)
         end
@@ -60,9 +70,14 @@ module ModernTreasury
             payment_order_id: String,
             after_cursor: T.nilable(String),
             per_page: Integer,
-            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+            request_options: T.nilable(
+              T.any(
+                ModernTreasury::RequestOptions,
+                ModernTreasury::Internal::Util::AnyHash
+              )
+            )
           )
-            .returns(ModernTreasury::Page[ModernTreasury::Models::PaymentOrders::Reversal])
+            .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::PaymentOrders::Reversal])
         end
         def list(
           # The ID of the relevant Payment Order.

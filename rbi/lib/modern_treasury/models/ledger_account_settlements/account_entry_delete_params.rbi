@@ -4,8 +4,8 @@ module ModernTreasury
   module Models
     module LedgerAccountSettlements
       class AccountEntryDeleteParams < ModernTreasury::BaseModel
-        extend ModernTreasury::Type::RequestParameters::Converter
-        include ModernTreasury::RequestParameters
+        extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        include ModernTreasury::Internal::Type::RequestParameters
 
         # The ids of the ledger entries that are to be added or removed from the ledger
         #   account settlement.
@@ -15,7 +15,7 @@ module ModernTreasury
         sig do
           params(
             ledger_entry_ids: T.nilable(T::Array[String]),
-            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
           )
             .returns(T.attached_class)
         end

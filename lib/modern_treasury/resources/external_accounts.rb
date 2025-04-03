@@ -94,7 +94,7 @@ module ModernTreasury
       # @param per_page [Integer]
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Page<ModernTreasury::Models::ExternalAccount>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::ExternalAccount>]
       #
       # @see ModernTreasury::Models::ExternalAccountListParams
       def list(params = {})
@@ -103,7 +103,7 @@ module ModernTreasury
           method: :get,
           path: "api/external_accounts",
           query: parsed,
-          page: ModernTreasury::Page,
+          page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Models::ExternalAccount,
           options: options
         )

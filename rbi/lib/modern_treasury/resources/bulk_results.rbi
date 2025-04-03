@@ -7,7 +7,12 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::BulkResult)
       end
@@ -28,9 +33,14 @@ module ModernTreasury
           request_id: String,
           request_type: ModernTreasury::Models::BulkResultListParams::RequestType::OrSymbol,
           status: ModernTreasury::Models::BulkResultListParams::Status::OrSymbol,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
-          .returns(ModernTreasury::Page[ModernTreasury::Models::BulkResult])
+          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::BulkResult])
       end
       def list(
         after_cursor: nil,

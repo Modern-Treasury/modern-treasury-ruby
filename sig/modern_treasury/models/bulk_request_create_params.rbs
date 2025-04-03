@@ -7,11 +7,11 @@ module ModernTreasury
         resources: ::Array[ModernTreasury::Models::BulkRequestCreateParams::resource],
         metadata: ::Hash[Symbol, String]
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
     class BulkRequestCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor action_type: ModernTreasury::Models::BulkRequestCreateParams::action_type
 

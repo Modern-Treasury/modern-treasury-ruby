@@ -61,7 +61,7 @@ class ModernTreasury::Test::Resources::AccountDetailsTest < ModernTreasury::Test
     response = @modern_treasury.account_details.list("account_id", accounts_type: :external_accounts)
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first

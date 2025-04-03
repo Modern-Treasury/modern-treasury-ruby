@@ -3,8 +3,8 @@
 module ModernTreasury
   module Models
     class InvoiceUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # The invoicer's contact details displayed at the top of the invoice.
       sig { returns(T.nilable(T::Array[ModernTreasury::Models::InvoiceUpdateParams::ContactDetail])) }
@@ -12,7 +12,7 @@ module ModernTreasury
 
       sig do
         params(
-          contact_details: T::Array[T.any(ModernTreasury::Models::InvoiceUpdateParams::ContactDetail, ModernTreasury::Util::AnyHash)]
+          contact_details: T::Array[T.any(ModernTreasury::Models::InvoiceUpdateParams::ContactDetail, ModernTreasury::Internal::Util::AnyHash)]
         )
           .void
       end
@@ -27,7 +27,7 @@ module ModernTreasury
           counterparty_billing_address: T.nilable(
             T.any(
               ModernTreasury::Models::InvoiceUpdateParams::CounterpartyBillingAddress,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             )
           )
         )
@@ -51,7 +51,7 @@ module ModernTreasury
           counterparty_shipping_address: T.nilable(
             T.any(
               ModernTreasury::Models::InvoiceUpdateParams::CounterpartyShippingAddress,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             )
           )
         )
@@ -104,7 +104,10 @@ module ModernTreasury
       sig do
         params(
           invoicer_address: T.nilable(
-            T.any(ModernTreasury::Models::InvoiceUpdateParams::InvoicerAddress, ModernTreasury::Util::AnyHash)
+            T.any(
+              ModernTreasury::Models::InvoiceUpdateParams::InvoicerAddress,
+              ModernTreasury::Internal::Util::AnyHash
+            )
           )
         )
           .void
@@ -208,18 +211,18 @@ module ModernTreasury
 
       sig do
         params(
-          contact_details: T::Array[T.any(ModernTreasury::Models::InvoiceUpdateParams::ContactDetail, ModernTreasury::Util::AnyHash)],
+          contact_details: T::Array[T.any(ModernTreasury::Models::InvoiceUpdateParams::ContactDetail, ModernTreasury::Internal::Util::AnyHash)],
           counterparty_billing_address: T.nilable(
             T.any(
               ModernTreasury::Models::InvoiceUpdateParams::CounterpartyBillingAddress,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             )
           ),
           counterparty_id: String,
           counterparty_shipping_address: T.nilable(
             T.any(
               ModernTreasury::Models::InvoiceUpdateParams::CounterpartyShippingAddress,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             )
           ),
           currency: ModernTreasury::Models::Currency::OrSymbol,
@@ -228,10 +231,18 @@ module ModernTreasury
           fallback_payment_method: T.nilable(String),
           ingest_ledger_entries: T.nilable(T::Boolean),
           invoice_line_items: T.nilable(
-            T::Array[T.any(ModernTreasury::Models::InvoiceUpdateParams::InvoiceLineItem, ModernTreasury::Util::AnyHash)]
+            T::Array[
+            T.any(
+              ModernTreasury::Models::InvoiceUpdateParams::InvoiceLineItem,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+            ]
           ),
           invoicer_address: T.nilable(
-            T.any(ModernTreasury::Models::InvoiceUpdateParams::InvoicerAddress, ModernTreasury::Util::AnyHash)
+            T.any(
+              ModernTreasury::Models::InvoiceUpdateParams::InvoicerAddress,
+              ModernTreasury::Internal::Util::AnyHash
+            )
           ),
           ledger_account_settlement_id: T.nilable(String),
           metadata: T.nilable(T::Hash[Symbol, String]),
@@ -247,7 +258,7 @@ module ModernTreasury
           remind_after_overdue_days: T.nilable(T::Array[Integer]),
           status: String,
           virtual_account_id: T.nilable(String),
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

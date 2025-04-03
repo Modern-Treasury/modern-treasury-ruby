@@ -106,7 +106,7 @@ module ModernTreasury
         ?transaction_id: String,
         ?type: ModernTreasury::Models::PaymentOrderListParams::type_,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Page[ModernTreasury::Models::PaymentOrder]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::PaymentOrder]
 
       def create_async: (
         amount: Integer,

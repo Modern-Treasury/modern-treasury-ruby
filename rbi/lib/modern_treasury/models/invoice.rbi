@@ -27,7 +27,10 @@ module ModernTreasury
       sig do
         params(
           counterparty_billing_address: T.nilable(
-            T.any(ModernTreasury::Models::Invoice::CounterpartyBillingAddress, ModernTreasury::Util::AnyHash)
+            T.any(
+              ModernTreasury::Models::Invoice::CounterpartyBillingAddress,
+              ModernTreasury::Internal::Util::AnyHash
+            )
           )
         )
           .void
@@ -45,7 +48,10 @@ module ModernTreasury
       sig do
         params(
           counterparty_shipping_address: T.nilable(
-            T.any(ModernTreasury::Models::Invoice::CounterpartyShippingAddress, ModernTreasury::Util::AnyHash)
+            T.any(
+              ModernTreasury::Models::Invoice::CounterpartyShippingAddress,
+              ModernTreasury::Internal::Util::AnyHash
+            )
           )
         )
           .void
@@ -86,7 +92,9 @@ module ModernTreasury
 
       sig do
         params(
-          invoicer_address: T.nilable(T.any(ModernTreasury::Models::Invoice::InvoicerAddress, ModernTreasury::Util::AnyHash))
+          invoicer_address: T.nilable(
+            T.any(ModernTreasury::Models::Invoice::InvoicerAddress, ModernTreasury::Internal::Util::AnyHash)
+          )
         )
           .void
       end
@@ -196,22 +204,30 @@ module ModernTreasury
           id: String,
           amount_paid: Integer,
           amount_remaining: Integer,
-          contact_details: T::Array[T.any(ModernTreasury::Models::Invoice::ContactDetail, ModernTreasury::Util::AnyHash)],
+          contact_details: T::Array[T.any(ModernTreasury::Models::Invoice::ContactDetail, ModernTreasury::Internal::Util::AnyHash)],
           counterparty_billing_address: T.nilable(
-            T.any(ModernTreasury::Models::Invoice::CounterpartyBillingAddress, ModernTreasury::Util::AnyHash)
+            T.any(
+              ModernTreasury::Models::Invoice::CounterpartyBillingAddress,
+              ModernTreasury::Internal::Util::AnyHash
+            )
           ),
           counterparty_id: String,
           counterparty_shipping_address: T.nilable(
-            T.any(ModernTreasury::Models::Invoice::CounterpartyShippingAddress, ModernTreasury::Util::AnyHash)
+            T.any(
+              ModernTreasury::Models::Invoice::CounterpartyShippingAddress,
+              ModernTreasury::Internal::Util::AnyHash
+            )
           ),
           created_at: Time,
           currency: ModernTreasury::Models::Currency::OrSymbol,
           description: String,
           due_date: Time,
-          expected_payments: T::Array[T.any(ModernTreasury::Models::ExpectedPayment, ModernTreasury::Util::AnyHash)],
+          expected_payments: T::Array[T.any(ModernTreasury::Models::ExpectedPayment, ModernTreasury::Internal::Util::AnyHash)],
           fallback_payment_method: T.nilable(String),
           hosted_url: String,
-          invoicer_address: T.nilable(T.any(ModernTreasury::Models::Invoice::InvoicerAddress, ModernTreasury::Util::AnyHash)),
+          invoicer_address: T.nilable(
+            T.any(ModernTreasury::Models::Invoice::InvoicerAddress, ModernTreasury::Internal::Util::AnyHash)
+          ),
           ledger_account_settlement_id: T.nilable(String),
           live_mode: T::Boolean,
           metadata: T.nilable(T::Hash[Symbol, String]),
@@ -222,7 +238,7 @@ module ModernTreasury
           originating_account_id: String,
           payment_effective_date: T.nilable(Date),
           payment_method: T.nilable(ModernTreasury::Models::Invoice::PaymentMethod::OrSymbol),
-          payment_orders: T::Array[T.any(ModernTreasury::Models::PaymentOrder, ModernTreasury::Util::AnyHash)],
+          payment_orders: T::Array[T.any(ModernTreasury::Models::PaymentOrder, ModernTreasury::Internal::Util::AnyHash)],
           payment_type: T.nilable(ModernTreasury::Models::Invoice::PaymentType::OrSymbol),
           pdf_url: T.nilable(String),
           receiving_account_id: T.nilable(String),

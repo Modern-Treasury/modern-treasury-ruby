@@ -7,7 +7,7 @@ class ModernTreasury::Test::Resources::LedgerTransactions::VersionsTest < Modern
     response = @modern_treasury.ledger_transactions.versions.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first

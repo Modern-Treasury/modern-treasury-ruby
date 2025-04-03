@@ -33,7 +33,7 @@ module ModernTreasury
       # @param per_page [Integer]
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Page<ModernTreasury::Models::PaperItem>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::PaperItem>]
       #
       # @see ModernTreasury::Models::PaperItemListParams
       def list(params = {})
@@ -42,7 +42,7 @@ module ModernTreasury
           method: :get,
           path: "api/paper_items",
           query: parsed,
-          page: ModernTreasury::Page,
+          page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Models::PaperItem,
           options: options
         )

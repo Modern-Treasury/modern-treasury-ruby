@@ -5,8 +5,8 @@ module ModernTreasury
     # @see ModernTreasury::Resources::Ledgers#update
     class LedgerUpdateParams < ModernTreasury::BaseModel
       # @!parse
-      #   extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute description
       #   An optional free-form description for internal use.

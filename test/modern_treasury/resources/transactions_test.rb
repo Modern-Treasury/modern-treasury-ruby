@@ -129,7 +129,7 @@ class ModernTreasury::Test::Resources::TransactionsTest < ModernTreasury::Test::
     response = @modern_treasury.transactions.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first

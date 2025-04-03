@@ -72,7 +72,7 @@ module ModernTreasury
           created_at: Time,
           entity: T.any(
             ModernTreasury::Models::PaymentOrder,
-            ModernTreasury::Util::AnyHash,
+            ModernTreasury::Internal::Util::AnyHash,
             ModernTreasury::Models::ExpectedPayment,
             ModernTreasury::Models::LedgerTransaction,
             ModernTreasury::Models::Transaction,
@@ -167,7 +167,12 @@ module ModernTreasury
               created_at: Time,
               live_mode: T::Boolean,
               object: String,
-              request_errors: T::Array[T.any(ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError, ModernTreasury::Util::AnyHash)],
+              request_errors: T::Array[
+              T.any(
+                ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError,
+                ModernTreasury::Internal::Util::AnyHash
+              )
+              ],
               updated_at: Time
             )
               .returns(T.attached_class)

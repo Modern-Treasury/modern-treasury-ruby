@@ -13,11 +13,11 @@ module ModernTreasury
         status: ModernTreasury::Models::ExpectedPaymentListParams::status,
         type: ModernTreasury::Models::ExpectedPaymentListParams::type_
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
     class ExpectedPaymentListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor after_cursor: String?
 

@@ -104,7 +104,7 @@ class ModernTreasury::Test::Resources::ExternalAccountsTest < ModernTreasury::Te
     response = @modern_treasury.external_accounts.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first
