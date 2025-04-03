@@ -3,7 +3,7 @@ module ModernTreasury
     type invoice_add_payment_order_params =
       { id: String } & ModernTreasury::Internal::Type::request_parameters
 
-    class InvoiceAddPaymentOrderParams < ModernTreasury::BaseModel
+    class InvoiceAddPaymentOrderParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 

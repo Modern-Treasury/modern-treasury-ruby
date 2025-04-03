@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     module AccountsType
-      extend ModernTreasury::Enum
+      extend ModernTreasury::Internal::Type::Enum
 
       EXTERNAL_ACCOUNTS = :external_accounts
       INTERNAL_ACCOUNTS = :internal_accounts

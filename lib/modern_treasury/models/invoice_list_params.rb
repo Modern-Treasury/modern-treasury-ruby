@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::Invoices#list
-    class InvoiceListParams < ModernTreasury::BaseModel
+    class InvoiceListParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -57,7 +57,7 @@ module ModernTreasury
       #     parameters.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -141,10 +141,10 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         DRAFT = :draft
         PAID = :paid

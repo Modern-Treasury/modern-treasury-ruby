@@ -3,7 +3,7 @@ module ModernTreasury
     type ledger_account_balance_monitor_delete_params =
       {  } & ModernTreasury::Internal::Type::request_parameters
 
-    class LedgerAccountBalanceMonitorDeleteParams < ModernTreasury::BaseModel
+    class LedgerAccountBalanceMonitorDeleteParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 

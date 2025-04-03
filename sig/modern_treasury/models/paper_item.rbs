@@ -22,7 +22,7 @@ module ModernTreasury
         updated_at: Time
       }
 
-    class PaperItem < ModernTreasury::BaseModel
+    class PaperItem < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor account_number: String?
@@ -85,7 +85,7 @@ module ModernTreasury
       type status = :completed | :pending | :returned
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         COMPLETED: :completed
         PENDING: :pending

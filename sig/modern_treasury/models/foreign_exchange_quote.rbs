@@ -16,7 +16,7 @@ module ModernTreasury
         vendor_id: String
       }
 
-    class ForeignExchangeQuote < ModernTreasury::BaseModel
+    class ForeignExchangeQuote < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor created_at: Time
@@ -71,7 +71,7 @@ module ModernTreasury
           value: Integer
         }
 
-      class ForeignExchangeRate < ModernTreasury::BaseModel
+      class ForeignExchangeRate < ModernTreasury::Internal::Type::BaseModel
         attr_accessor base_amount: Integer
 
         attr_accessor base_currency: ModernTreasury::Models::currency

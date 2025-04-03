@@ -3,7 +3,7 @@ module ModernTreasury
     type connection_legal_entity_retrieve_params =
       {  } & ModernTreasury::Internal::Type::request_parameters
 
-    class ConnectionLegalEntityRetrieveParams < ModernTreasury::BaseModel
+    class ConnectionLegalEntityRetrieveParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 

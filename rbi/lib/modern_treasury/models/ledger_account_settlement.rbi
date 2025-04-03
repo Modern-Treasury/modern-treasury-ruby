@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LedgerAccountSettlement < ModernTreasury::BaseModel
+    class LedgerAccountSettlement < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -147,7 +147,7 @@ module ModernTreasury
       # The status of the ledger account settlement. One of `processing`, `pending`,
       #   `posted`, `archiving` or `archived`.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerAccountSettlement::Status) }
         OrSymbol =

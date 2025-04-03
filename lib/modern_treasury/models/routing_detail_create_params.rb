@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::RoutingDetails#create
-    class RoutingDetailCreateParams < ModernTreasury::BaseModel
+    class RoutingDetailCreateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -46,10 +46,10 @@ module ModernTreasury
       #   #
       #   def initialize(accounts_type:, routing_number:, routing_number_type:, payment_type: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       module AccountsType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         EXTERNAL_ACCOUNTS = :external_accounts
 
@@ -64,7 +64,7 @@ module ModernTreasury
       #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
       #   more details.
       module RoutingNumberType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ABA = :aba
         AU_BSB = :au_bsb
@@ -98,7 +98,7 @@ module ModernTreasury
       # If the routing detail is to be used for a specific payment type this field will
       #   be populated, otherwise null.
       module PaymentType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH = :ach
         AU_BECS = :au_becs

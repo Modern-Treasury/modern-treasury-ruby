@@ -20,7 +20,7 @@ module ModernTreasury
           updated_at: Time
         }
 
-      class InvoiceLineItem < ModernTreasury::BaseModel
+      class InvoiceLineItem < ModernTreasury::Internal::Type::BaseModel
         attr_accessor id: String
 
         attr_accessor amount: Integer

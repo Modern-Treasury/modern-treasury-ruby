@@ -8,7 +8,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class AccountDetailListParams < ModernTreasury::BaseModel
+    class AccountDetailListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 

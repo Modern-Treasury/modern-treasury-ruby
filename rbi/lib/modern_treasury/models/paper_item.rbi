@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class PaperItem < ModernTreasury::BaseModel
+    class PaperItem < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -149,7 +149,7 @@ module ModernTreasury
       # The current status of the paper item. One of `pending`, `completed`, or
       #   `returned`.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaperItem::Status) }
         OrSymbol =

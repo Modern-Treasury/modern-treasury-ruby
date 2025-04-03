@@ -4,7 +4,7 @@ module ModernTreasury
       { metadata: ::Hash[Symbol, String] }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class LedgerEntryUpdateParams < ModernTreasury::BaseModel
+    class LedgerEntryUpdateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 

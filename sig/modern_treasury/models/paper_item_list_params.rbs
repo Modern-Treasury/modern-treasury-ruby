@@ -10,7 +10,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class PaperItemListParams < ModernTreasury::BaseModel
+    class PaperItemListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 

@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::Transactions#update
-    class TransactionUpdateParams < ModernTreasury::BaseModel
+    class TransactionUpdateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -13,7 +13,7 @@ module ModernTreasury
       #     an empty string or `null` as the value.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -25,7 +25,7 @@ module ModernTreasury
       #   #
       #   def initialize(metadata: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
     end
   end
 end

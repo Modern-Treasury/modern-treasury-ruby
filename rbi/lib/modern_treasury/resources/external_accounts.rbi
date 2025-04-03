@@ -10,25 +10,25 @@ module ModernTreasury
           account_details: T::Array[
           T.any(
             ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           )
           ],
           account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
           contact_details: T::Array[
           T.any(
             ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           )
           ],
           ledger_account: T.any(
             ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           ),
           metadata: T::Hash[Symbol, String],
           name: T.nilable(String),
           party_address: T.any(
             ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           ),
           party_identifier: String,
           party_name: String,
@@ -37,13 +37,13 @@ module ModernTreasury
           routing_details: T::Array[
           T.any(
             ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           )
           ],
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )
@@ -89,7 +89,7 @@ module ModernTreasury
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )
@@ -112,14 +112,14 @@ module ModernTreasury
           name: T.nilable(String),
           party_address: T.any(
             ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           ),
           party_name: String,
           party_type: T.nilable(ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::OrSymbol),
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )
@@ -157,7 +157,7 @@ module ModernTreasury
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )
@@ -184,7 +184,7 @@ module ModernTreasury
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )
@@ -205,7 +205,7 @@ module ModernTreasury
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )
@@ -231,7 +231,7 @@ module ModernTreasury
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )

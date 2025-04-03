@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LegalEntityListParams < ModernTreasury::BaseModel
+    class LegalEntityListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -43,7 +43,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
           show_deleted: String,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -74,7 +74,7 @@ module ModernTreasury
       end
 
       module LegalEntityType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::LegalEntityListParams::LegalEntityType) }

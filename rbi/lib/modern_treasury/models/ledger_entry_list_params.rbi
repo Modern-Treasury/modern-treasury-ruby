@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LedgerEntryListParams < ModernTreasury::BaseModel
+    class LedgerEntryListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -116,7 +116,7 @@ module ModernTreasury
 
       sig do
         params(
-          order_by: T.any(ModernTreasury::Models::LedgerEntryListParams::OrderBy, ModernTreasury::Internal::Util::AnyHash)
+          order_by: T.any(ModernTreasury::Models::LedgerEntryListParams::OrderBy, ModernTreasury::Internal::AnyHash)
         )
           .void
       end
@@ -178,13 +178,13 @@ module ModernTreasury
           ledger_account_statement_id: String,
           ledger_transaction_id: String,
           metadata: T::Hash[Symbol, String],
-          order_by: T.any(ModernTreasury::Models::LedgerEntryListParams::OrderBy, ModernTreasury::Internal::Util::AnyHash),
+          order_by: T.any(ModernTreasury::Models::LedgerEntryListParams::OrderBy, ModernTreasury::Internal::AnyHash),
           per_page: Integer,
           show_balances: T::Boolean,
           show_deleted: T::Boolean,
           status: ModernTreasury::Models::LedgerEntryListParams::Status::OrSymbol,
           updated_at: T::Hash[Symbol, Time],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -244,7 +244,7 @@ module ModernTreasury
       def to_hash
       end
 
-      class OrderBy < ModernTreasury::BaseModel
+      class OrderBy < ModernTreasury::Internal::Type::BaseModel
         sig { returns(T.nilable(ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::OrSymbol)) }
         attr_reader :created_at
 
@@ -283,7 +283,7 @@ module ModernTreasury
         end
 
         module CreatedAt
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt) }
@@ -301,7 +301,7 @@ module ModernTreasury
         end
 
         module EffectiveAt
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt) }
@@ -323,7 +323,7 @@ module ModernTreasury
       # Get all ledger entries that match the status specified. One of `pending`,
       #   `posted`, or `archived`.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerEntryListParams::Status) }
         OrSymbol =

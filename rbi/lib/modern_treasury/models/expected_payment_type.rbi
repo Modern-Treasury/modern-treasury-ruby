@@ -5,7 +5,7 @@ module ModernTreasury
     # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
     #   sepa, signet, wire.
     module ExpectedPaymentType
-      extend ModernTreasury::Enum
+      extend ModernTreasury::Internal::Type::Enum
 
       TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPaymentType) }
       OrSymbol =

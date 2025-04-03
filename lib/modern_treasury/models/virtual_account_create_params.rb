@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::VirtualAccounts#create
-    class VirtualAccountCreateParams < ModernTreasury::BaseModel
+    class VirtualAccountCreateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -25,7 +25,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail>, nil]
       optional :account_details,
-               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail] }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail] }
 
       # @!parse
       #   # @return [Array<ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail>]
@@ -92,7 +92,7 @@ module ModernTreasury
       #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -103,7 +103,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail>, nil]
       optional :routing_details,
-               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail] }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail] }
 
       # @!parse
       #   # @return [Array<ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail>]
@@ -139,9 +139,9 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-      class AccountDetail < ModernTreasury::BaseModel
+      class AccountDetail < ModernTreasury::Internal::Type::BaseModel
         # @!attribute account_number
         #   The account number for the bank account.
         #
@@ -166,14 +166,14 @@ module ModernTreasury
         #   #
         #   def initialize(account_number:, account_number_type: nil, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
         # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
         #   account number is in a generic format.
         #
         # @see ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail#account_number_type
         module AccountNumberType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           AU_NUMBER = :au_number
           CLABE = :clabe
@@ -194,7 +194,7 @@ module ModernTreasury
         end
       end
 
-      class LedgerAccount < ModernTreasury::BaseModel
+      class LedgerAccount < ModernTreasury::Internal::Type::BaseModel
         # @!attribute currency
         #   The currency of the ledger account.
         #
@@ -236,7 +236,7 @@ module ModernTreasury
         #     child of.
         #
         #   @return [Array<String>, nil]
-        optional :ledger_account_category_ids, ModernTreasury::ArrayOf[String]
+        optional :ledger_account_category_ids, ModernTreasury::Internal::Type::ArrayOf[String]
 
         # @!parse
         #   # @return [Array<String>]
@@ -271,7 +271,7 @@ module ModernTreasury
         #     strings.
         #
         #   @return [Hash{Symbol=>String}, nil]
-        optional :metadata, ModernTreasury::HashOf[String]
+        optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
         # @!parse
         #   # @return [Hash{Symbol=>String}]
@@ -309,7 +309,7 @@ module ModernTreasury
         #     super
         #   end
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
         # If the ledger account links to another object in Modern Treasury, the type will
         #   be populated here, otherwise null. The value is one of internal_account or
@@ -317,7 +317,7 @@ module ModernTreasury
         #
         # @see ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount#ledgerable_type
         module LedgerableType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           COUNTERPARTY = :counterparty
           EXTERNAL_ACCOUNT = :external_account
@@ -332,7 +332,7 @@ module ModernTreasury
         end
       end
 
-      class RoutingDetail < ModernTreasury::BaseModel
+      class RoutingDetail < ModernTreasury::Internal::Type::BaseModel
         # @!attribute routing_number
         #   The routing number of the bank.
         #
@@ -364,7 +364,7 @@ module ModernTreasury
         #   #
         #   def initialize(routing_number:, routing_number_type:, payment_type: nil, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
         # The type of routing number. See
         #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
@@ -372,7 +372,7 @@ module ModernTreasury
         #
         # @see ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail#routing_number_type
         module RoutingNumberType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           ABA = :aba
           AU_BSB = :au_bsb
@@ -408,7 +408,7 @@ module ModernTreasury
         #
         # @see ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail#payment_type
         module PaymentType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           ACH = :ach
           AU_BECS = :au_becs

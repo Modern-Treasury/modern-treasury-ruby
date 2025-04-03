@@ -14,13 +14,13 @@ module ModernTreasury
             balances: T::Array[
             T.any(
               ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
             ],
             request_options: T.nilable(
               T.any(
                 ModernTreasury::RequestOptions,
-                ModernTreasury::Internal::Util::AnyHash
+                ModernTreasury::Internal::AnyHash
               )
             )
           )
@@ -49,7 +49,7 @@ module ModernTreasury
             request_options: T.nilable(
               T.any(
                 ModernTreasury::RequestOptions,
-                ModernTreasury::Internal::Util::AnyHash
+                ModernTreasury::Internal::AnyHash
               )
             )
           )
@@ -75,7 +75,7 @@ module ModernTreasury
             request_options: T.nilable(
               T.any(
                 ModernTreasury::RequestOptions,
-                ModernTreasury::Internal::Util::AnyHash
+                ModernTreasury::Internal::AnyHash
               )
             )
           )
@@ -102,7 +102,7 @@ module ModernTreasury
             request_options: T.nilable(
               T.any(
                 ModernTreasury::RequestOptions,
-                ModernTreasury::Internal::Util::AnyHash
+                ModernTreasury::Internal::AnyHash
               )
             )
           )

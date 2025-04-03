@@ -342,7 +342,7 @@ module ModernTreasury
 
           begin
             status, response, stream = @requester.execute(input)
-          rescue ModernTreasury::APIConnectionError => e
+          rescue ModernTreasury::Errors::APIConnectionError => e
             status = e
           end
 
@@ -364,7 +364,7 @@ module ModernTreasury
               retry_count: retry_count,
               send_retry_header: send_retry_header
             )
-          in ModernTreasury::APIConnectionError if retry_count >= max_retries
+          in ModernTreasury::Errors::APIConnectionError if retry_count >= max_retries
             raise status
           in (400..) if retry_count >= max_retries || !self.class.should_retry?(status, headers: response)
             decoded = Kernel.then do
@@ -424,7 +424,7 @@ module ModernTreasury
         # @return [Object]
         def request(req)
           self.class.validate!(req)
-          model = req.fetch(:model) { ModernTreasury::Unknown }
+          model = req.fetch(:model) { ModernTreasury::Internal::Type::Unknown }
           opts = req[:options].to_h
           ModernTreasury::RequestOptions.validate!(opts)
           request = build_request(req.except(:options), opts)

@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::Returns#list
-    class ReturnListParams < ModernTreasury::BaseModel
+    class ReturnListParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -87,12 +87,12 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
       #   Must be accompanied by `returnable_id`.
       module ReturnableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
         PAPER_ITEM = :paper_item

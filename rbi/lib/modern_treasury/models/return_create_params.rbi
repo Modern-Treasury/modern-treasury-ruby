@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class ReturnCreateParams < ModernTreasury::BaseModel
+    class ReturnCreateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -47,7 +47,7 @@ module ModernTreasury
           data: T.nilable(T.anything),
           date_of_death: T.nilable(Date),
           reason: T.nilable(String),
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -84,7 +84,7 @@ module ModernTreasury
       # The type of object being returned. Currently, this may only be
       #   incoming_payment_detail.
       module ReturnableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ReturnCreateParams::ReturnableType) }
         OrSymbol =
@@ -100,7 +100,7 @@ module ModernTreasury
 
       # The return code. For ACH returns, this is the required ACH return code.
       module Code
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ReturnCreateParams::Code) }
         OrSymbol =

@@ -3,7 +3,7 @@ module ModernTreasury
     type ledger_event_handler_delete_params =
       {  } & ModernTreasury::Internal::Type::request_parameters
 
-    class LedgerEventHandlerDeleteParams < ModernTreasury::BaseModel
+    class LedgerEventHandlerDeleteParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 

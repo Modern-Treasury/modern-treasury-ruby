@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class AccountCollectionFlow < ModernTreasury::BaseModel
+    class AccountCollectionFlow < ModernTreasury::Internal::Type::BaseModel
       # The ID of a counterparty. An external account created with this flow will be
       #   associated with this counterparty.
       sig { returns(String) }
@@ -132,7 +132,7 @@ module ModernTreasury
 
       # An account created with this flow will support payments of one of these types.
       module PaymentType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::AccountCollectionFlow::PaymentType) }
         OrSymbol =
@@ -149,7 +149,7 @@ module ModernTreasury
       # An account created with this flow will support wires from the US to these
       #   countries.
       module ReceivingCountry
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry) }
@@ -183,7 +183,7 @@ module ModernTreasury
       # The current status of the account collection flow. One of `pending`,
       #   `completed`, `expired`, or `cancelled`.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::AccountCollectionFlow::Status) }
         OrSymbol =

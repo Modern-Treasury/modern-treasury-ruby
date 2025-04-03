@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::LineItems#retrieve
-    class LineItemRetrieveParams < ModernTreasury::BaseModel
+    class LineItemRetrieveParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -25,10 +25,10 @@ module ModernTreasury
       #   #
       #   def initialize(itemizable_type:, itemizable_id:, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       module ItemizableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         EXPECTED_PAYMENTS = :expected_payments
         PAYMENT_ORDERS = :payment_orders

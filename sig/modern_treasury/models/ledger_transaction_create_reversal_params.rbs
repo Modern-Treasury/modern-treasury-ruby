@@ -12,7 +12,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class LedgerTransactionCreateReversalParams < ModernTreasury::BaseModel
+    class LedgerTransactionCreateReversalParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -68,7 +68,7 @@ module ModernTreasury
         | :reversal
 
       module LedgerableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         EXPECTED_PAYMENT: :expected_payment
         INCOMING_PAYMENT_DETAIL: :incoming_payment_detail
@@ -83,7 +83,7 @@ module ModernTreasury
       type status = :archived | :pending | :posted
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ARCHIVED: :archived
         PENDING: :pending

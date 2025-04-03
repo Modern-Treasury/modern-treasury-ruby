@@ -3,7 +3,7 @@ module ModernTreasury
     type event_retrieve_params =
       {  } & ModernTreasury::Internal::Type::request_parameters
 
-    class EventRetrieveParams < ModernTreasury::BaseModel
+    class EventRetrieveParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 

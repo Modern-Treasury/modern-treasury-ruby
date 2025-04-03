@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::LedgerAccountCategories#create
-    class LedgerAccountCategoryCreateParams < ModernTreasury::BaseModel
+    class LedgerAccountCategoryCreateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -49,7 +49,7 @@ module ModernTreasury
       #     should be a child of.
       #
       #   @return [Array<String>, nil]
-      optional :ledger_account_category_ids, ModernTreasury::ArrayOf[String]
+      optional :ledger_account_category_ids, ModernTreasury::Internal::Type::ArrayOf[String]
 
       # @!parse
       #   # @return [Array<String>]
@@ -60,7 +60,7 @@ module ModernTreasury
       #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -92,7 +92,7 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
     end
   end
 end

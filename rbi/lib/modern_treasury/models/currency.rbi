@@ -4,7 +4,7 @@ module ModernTreasury
   module Models
     # Three-letter ISO currency code.
     module Currency
-      extend ModernTreasury::Enum
+      extend ModernTreasury::Internal::Type::Enum
 
       TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::Currency) }
       OrSymbol = T.type_alias { T.any(Symbol, String, ModernTreasury::Models::Currency::TaggedSymbol) }

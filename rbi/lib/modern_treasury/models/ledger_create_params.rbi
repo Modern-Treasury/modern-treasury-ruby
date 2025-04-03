@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LedgerCreateParams < ModernTreasury::BaseModel
+    class LedgerCreateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -27,7 +27,7 @@ module ModernTreasury
           name: String,
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

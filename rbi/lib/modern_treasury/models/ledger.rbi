@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class Ledger < ModernTreasury::BaseModel
+    class Ledger < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 

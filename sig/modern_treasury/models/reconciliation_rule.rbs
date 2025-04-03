@@ -14,7 +14,7 @@ module ModernTreasury
         type: ModernTreasury::Models::ReconciliationRule::type_?
       }
 
-    class ReconciliationRule < ModernTreasury::BaseModel
+    class ReconciliationRule < ModernTreasury::Internal::Type::BaseModel
       attr_accessor amount_lower_bound: Integer
 
       attr_accessor amount_upper_bound: Integer
@@ -57,7 +57,7 @@ module ModernTreasury
       type direction = :credit | :debit
 
       module Direction
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CREDIT: :credit
         DEBIT: :debit
@@ -98,7 +98,7 @@ module ModernTreasury
         | :zengin
 
       module Type
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH: :ach
         AU_BECS: :au_becs

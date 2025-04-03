@@ -8,7 +8,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class LedgerAccountSettlementUpdateParams < ModernTreasury::BaseModel
+    class LedgerAccountSettlementUpdateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -36,7 +36,7 @@ module ModernTreasury
       type status = :posted | :archived
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         POSTED: :posted
         ARCHIVED: :archived

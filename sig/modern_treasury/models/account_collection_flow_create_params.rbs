@@ -8,7 +8,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class AccountCollectionFlowCreateParams < ModernTreasury::BaseModel
+    class AccountCollectionFlowCreateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -52,7 +52,7 @@ module ModernTreasury
         | :GBR
 
       module ReceivingCountry
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         USA: :USA
         AUS: :AUS

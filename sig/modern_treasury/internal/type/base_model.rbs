@@ -7,10 +7,10 @@ module ModernTreasury
         type known_field =
           { mode: (:coerce | :dump)?, required: bool, nilable: bool }
 
-        def self.known_fields: -> ::Hash[Symbol, (ModernTreasury::BaseModel::known_field
+        def self.known_fields: -> ::Hash[Symbol, (ModernTreasury::Internal::Type::BaseModel::known_field
         & { type_fn: (^-> ModernTreasury::Internal::Type::Converter::input) })]
 
-        def self.fields: -> ::Hash[Symbol, (ModernTreasury::BaseModel::known_field
+        def self.fields: -> ::Hash[Symbol, (ModernTreasury::Internal::Type::BaseModel::known_field
         & { type: ModernTreasury::Internal::Type::Converter::input })]
 
         private def self.add_field: (
@@ -52,7 +52,9 @@ module ModernTreasury
         def ==: (top other) -> bool
 
         def self.coerce: (
-          ModernTreasury::BaseModel | ::Hash[top, top] | top value,
+          ModernTreasury::Internal::Type::BaseModel
+          | ::Hash[top, top]
+          | top value,
           state: ModernTreasury::Internal::Type::Converter::state
         ) -> (instance | top)
 

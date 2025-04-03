@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     module InternalAccounts
-      class BalanceReportCreateParams < ModernTreasury::BaseModel
+      class BalanceReportCreateParams < ModernTreasury::Internal::Type::BaseModel
         extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 
@@ -32,10 +32,10 @@ module ModernTreasury
             balances: T::Array[
             T.any(
               ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
             ],
-            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
           )
             .returns(T.attached_class)
         end
@@ -60,7 +60,7 @@ module ModernTreasury
         # The specific type of balance report. One of `intraday`, `previous_day`,
         #   `real_time`, or `other`.
         module BalanceReportType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType) }
@@ -104,7 +104,7 @@ module ModernTreasury
           end
         end
 
-        class Balance < ModernTreasury::BaseModel
+        class Balance < ModernTreasury::Internal::Type::BaseModel
           # The balance amount.
           sig { returns(Integer) }
           attr_accessor :amount
@@ -162,7 +162,7 @@ module ModernTreasury
           #   `opening_available_next_business_day`, `closing_available`, `current_available`,
           #   'previously_closed_book', or `other`.
           module BalanceType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             TaggedSymbol =
               T.type_alias { T.all(Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType) }

@@ -4,7 +4,7 @@ module ModernTreasury
   module Models
     module Transactions
       # @see ModernTreasury::Resources::Transactions::LineItems#create
-      class TransactionLineItem < ModernTreasury::BaseModel
+      class TransactionLineItem < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
         #
         #   @return [String]
@@ -54,7 +54,7 @@ module ModernTreasury
         #     if it exists in the test environment.
         #
         #   @return [Boolean]
-        required :live_mode, ModernTreasury::BooleanModel
+        required :live_mode, ModernTreasury::Internal::Type::BooleanModel
 
         # @!attribute object
         #
@@ -66,7 +66,7 @@ module ModernTreasury
         #     transaction’s reconciliation.
         #
         #   @return [Boolean]
-        required :reconcilable, ModernTreasury::BooleanModel
+        required :reconcilable, ModernTreasury::Internal::Type::BooleanModel
 
         # @!attribute transactable_id
         #   If a matching object exists in Modern Treasury, the ID will be populated here,
@@ -140,14 +140,14 @@ module ModernTreasury
         #     super
         #   end
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
         # If a matching object exists in Modern Treasury, the type will be populated here,
         #   otherwise `null`.
         #
         # @see ModernTreasury::Models::Transactions::TransactionLineItem#transactable_type
         module TransactableType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
           PAPER_ITEM = :paper_item
@@ -168,7 +168,7 @@ module ModernTreasury
         #
         # @see ModernTreasury::Models::Transactions::TransactionLineItem#type
         module Type
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           ORIGINATING = :originating
           RECEIVING = :receiving

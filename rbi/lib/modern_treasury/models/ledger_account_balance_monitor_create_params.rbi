@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LedgerAccountBalanceMonitorCreateParams < ModernTreasury::BaseModel
+    class LedgerAccountBalanceMonitorCreateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -14,7 +14,7 @@ module ModernTreasury
         params(
           alert_condition: T.any(
             ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           )
         )
           .void
@@ -44,12 +44,12 @@ module ModernTreasury
         params(
           alert_condition: T.any(
             ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           ),
           ledger_account_id: String,
           description: String,
           metadata: T::Hash[Symbol, String],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -71,7 +71,7 @@ module ModernTreasury
       def to_hash
       end
 
-      class AlertCondition < ModernTreasury::BaseModel
+      class AlertCondition < ModernTreasury::Internal::Type::BaseModel
         # One of `available_balance_amount`, `pending_balance_amount`,
         #   `posted_balance_amount`, `ledger_account_lock_version`.
         sig { returns(String) }

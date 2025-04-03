@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class ReturnListParams < ModernTreasury::BaseModel
+    class ReturnListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -54,7 +54,7 @@ module ModernTreasury
           per_page: Integer,
           returnable_id: String,
           returnable_type: ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -89,7 +89,7 @@ module ModernTreasury
       # One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
       #   Must be accompanied by `returnable_id`.
       module ReturnableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType) }
         OrSymbol =

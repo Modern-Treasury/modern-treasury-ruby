@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class ExpectedPayment < ModernTreasury::BaseModel
+    class ExpectedPayment < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -136,9 +136,7 @@ module ModernTreasury
           reconciliation_filters: T.nilable(T.anything),
           reconciliation_groups: T.nilable(T.anything),
           reconciliation_method: T.nilable(ModernTreasury::Models::ExpectedPayment::ReconciliationMethod::OrSymbol),
-          reconciliation_rule_variables: T.nilable(
-            T::Array[T.any(ModernTreasury::Models::ReconciliationRule, ModernTreasury::Internal::Util::AnyHash)]
-          ),
+          reconciliation_rule_variables: T.nilable(T::Array[T.any(ModernTreasury::Models::ReconciliationRule, ModernTreasury::Internal::AnyHash)]),
           remittance_information: T.nilable(String),
           statement_descriptor: T.nilable(String),
           status: ModernTreasury::Models::ExpectedPayment::Status::OrSymbol,
@@ -218,7 +216,7 @@ module ModernTreasury
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
       module Direction
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPayment::Direction) }
         OrSymbol =
@@ -236,7 +234,7 @@ module ModernTreasury
       #   automatic if it was automatically reconciled by Modern Treasury, or null if it
       #   is unreconciled.
       module ReconciliationMethod
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPayment::ReconciliationMethod) }
@@ -254,7 +252,7 @@ module ModernTreasury
 
       # One of unreconciled, partially_reconciled, reconciled, or archived.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPayment::Status) }
         OrSymbol =

@@ -16,7 +16,7 @@ module ModernTreasury
         updated_at: Time
       }
 
-    class LedgerAccountCategory < ModernTreasury::BaseModel
+    class LedgerAccountCategory < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor balances: ModernTreasury::Models::LedgerAccountCategory::Balances
@@ -65,7 +65,7 @@ module ModernTreasury
           posted_balance: ModernTreasury::Models::LedgerAccountCategory::Balances::PostedBalance
         }
 
-      class Balances < ModernTreasury::BaseModel
+      class Balances < ModernTreasury::Internal::Type::BaseModel
         attr_accessor available_balance: ModernTreasury::Models::LedgerAccountCategory::Balances::AvailableBalance
 
         attr_accessor pending_balance: ModernTreasury::Models::LedgerAccountCategory::Balances::PendingBalance
@@ -89,7 +89,7 @@ module ModernTreasury
             debits: Integer
           }
 
-        class AvailableBalance < ModernTreasury::BaseModel
+        class AvailableBalance < ModernTreasury::Internal::Type::BaseModel
           attr_accessor amount: Integer
 
           attr_accessor credits: Integer
@@ -120,7 +120,7 @@ module ModernTreasury
             debits: Integer
           }
 
-        class PendingBalance < ModernTreasury::BaseModel
+        class PendingBalance < ModernTreasury::Internal::Type::BaseModel
           attr_accessor amount: Integer
 
           attr_accessor credits: Integer
@@ -151,7 +151,7 @@ module ModernTreasury
             debits: Integer
           }
 
-        class PostedBalance < ModernTreasury::BaseModel
+        class PostedBalance < ModernTreasury::Internal::Type::BaseModel
           attr_accessor amount: Integer
 
           attr_accessor credits: Integer

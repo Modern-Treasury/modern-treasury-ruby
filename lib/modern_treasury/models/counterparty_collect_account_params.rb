@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::Counterparties#collect_account
-    class CounterpartyCollectAccountParams < ModernTreasury::BaseModel
+    class CounterpartyCollectAccountParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -37,7 +37,7 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field>, nil]
       optional :fields,
-               -> { ModernTreasury::ArrayOf[enum: ModernTreasury::Models::CounterpartyCollectAccountParams::Field] }
+               -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::CounterpartyCollectAccountParams::Field] }
 
       # @!parse
       #   # @return [Array<Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field>]
@@ -50,7 +50,7 @@ module ModernTreasury
       #     body will include the link to the secure Modern Treasury form.
       #
       #   @return [Boolean, nil]
-      optional :send_email, ModernTreasury::BooleanModel
+      optional :send_email, ModernTreasury::Internal::Type::BooleanModel
 
       # @!parse
       #   # @return [Boolean]
@@ -65,10 +65,10 @@ module ModernTreasury
       #   #
       #   def initialize(direction:, custom_redirect: nil, fields: nil, send_email: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       module Field
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         NAME = :name
         NAME_ON_ACCOUNT = :nameOnAccount

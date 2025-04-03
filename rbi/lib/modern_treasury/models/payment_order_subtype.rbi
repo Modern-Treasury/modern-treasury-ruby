@@ -7,7 +7,7 @@ module ModernTreasury
     #   payment orders, the `subtype` represents the SEC code. We currently support
     #   `CCD`, `PPD`, `IAT`, `CTX`, `WEB`, `CIE`, and `TEL`.
     module PaymentOrderSubtype
-      extend ModernTreasury::Enum
+      extend ModernTreasury::Internal::Type::Enum
 
       TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderSubtype) }
       OrSymbol =

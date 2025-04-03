@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class Transaction < ModernTreasury::BaseModel
+    class Transaction < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -51,7 +51,7 @@ module ModernTreasury
       sig do
         params(
           foreign_exchange_rate: T.nilable(
-            T.any(ModernTreasury::Models::Transaction::ForeignExchangeRate, ModernTreasury::Internal::Util::AnyHash)
+            T.any(ModernTreasury::Models::Transaction::ForeignExchangeRate, ModernTreasury::Internal::AnyHash)
           )
         )
           .void
@@ -144,7 +144,7 @@ module ModernTreasury
           direction: String,
           discarded_at: T.nilable(Time),
           foreign_exchange_rate: T.nilable(
-            T.any(ModernTreasury::Models::Transaction::ForeignExchangeRate, ModernTreasury::Internal::Util::AnyHash)
+            T.any(ModernTreasury::Models::Transaction::ForeignExchangeRate, ModernTreasury::Internal::AnyHash)
           ),
           internal_account_id: String,
           live_mode: T::Boolean,
@@ -227,7 +227,7 @@ module ModernTreasury
       def to_hash
       end
 
-      class ForeignExchangeRate < ModernTreasury::BaseModel
+      class ForeignExchangeRate < ModernTreasury::Internal::Type::BaseModel
         # Amount in the lowest denomination of the `base_currency` to convert, often
         #   called the "sell" amount.
         sig { returns(Integer) }
@@ -305,7 +305,7 @@ module ModernTreasury
       # The type of the transaction. Examples could be
       #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       module Type
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::Transaction::Type) }
         OrSymbol =
@@ -353,7 +353,7 @@ module ModernTreasury
       #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
       #   `swift`, `us_bank`, or others.
       module VendorCodeType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::Transaction::VendorCodeType) }
         OrSymbol =

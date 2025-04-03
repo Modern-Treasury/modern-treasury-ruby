@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::Documents#list
-    class DocumentListParams < ModernTreasury::BaseModel
+    class DocumentListParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -53,13 +53,13 @@ module ModernTreasury
       #   #
       #   def initialize(after_cursor: nil, documentable_id: nil, documentable_type: nil, per_page: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # The type of the associated object. Currently can be one of `payment_order`,
       #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
       #   `case`, `internal_account`, `decision`, or `external_account`.
       module DocumentableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CASES = :cases
         COUNTERPARTIES = :counterparties

@@ -34,12 +34,12 @@ class ModernTreasury::Test::Resources::LedgerEventHandlersTest < ModernTreasury:
         discarded_at: Time | nil,
         ledger_id: String | nil,
         ledger_transaction_template: ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]) | nil,
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]) | nil,
         name: String,
         object: String,
         updated_at: Time,
-        variables: ^(ModernTreasury::HashOf[ModernTreasury::Models::LedgerEventHandlerVariable]) | nil
+        variables: ^(ModernTreasury::Internal::Type::HashOf[ModernTreasury::Models::LedgerEventHandlerVariable]) | nil
       }
     end
   end
@@ -60,12 +60,12 @@ class ModernTreasury::Test::Resources::LedgerEventHandlersTest < ModernTreasury:
         discarded_at: Time | nil,
         ledger_id: String | nil,
         ledger_transaction_template: ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]) | nil,
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]) | nil,
         name: String,
         object: String,
         updated_at: Time,
-        variables: ^(ModernTreasury::HashOf[ModernTreasury::Models::LedgerEventHandlerVariable]) | nil
+        variables: ^(ModernTreasury::Internal::Type::HashOf[ModernTreasury::Models::LedgerEventHandlerVariable]) | nil
       }
     end
   end
@@ -93,12 +93,12 @@ class ModernTreasury::Test::Resources::LedgerEventHandlersTest < ModernTreasury:
         discarded_at: Time | nil,
         ledger_id: String | nil,
         ledger_transaction_template: ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]) | nil,
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]) | nil,
         name: String,
         object: String,
         updated_at: Time,
-        variables: ^(ModernTreasury::HashOf[ModernTreasury::Models::LedgerEventHandlerVariable]) | nil
+        variables: ^(ModernTreasury::Internal::Type::HashOf[ModernTreasury::Models::LedgerEventHandlerVariable]) | nil
       }
     end
   end
@@ -119,12 +119,12 @@ class ModernTreasury::Test::Resources::LedgerEventHandlersTest < ModernTreasury:
         discarded_at: Time | nil,
         ledger_id: String | nil,
         ledger_transaction_template: ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]) | nil,
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]) | nil,
         name: String,
         object: String,
         updated_at: Time,
-        variables: ^(ModernTreasury::HashOf[ModernTreasury::Models::LedgerEventHandlerVariable]) | nil
+        variables: ^(ModernTreasury::Internal::Type::HashOf[ModernTreasury::Models::LedgerEventHandlerVariable]) | nil
       }
     end
   end

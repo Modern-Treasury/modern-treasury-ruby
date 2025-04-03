@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class AccountDetail < ModernTreasury::BaseModel
+    class AccountDetail < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -88,7 +88,7 @@ module ModernTreasury
       # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
       #   account number is in a generic format.
       module AccountNumberType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::AccountDetail::AccountNumberType) }
         OrSymbol =

@@ -12,7 +12,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class BulkResultListParams < ModernTreasury::BaseModel
+    class BulkResultListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -71,7 +71,7 @@ module ModernTreasury
         | :bulk_error
 
       module EntityType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         PAYMENT_ORDER: :payment_order
         LEDGER_ACCOUNT: :ledger_account
@@ -87,7 +87,7 @@ module ModernTreasury
       type request_type = :bulk_request
 
       module RequestType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         BULK_REQUEST: :bulk_request
 
@@ -97,7 +97,7 @@ module ModernTreasury
       type status = :pending | :successful | :failed
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         PENDING: :pending
         SUCCESSFUL: :successful

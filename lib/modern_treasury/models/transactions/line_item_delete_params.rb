@@ -4,7 +4,7 @@ module ModernTreasury
   module Models
     module Transactions
       # @see ModernTreasury::Resources::Transactions::LineItems#delete
-      class LineItemDeleteParams < ModernTreasury::BaseModel
+      class LineItemDeleteParams < ModernTreasury::Internal::Type::BaseModel
         # @!parse
         #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
@@ -14,7 +14,7 @@ module ModernTreasury
         #   #
         #   def initialize(request_options: {}, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
     end
   end

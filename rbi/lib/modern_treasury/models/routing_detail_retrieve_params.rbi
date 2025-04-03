@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class RoutingDetailRetrieveParams < ModernTreasury::BaseModel
+    class RoutingDetailRetrieveParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -16,7 +16,7 @@ module ModernTreasury
         params(
           accounts_type: ModernTreasury::Models::AccountsType::OrSymbol,
           account_id: String,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

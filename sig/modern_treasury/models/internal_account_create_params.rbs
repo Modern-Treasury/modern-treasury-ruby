@@ -14,7 +14,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class InternalAccountCreateParams < ModernTreasury::BaseModel
+    class InternalAccountCreateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -66,7 +66,7 @@ module ModernTreasury
       type currency = :USD | :CAD
 
       module Currency
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         USD: :USD
         CAD: :CAD
@@ -84,7 +84,7 @@ module ModernTreasury
           :line2 => String
         }
 
-      class PartyAddress < ModernTreasury::BaseModel
+      class PartyAddress < ModernTreasury::Internal::Type::BaseModel
         attr_accessor country: String
 
         attr_accessor line1: String

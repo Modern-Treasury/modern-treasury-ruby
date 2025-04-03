@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::LedgerAccountCategories#retrieve
-    class LedgerAccountCategoryRetrieveParams < ModernTreasury::BaseModel
+    class LedgerAccountCategoryRetrieveParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -26,9 +26,9 @@ module ModernTreasury
       #   #
       #   def initialize(balances: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-      class Balances < ModernTreasury::BaseModel
+      class Balances < ModernTreasury::Internal::Type::BaseModel
         # @!attribute [r] as_of_date
         #
         #   @return [Date, nil]
@@ -57,7 +57,7 @@ module ModernTreasury
         #   #
         #   def initialize(as_of_date: nil, effective_at: nil, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
     end
   end

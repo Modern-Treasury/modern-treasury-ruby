@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class RoutingDetailCreateParams < ModernTreasury::BaseModel
+    class RoutingDetailCreateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -30,7 +30,7 @@ module ModernTreasury
           routing_number: String,
           routing_number_type: ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType::OrSymbol,
           payment_type: T.nilable(ModernTreasury::Models::RoutingDetailCreateParams::PaymentType::OrSymbol),
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -59,7 +59,7 @@ module ModernTreasury
       end
 
       module AccountsType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::RoutingDetailCreateParams::AccountsType) }
@@ -78,7 +78,7 @@ module ModernTreasury
       #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
       #   more details.
       module RoutingNumberType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType) }
@@ -162,7 +162,7 @@ module ModernTreasury
       # If the routing detail is to be used for a specific payment type this field will
       #   be populated, otherwise null.
       module PaymentType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::RoutingDetailCreateParams::PaymentType) }

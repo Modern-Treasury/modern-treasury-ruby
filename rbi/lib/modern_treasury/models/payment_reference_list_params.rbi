@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class PaymentReferenceListParams < ModernTreasury::BaseModel
+    class PaymentReferenceListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -50,7 +50,7 @@ module ModernTreasury
           reference_number: String,
           referenceable_id: String,
           referenceable_type: ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -83,7 +83,7 @@ module ModernTreasury
       # One of the referenceable types. This must be accompanied by the id of the
       #   referenceable or will return an error.
       module ReferenceableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType) }

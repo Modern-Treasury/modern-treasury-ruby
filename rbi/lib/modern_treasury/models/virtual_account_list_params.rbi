@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class VirtualAccountListParams < ModernTreasury::BaseModel
+    class VirtualAccountListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -43,7 +43,7 @@ module ModernTreasury
           internal_account_id: String,
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

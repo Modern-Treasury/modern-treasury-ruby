@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class BulkRequestListParams < ModernTreasury::BaseModel
+    class BulkRequestListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -53,7 +53,7 @@ module ModernTreasury
           per_page: Integer,
           resource_type: ModernTreasury::Models::BulkRequestListParams::ResourceType::OrSymbol,
           status: ModernTreasury::Models::BulkRequestListParams::Status::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -87,7 +87,7 @@ module ModernTreasury
 
       # One of create, or update.
       module ActionType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkRequestListParams::ActionType) }
         OrSymbol =
@@ -104,7 +104,7 @@ module ModernTreasury
 
       # One of payment_order, expected_payment, or ledger_transaction.
       module ResourceType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkRequestListParams::ResourceType) }
@@ -131,7 +131,7 @@ module ModernTreasury
 
       # One of pending, processing, or completed.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkRequestListParams::Status) }
         OrSymbol =

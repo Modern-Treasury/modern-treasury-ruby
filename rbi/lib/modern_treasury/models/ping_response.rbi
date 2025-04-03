@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class PingResponse < ModernTreasury::BaseModel
+    class PingResponse < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :ping
 

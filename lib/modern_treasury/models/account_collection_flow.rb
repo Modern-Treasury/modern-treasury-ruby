@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::AccountCollectionFlows#create
-    class AccountCollectionFlow < ModernTreasury::BaseModel
+    class AccountCollectionFlow < ModernTreasury::Internal::Type::BaseModel
       # @!attribute counterparty_id
       #   The ID of a counterparty. An external account created with this flow will be
       #     associated with this counterparty.
@@ -15,7 +15,7 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::PaymentType>]
       required :payment_types,
-               -> { ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::PaymentType] }
+               -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::PaymentType] }
 
       # @!attribute [r] id
       #
@@ -57,7 +57,7 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean, nil]
-      optional :live_mode, ModernTreasury::BooleanModel
+      optional :live_mode, ModernTreasury::Internal::Type::BooleanModel
 
       # @!parse
       #   # @return [Boolean]
@@ -76,7 +76,7 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry>, nil]
       optional :receiving_countries,
-               -> { ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry] }
+               -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry] }
 
       # @!parse
       #   # @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry>]
@@ -132,11 +132,11 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # An account created with this flow will support payments of one of these types.
       module PaymentType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH = :ach
         WIRE = :wire
@@ -151,7 +151,7 @@ module ModernTreasury
       # An account created with this flow will support wires from the US to these
       #   countries.
       module ReceivingCountry
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         USA = :USA
         AUS = :AUS
@@ -184,7 +184,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::AccountCollectionFlow#status
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CANCELLED = :cancelled
         COMPLETED = :completed

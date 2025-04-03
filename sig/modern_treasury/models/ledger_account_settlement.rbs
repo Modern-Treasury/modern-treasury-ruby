@@ -21,7 +21,7 @@ module ModernTreasury
         updated_at: Time
       }
 
-    class LedgerAccountSettlement < ModernTreasury::BaseModel
+    class LedgerAccountSettlement < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor amount: Integer?
@@ -82,7 +82,7 @@ module ModernTreasury
         :archived | :archiving | :drafting | :pending | :posted | :processing
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ARCHIVED: :archived
         ARCHIVING: :archiving

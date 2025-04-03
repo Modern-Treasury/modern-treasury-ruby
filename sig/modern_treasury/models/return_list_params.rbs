@@ -11,7 +11,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class ReturnListParams < ModernTreasury::BaseModel
+    class ReturnListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -59,7 +59,7 @@ module ModernTreasury
         | :reversal
 
       module ReturnableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         INCOMING_PAYMENT_DETAIL: :incoming_payment_detail
         PAPER_ITEM: :paper_item

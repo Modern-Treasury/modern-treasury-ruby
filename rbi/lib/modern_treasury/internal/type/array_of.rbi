@@ -17,11 +17,11 @@ module ModernTreasury
         sig(:final) do
           params(
             type_info: T.any(
-              ModernTreasury::Internal::Util::AnyHash,
+              ModernTreasury::Internal::AnyHash,
               T.proc.returns(ModernTreasury::Internal::Type::Converter::Input),
               ModernTreasury::Internal::Type::Converter::Input
             ),
-            spec: ModernTreasury::Internal::Util::AnyHash
+            spec: ModernTreasury::Internal::AnyHash
           )
             .returns(T.attached_class)
         end
@@ -71,11 +71,11 @@ module ModernTreasury
         sig(:final) do
           params(
             type_info: T.any(
-              ModernTreasury::Internal::Util::AnyHash,
+              ModernTreasury::Internal::AnyHash,
               T.proc.returns(ModernTreasury::Internal::Type::Converter::Input),
               ModernTreasury::Internal::Type::Converter::Input
             ),
-            spec: ModernTreasury::Internal::Util::AnyHash
+            spec: ModernTreasury::Internal::AnyHash
           )
             .void
         end

@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::AccountCollectionFlows#create
-    class AccountCollectionFlowCreateParams < ModernTreasury::BaseModel
+    class AccountCollectionFlowCreateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -17,13 +17,13 @@ module ModernTreasury
       # @!attribute payment_types
       #
       #   @return [Array<String>]
-      required :payment_types, ModernTreasury::ArrayOf[String]
+      required :payment_types, ModernTreasury::Internal::Type::ArrayOf[String]
 
       # @!attribute [r] receiving_countries
       #
       #   @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>, nil]
       optional :receiving_countries,
-               -> { ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry] }
+               -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry] }
 
       # @!parse
       #   # @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>]
@@ -37,11 +37,11 @@ module ModernTreasury
       #   #
       #   def initialize(counterparty_id:, payment_types:, receiving_countries: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # Optional. Array of 3-digit ISO country codes.
       module ReceivingCountry
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         USA = :USA
         AUS = :AUS

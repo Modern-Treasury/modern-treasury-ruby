@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::Invoices#create
-    class Invoice < ModernTreasury::BaseModel
+    class Invoice < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -27,7 +27,8 @@ module ModernTreasury
       #   The invoicer's contact details displayed at the top of the invoice.
       #
       #   @return [Array<ModernTreasury::Models::Invoice::ContactDetail>]
-      required :contact_details, -> { ModernTreasury::ArrayOf[ModernTreasury::Models::Invoice::ContactDetail] }
+      required :contact_details,
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::Invoice::ContactDetail] }
 
       # @!attribute counterparty_billing_address
       #   The counterparty's billing address.
@@ -78,7 +79,8 @@ module ModernTreasury
       #   The expected payments created for an unpaid invoice.
       #
       #   @return [Array<ModernTreasury::Models::ExpectedPayment>]
-      required :expected_payments, -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ExpectedPayment] }
+      required :expected_payments,
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ExpectedPayment] }
 
       # @!attribute fallback_payment_method
       #   When payment_method is automatic, the fallback payment method to use when an
@@ -110,14 +112,14 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::BooleanModel
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      required :metadata, ModernTreasury::HashOf[String], nil?: true
+      required :metadata, ModernTreasury::Internal::Type::HashOf[String], nil?: true
 
       # @!attribute notification_email_addresses
       #   Emails in addition to the counterparty email to send invoice status
@@ -125,14 +127,14 @@ module ModernTreasury
       #     and the counterparty doesn't have an email.
       #
       #   @return [Array<String>, nil]
-      required :notification_email_addresses, ModernTreasury::ArrayOf[String], nil?: true
+      required :notification_email_addresses, ModernTreasury::Internal::Type::ArrayOf[String], nil?: true
 
       # @!attribute notifications_enabled
       #   If true, the invoice will send email notifications to the invoice recipients
       #     about invoice status changes.
       #
       #   @return [Boolean]
-      required :notifications_enabled, ModernTreasury::BooleanModel
+      required :notifications_enabled, ModernTreasury::Internal::Type::BooleanModel
 
       # @!attribute number
       #   A unique record number assigned to each invoice that is issued.
@@ -171,7 +173,8 @@ module ModernTreasury
       #     UI.
       #
       #   @return [Array<ModernTreasury::Models::PaymentOrder>]
-      required :payment_orders, -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrder] }
+      required :payment_orders,
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::PaymentOrder] }
 
       # @!attribute payment_type
       #   One of `ach` or `eft`.
@@ -210,7 +213,7 @@ module ModernTreasury
       #     invoice recipients.
       #
       #   @return [Array<Integer>, nil]
-      required :remind_after_overdue_days, ModernTreasury::ArrayOf[Integer], nil?: true
+      required :remind_after_overdue_days, ModernTreasury::Internal::Type::ArrayOf[Integer], nil?: true
 
       # @!attribute status
       #   The status of the invoice.
@@ -229,7 +232,7 @@ module ModernTreasury
       #   IDs of transaction line items associated with an invoice.
       #
       #   @return [Array<String>]
-      required :transaction_line_item_ids, ModernTreasury::ArrayOf[String]
+      required :transaction_line_item_ids, ModernTreasury::Internal::Type::ArrayOf[String]
 
       # @!attribute updated_at
       #
@@ -324,9 +327,9 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-      class ContactDetail < ModernTreasury::BaseModel
+      class ContactDetail < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
         #
         #   @return [String]
@@ -358,7 +361,7 @@ module ModernTreasury
         #     if it exists in the test environment.
         #
         #   @return [Boolean]
-        required :live_mode, ModernTreasury::BooleanModel
+        required :live_mode, ModernTreasury::Internal::Type::BooleanModel
 
         # @!attribute object
         #
@@ -394,11 +397,11 @@ module ModernTreasury
         #     super
         #   end
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
         # @see ModernTreasury::Models::Invoice::ContactDetail#contact_identifier_type
         module ContactIdentifierType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           EMAIL = :email
           PHONE_NUMBER = :phone_number
@@ -413,7 +416,7 @@ module ModernTreasury
       end
 
       # @see ModernTreasury::Models::Invoice#counterparty_billing_address
-      class CounterpartyBillingAddress < ModernTreasury::BaseModel
+      class CounterpartyBillingAddress < ModernTreasury::Internal::Type::BaseModel
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]
         #
@@ -464,11 +467,11 @@ module ModernTreasury
         #   #
         #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
 
       # @see ModernTreasury::Models::Invoice#counterparty_shipping_address
-      class CounterpartyShippingAddress < ModernTreasury::BaseModel
+      class CounterpartyShippingAddress < ModernTreasury::Internal::Type::BaseModel
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]
         #
@@ -519,11 +522,11 @@ module ModernTreasury
         #   #
         #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
 
       # @see ModernTreasury::Models::Invoice#invoicer_address
-      class InvoicerAddress < ModernTreasury::BaseModel
+      class InvoicerAddress < ModernTreasury::Internal::Type::BaseModel
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]
         #
@@ -574,7 +577,7 @@ module ModernTreasury
         #   #
         #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
 
       # When opening an invoice, whether to show the embedded payment UI , automatically
@@ -582,7 +585,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::Invoice#payment_method
       module PaymentMethod
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         UI = :ui
         MANUAL = :manual
@@ -599,7 +602,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::Invoice#payment_type
       module PaymentType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         EFT = :eft
         ACH = :ach
@@ -615,7 +618,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::Invoice#status
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         DRAFT = :draft
         PAID = :paid

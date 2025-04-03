@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class DocumentListParams < ModernTreasury::BaseModel
+    class DocumentListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -37,7 +37,7 @@ module ModernTreasury
           documentable_id: String,
           documentable_type: ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol,
           per_page: Integer,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -69,7 +69,7 @@ module ModernTreasury
       #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
       #   `case`, `internal_account`, `decision`, or `external_account`.
       module DocumentableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType) }

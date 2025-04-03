@@ -16,7 +16,7 @@ module ModernTreasury
         validated_at: Time?
       }
 
-    class LegalEntityComplianceDetail < ModernTreasury::BaseModel
+    class LegalEntityComplianceDetail < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor created_at: Time

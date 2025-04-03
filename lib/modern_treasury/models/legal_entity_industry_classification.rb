@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LegalEntityIndustryClassification < ModernTreasury::BaseModel
+    class LegalEntityIndustryClassification < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -12,7 +12,7 @@ module ModernTreasury
       #   The industry classification codes for the legal entity.
       #
       #   @return [Array<String>]
-      required :classification_codes, ModernTreasury::ArrayOf[String]
+      required :classification_codes, ModernTreasury::Internal::Type::ArrayOf[String]
 
       # @!attribute classification_type
       #   The classification system of the classification codes.
@@ -36,7 +36,7 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::BooleanModel
 
       # @!attribute object
       #
@@ -72,13 +72,13 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # The classification system of the classification codes.
       #
       # @see ModernTreasury::Models::LegalEntityIndustryClassification#classification_type
       module ClassificationType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ANZSIC = :anzsic
         BICS = :bics
