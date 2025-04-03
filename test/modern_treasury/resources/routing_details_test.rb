@@ -66,7 +66,7 @@ class ModernTreasury::Test::Resources::RoutingDetailsTest < ModernTreasury::Test
     response = @modern_treasury.routing_details.list("account_id", accounts_type: :external_accounts)
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first

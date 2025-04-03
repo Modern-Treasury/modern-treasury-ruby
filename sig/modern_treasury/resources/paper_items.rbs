@@ -13,7 +13,7 @@ module ModernTreasury
         ?lockbox_number: String,
         ?per_page: Integer,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Page[ModernTreasury::Models::PaperItem]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::PaperItem]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

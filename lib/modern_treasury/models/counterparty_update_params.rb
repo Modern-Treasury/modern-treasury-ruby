@@ -5,8 +5,8 @@ module ModernTreasury
     # @see ModernTreasury::Resources::Counterparties#update
     class CounterpartyUpdateParams < ModernTreasury::BaseModel
       # @!parse
-      #   extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute [r] email
       #   A new email for the counterparty.

@@ -79,7 +79,7 @@ module ModernTreasury
       # @param status [String]
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Page<ModernTreasury::Models::AccountCollectionFlow>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::AccountCollectionFlow>]
       #
       # @see ModernTreasury::Models::AccountCollectionFlowListParams
       def list(params = {})
@@ -88,7 +88,7 @@ module ModernTreasury
           method: :get,
           path: "api/account_collection_flows",
           query: parsed,
-          page: ModernTreasury::Page,
+          page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Models::AccountCollectionFlow,
           options: options
         )

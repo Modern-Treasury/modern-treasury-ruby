@@ -45,7 +45,7 @@ module ModernTreasury
         ?posted_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount,
         ?updated_at: ::Hash[Symbol, Time],
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Page[ModernTreasury::Models::LedgerAccount]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerAccount]
 
       def delete: (
         String id,

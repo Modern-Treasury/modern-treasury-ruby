@@ -11,7 +11,9 @@ module ModernTreasury
 
       sig do
         params(
-          conditions: T.nilable(T.any(ModernTreasury::Models::LedgerEventHandler::Conditions, ModernTreasury::Util::AnyHash))
+          conditions: T.nilable(
+            T.any(ModernTreasury::Models::LedgerEventHandler::Conditions, ModernTreasury::Internal::Util::AnyHash)
+          )
         )
           .void
       end
@@ -38,7 +40,7 @@ module ModernTreasury
         params(
           ledger_transaction_template: T.any(
             ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate,
-            ModernTreasury::Util::AnyHash
+            ModernTreasury::Internal::Util::AnyHash
           )
         )
           .void
@@ -71,14 +73,16 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          conditions: T.nilable(T.any(ModernTreasury::Models::LedgerEventHandler::Conditions, ModernTreasury::Util::AnyHash)),
+          conditions: T.nilable(
+            T.any(ModernTreasury::Models::LedgerEventHandler::Conditions, ModernTreasury::Internal::Util::AnyHash)
+          ),
           created_at: Time,
           description: T.nilable(String),
           discarded_at: T.nilable(Time),
           ledger_id: T.nilable(String),
           ledger_transaction_template: T.any(
             ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate,
-            ModernTreasury::Util::AnyHash
+            ModernTreasury::Internal::Util::AnyHash
           ),
           live_mode: T::Boolean,
           metadata: T.nilable(T::Hash[Symbol, String]),
@@ -86,7 +90,7 @@ module ModernTreasury
           object: String,
           updated_at: Time,
           variables: T.nilable(
-            T::Hash[Symbol, T.any(ModernTreasury::Models::LedgerEventHandlerVariable, ModernTreasury::Util::AnyHash)]
+            T::Hash[Symbol, T.any(ModernTreasury::Models::LedgerEventHandlerVariable, ModernTreasury::Internal::Util::AnyHash)]
           )
         )
           .returns(T.attached_class)
@@ -178,7 +182,7 @@ module ModernTreasury
             ledger_entries: T::Array[
             T.any(
               ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             )
             ],
             status: T.nilable(String)

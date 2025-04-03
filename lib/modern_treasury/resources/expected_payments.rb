@@ -115,7 +115,7 @@ module ModernTreasury
       # @param type [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type]
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Page<ModernTreasury::Models::ExpectedPayment>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::ExpectedPayment>]
       #
       # @see ModernTreasury::Models::ExpectedPaymentListParams
       def list(params = {})
@@ -124,7 +124,7 @@ module ModernTreasury
           method: :get,
           path: "api/expected_payments",
           query: parsed,
-          page: ModernTreasury::Page,
+          page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Models::ExpectedPayment,
           options: options
         )

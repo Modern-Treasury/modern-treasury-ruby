@@ -8,7 +8,7 @@ module ModernTreasury
 
       sig do
         params(
-          query: T.any(ModernTreasury::Models::LedgerEventHandlerVariable::Query, ModernTreasury::Util::AnyHash)
+          query: T.any(ModernTreasury::Models::LedgerEventHandlerVariable::Query, ModernTreasury::Internal::Util::AnyHash)
         )
           .void
       end
@@ -21,7 +21,7 @@ module ModernTreasury
 
       sig do
         params(
-          query: T.any(ModernTreasury::Models::LedgerEventHandlerVariable::Query, ModernTreasury::Util::AnyHash),
+          query: T.any(ModernTreasury::Models::LedgerEventHandlerVariable::Query, ModernTreasury::Internal::Util::AnyHash),
           type: String
         )
           .returns(T.attached_class)

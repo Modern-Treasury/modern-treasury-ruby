@@ -1,10 +1,11 @@
 module ModernTreasury
   module Models
-    type transaction_delete_params = {  } & ModernTreasury::request_parameters
+    type transaction_delete_params =
+      {  } & ModernTreasury::Internal::Type::request_parameters
 
     class TransactionDeleteParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       def initialize: (?request_options: ModernTreasury::request_opts) -> void
 

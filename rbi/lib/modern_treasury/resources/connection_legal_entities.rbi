@@ -9,10 +9,15 @@ module ModernTreasury
           connection_id: String,
           legal_entity: T.any(
             ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity,
-            ModernTreasury::Util::AnyHash
+            ModernTreasury::Internal::Util::AnyHash
           ),
           legal_entity_id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::ConnectionLegalEntity)
       end
@@ -31,7 +36,12 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::ConnectionLegalEntity)
       end
@@ -47,7 +57,12 @@ module ModernTreasury
         params(
           id: String,
           status: ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status::OrSymbol,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::ConnectionLegalEntity)
       end
@@ -68,9 +83,14 @@ module ModernTreasury
           legal_entity_id: String,
           per_page: Integer,
           status: ModernTreasury::Models::ConnectionLegalEntityListParams::Status::OrSymbol,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
-          .returns(ModernTreasury::Page[ModernTreasury::Models::ConnectionLegalEntity])
+          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::ConnectionLegalEntity])
       end
       def list(
         after_cursor: nil,

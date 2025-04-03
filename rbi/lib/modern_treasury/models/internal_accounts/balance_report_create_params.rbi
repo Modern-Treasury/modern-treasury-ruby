@@ -4,8 +4,8 @@ module ModernTreasury
   module Models
     module InternalAccounts
       class BalanceReportCreateParams < ModernTreasury::BaseModel
-        extend ModernTreasury::Type::RequestParameters::Converter
-        include ModernTreasury::RequestParameters
+        extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        include ModernTreasury::Internal::Type::RequestParameters
 
         # The date of the balance report in local time.
         sig { returns(Date) }
@@ -32,10 +32,10 @@ module ModernTreasury
             balances: T::Array[
             T.any(
               ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             )
             ],
-            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
           )
             .returns(T.attached_class)
         end

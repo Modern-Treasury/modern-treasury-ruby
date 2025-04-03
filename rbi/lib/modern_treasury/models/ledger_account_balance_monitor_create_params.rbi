@@ -3,8 +3,8 @@
 module ModernTreasury
   module Models
     class LedgerAccountBalanceMonitorCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # Describes the condition that must be satisfied for the monitor to be triggered.
       sig { returns(ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition) }
@@ -14,7 +14,7 @@ module ModernTreasury
         params(
           alert_condition: T.any(
             ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
-            ModernTreasury::Util::AnyHash
+            ModernTreasury::Internal::Util::AnyHash
           )
         )
           .void
@@ -44,12 +44,12 @@ module ModernTreasury
         params(
           alert_condition: T.any(
             ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
-            ModernTreasury::Util::AnyHash
+            ModernTreasury::Internal::Util::AnyHash
           ),
           ledger_account_id: String,
           description: String,
           metadata: T::Hash[Symbol, String],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

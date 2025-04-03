@@ -5,8 +5,8 @@ module ModernTreasury
     # @see ModernTreasury::Resources::BulkRequests#create
     class BulkRequestCreateParams < ModernTreasury::BaseModel
       # @!parse
-      #   extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute action_type
       #   One of create, or update.

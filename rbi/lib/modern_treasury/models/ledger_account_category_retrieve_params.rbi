@@ -3,8 +3,8 @@
 module ModernTreasury
   module Models
     class LedgerAccountCategoryRetrieveParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # For example, if you want the balances as of a particular time (ISO8601), the
       #   encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
@@ -16,7 +16,7 @@ module ModernTreasury
         params(
           balances: T.any(
             ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances,
-            ModernTreasury::Util::AnyHash
+            ModernTreasury::Internal::Util::AnyHash
           )
         )
           .void
@@ -27,9 +27,9 @@ module ModernTreasury
         params(
           balances: T.any(
             ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances,
-            ModernTreasury::Util::AnyHash
+            ModernTreasury::Internal::Util::AnyHash
           ),
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

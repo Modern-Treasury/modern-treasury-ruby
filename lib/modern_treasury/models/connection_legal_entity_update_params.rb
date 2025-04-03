@@ -5,8 +5,8 @@ module ModernTreasury
     # @see ModernTreasury::Resources::ConnectionLegalEntities#update
     class ConnectionLegalEntityUpdateParams < ModernTreasury::BaseModel
       # @!parse
-      #   extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute [r] status
       #   The status of the connection legal entity.

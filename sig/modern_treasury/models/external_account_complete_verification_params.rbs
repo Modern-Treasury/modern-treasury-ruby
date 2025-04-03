@@ -1,11 +1,12 @@
 module ModernTreasury
   module Models
     type external_account_complete_verification_params =
-      { amounts: ::Array[Integer] } & ModernTreasury::request_parameters
+      { amounts: ::Array[Integer] }
+      & ModernTreasury::Internal::Type::request_parameters
 
     class ExternalAccountCompleteVerificationParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_reader amounts: ::Array[Integer]?
 

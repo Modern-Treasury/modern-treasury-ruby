@@ -6,11 +6,11 @@ module ModernTreasury
         account_number: String,
         account_number_type: ModernTreasury::Models::AccountDetailCreateParams::account_number_type
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
     class AccountDetailCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor accounts_type: ModernTreasury::Models::AccountDetailCreateParams::accounts_type
 

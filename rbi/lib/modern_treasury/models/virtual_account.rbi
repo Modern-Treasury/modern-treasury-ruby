@@ -73,7 +73,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          account_details: T::Array[T.any(ModernTreasury::Models::AccountDetail, ModernTreasury::Util::AnyHash)],
+          account_details: T::Array[T.any(ModernTreasury::Models::AccountDetail, ModernTreasury::Internal::Util::AnyHash)],
           counterparty_id: T.nilable(String),
           created_at: Time,
           credit_ledger_account_id: T.nilable(String),
@@ -86,7 +86,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           name: String,
           object: String,
-          routing_details: T::Array[T.any(ModernTreasury::Models::RoutingDetail, ModernTreasury::Util::AnyHash)],
+          routing_details: T::Array[T.any(ModernTreasury::Models::RoutingDetail, ModernTreasury::Internal::Util::AnyHash)],
           updated_at: Time
         )
           .returns(T.attached_class)

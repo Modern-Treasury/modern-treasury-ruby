@@ -9,7 +9,10 @@ module ModernTreasury
 
       sig do
         params(
-          bank_address: T.any(ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress, ModernTreasury::Util::AnyHash)
+          bank_address: T.any(
+            ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress,
+            ModernTreasury::Internal::Util::AnyHash
+          )
         )
           .void
       end
@@ -74,7 +77,10 @@ module ModernTreasury
 
       sig do
         params(
-          bank_address: T.any(ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress, ModernTreasury::Util::AnyHash),
+          bank_address: T.any(
+            ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress,
+            ModernTreasury::Internal::Util::AnyHash
+          ),
           bank_name: String,
           routing_number: String,
           routing_number_type: ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType::OrSymbol,

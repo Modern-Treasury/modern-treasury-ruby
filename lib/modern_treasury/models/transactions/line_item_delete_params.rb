@@ -6,8 +6,8 @@ module ModernTreasury
       # @see ModernTreasury::Resources::Transactions::LineItems#delete
       class LineItemDeleteParams < ModernTreasury::BaseModel
         # @!parse
-        #   extend ModernTreasury::Type::RequestParameters::Converter
-        include ModernTreasury::RequestParameters
+        #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        include ModernTreasury::Internal::Type::RequestParameters
 
         # @!parse
         #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]

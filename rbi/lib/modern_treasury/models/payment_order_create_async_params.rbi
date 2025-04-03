@@ -3,8 +3,8 @@
 module ModernTreasury
   module Models
     class PaymentOrderCreateAsyncParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # Value in specified currency's smallest unit. e.g. $10 would be represented as
       #   1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
@@ -33,7 +33,10 @@ module ModernTreasury
 
       sig do
         params(
-          accounting: T.any(ModernTreasury::Models::PaymentOrderCreateAsyncParams::Accounting, ModernTreasury::Util::AnyHash)
+          accounting: T.any(
+            ModernTreasury::Models::PaymentOrderCreateAsyncParams::Accounting,
+            ModernTreasury::Internal::Util::AnyHash
+          )
         )
           .void
       end
@@ -114,7 +117,7 @@ module ModernTreasury
         params(
           ledger_transaction: T.any(
             ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction,
-            ModernTreasury::Util::AnyHash
+            ModernTreasury::Internal::Util::AnyHash
           )
         )
           .void
@@ -137,7 +140,12 @@ module ModernTreasury
 
       sig do
         params(
-          line_items: T::Array[T.any(ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem, ModernTreasury::Util::AnyHash)]
+          line_items: T::Array[
+          T.any(
+            ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem,
+            ModernTreasury::Internal::Util::AnyHash
+          )
+          ]
         )
           .void
       end
@@ -199,7 +207,7 @@ module ModernTreasury
         params(
           receiving_account: T.any(
             ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount,
-            ModernTreasury::Util::AnyHash
+            ModernTreasury::Internal::Util::AnyHash
           )
         )
           .void
@@ -272,7 +280,10 @@ module ModernTreasury
           direction: ModernTreasury::Models::PaymentOrderCreateAsyncParams::Direction::OrSymbol,
           originating_account_id: String,
           type: ModernTreasury::Models::PaymentOrderType::OrSymbol,
-          accounting: T.any(ModernTreasury::Models::PaymentOrderCreateAsyncParams::Accounting, ModernTreasury::Util::AnyHash),
+          accounting: T.any(
+            ModernTreasury::Models::PaymentOrderCreateAsyncParams::Accounting,
+            ModernTreasury::Internal::Util::AnyHash
+          ),
           accounting_category_id: T.nilable(String),
           accounting_ledger_class_id: T.nilable(String),
           charge_bearer: T.nilable(ModernTreasury::Models::PaymentOrderCreateAsyncParams::ChargeBearer::OrSymbol),
@@ -285,10 +296,15 @@ module ModernTreasury
           foreign_exchange_indicator: T.nilable(ModernTreasury::Models::PaymentOrderCreateAsyncParams::ForeignExchangeIndicator::OrSymbol),
           ledger_transaction: T.any(
             ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction,
-            ModernTreasury::Util::AnyHash
+            ModernTreasury::Internal::Util::AnyHash
           ),
           ledger_transaction_id: String,
-          line_items: T::Array[T.any(ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem, ModernTreasury::Util::AnyHash)],
+          line_items: T::Array[
+          T.any(
+            ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem,
+            ModernTreasury::Internal::Util::AnyHash
+          )
+          ],
           metadata: T::Hash[Symbol, String],
           nsf_protected: T::Boolean,
           originating_party_name: T.nilable(String),
@@ -297,7 +313,7 @@ module ModernTreasury
           purpose: T.nilable(String),
           receiving_account: T.any(
             ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount,
-            ModernTreasury::Util::AnyHash
+            ModernTreasury::Internal::Util::AnyHash
           ),
           receiving_account_id: String,
           remittance_information: T.nilable(String),
@@ -309,7 +325,7 @@ module ModernTreasury
           ultimate_originating_party_name: T.nilable(String),
           ultimate_receiving_party_identifier: T.nilable(String),
           ultimate_receiving_party_name: T.nilable(String),
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -618,7 +634,7 @@ module ModernTreasury
             ledger_entries: T::Array[
             T.any(
               ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerEntry,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             )
             ],
             description: T.nilable(String),
@@ -951,7 +967,7 @@ module ModernTreasury
             account_details: T::Array[
             T.any(
               ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             )
             ]
           )
@@ -980,7 +996,7 @@ module ModernTreasury
             contact_details: T::Array[
             T.any(
               ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             )
             ]
           )
@@ -1000,7 +1016,7 @@ module ModernTreasury
           params(
             ledger_account: T.any(
               ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             )
           )
             .void
@@ -1028,7 +1044,7 @@ module ModernTreasury
           params(
             party_address: T.any(
               ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyAddress,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             )
           )
             .void
@@ -1078,7 +1094,7 @@ module ModernTreasury
             routing_details: T::Array[
             T.any(
               ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             )
             ]
           )
@@ -1094,25 +1110,25 @@ module ModernTreasury
             account_details: T::Array[
             T.any(
               ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             )
             ],
             account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
             contact_details: T::Array[
             T.any(
               ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             )
             ],
             ledger_account: T.any(
               ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             ),
             metadata: T::Hash[Symbol, String],
             name: T.nilable(String),
             party_address: T.any(
               ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyAddress,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             ),
             party_identifier: String,
             party_name: String,
@@ -1121,7 +1137,7 @@ module ModernTreasury
             routing_details: T::Array[
             T.any(
               ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             )
             ]
           )

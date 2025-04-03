@@ -1,11 +1,12 @@
 module ModernTreasury
   module Models
     type ledger_entry_retrieve_params =
-      { show_balances: bool } & ModernTreasury::request_parameters
+      { show_balances: bool }
+      & ModernTreasury::Internal::Type::request_parameters
 
     class LedgerEntryRetrieveParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_reader show_balances: bool?
 

@@ -2,11 +2,12 @@ module ModernTreasury
   module Models
     module Invoices
       type line_item_retrieve_params =
-        { invoice_id: String } & ModernTreasury::request_parameters
+        { invoice_id: String }
+        & ModernTreasury::Internal::Type::request_parameters
 
       class LineItemRetrieveParams < ModernTreasury::BaseModel
-        extend ModernTreasury::Type::RequestParameters::Converter
-        include ModernTreasury::RequestParameters
+        extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        include ModernTreasury::Internal::Type::RequestParameters
 
         attr_accessor invoice_id: String
 

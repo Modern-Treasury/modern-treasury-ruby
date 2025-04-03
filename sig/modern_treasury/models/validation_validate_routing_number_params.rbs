@@ -5,11 +5,11 @@ module ModernTreasury
         routing_number: String,
         routing_number_type: ModernTreasury::Models::ValidationValidateRoutingNumberParams::routing_number_type
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
     class ValidationValidateRoutingNumberParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor routing_number: String
 

@@ -29,11 +29,11 @@ module ModernTreasury
         wealth_and_employment_details: ModernTreasury::Models::WealthAndEmploymentDetails?,
         website: String?
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
     class LegalEntityCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor legal_entity_type: ModernTreasury::Models::LegalEntityCreateParams::legal_entity_type
 

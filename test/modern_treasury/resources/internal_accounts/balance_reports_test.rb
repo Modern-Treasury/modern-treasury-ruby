@@ -71,7 +71,7 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mo
     response = @modern_treasury.internal_accounts.balance_reports.list("internal_account_id")
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first

@@ -29,7 +29,10 @@ module ModernTreasury
 
       sig do
         params(
-          foreign_exchange_rate: T.any(ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate, ModernTreasury::Util::AnyHash)
+          foreign_exchange_rate: T.any(
+            ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate,
+            ModernTreasury::Internal::Util::AnyHash
+          )
         )
           .void
       end
@@ -69,7 +72,10 @@ module ModernTreasury
           effective_at: Time,
           expires_at: Time,
           foreign_exchange_indicator: String,
-          foreign_exchange_rate: T.any(ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate, ModernTreasury::Util::AnyHash),
+          foreign_exchange_rate: T.any(
+            ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate,
+            ModernTreasury::Internal::Util::AnyHash
+          ),
           internal_account_id: String,
           live_mode: T::Boolean,
           metadata: T::Hash[Symbol, String],

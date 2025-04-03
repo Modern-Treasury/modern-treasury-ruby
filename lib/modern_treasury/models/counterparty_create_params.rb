@@ -5,8 +5,8 @@ module ModernTreasury
     # @see ModernTreasury::Resources::Counterparties#create
     class CounterpartyCreateParams < ModernTreasury::BaseModel
       # @!parse
-      #   extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute name
       #   A human friendly name for this counterparty.

@@ -62,7 +62,7 @@ module ModernTreasury
         # @param per_page [Integer]
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::Page<ModernTreasury::Models::PaymentOrders::Reversal>]
+        # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::PaymentOrders::Reversal>]
         #
         # @see ModernTreasury::Models::PaymentOrders::ReversalListParams
         def list(payment_order_id, params = {})
@@ -71,7 +71,7 @@ module ModernTreasury
             method: :get,
             path: ["api/payment_orders/%1$s/reversals", payment_order_id],
             query: parsed,
-            page: ModernTreasury::Page,
+            page: ModernTreasury::Internal::Page,
             model: ModernTreasury::Models::PaymentOrders::Reversal,
             options: options
           )

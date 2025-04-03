@@ -22,7 +22,7 @@ module ModernTreasury
         ?after_cursor: String?,
         ?per_page: Integer,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Page[ModernTreasury::Models::LineItem]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::LineItem]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

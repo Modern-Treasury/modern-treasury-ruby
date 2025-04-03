@@ -10,7 +10,9 @@ module ModernTreasury
       attr_reader :accounting
 
       sig do
-        params(accounting: T.any(ModernTreasury::Models::PaymentOrder::Accounting, ModernTreasury::Util::AnyHash))
+        params(
+          accounting: T.any(ModernTreasury::Models::PaymentOrder::Accounting, ModernTreasury::Internal::Util::AnyHash)
+        )
           .void
       end
       attr_writer :accounting
@@ -60,7 +62,7 @@ module ModernTreasury
 
       sig do
         params(
-          current_return: T.nilable(T.any(ModernTreasury::Models::ReturnObject, ModernTreasury::Util::AnyHash))
+          current_return: T.nilable(T.any(ModernTreasury::Models::ReturnObject, ModernTreasury::Internal::Util::AnyHash))
         )
           .void
       end
@@ -109,7 +111,9 @@ module ModernTreasury
 
       sig do
         params(
-          foreign_exchange_rate: T.nilable(T.any(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate, ModernTreasury::Util::AnyHash))
+          foreign_exchange_rate: T.nilable(
+            T.any(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate, ModernTreasury::Internal::Util::AnyHash)
+          )
         )
           .void
       end
@@ -270,7 +274,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          accounting: T.any(ModernTreasury::Models::PaymentOrder::Accounting, ModernTreasury::Util::AnyHash),
+          accounting: T.any(ModernTreasury::Models::PaymentOrder::Accounting, ModernTreasury::Internal::Util::AnyHash),
           accounting_category_id: T.nilable(String),
           accounting_ledger_class_id: T.nilable(String),
           amount: Integer,
@@ -279,7 +283,7 @@ module ModernTreasury
           counterparty_id: T.nilable(String),
           created_at: Time,
           currency: ModernTreasury::Models::Currency::OrSymbol,
-          current_return: T.nilable(T.any(ModernTreasury::Models::ReturnObject, ModernTreasury::Util::AnyHash)),
+          current_return: T.nilable(T.any(ModernTreasury::Models::ReturnObject, ModernTreasury::Internal::Util::AnyHash)),
           decision_id: T.nilable(String),
           description: T.nilable(String),
           direction: ModernTreasury::Models::PaymentOrder::Direction::OrSymbol,
@@ -287,7 +291,9 @@ module ModernTreasury
           expires_at: T.nilable(Time),
           foreign_exchange_contract: T.nilable(String),
           foreign_exchange_indicator: T.nilable(ModernTreasury::Models::PaymentOrder::ForeignExchangeIndicator::OrSymbol),
-          foreign_exchange_rate: T.nilable(T.any(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate, ModernTreasury::Util::AnyHash)),
+          foreign_exchange_rate: T.nilable(
+            T.any(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate, ModernTreasury::Internal::Util::AnyHash)
+          ),
           ledger_transaction_id: T.nilable(String),
           live_mode: T::Boolean,
           metadata: T::Hash[Symbol, String],
@@ -300,7 +306,7 @@ module ModernTreasury
           purpose: T.nilable(String),
           receiving_account_id: String,
           receiving_account_type: ModernTreasury::Models::PaymentOrder::ReceivingAccountType::OrSymbol,
-          reference_numbers: T::Array[T.any(ModernTreasury::Models::PaymentOrder::ReferenceNumber, ModernTreasury::Util::AnyHash)],
+          reference_numbers: T::Array[T.any(ModernTreasury::Models::PaymentOrder::ReferenceNumber, ModernTreasury::Internal::Util::AnyHash)],
           remittance_information: T.nilable(String),
           send_remittance_advice: T.nilable(T::Boolean),
           statement_descriptor: T.nilable(String),
@@ -312,7 +318,7 @@ module ModernTreasury
           ultimate_originating_account: T.nilable(
             T.any(
               ModernTreasury::Models::VirtualAccount,
-              ModernTreasury::Util::AnyHash,
+              ModernTreasury::Internal::Util::AnyHash,
               ModernTreasury::Models::InternalAccount
             )
           ),

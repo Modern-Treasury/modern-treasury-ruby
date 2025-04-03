@@ -72,7 +72,7 @@ module ModernTreasury
         ?per_page: Integer,
         ?show_deleted: String,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Page[ModernTreasury::Models::LegalEntity]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::LegalEntity]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

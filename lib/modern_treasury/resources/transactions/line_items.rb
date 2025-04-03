@@ -57,7 +57,7 @@ module ModernTreasury
         # @param type [Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type, nil]
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::Page<ModernTreasury::Models::Transactions::TransactionLineItem>]
+        # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::Transactions::TransactionLineItem>]
         #
         # @see ModernTreasury::Models::Transactions::LineItemListParams
         def list(params = {})
@@ -66,7 +66,7 @@ module ModernTreasury
             method: :get,
             path: "api/transaction_line_items",
             query: parsed,
-            page: ModernTreasury::Page,
+            page: ModernTreasury::Internal::Page,
             model: ModernTreasury::Models::Transactions::TransactionLineItem,
             options: options
           )

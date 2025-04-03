@@ -93,7 +93,7 @@ module ModernTreasury
           effective_at: Time,
           effective_date: Date,
           external_id: T.nilable(String),
-          ledger_entries: T::Array[T.any(ModernTreasury::Models::LedgerEntry, ModernTreasury::Util::AnyHash)],
+          ledger_entries: T::Array[T.any(ModernTreasury::Models::LedgerEntry, ModernTreasury::Internal::Util::AnyHash)],
           ledger_id: String,
           ledgerable_id: T.nilable(String),
           ledgerable_type: T.nilable(ModernTreasury::Models::LedgerTransaction::LedgerableType::OrSymbol),

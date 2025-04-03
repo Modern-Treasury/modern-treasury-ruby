@@ -26,7 +26,7 @@ module ModernTreasury
         ?per_page: Integer,
         ?status: ModernTreasury::Models::ConnectionLegalEntityListParams::status,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Page[ModernTreasury::Models::ConnectionLegalEntity]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::ConnectionLegalEntity]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

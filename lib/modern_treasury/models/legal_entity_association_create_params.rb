@@ -5,8 +5,8 @@ module ModernTreasury
     # @see ModernTreasury::Resources::LegalEntityAssociations#create
     class LegalEntityAssociationCreateParams < ModernTreasury::BaseModel
       # @!parse
-      #   extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute parent_legal_entity_id
       #   The ID of the parent legal entity. This must be a business or joint legal

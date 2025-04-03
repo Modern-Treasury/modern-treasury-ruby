@@ -4,11 +4,11 @@ module ModernTreasury
       {
         balances: ModernTreasury::Models::LedgerAccountRetrieveParams::Balances
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
     class LedgerAccountRetrieveParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_reader balances: ModernTreasury::Models::LedgerAccountRetrieveParams::Balances?
 

@@ -15,7 +15,7 @@ module ModernTreasury
         ?per_page: Integer,
         ?resource: String,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Page[ModernTreasury::Models::Event]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::Event]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

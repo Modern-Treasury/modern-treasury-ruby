@@ -121,7 +121,7 @@ module ModernTreasury
           live_mode: T::Boolean,
           object: String,
           reason: T.nilable(String),
-          reference_numbers: T::Array[T.any(ModernTreasury::Models::ReturnObject::ReferenceNumber, ModernTreasury::Util::AnyHash)],
+          reference_numbers: T::Array[T.any(ModernTreasury::Models::ReturnObject::ReferenceNumber, ModernTreasury::Internal::Util::AnyHash)],
           returnable_id: T.nilable(String),
           returnable_type: T.nilable(ModernTreasury::Models::ReturnObject::ReturnableType::OrSymbol),
           role: ModernTreasury::Models::ReturnObject::Role::OrSymbol,

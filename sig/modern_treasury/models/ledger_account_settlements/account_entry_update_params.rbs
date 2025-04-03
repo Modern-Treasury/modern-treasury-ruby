@@ -3,11 +3,11 @@ module ModernTreasury
     module LedgerAccountSettlements
       type account_entry_update_params =
         { ledger_entry_ids: ::Array[String]? }
-        & ModernTreasury::request_parameters
+        & ModernTreasury::Internal::Type::request_parameters
 
       class AccountEntryUpdateParams < ModernTreasury::BaseModel
-        extend ModernTreasury::Type::RequestParameters::Converter
-        include ModernTreasury::RequestParameters
+        extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        include ModernTreasury::Internal::Type::RequestParameters
 
         attr_accessor ledger_entry_ids: ::Array[String]?
 

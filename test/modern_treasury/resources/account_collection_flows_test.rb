@@ -83,7 +83,7 @@ class ModernTreasury::Test::Resources::AccountCollectionFlowsTest < ModernTreasu
     response = @modern_treasury.account_collection_flows.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first

@@ -11,7 +11,7 @@ module ModernTreasury
           resources: T::Array[
           T.any(
             ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest,
-            ModernTreasury::Util::AnyHash,
+            ModernTreasury::Internal::Util::AnyHash,
             ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest,
             ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest,
             ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest,
@@ -23,7 +23,12 @@ module ModernTreasury
           )
           ],
           metadata: T::Hash[Symbol, String],
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::BulkRequest)
       end
@@ -46,7 +51,12 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::BulkRequest)
       end
@@ -66,9 +76,14 @@ module ModernTreasury
           per_page: Integer,
           resource_type: ModernTreasury::Models::BulkRequestListParams::ResourceType::OrSymbol,
           status: ModernTreasury::Models::BulkRequestListParams::Status::OrSymbol,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
-          .returns(ModernTreasury::Page[ModernTreasury::Models::BulkRequest])
+          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::BulkRequest])
       end
       def list(
         # One of create, or update.

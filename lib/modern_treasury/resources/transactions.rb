@@ -97,7 +97,7 @@ module ModernTreasury
       # @param virtual_account_id [String]
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Page<ModernTreasury::Models::Transaction>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::Transaction>]
       #
       # @see ModernTreasury::Models::TransactionListParams
       def list(params = {})
@@ -106,7 +106,7 @@ module ModernTreasury
           method: :get,
           path: "api/transactions",
           query: parsed,
-          page: ModernTreasury::Page,
+          page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Models::Transaction,
           options: options
         )

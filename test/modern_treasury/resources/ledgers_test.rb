@@ -73,7 +73,7 @@ class ModernTreasury::Test::Resources::LedgersTest < ModernTreasury::Test::Resou
     response = @modern_treasury.ledgers.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first

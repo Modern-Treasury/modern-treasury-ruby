@@ -3,8 +3,8 @@
 module ModernTreasury
   module Models
     class LedgerTransactionCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # An array of ledger entry objects.
       sig { returns(T::Array[ModernTreasury::Models::LedgerTransactionCreateParams::LedgerEntry]) }
@@ -76,7 +76,12 @@ module ModernTreasury
 
       sig do
         params(
-          ledger_entries: T::Array[T.any(ModernTreasury::Models::LedgerTransactionCreateParams::LedgerEntry, ModernTreasury::Util::AnyHash)],
+          ledger_entries: T::Array[
+          T.any(
+            ModernTreasury::Models::LedgerTransactionCreateParams::LedgerEntry,
+            ModernTreasury::Internal::Util::AnyHash
+          )
+          ],
           description: T.nilable(String),
           effective_at: Time,
           effective_date: Date,
@@ -85,7 +90,7 @@ module ModernTreasury
           ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateParams::LedgerableType::OrSymbol,
           metadata: T::Hash[Symbol, String],
           status: ModernTreasury::Models::LedgerTransactionCreateParams::Status::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

@@ -14,7 +14,12 @@ module ModernTreasury
           description: T.nilable(String),
           ledger_account_category_ids: T::Array[String],
           metadata: T::Hash[Symbol, String],
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::LedgerAccountCategory)
       end
@@ -47,9 +52,14 @@ module ModernTreasury
           id: String,
           balances: T.any(
             ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances,
-            ModernTreasury::Util::AnyHash
+            ModernTreasury::Internal::Util::AnyHash
           ),
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::LedgerAccountCategory)
       end
@@ -71,7 +81,12 @@ module ModernTreasury
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           name: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::LedgerAccountCategory)
       end
@@ -94,7 +109,10 @@ module ModernTreasury
         params(
           id: T::Array[String],
           after_cursor: T.nilable(String),
-          balances: T.any(ModernTreasury::Models::LedgerAccountCategoryListParams::Balances, ModernTreasury::Util::AnyHash),
+          balances: T.any(
+            ModernTreasury::Models::LedgerAccountCategoryListParams::Balances,
+            ModernTreasury::Internal::Util::AnyHash
+          ),
           currency: String,
           ledger_account_id: String,
           ledger_id: String,
@@ -102,9 +120,14 @@ module ModernTreasury
           name: String,
           parent_ledger_account_category_id: String,
           per_page: Integer,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
-          .returns(ModernTreasury::Page[ModernTreasury::Models::LedgerAccountCategory])
+          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerAccountCategory])
       end
       def list(
         # If you have specific IDs to retrieve in bulk, you can pass them as query
@@ -136,7 +159,12 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::LedgerAccountCategory)
       end
@@ -152,7 +180,12 @@ module ModernTreasury
         params(
           ledger_account_id: String,
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
           .void
       end
@@ -170,7 +203,12 @@ module ModernTreasury
         params(
           sub_category_id: String,
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
           .void
       end
@@ -188,7 +226,12 @@ module ModernTreasury
         params(
           ledger_account_id: String,
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
           .void
       end
@@ -206,7 +249,12 @@ module ModernTreasury
         params(
           sub_category_id: String,
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+          )
         )
           .void
       end

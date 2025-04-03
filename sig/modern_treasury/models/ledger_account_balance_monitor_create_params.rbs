@@ -7,11 +7,11 @@ module ModernTreasury
         description: String,
         metadata: ::Hash[Symbol, String]
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
     class LedgerAccountBalanceMonitorCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition
 

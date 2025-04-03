@@ -56,7 +56,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          accounts: T::Array[T.any(ModernTreasury::Models::Counterparty::Account, ModernTreasury::Util::AnyHash)],
+          accounts: T::Array[T.any(ModernTreasury::Models::Counterparty::Account, ModernTreasury::Internal::Util::AnyHash)],
           created_at: Time,
           discarded_at: T.nilable(Time),
           email: T.nilable(String),
@@ -123,7 +123,7 @@ module ModernTreasury
 
         sig do
           params(
-            account_details: T::Array[T.any(ModernTreasury::Models::AccountDetail, ModernTreasury::Util::AnyHash)]
+            account_details: T::Array[T.any(ModernTreasury::Models::AccountDetail, ModernTreasury::Internal::Util::AnyHash)]
           )
             .void
         end
@@ -141,7 +141,12 @@ module ModernTreasury
 
         sig do
           params(
-            contact_details: T::Array[T.any(ModernTreasury::Models::Counterparty::Account::ContactDetail, ModernTreasury::Util::AnyHash)]
+            contact_details: T::Array[
+            T.any(
+              ModernTreasury::Models::Counterparty::Account::ContactDetail,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+            ]
           )
             .void
         end
@@ -195,7 +200,10 @@ module ModernTreasury
         sig do
           params(
             party_address: T.nilable(
-              T.any(ModernTreasury::Models::Counterparty::Account::PartyAddress, ModernTreasury::Util::AnyHash)
+              T.any(
+                ModernTreasury::Models::Counterparty::Account::PartyAddress,
+                ModernTreasury::Internal::Util::AnyHash
+              )
             )
           )
             .void
@@ -218,7 +226,7 @@ module ModernTreasury
 
         sig do
           params(
-            routing_details: T::Array[T.any(ModernTreasury::Models::RoutingDetail, ModernTreasury::Util::AnyHash)]
+            routing_details: T::Array[T.any(ModernTreasury::Models::RoutingDetail, ModernTreasury::Internal::Util::AnyHash)]
           )
             .void
         end
@@ -245,9 +253,14 @@ module ModernTreasury
         sig do
           params(
             id: String,
-            account_details: T::Array[T.any(ModernTreasury::Models::AccountDetail, ModernTreasury::Util::AnyHash)],
+            account_details: T::Array[T.any(ModernTreasury::Models::AccountDetail, ModernTreasury::Internal::Util::AnyHash)],
             account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
-            contact_details: T::Array[T.any(ModernTreasury::Models::Counterparty::Account::ContactDetail, ModernTreasury::Util::AnyHash)],
+            contact_details: T::Array[
+            T.any(
+              ModernTreasury::Models::Counterparty::Account::ContactDetail,
+              ModernTreasury::Internal::Util::AnyHash
+            )
+            ],
             created_at: Time,
             discarded_at: T.nilable(Time),
             ledger_account_id: T.nilable(String),
@@ -256,11 +269,14 @@ module ModernTreasury
             name: T.nilable(String),
             object: String,
             party_address: T.nilable(
-              T.any(ModernTreasury::Models::Counterparty::Account::PartyAddress, ModernTreasury::Util::AnyHash)
+              T.any(
+                ModernTreasury::Models::Counterparty::Account::PartyAddress,
+                ModernTreasury::Internal::Util::AnyHash
+              )
             ),
             party_name: String,
             party_type: T.nilable(ModernTreasury::Models::Counterparty::Account::PartyType::OrSymbol),
-            routing_details: T::Array[T.any(ModernTreasury::Models::RoutingDetail, ModernTreasury::Util::AnyHash)],
+            routing_details: T::Array[T.any(ModernTreasury::Models::RoutingDetail, ModernTreasury::Internal::Util::AnyHash)],
             updated_at: Time,
             verification_source: T.nilable(ModernTreasury::Models::Counterparty::Account::VerificationSource::OrSymbol),
             verification_status: ModernTreasury::Models::Counterparty::Account::VerificationStatus::OrSymbol

@@ -11,11 +11,11 @@ module ModernTreasury
         skip_settlement_ledger_transaction: bool?,
         status: ModernTreasury::Models::LedgerAccountSettlementCreateParams::status?
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
     class LedgerAccountSettlementCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor contra_ledger_account_id: String
 

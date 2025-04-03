@@ -112,7 +112,7 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < ModernTreasury::
     response = @modern_treasury.ledger_transactions.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first

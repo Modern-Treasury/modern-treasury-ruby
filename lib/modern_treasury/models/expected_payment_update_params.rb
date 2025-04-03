@@ -5,8 +5,8 @@ module ModernTreasury
     # @see ModernTreasury::Resources::ExpectedPayments#update
     class ExpectedPaymentUpdateParams < ModernTreasury::BaseModel
       # @!parse
-      #   extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute amount_lower_bound
       #   The lowest amount this expected payment may be equal to. Value in specified
