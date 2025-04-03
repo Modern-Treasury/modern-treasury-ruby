@@ -1,4 +1,5 @@
 module ModernTreasury
   module Internal
+    OMIT: top
   end
 end
