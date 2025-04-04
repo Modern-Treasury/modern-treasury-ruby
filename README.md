@@ -12,9 +12,13 @@ The underlying REST API documentation can be found on [docs.moderntreasury.com](
 
 To use this gem, install via Bundler by adding the following to your application's `Gemfile`:
 
+<!-- x-release-please-start-version -->
+
 ```ruby
 gem "modern_treasury", "~> 0.1.0.pre.alpha.16"
 ```
+
+<!-- x-release-please-end -->
 
 To fetch an initial copy of the gem:
 
