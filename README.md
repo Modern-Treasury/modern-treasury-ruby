@@ -140,9 +140,9 @@ Due to limitations with the Sorbet type system, where a method otherwise can tak
 Please follow Sorbet's [setup guides](https://sorbet.org/docs/adopting) for best experience.
 
 ```ruby
-model = ModernTreasury::Models::CounterpartyCreateParams.new(name: "my first counterparty")
+params = ModernTreasury::Models::CounterpartyCreateParams.new(name: "my first counterparty")
 
-modern_treasury.counterparties.create(**model)
+modern_treasury.counterparties.create(**params)
 ```
 
 ## Advanced
