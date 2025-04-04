@@ -209,7 +209,9 @@ module ModernTreasury
           #
           # @return [Object]
           def dump(target, value)
+            # rubocop:disable Layout/LineLength
             target.is_a?(ModernTreasury::Internal::Type::Converter) ? target.dump(value) : ModernTreasury::Internal::Type::Unknown.dump(value)
+            # rubocop:enable Layout/LineLength
           end
         end
       end
