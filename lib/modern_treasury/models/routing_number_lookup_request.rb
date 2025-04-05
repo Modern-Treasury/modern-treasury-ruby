@@ -36,9 +36,9 @@ module ModernTreasury
 
       # @!attribute [r] routing_number_type
       #   The type of routing number. See
-      #     https://docs.moderntreasury.com/platform/reference/routing-detail-object for
-      #     more details. In sandbox mode we currently only support `aba` and `swift` with
-      #     routing numbers '123456789' and 'GRINUST0XXX' respectively.
+      #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      #   more details. In sandbox mode we currently only support `aba` and `swift` with
+      #   routing numbers '123456789' and 'GRINUST0XXX' respectively.
       #
       #   @return [Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType, nil]
       optional :routing_number_type,
@@ -50,8 +50,8 @@ module ModernTreasury
 
       # @!attribute [r] sanctions
       #   An object containing key-value pairs, each with a sanctions list as the key and
-      #     a boolean value representing whether the bank is on that particular sanctions
-      #     list. Currently, this includes eu_con, uk_hmt, us_ofac, and un sanctions lists.
+      #   a boolean value representing whether the bank is on that particular sanctions
+      #   list. Currently, this includes eu_con, uk_hmt, us_ofac, and un sanctions lists.
       #
       #   @return [Hash{Symbol=>Object}, nil]
       optional :sanctions, ModernTreasury::Internal::Type::HashOf[ModernTreasury::Internal::Type::Unknown]
@@ -62,7 +62,7 @@ module ModernTreasury
 
       # @!attribute [r] supported_payment_types
       #   An array of payment types that are supported for this routing number. This can
-      #     include `ach`, `wire`, `rtp`, `sepa`, `bacs`, `au_becs`, and 'fednow' currently.
+      #   include `ach`, `wire`, `rtp`, `sepa`, `bacs`, `au_becs`, and 'fednow' currently.
       #
       #   @return [Array<Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType>, nil]
       optional :supported_payment_types,
@@ -146,9 +146,9 @@ module ModernTreasury
       end
 
       # The type of routing number. See
-      #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
-      #   more details. In sandbox mode we currently only support `aba` and `swift` with
-      #   routing numbers '123456789' and 'GRINUST0XXX' respectively.
+      # https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      # more details. In sandbox mode we currently only support `aba` and `swift` with
+      # routing numbers '123456789' and 'GRINUST0XXX' respectively.
       #
       # @see ModernTreasury::Models::RoutingNumberLookupRequest#routing_number_type
       module RoutingNumberType

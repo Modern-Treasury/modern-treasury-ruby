@@ -23,7 +23,7 @@ module ModernTreasury
       attr_writer :reference_number
 
       # The id of the referenceable to search for. Must be accompanied by the
-      #   referenceable_type or will return an error.
+      # referenceable_type or will return an error.
       sig { returns(T.nilable(String)) }
       attr_reader :referenceable_id
 
@@ -31,7 +31,7 @@ module ModernTreasury
       attr_writer :referenceable_id
 
       # One of the referenceable types. This must be accompanied by the id of the
-      #   referenceable or will return an error.
+      # referenceable or will return an error.
       sig { returns(T.nilable(ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::OrSymbol)) }
       attr_reader :referenceable_type
 
@@ -78,7 +78,7 @@ module ModernTreasury
       def to_hash; end
 
       # One of the referenceable types. This must be accompanied by the id of the
-      #   referenceable or will return an error.
+      # referenceable or will return an error.
       module ReferenceableType
         extend ModernTreasury::Internal::Type::Enum
 

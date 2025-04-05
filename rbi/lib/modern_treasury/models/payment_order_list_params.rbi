@@ -50,8 +50,8 @@ module ModernTreasury
       attr_writer :effective_date_start
 
       # For example, if you want to query for records with metadata key `Type` and value
-      #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #   parameters.
+      # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      # parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_reader :metadata
 
@@ -71,8 +71,8 @@ module ModernTreasury
       attr_writer :per_page
 
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
-      #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
-      #   an overnight check rather than standard mail.
+      # same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
+      # an overnight check rather than standard mail.
       sig { returns(T.nilable(ModernTreasury::Models::PaymentOrderListParams::Priority::OrSymbol)) }
       attr_reader :priority
 
@@ -190,8 +190,8 @@ module ModernTreasury
       def to_hash; end
 
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
-      #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
-      #   an overnight check rather than standard mail.
+      # same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
+      # an overnight check rather than standard mail.
       module Priority
         extend ModernTreasury::Internal::Type::Enum
 

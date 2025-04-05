@@ -73,8 +73,8 @@ module ModernTreasury
 
       # @!attribute [r] metadata
       #   For example, if you want to query for records with metadata key `Type` and value
-      #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #     parameters.
+      #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #   parameters.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -103,8 +103,8 @@ module ModernTreasury
 
       # @!attribute [r] priority
       #   Either `normal` or `high`. For ACH and EFT payments, `high` represents a
-      #     same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
-      #     an overnight check rather than standard mail.
+      #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
+      #   an overnight check rather than standard mail.
       #
       #   @return [Symbol, ModernTreasury::Models::PaymentOrderListParams::Priority, nil]
       optional :priority, enum: -> { ModernTreasury::Models::PaymentOrderListParams::Priority }
@@ -218,8 +218,8 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
-      #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
-      #   an overnight check rather than standard mail.
+      # same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
+      # an overnight check rather than standard mail.
       module Priority
         extend ModernTreasury::Internal::Type::Enum
 

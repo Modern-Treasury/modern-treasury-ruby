@@ -10,7 +10,7 @@ module ModernTreasury
       attr_accessor :created_at
 
       # This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
+      # if it exists in the test environment.
       sig { returns(T::Boolean) }
       attr_accessor :live_mode
 
@@ -26,12 +26,12 @@ module ModernTreasury
       attr_accessor :reference_number_type
 
       # The id of the referenceable to search for. Must be accompanied by the
-      #   referenceable_type or will return an error.
+      # referenceable_type or will return an error.
       sig { returns(String) }
       attr_accessor :referenceable_id
 
       # One of the referenceable types. This must be accompanied by the id of the
-      #   referenceable or will return an error.
+      # referenceable or will return an error.
       sig { returns(ModernTreasury::Models::PaymentReference::ReferenceableType::TaggedSymbol) }
       attr_accessor :referenceable_type
 
@@ -356,7 +356,7 @@ module ModernTreasury
       end
 
       # One of the referenceable types. This must be accompanied by the id of the
-      #   referenceable or will return an error.
+      # referenceable or will return an error.
       module ReferenceableType
         extend ModernTreasury::Internal::Type::Enum
 

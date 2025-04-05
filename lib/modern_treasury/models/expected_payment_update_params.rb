@@ -10,14 +10,14 @@ module ModernTreasury
 
       # @!attribute amount_lower_bound
       #   The lowest amount this expected payment may be equal to. Value in specified
-      #     currency's smallest unit. e.g. $10 would be represented as 1000.
+      #   currency's smallest unit. e.g. $10 would be represented as 1000.
       #
       #   @return [Integer, nil]
       optional :amount_lower_bound, Integer, nil?: true
 
       # @!attribute amount_upper_bound
       #   The highest amount this expected payment may be equal to. Value in specified
-      #     currency's smallest unit. e.g. $10 would be represented as 1000.
+      #   currency's smallest unit. e.g. $10 would be represented as 1000.
       #
       #   @return [Integer, nil]
       optional :amount_upper_bound, Integer, nil?: true
@@ -54,7 +54,7 @@ module ModernTreasury
 
       # @!attribute direction
       #   One of credit or debit. When you are receiving money, use credit. When you are
-      #     being charged, use debit.
+      #   being charged, use debit.
       #
       #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction, nil]
       optional :direction,
@@ -69,7 +69,7 @@ module ModernTreasury
 
       # @!attribute [r] metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
+      #   strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -100,31 +100,31 @@ module ModernTreasury
 
       # @!attribute remittance_information
       #   For `ach`, this field will be passed through on an addenda record. For `wire`
-      #     payments the field will be passed through as the "Originator to Beneficiary
-      #     Information", also known as OBI or Fedwire tag 6000.
+      #   payments the field will be passed through as the "Originator to Beneficiary
+      #   Information", also known as OBI or Fedwire tag 6000.
       #
       #   @return [String, nil]
       optional :remittance_information, String, nil?: true
 
       # @!attribute statement_descriptor
       #   The statement description you expect to see on the transaction. For ACH
-      #     payments, this will be the full line item passed from the bank. For wire
-      #     payments, this will be the OBI field on the wire. For check payments, this will
-      #     be the memo field.
+      #   payments, this will be the full line item passed from the bank. For wire
+      #   payments, this will be the OBI field on the wire. For check payments, this will
+      #   be the memo field.
       #
       #   @return [String, nil]
       optional :statement_descriptor, String, nil?: true
 
       # @!attribute status
       #   The Expected Payment's status can be updated from partially_reconciled to
-      #     reconciled.
+      #   reconciled.
       #
       #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::Models::ExpectedPaymentUpdateParams::Status }, nil?: true
 
       # @!attribute type
       #   One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
-      #     sepa, signet, wire.
+      #   sepa, signet, wire.
       #
       #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil]
       optional :type, enum: -> { ModernTreasury::Models::ExpectedPaymentType }, nil?: true
@@ -176,7 +176,7 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # One of credit or debit. When you are receiving money, use credit. When you are
-      #   being charged, use debit.
+      # being charged, use debit.
       module Direction
         extend ModernTreasury::Internal::Type::Enum
 
@@ -191,7 +191,7 @@ module ModernTreasury
       end
 
       # The Expected Payment's status can be updated from partially_reconciled to
-      #   reconciled.
+      # reconciled.
       module Status
         extend ModernTreasury::Internal::Type::Enum
 

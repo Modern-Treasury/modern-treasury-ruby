@@ -32,10 +32,10 @@ module ModernTreasury
         # The description of the ledger account category.
         description: nil,
         # The array of ledger account category ids that this ledger account category
-        #   should be a child of.
+        # should be a child of.
         ledger_account_category_ids: nil,
         # Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
+        # strings.
         metadata: nil,
         request_options: {}
       ); end
@@ -55,8 +55,8 @@ module ModernTreasury
         # id
         id,
         # For example, if you want the balances as of a particular time (ISO8601), the
-        #   encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
-        #   The balances as of a time are inclusive of entries with that exact time.
+        # encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
+        # The balances as of a time are inclusive of entries with that exact time.
         balances: nil,
         request_options: {}
       ); end
@@ -77,7 +77,7 @@ module ModernTreasury
         # The description of the ledger account category.
         description: nil,
         # Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
+        # strings.
         metadata: nil,
         # The name of the ledger account category.
         name: nil,
@@ -105,21 +105,21 @@ module ModernTreasury
       end
       def list(
         # If you have specific IDs to retrieve in bulk, you can pass them as query
-        #   parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
+        # parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
         id: nil,
         after_cursor: nil,
         # For example, if you want the balances as of a particular time (ISO8601), the
-        #   encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
-        #   The balances as of a time are inclusive of entries with that exact time.
+        # encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
+        # The balances as of a time are inclusive of entries with that exact time.
         balances: nil,
         currency: nil,
         # Query categories which contain a ledger account directly or through child
-        #   categories.
+        # categories.
         ledger_account_id: nil,
         ledger_id: nil,
         # For example, if you want to query for records with metadata key `Type` and value
-        #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-        #   parameters.
+        # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+        # parameters.
         metadata: nil,
         name: nil,
         # Query categories that are nested underneath a parent category

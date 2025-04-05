@@ -29,7 +29,7 @@ module ModernTreasury
         # The identifier of the financial institution the account belongs to.
         connection_id:,
         # Either "USD" or "CAD". Internal accounts created at Increase only supports
-        #   "USD".
+        # "USD".
         currency:,
         # The nickname of the account.
         name:,
@@ -44,7 +44,7 @@ module ModernTreasury
         # The address associated with the owner or null.
         party_address: nil,
         # A hash of vendor specific attributes that will be used when creating the account
-        #   at the vendor specified by the given connection.
+        # at the vendor specified by the given connection.
         vendor_attributes: nil,
         request_options: {}
       ); end
@@ -82,7 +82,7 @@ module ModernTreasury
         # The Ledger Account associated to this account.
         ledger_account_id: nil,
         # Additional data in the form of key-value pairs. Pairs can be removed by passing
-        #   an empty string or `null` as the value.
+        # an empty string or `null` as the value.
         metadata: nil,
         # The nickname for the internal account.
         name: nil,
@@ -114,8 +114,8 @@ module ModernTreasury
         # Only return internal accounts associated with this legal entity.
         legal_entity_id: nil,
         # For example, if you want to query for records with metadata key `Type` and value
-        #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-        #   parameters.
+        # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+        # parameters.
         metadata: nil,
         # Only return internal accounts that can originate payments with this direction.
         payment_direction: nil,

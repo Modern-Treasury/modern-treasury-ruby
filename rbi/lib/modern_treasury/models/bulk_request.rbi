@@ -18,12 +18,12 @@ module ModernTreasury
       attr_accessor :failed_result_count
 
       # This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
+      # if it exists in the test environment.
       sig { returns(T::Boolean) }
       attr_accessor :live_mode
 
       # Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
+      # strings.
       sig { returns(T::Hash[Symbol, String]) }
       attr_accessor :metadata
 
@@ -43,8 +43,8 @@ module ModernTreasury
       attr_accessor :success_result_count
 
       # Total number of items in the `resources` array. Once a bulk request is
-      #   completed, `success_result_count` + `failed_result_count` will be equal to
-      #   `total_result_count`.
+      # completed, `success_result_count` + `failed_result_count` will be equal to
+      # `total_result_count`.
       sig { returns(Integer) }
       attr_accessor :total_resource_count
 

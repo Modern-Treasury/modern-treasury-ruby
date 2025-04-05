@@ -45,8 +45,8 @@ module ModernTreasury
       attr_writer :internal_account_id
 
       # For example, if you want to query for records with metadata key `Type` and value
-      #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #   parameters.
+      # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      # parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_reader :metadata
 
@@ -67,7 +67,7 @@ module ModernTreasury
       attr_writer :status
 
       # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
-      #   sepa, signet, wire
+      # sepa, signet, wire
       sig { returns(T.nilable(ModernTreasury::Models::ExpectedPaymentListParams::Type::OrSymbol)) }
       attr_reader :type
 
@@ -143,7 +143,7 @@ module ModernTreasury
       end
 
       # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
-      #   sepa, signet, wire
+      # sepa, signet, wire
       module Type
         extend ModernTreasury::Internal::Type::Enum
 

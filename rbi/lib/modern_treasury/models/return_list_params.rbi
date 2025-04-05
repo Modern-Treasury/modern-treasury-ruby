@@ -10,7 +10,7 @@ module ModernTreasury
       attr_accessor :after_cursor
 
       # Specify `counterparty_id` if you wish to see returns that occurred with a
-      #   specific counterparty.
+      # specific counterparty.
       sig { returns(T.nilable(String)) }
       attr_reader :counterparty_id
 
@@ -18,7 +18,7 @@ module ModernTreasury
       attr_writer :counterparty_id
 
       # Specify `internal_account_id` if you wish to see returns to/from a specific
-      #   account.
+      # account.
       sig { returns(T.nilable(String)) }
       attr_reader :internal_account_id
 
@@ -39,7 +39,7 @@ module ModernTreasury
       attr_writer :returnable_id
 
       # One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
-      #   Must be accompanied by `returnable_id`.
+      # Must be accompanied by `returnable_id`.
       sig { returns(T.nilable(ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol)) }
       attr_reader :returnable_type
 
@@ -84,7 +84,7 @@ module ModernTreasury
       def to_hash; end
 
       # One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
-      #   Must be accompanied by `returnable_id`.
+      # Must be accompanied by `returnable_id`.
       module ReturnableType
         extend ModernTreasury::Internal::Type::Enum
 

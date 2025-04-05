@@ -128,7 +128,7 @@ module ModernTreasury
     attr_reader :legal_entity_associations
 
     # A test endpoint often used to confirm credentials and headers are being passed
-    #   in correctly.
+    # in correctly.
     sig do
       params(
         request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))

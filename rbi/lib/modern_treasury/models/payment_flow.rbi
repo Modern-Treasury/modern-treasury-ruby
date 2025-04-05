@@ -10,7 +10,7 @@ module ModernTreasury
       attr_writer :id
 
       # Value in specified currency's smallest unit. e.g. $10 would be represented
-      #   as 1000. Can be any integer up to 36 digits.
+      # as 1000. Can be any integer up to 36 digits.
       sig { returns(T.nilable(Integer)) }
       attr_reader :amount
 
@@ -18,7 +18,7 @@ module ModernTreasury
       attr_writer :amount
 
       # The client token of the payment flow. This token can be used to embed a payment
-      #   workflow in your client-side application.
+      # workflow in your client-side application.
       sig { returns(T.nilable(String)) }
       attr_reader :client_token
 
@@ -26,7 +26,7 @@ module ModernTreasury
       attr_writer :client_token
 
       # The ID of a counterparty associated with the payment. As part of the payment
-      #   workflow an external account will be associated with this counterparty.
+      # workflow an external account will be associated with this counterparty.
       sig { returns(T.nilable(String)) }
       attr_accessor :counterparty_id
 
@@ -44,7 +44,7 @@ module ModernTreasury
       attr_writer :currency
 
       # Describes the direction money is flowing in the transaction. Can only be
-      #   `debit`. A `debit` pulls money from someone else's account to your own.
+      # `debit`. A `debit` pulls money from someone else's account to your own.
       sig { returns(T.nilable(ModernTreasury::Models::PaymentFlow::Direction::TaggedSymbol)) }
       attr_reader :direction
 
@@ -52,12 +52,12 @@ module ModernTreasury
       attr_writer :direction
 
       # The due date for the flow. Can only be passed in when
-      #   `effective_date_selection_enabled` is `true`.
+      # `effective_date_selection_enabled` is `true`.
       sig { returns(T.nilable(Date)) }
       attr_accessor :due_date
 
       # When `true`, your end-user can schedule the payment `effective_date` while
-      #   completing the pre-built UI.
+      # completing the pre-built UI.
       sig { returns(T.nilable(T::Boolean)) }
       attr_reader :effective_date_selection_enabled
 
@@ -65,14 +65,14 @@ module ModernTreasury
       attr_writer :effective_date_selection_enabled
 
       # When `verified` and `external_account_collection` is `enabled`, filters the list
-      #   of external accounts your end-user can select to those with a
-      #   `verification_status` of `verified`.
+      # of external accounts your end-user can select to those with a
+      # `verification_status` of `verified`.
       sig { returns(T.nilable(ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter::TaggedSymbol)) }
       attr_accessor :existing_external_accounts_filter
 
       # When `enabled`, your end-user can select from an existing external account when
-      #   completing the flow. When `disabled`, your end-user must add new payment details
-      #   when completing the flow.
+      # completing the flow. When `disabled`, your end-user must add new payment details
+      # when completing the flow.
       sig { returns(T.nilable(ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::TaggedSymbol)) }
       attr_reader :external_account_collection
 
@@ -85,7 +85,7 @@ module ModernTreasury
       attr_writer :external_account_collection
 
       # This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
+      # if it exists in the test environment.
       sig { returns(T.nilable(T::Boolean)) }
       attr_reader :live_mode
 
@@ -111,13 +111,13 @@ module ModernTreasury
       attr_accessor :receiving_account_id
 
       # This field is set after your end-user selects a payment date while completing
-      #   the pre-built UI. This field is always `null` unless
-      #   `effective_date_selection_enabled` is `true`.
+      # the pre-built UI. This field is always `null` unless
+      # `effective_date_selection_enabled` is `true`.
       sig { returns(T.nilable(Date)) }
       attr_accessor :selected_effective_date
 
       # The current status of the payment flow. One of `pending`, `completed`,
-      #   `expired`, or `cancelled`.
+      # `expired`, or `cancelled`.
       sig { returns(T.nilable(ModernTreasury::Models::PaymentFlow::Status::TaggedSymbol)) }
       attr_reader :status
 
@@ -204,7 +204,7 @@ module ModernTreasury
       def to_hash; end
 
       # Describes the direction money is flowing in the transaction. Can only be
-      #   `debit`. A `debit` pulls money from someone else's account to your own.
+      # `debit`. A `debit` pulls money from someone else's account to your own.
       module Direction
         extend ModernTreasury::Internal::Type::Enum
 
@@ -220,8 +220,8 @@ module ModernTreasury
       end
 
       # When `verified` and `external_account_collection` is `enabled`, filters the list
-      #   of external accounts your end-user can select to those with a
-      #   `verification_status` of `verified`.
+      # of external accounts your end-user can select to those with a
+      # `verification_status` of `verified`.
       module ExistingExternalAccountsFilter
         extend ModernTreasury::Internal::Type::Enum
 
@@ -241,8 +241,8 @@ module ModernTreasury
       end
 
       # When `enabled`, your end-user can select from an existing external account when
-      #   completing the flow. When `disabled`, your end-user must add new payment details
-      #   when completing the flow.
+      # completing the flow. When `disabled`, your end-user must add new payment details
+      # when completing the flow.
       module ExternalAccountCollection
         extend ModernTreasury::Internal::Type::Enum
 
@@ -259,7 +259,7 @@ module ModernTreasury
       end
 
       # The current status of the payment flow. One of `pending`, `completed`,
-      #   `expired`, or `cancelled`.
+      # `expired`, or `cancelled`.
       module Status
         extend ModernTreasury::Internal::Type::Enum
 

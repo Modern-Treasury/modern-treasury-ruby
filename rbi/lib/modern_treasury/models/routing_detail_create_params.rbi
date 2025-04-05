@@ -14,13 +14,13 @@ module ModernTreasury
       attr_accessor :routing_number
 
       # The type of routing number. See
-      #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
-      #   more details.
+      # https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      # more details.
       sig { returns(ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType::OrSymbol) }
       attr_accessor :routing_number_type
 
       # If the routing detail is to be used for a specific payment type this field will
-      #   be populated, otherwise null.
+      # be populated, otherwise null.
       sig { returns(T.nilable(ModernTreasury::Models::RoutingDetailCreateParams::PaymentType::OrSymbol)) }
       attr_accessor :payment_type
 
@@ -73,8 +73,8 @@ module ModernTreasury
       end
 
       # The type of routing number. See
-      #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
-      #   more details.
+      # https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      # more details.
       module RoutingNumberType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -157,7 +157,7 @@ module ModernTreasury
       end
 
       # If the routing detail is to be used for a specific payment type this field will
-      #   be populated, otherwise null.
+      # be populated, otherwise null.
       module PaymentType
         extend ModernTreasury::Internal::Type::Enum
 

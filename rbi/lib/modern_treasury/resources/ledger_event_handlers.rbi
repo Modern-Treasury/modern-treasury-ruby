@@ -37,7 +37,7 @@ module ModernTreasury
         # The id of the ledger that this account belongs to.
         ledger_id: nil,
         # Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
+        # strings.
         metadata: nil,
         variables: nil,
         request_options: {}
@@ -70,12 +70,12 @@ module ModernTreasury
       def list(
         after_cursor: nil,
         # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
-        #   posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
-        #   created_at%5Bgt%5D=2000-01-01T12:00:00Z.
+        # posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
+        # created_at%5Bgt%5D=2000-01-01T12:00:00Z.
         created_at: nil,
         # For example, if you want to query for records with metadata key `Type` and value
-        #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-        #   parameters.
+        # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+        # parameters.
         metadata: nil,
         name: nil,
         per_page: nil,

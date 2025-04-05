@@ -38,7 +38,7 @@ module ModernTreasury
       attr_accessor :email
 
       # An optional type to auto-sync the counterparty to your ledger. Either `customer`
-      #   or `vendor`.
+      # or `vendor`.
       sig { returns(T.nilable(ModernTreasury::Models::CounterpartyCreateParams::LedgerType::OrSymbol)) }
       attr_reader :ledger_type
 
@@ -61,7 +61,7 @@ module ModernTreasury
       attr_accessor :legal_entity_id
 
       # Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
+      # strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_reader :metadata
 
@@ -69,7 +69,7 @@ module ModernTreasury
       attr_writer :metadata
 
       # Send an email to the counterparty whenever an associated payment order is sent
-      #   to the bank.
+      # to the bank.
       sig { returns(T.nilable(T::Boolean)) }
       attr_reader :send_remittance_advice
 
@@ -149,7 +149,7 @@ module ModernTreasury
 
       class Accounting < ModernTreasury::Internal::Type::BaseModel
         # An optional type to auto-sync the counterparty to your ledger. Either `customer`
-        #   or `vendor`.
+        # or `vendor`.
         sig { returns(T.nilable(ModernTreasury::Models::CounterpartyCreateParams::Accounting::Type::OrSymbol)) }
         attr_reader :type
 
@@ -166,7 +166,7 @@ module ModernTreasury
         def to_hash; end
 
         # An optional type to auto-sync the counterparty to your ledger. Either `customer`
-        #   or `vendor`.
+        # or `vendor`.
         module Type
           extend ModernTreasury::Internal::Type::Enum
 
@@ -228,10 +228,10 @@ module ModernTreasury
         attr_writer :contact_details
 
         # Specifies a ledger account object that will be created with the external
-        #   account. The resulting ledger account is linked to the external account for
-        #   auto-ledgering Payment objects. See
-        #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
-        #   for more details.
+        # account. The resulting ledger account is linked to the external account for
+        # auto-ledgering Payment objects. See
+        # https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
+        # for more details.
         sig { returns(T.nilable(ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount)) }
         attr_reader :ledger_account
 
@@ -247,7 +247,7 @@ module ModernTreasury
         attr_writer :ledger_account
 
         # Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
+        # strings.
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
         attr_reader :metadata
 
@@ -255,7 +255,7 @@ module ModernTreasury
         attr_writer :metadata
 
         # A nickname for the external account. This is only for internal usage and won't
-        #   affect any payments
+        # affect any payments
         sig { returns(T.nilable(String)) }
         attr_accessor :name
 
@@ -292,7 +292,7 @@ module ModernTreasury
         attr_accessor :party_type
 
         # If you've enabled the Modern Treasury + Plaid integration in your Plaid account,
-        #   you can pass the processor token in this field.
+        # you can pass the processor token in this field.
         sig { returns(T.nilable(String)) }
         attr_reader :plaid_processor_token
 
@@ -618,7 +618,7 @@ module ModernTreasury
           attr_accessor :description
 
           # The array of ledger account category ids that this ledger account should be a
-          #   child of.
+          # child of.
           sig { returns(T.nilable(T::Array[String])) }
           attr_reader :ledger_account_category_ids
 
@@ -626,7 +626,7 @@ module ModernTreasury
           attr_writer :ledger_account_category_ids
 
           # If the ledger account links to another object in Modern Treasury, the id will be
-          #   populated here, otherwise null.
+          # populated here, otherwise null.
           sig { returns(T.nilable(String)) }
           attr_reader :ledgerable_id
 
@@ -634,8 +634,8 @@ module ModernTreasury
           attr_writer :ledgerable_id
 
           # If the ledger account links to another object in Modern Treasury, the type will
-          #   be populated here, otherwise null. The value is one of internal_account or
-          #   external_account.
+          # be populated here, otherwise null. The value is one of internal_account or
+          # external_account.
           sig do
             returns(
               T.nilable(
@@ -654,7 +654,7 @@ module ModernTreasury
           attr_writer :ledgerable_type
 
           # Additional data represented as key-value pairs. Both the key and value must be
-          #   strings.
+          # strings.
           sig { returns(T.nilable(T::Hash[Symbol, String])) }
           attr_reader :metadata
 
@@ -662,10 +662,10 @@ module ModernTreasury
           attr_writer :metadata
 
           # Specifies a ledger account object that will be created with the external
-          #   account. The resulting ledger account is linked to the external account for
-          #   auto-ledgering Payment objects. See
-          #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
-          #   for more details.
+          # account. The resulting ledger account is linked to the external account for
+          # auto-ledgering Payment objects. See
+          # https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
+          # for more details.
           sig do
             params(
               currency: String,
@@ -713,8 +713,8 @@ module ModernTreasury
           def to_hash; end
 
           # If the ledger account links to another object in Modern Treasury, the type will
-          #   be populated here, otherwise null. The value is one of internal_account or
-          #   external_account.
+          # be populated here, otherwise null. The value is one of internal_account or
+          # external_account.
           module LedgerableType
             extend ModernTreasury::Internal::Type::Enum
 
@@ -1189,7 +1189,7 @@ module ModernTreasury
       end
 
       # An optional type to auto-sync the counterparty to your ledger. Either `customer`
-      #   or `vendor`.
+      # or `vendor`.
       module LedgerType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -1333,7 +1333,7 @@ module ModernTreasury
         attr_accessor :legal_structure
 
         # Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
+        # strings.
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
         attr_reader :metadata
 
@@ -1678,7 +1678,7 @@ module ModernTreasury
           attr_accessor :id_type
 
           # The ISO 3166-1 alpha-2 country code of the country that issued the
-          #   identification
+          # identification
           sig { returns(T.nilable(String)) }
           attr_accessor :issuing_country
 
@@ -2106,7 +2106,7 @@ module ModernTreasury
             attr_accessor :legal_structure
 
             # Additional data represented as key-value pairs. Both the key and value must be
-            #   strings.
+            # strings.
             sig { returns(T.nilable(T::Hash[Symbol, String])) }
             attr_reader :metadata
 
@@ -2459,7 +2459,7 @@ module ModernTreasury
               attr_accessor :id_type
 
               # The ISO 3166-1 alpha-2 country code of the country that issued the
-              #   identification
+              # identification
               sig { returns(T.nilable(String)) }
               attr_accessor :issuing_country
 

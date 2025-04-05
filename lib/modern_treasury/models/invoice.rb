@@ -11,14 +11,14 @@ module ModernTreasury
 
       # @!attribute amount_paid
       #   Amount paid on the invoice in specified currency's smallest unit, e.g., $10 USD
-      #     would be represented as 1000.
+      #   would be represented as 1000.
       #
       #   @return [Integer]
       required :amount_paid, Integer
 
       # @!attribute amount_remaining
       #   Amount remaining due on the invoice in specified currency's smallest unit, e.g.,
-      #     $10 USD would be represented as 1000.
+      #   $10 USD would be represented as 1000.
       #
       #   @return [Integer]
       required :amount_remaining, Integer
@@ -84,7 +84,7 @@ module ModernTreasury
 
       # @!attribute fallback_payment_method
       #   When payment_method is automatic, the fallback payment method to use when an
-      #     automatic payment fails. One of `manual` or `ui`.
+      #   automatic payment fails. One of `manual` or `ui`.
       #
       #   @return [String, nil]
       required :fallback_payment_method, String, nil?: true
@@ -109,29 +109,29 @@ module ModernTreasury
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false
-      #     if it exists in the test environment.
+      #   if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
+      #   strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       required :metadata, ModernTreasury::Internal::Type::HashOf[String], nil?: true
 
       # @!attribute notification_email_addresses
       #   Emails in addition to the counterparty email to send invoice status
-      #     notifications to. At least one email is required if notifications are enabled
-      #     and the counterparty doesn't have an email.
+      #   notifications to. At least one email is required if notifications are enabled
+      #   and the counterparty doesn't have an email.
       #
       #   @return [Array<String>, nil]
       required :notification_email_addresses, ModernTreasury::Internal::Type::ArrayOf[String], nil?: true
 
       # @!attribute notifications_enabled
       #   If true, the invoice will send email notifications to the invoice recipients
-      #     about invoice status changes.
+      #   about invoice status changes.
       #
       #   @return [Boolean]
       required :notifications_enabled, ModernTreasury::Internal::Type::Boolean
@@ -155,22 +155,22 @@ module ModernTreasury
 
       # @!attribute payment_effective_date
       #   Date transactions are to be posted to the participants' account. Defaults to the
-      #     current business day or the next business day if the current day is a bank
-      #     holiday or weekend. Format: yyyy-mm-dd.
+      #   current business day or the next business day if the current day is a bank
+      #   holiday or weekend. Format: yyyy-mm-dd.
       #
       #   @return [Date, nil]
       required :payment_effective_date, Date, nil?: true
 
       # @!attribute payment_method
       #   When opening an invoice, whether to show the embedded payment UI , automatically
-      #     debit the recipient, or rely on manual payment from the recipient.
+      #   debit the recipient, or rely on manual payment from the recipient.
       #
       #   @return [Symbol, ModernTreasury::Models::Invoice::PaymentMethod, nil]
       required :payment_method, enum: -> { ModernTreasury::Models::Invoice::PaymentMethod }, nil?: true
 
       # @!attribute payment_orders
       #   The payment orders created for paying the invoice through the invoice payment
-      #     UI.
+      #   UI.
       #
       #   @return [Array<ModernTreasury::Models::PaymentOrder>]
       required :payment_orders,
@@ -196,21 +196,21 @@ module ModernTreasury
 
       # @!attribute recipient_email
       #   The email of the recipient of the invoice. Leaving this value as null will
-      #     fallback to using the counterparty's name.
+      #   fallback to using the counterparty's name.
       #
       #   @return [String, nil]
       required :recipient_email, String, nil?: true
 
       # @!attribute recipient_name
       #   The name of the recipient of the invoice. Leaving this value as null will
-      #     fallback to using the counterparty's name.
+      #   fallback to using the counterparty's name.
       #
       #   @return [String, nil]
       required :recipient_name, String, nil?: true
 
       # @!attribute remind_after_overdue_days
       #   Number of days after due date when overdue reminder emails will be sent out to
-      #     invoice recipients.
+      #   invoice recipients.
       #
       #   @return [Array<Integer>, nil]
       required :remind_after_overdue_days, ModernTreasury::Internal::Type::ArrayOf[Integer], nil?: true
@@ -223,7 +223,7 @@ module ModernTreasury
 
       # @!attribute total_amount
       #   Total amount due in specified currency's smallest unit, e.g., $10 USD would be
-      #     represented as 1000.
+      #   represented as 1000.
       #
       #   @return [Integer]
       required :total_amount, Integer
@@ -358,7 +358,7 @@ module ModernTreasury
 
         # @!attribute live_mode
         #   This field will be true if this object exists in the live environment or false
-        #     if it exists in the test environment.
+        #   if it exists in the test environment.
         #
         #   @return [Boolean]
         required :live_mode, ModernTreasury::Internal::Type::Boolean
@@ -581,7 +581,7 @@ module ModernTreasury
       end
 
       # When opening an invoice, whether to show the embedded payment UI , automatically
-      #   debit the recipient, or rely on manual payment from the recipient.
+      # debit the recipient, or rely on manual payment from the recipient.
       #
       # @see ModernTreasury::Models::Invoice#payment_method
       module PaymentMethod

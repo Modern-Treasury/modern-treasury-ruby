@@ -7,12 +7,12 @@ module ModernTreasury
       attr_accessor :id
 
       # The lowest amount this expected payment may be equal to. Value in specified
-      #   currency's smallest unit. e.g. $10 would be represented as 1000.
+      # currency's smallest unit. e.g. $10 would be represented as 1000.
       sig { returns(T.nilable(Integer)) }
       attr_accessor :amount_lower_bound
 
       # The highest amount this expected payment may be equal to. Value in specified
-      #   currency's smallest unit. e.g. $10 would be represented as 1000.
+      # currency's smallest unit. e.g. $10 would be represented as 1000.
       sig { returns(T.nilable(Integer)) }
       attr_accessor :amount_upper_bound
 
@@ -40,7 +40,7 @@ module ModernTreasury
       attr_accessor :description
 
       # One of credit or debit. When you are receiving money, use credit. When you are
-      #   being charged, use debit.
+      # being charged, use debit.
       sig { returns(T.nilable(ModernTreasury::Models::ExpectedPayment::Direction::TaggedSymbol)) }
       attr_accessor :direction
 
@@ -53,12 +53,12 @@ module ModernTreasury
       attr_accessor :ledger_transaction_id
 
       # This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
+      # if it exists in the test environment.
       sig { returns(T::Boolean) }
       attr_accessor :live_mode
 
       # Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
+      # strings.
       sig { returns(T::Hash[Symbol, String]) }
       attr_accessor :metadata
 
@@ -74,8 +74,8 @@ module ModernTreasury
       attr_accessor :reconciliation_groups
 
       # One of manual if this expected payment was manually reconciled in the dashboard,
-      #   automatic if it was automatically reconciled by Modern Treasury, or null if it
-      #   is unreconciled.
+      # automatic if it was automatically reconciled by Modern Treasury, or null if it
+      # is unreconciled.
       sig { returns(T.nilable(ModernTreasury::Models::ExpectedPayment::ReconciliationMethod::TaggedSymbol)) }
       attr_accessor :reconciliation_method
 
@@ -84,15 +84,15 @@ module ModernTreasury
       attr_accessor :reconciliation_rule_variables
 
       # For `ach`, this field will be passed through on an addenda record. For `wire`
-      #   payments the field will be passed through as the "Originator to Beneficiary
-      #   Information", also known as OBI or Fedwire tag 6000.
+      # payments the field will be passed through as the "Originator to Beneficiary
+      # Information", also known as OBI or Fedwire tag 6000.
       sig { returns(T.nilable(String)) }
       attr_accessor :remittance_information
 
       # The statement description you expect to see on the transaction. For ACH
-      #   payments, this will be the full line item passed from the bank. For wire
-      #   payments, this will be the OBI field on the wire. For check payments, this will
-      #   be the memo field.
+      # payments, this will be the full line item passed from the bank. For wire
+      # payments, this will be the OBI field on the wire. For check payments, this will
+      # be the memo field.
       sig { returns(T.nilable(String)) }
       attr_accessor :statement_descriptor
 
@@ -109,7 +109,7 @@ module ModernTreasury
       attr_accessor :transaction_line_item_id
 
       # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
-      #   sepa, signet, wire.
+      # sepa, signet, wire.
       sig { returns(T.nilable(ModernTreasury::Models::ExpectedPaymentType::TaggedSymbol)) }
       attr_accessor :type
 
@@ -211,7 +211,7 @@ module ModernTreasury
       def to_hash; end
 
       # One of credit or debit. When you are receiving money, use credit. When you are
-      #   being charged, use debit.
+      # being charged, use debit.
       module Direction
         extend ModernTreasury::Internal::Type::Enum
 
@@ -227,8 +227,8 @@ module ModernTreasury
       end
 
       # One of manual if this expected payment was manually reconciled in the dashboard,
-      #   automatic if it was automatically reconciled by Modern Treasury, or null if it
-      #   is unreconciled.
+      # automatic if it was automatically reconciled by Modern Treasury, or null if it
+      # is unreconciled.
       module ReconciliationMethod
         extend ModernTreasury::Internal::Type::Enum
 

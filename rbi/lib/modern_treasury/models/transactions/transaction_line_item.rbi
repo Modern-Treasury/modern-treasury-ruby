@@ -8,7 +8,7 @@ module ModernTreasury
         attr_accessor :id
 
         # If a matching object exists in Modern Treasury, `amount` will be populated.
-        #   Value in specified currency's smallest unit (taken from parent Transaction).
+        # Value in specified currency's smallest unit (taken from parent Transaction).
         sig { returns(Integer) }
         attr_accessor :amount
 
@@ -20,10 +20,10 @@ module ModernTreasury
         attr_accessor :created_at
 
         # If no matching object is found, `description` will be a free-form text field
-        #   describing the line item. This field may contain personally identifiable
-        #   information (PII) and is not included in API responses by default. Learn more
-        #   about changing your settings at
-        #   https://docs.moderntreasury.com/reference/personally-identifiable-information.
+        # describing the line item. This field may contain personally identifiable
+        # information (PII) and is not included in API responses by default. Learn more
+        # about changing your settings at
+        # https://docs.moderntreasury.com/reference/personally-identifiable-information.
         sig { returns(String) }
         attr_accessor :description
 
@@ -35,7 +35,7 @@ module ModernTreasury
         attr_accessor :expected_payment_id
 
         # This field will be true if this object exists in the live environment, or false
-        #   if it exists in the test environment.
+        # if it exists in the test environment.
         sig { returns(T::Boolean) }
         attr_accessor :live_mode
 
@@ -43,17 +43,17 @@ module ModernTreasury
         attr_accessor :object
 
         # Describes whether this line item should be counted towards the corresponding
-        #   transaction’s reconciliation.
+        # transaction’s reconciliation.
         sig { returns(T::Boolean) }
         attr_accessor :reconcilable
 
         # If a matching object exists in Modern Treasury, the ID will be populated here,
-        #   otherwise `null`.
+        # otherwise `null`.
         sig { returns(T.nilable(String)) }
         attr_accessor :transactable_id
 
         # If a matching object exists in Modern Treasury, the type will be populated here,
-        #   otherwise `null`.
+        # otherwise `null`.
         sig do
           returns(
             T.nilable(ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol)
@@ -66,7 +66,7 @@ module ModernTreasury
         attr_accessor :transaction_id
 
         # Indicates whether the line item is `originating` or `receiving` (see
-        #   https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
+        # https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
         sig { returns(ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol) }
         attr_accessor :type
 
@@ -135,7 +135,7 @@ module ModernTreasury
         def to_hash; end
 
         # If a matching object exists in Modern Treasury, the type will be populated here,
-        #   otherwise `null`.
+        # otherwise `null`.
         module TransactableType
           extend ModernTreasury::Internal::Type::Enum
 
@@ -188,7 +188,7 @@ module ModernTreasury
         end
 
         # Indicates whether the line item is `originating` or `receiving` (see
-        #   https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
+        # https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
         module Type
           extend ModernTreasury::Internal::Type::Enum
 

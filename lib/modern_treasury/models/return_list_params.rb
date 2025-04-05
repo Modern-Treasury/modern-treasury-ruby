@@ -15,7 +15,7 @@ module ModernTreasury
 
       # @!attribute [r] counterparty_id
       #   Specify `counterparty_id` if you wish to see returns that occurred with a
-      #     specific counterparty.
+      #   specific counterparty.
       #
       #   @return [String, nil]
       optional :counterparty_id, String
@@ -26,7 +26,7 @@ module ModernTreasury
 
       # @!attribute [r] internal_account_id
       #   Specify `internal_account_id` if you wish to see returns to/from a specific
-      #     account.
+      #   account.
       #
       #   @return [String, nil]
       optional :internal_account_id, String
@@ -56,7 +56,7 @@ module ModernTreasury
 
       # @!attribute [r] returnable_type
       #   One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
-      #     Must be accompanied by `returnable_id`.
+      #   Must be accompanied by `returnable_id`.
       #
       #   @return [Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType, nil]
       optional :returnable_type, enum: -> { ModernTreasury::Models::ReturnListParams::ReturnableType }
@@ -90,7 +90,7 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
-      #   Must be accompanied by `returnable_id`.
+      # Must be accompanied by `returnable_id`.
       module ReturnableType
         extend ModernTreasury::Internal::Type::Enum
 

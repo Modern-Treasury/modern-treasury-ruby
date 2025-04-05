@@ -4,7 +4,7 @@ module ModernTreasury
   module Models
     class AccountCollectionFlow < ModernTreasury::Internal::Type::BaseModel
       # The ID of a counterparty. An external account created with this flow will be
-      #   associated with this counterparty.
+      # associated with this counterparty.
       sig { returns(String) }
       attr_accessor :counterparty_id
 
@@ -18,7 +18,7 @@ module ModernTreasury
       attr_writer :id
 
       # The client token of the account collection flow. This token can be used to embed
-      #   account collection in your client-side application.
+      # account collection in your client-side application.
       sig { returns(T.nilable(String)) }
       attr_reader :client_token
 
@@ -36,7 +36,7 @@ module ModernTreasury
       attr_accessor :external_account_id
 
       # This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
+      # if it exists in the test environment.
       sig { returns(T.nilable(T::Boolean)) }
       attr_reader :live_mode
 
@@ -65,7 +65,7 @@ module ModernTreasury
       attr_writer :receiving_countries
 
       # The current status of the account collection flow. One of `pending`,
-      #   `completed`, `expired`, or `cancelled`.
+      # `completed`, `expired`, or `cancelled`.
       sig { returns(T.nilable(ModernTreasury::Models::AccountCollectionFlow::Status::TaggedSymbol)) }
       attr_reader :status
 
@@ -143,7 +143,7 @@ module ModernTreasury
       end
 
       # An account created with this flow will support wires from the US to these
-      #   countries.
+      # countries.
       module ReceivingCountry
         extend ModernTreasury::Internal::Type::Enum
 
@@ -176,7 +176,7 @@ module ModernTreasury
       end
 
       # The current status of the account collection flow. One of `pending`,
-      #   `completed`, `expired`, or `cancelled`.
+      # `completed`, `expired`, or `cancelled`.
       module Status
         extend ModernTreasury::Internal::Type::Enum
 

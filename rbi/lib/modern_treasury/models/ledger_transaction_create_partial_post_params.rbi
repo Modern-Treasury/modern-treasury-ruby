@@ -7,13 +7,13 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       # An array of ledger entry objects to be set on the posted ledger transaction.
-      #   There must be one entry for each of the existing entries with a lesser amount
-      #   than the existing entry.
+      # There must be one entry for each of the existing entries with a lesser amount
+      # than the existing entry.
       sig { returns(T::Array[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry]) }
       attr_accessor :posted_ledger_entries
 
       # An optional free-form description for the posted ledger transaction. Maximum of
-      #   1000 characters allowed.
+      # 1000 characters allowed.
       sig { returns(T.nilable(String)) }
       attr_reader :description
 
@@ -21,7 +21,7 @@ module ModernTreasury
       attr_writer :description
 
       # The timestamp (IS08601 format) at which the posted ledger transaction happened
-      #   for reporting purposes.
+      # for reporting purposes.
       sig { returns(T.nilable(Time)) }
       attr_reader :effective_at
 
@@ -29,7 +29,7 @@ module ModernTreasury
       attr_writer :effective_at
 
       # Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
+      # strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_reader :metadata
 
@@ -76,14 +76,14 @@ module ModernTreasury
 
       class PostedLedgerEntry < ModernTreasury::Internal::Type::BaseModel
         # Value in specified currency's smallest unit. e.g. $10 would be represented
-        #   as 1000. Can be any integer up to 36 digits.
+        # as 1000. Can be any integer up to 36 digits.
         sig { returns(Integer) }
         attr_accessor :amount
 
         # One of `credit`, `debit`. Describes the direction money is flowing in the
-        #   transaction. A `credit` moves money from your account to someone else's. A
-        #   `debit` pulls money from someone else's account to your own. Note that wire,
-        #   rtp, and check payments will always be `credit`.
+        # transaction. A `credit` moves money from your account to someone else's. A
+        # `debit` pulls money from someone else's account to your own. Note that wire,
+        # rtp, and check payments will always be `credit`.
         sig do
           returns(
             ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::OrSymbol
@@ -96,7 +96,7 @@ module ModernTreasury
         attr_accessor :ledger_account_id
 
         # Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
+        # strings.
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
         attr_reader :metadata
 
@@ -128,9 +128,9 @@ module ModernTreasury
         def to_hash; end
 
         # One of `credit`, `debit`. Describes the direction money is flowing in the
-        #   transaction. A `credit` moves money from your account to someone else's. A
-        #   `debit` pulls money from someone else's account to your own. Note that wire,
-        #   rtp, and check payments will always be `credit`.
+        # transaction. A `credit` moves money from your account to someone else's. A
+        # `debit` pulls money from someone else's account to your own. Note that wire,
+        # rtp, and check payments will always be `credit`.
         module Direction
           extend ModernTreasury::Internal::Type::Enum
 

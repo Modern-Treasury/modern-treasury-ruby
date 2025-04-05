@@ -10,7 +10,7 @@ module ModernTreasury
       attr_accessor :after_cursor
 
       # Filters transactions with an `as_of_date` starting on or before the specified
-      #   date (YYYY-MM-DD).
+      # date (YYYY-MM-DD).
       sig { returns(T.nilable(Date)) }
       attr_reader :as_of_date_end
 
@@ -18,7 +18,7 @@ module ModernTreasury
       attr_writer :as_of_date_end
 
       # Filters transactions with an `as_of_date` starting on or after the specified
-      #   date (YYYY-MM-DD).
+      # date (YYYY-MM-DD).
       sig { returns(T.nilable(Date)) }
       attr_reader :as_of_date_start
 
@@ -45,7 +45,7 @@ module ModernTreasury
       attr_writer :direction
 
       # Specify `internal_account_id` if you wish to see transactions to/from a specific
-      #   account.
+      # account.
       sig { returns(T.nilable(String)) }
       attr_reader :internal_account_id
 
@@ -53,8 +53,8 @@ module ModernTreasury
       attr_writer :internal_account_id
 
       # For example, if you want to query for records with metadata key `Type` and value
-      #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #   parameters.
+      # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      # parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_reader :metadata
 
@@ -87,7 +87,7 @@ module ModernTreasury
       attr_writer :transactable_type
 
       # Filters for transactions including the queried vendor id (an identifier given to
-      #   transactions by the bank).
+      # transactions by the bank).
       sig { returns(T.nilable(String)) }
       attr_reader :vendor_id
 

@@ -11,7 +11,7 @@ module ModernTreasury
       attr_accessor :description
 
       # The timestamp (ISO8601 format) at which the ledger transaction happened for
-      #   reporting purposes.
+      # reporting purposes.
       sig { returns(T.nilable(Time)) }
       attr_reader :effective_at
 
@@ -36,7 +36,7 @@ module ModernTreasury
       attr_writer :ledger_entries
 
       # If the ledger transaction can be reconciled to another object in Modern
-      #   Treasury, the id will be populated here, otherwise null.
+      # Treasury, the id will be populated here, otherwise null.
       sig { returns(T.nilable(String)) }
       attr_reader :ledgerable_id
 
@@ -44,9 +44,9 @@ module ModernTreasury
       attr_writer :ledgerable_id
 
       # If the ledger transaction can be reconciled to another object in Modern
-      #   Treasury, the type will be populated here, otherwise null. This can be one of
-      #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
-      #   reversal.
+      # Treasury, the type will be populated here, otherwise null. This can be one of
+      # payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
+      # reversal.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType::OrSymbol)) }
       attr_reader :ledgerable_type
 
@@ -57,7 +57,7 @@ module ModernTreasury
       attr_writer :ledgerable_type
 
       # Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
+      # strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_reader :metadata
 
@@ -118,14 +118,14 @@ module ModernTreasury
 
       class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
         # Value in specified currency's smallest unit. e.g. $10 would be represented
-        #   as 1000. Can be any integer up to 36 digits.
+        # as 1000. Can be any integer up to 36 digits.
         sig { returns(Integer) }
         attr_accessor :amount
 
         # One of `credit`, `debit`. Describes the direction money is flowing in the
-        #   transaction. A `credit` moves money from your account to someone else's. A
-        #   `debit` pulls money from someone else's account to your own. Note that wire,
-        #   rtp, and check payments will always be `credit`.
+        # transaction. A `credit` moves money from your account to someone else's. A
+        # `debit` pulls money from someone else's account to your own. Note that wire,
+        # rtp, and check payments will always be `credit`.
         sig { returns(ModernTreasury::Models::TransactionDirection::OrSymbol) }
         attr_accessor :direction
 
@@ -134,20 +134,20 @@ module ModernTreasury
         attr_accessor :ledger_account_id
 
         # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
-        #   account’s available balance. If any of these conditions would be false after the
-        #   transaction is created, the entire call will fail with error code 422.
+        # account’s available balance. If any of these conditions would be false after the
+        # transaction is created, the entire call will fail with error code 422.
         sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
         attr_accessor :available_balance_amount
 
         # Lock version of the ledger account. This can be passed when creating a ledger
-        #   transaction to only succeed if no ledger transactions have posted since the
-        #   given version. See our post about Designing the Ledgers API with Optimistic
-        #   Locking for more details.
+        # transaction to only succeed if no ledger transactions have posted since the
+        # given version. See our post about Designing the Ledgers API with Optimistic
+        # Locking for more details.
         sig { returns(T.nilable(Integer)) }
         attr_accessor :lock_version
 
         # Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
+        # strings.
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
         attr_reader :metadata
 
@@ -155,19 +155,19 @@ module ModernTreasury
         attr_writer :metadata
 
         # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
-        #   account’s pending balance. If any of these conditions would be false after the
-        #   transaction is created, the entire call will fail with error code 422.
+        # account’s pending balance. If any of these conditions would be false after the
+        # transaction is created, the entire call will fail with error code 422.
         sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
         attr_accessor :pending_balance_amount
 
         # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
-        #   account’s posted balance. If any of these conditions would be false after the
-        #   transaction is created, the entire call will fail with error code 422.
+        # account’s posted balance. If any of these conditions would be false after the
+        # transaction is created, the entire call will fail with error code 422.
         sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
         attr_accessor :posted_balance_amount
 
         # If true, response will include the balance of the associated ledger account for
-        #   the entry.
+        # the entry.
         sig { returns(T.nilable(T::Boolean)) }
         attr_accessor :show_resulting_ledger_account_balances
 
@@ -216,9 +216,9 @@ module ModernTreasury
       end
 
       # If the ledger transaction can be reconciled to another object in Modern
-      #   Treasury, the type will be populated here, otherwise null. This can be one of
-      #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
-      #   reversal.
+      # Treasury, the type will be populated here, otherwise null. This can be one of
+      # payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
+      # reversal.
       module LedgerableType
         extend ModernTreasury::Internal::Type::Enum
 

@@ -74,7 +74,7 @@ module ModernTreasury
         # The business's legal structure.
         legal_structure: nil,
         # Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
+        # strings.
         metadata: nil,
         # An individual's middle name.
         middle_name: nil,
@@ -168,7 +168,7 @@ module ModernTreasury
         # The business's legal structure.
         legal_structure: nil,
         # Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
+        # strings.
         metadata: nil,
         # An individual's middle name.
         middle_name: nil,
@@ -204,8 +204,8 @@ module ModernTreasury
         after_cursor: nil,
         legal_entity_type: nil,
         # For example, if you want to query for records with metadata key `Type` and value
-        #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-        #   parameters.
+        # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+        # parameters.
         metadata: nil,
         per_page: nil,
         show_deleted: nil,

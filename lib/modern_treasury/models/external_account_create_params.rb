@@ -45,10 +45,10 @@ module ModernTreasury
 
       # @!attribute [r] ledger_account
       #   Specifies a ledger account object that will be created with the external
-      #     account. The resulting ledger account is linked to the external account for
-      #     auto-ledgering Payment objects. See
-      #     https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
-      #     for more details.
+      #   account. The resulting ledger account is linked to the external account for
+      #   auto-ledgering Payment objects. See
+      #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
+      #   for more details.
       #
       #   @return [ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount, nil]
       optional :ledger_account, -> { ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount }
@@ -59,7 +59,7 @@ module ModernTreasury
 
       # @!attribute [r] metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
+      #   strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -70,7 +70,7 @@ module ModernTreasury
 
       # @!attribute name
       #   A nickname for the external account. This is only for internal usage and won't
-      #     affect any payments
+      #   affect any payments
       #
       #   @return [String, nil]
       optional :name, String, nil?: true
@@ -114,7 +114,7 @@ module ModernTreasury
 
       # @!attribute [r] plaid_processor_token
       #   If you've enabled the Modern Treasury + Plaid integration in your Plaid account,
-      #     you can pass the processor token in this field.
+      #   you can pass the processor token in this field.
       #
       #   @return [String, nil]
       optional :plaid_processor_token, String
@@ -301,7 +301,7 @@ module ModernTreasury
 
         # @!attribute [r] ledger_account_category_ids
         #   The array of ledger account category ids that this ledger account should be a
-        #     child of.
+        #   child of.
         #
         #   @return [Array<String>, nil]
         optional :ledger_account_category_ids, ModernTreasury::Internal::Type::ArrayOf[String]
@@ -312,7 +312,7 @@ module ModernTreasury
 
         # @!attribute [r] ledgerable_id
         #   If the ledger account links to another object in Modern Treasury, the id will be
-        #     populated here, otherwise null.
+        #   populated here, otherwise null.
         #
         #   @return [String, nil]
         optional :ledgerable_id, String
@@ -323,8 +323,8 @@ module ModernTreasury
 
         # @!attribute [r] ledgerable_type
         #   If the ledger account links to another object in Modern Treasury, the type will
-        #     be populated here, otherwise null. The value is one of internal_account or
-        #     external_account.
+        #   be populated here, otherwise null. The value is one of internal_account or
+        #   external_account.
         #
         #   @return [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::LedgerableType, nil]
         optional :ledgerable_type,
@@ -336,7 +336,7 @@ module ModernTreasury
 
         # @!attribute [r] metadata
         #   Additional data represented as key-value pairs. Both the key and value must be
-        #     strings.
+        #   strings.
         #
         #   @return [Hash{Symbol=>String}, nil]
         optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -347,10 +347,10 @@ module ModernTreasury
 
         # @!parse
         #   # Specifies a ledger account object that will be created with the external
-        #   #   account. The resulting ledger account is linked to the external account for
-        #   #   auto-ledgering Payment objects. See
-        #   #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
-        #   #   for more details.
+        #   # account. The resulting ledger account is linked to the external account for
+        #   # auto-ledgering Payment objects. See
+        #   # https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
+        #   # for more details.
         #   #
         #   # @param currency [String]
         #   # @param ledger_id [String]
@@ -382,8 +382,8 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
         # If the ledger account links to another object in Modern Treasury, the type will
-        #   be populated here, otherwise null. The value is one of internal_account or
-        #   external_account.
+        # be populated here, otherwise null. The value is one of internal_account or
+        # external_account.
         #
         # @see ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount#ledgerable_type
         module LedgerableType

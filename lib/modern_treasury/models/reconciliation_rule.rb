@@ -5,21 +5,21 @@ module ModernTreasury
     class ReconciliationRule < ModernTreasury::Internal::Type::BaseModel
       # @!attribute amount_lower_bound
       #   The lowest amount this expected payment may be equal to. Value in specified
-      #     currency's smallest unit. e.g. $10 would be represented as 1000.
+      #   currency's smallest unit. e.g. $10 would be represented as 1000.
       #
       #   @return [Integer]
       required :amount_lower_bound, Integer
 
       # @!attribute amount_upper_bound
       #   The highest amount this expected payment may be equal to. Value in specified
-      #     currency's smallest unit. e.g. $10 would be represented as 1000.
+      #   currency's smallest unit. e.g. $10 would be represented as 1000.
       #
       #   @return [Integer]
       required :amount_upper_bound, Integer
 
       # @!attribute direction
       #   One of credit or debit. When you are receiving money, use credit. When you are
-      #     being charged, use debit.
+      #   being charged, use debit.
       #
       #   @return [Symbol, ModernTreasury::Models::ReconciliationRule::Direction]
       required :direction, enum: -> { ModernTreasury::Models::ReconciliationRule::Direction }
@@ -66,7 +66,7 @@ module ModernTreasury
 
       # @!attribute type
       #   One of ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
-      #     sepa, signet wire
+      #   sepa, signet wire
       #
       #   @return [Symbol, ModernTreasury::Models::ReconciliationRule::Type, nil]
       optional :type, enum: -> { ModernTreasury::Models::ReconciliationRule::Type }, nil?: true
@@ -102,7 +102,7 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # One of credit or debit. When you are receiving money, use credit. When you are
-      #   being charged, use debit.
+      # being charged, use debit.
       #
       # @see ModernTreasury::Models::ReconciliationRule#direction
       module Direction
@@ -119,7 +119,7 @@ module ModernTreasury
       end
 
       # One of ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
-      #   sepa, signet wire
+      # sepa, signet wire
       #
       # @see ModernTreasury::Models::ReconciliationRule#type
       module Type

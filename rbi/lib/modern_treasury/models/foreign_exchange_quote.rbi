@@ -18,8 +18,8 @@ module ModernTreasury
       attr_accessor :expires_at
 
       # Either `fixed_to_variable` if the `base_amount` was specified, or
-      #   `variable_to_fixed` if the `target_amount` was specified when requesting the
-      #   quote.
+      # `variable_to_fixed` if the `target_amount` was specified when requesting the
+      # quote.
       sig { returns(String) }
       attr_accessor :foreign_exchange_indicator
 
@@ -43,12 +43,12 @@ module ModernTreasury
       attr_accessor :internal_account_id
 
       # This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
+      # if it exists in the test environment.
       sig { returns(T::Boolean) }
       attr_accessor :live_mode
 
       # Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
+      # strings.
       sig { returns(T::Hash[Symbol, String]) }
       attr_accessor :metadata
 
@@ -122,7 +122,7 @@ module ModernTreasury
 
       class ForeignExchangeRate < ModernTreasury::Internal::Type::BaseModel
         # Amount in the lowest denomination of the `base_currency` to convert, often
-        #   called the "sell" amount.
+        # called the "sell" amount.
         sig { returns(Integer) }
         attr_accessor :base_amount
 
@@ -131,7 +131,7 @@ module ModernTreasury
         attr_accessor :base_currency
 
         # The exponent component of the rate. The decimal is calculated as `value` / (10 ^
-        #   `exponent`).
+        # `exponent`).
         sig { returns(Integer) }
         attr_accessor :exponent
 
@@ -140,7 +140,7 @@ module ModernTreasury
         attr_accessor :rate_string
 
         # Amount in the lowest denomination of the `target_currency`, often called the
-        #   "buy" amount.
+        # "buy" amount.
         sig { returns(Integer) }
         attr_accessor :target_amount
 
@@ -149,7 +149,7 @@ module ModernTreasury
         attr_accessor :target_currency
 
         # The whole number component of the rate. The decimal is calculated as `value` /
-        #   (10 ^ `exponent`).
+        # (10 ^ `exponent`).
         sig { returns(Integer) }
         attr_accessor :value
 

@@ -6,7 +6,7 @@ module ModernTreasury
     class AccountCollectionFlow < ModernTreasury::Internal::Type::BaseModel
       # @!attribute counterparty_id
       #   The ID of a counterparty. An external account created with this flow will be
-      #     associated with this counterparty.
+      #   associated with this counterparty.
       #
       #   @return [String]
       required :counterparty_id, String
@@ -28,7 +28,7 @@ module ModernTreasury
 
       # @!attribute [r] client_token
       #   The client token of the account collection flow. This token can be used to embed
-      #     account collection in your client-side application.
+      #   account collection in your client-side application.
       #
       #   @return [String, nil]
       optional :client_token, String
@@ -54,7 +54,7 @@ module ModernTreasury
 
       # @!attribute [r] live_mode
       #   This field will be true if this object exists in the live environment or false
-      #     if it exists in the test environment.
+      #   if it exists in the test environment.
       #
       #   @return [Boolean, nil]
       optional :live_mode, ModernTreasury::Internal::Type::Boolean
@@ -84,7 +84,7 @@ module ModernTreasury
 
       # @!attribute [r] status
       #   The current status of the account collection flow. One of `pending`,
-      #     `completed`, `expired`, or `cancelled`.
+      #   `completed`, `expired`, or `cancelled`.
       #
       #   @return [Symbol, ModernTreasury::Models::AccountCollectionFlow::Status, nil]
       optional :status, enum: -> { ModernTreasury::Models::AccountCollectionFlow::Status }
@@ -149,7 +149,7 @@ module ModernTreasury
       end
 
       # An account created with this flow will support wires from the US to these
-      #   countries.
+      # countries.
       module ReceivingCountry
         extend ModernTreasury::Internal::Type::Enum
 
@@ -180,7 +180,7 @@ module ModernTreasury
       end
 
       # The current status of the account collection flow. One of `pending`,
-      #   `completed`, `expired`, or `cancelled`.
+      # `completed`, `expired`, or `cancelled`.
       #
       # @see ModernTreasury::Models::AccountCollectionFlow#status
       module Status

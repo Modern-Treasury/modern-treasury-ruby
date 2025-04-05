@@ -11,7 +11,7 @@ module ModernTreasury
       attr_accessor :description
 
       # Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
+      # strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_reader :metadata
 
@@ -19,7 +19,7 @@ module ModernTreasury
       attr_writer :metadata
 
       # To post a pending ledger account settlement, use `posted`. To archive a pending
-      #   ledger transaction, use `archived`.
+      # ledger transaction, use `archived`.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::OrSymbol)) }
       attr_reader :status
 
@@ -51,7 +51,7 @@ module ModernTreasury
       def to_hash; end
 
       # To post a pending ledger account settlement, use `posted`. To archive a pending
-      #   ledger transaction, use `archived`.
+      # ledger transaction, use `archived`.
       module Status
         extend ModernTreasury::Internal::Type::Enum
 

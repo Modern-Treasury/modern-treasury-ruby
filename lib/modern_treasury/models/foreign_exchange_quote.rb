@@ -28,8 +28,8 @@ module ModernTreasury
 
       # @!attribute foreign_exchange_indicator
       #   Either `fixed_to_variable` if the `base_amount` was specified, or
-      #     `variable_to_fixed` if the `target_amount` was specified when requesting the
-      #     quote.
+      #   `variable_to_fixed` if the `target_amount` was specified when requesting the
+      #   quote.
       #
       #   @return [String]
       required :foreign_exchange_indicator, String
@@ -48,14 +48,14 @@ module ModernTreasury
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false
-      #     if it exists in the test environment.
+      #   if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
+      #   strings.
       #
       #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -118,7 +118,7 @@ module ModernTreasury
       class ForeignExchangeRate < ModernTreasury::Internal::Type::BaseModel
         # @!attribute base_amount
         #   Amount in the lowest denomination of the `base_currency` to convert, often
-        #     called the "sell" amount.
+        #   called the "sell" amount.
         #
         #   @return [Integer]
         required :base_amount, Integer
@@ -131,7 +131,7 @@ module ModernTreasury
 
         # @!attribute exponent
         #   The exponent component of the rate. The decimal is calculated as `value` / (10 ^
-        #     `exponent`).
+        #   `exponent`).
         #
         #   @return [Integer]
         required :exponent, Integer
@@ -144,7 +144,7 @@ module ModernTreasury
 
         # @!attribute target_amount
         #   Amount in the lowest denomination of the `target_currency`, often called the
-        #     "buy" amount.
+        #   "buy" amount.
         #
         #   @return [Integer]
         required :target_amount, Integer
@@ -157,7 +157,7 @@ module ModernTreasury
 
         # @!attribute value
         #   The whole number component of the rate. The decimal is calculated as `value` /
-        #     (10 ^ `exponent`).
+        #   (10 ^ `exponent`).
         #
         #   @return [Integer]
         required :value, Integer

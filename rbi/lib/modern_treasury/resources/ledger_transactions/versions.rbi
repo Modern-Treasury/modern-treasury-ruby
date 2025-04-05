@@ -27,18 +27,18 @@ module ModernTreasury
         def list(
           after_cursor: nil,
           # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
-          #   created_at timestamp. For example, for all dates after Jan 1 2000 12:00 UTC, use
-          #   created_at%5Bgt%5D=2000-01-01T12:00:00Z.
+          # created_at timestamp. For example, for all dates after Jan 1 2000 12:00 UTC, use
+          # created_at%5Bgt%5D=2000-01-01T12:00:00Z.
           created_at: nil,
           # Get all ledger transaction versions that are included in the ledger account
-          #   statement.
+          # statement.
           ledger_account_statement_id: nil,
           # Get all the ledger transaction versions corresponding to the ID of a ledger
-          #   transaction.
+          # transaction.
           ledger_transaction_id: nil,
           per_page: nil,
           # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
-          #   version. For example, for all versions after 2, use version%5Bgt%5D=2.
+          # version. For example, for all versions after 2, use version%5Bgt%5D=2.
           version: nil,
           request_options: {}
         ); end

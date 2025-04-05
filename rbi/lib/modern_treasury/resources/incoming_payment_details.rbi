@@ -29,7 +29,7 @@ module ModernTreasury
         # The unique identifier of the incoming payment detail.
         id,
         # Additional data in the form of key-value pairs. Pairs can be removed by passing
-        #   an empty string or `null` as the value.
+        # an empty string or `null` as the value.
         metadata: nil,
         request_options: {}
       ); end
@@ -52,26 +52,26 @@ module ModernTreasury
       def list(
         after_cursor: nil,
         # Filters incoming payment details with an as_of_date starting on or before the
-        #   specified date (YYYY-MM-DD).
+        # specified date (YYYY-MM-DD).
         as_of_date_end: nil,
         # Filters incoming payment details with an as_of_date starting on or after the
-        #   specified date (YYYY-MM-DD).
+        # specified date (YYYY-MM-DD).
         as_of_date_start: nil,
         # One of `credit` or `debit`.
         direction: nil,
         # For example, if you want to query for records with metadata key `Type` and value
-        #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-        #   parameters.
+        # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+        # parameters.
         metadata: nil,
         per_page: nil,
         # The current status of the incoming payment order. One of `pending`, `completed`,
-        #   or `returned`.
+        # or `returned`.
         status: nil,
         # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
-        #   `wire`.
+        # `wire`.
         type: nil,
         # If the incoming payment detail is in a virtual account, the ID of the Virtual
-        #   Account.
+        # Account.
         virtual_account_id: nil,
         request_options: {}
       ); end
@@ -93,14 +93,14 @@ module ModernTreasury
       end
       def create_async(
         # Value in specified currency's smallest unit. e.g. $10 would be represented
-        #   as 1000.
+        # as 1000.
         amount: nil,
         # Defaults to today.
         as_of_date: nil,
         # Defaults to the currency of the originating account.
         currency: nil,
         # An object passed through to the simulated IPD that could reflect what a vendor
-        #   would pass.
+        # would pass.
         data: nil,
         # Defaults to a random description.
         description: nil,
@@ -111,7 +111,7 @@ module ModernTreasury
         # One of `ach`, `wire`, `check`.
         type: nil,
         # An optional parameter to associate the incoming payment detail to a virtual
-        #   account.
+        # account.
         virtual_account_id: nil,
         request_options: {}
       ); end

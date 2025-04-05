@@ -51,16 +51,16 @@ module ModernTreasury
         account_type: nil,
         contact_details: nil,
         # Specifies a ledger account object that will be created with the external
-        #   account. The resulting ledger account is linked to the external account for
-        #   auto-ledgering Payment objects. See
-        #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
-        #   for more details.
+        # account. The resulting ledger account is linked to the external account for
+        # auto-ledgering Payment objects. See
+        # https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
+        # for more details.
         ledger_account: nil,
         # Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
+        # strings.
         metadata: nil,
         # A nickname for the external account. This is only for internal usage and won't
-        #   affect any payments
+        # affect any payments
         name: nil,
         # Required if receiving wire payments.
         party_address: nil,
@@ -70,7 +70,7 @@ module ModernTreasury
         # Either `individual` or `business`.
         party_type: nil,
         # If you've enabled the Modern Treasury + Plaid integration in your Plaid account,
-        #   you can pass the processor token in this field.
+        # you can pass the processor token in this field.
         plaid_processor_token: nil,
         routing_details: nil,
         request_options: {}
@@ -113,10 +113,10 @@ module ModernTreasury
         account_type: nil,
         counterparty_id: nil,
         # Additional data in the form of key-value pairs. Pairs can be removed by passing
-        #   an empty string or `null` as the value.
+        # an empty string or `null` as the value.
         metadata: nil,
         # A nickname for the external account. This is only for internal usage and won't
-        #   affect any payments
+        # affect any payments
         name: nil,
         party_address: nil,
         # If this value isn't provided, it will be inherited from the counterparty's name.
@@ -141,8 +141,8 @@ module ModernTreasury
         after_cursor: nil,
         counterparty_id: nil,
         # For example, if you want to query for records with metadata key `Type` and value
-        #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-        #   parameters.
+        # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+        # parameters.
         metadata: nil,
         # Searches the ExternalAccount's party_name AND the Counterparty's party_name
         party_name: nil,
@@ -199,18 +199,18 @@ module ModernTreasury
         # external account id
         id,
         # The ID of the internal account where the micro-deposits originate from. Both
-        #   credit and debit capabilities must be enabled.
+        # credit and debit capabilities must be enabled.
         originating_account_id:,
         # Can be `ach`, `eft`, or `rtp`.
         payment_type:,
         # Defaults to the currency of the originating account.
         currency: nil,
         # A payment type to fallback to if the original type is not valid for the
-        #   receiving account. Currently, this only supports falling back from RTP to ACH
-        #   (payment_type=rtp and fallback_type=ach)
+        # receiving account. Currently, this only supports falling back from RTP to ACH
+        # (payment_type=rtp and fallback_type=ach)
         fallback_type: nil,
         # Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH
-        #   transfer. This will apply to both `payment_type` and `fallback_type`.
+        # transfer. This will apply to both `payment_type` and `fallback_type`.
         priority: nil,
         request_options: {}
       ); end

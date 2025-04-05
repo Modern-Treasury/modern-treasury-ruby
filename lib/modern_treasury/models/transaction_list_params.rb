@@ -15,7 +15,7 @@ module ModernTreasury
 
       # @!attribute [r] as_of_date_end
       #   Filters transactions with an `as_of_date` starting on or before the specified
-      #     date (YYYY-MM-DD).
+      #   date (YYYY-MM-DD).
       #
       #   @return [Date, nil]
       optional :as_of_date_end, Date
@@ -26,7 +26,7 @@ module ModernTreasury
 
       # @!attribute [r] as_of_date_start
       #   Filters transactions with an `as_of_date` starting on or after the specified
-      #     date (YYYY-MM-DD).
+      #   date (YYYY-MM-DD).
       #
       #   @return [Date, nil]
       optional :as_of_date_start, Date
@@ -65,7 +65,7 @@ module ModernTreasury
 
       # @!attribute [r] internal_account_id
       #   Specify `internal_account_id` if you wish to see transactions to/from a specific
-      #     account.
+      #   account.
       #
       #   @return [String, nil]
       optional :internal_account_id, String
@@ -76,8 +76,8 @@ module ModernTreasury
 
       # @!attribute [r] metadata
       #   For example, if you want to query for records with metadata key `Type` and value
-      #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #     parameters.
+      #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #   parameters.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -125,7 +125,7 @@ module ModernTreasury
 
       # @!attribute [r] vendor_id
       #   Filters for transactions including the queried vendor id (an identifier given to
-      #     transactions by the bank).
+      #   transactions by the bank).
       #
       #   @return [String, nil]
       optional :vendor_id, String

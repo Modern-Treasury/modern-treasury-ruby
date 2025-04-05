@@ -11,7 +11,7 @@ module ModernTreasury
 
         # @!attribute ledger_entry_ids
         #   The ids of the ledger entries that are to be added or removed from the ledger
-        #     account settlement.
+        #   account settlement.
         #
         #   @return [Array<String>, nil]
         required :ledger_entry_ids, ModernTreasury::Internal::Type::ArrayOf[String], nil?: true

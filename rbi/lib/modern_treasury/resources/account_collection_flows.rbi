@@ -46,7 +46,7 @@ module ModernTreasury
         # id
         id,
         # Required. The updated status of the account collection flow. Can only be used to
-        #   mark a flow as `cancelled`.
+        # mark a flow as `cancelled`.
         status:,
         request_options: {}
       ); end
