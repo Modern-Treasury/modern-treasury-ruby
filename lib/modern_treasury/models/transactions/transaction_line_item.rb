@@ -54,7 +54,7 @@ module ModernTreasury
         #     if it exists in the test environment.
         #
         #   @return [Boolean]
-        required :live_mode, ModernTreasury::Internal::Type::BooleanModel
+        required :live_mode, ModernTreasury::Internal::Type::Boolean
 
         # @!attribute object
         #
@@ -66,7 +66,7 @@ module ModernTreasury
         #     transaction’s reconciliation.
         #
         #   @return [Boolean]
-        required :reconcilable, ModernTreasury::Internal::Type::BooleanModel
+        required :reconcilable, ModernTreasury::Internal::Type::Boolean
 
         # @!attribute transactable_id
         #   If a matching object exists in Modern Treasury, the ID will be populated here,

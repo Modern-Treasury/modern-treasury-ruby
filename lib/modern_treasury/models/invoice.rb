@@ -112,7 +112,7 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::Internal::Type::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
@@ -134,7 +134,7 @@ module ModernTreasury
       #     about invoice status changes.
       #
       #   @return [Boolean]
-      required :notifications_enabled, ModernTreasury::Internal::Type::BooleanModel
+      required :notifications_enabled, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute number
       #   A unique record number assigned to each invoice that is issued.
@@ -361,7 +361,7 @@ module ModernTreasury
         #     if it exists in the test environment.
         #
         #   @return [Boolean]
-        required :live_mode, ModernTreasury::Internal::Type::BooleanModel
+        required :live_mode, ModernTreasury::Internal::Type::Boolean
 
         # @!attribute object
         #

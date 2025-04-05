@@ -30,7 +30,7 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::Internal::Type::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute object
       #
@@ -214,7 +214,7 @@ module ModernTreasury
         #     if it exists in the test environment.
         #
         #   @return [Boolean]
-        required :live_mode, ModernTreasury::Internal::Type::BooleanModel
+        required :live_mode, ModernTreasury::Internal::Type::Boolean
 
         # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be
@@ -244,7 +244,7 @@ module ModernTreasury
         #   Whether the individual is a politically exposed person.
         #
         #   @return [Boolean, nil]
-        required :politically_exposed_person, ModernTreasury::Internal::Type::BooleanModel, nil?: true
+        required :politically_exposed_person, ModernTreasury::Internal::Type::Boolean, nil?: true
 
         # @!attribute preferred_name
         #   An individual's preferred name.
@@ -408,7 +408,7 @@ module ModernTreasury
           #     if it exists in the test environment.
           #
           #   @return [Boolean]
-          required :live_mode, ModernTreasury::Internal::Type::BooleanModel
+          required :live_mode, ModernTreasury::Internal::Type::Boolean
 
           # @!attribute locality
           #   Locality or City.
@@ -526,7 +526,7 @@ module ModernTreasury
           #     if it exists in the test environment.
           #
           #   @return [Boolean]
-          required :live_mode, ModernTreasury::Internal::Type::BooleanModel
+          required :live_mode, ModernTreasury::Internal::Type::Boolean
 
           # @!attribute object
           #

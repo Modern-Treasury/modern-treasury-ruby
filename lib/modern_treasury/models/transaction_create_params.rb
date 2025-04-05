@@ -64,7 +64,7 @@ module ModernTreasury
       #   This field will be `true` if the transaction has posted to the account.
       #
       #   @return [Boolean, nil]
-      optional :posted, ModernTreasury::Internal::Type::BooleanModel
+      optional :posted, ModernTreasury::Internal::Type::Boolean
 
       # @!parse
       #   # @return [Boolean]

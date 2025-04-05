@@ -70,7 +70,7 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::Internal::Type::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be

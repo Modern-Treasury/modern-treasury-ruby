@@ -14,7 +14,7 @@ class ModernTreasury::Test::Resources::PaymentReferencesTest < ModernTreasury::T
       response => {
         id: String,
         created_at: Time,
-        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         reference_number: String,
         reference_number_type: ModernTreasury::Models::PaymentReference::ReferenceNumberType,
@@ -43,7 +43,7 @@ class ModernTreasury::Test::Resources::PaymentReferencesTest < ModernTreasury::T
       row => {
         id: String,
         created_at: Time,
-        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         reference_number: String,
         reference_number_type: ModernTreasury::Models::PaymentReference::ReferenceNumberType,
@@ -65,7 +65,7 @@ class ModernTreasury::Test::Resources::PaymentReferencesTest < ModernTreasury::T
       response => {
         id: String,
         created_at: Time,
-        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         reference_number: String,
         reference_number_type: ModernTreasury::Models::PaymentReference::ReferenceNumberType,

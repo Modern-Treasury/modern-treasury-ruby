@@ -20,7 +20,7 @@ class ModernTreasury::Test::Resources::LegalEntityAssociationsTest < ModernTreas
         child_legal_entity: ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity,
         created_at: Time,
         discarded_at: Time | nil,
-        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         ownership_percentage: Integer | nil,
         parent_legal_entity_id: String,
