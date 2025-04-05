@@ -24,7 +24,7 @@ module ModernTreasury
       attr_writer :deposit_date_start
 
       # Specify `lockbox_number` if you wish to see paper items that are associated with
-      #   a specific lockbox number.
+      # a specific lockbox number.
       sig { returns(T.nilable(String)) }
       attr_reader :lockbox_number
 

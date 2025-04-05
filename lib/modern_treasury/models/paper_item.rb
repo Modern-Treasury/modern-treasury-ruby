@@ -52,7 +52,7 @@ module ModernTreasury
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false
-      #     if it exists in the test environment.
+      #   if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::Internal::Type::Boolean
@@ -88,7 +88,7 @@ module ModernTreasury
 
       # @!attribute status
       #   The current status of the paper item. One of `pending`, `completed`, or
-      #     `returned`.
+      #   `returned`.
       #
       #   @return [Symbol, ModernTreasury::Models::PaperItem::Status]
       required :status, enum: -> { ModernTreasury::Models::PaperItem::Status }
@@ -157,7 +157,7 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # The current status of the paper item. One of `pending`, `completed`, or
-      #   `returned`.
+      # `returned`.
       #
       # @see ModernTreasury::Models::PaperItem#status
       module Status

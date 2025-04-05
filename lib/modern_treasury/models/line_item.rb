@@ -16,22 +16,22 @@ module ModernTreasury
 
       # @!attribute accounting_category_id
       #   The ID of one of your accounting categories. Note that these will only be
-      #     accessible if your accounting system has been connected.
+      #   accessible if your accounting system has been connected.
       #
       #   @return [String, nil]
       required :accounting_category_id, String, nil?: true
 
       # @!attribute accounting_ledger_class_id
       #   The ID of one of the class objects in your accounting system. Class objects
-      #     track segments of your business independent of client or project. Note that
-      #     these will only be accessible if your accounting system has been connected.
+      #   track segments of your business independent of client or project. Note that
+      #   these will only be accessible if your accounting system has been connected.
       #
       #   @return [String, nil]
       required :accounting_ledger_class_id, String, nil?: true
 
       # @!attribute amount
       #   Value in specified currency's smallest unit. e.g. $10 would be represented
-      #     as 1000.
+      #   as 1000.
       #
       #   @return [Integer]
       required :amount, Integer
@@ -61,14 +61,14 @@ module ModernTreasury
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false
-      #     if it exists in the test environment.
+      #   if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
+      #   strings.
       #
       #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -123,15 +123,15 @@ module ModernTreasury
       class Accounting < ModernTreasury::Internal::Type::BaseModel
         # @!attribute account_id
         #   The ID of one of your accounting categories. Note that these will only be
-        #     accessible if your accounting system has been connected.
+        #   accessible if your accounting system has been connected.
         #
         #   @return [String, nil]
         optional :account_id, String, nil?: true
 
         # @!attribute class_id
         #   The ID of one of the class objects in your accounting system. Class objects
-        #     track segments of your business independent of client or project. Note that
-        #     these will only be accessible if your accounting system has been connected.
+        #   track segments of your business independent of client or project. Note that
+        #   these will only be accessible if your accounting system has been connected.
         #
         #   @return [String, nil]
         optional :class_id, String, nil?: true

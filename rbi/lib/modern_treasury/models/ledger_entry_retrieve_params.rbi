@@ -7,7 +7,7 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       # If true, response will include the balances attached to the ledger entry. If
-      #   there is no balance available, null will be returned instead.
+      # there is no balance available, null will be returned instead.
       sig { returns(T.nilable(T::Boolean)) }
       attr_reader :show_balances
 

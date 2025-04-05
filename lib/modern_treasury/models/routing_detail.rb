@@ -32,7 +32,7 @@ module ModernTreasury
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false
-      #     if it exists in the test environment.
+      #   if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::Internal::Type::Boolean
@@ -44,7 +44,7 @@ module ModernTreasury
 
       # @!attribute payment_type
       #   If the routing detail is to be used for a specific payment type this field will
-      #     be populated, otherwise null.
+      #   be populated, otherwise null.
       #
       #   @return [Symbol, ModernTreasury::Models::RoutingDetail::PaymentType, nil]
       required :payment_type, enum: -> { ModernTreasury::Models::RoutingDetail::PaymentType }, nil?: true
@@ -57,8 +57,8 @@ module ModernTreasury
 
       # @!attribute routing_number_type
       #   The type of routing number. See
-      #     https://docs.moderntreasury.com/platform/reference/routing-detail-object for
-      #     more details.
+      #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      #   more details.
       #
       #   @return [Symbol, ModernTreasury::Models::RoutingDetail::RoutingNumberType]
       required :routing_number_type, enum: -> { ModernTreasury::Models::RoutingDetail::RoutingNumberType }
@@ -130,7 +130,7 @@ module ModernTreasury
 
         # @!attribute live_mode
         #   This field will be true if this object exists in the live environment or false
-        #     if it exists in the test environment.
+        #   if it exists in the test environment.
         #
         #   @return [Boolean]
         required :live_mode, ModernTreasury::Internal::Type::Boolean
@@ -197,7 +197,7 @@ module ModernTreasury
       end
 
       # If the routing detail is to be used for a specific payment type this field will
-      #   be populated, otherwise null.
+      # be populated, otherwise null.
       #
       # @see ModernTreasury::Models::RoutingDetail#payment_type
       module PaymentType
@@ -242,8 +242,8 @@ module ModernTreasury
       end
 
       # The type of routing number. See
-      #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
-      #   more details.
+      # https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      # more details.
       #
       # @see ModernTreasury::Models::RoutingDetail#routing_number_type
       module RoutingNumberType

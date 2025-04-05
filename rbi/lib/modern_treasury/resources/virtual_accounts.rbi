@@ -43,21 +43,21 @@ module ModernTreasury
         # The ID of the counterparty that the virtual account belongs to.
         counterparty_id: nil,
         # The ID of a credit normal ledger account. When money leaves the virtual account,
-        #   this ledger account will be credited. Must be accompanied by a
-        #   debit_ledger_account_id if present.
+        # this ledger account will be credited. Must be accompanied by a
+        # debit_ledger_account_id if present.
         credit_ledger_account_id: nil,
         # The ID of a debit normal ledger account. When money enters the virtual account,
-        #   this ledger account will be debited. Must be accompanied by a
-        #   credit_ledger_account_id if present.
+        # this ledger account will be debited. Must be accompanied by a
+        # credit_ledger_account_id if present.
         debit_ledger_account_id: nil,
         # An optional description for internal use.
         description: nil,
         # Specifies a ledger account object that will be created with the virtual account.
-        #   The resulting ledger account is linked to the virtual account for auto-ledgering
-        #   IPDs.
+        # The resulting ledger account is linked to the virtual account for auto-ledgering
+        # IPDs.
         ledger_account: nil,
         # Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
+        # strings.
         metadata: nil,
         # An array of routing detail objects.
         routing_details: nil,
@@ -115,8 +115,8 @@ module ModernTreasury
         counterparty_id: nil,
         internal_account_id: nil,
         # For example, if you want to query for records with metadata key `Type` and value
-        #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-        #   parameters.
+        # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+        # parameters.
         metadata: nil,
         per_page: nil,
         request_options: {}

@@ -45,7 +45,7 @@ module ModernTreasury
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
+      #   strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String], nil?: true
@@ -93,7 +93,7 @@ module ModernTreasury
 
         # @!attribute effective_at
         #   The timestamp (ISO8601 format) at which the ledger transaction happened for
-        #     reporting purposes.
+        #   reporting purposes.
         #
         #   @return [String, nil]
         required :effective_at, String, nil?: true

@@ -7,7 +7,7 @@ module ModernTreasury
       attr_accessor :id
 
       # Value in specified currency's smallest unit. e.g. $10 would be represented
-      #   as 1000.
+      # as 1000.
       sig { returns(Integer) }
       attr_accessor :amount
 
@@ -31,22 +31,22 @@ module ModernTreasury
       attr_accessor :direction
 
       # The ID of the Internal Account for the incoming payment detail. This is always
-      #   present.
+      # present.
       sig { returns(String) }
       attr_accessor :internal_account_id
 
       # The ID of the ledger transaction linked to the incoming payment detail or
-      #   `null`.
+      # `null`.
       sig { returns(T.nilable(String)) }
       attr_accessor :ledger_transaction_id
 
       # This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
+      # if it exists in the test environment.
       sig { returns(T::Boolean) }
       attr_accessor :live_mode
 
       # Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
+      # strings.
       sig { returns(T::Hash[Symbol, String]) }
       attr_accessor :metadata
 
@@ -54,7 +54,7 @@ module ModernTreasury
       attr_accessor :object
 
       # The last 4 digits of the originating account_number for the incoming payment
-      #   detail.
+      # detail.
       sig { returns(T.nilable(String)) }
       attr_accessor :originating_account_number_safe
 
@@ -79,7 +79,7 @@ module ModernTreasury
       attr_accessor :originating_routing_number_type
 
       # The current status of the incoming payment order. One of `pending`, `completed`,
-      #   or `returned`.
+      # or `returned`.
       sig { returns(ModernTreasury::Models::IncomingPaymentDetail::Status::TaggedSymbol) }
       attr_accessor :status
 
@@ -92,7 +92,7 @@ module ModernTreasury
       attr_accessor :transaction_line_item_id
 
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
-      #   `wire`.
+      # `wire`.
       sig { returns(ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol) }
       attr_accessor :type
 
@@ -104,7 +104,7 @@ module ModernTreasury
       attr_accessor :vendor_id
 
       # If the incoming payment detail is in a virtual account, the serialized virtual
-      #   account object.
+      # account object.
       sig { returns(T.nilable(ModernTreasury::Models::VirtualAccount)) }
       attr_reader :virtual_account
 
@@ -117,7 +117,7 @@ module ModernTreasury
       attr_writer :virtual_account
 
       # If the incoming payment detail is in a virtual account, the ID of the Virtual
-      #   Account.
+      # Account.
       sig { returns(T.nilable(String)) }
       attr_accessor :virtual_account_id
 
@@ -389,7 +389,7 @@ module ModernTreasury
       end
 
       # The current status of the incoming payment order. One of `pending`, `completed`,
-      #   or `returned`.
+      # or `returned`.
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
@@ -406,7 +406,7 @@ module ModernTreasury
       end
 
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
-      #   `wire`.
+      # `wire`.
       module Type
         extend ModernTreasury::Internal::Type::Enum
 

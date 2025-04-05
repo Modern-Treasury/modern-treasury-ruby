@@ -11,10 +11,10 @@ module ModernTreasury
 
       # @!attribute balances
       #   The pending, posted, and available balances for this ledger account category.
-      #     The posted balance is the sum of all posted entries on the account. The pending
-      #     balance is the sum of all pending and posted entries on the account. The
-      #     available balance is the posted incoming entries minus the sum of the pending
-      #     and posted outgoing amounts.
+      #   The posted balance is the sum of all posted entries on the account. The pending
+      #   balance is the sum of all pending and posted entries on the account. The
+      #   available balance is the posted incoming entries minus the sum of the pending
+      #   and posted outgoing amounts.
       #
       #   @return [ModernTreasury::Models::LedgerAccountCategory::Balances]
       required :balances, -> { ModernTreasury::Models::LedgerAccountCategory::Balances }
@@ -43,14 +43,14 @@ module ModernTreasury
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false
-      #     if it exists in the test environment.
+      #   if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
+      #   strings.
       #
       #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -115,9 +115,9 @@ module ModernTreasury
       class Balances < ModernTreasury::Internal::Type::BaseModel
         # @!attribute available_balance
         #   The available_balance is the sum of all posted inbound entries and pending
-        #     outbound entries. For credit normal, available_amount = posted_credits -
-        #     pending_debits; for debit normal, available_amount = posted_debits -
-        #     pending_credits.
+        #   outbound entries. For credit normal, available_amount = posted_credits -
+        #   pending_debits; for debit normal, available_amount = posted_debits -
+        #   pending_credits.
         #
         #   @return [ModernTreasury::Models::LedgerAccountCategory::Balances::AvailableBalance]
         required :available_balance,
@@ -137,10 +137,10 @@ module ModernTreasury
 
         # @!parse
         #   # The pending, posted, and available balances for this ledger account category.
-        #   #   The posted balance is the sum of all posted entries on the account. The pending
-        #   #   balance is the sum of all pending and posted entries on the account. The
-        #   #   available balance is the posted incoming entries minus the sum of the pending
-        #   #   and posted outgoing amounts.
+        #   # The posted balance is the sum of all posted entries on the account. The pending
+        #   # balance is the sum of all pending and posted entries on the account. The
+        #   # available balance is the posted incoming entries minus the sum of the pending
+        #   # and posted outgoing amounts.
         #   #
         #   # @param available_balance [ModernTreasury::Models::LedgerAccountCategory::Balances::AvailableBalance]
         #   # @param pending_balance [ModernTreasury::Models::LedgerAccountCategory::Balances::PendingBalance]
@@ -181,9 +181,9 @@ module ModernTreasury
 
           # @!parse
           #   # The available_balance is the sum of all posted inbound entries and pending
-          #   #   outbound entries. For credit normal, available_amount = posted_credits -
-          #   #   pending_debits; for debit normal, available_amount = posted_debits -
-          #   #   pending_credits.
+          #   # outbound entries. For credit normal, available_amount = posted_credits -
+          #   # pending_debits; for debit normal, available_amount = posted_debits -
+          #   # pending_credits.
           #   #
           #   # @param amount [Integer]
           #   # @param credits [Integer]

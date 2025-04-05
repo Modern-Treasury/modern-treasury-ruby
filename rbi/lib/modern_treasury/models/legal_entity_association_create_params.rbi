@@ -7,7 +7,7 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       # The ID of the parent legal entity. This must be a business or joint legal
-      #   entity.
+      # entity.
       sig { returns(String) }
       attr_accessor :parent_legal_entity_id
 
@@ -261,7 +261,7 @@ module ModernTreasury
         attr_accessor :legal_structure
 
         # Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
+        # strings.
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
         attr_reader :metadata
 
@@ -598,7 +598,7 @@ module ModernTreasury
           attr_accessor :id_type
 
           # The ISO 3166-1 alpha-2 country code of the country that issued the
-          #   identification
+          # identification
           sig { returns(T.nilable(String)) }
           attr_accessor :issuing_country
 

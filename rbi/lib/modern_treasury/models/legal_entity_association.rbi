@@ -25,7 +25,7 @@ module ModernTreasury
       attr_accessor :discarded_at
 
       # This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
+      # if it exists in the test environment.
       sig { returns(T::Boolean) }
       attr_accessor :live_mode
 
@@ -37,7 +37,7 @@ module ModernTreasury
       attr_accessor :ownership_percentage
 
       # The ID of the parent legal entity. This must be a business or joint legal
-      #   entity.
+      # entity.
       sig { returns(String) }
       attr_accessor :parent_legal_entity_id
 
@@ -188,12 +188,12 @@ module ModernTreasury
         attr_accessor :legal_structure
 
         # This field will be true if this object exists in the live environment or false
-        #   if it exists in the test environment.
+        # if it exists in the test environment.
         sig { returns(T::Boolean) }
         attr_accessor :live_mode
 
         # Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
+        # strings.
         sig { returns(T::Hash[Symbol, String]) }
         attr_accessor :metadata
 
@@ -403,7 +403,7 @@ module ModernTreasury
           attr_accessor :line2
 
           # This field will be true if this object exists in the live environment or false
-          #   if it exists in the test environment.
+          # if it exists in the test environment.
           sig { returns(T::Boolean) }
           attr_accessor :live_mode
 
@@ -549,12 +549,12 @@ module ModernTreasury
           attr_accessor :id_type
 
           # The ISO 3166-1 alpha-2 country code of the country that issued the
-          #   identification
+          # identification
           sig { returns(T.nilable(String)) }
           attr_accessor :issuing_country
 
           # This field will be true if this object exists in the live environment or false
-          #   if it exists in the test environment.
+          # if it exists in the test environment.
           sig { returns(T::Boolean) }
           attr_accessor :live_mode
 

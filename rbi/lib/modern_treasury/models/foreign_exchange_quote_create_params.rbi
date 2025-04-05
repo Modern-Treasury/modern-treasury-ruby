@@ -15,7 +15,7 @@ module ModernTreasury
       attr_accessor :target_currency
 
       # Amount in the lowest denomination of the `base_currency` to convert, often
-      #   called the "sell" amount.
+      # called the "sell" amount.
       sig { returns(T.nilable(Integer)) }
       attr_reader :base_amount
 
@@ -37,7 +37,7 @@ module ModernTreasury
       attr_writer :effective_at
 
       # Amount in the lowest denomination of the `target_currency`, often called the
-      #   "buy" amount.
+      # "buy" amount.
       sig { returns(T.nilable(Integer)) }
       attr_reader :target_amount
 

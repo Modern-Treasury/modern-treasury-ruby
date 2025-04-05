@@ -15,7 +15,7 @@ module ModernTreasury
       attr_writer :query
 
       # The type of object this variable is. Currently, only "ledger_account" is
-      #   supported.
+      # supported.
       sig { returns(String) }
       attr_accessor :type
 

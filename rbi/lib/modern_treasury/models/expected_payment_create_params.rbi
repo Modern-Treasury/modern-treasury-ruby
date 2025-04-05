@@ -7,12 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       # The lowest amount this expected payment may be equal to. Value in specified
-      #   currency's smallest unit. e.g. $10 would be represented as 1000.
+      # currency's smallest unit. e.g. $10 would be represented as 1000.
       sig { returns(T.nilable(Integer)) }
       attr_accessor :amount_lower_bound
 
       # The highest amount this expected payment may be equal to. Value in specified
-      #   currency's smallest unit. e.g. $10 would be represented as 1000.
+      # currency's smallest unit. e.g. $10 would be represented as 1000.
       sig { returns(T.nilable(Integer)) }
       attr_accessor :amount_upper_bound
 
@@ -37,7 +37,7 @@ module ModernTreasury
       attr_accessor :description
 
       # One of credit or debit. When you are receiving money, use credit. When you are
-      #   being charged, use debit.
+      # being charged, use debit.
       sig { returns(T.nilable(ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::OrSymbol)) }
       attr_accessor :direction
 
@@ -46,9 +46,9 @@ module ModernTreasury
       attr_accessor :internal_account_id
 
       # Specifies a ledger transaction object that will be created with the expected
-      #   payment. If the ledger transaction cannot be created, then the expected payment
-      #   creation will fail. The resulting ledger transaction will mirror the status of
-      #   the expected payment.
+      # payment. If the ledger transaction cannot be created, then the expected payment
+      # creation will fail. The resulting ledger transaction will mirror the status of
+      # the expected payment.
       sig { returns(T.nilable(ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction)) }
       attr_reader :ledger_transaction
 
@@ -64,9 +64,9 @@ module ModernTreasury
       attr_writer :ledger_transaction
 
       # Either ledger_transaction or ledger_transaction_id can be provided. Only a
-      #   pending ledger transaction can be attached upon expected payment creation. Once
-      #   the expected payment is created, the status of the ledger transaction tracks the
-      #   expected payment automatically.
+      # pending ledger transaction can be attached upon expected payment creation. Once
+      # the expected payment is created, the status of the ledger transaction tracks the
+      # expected payment automatically.
       sig { returns(T.nilable(String)) }
       attr_reader :ledger_transaction_id
 
@@ -85,7 +85,7 @@ module ModernTreasury
       attr_writer :line_items
 
       # Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
+      # strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_reader :metadata
 
@@ -105,20 +105,20 @@ module ModernTreasury
       attr_accessor :reconciliation_rule_variables
 
       # For `ach`, this field will be passed through on an addenda record. For `wire`
-      #   payments the field will be passed through as the "Originator to Beneficiary
-      #   Information", also known as OBI or Fedwire tag 6000.
+      # payments the field will be passed through as the "Originator to Beneficiary
+      # Information", also known as OBI or Fedwire tag 6000.
       sig { returns(T.nilable(String)) }
       attr_accessor :remittance_information
 
       # The statement description you expect to see on the transaction. For ACH
-      #   payments, this will be the full line item passed from the bank. For wire
-      #   payments, this will be the OBI field on the wire. For check payments, this will
-      #   be the memo field.
+      # payments, this will be the full line item passed from the bank. For wire
+      # payments, this will be the OBI field on the wire. For check payments, this will
+      # be the memo field.
       sig { returns(T.nilable(String)) }
       attr_accessor :statement_descriptor
 
       # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
-      #   sepa, signet, wire.
+      # sepa, signet, wire.
       sig { returns(T.nilable(ModernTreasury::Models::ExpectedPaymentType::OrSymbol)) }
       attr_accessor :type
 
@@ -202,7 +202,7 @@ module ModernTreasury
       def to_hash; end
 
       # One of credit or debit. When you are receiving money, use credit. When you are
-      #   being charged, use debit.
+      # being charged, use debit.
       module Direction
         extend ModernTreasury::Internal::Type::Enum
 
@@ -228,7 +228,7 @@ module ModernTreasury
         attr_accessor :description
 
         # The timestamp (ISO8601 format) at which the ledger transaction happened for
-        #   reporting purposes.
+        # reporting purposes.
         sig { returns(T.nilable(Time)) }
         attr_reader :effective_at
 
@@ -236,7 +236,7 @@ module ModernTreasury
         attr_writer :effective_at
 
         # The date (YYYY-MM-DD) on which the ledger transaction happened for reporting
-        #   purposes.
+        # purposes.
         sig { returns(T.nilable(Date)) }
         attr_reader :effective_date
 
@@ -244,7 +244,7 @@ module ModernTreasury
         attr_writer :effective_date
 
         # A unique string to represent the ledger transaction. Only one pending or posted
-        #   ledger transaction may have this ID in the ledger.
+        # ledger transaction may have this ID in the ledger.
         sig { returns(T.nilable(String)) }
         attr_reader :external_id
 
@@ -252,7 +252,7 @@ module ModernTreasury
         attr_writer :external_id
 
         # If the ledger transaction can be reconciled to another object in Modern
-        #   Treasury, the id will be populated here, otherwise null.
+        # Treasury, the id will be populated here, otherwise null.
         sig { returns(T.nilable(String)) }
         attr_reader :ledgerable_id
 
@@ -260,9 +260,9 @@ module ModernTreasury
         attr_writer :ledgerable_id
 
         # If the ledger transaction can be reconciled to another object in Modern
-        #   Treasury, the type will be populated here, otherwise null. This can be one of
-        #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
-        #   reversal.
+        # Treasury, the type will be populated here, otherwise null. This can be one of
+        # payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
+        # reversal.
         sig do
           returns(
             T.nilable(
@@ -281,7 +281,7 @@ module ModernTreasury
         attr_writer :ledgerable_type
 
         # Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
+        # strings.
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
         attr_reader :metadata
 
@@ -303,9 +303,9 @@ module ModernTreasury
         attr_writer :status
 
         # Specifies a ledger transaction object that will be created with the expected
-        #   payment. If the ledger transaction cannot be created, then the expected payment
-        #   creation will fail. The resulting ledger transaction will mirror the status of
-        #   the expected payment.
+        # payment. If the ledger transaction cannot be created, then the expected payment
+        # creation will fail. The resulting ledger transaction will mirror the status of
+        # the expected payment.
         sig do
           params(
             ledger_entries: T::Array[
@@ -356,14 +356,14 @@ module ModernTreasury
 
         class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
           # Value in specified currency's smallest unit. e.g. $10 would be represented
-          #   as 1000. Can be any integer up to 36 digits.
+          # as 1000. Can be any integer up to 36 digits.
           sig { returns(Integer) }
           attr_accessor :amount
 
           # One of `credit`, `debit`. Describes the direction money is flowing in the
-          #   transaction. A `credit` moves money from your account to someone else's. A
-          #   `debit` pulls money from someone else's account to your own. Note that wire,
-          #   rtp, and check payments will always be `credit`.
+          # transaction. A `credit` moves money from your account to someone else's. A
+          # `debit` pulls money from someone else's account to your own. Note that wire,
+          # rtp, and check payments will always be `credit`.
           sig { returns(ModernTreasury::Models::TransactionDirection::OrSymbol) }
           attr_accessor :direction
 
@@ -372,20 +372,20 @@ module ModernTreasury
           attr_accessor :ledger_account_id
 
           # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
-          #   account’s available balance. If any of these conditions would be false after the
-          #   transaction is created, the entire call will fail with error code 422.
+          # account’s available balance. If any of these conditions would be false after the
+          # transaction is created, the entire call will fail with error code 422.
           sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
           attr_accessor :available_balance_amount
 
           # Lock version of the ledger account. This can be passed when creating a ledger
-          #   transaction to only succeed if no ledger transactions have posted since the
-          #   given version. See our post about Designing the Ledgers API with Optimistic
-          #   Locking for more details.
+          # transaction to only succeed if no ledger transactions have posted since the
+          # given version. See our post about Designing the Ledgers API with Optimistic
+          # Locking for more details.
           sig { returns(T.nilable(Integer)) }
           attr_accessor :lock_version
 
           # Additional data represented as key-value pairs. Both the key and value must be
-          #   strings.
+          # strings.
           sig { returns(T.nilable(T::Hash[Symbol, String])) }
           attr_reader :metadata
 
@@ -393,19 +393,19 @@ module ModernTreasury
           attr_writer :metadata
 
           # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
-          #   account’s pending balance. If any of these conditions would be false after the
-          #   transaction is created, the entire call will fail with error code 422.
+          # account’s pending balance. If any of these conditions would be false after the
+          # transaction is created, the entire call will fail with error code 422.
           sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
           attr_accessor :pending_balance_amount
 
           # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
-          #   account’s posted balance. If any of these conditions would be false after the
-          #   transaction is created, the entire call will fail with error code 422.
+          # account’s posted balance. If any of these conditions would be false after the
+          # transaction is created, the entire call will fail with error code 422.
           sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
           attr_accessor :posted_balance_amount
 
           # If true, response will include the balance of the associated ledger account for
-          #   the entry.
+          # the entry.
           sig { returns(T.nilable(T::Boolean)) }
           attr_accessor :show_resulting_ledger_account_balances
 
@@ -454,9 +454,9 @@ module ModernTreasury
         end
 
         # If the ledger transaction can be reconciled to another object in Modern
-        #   Treasury, the type will be populated here, otherwise null. This can be one of
-        #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
-        #   reversal.
+        # Treasury, the type will be populated here, otherwise null. This can be one of
+        # payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
+        # reversal.
         module LedgerableType
           extend ModernTreasury::Internal::Type::Enum
 
@@ -554,12 +554,12 @@ module ModernTreasury
 
       class LineItem < ModernTreasury::Internal::Type::BaseModel
         # Value in specified currency's smallest unit. e.g. $10 would be represented
-        #   as 1000.
+        # as 1000.
         sig { returns(Integer) }
         attr_accessor :amount
 
         # The ID of one of your accounting categories. Note that these will only be
-        #   accessible if your accounting system has been connected.
+        # accessible if your accounting system has been connected.
         sig { returns(T.nilable(String)) }
         attr_accessor :accounting_category_id
 
@@ -568,7 +568,7 @@ module ModernTreasury
         attr_accessor :description
 
         # Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
+        # strings.
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
         attr_reader :metadata
 

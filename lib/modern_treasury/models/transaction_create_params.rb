@@ -10,7 +10,7 @@ module ModernTreasury
 
       # @!attribute amount
       #   Value in specified currency's smallest unit. e.g. $10 would be represented
-      #     as 1000.
+      #   as 1000.
       #
       #   @return [Integer]
       required :amount, Integer
@@ -35,23 +35,23 @@ module ModernTreasury
 
       # @!attribute vendor_code
       #   When applicable, the bank-given code that determines the transaction's category.
-      #     For most banks this is the BAI2/BTRS transaction code.
+      #   For most banks this is the BAI2/BTRS transaction code.
       #
       #   @return [String, nil]
       required :vendor_code, String, nil?: true
 
       # @!attribute vendor_code_type
       #   The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
-      #     `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-      #     `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
-      #     `swift`, `us_bank`, or others.
+      #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
+      #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+      #   `swift`, `us_bank`, or others.
       #
       #   @return [String, nil]
       required :vendor_code_type, String, nil?: true
 
       # @!attribute [r] metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
+      #   strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -72,14 +72,14 @@ module ModernTreasury
 
       # @!attribute type
       #   The type of the transaction. Examples could be
-      #     `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
+      #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       #
       #   @return [Symbol, ModernTreasury::Models::TransactionCreateParams::Type, nil]
       optional :type, enum: -> { ModernTreasury::Models::TransactionCreateParams::Type }, nil?: true
 
       # @!attribute vendor_description
       #   The transaction detail text that often appears in on your bank statement and in
-      #     your banking portal.
+      #   your banking portal.
       #
       #   @return [String, nil]
       optional :vendor_description, String, nil?: true
@@ -117,7 +117,7 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # The type of the transaction. Examples could be
-      #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
+      # `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       module Type
         extend ModernTreasury::Internal::Type::Enum
 

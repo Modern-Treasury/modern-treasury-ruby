@@ -22,7 +22,7 @@ module ModernTreasury
         # Body param: The account number for the bank account.
         account_number:,
         # Body param: One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if
-        #   the bank account number is in a generic format.
+        # the bank account number is in a generic format.
         account_number_type: nil,
         request_options: {}
       ); end

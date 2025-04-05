@@ -10,8 +10,8 @@ module ModernTreasury
       attr_accessor :after_cursor
 
       # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
-      #   posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
-      #   created_at%5Bgt%5D=2000-01-01T12:00:00Z.
+      # posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
+      # created_at%5Bgt%5D=2000-01-01T12:00:00Z.
       sig { returns(T.nilable(T::Hash[Symbol, Time])) }
       attr_reader :created_at
 
@@ -19,8 +19,8 @@ module ModernTreasury
       attr_writer :created_at
 
       # For example, if you want to query for records with metadata key `Type` and value
-      #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #   parameters.
+      # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      # parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_reader :metadata
 

@@ -11,7 +11,7 @@ module ModernTreasury
 
       # @!attribute amount
       #   Value in specified currency's smallest unit. e.g. $10 would be represented
-      #     as 1000.
+      #   as 1000.
       #
       #   @return [Integer]
       required :amount, Integer
@@ -24,14 +24,14 @@ module ModernTreasury
 
       # @!attribute as_of_time
       #   The time on which the transaction occurred. Depending on the granularity of the
-      #     timestamp information received from the bank, it may be `null`.
+      #   timestamp information received from the bank, it may be `null`.
       #
       #   @return [Time, nil]
       required :as_of_time, Time, nil?: true
 
       # @!attribute as_of_timezone
       #   The timezone in which the `as_of_time` is represented. Can be `null` if the bank
-      #     does not provide timezone info.
+      #   does not provide timezone info.
       #
       #   @return [String, nil]
       required :as_of_timezone, String, nil?: true
@@ -49,7 +49,7 @@ module ModernTreasury
 
       # @!attribute custom_identifiers
       #   An object containing key-value pairs, each with a custom identifier as the key
-      #     and a string value.
+      #   and a string value.
       #
       #   @return [Hash{Symbol=>String}]
       required :custom_identifiers, ModernTreasury::Internal::Type::HashOf[String]
@@ -81,14 +81,14 @@ module ModernTreasury
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false
-      #     if it exists in the test environment.
+      #   if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
+      #   strings.
       #
       #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -106,15 +106,15 @@ module ModernTreasury
 
       # @!attribute reconciled
       #   This field will be `true` if a transaction is reconciled by the Modern Treasury
-      #     system. This means that it has transaction line items that sum up to the
-      #     transaction's amount.
+      #   system. This means that it has transaction line items that sum up to the
+      #   transaction's amount.
       #
       #   @return [Boolean]
       required :reconciled, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute type
       #   The type of the transaction. Examples could be
-      #     `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
+      #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       #
       #   @return [Symbol, ModernTreasury::Models::Transaction::Type]
       required :type, enum: -> { ModernTreasury::Models::Transaction::Type }
@@ -126,16 +126,16 @@ module ModernTreasury
 
       # @!attribute vendor_code
       #   When applicable, the bank-given code that determines the transaction's category.
-      #     For most banks this is the BAI2/BTRS transaction code.
+      #   For most banks this is the BAI2/BTRS transaction code.
       #
       #   @return [String, nil]
       required :vendor_code, String, nil?: true
 
       # @!attribute vendor_code_type
       #   The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
-      #     `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-      #     `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
-      #     `swift`, `us_bank`, or others.
+      #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
+      #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+      #   `swift`, `us_bank`, or others.
       #
       #   @return [Symbol, ModernTreasury::Models::Transaction::VendorCodeType, nil]
       required :vendor_code_type, enum: -> { ModernTreasury::Models::Transaction::VendorCodeType }, nil?: true
@@ -154,12 +154,12 @@ module ModernTreasury
 
       # @!attribute [r] details
       #   This field contains additional information that the bank provided about the
-      #     transaction. This is structured data. Some of the data in here might overlap
-      #     with what is in the `vendor_description`. For example, the OBI could be a part
-      #     of the vendor description, and it would also be included in here. The attributes
-      #     that are passed through the details field will vary based on your banking
-      #     partner. Currently, the following keys may be in the details object:
-      #     `originator_name`, `originator_to_beneficiary_information`.
+      #   transaction. This is structured data. Some of the data in here might overlap
+      #   with what is in the `vendor_description`. For example, the OBI could be a part
+      #   of the vendor description, and it would also be included in here. The attributes
+      #   that are passed through the details field will vary based on your banking
+      #   partner. Currently, the following keys may be in the details object:
+      #   `originator_name`, `originator_to_beneficiary_information`.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :details, ModernTreasury::Internal::Type::HashOf[String]
@@ -170,7 +170,7 @@ module ModernTreasury
 
       # @!attribute vendor_description
       #   The transaction detail text that often appears in on your bank statement and in
-      #     your banking portal.
+      #   your banking portal.
       #
       #   @return [String, nil]
       optional :vendor_description, String, nil?: true
@@ -239,7 +239,7 @@ module ModernTreasury
       class ForeignExchangeRate < ModernTreasury::Internal::Type::BaseModel
         # @!attribute base_amount
         #   Amount in the lowest denomination of the `base_currency` to convert, often
-        #     called the "sell" amount.
+        #   called the "sell" amount.
         #
         #   @return [Integer]
         required :base_amount, Integer
@@ -252,7 +252,7 @@ module ModernTreasury
 
         # @!attribute exponent
         #   The exponent component of the rate. The decimal is calculated as `value` / (10 ^
-        #     `exponent`).
+        #   `exponent`).
         #
         #   @return [Integer]
         required :exponent, Integer
@@ -265,7 +265,7 @@ module ModernTreasury
 
         # @!attribute target_amount
         #   Amount in the lowest denomination of the `target_currency`, often called the
-        #     "buy" amount.
+        #   "buy" amount.
         #
         #   @return [Integer]
         required :target_amount, Integer
@@ -278,7 +278,7 @@ module ModernTreasury
 
         # @!attribute value
         #   The whole number component of the rate. The decimal is calculated as `value` /
-        #     (10 ^ `exponent`).
+        #   (10 ^ `exponent`).
         #
         #   @return [Integer]
         required :value, Integer
@@ -300,7 +300,7 @@ module ModernTreasury
       end
 
       # The type of the transaction. Examples could be
-      #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
+      # `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       #
       # @see ModernTreasury::Models::Transaction#type
       module Type
@@ -346,9 +346,9 @@ module ModernTreasury
       end
 
       # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
-      #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-      #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
-      #   `swift`, `us_bank`, or others.
+      # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
+      # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+      # `swift`, `us_bank`, or others.
       #
       # @see ModernTreasury::Models::Transaction#vendor_code_type
       module VendorCodeType

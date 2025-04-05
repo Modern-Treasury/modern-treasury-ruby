@@ -16,14 +16,14 @@ module ModernTreasury
 
       # @!attribute returnable_type
       #   The type of object being returned. Currently, this may only be
-      #     incoming_payment_detail.
+      #   incoming_payment_detail.
       #
       #   @return [Symbol, ModernTreasury::Models::ReturnCreateParams::ReturnableType]
       required :returnable_type, enum: -> { ModernTreasury::Models::ReturnCreateParams::ReturnableType }
 
       # @!attribute additional_information
       #   Some returns may include additional information from the bank. In these cases,
-      #     this string will be present.
+      #   this string will be present.
       #
       #   @return [String, nil]
       optional :additional_information, String, nil?: true
@@ -42,14 +42,14 @@ module ModernTreasury
 
       # @!attribute date_of_death
       #   If the return code is `R14` or `R15` this is the date the deceased counterparty
-      #     passed away.
+      #   passed away.
       #
       #   @return [Date, nil]
       optional :date_of_death, Date, nil?: true
 
       # @!attribute reason
       #   An optional description of the reason for the return. This is for internal usage
-      #     and will not be transmitted to the bank.”
+      #   and will not be transmitted to the bank.”
       #
       #   @return [String, nil]
       optional :reason, String, nil?: true
@@ -81,7 +81,7 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # The type of object being returned. Currently, this may only be
-      #   incoming_payment_detail.
+      # incoming_payment_detail.
       module ReturnableType
         extend ModernTreasury::Internal::Type::Enum
 

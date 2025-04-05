@@ -27,15 +27,15 @@ module ModernTreasury
           # The id of the payment order being reversed.
           payment_order_id,
           # The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`,
-          #   `incorrect_receiving_account`, `date_earlier_than_intended`,
-          #   `date_later_than_intended`.
+          # `incorrect_receiving_account`, `date_earlier_than_intended`,
+          # `date_later_than_intended`.
           reason:,
           # Specifies a ledger transaction object that will be created with the reversal. If
-          #   the ledger transaction cannot be created, then the reversal creation will fail.
-          #   The resulting ledger transaction will mirror the status of the reversal.
+          # the ledger transaction cannot be created, then the reversal creation will fail.
+          # The resulting ledger transaction will mirror the status of the reversal.
           ledger_transaction: nil,
           # Additional data represented as key-value pairs. Both the key and value must be
-          #   strings.
+          # strings.
           metadata: nil,
           request_options: {}
         ); end

@@ -14,7 +14,7 @@ module ModernTreasury
       attr_accessor :account_number
 
       # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
-      #   account number is in a generic format.
+      # account number is in a generic format.
       sig { returns(T.nilable(ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol)) }
       attr_reader :account_number_type
 
@@ -66,7 +66,7 @@ module ModernTreasury
       end
 
       # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
-      #   account number is in a generic format.
+      # account number is in a generic format.
       module AccountNumberType
         extend ModernTreasury::Internal::Type::Enum
 

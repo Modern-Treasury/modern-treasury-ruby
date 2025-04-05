@@ -18,7 +18,7 @@ module ModernTreasury
       attr_accessor :legal_entity_id
 
       # Additional data in the form of key-value pairs. Pairs can be removed by passing
-      #   an empty string or `null` as the value.
+      # an empty string or `null` as the value.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_reader :metadata
 
@@ -33,7 +33,7 @@ module ModernTreasury
       attr_writer :name
 
       # If this is `true`, Modern Treasury will send an email to the counterparty
-      #   whenever an associated payment order is sent to the bank.
+      # whenever an associated payment order is sent to the bank.
       sig { returns(T.nilable(T::Boolean)) }
       attr_reader :send_remittance_advice
 

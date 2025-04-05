@@ -41,7 +41,7 @@ module ModernTreasury
         # Path param: The ID of the payment order or expected payment.
         itemizable_id:,
         # Body param: Additional data represented as key-value pairs. Both the key and
-        #   value must be strings.
+        # value must be strings.
         metadata: nil,
         request_options: {}
       ); end

@@ -7,12 +7,12 @@ module ModernTreasury
       attr_accessor :id
 
       # Amount paid on the invoice in specified currency's smallest unit, e.g., $10 USD
-      #   would be represented as 1000.
+      # would be represented as 1000.
       sig { returns(Integer) }
       attr_accessor :amount_paid
 
       # Amount remaining due on the invoice in specified currency's smallest unit, e.g.,
-      #   $10 USD would be represented as 1000.
+      # $10 USD would be represented as 1000.
       sig { returns(Integer) }
       attr_accessor :amount_remaining
 
@@ -72,7 +72,7 @@ module ModernTreasury
       attr_accessor :expected_payments
 
       # When payment_method is automatic, the fallback payment method to use when an
-      #   automatic payment fails. One of `manual` or `ui`.
+      # automatic payment fails. One of `manual` or `ui`.
       sig { returns(T.nilable(String)) }
       attr_accessor :fallback_payment_method
 
@@ -97,23 +97,23 @@ module ModernTreasury
       attr_accessor :ledger_account_settlement_id
 
       # This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
+      # if it exists in the test environment.
       sig { returns(T::Boolean) }
       attr_accessor :live_mode
 
       # Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
+      # strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_accessor :metadata
 
       # Emails in addition to the counterparty email to send invoice status
-      #   notifications to. At least one email is required if notifications are enabled
-      #   and the counterparty doesn't have an email.
+      # notifications to. At least one email is required if notifications are enabled
+      # and the counterparty doesn't have an email.
       sig { returns(T.nilable(T::Array[String])) }
       attr_accessor :notification_email_addresses
 
       # If true, the invoice will send email notifications to the invoice recipients
-      #   about invoice status changes.
+      # about invoice status changes.
       sig { returns(T::Boolean) }
       attr_accessor :notifications_enabled
 
@@ -129,18 +129,18 @@ module ModernTreasury
       attr_accessor :originating_account_id
 
       # Date transactions are to be posted to the participants' account. Defaults to the
-      #   current business day or the next business day if the current day is a bank
-      #   holiday or weekend. Format: yyyy-mm-dd.
+      # current business day or the next business day if the current day is a bank
+      # holiday or weekend. Format: yyyy-mm-dd.
       sig { returns(T.nilable(Date)) }
       attr_accessor :payment_effective_date
 
       # When opening an invoice, whether to show the embedded payment UI , automatically
-      #   debit the recipient, or rely on manual payment from the recipient.
+      # debit the recipient, or rely on manual payment from the recipient.
       sig { returns(T.nilable(ModernTreasury::Models::Invoice::PaymentMethod::TaggedSymbol)) }
       attr_accessor :payment_method
 
       # The payment orders created for paying the invoice through the invoice payment
-      #   UI.
+      # UI.
       sig { returns(T::Array[ModernTreasury::Models::PaymentOrder]) }
       attr_accessor :payment_orders
 
@@ -157,17 +157,17 @@ module ModernTreasury
       attr_accessor :receiving_account_id
 
       # The email of the recipient of the invoice. Leaving this value as null will
-      #   fallback to using the counterparty's name.
+      # fallback to using the counterparty's name.
       sig { returns(T.nilable(String)) }
       attr_accessor :recipient_email
 
       # The name of the recipient of the invoice. Leaving this value as null will
-      #   fallback to using the counterparty's name.
+      # fallback to using the counterparty's name.
       sig { returns(T.nilable(String)) }
       attr_accessor :recipient_name
 
       # Number of days after due date when overdue reminder emails will be sent out to
-      #   invoice recipients.
+      # invoice recipients.
       sig { returns(T.nilable(T::Array[Integer])) }
       attr_accessor :remind_after_overdue_days
 
@@ -176,7 +176,7 @@ module ModernTreasury
       attr_accessor :status
 
       # Total amount due in specified currency's smallest unit, e.g., $10 USD would be
-      #   represented as 1000.
+      # represented as 1000.
       sig { returns(Integer) }
       attr_accessor :total_amount
 
@@ -339,7 +339,7 @@ module ModernTreasury
         attr_accessor :discarded_at
 
         # This field will be true if this object exists in the live environment or false
-        #   if it exists in the test environment.
+        # if it exists in the test environment.
         sig { returns(T::Boolean) }
         attr_accessor :live_mode
 
@@ -581,7 +581,7 @@ module ModernTreasury
       end
 
       # When opening an invoice, whether to show the embedded payment UI , automatically
-      #   debit the recipient, or rely on manual payment from the recipient.
+      # debit the recipient, or rely on manual payment from the recipient.
       module PaymentMethod
         extend ModernTreasury::Internal::Type::Enum
 

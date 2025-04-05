@@ -17,8 +17,8 @@ module ModernTreasury
       attr_writer :documentable_id
 
       # The type of the associated object. Currently can be one of `payment_order`,
-      #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
-      #   `case`, `internal_account`, `decision`, or `external_account`.
+      # `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
+      # `case`, `internal_account`, `decision`, or `external_account`.
       sig { returns(T.nilable(ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol)) }
       attr_reader :documentable_type
 
@@ -65,8 +65,8 @@ module ModernTreasury
       def to_hash; end
 
       # The type of the associated object. Currently can be one of `payment_order`,
-      #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
-      #   `case`, `internal_account`, `decision`, or `external_account`.
+      # `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
+      # `case`, `internal_account`, `decision`, or `external_account`.
       module DocumentableType
         extend ModernTreasury::Internal::Type::Enum
 

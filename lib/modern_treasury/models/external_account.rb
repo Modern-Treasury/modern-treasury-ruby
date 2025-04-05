@@ -44,28 +44,28 @@ module ModernTreasury
 
       # @!attribute ledger_account_id
       #   If the external account links to a ledger account in Modern Treasury, the id of
-      #     the ledger account will be populated here.
+      #   the ledger account will be populated here.
       #
       #   @return [String, nil]
       required :ledger_account_id, String, nil?: true
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false
-      #     if it exists in the test environment.
+      #   if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
+      #   strings.
       #
       #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!attribute name
       #   A nickname for the external account. This is only for internal usage and won't
-      #     affect any payments
+      #   affect any payments
       #
       #   @return [String, nil]
       required :name, String, nil?: true
@@ -193,7 +193,7 @@ module ModernTreasury
 
         # @!attribute live_mode
         #   This field will be true if this object exists in the live environment or false
-        #     if it exists in the test environment.
+        #   if it exists in the test environment.
         #
         #   @return [Boolean]
         required :live_mode, ModernTreasury::Internal::Type::Boolean
@@ -280,7 +280,7 @@ module ModernTreasury
 
         # @!attribute live_mode
         #   This field will be true if this object exists in the live environment or false
-        #     if it exists in the test environment.
+        #   if it exists in the test environment.
         #
         #   @return [Boolean]
         required :live_mode, ModernTreasury::Internal::Type::Boolean

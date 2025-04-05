@@ -19,8 +19,8 @@ module ModernTreasury
       attr_accessor :originating_account_id
 
       # When true, the invoice will progress to unpaid automatically and cannot be
-      #   edited after entering that state. If the invoice fails to progress to unpaid,
-      #   the errors will be returned and the invoice will not be created.
+      # edited after entering that state. If the invoice fails to progress to unpaid,
+      # the errors will be returned and the invoice will not be created.
       sig { returns(T.nilable(T::Boolean)) }
       attr_accessor :auto_advance
 
@@ -85,19 +85,19 @@ module ModernTreasury
       attr_writer :description
 
       # When payment_method is automatic, the fallback payment method to use when an
-      #   automatic payment fails. One of `manual` or `ui`.
+      # automatic payment fails. One of `manual` or `ui`.
       sig { returns(T.nilable(String)) }
       attr_accessor :fallback_payment_method
 
       # Whether to ingest the ledger_entries to populate the invoice line items. If this
-      #   is false, then a line item must be provided. If this is true, line_items must be
-      #   empty. Ignored if ledger_account_settlement_id is empty.
+      # is false, then a line item must be provided. If this is true, line_items must be
+      # empty. Ignored if ledger_account_settlement_id is empty.
       sig { returns(T.nilable(T::Boolean)) }
       attr_accessor :ingest_ledger_entries
 
       # An array of invoice line items. The API supports a maximum of 50 invoice line
-      #   items per invoice. If a greater number of invoice line items is required, please
-      #   contact support.
+      # items per invoice. If a greater number of invoice line items is required, please
+      # contact support.
       sig { returns(T.nilable(T::Array[ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem])) }
       attr_accessor :invoice_line_items
 
@@ -120,18 +120,18 @@ module ModernTreasury
       attr_accessor :ledger_account_settlement_id
 
       # Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
+      # strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_accessor :metadata
 
       # Emails in addition to the counterparty email to send invoice status
-      #   notifications to. At least one email is required if notifications are enabled
-      #   and the counterparty doesn't have an email.
+      # notifications to. At least one email is required if notifications are enabled
+      # and the counterparty doesn't have an email.
       sig { returns(T.nilable(T::Array[String])) }
       attr_accessor :notification_email_addresses
 
       # If true, the invoice will send email notifications to the invoice recipients
-      #   about invoice status changes.
+      # about invoice status changes.
       sig { returns(T.nilable(T::Boolean)) }
       attr_reader :notifications_enabled
 
@@ -139,8 +139,8 @@ module ModernTreasury
       attr_writer :notifications_enabled
 
       # Date transactions are to be posted to the participants' account. Defaults to the
-      #   current business day or the next business day if the current day is a bank
-      #   holiday or weekend. Format: yyyy-mm-dd.
+      # current business day or the next business day if the current day is a bank
+      # holiday or weekend. Format: yyyy-mm-dd.
       sig { returns(T.nilable(Date)) }
       attr_reader :payment_effective_date
 
@@ -148,11 +148,11 @@ module ModernTreasury
       attr_writer :payment_effective_date
 
       # The method by which the invoice can be paid. `ui` will show the embedded payment
-      #   collection flow. `automatic` will automatically initiate payment based upon the
-      #   account details of the receiving_account id.\nIf the invoice amount is positive,
-      #   the automatically initiated payment order's direction will be debit. If the
-      #   invoice amount is negative, the automatically initiated payment order's
-      #   direction will be credit. One of `manual`, `ui`, or `automatic`.
+      # collection flow. `automatic` will automatically initiate payment based upon the
+      # account details of the receiving_account id.\nIf the invoice amount is positive,
+      # the automatically initiated payment order's direction will be debit. If the
+      # invoice amount is negative, the automatically initiated payment order's
+      # direction will be credit. One of `manual`, `ui`, or `automatic`.
       sig { returns(T.nilable(ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::OrSymbol)) }
       attr_reader :payment_method
 
@@ -160,8 +160,8 @@ module ModernTreasury
       attr_writer :payment_method
 
       # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
-      #   `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
-      #   `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
+      # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
+      # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
       sig { returns(T.nilable(ModernTreasury::Models::PaymentOrderType::OrSymbol)) }
       attr_reader :payment_type
 
@@ -176,17 +176,17 @@ module ModernTreasury
       attr_writer :receiving_account_id
 
       # The email of the recipient of the invoice. Leaving this value as null will
-      #   fallback to using the counterparty's name.
+      # fallback to using the counterparty's name.
       sig { returns(T.nilable(String)) }
       attr_accessor :recipient_email
 
       # The name of the recipient of the invoice. Leaving this value as null will
-      #   fallback to using the counterparty's name.
+      # fallback to using the counterparty's name.
       sig { returns(T.nilable(String)) }
       attr_accessor :recipient_name
 
       # Number of days after due date when overdue reminder emails will be sent out to
-      #   invoice recipients.
+      # invoice recipients.
       sig { returns(T.nilable(T::Array[Integer])) }
       attr_accessor :remind_after_overdue_days
 
@@ -319,7 +319,7 @@ module ModernTreasury
         attr_accessor :discarded_at
 
         # This field will be true if this object exists in the live environment or false
-        #   if it exists in the test environment.
+        # if it exists in the test environment.
         sig { returns(T::Boolean) }
         attr_accessor :live_mode
 
@@ -527,7 +527,7 @@ module ModernTreasury
         attr_accessor :name
 
         # The cost per unit of the product or service that this line item is for,
-        #   specified in the invoice currency's smallest unit.
+        # specified in the invoice currency's smallest unit.
         sig { returns(Integer) }
         attr_accessor :unit_amount
 
@@ -539,8 +539,8 @@ module ModernTreasury
         attr_writer :description
 
         # Either `debit` or `credit`. `debit` indicates that a client owes the business
-        #   money and increases the invoice's `total_amount` due. `credit` has the opposite
-        #   intention and effect.
+        # money and increases the invoice's `total_amount` due. `credit` has the opposite
+        # intention and effect.
         sig { returns(T.nilable(String)) }
         attr_reader :direction
 
@@ -548,7 +548,7 @@ module ModernTreasury
         attr_writer :direction
 
         # Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
+        # strings.
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
         attr_reader :metadata
 
@@ -556,7 +556,7 @@ module ModernTreasury
         attr_writer :metadata
 
         # The number of units of a product or service that this line item is for. Must be
-        #   a whole number. Defaults to 1 if not provided.
+        # a whole number. Defaults to 1 if not provided.
         sig { returns(T.nilable(Integer)) }
         attr_reader :quantity
 
@@ -564,8 +564,8 @@ module ModernTreasury
         attr_writer :quantity
 
         # The cost per unit of the product or service that this line item is for,
-        #   specified in the invoice currency's smallest unit. Accepts decimal strings with
-        #   up to 12 decimals
+        # specified in the invoice currency's smallest unit. Accepts decimal strings with
+        # up to 12 decimals
         sig { returns(T.nilable(String)) }
         attr_reader :unit_amount_decimal
 
@@ -667,11 +667,11 @@ module ModernTreasury
       end
 
       # The method by which the invoice can be paid. `ui` will show the embedded payment
-      #   collection flow. `automatic` will automatically initiate payment based upon the
-      #   account details of the receiving_account id.\nIf the invoice amount is positive,
-      #   the automatically initiated payment order's direction will be debit. If the
-      #   invoice amount is negative, the automatically initiated payment order's
-      #   direction will be credit. One of `manual`, `ui`, or `automatic`.
+      # collection flow. `automatic` will automatically initiate payment based upon the
+      # account details of the receiving_account id.\nIf the invoice amount is positive,
+      # the automatically initiated payment order's direction will be debit. If the
+      # invoice amount is negative, the automatically initiated payment order's
+      # direction will be credit. One of `manual`, `ui`, or `automatic`.
       module PaymentMethod
         extend ModernTreasury::Internal::Type::Enum
 

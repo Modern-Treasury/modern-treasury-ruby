@@ -17,7 +17,7 @@ module ModernTreasury
       attr_accessor :counterparty_id
 
       # Additional data in the form of key-value pairs. Pairs can be removed by passing
-      #   an empty string or `null` as the value.
+      # an empty string or `null` as the value.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_reader :metadata
 
@@ -25,7 +25,7 @@ module ModernTreasury
       attr_writer :metadata
 
       # A nickname for the external account. This is only for internal usage and won't
-      #   affect any payments
+      # affect any payments
       sig { returns(T.nilable(String)) }
       attr_accessor :name
 

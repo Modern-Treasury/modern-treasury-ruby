@@ -18,14 +18,14 @@ module ModernTreasury
       attr_accessor :created_at
 
       # The ID of a credit normal ledger account. When money enters the virtual account,
-      #   this ledger account will be credited. Must be accompanied by a
-      #   debit_ledger_account_id if present.
+      # this ledger account will be credited. Must be accompanied by a
+      # debit_ledger_account_id if present.
       sig { returns(T.nilable(String)) }
       attr_accessor :credit_ledger_account_id
 
       # The ID of a debit normal ledger account. When money enters the virtual account,
-      #   this ledger account will be debited. Must be accompanied by a
-      #   credit_ledger_account_id if present.
+      # this ledger account will be debited. Must be accompanied by a
+      # credit_ledger_account_id if present.
       sig { returns(T.nilable(String)) }
       attr_accessor :debit_ledger_account_id
 
@@ -41,17 +41,17 @@ module ModernTreasury
       attr_accessor :internal_account_id
 
       # If the virtual account links to a ledger account in Modern Treasury, the id of
-      #   the ledger account will be populated here.
+      # the ledger account will be populated here.
       sig { returns(T.nilable(String)) }
       attr_accessor :ledger_account_id
 
       # This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
+      # if it exists in the test environment.
       sig { returns(T::Boolean) }
       attr_accessor :live_mode
 
       # Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
+      # strings.
       sig { returns(T::Hash[Symbol, String]) }
       attr_accessor :metadata
 
@@ -63,7 +63,7 @@ module ModernTreasury
       attr_accessor :object
 
       # An array of routing detail objects. These will be the routing details of the
-      #   internal account.
+      # internal account.
       sig { returns(T::Array[ModernTreasury::Models::RoutingDetail]) }
       attr_accessor :routing_details
 

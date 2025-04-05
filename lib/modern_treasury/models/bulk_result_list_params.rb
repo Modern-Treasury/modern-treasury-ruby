@@ -25,7 +25,7 @@ module ModernTreasury
 
       # @!attribute [r] entity_type
       #   The type of the request that created this result. bulk_request is the only
-      #     supported `request_type`
+      #   supported `request_type`
       #
       #   @return [Symbol, ModernTreasury::Models::BulkResultListParams::EntityType, nil]
       optional :entity_type, enum: -> { ModernTreasury::Models::BulkResultListParams::EntityType }
@@ -45,7 +45,7 @@ module ModernTreasury
 
       # @!attribute [r] request_id
       #   Unique identifier for the request that created this bulk result. This is the ID
-      #     of the bulk request when `request_type` is bulk_request
+      #   of the bulk request when `request_type` is bulk_request
       #
       #   @return [String, nil]
       optional :request_id, String
@@ -56,7 +56,7 @@ module ModernTreasury
 
       # @!attribute [r] request_type
       #   The type of the request that created this result. bulk_request is the only
-      #     supported `request_type`
+      #   supported `request_type`
       #
       #   @return [Symbol, ModernTreasury::Models::BulkResultListParams::RequestType, nil]
       optional :request_type, enum: -> { ModernTreasury::Models::BulkResultListParams::RequestType }
@@ -102,7 +102,7 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # The type of the request that created this result. bulk_request is the only
-      #   supported `request_type`
+      # supported `request_type`
       module EntityType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -122,7 +122,7 @@ module ModernTreasury
       end
 
       # The type of the request that created this result. bulk_request is the only
-      #   supported `request_type`
+      # supported `request_type`
       module RequestType
         extend ModernTreasury::Internal::Type::Enum
 

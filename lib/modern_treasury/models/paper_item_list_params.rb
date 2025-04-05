@@ -35,7 +35,7 @@ module ModernTreasury
 
       # @!attribute [r] lockbox_number
       #   Specify `lockbox_number` if you wish to see paper items that are associated with
-      #     a specific lockbox number.
+      #   a specific lockbox number.
       #
       #   @return [String, nil]
       optional :lockbox_number, String

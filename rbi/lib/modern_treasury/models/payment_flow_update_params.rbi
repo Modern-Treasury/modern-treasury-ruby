@@ -7,7 +7,7 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       # Required. The updated status of the payment flow. Can only be used to mark a
-      #   flow as `cancelled`.
+      # flow as `cancelled`.
       sig { returns(ModernTreasury::Models::PaymentFlowUpdateParams::Status::OrSymbol) }
       attr_accessor :status
 
@@ -32,7 +32,7 @@ module ModernTreasury
       def to_hash; end
 
       # Required. The updated status of the payment flow. Can only be used to mark a
-      #   flow as `cancelled`.
+      # flow as `cancelled`.
       module Status
         extend ModernTreasury::Internal::Type::Enum
 

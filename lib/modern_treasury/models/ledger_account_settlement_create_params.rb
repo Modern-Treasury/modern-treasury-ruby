@@ -10,22 +10,22 @@ module ModernTreasury
 
       # @!attribute contra_ledger_account_id
       #   The id of the contra ledger account that sends to or receives funds from the
-      #     settled ledger account.
+      #   settled ledger account.
       #
       #   @return [String]
       required :contra_ledger_account_id, String
 
       # @!attribute settled_ledger_account_id
       #   The id of the settled ledger account whose ledger entries are queried against,
-      #     and its balance is reduced as a result.
+      #   and its balance is reduced as a result.
       #
       #   @return [String]
       required :settled_ledger_account_id, String
 
       # @!attribute allow_either_direction
       #   If true, the settlement amount and settlement_entry_direction will bring the
-      #     settlement ledger account's balance closer to zero, even if the balance is
-      #     negative.
+      #   settlement ledger account's balance closer to zero, even if the balance is
+      #   negative.
       #
       #   @return [Boolean, nil]
       optional :allow_either_direction, ModernTreasury::Internal::Type::Boolean, nil?: true
@@ -38,15 +38,15 @@ module ModernTreasury
 
       # @!attribute effective_at_upper_bound
       #   The exclusive upper bound of the effective_at timestamp of the ledger entries to
-      #     be included in the ledger account settlement. The default value is the
-      #     created_at timestamp of the ledger account settlement.
+      #   be included in the ledger account settlement. The default value is the
+      #   created_at timestamp of the ledger account settlement.
       #
       #   @return [Time, nil]
       optional :effective_at_upper_bound, Time, nil?: true
 
       # @!attribute [r] metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
+      #   strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -57,14 +57,14 @@ module ModernTreasury
 
       # @!attribute skip_settlement_ledger_transaction
       #   It is set to `false` by default. It should be set to `true` when migrating
-      #     existing settlements.
+      #   existing settlements.
       #
       #   @return [Boolean, nil]
       optional :skip_settlement_ledger_transaction, ModernTreasury::Internal::Type::Boolean, nil?: true
 
       # @!attribute status
       #   The status of the ledger account settlement. It is set to `pending` by default.
-      #     To post a ledger account settlement at creation, use `posted`.
+      #   To post a ledger account settlement at creation, use `posted`.
       #
       #   @return [Symbol, ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status, nil]
       optional :status,
@@ -100,7 +100,7 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # The status of the ledger account settlement. It is set to `pending` by default.
-      #   To post a ledger account settlement at creation, use `posted`.
+      # To post a ledger account settlement at creation, use `posted`.
       module Status
         extend ModernTreasury::Internal::Type::Enum
 

@@ -17,7 +17,7 @@ module ModernTreasury
         attr_accessor :external_account_id
 
         # This field will be true if this object exists in the live environment or false
-        #   if it exists in the test environment.
+        # if it exists in the test environment.
         sig { returns(T::Boolean) }
         attr_accessor :live_mode
 
@@ -29,7 +29,7 @@ module ModernTreasury
         attr_accessor :originating_account_id
 
         # The type of payment that can be made to this account. Can be `ach`, `eft`, or
-        #   `rtp`.
+        # `rtp`.
         sig do
           returns(
             ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::TaggedSymbol
@@ -48,7 +48,7 @@ module ModernTreasury
         attr_accessor :priority
 
         # The status of the verification attempt. Can be `pending_verification`,
-        #   `verified`, `failed`, or `cancelled`.
+        # `verified`, `failed`, or `cancelled`.
         sig do
           returns(
             ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status::TaggedSymbol
@@ -110,7 +110,7 @@ module ModernTreasury
         def to_hash; end
 
         # The type of payment that can be made to this account. Can be `ach`, `eft`, or
-        #   `rtp`.
+        # `rtp`.
         module PaymentType
           extend ModernTreasury::Internal::Type::Enum
 
@@ -329,7 +329,7 @@ module ModernTreasury
         end
 
         # The status of the verification attempt. Can be `pending_verification`,
-        #   `verified`, `failed`, or `cancelled`.
+        # `verified`, `failed`, or `cancelled`.
         module Status
           extend ModernTreasury::Internal::Type::Enum
 

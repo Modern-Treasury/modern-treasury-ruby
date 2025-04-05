@@ -10,7 +10,7 @@ module ModernTreasury
 
       # @!attribute [r] metadata
       #   Additional data in the form of key-value pairs. Pairs can be removed by passing
-      #     an empty string or `null` as the value.
+      #   an empty string or `null` as the value.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]

@@ -22,7 +22,7 @@ module ModernTreasury
 
       # @!attribute [r] base_amount
       #   Amount in the lowest denomination of the `base_currency` to convert, often
-      #     called the "sell" amount.
+      #   called the "sell" amount.
       #
       #   @return [Integer, nil]
       optional :base_amount, Integer
@@ -53,7 +53,7 @@ module ModernTreasury
 
       # @!attribute [r] target_amount
       #   Amount in the lowest denomination of the `target_currency`, often called the
-      #     "buy" amount.
+      #   "buy" amount.
       #
       #   @return [Integer, nil]
       optional :target_amount, Integer

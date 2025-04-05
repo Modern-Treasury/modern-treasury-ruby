@@ -10,16 +10,16 @@ module ModernTreasury
 
       # @!attribute amount
       #   Value in specified currency's smallest unit. e.g. $10 would be represented as
-      #     1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
+      #   1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
       #
       #   @return [Integer]
       required :amount, Integer
 
       # @!attribute direction
       #   One of `credit`, `debit`. Describes the direction money is flowing in the
-      #     transaction. A `credit` moves money from your account to someone else's. A
-      #     `debit` pulls money from someone else's account to your own. Note that wire,
-      #     rtp, and check payments will always be `credit`.
+      #   transaction. A `credit` moves money from your account to someone else's. A
+      #   `debit` pulls money from someone else's account to your own. Note that wire,
+      #   rtp, and check payments will always be `credit`.
       #
       #   @return [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::Direction]
       required :direction, enum: -> { ModernTreasury::Models::PaymentOrderCreateParams::Direction }
@@ -32,8 +32,8 @@ module ModernTreasury
 
       # @!attribute type
       #   One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
-      #     `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
-      #     `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
+      #   `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
+      #   `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
       #
       #   @return [Symbol, ModernTreasury::Models::PaymentOrderType]
       required :type, enum: -> { ModernTreasury::Models::PaymentOrderType }
@@ -49,22 +49,22 @@ module ModernTreasury
 
       # @!attribute accounting_category_id
       #   The ID of one of your accounting categories. Note that these will only be
-      #     accessible if your accounting system has been connected.
+      #   accessible if your accounting system has been connected.
       #
       #   @return [String, nil]
       optional :accounting_category_id, String, nil?: true
 
       # @!attribute accounting_ledger_class_id
       #   The ID of one of your accounting ledger classes. Note that these will only be
-      #     accessible if your accounting system has been connected.
+      #   accessible if your accounting system has been connected.
       #
       #   @return [String, nil]
       optional :accounting_ledger_class_id, String, nil?: true
 
       # @!attribute charge_bearer
       #   The party that will pay the fees for the payment order. Only applies to wire
-      #     payment orders. Can be one of shared, sender, or receiver, which correspond
-      #     respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+      #   payment orders. Can be one of shared, sender, or receiver, which correspond
+      #   respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
       #
       #   @return [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::ChargeBearer, nil]
       optional :charge_bearer,
@@ -89,7 +89,7 @@ module ModernTreasury
 
       # @!attribute [r] documents
       #   An array of documents to be attached to the payment order. Note that if you
-      #     attach documents, the request's content type must be `multipart/form-data`.
+      #   attach documents, the request's content type must be `multipart/form-data`.
       #
       #   @return [Array<ModernTreasury::Models::PaymentOrderCreateParams::Document>, nil]
       optional :documents,
@@ -101,8 +101,8 @@ module ModernTreasury
 
       # @!attribute [r] effective_date
       #   Date transactions are to be posted to the participants' account. Defaults to the
-      #     current business day or the next business day if the current day is a bank
-      #     holiday or weekend. Format: yyyy-mm-dd.
+      #   current business day or the next business day if the current day is a bank
+      #   holiday or weekend. Format: yyyy-mm-dd.
       #
       #   @return [Date, nil]
       optional :effective_date, Date
@@ -119,8 +119,8 @@ module ModernTreasury
 
       # @!attribute [r] fallback_type
       #   A payment type to fallback to if the original type is not valid for the
-      #     receiving account. Currently, this only supports falling back from RTP to ACH
-      #     (type=rtp and fallback_type=ach)
+      #   receiving account. Currently, this only supports falling back from RTP to ACH
+      #   (type=rtp and fallback_type=ach)
       #
       #   @return [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::FallbackType, nil]
       optional :fallback_type, enum: -> { ModernTreasury::Models::PaymentOrderCreateParams::FallbackType }
@@ -131,15 +131,15 @@ module ModernTreasury
 
       # @!attribute foreign_exchange_contract
       #   If present, indicates a specific foreign exchange contract number that has been
-      #     generated by your financial institution.
+      #   generated by your financial institution.
       #
       #   @return [String, nil]
       optional :foreign_exchange_contract, String, nil?: true
 
       # @!attribute foreign_exchange_indicator
       #   Indicates the type of FX transfer to initiate, can be either
-      #     `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
-      #     currency matches the originating account currency.
+      #   `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
+      #   currency matches the originating account currency.
       #
       #   @return [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::ForeignExchangeIndicator, nil]
       optional :foreign_exchange_indicator,
@@ -148,9 +148,9 @@ module ModernTreasury
 
       # @!attribute [r] ledger_transaction
       #   Specifies a ledger transaction object that will be created with the payment
-      #     order. If the ledger transaction cannot be created, then the payment order
-      #     creation will fail. The resulting ledger transaction will mirror the status of
-      #     the payment order.
+      #   order. If the ledger transaction cannot be created, then the payment order
+      #   creation will fail. The resulting ledger transaction will mirror the status of
+      #   the payment order.
       #
       #   @return [ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction, nil]
       optional :ledger_transaction, -> { ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction }
@@ -161,9 +161,9 @@ module ModernTreasury
 
       # @!attribute [r] ledger_transaction_id
       #   Either ledger_transaction or ledger_transaction_id can be provided. Only a
-      #     pending ledger transaction can be attached upon payment order creation. Once the
-      #     payment order is created, the status of the ledger transaction tracks the
-      #     payment order automatically.
+      #   pending ledger transaction can be attached upon payment order creation. Once the
+      #   payment order is created, the status of the ledger transaction tracks the
+      #   payment order automatically.
       #
       #   @return [String, nil]
       optional :ledger_transaction_id, String
@@ -185,7 +185,7 @@ module ModernTreasury
 
       # @!attribute [r] metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
+      #   strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -196,7 +196,7 @@ module ModernTreasury
 
       # @!attribute [r] nsf_protected
       #   A boolean to determine if NSF Protection is enabled for this payment order. Note
-      #     that this setting must also be turned on in your organization settings page.
+      #   that this setting must also be turned on in your organization settings page.
       #
       #   @return [Boolean, nil]
       optional :nsf_protected, ModernTreasury::Internal::Type::Boolean
@@ -207,17 +207,17 @@ module ModernTreasury
 
       # @!attribute originating_party_name
       #   If present, this will replace your default company name on receiver's bank
-      #     statement. This field can only be used for ACH payments currently. For ACH, only
-      #     the first 16 characters of this string will be used. Any additional characters
-      #     will be truncated.
+      #   statement. This field can only be used for ACH payments currently. For ACH, only
+      #   the first 16 characters of this string will be used. Any additional characters
+      #   will be truncated.
       #
       #   @return [String, nil]
       optional :originating_party_name, String, nil?: true
 
       # @!attribute [r] priority
       #   Either `normal` or `high`. For ACH and EFT payments, `high` represents a
-      #     same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
-      #     an overnight check rather than standard mail.
+      #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
+      #   an overnight check rather than standard mail.
       #
       #   @return [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::Priority, nil]
       optional :priority, enum: -> { ModernTreasury::Models::PaymentOrderCreateParams::Priority }
@@ -228,26 +228,26 @@ module ModernTreasury
 
       # @!attribute process_after
       #   If present, Modern Treasury will not process the payment until after this time.
-      #     If `process_after` is past the cutoff for `effective_date`, `process_after` will
-      #     take precedence and `effective_date` will automatically update to reflect the
-      #     earliest possible sending date after `process_after`. Format is ISO8601
-      #     timestamp.
+      #   If `process_after` is past the cutoff for `effective_date`, `process_after` will
+      #   take precedence and `effective_date` will automatically update to reflect the
+      #   earliest possible sending date after `process_after`. Format is ISO8601
+      #   timestamp.
       #
       #   @return [Time, nil]
       optional :process_after, Time, nil?: true
 
       # @!attribute purpose
       #   For `wire`, this is usually the purpose which is transmitted via the
-      #     "InstrForDbtrAgt" field in the ISO20022 file. For `eft`, this field is the 3
-      #     digit CPA Code that will be attached to the payment.
+      #   "InstrForDbtrAgt" field in the ISO20022 file. For `eft`, this field is the 3
+      #   digit CPA Code that will be attached to the payment.
       #
       #   @return [String, nil]
       optional :purpose, String, nil?: true
 
       # @!attribute [r] receiving_account
       #   Either `receiving_account` or `receiving_account_id` must be present. When using
-      #     `receiving_account_id`, you may pass the id of an external account or an
-      #     internal account.
+      #   `receiving_account_id`, you may pass the id of an external account or an
+      #   internal account.
       #
       #   @return [ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount, nil]
       optional :receiving_account, -> { ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount }
@@ -258,8 +258,8 @@ module ModernTreasury
 
       # @!attribute [r] receiving_account_id
       #   Either `receiving_account` or `receiving_account_id` must be present. When using
-      #     `receiving_account_id`, you may pass the id of an external account or an
-      #     internal account.
+      #   `receiving_account_id`, you may pass the id of an external account or an
+      #   internal account.
       #
       #   @return [String, nil]
       optional :receiving_account_id, String
@@ -270,42 +270,42 @@ module ModernTreasury
 
       # @!attribute remittance_information
       #   For `ach`, this field will be passed through on an addenda record. For `wire`
-      #     payments the field will be passed through as the "Originator to Beneficiary
-      #     Information", also known as OBI or Fedwire tag 6000.
+      #   payments the field will be passed through as the "Originator to Beneficiary
+      #   Information", also known as OBI or Fedwire tag 6000.
       #
       #   @return [String, nil]
       optional :remittance_information, String, nil?: true
 
       # @!attribute send_remittance_advice
       #   Send an email to the counterparty when the payment order is sent to the bank. If
-      #     `null`, `send_remittance_advice` on the Counterparty is used.
+      #   `null`, `send_remittance_advice` on the Counterparty is used.
       #
       #   @return [Boolean, nil]
       optional :send_remittance_advice, ModernTreasury::Internal::Type::Boolean, nil?: true
 
       # @!attribute statement_descriptor
       #   An optional descriptor which will appear in the receiver's statement. For
-      #     `check` payments this field will be used as the memo line. For `ach` the maximum
-      #     length is 10 characters. Note that for ACH payments, the name on your bank
-      #     account will be included automatically by the bank, so you can use the
-      #     characters for other useful information. For `eft` the maximum length is 15
-      #     characters.
+      #   `check` payments this field will be used as the memo line. For `ach` the maximum
+      #   length is 10 characters. Note that for ACH payments, the name on your bank
+      #   account will be included automatically by the bank, so you can use the
+      #   characters for other useful information. For `eft` the maximum length is 15
+      #   characters.
       #
       #   @return [String, nil]
       optional :statement_descriptor, String, nil?: true
 
       # @!attribute subtype
       #   An additional layer of classification for the type of payment order you are
-      #     doing. This field is only used for `ach` payment orders currently. For `ach`
-      #     payment orders, the `subtype` represents the SEC code. We currently support
-      #     `CCD`, `PPD`, `IAT`, `CTX`, `WEB`, `CIE`, and `TEL`.
+      #   doing. This field is only used for `ach` payment orders currently. For `ach`
+      #   payment orders, the `subtype` represents the SEC code. We currently support
+      #   `CCD`, `PPD`, `IAT`, `CTX`, `WEB`, `CIE`, and `TEL`.
       #
       #   @return [Symbol, ModernTreasury::Models::PaymentOrderSubtype, nil]
       optional :subtype, enum: -> { ModernTreasury::Models::PaymentOrderSubtype }, nil?: true
 
       # @!attribute [r] transaction_monitoring_enabled
       #   A flag that determines whether a payment order should go through transaction
-      #     monitoring.
+      #   monitoring.
       #
       #   @return [Boolean, nil]
       optional :transaction_monitoring_enabled, ModernTreasury::Internal::Type::Boolean
@@ -423,9 +423,9 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # One of `credit`, `debit`. Describes the direction money is flowing in the
-      #   transaction. A `credit` moves money from your account to someone else's. A
-      #   `debit` pulls money from someone else's account to your own. Note that wire,
-      #   rtp, and check payments will always be `credit`.
+      # transaction. A `credit` moves money from your account to someone else's. A
+      # `debit` pulls money from someone else's account to your own. Note that wire,
+      # rtp, and check payments will always be `credit`.
       module Direction
         extend ModernTreasury::Internal::Type::Enum
 
@@ -442,15 +442,15 @@ module ModernTreasury
       class Accounting < ModernTreasury::Internal::Type::BaseModel
         # @!attribute account_id
         #   The ID of one of your accounting categories. Note that these will only be
-        #     accessible if your accounting system has been connected.
+        #   accessible if your accounting system has been connected.
         #
         #   @return [String, nil]
         optional :account_id, String, nil?: true
 
         # @!attribute class_id
         #   The ID of one of the class objects in your accounting system. Class objects
-        #     track segments of your business independent of client or project. Note that
-        #     these will only be accessible if your accounting system has been connected.
+        #   track segments of your business independent of client or project. Note that
+        #   these will only be accessible if your accounting system has been connected.
         #
         #   @return [String, nil]
         optional :class_id, String, nil?: true
@@ -465,8 +465,8 @@ module ModernTreasury
       end
 
       # The party that will pay the fees for the payment order. Only applies to wire
-      #   payment orders. Can be one of shared, sender, or receiver, which correspond
-      #   respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+      # payment orders. Can be one of shared, sender, or receiver, which correspond
+      # respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
       module ChargeBearer
         extend ModernTreasury::Internal::Type::Enum
 
@@ -545,8 +545,8 @@ module ModernTreasury
       end
 
       # A payment type to fallback to if the original type is not valid for the
-      #   receiving account. Currently, this only supports falling back from RTP to ACH
-      #   (type=rtp and fallback_type=ach)
+      # receiving account. Currently, this only supports falling back from RTP to ACH
+      # (type=rtp and fallback_type=ach)
       module FallbackType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -560,8 +560,8 @@ module ModernTreasury
       end
 
       # Indicates the type of FX transfer to initiate, can be either
-      #   `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
-      #   currency matches the originating account currency.
+      # `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
+      # currency matches the originating account currency.
       module ForeignExchangeIndicator
         extend ModernTreasury::Internal::Type::Enum
 
@@ -591,7 +591,7 @@ module ModernTreasury
 
         # @!attribute [r] effective_at
         #   The timestamp (ISO8601 format) at which the ledger transaction happened for
-        #     reporting purposes.
+        #   reporting purposes.
         #
         #   @return [Time, nil]
         optional :effective_at, Time
@@ -602,7 +602,7 @@ module ModernTreasury
 
         # @!attribute [r] effective_date
         #   The date (YYYY-MM-DD) on which the ledger transaction happened for reporting
-        #     purposes.
+        #   purposes.
         #
         #   @return [Date, nil]
         optional :effective_date, Date
@@ -613,7 +613,7 @@ module ModernTreasury
 
         # @!attribute [r] external_id
         #   A unique string to represent the ledger transaction. Only one pending or posted
-        #     ledger transaction may have this ID in the ledger.
+        #   ledger transaction may have this ID in the ledger.
         #
         #   @return [String, nil]
         optional :external_id, String
@@ -624,7 +624,7 @@ module ModernTreasury
 
         # @!attribute [r] ledgerable_id
         #   If the ledger transaction can be reconciled to another object in Modern
-        #     Treasury, the id will be populated here, otherwise null.
+        #   Treasury, the id will be populated here, otherwise null.
         #
         #   @return [String, nil]
         optional :ledgerable_id, String
@@ -635,9 +635,9 @@ module ModernTreasury
 
         # @!attribute [r] ledgerable_type
         #   If the ledger transaction can be reconciled to another object in Modern
-        #     Treasury, the type will be populated here, otherwise null. This can be one of
-        #     payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
-        #     reversal.
+        #   Treasury, the type will be populated here, otherwise null. This can be one of
+        #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
+        #   reversal.
         #
         #   @return [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::LedgerableType, nil]
         optional :ledgerable_type,
@@ -649,7 +649,7 @@ module ModernTreasury
 
         # @!attribute [r] metadata
         #   Additional data represented as key-value pairs. Both the key and value must be
-        #     strings.
+        #   strings.
         #
         #   @return [Hash{Symbol=>String}, nil]
         optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -670,9 +670,9 @@ module ModernTreasury
 
         # @!parse
         #   # Specifies a ledger transaction object that will be created with the payment
-        #   #   order. If the ledger transaction cannot be created, then the payment order
-        #   #   creation will fail. The resulting ledger transaction will mirror the status of
-        #   #   the payment order.
+        #   # order. If the ledger transaction cannot be created, then the payment order
+        #   # creation will fail. The resulting ledger transaction will mirror the status of
+        #   # the payment order.
         #   #
         #   # @param ledger_entries [Array<ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::LedgerEntry>]
         #   # @param description [String, nil]
@@ -704,16 +704,16 @@ module ModernTreasury
         class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
           # @!attribute amount
           #   Value in specified currency's smallest unit. e.g. $10 would be represented
-          #     as 1000. Can be any integer up to 36 digits.
+          #   as 1000. Can be any integer up to 36 digits.
           #
           #   @return [Integer]
           required :amount, Integer
 
           # @!attribute direction
           #   One of `credit`, `debit`. Describes the direction money is flowing in the
-          #     transaction. A `credit` moves money from your account to someone else's. A
-          #     `debit` pulls money from someone else's account to your own. Note that wire,
-          #     rtp, and check payments will always be `credit`.
+          #   transaction. A `credit` moves money from your account to someone else's. A
+          #   `debit` pulls money from someone else's account to your own. Note that wire,
+          #   rtp, and check payments will always be `credit`.
           #
           #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
           required :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
@@ -726,24 +726,24 @@ module ModernTreasury
 
           # @!attribute available_balance_amount
           #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
-          #     account’s available balance. If any of these conditions would be false after the
-          #     transaction is created, the entire call will fail with error code 422.
+          #   account’s available balance. If any of these conditions would be false after the
+          #   transaction is created, the entire call will fail with error code 422.
           #
           #   @return [Hash{Symbol=>Integer}, nil]
           optional :available_balance_amount, ModernTreasury::Internal::Type::HashOf[Integer], nil?: true
 
           # @!attribute lock_version
           #   Lock version of the ledger account. This can be passed when creating a ledger
-          #     transaction to only succeed if no ledger transactions have posted since the
-          #     given version. See our post about Designing the Ledgers API with Optimistic
-          #     Locking for more details.
+          #   transaction to only succeed if no ledger transactions have posted since the
+          #   given version. See our post about Designing the Ledgers API with Optimistic
+          #   Locking for more details.
           #
           #   @return [Integer, nil]
           optional :lock_version, Integer, nil?: true
 
           # @!attribute [r] metadata
           #   Additional data represented as key-value pairs. Both the key and value must be
-          #     strings.
+          #   strings.
           #
           #   @return [Hash{Symbol=>String}, nil]
           optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -754,23 +754,23 @@ module ModernTreasury
 
           # @!attribute pending_balance_amount
           #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
-          #     account’s pending balance. If any of these conditions would be false after the
-          #     transaction is created, the entire call will fail with error code 422.
+          #   account’s pending balance. If any of these conditions would be false after the
+          #   transaction is created, the entire call will fail with error code 422.
           #
           #   @return [Hash{Symbol=>Integer}, nil]
           optional :pending_balance_amount, ModernTreasury::Internal::Type::HashOf[Integer], nil?: true
 
           # @!attribute posted_balance_amount
           #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
-          #     account’s posted balance. If any of these conditions would be false after the
-          #     transaction is created, the entire call will fail with error code 422.
+          #   account’s posted balance. If any of these conditions would be false after the
+          #   transaction is created, the entire call will fail with error code 422.
           #
           #   @return [Hash{Symbol=>Integer}, nil]
           optional :posted_balance_amount, ModernTreasury::Internal::Type::HashOf[Integer], nil?: true
 
           # @!attribute show_resulting_ledger_account_balances
           #   If true, response will include the balance of the associated ledger account for
-          #     the entry.
+          #   the entry.
           #
           #   @return [Boolean, nil]
           optional :show_resulting_ledger_account_balances,
@@ -807,9 +807,9 @@ module ModernTreasury
         end
 
         # If the ledger transaction can be reconciled to another object in Modern
-        #   Treasury, the type will be populated here, otherwise null. This can be one of
-        #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
-        #   reversal.
+        # Treasury, the type will be populated here, otherwise null. This can be one of
+        # payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
+        # reversal.
         #
         # @see ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction#ledgerable_type
         module LedgerableType
@@ -850,14 +850,14 @@ module ModernTreasury
       class LineItem < ModernTreasury::Internal::Type::BaseModel
         # @!attribute amount
         #   Value in specified currency's smallest unit. e.g. $10 would be represented
-        #     as 1000.
+        #   as 1000.
         #
         #   @return [Integer]
         required :amount, Integer
 
         # @!attribute accounting_category_id
         #   The ID of one of your accounting categories. Note that these will only be
-        #     accessible if your accounting system has been connected.
+        #   accessible if your accounting system has been connected.
         #
         #   @return [String, nil]
         optional :accounting_category_id, String, nil?: true
@@ -870,7 +870,7 @@ module ModernTreasury
 
         # @!attribute [r] metadata
         #   Additional data represented as key-value pairs. Both the key and value must be
-        #     strings.
+        #   strings.
         #
         #   @return [Hash{Symbol=>String}, nil]
         optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -891,8 +891,8 @@ module ModernTreasury
       end
 
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
-      #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
-      #   an overnight check rather than standard mail.
+      # same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
+      # an overnight check rather than standard mail.
       module Priority
         extend ModernTreasury::Internal::Type::Enum
 
@@ -939,10 +939,10 @@ module ModernTreasury
 
         # @!attribute [r] ledger_account
         #   Specifies a ledger account object that will be created with the external
-        #     account. The resulting ledger account is linked to the external account for
-        #     auto-ledgering Payment objects. See
-        #     https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
-        #     for more details.
+        #   account. The resulting ledger account is linked to the external account for
+        #   auto-ledgering Payment objects. See
+        #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
+        #   for more details.
         #
         #   @return [ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount, nil]
         optional :ledger_account,
@@ -954,7 +954,7 @@ module ModernTreasury
 
         # @!attribute [r] metadata
         #   Additional data represented as key-value pairs. Both the key and value must be
-        #     strings.
+        #   strings.
         #
         #   @return [Hash{Symbol=>String}, nil]
         optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -965,7 +965,7 @@ module ModernTreasury
 
         # @!attribute name
         #   A nickname for the external account. This is only for internal usage and won't
-        #     affect any payments
+        #   affect any payments
         #
         #   @return [String, nil]
         optional :name, String, nil?: true
@@ -1010,7 +1010,7 @@ module ModernTreasury
 
         # @!attribute [r] plaid_processor_token
         #   If you've enabled the Modern Treasury + Plaid integration in your Plaid account,
-        #     you can pass the processor token in this field.
+        #   you can pass the processor token in this field.
         #
         #   @return [String, nil]
         optional :plaid_processor_token, String
@@ -1031,8 +1031,8 @@ module ModernTreasury
 
         # @!parse
         #   # Either `receiving_account` or `receiving_account_id` must be present. When using
-        #   #   `receiving_account_id`, you may pass the id of an external account or an
-        #   #   internal account.
+        #   # `receiving_account_id`, you may pass the id of an external account or an
+        #   # internal account.
         #   #
         #   # @param account_details [Array<ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail>]
         #   # @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType]
@@ -1198,7 +1198,7 @@ module ModernTreasury
 
           # @!attribute [r] ledger_account_category_ids
           #   The array of ledger account category ids that this ledger account should be a
-          #     child of.
+          #   child of.
           #
           #   @return [Array<String>, nil]
           optional :ledger_account_category_ids, ModernTreasury::Internal::Type::ArrayOf[String]
@@ -1209,7 +1209,7 @@ module ModernTreasury
 
           # @!attribute [r] ledgerable_id
           #   If the ledger account links to another object in Modern Treasury, the id will be
-          #     populated here, otherwise null.
+          #   populated here, otherwise null.
           #
           #   @return [String, nil]
           optional :ledgerable_id, String
@@ -1220,8 +1220,8 @@ module ModernTreasury
 
           # @!attribute [r] ledgerable_type
           #   If the ledger account links to another object in Modern Treasury, the type will
-          #     be populated here, otherwise null. The value is one of internal_account or
-          #     external_account.
+          #   be populated here, otherwise null. The value is one of internal_account or
+          #   external_account.
           #
           #   @return [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount::LedgerableType, nil]
           optional :ledgerable_type,
@@ -1233,7 +1233,7 @@ module ModernTreasury
 
           # @!attribute [r] metadata
           #   Additional data represented as key-value pairs. Both the key and value must be
-          #     strings.
+          #   strings.
           #
           #   @return [Hash{Symbol=>String}, nil]
           optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -1244,10 +1244,10 @@ module ModernTreasury
 
           # @!parse
           #   # Specifies a ledger account object that will be created with the external
-          #   #   account. The resulting ledger account is linked to the external account for
-          #   #   auto-ledgering Payment objects. See
-          #   #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
-          #   #   for more details.
+          #   # account. The resulting ledger account is linked to the external account for
+          #   # auto-ledgering Payment objects. See
+          #   # https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
+          #   # for more details.
           #   #
           #   # @param currency [String]
           #   # @param ledger_id [String]
@@ -1279,8 +1279,8 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
           # If the ledger account links to another object in Modern Treasury, the type will
-          #   be populated here, otherwise null. The value is one of internal_account or
-          #   external_account.
+          # be populated here, otherwise null. The value is one of internal_account or
+          # external_account.
           #
           # @see ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount#ledgerable_type
           module LedgerableType

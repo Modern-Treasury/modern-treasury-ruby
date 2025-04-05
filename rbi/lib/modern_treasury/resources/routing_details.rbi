@@ -23,11 +23,11 @@ module ModernTreasury
         # Body param: The routing number of the bank.
         routing_number:,
         # Body param: The type of routing number. See
-        #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
-        #   more details.
+        # https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+        # more details.
         routing_number_type:,
         # Body param: If the routing detail is to be used for a specific payment type this
-        #   field will be populated, otherwise null.
+        # field will be populated, otherwise null.
         payment_type: nil,
         request_options: {}
       ); end
