@@ -44,8 +44,7 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(connection_id:, legal_entity: nil, legal_entity_id: nil, request_options: {})
-      end
+      def self.new(connection_id:, legal_entity: nil, legal_entity_id: nil, request_options: {}); end
 
       sig do
         override
@@ -58,8 +57,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class LegalEntity < ModernTreasury::Internal::Type::BaseModel
         # A list of addresses for the entity.
@@ -73,10 +71,10 @@ module ModernTreasury
         sig do
           params(
             addresses: T::Array[
-            T.any(
-              ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Address,
-              ModernTreasury::Internal::AnyHash
-            )
+              T.any(
+                ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Address,
+                ModernTreasury::Internal::AnyHash
+              )
             ]
           )
             .void
@@ -148,10 +146,10 @@ module ModernTreasury
         sig do
           params(
             identifications: T::Array[
-            T.any(
-              ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Identification,
-              ModernTreasury::Internal::AnyHash
-            )
+              T.any(
+                ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Identification,
+                ModernTreasury::Internal::AnyHash
+              )
             ]
           )
             .void
@@ -234,10 +232,10 @@ module ModernTreasury
         sig do
           params(
             phone_numbers: T::Array[
-            T.any(
-              ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::PhoneNumber,
-              ModernTreasury::Internal::AnyHash
-            )
+              T.any(
+                ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::PhoneNumber,
+                ModernTreasury::Internal::AnyHash
+              )
             ]
           )
             .void
@@ -287,10 +285,10 @@ module ModernTreasury
         sig do
           params(
             addresses: T::Array[
-            T.any(
-              ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Address,
-              ModernTreasury::Internal::AnyHash
-            )
+              T.any(
+                ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Address,
+                ModernTreasury::Internal::AnyHash
+              )
             ],
             bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Internal::AnyHash)),
             business_name: T.nilable(String),
@@ -302,19 +300,19 @@ module ModernTreasury
             email: T.nilable(String),
             first_name: T.nilable(String),
             identifications: T::Array[
-            T.any(
-              ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Identification,
-              ModernTreasury::Internal::AnyHash
-            )
+              T.any(
+                ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Identification,
+                ModernTreasury::Internal::AnyHash
+              )
             ],
             industry_classifications: T::Array[T.any(ModernTreasury::Models::LegalEntityIndustryClassification, ModernTreasury::Internal::AnyHash)],
             last_name: T.nilable(String),
             legal_entity_associations: T.nilable(
               T::Array[
-              T.any(
-                ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation,
-                ModernTreasury::Internal::AnyHash
-              )
+                T.any(
+                  ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation,
+                  ModernTreasury::Internal::AnyHash
+                )
               ]
             ),
             legal_entity_type: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityType::OrSymbol,
@@ -324,10 +322,10 @@ module ModernTreasury
             metadata: T::Hash[Symbol, String],
             middle_name: T.nilable(String),
             phone_numbers: T::Array[
-            T.any(
-              ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::PhoneNumber,
-              ModernTreasury::Internal::AnyHash
-            )
+              T.any(
+                ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::PhoneNumber,
+                ModernTreasury::Internal::AnyHash
+              )
             ],
             politically_exposed_person: T.nilable(T::Boolean),
             preferred_name: T.nilable(String),
@@ -366,9 +364,7 @@ module ModernTreasury
           suffix: nil,
           wealth_and_employment_details: nil,
           website: nil
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(
@@ -406,8 +402,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         class Address < ModernTreasury::Internal::Type::BaseModel
           # Country code conforms to [ISO 3166-1 alpha-2]
@@ -479,8 +474,7 @@ module ModernTreasury
                 }
               )
           end
-          def to_hash
-          end
+          def to_hash; end
 
           module AddressType
             extend ModernTreasury::Internal::Type::Enum
@@ -530,8 +524,7 @@ module ModernTreasury
                   T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Address::AddressType::TaggedSymbol]
                 )
             end
-            def self.values
-            end
+            def self.values; end
           end
         end
 
@@ -561,8 +554,7 @@ module ModernTreasury
             )
               .returns(T.attached_class)
           end
-          def self.new(id_number:, id_type:, issuing_country: nil)
-          end
+          def self.new(id_number:, id_type:, issuing_country: nil); end
 
           sig do
             override
@@ -574,8 +566,7 @@ module ModernTreasury
                 }
               )
           end
-          def to_hash
-          end
+          def to_hash; end
 
           # The type of ID number.
           module IDType
@@ -704,12 +695,11 @@ module ModernTreasury
               override
                 .returns(
                   T::Array[
-                  ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Identification::IDType::TaggedSymbol
+                    ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Identification::IDType::TaggedSymbol
                   ]
                 )
             end
-            def self.values
-            end
+            def self.values; end
           end
         end
 
@@ -717,7 +707,7 @@ module ModernTreasury
           sig do
             returns(
               T::Array[
-              ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType::OrSymbol
+                ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType::OrSymbol
               ]
             )
           end
@@ -762,7 +752,7 @@ module ModernTreasury
           sig do
             params(
               relationship_types: T::Array[
-              ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType::OrSymbol
+                ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType::OrSymbol
               ],
               child_legal_entity: T.any(
                 ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity,
@@ -780,15 +770,13 @@ module ModernTreasury
             child_legal_entity_id: nil,
             ownership_percentage: nil,
             title: nil
-          )
-          end
-
+          ); end
           sig do
             override
               .returns(
                 {
                   relationship_types: T::Array[
-                  ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType::OrSymbol
+                    ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType::OrSymbol
                   ],
                   child_legal_entity: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity,
                   child_legal_entity_id: String,
@@ -797,8 +785,7 @@ module ModernTreasury
                 }
               )
           end
-          def to_hash
-          end
+          def to_hash; end
 
           # A list of relationship types for how the child entity relates to parent entity.
           module RelationshipType
@@ -832,12 +819,11 @@ module ModernTreasury
               override
                 .returns(
                   T::Array[
-                  ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType::TaggedSymbol
+                    ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType::TaggedSymbol
                   ]
                 )
             end
-            def self.values
-            end
+            def self.values; end
           end
 
           class ChildLegalEntity < ModernTreasury::Internal::Type::BaseModel
@@ -846,7 +832,7 @@ module ModernTreasury
               returns(
                 T.nilable(
                   T::Array[
-                  ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address
+                    ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address
                   ]
                 )
               )
@@ -856,10 +842,10 @@ module ModernTreasury
             sig do
               params(
                 addresses: T::Array[
-                T.any(
-                  ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address,
-                  ModernTreasury::Internal::AnyHash
-                )
+                  T.any(
+                    ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address,
+                    ModernTreasury::Internal::AnyHash
+                  )
                 ]
               )
                 .void
@@ -923,7 +909,7 @@ module ModernTreasury
               returns(
                 T.nilable(
                   T::Array[
-                  ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification
+                    ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification
                   ]
                 )
               )
@@ -933,10 +919,10 @@ module ModernTreasury
             sig do
               params(
                 identifications: T::Array[
-                T.any(
-                  ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification,
-                  ModernTreasury::Internal::AnyHash
-                )
+                  T.any(
+                    ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification,
+                    ModernTreasury::Internal::AnyHash
+                  )
                 ]
               )
                 .void
@@ -1003,7 +989,7 @@ module ModernTreasury
               returns(
                 T.nilable(
                   T::Array[
-                  ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber
+                    ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber
                   ]
                 )
               )
@@ -1013,10 +999,10 @@ module ModernTreasury
             sig do
               params(
                 phone_numbers: T::Array[
-                T.any(
-                  ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber,
-                  ModernTreasury::Internal::AnyHash
-                )
+                  T.any(
+                    ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber,
+                    ModernTreasury::Internal::AnyHash
+                  )
                 ]
               )
                 .void
@@ -1068,10 +1054,10 @@ module ModernTreasury
             sig do
               params(
                 addresses: T::Array[
-                T.any(
-                  ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address,
-                  ModernTreasury::Internal::AnyHash
-                )
+                  T.any(
+                    ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address,
+                    ModernTreasury::Internal::AnyHash
+                  )
                 ],
                 bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Internal::AnyHash)),
                 business_name: T.nilable(String),
@@ -1083,10 +1069,10 @@ module ModernTreasury
                 email: T.nilable(String),
                 first_name: T.nilable(String),
                 identifications: T::Array[
-                T.any(
-                  ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification,
-                  ModernTreasury::Internal::AnyHash
-                )
+                  T.any(
+                    ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification,
+                    ModernTreasury::Internal::AnyHash
+                  )
                 ],
                 industry_classifications: T::Array[T.any(ModernTreasury::Models::LegalEntityIndustryClassification, ModernTreasury::Internal::AnyHash)],
                 last_name: T.nilable(String),
@@ -1097,10 +1083,10 @@ module ModernTreasury
                 metadata: T::Hash[Symbol, String],
                 middle_name: T.nilable(String),
                 phone_numbers: T::Array[
-                T.any(
-                  ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber,
-                  ModernTreasury::Internal::AnyHash
-                )
+                  T.any(
+                    ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber,
+                    ModernTreasury::Internal::AnyHash
+                  )
                 ],
                 politically_exposed_person: T.nilable(T::Boolean),
                 preferred_name: T.nilable(String),
@@ -1140,15 +1126,13 @@ module ModernTreasury
               suffix: nil,
               wealth_and_employment_details: nil,
               website: nil
-            )
-            end
-
+            ); end
             sig do
               override
                 .returns(
                   {
                     addresses: T::Array[
-                    ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address
+                      ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address
                     ],
                     bank_settings: T.nilable(ModernTreasury::Models::BankSettings),
                     business_name: T.nilable(String),
@@ -1160,7 +1144,7 @@ module ModernTreasury
                     email: T.nilable(String),
                     first_name: T.nilable(String),
                     identifications: T::Array[
-                    ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification
+                      ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification
                     ],
                     industry_classifications: T::Array[ModernTreasury::Models::LegalEntityIndustryClassification],
                     last_name: T.nilable(String),
@@ -1171,7 +1155,7 @@ module ModernTreasury
                     metadata: T::Hash[Symbol, String],
                     middle_name: T.nilable(String),
                     phone_numbers: T::Array[
-                    ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber
+                      ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber
                     ],
                     politically_exposed_person: T.nilable(T::Boolean),
                     preferred_name: T.nilable(String),
@@ -1185,8 +1169,7 @@ module ModernTreasury
                   }
                 )
             end
-            def to_hash
-            end
+            def to_hash; end
 
             class Address < ModernTreasury::Internal::Type::BaseModel
               # Country code conforms to [ISO 3166-1 alpha-2]
@@ -1213,7 +1196,7 @@ module ModernTreasury
                 returns(
                   T.nilable(
                     T::Array[
-                    ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::OrSymbol
+                      ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::OrSymbol
                     ]
                   )
                 )
@@ -1223,7 +1206,7 @@ module ModernTreasury
               sig do
                 params(
                   address_types: T::Array[
-                  ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::OrSymbol
+                    ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::OrSymbol
                   ]
                 )
                   .void
@@ -1241,13 +1224,21 @@ module ModernTreasury
                   postal_code: T.nilable(String),
                   region: T.nilable(String),
                   address_types: T::Array[
-                  ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::OrSymbol
+                    ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::OrSymbol
                   ],
                   line2: T.nilable(String)
                 )
                   .returns(T.attached_class)
               end
-              def self.new(country:, line1:, locality:, postal_code:, region:, address_types: nil, line2: nil)
+              def self.new(
+                country:,
+                line1:,
+                locality:,
+                postal_code:,
+                region:,
+                address_types: nil,
+                line2: nil
+              )
               end
 
               sig do
@@ -1260,14 +1251,13 @@ module ModernTreasury
                       postal_code: T.nilable(String),
                       region: T.nilable(String),
                       address_types: T::Array[
-                      ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::OrSymbol
+                        ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::OrSymbol
                       ],
                       line2: T.nilable(String)
                     }
                   )
               end
-              def to_hash
-              end
+              def to_hash; end
 
               module AddressType
                 extend ModernTreasury::Internal::Type::Enum
@@ -1315,12 +1305,11 @@ module ModernTreasury
                   override
                     .returns(
                       T::Array[
-                      ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
+                        ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
                       ]
                     )
                 end
-                def self.values
-                end
+                def self.values; end
               end
             end
 
@@ -1350,8 +1339,7 @@ module ModernTreasury
                 )
                   .returns(T.attached_class)
               end
-              def self.new(id_number:, id_type:, issuing_country: nil)
-              end
+              def self.new(id_number:, id_type:, issuing_country: nil); end
 
               sig do
                 override
@@ -1363,8 +1351,7 @@ module ModernTreasury
                     }
                   )
               end
-              def to_hash
-              end
+              def to_hash; end
 
               # The type of ID number.
               module IDType
@@ -1493,12 +1480,11 @@ module ModernTreasury
                   override
                     .returns(
                       T::Array[
-                      ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
+                        ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
                       ]
                     )
                 end
-                def self.values
-                end
+                def self.values; end
               end
             end
 
@@ -1534,12 +1520,11 @@ module ModernTreasury
                 override
                   .returns(
                     T::Array[
-                    ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::TaggedSymbol
+                      ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::TaggedSymbol
                     ]
                   )
               end
-              def self.values
-              end
+              def self.values; end
             end
 
             # The business's legal structure.
@@ -1594,12 +1579,11 @@ module ModernTreasury
                 override
                   .returns(
                     T::Array[
-                    ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
+                      ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
                     ]
                   )
               end
-              def self.values
-              end
+              def self.values; end
             end
 
             class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
@@ -1611,12 +1595,10 @@ module ModernTreasury
 
               # A list of phone numbers in E.164 format.
               sig { params(phone_number: String).returns(T.attached_class) }
-              def self.new(phone_number: nil)
-              end
+              def self.new(phone_number: nil); end
 
               sig { override.returns({phone_number: String}) }
-              def to_hash
-              end
+              def to_hash; end
             end
 
             # The risk rating of the legal entity. One of low, medium, high.
@@ -1656,12 +1638,11 @@ module ModernTreasury
                 override
                   .returns(
                     T::Array[
-                    ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol
+                      ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol
                     ]
                   )
               end
-              def self.values
-              end
+              def self.values; end
             end
           end
         end
@@ -1698,8 +1679,7 @@ module ModernTreasury
                 T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityType::TaggedSymbol]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
 
         # The business's legal structure.
@@ -1754,8 +1734,7 @@ module ModernTreasury
                 T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalStructure::TaggedSymbol]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
 
         class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
@@ -1767,12 +1746,10 @@ module ModernTreasury
 
           # A list of phone numbers in E.164 format.
           sig { params(phone_number: String).returns(T.attached_class) }
-          def self.new(phone_number: nil)
-          end
+          def self.new(phone_number: nil); end
 
           sig { override.returns({phone_number: String}) }
-          def to_hash
-          end
+          def to_hash; end
         end
 
         # The risk rating of the legal entity. One of low, medium, high.
@@ -1812,8 +1789,7 @@ module ModernTreasury
                 T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::RiskRating::TaggedSymbol]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
       end
     end

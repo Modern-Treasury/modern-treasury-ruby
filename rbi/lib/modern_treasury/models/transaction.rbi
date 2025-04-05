@@ -189,9 +189,7 @@ module ModernTreasury
         vendor_id:,
         details: nil,
         vendor_description: nil
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -224,8 +222,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class ForeignExchangeRate < ModernTreasury::Internal::Type::BaseModel
         # Amount in the lowest denomination of the `base_currency` to convert, often
@@ -298,8 +295,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
       end
 
       # The type of the transaction. Examples could be
@@ -344,8 +340,7 @@ module ModernTreasury
         OTHER = T.let(:other, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::Transaction::Type::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
@@ -386,8 +381,7 @@ module ModernTreasury
         USER = T.let(:user, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

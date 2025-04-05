@@ -7,12 +7,10 @@ module ModernTreasury
       attr_accessor :ping
 
       sig { params(ping: String).returns(T.attached_class) }
-      def self.new(ping:)
-      end
+      def self.new(ping:); end
 
       sig { override.returns({ping: String}) }
-      def to_hash
-      end
+      def to_hash; end
     end
   end
 end

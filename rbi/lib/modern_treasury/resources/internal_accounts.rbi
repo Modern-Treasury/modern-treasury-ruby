@@ -21,12 +21,7 @@ module ModernTreasury
             ModernTreasury::Internal::AnyHash
           ),
           vendor_attributes: T::Hash[Symbol, String],
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::InternalAccount)
       end
@@ -52,19 +47,12 @@ module ModernTreasury
         #   at the vendor specified by the given connection.
         vendor_attributes: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # get internal account
       sig do
         params(
           id: String,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::InternalAccount)
       end
@@ -72,9 +60,7 @@ module ModernTreasury
         # Unique identifier for the account.
         id,
         request_options: {}
-      )
-      end
-
+      ); end
       # update internal account
       sig do
         params(
@@ -84,12 +70,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           name: String,
           parent_account_id: String,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::InternalAccount)
       end
@@ -108,9 +89,7 @@ module ModernTreasury
         # The parent internal account for this account.
         parent_account_id: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # list internal accounts
       sig do
         params(
@@ -122,12 +101,7 @@ module ModernTreasury
           payment_direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
           payment_type: ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol,
           per_page: Integer,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::InternalAccount])
       end
@@ -149,13 +123,10 @@ module ModernTreasury
         payment_type: nil,
         per_page: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

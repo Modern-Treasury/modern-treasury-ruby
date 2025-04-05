@@ -35,8 +35,7 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(accounts_type:, account_number:, account_number_type: nil, request_options: {})
-      end
+      def self.new(accounts_type:, account_number:, account_number_type: nil, request_options: {}); end
 
       sig do
         override
@@ -49,8 +48,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       module AccountsType
         extend ModernTreasury::Internal::Type::Enum
@@ -64,8 +62,7 @@ module ModernTreasury
           T.let(:external_accounts, ModernTreasury::Models::AccountDetailCreateParams::AccountsType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::AccountDetailCreateParams::AccountsType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
@@ -99,8 +96,7 @@ module ModernTreasury
           override
             .returns(T::Array[ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::TaggedSymbol])
         end
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

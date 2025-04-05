@@ -14,12 +14,7 @@ module ModernTreasury
           description: T.nilable(String),
           ledger_account_category_ids: T::Array[String],
           metadata: T::Hash[Symbol, String],
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::LedgerAccountCategory)
       end
@@ -43,9 +38,7 @@ module ModernTreasury
         #   strings.
         metadata: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Get the details on a single ledger account category.
       sig do
         params(
@@ -54,12 +47,7 @@ module ModernTreasury
             ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances,
             ModernTreasury::Internal::AnyHash
           ),
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::LedgerAccountCategory)
       end
@@ -71,9 +59,7 @@ module ModernTreasury
         #   The balances as of a time are inclusive of entries with that exact time.
         balances: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Update the details of a ledger account category.
       sig do
         params(
@@ -81,12 +67,7 @@ module ModernTreasury
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           name: String,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::LedgerAccountCategory)
       end
@@ -101,9 +82,7 @@ module ModernTreasury
         # The name of the ledger account category.
         name: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Get a list of ledger account categories.
       sig do
         params(
@@ -120,12 +99,7 @@ module ModernTreasury
           name: String,
           parent_ledger_account_category_id: String,
           per_page: Integer,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerAccountCategory])
       end
@@ -152,19 +126,12 @@ module ModernTreasury
         parent_ledger_account_category_id: nil,
         per_page: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Delete a ledger account category.
       sig do
         params(
           id: String,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::LedgerAccountCategory)
       end
@@ -172,20 +139,13 @@ module ModernTreasury
         # id
         id,
         request_options: {}
-      )
-      end
-
+      ); end
       # Add a ledger account to a ledger account category.
       sig do
         params(
           ledger_account_id: String,
           id: String,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .void
       end
@@ -195,20 +155,13 @@ module ModernTreasury
         # id
         id:,
         request_options: {}
-      )
-      end
-
+      ); end
       # Add a ledger account category to a ledger account category.
       sig do
         params(
           sub_category_id: String,
           id: String,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .void
       end
@@ -218,20 +171,13 @@ module ModernTreasury
         # id
         id:,
         request_options: {}
-      )
-      end
-
+      ); end
       # Remove a ledger account from a ledger account category.
       sig do
         params(
           ledger_account_id: String,
           id: String,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .void
       end
@@ -241,20 +187,13 @@ module ModernTreasury
         # id
         id:,
         request_options: {}
-      )
-      end
-
+      ); end
       # Delete a ledger account category from a ledger account category.
       sig do
         params(
           sub_category_id: String,
           id: String,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .void
       end
@@ -264,13 +203,10 @@ module ModernTreasury
         # id
         id:,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

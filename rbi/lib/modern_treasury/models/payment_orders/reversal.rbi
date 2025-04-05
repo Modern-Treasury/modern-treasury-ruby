@@ -73,9 +73,7 @@ module ModernTreasury
           status:,
           transaction_ids:,
           updated_at:
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(
@@ -94,8 +92,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         # The reason for the reversal.
         module Reason
@@ -116,8 +113,7 @@ module ModernTreasury
             T.let(:date_later_than_intended, ModernTreasury::Models::PaymentOrders::Reversal::Reason::TaggedSymbol)
 
           sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrders::Reversal::Reason::TaggedSymbol]) }
-          def self.values
-          end
+          def self.values; end
         end
 
         # The current status of the reversal.
@@ -136,8 +132,7 @@ module ModernTreasury
           SENT = T.let(:sent, ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol)
 
           sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol]) }
-          def self.values
-          end
+          def self.values; end
         end
       end
     end

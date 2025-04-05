@@ -48,12 +48,7 @@ module ModernTreasury
           recipient_name: T.nilable(String),
           remind_after_overdue_days: T.nilable(T::Array[Integer]),
           virtual_account_id: T.nilable(String),
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::Invoice)
       end
@@ -132,19 +127,12 @@ module ModernTreasury
         # The ID of the virtual account the invoice should be paid to.
         virtual_account_id: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # get invoice
       sig do
         params(
           id: String,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::Invoice)
       end
@@ -152,9 +140,7 @@ module ModernTreasury
         # id
         id,
         request_options: {}
-      )
-      end
-
+      ); end
       # update invoice
       sig do
         params(
@@ -198,12 +184,7 @@ module ModernTreasury
           remind_after_overdue_days: T.nilable(T::Array[Integer]),
           status: String,
           virtual_account_id: T.nilable(String),
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::Invoice)
       end
@@ -284,9 +265,7 @@ module ModernTreasury
         # The ID of the virtual account the invoice should be paid to.
         virtual_account_id: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # list invoices
       sig do
         params(
@@ -301,12 +280,7 @@ module ModernTreasury
           payment_order_id: String,
           per_page: Integer,
           status: ModernTreasury::Models::InvoiceListParams::Status::OrSymbol,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::Invoice])
       end
@@ -329,20 +303,13 @@ module ModernTreasury
         per_page: nil,
         status: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Add a payment order to an invoice.
       sig do
         params(
           payment_order_id: String,
           id: String,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .void
       end
@@ -352,13 +319,10 @@ module ModernTreasury
         # id
         id:,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

@@ -9,10 +9,10 @@ module ModernTreasury
           internal_account_id: String,
           name: String,
           account_details: T::Array[
-          T.any(
-            ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail,
-            ModernTreasury::Internal::AnyHash
-          )
+            T.any(
+              ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail,
+              ModernTreasury::Internal::AnyHash
+            )
           ],
           counterparty_id: String,
           credit_ledger_account_id: String,
@@ -24,17 +24,12 @@ module ModernTreasury
           ),
           metadata: T::Hash[Symbol, String],
           routing_details: T::Array[
-          T.any(
-            ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail,
-            ModernTreasury::Internal::AnyHash
-          )
-          ],
-          request_options: T.nilable(
             T.any(
-              ModernTreasury::RequestOptions,
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail,
               ModernTreasury::Internal::AnyHash
             )
-          )
+          ],
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::VirtualAccount)
       end
@@ -67,19 +62,12 @@ module ModernTreasury
         # An array of routing detail objects.
         routing_details: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # get virtual_account
       sig do
         params(
           id: String,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::VirtualAccount)
       end
@@ -87,9 +75,7 @@ module ModernTreasury
         # Virtual Acccount ID
         id,
         request_options: {}
-      )
-      end
-
+      ); end
       # update virtual_account
       sig do
         params(
@@ -98,12 +84,7 @@ module ModernTreasury
           ledger_account_id: String,
           metadata: T::Hash[Symbol, String],
           name: T.nilable(String),
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::VirtualAccount)
       end
@@ -116,9 +97,7 @@ module ModernTreasury
         metadata: nil,
         name: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Get a list of virtual accounts.
       sig do
         params(
@@ -127,12 +106,7 @@ module ModernTreasury
           internal_account_id: String,
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::VirtualAccount])
       end
@@ -146,19 +120,12 @@ module ModernTreasury
         metadata: nil,
         per_page: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # delete virtual_account
       sig do
         params(
           id: String,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::VirtualAccount)
       end
@@ -166,13 +133,10 @@ module ModernTreasury
         # Virtual Acccount ID
         id,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

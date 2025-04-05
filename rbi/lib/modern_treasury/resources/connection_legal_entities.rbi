@@ -12,12 +12,7 @@ module ModernTreasury
             ModernTreasury::Internal::AnyHash
           ),
           legal_entity_id: String,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::ConnectionLegalEntity)
       end
@@ -29,19 +24,12 @@ module ModernTreasury
         # The ID of the legal entity.
         legal_entity_id: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Get details on a single connection legal entity.
       sig do
         params(
           id: String,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::ConnectionLegalEntity)
       end
@@ -49,20 +37,13 @@ module ModernTreasury
         # The id of an existing connection legal entity.
         id,
         request_options: {}
-      )
-      end
-
+      ); end
       # Update a connection legal entity.
       sig do
         params(
           id: String,
           status: ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status::OrSymbol,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::ConnectionLegalEntity)
       end
@@ -72,9 +53,7 @@ module ModernTreasury
         # The status of the connection legal entity.
         status: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Get a list of all connection legal entities.
       sig do
         params(
@@ -83,12 +62,7 @@ module ModernTreasury
           legal_entity_id: String,
           per_page: Integer,
           status: ModernTreasury::Models::ConnectionLegalEntityListParams::Status::OrSymbol,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::ConnectionLegalEntity])
       end
@@ -99,13 +73,10 @@ module ModernTreasury
         per_page: nil,
         status: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

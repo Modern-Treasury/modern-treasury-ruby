@@ -19,12 +19,10 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(amounts: nil, request_options: {})
-      end
+      def self.new(amounts: nil, request_options: {}); end
 
       sig { override.returns({amounts: T::Array[Integer], request_options: ModernTreasury::RequestOptions}) }
-      def to_hash
-      end
+      def to_hash; end
     end
   end
 end

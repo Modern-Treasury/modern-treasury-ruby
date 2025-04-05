@@ -35,7 +35,9 @@ module ModernTreasury
       sig { returns(T.nilable(ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction::OrSymbol)) }
       attr_reader :direction
 
-      sig { params(direction: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction::OrSymbol).void }
+      sig do
+        params(direction: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction::OrSymbol).void
+      end
       attr_writer :direction
 
       # The ID of one of your internal accounts.
@@ -83,9 +85,7 @@ module ModernTreasury
         type: nil,
         virtual_account_id: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -103,8 +103,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # One of `credit`, `debit`.
       module Direction
@@ -130,8 +129,7 @@ module ModernTreasury
           override
             .returns(T::Array[ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction::TaggedSymbol])
         end
-        def self.values
-        end
+        def self.values; end
       end
 
       # One of `ach`, `wire`, `check`.
@@ -165,8 +163,7 @@ module ModernTreasury
           override
             .returns(T::Array[ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol])
         end
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

@@ -38,9 +38,7 @@ module ModernTreasury
           #   strings.
           metadata: nil,
           request_options: {}
-        )
-        end
-
+        ); end
         # Get details on a single reversal of a payment order.
         sig do
           params(
@@ -61,9 +59,7 @@ module ModernTreasury
           # The id of the payment order being reversed.
           payment_order_id:,
           request_options: {}
-        )
-        end
-
+        ); end
         # Get a list of all reversals of a payment order.
         sig do
           params(
@@ -85,13 +81,10 @@ module ModernTreasury
           after_cursor: nil,
           per_page: nil,
           request_options: {}
-        )
-        end
-
+        ); end
         # @api private
         sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-        def self.new(client:)
-        end
+        def self.new(client:); end
       end
     end
   end

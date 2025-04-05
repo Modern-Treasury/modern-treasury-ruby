@@ -54,9 +54,7 @@ module ModernTreasury
         per_page: nil,
         show_deleted: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -70,8 +68,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       module LegalEntityType
         extend ModernTreasury::Internal::Type::Enum
@@ -86,8 +83,7 @@ module ModernTreasury
           T.let(:individual, ModernTreasury::Models::LegalEntityListParams::LegalEntityType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::LegalEntityListParams::LegalEntityType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

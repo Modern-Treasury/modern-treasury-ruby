@@ -83,9 +83,7 @@ module ModernTreasury
         payment_type: nil,
         per_page: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -102,8 +100,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # Only return internal accounts that can make this type of payment.
       module PaymentType
@@ -150,8 +147,7 @@ module ModernTreasury
         ZENGIN = T.let(:zengin, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

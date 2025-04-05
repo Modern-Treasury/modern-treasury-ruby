@@ -66,9 +66,7 @@ module ModernTreasury
         returnable_id: nil,
         returnable_type: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -83,8 +81,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
       #   Must be accompanied by `returnable_id`.
@@ -104,8 +101,7 @@ module ModernTreasury
         REVERSAL = T.let(:reversal, ModernTreasury::Models::ReturnListParams::ReturnableType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::ReturnListParams::ReturnableType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

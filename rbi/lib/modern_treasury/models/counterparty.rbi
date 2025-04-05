@@ -85,9 +85,7 @@ module ModernTreasury
         send_remittance_advice:,
         updated_at:,
         verification_status:
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -108,8 +106,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class Account < ModernTreasury::Internal::Type::BaseModel
         sig { returns(T.nilable(String)) }
@@ -286,9 +283,7 @@ module ModernTreasury
           updated_at: nil,
           verification_source: nil,
           verification_status: nil
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(
@@ -314,8 +309,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         class ContactDetail < ModernTreasury::Internal::Type::BaseModel
           sig { returns(String) }
@@ -366,9 +360,7 @@ module ModernTreasury
             live_mode:,
             object:,
             updated_at:
-          )
-          end
-
+          ); end
           sig do
             override
               .returns(
@@ -384,8 +376,7 @@ module ModernTreasury
                 }
               )
           end
-          def to_hash
-          end
+          def to_hash; end
 
           module ContactIdentifierType
             extend ModernTreasury::Internal::Type::Enum
@@ -423,8 +414,7 @@ module ModernTreasury
                   T::Array[ModernTreasury::Models::Counterparty::Account::ContactDetail::ContactIdentifierType::TaggedSymbol]
                 )
             end
-            def self.values
-            end
+            def self.values; end
           end
         end
 
@@ -497,9 +487,7 @@ module ModernTreasury
             postal_code:,
             region:,
             updated_at:
-          )
-          end
-
+          ); end
           sig do
             override
               .returns(
@@ -518,8 +506,7 @@ module ModernTreasury
                 }
               )
           end
-          def to_hash
-          end
+          def to_hash; end
         end
 
         # Either `individual` or `business`.
@@ -534,8 +521,7 @@ module ModernTreasury
           INDIVIDUAL = T.let(:individual, ModernTreasury::Models::Counterparty::Account::PartyType::TaggedSymbol)
 
           sig { override.returns(T::Array[ModernTreasury::Models::Counterparty::Account::PartyType::TaggedSymbol]) }
-          def self.values
-          end
+          def self.values; end
         end
 
         module VerificationSource
@@ -555,8 +541,7 @@ module ModernTreasury
           sig do
             override.returns(T::Array[ModernTreasury::Models::Counterparty::Account::VerificationSource::TaggedSymbol])
           end
-          def self.values
-          end
+          def self.values; end
         end
 
         module VerificationStatus
@@ -580,8 +565,7 @@ module ModernTreasury
           sig do
             override.returns(T::Array[ModernTreasury::Models::Counterparty::Account::VerificationStatus::TaggedSymbol])
           end
-          def self.values
-          end
+          def self.values; end
         end
       end
 
@@ -600,8 +584,7 @@ module ModernTreasury
         VERIFIED = T.let(:verified, ModernTreasury::Models::Counterparty::VerificationStatus::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::Counterparty::VerificationStatus::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

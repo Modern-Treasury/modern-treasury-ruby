@@ -53,9 +53,7 @@ module ModernTreasury
         live_mode:,
         object:,
         updated_at:
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -71,8 +69,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # The classification system of the classification codes.
       module ClassificationType
@@ -132,8 +129,7 @@ module ModernTreasury
               T::Array[ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol]
             )
         end
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

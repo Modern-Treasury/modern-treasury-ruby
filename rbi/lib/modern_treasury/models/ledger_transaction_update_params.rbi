@@ -25,10 +25,10 @@ module ModernTreasury
       sig do
         params(
           ledger_entries: T::Array[
-          T.any(
-            ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry,
-            ModernTreasury::Internal::AnyHash
-          )
+            T.any(
+              ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry,
+              ModernTreasury::Internal::AnyHash
+            )
           ]
         )
           .void
@@ -76,10 +76,10 @@ module ModernTreasury
           description: T.nilable(String),
           effective_at: Time,
           ledger_entries: T::Array[
-          T.any(
-            ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry,
-            ModernTreasury::Internal::AnyHash
-          )
+            T.any(
+              ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry,
+              ModernTreasury::Internal::AnyHash
+            )
           ],
           ledgerable_id: String,
           ledgerable_type: ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType::OrSymbol,
@@ -98,9 +98,7 @@ module ModernTreasury
         metadata: nil,
         status: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -116,8 +114,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
         # Value in specified currency's smallest unit. e.g. $10 would be represented
@@ -198,9 +195,7 @@ module ModernTreasury
           pending_balance_amount: nil,
           posted_balance_amount: nil,
           show_resulting_ledger_account_balances: nil
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(
@@ -217,8 +212,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
       end
 
       # If the ledger transaction can be reconciled to another object in Modern
@@ -256,8 +250,7 @@ module ModernTreasury
           override
             .returns(T::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType::TaggedSymbol])
         end
-        def self.values
-        end
+        def self.values; end
       end
 
       # To post a ledger transaction at creation, use `posted`.
@@ -274,8 +267,7 @@ module ModernTreasury
         POSTED = T.let(:posted, ModernTreasury::Models::LedgerTransactionUpdateParams::Status::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::Status::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

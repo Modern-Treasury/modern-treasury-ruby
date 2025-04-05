@@ -25,9 +25,7 @@ module ModernTreasury
           #   account settlement.
           ledger_entry_ids:,
           request_options: {}
-        )
-        end
-
+        ); end
         # Remove ledger entries from a draft ledger account settlement.
         sig do
           params(
@@ -49,13 +47,10 @@ module ModernTreasury
           #   account settlement.
           ledger_entry_ids:,
           request_options: {}
-        )
-        end
-
+        ); end
         # @api private
         sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-        def self.new(client:)
-        end
+        def self.new(client:); end
       end
     end
   end

@@ -113,9 +113,7 @@ module ModernTreasury
         parent_ledger_account_category_id: nil,
         per_page: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -134,8 +132,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class Balances < ModernTreasury::Internal::Type::BaseModel
         sig { returns(T.nilable(Time)) }
@@ -148,12 +145,10 @@ module ModernTreasury
         #   encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
         #   The balances as of a time are inclusive of entries with that exact time.
         sig { params(effective_at: Time).returns(T.attached_class) }
-        def self.new(effective_at: nil)
-        end
+        def self.new(effective_at: nil); end
 
         sig { override.returns({effective_at: Time}) }
-        def to_hash
-        end
+        def to_hash; end
       end
     end
   end

@@ -30,8 +30,7 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(balances: nil, request_options: {})
-      end
+      def self.new(balances: nil, request_options: {}); end
 
       sig do
         override
@@ -42,8 +41,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class Balances < ModernTreasury::Internal::Type::BaseModel
         sig { returns(T.nilable(Date)) }
@@ -98,9 +96,7 @@ module ModernTreasury
           effective_at: nil,
           effective_at_lower_bound: nil,
           effective_at_upper_bound: nil
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(
@@ -113,8 +109,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
       end
     end
   end

@@ -26,12 +26,10 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(query:, type:)
-      end
+      def self.new(query:, type:); end
 
       sig { override.returns({query: ModernTreasury::Models::LedgerEventHandlerVariable::Query, type: String}) }
-      def to_hash
-      end
+      def to_hash; end
 
       class Query < ModernTreasury::Internal::Type::BaseModel
         # The LHS of the conditional.
@@ -47,12 +45,10 @@ module ModernTreasury
         attr_accessor :value
 
         sig { params(field: String, operator: String, value: String).returns(T.attached_class) }
-        def self.new(field:, operator:, value:)
-        end
+        def self.new(field:, operator:, value:); end
 
         sig { override.returns({field: String, operator: String, value: String}) }
-        def to_hash
-        end
+        def to_hash; end
       end
     end
   end

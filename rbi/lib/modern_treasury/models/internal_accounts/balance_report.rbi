@@ -68,9 +68,7 @@ module ModernTreasury
           live_mode:,
           object:,
           updated_at:
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(
@@ -88,8 +86,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         # The specific type of balance report. One of `intraday`, `previous_day`,
         #   `real_time`, or `other`.
@@ -128,8 +125,7 @@ module ModernTreasury
                 T::Array[ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType::TaggedSymbol]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
 
         class Balance < ModernTreasury::Internal::Type::BaseModel
@@ -220,9 +216,7 @@ module ModernTreasury
             value_date:,
             vendor_code:,
             vendor_code_type:
-          )
-          end
-
+          ); end
           sig do
             override
               .returns(
@@ -243,8 +237,7 @@ module ModernTreasury
                 }
               )
           end
-          def to_hash
-          end
+          def to_hash; end
 
           # The specific type of balance reported. One of `opening_ledger`,
           #   `closing_ledger`, `current_ledger`, `opening_available`,
@@ -313,8 +306,7 @@ module ModernTreasury
                   T::Array[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::BalanceType::TaggedSymbol]
                 )
             end
-            def self.values
-            end
+            def self.values; end
           end
         end
       end

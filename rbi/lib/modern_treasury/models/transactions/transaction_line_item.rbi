@@ -109,9 +109,7 @@ module ModernTreasury
           transaction_id:,
           type:,
           updated_at:
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(
@@ -134,8 +132,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         # If a matching object exists in Modern Treasury, the type will be populated here,
         #   otherwise `null`.
@@ -187,8 +184,7 @@ module ModernTreasury
                 T::Array[ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
 
         # Indicates whether the line item is `originating` or `receiving` (see
@@ -207,8 +203,7 @@ module ModernTreasury
             T.let(:receiving, ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol)
 
           sig { override.returns(T::Array[ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol]) }
-          def self.values
-          end
+          def self.values; end
         end
       end
     end

@@ -91,9 +91,7 @@ module ModernTreasury
         metadata: nil,
         variables: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -109,8 +107,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class LedgerTransactionTemplate < ModernTreasury::Internal::Type::BaseModel
         # An optional description for internal use.
@@ -139,17 +136,16 @@ module ModernTreasury
             description: T.nilable(String),
             effective_at: T.nilable(String),
             ledger_entries: T::Array[
-            T.any(
-              ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry,
-              ModernTreasury::Internal::AnyHash
-            )
+              T.any(
+                ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry,
+                ModernTreasury::Internal::AnyHash
+              )
             ],
             status: T.nilable(String)
           )
             .returns(T.attached_class)
         end
-        def self.new(description:, effective_at:, ledger_entries:, status:)
-        end
+        def self.new(description:, effective_at:, ledger_entries:, status:); end
 
         sig do
           override
@@ -162,8 +158,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
           # The LHS of the conditional.
@@ -181,12 +176,10 @@ module ModernTreasury
           sig do
             params(amount: String, direction: String, ledger_account_id: String).returns(T.attached_class)
           end
-          def self.new(amount:, direction:, ledger_account_id:)
-          end
+          def self.new(amount:, direction:, ledger_account_id:); end
 
           sig { override.returns({amount: String, direction: String, ledger_account_id: String}) }
-          def to_hash
-          end
+          def to_hash; end
         end
       end
 
@@ -204,12 +197,10 @@ module ModernTreasury
         attr_accessor :value
 
         sig { params(field: String, operator: String, value: String).returns(T.attached_class) }
-        def self.new(field:, operator:, value:)
-        end
+        def self.new(field:, operator:, value:); end
 
         sig { override.returns({field: String, operator: String, value: String}) }
-        def to_hash
-        end
+        def to_hash; end
       end
     end
   end

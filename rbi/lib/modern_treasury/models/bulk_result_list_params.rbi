@@ -75,9 +75,7 @@ module ModernTreasury
         request_type: nil,
         status: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -93,8 +91,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # The type of the request that created this result. bulk_request is the only
       #   supported `request_type`
@@ -118,8 +115,7 @@ module ModernTreasury
         BULK_ERROR = T.let(:bulk_error, ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # The type of the request that created this result. bulk_request is the only
@@ -135,8 +131,7 @@ module ModernTreasury
           T.let(:bulk_request, ModernTreasury::Models::BulkResultListParams::RequestType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::BulkResultListParams::RequestType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # One of successful or failed.
@@ -152,8 +147,7 @@ module ModernTreasury
         FAILED = T.let(:failed, ModernTreasury::Models::BulkResultListParams::Status::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::BulkResultListParams::Status::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

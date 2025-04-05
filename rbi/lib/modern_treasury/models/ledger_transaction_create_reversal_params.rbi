@@ -90,9 +90,7 @@ module ModernTreasury
         metadata: nil,
         status: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -108,8 +106,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # Specify this if you'd like to link the reversal ledger transaction to a Payment
       #   object like Return or Reversal.
@@ -164,8 +161,7 @@ module ModernTreasury
               T::Array[ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType::TaggedSymbol]
             )
         end
-        def self.values
-        end
+        def self.values; end
       end
 
       # Status of the reversal ledger transaction. It defaults to `posted` if not
@@ -189,8 +185,7 @@ module ModernTreasury
           override
             .returns(T::Array[ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status::TaggedSymbol])
         end
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

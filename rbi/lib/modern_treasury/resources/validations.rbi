@@ -9,12 +9,7 @@ module ModernTreasury
         params(
           routing_number: String,
           routing_number_type: ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::RoutingNumberLookupRequest)
       end
@@ -27,13 +22,10 @@ module ModernTreasury
         #   routing numbers '123456789' and 'GRINUST0XXX' respectively.
         routing_number_type:,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end
