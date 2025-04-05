@@ -35,8 +35,7 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(description: nil, metadata: nil, status: nil, request_options: {})
-      end
+      def self.new(description: nil, metadata: nil, status: nil, request_options: {}); end
 
       sig do
         override
@@ -49,8 +48,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # To post a pending ledger account settlement, use `posted`. To archive a pending
       #   ledger transaction, use `archived`.
@@ -71,8 +69,7 @@ module ModernTreasury
           override
             .returns(T::Array[ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::TaggedSymbol])
         end
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

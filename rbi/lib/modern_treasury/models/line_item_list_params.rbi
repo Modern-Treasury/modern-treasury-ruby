@@ -27,8 +27,7 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(itemizable_type:, after_cursor: nil, per_page: nil, request_options: {})
-      end
+      def self.new(itemizable_type:, after_cursor: nil, per_page: nil, request_options: {}); end
 
       sig do
         override
@@ -41,8 +40,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       module ItemizableType
         extend ModernTreasury::Internal::Type::Enum
@@ -57,8 +55,7 @@ module ModernTreasury
           T.let(:payment_orders, ModernTreasury::Models::LineItemListParams::ItemizableType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::LineItemListParams::ItemizableType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

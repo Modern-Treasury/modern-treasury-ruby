@@ -9,26 +9,21 @@ module ModernTreasury
           action_type: ModernTreasury::Models::BulkRequestCreateParams::ActionType::OrSymbol,
           resource_type: ModernTreasury::Models::BulkRequestCreateParams::ResourceType::OrSymbol,
           resources: T::Array[
-          T.any(
-            ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest,
-            ModernTreasury::Internal::AnyHash,
-            ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest,
-            ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest,
-            ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest,
-            ModernTreasury::Models::BulkRequestCreateParams::Resource::ID,
-            ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID,
-            ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID,
-            ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID,
-            ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID
-          )
+            T.any(
+              ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest,
+              ModernTreasury::Internal::AnyHash,
+              ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest,
+              ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest,
+              ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest,
+              ModernTreasury::Models::BulkRequestCreateParams::Resource::ID,
+              ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID,
+              ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID,
+              ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID,
+              ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID
+            )
           ],
           metadata: T::Hash[Symbol, String],
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::BulkRequest)
       end
@@ -44,19 +39,12 @@ module ModernTreasury
         #   strings.
         metadata: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # get bulk_request
       sig do
         params(
           id: String,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::BulkRequest)
       end
@@ -64,9 +52,7 @@ module ModernTreasury
         # id
         id,
         request_options: {}
-      )
-      end
-
+      ); end
       # list bulk_requests
       sig do
         params(
@@ -76,12 +62,7 @@ module ModernTreasury
           per_page: Integer,
           resource_type: ModernTreasury::Models::BulkRequestListParams::ResourceType::OrSymbol,
           status: ModernTreasury::Models::BulkRequestListParams::Status::OrSymbol,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::BulkRequest])
       end
@@ -99,13 +80,10 @@ module ModernTreasury
         # One of pending, processing, or completed.
         status: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

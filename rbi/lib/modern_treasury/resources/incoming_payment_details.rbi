@@ -7,12 +7,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::IncomingPaymentDetail)
       end
@@ -20,20 +15,13 @@ module ModernTreasury
         # The unique identifier of the incoming payment detail.
         id,
         request_options: {}
-      )
-      end
-
+      ); end
       # Update an existing Incoming Payment Detail.
       sig do
         params(
           id: String,
           metadata: T::Hash[Symbol, String],
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::IncomingPaymentDetail)
       end
@@ -44,9 +32,7 @@ module ModernTreasury
         #   an empty string or `null` as the value.
         metadata: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Get a list of Incoming Payment Details.
       sig do
         params(
@@ -59,12 +45,7 @@ module ModernTreasury
           status: ModernTreasury::Models::IncomingPaymentDetailListParams::Status::OrSymbol,
           type: ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol,
           virtual_account_id: String,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::IncomingPaymentDetail])
       end
@@ -93,9 +74,7 @@ module ModernTreasury
         #   Account.
         virtual_account_id: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Simulate Incoming Payment Detail
       sig do
         params(
@@ -108,12 +87,7 @@ module ModernTreasury
           internal_account_id: String,
           type: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol,
           virtual_account_id: T.nilable(String),
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::AsyncResponse)
       end
@@ -140,13 +114,10 @@ module ModernTreasury
         #   account.
         virtual_account_id: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

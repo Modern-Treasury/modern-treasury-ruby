@@ -171,9 +171,7 @@ module ModernTreasury
         statement_descriptor: nil,
         type: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -201,8 +199,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
@@ -218,8 +215,7 @@ module ModernTreasury
         DEBIT = T.let(:debit, ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       class LedgerTransaction < ModernTreasury::Internal::Type::BaseModel
@@ -313,10 +309,10 @@ module ModernTreasury
         sig do
           params(
             ledger_entries: T::Array[
-            T.any(
-              ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry,
-              ModernTreasury::Internal::AnyHash
-            )
+              T.any(
+                ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry,
+                ModernTreasury::Internal::AnyHash
+              )
             ],
             description: T.nilable(String),
             effective_at: Time,
@@ -339,9 +335,7 @@ module ModernTreasury
           ledgerable_type: nil,
           metadata: nil,
           status: nil
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(
@@ -358,8 +352,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
           # Value in specified currency's smallest unit. e.g. $10 would be represented
@@ -440,9 +433,7 @@ module ModernTreasury
             pending_balance_amount: nil,
             posted_balance_amount: nil,
             show_resulting_ledger_account_balances: nil
-          )
-          end
-
+          ); end
           sig do
             override
               .returns(
@@ -459,8 +450,7 @@ module ModernTreasury
                 }
               )
           end
-          def to_hash
-          end
+          def to_hash; end
         end
 
         # If the ledger transaction can be reconciled to another object in Modern
@@ -518,8 +508,7 @@ module ModernTreasury
                 T::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
 
         # To post a ledger transaction at creation, use `posted`.
@@ -559,8 +548,7 @@ module ModernTreasury
                 T::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status::TaggedSymbol]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
       end
 
@@ -596,8 +584,7 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(amount:, accounting_category_id: nil, description: nil, metadata: nil)
-        end
+        def self.new(amount:, accounting_category_id: nil, description: nil, metadata: nil); end
 
         sig do
           override
@@ -610,8 +597,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
       end
     end
   end

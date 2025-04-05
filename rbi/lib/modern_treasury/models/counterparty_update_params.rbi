@@ -67,9 +67,7 @@ module ModernTreasury
         send_remittance_advice: nil,
         taxpayer_identifier: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -84,8 +82,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
     end
   end
 end

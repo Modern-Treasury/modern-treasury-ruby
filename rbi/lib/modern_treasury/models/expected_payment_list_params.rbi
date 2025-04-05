@@ -102,9 +102,7 @@ module ModernTreasury
         status: nil,
         type: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -123,8 +121,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # One of unreconciled, reconciled, or archived.
       module Status
@@ -142,8 +139,7 @@ module ModernTreasury
           T.let(:unreconciled, ModernTreasury::Models::ExpectedPaymentListParams::Status::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPaymentListParams::Status::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
@@ -189,8 +185,7 @@ module ModernTreasury
         ZENGIN = T.let(:zengin, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

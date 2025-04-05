@@ -13,8 +13,7 @@ module ModernTreasury
       DEBIT = T.let(:debit, ModernTreasury::Models::TransactionDirection::TaggedSymbol)
 
       sig { override.returns(T::Array[ModernTreasury::Models::TransactionDirection::TaggedSymbol]) }
-      def self.values
-      end
+      def self.values; end
     end
   end
 end

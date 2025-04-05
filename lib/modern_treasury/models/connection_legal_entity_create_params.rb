@@ -451,7 +451,7 @@ module ModernTreasury
           required :relationship_types,
                    -> do
                      ModernTreasury::Internal::Type::ArrayOf[
-                     enum: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType
+                       enum: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType
                      ]
                    end
 
@@ -531,7 +531,7 @@ module ModernTreasury
             optional :addresses,
                      -> do
                        ModernTreasury::Internal::Type::ArrayOf[
-                       ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address
+                         ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address
                        ]
                      end
 
@@ -601,7 +601,7 @@ module ModernTreasury
             optional :identifications,
                      -> do
                        ModernTreasury::Internal::Type::ArrayOf[
-                       ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification
+                         ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification
                        ]
                      end
 
@@ -668,7 +668,7 @@ module ModernTreasury
             optional :phone_numbers,
                      -> do
                        ModernTreasury::Internal::Type::ArrayOf[
-                       ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber
+                         ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber
                        ]
                      end
 
@@ -820,7 +820,7 @@ module ModernTreasury
               optional :address_types,
                        -> do
                          ModernTreasury::Internal::Type::ArrayOf[
-                         enum: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType
+                           enum: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType
                          ]
                        end
 

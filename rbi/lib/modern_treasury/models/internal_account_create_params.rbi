@@ -96,9 +96,7 @@ module ModernTreasury
         party_address: nil,
         vendor_attributes: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -116,8 +114,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # Either "USD" or "CAD". Internal accounts created at Increase only supports
       #   "USD".
@@ -133,8 +130,7 @@ module ModernTreasury
         CAD = T.let(:CAD, ModernTreasury::Models::InternalAccountCreateParams::Currency::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::InternalAccountCreateParams::Currency::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       class PartyAddress < ModernTreasury::Internal::Type::BaseModel
@@ -175,8 +171,7 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(country:, line1:, locality:, postal_code:, region:, line2: nil)
-        end
+        def self.new(country:, line1:, locality:, postal_code:, region:, line2: nil); end
 
         sig do
           override
@@ -191,8 +186,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
       end
     end
   end

@@ -181,9 +181,7 @@ module ModernTreasury
         virtual_account:,
         virtual_account_id:,
         originating_account_number: nil
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -216,8 +214,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # The type of the originating account number for the incoming payment detail.
       module OriginatingAccountNumberType
@@ -279,8 +276,7 @@ module ModernTreasury
               T::Array[ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol]
             )
         end
-        def self.values
-        end
+        def self.values; end
       end
 
       # The type of the originating routing number for the incoming payment detail.
@@ -389,8 +385,7 @@ module ModernTreasury
               T::Array[ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol]
             )
         end
-        def self.values
-        end
+        def self.values; end
       end
 
       # The current status of the incoming payment order. One of `pending`, `completed`,
@@ -407,8 +402,7 @@ module ModernTreasury
         RETURNED = T.let(:returned, ModernTreasury::Models::IncomingPaymentDetail::Status::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::IncomingPaymentDetail::Status::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
@@ -435,8 +429,7 @@ module ModernTreasury
         WIRE = T.let(:wire, ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

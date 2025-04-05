@@ -129,9 +129,7 @@ module ModernTreasury
         reverses_ledger_transaction_id:,
         status:,
         updated_at:
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -158,8 +156,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # If the ledger transaction can be reconciled to another object in Modern
       #   Treasury, the type will be populated here, otherwise null. This can be one of
@@ -183,8 +180,7 @@ module ModernTreasury
         REVERSAL = T.let(:reversal, ModernTreasury::Models::LedgerTransaction::LedgerableType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::LedgerTransaction::LedgerableType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # To post a ledger transaction at creation, use `posted`.
@@ -200,8 +196,7 @@ module ModernTreasury
         POSTED = T.let(:posted, ModernTreasury::Models::LedgerTransaction::Status::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::LedgerTransaction::Status::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

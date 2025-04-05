@@ -88,9 +88,7 @@ module ModernTreasury
         type: nil,
         vendor_description: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -109,8 +107,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # The type of the transaction. Examples could be
       #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
@@ -154,8 +151,7 @@ module ModernTreasury
         OTHER = T.let(:other, ModernTreasury::Models::TransactionCreateParams::Type::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::TransactionCreateParams::Type::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

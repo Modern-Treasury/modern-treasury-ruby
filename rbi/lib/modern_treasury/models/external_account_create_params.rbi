@@ -15,10 +15,10 @@ module ModernTreasury
       sig do
         params(
           account_details: T::Array[
-          T.any(
-            ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail,
-            ModernTreasury::Internal::AnyHash
-          )
+            T.any(
+              ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail,
+              ModernTreasury::Internal::AnyHash
+            )
           ]
         )
           .void
@@ -38,10 +38,10 @@ module ModernTreasury
       sig do
         params(
           contact_details: T::Array[
-          T.any(
-            ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail,
-            ModernTreasury::Internal::AnyHash
-          )
+            T.any(
+              ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail,
+              ModernTreasury::Internal::AnyHash
+            )
           ]
         )
           .void
@@ -126,10 +126,10 @@ module ModernTreasury
       sig do
         params(
           routing_details: T::Array[
-          T.any(
-            ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail,
-            ModernTreasury::Internal::AnyHash
-          )
+            T.any(
+              ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail,
+              ModernTreasury::Internal::AnyHash
+            )
           ]
         )
           .void
@@ -140,17 +140,17 @@ module ModernTreasury
         params(
           counterparty_id: T.nilable(String),
           account_details: T::Array[
-          T.any(
-            ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail,
-            ModernTreasury::Internal::AnyHash
-          )
+            T.any(
+              ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail,
+              ModernTreasury::Internal::AnyHash
+            )
           ],
           account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
           contact_details: T::Array[
-          T.any(
-            ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail,
-            ModernTreasury::Internal::AnyHash
-          )
+            T.any(
+              ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail,
+              ModernTreasury::Internal::AnyHash
+            )
           ],
           ledger_account: T.any(
             ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount,
@@ -167,10 +167,10 @@ module ModernTreasury
           party_type: T.nilable(ModernTreasury::Models::ExternalAccountCreateParams::PartyType::OrSymbol),
           plaid_processor_token: String,
           routing_details: T::Array[
-          T.any(
-            ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail,
-            ModernTreasury::Internal::AnyHash
-          )
+            T.any(
+              ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail,
+              ModernTreasury::Internal::AnyHash
+            )
           ],
           request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
@@ -191,9 +191,7 @@ module ModernTreasury
         plaid_processor_token: nil,
         routing_details: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -215,8 +213,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class AccountDetail < ModernTreasury::Internal::Type::BaseModel
         sig { returns(String) }
@@ -244,8 +241,7 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(account_number:, account_number_type: nil)
-        end
+        def self.new(account_number:, account_number_type: nil); end
 
         sig do
           override
@@ -256,8 +252,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         module AccountNumberType
           extend ModernTreasury::Internal::Type::Enum
@@ -330,8 +325,7 @@ module ModernTreasury
                 T::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
       end
 
@@ -366,8 +360,7 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(contact_identifier: nil, contact_identifier_type: nil)
-        end
+        def self.new(contact_identifier: nil, contact_identifier_type: nil); end
 
         sig do
           override
@@ -378,8 +371,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         module ContactIdentifierType
           extend ModernTreasury::Internal::Type::Enum
@@ -417,8 +409,7 @@ module ModernTreasury
                 T::Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::ContactIdentifierType::TaggedSymbol]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
       end
 
@@ -520,9 +511,7 @@ module ModernTreasury
           ledgerable_id: nil,
           ledgerable_type: nil,
           metadata: nil
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(
@@ -540,8 +529,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         # If the ledger account links to another object in Modern Treasury, the type will
         #   be populated here, otherwise null. The value is one of internal_account or
@@ -587,8 +575,7 @@ module ModernTreasury
                 T::Array[ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::LedgerableType::TaggedSymbol]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
       end
 
@@ -627,8 +614,7 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
-        end
+        def self.new(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil); end
 
         sig do
           override
@@ -643,8 +629,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
       end
 
       # Either `individual` or `business`.
@@ -661,8 +646,7 @@ module ModernTreasury
           T.let(:individual, ModernTreasury::Models::ExternalAccountCreateParams::PartyType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::ExternalAccountCreateParams::PartyType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       class RoutingDetail < ModernTreasury::Internal::Type::BaseModel
@@ -695,8 +679,7 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(routing_number:, routing_number_type:, payment_type: nil)
-        end
+        def self.new(routing_number:, routing_number_type:, payment_type: nil); end
 
         sig do
           override
@@ -708,8 +691,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         module RoutingNumberType
           extend ModernTreasury::Internal::Type::Enum
@@ -837,8 +819,7 @@ module ModernTreasury
                 T::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
 
         module PaymentType
@@ -997,8 +978,7 @@ module ModernTreasury
                 T::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
       end
     end

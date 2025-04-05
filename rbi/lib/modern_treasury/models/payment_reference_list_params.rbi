@@ -61,9 +61,7 @@ module ModernTreasury
         referenceable_id: nil,
         referenceable_type: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -77,8 +75,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # One of the referenceable types. This must be accompanied by the id of the
       #   referenceable or will return an error.
@@ -101,8 +98,7 @@ module ModernTreasury
           override
             .returns(T::Array[ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::TaggedSymbol])
         end
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

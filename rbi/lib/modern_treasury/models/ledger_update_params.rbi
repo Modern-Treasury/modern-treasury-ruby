@@ -34,8 +34,7 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(description: nil, metadata: nil, name: nil, request_options: {})
-      end
+      def self.new(description: nil, metadata: nil, name: nil, request_options: {}); end
 
       sig do
         override
@@ -48,8 +47,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
     end
   end
 end

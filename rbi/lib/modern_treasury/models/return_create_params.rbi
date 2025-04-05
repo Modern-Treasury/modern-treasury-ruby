@@ -60,9 +60,7 @@ module ModernTreasury
         date_of_death: nil,
         reason: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -78,8 +76,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # The type of object being returned. Currently, this may only be
       #   incoming_payment_detail.
@@ -94,8 +91,7 @@ module ModernTreasury
           T.let(:incoming_payment_detail, ModernTreasury::Models::ReturnCreateParams::ReturnableType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::ReturnCreateParams::ReturnableType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # The return code. For ACH returns, this is the required ACH return code.
@@ -161,8 +157,7 @@ module ModernTreasury
         CURRENCYCLOUD = T.let(:currencycloud, ModernTreasury::Models::ReturnCreateParams::Code::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::ReturnCreateParams::Code::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

@@ -21,10 +21,10 @@ module ModernTreasury
       sig do
         params(
           account_details: T::Array[
-          T.any(
-            ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail,
-            ModernTreasury::Internal::AnyHash
-          )
+            T.any(
+              ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail,
+              ModernTreasury::Internal::AnyHash
+            )
           ]
         )
           .void
@@ -95,10 +95,10 @@ module ModernTreasury
       sig do
         params(
           routing_details: T::Array[
-          T.any(
-            ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail,
-            ModernTreasury::Internal::AnyHash
-          )
+            T.any(
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail,
+              ModernTreasury::Internal::AnyHash
+            )
           ]
         )
           .void
@@ -110,10 +110,10 @@ module ModernTreasury
           internal_account_id: String,
           name: String,
           account_details: T::Array[
-          T.any(
-            ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail,
-            ModernTreasury::Internal::AnyHash
-          )
+            T.any(
+              ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail,
+              ModernTreasury::Internal::AnyHash
+            )
           ],
           counterparty_id: String,
           credit_ledger_account_id: String,
@@ -125,10 +125,10 @@ module ModernTreasury
           ),
           metadata: T::Hash[Symbol, String],
           routing_details: T::Array[
-          T.any(
-            ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail,
-            ModernTreasury::Internal::AnyHash
-          )
+            T.any(
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail,
+              ModernTreasury::Internal::AnyHash
+            )
           ],
           request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
@@ -146,9 +146,7 @@ module ModernTreasury
         metadata: nil,
         routing_details: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -167,8 +165,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class AccountDetail < ModernTreasury::Internal::Type::BaseModel
         # The account number for the bank account.
@@ -199,8 +196,7 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(account_number:, account_number_type: nil)
-        end
+        def self.new(account_number:, account_number_type: nil); end
 
         sig do
           override
@@ -211,8 +207,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
         #   account number is in a generic format.
@@ -287,8 +282,7 @@ module ModernTreasury
                 T::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
       end
 
@@ -388,9 +382,7 @@ module ModernTreasury
           ledgerable_id: nil,
           ledgerable_type: nil,
           metadata: nil
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(
@@ -408,8 +400,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         # If the ledger account links to another object in Modern Treasury, the type will
         #   be populated here, otherwise null. The value is one of internal_account or
@@ -455,8 +446,7 @@ module ModernTreasury
                 T::Array[ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType::TaggedSymbol]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
       end
 
@@ -488,8 +478,7 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(routing_number:, routing_number_type:, payment_type: nil)
-        end
+        def self.new(routing_number:, routing_number_type:, payment_type: nil); end
 
         sig do
           override
@@ -501,8 +490,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         # The type of routing number. See
         #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
@@ -633,8 +621,7 @@ module ModernTreasury
                 T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
 
         # If the routing detail is to be used for a specific payment type this field will
@@ -774,8 +761,7 @@ module ModernTreasury
                 T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
       end
     end

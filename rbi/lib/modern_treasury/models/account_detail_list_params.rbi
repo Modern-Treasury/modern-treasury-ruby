@@ -27,8 +27,7 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(accounts_type:, after_cursor: nil, per_page: nil, request_options: {})
-      end
+      def self.new(accounts_type:, after_cursor: nil, per_page: nil, request_options: {}); end
 
       sig do
         override
@@ -41,8 +40,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
     end
   end
 end

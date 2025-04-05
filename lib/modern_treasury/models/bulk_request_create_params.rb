@@ -617,7 +617,7 @@ module ModernTreasury
             required :ledger_entries,
                      -> do
                        ModernTreasury::Internal::Type::ArrayOf[
-                       ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerEntry
+                         ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerEntry
                        ]
                      end
 
@@ -955,7 +955,7 @@ module ModernTreasury
             optional :account_details,
                      -> do
                        ModernTreasury::Internal::Type::ArrayOf[
-                       ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail
+                         ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail
                        ]
                      end
 
@@ -979,7 +979,7 @@ module ModernTreasury
             optional :contact_details,
                      -> do
                        ModernTreasury::Internal::Type::ArrayOf[
-                       ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail
+                         ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail
                        ]
                      end
 
@@ -1075,7 +1075,7 @@ module ModernTreasury
             optional :routing_details,
                      -> do
                        ModernTreasury::Internal::Type::ArrayOf[
-                       ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail
+                         ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail
                        ]
                      end
 
@@ -1755,7 +1755,7 @@ module ModernTreasury
             required :ledger_entries,
                      -> do
                        ModernTreasury::Internal::Type::ArrayOf[
-                       ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerEntry
+                         ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerEntry
                        ]
                      end
 
@@ -3097,7 +3097,7 @@ module ModernTreasury
             optional :account_details,
                      -> do
                        ModernTreasury::Internal::Type::ArrayOf[
-                       ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail
+                         ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail
                        ]
                      end
 
@@ -3121,7 +3121,7 @@ module ModernTreasury
             optional :contact_details,
                      -> do
                        ModernTreasury::Internal::Type::ArrayOf[
-                       ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail
+                         ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail
                        ]
                      end
 
@@ -3217,7 +3217,7 @@ module ModernTreasury
             optional :routing_details,
                      -> do
                        ModernTreasury::Internal::Type::ArrayOf[
-                       ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail
+                         ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail
                        ]
                      end
 
@@ -3975,7 +3975,7 @@ module ModernTreasury
           optional :ledger_entries,
                    -> do
                      ModernTreasury::Internal::Type::ArrayOf[
-                     ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry
+                       ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry
                      ]
                    end
 

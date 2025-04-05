@@ -50,8 +50,7 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(reason:, ledger_transaction: nil, metadata: nil, request_options: {})
-        end
+        def self.new(reason:, ledger_transaction: nil, metadata: nil, request_options: {}); end
 
         sig do
           override
@@ -64,8 +63,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         # The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`,
         #   `incorrect_receiving_account`, `date_earlier_than_intended`,
@@ -105,8 +103,7 @@ module ModernTreasury
             override
               .returns(T::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::TaggedSymbol])
           end
-          def self.values
-          end
+          def self.values; end
         end
 
         class LedgerTransaction < ModernTreasury::Internal::Type::BaseModel
@@ -207,10 +204,10 @@ module ModernTreasury
           sig do
             params(
               ledger_entries: T::Array[
-              T.any(
-                ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry,
-                ModernTreasury::Internal::AnyHash
-              )
+                T.any(
+                  ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry,
+                  ModernTreasury::Internal::AnyHash
+                )
               ],
               description: T.nilable(String),
               effective_at: Time,
@@ -233,9 +230,7 @@ module ModernTreasury
             ledgerable_type: nil,
             metadata: nil,
             status: nil
-          )
-          end
-
+          ); end
           sig do
             override
               .returns(
@@ -252,8 +247,7 @@ module ModernTreasury
                 }
               )
           end
-          def to_hash
-          end
+          def to_hash; end
 
           class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
             # Value in specified currency's smallest unit. e.g. $10 would be represented
@@ -334,9 +328,7 @@ module ModernTreasury
               pending_balance_amount: nil,
               posted_balance_amount: nil,
               show_resulting_ledger_account_balances: nil
-            )
-            end
-
+            ); end
             sig do
               override
                 .returns(
@@ -353,8 +345,7 @@ module ModernTreasury
                   }
                 )
             end
-            def to_hash
-            end
+            def to_hash; end
           end
 
           # If the ledger transaction can be reconciled to another object in Modern
@@ -412,12 +403,11 @@ module ModernTreasury
               override
                 .returns(
                   T::Array[
-                  ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
+                    ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
                   ]
                 )
             end
-            def self.values
-            end
+            def self.values; end
           end
 
           # To post a ledger transaction at creation, use `posted`.
@@ -457,8 +447,7 @@ module ModernTreasury
                   T::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status::TaggedSymbol]
                 )
             end
-            def self.values
-            end
+            def self.values; end
           end
         end
       end

@@ -338,9 +338,7 @@ module ModernTreasury
         ultimate_receiving_party_identifier: nil,
         ultimate_receiving_party_name: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -383,8 +381,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class Accounting < ModernTreasury::Internal::Type::BaseModel
         # The ID of one of your accounting categories. Note that these will only be
@@ -399,12 +396,10 @@ module ModernTreasury
         attr_accessor :class_id
 
         sig { params(account_id: T.nilable(String), class_id: T.nilable(String)).returns(T.attached_class) }
-        def self.new(account_id: nil, class_id: nil)
-        end
+        def self.new(account_id: nil, class_id: nil); end
 
         sig { override.returns({account_id: T.nilable(String), class_id: T.nilable(String)}) }
-        def to_hash
-        end
+        def to_hash; end
       end
 
       # The party that will pay the fees for the payment order. Only applies to wire
@@ -423,8 +418,7 @@ module ModernTreasury
         RECEIVER = T.let(:receiver, ModernTreasury::Models::PaymentOrderUpdateParams::ChargeBearer::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ChargeBearer::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # One of `credit`, `debit`. Describes the direction money is flowing in the
@@ -443,8 +437,7 @@ module ModernTreasury
         DEBIT = T.let(:debit, ModernTreasury::Models::PaymentOrderUpdateParams::Direction::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::Direction::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # A payment type to fallback to if the original type is not valid for the
@@ -461,8 +454,7 @@ module ModernTreasury
         ACH = T.let(:ach, ModernTreasury::Models::PaymentOrderUpdateParams::FallbackType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::FallbackType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # Indicates the type of FX transfer to initiate, can be either
@@ -499,8 +491,7 @@ module ModernTreasury
               T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ForeignExchangeIndicator::TaggedSymbol]
             )
         end
-        def self.values
-        end
+        def self.values; end
       end
 
       class LineItem < ModernTreasury::Internal::Type::BaseModel
@@ -535,8 +526,7 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(amount:, accounting_category_id: nil, description: nil, metadata: nil)
-        end
+        def self.new(amount:, accounting_category_id: nil, description: nil, metadata: nil); end
 
         sig do
           override
@@ -549,8 +539,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
       end
 
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
@@ -567,8 +556,7 @@ module ModernTreasury
         NORMAL = T.let(:normal, ModernTreasury::Models::PaymentOrderUpdateParams::Priority::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::Priority::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       class ReceivingAccount < ModernTreasury::Internal::Type::BaseModel
@@ -582,10 +570,10 @@ module ModernTreasury
         sig do
           params(
             account_details: T::Array[
-            T.any(
-              ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail,
-              ModernTreasury::Internal::AnyHash
-            )
+              T.any(
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail,
+                ModernTreasury::Internal::AnyHash
+              )
             ]
           )
             .void
@@ -609,10 +597,10 @@ module ModernTreasury
         sig do
           params(
             contact_details: T::Array[
-            T.any(
-              ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail,
-              ModernTreasury::Internal::AnyHash
-            )
+              T.any(
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail,
+                ModernTreasury::Internal::AnyHash
+              )
             ]
           )
             .void
@@ -705,10 +693,10 @@ module ModernTreasury
         sig do
           params(
             routing_details: T::Array[
-            T.any(
-              ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail,
-              ModernTreasury::Internal::AnyHash
-            )
+              T.any(
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail,
+                ModernTreasury::Internal::AnyHash
+              )
             ]
           )
             .void
@@ -721,17 +709,17 @@ module ModernTreasury
         sig do
           params(
             account_details: T::Array[
-            T.any(
-              ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail,
-              ModernTreasury::Internal::AnyHash
-            )
+              T.any(
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail,
+                ModernTreasury::Internal::AnyHash
+              )
             ],
             account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
             contact_details: T::Array[
-            T.any(
-              ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail,
-              ModernTreasury::Internal::AnyHash
-            )
+              T.any(
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail,
+                ModernTreasury::Internal::AnyHash
+              )
             ],
             ledger_account: T.any(
               ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount,
@@ -748,10 +736,10 @@ module ModernTreasury
             party_type: T.nilable(ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyType::OrSymbol),
             plaid_processor_token: String,
             routing_details: T::Array[
-            T.any(
-              ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail,
-              ModernTreasury::Internal::AnyHash
-            )
+              T.any(
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail,
+                ModernTreasury::Internal::AnyHash
+              )
             ]
           )
             .returns(T.attached_class)
@@ -769,9 +757,7 @@ module ModernTreasury
           party_type: nil,
           plaid_processor_token: nil,
           routing_details: nil
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(
@@ -791,8 +777,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         class AccountDetail < ModernTreasury::Internal::Type::BaseModel
           sig { returns(String) }
@@ -822,8 +807,7 @@ module ModernTreasury
             )
               .returns(T.attached_class)
           end
-          def self.new(account_number:, account_number_type: nil)
-          end
+          def self.new(account_number:, account_number_type: nil); end
 
           sig do
             override
@@ -834,8 +818,7 @@ module ModernTreasury
                 }
               )
           end
-          def to_hash
-          end
+          def to_hash; end
 
           module AccountNumberType
             extend ModernTreasury::Internal::Type::Enum
@@ -908,12 +891,11 @@ module ModernTreasury
               override
                 .returns(
                   T::Array[
-                  ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
+                    ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
                   ]
                 )
             end
-            def self.values
-            end
+            def self.values; end
           end
         end
 
@@ -948,8 +930,7 @@ module ModernTreasury
             )
               .returns(T.attached_class)
           end
-          def self.new(contact_identifier: nil, contact_identifier_type: nil)
-          end
+          def self.new(contact_identifier: nil, contact_identifier_type: nil); end
 
           sig do
             override
@@ -960,8 +941,7 @@ module ModernTreasury
                 }
               )
           end
-          def to_hash
-          end
+          def to_hash; end
 
           module ContactIdentifierType
             extend ModernTreasury::Internal::Type::Enum
@@ -999,12 +979,11 @@ module ModernTreasury
               override
                 .returns(
                   T::Array[
-                  ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
+                    ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
                   ]
                 )
             end
-            def self.values
-            end
+            def self.values; end
           end
         end
 
@@ -1108,9 +1087,7 @@ module ModernTreasury
             ledgerable_id: nil,
             ledgerable_type: nil,
             metadata: nil
-          )
-          end
-
+          ); end
           sig do
             override
               .returns(
@@ -1128,8 +1105,7 @@ module ModernTreasury
                 }
               )
           end
-          def to_hash
-          end
+          def to_hash; end
 
           # If the ledger account links to another object in Modern Treasury, the type will
           #   be populated here, otherwise null. The value is one of internal_account or
@@ -1175,12 +1151,11 @@ module ModernTreasury
               override
                 .returns(
                   T::Array[
-                  ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::LedgerableType::TaggedSymbol
+                    ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::LedgerableType::TaggedSymbol
                   ]
                 )
             end
-            def self.values
-            end
+            def self.values; end
           end
         end
 
@@ -1235,8 +1210,7 @@ module ModernTreasury
                 }
               )
           end
-          def to_hash
-          end
+          def to_hash; end
         end
 
         # Either `individual` or `business`.
@@ -1271,8 +1245,7 @@ module ModernTreasury
                 T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyType::TaggedSymbol]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
 
         class RoutingDetail < ModernTreasury::Internal::Type::BaseModel
@@ -1311,8 +1284,7 @@ module ModernTreasury
             )
               .returns(T.attached_class)
           end
-          def self.new(routing_number:, routing_number_type:, payment_type: nil)
-          end
+          def self.new(routing_number:, routing_number_type:, payment_type: nil); end
 
           sig do
             override
@@ -1324,8 +1296,7 @@ module ModernTreasury
                 }
               )
           end
-          def to_hash
-          end
+          def to_hash; end
 
           module RoutingNumberType
             extend ModernTreasury::Internal::Type::Enum
@@ -1453,12 +1424,11 @@ module ModernTreasury
               override
                 .returns(
                   T::Array[
-                  ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+                    ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
                   ]
                 )
             end
-            def self.values
-            end
+            def self.values; end
           end
 
           module PaymentType
@@ -1632,12 +1602,11 @@ module ModernTreasury
               override
                 .returns(
                   T::Array[
-                  ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                    ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
                   ]
                 )
             end
-            def self.values
-            end
+            def self.values; end
           end
         end
       end
@@ -1666,8 +1635,7 @@ module ModernTreasury
         SENT = T.let(:sent, ModernTreasury::Models::PaymentOrderUpdateParams::Status::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::Status::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

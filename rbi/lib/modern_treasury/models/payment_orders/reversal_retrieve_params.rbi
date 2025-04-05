@@ -17,12 +17,10 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(payment_order_id:, request_options: {})
-        end
+        def self.new(payment_order_id:, request_options: {}); end
 
         sig { override.returns({payment_order_id: String, request_options: ModernTreasury::RequestOptions}) }
-        def to_hash
-        end
+        def to_hash; end
       end
     end
   end

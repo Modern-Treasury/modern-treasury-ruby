@@ -20,8 +20,7 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(status: nil, request_options: {})
-      end
+      def self.new(status: nil, request_options: {}); end
 
       sig do
         override
@@ -32,8 +31,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # The status of the connection legal entity.
       module Status
@@ -50,8 +48,7 @@ module ModernTreasury
         sig do
           override.returns(T::Array[ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status::TaggedSymbol])
         end
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

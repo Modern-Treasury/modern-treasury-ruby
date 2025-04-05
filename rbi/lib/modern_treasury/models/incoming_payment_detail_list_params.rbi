@@ -97,9 +97,7 @@ module ModernTreasury
         type: nil,
         virtual_account_id: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -117,8 +115,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # The current status of the incoming payment order. One of `pending`, `completed`,
       #   or `returned`.
@@ -137,8 +134,7 @@ module ModernTreasury
           T.let(:returned, ModernTreasury::Models::IncomingPaymentDetailListParams::Status::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::IncomingPaymentDetailListParams::Status::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
@@ -166,8 +162,7 @@ module ModernTreasury
         WIRE = T.let(:wire, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

@@ -106,10 +106,10 @@ module ModernTreasury
             effective_date: Date,
             external_id: T.nilable(String),
             ledger_entries: T::Array[
-            T.any(
-              ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry,
-              ModernTreasury::Internal::AnyHash
-            )
+              T.any(
+                ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry,
+                ModernTreasury::Internal::AnyHash
+              )
             ],
             ledger_id: String,
             ledger_transaction_id: String,
@@ -148,9 +148,7 @@ module ModernTreasury
           reverses_ledger_transaction_id:,
           status:,
           version:
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(
@@ -180,8 +178,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
           sig { returns(String) }
@@ -315,9 +312,7 @@ module ModernTreasury
             object:,
             resulting_ledger_account_balances:,
             status:
-          )
-          end
-
+          ); end
           sig do
             override
               .returns(
@@ -341,8 +336,7 @@ module ModernTreasury
                 }
               )
           end
-          def to_hash
-          end
+          def to_hash; end
 
           class ResultingLedgerAccountBalances < ModernTreasury::Internal::Type::BaseModel
             # The available_balance is the sum of all posted inbound entries and pending
@@ -429,8 +423,7 @@ module ModernTreasury
               )
                 .returns(T.attached_class)
             end
-            def self.new(available_balance:, pending_balance:, posted_balance:)
-            end
+            def self.new(available_balance:, pending_balance:, posted_balance:); end
 
             sig do
               override
@@ -442,8 +435,7 @@ module ModernTreasury
                   }
                 )
             end
-            def to_hash
-            end
+            def to_hash; end
 
             class AvailableBalance < ModernTreasury::Internal::Type::BaseModel
               sig { returns(Integer) }
@@ -477,8 +469,7 @@ module ModernTreasury
                 )
                   .returns(T.attached_class)
               end
-              def self.new(amount:, credits:, currency:, currency_exponent:, debits:)
-              end
+              def self.new(amount:, credits:, currency:, currency_exponent:, debits:); end
 
               sig do
                 override
@@ -492,8 +483,7 @@ module ModernTreasury
                     }
                   )
               end
-              def to_hash
-              end
+              def to_hash; end
             end
 
             class PendingBalance < ModernTreasury::Internal::Type::BaseModel
@@ -525,8 +515,7 @@ module ModernTreasury
                 )
                   .returns(T.attached_class)
               end
-              def self.new(amount:, credits:, currency:, currency_exponent:, debits:)
-              end
+              def self.new(amount:, credits:, currency:, currency_exponent:, debits:); end
 
               sig do
                 override
@@ -540,8 +529,7 @@ module ModernTreasury
                     }
                   )
               end
-              def to_hash
-              end
+              def to_hash; end
             end
 
             class PostedBalance < ModernTreasury::Internal::Type::BaseModel
@@ -573,8 +561,7 @@ module ModernTreasury
                 )
                   .returns(T.attached_class)
               end
-              def self.new(amount:, credits:, currency:, currency_exponent:, debits:)
-              end
+              def self.new(amount:, credits:, currency:, currency_exponent:, debits:); end
 
               sig do
                 override
@@ -588,8 +575,7 @@ module ModernTreasury
                     }
                   )
               end
-              def to_hash
-              end
+              def to_hash; end
             end
           end
 
@@ -631,8 +617,7 @@ module ModernTreasury
                   T::Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::Status::TaggedSymbol]
                 )
             end
-            def self.values
-            end
+            def self.values; end
           end
         end
 
@@ -690,8 +675,7 @@ module ModernTreasury
                 T::Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerableType::TaggedSymbol]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
 
         # One of `pending`, `posted`, or `archived`.
@@ -728,8 +712,7 @@ module ModernTreasury
                 T::Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::Status::TaggedSymbol]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
       end
     end

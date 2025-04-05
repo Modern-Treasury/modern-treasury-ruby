@@ -63,9 +63,7 @@ module ModernTreasury
         object:,
         updated_at:,
         account_number: nil
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -82,8 +80,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
       #   account number is in a generic format.
@@ -107,8 +104,7 @@ module ModernTreasury
           T.let(:wallet_address, ModernTreasury::Models::AccountDetail::AccountNumberType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::AccountDetail::AccountNumberType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

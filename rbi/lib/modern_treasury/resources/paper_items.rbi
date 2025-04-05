@@ -7,12 +7,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::PaperItem)
       end
@@ -20,9 +15,7 @@ module ModernTreasury
         # id
         id,
         request_options: {}
-      )
-      end
-
+      ); end
       # Get a list of all paper items.
       sig do
         params(
@@ -31,12 +24,7 @@ module ModernTreasury
           deposit_date_start: Date,
           lockbox_number: String,
           per_page: Integer,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::PaperItem])
       end
@@ -51,13 +39,10 @@ module ModernTreasury
         lockbox_number: nil,
         per_page: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

@@ -58,9 +58,7 @@ module ModernTreasury
         originating_account_id:,
         due_date: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -75,8 +73,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # Required. Describes the direction money is flowing in the transaction. Can only
       #   be `debit`. A `debit` pulls money from someone else's account to your own.
@@ -91,8 +88,7 @@ module ModernTreasury
         DEBIT = T.let(:debit, ModernTreasury::Models::PaymentFlowCreateParams::Direction::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::PaymentFlowCreateParams::Direction::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

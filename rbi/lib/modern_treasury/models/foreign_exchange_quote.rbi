@@ -98,9 +98,7 @@ module ModernTreasury
         object:,
         updated_at:,
         vendor_id: nil
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -120,8 +118,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class ForeignExchangeRate < ModernTreasury::Internal::Type::BaseModel
         # Amount in the lowest denomination of the `base_currency` to convert, often
@@ -194,8 +191,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
       end
     end
   end

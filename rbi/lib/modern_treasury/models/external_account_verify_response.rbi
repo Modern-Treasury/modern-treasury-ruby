@@ -87,9 +87,7 @@ module ModernTreasury
           priority:,
           status:,
           updated_at:
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(
@@ -109,8 +107,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         # The type of payment that can be made to this account. Can be `ach`, `eft`, or
         #   `rtp`.
@@ -285,12 +282,11 @@ module ModernTreasury
             override
               .returns(
                 T::Array[
-                ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::TaggedSymbol
+                  ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::TaggedSymbol
                 ]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
 
         # The priority of the payment. Can be `normal` or `high`.
@@ -325,12 +321,11 @@ module ModernTreasury
             override
               .returns(
                 T::Array[
-                ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority::TaggedSymbol
+                  ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority::TaggedSymbol
                 ]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
 
         # The status of the verification attempt. Can be `pending_verification`,
@@ -376,12 +371,11 @@ module ModernTreasury
             override
               .returns(
                 T::Array[
-                ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status::TaggedSymbol
+                  ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status::TaggedSymbol
                 ]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
       end
 
@@ -391,8 +385,7 @@ module ModernTreasury
             [ModernTreasury::Models::ExternalAccount, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt]
           )
       end
-      def self.variants
-      end
+      def self.variants; end
     end
   end
 end

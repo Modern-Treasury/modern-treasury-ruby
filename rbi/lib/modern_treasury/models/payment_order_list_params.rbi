@@ -161,9 +161,7 @@ module ModernTreasury
         transaction_id: nil,
         type: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -189,8 +187,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
       #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
@@ -206,8 +203,7 @@ module ModernTreasury
         NORMAL = T.let(:normal, ModernTreasury::Models::PaymentOrderListParams::Priority::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderListParams::Priority::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       module Status
@@ -231,8 +227,7 @@ module ModernTreasury
         SENT = T.let(:sent, ModernTreasury::Models::PaymentOrderListParams::Status::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderListParams::Status::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       module Type
@@ -274,8 +269,7 @@ module ModernTreasury
         ZENGIN = T.let(:zengin, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

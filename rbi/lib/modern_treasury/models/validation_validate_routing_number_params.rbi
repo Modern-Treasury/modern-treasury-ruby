@@ -25,8 +25,7 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(routing_number:, routing_number_type:, request_options: {})
-      end
+      def self.new(routing_number:, routing_number_type:, request_options: {}); end
 
       sig do
         override
@@ -38,8 +37,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # The type of routing number. See
       #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
@@ -171,8 +169,7 @@ module ModernTreasury
               T::Array[ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::TaggedSymbol]
             )
         end
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

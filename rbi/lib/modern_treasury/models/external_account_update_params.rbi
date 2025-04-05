@@ -79,9 +79,7 @@ module ModernTreasury
         party_name: nil,
         party_type: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -97,8 +95,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class PartyAddress < ModernTreasury::Internal::Type::BaseModel
         # Country code conforms to [ISO 3166-1 alpha-2]
@@ -134,8 +131,7 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
-        end
+        def self.new(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil); end
 
         sig do
           override
@@ -150,8 +146,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
       end
 
       # Either `individual` or `business`.
@@ -168,8 +163,7 @@ module ModernTreasury
           T.let(:individual, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

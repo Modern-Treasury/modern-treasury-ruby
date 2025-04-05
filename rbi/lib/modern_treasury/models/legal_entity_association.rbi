@@ -79,9 +79,7 @@ module ModernTreasury
         relationship_types:,
         title:,
         updated_at:
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -100,8 +98,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class ChildLegalEntity < ModernTreasury::Internal::Type::BaseModel
         sig { returns(String) }
@@ -257,10 +254,10 @@ module ModernTreasury
           params(
             id: String,
             addresses: T::Array[
-            T.any(
-              ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address,
-              ModernTreasury::Internal::AnyHash
-            )
+              T.any(
+                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address,
+                ModernTreasury::Internal::AnyHash
+              )
             ],
             bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Internal::AnyHash)),
             business_name: T.nilable(String),
@@ -274,10 +271,10 @@ module ModernTreasury
             email: T.nilable(String),
             first_name: T.nilable(String),
             identifications: T::Array[
-            T.any(
-              ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification,
-              ModernTreasury::Internal::AnyHash
-            )
+              T.any(
+                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification,
+                ModernTreasury::Internal::AnyHash
+              )
             ],
             industry_classifications: T::Array[T.any(ModernTreasury::Models::LegalEntityIndustryClassification, ModernTreasury::Internal::AnyHash)],
             last_name: T.nilable(String),
@@ -288,10 +285,10 @@ module ModernTreasury
             middle_name: T.nilable(String),
             object: String,
             phone_numbers: T::Array[
-            T.any(
-              ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::PhoneNumber,
-              ModernTreasury::Internal::AnyHash
-            )
+              T.any(
+                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::PhoneNumber,
+                ModernTreasury::Internal::AnyHash
+              )
             ],
             politically_exposed_person: T.nilable(T::Boolean),
             preferred_name: T.nilable(String),
@@ -336,9 +333,7 @@ module ModernTreasury
           updated_at:,
           wealth_and_employment_details:,
           website:
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(
@@ -377,8 +372,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         class Address < ModernTreasury::Internal::Type::BaseModel
           sig { returns(String) }
@@ -463,9 +457,7 @@ module ModernTreasury
             postal_code:,
             region:,
             updated_at:
-          )
-          end
-
+          ); end
           sig do
             override
               .returns(
@@ -486,8 +478,7 @@ module ModernTreasury
                 }
               )
           end
-          def to_hash
-          end
+          def to_hash; end
 
           module AddressType
             extend ModernTreasury::Internal::Type::Enum
@@ -535,8 +526,7 @@ module ModernTreasury
                   T::Array[ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol]
                 )
             end
-            def self.values
-            end
+            def self.values; end
           end
         end
 
@@ -614,8 +604,7 @@ module ModernTreasury
                 }
               )
           end
-          def to_hash
-          end
+          def to_hash; end
 
           # The type of ID number.
           module IDType
@@ -744,8 +733,7 @@ module ModernTreasury
                   T::Array[ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol]
                 )
             end
-            def self.values
-            end
+            def self.values; end
           end
         end
 
@@ -786,8 +774,7 @@ module ModernTreasury
                 T::Array[ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::TaggedSymbol]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
 
         # The business's legal structure.
@@ -842,8 +829,7 @@ module ModernTreasury
                 T::Array[ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
 
         class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
@@ -855,12 +841,10 @@ module ModernTreasury
 
           # A list of phone numbers in E.164 format.
           sig { params(phone_number: String).returns(T.attached_class) }
-          def self.new(phone_number: nil)
-          end
+          def self.new(phone_number: nil); end
 
           sig { override.returns({phone_number: String}) }
-          def to_hash
-          end
+          def to_hash; end
         end
 
         # The risk rating of the legal entity. One of low, medium, high.
@@ -891,8 +875,7 @@ module ModernTreasury
                 T::Array[ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
       end
 
@@ -911,8 +894,7 @@ module ModernTreasury
           T.let(:control_person, ModernTreasury::Models::LegalEntityAssociation::RelationshipType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::LegalEntityAssociation::RelationshipType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

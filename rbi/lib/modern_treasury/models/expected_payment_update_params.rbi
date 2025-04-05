@@ -130,9 +130,7 @@ module ModernTreasury
         status: nil,
         type: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -158,8 +156,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
@@ -175,8 +172,7 @@ module ModernTreasury
         DEBIT = T.let(:debit, ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # The Expected Payment's status can be updated from partially_reconciled to
@@ -193,8 +189,7 @@ module ModernTreasury
           T.let(:reconciled, ModernTreasury::Models::ExpectedPaymentUpdateParams::Status::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPaymentUpdateParams::Status::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end
