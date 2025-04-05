@@ -22,7 +22,7 @@ class ModernTreasury::Test::Resources::AccountDetailsTest < ModernTreasury::Test
         account_number_type: ModernTreasury::Models::AccountDetail::AccountNumberType,
         created_at: Time,
         discarded_at: Time | nil,
-        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         updated_at: Time,
         account_number: String | nil
@@ -49,7 +49,7 @@ class ModernTreasury::Test::Resources::AccountDetailsTest < ModernTreasury::Test
         account_number_type: ModernTreasury::Models::AccountDetail::AccountNumberType,
         created_at: Time,
         discarded_at: Time | nil,
-        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         updated_at: Time,
         account_number: String | nil
@@ -78,7 +78,7 @@ class ModernTreasury::Test::Resources::AccountDetailsTest < ModernTreasury::Test
         account_number_type: ModernTreasury::Models::AccountDetail::AccountNumberType,
         created_at: Time,
         discarded_at: Time | nil,
-        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         updated_at: Time,
         account_number: String | nil

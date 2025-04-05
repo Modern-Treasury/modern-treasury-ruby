@@ -50,7 +50,7 @@ module ModernTreasury
       #     whenever an associated payment order is sent to the bank.
       #
       #   @return [Boolean, nil]
-      optional :send_remittance_advice, ModernTreasury::Internal::Type::BooleanModel
+      optional :send_remittance_advice, ModernTreasury::Internal::Type::Boolean
 
       # @!parse
       #   # @return [Boolean]

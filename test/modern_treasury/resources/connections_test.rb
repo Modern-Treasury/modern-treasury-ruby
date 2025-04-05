@@ -22,7 +22,7 @@ class ModernTreasury::Test::Resources::ConnectionsTest < ModernTreasury::Test::R
         id: String,
         created_at: Time,
         discarded_at: Time | nil,
-        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         updated_at: Time,
         vendor_customer_id: String | nil,

@@ -1,7 +1,7 @@
 module ModernTreasury
   module Internal
     module Type
-      class BooleanModel
+      class Boolean
         extend ModernTreasury::Internal::Type::Converter
 
         def self.===: (top other) -> bool

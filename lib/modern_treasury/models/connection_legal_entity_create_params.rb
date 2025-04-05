@@ -197,7 +197,7 @@ module ModernTreasury
         #   Whether the individual is a politically exposed person.
         #
         #   @return [Boolean, nil]
-        optional :politically_exposed_person, ModernTreasury::Internal::Type::BooleanModel, nil?: true
+        optional :politically_exposed_person, ModernTreasury::Internal::Type::Boolean, nil?: true
 
         # @!attribute preferred_name
         #   An individual's preferred name.
@@ -680,7 +680,7 @@ module ModernTreasury
             #   Whether the individual is a politically exposed person.
             #
             #   @return [Boolean, nil]
-            optional :politically_exposed_person, ModernTreasury::Internal::Type::BooleanModel, nil?: true
+            optional :politically_exposed_person, ModernTreasury::Internal::Type::Boolean, nil?: true
 
             # @!attribute preferred_name
             #   An individual's preferred name.

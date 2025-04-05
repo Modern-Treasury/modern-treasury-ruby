@@ -18,7 +18,7 @@ class ModernTreasury::Test::Resources::EventsTest < ModernTreasury::Test::Resour
         entity_id: String,
         event_name: String,
         event_time: Time,
-        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         resource: String,
         updated_at: Time
@@ -48,7 +48,7 @@ class ModernTreasury::Test::Resources::EventsTest < ModernTreasury::Test::Resour
         entity_id: String,
         event_name: String,
         event_time: Time,
-        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         resource: String,
         updated_at: Time

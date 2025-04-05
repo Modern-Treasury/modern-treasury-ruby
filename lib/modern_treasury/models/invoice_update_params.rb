@@ -88,7 +88,7 @@ module ModernTreasury
       #     empty. Ignored if ledger_account_settlement_id is empty.
       #
       #   @return [Boolean, nil]
-      optional :ingest_ledger_entries, ModernTreasury::Internal::Type::BooleanModel, nil?: true
+      optional :ingest_ledger_entries, ModernTreasury::Internal::Type::Boolean, nil?: true
 
       # @!attribute invoice_line_items
       #   An array of invoice line items. The API supports a maximum of 50 invoice line
@@ -134,7 +134,7 @@ module ModernTreasury
       #     about invoice status changes.
       #
       #   @return [Boolean, nil]
-      optional :notifications_enabled, ModernTreasury::Internal::Type::BooleanModel
+      optional :notifications_enabled, ModernTreasury::Internal::Type::Boolean
 
       # @!parse
       #   # @return [Boolean]
@@ -332,7 +332,7 @@ module ModernTreasury
         #     if it exists in the test environment.
         #
         #   @return [Boolean]
-        required :live_mode, ModernTreasury::Internal::Type::BooleanModel
+        required :live_mode, ModernTreasury::Internal::Type::Boolean
 
         # @!attribute object
         #

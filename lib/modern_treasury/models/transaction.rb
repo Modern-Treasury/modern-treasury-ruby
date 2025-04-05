@@ -84,7 +84,7 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::Internal::Type::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
@@ -102,7 +102,7 @@ module ModernTreasury
       #   This field will be `true` if the transaction has posted to the account.
       #
       #   @return [Boolean]
-      required :posted, ModernTreasury::Internal::Type::BooleanModel
+      required :posted, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute reconciled
       #   This field will be `true` if a transaction is reconciled by the Modern Treasury
@@ -110,7 +110,7 @@ module ModernTreasury
       #     transaction's amount.
       #
       #   @return [Boolean]
-      required :reconciled, ModernTreasury::Internal::Type::BooleanModel
+      required :reconciled, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute type
       #   The type of the transaction. Examples could be

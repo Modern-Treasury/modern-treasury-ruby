@@ -188,7 +188,7 @@ module ModernTreasury
       #     that this setting must also be turned on in your organization settings page.
       #
       #   @return [Boolean, nil]
-      optional :nsf_protected, ModernTreasury::Internal::Type::BooleanModel
+      optional :nsf_protected, ModernTreasury::Internal::Type::Boolean
 
       # @!parse
       #   # @return [Boolean]
@@ -271,7 +271,7 @@ module ModernTreasury
       #     `null`, `send_remittance_advice` on the Counterparty is used.
       #
       #   @return [Boolean, nil]
-      optional :send_remittance_advice, ModernTreasury::Internal::Type::BooleanModel, nil?: true
+      optional :send_remittance_advice, ModernTreasury::Internal::Type::Boolean, nil?: true
 
       # @!attribute statement_descriptor
       #   An optional descriptor which will appear in the receiver's statement. For
@@ -298,7 +298,7 @@ module ModernTreasury
       #     monitoring.
       #
       #   @return [Boolean, nil]
-      optional :transaction_monitoring_enabled, ModernTreasury::Internal::Type::BooleanModel
+      optional :transaction_monitoring_enabled, ModernTreasury::Internal::Type::Boolean
 
       # @!parse
       #   # @return [Boolean]
@@ -700,7 +700,7 @@ module ModernTreasury
           #
           #   @return [Boolean, nil]
           optional :show_resulting_ledger_account_balances,
-                   ModernTreasury::Internal::Type::BooleanModel,
+                   ModernTreasury::Internal::Type::Boolean,
                    nil?: true
 
           # @!parse

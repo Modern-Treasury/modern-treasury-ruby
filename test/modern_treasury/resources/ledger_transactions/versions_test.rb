@@ -30,7 +30,7 @@ class ModernTreasury::Test::Resources::LedgerTransactions::VersionsTest < Modern
         ledger_transaction_id: String,
         ledgerable_id: String | nil,
         ledgerable_type: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerableType | nil,
-        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         partially_posts_ledger_transaction_id: String | nil,

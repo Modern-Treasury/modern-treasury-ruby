@@ -108,7 +108,7 @@ module ModernTreasury
       #   Either `true` or `false`.
       #
       #   @return [Boolean, nil]
-      optional :posted, ModernTreasury::Internal::Type::BooleanModel
+      optional :posted, ModernTreasury::Internal::Type::Boolean
 
       # @!parse
       #   # @return [Boolean]

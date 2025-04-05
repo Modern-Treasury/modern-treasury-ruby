@@ -64,7 +64,7 @@ module ModernTreasury
             in Hash
               type_info(spec.slice(:const, :enum, :union).first&.last)
             in true | false
-              -> { ModernTreasury::Internal::Type::BooleanModel }
+              -> { ModernTreasury::Internal::Type::Boolean }
             in ModernTreasury::Internal::Type::Converter | Class | Symbol
               -> { spec }
             in NilClass | Integer | Float
