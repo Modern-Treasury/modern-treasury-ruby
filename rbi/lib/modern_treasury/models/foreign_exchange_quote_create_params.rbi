@@ -64,9 +64,7 @@ module ModernTreasury
         effective_at: nil,
         target_amount: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -81,8 +79,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
     end
   end
 end

@@ -91,9 +91,7 @@ module ModernTreasury
         ledgerable_type: nil,
         metadata: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -112,8 +110,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # If the ledger account links to another object in Modern Treasury, the type will
       #   be populated here, otherwise null. The value is one of internal_account or
@@ -138,8 +135,7 @@ module ModernTreasury
         sig do
           override.returns(T::Array[ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::TaggedSymbol])
         end
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

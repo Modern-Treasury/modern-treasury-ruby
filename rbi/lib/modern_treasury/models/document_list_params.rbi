@@ -62,8 +62,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # The type of the associated object. Currently can be one of `payment_order`,
       #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
@@ -103,8 +102,7 @@ module ModernTreasury
           T.let(:connections, ModernTreasury::Models::DocumentListParams::DocumentableType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::DocumentListParams::DocumentableType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

@@ -775,7 +775,7 @@ module ModernTreasury
             optional :address_types,
                      -> do
                        ModernTreasury::Internal::Type::ArrayOf[
-                       enum: ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Address::AddressType
+                         enum: ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Address::AddressType
                        ]
                      end
 

@@ -81,9 +81,7 @@ module ModernTreasury
         routing_number:,
         routing_number_type:,
         updated_at:
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -102,8 +100,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class BankAddress < ModernTreasury::Internal::Type::BaseModel
         sig { returns(String) }
@@ -173,9 +170,7 @@ module ModernTreasury
           postal_code:,
           region:,
           updated_at:
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(
@@ -194,8 +189,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
       end
 
       # If the routing detail is to be used for a specific payment type this field will
@@ -239,8 +233,7 @@ module ModernTreasury
         ZENGIN = T.let(:zengin, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # The type of routing number. See
@@ -289,8 +282,7 @@ module ModernTreasury
           T.let(:za_national_clearing_code, ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

@@ -80,9 +80,7 @@ module ModernTreasury
         object:,
         source:,
         updated_at:
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -102,8 +100,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class DocumentDetail < ModernTreasury::Internal::Type::BaseModel
         sig { returns(String) }
@@ -154,9 +151,7 @@ module ModernTreasury
           live_mode:,
           object:,
           updated_at:
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(
@@ -172,8 +167,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
       end
 
       # The type of the associated object. Currently can be one of `payment_order`,
@@ -204,8 +198,7 @@ module ModernTreasury
         CONNECTION = T.let(:connection, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::Document::DocumentableType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       class File < ModernTreasury::Internal::Type::BaseModel
@@ -231,12 +224,10 @@ module ModernTreasury
         attr_writer :size
 
         sig { params(content_type: String, filename: String, size: Integer).returns(T.attached_class) }
-        def self.new(content_type: nil, filename: nil, size: nil)
-        end
+        def self.new(content_type: nil, filename: nil, size: nil); end
 
         sig { override.returns({content_type: String, filename: String, size: Integer}) }
-        def to_hash
-        end
+        def to_hash; end
       end
     end
   end

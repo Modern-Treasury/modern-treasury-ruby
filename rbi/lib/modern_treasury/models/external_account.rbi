@@ -124,9 +124,7 @@ module ModernTreasury
         updated_at:,
         verification_source:,
         verification_status:
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -153,8 +151,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class ContactDetail < ModernTreasury::Internal::Type::BaseModel
         sig { returns(String) }
@@ -205,9 +202,7 @@ module ModernTreasury
           live_mode:,
           object:,
           updated_at:
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(
@@ -223,8 +218,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         module ContactIdentifierType
           extend ModernTreasury::Internal::Type::Enum
@@ -259,8 +253,7 @@ module ModernTreasury
                 T::Array[ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType::TaggedSymbol]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
       end
 
@@ -333,9 +326,7 @@ module ModernTreasury
           postal_code:,
           region:,
           updated_at:
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(
@@ -354,8 +345,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
       end
 
       # Either `individual` or `business`.
@@ -370,8 +360,7 @@ module ModernTreasury
         INDIVIDUAL = T.let(:individual, ModernTreasury::Models::ExternalAccount::PartyType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::ExternalAccount::PartyType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       module VerificationSource
@@ -389,8 +378,7 @@ module ModernTreasury
         PLAID = T.let(:plaid, ModernTreasury::Models::ExternalAccount::VerificationSource::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::ExternalAccount::VerificationSource::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       module VerificationStatus
@@ -408,8 +396,7 @@ module ModernTreasury
         VERIFIED = T.let(:verified, ModernTreasury::Models::ExternalAccount::VerificationStatus::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::ExternalAccount::VerificationStatus::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

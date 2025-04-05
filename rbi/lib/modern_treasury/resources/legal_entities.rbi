@@ -22,10 +22,10 @@ module ModernTreasury
           last_name: T.nilable(String),
           legal_entity_associations: T.nilable(
             T::Array[
-            T.any(
-              ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation,
-              ModernTreasury::Internal::AnyHash
-            )
+              T.any(
+                ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation,
+                ModernTreasury::Internal::AnyHash
+              )
             ]
           ),
           legal_structure: T.nilable(ModernTreasury::Models::LegalEntityCreateParams::LegalStructure::OrSymbol),
@@ -39,12 +39,7 @@ module ModernTreasury
           suffix: T.nilable(String),
           wealth_and_employment_details: T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Internal::AnyHash)),
           website: T.nilable(String),
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::LegalEntity)
       end
@@ -98,19 +93,12 @@ module ModernTreasury
         # The entity's primary website URL.
         website: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Get details on a single legal entity.
       sig do
         params(
           id: String,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::LegalEntity)
       end
@@ -118,9 +106,7 @@ module ModernTreasury
         # id
         id,
         request_options: {}
-      )
-      end
-
+      ); end
       # Update a legal entity.
       sig do
         params(
@@ -149,12 +135,7 @@ module ModernTreasury
           suffix: T.nilable(String),
           wealth_and_employment_details: T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Internal::AnyHash)),
           website: T.nilable(String),
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::LegalEntity)
       end
@@ -206,9 +187,7 @@ module ModernTreasury
         # The entity's primary website URL.
         website: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Get a list of all legal entities.
       sig do
         params(
@@ -217,12 +196,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
           show_deleted: String,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::LegalEntity])
       end
@@ -236,13 +210,10 @@ module ModernTreasury
         per_page: nil,
         show_deleted: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

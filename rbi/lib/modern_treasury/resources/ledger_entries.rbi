@@ -8,12 +8,7 @@ module ModernTreasury
         params(
           id: String,
           show_balances: T::Boolean,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::LedgerEntry)
       end
@@ -24,20 +19,13 @@ module ModernTreasury
         #   there is no balance available, null will be returned instead.
         show_balances: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Update the details of a ledger entry.
       sig do
         params(
           id: String,
           metadata: T::Hash[Symbol, String],
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::LedgerEntry)
       end
@@ -48,9 +36,7 @@ module ModernTreasury
         #   strings.
         metadata: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Get a list of all ledger entries.
       sig do
         params(
@@ -74,12 +60,7 @@ module ModernTreasury
           show_deleted: T::Boolean,
           status: ModernTreasury::Models::LedgerEntryListParams::Status::OrSymbol,
           updated_at: T::Hash[Symbol, Time],
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerEntry])
       end
@@ -139,13 +120,10 @@ module ModernTreasury
         #   updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
         updated_at: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

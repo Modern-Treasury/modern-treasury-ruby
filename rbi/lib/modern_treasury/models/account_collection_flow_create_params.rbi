@@ -37,8 +37,7 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(counterparty_id:, payment_types:, receiving_countries: nil, request_options: {})
-      end
+      def self.new(counterparty_id:, payment_types:, receiving_countries: nil, request_options: {}); end
 
       sig do
         override
@@ -51,8 +50,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # Optional. Array of 3-digit ISO country codes.
       module ReceivingCountry
@@ -112,8 +110,7 @@ module ModernTreasury
               T::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol]
             )
         end
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

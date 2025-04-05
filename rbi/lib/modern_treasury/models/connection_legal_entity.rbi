@@ -65,9 +65,7 @@ module ModernTreasury
         status:,
         updated_at:,
         vendor_id:
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -85,8 +83,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # The status of the connection legal entity.
       module Status
@@ -102,8 +99,7 @@ module ModernTreasury
         PROCESSING = T.let(:processing, ModernTreasury::Models::ConnectionLegalEntity::Status::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::ConnectionLegalEntity::Status::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

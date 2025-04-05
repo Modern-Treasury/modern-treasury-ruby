@@ -52,8 +52,7 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(direction:, custom_redirect: nil, fields: nil, send_email: nil, request_options: {})
-      end
+      def self.new(direction:, custom_redirect: nil, fields: nil, send_email: nil, request_options: {}); end
 
       sig do
         override
@@ -67,8 +66,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       module Field
         extend ModernTreasury::Internal::Type::Enum
@@ -153,8 +151,7 @@ module ModernTreasury
           )
 
         sig { override.returns(T::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

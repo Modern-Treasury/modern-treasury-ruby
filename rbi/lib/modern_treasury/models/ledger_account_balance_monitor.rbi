@@ -101,9 +101,7 @@ module ModernTreasury
         metadata:,
         object:,
         updated_at:
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -122,8 +120,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class AlertCondition < ModernTreasury::Internal::Type::BaseModel
         # One of `available_balance_amount`, `pending_balance_amount`,
@@ -145,12 +142,10 @@ module ModernTreasury
 
         # Describes the condition that must be satisfied for the monitor to be triggered.
         sig { params(field: String, operator: String, value: Integer).returns(T.attached_class) }
-        def self.new(field:, operator:, value:)
-        end
+        def self.new(field:, operator:, value:); end
 
         sig { override.returns({field: String, operator: String, value: Integer}) }
-        def to_hash
-        end
+        def to_hash; end
       end
 
       class CurrentLedgerAccountBalanceState < ModernTreasury::Internal::Type::BaseModel
@@ -190,8 +185,7 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(balances:, ledger_account_lock_version:, triggered:)
-        end
+        def self.new(balances:, ledger_account_lock_version:, triggered:); end
 
         sig do
           override
@@ -203,8 +197,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         class Balances < ModernTreasury::Internal::Type::BaseModel
           # The available_balance is the sum of all posted inbound entries and pending
@@ -284,8 +277,7 @@ module ModernTreasury
             )
               .returns(T.attached_class)
           end
-          def self.new(available_balance:, pending_balance:, posted_balance:)
-          end
+          def self.new(available_balance:, pending_balance:, posted_balance:); end
 
           sig do
             override
@@ -297,8 +289,7 @@ module ModernTreasury
                 }
               )
           end
-          def to_hash
-          end
+          def to_hash; end
 
           class AvailableBalance < ModernTreasury::Internal::Type::BaseModel
             sig { returns(Integer) }
@@ -332,8 +323,7 @@ module ModernTreasury
               )
                 .returns(T.attached_class)
             end
-            def self.new(amount:, credits:, currency:, currency_exponent:, debits:)
-            end
+            def self.new(amount:, credits:, currency:, currency_exponent:, debits:); end
 
             sig do
               override
@@ -347,8 +337,7 @@ module ModernTreasury
                   }
                 )
             end
-            def to_hash
-            end
+            def to_hash; end
           end
 
           class PendingBalance < ModernTreasury::Internal::Type::BaseModel
@@ -380,8 +369,7 @@ module ModernTreasury
               )
                 .returns(T.attached_class)
             end
-            def self.new(amount:, credits:, currency:, currency_exponent:, debits:)
-            end
+            def self.new(amount:, credits:, currency:, currency_exponent:, debits:); end
 
             sig do
               override
@@ -395,8 +383,7 @@ module ModernTreasury
                   }
                 )
             end
-            def to_hash
-            end
+            def to_hash; end
           end
 
           class PostedBalance < ModernTreasury::Internal::Type::BaseModel
@@ -428,8 +415,7 @@ module ModernTreasury
               )
                 .returns(T.attached_class)
             end
-            def self.new(amount:, credits:, currency:, currency_exponent:, debits:)
-            end
+            def self.new(amount:, credits:, currency:, currency_exponent:, debits:); end
 
             sig do
               override
@@ -443,8 +429,7 @@ module ModernTreasury
                   }
                 )
             end
-            def to_hash
-            end
+            def to_hash; end
           end
         end
       end

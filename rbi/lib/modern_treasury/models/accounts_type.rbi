@@ -12,8 +12,7 @@ module ModernTreasury
       INTERNAL_ACCOUNTS = T.let(:internal_accounts, ModernTreasury::Models::AccountsType::TaggedSymbol)
 
       sig { override.returns(T::Array[ModernTreasury::Models::AccountsType::TaggedSymbol]) }
-      def self.values
-      end
+      def self.values; end
     end
   end
 end

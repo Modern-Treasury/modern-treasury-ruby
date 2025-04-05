@@ -210,9 +210,7 @@ module ModernTreasury
         status: nil,
         updated_at: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -241,8 +239,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class OrderBy < ModernTreasury::Internal::Type::BaseModel
         sig { returns(T.nilable(ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::OrSymbol)) }
@@ -267,8 +264,7 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(created_at: nil, effective_at: nil)
-        end
+        def self.new(created_at: nil, effective_at: nil); end
 
         sig do
           override
@@ -279,8 +275,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         module CreatedAt
           extend ModernTreasury::Internal::Type::Enum
@@ -296,8 +291,7 @@ module ModernTreasury
           sig do
             override.returns(T::Array[ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::TaggedSymbol])
           end
-          def self.values
-          end
+          def self.values; end
         end
 
         module EffectiveAt
@@ -315,8 +309,7 @@ module ModernTreasury
             override
               .returns(T::Array[ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt::TaggedSymbol])
           end
-          def self.values
-          end
+          def self.values; end
         end
       end
 
@@ -334,8 +327,7 @@ module ModernTreasury
         ARCHIVED = T.let(:archived, ModernTreasury::Models::LedgerEntryListParams::Status::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::LedgerEntryListParams::Status::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

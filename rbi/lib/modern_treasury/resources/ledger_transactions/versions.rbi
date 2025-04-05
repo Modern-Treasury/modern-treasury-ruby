@@ -41,13 +41,10 @@ module ModernTreasury
           #   version. For example, for all versions after 2, use version%5Bgt%5D=2.
           version: nil,
           request_options: {}
-        )
-        end
-
+        ); end
         # @api private
         sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-        def self.new(client:)
-        end
+        def self.new(client:); end
       end
     end
   end

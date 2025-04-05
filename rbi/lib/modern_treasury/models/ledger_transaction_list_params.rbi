@@ -74,7 +74,9 @@ module ModernTreasury
       sig { returns(T.nilable(ModernTreasury::Models::LedgerTransactionListParams::LedgerableType::OrSymbol)) }
       attr_reader :ledgerable_type
 
-      sig { params(ledgerable_type: ModernTreasury::Models::LedgerTransactionListParams::LedgerableType::OrSymbol).void }
+      sig do
+        params(ledgerable_type: ModernTreasury::Models::LedgerTransactionListParams::LedgerableType::OrSymbol).void
+      end
       attr_writer :ledgerable_type
 
       # For example, if you want to query for records with metadata key `Type` and value
@@ -188,9 +190,7 @@ module ModernTreasury
         status: nil,
         updated_at: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -218,8 +218,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       module LedgerableType
         extend ModernTreasury::Internal::Type::Enum
@@ -252,8 +251,7 @@ module ModernTreasury
           override
             .returns(T::Array[ModernTreasury::Models::LedgerTransactionListParams::LedgerableType::TaggedSymbol])
         end
-        def self.values
-        end
+        def self.values; end
       end
 
       class OrderBy < ModernTreasury::Internal::Type::BaseModel
@@ -282,8 +280,7 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(created_at: nil, effective_at: nil)
-        end
+        def self.new(created_at: nil, effective_at: nil); end
 
         sig do
           override
@@ -294,8 +291,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         module CreatedAt
           extend ModernTreasury::Internal::Type::Enum
@@ -319,8 +315,7 @@ module ModernTreasury
             override
               .returns(T::Array[ModernTreasury::Models::LedgerTransactionListParams::OrderBy::CreatedAt::TaggedSymbol])
           end
-          def self.values
-          end
+          def self.values; end
         end
 
         module EffectiveAt
@@ -346,8 +341,7 @@ module ModernTreasury
             override
               .returns(T::Array[ModernTreasury::Models::LedgerTransactionListParams::OrderBy::EffectiveAt::TaggedSymbol])
           end
-          def self.values
-          end
+          def self.values; end
         end
       end
 
@@ -364,8 +358,7 @@ module ModernTreasury
         ARCHIVED = T.let(:archived, ModernTreasury::Models::LedgerTransactionListParams::Status::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::LedgerTransactionListParams::Status::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

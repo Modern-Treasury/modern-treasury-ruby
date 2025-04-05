@@ -76,9 +76,7 @@ module ModernTreasury
         date_lower_bound: nil,
         date_upper_bound: nil,
         type: nil
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -96,8 +94,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
@@ -112,8 +109,7 @@ module ModernTreasury
         DEBIT = T.let(:debit, ModernTreasury::Models::ReconciliationRule::Direction::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::ReconciliationRule::Direction::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # One of ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
@@ -157,8 +153,7 @@ module ModernTreasury
         ZENGIN = T.let(:zengin, ModernTreasury::Models::ReconciliationRule::Type::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::ReconciliationRule::Type::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

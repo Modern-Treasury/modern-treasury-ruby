@@ -275,9 +275,7 @@ module ModernTreasury
         transaction_line_item_ids:,
         updated_at:,
         virtual_account_id:
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -322,8 +320,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class ContactDetail < ModernTreasury::Internal::Type::BaseModel
         sig { returns(String) }
@@ -374,9 +371,7 @@ module ModernTreasury
           live_mode:,
           object:,
           updated_at:
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(
@@ -392,8 +387,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         module ContactIdentifierType
           extend ModernTreasury::Internal::Type::Enum
@@ -414,8 +408,7 @@ module ModernTreasury
             override
               .returns(T::Array[ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType::TaggedSymbol])
           end
-          def self.values
-          end
+          def self.values; end
         end
       end
 
@@ -457,8 +450,7 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(country:, line1:, locality:, postal_code:, region:, line2: nil)
-        end
+        def self.new(country:, line1:, locality:, postal_code:, region:, line2: nil); end
 
         sig do
           override
@@ -473,8 +465,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
       end
 
       class CounterpartyShippingAddress < ModernTreasury::Internal::Type::BaseModel
@@ -515,8 +506,7 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(country:, line1:, locality:, postal_code:, region:, line2: nil)
-        end
+        def self.new(country:, line1:, locality:, postal_code:, region:, line2: nil); end
 
         sig do
           override
@@ -531,8 +521,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
       end
 
       class InvoicerAddress < ModernTreasury::Internal::Type::BaseModel
@@ -573,8 +562,7 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(country:, line1:, locality:, postal_code:, region:, line2: nil)
-        end
+        def self.new(country:, line1:, locality:, postal_code:, region:, line2: nil); end
 
         sig do
           override
@@ -589,8 +577,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
       end
 
       # When opening an invoice, whether to show the embedded payment UI , automatically
@@ -607,8 +594,7 @@ module ModernTreasury
         AUTOMATIC = T.let(:automatic, ModernTreasury::Models::Invoice::PaymentMethod::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::Invoice::PaymentMethod::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # One of `ach` or `eft`.
@@ -623,8 +609,7 @@ module ModernTreasury
         ACH = T.let(:ach, ModernTreasury::Models::Invoice::PaymentType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::Invoice::PaymentType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # The status of the invoice.
@@ -642,8 +627,7 @@ module ModernTreasury
         VOIDED = T.let(:voided, ModernTreasury::Models::Invoice::Status::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::Invoice::Status::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

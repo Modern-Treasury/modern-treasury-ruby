@@ -174,9 +174,7 @@ module ModernTreasury
         selected_effective_date: nil,
         status: nil,
         updated_at: nil
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -203,8 +201,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # Describes the direction money is flowing in the transaction. Can only be
       #   `debit`. A `debit` pulls money from someone else's account to your own.
@@ -219,8 +216,7 @@ module ModernTreasury
         DEBIT = T.let(:debit, ModernTreasury::Models::PaymentFlow::Direction::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::PaymentFlow::Direction::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # When `verified` and `external_account_collection` is `enabled`, filters the list
@@ -241,8 +237,7 @@ module ModernTreasury
           override
             .returns(T::Array[ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter::TaggedSymbol])
         end
-        def self.values
-        end
+        def self.values; end
       end
 
       # When `enabled`, your end-user can select from an existing external account when
@@ -260,8 +255,7 @@ module ModernTreasury
         ENABLED = T.let(:enabled, ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # The current status of the payment flow. One of `pending`, `completed`,
@@ -279,8 +273,7 @@ module ModernTreasury
         PENDING = T.let(:pending, ModernTreasury::Models::PaymentFlow::Status::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::PaymentFlow::Status::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

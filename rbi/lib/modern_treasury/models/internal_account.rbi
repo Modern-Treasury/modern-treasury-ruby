@@ -133,9 +133,7 @@ module ModernTreasury
         party_type:,
         routing_details:,
         updated_at:
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -162,8 +160,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # Can be checking, savings or other.
       module AccountType
@@ -184,8 +181,7 @@ module ModernTreasury
         SAVINGS = T.let(:savings, ModernTreasury::Models::InternalAccount::AccountType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::InternalAccount::AccountType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       class PartyAddress < ModernTreasury::Internal::Type::BaseModel
@@ -257,9 +253,7 @@ module ModernTreasury
           postal_code:,
           region:,
           updated_at:
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(
@@ -278,8 +272,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
       end
 
       # Either individual or business.
@@ -294,8 +287,7 @@ module ModernTreasury
         INDIVIDUAL = T.let(:individual, ModernTreasury::Models::InternalAccount::PartyType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::InternalAccount::PartyType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

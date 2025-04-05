@@ -12,12 +12,7 @@ module ModernTreasury
           direction: ModernTreasury::Models::PaymentFlowCreateParams::Direction::OrSymbol,
           originating_account_id: String,
           due_date: Date,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::PaymentFlow)
       end
@@ -40,19 +35,12 @@ module ModernTreasury
         #   they are selecting a payment `effective_date`.
         due_date: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # get payment_flow
       sig do
         params(
           id: String,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::PaymentFlow)
       end
@@ -60,20 +48,13 @@ module ModernTreasury
         # id
         id,
         request_options: {}
-      )
-      end
-
+      ); end
       # update payment_flow
       sig do
         params(
           id: String,
           status: ModernTreasury::Models::PaymentFlowUpdateParams::Status::OrSymbol,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::PaymentFlow)
       end
@@ -84,9 +65,7 @@ module ModernTreasury
         #   flow as `cancelled`.
         status:,
         request_options: {}
-      )
-      end
-
+      ); end
       # list payment_flows
       sig do
         params(
@@ -98,12 +77,7 @@ module ModernTreasury
           per_page: Integer,
           receiving_account_id: String,
           status: String,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::PaymentFlow])
       end
@@ -117,13 +91,10 @@ module ModernTreasury
         receiving_account_id: nil,
         status: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

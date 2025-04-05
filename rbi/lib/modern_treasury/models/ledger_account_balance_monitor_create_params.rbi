@@ -53,7 +53,13 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(alert_condition:, ledger_account_id:, description: nil, metadata: nil, request_options: {})
+      def self.new(
+        alert_condition:,
+        ledger_account_id:,
+        description: nil,
+        metadata: nil,
+        request_options: {}
+      )
       end
 
       sig do
@@ -68,8 +74,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class AlertCondition < ModernTreasury::Internal::Type::BaseModel
         # One of `available_balance_amount`, `pending_balance_amount`,
@@ -91,12 +96,10 @@ module ModernTreasury
 
         # Describes the condition that must be satisfied for the monitor to be triggered.
         sig { params(field: String, operator: String, value: Integer).returns(T.attached_class) }
-        def self.new(field:, operator:, value:)
-        end
+        def self.new(field:, operator:, value:); end
 
         sig { override.returns({field: String, operator: String, value: Integer}) }
-        def to_hash
-        end
+        def to_hash; end
       end
     end
   end

@@ -43,8 +43,7 @@ module ModernTreasury
       ZENGIN = T.let(:zengin, ModernTreasury::Models::ExpectedPaymentType::TaggedSymbol)
 
       sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPaymentType::TaggedSymbol]) }
-      def self.values
-      end
+      def self.values; end
     end
   end
 end

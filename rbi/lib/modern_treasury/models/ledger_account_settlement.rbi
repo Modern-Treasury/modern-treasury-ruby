@@ -114,9 +114,7 @@ module ModernTreasury
         settlement_entry_direction:,
         status:,
         updated_at:
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -141,8 +139,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # The status of the ledger account settlement. One of `processing`, `pending`,
       #   `posted`, `archiving` or `archived`.
@@ -161,8 +158,7 @@ module ModernTreasury
         PROCESSING = T.let(:processing, ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

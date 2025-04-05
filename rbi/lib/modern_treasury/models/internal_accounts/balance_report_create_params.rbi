@@ -30,17 +30,16 @@ module ModernTreasury
             as_of_time: String,
             balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::OrSymbol,
             balances: T::Array[
-            T.any(
-              ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance,
-              ModernTreasury::Internal::AnyHash
-            )
+              T.any(
+                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance,
+                ModernTreasury::Internal::AnyHash
+              )
             ],
             request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
           )
             .returns(T.attached_class)
         end
-        def self.new(as_of_date:, as_of_time:, balance_report_type:, balances:, request_options: {})
-        end
+        def self.new(as_of_date:, as_of_time:, balance_report_type:, balances:, request_options: {}); end
 
         sig do
           override
@@ -54,8 +53,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         # The specific type of balance report. One of `intraday`, `previous_day`,
         #   `real_time`, or `other`.
@@ -100,8 +98,7 @@ module ModernTreasury
                 T::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::TaggedSymbol]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
 
         class Balance < ModernTreasury::Internal::Type::BaseModel
@@ -140,8 +137,7 @@ module ModernTreasury
             )
               .returns(T.attached_class)
           end
-          def self.new(amount:, balance_type:, vendor_code:, vendor_code_type:)
-          end
+          def self.new(amount:, balance_type:, vendor_code:, vendor_code_type:); end
 
           sig do
             override
@@ -154,8 +150,7 @@ module ModernTreasury
                 }
               )
           end
-          def to_hash
-          end
+          def to_hash; end
 
           # The specific type of balance reported. One of `opening_ledger`,
           #   `closing_ledger`, `current_ledger`, `opening_available`,
@@ -227,8 +222,7 @@ module ModernTreasury
                   T::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::TaggedSymbol]
                 )
             end
-            def self.values
-            end
+            def self.values; end
           end
         end
       end

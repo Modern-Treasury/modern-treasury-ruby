@@ -65,9 +65,7 @@ module ModernTreasury
         resource_type: nil,
         status: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -82,8 +80,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # One of create, or update.
       module ActionType
@@ -98,8 +95,7 @@ module ModernTreasury
         DELETE = T.let(:delete, ModernTreasury::Models::BulkRequestListParams::ActionType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::BulkRequestListParams::ActionType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # One of payment_order, expected_payment, or ledger_transaction.
@@ -125,8 +121,7 @@ module ModernTreasury
           T.let(:entity_link, ModernTreasury::Models::BulkRequestListParams::ResourceType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::BulkRequestListParams::ResourceType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # One of pending, processing, or completed.
@@ -142,8 +137,7 @@ module ModernTreasury
         COMPLETED = T.let(:completed, ModernTreasury::Models::BulkRequestListParams::Status::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::BulkRequestListParams::Status::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

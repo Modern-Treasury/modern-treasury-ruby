@@ -115,9 +115,7 @@ module ModernTreasury
         transaction_id:,
         transaction_line_item_id:,
         updated_at:
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -143,8 +141,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # The current status of the paper item. One of `pending`, `completed`, or
       #   `returned`.
@@ -160,8 +157,7 @@ module ModernTreasury
         RETURNED = T.let(:returned, ModernTreasury::Models::PaperItem::Status::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::PaperItem::Status::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

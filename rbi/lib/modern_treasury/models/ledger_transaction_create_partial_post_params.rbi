@@ -39,10 +39,10 @@ module ModernTreasury
       sig do
         params(
           posted_ledger_entries: T::Array[
-          T.any(
-            ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry,
-            ModernTreasury::Internal::AnyHash
-          )
+            T.any(
+              ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry,
+              ModernTreasury::Internal::AnyHash
+            )
           ],
           description: String,
           effective_at: Time,
@@ -72,8 +72,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class PostedLedgerEntry < ModernTreasury::Internal::Type::BaseModel
         # Value in specified currency's smallest unit. e.g. $10 would be represented
@@ -113,8 +112,7 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(amount:, direction:, ledger_account_id:, metadata: nil)
-        end
+        def self.new(amount:, direction:, ledger_account_id:, metadata: nil); end
 
         sig do
           override
@@ -127,8 +125,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         # One of `credit`, `debit`. Describes the direction money is flowing in the
         #   transaction. A `credit` moves money from your account to someone else's. A
@@ -165,12 +162,11 @@ module ModernTreasury
             override
               .returns(
                 T::Array[
-                ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::TaggedSymbol
+                  ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::TaggedSymbol
                 ]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
       end
     end

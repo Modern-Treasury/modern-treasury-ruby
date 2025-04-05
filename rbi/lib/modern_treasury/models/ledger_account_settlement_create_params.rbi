@@ -74,9 +74,7 @@ module ModernTreasury
         skip_settlement_ledger_transaction: nil,
         status: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -93,8 +91,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # The status of the ledger account settlement. It is set to `pending` by default.
       #   To post a ledger account settlement at creation, use `posted`.
@@ -115,8 +112,7 @@ module ModernTreasury
           override
             .returns(T::Array[ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::TaggedSymbol])
         end
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

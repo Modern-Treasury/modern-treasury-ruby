@@ -113,9 +113,7 @@ module ModernTreasury
         source_of_funds:,
         updated_at:,
         wealth_source:
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -141,8 +139,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # The employment status of the individual.
       module EmploymentStatus
@@ -168,8 +165,7 @@ module ModernTreasury
           override
             .returns(T::Array[ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus::TaggedSymbol])
         end
-        def self.values
-        end
+        def self.values; end
       end
 
       # The source of the individual's income.
@@ -201,8 +197,7 @@ module ModernTreasury
           T.let(:self_employed, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # The industry of the individual.
@@ -276,8 +271,7 @@ module ModernTreasury
         UTILITIES = T.let(:utilities, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # The occupation of the individual.
@@ -313,8 +307,7 @@ module ModernTreasury
           T.let(:technology, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # The source of the individual's funds.
@@ -366,8 +359,7 @@ module ModernTreasury
         sig do
           override.returns(T::Array[ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol])
         end
-        def self.values
-        end
+        def self.values; end
       end
 
       # The source of the individual's wealth.
@@ -402,8 +394,7 @@ module ModernTreasury
           T.let(:self_employed, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

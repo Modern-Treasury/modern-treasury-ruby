@@ -33,8 +33,7 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(documentable_id:, documentable_type:, file:, document_type: nil, request_options: {})
-      end
+      def self.new(documentable_id:, documentable_type:, file:, document_type: nil, request_options: {}); end
 
       sig do
         override
@@ -48,8 +47,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       module DocumentableType
         extend ModernTreasury::Internal::Type::Enum
@@ -87,8 +85,7 @@ module ModernTreasury
           T.let(:connections, ModernTreasury::Models::DocumentCreateParams::DocumentableType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::DocumentCreateParams::DocumentableType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end
