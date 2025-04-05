@@ -16,7 +16,7 @@ module ModernTreasury
 
       # @!attribute currency
       #   Either "USD" or "CAD". Internal accounts created at Increase only supports
-      #     "USD".
+      #   "USD".
       #
       #   @return [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency]
       required :currency, enum: -> { ModernTreasury::Models::InternalAccountCreateParams::Currency }
@@ -75,7 +75,7 @@ module ModernTreasury
 
       # @!attribute [r] vendor_attributes
       #   A hash of vendor specific attributes that will be used when creating the account
-      #     at the vendor specified by the given connection.
+      #   at the vendor specified by the given connection.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :vendor_attributes, ModernTreasury::Internal::Type::HashOf[String]
@@ -115,7 +115,7 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # Either "USD" or "CAD". Internal accounts created at Increase only supports
-      #   "USD".
+      # "USD".
       module Currency
         extend ModernTreasury::Internal::Type::Enum
 

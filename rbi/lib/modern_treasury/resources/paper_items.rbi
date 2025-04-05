@@ -35,7 +35,7 @@ module ModernTreasury
         # Specify an inclusive start date (YYYY-MM-DD) when filtering by deposit_date
         deposit_date_start: nil,
         # Specify `lockbox_number` if you wish to see paper items that are associated with
-        #   a specific lockbox number.
+        # a specific lockbox number.
         lockbox_number: nil,
         per_page: nil,
         request_options: {}

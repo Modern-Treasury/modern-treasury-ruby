@@ -3,8 +3,8 @@
 module ModernTreasury
   module Models
     # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
-    #   `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
-    #   `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
+    # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
+    # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
     module PaymentOrderType
       extend ModernTreasury::Internal::Type::Enum
 

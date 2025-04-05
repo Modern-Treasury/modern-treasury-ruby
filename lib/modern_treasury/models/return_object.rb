@@ -11,7 +11,7 @@ module ModernTreasury
 
       # @!attribute amount
       #   Value in specified currency's smallest unit. e.g. $10 would be represented
-      #     as 1000.
+      #   as 1000.
       #
       #   @return [Integer]
       required :amount, Integer
@@ -35,21 +35,21 @@ module ModernTreasury
 
       # @!attribute current_return
       #   If the return's status is `returned`, this will include the return object's data
-      #     that is returning this return.
+      #   that is returning this return.
       #
       #   @return [ModernTreasury::Models::ReturnObject, nil]
       required :current_return, -> { ModernTreasury::Models::ReturnObject }, nil?: true
 
       # @!attribute date_of_death
       #   If the return code is `R14` or `R15` this is the date the deceased counterparty
-      #     passed away.
+      #   passed away.
       #
       #   @return [Date, nil]
       required :date_of_death, Date, nil?: true
 
       # @!attribute failure_reason
       #   If an originating return failed to be processed by the bank, a description of
-      #     the failure reason will be available.
+      #   the failure reason will be available.
       #
       #   @return [String, nil]
       required :failure_reason, String, nil?: true
@@ -68,7 +68,7 @@ module ModernTreasury
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false
-      #     if it exists in the test environment.
+      #   if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::Internal::Type::Boolean
@@ -80,7 +80,7 @@ module ModernTreasury
 
       # @!attribute reason
       #   Often the bank will provide an explanation for the return, which is a short
-      #     human readable string.
+      #   human readable string.
       #
       #   @return [String, nil]
       required :reason, String, nil?: true
@@ -130,7 +130,7 @@ module ModernTreasury
 
       # @!attribute type
       #   The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`,
-      #     `interac`, `manual`, `paper_item`, `wire`.
+      #   `interac`, `manual`, `paper_item`, `wire`.
       #
       #   @return [Symbol, ModernTreasury::Models::ReturnObject::Type]
       required :type, enum: -> { ModernTreasury::Models::ReturnObject::Type }
@@ -142,7 +142,7 @@ module ModernTreasury
 
       # @!attribute additional_information
       #   Some returns may include additional information from the bank. In these cases,
-      #     this string will be present.
+      #   this string will be present.
       #
       #   @return [String, nil]
       optional :additional_information, String, nil?: true
@@ -291,7 +291,7 @@ module ModernTreasury
 
         # @!attribute live_mode
         #   This field will be true if this object exists in the live environment or false
-        #     if it exists in the test environment.
+        #   if it exists in the test environment.
         #
         #   @return [Boolean]
         required :live_mode, ModernTreasury::Internal::Type::Boolean
@@ -478,7 +478,7 @@ module ModernTreasury
       end
 
       # The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`,
-      #   `interac`, `manual`, `paper_item`, `wire`.
+      # `interac`, `manual`, `paper_item`, `wire`.
       #
       # @see ModernTreasury::Models::ReturnObject#type
       module Type

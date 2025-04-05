@@ -4,7 +4,7 @@ module ModernTreasury
   module Resources
     class Validations
       # Validates the routing number information supplied without creating a routing
-      #   detail
+      # detail
       #
       # @overload validate_routing_number(routing_number:, routing_number_type:, request_options: {})
       #

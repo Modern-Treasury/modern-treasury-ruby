@@ -34,10 +34,10 @@ module ModernTreasury
         # The actual reference number assigned by the bank.
         reference_number: nil,
         # The id of the referenceable to search for. Must be accompanied by the
-        #   referenceable_type or will return an error.
+        # referenceable_type or will return an error.
         referenceable_id: nil,
         # One of the referenceable types. This must be accompanied by the id of the
-        #   referenceable or will return an error.
+        # referenceable or will return an error.
         referenceable_type: nil,
         request_options: {}
       ); end

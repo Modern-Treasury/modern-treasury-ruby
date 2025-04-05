@@ -28,7 +28,7 @@ module ModernTreasury
       attr_accessor :discarded_at
 
       # This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
+      # if it exists in the test environment.
       sig { returns(T::Boolean) }
       attr_accessor :live_mode
 
@@ -36,7 +36,7 @@ module ModernTreasury
       attr_accessor :object
 
       # If the routing detail is to be used for a specific payment type this field will
-      #   be populated, otherwise null.
+      # be populated, otherwise null.
       sig { returns(T.nilable(ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)) }
       attr_accessor :payment_type
 
@@ -45,8 +45,8 @@ module ModernTreasury
       attr_accessor :routing_number
 
       # The type of routing number. See
-      #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
-      #   more details.
+      # https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      # more details.
       sig { returns(ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol) }
       attr_accessor :routing_number_type
 
@@ -120,7 +120,7 @@ module ModernTreasury
         attr_accessor :line2
 
         # This field will be true if this object exists in the live environment or false
-        #   if it exists in the test environment.
+        # if it exists in the test environment.
         sig { returns(T::Boolean) }
         attr_accessor :live_mode
 
@@ -193,7 +193,7 @@ module ModernTreasury
       end
 
       # If the routing detail is to be used for a specific payment type this field will
-      #   be populated, otherwise null.
+      # be populated, otherwise null.
       module PaymentType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -237,8 +237,8 @@ module ModernTreasury
       end
 
       # The type of routing number. See
-      #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
-      #   more details.
+      # https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      # more details.
       module RoutingNumberType
         extend ModernTreasury::Internal::Type::Enum
 

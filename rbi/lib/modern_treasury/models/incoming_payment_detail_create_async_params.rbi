@@ -7,7 +7,7 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       # Value in specified currency's smallest unit. e.g. $10 would be represented
-      #   as 1000.
+      # as 1000.
       sig { returns(T.nilable(Integer)) }
       attr_reader :amount
 
@@ -23,7 +23,7 @@ module ModernTreasury
       attr_accessor :currency
 
       # An object passed through to the simulated IPD that could reflect what a vendor
-      #   would pass.
+      # would pass.
       sig { returns(T.nilable(T.anything)) }
       attr_accessor :data
 
@@ -55,7 +55,7 @@ module ModernTreasury
       attr_writer :type
 
       # An optional parameter to associate the incoming payment detail to a virtual
-      #   account.
+      # account.
       sig { returns(T.nilable(String)) }
       attr_accessor :virtual_account_id
 

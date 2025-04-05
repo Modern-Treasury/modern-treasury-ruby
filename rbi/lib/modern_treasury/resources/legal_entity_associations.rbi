@@ -21,7 +21,7 @@ module ModernTreasury
       end
       def create(
         # The ID of the parent legal entity. This must be a business or joint legal
-        #   entity.
+        # entity.
         parent_legal_entity_id:,
         relationship_types:,
         # The child legal entity.

@@ -22,7 +22,7 @@ module ModernTreasury
           # id
           id,
           # The ids of the ledger entries that are to be added or removed from the ledger
-          #   account settlement.
+          # account settlement.
           ledger_entry_ids:,
           request_options: {}
         ); end
@@ -44,7 +44,7 @@ module ModernTreasury
           # id
           id,
           # The ids of the ledger entries that are to be added or removed from the ledger
-          #   account settlement.
+          # account settlement.
           ledger_entry_ids:,
           request_options: {}
         ); end

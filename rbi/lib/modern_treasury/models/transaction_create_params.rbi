@@ -7,7 +7,7 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       # Value in specified currency's smallest unit. e.g. $10 would be represented
-      #   as 1000.
+      # as 1000.
       sig { returns(Integer) }
       attr_accessor :amount
 
@@ -24,19 +24,19 @@ module ModernTreasury
       attr_accessor :internal_account_id
 
       # When applicable, the bank-given code that determines the transaction's category.
-      #   For most banks this is the BAI2/BTRS transaction code.
+      # For most banks this is the BAI2/BTRS transaction code.
       sig { returns(T.nilable(String)) }
       attr_accessor :vendor_code
 
       # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
-      #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-      #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
-      #   `swift`, `us_bank`, or others.
+      # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
+      # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+      # `swift`, `us_bank`, or others.
       sig { returns(T.nilable(String)) }
       attr_accessor :vendor_code_type
 
       # Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
+      # strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_reader :metadata
 
@@ -51,12 +51,12 @@ module ModernTreasury
       attr_writer :posted
 
       # The type of the transaction. Examples could be
-      #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
+      # `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       sig { returns(T.nilable(ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)) }
       attr_accessor :type
 
       # The transaction detail text that often appears in on your bank statement and in
-      #   your banking portal.
+      # your banking portal.
       sig { returns(T.nilable(String)) }
       attr_accessor :vendor_description
 
@@ -110,7 +110,7 @@ module ModernTreasury
       def to_hash; end
 
       # The type of the transaction. Examples could be
-      #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
+      # `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       module Type
         extend ModernTreasury::Internal::Type::Enum
 

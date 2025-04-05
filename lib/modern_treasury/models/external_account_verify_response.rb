@@ -29,7 +29,7 @@ module ModernTreasury
 
         # @!attribute live_mode
         #   This field will be true if this object exists in the live environment or false
-        #     if it exists in the test environment.
+        #   if it exists in the test environment.
         #
         #   @return [Boolean]
         required :live_mode, ModernTreasury::Internal::Type::Boolean
@@ -47,7 +47,7 @@ module ModernTreasury
 
         # @!attribute payment_type
         #   The type of payment that can be made to this account. Can be `ach`, `eft`, or
-        #     `rtp`.
+        #   `rtp`.
         #
         #   @return [Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType]
         required :payment_type,
@@ -63,7 +63,7 @@ module ModernTreasury
 
         # @!attribute status
         #   The status of the verification attempt. Can be `pending_verification`,
-        #     `verified`, `failed`, or `cancelled`.
+        #   `verified`, `failed`, or `cancelled`.
         #
         #   @return [Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status]
         required :status,
@@ -105,7 +105,7 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
         # The type of payment that can be made to this account. Can be `ach`, `eft`, or
-        #   `rtp`.
+        # `rtp`.
         #
         # @see ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt#payment_type
         module PaymentType
@@ -166,7 +166,7 @@ module ModernTreasury
         end
 
         # The status of the verification attempt. Can be `pending_verification`,
-        #   `verified`, `failed`, or `cancelled`.
+        # `verified`, `failed`, or `cancelled`.
         #
         # @see ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt#status
         module Status

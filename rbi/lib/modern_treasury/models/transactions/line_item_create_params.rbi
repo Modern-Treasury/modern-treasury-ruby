@@ -8,7 +8,7 @@ module ModernTreasury
         include ModernTreasury::Internal::Type::RequestParameters
 
         # If a matching object exists in Modern Treasury, `amount` will be populated.
-        #   Value in specified currency's smallest unit (taken from parent Transaction).
+        # Value in specified currency's smallest unit (taken from parent Transaction).
         sig { returns(Integer) }
         attr_accessor :amount
 

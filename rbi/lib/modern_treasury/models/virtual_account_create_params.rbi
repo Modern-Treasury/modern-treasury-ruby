@@ -39,8 +39,8 @@ module ModernTreasury
       attr_writer :counterparty_id
 
       # The ID of a credit normal ledger account. When money leaves the virtual account,
-      #   this ledger account will be credited. Must be accompanied by a
-      #   debit_ledger_account_id if present.
+      # this ledger account will be credited. Must be accompanied by a
+      # debit_ledger_account_id if present.
       sig { returns(T.nilable(String)) }
       attr_reader :credit_ledger_account_id
 
@@ -48,8 +48,8 @@ module ModernTreasury
       attr_writer :credit_ledger_account_id
 
       # The ID of a debit normal ledger account. When money enters the virtual account,
-      #   this ledger account will be debited. Must be accompanied by a
-      #   credit_ledger_account_id if present.
+      # this ledger account will be debited. Must be accompanied by a
+      # credit_ledger_account_id if present.
       sig { returns(T.nilable(String)) }
       attr_reader :debit_ledger_account_id
 
@@ -64,8 +64,8 @@ module ModernTreasury
       attr_writer :description
 
       # Specifies a ledger account object that will be created with the virtual account.
-      #   The resulting ledger account is linked to the virtual account for auto-ledgering
-      #   IPDs.
+      # The resulting ledger account is linked to the virtual account for auto-ledgering
+      # IPDs.
       sig { returns(T.nilable(ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount)) }
       attr_reader :ledger_account
 
@@ -81,7 +81,7 @@ module ModernTreasury
       attr_writer :ledger_account
 
       # Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
+      # strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_reader :metadata
 
@@ -173,7 +173,7 @@ module ModernTreasury
         attr_accessor :account_number
 
         # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
-        #   account number is in a generic format.
+        # account number is in a generic format.
         sig do
           returns(
             T.nilable(ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::OrSymbol)
@@ -210,7 +210,7 @@ module ModernTreasury
         def to_hash; end
 
         # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
-        #   account number is in a generic format.
+        # account number is in a generic format.
         module AccountNumberType
           extend ModernTreasury::Internal::Type::Enum
 
@@ -312,7 +312,7 @@ module ModernTreasury
         attr_accessor :description
 
         # The array of ledger account category ids that this ledger account should be a
-        #   child of.
+        # child of.
         sig { returns(T.nilable(T::Array[String])) }
         attr_reader :ledger_account_category_ids
 
@@ -320,7 +320,7 @@ module ModernTreasury
         attr_writer :ledger_account_category_ids
 
         # If the ledger account links to another object in Modern Treasury, the id will be
-        #   populated here, otherwise null.
+        # populated here, otherwise null.
         sig { returns(T.nilable(String)) }
         attr_reader :ledgerable_id
 
@@ -328,8 +328,8 @@ module ModernTreasury
         attr_writer :ledgerable_id
 
         # If the ledger account links to another object in Modern Treasury, the type will
-        #   be populated here, otherwise null. The value is one of internal_account or
-        #   external_account.
+        # be populated here, otherwise null. The value is one of internal_account or
+        # external_account.
         sig do
           returns(
             T.nilable(ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType::OrSymbol)
@@ -346,7 +346,7 @@ module ModernTreasury
         attr_writer :ledgerable_type
 
         # Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
+        # strings.
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
         attr_reader :metadata
 
@@ -354,8 +354,8 @@ module ModernTreasury
         attr_writer :metadata
 
         # Specifies a ledger account object that will be created with the virtual account.
-        #   The resulting ledger account is linked to the virtual account for auto-ledgering
-        #   IPDs.
+        # The resulting ledger account is linked to the virtual account for auto-ledgering
+        # IPDs.
         sig do
           params(
             currency: String,
@@ -403,8 +403,8 @@ module ModernTreasury
         def to_hash; end
 
         # If the ledger account links to another object in Modern Treasury, the type will
-        #   be populated here, otherwise null. The value is one of internal_account or
-        #   external_account.
+        # be populated here, otherwise null. The value is one of internal_account or
+        # external_account.
         module LedgerableType
           extend ModernTreasury::Internal::Type::Enum
 
@@ -456,13 +456,13 @@ module ModernTreasury
         attr_accessor :routing_number
 
         # The type of routing number. See
-        #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
-        #   more details.
+        # https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+        # more details.
         sig { returns(ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::OrSymbol) }
         attr_accessor :routing_number_type
 
         # If the routing detail is to be used for a specific payment type this field will
-        #   be populated, otherwise null.
+        # be populated, otherwise null.
         sig do
           returns(
             T.nilable(ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
@@ -493,8 +493,8 @@ module ModernTreasury
         def to_hash; end
 
         # The type of routing number. See
-        #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
-        #   more details.
+        # https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+        # more details.
         module RoutingNumberType
           extend ModernTreasury::Internal::Type::Enum
 
@@ -625,7 +625,7 @@ module ModernTreasury
         end
 
         # If the routing detail is to be used for a specific payment type this field will
-        #   be populated, otherwise null.
+        # be populated, otherwise null.
         module PaymentType
           extend ModernTreasury::Internal::Type::Enum
 

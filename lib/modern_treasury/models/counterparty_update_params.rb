@@ -26,7 +26,7 @@ module ModernTreasury
 
       # @!attribute [r] metadata
       #   Additional data in the form of key-value pairs. Pairs can be removed by passing
-      #     an empty string or `null` as the value.
+      #   an empty string or `null` as the value.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -47,7 +47,7 @@ module ModernTreasury
 
       # @!attribute [r] send_remittance_advice
       #   If this is `true`, Modern Treasury will send an email to the counterparty
-      #     whenever an associated payment order is sent to the bank.
+      #   whenever an associated payment order is sent to the bank.
       #
       #   @return [Boolean, nil]
       optional :send_remittance_advice, ModernTreasury::Internal::Type::Boolean

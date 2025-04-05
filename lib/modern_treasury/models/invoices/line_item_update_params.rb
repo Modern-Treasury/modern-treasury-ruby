@@ -26,8 +26,8 @@ module ModernTreasury
 
         # @!attribute [r] direction
         #   Either `debit` or `credit`. `debit` indicates that a client owes the business
-        #     money and increases the invoice's `total_amount` due. `credit` has the opposite
-        #     intention and effect.
+        #   money and increases the invoice's `total_amount` due. `credit` has the opposite
+        #   intention and effect.
         #
         #   @return [String, nil]
         optional :direction, String
@@ -38,7 +38,7 @@ module ModernTreasury
 
         # @!attribute [r] metadata
         #   Additional data represented as key-value pairs. Both the key and value must be
-        #     strings.
+        #   strings.
         #
         #   @return [Hash{Symbol=>String}, nil]
         optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -59,7 +59,7 @@ module ModernTreasury
 
         # @!attribute [r] quantity
         #   The number of units of a product or service that this line item is for. Must be
-        #     a whole number. Defaults to 1 if not provided.
+        #   a whole number. Defaults to 1 if not provided.
         #
         #   @return [Integer, nil]
         optional :quantity, Integer
@@ -70,7 +70,7 @@ module ModernTreasury
 
         # @!attribute [r] unit_amount
         #   The cost per unit of the product or service that this line item is for,
-        #     specified in the invoice currency's smallest unit.
+        #   specified in the invoice currency's smallest unit.
         #
         #   @return [Integer, nil]
         optional :unit_amount, Integer
@@ -81,8 +81,8 @@ module ModernTreasury
 
         # @!attribute [r] unit_amount_decimal
         #   The cost per unit of the product or service that this line item is for,
-        #     specified in the invoice currency's smallest unit. Accepts decimal strings with
-        #     up to 12 decimals
+        #   specified in the invoice currency's smallest unit. Accepts decimal strings with
+        #   up to 12 decimals
         #
         #   @return [String, nil]
         optional :unit_amount_decimal, String

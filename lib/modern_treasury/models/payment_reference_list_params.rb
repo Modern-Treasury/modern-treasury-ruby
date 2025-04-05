@@ -34,7 +34,7 @@ module ModernTreasury
 
       # @!attribute [r] referenceable_id
       #   The id of the referenceable to search for. Must be accompanied by the
-      #     referenceable_type or will return an error.
+      #   referenceable_type or will return an error.
       #
       #   @return [String, nil]
       optional :referenceable_id, String
@@ -45,7 +45,7 @@ module ModernTreasury
 
       # @!attribute [r] referenceable_type
       #   One of the referenceable types. This must be accompanied by the id of the
-      #     referenceable or will return an error.
+      #   referenceable or will return an error.
       #
       #   @return [Symbol, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType, nil]
       optional :referenceable_type,
@@ -78,7 +78,7 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # One of the referenceable types. This must be accompanied by the id of the
-      #   referenceable or will return an error.
+      # referenceable or will return an error.
       module ReferenceableType
         extend ModernTreasury::Internal::Type::Enum
 

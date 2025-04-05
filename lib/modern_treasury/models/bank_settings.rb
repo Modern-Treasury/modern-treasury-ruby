@@ -26,14 +26,14 @@ module ModernTreasury
 
       # @!attribute enable_backup_withholding
       #   Whether backup withholding is enabled. See more here -
-      #     https://www.irs.gov/businesses/small-businesses-self-employed/backup-withholding.
+      #   https://www.irs.gov/businesses/small-businesses-self-employed/backup-withholding.
       #
       #   @return [Boolean, nil]
       required :enable_backup_withholding, ModernTreasury::Internal::Type::Boolean, nil?: true
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false
-      #     if it exists in the test environment.
+      #   if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::Internal::Type::Boolean
@@ -51,9 +51,9 @@ module ModernTreasury
 
       # @!attribute regulation_o
       #   It covers, among other types of insider loans, extensions of credit by a member
-      #     bank to an executive officer, director, or principal shareholder of the member
-      #     bank; a bank holding company of which the member bank is a subsidiary; and any
-      #     other subsidiary of that bank holding company.
+      #   bank to an executive officer, director, or principal shareholder of the member
+      #   bank; a bank holding company of which the member bank is a subsidiary; and any
+      #   other subsidiary of that bank holding company.
       #
       #   @return [Boolean, nil]
       required :regulation_o, ModernTreasury::Internal::Type::Boolean, nil?: true

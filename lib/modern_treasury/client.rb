@@ -133,7 +133,7 @@ module ModernTreasury
     attr_reader :legal_entity_associations
 
     # A test endpoint often used to confirm credentials and headers are being passed
-    #   in correctly.
+    # in correctly.
     #
     # @overload ping(request_options: {})
     #

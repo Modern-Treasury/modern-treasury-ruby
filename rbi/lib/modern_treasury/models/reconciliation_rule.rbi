@@ -4,17 +4,17 @@ module ModernTreasury
   module Models
     class ReconciliationRule < ModernTreasury::Internal::Type::BaseModel
       # The lowest amount this expected payment may be equal to. Value in specified
-      #   currency's smallest unit. e.g. $10 would be represented as 1000.
+      # currency's smallest unit. e.g. $10 would be represented as 1000.
       sig { returns(Integer) }
       attr_accessor :amount_lower_bound
 
       # The highest amount this expected payment may be equal to. Value in specified
-      #   currency's smallest unit. e.g. $10 would be represented as 1000.
+      # currency's smallest unit. e.g. $10 would be represented as 1000.
       sig { returns(Integer) }
       attr_accessor :amount_upper_bound
 
       # One of credit or debit. When you are receiving money, use credit. When you are
-      #   being charged, use debit.
+      # being charged, use debit.
       sig { returns(ModernTreasury::Models::ReconciliationRule::Direction::OrSymbol) }
       attr_accessor :direction
 
@@ -46,7 +46,7 @@ module ModernTreasury
       attr_accessor :date_upper_bound
 
       # One of ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
-      #   sepa, signet wire
+      # sepa, signet wire
       sig { returns(T.nilable(ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)) }
       attr_accessor :type
 
@@ -97,7 +97,7 @@ module ModernTreasury
       def to_hash; end
 
       # One of credit or debit. When you are receiving money, use credit. When you are
-      #   being charged, use debit.
+      # being charged, use debit.
       module Direction
         extend ModernTreasury::Internal::Type::Enum
 
@@ -113,7 +113,7 @@ module ModernTreasury
       end
 
       # One of ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
-      #   sepa, signet wire
+      # sepa, signet wire
       module Type
         extend ModernTreasury::Internal::Type::Enum
 

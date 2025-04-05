@@ -16,7 +16,7 @@ module ModernTreasury
 
       # @!attribute [r] metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
+      #   strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -27,7 +27,7 @@ module ModernTreasury
 
       # @!attribute [r] status
       #   To post a pending ledger account settlement, use `posted`. To archive a pending
-      #     ledger transaction, use `archived`.
+      #   ledger transaction, use `archived`.
       #
       #   @return [Symbol, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status }
@@ -47,7 +47,7 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # To post a pending ledger account settlement, use `posted`. To archive a pending
-      #   ledger transaction, use `archived`.
+      # ledger transaction, use `archived`.
       module Status
         extend ModernTreasury::Internal::Type::Enum
 

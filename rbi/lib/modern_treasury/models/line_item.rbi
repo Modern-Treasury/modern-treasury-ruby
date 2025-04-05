@@ -16,18 +16,18 @@ module ModernTreasury
       attr_writer :accounting
 
       # The ID of one of your accounting categories. Note that these will only be
-      #   accessible if your accounting system has been connected.
+      # accessible if your accounting system has been connected.
       sig { returns(T.nilable(String)) }
       attr_accessor :accounting_category_id
 
       # The ID of one of the class objects in your accounting system. Class objects
-      #   track segments of your business independent of client or project. Note that
-      #   these will only be accessible if your accounting system has been connected.
+      # track segments of your business independent of client or project. Note that
+      # these will only be accessible if your accounting system has been connected.
       sig { returns(T.nilable(String)) }
       attr_accessor :accounting_ledger_class_id
 
       # Value in specified currency's smallest unit. e.g. $10 would be represented
-      #   as 1000.
+      # as 1000.
       sig { returns(Integer) }
       attr_accessor :amount
 
@@ -47,12 +47,12 @@ module ModernTreasury
       attr_accessor :itemizable_type
 
       # This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
+      # if it exists in the test environment.
       sig { returns(T::Boolean) }
       attr_accessor :live_mode
 
       # Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
+      # strings.
       sig { returns(T::Hash[Symbol, String]) }
       attr_accessor :metadata
 
@@ -119,13 +119,13 @@ module ModernTreasury
 
       class Accounting < ModernTreasury::Internal::Type::BaseModel
         # The ID of one of your accounting categories. Note that these will only be
-        #   accessible if your accounting system has been connected.
+        # accessible if your accounting system has been connected.
         sig { returns(T.nilable(String)) }
         attr_accessor :account_id
 
         # The ID of one of the class objects in your accounting system. Class objects
-        #   track segments of your business independent of client or project. Note that
-        #   these will only be accessible if your accounting system has been connected.
+        # track segments of your business independent of client or project. Note that
+        # these will only be accessible if your accounting system has been connected.
         sig { returns(T.nilable(String)) }
         attr_accessor :class_id
 

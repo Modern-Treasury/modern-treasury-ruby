@@ -22,21 +22,21 @@ module ModernTreasury
 
       # @!attribute effective_at
       #   The timestamp (ISO8601 format) at which the ledger transaction happened for
-      #     reporting purposes.
+      #   reporting purposes.
       #
       #   @return [Time]
       required :effective_at, Time
 
       # @!attribute effective_date
       #   The date (YYYY-MM-DD) on which the ledger transaction happened for reporting
-      #     purposes.
+      #   purposes.
       #
       #   @return [Date]
       required :effective_date, Date
 
       # @!attribute external_id
       #   A unique string to represent the ledger transaction. Only one pending or posted
-      #     ledger transaction may have this ID in the ledger.
+      #   ledger transaction may have this ID in the ledger.
       #
       #   @return [String, nil]
       required :external_id, String, nil?: true
@@ -56,16 +56,16 @@ module ModernTreasury
 
       # @!attribute ledgerable_id
       #   If the ledger transaction can be reconciled to another object in Modern
-      #     Treasury, the id will be populated here, otherwise null.
+      #   Treasury, the id will be populated here, otherwise null.
       #
       #   @return [String, nil]
       required :ledgerable_id, String, nil?: true
 
       # @!attribute ledgerable_type
       #   If the ledger transaction can be reconciled to another object in Modern
-      #     Treasury, the type will be populated here, otherwise null. This can be one of
-      #     payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
-      #     reversal.
+      #   Treasury, the type will be populated here, otherwise null. This can be one of
+      #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
+      #   reversal.
       #
       #   @return [Symbol, ModernTreasury::Models::LedgerTransaction::LedgerableType, nil]
       required :ledgerable_type,
@@ -74,14 +74,14 @@ module ModernTreasury
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false
-      #     if it exists in the test environment.
+      #   if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
+      #   strings.
       #
       #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -99,7 +99,7 @@ module ModernTreasury
 
       # @!attribute posted_at
       #   The time on which the ledger transaction posted. This is null if the ledger
-      #     transaction is pending.
+      #   transaction is pending.
       #
       #   @return [Time, nil]
       required :posted_at, Time, nil?: true
@@ -176,9 +176,9 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # If the ledger transaction can be reconciled to another object in Modern
-      #   Treasury, the type will be populated here, otherwise null. This can be one of
-      #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
-      #   reversal.
+      # Treasury, the type will be populated here, otherwise null. This can be one of
+      # payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
+      # reversal.
       #
       # @see ModernTreasury::Models::LedgerTransaction#ledgerable_type
       module LedgerableType

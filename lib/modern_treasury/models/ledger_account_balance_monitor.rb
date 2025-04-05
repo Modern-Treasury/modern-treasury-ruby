@@ -22,7 +22,7 @@ module ModernTreasury
 
       # @!attribute current_ledger_account_balance_state
       #   The ledger account's balances and the monitor state as of the current ledger
-      #     account lock version.
+      #   account lock version.
       #
       #   @return [ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState]
       required :current_ledger_account_balance_state,
@@ -47,14 +47,14 @@ module ModernTreasury
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false
-      #     if it exists in the test environment.
+      #   if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
+      #   strings.
       #
       #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -105,23 +105,23 @@ module ModernTreasury
       class AlertCondition < ModernTreasury::Internal::Type::BaseModel
         # @!attribute field
         #   One of `available_balance_amount`, `pending_balance_amount`,
-        #     `posted_balance_amount`, `ledger_account_lock_version`.
+        #   `posted_balance_amount`, `ledger_account_lock_version`.
         #
         #   @return [String]
         required :field, String
 
         # @!attribute operator
         #   A logical operator to compare the `field` against the `value`. One of
-        #     `less_than`, `less_than_or_equals`, `equals`, `greater_than_or_equals`,
-        #     `greater_than`.
+        #   `less_than`, `less_than_or_equals`, `equals`, `greater_than_or_equals`,
+        #   `greater_than`.
         #
         #   @return [String]
         required :operator, String
 
         # @!attribute value
         #   The monitor's `current_ledger_account_balance_state.triggered` will be `true`
-        #     when comparing the `field` to this integer value using the `operator` is
-        #     logically true.
+        #   when comparing the `field` to this integer value using the `operator` is
+        #   logically true.
         #
         #   @return [Integer]
         required :value, Integer
@@ -154,14 +154,14 @@ module ModernTreasury
 
         # @!attribute triggered
         #   If `true`, the ledger account's balances satisfy the `alert_condition` at this
-        #     lock version.
+        #   lock version.
         #
         #   @return [Boolean]
         required :triggered, ModernTreasury::Internal::Type::Boolean
 
         # @!parse
         #   # The ledger account's balances and the monitor state as of the current ledger
-        #   #   account lock version.
+        #   # account lock version.
         #   #
         #   # @param balances [ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances]
         #   # @param ledger_account_lock_version [Integer]
@@ -175,9 +175,9 @@ module ModernTreasury
         class Balances < ModernTreasury::Internal::Type::BaseModel
           # @!attribute available_balance
           #   The available_balance is the sum of all posted inbound entries and pending
-          #     outbound entries. For credit normal, available_amount = posted_credits -
-          #     pending_debits; for debit normal, available_amount = posted_debits -
-          #     pending_credits.
+          #   outbound entries. For credit normal, available_amount = posted_credits -
+          #   pending_debits; for debit normal, available_amount = posted_debits -
+          #   pending_credits.
           #
           #   @return [ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance]
           required :available_balance,
@@ -237,9 +237,9 @@ module ModernTreasury
 
             # @!parse
             #   # The available_balance is the sum of all posted inbound entries and pending
-            #   #   outbound entries. For credit normal, available_amount = posted_credits -
-            #   #   pending_debits; for debit normal, available_amount = posted_debits -
-            #   #   pending_credits.
+            #   # outbound entries. For credit normal, available_amount = posted_credits -
+            #   # pending_debits; for debit normal, available_amount = posted_debits -
+            #   # pending_credits.
             #   #
             #   # @param amount [Integer]
             #   # @param credits [Integer]

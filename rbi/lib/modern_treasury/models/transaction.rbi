@@ -7,7 +7,7 @@ module ModernTreasury
       attr_accessor :id
 
       # Value in specified currency's smallest unit. e.g. $10 would be represented
-      #   as 1000.
+      # as 1000.
       sig { returns(Integer) }
       attr_accessor :amount
 
@@ -16,12 +16,12 @@ module ModernTreasury
       attr_accessor :as_of_date
 
       # The time on which the transaction occurred. Depending on the granularity of the
-      #   timestamp information received from the bank, it may be `null`.
+      # timestamp information received from the bank, it may be `null`.
       sig { returns(T.nilable(Time)) }
       attr_accessor :as_of_time
 
       # The timezone in which the `as_of_time` is represented. Can be `null` if the bank
-      #   does not provide timezone info.
+      # does not provide timezone info.
       sig { returns(T.nilable(String)) }
       attr_accessor :as_of_timezone
 
@@ -33,7 +33,7 @@ module ModernTreasury
       attr_accessor :currency
 
       # An object containing key-value pairs, each with a custom identifier as the key
-      #   and a string value.
+      # and a string value.
       sig { returns(T::Hash[Symbol, String]) }
       attr_accessor :custom_identifiers
 
@@ -63,12 +63,12 @@ module ModernTreasury
       attr_accessor :internal_account_id
 
       # This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
+      # if it exists in the test environment.
       sig { returns(T::Boolean) }
       attr_accessor :live_mode
 
       # Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
+      # strings.
       sig { returns(T::Hash[Symbol, String]) }
       attr_accessor :metadata
 
@@ -80,13 +80,13 @@ module ModernTreasury
       attr_accessor :posted
 
       # This field will be `true` if a transaction is reconciled by the Modern Treasury
-      #   system. This means that it has transaction line items that sum up to the
-      #   transaction's amount.
+      # system. This means that it has transaction line items that sum up to the
+      # transaction's amount.
       sig { returns(T::Boolean) }
       attr_accessor :reconciled
 
       # The type of the transaction. Examples could be
-      #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
+      # `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       sig { returns(ModernTreasury::Models::Transaction::Type::TaggedSymbol) }
       attr_accessor :type
 
@@ -94,14 +94,14 @@ module ModernTreasury
       attr_accessor :updated_at
 
       # When applicable, the bank-given code that determines the transaction's category.
-      #   For most banks this is the BAI2/BTRS transaction code.
+      # For most banks this is the BAI2/BTRS transaction code.
       sig { returns(T.nilable(String)) }
       attr_accessor :vendor_code
 
       # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
-      #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-      #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
-      #   `swift`, `us_bank`, or others.
+      # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
+      # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+      # `swift`, `us_bank`, or others.
       sig { returns(T.nilable(ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)) }
       attr_accessor :vendor_code_type
 
@@ -114,12 +114,12 @@ module ModernTreasury
       attr_accessor :vendor_id
 
       # This field contains additional information that the bank provided about the
-      #   transaction. This is structured data. Some of the data in here might overlap
-      #   with what is in the `vendor_description`. For example, the OBI could be a part
-      #   of the vendor description, and it would also be included in here. The attributes
-      #   that are passed through the details field will vary based on your banking
-      #   partner. Currently, the following keys may be in the details object:
-      #   `originator_name`, `originator_to_beneficiary_information`.
+      # transaction. This is structured data. Some of the data in here might overlap
+      # with what is in the `vendor_description`. For example, the OBI could be a part
+      # of the vendor description, and it would also be included in here. The attributes
+      # that are passed through the details field will vary based on your banking
+      # partner. Currently, the following keys may be in the details object:
+      # `originator_name`, `originator_to_beneficiary_information`.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_reader :details
 
@@ -127,7 +127,7 @@ module ModernTreasury
       attr_writer :details
 
       # The transaction detail text that often appears in on your bank statement and in
-      #   your banking portal.
+      # your banking portal.
       sig { returns(T.nilable(String)) }
       attr_accessor :vendor_description
 
@@ -226,7 +226,7 @@ module ModernTreasury
 
       class ForeignExchangeRate < ModernTreasury::Internal::Type::BaseModel
         # Amount in the lowest denomination of the `base_currency` to convert, often
-        #   called the "sell" amount.
+        # called the "sell" amount.
         sig { returns(Integer) }
         attr_accessor :base_amount
 
@@ -235,7 +235,7 @@ module ModernTreasury
         attr_accessor :base_currency
 
         # The exponent component of the rate. The decimal is calculated as `value` / (10 ^
-        #   `exponent`).
+        # `exponent`).
         sig { returns(Integer) }
         attr_accessor :exponent
 
@@ -244,7 +244,7 @@ module ModernTreasury
         attr_accessor :rate_string
 
         # Amount in the lowest denomination of the `target_currency`, often called the
-        #   "buy" amount.
+        # "buy" amount.
         sig { returns(Integer) }
         attr_accessor :target_amount
 
@@ -253,7 +253,7 @@ module ModernTreasury
         attr_accessor :target_currency
 
         # The whole number component of the rate. The decimal is calculated as `value` /
-        #   (10 ^ `exponent`).
+        # (10 ^ `exponent`).
         sig { returns(Integer) }
         attr_accessor :value
 
@@ -299,7 +299,7 @@ module ModernTreasury
       end
 
       # The type of the transaction. Examples could be
-      #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
+      # `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       module Type
         extend ModernTreasury::Internal::Type::Enum
 
@@ -344,9 +344,9 @@ module ModernTreasury
       end
 
       # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
-      #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-      #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
-      #   `swift`, `us_bank`, or others.
+      # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
+      # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+      # `swift`, `us_bank`, or others.
       module VendorCodeType
         extend ModernTreasury::Internal::Type::Enum
 

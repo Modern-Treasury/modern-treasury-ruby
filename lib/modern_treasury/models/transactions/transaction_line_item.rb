@@ -12,7 +12,7 @@ module ModernTreasury
 
         # @!attribute amount
         #   If a matching object exists in Modern Treasury, `amount` will be populated.
-        #     Value in specified currency's smallest unit (taken from parent Transaction).
+        #   Value in specified currency's smallest unit (taken from parent Transaction).
         #
         #   @return [Integer]
         required :amount, Integer
@@ -30,10 +30,10 @@ module ModernTreasury
 
         # @!attribute description
         #   If no matching object is found, `description` will be a free-form text field
-        #     describing the line item. This field may contain personally identifiable
-        #     information (PII) and is not included in API responses by default. Learn more
-        #     about changing your settings at
-        #     https://docs.moderntreasury.com/reference/personally-identifiable-information.
+        #   describing the line item. This field may contain personally identifiable
+        #   information (PII) and is not included in API responses by default. Learn more
+        #   about changing your settings at
+        #   https://docs.moderntreasury.com/reference/personally-identifiable-information.
         #
         #   @return [String]
         required :description, String
@@ -51,7 +51,7 @@ module ModernTreasury
 
         # @!attribute live_mode
         #   This field will be true if this object exists in the live environment, or false
-        #     if it exists in the test environment.
+        #   if it exists in the test environment.
         #
         #   @return [Boolean]
         required :live_mode, ModernTreasury::Internal::Type::Boolean
@@ -63,21 +63,21 @@ module ModernTreasury
 
         # @!attribute reconcilable
         #   Describes whether this line item should be counted towards the corresponding
-        #     transaction’s reconciliation.
+        #   transaction’s reconciliation.
         #
         #   @return [Boolean]
         required :reconcilable, ModernTreasury::Internal::Type::Boolean
 
         # @!attribute transactable_id
         #   If a matching object exists in Modern Treasury, the ID will be populated here,
-        #     otherwise `null`.
+        #   otherwise `null`.
         #
         #   @return [String, nil]
         required :transactable_id, String, nil?: true
 
         # @!attribute transactable_type
         #   If a matching object exists in Modern Treasury, the type will be populated here,
-        #     otherwise `null`.
+        #   otherwise `null`.
         #
         #   @return [Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType, nil]
         required :transactable_type,
@@ -92,7 +92,7 @@ module ModernTreasury
 
         # @!attribute type
         #   Indicates whether the line item is `originating` or `receiving` (see
-        #     https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
+        #   https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
         #
         #   @return [Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::Type]
         required :type, enum: -> { ModernTreasury::Models::Transactions::TransactionLineItem::Type }
@@ -143,7 +143,7 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
         # If a matching object exists in Modern Treasury, the type will be populated here,
-        #   otherwise `null`.
+        # otherwise `null`.
         #
         # @see ModernTreasury::Models::Transactions::TransactionLineItem#transactable_type
         module TransactableType
@@ -164,7 +164,7 @@ module ModernTreasury
         end
 
         # Indicates whether the line item is `originating` or `receiving` (see
-        #   https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
+        # https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
         #
         # @see ModernTreasury::Models::Transactions::TransactionLineItem#type
         module Type

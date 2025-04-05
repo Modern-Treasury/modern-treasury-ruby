@@ -24,7 +24,7 @@ module ModernTreasury
       attr_writer :created_at_upper_bound
 
       # Performs a partial string match of the email field. This is also case
-      #   insensitive.
+      # insensitive.
       sig { returns(T.nilable(String)) }
       attr_reader :email
 
@@ -39,8 +39,8 @@ module ModernTreasury
       attr_writer :legal_entity_id
 
       # For example, if you want to query for records with metadata key `Type` and value
-      #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #   parameters.
+      # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      # parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_reader :metadata
 
@@ -48,7 +48,7 @@ module ModernTreasury
       attr_writer :metadata
 
       # Performs a partial string match of the name field. This is also case
-      #   insensitive.
+      # insensitive.
       sig { returns(T.nilable(String)) }
       attr_reader :name
 

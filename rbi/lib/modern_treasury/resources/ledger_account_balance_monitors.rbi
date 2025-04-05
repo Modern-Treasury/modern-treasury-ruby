@@ -25,7 +25,7 @@ module ModernTreasury
         # An optional, free-form description for internal use.
         description: nil,
         # Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
+        # strings.
         metadata: nil,
         request_options: {}
       ); end
@@ -58,7 +58,7 @@ module ModernTreasury
         # An optional, free-form description for internal use.
         description: nil,
         # Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
+        # strings.
         metadata: nil,
         request_options: {}
       ); end
@@ -76,14 +76,14 @@ module ModernTreasury
       end
       def list(
         # If you have specific IDs to retrieve in bulk, you can pass them as query
-        #   parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
+        # parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
         id: nil,
         after_cursor: nil,
         # Query the balance monitors for a single ledger account.
         ledger_account_id: nil,
         # For example, if you want to query for records with metadata key `Type` and value
-        #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-        #   parameters.
+        # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+        # parameters.
         metadata: nil,
         per_page: nil,
         request_options: {}

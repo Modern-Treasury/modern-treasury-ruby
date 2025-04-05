@@ -14,17 +14,17 @@ module ModernTreasury
       attr_accessor :description
 
       # The timestamp (ISO8601 format) at which the ledger transaction happened for
-      #   reporting purposes.
+      # reporting purposes.
       sig { returns(Time) }
       attr_accessor :effective_at
 
       # The date (YYYY-MM-DD) on which the ledger transaction happened for reporting
-      #   purposes.
+      # purposes.
       sig { returns(Date) }
       attr_accessor :effective_date
 
       # A unique string to represent the ledger transaction. Only one pending or posted
-      #   ledger transaction may have this ID in the ledger.
+      # ledger transaction may have this ID in the ledger.
       sig { returns(T.nilable(String)) }
       attr_accessor :external_id
 
@@ -37,24 +37,24 @@ module ModernTreasury
       attr_accessor :ledger_id
 
       # If the ledger transaction can be reconciled to another object in Modern
-      #   Treasury, the id will be populated here, otherwise null.
+      # Treasury, the id will be populated here, otherwise null.
       sig { returns(T.nilable(String)) }
       attr_accessor :ledgerable_id
 
       # If the ledger transaction can be reconciled to another object in Modern
-      #   Treasury, the type will be populated here, otherwise null. This can be one of
-      #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
-      #   reversal.
+      # Treasury, the type will be populated here, otherwise null. This can be one of
+      # payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
+      # reversal.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerTransaction::LedgerableType::TaggedSymbol)) }
       attr_accessor :ledgerable_type
 
       # This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
+      # if it exists in the test environment.
       sig { returns(T::Boolean) }
       attr_accessor :live_mode
 
       # Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
+      # strings.
       sig { returns(T::Hash[Symbol, String]) }
       attr_accessor :metadata
 
@@ -66,7 +66,7 @@ module ModernTreasury
       attr_accessor :partially_posts_ledger_transaction_id
 
       # The time on which the ledger transaction posted. This is null if the ledger
-      #   transaction is pending.
+      # transaction is pending.
       sig { returns(T.nilable(Time)) }
       attr_accessor :posted_at
 
@@ -159,9 +159,9 @@ module ModernTreasury
       def to_hash; end
 
       # If the ledger transaction can be reconciled to another object in Modern
-      #   Treasury, the type will be populated here, otherwise null. This can be one of
-      #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
-      #   reversal.
+      # Treasury, the type will be populated here, otherwise null. This can be one of
+      # payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
+      # reversal.
       module LedgerableType
         extend ModernTreasury::Internal::Type::Enum
 

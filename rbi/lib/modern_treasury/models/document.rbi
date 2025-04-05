@@ -24,8 +24,8 @@ module ModernTreasury
       attr_accessor :documentable_id
 
       # The type of the associated object. Currently can be one of `payment_order`,
-      #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
-      #   `case`, `internal_account`, `decision`, or `external_account`.
+      # `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
+      # `case`, `internal_account`, `decision`, or `external_account`.
       sig { returns(ModernTreasury::Models::Document::DocumentableType::TaggedSymbol) }
       attr_accessor :documentable_type
 
@@ -36,7 +36,7 @@ module ModernTreasury
       attr_writer :file
 
       # This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
+      # if it exists in the test environment.
       sig { returns(T::Boolean) }
       attr_accessor :live_mode
 
@@ -119,7 +119,7 @@ module ModernTreasury
         attr_accessor :document_identifier_type
 
         # This field will be true if this object exists in the live environment or false
-        #   if it exists in the test environment.
+        # if it exists in the test environment.
         sig { returns(T::Boolean) }
         attr_accessor :live_mode
 
@@ -171,8 +171,8 @@ module ModernTreasury
       end
 
       # The type of the associated object. Currently can be one of `payment_order`,
-      #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
-      #   `case`, `internal_account`, `decision`, or `external_account`.
+      # `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
+      # `case`, `internal_account`, `decision`, or `external_account`.
       module DocumentableType
         extend ModernTreasury::Internal::Type::Enum
 

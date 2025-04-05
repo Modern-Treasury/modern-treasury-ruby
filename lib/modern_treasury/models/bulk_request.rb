@@ -28,14 +28,14 @@ module ModernTreasury
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false
-      #     if it exists in the test environment.
+      #   if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
+      #   strings.
       #
       #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -65,8 +65,8 @@ module ModernTreasury
 
       # @!attribute total_resource_count
       #   Total number of items in the `resources` array. Once a bulk request is
-      #     completed, `success_result_count` + `failed_result_count` will be equal to
-      #     `total_result_count`.
+      #   completed, `success_result_count` + `failed_result_count` will be equal to
+      #   `total_result_count`.
       #
       #   @return [Integer]
       required :total_resource_count, Integer

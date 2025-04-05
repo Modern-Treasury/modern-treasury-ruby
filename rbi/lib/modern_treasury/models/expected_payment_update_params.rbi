@@ -7,12 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       # The lowest amount this expected payment may be equal to. Value in specified
-      #   currency's smallest unit. e.g. $10 would be represented as 1000.
+      # currency's smallest unit. e.g. $10 would be represented as 1000.
       sig { returns(T.nilable(Integer)) }
       attr_accessor :amount_lower_bound
 
       # The highest amount this expected payment may be equal to. Value in specified
-      #   currency's smallest unit. e.g. $10 would be represented as 1000.
+      # currency's smallest unit. e.g. $10 would be represented as 1000.
       sig { returns(T.nilable(Integer)) }
       attr_accessor :amount_upper_bound
 
@@ -37,7 +37,7 @@ module ModernTreasury
       attr_accessor :description
 
       # One of credit or debit. When you are receiving money, use credit. When you are
-      #   being charged, use debit.
+      # being charged, use debit.
       sig { returns(T.nilable(ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::OrSymbol)) }
       attr_accessor :direction
 
@@ -46,7 +46,7 @@ module ModernTreasury
       attr_accessor :internal_account_id
 
       # Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
+      # strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_reader :metadata
 
@@ -66,25 +66,25 @@ module ModernTreasury
       attr_accessor :reconciliation_rule_variables
 
       # For `ach`, this field will be passed through on an addenda record. For `wire`
-      #   payments the field will be passed through as the "Originator to Beneficiary
-      #   Information", also known as OBI or Fedwire tag 6000.
+      # payments the field will be passed through as the "Originator to Beneficiary
+      # Information", also known as OBI or Fedwire tag 6000.
       sig { returns(T.nilable(String)) }
       attr_accessor :remittance_information
 
       # The statement description you expect to see on the transaction. For ACH
-      #   payments, this will be the full line item passed from the bank. For wire
-      #   payments, this will be the OBI field on the wire. For check payments, this will
-      #   be the memo field.
+      # payments, this will be the full line item passed from the bank. For wire
+      # payments, this will be the OBI field on the wire. For check payments, this will
+      # be the memo field.
       sig { returns(T.nilable(String)) }
       attr_accessor :statement_descriptor
 
       # The Expected Payment's status can be updated from partially_reconciled to
-      #   reconciled.
+      # reconciled.
       sig { returns(T.nilable(ModernTreasury::Models::ExpectedPaymentUpdateParams::Status::OrSymbol)) }
       attr_accessor :status
 
       # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
-      #   sepa, signet, wire.
+      # sepa, signet, wire.
       sig { returns(T.nilable(ModernTreasury::Models::ExpectedPaymentType::OrSymbol)) }
       attr_accessor :type
 
@@ -159,7 +159,7 @@ module ModernTreasury
       def to_hash; end
 
       # One of credit or debit. When you are receiving money, use credit. When you are
-      #   being charged, use debit.
+      # being charged, use debit.
       module Direction
         extend ModernTreasury::Internal::Type::Enum
 
@@ -176,7 +176,7 @@ module ModernTreasury
       end
 
       # The Expected Payment's status can be updated from partially_reconciled to
-      #   reconciled.
+      # reconciled.
       module Status
         extend ModernTreasury::Internal::Type::Enum
 

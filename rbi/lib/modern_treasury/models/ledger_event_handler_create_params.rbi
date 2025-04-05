@@ -52,7 +52,7 @@ module ModernTreasury
       attr_writer :ledger_id
 
       # Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
+      # strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_accessor :metadata
 
@@ -115,7 +115,7 @@ module ModernTreasury
         attr_accessor :description
 
         # The timestamp (ISO8601 format) at which the ledger transaction happened for
-        #   reporting purposes.
+        # reporting purposes.
         sig { returns(T.nilable(String)) }
         attr_accessor :effective_at
 

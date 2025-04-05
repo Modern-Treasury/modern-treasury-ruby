@@ -11,7 +11,7 @@ module ModernTreasury
 
       # @!attribute amount
       #   Value in specified currency's smallest unit. e.g. $10 would be represented
-      #     as 1000.
+      #   as 1000.
       #
       #   @return [Integer]
       required :amount, Integer
@@ -47,28 +47,28 @@ module ModernTreasury
 
       # @!attribute internal_account_id
       #   The ID of the Internal Account for the incoming payment detail. This is always
-      #     present.
+      #   present.
       #
       #   @return [String]
       required :internal_account_id, String
 
       # @!attribute ledger_transaction_id
       #   The ID of the ledger transaction linked to the incoming payment detail or
-      #     `null`.
+      #   `null`.
       #
       #   @return [String, nil]
       required :ledger_transaction_id, String, nil?: true
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false
-      #     if it exists in the test environment.
+      #   if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
+      #   strings.
       #
       #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -80,7 +80,7 @@ module ModernTreasury
 
       # @!attribute originating_account_number_safe
       #   The last 4 digits of the originating account_number for the incoming payment
-      #     detail.
+      #   detail.
       #
       #   @return [String, nil]
       required :originating_account_number_safe, String, nil?: true
@@ -109,7 +109,7 @@ module ModernTreasury
 
       # @!attribute status
       #   The current status of the incoming payment order. One of `pending`, `completed`,
-      #     or `returned`.
+      #   or `returned`.
       #
       #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetail::Status]
       required :status, enum: -> { ModernTreasury::Models::IncomingPaymentDetail::Status }
@@ -128,7 +128,7 @@ module ModernTreasury
 
       # @!attribute type
       #   One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
-      #     `wire`.
+      #   `wire`.
       #
       #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetail::Type]
       required :type, enum: -> { ModernTreasury::Models::IncomingPaymentDetail::Type }
@@ -146,14 +146,14 @@ module ModernTreasury
 
       # @!attribute virtual_account
       #   If the incoming payment detail is in a virtual account, the serialized virtual
-      #     account object.
+      #   account object.
       #
       #   @return [ModernTreasury::Models::VirtualAccount, nil]
       required :virtual_account, -> { ModernTreasury::Models::VirtualAccount }, nil?: true
 
       # @!attribute virtual_account_id
       #   If the incoming payment detail is in a virtual account, the ID of the Virtual
-      #     Account.
+      #   Account.
       #
       #   @return [String, nil]
       required :virtual_account_id, String, nil?: true
@@ -284,7 +284,7 @@ module ModernTreasury
       end
 
       # The current status of the incoming payment order. One of `pending`, `completed`,
-      #   or `returned`.
+      # or `returned`.
       #
       # @see ModernTreasury::Models::IncomingPaymentDetail#status
       module Status
@@ -302,7 +302,7 @@ module ModernTreasury
       end
 
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
-      #   `wire`.
+      # `wire`.
       #
       # @see ModernTreasury::Models::IncomingPaymentDetail#type
       module Type

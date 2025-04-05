@@ -11,12 +11,12 @@ module ModernTreasury
       attr_accessor :returnable_id
 
       # The type of object being returned. Currently, this may only be
-      #   incoming_payment_detail.
+      # incoming_payment_detail.
       sig { returns(ModernTreasury::Models::ReturnCreateParams::ReturnableType::OrSymbol) }
       attr_accessor :returnable_type
 
       # Some returns may include additional information from the bank. In these cases,
-      #   this string will be present.
+      # this string will be present.
       sig { returns(T.nilable(String)) }
       attr_accessor :additional_information
 
@@ -29,12 +29,12 @@ module ModernTreasury
       attr_accessor :data
 
       # If the return code is `R14` or `R15` this is the date the deceased counterparty
-      #   passed away.
+      # passed away.
       sig { returns(T.nilable(Date)) }
       attr_accessor :date_of_death
 
       # An optional description of the reason for the return. This is for internal usage
-      #   and will not be transmitted to the bank.”
+      # and will not be transmitted to the bank.”
       sig { returns(T.nilable(String)) }
       attr_accessor :reason
 
@@ -79,7 +79,7 @@ module ModernTreasury
       def to_hash; end
 
       # The type of object being returned. Currently, this may only be
-      #   incoming_payment_detail.
+      # incoming_payment_detail.
       module ReturnableType
         extend ModernTreasury::Internal::Type::Enum
 

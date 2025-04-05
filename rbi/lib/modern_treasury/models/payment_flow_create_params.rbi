@@ -7,12 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       # Required. Value in specified currency's smallest unit. e.g. $10 would be
-      #   represented as 1000. Can be any integer up to 36 digits.
+      # represented as 1000. Can be any integer up to 36 digits.
       sig { returns(Integer) }
       attr_accessor :amount
 
       # Required. The ID of a counterparty associated with the payment. As part of the
-      #   payment workflow an external account will be associated with this model.
+      # payment workflow an external account will be associated with this model.
       sig { returns(String) }
       attr_accessor :counterparty_id
 
@@ -21,7 +21,7 @@ module ModernTreasury
       attr_accessor :currency
 
       # Required. Describes the direction money is flowing in the transaction. Can only
-      #   be `debit`. A `debit` pulls money from someone else's account to your own.
+      # be `debit`. A `debit` pulls money from someone else's account to your own.
       sig { returns(ModernTreasury::Models::PaymentFlowCreateParams::Direction::OrSymbol) }
       attr_accessor :direction
 
@@ -30,8 +30,8 @@ module ModernTreasury
       attr_accessor :originating_account_id
 
       # Optional. Can only be passed in when `effective_date_selection_enabled` is
-      #   `true`. When set, the due date is shown to your end-user in the pre-built UI as
-      #   they are selecting a payment `effective_date`.
+      # `true`. When set, the due date is shown to your end-user in the pre-built UI as
+      # they are selecting a payment `effective_date`.
       sig { returns(T.nilable(Date)) }
       attr_reader :due_date
 
@@ -76,7 +76,7 @@ module ModernTreasury
       def to_hash; end
 
       # Required. Describes the direction money is flowing in the transaction. Can only
-      #   be `debit`. A `debit` pulls money from someone else's account to your own.
+      # be `debit`. A `debit` pulls money from someone else's account to your own.
       module Direction
         extend ModernTreasury::Internal::Type::Enum
 

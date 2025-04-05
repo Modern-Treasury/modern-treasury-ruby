@@ -34,10 +34,10 @@ module ModernTreasury
       end
       def create(
         # The lowest amount this expected payment may be equal to. Value in specified
-        #   currency's smallest unit. e.g. $10 would be represented as 1000.
+        # currency's smallest unit. e.g. $10 would be represented as 1000.
         amount_lower_bound: nil,
         # The highest amount this expected payment may be equal to. Value in specified
-        #   currency's smallest unit. e.g. $10 would be represented as 1000.
+        # currency's smallest unit. e.g. $10 would be represented as 1000.
         amount_upper_bound: nil,
         # The ID of the counterparty you expect for this payment.
         counterparty_id: nil,
@@ -50,23 +50,23 @@ module ModernTreasury
         # An optional description for internal use.
         description: nil,
         # One of credit or debit. When you are receiving money, use credit. When you are
-        #   being charged, use debit.
+        # being charged, use debit.
         direction: nil,
         # The ID of the Internal Account for the expected payment.
         internal_account_id: nil,
         # Specifies a ledger transaction object that will be created with the expected
-        #   payment. If the ledger transaction cannot be created, then the expected payment
-        #   creation will fail. The resulting ledger transaction will mirror the status of
-        #   the expected payment.
+        # payment. If the ledger transaction cannot be created, then the expected payment
+        # creation will fail. The resulting ledger transaction will mirror the status of
+        # the expected payment.
         ledger_transaction: nil,
         # Either ledger_transaction or ledger_transaction_id can be provided. Only a
-        #   pending ledger transaction can be attached upon expected payment creation. Once
-        #   the expected payment is created, the status of the ledger transaction tracks the
-        #   expected payment automatically.
+        # pending ledger transaction can be attached upon expected payment creation. Once
+        # the expected payment is created, the status of the ledger transaction tracks the
+        # expected payment automatically.
         ledger_transaction_id: nil,
         line_items: nil,
         # Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
+        # strings.
         metadata: nil,
         # The reconciliation filters you have for this payment.
         reconciliation_filters: nil,
@@ -75,16 +75,16 @@ module ModernTreasury
         # An array of reconciliation rule variables for this payment.
         reconciliation_rule_variables: nil,
         # For `ach`, this field will be passed through on an addenda record. For `wire`
-        #   payments the field will be passed through as the "Originator to Beneficiary
-        #   Information", also known as OBI or Fedwire tag 6000.
+        # payments the field will be passed through as the "Originator to Beneficiary
+        # Information", also known as OBI or Fedwire tag 6000.
         remittance_information: nil,
         # The statement description you expect to see on the transaction. For ACH
-        #   payments, this will be the full line item passed from the bank. For wire
-        #   payments, this will be the OBI field on the wire. For check payments, this will
-        #   be the memo field.
+        # payments, this will be the full line item passed from the bank. For wire
+        # payments, this will be the OBI field on the wire. For check payments, this will
+        # be the memo field.
         statement_descriptor: nil,
         # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
-        #   sepa, signet, wire.
+        # sepa, signet, wire.
         type: nil,
         request_options: {}
       ); end
@@ -130,10 +130,10 @@ module ModernTreasury
         # id
         id,
         # The lowest amount this expected payment may be equal to. Value in specified
-        #   currency's smallest unit. e.g. $10 would be represented as 1000.
+        # currency's smallest unit. e.g. $10 would be represented as 1000.
         amount_lower_bound: nil,
         # The highest amount this expected payment may be equal to. Value in specified
-        #   currency's smallest unit. e.g. $10 would be represented as 1000.
+        # currency's smallest unit. e.g. $10 would be represented as 1000.
         amount_upper_bound: nil,
         # The ID of the counterparty you expect for this payment.
         counterparty_id: nil,
@@ -146,12 +146,12 @@ module ModernTreasury
         # An optional description for internal use.
         description: nil,
         # One of credit or debit. When you are receiving money, use credit. When you are
-        #   being charged, use debit.
+        # being charged, use debit.
         direction: nil,
         # The ID of the Internal Account for the expected payment.
         internal_account_id: nil,
         # Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
+        # strings.
         metadata: nil,
         # The reconciliation filters you have for this payment.
         reconciliation_filters: nil,
@@ -160,19 +160,19 @@ module ModernTreasury
         # An array of reconciliation rule variables for this payment.
         reconciliation_rule_variables: nil,
         # For `ach`, this field will be passed through on an addenda record. For `wire`
-        #   payments the field will be passed through as the "Originator to Beneficiary
-        #   Information", also known as OBI or Fedwire tag 6000.
+        # payments the field will be passed through as the "Originator to Beneficiary
+        # Information", also known as OBI or Fedwire tag 6000.
         remittance_information: nil,
         # The statement description you expect to see on the transaction. For ACH
-        #   payments, this will be the full line item passed from the bank. For wire
-        #   payments, this will be the OBI field on the wire. For check payments, this will
-        #   be the memo field.
+        # payments, this will be the full line item passed from the bank. For wire
+        # payments, this will be the OBI field on the wire. For check payments, this will
+        # be the memo field.
         statement_descriptor: nil,
         # The Expected Payment's status can be updated from partially_reconciled to
-        #   reconciled.
+        # reconciled.
         status: nil,
         # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
-        #   sepa, signet, wire.
+        # sepa, signet, wire.
         type: nil,
         request_options: {}
       ); end
@@ -206,14 +206,14 @@ module ModernTreasury
         # Specify internal_account_id to see expected_payments for a specific account.
         internal_account_id: nil,
         # For example, if you want to query for records with metadata key `Type` and value
-        #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-        #   parameters.
+        # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+        # parameters.
         metadata: nil,
         per_page: nil,
         # One of unreconciled, reconciled, or archived.
         status: nil,
         # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
-        #   sepa, signet, wire
+        # sepa, signet, wire
         type: nil,
         request_options: {}
       ); end

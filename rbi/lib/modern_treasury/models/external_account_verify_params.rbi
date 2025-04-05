@@ -7,7 +7,7 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       # The ID of the internal account where the micro-deposits originate from. Both
-      #   credit and debit capabilities must be enabled.
+      # credit and debit capabilities must be enabled.
       sig { returns(String) }
       attr_accessor :originating_account_id
 
@@ -23,8 +23,8 @@ module ModernTreasury
       attr_writer :currency
 
       # A payment type to fallback to if the original type is not valid for the
-      #   receiving account. Currently, this only supports falling back from RTP to ACH
-      #   (payment_type=rtp and fallback_type=ach)
+      # receiving account. Currently, this only supports falling back from RTP to ACH
+      # (payment_type=rtp and fallback_type=ach)
       sig { returns(T.nilable(ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType::OrSymbol)) }
       attr_reader :fallback_type
 
@@ -32,7 +32,7 @@ module ModernTreasury
       attr_writer :fallback_type
 
       # Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH
-      #   transfer. This will apply to both `payment_type` and `fallback_type`.
+      # transfer. This will apply to both `payment_type` and `fallback_type`.
       sig { returns(T.nilable(ModernTreasury::Models::ExternalAccountVerifyParams::Priority::OrSymbol)) }
       attr_reader :priority
 
@@ -122,8 +122,8 @@ module ModernTreasury
       end
 
       # A payment type to fallback to if the original type is not valid for the
-      #   receiving account. Currently, this only supports falling back from RTP to ACH
-      #   (payment_type=rtp and fallback_type=ach)
+      # receiving account. Currently, this only supports falling back from RTP to ACH
+      # (payment_type=rtp and fallback_type=ach)
       module FallbackType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -141,7 +141,7 @@ module ModernTreasury
       end
 
       # Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH
-      #   transfer. This will apply to both `payment_type` and `fallback_type`.
+      # transfer. This will apply to both `payment_type` and `fallback_type`.
       module Priority
         extend ModernTreasury::Internal::Type::Enum
 

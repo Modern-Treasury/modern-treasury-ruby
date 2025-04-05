@@ -18,8 +18,8 @@ module ModernTreasury
         attr_writer :description
 
         # Either `debit` or `credit`. `debit` indicates that a client owes the business
-        #   money and increases the invoice's `total_amount` due. `credit` has the opposite
-        #   intention and effect.
+        # money and increases the invoice's `total_amount` due. `credit` has the opposite
+        # intention and effect.
         sig { returns(T.nilable(String)) }
         attr_reader :direction
 
@@ -27,7 +27,7 @@ module ModernTreasury
         attr_writer :direction
 
         # Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
+        # strings.
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
         attr_reader :metadata
 
@@ -42,7 +42,7 @@ module ModernTreasury
         attr_writer :name
 
         # The number of units of a product or service that this line item is for. Must be
-        #   a whole number. Defaults to 1 if not provided.
+        # a whole number. Defaults to 1 if not provided.
         sig { returns(T.nilable(Integer)) }
         attr_reader :quantity
 
@@ -50,7 +50,7 @@ module ModernTreasury
         attr_writer :quantity
 
         # The cost per unit of the product or service that this line item is for,
-        #   specified in the invoice currency's smallest unit.
+        # specified in the invoice currency's smallest unit.
         sig { returns(T.nilable(Integer)) }
         attr_reader :unit_amount
 
@@ -58,8 +58,8 @@ module ModernTreasury
         attr_writer :unit_amount
 
         # The cost per unit of the product or service that this line item is for,
-        #   specified in the invoice currency's smallest unit. Accepts decimal strings with
-        #   up to 12 decimals
+        # specified in the invoice currency's smallest unit. Accepts decimal strings with
+        # up to 12 decimals
         sig { returns(T.nilable(String)) }
         attr_reader :unit_amount_decimal
 

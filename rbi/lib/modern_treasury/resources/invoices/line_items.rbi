@@ -30,23 +30,23 @@ module ModernTreasury
           # The name of the line item, typically a product or SKU name.
           name:,
           # The cost per unit of the product or service that this line item is for,
-          #   specified in the invoice currency's smallest unit.
+          # specified in the invoice currency's smallest unit.
           unit_amount:,
           # An optional free-form description of the line item.
           description: nil,
           # Either `debit` or `credit`. `debit` indicates that a client owes the business
-          #   money and increases the invoice's `total_amount` due. `credit` has the opposite
-          #   intention and effect.
+          # money and increases the invoice's `total_amount` due. `credit` has the opposite
+          # intention and effect.
           direction: nil,
           # Additional data represented as key-value pairs. Both the key and value must be
-          #   strings.
+          # strings.
           metadata: nil,
           # The number of units of a product or service that this line item is for. Must be
-          #   a whole number. Defaults to 1 if not provided.
+          # a whole number. Defaults to 1 if not provided.
           quantity: nil,
           # The cost per unit of the product or service that this line item is for,
-          #   specified in the invoice currency's smallest unit. Accepts decimal strings with
-          #   up to 12 decimals
+          # specified in the invoice currency's smallest unit. Accepts decimal strings with
+          # up to 12 decimals
           unit_amount_decimal: nil,
           request_options: {}
         ); end
@@ -100,23 +100,23 @@ module ModernTreasury
           # Body param: An optional free-form description of the line item.
           description: nil,
           # Body param: Either `debit` or `credit`. `debit` indicates that a client owes the
-          #   business money and increases the invoice's `total_amount` due. `credit` has the
-          #   opposite intention and effect.
+          # business money and increases the invoice's `total_amount` due. `credit` has the
+          # opposite intention and effect.
           direction: nil,
           # Body param: Additional data represented as key-value pairs. Both the key and
-          #   value must be strings.
+          # value must be strings.
           metadata: nil,
           # Body param: The name of the line item, typically a product or SKU name.
           name: nil,
           # Body param: The number of units of a product or service that this line item is
-          #   for. Must be a whole number. Defaults to 1 if not provided.
+          # for. Must be a whole number. Defaults to 1 if not provided.
           quantity: nil,
           # Body param: The cost per unit of the product or service that this line item is
-          #   for, specified in the invoice currency's smallest unit.
+          # for, specified in the invoice currency's smallest unit.
           unit_amount: nil,
           # Body param: The cost per unit of the product or service that this line item is
-          #   for, specified in the invoice currency's smallest unit. Accepts decimal strings
-          #   with up to 12 decimals
+          # for, specified in the invoice currency's smallest unit. Accepts decimal strings
+          # with up to 12 decimals
           unit_amount_decimal: nil,
           request_options: {}
         ); end

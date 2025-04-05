@@ -17,12 +17,12 @@ module ModernTreasury
       attr_accessor :discarded_at
 
       # Whether backup withholding is enabled. See more here -
-      #   https://www.irs.gov/businesses/small-businesses-self-employed/backup-withholding.
+      # https://www.irs.gov/businesses/small-businesses-self-employed/backup-withholding.
       sig { returns(T.nilable(T::Boolean)) }
       attr_accessor :enable_backup_withholding
 
       # This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
+      # if it exists in the test environment.
       sig { returns(T::Boolean) }
       attr_accessor :live_mode
 
@@ -34,9 +34,9 @@ module ModernTreasury
       attr_accessor :privacy_opt_out
 
       # It covers, among other types of insider loans, extensions of credit by a member
-      #   bank to an executive officer, director, or principal shareholder of the member
-      #   bank; a bank holding company of which the member bank is a subsidiary; and any
-      #   other subsidiary of that bank holding company.
+      # bank to an executive officer, director, or principal shareholder of the member
+      # bank; a bank holding company of which the member bank is a subsidiary; and any
+      # other subsidiary of that bank holding company.
       sig { returns(T.nilable(T::Boolean)) }
       attr_accessor :regulation_o
 

@@ -25,7 +25,7 @@ module ModernTreasury
       attr_accessor :created_at
 
       # The ledger account's balances and the monitor state as of the current ledger
-      #   account lock version.
+      # account lock version.
       sig { returns(ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState) }
       attr_reader :current_ledger_account_balance_state
 
@@ -52,12 +52,12 @@ module ModernTreasury
       attr_accessor :ledger_account_id
 
       # This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
+      # if it exists in the test environment.
       sig { returns(T::Boolean) }
       attr_accessor :live_mode
 
       # Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
+      # strings.
       sig { returns(T::Hash[Symbol, String]) }
       attr_accessor :metadata
 
@@ -124,19 +124,19 @@ module ModernTreasury
 
       class AlertCondition < ModernTreasury::Internal::Type::BaseModel
         # One of `available_balance_amount`, `pending_balance_amount`,
-        #   `posted_balance_amount`, `ledger_account_lock_version`.
+        # `posted_balance_amount`, `ledger_account_lock_version`.
         sig { returns(String) }
         attr_accessor :field
 
         # A logical operator to compare the `field` against the `value`. One of
-        #   `less_than`, `less_than_or_equals`, `equals`, `greater_than_or_equals`,
-        #   `greater_than`.
+        # `less_than`, `less_than_or_equals`, `equals`, `greater_than_or_equals`,
+        # `greater_than`.
         sig { returns(String) }
         attr_accessor :operator
 
         # The monitor's `current_ledger_account_balance_state.triggered` will be `true`
-        #   when comparing the `field` to this integer value using the `operator` is
-        #   logically true.
+        # when comparing the `field` to this integer value using the `operator` is
+        # logically true.
         sig { returns(Integer) }
         attr_accessor :value
 
@@ -168,12 +168,12 @@ module ModernTreasury
         attr_accessor :ledger_account_lock_version
 
         # If `true`, the ledger account's balances satisfy the `alert_condition` at this
-        #   lock version.
+        # lock version.
         sig { returns(T::Boolean) }
         attr_accessor :triggered
 
         # The ledger account's balances and the monitor state as of the current ledger
-        #   account lock version.
+        # account lock version.
         sig do
           params(
             balances: T.any(
@@ -201,9 +201,9 @@ module ModernTreasury
 
         class Balances < ModernTreasury::Internal::Type::BaseModel
           # The available_balance is the sum of all posted inbound entries and pending
-          #   outbound entries. For credit normal, available_amount = posted_credits -
-          #   pending_debits; for debit normal, available_amount = posted_debits -
-          #   pending_credits.
+          # outbound entries. For credit normal, available_amount = posted_credits -
+          # pending_debits; for debit normal, available_amount = posted_debits -
+          # pending_credits.
           sig do
             returns(
               ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance
@@ -310,9 +310,9 @@ module ModernTreasury
             attr_accessor :debits
 
             # The available_balance is the sum of all posted inbound entries and pending
-            #   outbound entries. For credit normal, available_amount = posted_credits -
-            #   pending_debits; for debit normal, available_amount = posted_debits -
-            #   pending_credits.
+            # outbound entries. For credit normal, available_amount = posted_credits -
+            # pending_debits; for debit normal, available_amount = posted_debits -
+            # pending_credits.
             sig do
               params(
                 amount: Integer,

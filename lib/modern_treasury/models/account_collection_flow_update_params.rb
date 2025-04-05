@@ -10,7 +10,7 @@ module ModernTreasury
 
       # @!attribute status
       #   Required. The updated status of the account collection flow. Can only be used to
-      #     mark a flow as `cancelled`.
+      #   mark a flow as `cancelled`.
       #
       #   @return [Symbol, ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status]
       required :status, enum: -> { ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status }
@@ -24,7 +24,7 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # Required. The updated status of the account collection flow. Can only be used to
-      #   mark a flow as `cancelled`.
+      # mark a flow as `cancelled`.
       module Status
         extend ModernTreasury::Internal::Type::Enum
 

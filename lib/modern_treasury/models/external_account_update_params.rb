@@ -25,7 +25,7 @@ module ModernTreasury
 
       # @!attribute [r] metadata
       #   Additional data in the form of key-value pairs. Pairs can be removed by passing
-      #     an empty string or `null` as the value.
+      #   an empty string or `null` as the value.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -36,7 +36,7 @@ module ModernTreasury
 
       # @!attribute name
       #   A nickname for the external account. This is only for internal usage and won't
-      #     affect any payments
+      #   affect any payments
       #
       #   @return [String, nil]
       optional :name, String, nil?: true

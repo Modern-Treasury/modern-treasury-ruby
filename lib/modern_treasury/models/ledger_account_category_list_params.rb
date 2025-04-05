@@ -10,7 +10,7 @@ module ModernTreasury
 
       # @!attribute [r] id
       #   If you have specific IDs to retrieve in bulk, you can pass them as query
-      #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
+      #   parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       #
       #   @return [Array<String>, nil]
       optional :id, ModernTreasury::Internal::Type::ArrayOf[String]
@@ -26,8 +26,8 @@ module ModernTreasury
 
       # @!attribute [r] balances
       #   For example, if you want the balances as of a particular time (ISO8601), the
-      #     encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
-      #     The balances as of a time are inclusive of entries with that exact time.
+      #   encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
+      #   The balances as of a time are inclusive of entries with that exact time.
       #
       #   @return [ModernTreasury::Models::LedgerAccountCategoryListParams::Balances, nil]
       optional :balances, -> { ModernTreasury::Models::LedgerAccountCategoryListParams::Balances }
@@ -47,7 +47,7 @@ module ModernTreasury
 
       # @!attribute [r] ledger_account_id
       #   Query categories which contain a ledger account directly or through child
-      #     categories.
+      #   categories.
       #
       #   @return [String, nil]
       optional :ledger_account_id, String
@@ -67,8 +67,8 @@ module ModernTreasury
 
       # @!attribute [r] metadata
       #   For example, if you want to query for records with metadata key `Type` and value
-      #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #     parameters.
+      #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #   parameters.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -149,8 +149,8 @@ module ModernTreasury
 
         # @!parse
         #   # For example, if you want the balances as of a particular time (ISO8601), the
-        #   #   encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
-        #   #   The balances as of a time are inclusive of entries with that exact time.
+        #   # encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
+        #   # The balances as of a time are inclusive of entries with that exact time.
         #   #
         #   # @param effective_at [Time]
         #   #

@@ -21,7 +21,7 @@ module ModernTreasury
       attr_writer :ledger_account_id
 
       # Additional data in the form of key-value pairs. Pairs can be removed by passing
-      #   an empty string or `null` as the value.
+      # an empty string or `null` as the value.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_reader :metadata
 

@@ -8,14 +8,14 @@ module ModernTreasury
         include ModernTreasury::Internal::Type::RequestParameters
 
         # The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`,
-        #   `incorrect_receiving_account`, `date_earlier_than_intended`,
-        #   `date_later_than_intended`.
+        # `incorrect_receiving_account`, `date_earlier_than_intended`,
+        # `date_later_than_intended`.
         sig { returns(ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::OrSymbol) }
         attr_accessor :reason
 
         # Specifies a ledger transaction object that will be created with the reversal. If
-        #   the ledger transaction cannot be created, then the reversal creation will fail.
-        #   The resulting ledger transaction will mirror the status of the reversal.
+        # the ledger transaction cannot be created, then the reversal creation will fail.
+        # The resulting ledger transaction will mirror the status of the reversal.
         sig { returns(T.nilable(ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction)) }
         attr_reader :ledger_transaction
 
@@ -31,7 +31,7 @@ module ModernTreasury
         attr_writer :ledger_transaction
 
         # Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
+        # strings.
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
         attr_reader :metadata
 
@@ -66,8 +66,8 @@ module ModernTreasury
         def to_hash; end
 
         # The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`,
-        #   `incorrect_receiving_account`, `date_earlier_than_intended`,
-        #   `date_later_than_intended`.
+        # `incorrect_receiving_account`, `date_earlier_than_intended`,
+        # `date_later_than_intended`.
         module Reason
           extend ModernTreasury::Internal::Type::Enum
 
@@ -120,7 +120,7 @@ module ModernTreasury
           attr_accessor :description
 
           # The timestamp (ISO8601 format) at which the ledger transaction happened for
-          #   reporting purposes.
+          # reporting purposes.
           sig { returns(T.nilable(Time)) }
           attr_reader :effective_at
 
@@ -128,7 +128,7 @@ module ModernTreasury
           attr_writer :effective_at
 
           # The date (YYYY-MM-DD) on which the ledger transaction happened for reporting
-          #   purposes.
+          # purposes.
           sig { returns(T.nilable(Date)) }
           attr_reader :effective_date
 
@@ -136,7 +136,7 @@ module ModernTreasury
           attr_writer :effective_date
 
           # A unique string to represent the ledger transaction. Only one pending or posted
-          #   ledger transaction may have this ID in the ledger.
+          # ledger transaction may have this ID in the ledger.
           sig { returns(T.nilable(String)) }
           attr_reader :external_id
 
@@ -144,7 +144,7 @@ module ModernTreasury
           attr_writer :external_id
 
           # If the ledger transaction can be reconciled to another object in Modern
-          #   Treasury, the id will be populated here, otherwise null.
+          # Treasury, the id will be populated here, otherwise null.
           sig { returns(T.nilable(String)) }
           attr_reader :ledgerable_id
 
@@ -152,9 +152,9 @@ module ModernTreasury
           attr_writer :ledgerable_id
 
           # If the ledger transaction can be reconciled to another object in Modern
-          #   Treasury, the type will be populated here, otherwise null. This can be one of
-          #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
-          #   reversal.
+          # Treasury, the type will be populated here, otherwise null. This can be one of
+          # payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
+          # reversal.
           sig do
             returns(
               T.nilable(
@@ -173,7 +173,7 @@ module ModernTreasury
           attr_writer :ledgerable_type
 
           # Additional data represented as key-value pairs. Both the key and value must be
-          #   strings.
+          # strings.
           sig { returns(T.nilable(T::Hash[Symbol, String])) }
           attr_reader :metadata
 
@@ -199,8 +199,8 @@ module ModernTreasury
           attr_writer :status
 
           # Specifies a ledger transaction object that will be created with the reversal. If
-          #   the ledger transaction cannot be created, then the reversal creation will fail.
-          #   The resulting ledger transaction will mirror the status of the reversal.
+          # the ledger transaction cannot be created, then the reversal creation will fail.
+          # The resulting ledger transaction will mirror the status of the reversal.
           sig do
             params(
               ledger_entries: T::Array[
@@ -251,14 +251,14 @@ module ModernTreasury
 
           class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
             # Value in specified currency's smallest unit. e.g. $10 would be represented
-            #   as 1000. Can be any integer up to 36 digits.
+            # as 1000. Can be any integer up to 36 digits.
             sig { returns(Integer) }
             attr_accessor :amount
 
             # One of `credit`, `debit`. Describes the direction money is flowing in the
-            #   transaction. A `credit` moves money from your account to someone else's. A
-            #   `debit` pulls money from someone else's account to your own. Note that wire,
-            #   rtp, and check payments will always be `credit`.
+            # transaction. A `credit` moves money from your account to someone else's. A
+            # `debit` pulls money from someone else's account to your own. Note that wire,
+            # rtp, and check payments will always be `credit`.
             sig { returns(ModernTreasury::Models::TransactionDirection::OrSymbol) }
             attr_accessor :direction
 
@@ -267,20 +267,20 @@ module ModernTreasury
             attr_accessor :ledger_account_id
 
             # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
-            #   account’s available balance. If any of these conditions would be false after the
-            #   transaction is created, the entire call will fail with error code 422.
+            # account’s available balance. If any of these conditions would be false after the
+            # transaction is created, the entire call will fail with error code 422.
             sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
             attr_accessor :available_balance_amount
 
             # Lock version of the ledger account. This can be passed when creating a ledger
-            #   transaction to only succeed if no ledger transactions have posted since the
-            #   given version. See our post about Designing the Ledgers API with Optimistic
-            #   Locking for more details.
+            # transaction to only succeed if no ledger transactions have posted since the
+            # given version. See our post about Designing the Ledgers API with Optimistic
+            # Locking for more details.
             sig { returns(T.nilable(Integer)) }
             attr_accessor :lock_version
 
             # Additional data represented as key-value pairs. Both the key and value must be
-            #   strings.
+            # strings.
             sig { returns(T.nilable(T::Hash[Symbol, String])) }
             attr_reader :metadata
 
@@ -288,19 +288,19 @@ module ModernTreasury
             attr_writer :metadata
 
             # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
-            #   account’s pending balance. If any of these conditions would be false after the
-            #   transaction is created, the entire call will fail with error code 422.
+            # account’s pending balance. If any of these conditions would be false after the
+            # transaction is created, the entire call will fail with error code 422.
             sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
             attr_accessor :pending_balance_amount
 
             # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
-            #   account’s posted balance. If any of these conditions would be false after the
-            #   transaction is created, the entire call will fail with error code 422.
+            # account’s posted balance. If any of these conditions would be false after the
+            # transaction is created, the entire call will fail with error code 422.
             sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
             attr_accessor :posted_balance_amount
 
             # If true, response will include the balance of the associated ledger account for
-            #   the entry.
+            # the entry.
             sig { returns(T.nilable(T::Boolean)) }
             attr_accessor :show_resulting_ledger_account_balances
 
@@ -349,9 +349,9 @@ module ModernTreasury
           end
 
           # If the ledger transaction can be reconciled to another object in Modern
-          #   Treasury, the type will be populated here, otherwise null. This can be one of
-          #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
-          #   reversal.
+          # Treasury, the type will be populated here, otherwise null. This can be one of
+          # payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
+          # reversal.
           module LedgerableType
             extend ModernTreasury::Internal::Type::Enum
 
