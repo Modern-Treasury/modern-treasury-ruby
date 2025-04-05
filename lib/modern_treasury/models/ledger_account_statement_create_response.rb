@@ -22,24 +22,24 @@ module ModernTreasury
 
       # @!attribute effective_at_lower_bound
       #   The inclusive lower bound of the effective_at timestamp of the ledger entries to
-      #     be included in the ledger account statement.
+      #   be included in the ledger account statement.
       #
       #   @return [Time]
       required :effective_at_lower_bound, Time
 
       # @!attribute effective_at_upper_bound
       #   The exclusive upper bound of the effective_at timestamp of the ledger entries to
-      #     be included in the ledger account statement.
+      #   be included in the ledger account statement.
       #
       #   @return [Time]
       required :effective_at_upper_bound, Time
 
       # @!attribute ending_balance
       #   The pending, posted, and available balances for this ledger account at the
-      #     `effective_at_upper_bound`. The posted balance is the sum of all posted entries
-      #     on the account. The pending balance is the sum of all pending and posted entries
-      #     on the account. The available balance is the posted incoming entries minus the
-      #     sum of the pending and posted outgoing amounts.
+      #   `effective_at_upper_bound`. The posted balance is the sum of all posted entries
+      #   on the account. The pending balance is the sum of all pending and posted entries
+      #   on the account. The available balance is the posted incoming entries minus the
+      #   sum of the pending and posted outgoing amounts.
       #
       #   @return [ModernTreasury::Models::LedgerAccountStatementCreateResponse::EndingBalance]
       required :ending_balance,
@@ -47,7 +47,7 @@ module ModernTreasury
 
       # @!attribute ledger_account_id
       #   The id of the ledger account whose ledger entries are queried against, and its
-      #     balances are computed as a result.
+      #   balances are computed as a result.
       #
       #   @return [String]
       required :ledger_account_id, String
@@ -72,14 +72,14 @@ module ModernTreasury
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false
-      #     if it exists in the test environment.
+      #   if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
+      #   strings.
       #
       #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -91,10 +91,10 @@ module ModernTreasury
 
       # @!attribute starting_balance
       #   The pending, posted, and available balances for this ledger account at the
-      #     `effective_at_lower_bound`. The posted balance is the sum of all posted entries
-      #     on the account. The pending balance is the sum of all pending and posted entries
-      #     on the account. The available balance is the posted incoming entries minus the
-      #     sum of the pending and posted outgoing amounts.
+      #   `effective_at_lower_bound`. The posted balance is the sum of all posted entries
+      #   on the account. The pending balance is the sum of all pending and posted entries
+      #   on the account. The available balance is the posted incoming entries minus the
+      #   sum of the pending and posted outgoing amounts.
       #
       #   @return [ModernTreasury::Models::LedgerAccountStatementCreateResponse::StartingBalance]
       required :starting_balance,
@@ -149,9 +149,9 @@ module ModernTreasury
       class EndingBalance < ModernTreasury::Internal::Type::BaseModel
         # @!attribute available_balance
         #   The available_balance is the sum of all posted inbound entries and pending
-        #     outbound entries. For credit normal, available_amount = posted_credits -
-        #     pending_debits; for debit normal, available_amount = posted_debits -
-        #     pending_credits.
+        #   outbound entries. For credit normal, available_amount = posted_credits -
+        #   pending_debits; for debit normal, available_amount = posted_debits -
+        #   pending_credits.
         #
         #   @return [ModernTreasury::Models::LedgerAccountStatementCreateResponse::EndingBalance::AvailableBalance]
         required :available_balance,
@@ -173,10 +173,10 @@ module ModernTreasury
 
         # @!parse
         #   # The pending, posted, and available balances for this ledger account at the
-        #   #   `effective_at_upper_bound`. The posted balance is the sum of all posted entries
-        #   #   on the account. The pending balance is the sum of all pending and posted entries
-        #   #   on the account. The available balance is the posted incoming entries minus the
-        #   #   sum of the pending and posted outgoing amounts.
+        #   # `effective_at_upper_bound`. The posted balance is the sum of all posted entries
+        #   # on the account. The pending balance is the sum of all pending and posted entries
+        #   # on the account. The available balance is the posted incoming entries minus the
+        #   # sum of the pending and posted outgoing amounts.
         #   #
         #   # @param available_balance [ModernTreasury::Models::LedgerAccountStatementCreateResponse::EndingBalance::AvailableBalance]
         #   # @param pending_balance [ModernTreasury::Models::LedgerAccountStatementCreateResponse::EndingBalance::PendingBalance]
@@ -217,9 +217,9 @@ module ModernTreasury
 
           # @!parse
           #   # The available_balance is the sum of all posted inbound entries and pending
-          #   #   outbound entries. For credit normal, available_amount = posted_credits -
-          #   #   pending_debits; for debit normal, available_amount = posted_debits -
-          #   #   pending_credits.
+          #   # outbound entries. For credit normal, available_amount = posted_credits -
+          #   # pending_debits; for debit normal, available_amount = posted_debits -
+          #   # pending_credits.
           #   #
           #   # @param amount [Integer]
           #   # @param credits [Integer]
@@ -323,9 +323,9 @@ module ModernTreasury
       class StartingBalance < ModernTreasury::Internal::Type::BaseModel
         # @!attribute available_balance
         #   The available_balance is the sum of all posted inbound entries and pending
-        #     outbound entries. For credit normal, available_amount = posted_credits -
-        #     pending_debits; for debit normal, available_amount = posted_debits -
-        #     pending_credits.
+        #   outbound entries. For credit normal, available_amount = posted_credits -
+        #   pending_debits; for debit normal, available_amount = posted_debits -
+        #   pending_credits.
         #
         #   @return [ModernTreasury::Models::LedgerAccountStatementCreateResponse::StartingBalance::AvailableBalance]
         required :available_balance,
@@ -347,10 +347,10 @@ module ModernTreasury
 
         # @!parse
         #   # The pending, posted, and available balances for this ledger account at the
-        #   #   `effective_at_lower_bound`. The posted balance is the sum of all posted entries
-        #   #   on the account. The pending balance is the sum of all pending and posted entries
-        #   #   on the account. The available balance is the posted incoming entries minus the
-        #   #   sum of the pending and posted outgoing amounts.
+        #   # `effective_at_lower_bound`. The posted balance is the sum of all posted entries
+        #   # on the account. The pending balance is the sum of all pending and posted entries
+        #   # on the account. The available balance is the posted incoming entries minus the
+        #   # sum of the pending and posted outgoing amounts.
         #   #
         #   # @param available_balance [ModernTreasury::Models::LedgerAccountStatementCreateResponse::StartingBalance::AvailableBalance]
         #   # @param pending_balance [ModernTreasury::Models::LedgerAccountStatementCreateResponse::StartingBalance::PendingBalance]
@@ -391,9 +391,9 @@ module ModernTreasury
 
           # @!parse
           #   # The available_balance is the sum of all posted inbound entries and pending
-          #   #   outbound entries. For credit normal, available_amount = posted_credits -
-          #   #   pending_debits; for debit normal, available_amount = posted_debits -
-          #   #   pending_credits.
+          #   # outbound entries. For credit normal, available_amount = posted_credits -
+          #   # pending_debits; for debit normal, available_amount = posted_debits -
+          #   # pending_credits.
           #   #
           #   # @param amount [Integer]
           #   # @param credits [Integer]

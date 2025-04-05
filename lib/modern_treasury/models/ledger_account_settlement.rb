@@ -17,7 +17,7 @@ module ModernTreasury
 
       # @!attribute contra_ledger_account_id
       #   The id of the contra ledger account that sends to or receives funds from the
-      #     settled ledger account.
+      #   settled ledger account.
       #
       #   @return [String]
       required :contra_ledger_account_id, String
@@ -47,8 +47,8 @@ module ModernTreasury
 
       # @!attribute effective_at_upper_bound
       #   The exclusive upper bound of the effective_at timestamp of the ledger entries to
-      #     be included in the ledger account settlement. The default value is the
-      #     created_at timestamp of the ledger account settlement.
+      #   be included in the ledger account settlement. The default value is the
+      #   created_at timestamp of the ledger account settlement.
       #
       #   @return [Time]
       required :effective_at_upper_bound, Time
@@ -67,14 +67,14 @@ module ModernTreasury
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false
-      #     if it exists in the test environment.
+      #   if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
+      #   strings.
       #
       #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -86,7 +86,7 @@ module ModernTreasury
 
       # @!attribute settled_ledger_account_id
       #   The id of the settled ledger account whose ledger entries are queried against,
-      #     and its balance is reduced as a result.
+      #   and its balance is reduced as a result.
       #
       #   @return [String]
       required :settled_ledger_account_id, String
@@ -99,7 +99,7 @@ module ModernTreasury
 
       # @!attribute status
       #   The status of the ledger account settlement. One of `processing`, `pending`,
-      #     `posted`, `archiving` or `archived`.
+      #   `posted`, `archiving` or `archived`.
       #
       #   @return [Symbol, ModernTreasury::Models::LedgerAccountSettlement::Status]
       required :status, enum: -> { ModernTreasury::Models::LedgerAccountSettlement::Status }
@@ -154,7 +154,7 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # The status of the ledger account settlement. One of `processing`, `pending`,
-      #   `posted`, `archiving` or `archived`.
+      # `posted`, `archiving` or `archived`.
       #
       # @see ModernTreasury::Models::LedgerAccountSettlement#status
       module Status

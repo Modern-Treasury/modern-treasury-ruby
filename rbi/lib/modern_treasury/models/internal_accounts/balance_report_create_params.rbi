@@ -16,7 +16,7 @@ module ModernTreasury
         attr_accessor :as_of_time
 
         # The specific type of balance report. One of `intraday`, `previous_day`,
-        #   `real_time`, or `other`.
+        # `real_time`, or `other`.
         sig { returns(ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::OrSymbol) }
         attr_accessor :balance_report_type
 
@@ -56,7 +56,7 @@ module ModernTreasury
         def to_hash; end
 
         # The specific type of balance report. One of `intraday`, `previous_day`,
-        #   `real_time`, or `other`.
+        # `real_time`, or `other`.
         module BalanceReportType
           extend ModernTreasury::Internal::Type::Enum
 
@@ -107,9 +107,9 @@ module ModernTreasury
           attr_accessor :amount
 
           # The specific type of balance reported. One of `opening_ledger`,
-          #   `closing_ledger`, `current_ledger`, `opening_available`,
-          #   `opening_available_next_business_day`, `closing_available`, `current_available`,
-          #   'previously_closed_book', or `other`.
+          # `closing_ledger`, `current_ledger`, `opening_available`,
+          # `opening_available_next_business_day`, `closing_available`, `current_available`,
+          # 'previously_closed_book', or `other`.
           sig do
             returns(
               ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol
@@ -122,9 +122,9 @@ module ModernTreasury
           attr_accessor :vendor_code
 
           # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
-          #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-          #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
-          #   `swift`, or `us_bank`.
+          # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
+          # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+          # `swift`, or `us_bank`.
           sig { returns(T.nilable(String)) }
           attr_accessor :vendor_code_type
 
@@ -153,9 +153,9 @@ module ModernTreasury
           def to_hash; end
 
           # The specific type of balance reported. One of `opening_ledger`,
-          #   `closing_ledger`, `current_ledger`, `opening_available`,
-          #   `opening_available_next_business_day`, `closing_available`, `current_available`,
-          #   'previously_closed_book', or `other`.
+          # `closing_ledger`, `current_ledger`, `opening_available`,
+          # `opening_available_next_business_day`, `closing_available`, `current_available`,
+          # 'previously_closed_book', or `other`.
           module BalanceType
             extend ModernTreasury::Internal::Type::Enum
 

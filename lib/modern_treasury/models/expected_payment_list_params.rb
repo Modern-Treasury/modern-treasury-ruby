@@ -65,8 +65,8 @@ module ModernTreasury
 
       # @!attribute [r] metadata
       #   For example, if you want to query for records with metadata key `Type` and value
-      #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #     parameters.
+      #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #   parameters.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -96,7 +96,7 @@ module ModernTreasury
 
       # @!attribute [r] type
       #   One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
-      #     sepa, signet, wire
+      #   sepa, signet, wire
       #
       #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type, nil]
       optional :type, enum: -> { ModernTreasury::Models::ExpectedPaymentListParams::Type }
@@ -154,7 +154,7 @@ module ModernTreasury
       end
 
       # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
-      #   sepa, signet, wire
+      # sepa, signet, wire
       module Type
         extend ModernTreasury::Internal::Type::Enum
 

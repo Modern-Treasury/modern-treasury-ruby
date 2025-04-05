@@ -17,7 +17,7 @@ module ModernTreasury
 
       # @!attribute account_number_type
       #   One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
-      #     account number is in a generic format.
+      #   account number is in a generic format.
       #
       #   @return [Symbol, ModernTreasury::Models::AccountDetail::AccountNumberType]
       required :account_number_type, enum: -> { ModernTreasury::Models::AccountDetail::AccountNumberType }
@@ -34,7 +34,7 @@ module ModernTreasury
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false
-      #     if it exists in the test environment.
+      #   if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::Internal::Type::Boolean
@@ -88,7 +88,7 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
-      #   account number is in a generic format.
+      # account number is in a generic format.
       #
       # @see ModernTreasury::Models::AccountDetail#account_number_type
       module AccountNumberType

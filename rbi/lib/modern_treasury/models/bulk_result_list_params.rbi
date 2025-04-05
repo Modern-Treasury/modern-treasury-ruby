@@ -17,7 +17,7 @@ module ModernTreasury
       attr_writer :entity_id
 
       # The type of the request that created this result. bulk_request is the only
-      #   supported `request_type`
+      # supported `request_type`
       sig { returns(T.nilable(ModernTreasury::Models::BulkResultListParams::EntityType::OrSymbol)) }
       attr_reader :entity_type
 
@@ -31,7 +31,7 @@ module ModernTreasury
       attr_writer :per_page
 
       # Unique identifier for the request that created this bulk result. This is the ID
-      #   of the bulk request when `request_type` is bulk_request
+      # of the bulk request when `request_type` is bulk_request
       sig { returns(T.nilable(String)) }
       attr_reader :request_id
 
@@ -39,7 +39,7 @@ module ModernTreasury
       attr_writer :request_id
 
       # The type of the request that created this result. bulk_request is the only
-      #   supported `request_type`
+      # supported `request_type`
       sig { returns(T.nilable(ModernTreasury::Models::BulkResultListParams::RequestType::OrSymbol)) }
       attr_reader :request_type
 
@@ -94,7 +94,7 @@ module ModernTreasury
       def to_hash; end
 
       # The type of the request that created this result. bulk_request is the only
-      #   supported `request_type`
+      # supported `request_type`
       module EntityType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -119,7 +119,7 @@ module ModernTreasury
       end
 
       # The type of the request that created this result. bulk_request is the only
-      #   supported `request_type`
+      # supported `request_type`
       module RequestType
         extend ModernTreasury::Internal::Type::Enum
 

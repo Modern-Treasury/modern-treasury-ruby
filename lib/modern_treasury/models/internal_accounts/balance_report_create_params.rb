@@ -23,7 +23,7 @@ module ModernTreasury
 
         # @!attribute balance_report_type
         #   The specific type of balance report. One of `intraday`, `previous_day`,
-        #     `real_time`, or `other`.
+        #   `real_time`, or `other`.
         #
         #   @return [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType]
         required :balance_report_type,
@@ -48,7 +48,7 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
         # The specific type of balance report. One of `intraday`, `previous_day`,
-        #   `real_time`, or `other`.
+        # `real_time`, or `other`.
         module BalanceReportType
           extend ModernTreasury::Internal::Type::Enum
 
@@ -73,9 +73,9 @@ module ModernTreasury
 
           # @!attribute balance_type
           #   The specific type of balance reported. One of `opening_ledger`,
-          #     `closing_ledger`, `current_ledger`, `opening_available`,
-          #     `opening_available_next_business_day`, `closing_available`, `current_available`,
-          #     'previously_closed_book', or `other`.
+          #   `closing_ledger`, `current_ledger`, `opening_available`,
+          #   `opening_available_next_business_day`, `closing_available`, `current_available`,
+          #   'previously_closed_book', or `other`.
           #
           #   @return [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType]
           required :balance_type,
@@ -89,9 +89,9 @@ module ModernTreasury
 
           # @!attribute vendor_code_type
           #   The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
-          #     `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-          #     `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
-          #     `swift`, or `us_bank`.
+          #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
+          #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+          #   `swift`, or `us_bank`.
           #
           #   @return [String, nil]
           required :vendor_code_type, String, nil?: true
@@ -107,9 +107,9 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
           # The specific type of balance reported. One of `opening_ledger`,
-          #   `closing_ledger`, `current_ledger`, `opening_available`,
-          #   `opening_available_next_business_day`, `closing_available`, `current_available`,
-          #   'previously_closed_book', or `other`.
+          # `closing_ledger`, `current_ledger`, `opening_available`,
+          # `opening_available_next_business_day`, `closing_available`, `current_available`,
+          # 'previously_closed_book', or `other`.
           #
           # @see ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance#balance_type
           module BalanceType

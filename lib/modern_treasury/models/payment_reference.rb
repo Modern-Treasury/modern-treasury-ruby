@@ -16,7 +16,7 @@ module ModernTreasury
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false
-      #     if it exists in the test environment.
+      #   if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::Internal::Type::Boolean
@@ -41,14 +41,14 @@ module ModernTreasury
 
       # @!attribute referenceable_id
       #   The id of the referenceable to search for. Must be accompanied by the
-      #     referenceable_type or will return an error.
+      #   referenceable_type or will return an error.
       #
       #   @return [String]
       required :referenceable_id, String
 
       # @!attribute referenceable_type
       #   One of the referenceable types. This must be accompanied by the id of the
-      #     referenceable or will return an error.
+      #   referenceable or will return an error.
       #
       #   @return [Symbol, ModernTreasury::Models::PaymentReference::ReferenceableType]
       required :referenceable_type, enum: -> { ModernTreasury::Models::PaymentReference::ReferenceableType }
@@ -176,7 +176,7 @@ module ModernTreasury
       end
 
       # One of the referenceable types. This must be accompanied by the id of the
-      #   referenceable or will return an error.
+      # referenceable or will return an error.
       #
       # @see ModernTreasury::Models::PaymentReference#referenceable_type
       module ReferenceableType

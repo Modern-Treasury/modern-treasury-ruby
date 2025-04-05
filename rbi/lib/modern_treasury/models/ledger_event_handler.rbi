@@ -48,12 +48,12 @@ module ModernTreasury
       attr_writer :ledger_transaction_template
 
       # This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
+      # if it exists in the test environment.
       sig { returns(T::Boolean) }
       attr_accessor :live_mode
 
       # Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
+      # strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_accessor :metadata
 
@@ -158,7 +158,7 @@ module ModernTreasury
         attr_accessor :description
 
         # The timestamp (ISO8601 format) at which the ledger transaction happened for
-        #   reporting purposes.
+        # reporting purposes.
         sig { returns(T.nilable(String)) }
         attr_accessor :effective_at
 

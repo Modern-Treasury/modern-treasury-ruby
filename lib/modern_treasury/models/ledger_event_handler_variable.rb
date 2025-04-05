@@ -11,7 +11,7 @@ module ModernTreasury
 
       # @!attribute type
       #   The type of object this variable is. Currently, only "ledger_account" is
-      #     supported.
+      #   supported.
       #
       #   @return [String]
       required :type, String

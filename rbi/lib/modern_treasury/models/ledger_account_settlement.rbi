@@ -11,7 +11,7 @@ module ModernTreasury
       attr_accessor :amount
 
       # The id of the contra ledger account that sends to or receives funds from the
-      #   settled ledger account.
+      # settled ledger account.
       sig { returns(String) }
       attr_accessor :contra_ledger_account_id
 
@@ -31,8 +31,8 @@ module ModernTreasury
       attr_accessor :description
 
       # The exclusive upper bound of the effective_at timestamp of the ledger entries to
-      #   be included in the ledger account settlement. The default value is the
-      #   created_at timestamp of the ledger account settlement.
+      # be included in the ledger account settlement. The default value is the
+      # created_at timestamp of the ledger account settlement.
       sig { returns(Time) }
       attr_accessor :effective_at_upper_bound
 
@@ -45,12 +45,12 @@ module ModernTreasury
       attr_accessor :ledger_transaction_id
 
       # This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
+      # if it exists in the test environment.
       sig { returns(T::Boolean) }
       attr_accessor :live_mode
 
       # Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
+      # strings.
       sig { returns(T::Hash[Symbol, String]) }
       attr_accessor :metadata
 
@@ -58,7 +58,7 @@ module ModernTreasury
       attr_accessor :object
 
       # The id of the settled ledger account whose ledger entries are queried against,
-      #   and its balance is reduced as a result.
+      # and its balance is reduced as a result.
       sig { returns(String) }
       attr_accessor :settled_ledger_account_id
 
@@ -67,7 +67,7 @@ module ModernTreasury
       attr_accessor :settlement_entry_direction
 
       # The status of the ledger account settlement. One of `processing`, `pending`,
-      #   `posted`, `archiving` or `archived`.
+      # `posted`, `archiving` or `archived`.
       sig { returns(ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol) }
       attr_accessor :status
 
@@ -142,7 +142,7 @@ module ModernTreasury
       def to_hash; end
 
       # The status of the ledger account settlement. One of `processing`, `pending`,
-      #   `posted`, `archiving` or `archived`.
+      # `posted`, `archiving` or `archived`.
       module Status
         extend ModernTreasury::Internal::Type::Enum
 

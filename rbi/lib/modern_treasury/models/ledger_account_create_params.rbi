@@ -31,7 +31,7 @@ module ModernTreasury
       attr_accessor :description
 
       # The array of ledger account category ids that this ledger account should be a
-      #   child of.
+      # child of.
       sig { returns(T.nilable(T::Array[String])) }
       attr_reader :ledger_account_category_ids
 
@@ -39,7 +39,7 @@ module ModernTreasury
       attr_writer :ledger_account_category_ids
 
       # If the ledger account links to another object in Modern Treasury, the id will be
-      #   populated here, otherwise null.
+      # populated here, otherwise null.
       sig { returns(T.nilable(String)) }
       attr_reader :ledgerable_id
 
@@ -47,8 +47,8 @@ module ModernTreasury
       attr_writer :ledgerable_id
 
       # If the ledger account links to another object in Modern Treasury, the type will
-      #   be populated here, otherwise null. The value is one of internal_account or
-      #   external_account.
+      # be populated here, otherwise null. The value is one of internal_account or
+      # external_account.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::OrSymbol)) }
       attr_reader :ledgerable_type
 
@@ -56,7 +56,7 @@ module ModernTreasury
       attr_writer :ledgerable_type
 
       # Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
+      # strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_reader :metadata
 
@@ -113,8 +113,8 @@ module ModernTreasury
       def to_hash; end
 
       # If the ledger account links to another object in Modern Treasury, the type will
-      #   be populated here, otherwise null. The value is one of internal_account or
-      #   external_account.
+      # be populated here, otherwise null. The value is one of internal_account or
+      # external_account.
       module LedgerableType
         extend ModernTreasury::Internal::Type::Enum
 

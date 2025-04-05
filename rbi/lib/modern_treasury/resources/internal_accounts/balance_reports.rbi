@@ -33,7 +33,7 @@ module ModernTreasury
           # The time (24-hour clock) of the balance report in local time.
           as_of_time:,
           # The specific type of balance report. One of `intraday`, `previous_day`,
-          #   `real_time`, or `other`.
+          # `real_time`, or `other`.
           balance_report_type:,
           # An array of `Balance` objects.
           balances:,
@@ -55,7 +55,7 @@ module ModernTreasury
         end
         def retrieve(
           # Either the unique identifier of the balance report or latest for the latest
-          #   balance report.
+          # balance report.
           id,
           internal_account_id:,
           request_options: {}
@@ -83,7 +83,7 @@ module ModernTreasury
           # The date of the balance report in local time.
           as_of_date: nil,
           # The specific type of balance report. One of `intraday`, `previous_day`,
-          #   `real_time`, or `other`.
+          # `real_time`, or `other`.
           balance_report_type: nil,
           per_page: nil,
           request_options: {}
@@ -104,7 +104,7 @@ module ModernTreasury
         end
         def delete(
           # Either the unique identifier of the balance report or latest for the latest
-          #   balance report.
+          # balance report.
           id,
           internal_account_id:,
           request_options: {}

@@ -35,7 +35,7 @@ module ModernTreasury
 
       # @!attribute [r] email
       #   Performs a partial string match of the email field. This is also case
-      #     insensitive.
+      #   insensitive.
       #
       #   @return [String, nil]
       optional :email, String
@@ -56,8 +56,8 @@ module ModernTreasury
 
       # @!attribute [r] metadata
       #   For example, if you want to query for records with metadata key `Type` and value
-      #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #     parameters.
+      #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #   parameters.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -68,7 +68,7 @@ module ModernTreasury
 
       # @!attribute [r] name
       #   Performs a partial string match of the name field. This is also case
-      #     insensitive.
+      #   insensitive.
       #
       #   @return [String, nil]
       optional :name, String

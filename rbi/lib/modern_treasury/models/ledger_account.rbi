@@ -7,10 +7,10 @@ module ModernTreasury
       attr_accessor :id
 
       # The pending, posted, and available balances for this ledger account. The posted
-      #   balance is the sum of all posted entries on the account. The pending balance is
-      #   the sum of all pending and posted entries on the account. The available balance
-      #   is the posted incoming entries minus the sum of the pending and posted outgoing
-      #   amounts.
+      # balance is the sum of all posted entries on the account. The pending balance is
+      # the sum of all pending and posted entries on the account. The available balance
+      # is the posted incoming entries minus the sum of the pending and posted outgoing
+      # amounts.
       sig { returns(ModernTreasury::Models::LedgerAccount::Balances) }
       attr_reader :balances
 
@@ -37,18 +37,18 @@ module ModernTreasury
       attr_accessor :ledger_id
 
       # If the ledger account links to another object in Modern Treasury, the id will be
-      #   populated here, otherwise null.
+      # populated here, otherwise null.
       sig { returns(T.nilable(String)) }
       attr_accessor :ledgerable_id
 
       # If the ledger account links to another object in Modern Treasury, the type will
-      #   be populated here, otherwise null. The value is one of internal_account or
-      #   external_account.
+      # be populated here, otherwise null. The value is one of internal_account or
+      # external_account.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccount::LedgerableType::TaggedSymbol)) }
       attr_accessor :ledgerable_type
 
       # This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
+      # if it exists in the test environment.
       sig { returns(T::Boolean) }
       attr_accessor :live_mode
 
@@ -57,7 +57,7 @@ module ModernTreasury
       attr_accessor :lock_version
 
       # Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
+      # strings.
       sig { returns(T::Hash[Symbol, String]) }
       attr_accessor :metadata
 
@@ -138,9 +138,9 @@ module ModernTreasury
 
       class Balances < ModernTreasury::Internal::Type::BaseModel
         # The available_balance is the sum of all posted inbound entries and pending
-        #   outbound entries. For credit normal, available_amount = posted_credits -
-        #   pending_debits; for debit normal, available_amount = posted_debits -
-        #   pending_credits.
+        # outbound entries. For credit normal, available_amount = posted_credits -
+        # pending_debits; for debit normal, available_amount = posted_debits -
+        # pending_credits.
         sig { returns(ModernTreasury::Models::LedgerAccount::Balances::AvailableBalance) }
         attr_reader :available_balance
 
@@ -156,12 +156,12 @@ module ModernTreasury
         attr_writer :available_balance
 
         # The inclusive lower bound of the effective_at timestamp for the returned
-        #   balances.
+        # balances.
         sig { returns(T.nilable(Time)) }
         attr_accessor :effective_at_lower_bound
 
         # The exclusive upper bound of the effective_at timestamp for the returned
-        #   balances.
+        # balances.
         sig { returns(T.nilable(Time)) }
         attr_accessor :effective_at_upper_bound
 
@@ -190,10 +190,10 @@ module ModernTreasury
         attr_writer :posted_balance
 
         # The pending, posted, and available balances for this ledger account. The posted
-        #   balance is the sum of all posted entries on the account. The pending balance is
-        #   the sum of all pending and posted entries on the account. The available balance
-        #   is the posted incoming entries minus the sum of the pending and posted outgoing
-        #   amounts.
+        # balance is the sum of all posted entries on the account. The pending balance is
+        # the sum of all pending and posted entries on the account. The available balance
+        # is the posted incoming entries minus the sum of the pending and posted outgoing
+        # amounts.
         sig do
           params(
             available_balance: T.any(
@@ -247,9 +247,9 @@ module ModernTreasury
           attr_accessor :debits
 
           # The available_balance is the sum of all posted inbound entries and pending
-          #   outbound entries. For credit normal, available_amount = posted_credits -
-          #   pending_debits; for debit normal, available_amount = posted_debits -
-          #   pending_credits.
+          # outbound entries. For credit normal, available_amount = posted_credits -
+          # pending_debits; for debit normal, available_amount = posted_debits -
+          # pending_credits.
           sig do
             params(
               amount: Integer,
@@ -371,8 +371,8 @@ module ModernTreasury
       end
 
       # If the ledger account links to another object in Modern Treasury, the type will
-      #   be populated here, otherwise null. The value is one of internal_account or
-      #   external_account.
+      # be populated here, otherwise null. The value is one of internal_account or
+      # external_account.
       module LedgerableType
         extend ModernTreasury::Internal::Type::Enum
 

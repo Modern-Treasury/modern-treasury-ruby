@@ -10,14 +10,14 @@ module ModernTreasury
 
       # @!attribute amount
       #   Required. Value in specified currency's smallest unit. e.g. $10 would be
-      #     represented as 1000. Can be any integer up to 36 digits.
+      #   represented as 1000. Can be any integer up to 36 digits.
       #
       #   @return [Integer]
       required :amount, Integer
 
       # @!attribute counterparty_id
       #   Required. The ID of a counterparty associated with the payment. As part of the
-      #     payment workflow an external account will be associated with this model.
+      #   payment workflow an external account will be associated with this model.
       #
       #   @return [String]
       required :counterparty_id, String
@@ -30,7 +30,7 @@ module ModernTreasury
 
       # @!attribute direction
       #   Required. Describes the direction money is flowing in the transaction. Can only
-      #     be `debit`. A `debit` pulls money from someone else's account to your own.
+      #   be `debit`. A `debit` pulls money from someone else's account to your own.
       #
       #   @return [Symbol, ModernTreasury::Models::PaymentFlowCreateParams::Direction]
       required :direction, enum: -> { ModernTreasury::Models::PaymentFlowCreateParams::Direction }
@@ -43,8 +43,8 @@ module ModernTreasury
 
       # @!attribute [r] due_date
       #   Optional. Can only be passed in when `effective_date_selection_enabled` is
-      #     `true`. When set, the due date is shown to your end-user in the pre-built UI as
-      #     they are selecting a payment `effective_date`.
+      #   `true`. When set, the due date is shown to your end-user in the pre-built UI as
+      #   they are selecting a payment `effective_date`.
       #
       #   @return [Date, nil]
       optional :due_date, Date
@@ -78,7 +78,7 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # Required. Describes the direction money is flowing in the transaction. Can only
-      #   be `debit`. A `debit` pulls money from someone else's account to your own.
+      # be `debit`. A `debit` pulls money from someone else's account to your own.
       module Direction
         extend ModernTreasury::Internal::Type::Enum
 

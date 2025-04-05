@@ -10,7 +10,7 @@ module ModernTreasury
 
       # @!attribute [r] id
       #   If you have specific IDs to retrieve in bulk, you can pass them as query
-      #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
+      #   parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       #
       #   @return [Array<String>, nil]
       optional :id, ModernTreasury::Internal::Type::ArrayOf[String]
@@ -26,8 +26,8 @@ module ModernTreasury
 
       # @!attribute [r] effective_at
       #   Use "gt" (>), "gte" (>=), "lt" (<), "lte" (<=), or "eq" (=) to filter by
-      #     effective at. For example, for all transactions after Jan 1 2000, use
-      #     effective_at%5Bgt%5D=2000-01-01T00:00:00:00.000Z.
+      #   effective at. For example, for all transactions after Jan 1 2000, use
+      #   effective_at%5Bgt%5D=2000-01-01T00:00:00:00.000Z.
       #
       #   @return [Hash{Symbol=>Time}, nil]
       optional :effective_at, ModernTreasury::Internal::Type::HashOf[Time]
@@ -38,8 +38,8 @@ module ModernTreasury
 
       # @!attribute [r] effective_date
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by
-      #     effective date. For example, for all dates after Jan 1 2000, use
-      #     effective_date%5Bgt%5D=2000-01-01.
+      #   effective date. For example, for all dates after Jan 1 2000, use
+      #   effective_date%5Bgt%5D=2000-01-01.
       #
       #   @return [Hash{Symbol=>Time}, nil]
       optional :effective_date, ModernTreasury::Internal::Type::HashOf[Time]
@@ -114,8 +114,8 @@ module ModernTreasury
 
       # @!attribute [r] metadata
       #   For example, if you want to query for records with metadata key `Type` and value
-      #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #     parameters.
+      #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #   parameters.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -126,8 +126,8 @@ module ModernTreasury
 
       # @!attribute [r] order_by
       #   Order by `created_at` or `effective_at` in `asc` or `desc` order. For example,
-      #     to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering
-      #     by only one field at a time is supported.
+      #   to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering
+      #   by only one field at a time is supported.
       #
       #   @return [ModernTreasury::Models::LedgerTransactionListParams::OrderBy, nil]
       optional :order_by, -> { ModernTreasury::Models::LedgerTransactionListParams::OrderBy }
@@ -156,8 +156,8 @@ module ModernTreasury
 
       # @!attribute [r] posted_at
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
-      #     posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
-      #     posted_at%5Bgt%5D=2000-01-01T12:00:00Z.
+      #   posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
+      #   posted_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
       #   @return [Hash{Symbol=>Time}, nil]
       optional :posted_at, ModernTreasury::Internal::Type::HashOf[Time]
@@ -186,8 +186,8 @@ module ModernTreasury
 
       # @!attribute [r] updated_at
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
-      #     posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
-      #     updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
+      #   posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
+      #   updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
       #   @return [Hash{Symbol=>Time}, nil]
       optional :updated_at, ModernTreasury::Internal::Type::HashOf[Time]
@@ -285,8 +285,8 @@ module ModernTreasury
 
         # @!parse
         #   # Order by `created_at` or `effective_at` in `asc` or `desc` order. For example,
-        #   #   to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering
-        #   #   by only one field at a time is supported.
+        #   # to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering
+        #   # by only one field at a time is supported.
         #   #
         #   # @param created_at [Symbol, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::CreatedAt]
         #   # @param effective_at [Symbol, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::EffectiveAt]

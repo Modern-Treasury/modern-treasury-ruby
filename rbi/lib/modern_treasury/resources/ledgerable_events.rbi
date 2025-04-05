@@ -22,7 +22,7 @@ module ModernTreasury
         # Description of the ledgerable event.
         description: nil,
         # Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
+        # strings.
         metadata: nil,
         request_options: {}
       ); end

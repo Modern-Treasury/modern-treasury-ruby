@@ -8,7 +8,7 @@ module ModernTreasury
         include ModernTreasury::Internal::Type::RequestParameters
 
         # The ids of the ledger entries that are to be added or removed from the ledger
-        #   account settlement.
+        # account settlement.
         sig { returns(T.nilable(T::Array[String])) }
         attr_accessor :ledger_entry_ids
 

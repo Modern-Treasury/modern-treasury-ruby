@@ -31,7 +31,7 @@ module ModernTreasury
       attr_accessor :description
 
       # The array of ledger account category ids that this ledger account category
-      #   should be a child of.
+      # should be a child of.
       sig { returns(T.nilable(T::Array[String])) }
       attr_reader :ledger_account_category_ids
 
@@ -39,7 +39,7 @@ module ModernTreasury
       attr_writer :ledger_account_category_ids
 
       # Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
+      # strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_reader :metadata
 

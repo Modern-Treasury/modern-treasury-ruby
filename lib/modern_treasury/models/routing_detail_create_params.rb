@@ -21,8 +21,8 @@ module ModernTreasury
 
       # @!attribute routing_number_type
       #   The type of routing number. See
-      #     https://docs.moderntreasury.com/platform/reference/routing-detail-object for
-      #     more details.
+      #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      #   more details.
       #
       #   @return [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType]
       required :routing_number_type,
@@ -30,7 +30,7 @@ module ModernTreasury
 
       # @!attribute payment_type
       #   If the routing detail is to be used for a specific payment type this field will
-      #     be populated, otherwise null.
+      #   be populated, otherwise null.
       #
       #   @return [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::PaymentType, nil]
       optional :payment_type,
@@ -61,8 +61,8 @@ module ModernTreasury
       end
 
       # The type of routing number. See
-      #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
-      #   more details.
+      # https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      # more details.
       module RoutingNumberType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -96,7 +96,7 @@ module ModernTreasury
       end
 
       # If the routing detail is to be used for a specific payment type this field will
-      #   be populated, otherwise null.
+      # be populated, otherwise null.
       module PaymentType
         extend ModernTreasury::Internal::Type::Enum
 

@@ -7,7 +7,7 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       # If you have specific IDs to retrieve in bulk, you can pass them as query
-      #   parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
+      # parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       sig { returns(T.nilable(T::Array[String])) }
       attr_reader :id
 
@@ -18,8 +18,8 @@ module ModernTreasury
       attr_accessor :after_cursor
 
       # For example, if you want the balances as of a particular time (ISO8601), the
-      #   encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
-      #   The balances as of a time are inclusive of entries with that exact time.
+      # encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
+      # The balances as of a time are inclusive of entries with that exact time.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountCategoryListParams::Balances)) }
       attr_reader :balances
 
@@ -41,7 +41,7 @@ module ModernTreasury
       attr_writer :currency
 
       # Query categories which contain a ledger account directly or through child
-      #   categories.
+      # categories.
       sig { returns(T.nilable(String)) }
       attr_reader :ledger_account_id
 
@@ -55,8 +55,8 @@ module ModernTreasury
       attr_writer :ledger_id
 
       # For example, if you want to query for records with metadata key `Type` and value
-      #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #   parameters.
+      # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      # parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_reader :metadata
 
@@ -142,8 +142,8 @@ module ModernTreasury
         attr_writer :effective_at
 
         # For example, if you want the balances as of a particular time (ISO8601), the
-        #   encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
-        #   The balances as of a time are inclusive of entries with that exact time.
+        # encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
+        # The balances as of a time are inclusive of entries with that exact time.
         sig { params(effective_at: Time).returns(T.attached_class) }
         def self.new(effective_at: nil); end
 

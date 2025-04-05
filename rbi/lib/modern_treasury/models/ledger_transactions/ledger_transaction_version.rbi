@@ -15,17 +15,17 @@ module ModernTreasury
         attr_accessor :description
 
         # The timestamp (ISO8601 format) at which the ledger transaction happened for
-        #   reporting purposes.
+        # reporting purposes.
         sig { returns(Time) }
         attr_accessor :effective_at
 
         # The date (YYYY-MM-DD) on which the ledger transaction happened for reporting
-        #   purposes.
+        # purposes.
         sig { returns(Date) }
         attr_accessor :effective_date
 
         # A unique string to represent the ledger transaction. Only one pending or posted
-        #   ledger transaction may have this ID in the ledger.
+        # ledger transaction may have this ID in the ledger.
         sig { returns(T.nilable(String)) }
         attr_accessor :external_id
 
@@ -42,13 +42,13 @@ module ModernTreasury
         attr_accessor :ledger_transaction_id
 
         # If the ledger transaction can be reconciled to another object in Modern
-        #   Treasury, the id will be populated here, otherwise null.
+        # Treasury, the id will be populated here, otherwise null.
         sig { returns(T.nilable(String)) }
         attr_accessor :ledgerable_id
 
         # If the ledger transaction can be reconciled to another object in Modern
-        #   Treasury, the type will be populated here, otherwise null. This can be one of
-        #   payment_order, incoming_payment_detail, expected_payment, return, or reversal.
+        # Treasury, the type will be populated here, otherwise null. This can be one of
+        # payment_order, incoming_payment_detail, expected_payment, return, or reversal.
         sig do
           returns(
             T.nilable(
@@ -59,12 +59,12 @@ module ModernTreasury
         attr_accessor :ledgerable_type
 
         # This field will be true if this object exists in the live environment or false
-        #   if it exists in the test environment.
+        # if it exists in the test environment.
         sig { returns(T::Boolean) }
         attr_accessor :live_mode
 
         # Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
+        # strings.
         sig { returns(T::Hash[Symbol, String]) }
         attr_accessor :metadata
 
@@ -76,7 +76,7 @@ module ModernTreasury
         attr_accessor :partially_posts_ledger_transaction_id
 
         # The time on which the ledger transaction posted. This is null if the ledger
-        #   transaction is pending.
+        # transaction is pending.
         sig { returns(T.nilable(Time)) }
         attr_accessor :posted_at
 
@@ -85,7 +85,7 @@ module ModernTreasury
         attr_accessor :reversed_by_ledger_transaction_id
 
         # The ID of the original ledger transaction. that this ledger transaction
-        #   reverses.
+        # reverses.
         sig { returns(T.nilable(String)) }
         attr_accessor :reverses_ledger_transaction_id
 
@@ -185,7 +185,7 @@ module ModernTreasury
           attr_accessor :id
 
           # Value in specified currency's smallest unit. e.g. $10 would be represented
-          #   as 1000. Can be any integer up to 36 digits.
+          # as 1000. Can be any integer up to 36 digits.
           sig { returns(Integer) }
           attr_accessor :amount
 
@@ -193,9 +193,9 @@ module ModernTreasury
           attr_accessor :created_at
 
           # One of `credit`, `debit`. Describes the direction money is flowing in the
-          #   transaction. A `credit` moves money from your account to someone else's. A
-          #   `debit` pulls money from someone else's account to your own. Note that wire,
-          #   rtp, and check payments will always be `credit`.
+          # transaction. A `credit` moves money from your account to someone else's. A
+          # `debit` pulls money from someone else's account to your own. Note that wire,
+          # rtp, and check payments will always be `credit`.
           sig { returns(ModernTreasury::Models::TransactionDirection::TaggedSymbol) }
           attr_accessor :direction
 
@@ -212,9 +212,9 @@ module ModernTreasury
           attr_accessor :ledger_account_id
 
           # Lock version of the ledger account. This can be passed when creating a ledger
-          #   transaction to only succeed if no ledger transactions have posted since the
-          #   given version. See our post about Designing the Ledgers API with Optimistic
-          #   Locking for more details.
+          # transaction to only succeed if no ledger transactions have posted since the
+          # given version. See our post about Designing the Ledgers API with Optimistic
+          # Locking for more details.
           sig { returns(T.nilable(Integer)) }
           attr_accessor :ledger_account_lock_version
 
@@ -223,12 +223,12 @@ module ModernTreasury
           attr_accessor :ledger_transaction_id
 
           # This field will be true if this object exists in the live environment or false
-          #   if it exists in the test environment.
+          # if it exists in the test environment.
           sig { returns(T::Boolean) }
           attr_accessor :live_mode
 
           # Additional data represented as key-value pairs. Both the key and value must be
-          #   strings.
+          # strings.
           sig { returns(T::Hash[Symbol, String]) }
           attr_accessor :metadata
 
@@ -236,12 +236,12 @@ module ModernTreasury
           attr_accessor :object
 
           # The pending, posted, and available balances for this ledger entry's ledger
-          #   account. The posted balance is the sum of all posted entries on the account. The
-          #   pending balance is the sum of all pending and posted entries on the account. The
-          #   available balance is the posted incoming entries minus the sum of the pending
-          #   and posted outgoing amounts. Please see
-          #   https://docs.moderntreasury.com/docs/transaction-status-and-balances for more
-          #   details.
+          # account. The posted balance is the sum of all posted entries on the account. The
+          # pending balance is the sum of all pending and posted entries on the account. The
+          # available balance is the posted incoming entries minus the sum of the pending
+          # and posted outgoing amounts. Please see
+          # https://docs.moderntreasury.com/docs/transaction-status-and-balances for more
+          # details.
           sig do
             returns(
               T.nilable(
@@ -265,7 +265,7 @@ module ModernTreasury
           attr_writer :resulting_ledger_account_balances
 
           # Equal to the state of the ledger transaction when the ledger entry was created.
-          #   One of `pending`, `posted`, or `archived`.
+          # One of `pending`, `posted`, or `archived`.
           sig do
             returns(
               ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::Status::TaggedSymbol
@@ -340,9 +340,9 @@ module ModernTreasury
 
           class ResultingLedgerAccountBalances < ModernTreasury::Internal::Type::BaseModel
             # The available_balance is the sum of all posted inbound entries and pending
-            #   outbound entries. For credit normal, available_amount = posted_credits -
-            #   pending_debits; for debit normal, available_amount = posted_debits -
-            #   pending_credits.
+            # outbound entries. For credit normal, available_amount = posted_credits -
+            # pending_debits; for debit normal, available_amount = posted_debits -
+            # pending_credits.
             sig do
               returns(
                 ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance
@@ -400,12 +400,12 @@ module ModernTreasury
             attr_writer :posted_balance
 
             # The pending, posted, and available balances for this ledger entry's ledger
-            #   account. The posted balance is the sum of all posted entries on the account. The
-            #   pending balance is the sum of all pending and posted entries on the account. The
-            #   available balance is the posted incoming entries minus the sum of the pending
-            #   and posted outgoing amounts. Please see
-            #   https://docs.moderntreasury.com/docs/transaction-status-and-balances for more
-            #   details.
+            # account. The posted balance is the sum of all posted entries on the account. The
+            # pending balance is the sum of all pending and posted entries on the account. The
+            # available balance is the posted incoming entries minus the sum of the pending
+            # and posted outgoing amounts. Please see
+            # https://docs.moderntreasury.com/docs/transaction-status-and-balances for more
+            # details.
             sig do
               params(
                 available_balance: T.any(
@@ -456,9 +456,9 @@ module ModernTreasury
               attr_accessor :debits
 
               # The available_balance is the sum of all posted inbound entries and pending
-              #   outbound entries. For credit normal, available_amount = posted_credits -
-              #   pending_debits; for debit normal, available_amount = posted_debits -
-              #   pending_credits.
+              # outbound entries. For credit normal, available_amount = posted_credits -
+              # pending_debits; for debit normal, available_amount = posted_debits -
+              # pending_credits.
               sig do
                 params(
                   amount: Integer,
@@ -580,7 +580,7 @@ module ModernTreasury
           end
 
           # Equal to the state of the ledger transaction when the ledger entry was created.
-          #   One of `pending`, `posted`, or `archived`.
+          # One of `pending`, `posted`, or `archived`.
           module Status
             extend ModernTreasury::Internal::Type::Enum
 
@@ -622,8 +622,8 @@ module ModernTreasury
         end
 
         # If the ledger transaction can be reconciled to another object in Modern
-        #   Treasury, the type will be populated here, otherwise null. This can be one of
-        #   payment_order, incoming_payment_detail, expected_payment, return, or reversal.
+        # Treasury, the type will be populated here, otherwise null. This can be one of
+        # payment_order, incoming_payment_detail, expected_payment, return, or reversal.
         module LedgerableType
           extend ModernTreasury::Internal::Type::Enum
 

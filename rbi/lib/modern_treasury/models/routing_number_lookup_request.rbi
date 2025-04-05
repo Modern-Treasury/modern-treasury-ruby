@@ -30,9 +30,9 @@ module ModernTreasury
       attr_writer :routing_number
 
       # The type of routing number. See
-      #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
-      #   more details. In sandbox mode we currently only support `aba` and `swift` with
-      #   routing numbers '123456789' and 'GRINUST0XXX' respectively.
+      # https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      # more details. In sandbox mode we currently only support `aba` and `swift` with
+      # routing numbers '123456789' and 'GRINUST0XXX' respectively.
       sig { returns(T.nilable(ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType::TaggedSymbol)) }
       attr_reader :routing_number_type
 
@@ -45,8 +45,8 @@ module ModernTreasury
       attr_writer :routing_number_type
 
       # An object containing key-value pairs, each with a sanctions list as the key and
-      #   a boolean value representing whether the bank is on that particular sanctions
-      #   list. Currently, this includes eu_con, uk_hmt, us_ofac, and un sanctions lists.
+      # a boolean value representing whether the bank is on that particular sanctions
+      # list. Currently, this includes eu_con, uk_hmt, us_ofac, and un sanctions lists.
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
       attr_reader :sanctions
 
@@ -54,7 +54,7 @@ module ModernTreasury
       attr_writer :sanctions
 
       # An array of payment types that are supported for this routing number. This can
-      #   include `ach`, `wire`, `rtp`, `sepa`, `bacs`, `au_becs`, and 'fednow' currently.
+      # include `ach`, `wire`, `rtp`, `sepa`, `bacs`, `au_becs`, and 'fednow' currently.
       sig do
         returns(
           T.nilable(
@@ -160,9 +160,9 @@ module ModernTreasury
       end
 
       # The type of routing number. See
-      #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
-      #   more details. In sandbox mode we currently only support `aba` and `swift` with
-      #   routing numbers '123456789' and 'GRINUST0XXX' respectively.
+      # https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      # more details. In sandbox mode we currently only support `aba` and `swift` with
+      # routing numbers '123456789' and 'GRINUST0XXX' respectively.
       module RoutingNumberType
         extend ModernTreasury::Internal::Type::Enum
 

@@ -126,7 +126,7 @@ module ModernTreasury
 
       # @!attribute [r] metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
+      #   strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -365,7 +365,7 @@ module ModernTreasury
 
         # @!attribute issuing_country
         #   The ISO 3166-1 alpha-2 country code of the country that issued the
-        #     identification
+        #   identification
         #
         #   @return [String, nil]
         optional :issuing_country, String, nil?: true
@@ -606,7 +606,7 @@ module ModernTreasury
 
           # @!attribute [r] metadata
           #   Additional data represented as key-value pairs. Both the key and value must be
-          #     strings.
+          #   strings.
           #
           #   @return [Hash{Symbol=>String}, nil]
           optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -834,7 +834,7 @@ module ModernTreasury
 
             # @!attribute issuing_country
             #   The ISO 3166-1 alpha-2 country code of the country that issued the
-            #     identification
+            #   identification
             #
             #   @return [String, nil]
             optional :issuing_country, String, nil?: true

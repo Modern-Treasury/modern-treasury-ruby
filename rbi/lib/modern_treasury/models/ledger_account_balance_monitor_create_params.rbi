@@ -33,7 +33,7 @@ module ModernTreasury
       attr_writer :description
 
       # Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
+      # strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_reader :metadata
 
@@ -78,19 +78,19 @@ module ModernTreasury
 
       class AlertCondition < ModernTreasury::Internal::Type::BaseModel
         # One of `available_balance_amount`, `pending_balance_amount`,
-        #   `posted_balance_amount`, `ledger_account_lock_version`.
+        # `posted_balance_amount`, `ledger_account_lock_version`.
         sig { returns(String) }
         attr_accessor :field
 
         # A logical operator to compare the `field` against the `value`. One of
-        #   `less_than`, `less_than_or_equals`, `equals`, `greater_than_or_equals`,
-        #   `greater_than`.
+        # `less_than`, `less_than_or_equals`, `equals`, `greater_than_or_equals`,
+        # `greater_than`.
         sig { returns(String) }
         attr_accessor :operator
 
         # The monitor's `current_ledger_account_balance_state.triggered` will be `true`
-        #   when comparing the `field` to this integer value using the `operator` is
-        #   logically true.
+        # when comparing the `field` to this integer value using the `operator` is
+        # logically true.
         sig { returns(Integer) }
         attr_accessor :value
 

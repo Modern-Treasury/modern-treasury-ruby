@@ -10,7 +10,7 @@ module ModernTreasury
       attr_accessor :after_cursor
 
       # Filters incoming payment details with an as_of_date starting on or before the
-      #   specified date (YYYY-MM-DD).
+      # specified date (YYYY-MM-DD).
       sig { returns(T.nilable(Date)) }
       attr_reader :as_of_date_end
 
@@ -18,7 +18,7 @@ module ModernTreasury
       attr_writer :as_of_date_end
 
       # Filters incoming payment details with an as_of_date starting on or after the
-      #   specified date (YYYY-MM-DD).
+      # specified date (YYYY-MM-DD).
       sig { returns(T.nilable(Date)) }
       attr_reader :as_of_date_start
 
@@ -33,8 +33,8 @@ module ModernTreasury
       attr_writer :direction
 
       # For example, if you want to query for records with metadata key `Type` and value
-      #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #   parameters.
+      # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      # parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_reader :metadata
 
@@ -48,7 +48,7 @@ module ModernTreasury
       attr_writer :per_page
 
       # The current status of the incoming payment order. One of `pending`, `completed`,
-      #   or `returned`.
+      # or `returned`.
       sig { returns(T.nilable(ModernTreasury::Models::IncomingPaymentDetailListParams::Status::OrSymbol)) }
       attr_reader :status
 
@@ -56,7 +56,7 @@ module ModernTreasury
       attr_writer :status
 
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
-      #   `wire`.
+      # `wire`.
       sig { returns(T.nilable(ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol)) }
       attr_reader :type
 
@@ -64,7 +64,7 @@ module ModernTreasury
       attr_writer :type
 
       # If the incoming payment detail is in a virtual account, the ID of the Virtual
-      #   Account.
+      # Account.
       sig { returns(T.nilable(String)) }
       attr_reader :virtual_account_id
 
@@ -118,7 +118,7 @@ module ModernTreasury
       def to_hash; end
 
       # The current status of the incoming payment order. One of `pending`, `completed`,
-      #   or `returned`.
+      # or `returned`.
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
@@ -138,7 +138,7 @@ module ModernTreasury
       end
 
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
-      #   `wire`.
+      # `wire`.
       module Type
         extend ModernTreasury::Internal::Type::Enum
 

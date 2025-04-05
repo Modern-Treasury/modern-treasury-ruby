@@ -11,7 +11,7 @@ module ModernTreasury
       attr_accessor :account_number_safe
 
       # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
-      #   account number is in a generic format.
+      # account number is in a generic format.
       sig { returns(ModernTreasury::Models::AccountDetail::AccountNumberType::TaggedSymbol) }
       attr_accessor :account_number_type
 
@@ -22,7 +22,7 @@ module ModernTreasury
       attr_accessor :discarded_at
 
       # This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
+      # if it exists in the test environment.
       sig { returns(T::Boolean) }
       attr_accessor :live_mode
 
@@ -83,7 +83,7 @@ module ModernTreasury
       def to_hash; end
 
       # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
-      #   account number is in a generic format.
+      # account number is in a generic format.
       module AccountNumberType
         extend ModernTreasury::Internal::Type::Enum
 

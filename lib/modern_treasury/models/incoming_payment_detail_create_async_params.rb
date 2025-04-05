@@ -10,7 +10,7 @@ module ModernTreasury
 
       # @!attribute [r] amount
       #   Value in specified currency's smallest unit. e.g. $10 would be represented
-      #     as 1000.
+      #   as 1000.
       #
       #   @return [Integer, nil]
       optional :amount, Integer
@@ -33,7 +33,7 @@ module ModernTreasury
 
       # @!attribute data
       #   An object passed through to the simulated IPD that could reflect what a vendor
-      #     would pass.
+      #   would pass.
       #
       #   @return [Object, nil]
       optional :data, ModernTreasury::Internal::Type::Unknown, nil?: true
@@ -77,7 +77,7 @@ module ModernTreasury
 
       # @!attribute virtual_account_id
       #   An optional parameter to associate the incoming payment detail to a virtual
-      #     account.
+      #   account.
       #
       #   @return [String, nil]
       optional :virtual_account_id, String, nil?: true

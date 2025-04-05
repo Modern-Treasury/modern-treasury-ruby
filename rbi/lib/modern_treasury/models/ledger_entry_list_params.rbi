@@ -7,7 +7,7 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       # If you have specific IDs to retrieve in bulk, you can pass them as query
-      #   parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
+      # parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       sig { returns(T.nilable(T::Array[String])) }
       attr_reader :id
 
@@ -18,7 +18,7 @@ module ModernTreasury
       attr_accessor :after_cursor
 
       # Shows all ledger entries that were present on a ledger account at a particular
-      #   `lock_version`. You must also specify `ledger_account_id`.
+      # `lock_version`. You must also specify `ledger_account_id`.
       sig { returns(T.nilable(Integer)) }
       attr_reader :as_of_lock_version
 
@@ -26,8 +26,8 @@ module ModernTreasury
       attr_writer :as_of_lock_version
 
       # If true, response will include ledger entries that were deleted. When you update
-      #   a ledger transaction to specify a new set of entries, the previous entries are
-      #   deleted.
+      # a ledger transaction to specify a new set of entries, the previous entries are
+      # deleted.
       sig { returns(T.nilable(ModernTreasury::Models::TransactionDirection::OrSymbol)) }
       attr_reader :direction
 
@@ -35,7 +35,7 @@ module ModernTreasury
       attr_writer :direction
 
       # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
-      #   transaction's effective time. Format ISO8601
+      # transaction's effective time. Format ISO8601
       sig { returns(T.nilable(T::Hash[Symbol, Time])) }
       attr_reader :effective_at
 
@@ -43,7 +43,7 @@ module ModernTreasury
       attr_writer :effective_at
 
       # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
-      #   transaction's effective date. Format YYYY-MM-DD
+      # transaction's effective date. Format YYYY-MM-DD
       sig { returns(T.nilable(T::Hash[Symbol, Date])) }
       attr_reader :effective_date
 
@@ -51,7 +51,7 @@ module ModernTreasury
       attr_writer :effective_date
 
       # Get all ledger entries that match the direction specified. One of `credit`,
-      #   `debit`.
+      # `debit`.
       sig { returns(T.nilable(String)) }
       attr_reader :ledger_account_category_id
 
@@ -65,9 +65,9 @@ module ModernTreasury
       attr_writer :ledger_account_id
 
       # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
-      #   lock_version of a ledger account. For example, for all entries created at or
-      #   before before lock_version 1000 of a ledger account, use
-      #   `ledger_account_lock_version%5Blte%5D=1000`.
+      # lock_version of a ledger account. For example, for all entries created at or
+      # before before lock_version 1000 of a ledger account, use
+      # `ledger_account_lock_version%5Blte%5D=1000`.
       sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
       attr_reader :ledger_account_lock_version
 
@@ -100,8 +100,8 @@ module ModernTreasury
       attr_writer :ledger_transaction_id
 
       # For example, if you want to query for records with metadata key `Type` and value
-      #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #   parameters.
+      # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      # parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_reader :metadata
 
@@ -109,8 +109,8 @@ module ModernTreasury
       attr_writer :metadata
 
       # Order by `created_at` or `effective_at` in `asc` or `desc` order. For example,
-      #   to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering
-      #   by only one field at a time is supported.
+      # to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering
+      # by only one field at a time is supported.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerEntryListParams::OrderBy)) }
       attr_reader :order_by
 
@@ -129,7 +129,7 @@ module ModernTreasury
       attr_writer :per_page
 
       # If true, response will include the balances attached to the ledger entry. If
-      #   there is no balance available, null will be returned instead.
+      # there is no balance available, null will be returned instead.
       sig { returns(T.nilable(T::Boolean)) }
       attr_reader :show_balances
 
@@ -137,8 +137,8 @@ module ModernTreasury
       attr_writer :show_balances
 
       # If true, response will include ledger entries that were deleted. When you update
-      #   a ledger transaction to specify a new set of entries, the previous entries are
-      #   deleted.
+      # a ledger transaction to specify a new set of entries, the previous entries are
+      # deleted.
       sig { returns(T.nilable(T::Boolean)) }
       attr_reader :show_deleted
 
@@ -146,7 +146,7 @@ module ModernTreasury
       attr_writer :show_deleted
 
       # Get all ledger entries that match the status specified. One of `pending`,
-      #   `posted`, or `archived`.
+      # `posted`, or `archived`.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerEntryListParams::Status::OrSymbol)) }
       attr_reader :status
 
@@ -154,8 +154,8 @@ module ModernTreasury
       attr_writer :status
 
       # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
-      #   posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
-      #   updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
+      # posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
+      # updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       sig { returns(T.nilable(T::Hash[Symbol, Time])) }
       attr_reader :updated_at
 
@@ -255,8 +255,8 @@ module ModernTreasury
         attr_writer :effective_at
 
         # Order by `created_at` or `effective_at` in `asc` or `desc` order. For example,
-        #   to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering
-        #   by only one field at a time is supported.
+        # to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering
+        # by only one field at a time is supported.
         sig do
           params(
             created_at: ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::OrSymbol,
@@ -314,7 +314,7 @@ module ModernTreasury
       end
 
       # Get all ledger entries that match the status specified. One of `pending`,
-      #   `posted`, or `archived`.
+      # `posted`, or `archived`.
       module Status
         extend ModernTreasury::Internal::Type::Enum
 

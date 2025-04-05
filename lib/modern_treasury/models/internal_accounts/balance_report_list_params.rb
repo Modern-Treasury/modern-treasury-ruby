@@ -26,7 +26,7 @@ module ModernTreasury
 
         # @!attribute [r] balance_report_type
         #   The specific type of balance report. One of `intraday`, `previous_day`,
-        #     `real_time`, or `other`.
+        #   `real_time`, or `other`.
         #
         #   @return [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType, nil]
         optional :balance_report_type,
@@ -57,7 +57,7 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
         # The specific type of balance report. One of `intraday`, `previous_day`,
-        #   `real_time`, or `other`.
+        # `real_time`, or `other`.
         module BalanceReportType
           extend ModernTreasury::Internal::Type::Enum
 

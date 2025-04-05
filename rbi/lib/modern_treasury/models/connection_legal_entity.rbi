@@ -21,7 +21,7 @@ module ModernTreasury
       attr_accessor :legal_entity_id
 
       # This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
+      # if it exists in the test environment.
       sig { returns(T::Boolean) }
       attr_accessor :live_mode
 

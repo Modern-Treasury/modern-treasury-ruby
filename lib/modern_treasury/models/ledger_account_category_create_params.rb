@@ -46,7 +46,7 @@ module ModernTreasury
 
       # @!attribute [r] ledger_account_category_ids
       #   The array of ledger account category ids that this ledger account category
-      #     should be a child of.
+      #   should be a child of.
       #
       #   @return [Array<String>, nil]
       optional :ledger_account_category_ids, ModernTreasury::Internal::Type::ArrayOf[String]
@@ -57,7 +57,7 @@ module ModernTreasury
 
       # @!attribute [r] metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
+      #   strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]

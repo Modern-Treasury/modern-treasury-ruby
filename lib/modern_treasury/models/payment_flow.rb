@@ -15,7 +15,7 @@ module ModernTreasury
 
       # @!attribute [r] amount
       #   Value in specified currency's smallest unit. e.g. $10 would be represented
-      #     as 1000. Can be any integer up to 36 digits.
+      #   as 1000. Can be any integer up to 36 digits.
       #
       #   @return [Integer, nil]
       optional :amount, Integer
@@ -26,7 +26,7 @@ module ModernTreasury
 
       # @!attribute [r] client_token
       #   The client token of the payment flow. This token can be used to embed a payment
-      #     workflow in your client-side application.
+      #   workflow in your client-side application.
       #
       #   @return [String, nil]
       optional :client_token, String
@@ -37,7 +37,7 @@ module ModernTreasury
 
       # @!attribute counterparty_id
       #   The ID of a counterparty associated with the payment. As part of the payment
-      #     workflow an external account will be associated with this counterparty.
+      #   workflow an external account will be associated with this counterparty.
       #
       #   @return [String, nil]
       optional :counterparty_id, String, nil?: true
@@ -63,7 +63,7 @@ module ModernTreasury
 
       # @!attribute [r] direction
       #   Describes the direction money is flowing in the transaction. Can only be
-      #     `debit`. A `debit` pulls money from someone else's account to your own.
+      #   `debit`. A `debit` pulls money from someone else's account to your own.
       #
       #   @return [Symbol, ModernTreasury::Models::PaymentFlow::Direction, nil]
       optional :direction, enum: -> { ModernTreasury::Models::PaymentFlow::Direction }
@@ -74,14 +74,14 @@ module ModernTreasury
 
       # @!attribute due_date
       #   The due date for the flow. Can only be passed in when
-      #     `effective_date_selection_enabled` is `true`.
+      #   `effective_date_selection_enabled` is `true`.
       #
       #   @return [Date, nil]
       optional :due_date, Date, nil?: true
 
       # @!attribute [r] effective_date_selection_enabled
       #   When `true`, your end-user can schedule the payment `effective_date` while
-      #     completing the pre-built UI.
+      #   completing the pre-built UI.
       #
       #   @return [Boolean, nil]
       optional :effective_date_selection_enabled, ModernTreasury::Internal::Type::Boolean
@@ -92,8 +92,8 @@ module ModernTreasury
 
       # @!attribute existing_external_accounts_filter
       #   When `verified` and `external_account_collection` is `enabled`, filters the list
-      #     of external accounts your end-user can select to those with a
-      #     `verification_status` of `verified`.
+      #   of external accounts your end-user can select to those with a
+      #   `verification_status` of `verified`.
       #
       #   @return [Symbol, ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter, nil]
       optional :existing_external_accounts_filter,
@@ -102,8 +102,8 @@ module ModernTreasury
 
       # @!attribute [r] external_account_collection
       #   When `enabled`, your end-user can select from an existing external account when
-      #     completing the flow. When `disabled`, your end-user must add new payment details
-      #     when completing the flow.
+      #   completing the flow. When `disabled`, your end-user must add new payment details
+      #   when completing the flow.
       #
       #   @return [Symbol, ModernTreasury::Models::PaymentFlow::ExternalAccountCollection, nil]
       optional :external_account_collection,
@@ -115,7 +115,7 @@ module ModernTreasury
 
       # @!attribute [r] live_mode
       #   This field will be true if this object exists in the live environment or false
-      #     if it exists in the test environment.
+      #   if it exists in the test environment.
       #
       #   @return [Boolean, nil]
       optional :live_mode, ModernTreasury::Internal::Type::Boolean
@@ -153,15 +153,15 @@ module ModernTreasury
 
       # @!attribute selected_effective_date
       #   This field is set after your end-user selects a payment date while completing
-      #     the pre-built UI. This field is always `null` unless
-      #     `effective_date_selection_enabled` is `true`.
+      #   the pre-built UI. This field is always `null` unless
+      #   `effective_date_selection_enabled` is `true`.
       #
       #   @return [Date, nil]
       optional :selected_effective_date, Date, nil?: true
 
       # @!attribute [r] status
       #   The current status of the payment flow. One of `pending`, `completed`,
-      #     `expired`, or `cancelled`.
+      #   `expired`, or `cancelled`.
       #
       #   @return [Symbol, ModernTreasury::Models::PaymentFlow::Status, nil]
       optional :status, enum: -> { ModernTreasury::Models::PaymentFlow::Status }
@@ -228,7 +228,7 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # Describes the direction money is flowing in the transaction. Can only be
-      #   `debit`. A `debit` pulls money from someone else's account to your own.
+      # `debit`. A `debit` pulls money from someone else's account to your own.
       #
       # @see ModernTreasury::Models::PaymentFlow#direction
       module Direction
@@ -245,8 +245,8 @@ module ModernTreasury
       end
 
       # When `verified` and `external_account_collection` is `enabled`, filters the list
-      #   of external accounts your end-user can select to those with a
-      #   `verification_status` of `verified`.
+      # of external accounts your end-user can select to those with a
+      # `verification_status` of `verified`.
       #
       # @see ModernTreasury::Models::PaymentFlow#existing_external_accounts_filter
       module ExistingExternalAccountsFilter
@@ -262,8 +262,8 @@ module ModernTreasury
       end
 
       # When `enabled`, your end-user can select from an existing external account when
-      #   completing the flow. When `disabled`, your end-user must add new payment details
-      #   when completing the flow.
+      # completing the flow. When `disabled`, your end-user must add new payment details
+      # when completing the flow.
       #
       # @see ModernTreasury::Models::PaymentFlow#external_account_collection
       module ExternalAccountCollection
@@ -280,7 +280,7 @@ module ModernTreasury
       end
 
       # The current status of the payment flow. One of `pending`, `completed`,
-      #   `expired`, or `cancelled`.
+      # `expired`, or `cancelled`.
       #
       # @see ModernTreasury::Models::PaymentFlow#status
       module Status

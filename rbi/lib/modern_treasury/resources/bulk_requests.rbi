@@ -33,10 +33,10 @@ module ModernTreasury
         # One of payment_order, expected_payment, or ledger_transaction.
         resource_type:,
         # An array of objects where each object contains the input params for a single
-        #   `action_type` request on a `resource_type` resource
+        # `action_type` request on a `resource_type` resource
         resources:,
         # Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
+        # strings.
         metadata: nil,
         request_options: {}
       ); end
@@ -71,8 +71,8 @@ module ModernTreasury
         action_type: nil,
         after_cursor: nil,
         # For example, if you want to query for records with metadata key `Type` and value
-        #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-        #   parameters.
+        # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+        # parameters.
         metadata: nil,
         per_page: nil,
         # One of payment_order, expected_payment, or ledger_transaction.

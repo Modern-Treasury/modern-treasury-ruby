@@ -11,14 +11,14 @@ module ModernTreasury
 
       # @!attribute amount_lower_bound
       #   The lowest amount this expected payment may be equal to. Value in specified
-      #     currency's smallest unit. e.g. $10 would be represented as 1000.
+      #   currency's smallest unit. e.g. $10 would be represented as 1000.
       #
       #   @return [Integer, nil]
       required :amount_lower_bound, Integer, nil?: true
 
       # @!attribute amount_upper_bound
       #   The highest amount this expected payment may be equal to. Value in specified
-      #     currency's smallest unit. e.g. $10 would be represented as 1000.
+      #   currency's smallest unit. e.g. $10 would be represented as 1000.
       #
       #   @return [Integer, nil]
       required :amount_upper_bound, Integer, nil?: true
@@ -60,7 +60,7 @@ module ModernTreasury
 
       # @!attribute direction
       #   One of credit or debit. When you are receiving money, use credit. When you are
-      #     being charged, use debit.
+      #   being charged, use debit.
       #
       #   @return [Symbol, ModernTreasury::Models::ExpectedPayment::Direction, nil]
       required :direction, enum: -> { ModernTreasury::Models::ExpectedPayment::Direction }, nil?: true
@@ -79,14 +79,14 @@ module ModernTreasury
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false
-      #     if it exists in the test environment.
+      #   if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
+      #   strings.
       #
       #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::Internal::Type::HashOf[String]
@@ -110,8 +110,8 @@ module ModernTreasury
 
       # @!attribute reconciliation_method
       #   One of manual if this expected payment was manually reconciled in the dashboard,
-      #     automatic if it was automatically reconciled by Modern Treasury, or null if it
-      #     is unreconciled.
+      #   automatic if it was automatically reconciled by Modern Treasury, or null if it
+      #   is unreconciled.
       #
       #   @return [Symbol, ModernTreasury::Models::ExpectedPayment::ReconciliationMethod, nil]
       required :reconciliation_method,
@@ -128,17 +128,17 @@ module ModernTreasury
 
       # @!attribute remittance_information
       #   For `ach`, this field will be passed through on an addenda record. For `wire`
-      #     payments the field will be passed through as the "Originator to Beneficiary
-      #     Information", also known as OBI or Fedwire tag 6000.
+      #   payments the field will be passed through as the "Originator to Beneficiary
+      #   Information", also known as OBI or Fedwire tag 6000.
       #
       #   @return [String, nil]
       required :remittance_information, String, nil?: true
 
       # @!attribute statement_descriptor
       #   The statement description you expect to see on the transaction. For ACH
-      #     payments, this will be the full line item passed from the bank. For wire
-      #     payments, this will be the OBI field on the wire. For check payments, this will
-      #     be the memo field.
+      #   payments, this will be the full line item passed from the bank. For wire
+      #   payments, this will be the OBI field on the wire. For check payments, this will
+      #   be the memo field.
       #
       #   @return [String, nil]
       required :statement_descriptor, String, nil?: true
@@ -163,7 +163,7 @@ module ModernTreasury
 
       # @!attribute type
       #   One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
-      #     sepa, signet, wire.
+      #   sepa, signet, wire.
       #
       #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil]
       required :type, enum: -> { ModernTreasury::Models::ExpectedPaymentType }, nil?: true
@@ -236,7 +236,7 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # One of credit or debit. When you are receiving money, use credit. When you are
-      #   being charged, use debit.
+      # being charged, use debit.
       #
       # @see ModernTreasury::Models::ExpectedPayment#direction
       module Direction
@@ -253,8 +253,8 @@ module ModernTreasury
       end
 
       # One of manual if this expected payment was manually reconciled in the dashboard,
-      #   automatic if it was automatically reconciled by Modern Treasury, or null if it
-      #   is unreconciled.
+      # automatic if it was automatically reconciled by Modern Treasury, or null if it
+      # is unreconciled.
       #
       # @see ModernTreasury::Models::ExpectedPayment#reconciliation_method
       module ReconciliationMethod

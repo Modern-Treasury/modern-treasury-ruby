@@ -7,7 +7,7 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       # If you have specific IDs to retrieve in bulk, you can pass them as query
-      #   parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
+      # parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       sig { returns(T.nilable(T::Array[String])) }
       attr_reader :id
 
@@ -18,7 +18,7 @@ module ModernTreasury
       attr_accessor :after_cursor
 
       # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
-      #   filter by balance amount.
+      # filter by balance amount.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount)) }
       attr_reader :available_balance_amount
 
@@ -34,10 +34,10 @@ module ModernTreasury
       attr_writer :available_balance_amount
 
       # Use `balances[effective_at_lower_bound]` and
-      #   `balances[effective_at_upper_bound]` to get the balances change between the two
-      #   timestamps. The lower bound is inclusive while the upper bound is exclusive of
-      #   the provided timestamps. If no value is supplied the balances will be retrieved
-      #   not including that bound.
+      # `balances[effective_at_upper_bound]` to get the balances change between the two
+      # timestamps. The lower bound is inclusive while the upper bound is exclusive of
+      # the provided timestamps. If no value is supplied the balances will be retrieved
+      # not including that bound.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountListParams::Balances)) }
       attr_reader :balances
 
@@ -50,8 +50,8 @@ module ModernTreasury
       attr_writer :balances
 
       # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
-      #   created at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
-      #   created_at%5Bgt%5D=2000-01-01T12:00:00Z.
+      # created at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
+      # created_at%5Bgt%5D=2000-01-01T12:00:00Z.
       sig { returns(T.nilable(T::Hash[Symbol, Time])) }
       attr_reader :created_at
 
@@ -77,8 +77,8 @@ module ModernTreasury
       attr_writer :ledger_id
 
       # For example, if you want to query for records with metadata key `Type` and value
-      #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #   parameters.
+      # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      # parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_reader :metadata
 
@@ -86,7 +86,7 @@ module ModernTreasury
       attr_writer :metadata
 
       # If you have specific names to retrieve in bulk, you can pass them as query
-      #   parameters delimited with `name[]=`, for example `?name[]=123&name[]=abc`.
+      # parameters delimited with `name[]=`, for example `?name[]=123&name[]=abc`.
       sig { returns(T.nilable(T::Array[String])) }
       attr_reader :name
 
@@ -94,7 +94,7 @@ module ModernTreasury
       attr_writer :name
 
       # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
-      #   filter by balance amount.
+      # filter by balance amount.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount)) }
       attr_reader :pending_balance_amount
 
@@ -116,7 +116,7 @@ module ModernTreasury
       attr_writer :per_page
 
       # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
-      #   filter by balance amount.
+      # filter by balance amount.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount)) }
       attr_reader :posted_balance_amount
 
@@ -132,8 +132,8 @@ module ModernTreasury
       attr_writer :posted_balance_amount
 
       # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
-      #   updated at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
-      #   updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
+      # updated at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
+      # updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       sig { returns(T.nilable(T::Hash[Symbol, Time])) }
       attr_reader :updated_at
 
@@ -248,7 +248,7 @@ module ModernTreasury
         attr_writer :not_eq
 
         # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
-        #   filter by balance amount.
+        # filter by balance amount.
         sig do
           params(eq: Integer, gt: Integer, gte: Integer, lt: Integer, lte: Integer, not_eq: Integer)
             .returns(T.attached_class)
@@ -296,10 +296,10 @@ module ModernTreasury
         attr_writer :effective_at_upper_bound
 
         # Use `balances[effective_at_lower_bound]` and
-        #   `balances[effective_at_upper_bound]` to get the balances change between the two
-        #   timestamps. The lower bound is inclusive while the upper bound is exclusive of
-        #   the provided timestamps. If no value is supplied the balances will be retrieved
-        #   not including that bound.
+        # `balances[effective_at_upper_bound]` to get the balances change between the two
+        # timestamps. The lower bound is inclusive while the upper bound is exclusive of
+        # the provided timestamps. If no value is supplied the balances will be retrieved
+        # not including that bound.
         sig do
           params(
             as_of_date: Date,
@@ -369,7 +369,7 @@ module ModernTreasury
         attr_writer :not_eq
 
         # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
-        #   filter by balance amount.
+        # filter by balance amount.
         sig do
           params(eq: Integer, gt: Integer, gte: Integer, lt: Integer, lte: Integer, not_eq: Integer)
             .returns(T.attached_class)
@@ -429,7 +429,7 @@ module ModernTreasury
         attr_writer :not_eq
 
         # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
-        #   filter by balance amount.
+        # filter by balance amount.
         sig do
           params(eq: Integer, gt: Integer, gte: Integer, lt: Integer, lte: Integer, not_eq: Integer)
             .returns(T.attached_class)

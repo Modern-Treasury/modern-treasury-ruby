@@ -18,7 +18,7 @@ module ModernTreasury
         attr_writer :as_of_date
 
         # The specific type of balance report. One of `intraday`, `previous_day`,
-        #   `real_time`, or `other`.
+        # `real_time`, or `other`.
         sig do
           returns(
             T.nilable(ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::OrSymbol)
@@ -74,7 +74,7 @@ module ModernTreasury
         def to_hash; end
 
         # The specific type of balance report. One of `intraday`, `previous_day`,
-        #   `real_time`, or `other`.
+        # `real_time`, or `other`.
         module BalanceReportType
           extend ModernTreasury::Internal::Type::Enum
 

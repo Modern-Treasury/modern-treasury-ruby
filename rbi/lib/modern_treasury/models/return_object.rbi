@@ -7,7 +7,7 @@ module ModernTreasury
       attr_accessor :id
 
       # Value in specified currency's smallest unit. e.g. $10 would be represented
-      #   as 1000.
+      # as 1000.
       sig { returns(Integer) }
       attr_accessor :amount
 
@@ -23,7 +23,7 @@ module ModernTreasury
       attr_accessor :currency
 
       # If the return's status is `returned`, this will include the return object's data
-      #   that is returning this return.
+      # that is returning this return.
       sig { returns(T.nilable(ModernTreasury::Models::ReturnObject)) }
       attr_reader :current_return
 
@@ -31,12 +31,12 @@ module ModernTreasury
       attr_writer :current_return
 
       # If the return code is `R14` or `R15` this is the date the deceased counterparty
-      #   passed away.
+      # passed away.
       sig { returns(T.nilable(Date)) }
       attr_accessor :date_of_death
 
       # If an originating return failed to be processed by the bank, a description of
-      #   the failure reason will be available.
+      # the failure reason will be available.
       sig { returns(T.nilable(String)) }
       attr_accessor :failure_reason
 
@@ -49,7 +49,7 @@ module ModernTreasury
       attr_accessor :ledger_transaction_id
 
       # This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
+      # if it exists in the test environment.
       sig { returns(T::Boolean) }
       attr_accessor :live_mode
 
@@ -57,7 +57,7 @@ module ModernTreasury
       attr_accessor :object
 
       # Often the bank will provide an explanation for the return, which is a short
-      #   human readable string.
+      # human readable string.
       sig { returns(T.nilable(String)) }
       attr_accessor :reason
 
@@ -90,7 +90,7 @@ module ModernTreasury
       attr_accessor :transaction_line_item_id
 
       # The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`,
-      #   `interac`, `manual`, `paper_item`, `wire`.
+      # `interac`, `manual`, `paper_item`, `wire`.
       sig { returns(ModernTreasury::Models::ReturnObject::Type::TaggedSymbol) }
       attr_accessor :type
 
@@ -98,7 +98,7 @@ module ModernTreasury
       attr_accessor :updated_at
 
       # Some returns may include additional information from the bank. In these cases,
-      #   this string will be present.
+      # this string will be present.
       sig { returns(T.nilable(String)) }
       attr_accessor :additional_information
 
@@ -268,7 +268,7 @@ module ModernTreasury
         attr_accessor :created_at
 
         # This field will be true if this object exists in the live environment or false
-        #   if it exists in the test environment.
+        # if it exists in the test environment.
         sig { returns(T::Boolean) }
         attr_accessor :live_mode
 
@@ -769,7 +769,7 @@ module ModernTreasury
       end
 
       # The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`,
-      #   `interac`, `manual`, `paper_item`, `wire`.
+      # `interac`, `manual`, `paper_item`, `wire`.
       module Type
         extend ModernTreasury::Internal::Type::Enum
 

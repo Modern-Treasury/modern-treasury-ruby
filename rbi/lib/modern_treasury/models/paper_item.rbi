@@ -34,7 +34,7 @@ module ModernTreasury
       attr_accessor :deposit_date
 
       # This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
+      # if it exists in the test environment.
       sig { returns(T::Boolean) }
       attr_accessor :live_mode
 
@@ -58,7 +58,7 @@ module ModernTreasury
       attr_accessor :routing_number
 
       # The current status of the paper item. One of `pending`, `completed`, or
-      #   `returned`.
+      # `returned`.
       sig { returns(ModernTreasury::Models::PaperItem::Status::TaggedSymbol) }
       attr_accessor :status
 
@@ -144,7 +144,7 @@ module ModernTreasury
       def to_hash; end
 
       # The current status of the paper item. One of `pending`, `completed`, or
-      #   `returned`.
+      # `returned`.
       module Status
         extend ModernTreasury::Internal::Type::Enum
 

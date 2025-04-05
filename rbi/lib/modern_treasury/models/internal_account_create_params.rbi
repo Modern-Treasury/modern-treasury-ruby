@@ -11,7 +11,7 @@ module ModernTreasury
       attr_accessor :connection_id
 
       # Either "USD" or "CAD". Internal accounts created at Increase only supports
-      #   "USD".
+      # "USD".
       sig { returns(ModernTreasury::Models::InternalAccountCreateParams::Currency::OrSymbol) }
       attr_accessor :currency
 
@@ -60,7 +60,7 @@ module ModernTreasury
       attr_writer :party_address
 
       # A hash of vendor specific attributes that will be used when creating the account
-      #   at the vendor specified by the given connection.
+      # at the vendor specified by the given connection.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_reader :vendor_attributes
 
@@ -117,7 +117,7 @@ module ModernTreasury
       def to_hash; end
 
       # Either "USD" or "CAD". Internal accounts created at Increase only supports
-      #   "USD".
+      # "USD".
       module Currency
         extend ModernTreasury::Internal::Type::Enum
 

@@ -7,7 +7,7 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       # If you have specific IDs to retrieve in bulk, you can pass them as query
-      #   parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
+      # parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       sig { returns(T.nilable(T::Array[String])) }
       attr_reader :id
 
@@ -18,8 +18,8 @@ module ModernTreasury
       attr_accessor :after_cursor
 
       # Use "gt" (>), "gte" (>=), "lt" (<), "lte" (<=), or "eq" (=) to filter by
-      #   effective at. For example, for all transactions after Jan 1 2000, use
-      #   effective_at%5Bgt%5D=2000-01-01T00:00:00:00.000Z.
+      # effective at. For example, for all transactions after Jan 1 2000, use
+      # effective_at%5Bgt%5D=2000-01-01T00:00:00:00.000Z.
       sig { returns(T.nilable(T::Hash[Symbol, Time])) }
       attr_reader :effective_at
 
@@ -27,8 +27,8 @@ module ModernTreasury
       attr_writer :effective_at
 
       # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by
-      #   effective date. For example, for all dates after Jan 1 2000, use
-      #   effective_date%5Bgt%5D=2000-01-01.
+      # effective date. For example, for all dates after Jan 1 2000, use
+      # effective_date%5Bgt%5D=2000-01-01.
       sig { returns(T.nilable(T::Hash[Symbol, Time])) }
       attr_reader :effective_date
 
@@ -80,8 +80,8 @@ module ModernTreasury
       attr_writer :ledgerable_type
 
       # For example, if you want to query for records with metadata key `Type` and value
-      #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #   parameters.
+      # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      # parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_reader :metadata
 
@@ -89,8 +89,8 @@ module ModernTreasury
       attr_writer :metadata
 
       # Order by `created_at` or `effective_at` in `asc` or `desc` order. For example,
-      #   to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering
-      #   by only one field at a time is supported.
+      # to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering
+      # by only one field at a time is supported.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerTransactionListParams::OrderBy)) }
       attr_reader :order_by
 
@@ -115,8 +115,8 @@ module ModernTreasury
       attr_writer :per_page
 
       # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
-      #   posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
-      #   posted_at%5Bgt%5D=2000-01-01T12:00:00Z.
+      # posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
+      # posted_at%5Bgt%5D=2000-01-01T12:00:00Z.
       sig { returns(T.nilable(T::Hash[Symbol, Time])) }
       attr_reader :posted_at
 
@@ -136,8 +136,8 @@ module ModernTreasury
       attr_writer :status
 
       # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
-      #   posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
-      #   updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
+      # posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
+      # updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       sig { returns(T.nilable(T::Hash[Symbol, Time])) }
       attr_reader :updated_at
 
@@ -271,8 +271,8 @@ module ModernTreasury
         attr_writer :effective_at
 
         # Order by `created_at` or `effective_at` in `asc` or `desc` order. For example,
-        #   to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering
-        #   by only one field at a time is supported.
+        # to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering
+        # by only one field at a time is supported.
         sig do
           params(
             created_at: ModernTreasury::Models::LedgerTransactionListParams::OrderBy::CreatedAt::OrSymbol,

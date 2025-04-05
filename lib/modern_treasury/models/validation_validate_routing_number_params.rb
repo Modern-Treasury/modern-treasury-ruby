@@ -16,9 +16,9 @@ module ModernTreasury
 
       # @!attribute routing_number_type
       #   The type of routing number. See
-      #     https://docs.moderntreasury.com/platform/reference/routing-detail-object for
-      #     more details. In sandbox mode we currently only support `aba` and `swift` with
-      #     routing numbers '123456789' and 'GRINUST0XXX' respectively.
+      #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      #   more details. In sandbox mode we currently only support `aba` and `swift` with
+      #   routing numbers '123456789' and 'GRINUST0XXX' respectively.
       #
       #   @return [Symbol, ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType]
       required :routing_number_type,
@@ -34,9 +34,9 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # The type of routing number. See
-      #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
-      #   more details. In sandbox mode we currently only support `aba` and `swift` with
-      #   routing numbers '123456789' and 'GRINUST0XXX' respectively.
+      # https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      # more details. In sandbox mode we currently only support `aba` and `swift` with
+      # routing numbers '123456789' and 'GRINUST0XXX' respectively.
       module RoutingNumberType
         extend ModernTreasury::Internal::Type::Enum
 
