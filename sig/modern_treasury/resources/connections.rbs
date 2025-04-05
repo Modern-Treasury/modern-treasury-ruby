@@ -7,7 +7,7 @@ module ModernTreasury
         ?per_page: Integer,
         ?vendor_customer_id: String,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Page[ModernTreasury::Models::Connection]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::Connection]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

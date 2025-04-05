@@ -26,8 +26,8 @@ class ModernTreasury::Test::Resources::LedgerAccountSettlementsTest < ModernTrea
         effective_at_upper_bound: Time,
         ledger_id: String,
         ledger_transaction_id: String | nil,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         settled_ledger_account_id: String,
         settlement_entry_direction: String | nil,
@@ -56,8 +56,8 @@ class ModernTreasury::Test::Resources::LedgerAccountSettlementsTest < ModernTrea
         effective_at_upper_bound: Time,
         ledger_id: String,
         ledger_transaction_id: String | nil,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         settled_ledger_account_id: String,
         settlement_entry_direction: String | nil,
@@ -86,8 +86,8 @@ class ModernTreasury::Test::Resources::LedgerAccountSettlementsTest < ModernTrea
         effective_at_upper_bound: Time,
         ledger_id: String,
         ledger_transaction_id: String | nil,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         settled_ledger_account_id: String,
         settlement_entry_direction: String | nil,
@@ -101,7 +101,7 @@ class ModernTreasury::Test::Resources::LedgerAccountSettlementsTest < ModernTrea
     response = @modern_treasury.ledger_account_settlements.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first
@@ -123,8 +123,8 @@ class ModernTreasury::Test::Resources::LedgerAccountSettlementsTest < ModernTrea
         effective_at_upper_bound: Time,
         ledger_id: String,
         ledger_transaction_id: String | nil,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         settled_ledger_account_id: String,
         settlement_entry_direction: String | nil,

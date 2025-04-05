@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class ReturnObject < ModernTreasury::BaseModel
+    class ReturnObject < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -102,6 +102,10 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :additional_information
 
+      # The raw data from the return file that we get from the bank.
+      sig { returns(T.nilable(T.anything)) }
+      attr_accessor :data
+
       sig do
         params(
           id: String,
@@ -117,7 +121,7 @@ module ModernTreasury
           live_mode: T::Boolean,
           object: String,
           reason: T.nilable(String),
-          reference_numbers: T::Array[T.any(ModernTreasury::Models::ReturnObject::ReferenceNumber, ModernTreasury::Util::AnyHash)],
+          reference_numbers: T::Array[T.any(ModernTreasury::Models::ReturnObject::ReferenceNumber, ModernTreasury::Internal::AnyHash)],
           returnable_id: T.nilable(String),
           returnable_type: T.nilable(ModernTreasury::Models::ReturnObject::ReturnableType::OrSymbol),
           role: ModernTreasury::Models::ReturnObject::Role::OrSymbol,
@@ -126,7 +130,8 @@ module ModernTreasury
           transaction_line_item_id: T.nilable(String),
           type: ModernTreasury::Models::ReturnObject::Type::OrSymbol,
           updated_at: Time,
-          additional_information: T.nilable(String)
+          additional_information: T.nilable(String),
+          data: T.nilable(T.anything)
         )
           .returns(T.attached_class)
       end
@@ -153,7 +158,8 @@ module ModernTreasury
         transaction_line_item_id:,
         type:,
         updated_at:,
-        additional_information: nil
+        additional_information: nil,
+        data: nil
       )
       end
 
@@ -183,7 +189,8 @@ module ModernTreasury
               transaction_line_item_id: T.nilable(String),
               type: ModernTreasury::Models::ReturnObject::Type::TaggedSymbol,
               updated_at: Time,
-              additional_information: T.nilable(String)
+              additional_information: T.nilable(String),
+              data: T.nilable(T.anything)
             }
           )
       end
@@ -192,23 +199,24 @@ module ModernTreasury
 
       # The return code. For ACH returns, this is the required ACH return code.
       module Code
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ReturnObject::Code) }
-        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::ReturnObject::Code::TaggedSymbol) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ReturnObject::Code::TaggedSymbol) }
 
-        NUMBER_901 = T.let(:"901", ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
-        NUMBER_902 = T.let(:"902", ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
-        NUMBER_903 = T.let(:"903", ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
-        NUMBER_904 = T.let(:"904", ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
-        NUMBER_905 = T.let(:"905", ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
-        NUMBER_907 = T.let(:"907", ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
-        NUMBER_908 = T.let(:"908", ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
-        NUMBER_909 = T.let(:"909", ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
-        NUMBER_910 = T.let(:"910", ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
-        NUMBER_911 = T.let(:"911", ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
-        NUMBER_912 = T.let(:"912", ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
-        NUMBER_914 = T.let(:"914", ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
+        CODE_901 = T.let(:"901", ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
+        CODE_902 = T.let(:"902", ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
+        CODE_903 = T.let(:"903", ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
+        CODE_904 = T.let(:"904", ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
+        CODE_905 = T.let(:"905", ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
+        CODE_907 = T.let(:"907", ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
+        CODE_908 = T.let(:"908", ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
+        CODE_909 = T.let(:"909", ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
+        CODE_910 = T.let(:"910", ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
+        CODE_911 = T.let(:"911", ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
+        CODE_912 = T.let(:"912", ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
+        CODE_914 = T.let(:"914", ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
         C01 = T.let(:C01, ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
         C02 = T.let(:C02, ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
         C03 = T.let(:C03, ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
@@ -256,7 +264,7 @@ module ModernTreasury
         end
       end
 
-      class ReferenceNumber < ModernTreasury::BaseModel
+      class ReferenceNumber < ModernTreasury::Internal::Type::BaseModel
         sig { returns(String) }
         attr_accessor :id
 
@@ -294,7 +302,15 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(id:, created_at:, live_mode:, object:, reference_number:, reference_number_type:, updated_at:)
+        def self.new(
+          id:,
+          created_at:,
+          live_mode:,
+          object:,
+          reference_number:,
+          reference_number_type:,
+          updated_at:
+        )
         end
 
         sig do
@@ -316,12 +332,18 @@ module ModernTreasury
 
         # The type of the reference number. Referring to the vendor payment id.
         module ReferenceNumberType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol) }
+            T.type_alias do
+              T.any(
+                Symbol,
+                String,
+                ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              )
+            end
 
           ACH_ORIGINAL_TRACE_NUMBER =
             T.let(
@@ -530,6 +552,11 @@ module ModernTreasury
               :jpmc_payment_returned_datetime,
               ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
+          JPMC_TRANSACTION_REFERENCE_NUMBER =
+            T.let(
+              :jpmc_transaction_reference_number,
+              ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
           LOB_CHECK_ID =
             T.let(
               :lob_check_id,
@@ -562,9 +589,19 @@ module ModernTreasury
               :pnc_payment_trace_id,
               ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
+          PNC_REQUEST_FOR_PAYMENT_ID =
+            T.let(
+              :pnc_request_for_payment_id,
+              ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
           PNC_TRANSACTION_REFERENCE_NUMBER =
             T.let(
               :pnc_transaction_reference_number,
+              ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
+          RBC_WIRE_REFERENCE_ID =
+            T.let(
+              :rbc_wire_reference_id,
               ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           RSPEC_VENDOR_PAYMENT_ID =
@@ -686,11 +723,11 @@ module ModernTreasury
 
       # The type of object being returned or `null`.
       module ReturnableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ReturnObject::ReturnableType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::ReturnObject::ReturnableType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ReturnObject::ReturnableType::TaggedSymbol) }
 
         INCOMING_PAYMENT_DETAIL =
           T.let(:incoming_payment_detail, ModernTreasury::Models::ReturnObject::ReturnableType::TaggedSymbol)
@@ -706,10 +743,11 @@ module ModernTreasury
 
       # The role of the return, can be `originating` or `receiving`.
       module Role
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ReturnObject::Role) }
-        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::ReturnObject::Role::TaggedSymbol) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ReturnObject::Role::TaggedSymbol) }
 
         ORIGINATING = T.let(:originating, ModernTreasury::Models::ReturnObject::Role::TaggedSymbol)
         RECEIVING = T.let(:receiving, ModernTreasury::Models::ReturnObject::Role::TaggedSymbol)
@@ -721,10 +759,11 @@ module ModernTreasury
 
       # The current status of the return.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ReturnObject::Status) }
-        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::ReturnObject::Status::TaggedSymbol) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ReturnObject::Status::TaggedSymbol) }
 
         COMPLETED = T.let(:completed, ModernTreasury::Models::ReturnObject::Status::TaggedSymbol)
         FAILED = T.let(:failed, ModernTreasury::Models::ReturnObject::Status::TaggedSymbol)
@@ -741,10 +780,11 @@ module ModernTreasury
       # The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`,
       #   `interac`, `manual`, `paper_item`, `wire`.
       module Type
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ReturnObject::Type) }
-        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::ReturnObject::Type::TaggedSymbol) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ReturnObject::Type::TaggedSymbol) }
 
         ACH = T.let(:ach, ModernTreasury::Models::ReturnObject::Type::TaggedSymbol)
         ACH_NOC = T.let(:ach_noc, ModernTreasury::Models::ReturnObject::Type::TaggedSymbol)

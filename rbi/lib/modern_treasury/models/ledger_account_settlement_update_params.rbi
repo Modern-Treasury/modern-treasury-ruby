@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class LedgerAccountSettlementUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class LedgerAccountSettlementUpdateParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # The description of the ledger account settlement.
       sig { returns(T.nilable(String)) }
@@ -31,7 +31,7 @@ module ModernTreasury
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -55,12 +55,12 @@ module ModernTreasury
       # To post a pending ledger account settlement, use `posted`. To archive a pending
       #   ledger transaction, use `archived`.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::TaggedSymbol) }
 
         POSTED =
           T.let(:posted, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::TaggedSymbol)

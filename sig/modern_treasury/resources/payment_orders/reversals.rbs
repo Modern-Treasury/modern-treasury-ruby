@@ -21,7 +21,7 @@ module ModernTreasury
           ?after_cursor: String?,
           ?per_page: Integer,
           ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Page[ModernTreasury::Models::PaymentOrders::Reversal]
+        ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::PaymentOrders::Reversal]
 
         def initialize: (client: ModernTreasury::Client) -> void
       end

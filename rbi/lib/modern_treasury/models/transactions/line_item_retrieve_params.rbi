@@ -3,12 +3,12 @@
 module ModernTreasury
   module Models
     module Transactions
-      class LineItemRetrieveParams < ModernTreasury::BaseModel
-        extend ModernTreasury::RequestParameters::Converter
-        include ModernTreasury::RequestParameters
+      class LineItemRetrieveParams < ModernTreasury::Internal::Type::BaseModel
+        extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        include ModernTreasury::Internal::Type::RequestParameters
 
         sig do
-          params(request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          params(request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
             .returns(T.attached_class)
         end
         def self.new(request_options: {})

@@ -2,10 +2,11 @@
 
 module ModernTreasury
   module Models
-    class BulkResultListParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::BulkResults#list
+    class BulkResultListParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute after_cursor
       #
@@ -98,17 +99,19 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # The type of the request that created this result. bulk_request is the only
       #   supported `request_type`
       module EntityType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         PAYMENT_ORDER = :payment_order
+        LEDGER_ACCOUNT = :ledger_account
         LEDGER_TRANSACTION = :ledger_transaction
-        TRANSACTION = :transaction
         EXPECTED_PAYMENT = :expected_payment
+        TRANSACTION = :transaction
+        ENTITY_LINK = :entity_link
         BULK_ERROR = :bulk_error
 
         finalize!
@@ -121,7 +124,7 @@ module ModernTreasury
       # The type of the request that created this result. bulk_request is the only
       #   supported `request_type`
       module RequestType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         BULK_REQUEST = :bulk_request
 
@@ -134,7 +137,7 @@ module ModernTreasury
 
       # One of successful or failed.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         PENDING = :pending
         SUCCESSFUL = :successful

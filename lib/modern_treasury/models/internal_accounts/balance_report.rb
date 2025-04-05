@@ -3,7 +3,8 @@
 module ModernTreasury
   module Models
     module InternalAccounts
-      class BalanceReport < ModernTreasury::BaseModel
+      # @see ModernTreasury::Resources::InternalAccounts::BalanceReports#create
+      class BalanceReport < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
         #
         #   @return [String]
@@ -34,7 +35,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::InternalAccounts::BalanceReport::Balance>]
         required :balances,
-                 -> { ModernTreasury::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance] }
+                 -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance] }
 
         # @!attribute created_at
         #
@@ -52,7 +53,7 @@ module ModernTreasury
         #     if it exists in the test environment.
         #
         #   @return [Boolean]
-        required :live_mode, ModernTreasury::BooleanModel
+        required :live_mode, ModernTreasury::Internal::Type::Boolean
 
         # @!attribute object
         #
@@ -92,12 +93,14 @@ module ModernTreasury
         #     super
         #   end
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
         # The specific type of balance report. One of `intraday`, `previous_day`,
         #   `real_time`, or `other`.
+        #
+        # @see ModernTreasury::Models::InternalAccounts::BalanceReport#balance_report_type
         module BalanceReportType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           INTRADAY = :intraday
           OTHER = :other
@@ -111,7 +114,7 @@ module ModernTreasury
           #   def self.values; end
         end
 
-        class Balance < ModernTreasury::BaseModel
+        class Balance < ModernTreasury::Internal::Type::BaseModel
           # @!attribute id
           #
           #   @return [String]
@@ -161,7 +164,7 @@ module ModernTreasury
           #     if it exists in the test environment.
           #
           #   @return [Boolean]
-          required :live_mode, ModernTreasury::BooleanModel
+          required :live_mode, ModernTreasury::Internal::Type::Boolean
 
           # @!attribute object
           #
@@ -228,14 +231,16 @@ module ModernTreasury
           #     super
           #   end
 
-          # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
           # The specific type of balance reported. One of `opening_ledger`,
           #   `closing_ledger`, `current_ledger`, `opening_available`,
           #   `opening_available_next_business_day`, `closing_available`, `current_available`,
           #   'previously_closed_book', or `other`.
+          #
+          # @see ModernTreasury::Models::InternalAccounts::BalanceReport::Balance#balance_type
           module BalanceType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             CLOSING_AVAILABLE = :closing_available
             CLOSING_LEDGER = :closing_ledger

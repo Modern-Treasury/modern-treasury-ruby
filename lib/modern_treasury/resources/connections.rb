@@ -5,31 +5,31 @@ module ModernTreasury
     class Connections
       # Get a list of all connections.
       #
-      # @param params [ModernTreasury::Models::ConnectionListParams, Hash{Symbol=>Object}] .
+      # @overload list(after_cursor: nil, entity: nil, per_page: nil, vendor_customer_id: nil, request_options: {})
       #
-      #   @option params [String, nil] :after_cursor
+      # @param after_cursor [String, nil]
+      # @param entity [String]
+      # @param per_page [Integer]
+      # @param vendor_customer_id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      #   @option params [String] :entity A string code representing the vendor (i.e. bank).
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::Connection>]
       #
-      #   @option params [Integer] :per_page
-      #
-      #   @option params [String] :vendor_customer_id An identifier assigned by the vendor to your organization.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
-      #
-      # @return [ModernTreasury::Page<ModernTreasury::Models::Connection>]
+      # @see ModernTreasury::Models::ConnectionListParams
       def list(params = {})
         parsed, options = ModernTreasury::Models::ConnectionListParams.dump_request(params)
         @client.request(
           method: :get,
           path: "api/connections",
           query: parsed,
-          page: ModernTreasury::Page,
+          page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Models::Connection,
           options: options
         )
       end
 
+      # @api private
+      #
       # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client

@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class TransactionCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class TransactionCreateParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # Value in specified currency's smallest unit. e.g. $10 would be represented
       #   as 1000.
@@ -72,7 +72,7 @@ module ModernTreasury
           posted: T::Boolean,
           type: T.nilable(ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol),
           vendor_description: T.nilable(String),
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -115,11 +115,11 @@ module ModernTreasury
       # The type of the transaction. Examples could be
       #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       module Type
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::TransactionCreateParams::Type) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::TransactionCreateParams::Type::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::TransactionCreateParams::Type::TaggedSymbol) }
 
         ACH = T.let(:ach, ModernTreasury::Models::TransactionCreateParams::Type::TaggedSymbol)
         AU_BECS = T.let(:au_becs, ModernTreasury::Models::TransactionCreateParams::Type::TaggedSymbol)

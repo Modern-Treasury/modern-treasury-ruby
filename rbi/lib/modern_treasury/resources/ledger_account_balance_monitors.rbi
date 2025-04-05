@@ -8,12 +8,17 @@ module ModernTreasury
         params(
           alert_condition: T.any(
             ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
-            ModernTreasury::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           ),
           ledger_account_id: String,
           description: String,
           metadata: T::Hash[Symbol, String],
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::LedgerAccountBalanceMonitor)
       end
@@ -35,7 +40,12 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::LedgerAccountBalanceMonitor)
       end
@@ -52,7 +62,12 @@ module ModernTreasury
           id: String,
           description: String,
           metadata: T::Hash[Symbol, String],
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::LedgerAccountBalanceMonitor)
       end
@@ -76,9 +91,14 @@ module ModernTreasury
           ledger_account_id: String,
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::AnyHash
+            )
+          )
         )
-          .returns(ModernTreasury::Page[ModernTreasury::Models::LedgerAccountBalanceMonitor])
+          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerAccountBalanceMonitor])
       end
       def list(
         # If you have specific IDs to retrieve in bulk, you can pass them as query
@@ -100,7 +120,12 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::LedgerAccountBalanceMonitor)
       end
@@ -111,6 +136,7 @@ module ModernTreasury
       )
       end
 
+      # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
       def self.new(client:)
       end

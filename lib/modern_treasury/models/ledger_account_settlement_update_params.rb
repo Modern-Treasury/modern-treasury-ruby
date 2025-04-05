@@ -2,10 +2,11 @@
 
 module ModernTreasury
   module Models
-    class LedgerAccountSettlementUpdateParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::LedgerAccountSettlements#update
+    class LedgerAccountSettlementUpdateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute description
       #   The description of the ledger account settlement.
@@ -18,7 +19,7 @@ module ModernTreasury
       #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -43,12 +44,12 @@ module ModernTreasury
       #   #
       #   def initialize(description: nil, metadata: nil, status: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # To post a pending ledger account settlement, use `posted`. To archive a pending
       #   ledger transaction, use `archived`.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         POSTED = :posted
         ARCHIVED = :archived

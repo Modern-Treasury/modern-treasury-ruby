@@ -5,27 +5,20 @@ module ModernTreasury
     class Returns
       # Create a return.
       #
-      # @param params [ModernTreasury::Models::ReturnCreateParams, Hash{Symbol=>Object}] .
+      # @overload create(returnable_id:, returnable_type:, additional_information: nil, code: nil, data: nil, date_of_death: nil, reason: nil, request_options: {})
       #
-      #   @option params [String, nil] :returnable_id The ID of the object being returned or `null`.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::ReturnCreateParams::ReturnableType] :returnable_type The type of object being returned. Currently, this may only be
-      #     incoming_payment_detail.
-      #
-      #   @option params [String, nil] :additional_information Some returns may include additional information from the bank. In these cases,
-      #     this string will be present.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::ReturnCreateParams::Code, nil] :code The return code. For ACH returns, this is the required ACH return code.
-      #
-      #   @option params [Date, nil] :date_of_death If the return code is `R14` or `R15` this is the date the deceased counterparty
-      #     passed away.
-      #
-      #   @option params [String, nil] :reason An optional description of the reason for the return. This is for internal usage
-      #     and will not be transmitted to the bank.”
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param returnable_id [String, nil]
+      # @param returnable_type [Symbol, ModernTreasury::Models::ReturnCreateParams::ReturnableType]
+      # @param additional_information [String, nil]
+      # @param code [Symbol, ModernTreasury::Models::ReturnCreateParams::Code, nil]
+      # @param data [Object, nil]
+      # @param date_of_death [Date, nil]
+      # @param reason [String, nil]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::ReturnObject]
+      #
+      # @see ModernTreasury::Models::ReturnCreateParams
       def create(params)
         parsed, options = ModernTreasury::Models::ReturnCreateParams.dump_request(params)
         @client.request(
@@ -39,17 +32,18 @@ module ModernTreasury
 
       # Get a single return.
       #
-      # @param id [String] The ID of an existing return.
+      # @overload retrieve(id, request_options: {})
       #
-      # @param params [ModernTreasury::Models::ReturnRetrieveParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::ReturnObject]
+      #
+      # @see ModernTreasury::Models::ReturnRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
-          path: ["api/returns/%0s", id],
+          path: ["api/returns/%1$s", id],
           model: ModernTreasury::Models::ReturnObject,
           options: params[:request_options]
         )
@@ -57,38 +51,33 @@ module ModernTreasury
 
       # Get a list of returns.
       #
-      # @param params [ModernTreasury::Models::ReturnListParams, Hash{Symbol=>Object}] .
+      # @overload list(after_cursor: nil, counterparty_id: nil, internal_account_id: nil, per_page: nil, returnable_id: nil, returnable_type: nil, request_options: {})
       #
-      #   @option params [String, nil] :after_cursor
+      # @param after_cursor [String, nil]
+      # @param counterparty_id [String]
+      # @param internal_account_id [String]
+      # @param per_page [Integer]
+      # @param returnable_id [String]
+      # @param returnable_type [Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      #   @option params [String] :counterparty_id Specify `counterparty_id` if you wish to see returns that occurred with a
-      #     specific counterparty.
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::ReturnObject>]
       #
-      #   @option params [String] :internal_account_id Specify `internal_account_id` if you wish to see returns to/from a specific
-      #     account.
-      #
-      #   @option params [Integer] :per_page
-      #
-      #   @option params [String] :returnable_id The ID of a valid returnable. Must be accompanied by `returnable_type`.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType] :returnable_type One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
-      #     Must be accompanied by `returnable_id`.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
-      #
-      # @return [ModernTreasury::Page<ModernTreasury::Models::ReturnObject>]
+      # @see ModernTreasury::Models::ReturnListParams
       def list(params = {})
         parsed, options = ModernTreasury::Models::ReturnListParams.dump_request(params)
         @client.request(
           method: :get,
           path: "api/returns",
           query: parsed,
-          page: ModernTreasury::Page,
+          page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Models::ReturnObject,
           options: options
         )
       end
 
+      # @api private
+      #
       # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client

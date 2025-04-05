@@ -2,10 +2,11 @@
 
 module ModernTreasury
   module Models
-    class LineItemListParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::LineItems#list
+    class LineItemListParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute itemizable_type
       #
@@ -34,10 +35,10 @@ module ModernTreasury
       #   #
       #   def initialize(itemizable_type:, after_cursor: nil, per_page: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       module ItemizableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         EXPECTED_PAYMENTS = :expected_payments
         PAYMENT_ORDERS = :payment_orders

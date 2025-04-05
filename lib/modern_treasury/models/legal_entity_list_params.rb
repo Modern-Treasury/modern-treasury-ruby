@@ -2,10 +2,11 @@
 
 module ModernTreasury
   module Models
-    class LegalEntityListParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::LegalEntities#list
+    class LegalEntityListParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute after_cursor
       #
@@ -27,7 +28,7 @@ module ModernTreasury
       #     parameters.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -71,10 +72,10 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       module LegalEntityType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         BUSINESS = :business
         INDIVIDUAL = :individual

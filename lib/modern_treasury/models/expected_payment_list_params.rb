@@ -2,10 +2,11 @@
 
 module ModernTreasury
   module Models
-    class ExpectedPaymentListParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::ExpectedPayments#list
+    class ExpectedPaymentListParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute after_cursor
       #
@@ -68,7 +69,7 @@ module ModernTreasury
       #     parameters.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -134,11 +135,11 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # One of unreconciled, reconciled, or archived.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ARCHIVED = :archived
         PARTIALLY_RECONCILED = :partially_reconciled
@@ -155,7 +156,7 @@ module ModernTreasury
       # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
       #   sepa, signet, wire
       module Type
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH = :ach
         AU_BECS = :au_becs

@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class PaymentFlow < ModernTreasury::BaseModel
+    class PaymentFlow < ModernTreasury::Internal::Type::BaseModel
       sig { returns(T.nilable(String)) }
       attr_reader :id
 
@@ -209,10 +209,11 @@ module ModernTreasury
       # Describes the direction money is flowing in the transaction. Can only be
       #   `debit`. A `debit` pulls money from someone else's account to your own.
       module Direction
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentFlow::Direction) }
-        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentFlow::Direction::TaggedSymbol) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentFlow::Direction::TaggedSymbol) }
 
         CREDIT = T.let(:credit, ModernTreasury::Models::PaymentFlow::Direction::TaggedSymbol)
         DEBIT = T.let(:debit, ModernTreasury::Models::PaymentFlow::Direction::TaggedSymbol)
@@ -226,12 +227,12 @@ module ModernTreasury
       #   of external accounts your end-user can select to those with a
       #   `verification_status` of `verified`.
       module ExistingExternalAccountsFilter
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter::TaggedSymbol) }
 
         VERIFIED =
           T.let(:verified, ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter::TaggedSymbol)
@@ -248,12 +249,12 @@ module ModernTreasury
       #   completing the flow. When `disabled`, your end-user must add new payment details
       #   when completing the flow.
       module ExternalAccountCollection
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentFlow::ExternalAccountCollection) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::TaggedSymbol) }
 
         DISABLED = T.let(:disabled, ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::TaggedSymbol)
         ENABLED = T.let(:enabled, ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::TaggedSymbol)
@@ -266,10 +267,11 @@ module ModernTreasury
       # The current status of the payment flow. One of `pending`, `completed`,
       #   `expired`, or `cancelled`.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentFlow::Status) }
-        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentFlow::Status::TaggedSymbol) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentFlow::Status::TaggedSymbol) }
 
         CANCELLED = T.let(:cancelled, ModernTreasury::Models::PaymentFlow::Status::TaggedSymbol)
         COMPLETED = T.let(:completed, ModernTreasury::Models::PaymentFlow::Status::TaggedSymbol)

@@ -3,9 +3,9 @@
 module ModernTreasury
   module Models
     module InternalAccounts
-      class BalanceReportCreateParams < ModernTreasury::BaseModel
-        extend ModernTreasury::RequestParameters::Converter
-        include ModernTreasury::RequestParameters
+      class BalanceReportCreateParams < ModernTreasury::Internal::Type::BaseModel
+        extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        include ModernTreasury::Internal::Type::RequestParameters
 
         # The date of the balance report in local time.
         sig { returns(Date) }
@@ -32,10 +32,10 @@ module ModernTreasury
             balances: T::Array[
             T.any(
               ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
             ],
-            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
           )
             .returns(T.attached_class)
         end
@@ -60,7 +60,7 @@ module ModernTreasury
         # The specific type of balance report. One of `intraday`, `previous_day`,
         #   `real_time`, or `other`.
         module BalanceReportType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType) }
@@ -68,6 +68,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::TaggedSymbol
               )
             end
@@ -103,7 +104,7 @@ module ModernTreasury
           end
         end
 
-        class Balance < ModernTreasury::BaseModel
+        class Balance < ModernTreasury::Internal::Type::BaseModel
           # The balance amount.
           sig { returns(Integer) }
           attr_accessor :amount
@@ -161,7 +162,7 @@ module ModernTreasury
           #   `opening_available_next_business_day`, `closing_available`, `current_available`,
           #   'previously_closed_book', or `other`.
           module BalanceType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             TaggedSymbol =
               T.type_alias { T.all(Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType) }
@@ -169,6 +170,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::TaggedSymbol
                 )
               end

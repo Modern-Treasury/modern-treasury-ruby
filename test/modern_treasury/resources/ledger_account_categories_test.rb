@@ -24,8 +24,8 @@ class ModernTreasury::Test::Resources::LedgerAccountCategoriesTest < ModernTreas
         description: String | nil,
         discarded_at: Time | nil,
         ledger_id: String,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         normal_balance: ModernTreasury::Models::TransactionDirection,
         object: String,
@@ -49,8 +49,8 @@ class ModernTreasury::Test::Resources::LedgerAccountCategoriesTest < ModernTreas
         description: String | nil,
         discarded_at: Time | nil,
         ledger_id: String,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         normal_balance: ModernTreasury::Models::TransactionDirection,
         object: String,
@@ -74,8 +74,8 @@ class ModernTreasury::Test::Resources::LedgerAccountCategoriesTest < ModernTreas
         description: String | nil,
         discarded_at: Time | nil,
         ledger_id: String,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         normal_balance: ModernTreasury::Models::TransactionDirection,
         object: String,
@@ -88,7 +88,7 @@ class ModernTreasury::Test::Resources::LedgerAccountCategoriesTest < ModernTreas
     response = @modern_treasury.ledger_account_categories.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first
@@ -106,8 +106,8 @@ class ModernTreasury::Test::Resources::LedgerAccountCategoriesTest < ModernTreas
         description: String | nil,
         discarded_at: Time | nil,
         ledger_id: String,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         normal_balance: ModernTreasury::Models::TransactionDirection,
         object: String,
@@ -131,8 +131,8 @@ class ModernTreasury::Test::Resources::LedgerAccountCategoriesTest < ModernTreas
         description: String | nil,
         discarded_at: Time | nil,
         ledger_id: String,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         normal_balance: ModernTreasury::Models::TransactionDirection,
         object: String,

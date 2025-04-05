@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class PaymentReference < ModernTreasury::BaseModel
+    class PaymentReference < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -86,12 +86,12 @@ module ModernTreasury
 
       # The type of reference number.
       module ReferenceNumberType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentReference::ReferenceNumberType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentReference::ReferenceNumberType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentReference::ReferenceNumberType::TaggedSymbol) }
 
         ACH_ORIGINAL_TRACE_NUMBER =
           T.let(
@@ -242,6 +242,11 @@ module ModernTreasury
             :jpmc_payment_returned_datetime,
             ModernTreasury::Models::PaymentReference::ReferenceNumberType::TaggedSymbol
           )
+        JPMC_TRANSACTION_REFERENCE_NUMBER =
+          T.let(
+            :jpmc_transaction_reference_number,
+            ModernTreasury::Models::PaymentReference::ReferenceNumberType::TaggedSymbol
+          )
         LOB_CHECK_ID =
           T.let(:lob_check_id, ModernTreasury::Models::PaymentReference::ReferenceNumberType::TaggedSymbol)
         OTHER = T.let(:other, ModernTreasury::Models::PaymentReference::ReferenceNumberType::TaggedSymbol)
@@ -258,11 +263,18 @@ module ModernTreasury
           T.let(:pnc_multipayment_id, ModernTreasury::Models::PaymentReference::ReferenceNumberType::TaggedSymbol)
         PNC_PAYMENT_TRACE_ID =
           T.let(:pnc_payment_trace_id, ModernTreasury::Models::PaymentReference::ReferenceNumberType::TaggedSymbol)
+        PNC_REQUEST_FOR_PAYMENT_ID =
+          T.let(
+            :pnc_request_for_payment_id,
+            ModernTreasury::Models::PaymentReference::ReferenceNumberType::TaggedSymbol
+          )
         PNC_TRANSACTION_REFERENCE_NUMBER =
           T.let(
             :pnc_transaction_reference_number,
             ModernTreasury::Models::PaymentReference::ReferenceNumberType::TaggedSymbol
           )
+        RBC_WIRE_REFERENCE_ID =
+          T.let(:rbc_wire_reference_id, ModernTreasury::Models::PaymentReference::ReferenceNumberType::TaggedSymbol)
         RSPEC_VENDOR_PAYMENT_ID =
           T.let(
             :rspec_vendor_payment_id,
@@ -350,12 +362,12 @@ module ModernTreasury
       # One of the referenceable types. This must be accompanied by the id of the
       #   referenceable or will return an error.
       module ReferenceableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentReference::ReferenceableType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentReference::ReferenceableType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentReference::ReferenceableType::TaggedSymbol) }
 
         PAYMENT_ORDER =
           T.let(:payment_order, ModernTreasury::Models::PaymentReference::ReferenceableType::TaggedSymbol)

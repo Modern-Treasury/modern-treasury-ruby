@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class InternalAccount < ModernTreasury::BaseModel
+    class InternalAccount < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -18,7 +18,7 @@ module ModernTreasury
       sig { returns(ModernTreasury::Models::Connection) }
       attr_reader :connection
 
-      sig { params(connection: T.any(ModernTreasury::Models::Connection, ModernTreasury::Util::AnyHash)).void }
+      sig { params(connection: T.any(ModernTreasury::Models::Connection, ModernTreasury::Internal::AnyHash)).void }
       attr_writer :connection
 
       # The Counterparty associated to this account.
@@ -68,7 +68,7 @@ module ModernTreasury
 
       sig do
         params(
-          party_address: T.nilable(T.any(ModernTreasury::Models::InternalAccount::PartyAddress, ModernTreasury::Util::AnyHash))
+          party_address: T.nilable(T.any(ModernTreasury::Models::InternalAccount::PartyAddress, ModernTreasury::Internal::AnyHash))
         )
           .void
       end
@@ -92,9 +92,9 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          account_details: T::Array[T.any(ModernTreasury::Models::AccountDetail, ModernTreasury::Util::AnyHash)],
+          account_details: T::Array[T.any(ModernTreasury::Models::AccountDetail, ModernTreasury::Internal::AnyHash)],
           account_type: T.nilable(ModernTreasury::Models::InternalAccount::AccountType::OrSymbol),
-          connection: T.any(ModernTreasury::Models::Connection, ModernTreasury::Util::AnyHash),
+          connection: T.any(ModernTreasury::Models::Connection, ModernTreasury::Internal::AnyHash),
           counterparty_id: T.nilable(String),
           created_at: Time,
           currency: ModernTreasury::Models::Currency::OrSymbol,
@@ -105,10 +105,10 @@ module ModernTreasury
           name: T.nilable(String),
           object: String,
           parent_account_id: T.nilable(String),
-          party_address: T.nilable(T.any(ModernTreasury::Models::InternalAccount::PartyAddress, ModernTreasury::Util::AnyHash)),
+          party_address: T.nilable(T.any(ModernTreasury::Models::InternalAccount::PartyAddress, ModernTreasury::Internal::AnyHash)),
           party_name: String,
           party_type: T.nilable(ModernTreasury::Models::InternalAccount::PartyType::OrSymbol),
-          routing_details: T::Array[T.any(ModernTreasury::Models::RoutingDetail, ModernTreasury::Util::AnyHash)],
+          routing_details: T::Array[T.any(ModernTreasury::Models::RoutingDetail, ModernTreasury::Internal::AnyHash)],
           updated_at: Time
         )
           .returns(T.attached_class)
@@ -167,11 +167,11 @@ module ModernTreasury
 
       # Can be checking, savings or other.
       module AccountType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::InternalAccount::AccountType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::InternalAccount::AccountType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::InternalAccount::AccountType::TaggedSymbol) }
 
         CASH = T.let(:cash, ModernTreasury::Models::InternalAccount::AccountType::TaggedSymbol)
         CHECKING = T.let(:checking, ModernTreasury::Models::InternalAccount::AccountType::TaggedSymbol)
@@ -188,7 +188,7 @@ module ModernTreasury
         end
       end
 
-      class PartyAddress < ModernTreasury::BaseModel
+      class PartyAddress < ModernTreasury::Internal::Type::BaseModel
         sig { returns(String) }
         attr_accessor :id
 
@@ -284,11 +284,11 @@ module ModernTreasury
 
       # Either individual or business.
       module PartyType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::InternalAccount::PartyType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::InternalAccount::PartyType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::InternalAccount::PartyType::TaggedSymbol) }
 
         BUSINESS = T.let(:business, ModernTreasury::Models::InternalAccount::PartyType::TaggedSymbol)
         INDIVIDUAL = T.let(:individual, ModernTreasury::Models::InternalAccount::PartyType::TaggedSymbol)

@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class DocumentCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class DocumentCreateParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # The unique identifier for the associated object.
       sig { returns(String) }
@@ -29,7 +29,7 @@ module ModernTreasury
           documentable_type: ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol,
           file: T.any(IO, StringIO),
           document_type: String,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -52,12 +52,12 @@ module ModernTreasury
       end
 
       module DocumentableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::DocumentCreateParams::DocumentableType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::DocumentCreateParams::DocumentableType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::DocumentCreateParams::DocumentableType::TaggedSymbol) }
 
         CASES = T.let(:cases, ModernTreasury::Models::DocumentCreateParams::DocumentableType::TaggedSymbol)
         COUNTERPARTIES =

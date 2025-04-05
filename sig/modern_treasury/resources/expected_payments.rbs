@@ -63,7 +63,7 @@ module ModernTreasury
         ?status: ModernTreasury::Models::ExpectedPaymentListParams::status,
         ?type: ModernTreasury::Models::ExpectedPaymentListParams::type_,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Page[ModernTreasury::Models::ExpectedPayment]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::ExpectedPayment]
 
       def delete: (
         String id,

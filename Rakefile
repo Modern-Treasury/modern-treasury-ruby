@@ -9,12 +9,10 @@ require "rubocop/rake_task"
 
 CLEAN.push(*%w[.idea/ .ruby-lsp/ .yardoc/])
 
-xargs = %w[xargs --no-run-if-empty --null --max-procs=0 --max-args=300 --]
-
-task(default: [:test])
+multitask(default: [:test])
 
 multitask(:test) do
-  rb = 
+  rb =
     FileList[ENV.fetch("TEST", "./test/**/*_test.rb")]
     .map { "require_relative(#{_1.dump});" }
     .join
@@ -22,17 +20,17 @@ multitask(:test) do
   ruby(*%w[-w -e], rb, verbose: false) { fail unless _1 }
 end
 
-RuboCop::RakeTask.new(:rubocop) do |t|
-  t.options = %w[--fail-level E]
-  if ENV.key?("CI")
-    t.options += %w[--format github]
-  end
+rubo_find = %w[find ./lib ./test ./rbi -type f -and ( -name *.rb -or -name *.rbi ) -print0]
+xargs = %w[xargs --no-run-if-empty --null --max-procs=0 --max-args=300 --]
+
+multitask(:rubocop) do
+  lint = xargs + %w[rubocop --fail-level E] + (ENV.key?("CI") ? %w[--format github] : [])
+  sh("#{rubo_find.shelljoin} | #{lint.shelljoin}")
 end
 
 multitask(:ruboformat) do
-  find = %w[find ./lib ./test ./rbi -type f -and ( -name *.rb -or -name *.rbi ) -print0]
   fmt = xargs + %w[rubocop --fail-level F --autocorrect --format simple --]
-  sh("#{find.shelljoin} | #{fmt.shelljoin}")
+  sh("#{rubo_find.shelljoin} | #{fmt.shelljoin}")
 end
 
 multitask(:syntax_tree) do

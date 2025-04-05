@@ -2,7 +2,8 @@
 
 module ModernTreasury
   module Models
-    class LedgerTransaction < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::LedgerTransactions#create
+    class LedgerTransaction < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -44,7 +45,8 @@ module ModernTreasury
       #   An array of ledger entry objects.
       #
       #   @return [Array<ModernTreasury::Models::LedgerEntry>]
-      required :ledger_entries, -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LedgerEntry] }
+      required :ledger_entries,
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::LedgerEntry] }
 
       # @!attribute ledger_id
       #   The ID of the ledger this ledger transaction belongs to.
@@ -75,14 +77,14 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @return [Hash{Symbol=>String}]
-      required :metadata, ModernTreasury::HashOf[String]
+      required :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!attribute object
       #
@@ -171,14 +173,16 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # If the ledger transaction can be reconciled to another object in Modern
       #   Treasury, the type will be populated here, otherwise null. This can be one of
       #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
       #   reversal.
+      #
+      # @see ModernTreasury::Models::LedgerTransaction#ledgerable_type
       module LedgerableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         EXPECTED_PAYMENT = :expected_payment
         INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
@@ -195,8 +199,10 @@ module ModernTreasury
       end
 
       # To post a ledger transaction at creation, use `posted`.
+      #
+      # @see ModernTreasury::Models::LedgerTransaction#status
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ARCHIVED = :archived
         PENDING = :pending

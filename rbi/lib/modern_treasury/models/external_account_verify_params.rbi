@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class ExternalAccountVerifyParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class ExternalAccountVerifyParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # The ID of the internal account where the micro-deposits originate from. Both
       #   credit and debit capabilities must be enabled.
@@ -46,7 +46,7 @@ module ModernTreasury
           currency: ModernTreasury::Models::Currency::OrSymbol,
           fallback_type: ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType::OrSymbol,
           priority: ModernTreasury::Models::ExternalAccountVerifyParams::Priority::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -78,12 +78,12 @@ module ModernTreasury
 
       # Can be `ach`, `eft`, or `rtp`.
       module PaymentType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol) }
 
         ACH = T.let(:ach, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
         AU_BECS = T.let(:au_becs, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
@@ -129,12 +129,12 @@ module ModernTreasury
       #   receiving account. Currently, this only supports falling back from RTP to ACH
       #   (payment_type=rtp and fallback_type=ach)
       module FallbackType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType::TaggedSymbol) }
 
         ACH = T.let(:ach, ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType::TaggedSymbol)
 
@@ -148,12 +148,12 @@ module ModernTreasury
       # Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH
       #   transfer. This will apply to both `payment_type` and `fallback_type`.
       module Priority
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::Priority) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::Priority::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ExternalAccountVerifyParams::Priority::TaggedSymbol) }
 
         HIGH = T.let(:high, ModernTreasury::Models::ExternalAccountVerifyParams::Priority::TaggedSymbol)
         NORMAL = T.let(:normal, ModernTreasury::Models::ExternalAccountVerifyParams::Priority::TaggedSymbol)

@@ -23,7 +23,7 @@ module ModernTreasury
         ?after_cursor: String?,
         ?per_page: Integer,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Page[ModernTreasury::Models::RoutingDetail]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::RoutingDetail]
 
       def delete: (
         String id,

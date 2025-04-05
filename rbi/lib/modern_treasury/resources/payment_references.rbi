@@ -7,7 +7,12 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::PaymentReference)
       end
@@ -26,9 +31,14 @@ module ModernTreasury
           reference_number: String,
           referenceable_id: String,
           referenceable_type: ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::OrSymbol,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::AnyHash
+            )
+          )
         )
-          .returns(ModernTreasury::Page[ModernTreasury::Models::PaymentReference])
+          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::PaymentReference])
       end
       def list(
         after_cursor: nil,
@@ -45,6 +55,7 @@ module ModernTreasury
       )
       end
 
+      # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
       def self.new(client:)
       end

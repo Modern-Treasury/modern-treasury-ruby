@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class BulkRequestListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class BulkRequestListParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # One of create, or update.
       sig { returns(T.nilable(ModernTreasury::Models::BulkRequestListParams::ActionType::OrSymbol)) }
@@ -53,7 +53,7 @@ module ModernTreasury
           per_page: Integer,
           resource_type: ModernTreasury::Models::BulkRequestListParams::ResourceType::OrSymbol,
           status: ModernTreasury::Models::BulkRequestListParams::Status::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -87,11 +87,11 @@ module ModernTreasury
 
       # One of create, or update.
       module ActionType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkRequestListParams::ActionType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::BulkRequestListParams::ActionType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::BulkRequestListParams::ActionType::TaggedSymbol) }
 
         CREATE = T.let(:create, ModernTreasury::Models::BulkRequestListParams::ActionType::TaggedSymbol)
         UPDATE = T.let(:update, ModernTreasury::Models::BulkRequestListParams::ActionType::TaggedSymbol)
@@ -104,21 +104,25 @@ module ModernTreasury
 
       # One of payment_order, expected_payment, or ledger_transaction.
       module ResourceType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkRequestListParams::ResourceType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::BulkRequestListParams::ResourceType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::BulkRequestListParams::ResourceType::TaggedSymbol) }
 
         PAYMENT_ORDER =
           T.let(:payment_order, ModernTreasury::Models::BulkRequestListParams::ResourceType::TaggedSymbol)
+        LEDGER_ACCOUNT =
+          T.let(:ledger_account, ModernTreasury::Models::BulkRequestListParams::ResourceType::TaggedSymbol)
         LEDGER_TRANSACTION =
           T.let(:ledger_transaction, ModernTreasury::Models::BulkRequestListParams::ResourceType::TaggedSymbol)
-        TRANSACTION =
-          T.let(:transaction, ModernTreasury::Models::BulkRequestListParams::ResourceType::TaggedSymbol)
         EXPECTED_PAYMENT =
           T.let(:expected_payment, ModernTreasury::Models::BulkRequestListParams::ResourceType::TaggedSymbol)
+        TRANSACTION =
+          T.let(:transaction, ModernTreasury::Models::BulkRequestListParams::ResourceType::TaggedSymbol)
+        ENTITY_LINK =
+          T.let(:entity_link, ModernTreasury::Models::BulkRequestListParams::ResourceType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::BulkRequestListParams::ResourceType::TaggedSymbol]) }
         def self.values
@@ -127,11 +131,11 @@ module ModernTreasury
 
       # One of pending, processing, or completed.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkRequestListParams::Status) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::BulkRequestListParams::Status::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::BulkRequestListParams::Status::TaggedSymbol) }
 
         PENDING = T.let(:pending, ModernTreasury::Models::BulkRequestListParams::Status::TaggedSymbol)
         PROCESSING = T.let(:processing, ModernTreasury::Models::BulkRequestListParams::Status::TaggedSymbol)

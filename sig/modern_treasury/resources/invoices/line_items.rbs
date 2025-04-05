@@ -38,7 +38,7 @@ module ModernTreasury
           ?after_cursor: String?,
           ?per_page: Integer,
           ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Page[ModernTreasury::Models::Invoices::InvoiceLineItem]
+        ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::Invoices::InvoiceLineItem]
 
         def delete: (
           String id,

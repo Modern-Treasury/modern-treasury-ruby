@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class LedgerTransactionCreateReversalParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class LedgerTransactionCreateReversalParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # An optional free-form description for the reversal ledger transaction. Maximum
       #   of 1000 characters allowed.
@@ -77,7 +77,7 @@ module ModernTreasury
           ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType::OrSymbol,
           metadata: T::Hash[Symbol, String],
           status: ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -114,12 +114,18 @@ module ModernTreasury
       # Specify this if you'd like to link the reversal ledger transaction to a Payment
       #   object like Return or Reversal.
       module LedgerableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType::TaggedSymbol) }
+          T.type_alias do
+            T.any(
+              Symbol,
+              String,
+              ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType::TaggedSymbol
+            )
+          end
 
         EXPECTED_PAYMENT =
           T.let(
@@ -165,12 +171,12 @@ module ModernTreasury
       # Status of the reversal ledger transaction. It defaults to `posted` if not
       #   provided.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status::TaggedSymbol) }
 
         ARCHIVED =
           T.let(:archived, ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status::TaggedSymbol)

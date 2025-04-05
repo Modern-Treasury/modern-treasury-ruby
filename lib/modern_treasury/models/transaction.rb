@@ -2,7 +2,8 @@
 
 module ModernTreasury
   module Models
-    class Transaction < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::Transactions#create
+    class Transaction < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -51,7 +52,7 @@ module ModernTreasury
       #     and a string value.
       #
       #   @return [Hash{Symbol=>String}]
-      required :custom_identifiers, ModernTreasury::HashOf[String]
+      required :custom_identifiers, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!attribute direction
       #   Either `credit` or `debit`.
@@ -83,14 +84,14 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @return [Hash{Symbol=>String}]
-      required :metadata, ModernTreasury::HashOf[String]
+      required :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!attribute object
       #
@@ -101,7 +102,7 @@ module ModernTreasury
       #   This field will be `true` if the transaction has posted to the account.
       #
       #   @return [Boolean]
-      required :posted, ModernTreasury::BooleanModel
+      required :posted, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute reconciled
       #   This field will be `true` if a transaction is reconciled by the Modern Treasury
@@ -109,7 +110,7 @@ module ModernTreasury
       #     transaction's amount.
       #
       #   @return [Boolean]
-      required :reconciled, ModernTreasury::BooleanModel
+      required :reconciled, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute type
       #   The type of the transaction. Examples could be
@@ -161,7 +162,7 @@ module ModernTreasury
       #     `originator_name`, `originator_to_beneficiary_information`.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :details, ModernTreasury::HashOf[String]
+      optional :details, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -232,9 +233,10 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-      class ForeignExchangeRate < ModernTreasury::BaseModel
+      # @see ModernTreasury::Models::Transaction#foreign_exchange_rate
+      class ForeignExchangeRate < ModernTreasury::Internal::Type::BaseModel
         # @!attribute base_amount
         #   Amount in the lowest denomination of the `base_currency` to convert, often
         #     called the "sell" amount.
@@ -294,13 +296,15 @@ module ModernTreasury
         #   #
         #   def initialize(base_amount:, base_currency:, exponent:, rate_string:, target_amount:, target_currency:, value:, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
 
       # The type of the transaction. Examples could be
       #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
+      #
+      # @see ModernTreasury::Models::Transaction#type
       module Type
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH = :ach
         AU_BECS = :au_becs
@@ -345,8 +349,10 @@ module ModernTreasury
       #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
       #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
       #   `swift`, `us_bank`, or others.
+      #
+      # @see ModernTreasury::Models::Transaction#vendor_code_type
       module VendorCodeType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         BAI2 = :bai2
         BANKING_CIRCLE = :banking_circle
@@ -363,6 +369,7 @@ module ModernTreasury
         ISO20022 = :iso20022
         JPMC = :jpmc
         MX = :mx
+        PAYPAL = :paypal
         PLAID = :plaid
         PNC = :pnc
         RSPEC_VENDOR = :rspec_vendor

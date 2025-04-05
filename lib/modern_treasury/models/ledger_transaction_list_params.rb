@@ -2,17 +2,18 @@
 
 module ModernTreasury
   module Models
-    class LedgerTransactionListParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::LedgerTransactions#list
+    class LedgerTransactionListParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute [r] id
       #   If you have specific IDs to retrieve in bulk, you can pass them as query
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       #
       #   @return [Array<String>, nil]
-      optional :id, ModernTreasury::ArrayOf[String]
+      optional :id, ModernTreasury::Internal::Type::ArrayOf[String]
 
       # @!parse
       #   # @return [Array<String>]
@@ -29,7 +30,7 @@ module ModernTreasury
       #     effective_at%5Bgt%5D=2000-01-01T00:00:00:00.000Z.
       #
       #   @return [Hash{Symbol=>Time}, nil]
-      optional :effective_at, ModernTreasury::HashOf[Time]
+      optional :effective_at, ModernTreasury::Internal::Type::HashOf[Time]
 
       # @!parse
       #   # @return [Hash{Symbol=>Time}]
@@ -41,7 +42,7 @@ module ModernTreasury
       #     effective_date%5Bgt%5D=2000-01-01.
       #
       #   @return [Hash{Symbol=>Time}, nil]
-      optional :effective_date, ModernTreasury::HashOf[Time]
+      optional :effective_date, ModernTreasury::Internal::Type::HashOf[Time]
 
       # @!parse
       #   # @return [Hash{Symbol=>Time}]
@@ -117,7 +118,7 @@ module ModernTreasury
       #     parameters.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -159,7 +160,7 @@ module ModernTreasury
       #     posted_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
       #   @return [Hash{Symbol=>Time}, nil]
-      optional :posted_at, ModernTreasury::HashOf[Time]
+      optional :posted_at, ModernTreasury::Internal::Type::HashOf[Time]
 
       # @!parse
       #   # @return [Hash{Symbol=>Time}]
@@ -189,7 +190,7 @@ module ModernTreasury
       #     updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
       #   @return [Hash{Symbol=>Time}, nil]
-      optional :updated_at, ModernTreasury::HashOf[Time]
+      optional :updated_at, ModernTreasury::Internal::Type::HashOf[Time]
 
       # @!parse
       #   # @return [Hash{Symbol=>Time}]
@@ -243,10 +244,10 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       module LedgerableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         EXPECTED_PAYMENT = :expected_payment
         INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
@@ -262,7 +263,7 @@ module ModernTreasury
         #   def self.values; end
       end
 
-      class OrderBy < ModernTreasury::BaseModel
+      class OrderBy < ModernTreasury::Internal::Type::BaseModel
         # @!attribute [r] created_at
         #
         #   @return [Symbol, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::CreatedAt, nil]
@@ -292,10 +293,11 @@ module ModernTreasury
         #   #
         #   def initialize(created_at: nil, effective_at: nil, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
+        # @see ModernTreasury::Models::LedgerTransactionListParams::OrderBy#created_at
         module CreatedAt
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           ASC = :asc
           DESC = :desc
@@ -307,8 +309,9 @@ module ModernTreasury
           #   def self.values; end
         end
 
+        # @see ModernTreasury::Models::LedgerTransactionListParams::OrderBy#effective_at
         module EffectiveAt
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           ASC = :asc
           DESC = :desc
@@ -322,7 +325,7 @@ module ModernTreasury
       end
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         PENDING = :pending
         POSTED = :posted

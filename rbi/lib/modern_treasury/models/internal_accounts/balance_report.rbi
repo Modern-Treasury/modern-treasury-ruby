@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     module InternalAccounts
-      class BalanceReport < ModernTreasury::BaseModel
+      class BalanceReport < ModernTreasury::Internal::Type::BaseModel
         sig { returns(String) }
         attr_accessor :id
 
@@ -48,7 +48,7 @@ module ModernTreasury
             as_of_date: Date,
             as_of_time: T.nilable(Time),
             balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType::OrSymbol,
-            balances: T::Array[T.any(ModernTreasury::Models::InternalAccounts::BalanceReport::Balance, ModernTreasury::Util::AnyHash)],
+            balances: T::Array[T.any(ModernTreasury::Models::InternalAccounts::BalanceReport::Balance, ModernTreasury::Internal::AnyHash)],
             created_at: Time,
             internal_account_id: String,
             live_mode: T::Boolean,
@@ -94,12 +94,18 @@ module ModernTreasury
         # The specific type of balance report. One of `intraday`, `previous_day`,
         #   `real_time`, or `other`.
         module BalanceReportType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType::TaggedSymbol) }
+            T.type_alias do
+              T.any(
+                Symbol,
+                String,
+                ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType::TaggedSymbol
+              )
+            end
 
           INTRADAY =
             T.let(:intraday, ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType::TaggedSymbol)
@@ -126,7 +132,7 @@ module ModernTreasury
           end
         end
 
-        class Balance < ModernTreasury::BaseModel
+        class Balance < ModernTreasury::Internal::Type::BaseModel
           sig { returns(String) }
           attr_accessor :id
 
@@ -245,12 +251,18 @@ module ModernTreasury
           #   `opening_available_next_business_day`, `closing_available`, `current_available`,
           #   'previously_closed_book', or `other`.
           module BalanceType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             TaggedSymbol =
               T.type_alias { T.all(Symbol, ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::BalanceType) }
             OrSymbol =
-              T.type_alias { T.any(Symbol, ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::BalanceType::TaggedSymbol) }
+              T.type_alias do
+                T.any(
+                  Symbol,
+                  String,
+                  ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::BalanceType::TaggedSymbol
+                )
+              end
 
             CLOSING_AVAILABLE =
               T.let(

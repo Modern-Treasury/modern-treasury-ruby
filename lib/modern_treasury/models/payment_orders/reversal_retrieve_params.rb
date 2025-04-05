@@ -3,10 +3,11 @@
 module ModernTreasury
   module Models
     module PaymentOrders
-      class ReversalRetrieveParams < ModernTreasury::BaseModel
+      # @see ModernTreasury::Resources::PaymentOrders::Reversals#retrieve
+      class ReversalRetrieveParams < ModernTreasury::Internal::Type::BaseModel
         # @!parse
-        #   extend ModernTreasury::RequestParameters::Converter
-        include ModernTreasury::RequestParameters
+        #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        include ModernTreasury::Internal::Type::RequestParameters
 
         # @!attribute payment_order_id
         #
@@ -19,7 +20,7 @@ module ModernTreasury
         #   #
         #   def initialize(payment_order_id:, request_options: {}, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
     end
   end

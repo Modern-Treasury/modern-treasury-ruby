@@ -39,7 +39,7 @@ module ModernTreasury
         ?parent_ledger_account_category_id: String,
         ?per_page: Integer,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Page[ModernTreasury::Models::LedgerAccountCategory]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerAccountCategory]
 
       def delete: (
         String id,

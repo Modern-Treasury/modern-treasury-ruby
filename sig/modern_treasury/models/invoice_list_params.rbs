@@ -14,11 +14,11 @@ module ModernTreasury
         per_page: Integer,
         status: ModernTreasury::Models::InvoiceListParams::status
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
-    class InvoiceListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class InvoiceListParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor after_cursor: String?
 
@@ -85,7 +85,7 @@ module ModernTreasury
         :draft | :paid | :partially_paid | :payment_pending | :unpaid | :voided
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         DRAFT: :draft
         PAID: :paid

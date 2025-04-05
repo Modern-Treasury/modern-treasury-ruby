@@ -6,39 +6,26 @@ module ModernTreasury
       class LineItems
         # create invoice_line_item
         #
-        # @param invoice_id [String] invoice_id
+        # @overload create(invoice_id, name:, unit_amount:, description: nil, direction: nil, metadata: nil, quantity: nil, unit_amount_decimal: nil, request_options: {})
         #
-        # @param params [ModernTreasury::Models::Invoices::LineItemCreateParams, Hash{Symbol=>Object}] .
-        #
-        #   @option params [String] :name The name of the line item, typically a product or SKU name.
-        #
-        #   @option params [Integer] :unit_amount The cost per unit of the product or service that this line item is for,
-        #     specified in the invoice currency's smallest unit.
-        #
-        #   @option params [String] :description An optional free-form description of the line item.
-        #
-        #   @option params [String] :direction Either `debit` or `credit`. `debit` indicates that a client owes the business
-        #     money and increases the invoice's `total_amount` due. `credit` has the opposite
-        #     intention and effect.
-        #
-        #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
-        #     strings.
-        #
-        #   @option params [Integer] :quantity The number of units of a product or service that this line item is for. Must be
-        #     a whole number. Defaults to 1 if not provided.
-        #
-        #   @option params [String] :unit_amount_decimal The cost per unit of the product or service that this line item is for,
-        #     specified in the invoice currency's smallest unit. Accepts decimal strings with
-        #     up to 12 decimals
-        #
-        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param invoice_id [String]
+        # @param name [String]
+        # @param unit_amount [Integer]
+        # @param description [String]
+        # @param direction [String]
+        # @param metadata [Hash{Symbol=>String}]
+        # @param quantity [Integer]
+        # @param unit_amount_decimal [String]
+        # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
+        #
+        # @see ModernTreasury::Models::Invoices::LineItemCreateParams
         def create(invoice_id, params)
           parsed, options = ModernTreasury::Models::Invoices::LineItemCreateParams.dump_request(params)
           @client.request(
             method: :post,
-            path: ["api/invoices/%0s/invoice_line_items", invoice_id],
+            path: ["api/invoices/%1$s/invoice_line_items", invoice_id],
             body: parsed,
             model: ModernTreasury::Models::Invoices::InvoiceLineItem,
             options: options
@@ -47,15 +34,15 @@ module ModernTreasury
 
         # get invoice_line_item
         #
-        # @param id [String] id
+        # @overload retrieve(id, invoice_id:, request_options: {})
         #
-        # @param params [ModernTreasury::Models::Invoices::LineItemRetrieveParams, Hash{Symbol=>Object}] .
-        #
-        #   @option params [String] :invoice_id invoice_id
-        #
-        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param id [String]
+        # @param invoice_id [String]
+        # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
+        #
+        # @see ModernTreasury::Models::Invoices::LineItemRetrieveParams
         def retrieve(id, params)
           parsed, options = ModernTreasury::Models::Invoices::LineItemRetrieveParams.dump_request(params)
           invoice_id =
@@ -64,7 +51,7 @@ module ModernTreasury
             end
           @client.request(
             method: :get,
-            path: ["api/invoices/%0s/invoice_line_items/%1s", invoice_id, id],
+            path: ["api/invoices/%1$s/invoice_line_items/%2$s", invoice_id, id],
             model: ModernTreasury::Models::Invoices::InvoiceLineItem,
             options: options
           )
@@ -72,36 +59,22 @@ module ModernTreasury
 
         # update invoice_line_item
         #
-        # @param id [String] Path param: id
+        # @overload update(id, invoice_id:, description: nil, direction: nil, metadata: nil, name: nil, quantity: nil, unit_amount: nil, unit_amount_decimal: nil, request_options: {})
         #
-        # @param params [ModernTreasury::Models::Invoices::LineItemUpdateParams, Hash{Symbol=>Object}] .
-        #
-        #   @option params [String] :invoice_id Path param: invoice_id
-        #
-        #   @option params [String] :description Body param: An optional free-form description of the line item.
-        #
-        #   @option params [String] :direction Body param: Either `debit` or `credit`. `debit` indicates that a client owes the
-        #     business money and increases the invoice's `total_amount` due. `credit` has the
-        #     opposite intention and effect.
-        #
-        #   @option params [Hash{Symbol=>String}] :metadata Body param: Additional data represented as key-value pairs. Both the key and
-        #     value must be strings.
-        #
-        #   @option params [String] :name Body param: The name of the line item, typically a product or SKU name.
-        #
-        #   @option params [Integer] :quantity Body param: The number of units of a product or service that this line item is
-        #     for. Must be a whole number. Defaults to 1 if not provided.
-        #
-        #   @option params [Integer] :unit_amount Body param: The cost per unit of the product or service that this line item is
-        #     for, specified in the invoice currency's smallest unit.
-        #
-        #   @option params [String] :unit_amount_decimal Body param: The cost per unit of the product or service that this line item is
-        #     for, specified in the invoice currency's smallest unit. Accepts decimal strings
-        #     with up to 12 decimals
-        #
-        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param id [String]
+        # @param invoice_id [String]
+        # @param description [String]
+        # @param direction [String]
+        # @param metadata [Hash{Symbol=>String}]
+        # @param name [String]
+        # @param quantity [Integer]
+        # @param unit_amount [Integer]
+        # @param unit_amount_decimal [String]
+        # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
+        #
+        # @see ModernTreasury::Models::Invoices::LineItemUpdateParams
         def update(id, params)
           parsed, options = ModernTreasury::Models::Invoices::LineItemUpdateParams.dump_request(params)
           invoice_id =
@@ -110,7 +83,7 @@ module ModernTreasury
             end
           @client.request(
             method: :patch,
-            path: ["api/invoices/%0s/invoice_line_items/%1s", invoice_id, id],
+            path: ["api/invoices/%1$s/invoice_line_items/%2$s", invoice_id, id],
             body: parsed,
             model: ModernTreasury::Models::Invoices::InvoiceLineItem,
             options: options
@@ -119,24 +92,23 @@ module ModernTreasury
 
         # list invoice_line_items
         #
-        # @param invoice_id [String] invoice_id
+        # @overload list(invoice_id, after_cursor: nil, per_page: nil, request_options: {})
         #
-        # @param params [ModernTreasury::Models::Invoices::LineItemListParams, Hash{Symbol=>Object}] .
+        # @param invoice_id [String]
+        # @param after_cursor [String, nil]
+        # @param per_page [Integer]
+        # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        #   @option params [String, nil] :after_cursor
+        # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::Invoices::InvoiceLineItem>]
         #
-        #   @option params [Integer] :per_page
-        #
-        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
-        #
-        # @return [ModernTreasury::Page<ModernTreasury::Models::Invoices::InvoiceLineItem>]
+        # @see ModernTreasury::Models::Invoices::LineItemListParams
         def list(invoice_id, params = {})
           parsed, options = ModernTreasury::Models::Invoices::LineItemListParams.dump_request(params)
           @client.request(
             method: :get,
-            path: ["api/invoices/%0s/invoice_line_items", invoice_id],
+            path: ["api/invoices/%1$s/invoice_line_items", invoice_id],
             query: parsed,
-            page: ModernTreasury::Page,
+            page: ModernTreasury::Internal::Page,
             model: ModernTreasury::Models::Invoices::InvoiceLineItem,
             options: options
           )
@@ -144,15 +116,15 @@ module ModernTreasury
 
         # delete invoice_line_item
         #
-        # @param id [String] id
+        # @overload delete(id, invoice_id:, request_options: {})
         #
-        # @param params [ModernTreasury::Models::Invoices::LineItemDeleteParams, Hash{Symbol=>Object}] .
-        #
-        #   @option params [String] :invoice_id invoice_id
-        #
-        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param id [String]
+        # @param invoice_id [String]
+        # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
+        #
+        # @see ModernTreasury::Models::Invoices::LineItemDeleteParams
         def delete(id, params)
           parsed, options = ModernTreasury::Models::Invoices::LineItemDeleteParams.dump_request(params)
           invoice_id =
@@ -161,12 +133,14 @@ module ModernTreasury
             end
           @client.request(
             method: :delete,
-            path: ["api/invoices/%0s/invoice_line_items/%1s", invoice_id, id],
+            path: ["api/invoices/%1$s/invoice_line_items/%2$s", invoice_id, id],
             model: ModernTreasury::Models::Invoices::InvoiceLineItem,
             options: options
           )
         end
 
+        # @api private
+        #
         # @param client [ModernTreasury::Client]
         def initialize(client:)
           @client = client

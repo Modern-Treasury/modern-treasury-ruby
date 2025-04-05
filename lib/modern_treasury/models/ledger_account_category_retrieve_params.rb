@@ -2,10 +2,11 @@
 
 module ModernTreasury
   module Models
-    class LedgerAccountCategoryRetrieveParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::LedgerAccountCategories#retrieve
+    class LedgerAccountCategoryRetrieveParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute [r] balances
       #   For example, if you want the balances as of a particular time (ISO8601), the
@@ -25,9 +26,9 @@ module ModernTreasury
       #   #
       #   def initialize(balances: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-      class Balances < ModernTreasury::BaseModel
+      class Balances < ModernTreasury::Internal::Type::BaseModel
         # @!attribute [r] as_of_date
         #
         #   @return [Date, nil]
@@ -56,7 +57,7 @@ module ModernTreasury
         #   #
         #   def initialize(as_of_date: nil, effective_at: nil, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
     end
   end

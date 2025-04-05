@@ -3,7 +3,7 @@ module ModernTreasury
     type counterparty_collect_account_response =
       { id: String, form_link: String, is_resend: bool }
 
-    class CounterpartyCollectAccountResponse < ModernTreasury::BaseModel
+    class CounterpartyCollectAccountResponse < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor form_link: String

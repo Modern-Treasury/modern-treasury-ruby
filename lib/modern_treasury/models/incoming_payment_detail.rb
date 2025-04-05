@@ -2,7 +2,8 @@
 
 module ModernTreasury
   module Models
-    class IncomingPaymentDetail < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::IncomingPaymentDetails#retrieve
+    class IncomingPaymentDetail < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -36,7 +37,7 @@ module ModernTreasury
       #   The raw data from the payment pre-notification file that we get from the bank.
       #
       #   @return [Hash{Symbol=>Object}]
-      required :data, ModernTreasury::HashOf[ModernTreasury::Unknown]
+      required :data, ModernTreasury::Internal::Type::HashOf[ModernTreasury::Internal::Type::Unknown]
 
       # @!attribute direction
       #   One of `credit` or `debit`.
@@ -63,14 +64,14 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @return [Hash{Symbol=>String}]
-      required :metadata, ModernTreasury::HashOf[String]
+      required :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!attribute object
       #
@@ -221,11 +222,13 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # The type of the originating account number for the incoming payment detail.
+      #
+      # @see ModernTreasury::Models::IncomingPaymentDetail#originating_account_number_type
       module OriginatingAccountNumberType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         AU_NUMBER = :au_number
         CLABE = :clabe
@@ -246,8 +249,10 @@ module ModernTreasury
       end
 
       # The type of the originating routing number for the incoming payment detail.
+      #
+      # @see ModernTreasury::Models::IncomingPaymentDetail#originating_routing_number_type
       module OriginatingRoutingNumberType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ABA = :aba
         AU_BSB = :au_bsb
@@ -280,8 +285,10 @@ module ModernTreasury
 
       # The current status of the incoming payment order. One of `pending`, `completed`,
       #   or `returned`.
+      #
+      # @see ModernTreasury::Models::IncomingPaymentDetail#status
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         COMPLETED = :completed
         PENDING = :pending
@@ -296,14 +303,20 @@ module ModernTreasury
 
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
       #   `wire`.
+      #
+      # @see ModernTreasury::Models::IncomingPaymentDetail#type
       module Type
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH = :ach
+        AU_BECS = :au_becs
+        BACS = :bacs
         BOOK = :book
         CHECK = :check
         EFT = :eft
         INTERAC = :interac
+        NEFT = :neft
+        NZ_BECS = :nz_becs
         RTP = :rtp
         SEPA = :sepa
         SIGNET = :signet

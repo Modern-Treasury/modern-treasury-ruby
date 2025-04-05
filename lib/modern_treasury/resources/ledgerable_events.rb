@@ -5,20 +5,17 @@ module ModernTreasury
     class LedgerableEvents
       # Create a ledgerable event.
       #
-      # @param params [ModernTreasury::Models::LedgerableEventCreateParams, Hash{Symbol=>Object}] .
+      # @overload create(name:, custom_data: nil, description: nil, metadata: nil, request_options: {})
       #
-      #   @option params [String] :name Name of the ledgerable event.
-      #
-      #   @option params [Object, nil] :custom_data Additionally data to be used by the Ledger Event Handler.
-      #
-      #   @option params [String, nil] :description Description of the ledgerable event.
-      #
-      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param name [String]
+      # @param custom_data [Object, nil]
+      # @param description [String, nil]
+      # @param metadata [Hash{Symbol=>String}]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::LedgerableEvent]
+      #
+      # @see ModernTreasury::Models::LedgerableEventCreateParams
       def create(params)
         parsed, options = ModernTreasury::Models::LedgerableEventCreateParams.dump_request(params)
         @client.request(
@@ -32,22 +29,25 @@ module ModernTreasury
 
       # Get details on a single ledgerable event.
       #
-      # @param id [String] id
+      # @overload retrieve(id, request_options: {})
       #
-      # @param params [ModernTreasury::Models::LedgerableEventRetrieveParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::LedgerableEvent]
+      #
+      # @see ModernTreasury::Models::LedgerableEventRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
-          path: ["api/ledgerable_events/%0s", id],
+          path: ["api/ledgerable_events/%1$s", id],
           model: ModernTreasury::Models::LedgerableEvent,
           options: params[:request_options]
         )
       end
 
+      # @api private
+      #
       # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client

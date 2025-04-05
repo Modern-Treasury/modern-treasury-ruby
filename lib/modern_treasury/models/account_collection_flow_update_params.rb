@@ -2,10 +2,11 @@
 
 module ModernTreasury
   module Models
-    class AccountCollectionFlowUpdateParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::AccountCollectionFlows#update
+    class AccountCollectionFlowUpdateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute status
       #   Required. The updated status of the account collection flow. Can only be used to
@@ -20,12 +21,12 @@ module ModernTreasury
       #   #
       #   def initialize(status:, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # Required. The updated status of the account collection flow. Can only be used to
       #   mark a flow as `cancelled`.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CANCELLED = :cancelled
 

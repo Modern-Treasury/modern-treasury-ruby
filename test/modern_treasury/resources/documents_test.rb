@@ -22,12 +22,12 @@ class ModernTreasury::Test::Resources::DocumentsTest < ModernTreasury::Test::Res
         id: String,
         created_at: Time,
         discarded_at: Time | nil,
-        document_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::Document::DocumentDetail]),
+        document_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::Document::DocumentDetail]),
         document_type: String | nil,
         documentable_id: String,
         documentable_type: ModernTreasury::Models::Document::DocumentableType,
         file: ModernTreasury::Models::Document::File,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         source: String,
         updated_at: Time
@@ -47,12 +47,12 @@ class ModernTreasury::Test::Resources::DocumentsTest < ModernTreasury::Test::Res
         id: String,
         created_at: Time,
         discarded_at: Time | nil,
-        document_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::Document::DocumentDetail]),
+        document_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::Document::DocumentDetail]),
         document_type: String | nil,
         documentable_id: String,
         documentable_type: ModernTreasury::Models::Document::DocumentableType,
         file: ModernTreasury::Models::Document::File,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         source: String,
         updated_at: Time
@@ -64,7 +64,7 @@ class ModernTreasury::Test::Resources::DocumentsTest < ModernTreasury::Test::Res
     response = @modern_treasury.documents.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first
@@ -79,12 +79,12 @@ class ModernTreasury::Test::Resources::DocumentsTest < ModernTreasury::Test::Res
         id: String,
         created_at: Time,
         discarded_at: Time | nil,
-        document_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::Document::DocumentDetail]),
+        document_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::Document::DocumentDetail]),
         document_type: String | nil,
         documentable_id: String,
         documentable_type: ModernTreasury::Models::Document::DocumentableType,
         file: ModernTreasury::Models::Document::File,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         source: String,
         updated_at: Time

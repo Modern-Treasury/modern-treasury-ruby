@@ -3,9 +3,9 @@
 module ModernTreasury
   module Models
     module InternalAccounts
-      class BalanceReportListParams < ModernTreasury::BaseModel
-        extend ModernTreasury::RequestParameters::Converter
-        include ModernTreasury::RequestParameters
+      class BalanceReportListParams < ModernTreasury::Internal::Type::BaseModel
+        extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        include ModernTreasury::Internal::Type::RequestParameters
 
         sig { returns(T.nilable(String)) }
         attr_accessor :after_cursor
@@ -46,11 +46,17 @@ module ModernTreasury
             as_of_date: Date,
             balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::OrSymbol,
             per_page: Integer,
-            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
           )
             .returns(T.attached_class)
         end
-        def self.new(after_cursor: nil, as_of_date: nil, balance_report_type: nil, per_page: nil, request_options: {})
+        def self.new(
+          after_cursor: nil,
+          as_of_date: nil,
+          balance_report_type: nil,
+          per_page: nil,
+          request_options: {}
+        )
         end
 
         sig do
@@ -71,7 +77,7 @@ module ModernTreasury
         # The specific type of balance report. One of `intraday`, `previous_day`,
         #   `real_time`, or `other`.
         module BalanceReportType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType) }
@@ -79,6 +85,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::TaggedSymbol
               )
             end

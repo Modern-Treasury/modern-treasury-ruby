@@ -3,9 +3,9 @@
 module ModernTreasury
   module Models
     module Invoices
-      class LineItemUpdateParams < ModernTreasury::BaseModel
-        extend ModernTreasury::RequestParameters::Converter
-        include ModernTreasury::RequestParameters
+      class LineItemUpdateParams < ModernTreasury::Internal::Type::BaseModel
+        extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        include ModernTreasury::Internal::Type::RequestParameters
 
         sig { returns(String) }
         attr_accessor :invoice_id
@@ -76,7 +76,7 @@ module ModernTreasury
             quantity: Integer,
             unit_amount: Integer,
             unit_amount_decimal: String,
-            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
           )
             .returns(T.attached_class)
         end

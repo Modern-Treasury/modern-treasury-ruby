@@ -2,10 +2,11 @@
 
 module ModernTreasury
   module Models
-    class LedgerAccountStatementCreateParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::LedgerAccountStatements#create
+    class LedgerAccountStatementCreateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute effective_at_lower_bound
       #   The inclusive lower bound of the effective_at timestamp of the ledger entries to
@@ -39,7 +40,7 @@ module ModernTreasury
       #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -65,7 +66,7 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
     end
   end
 end

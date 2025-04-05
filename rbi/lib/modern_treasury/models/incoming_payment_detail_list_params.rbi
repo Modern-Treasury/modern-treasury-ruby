@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class IncomingPaymentDetailListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class IncomingPaymentDetailListParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor
@@ -82,7 +82,7 @@ module ModernTreasury
           status: ModernTreasury::Models::IncomingPaymentDetailListParams::Status::OrSymbol,
           type: ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol,
           virtual_account_id: String,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -123,12 +123,12 @@ module ModernTreasury
       # The current status of the incoming payment order. One of `pending`, `completed`,
       #   or `returned`.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Status) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Status::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::IncomingPaymentDetailListParams::Status::TaggedSymbol) }
 
         COMPLETED =
           T.let(:completed, ModernTreasury::Models::IncomingPaymentDetailListParams::Status::TaggedSymbol)
@@ -144,18 +144,22 @@ module ModernTreasury
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
       #   `wire`.
       module Type
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Type) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol) }
 
         ACH = T.let(:ach, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
+        AU_BECS = T.let(:au_becs, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
+        BACS = T.let(:bacs, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
         BOOK = T.let(:book, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
         CHECK = T.let(:check, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
         EFT = T.let(:eft, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
         INTERAC = T.let(:interac, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
+        NEFT = T.let(:neft, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
+        NZ_BECS = T.let(:nz_becs, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
         RTP = T.let(:rtp, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
         SEPA = T.let(:sepa, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
         SIGNET = T.let(:signet, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)

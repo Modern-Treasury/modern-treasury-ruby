@@ -2,10 +2,11 @@
 
 module ModernTreasury
   module Models
-    class ReturnCreateParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::Returns#create
+    class ReturnCreateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute returnable_id
       #   The ID of the object being returned or `null`.
@@ -33,6 +34,12 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::ReturnCreateParams::Code, nil]
       optional :code, enum: -> { ModernTreasury::Models::ReturnCreateParams::Code }, nil?: true
 
+      # @!attribute data
+      #   The raw data from the return file that we get from the bank.
+      #
+      #   @return [Object, nil]
+      optional :data, ModernTreasury::Internal::Type::Unknown, nil?: true
+
       # @!attribute date_of_death
       #   If the return code is `R14` or `R15` this is the date the deceased counterparty
       #     passed away.
@@ -52,6 +59,7 @@ module ModernTreasury
       #   # @param returnable_type [Symbol, ModernTreasury::Models::ReturnCreateParams::ReturnableType]
       #   # @param additional_information [String, nil]
       #   # @param code [Symbol, ModernTreasury::Models::ReturnCreateParams::Code, nil]
+      #   # @param data [Object, nil]
       #   # @param date_of_death [Date, nil]
       #   # @param reason [String, nil]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
@@ -61,6 +69,7 @@ module ModernTreasury
       #     returnable_type:,
       #     additional_information: nil,
       #     code: nil,
+      #     data: nil,
       #     date_of_death: nil,
       #     reason: nil,
       #     request_options: {},
@@ -69,12 +78,12 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # The type of object being returned. Currently, this may only be
       #   incoming_payment_detail.
       module ReturnableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
 
@@ -87,20 +96,20 @@ module ModernTreasury
 
       # The return code. For ACH returns, this is the required ACH return code.
       module Code
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
-        NUMBER_901 = :"901"
-        NUMBER_902 = :"902"
-        NUMBER_903 = :"903"
-        NUMBER_904 = :"904"
-        NUMBER_905 = :"905"
-        NUMBER_907 = :"907"
-        NUMBER_908 = :"908"
-        NUMBER_909 = :"909"
-        NUMBER_910 = :"910"
-        NUMBER_911 = :"911"
-        NUMBER_912 = :"912"
-        NUMBER_914 = :"914"
+        CODE_901 = :"901"
+        CODE_902 = :"902"
+        CODE_903 = :"903"
+        CODE_904 = :"904"
+        CODE_905 = :"905"
+        CODE_907 = :"907"
+        CODE_908 = :"908"
+        CODE_909 = :"909"
+        CODE_910 = :"910"
+        CODE_911 = :"911"
+        CODE_912 = :"912"
+        CODE_914 = :"914"
         C01 = :C01
         C02 = :C02
         C03 = :C03

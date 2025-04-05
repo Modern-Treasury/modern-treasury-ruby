@@ -5,7 +5,7 @@ module ModernTreasury
       | ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt
 
     module ExternalAccountVerifyResponse
-      extend ModernTreasury::Union
+      extend ModernTreasury::Internal::Type::Union
 
       type external_account_verification_attempt =
         {
@@ -21,7 +21,7 @@ module ModernTreasury
           updated_at: Time
         }
 
-      class ExternalAccountVerificationAttempt < ModernTreasury::BaseModel
+      class ExternalAccountVerificationAttempt < ModernTreasury::Internal::Type::BaseModel
         attr_accessor id: String
 
         attr_accessor created_at: Time
@@ -90,7 +90,7 @@ module ModernTreasury
           | :zengin
 
         module PaymentType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           ACH: :ach
           AU_BECS: :au_becs
@@ -129,7 +129,7 @@ module ModernTreasury
         type priority = :high | :normal
 
         module Priority
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           HIGH: :high
           NORMAL: :normal
@@ -140,7 +140,7 @@ module ModernTreasury
         type status = :cancelled | :failed | :pending_verification | :verified
 
         module Status
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           CANCELLED: :cancelled
           FAILED: :failed

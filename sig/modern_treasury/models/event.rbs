@@ -14,7 +14,7 @@ module ModernTreasury
         updated_at: Time
       }
 
-    class Event < ModernTreasury::BaseModel
+    class Event < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor created_at: Time

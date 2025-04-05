@@ -5,17 +5,16 @@ module ModernTreasury
     class AccountCollectionFlows
       # create account_collection_flow
       #
-      # @param params [ModernTreasury::Models::AccountCollectionFlowCreateParams, Hash{Symbol=>Object}] .
+      # @overload create(counterparty_id:, payment_types:, receiving_countries: nil, request_options: {})
       #
-      #   @option params [String] :counterparty_id Required.
-      #
-      #   @option params [Array<String>] :payment_types
-      #
-      #   @option params [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>] :receiving_countries
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param counterparty_id [String]
+      # @param payment_types [Array<String>]
+      # @param receiving_countries [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::AccountCollectionFlow]
+      #
+      # @see ModernTreasury::Models::AccountCollectionFlowCreateParams
       def create(params)
         parsed, options = ModernTreasury::Models::AccountCollectionFlowCreateParams.dump_request(params)
         @client.request(
@@ -29,17 +28,18 @@ module ModernTreasury
 
       # get account_collection_flow
       #
-      # @param id [String] id
+      # @overload retrieve(id, request_options: {})
       #
-      # @param params [ModernTreasury::Models::AccountCollectionFlowRetrieveParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::AccountCollectionFlow]
+      #
+      # @see ModernTreasury::Models::AccountCollectionFlowRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
-          path: ["api/account_collection_flows/%0s", id],
+          path: ["api/account_collection_flows/%1$s", id],
           model: ModernTreasury::Models::AccountCollectionFlow,
           options: params[:request_options]
         )
@@ -47,21 +47,20 @@ module ModernTreasury
 
       # update account_collection_flow
       #
-      # @param id [String] id
+      # @overload update(id, status:, request_options: {})
       #
-      # @param params [ModernTreasury::Models::AccountCollectionFlowUpdateParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Symbol, ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status] :status Required. The updated status of the account collection flow. Can only be used to
-      #     mark a flow as `cancelled`.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param status [Symbol, ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::AccountCollectionFlow]
+      #
+      # @see ModernTreasury::Models::AccountCollectionFlowUpdateParams
       def update(id, params)
         parsed, options = ModernTreasury::Models::AccountCollectionFlowUpdateParams.dump_request(params)
         @client.request(
           method: :patch,
-          path: ["api/account_collection_flows/%0s", id],
+          path: ["api/account_collection_flows/%1$s", id],
           body: parsed,
           model: ModernTreasury::Models::AccountCollectionFlow,
           options: options
@@ -70,35 +69,33 @@ module ModernTreasury
 
       # list account_collection_flows
       #
-      # @param params [ModernTreasury::Models::AccountCollectionFlowListParams, Hash{Symbol=>Object}] .
+      # @overload list(after_cursor: nil, client_token: nil, counterparty_id: nil, external_account_id: nil, per_page: nil, status: nil, request_options: {})
       #
-      #   @option params [String, nil] :after_cursor
+      # @param after_cursor [String, nil]
+      # @param client_token [String]
+      # @param counterparty_id [String]
+      # @param external_account_id [String]
+      # @param per_page [Integer]
+      # @param status [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      #   @option params [String] :client_token
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::AccountCollectionFlow>]
       #
-      #   @option params [String] :counterparty_id
-      #
-      #   @option params [String] :external_account_id
-      #
-      #   @option params [Integer] :per_page
-      #
-      #   @option params [String] :status
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
-      #
-      # @return [ModernTreasury::Page<ModernTreasury::Models::AccountCollectionFlow>]
+      # @see ModernTreasury::Models::AccountCollectionFlowListParams
       def list(params = {})
         parsed, options = ModernTreasury::Models::AccountCollectionFlowListParams.dump_request(params)
         @client.request(
           method: :get,
           path: "api/account_collection_flows",
           query: parsed,
-          page: ModernTreasury::Page,
+          page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Models::AccountCollectionFlow,
           options: options
         )
       end
 
+      # @api private
+      #
       # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client

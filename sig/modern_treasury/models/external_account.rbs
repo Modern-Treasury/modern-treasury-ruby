@@ -23,7 +23,7 @@ module ModernTreasury
         verification_status: ModernTreasury::Models::ExternalAccount::verification_status
       }
 
-    class ExternalAccount < ModernTreasury::BaseModel
+    class ExternalAccount < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor account_details: ::Array[ModernTreasury::Models::AccountDetail]
@@ -98,7 +98,7 @@ module ModernTreasury
           updated_at: Time
         }
 
-      class ContactDetail < ModernTreasury::BaseModel
+      class ContactDetail < ModernTreasury::Internal::Type::BaseModel
         attr_accessor id: String
 
         attr_accessor contact_identifier: String
@@ -131,7 +131,7 @@ module ModernTreasury
         type contact_identifier_type = :email | :phone_number | :website
 
         module ContactIdentifierType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           EMAIL: :email
           PHONE_NUMBER: :phone_number
@@ -156,7 +156,7 @@ module ModernTreasury
           updated_at: Time
         }
 
-      class PartyAddress < ModernTreasury::BaseModel
+      class PartyAddress < ModernTreasury::Internal::Type::BaseModel
         attr_accessor id: String
 
         attr_accessor country: String?
@@ -199,7 +199,7 @@ module ModernTreasury
       type party_type = :business | :individual
 
       module PartyType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         BUSINESS: :business
         INDIVIDUAL: :individual
@@ -210,7 +210,7 @@ module ModernTreasury
       type verification_source = :ach_prenote | :microdeposits | :plaid
 
       module VerificationSource
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH_PRENOTE: :ach_prenote
         MICRODEPOSITS: :microdeposits
@@ -222,7 +222,7 @@ module ModernTreasury
       type verification_status = :pending_verification | :unverified | :verified
 
       module VerificationStatus
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         PENDING_VERIFICATION: :pending_verification
         UNVERIFIED: :unverified

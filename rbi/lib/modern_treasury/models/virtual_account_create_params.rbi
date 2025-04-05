@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class VirtualAccountCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class VirtualAccountCreateParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # The ID of the internal account that this virtual account is associated with.
       sig { returns(String) }
@@ -20,7 +20,12 @@ module ModernTreasury
 
       sig do
         params(
-          account_details: T::Array[T.any(ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail, ModernTreasury::Util::AnyHash)]
+          account_details: T::Array[
+          T.any(
+            ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail,
+            ModernTreasury::Internal::AnyHash
+          )
+          ]
         )
           .void
       end
@@ -66,7 +71,10 @@ module ModernTreasury
 
       sig do
         params(
-          ledger_account: T.any(ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount, ModernTreasury::Util::AnyHash)
+          ledger_account: T.any(
+            ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount,
+            ModernTreasury::Internal::AnyHash
+          )
         )
           .void
       end
@@ -86,7 +94,12 @@ module ModernTreasury
 
       sig do
         params(
-          routing_details: T::Array[T.any(ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail, ModernTreasury::Util::AnyHash)]
+          routing_details: T::Array[
+          T.any(
+            ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail,
+            ModernTreasury::Internal::AnyHash
+          )
+          ]
         )
           .void
       end
@@ -96,15 +109,28 @@ module ModernTreasury
         params(
           internal_account_id: String,
           name: String,
-          account_details: T::Array[T.any(ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail, ModernTreasury::Util::AnyHash)],
+          account_details: T::Array[
+          T.any(
+            ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail,
+            ModernTreasury::Internal::AnyHash
+          )
+          ],
           counterparty_id: String,
           credit_ledger_account_id: String,
           debit_ledger_account_id: String,
           description: String,
-          ledger_account: T.any(ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount, ModernTreasury::Util::AnyHash),
+          ledger_account: T.any(
+            ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount,
+            ModernTreasury::Internal::AnyHash
+          ),
           metadata: T::Hash[Symbol, String],
-          routing_details: T::Array[T.any(ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail, ModernTreasury::Util::AnyHash)],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          routing_details: T::Array[
+          T.any(
+            ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail,
+            ModernTreasury::Internal::AnyHash
+          )
+          ],
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -144,7 +170,7 @@ module ModernTreasury
       def to_hash
       end
 
-      class AccountDetail < ModernTreasury::BaseModel
+      class AccountDetail < ModernTreasury::Internal::Type::BaseModel
         # The account number for the bank account.
         sig { returns(String) }
         attr_accessor :account_number
@@ -191,7 +217,7 @@ module ModernTreasury
         # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
         #   account number is in a generic format.
         module AccountNumberType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType) }
@@ -199,6 +225,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
               )
             end
@@ -265,7 +292,7 @@ module ModernTreasury
         end
       end
 
-      class LedgerAccount < ModernTreasury::BaseModel
+      class LedgerAccount < ModernTreasury::Internal::Type::BaseModel
         # The currency of the ledger account.
         sig { returns(String) }
         attr_accessor :currency
@@ -388,7 +415,7 @@ module ModernTreasury
         #   be populated here, otherwise null. The value is one of internal_account or
         #   external_account.
         module LedgerableType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType) }
@@ -396,6 +423,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType::TaggedSymbol
               )
             end
@@ -432,7 +460,7 @@ module ModernTreasury
         end
       end
 
-      class RoutingDetail < ModernTreasury::BaseModel
+      class RoutingDetail < ModernTreasury::Internal::Type::BaseModel
         # The routing number of the bank.
         sig { returns(String) }
         attr_accessor :routing_number
@@ -480,7 +508,7 @@ module ModernTreasury
         #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
         #   more details.
         module RoutingNumberType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType) }
@@ -488,6 +516,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             end
@@ -611,7 +640,7 @@ module ModernTreasury
         # If the routing detail is to be used for a specific payment type this field will
         #   be populated, otherwise null.
         module PaymentType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType) }
@@ -619,6 +648,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
               )
             end

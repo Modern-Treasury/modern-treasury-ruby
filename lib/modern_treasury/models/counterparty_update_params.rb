@@ -2,10 +2,11 @@
 
 module ModernTreasury
   module Models
-    class CounterpartyUpdateParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::Counterparties#update
+    class CounterpartyUpdateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute [r] email
       #   A new email for the counterparty.
@@ -28,7 +29,7 @@ module ModernTreasury
       #     an empty string or `null` as the value.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -49,7 +50,7 @@ module ModernTreasury
       #     whenever an associated payment order is sent to the bank.
       #
       #   @return [Boolean, nil]
-      optional :send_remittance_advice, ModernTreasury::BooleanModel
+      optional :send_remittance_advice, ModernTreasury::Internal::Type::Boolean
 
       # @!parse
       #   # @return [Boolean]
@@ -87,7 +88,7 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
     end
   end
 end

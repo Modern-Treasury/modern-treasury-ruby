@@ -2,7 +2,8 @@
 
 module ModernTreasury
   module Models
-    class PingResponse < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::Client#ping
+    class PingResponse < ModernTreasury::Internal::Type::BaseModel
       # @!attribute ping
       #
       #   @return [String]
@@ -13,7 +14,7 @@ module ModernTreasury
       #   #
       #   def initialize(ping:, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
     end
   end
 end

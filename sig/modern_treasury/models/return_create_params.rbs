@@ -6,14 +6,15 @@ module ModernTreasury
         returnable_type: ModernTreasury::Models::ReturnCreateParams::returnable_type,
         additional_information: String?,
         code: ModernTreasury::Models::ReturnCreateParams::code?,
+        data: top?,
         date_of_death: Date?,
         reason: String?
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
-    class ReturnCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class ReturnCreateParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor returnable_id: String?
 
@@ -22,6 +23,8 @@ module ModernTreasury
       attr_accessor additional_information: String?
 
       attr_accessor code: ModernTreasury::Models::ReturnCreateParams::code?
+
+      attr_accessor data: top?
 
       attr_accessor date_of_death: Date?
 
@@ -32,6 +35,7 @@ module ModernTreasury
         returnable_type: ModernTreasury::Models::ReturnCreateParams::returnable_type,
         ?additional_information: String?,
         ?code: ModernTreasury::Models::ReturnCreateParams::code?,
+        ?data: top?,
         ?date_of_death: Date?,
         ?reason: String?,
         ?request_options: ModernTreasury::request_opts
@@ -42,7 +46,7 @@ module ModernTreasury
       type returnable_type = :incoming_payment_detail
 
       module ReturnableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         INCOMING_PAYMENT_DETAIL: :incoming_payment_detail
 
@@ -105,20 +109,20 @@ module ModernTreasury
         | :currencycloud
 
       module Code
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
-        NUMBER_901: :"901"
-        NUMBER_902: :"902"
-        NUMBER_903: :"903"
-        NUMBER_904: :"904"
-        NUMBER_905: :"905"
-        NUMBER_907: :"907"
-        NUMBER_908: :"908"
-        NUMBER_909: :"909"
-        NUMBER_910: :"910"
-        NUMBER_911: :"911"
-        NUMBER_912: :"912"
-        NUMBER_914: :"914"
+        CODE_901: :"901"
+        CODE_902: :"902"
+        CODE_903: :"903"
+        CODE_904: :"904"
+        CODE_905: :"905"
+        CODE_907: :"907"
+        CODE_908: :"908"
+        CODE_909: :"909"
+        CODE_910: :"910"
+        CODE_911: :"911"
+        CODE_912: :"912"
+        CODE_914: :"914"
         C01: :C01
         C02: :C02
         C03: :C03

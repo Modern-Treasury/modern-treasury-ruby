@@ -41,7 +41,7 @@ module ModernTreasury
         ?payment_type: ModernTreasury::Models::InternalAccountListParams::payment_type,
         ?per_page: Integer,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Page[ModernTreasury::Models::InternalAccount]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::InternalAccount]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

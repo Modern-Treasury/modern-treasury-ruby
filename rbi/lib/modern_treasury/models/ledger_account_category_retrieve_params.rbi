@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class LedgerAccountCategoryRetrieveParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class LedgerAccountCategoryRetrieveParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # For example, if you want the balances as of a particular time (ISO8601), the
       #   encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
@@ -16,7 +16,7 @@ module ModernTreasury
         params(
           balances: T.any(
             ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances,
-            ModernTreasury::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           )
         )
           .void
@@ -27,9 +27,9 @@ module ModernTreasury
         params(
           balances: T.any(
             ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances,
-            ModernTreasury::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           ),
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -48,7 +48,7 @@ module ModernTreasury
       def to_hash
       end
 
-      class Balances < ModernTreasury::BaseModel
+      class Balances < ModernTreasury::Internal::Type::BaseModel
         sig { returns(T.nilable(Date)) }
         attr_reader :as_of_date
 

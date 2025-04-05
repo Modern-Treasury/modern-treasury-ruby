@@ -17,7 +17,7 @@ class ModernTreasury::Test::Resources::ConnectionLegalEntitiesTest < ModernTreas
         created_at: Time,
         discarded_at: Time | nil,
         legal_entity_id: String,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         status: ModernTreasury::Models::ConnectionLegalEntity::Status,
         updated_at: Time,
@@ -40,7 +40,7 @@ class ModernTreasury::Test::Resources::ConnectionLegalEntitiesTest < ModernTreas
         created_at: Time,
         discarded_at: Time | nil,
         legal_entity_id: String,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         status: ModernTreasury::Models::ConnectionLegalEntity::Status,
         updated_at: Time,
@@ -63,7 +63,7 @@ class ModernTreasury::Test::Resources::ConnectionLegalEntitiesTest < ModernTreas
         created_at: Time,
         discarded_at: Time | nil,
         legal_entity_id: String,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         status: ModernTreasury::Models::ConnectionLegalEntity::Status,
         updated_at: Time,
@@ -76,7 +76,7 @@ class ModernTreasury::Test::Resources::ConnectionLegalEntitiesTest < ModernTreas
     response = @modern_treasury.connection_legal_entities.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first
@@ -93,7 +93,7 @@ class ModernTreasury::Test::Resources::ConnectionLegalEntitiesTest < ModernTreas
         created_at: Time,
         discarded_at: Time | nil,
         legal_entity_id: String,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         status: ModernTreasury::Models::ConnectionLegalEntity::Status,
         updated_at: Time,

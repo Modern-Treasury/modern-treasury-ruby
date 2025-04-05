@@ -7,17 +7,22 @@ module ModernTreasury
       sig do
         params(
           name: T.nilable(String),
-          accounting: T.any(ModernTreasury::Models::CounterpartyCreateParams::Accounting, ModernTreasury::Util::AnyHash),
-          accounts: T::Array[T.any(ModernTreasury::Models::CounterpartyCreateParams::Account, ModernTreasury::Util::AnyHash)],
+          accounting: T.any(ModernTreasury::Models::CounterpartyCreateParams::Accounting, ModernTreasury::Internal::AnyHash),
+          accounts: T::Array[T.any(ModernTreasury::Models::CounterpartyCreateParams::Account, ModernTreasury::Internal::AnyHash)],
           email: T.nilable(String),
           ledger_type: ModernTreasury::Models::CounterpartyCreateParams::LedgerType::OrSymbol,
-          legal_entity: T.any(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity, ModernTreasury::Util::AnyHash),
+          legal_entity: T.any(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity, ModernTreasury::Internal::AnyHash),
           legal_entity_id: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           send_remittance_advice: T::Boolean,
           taxpayer_identifier: String,
           verification_status: ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus::OrSymbol,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::Counterparty)
       end
@@ -53,7 +58,12 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::Counterparty)
       end
@@ -74,7 +84,12 @@ module ModernTreasury
           name: String,
           send_remittance_advice: T::Boolean,
           taxpayer_identifier: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::Counterparty)
       end
@@ -110,9 +125,14 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           name: String,
           per_page: Integer,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::AnyHash
+            )
+          )
         )
-          .returns(ModernTreasury::Page[ModernTreasury::Models::Counterparty])
+          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::Counterparty])
       end
       def list(
         after_cursor: nil,
@@ -141,7 +161,12 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::AnyHash
+            )
+          )
         )
           .void
       end
@@ -160,7 +185,12 @@ module ModernTreasury
           custom_redirect: String,
           fields: T::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol],
           send_email: T::Boolean,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::CounterpartyCollectAccountResponse)
       end
@@ -190,6 +220,7 @@ module ModernTreasury
       )
       end
 
+      # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
       def self.new(client:)
       end

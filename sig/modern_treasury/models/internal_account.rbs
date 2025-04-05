@@ -23,7 +23,7 @@ module ModernTreasury
         updated_at: Time
       }
 
-    class InternalAccount < ModernTreasury::BaseModel
+    class InternalAccount < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor account_details: ::Array[ModernTreasury::Models::AccountDetail]
@@ -97,7 +97,7 @@ module ModernTreasury
         | :savings
 
       module AccountType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CASH: :cash
         CHECKING: :checking
@@ -126,7 +126,7 @@ module ModernTreasury
           updated_at: Time
         }
 
-      class PartyAddress < ModernTreasury::BaseModel
+      class PartyAddress < ModernTreasury::Internal::Type::BaseModel
         attr_accessor id: String
 
         attr_accessor country: String?
@@ -169,7 +169,7 @@ module ModernTreasury
       type party_type = :business | :individual
 
       module PartyType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         BUSINESS: :business
         INDIVIDUAL: :individual

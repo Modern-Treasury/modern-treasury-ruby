@@ -2,10 +2,11 @@
 
 module ModernTreasury
   module Models
-    class CounterpartyCollectAccountParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::Counterparties#collect_account
+    class CounterpartyCollectAccountParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute direction
       #   One of `credit` or `debit`. Use `credit` when you want to pay a counterparty.
@@ -36,7 +37,7 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field>, nil]
       optional :fields,
-               -> { ModernTreasury::ArrayOf[enum: ModernTreasury::Models::CounterpartyCollectAccountParams::Field] }
+               -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::CounterpartyCollectAccountParams::Field] }
 
       # @!parse
       #   # @return [Array<Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field>]
@@ -49,7 +50,7 @@ module ModernTreasury
       #     body will include the link to the secure Modern Treasury form.
       #
       #   @return [Boolean, nil]
-      optional :send_email, ModernTreasury::BooleanModel
+      optional :send_email, ModernTreasury::Internal::Type::Boolean
 
       # @!parse
       #   # @return [Boolean]
@@ -64,10 +65,10 @@ module ModernTreasury
       #   #
       #   def initialize(direction:, custom_redirect: nil, fields: nil, send_email: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       module Field
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         NAME = :name
         NAME_ON_ACCOUNT = :nameOnAccount
@@ -97,7 +98,7 @@ module ModernTreasury
         HU_INTERBANK_CLEARING_CODE = :huInterbankClearingCode
         DK_INTERBANK_CLEARING_CODE = :dkInterbankClearingCode
         ID_SKNBI_CODE = :idSknbiCode
-        ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
+        ZA_NATIONAL_CLEARING_CODE = :zaNationalClearingCode
 
         finalize!
 

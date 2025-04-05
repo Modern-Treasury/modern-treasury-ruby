@@ -5,19 +5,17 @@ module ModernTreasury
     class Documents
       # Create a document.
       #
-      # @param params [ModernTreasury::Models::DocumentCreateParams, Hash{Symbol=>Object}] .
+      # @overload create(documentable_id:, documentable_type:, file:, document_type: nil, request_options: {})
       #
-      #   @option params [String] :documentable_id The unique identifier for the associated object.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::DocumentCreateParams::DocumentableType] :documentable_type
-      #
-      #   @option params [IO, StringIO] :file
-      #
-      #   @option params [String] :document_type A category given to the document, can be `null`.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param documentable_id [String]
+      # @param documentable_type [Symbol, ModernTreasury::Models::DocumentCreateParams::DocumentableType]
+      # @param file [IO, StringIO]
+      # @param document_type [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::Document]
+      #
+      # @see ModernTreasury::Models::DocumentCreateParams
       def create(params)
         parsed, options = ModernTreasury::Models::DocumentCreateParams.dump_request(params)
         @client.request(
@@ -32,17 +30,18 @@ module ModernTreasury
 
       # Get an existing document.
       #
-      # @param id [String] The ID of the document.
+      # @overload retrieve(id, request_options: {})
       #
-      # @param params [ModernTreasury::Models::DocumentRetrieveParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::Document]
+      #
+      # @see ModernTreasury::Models::DocumentRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
-          path: ["api/documents/%0s", id],
+          path: ["api/documents/%1$s", id],
           model: ModernTreasury::Models::Document,
           options: params[:request_options]
         )
@@ -50,33 +49,31 @@ module ModernTreasury
 
       # Get a list of documents.
       #
-      # @param params [ModernTreasury::Models::DocumentListParams, Hash{Symbol=>Object}] .
+      # @overload list(after_cursor: nil, documentable_id: nil, documentable_type: nil, per_page: nil, request_options: {})
       #
-      #   @option params [String, nil] :after_cursor
+      # @param after_cursor [String, nil]
+      # @param documentable_id [String]
+      # @param documentable_type [Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType]
+      # @param per_page [Integer]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      #   @option params [String] :documentable_id The unique identifier for the associated object.
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::Document>]
       #
-      #   @option params [Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType] :documentable_type The type of the associated object. Currently can be one of `payment_order`,
-      #     `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
-      #     `case`, `internal_account`, `decision`, or `external_account`.
-      #
-      #   @option params [Integer] :per_page
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
-      #
-      # @return [ModernTreasury::Page<ModernTreasury::Models::Document>]
+      # @see ModernTreasury::Models::DocumentListParams
       def list(params = {})
         parsed, options = ModernTreasury::Models::DocumentListParams.dump_request(params)
         @client.request(
           method: :get,
           path: "api/documents",
           query: parsed,
-          page: ModernTreasury::Page,
+          page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Models::Document,
           options: options
         )
       end
 
+      # @api private
+      #
       # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client

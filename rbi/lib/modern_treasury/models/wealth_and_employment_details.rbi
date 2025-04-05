@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class WealthAndEmploymentDetails < ModernTreasury::BaseModel
+    class WealthAndEmploymentDetails < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -146,12 +146,12 @@ module ModernTreasury
 
       # The employment status of the individual.
       module EmploymentStatus
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus::TaggedSymbol) }
 
         EMPLOYED =
           T.let(:employed, ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus::TaggedSymbol)
@@ -174,12 +174,12 @@ module ModernTreasury
 
       # The source of the individual's income.
       module IncomeSource
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::TaggedSymbol) }
 
         FAMILY_SUPPORT =
           T.let(:family_support, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::TaggedSymbol)
@@ -207,12 +207,12 @@ module ModernTreasury
 
       # The industry of the individual.
       module Industry
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::Industry) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol) }
 
         ACCOUNTING =
           T.let(:accounting, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
@@ -282,12 +282,12 @@ module ModernTreasury
 
       # The occupation of the individual.
       module Occupation
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::TaggedSymbol) }
 
         CONSULTING =
           T.let(:consulting, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::TaggedSymbol)
@@ -319,12 +319,12 @@ module ModernTreasury
 
       # The source of the individual's funds.
       module SourceOfFunds
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol) }
 
         ALIMONY =
           T.let(:alimony, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol)
@@ -372,12 +372,12 @@ module ModernTreasury
 
       # The source of the individual's wealth.
       module WealthSource
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::TaggedSymbol) }
 
         BUSINESS_SALE =
           T.let(:business_sale, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::TaggedSymbol)

@@ -16,7 +16,7 @@ module ModernTreasury
           updated_at: Time
         }
 
-      class Reversal < ModernTreasury::BaseModel
+      class Reversal < ModernTreasury::Internal::Type::BaseModel
         attr_accessor id: String
 
         attr_accessor created_at: Time
@@ -63,7 +63,7 @@ module ModernTreasury
           | :date_later_than_intended
 
         module Reason
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           DUPLICATE: :duplicate
           INCORRECT_AMOUNT: :incorrect_amount
@@ -78,7 +78,7 @@ module ModernTreasury
           :completed | :failed | :pending | :processing | :returned | :sent
 
         module Status
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           COMPLETED: :completed
           FAILED: :failed

@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class InternalAccountCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class InternalAccountCreateParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # The identifier of the financial institution the account belongs to.
       sig { returns(String) }
@@ -50,7 +50,10 @@ module ModernTreasury
 
       sig do
         params(
-          party_address: T.any(ModernTreasury::Models::InternalAccountCreateParams::PartyAddress, ModernTreasury::Util::AnyHash)
+          party_address: T.any(
+            ModernTreasury::Models::InternalAccountCreateParams::PartyAddress,
+            ModernTreasury::Internal::AnyHash
+          )
         )
           .void
       end
@@ -73,9 +76,12 @@ module ModernTreasury
           counterparty_id: String,
           legal_entity_id: String,
           parent_account_id: String,
-          party_address: T.any(ModernTreasury::Models::InternalAccountCreateParams::PartyAddress, ModernTreasury::Util::AnyHash),
+          party_address: T.any(
+            ModernTreasury::Models::InternalAccountCreateParams::PartyAddress,
+            ModernTreasury::Internal::AnyHash
+          ),
           vendor_attributes: T::Hash[Symbol, String],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -116,12 +122,12 @@ module ModernTreasury
       # Either "USD" or "CAD". Internal accounts created at Increase only supports
       #   "USD".
       module Currency
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::InternalAccountCreateParams::Currency::TaggedSymbol) }
 
         USD = T.let(:USD, ModernTreasury::Models::InternalAccountCreateParams::Currency::TaggedSymbol)
         CAD = T.let(:CAD, ModernTreasury::Models::InternalAccountCreateParams::Currency::TaggedSymbol)
@@ -131,7 +137,7 @@ module ModernTreasury
         end
       end
 
-      class PartyAddress < ModernTreasury::BaseModel
+      class PartyAddress < ModernTreasury::Internal::Type::BaseModel
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(String) }
         attr_accessor :country

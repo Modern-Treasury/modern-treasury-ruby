@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class LegalEntityListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class LegalEntityListParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor
@@ -43,7 +43,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
           show_deleted: String,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -74,12 +74,12 @@ module ModernTreasury
       end
 
       module LegalEntityType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::LegalEntityListParams::LegalEntityType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::LegalEntityListParams::LegalEntityType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LegalEntityListParams::LegalEntityType::TaggedSymbol) }
 
         BUSINESS = T.let(:business, ModernTreasury::Models::LegalEntityListParams::LegalEntityType::TaggedSymbol)
         INDIVIDUAL =

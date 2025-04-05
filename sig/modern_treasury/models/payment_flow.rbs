@@ -23,7 +23,7 @@ module ModernTreasury
         updated_at: Time
       }
 
-    class PaymentFlow < ModernTreasury::BaseModel
+    class PaymentFlow < ModernTreasury::Internal::Type::BaseModel
       attr_reader id: String?
 
       def id=: (String) -> String
@@ -119,7 +119,7 @@ module ModernTreasury
       type direction = :credit | :debit
 
       module Direction
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CREDIT: :credit
         DEBIT: :debit
@@ -130,7 +130,7 @@ module ModernTreasury
       type existing_external_accounts_filter = :verified
 
       module ExistingExternalAccountsFilter
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         VERIFIED: :verified
 
@@ -140,7 +140,7 @@ module ModernTreasury
       type external_account_collection = :disabled | :enabled
 
       module ExternalAccountCollection
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         DISABLED: :disabled
         ENABLED: :enabled
@@ -151,7 +151,7 @@ module ModernTreasury
       type status = :cancelled | :completed | :expired | :pending
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CANCELLED: :cancelled
         COMPLETED: :completed

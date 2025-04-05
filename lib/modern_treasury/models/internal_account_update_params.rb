@@ -2,10 +2,11 @@
 
 module ModernTreasury
   module Models
-    class InternalAccountUpdateParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::InternalAccounts#update
+    class InternalAccountUpdateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute [r] counterparty_id
       #   The Counterparty associated to this account.
@@ -32,7 +33,7 @@ module ModernTreasury
       #     an empty string or `null` as the value.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -78,7 +79,7 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
     end
   end
 end

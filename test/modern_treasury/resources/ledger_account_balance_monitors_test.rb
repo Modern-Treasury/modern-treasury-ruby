@@ -23,8 +23,8 @@ class ModernTreasury::Test::Resources::LedgerAccountBalanceMonitorsTest < Modern
         description: String | nil,
         discarded_at: Time | nil,
         ledger_account_id: String,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         updated_at: Time
       }
@@ -47,8 +47,8 @@ class ModernTreasury::Test::Resources::LedgerAccountBalanceMonitorsTest < Modern
         description: String | nil,
         discarded_at: Time | nil,
         ledger_account_id: String,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         updated_at: Time
       }
@@ -71,8 +71,8 @@ class ModernTreasury::Test::Resources::LedgerAccountBalanceMonitorsTest < Modern
         description: String | nil,
         discarded_at: Time | nil,
         ledger_account_id: String,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         updated_at: Time
       }
@@ -83,7 +83,7 @@ class ModernTreasury::Test::Resources::LedgerAccountBalanceMonitorsTest < Modern
     response = @modern_treasury.ledger_account_balance_monitors.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first
@@ -102,8 +102,8 @@ class ModernTreasury::Test::Resources::LedgerAccountBalanceMonitorsTest < Modern
         description: String | nil,
         discarded_at: Time | nil,
         ledger_account_id: String,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         updated_at: Time
       }
@@ -126,8 +126,8 @@ class ModernTreasury::Test::Resources::LedgerAccountBalanceMonitorsTest < Modern
         description: String | nil,
         discarded_at: Time | nil,
         ledger_account_id: String,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         updated_at: Time
       }

@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class ConnectionLegalEntityListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class ConnectionLegalEntityListParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor
@@ -40,7 +40,7 @@ module ModernTreasury
           legal_entity_id: String,
           per_page: Integer,
           status: ModernTreasury::Models::ConnectionLegalEntityListParams::Status::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -71,12 +71,12 @@ module ModernTreasury
       end
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::ConnectionLegalEntityListParams::Status) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::ConnectionLegalEntityListParams::Status::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ConnectionLegalEntityListParams::Status::TaggedSymbol) }
 
         COMPLETED =
           T.let(:completed, ModernTreasury::Models::ConnectionLegalEntityListParams::Status::TaggedSymbol)

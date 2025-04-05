@@ -7,11 +7,11 @@ module ModernTreasury
         file: (IO | StringIO),
         document_type: String
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
-    class DocumentCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class DocumentCreateParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor documentable_id: String
 
@@ -48,7 +48,7 @@ module ModernTreasury
         | :connections
 
       module DocumentableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CASES: :cases
         COUNTERPARTIES: :counterparties

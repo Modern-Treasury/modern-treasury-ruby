@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class ExpectedPayment < ModernTreasury::BaseModel
+    class ExpectedPayment < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -136,7 +136,7 @@ module ModernTreasury
           reconciliation_filters: T.nilable(T.anything),
           reconciliation_groups: T.nilable(T.anything),
           reconciliation_method: T.nilable(ModernTreasury::Models::ExpectedPayment::ReconciliationMethod::OrSymbol),
-          reconciliation_rule_variables: T.nilable(T::Array[T.any(ModernTreasury::Models::ReconciliationRule, ModernTreasury::Util::AnyHash)]),
+          reconciliation_rule_variables: T.nilable(T::Array[T.any(ModernTreasury::Models::ReconciliationRule, ModernTreasury::Internal::AnyHash)]),
           remittance_information: T.nilable(String),
           statement_descriptor: T.nilable(String),
           status: ModernTreasury::Models::ExpectedPayment::Status::OrSymbol,
@@ -216,11 +216,11 @@ module ModernTreasury
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
       module Direction
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPayment::Direction) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::ExpectedPayment::Direction::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ExpectedPayment::Direction::TaggedSymbol) }
 
         CREDIT = T.let(:credit, ModernTreasury::Models::ExpectedPayment::Direction::TaggedSymbol)
         DEBIT = T.let(:debit, ModernTreasury::Models::ExpectedPayment::Direction::TaggedSymbol)
@@ -234,12 +234,12 @@ module ModernTreasury
       #   automatic if it was automatically reconciled by Modern Treasury, or null if it
       #   is unreconciled.
       module ReconciliationMethod
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPayment::ReconciliationMethod) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::ExpectedPayment::ReconciliationMethod::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ExpectedPayment::ReconciliationMethod::TaggedSymbol) }
 
         AUTOMATIC =
           T.let(:automatic, ModernTreasury::Models::ExpectedPayment::ReconciliationMethod::TaggedSymbol)
@@ -252,10 +252,11 @@ module ModernTreasury
 
       # One of unreconciled, partially_reconciled, reconciled, or archived.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPayment::Status) }
-        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::ExpectedPayment::Status::TaggedSymbol) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ExpectedPayment::Status::TaggedSymbol) }
 
         ARCHIVED = T.let(:archived, ModernTreasury::Models::ExpectedPayment::Status::TaggedSymbol)
         PARTIALLY_RECONCILED =

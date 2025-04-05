@@ -2,7 +2,8 @@
 
 module ModernTreasury
   module Models
-    class Event < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::Events#retrieve
+    class Event < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -17,7 +18,7 @@ module ModernTreasury
       #   The body of the event.
       #
       #   @return [Hash{Symbol=>Object}]
-      required :data, ModernTreasury::HashOf[ModernTreasury::Unknown]
+      required :data, ModernTreasury::Internal::Type::HashOf[ModernTreasury::Internal::Type::Unknown]
 
       # @!attribute entity_id
       #   The ID of the entity for the event.
@@ -42,7 +43,7 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute object
       #
@@ -88,7 +89,7 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
     end
   end
 end

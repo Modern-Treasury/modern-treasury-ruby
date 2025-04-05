@@ -7,11 +7,11 @@ module ModernTreasury
         effective_at: Time,
         metadata: ::Hash[Symbol, String]
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
-    class LedgerTransactionCreatePartialPostParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class LedgerTransactionCreatePartialPostParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor posted_ledger_entries: ::Array[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry]
 
@@ -45,7 +45,7 @@ module ModernTreasury
           metadata: ::Hash[Symbol, String]
         }
 
-      class PostedLedgerEntry < ModernTreasury::BaseModel
+      class PostedLedgerEntry < ModernTreasury::Internal::Type::BaseModel
         attr_accessor amount: Integer
 
         attr_accessor direction: ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::direction
@@ -68,7 +68,7 @@ module ModernTreasury
         type direction = :credit | :debit
 
         module Direction
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           CREDIT: :credit
           DEBIT: :debit

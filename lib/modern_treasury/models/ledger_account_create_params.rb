@@ -2,10 +2,11 @@
 
 module ModernTreasury
   module Models
-    class LedgerAccountCreateParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::LedgerAccounts#create
+    class LedgerAccountCreateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute currency
       #   The currency of the ledger account.
@@ -48,7 +49,7 @@ module ModernTreasury
       #     child of.
       #
       #   @return [Array<String>, nil]
-      optional :ledger_account_category_ids, ModernTreasury::ArrayOf[String]
+      optional :ledger_account_category_ids, ModernTreasury::Internal::Type::ArrayOf[String]
 
       # @!parse
       #   # @return [Array<String>]
@@ -82,7 +83,7 @@ module ModernTreasury
       #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -118,13 +119,13 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # If the ledger account links to another object in Modern Treasury, the type will
       #   be populated here, otherwise null. The value is one of internal_account or
       #   external_account.
       module LedgerableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         COUNTERPARTY = :counterparty
         EXTERNAL_ACCOUNT = :external_account

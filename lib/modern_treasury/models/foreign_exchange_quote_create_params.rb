@@ -2,10 +2,11 @@
 
 module ModernTreasury
   module Models
-    class ForeignExchangeQuoteCreateParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::ForeignExchangeQuotes#create
+    class ForeignExchangeQuoteCreateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute internal_account_id
       #   The ID for the `InternalAccount` this quote is associated with.
@@ -83,7 +84,7 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
     end
   end
 end

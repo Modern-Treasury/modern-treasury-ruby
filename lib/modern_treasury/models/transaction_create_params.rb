@@ -2,10 +2,11 @@
 
 module ModernTreasury
   module Models
-    class TransactionCreateParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::Transactions#create
+    class TransactionCreateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute amount
       #   Value in specified currency's smallest unit. e.g. $10 would be represented
@@ -53,7 +54,7 @@ module ModernTreasury
       #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -63,7 +64,7 @@ module ModernTreasury
       #   This field will be `true` if the transaction has posted to the account.
       #
       #   @return [Boolean, nil]
-      optional :posted, ModernTreasury::BooleanModel
+      optional :posted, ModernTreasury::Internal::Type::Boolean
 
       # @!parse
       #   # @return [Boolean]
@@ -113,12 +114,12 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # The type of the transaction. Examples could be
       #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       module Type
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH = :ach
         AU_BECS = :au_becs

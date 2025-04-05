@@ -2,10 +2,11 @@
 
 module ModernTreasury
   module Models
-    class DocumentCreateParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::Documents#create
+    class DocumentCreateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute documentable_id
       #   The unique identifier for the associated object.
@@ -42,10 +43,10 @@ module ModernTreasury
       #   #
       #   def initialize(documentable_id:, documentable_type:, file:, document_type: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       module DocumentableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CASES = :cases
         COUNTERPARTIES = :counterparties

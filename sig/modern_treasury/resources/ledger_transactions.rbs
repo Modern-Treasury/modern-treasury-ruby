@@ -54,7 +54,7 @@ module ModernTreasury
         ?status: ModernTreasury::Models::LedgerTransactionListParams::status,
         ?updated_at: ::Hash[Symbol, Time],
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Page[ModernTreasury::Models::LedgerTransaction]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerTransaction]
 
       def create_partial_post: (
         String id,

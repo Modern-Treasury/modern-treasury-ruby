@@ -2,17 +2,18 @@
 
 module ModernTreasury
   module Models
-    class TransactionUpdateParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::Transactions#update
+    class TransactionUpdateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute [r] metadata
       #   Additional data in the form of key-value pairs. Pairs can be removed by passing
       #     an empty string or `null` as the value.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -24,7 +25,7 @@ module ModernTreasury
       #   #
       #   def initialize(metadata: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
     end
   end
 end

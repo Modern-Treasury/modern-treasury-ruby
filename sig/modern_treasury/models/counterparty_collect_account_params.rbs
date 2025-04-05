@@ -7,11 +7,11 @@ module ModernTreasury
         fields: ::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field],
         send_email: bool
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
-    class CounterpartyCollectAccountParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class CounterpartyCollectAccountParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor direction: ModernTreasury::Models::transaction_direction
 
@@ -68,10 +68,10 @@ module ModernTreasury
         | :huInterbankClearingCode
         | :dkInterbankClearingCode
         | :idSknbiCode
-        | :za_national_clearing_code
+        | :zaNationalClearingCode
 
       module Field
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         NAME: :name
         NAME_ON_ACCOUNT: :nameOnAccount
@@ -101,7 +101,7 @@ module ModernTreasury
         HU_INTERBANK_CLEARING_CODE: :huInterbankClearingCode
         DK_INTERBANK_CLEARING_CODE: :dkInterbankClearingCode
         ID_SKNBI_CODE: :idSknbiCode
-        ZA_NATIONAL_CLEARING_CODE: :za_national_clearing_code
+        ZA_NATIONAL_CLEARING_CODE: :zaNationalClearingCode
 
         def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field]
       end

@@ -2,17 +2,18 @@
 
 module ModernTreasury
   module Models
-    class LedgerListParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::Ledgers#list
+    class LedgerListParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute [r] id
       #   If you have specific IDs to retrieve in bulk, you can pass them as query
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       #
       #   @return [Array<String>, nil]
-      optional :id, ModernTreasury::ArrayOf[String]
+      optional :id, ModernTreasury::Internal::Type::ArrayOf[String]
 
       # @!parse
       #   # @return [Array<String>]
@@ -29,7 +30,7 @@ module ModernTreasury
       #     parameters.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -50,7 +51,7 @@ module ModernTreasury
       #     updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
       #   @return [Hash{Symbol=>Time}, nil]
-      optional :updated_at, ModernTreasury::HashOf[Time]
+      optional :updated_at, ModernTreasury::Internal::Type::HashOf[Time]
 
       # @!parse
       #   # @return [Hash{Symbol=>Time}]
@@ -66,7 +67,7 @@ module ModernTreasury
       #   #
       #   def initialize(id: nil, after_cursor: nil, metadata: nil, per_page: nil, updated_at: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
     end
   end
 end

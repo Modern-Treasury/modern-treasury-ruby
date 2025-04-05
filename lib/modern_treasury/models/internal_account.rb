@@ -2,7 +2,8 @@
 
 module ModernTreasury
   module Models
-    class InternalAccount < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::InternalAccounts#create
+    class InternalAccount < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -12,7 +13,8 @@ module ModernTreasury
       #   An array of account detail objects.
       #
       #   @return [Array<ModernTreasury::Models::AccountDetail>]
-      required :account_details, -> { ModernTreasury::ArrayOf[ModernTreasury::Models::AccountDetail] }
+      required :account_details,
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::AccountDetail] }
 
       # @!attribute account_type
       #   Can be checking, savings or other.
@@ -61,14 +63,14 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @return [Hash{Symbol=>String}]
-      required :metadata, ModernTreasury::HashOf[String]
+      required :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!attribute name
       #   A nickname for the account.
@@ -109,7 +111,8 @@ module ModernTreasury
       #   An array of routing detail objects.
       #
       #   @return [Array<ModernTreasury::Models::RoutingDetail>]
-      required :routing_details, -> { ModernTreasury::ArrayOf[ModernTreasury::Models::RoutingDetail] }
+      required :routing_details,
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::RoutingDetail] }
 
       # @!attribute updated_at
       #
@@ -162,11 +165,13 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # Can be checking, savings or other.
+      #
+      # @see ModernTreasury::Models::InternalAccount#account_type
       module AccountType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CASH = :cash
         CHECKING = :checking
@@ -184,7 +189,8 @@ module ModernTreasury
         #   def self.values; end
       end
 
-      class PartyAddress < ModernTreasury::BaseModel
+      # @see ModernTreasury::Models::InternalAccount#party_address
+      class PartyAddress < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
         #
         #   @return [String]
@@ -216,7 +222,7 @@ module ModernTreasury
         #     if it exists in the test environment.
         #
         #   @return [Boolean]
-        required :live_mode, ModernTreasury::BooleanModel
+        required :live_mode, ModernTreasury::Internal::Type::Boolean
 
         # @!attribute locality
         #   Locality or City.
@@ -278,12 +284,14 @@ module ModernTreasury
         #     super
         #   end
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
 
       # Either individual or business.
+      #
+      # @see ModernTreasury::Models::InternalAccount#party_type
       module PartyType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         BUSINESS = :business
         INDIVIDUAL = :individual

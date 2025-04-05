@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class LedgerAccountCategoryRemoveNestedCategoryParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class LedgerAccountCategoryRemoveNestedCategoryParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       sig { returns(String) }
       attr_accessor :id
@@ -12,10 +12,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: T.any(
-            ModernTreasury::RequestOptions,
-            ModernTreasury::Util::AnyHash
-          )
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

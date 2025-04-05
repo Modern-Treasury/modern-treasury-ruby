@@ -3,10 +3,11 @@
 module ModernTreasury
   module Models
     module PaymentOrders
-      class ReversalListParams < ModernTreasury::BaseModel
+      # @see ModernTreasury::Resources::PaymentOrders::Reversals#list
+      class ReversalListParams < ModernTreasury::Internal::Type::BaseModel
         # @!parse
-        #   extend ModernTreasury::RequestParameters::Converter
-        include ModernTreasury::RequestParameters
+        #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        include ModernTreasury::Internal::Type::RequestParameters
 
         # @!attribute after_cursor
         #
@@ -29,7 +30,7 @@ module ModernTreasury
         #   #
         #   def initialize(after_cursor: nil, per_page: nil, request_options: {}, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
     end
   end

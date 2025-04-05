@@ -3,9 +3,9 @@
 module ModernTreasury
   module Models
     module Transactions
-      class LineItemListParams < ModernTreasury::BaseModel
-        extend ModernTreasury::RequestParameters::Converter
-        include ModernTreasury::RequestParameters
+      class LineItemListParams < ModernTreasury::Internal::Type::BaseModel
+        extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        include ModernTreasury::Internal::Type::RequestParameters
 
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
         attr_reader :id
@@ -38,11 +38,18 @@ module ModernTreasury
             per_page: Integer,
             transaction_id: String,
             type: T.nilable(ModernTreasury::Models::Transactions::LineItemListParams::Type::OrSymbol),
-            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
           )
             .returns(T.attached_class)
         end
-        def self.new(id: nil, after_cursor: nil, per_page: nil, transaction_id: nil, type: nil, request_options: {})
+        def self.new(
+          id: nil,
+          after_cursor: nil,
+          per_page: nil,
+          transaction_id: nil,
+          type: nil,
+          request_options: {}
+        )
         end
 
         sig do
@@ -62,12 +69,12 @@ module ModernTreasury
         end
 
         module Type
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type::TaggedSymbol) }
+            T.type_alias { T.any(Symbol, String, ModernTreasury::Models::Transactions::LineItemListParams::Type::TaggedSymbol) }
 
           ORIGINATING =
             T.let(:originating, ModernTreasury::Models::Transactions::LineItemListParams::Type::TaggedSymbol)

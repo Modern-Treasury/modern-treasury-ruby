@@ -3,7 +3,8 @@
 module ModernTreasury
   module Models
     module Invoices
-      class InvoiceLineItem < ModernTreasury::BaseModel
+      # @see ModernTreasury::Resources::Invoices::LineItems#create
+      class InvoiceLineItem < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
         #
         #   @return [String]
@@ -40,14 +41,14 @@ module ModernTreasury
         #     if it exists in the test environment.
         #
         #   @return [Boolean]
-        required :live_mode, ModernTreasury::BooleanModel
+        required :live_mode, ModernTreasury::Internal::Type::Boolean
 
         # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be
         #     strings.
         #
         #   @return [Hash{Symbol=>String}]
-        required :metadata, ModernTreasury::HashOf[String]
+        required :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
         # @!attribute name
         #   The name of the line item, typically a product or SKU name.
@@ -121,7 +122,7 @@ module ModernTreasury
         #     super
         #   end
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
     end
 

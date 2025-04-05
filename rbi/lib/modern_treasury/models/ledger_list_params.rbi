@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class LedgerListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class LedgerListParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # If you have specific IDs to retrieve in bulk, you can pass them as query
       #   parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
@@ -48,11 +48,18 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
           updated_at: T::Hash[Symbol, Time],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
-      def self.new(id: nil, after_cursor: nil, metadata: nil, per_page: nil, updated_at: nil, request_options: {})
+      def self.new(
+        id: nil,
+        after_cursor: nil,
+        metadata: nil,
+        per_page: nil,
+        updated_at: nil,
+        request_options: {}
+      )
       end
 
       sig do

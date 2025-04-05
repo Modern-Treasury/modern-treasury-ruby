@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     module TransactionDirection
-      extend ModernTreasury::Enum
+      extend ModernTreasury::Internal::Type::Enum
 
       CREDIT = :credit
       DEBIT = :debit

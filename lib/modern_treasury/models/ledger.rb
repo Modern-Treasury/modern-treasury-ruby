@@ -2,7 +2,8 @@
 
 module ModernTreasury
   module Models
-    class Ledger < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::Ledgers#create
+    class Ledger < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -29,14 +30,14 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @return [Hash{Symbol=>String}]
-      required :metadata, ModernTreasury::HashOf[String]
+      required :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!attribute name
       #   The name of the ledger.
@@ -67,7 +68,7 @@ module ModernTreasury
       #   #
       #   def initialize(id:, created_at:, description:, discarded_at:, live_mode:, metadata:, name:, object:, updated_at:, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
     end
   end
 end

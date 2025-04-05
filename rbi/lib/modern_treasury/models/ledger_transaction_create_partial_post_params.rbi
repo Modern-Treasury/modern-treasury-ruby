@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class LedgerTransactionCreatePartialPostParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class LedgerTransactionCreatePartialPostParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # An array of ledger entry objects to be set on the posted ledger transaction.
       #   There must be one entry for each of the existing entries with a lesser amount
@@ -41,17 +41,23 @@ module ModernTreasury
           posted_ledger_entries: T::Array[
           T.any(
             ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry,
-            ModernTreasury::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           )
           ],
           description: String,
           effective_at: Time,
           metadata: T::Hash[Symbol, String],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
-      def self.new(posted_ledger_entries:, description: nil, effective_at: nil, metadata: nil, request_options: {})
+      def self.new(
+        posted_ledger_entries:,
+        description: nil,
+        effective_at: nil,
+        metadata: nil,
+        request_options: {}
+      )
       end
 
       sig do
@@ -69,7 +75,7 @@ module ModernTreasury
       def to_hash
       end
 
-      class PostedLedgerEntry < ModernTreasury::BaseModel
+      class PostedLedgerEntry < ModernTreasury::Internal::Type::BaseModel
         # Value in specified currency's smallest unit. e.g. $10 would be represented
         #   as 1000. Can be any integer up to 36 digits.
         sig { returns(Integer) }
@@ -129,7 +135,7 @@ module ModernTreasury
         #   `debit` pulls money from someone else's account to your own. Note that wire,
         #   rtp, and check payments will always be `credit`.
         module Direction
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias do
@@ -139,6 +145,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::TaggedSymbol
               )
             end

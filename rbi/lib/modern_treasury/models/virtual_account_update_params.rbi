@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class VirtualAccountUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class VirtualAccountUpdateParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       sig { returns(T.nilable(String)) }
       attr_reader :counterparty_id
@@ -34,11 +34,17 @@ module ModernTreasury
           ledger_account_id: String,
           metadata: T::Hash[Symbol, String],
           name: T.nilable(String),
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
-      def self.new(counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, request_options: {})
+      def self.new(
+        counterparty_id: nil,
+        ledger_account_id: nil,
+        metadata: nil,
+        name: nil,
+        request_options: {}
+      )
       end
 
       sig do

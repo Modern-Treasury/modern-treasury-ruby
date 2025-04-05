@@ -3,10 +3,11 @@
 module ModernTreasury
   module Models
     module Invoices
-      class LineItemCreateParams < ModernTreasury::BaseModel
+      # @see ModernTreasury::Resources::Invoices::LineItems#create
+      class LineItemCreateParams < ModernTreasury::Internal::Type::BaseModel
         # @!parse
-        #   extend ModernTreasury::RequestParameters::Converter
-        include ModernTreasury::RequestParameters
+        #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        include ModernTreasury::Internal::Type::RequestParameters
 
         # @!attribute name
         #   The name of the line item, typically a product or SKU name.
@@ -48,7 +49,7 @@ module ModernTreasury
         #     strings.
         #
         #   @return [Hash{Symbol=>String}, nil]
-        optional :metadata, ModernTreasury::HashOf[String]
+        optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
         # @!parse
         #   # @return [Hash{Symbol=>String}]
@@ -101,7 +102,7 @@ module ModernTreasury
         #     super
         #   end
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
     end
   end

@@ -10,12 +10,17 @@ module ModernTreasury
           relationship_types: T::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::RelationshipType::OrSymbol],
           child_legal_entity: T.any(
             ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity,
-            ModernTreasury::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           ),
           child_legal_entity_id: String,
           ownership_percentage: T.nilable(Integer),
           title: T.nilable(String),
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::LegalEntityAssociation)
       end
@@ -36,6 +41,7 @@ module ModernTreasury
       )
       end
 
+      # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
       def self.new(client:)
       end

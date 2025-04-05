@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class LedgerAccountStatementCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class LedgerAccountStatementCreateParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # The inclusive lower bound of the effective_at timestamp of the ledger entries to
       #   be included in the ledger account statement.
@@ -40,7 +40,7 @@ module ModernTreasury
           ledger_account_id: String,
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

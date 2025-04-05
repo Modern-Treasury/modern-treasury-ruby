@@ -6,7 +6,7 @@ module ModernTreasury
     #   `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
     #   `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
     module PaymentOrderType
-      extend ModernTreasury::Enum
+      extend ModernTreasury::Internal::Type::Enum
 
       ACH = :ach
       AU_BECS = :au_becs

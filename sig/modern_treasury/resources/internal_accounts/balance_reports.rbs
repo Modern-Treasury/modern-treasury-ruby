@@ -24,7 +24,7 @@ module ModernTreasury
           ?balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportListParams::balance_report_type,
           ?per_page: Integer,
           ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Page[ModernTreasury::Models::InternalAccounts::BalanceReport]
+        ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::InternalAccounts::BalanceReport]
 
         def delete: (
           String id,

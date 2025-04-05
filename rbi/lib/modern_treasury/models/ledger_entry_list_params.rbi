@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class LedgerEntryListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class LedgerEntryListParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # If you have specific IDs to retrieve in bulk, you can pass them as query
       #   parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
@@ -116,7 +116,7 @@ module ModernTreasury
 
       sig do
         params(
-          order_by: T.any(ModernTreasury::Models::LedgerEntryListParams::OrderBy, ModernTreasury::Util::AnyHash)
+          order_by: T.any(ModernTreasury::Models::LedgerEntryListParams::OrderBy, ModernTreasury::Internal::AnyHash)
         )
           .void
       end
@@ -178,13 +178,13 @@ module ModernTreasury
           ledger_account_statement_id: String,
           ledger_transaction_id: String,
           metadata: T::Hash[Symbol, String],
-          order_by: T.any(ModernTreasury::Models::LedgerEntryListParams::OrderBy, ModernTreasury::Util::AnyHash),
+          order_by: T.any(ModernTreasury::Models::LedgerEntryListParams::OrderBy, ModernTreasury::Internal::AnyHash),
           per_page: Integer,
           show_balances: T::Boolean,
           show_deleted: T::Boolean,
           status: ModernTreasury::Models::LedgerEntryListParams::Status::OrSymbol,
           updated_at: T::Hash[Symbol, Time],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -244,7 +244,7 @@ module ModernTreasury
       def to_hash
       end
 
-      class OrderBy < ModernTreasury::BaseModel
+      class OrderBy < ModernTreasury::Internal::Type::BaseModel
         sig { returns(T.nilable(ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::OrSymbol)) }
         attr_reader :created_at
 
@@ -283,12 +283,12 @@ module ModernTreasury
         end
 
         module CreatedAt
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::TaggedSymbol) }
+            T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::TaggedSymbol) }
 
           ASC = T.let(:asc, ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::TaggedSymbol)
           DESC = T.let(:desc, ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::TaggedSymbol)
@@ -301,12 +301,12 @@ module ModernTreasury
         end
 
         module EffectiveAt
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt::TaggedSymbol) }
+            T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt::TaggedSymbol) }
 
           ASC = T.let(:asc, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt::TaggedSymbol)
           DESC = T.let(:desc, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt::TaggedSymbol)
@@ -323,11 +323,11 @@ module ModernTreasury
       # Get all ledger entries that match the status specified. One of `pending`,
       #   `posted`, or `archived`.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerEntryListParams::Status) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerEntryListParams::Status::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LedgerEntryListParams::Status::TaggedSymbol) }
 
         PENDING = T.let(:pending, ModernTreasury::Models::LedgerEntryListParams::Status::TaggedSymbol)
         POSTED = T.let(:posted, ModernTreasury::Models::LedgerEntryListParams::Status::TaggedSymbol)

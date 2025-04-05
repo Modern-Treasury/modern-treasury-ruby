@@ -7,37 +7,44 @@ module ModernTreasury
       sig do
         params(
           legal_entity_type: ModernTreasury::Models::LegalEntityCreateParams::LegalEntityType::OrSymbol,
-          addresses: T::Array[T.any(ModernTreasury::Models::LegalEntityCreateParams::Address, ModernTreasury::Util::AnyHash)],
-          bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Util::AnyHash)),
+          addresses: T::Array[T.any(ModernTreasury::Models::LegalEntityCreateParams::Address, ModernTreasury::Internal::AnyHash)],
+          bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Internal::AnyHash)),
           business_name: T.nilable(String),
           citizenship_country: T.nilable(String),
+          compliance_details: T.nilable(T.any(ModernTreasury::Models::LegalEntityComplianceDetail, ModernTreasury::Internal::AnyHash)),
           date_formed: T.nilable(Date),
           date_of_birth: T.nilable(Date),
           doing_business_as_names: T::Array[String],
           email: T.nilable(String),
           first_name: T.nilable(String),
-          identifications: T::Array[T.any(ModernTreasury::Models::LegalEntityCreateParams::Identification, ModernTreasury::Util::AnyHash)],
+          identifications: T::Array[T.any(ModernTreasury::Models::LegalEntityCreateParams::Identification, ModernTreasury::Internal::AnyHash)],
+          industry_classifications: T::Array[T.any(ModernTreasury::Models::LegalEntityIndustryClassification, ModernTreasury::Internal::AnyHash)],
           last_name: T.nilable(String),
           legal_entity_associations: T.nilable(
             T::Array[
             T.any(
               ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
             ]
           ),
           legal_structure: T.nilable(ModernTreasury::Models::LegalEntityCreateParams::LegalStructure::OrSymbol),
           metadata: T::Hash[Symbol, String],
           middle_name: T.nilable(String),
-          phone_numbers: T::Array[T.any(ModernTreasury::Models::LegalEntityCreateParams::PhoneNumber, ModernTreasury::Util::AnyHash)],
+          phone_numbers: T::Array[T.any(ModernTreasury::Models::LegalEntityCreateParams::PhoneNumber, ModernTreasury::Internal::AnyHash)],
           politically_exposed_person: T.nilable(T::Boolean),
           preferred_name: T.nilable(String),
           prefix: T.nilable(String),
           risk_rating: T.nilable(ModernTreasury::Models::LegalEntityCreateParams::RiskRating::OrSymbol),
           suffix: T.nilable(String),
-          wealth_and_employment_details: T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Util::AnyHash)),
+          wealth_and_employment_details: T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Internal::AnyHash)),
           website: T.nilable(String),
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::LegalEntity)
       end
@@ -51,6 +58,7 @@ module ModernTreasury
         business_name: nil,
         # The country of citizenship for an individual.
         citizenship_country: nil,
+        compliance_details: nil,
         # A business's formation date (YYYY-MM-DD).
         date_formed: nil,
         # An individual's date of birth (YYYY-MM-DD).
@@ -62,6 +70,8 @@ module ModernTreasury
         first_name: nil,
         # A list of identifications for the legal entity.
         identifications: nil,
+        # A list of industry classifications for the legal entity.
+        industry_classifications: nil,
         # An individual's last name.
         last_name: nil,
         # The legal entity associations and its child legal entities.
@@ -95,7 +105,12 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::LegalEntity)
       end
@@ -110,29 +125,36 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          addresses: T::Array[T.any(ModernTreasury::Models::LegalEntityUpdateParams::Address, ModernTreasury::Util::AnyHash)],
-          bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Util::AnyHash)),
+          addresses: T::Array[T.any(ModernTreasury::Models::LegalEntityUpdateParams::Address, ModernTreasury::Internal::AnyHash)],
+          bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Internal::AnyHash)),
           business_name: T.nilable(String),
           citizenship_country: T.nilable(String),
+          compliance_details: T.nilable(T.any(ModernTreasury::Models::LegalEntityComplianceDetail, ModernTreasury::Internal::AnyHash)),
           date_formed: T.nilable(Date),
           date_of_birth: T.nilable(Date),
           doing_business_as_names: T::Array[String],
           email: T.nilable(String),
           first_name: T.nilable(String),
-          identifications: T::Array[T.any(ModernTreasury::Models::LegalEntityUpdateParams::Identification, ModernTreasury::Util::AnyHash)],
+          identifications: T::Array[T.any(ModernTreasury::Models::LegalEntityUpdateParams::Identification, ModernTreasury::Internal::AnyHash)],
+          industry_classifications: T::Array[T.any(ModernTreasury::Models::LegalEntityIndustryClassification, ModernTreasury::Internal::AnyHash)],
           last_name: T.nilable(String),
           legal_structure: T.nilable(ModernTreasury::Models::LegalEntityUpdateParams::LegalStructure::OrSymbol),
           metadata: T::Hash[Symbol, String],
           middle_name: T.nilable(String),
-          phone_numbers: T::Array[T.any(ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber, ModernTreasury::Util::AnyHash)],
+          phone_numbers: T::Array[T.any(ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber, ModernTreasury::Internal::AnyHash)],
           politically_exposed_person: T.nilable(T::Boolean),
           preferred_name: T.nilable(String),
           prefix: T.nilable(String),
           risk_rating: T.nilable(ModernTreasury::Models::LegalEntityUpdateParams::RiskRating::OrSymbol),
           suffix: T.nilable(String),
-          wealth_and_employment_details: T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Util::AnyHash)),
+          wealth_and_employment_details: T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Internal::AnyHash)),
           website: T.nilable(String),
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::LegalEntity)
       end
@@ -146,6 +168,7 @@ module ModernTreasury
         business_name: nil,
         # The country of citizenship for an individual.
         citizenship_country: nil,
+        compliance_details: nil,
         # A business's formation date (YYYY-MM-DD).
         date_formed: nil,
         # An individual's date of birth (YYYY-MM-DD).
@@ -157,6 +180,8 @@ module ModernTreasury
         first_name: nil,
         # A list of identifications for the legal entity.
         identifications: nil,
+        # A list of industry classifications for the legal entity.
+        industry_classifications: nil,
         # An individual's last name.
         last_name: nil,
         # The business's legal structure.
@@ -192,9 +217,14 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
           show_deleted: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::AnyHash
+            )
+          )
         )
-          .returns(ModernTreasury::Page[ModernTreasury::Models::LegalEntity])
+          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::LegalEntity])
       end
       def list(
         after_cursor: nil,
@@ -209,6 +239,7 @@ module ModernTreasury
       )
       end
 
+      # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
       def self.new(client:)
       end

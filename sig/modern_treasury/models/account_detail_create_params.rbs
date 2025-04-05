@@ -6,11 +6,11 @@ module ModernTreasury
         account_number: String,
         account_number_type: ModernTreasury::Models::AccountDetailCreateParams::account_number_type
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
-    class AccountDetailCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class AccountDetailCreateParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor accounts_type: ModernTreasury::Models::AccountDetailCreateParams::accounts_type
 
@@ -34,7 +34,7 @@ module ModernTreasury
       type accounts_type = :external_accounts
 
       module AccountsType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         EXTERNAL_ACCOUNTS: :external_accounts
 
@@ -54,7 +54,7 @@ module ModernTreasury
         | :wallet_address
 
       module AccountNumberType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         AU_NUMBER: :au_number
         CLABE: :clabe

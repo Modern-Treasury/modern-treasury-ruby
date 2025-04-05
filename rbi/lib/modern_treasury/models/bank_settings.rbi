@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class BankSettings < ModernTreasury::BaseModel
+    class BankSettings < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 

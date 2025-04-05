@@ -1,21 +1,7 @@
 # frozen_string_literal: true
 
-# We already ship the preferred sorbet manifests in the package itself.
-# `tapioca` currently does not offer us a way to opt out of unnecessary compilation.
-if Object.const_defined?(:Tapioca) && caller.chain([$0]).chain(ARGV).grep(/tapioca/)
-  Warning.warn(
-    <<~WARN
-      \n
-      ⚠️ skipped loading of "modern_treasury" gem under `tapioca`.
-
-      This message is normal and expected if you are running a `tapioca` command, and does not impact `.rbi` generation.
-      \n
-    WARN
-  )
-  return
-end
-
 # Standard libraries.
+require "English"
 require "cgi"
 require "date"
 require "erb"
@@ -30,21 +16,44 @@ require "stringio"
 require "time"
 require "uri"
 
+# We already ship the preferred sorbet manifests in the package itself.
+# `tapioca` currently does not offer us a way to opt out of unnecessary compilation.
+if Object.const_defined?(:Tapioca) && caller.chain([$PROGRAM_NAME]).chain(ARGV).grep(/tapioca/)
+  Warning.warn(
+    <<~WARN
+      \n
+      ⚠️ skipped loading of "modern_treasury" gem under `tapioca`.
+
+      This message is normal and expected if you are running a `tapioca` command, and does not impact `.rbi` generation.
+      \n
+    WARN
+  )
+  return
+end
+
 # Gems.
 require "connection_pool"
 
 # Package files.
 require_relative "modern_treasury/version"
-require_relative "modern_treasury/util"
-require_relative "modern_treasury/extern"
-require_relative "modern_treasury/base_model"
-require_relative "modern_treasury/base_page"
+require_relative "modern_treasury/internal/util"
+require_relative "modern_treasury/internal/type/converter"
+require_relative "modern_treasury/internal/type/unknown"
+require_relative "modern_treasury/internal/type/boolean"
+require_relative "modern_treasury/internal/type/enum"
+require_relative "modern_treasury/internal/type/union"
+require_relative "modern_treasury/internal/type/array_of"
+require_relative "modern_treasury/internal/type/hash_of"
+require_relative "modern_treasury/internal/type/base_model"
+require_relative "modern_treasury/internal/type/base_page"
+require_relative "modern_treasury/internal/type/request_parameters"
+require_relative "modern_treasury/internal"
 require_relative "modern_treasury/request_options"
 require_relative "modern_treasury/errors"
-require_relative "modern_treasury/base_client"
-require_relative "modern_treasury/pooled_net_requester"
+require_relative "modern_treasury/internal/transport/base_client"
+require_relative "modern_treasury/internal/transport/pooled_net_requester"
 require_relative "modern_treasury/client"
-require_relative "modern_treasury/page"
+require_relative "modern_treasury/internal/page"
 require_relative "modern_treasury/models/account_collection_flow"
 require_relative "modern_treasury/models/account_collection_flow_create_params"
 require_relative "modern_treasury/models/account_collection_flow_list_params"
@@ -201,7 +210,9 @@ require_relative "modern_treasury/models/ledger_update_params"
 require_relative "modern_treasury/models/legal_entity"
 require_relative "modern_treasury/models/legal_entity_association"
 require_relative "modern_treasury/models/legal_entity_association_create_params"
+require_relative "modern_treasury/models/legal_entity_compliance_detail"
 require_relative "modern_treasury/models/legal_entity_create_params"
+require_relative "modern_treasury/models/legal_entity_industry_classification"
 require_relative "modern_treasury/models/legal_entity_list_params"
 require_relative "modern_treasury/models/legal_entity_retrieve_params"
 require_relative "modern_treasury/models/legal_entity_update_params"

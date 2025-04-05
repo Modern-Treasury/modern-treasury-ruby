@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class LedgerAccountRetrieveParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class LedgerAccountRetrieveParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # Use `balances[effective_at_lower_bound]` and
       #   `balances[effective_at_upper_bound]` to get the balances change between the two
@@ -17,7 +17,7 @@ module ModernTreasury
 
       sig do
         params(
-          balances: T.any(ModernTreasury::Models::LedgerAccountRetrieveParams::Balances, ModernTreasury::Util::AnyHash)
+          balances: T.any(ModernTreasury::Models::LedgerAccountRetrieveParams::Balances, ModernTreasury::Internal::AnyHash)
         )
           .void
       end
@@ -25,8 +25,8 @@ module ModernTreasury
 
       sig do
         params(
-          balances: T.any(ModernTreasury::Models::LedgerAccountRetrieveParams::Balances, ModernTreasury::Util::AnyHash),
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          balances: T.any(ModernTreasury::Models::LedgerAccountRetrieveParams::Balances, ModernTreasury::Internal::AnyHash),
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -45,7 +45,7 @@ module ModernTreasury
       def to_hash
       end
 
-      class Balances < ModernTreasury::BaseModel
+      class Balances < ModernTreasury::Internal::Type::BaseModel
         sig { returns(T.nilable(Date)) }
         attr_reader :as_of_date
 

@@ -12,11 +12,11 @@ module ModernTreasury
         type: ModernTreasury::Models::IncomingPaymentDetailListParams::type_,
         virtual_account_id: String
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
-    class IncomingPaymentDetailListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class IncomingPaymentDetailListParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor after_cursor: String?
 
@@ -76,7 +76,7 @@ module ModernTreasury
       type status = :completed | :pending | :returned
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         COMPLETED: :completed
         PENDING: :pending
@@ -86,16 +86,32 @@ module ModernTreasury
       end
 
       type type_ =
-        :ach | :book | :check | :eft | :interac | :rtp | :sepa | :signet | :wire
+        :ach
+        | :au_becs
+        | :bacs
+        | :book
+        | :check
+        | :eft
+        | :interac
+        | :neft
+        | :nz_becs
+        | :rtp
+        | :sepa
+        | :signet
+        | :wire
 
       module Type
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH: :ach
+        AU_BECS: :au_becs
+        BACS: :bacs
         BOOK: :book
         CHECK: :check
         EFT: :eft
         INTERAC: :interac
+        NEFT: :neft
+        NZ_BECS: :nz_becs
         RTP: :rtp
         SEPA: :sepa
         SIGNET: :signet

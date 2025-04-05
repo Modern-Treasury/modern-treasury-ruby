@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class RoutingDetailCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class RoutingDetailCreateParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       sig { returns(ModernTreasury::Models::RoutingDetailCreateParams::AccountsType::OrSymbol) }
       attr_accessor :accounts_type
@@ -30,11 +30,17 @@ module ModernTreasury
           routing_number: String,
           routing_number_type: ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType::OrSymbol,
           payment_type: T.nilable(ModernTreasury::Models::RoutingDetailCreateParams::PaymentType::OrSymbol),
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
-      def self.new(accounts_type:, routing_number:, routing_number_type:, payment_type: nil, request_options: {})
+      def self.new(
+        accounts_type:,
+        routing_number:,
+        routing_number_type:,
+        payment_type: nil,
+        request_options: {}
+      )
       end
 
       sig do
@@ -53,12 +59,12 @@ module ModernTreasury
       end
 
       module AccountsType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::RoutingDetailCreateParams::AccountsType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::RoutingDetailCreateParams::AccountsType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::RoutingDetailCreateParams::AccountsType::TaggedSymbol) }
 
         EXTERNAL_ACCOUNTS =
           T.let(:external_accounts, ModernTreasury::Models::RoutingDetailCreateParams::AccountsType::TaggedSymbol)
@@ -72,12 +78,12 @@ module ModernTreasury
       #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
       #   more details.
       module RoutingNumberType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType::TaggedSymbol) }
 
         ABA = T.let(:aba, ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType::TaggedSymbol)
         AU_BSB =
@@ -156,12 +162,12 @@ module ModernTreasury
       # If the routing detail is to be used for a specific payment type this field will
       #   be populated, otherwise null.
       module PaymentType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::RoutingDetailCreateParams::PaymentType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::RoutingDetailCreateParams::PaymentType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::RoutingDetailCreateParams::PaymentType::TaggedSymbol) }
 
         ACH = T.let(:ach, ModernTreasury::Models::RoutingDetailCreateParams::PaymentType::TaggedSymbol)
         AU_BECS = T.let(:au_becs, ModernTreasury::Models::RoutingDetailCreateParams::PaymentType::TaggedSymbol)

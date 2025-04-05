@@ -32,7 +32,7 @@ module ModernTreasury
         ?receiving_account_id: String,
         ?status: String,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Page[ModernTreasury::Models::PaymentFlow]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::PaymentFlow]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

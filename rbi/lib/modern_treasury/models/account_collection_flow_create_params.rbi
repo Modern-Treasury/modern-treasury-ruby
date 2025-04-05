@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class AccountCollectionFlowCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class AccountCollectionFlowCreateParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # Required.
       sig { returns(String) }
@@ -33,7 +33,7 @@ module ModernTreasury
           counterparty_id: String,
           payment_types: T::Array[String],
           receiving_countries: T::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -56,12 +56,18 @@ module ModernTreasury
 
       # Optional. Array of 3-digit ISO country codes.
       module ReceivingCountry
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol) }
+          T.type_alias do
+            T.any(
+              Symbol,
+              String,
+              ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol
+            )
+          end
 
         USA =
           T.let(:USA, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol)

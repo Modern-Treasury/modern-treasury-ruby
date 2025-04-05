@@ -2,10 +2,11 @@
 
 module ModernTreasury
   module Models
-    class ExternalAccountCreateParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::ExternalAccounts#create
+    class ExternalAccountCreateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute counterparty_id
       #
@@ -16,7 +17,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail>, nil]
       optional :account_details,
-               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail] }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail] }
 
       # @!parse
       #   # @return [Array<ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail>]
@@ -36,7 +37,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail>, nil]
       optional :contact_details,
-               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail] }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail] }
 
       # @!parse
       #   # @return [Array<ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail>]
@@ -61,7 +62,7 @@ module ModernTreasury
       #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -126,7 +127,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail>, nil]
       optional :routing_details,
-               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail] }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail] }
 
       # @!parse
       #   # @return [Array<ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail>]
@@ -168,9 +169,9 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-      class AccountDetail < ModernTreasury::BaseModel
+      class AccountDetail < ModernTreasury::Internal::Type::BaseModel
         # @!attribute account_number
         #
         #   @return [String]
@@ -192,10 +193,11 @@ module ModernTreasury
         #   #
         #   def initialize(account_number:, account_number_type: nil, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
+        # @see ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail#account_number_type
         module AccountNumberType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           AU_NUMBER = :au_number
           CLABE = :clabe
@@ -216,7 +218,7 @@ module ModernTreasury
         end
       end
 
-      class ContactDetail < ModernTreasury::BaseModel
+      class ContactDetail < ModernTreasury::Internal::Type::BaseModel
         # @!attribute [r] contact_identifier
         #
         #   @return [String, nil]
@@ -242,10 +244,11 @@ module ModernTreasury
         #   #
         #   def initialize(contact_identifier: nil, contact_identifier_type: nil, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
+        # @see ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail#contact_identifier_type
         module ContactIdentifierType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           EMAIL = :email
           PHONE_NUMBER = :phone_number
@@ -259,7 +262,7 @@ module ModernTreasury
         end
       end
 
-      class LedgerAccount < ModernTreasury::BaseModel
+      class LedgerAccount < ModernTreasury::Internal::Type::BaseModel
         # @!attribute currency
         #   The currency of the ledger account.
         #
@@ -301,7 +304,7 @@ module ModernTreasury
         #     child of.
         #
         #   @return [Array<String>, nil]
-        optional :ledger_account_category_ids, ModernTreasury::ArrayOf[String]
+        optional :ledger_account_category_ids, ModernTreasury::Internal::Type::ArrayOf[String]
 
         # @!parse
         #   # @return [Array<String>]
@@ -336,7 +339,7 @@ module ModernTreasury
         #     strings.
         #
         #   @return [Hash{Symbol=>String}, nil]
-        optional :metadata, ModernTreasury::HashOf[String]
+        optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
         # @!parse
         #   # @return [Hash{Symbol=>String}]
@@ -376,13 +379,15 @@ module ModernTreasury
         #     super
         #   end
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
         # If the ledger account links to another object in Modern Treasury, the type will
         #   be populated here, otherwise null. The value is one of internal_account or
         #   external_account.
+        #
+        # @see ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount#ledgerable_type
         module LedgerableType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           COUNTERPARTY = :counterparty
           EXTERNAL_ACCOUNT = :external_account
@@ -397,7 +402,7 @@ module ModernTreasury
         end
       end
 
-      class PartyAddress < ModernTreasury::BaseModel
+      class PartyAddress < ModernTreasury::Internal::Type::BaseModel
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]
         #
@@ -444,12 +449,12 @@ module ModernTreasury
         #   #
         #   def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
 
       # Either `individual` or `business`.
       module PartyType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         BUSINESS = :business
         INDIVIDUAL = :individual
@@ -461,7 +466,7 @@ module ModernTreasury
         #   def self.values; end
       end
 
-      class RoutingDetail < ModernTreasury::BaseModel
+      class RoutingDetail < ModernTreasury::Internal::Type::BaseModel
         # @!attribute routing_number
         #
         #   @return [String]
@@ -490,10 +495,11 @@ module ModernTreasury
         #   #
         #   def initialize(routing_number:, routing_number_type:, payment_type: nil, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
+        # @see ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail#routing_number_type
         module RoutingNumberType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           ABA = :aba
           AU_BSB = :au_bsb
@@ -524,8 +530,9 @@ module ModernTreasury
           #   def self.values; end
         end
 
+        # @see ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail#payment_type
         module PaymentType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           ACH = :ach
           AU_BECS = :au_becs

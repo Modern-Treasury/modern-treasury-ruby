@@ -20,8 +20,8 @@ class ModernTreasury::Test::Resources::ValidationsTest < ModernTreasury::Test::R
         bank_name: String | nil,
         routing_number: String | nil,
         routing_number_type: ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType | nil,
-        sanctions: ^(ModernTreasury::HashOf[ModernTreasury::Unknown]) | nil,
-        supported_payment_types: ^(ModernTreasury::ArrayOf[enum: ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType]) | nil
+        sanctions: ^(ModernTreasury::Internal::Type::HashOf[ModernTreasury::Internal::Type::Unknown]) | nil,
+        supported_payment_types: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType]) | nil
       }
     end
   end

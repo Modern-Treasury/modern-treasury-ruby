@@ -35,7 +35,7 @@ module ModernTreasury
         ?status: ModernTreasury::Models::LedgerEntryListParams::status,
         ?updated_at: ::Hash[Symbol, Time],
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Page[ModernTreasury::Models::LedgerEntry]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerEntry]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

@@ -2,7 +2,8 @@
 
 module ModernTreasury
   module Models
-    class RoutingDetail < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::RoutingDetails#create
+    class RoutingDetail < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -34,7 +35,7 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute object
       #
@@ -97,9 +98,10 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-      class BankAddress < ModernTreasury::BaseModel
+      # @see ModernTreasury::Models::RoutingDetail#bank_address
+      class BankAddress < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
         #
         #   @return [String]
@@ -131,7 +133,7 @@ module ModernTreasury
         #     if it exists in the test environment.
         #
         #   @return [Boolean]
-        required :live_mode, ModernTreasury::BooleanModel
+        required :live_mode, ModernTreasury::Internal::Type::Boolean
 
         # @!attribute locality
         #   Locality or City.
@@ -191,13 +193,15 @@ module ModernTreasury
         #     super
         #   end
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
 
       # If the routing detail is to be used for a specific payment type this field will
       #   be populated, otherwise null.
+      #
+      # @see ModernTreasury::Models::RoutingDetail#payment_type
       module PaymentType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH = :ach
         AU_BECS = :au_becs
@@ -240,8 +244,10 @@ module ModernTreasury
       # The type of routing number. See
       #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
       #   more details.
+      #
+      # @see ModernTreasury::Models::RoutingDetail#routing_number_type
       module RoutingNumberType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ABA = :aba
         AU_BSB = :au_bsb

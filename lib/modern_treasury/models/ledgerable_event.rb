@@ -3,7 +3,9 @@
 module ModernTreasury
   module Models
     # @deprecated
-    class LedgerableEvent < ModernTreasury::BaseModel
+    #
+    # @see ModernTreasury::Resources::LedgerableEvents#create
+    class LedgerableEvent < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -18,7 +20,7 @@ module ModernTreasury
       #   Additionally data to be used by the Ledger Event Handler.
       #
       #   @return [Object, nil]
-      required :custom_data, ModernTreasury::Unknown, nil?: true
+      required :custom_data, ModernTreasury::Internal::Type::Unknown, nil?: true
 
       # @!attribute description
       #   Description of the ledgerable event.
@@ -37,14 +39,14 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      required :metadata, ModernTreasury::HashOf[String], nil?: true
+      required :metadata, ModernTreasury::Internal::Type::HashOf[String], nil?: true
 
       # @!attribute name
       #   Name of the ledgerable event.
@@ -90,7 +92,7 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
     end
   end
 end

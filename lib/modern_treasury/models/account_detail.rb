@@ -2,7 +2,8 @@
 
 module ModernTreasury
   module Models
-    class AccountDetail < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::AccountDetails#create
+    class AccountDetail < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -36,7 +37,7 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute object
       #
@@ -84,12 +85,14 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
       #   account number is in a generic format.
+      #
+      # @see ModernTreasury::Models::AccountDetail#account_number_type
       module AccountNumberType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         AU_NUMBER = :au_number
         CLABE = :clabe

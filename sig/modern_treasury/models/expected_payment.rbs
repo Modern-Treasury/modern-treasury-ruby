@@ -30,7 +30,7 @@ module ModernTreasury
         updated_at: Time
       }
 
-    class ExpectedPayment < ModernTreasury::BaseModel
+    class ExpectedPayment < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor amount_lower_bound: Integer?
@@ -117,7 +117,7 @@ module ModernTreasury
       type direction = :credit | :debit
 
       module Direction
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CREDIT: :credit
         DEBIT: :debit
@@ -128,7 +128,7 @@ module ModernTreasury
       type reconciliation_method = :automatic | :manual
 
       module ReconciliationMethod
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         AUTOMATIC: :automatic
         MANUAL: :manual
@@ -140,7 +140,7 @@ module ModernTreasury
         :archived | :partially_reconciled | :reconciled | :unreconciled
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ARCHIVED: :archived
         PARTIALLY_RECONCILED: :partially_reconciled

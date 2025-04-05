@@ -15,7 +15,7 @@ module ModernTreasury
         updated_at: Time
       }
 
-    class AccountCollectionFlow < ModernTreasury::BaseModel
+    class AccountCollectionFlow < ModernTreasury::Internal::Type::BaseModel
       attr_accessor counterparty_id: String
 
       attr_accessor payment_types: ::Array[ModernTreasury::Models::AccountCollectionFlow::payment_type]
@@ -77,7 +77,7 @@ module ModernTreasury
       type payment_type = :ach | :wire
 
       module PaymentType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH: :ach
         WIRE: :wire
@@ -106,7 +106,7 @@ module ModernTreasury
         | :GBR
 
       module ReceivingCountry
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         USA: :USA
         AUS: :AUS
@@ -133,7 +133,7 @@ module ModernTreasury
       type status = :cancelled | :completed | :expired | :pending
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CANCELLED: :cancelled
         COMPLETED: :completed

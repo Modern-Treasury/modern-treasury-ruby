@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class InternalAccountListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class InternalAccountListParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor
@@ -69,7 +69,7 @@ module ModernTreasury
           payment_direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
           payment_type: ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol,
           per_page: Integer,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -107,12 +107,12 @@ module ModernTreasury
 
       # Only return internal accounts that can make this type of payment.
       module PaymentType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::InternalAccountListParams::PaymentType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol) }
 
         ACH = T.let(:ach, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
         AU_BECS = T.let(:au_becs, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)

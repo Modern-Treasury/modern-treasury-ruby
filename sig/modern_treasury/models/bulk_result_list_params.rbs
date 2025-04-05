@@ -10,11 +10,11 @@ module ModernTreasury
         request_type: ModernTreasury::Models::BulkResultListParams::request_type,
         status: ModernTreasury::Models::BulkResultListParams::status
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
-    class BulkResultListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class BulkResultListParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor after_cursor: String?
 
@@ -63,18 +63,22 @@ module ModernTreasury
 
       type entity_type =
         :payment_order
+        | :ledger_account
         | :ledger_transaction
-        | :transaction
         | :expected_payment
+        | :transaction
+        | :entity_link
         | :bulk_error
 
       module EntityType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         PAYMENT_ORDER: :payment_order
+        LEDGER_ACCOUNT: :ledger_account
         LEDGER_TRANSACTION: :ledger_transaction
-        TRANSACTION: :transaction
         EXPECTED_PAYMENT: :expected_payment
+        TRANSACTION: :transaction
+        ENTITY_LINK: :entity_link
         BULK_ERROR: :bulk_error
 
         def self?.values: -> ::Array[ModernTreasury::Models::BulkResultListParams::entity_type]
@@ -83,7 +87,7 @@ module ModernTreasury
       type request_type = :bulk_request
 
       module RequestType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         BULK_REQUEST: :bulk_request
 
@@ -93,7 +97,7 @@ module ModernTreasury
       type status = :pending | :successful | :failed
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         PENDING: :pending
         SUCCESSFUL: :successful

@@ -5,20 +5,17 @@ module ModernTreasury
     class LedgerAccountBalanceMonitors
       # Create a ledger account balance monitor.
       #
-      # @param params [ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams, Hash{Symbol=>Object}] .
+      # @overload create(alert_condition:, ledger_account_id:, description: nil, metadata: nil, request_options: {})
       #
-      #   @option params [ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition] :alert_condition Describes the condition that must be satisfied for the monitor to be triggered.
-      #
-      #   @option params [String] :ledger_account_id The ledger account associated with this balance monitor.
-      #
-      #   @option params [String] :description An optional, free-form description for internal use.
-      #
-      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param alert_condition [ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition]
+      # @param ledger_account_id [String]
+      # @param description [String]
+      # @param metadata [Hash{Symbol=>String}]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
+      #
+      # @see ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams
       def create(params)
         parsed, options = ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams.dump_request(params)
         @client.request(
@@ -32,17 +29,18 @@ module ModernTreasury
 
       # Get details on a single ledger account balance monitor.
       #
-      # @param id [String] id
+      # @overload retrieve(id, request_options: {})
       #
-      # @param params [ModernTreasury::Models::LedgerAccountBalanceMonitorRetrieveParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
+      #
+      # @see ModernTreasury::Models::LedgerAccountBalanceMonitorRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
-          path: ["api/ledger_account_balance_monitors/%0s", id],
+          path: ["api/ledger_account_balance_monitors/%1$s", id],
           model: ModernTreasury::Models::LedgerAccountBalanceMonitor,
           options: params[:request_options]
         )
@@ -50,23 +48,21 @@ module ModernTreasury
 
       # Update a ledger account balance monitor.
       #
-      # @param id [String] id
+      # @overload update(id, description: nil, metadata: nil, request_options: {})
       #
-      # @param params [ModernTreasury::Models::LedgerAccountBalanceMonitorUpdateParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [String] :description An optional, free-form description for internal use.
-      #
-      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param description [String]
+      # @param metadata [Hash{Symbol=>String}]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
+      #
+      # @see ModernTreasury::Models::LedgerAccountBalanceMonitorUpdateParams
       def update(id, params = {})
         parsed, options = ModernTreasury::Models::LedgerAccountBalanceMonitorUpdateParams.dump_request(params)
         @client.request(
           method: :patch,
-          path: ["api/ledger_account_balance_monitors/%0s", id],
+          path: ["api/ledger_account_balance_monitors/%1$s", id],
           body: parsed,
           model: ModernTreasury::Models::LedgerAccountBalanceMonitor,
           options: options
@@ -75,31 +71,25 @@ module ModernTreasury
 
       # Get a list of ledger account balance monitors.
       #
-      # @param params [ModernTreasury::Models::LedgerAccountBalanceMonitorListParams, Hash{Symbol=>Object}] .
+      # @overload list(id: nil, after_cursor: nil, ledger_account_id: nil, metadata: nil, per_page: nil, request_options: {})
       #
-      #   @option params [Array<String>] :id If you have specific IDs to retrieve in bulk, you can pass them as query
-      #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
+      # @param id [Array<String>]
+      # @param after_cursor [String, nil]
+      # @param ledger_account_id [String]
+      # @param metadata [Hash{Symbol=>String}]
+      # @param per_page [Integer]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      #   @option params [String, nil] :after_cursor
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::LedgerAccountBalanceMonitor>]
       #
-      #   @option params [String] :ledger_account_id Query the balance monitors for a single ledger account.
-      #
-      #   @option params [Hash{Symbol=>String}] :metadata For example, if you want to query for records with metadata key `Type` and value
-      #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #     parameters.
-      #
-      #   @option params [Integer] :per_page
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
-      #
-      # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerAccountBalanceMonitor>]
+      # @see ModernTreasury::Models::LedgerAccountBalanceMonitorListParams
       def list(params = {})
         parsed, options = ModernTreasury::Models::LedgerAccountBalanceMonitorListParams.dump_request(params)
         @client.request(
           method: :get,
           path: "api/ledger_account_balance_monitors",
           query: parsed,
-          page: ModernTreasury::Page,
+          page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Models::LedgerAccountBalanceMonitor,
           options: options
         )
@@ -107,22 +97,25 @@ module ModernTreasury
 
       # Delete a ledger account balance monitor.
       #
-      # @param id [String] id
+      # @overload delete(id, request_options: {})
       #
-      # @param params [ModernTreasury::Models::LedgerAccountBalanceMonitorDeleteParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
+      #
+      # @see ModernTreasury::Models::LedgerAccountBalanceMonitorDeleteParams
       def delete(id, params = {})
         @client.request(
           method: :delete,
-          path: ["api/ledger_account_balance_monitors/%0s", id],
+          path: ["api/ledger_account_balance_monitors/%1$s", id],
           model: ModernTreasury::Models::LedgerAccountBalanceMonitor,
           options: params[:request_options]
         )
       end
 
+      # @api private
+      #
       # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client

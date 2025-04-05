@@ -22,8 +22,8 @@ class ModernTreasury::Test::Resources::LedgerEntriesTest < ModernTreasury::Test:
         ledger_account_id: String,
         ledger_account_lock_version: Integer | nil,
         ledger_transaction_id: String,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         resulting_ledger_account_balances: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances | nil,
         status: ModernTreasury::Models::LedgerEntry::Status,
@@ -51,8 +51,8 @@ class ModernTreasury::Test::Resources::LedgerEntriesTest < ModernTreasury::Test:
         ledger_account_id: String,
         ledger_account_lock_version: Integer | nil,
         ledger_transaction_id: String,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         resulting_ledger_account_balances: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances | nil,
         status: ModernTreasury::Models::LedgerEntry::Status,
@@ -65,7 +65,7 @@ class ModernTreasury::Test::Resources::LedgerEntriesTest < ModernTreasury::Test:
     response = @modern_treasury.ledger_entries.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first
@@ -87,8 +87,8 @@ class ModernTreasury::Test::Resources::LedgerEntriesTest < ModernTreasury::Test:
         ledger_account_id: String,
         ledger_account_lock_version: Integer | nil,
         ledger_transaction_id: String,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         resulting_ledger_account_balances: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances | nil,
         status: ModernTreasury::Models::LedgerEntry::Status,

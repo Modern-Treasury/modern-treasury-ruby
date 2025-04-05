@@ -24,9 +24,9 @@ class ModernTreasury::Test::Resources::Transactions::LineItemsTest < ModernTreas
         description: String,
         discarded_at: Time | nil,
         expected_payment_id: String | nil,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
-        reconcilable: ModernTreasury::BooleanModel,
+        reconcilable: ModernTreasury::Internal::Type::Boolean,
         transactable_id: String | nil,
         transactable_type: ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType | nil,
         transaction_id: String,
@@ -52,9 +52,9 @@ class ModernTreasury::Test::Resources::Transactions::LineItemsTest < ModernTreas
         description: String,
         discarded_at: Time | nil,
         expected_payment_id: String | nil,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
-        reconcilable: ModernTreasury::BooleanModel,
+        reconcilable: ModernTreasury::Internal::Type::Boolean,
         transactable_id: String | nil,
         transactable_type: ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType | nil,
         transaction_id: String,
@@ -68,7 +68,7 @@ class ModernTreasury::Test::Resources::Transactions::LineItemsTest < ModernTreas
     response = @modern_treasury.transactions.line_items.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first
@@ -87,9 +87,9 @@ class ModernTreasury::Test::Resources::Transactions::LineItemsTest < ModernTreas
         description: String,
         discarded_at: Time | nil,
         expected_payment_id: String | nil,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
-        reconcilable: ModernTreasury::BooleanModel,
+        reconcilable: ModernTreasury::Internal::Type::Boolean,
         transactable_id: String | nil,
         transactable_type: ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType | nil,
         transaction_id: String,

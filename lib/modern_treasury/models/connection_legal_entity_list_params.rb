@@ -2,10 +2,11 @@
 
 module ModernTreasury
   module Models
-    class ConnectionLegalEntityListParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::ConnectionLegalEntities#list
+    class ConnectionLegalEntityListParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute after_cursor
       #
@@ -68,10 +69,10 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         COMPLETED = :completed
         DENIED = :denied

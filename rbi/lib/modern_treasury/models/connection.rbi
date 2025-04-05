@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class Connection < ModernTreasury::BaseModel
+    class Connection < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 

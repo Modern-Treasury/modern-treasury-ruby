@@ -2,10 +2,11 @@
 
 module ModernTreasury
   module Models
-    class RoutingDetailDeleteParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::RoutingDetails#delete
+    class RoutingDetailDeleteParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute accounts_type
       #
@@ -24,10 +25,10 @@ module ModernTreasury
       #   #
       #   def initialize(accounts_type:, account_id:, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       module AccountsType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         EXTERNAL_ACCOUNTS = :external_accounts
 

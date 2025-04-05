@@ -2,7 +2,8 @@
 
 module ModernTreasury
   module Models
-    class ConnectionLegalEntity < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::ConnectionLegalEntities#create
+    class ConnectionLegalEntity < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -35,7 +36,7 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute object
       #
@@ -87,11 +88,13 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # The status of the connection legal entity.
+      #
+      # @see ModernTreasury::Models::ConnectionLegalEntity#status
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         COMPLETED = :completed
         DENIED = :denied

@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class CounterpartyCollectAccountResponse < ModernTreasury::BaseModel
+    class CounterpartyCollectAccountResponse < ModernTreasury::Internal::Type::BaseModel
       # The id of the existing counterparty.
       sig { returns(String) }
       attr_accessor :id

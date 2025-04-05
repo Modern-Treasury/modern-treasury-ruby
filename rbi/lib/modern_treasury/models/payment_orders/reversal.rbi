@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     module PaymentOrders
-      class Reversal < ModernTreasury::BaseModel
+      class Reversal < ModernTreasury::Internal::Type::BaseModel
         sig { returns(String) }
         attr_accessor :id
 
@@ -99,11 +99,11 @@ module ModernTreasury
 
         # The reason for the reversal.
         module Reason
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Reason) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Reason::TaggedSymbol) }
+            T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentOrders::Reversal::Reason::TaggedSymbol) }
 
           DUPLICATE = T.let(:duplicate, ModernTreasury::Models::PaymentOrders::Reversal::Reason::TaggedSymbol)
           INCORRECT_AMOUNT =
@@ -122,11 +122,11 @@ module ModernTreasury
 
         # The current status of the reversal.
         module Status
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Status) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol) }
+            T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol) }
 
           COMPLETED = T.let(:completed, ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol)
           FAILED = T.let(:failed, ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol)

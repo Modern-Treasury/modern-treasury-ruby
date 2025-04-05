@@ -42,7 +42,7 @@ module ModernTreasury
         ?party_name: String,
         ?per_page: Integer,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Page[ModernTreasury::Models::ExternalAccount]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::ExternalAccount]
 
       def delete: (
         String id,

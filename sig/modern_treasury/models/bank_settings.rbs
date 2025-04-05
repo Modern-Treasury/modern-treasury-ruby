@@ -14,7 +14,7 @@ module ModernTreasury
         updated_at: Time
       }
 
-    class BankSettings < ModernTreasury::BaseModel
+    class BankSettings < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor backup_withholding_percentage: Integer?

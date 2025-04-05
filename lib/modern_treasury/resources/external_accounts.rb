@@ -5,44 +5,26 @@ module ModernTreasury
     class ExternalAccounts
       # create external account
       #
-      # @param params [ModernTreasury::Models::ExternalAccountCreateParams, Hash{Symbol=>Object}] .
+      # @overload create(counterparty_id:, account_details: nil, account_type: nil, contact_details: nil, ledger_account: nil, metadata: nil, name: nil, party_address: nil, party_identifier: nil, party_name: nil, party_type: nil, plaid_processor_token: nil, routing_details: nil, request_options: {})
       #
-      #   @option params [String, nil] :counterparty_id
-      #
-      #   @option params [Array<ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail>] :account_details
-      #
-      #   @option params [Symbol, ModernTreasury::Models::ExternalAccountType] :account_type Can be `checking`, `savings` or `other`.
-      #
-      #   @option params [Array<ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail>] :contact_details
-      #
-      #   @option params [ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount] :ledger_account Specifies a ledger account object that will be created with the external
-      #     account. The resulting ledger account is linked to the external account for
-      #     auto-ledgering Payment objects. See
-      #     https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
-      #     for more details.
-      #
-      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
-      #
-      #   @option params [String, nil] :name A nickname for the external account. This is only for internal usage and won't
-      #     affect any payments
-      #
-      #   @option params [ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress] :party_address Required if receiving wire payments.
-      #
-      #   @option params [String] :party_identifier
-      #
-      #   @option params [String] :party_name If this value isn't provided, it will be inherited from the counterparty's name.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::PartyType, nil] :party_type Either `individual` or `business`.
-      #
-      #   @option params [String] :plaid_processor_token If you've enabled the Modern Treasury + Plaid integration in your Plaid account,
-      #     you can pass the processor token in this field.
-      #
-      #   @option params [Array<ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail>] :routing_details
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param counterparty_id [String, nil]
+      # @param account_details [Array<ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail>]
+      # @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType]
+      # @param contact_details [Array<ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail>]
+      # @param ledger_account [ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount]
+      # @param metadata [Hash{Symbol=>String}]
+      # @param name [String, nil]
+      # @param party_address [ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress]
+      # @param party_identifier [String]
+      # @param party_name [String]
+      # @param party_type [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::PartyType, nil]
+      # @param plaid_processor_token [String]
+      # @param routing_details [Array<ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail>]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::ExternalAccount]
+      #
+      # @see ModernTreasury::Models::ExternalAccountCreateParams
       def create(params)
         parsed, options = ModernTreasury::Models::ExternalAccountCreateParams.dump_request(params)
         @client.request(
@@ -56,17 +38,18 @@ module ModernTreasury
 
       # show external account
       #
-      # @param id [String] external account id
+      # @overload retrieve(id, request_options: {})
       #
-      # @param params [ModernTreasury::Models::ExternalAccountRetrieveParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::ExternalAccount]
+      #
+      # @see ModernTreasury::Models::ExternalAccountRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
-          path: ["api/external_accounts/%0s", id],
+          path: ["api/external_accounts/%1$s", id],
           model: ModernTreasury::Models::ExternalAccount,
           options: params[:request_options]
         )
@@ -74,34 +57,26 @@ module ModernTreasury
 
       # update external account
       #
-      # @param id [String] external account id
+      # @overload update(id, account_type: nil, counterparty_id: nil, metadata: nil, name: nil, party_address: nil, party_name: nil, party_type: nil, request_options: {})
       #
-      # @param params [ModernTreasury::Models::ExternalAccountUpdateParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Symbol, ModernTreasury::Models::ExternalAccountType] :account_type Can be `checking`, `savings` or `other`.
-      #
-      #   @option params [String, nil] :counterparty_id
-      #
-      #   @option params [Hash{Symbol=>String}] :metadata Additional data in the form of key-value pairs. Pairs can be removed by passing
-      #     an empty string or `null` as the value.
-      #
-      #   @option params [String, nil] :name A nickname for the external account. This is only for internal usage and won't
-      #     affect any payments
-      #
-      #   @option params [ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress] :party_address
-      #
-      #   @option params [String] :party_name If this value isn't provided, it will be inherited from the counterparty's name.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType, nil] :party_type Either `individual` or `business`.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType]
+      # @param counterparty_id [String, nil]
+      # @param metadata [Hash{Symbol=>String}]
+      # @param name [String, nil]
+      # @param party_address [ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress]
+      # @param party_name [String]
+      # @param party_type [Symbol, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType, nil]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::ExternalAccount]
+      #
+      # @see ModernTreasury::Models::ExternalAccountUpdateParams
       def update(id, params = {})
         parsed, options = ModernTreasury::Models::ExternalAccountUpdateParams.dump_request(params)
         @client.request(
           method: :patch,
-          path: ["api/external_accounts/%0s", id],
+          path: ["api/external_accounts/%1$s", id],
           body: parsed,
           model: ModernTreasury::Models::ExternalAccount,
           options: options
@@ -110,30 +85,25 @@ module ModernTreasury
 
       # list external accounts
       #
-      # @param params [ModernTreasury::Models::ExternalAccountListParams, Hash{Symbol=>Object}] .
+      # @overload list(after_cursor: nil, counterparty_id: nil, metadata: nil, party_name: nil, per_page: nil, request_options: {})
       #
-      #   @option params [String, nil] :after_cursor
+      # @param after_cursor [String, nil]
+      # @param counterparty_id [String]
+      # @param metadata [Hash{Symbol=>String}]
+      # @param party_name [String]
+      # @param per_page [Integer]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      #   @option params [String] :counterparty_id
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::ExternalAccount>]
       #
-      #   @option params [Hash{Symbol=>String}] :metadata For example, if you want to query for records with metadata key `Type` and value
-      #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #     parameters.
-      #
-      #   @option params [String] :party_name Searches the ExternalAccount's party_name AND the Counterparty's party_name
-      #
-      #   @option params [Integer] :per_page
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
-      #
-      # @return [ModernTreasury::Page<ModernTreasury::Models::ExternalAccount>]
+      # @see ModernTreasury::Models::ExternalAccountListParams
       def list(params = {})
         parsed, options = ModernTreasury::Models::ExternalAccountListParams.dump_request(params)
         @client.request(
           method: :get,
           path: "api/external_accounts",
           query: parsed,
-          page: ModernTreasury::Page,
+          page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Models::ExternalAccount,
           options: options
         )
@@ -141,17 +111,18 @@ module ModernTreasury
 
       # delete external account
       #
-      # @param id [String] external account id
+      # @overload delete(id, request_options: {})
       #
-      # @param params [ModernTreasury::Models::ExternalAccountDeleteParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [nil]
+      #
+      # @see ModernTreasury::Models::ExternalAccountDeleteParams
       def delete(id, params = {})
         @client.request(
           method: :delete,
-          path: ["api/external_accounts/%0s", id],
+          path: ["api/external_accounts/%1$s", id],
           model: NilClass,
           options: params[:request_options]
         )
@@ -159,20 +130,20 @@ module ModernTreasury
 
       # complete verification of external account
       #
-      # @param id [String] external account id
+      # @overload complete_verification(id, amounts: nil, request_options: {})
       #
-      # @param params [ModernTreasury::Models::ExternalAccountCompleteVerificationParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Array<Integer>] :amounts
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param amounts [Array<Integer>]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::ExternalAccount]
+      #
+      # @see ModernTreasury::Models::ExternalAccountCompleteVerificationParams
       def complete_verification(id, params = {})
         parsed, options = ModernTreasury::Models::ExternalAccountCompleteVerificationParams.dump_request(params)
         @client.request(
           method: :post,
-          path: ["api/external_accounts/%0s/complete_verification", id],
+          path: ["api/external_accounts/%1$s/complete_verification", id],
           body: parsed,
           model: ModernTreasury::Models::ExternalAccount,
           options: options
@@ -181,38 +152,32 @@ module ModernTreasury
 
       # verify external account
       #
-      # @param id [String] external account id
+      # @overload verify(id, originating_account_id:, payment_type:, currency: nil, fallback_type: nil, priority: nil, request_options: {})
       #
-      # @param params [ModernTreasury::Models::ExternalAccountVerifyParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [String] :originating_account_id The ID of the internal account where the micro-deposits originate from. Both
-      #     credit and debit capabilities must be enabled.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType] :payment_type Can be `ach`, `eft`, or `rtp`.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::Currency] :currency Defaults to the currency of the originating account.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType] :fallback_type A payment type to fallback to if the original type is not valid for the
-      #     receiving account. Currently, this only supports falling back from RTP to ACH
-      #     (payment_type=rtp and fallback_type=ach)
-      #
-      #   @option params [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::Priority] :priority Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH
-      #     transfer. This will apply to both `payment_type` and `fallback_type`.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param originating_account_id [String]
+      # @param payment_type [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType]
+      # @param currency [Symbol, ModernTreasury::Models::Currency]
+      # @param fallback_type [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType]
+      # @param priority [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::Priority]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::ExternalAccount, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt]
+      #
+      # @see ModernTreasury::Models::ExternalAccountVerifyParams
       def verify(id, params)
         parsed, options = ModernTreasury::Models::ExternalAccountVerifyParams.dump_request(params)
         @client.request(
           method: :post,
-          path: ["api/external_accounts/%0s/verify", id],
+          path: ["api/external_accounts/%1$s/verify", id],
           body: parsed,
           model: ModernTreasury::Models::ExternalAccountVerifyResponse,
           options: options
         )
       end
 
+      # @api private
+      #
       # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client

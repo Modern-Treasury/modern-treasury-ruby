@@ -41,7 +41,7 @@ module ModernTreasury
         virtual_account_id: String?
       }
 
-    class Invoice < ModernTreasury::BaseModel
+    class Invoice < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor amount_paid: Integer
@@ -170,7 +170,7 @@ module ModernTreasury
           updated_at: Time
         }
 
-      class ContactDetail < ModernTreasury::BaseModel
+      class ContactDetail < ModernTreasury::Internal::Type::BaseModel
         attr_accessor id: String
 
         attr_accessor contact_identifier: String
@@ -203,7 +203,7 @@ module ModernTreasury
         type contact_identifier_type = :email | :phone_number | :website
 
         module ContactIdentifierType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           EMAIL: :email
           PHONE_NUMBER: :phone_number
@@ -223,7 +223,7 @@ module ModernTreasury
           :line2 => String
         }
 
-      class CounterpartyBillingAddress < ModernTreasury::BaseModel
+      class CounterpartyBillingAddress < ModernTreasury::Internal::Type::BaseModel
         attr_accessor country: String
 
         attr_accessor line1: String
@@ -260,7 +260,7 @@ module ModernTreasury
           :line2 => String
         }
 
-      class CounterpartyShippingAddress < ModernTreasury::BaseModel
+      class CounterpartyShippingAddress < ModernTreasury::Internal::Type::BaseModel
         attr_accessor country: String
 
         attr_accessor line1: String
@@ -297,7 +297,7 @@ module ModernTreasury
           :line2 => String
         }
 
-      class InvoicerAddress < ModernTreasury::BaseModel
+      class InvoicerAddress < ModernTreasury::Internal::Type::BaseModel
         attr_accessor country: String
 
         attr_accessor line1: String
@@ -327,7 +327,7 @@ module ModernTreasury
       type payment_method = :ui | :manual | :automatic
 
       module PaymentMethod
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         UI: :ui
         MANUAL: :manual
@@ -339,7 +339,7 @@ module ModernTreasury
       type payment_type = :eft | :ach
 
       module PaymentType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         EFT: :eft
         ACH: :ach
@@ -351,7 +351,7 @@ module ModernTreasury
         :draft | :paid | :partially_paid | :payment_pending | :unpaid | :voided
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         DRAFT: :draft
         PAID: :paid

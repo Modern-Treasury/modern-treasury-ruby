@@ -15,7 +15,7 @@ module ModernTreasury
           updated_at: Time
         }
 
-      class BalanceReport < ModernTreasury::BaseModel
+      class BalanceReport < ModernTreasury::Internal::Type::BaseModel
         attr_accessor id: String
 
         attr_accessor as_of_date: Date
@@ -55,7 +55,7 @@ module ModernTreasury
           :intraday | :other | :previous_day | :real_time
 
         module BalanceReportType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           INTRADAY: :intraday
           OTHER: :other
@@ -82,7 +82,7 @@ module ModernTreasury
             vendor_code_type: String?
           }
 
-        class Balance < ModernTreasury::BaseModel
+        class Balance < ModernTreasury::Internal::Type::BaseModel
           attr_accessor id: String
 
           attr_accessor amount: Integer
@@ -139,7 +139,7 @@ module ModernTreasury
             | :previously_closed_book
 
           module BalanceType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             CLOSING_AVAILABLE: :closing_available
             CLOSING_LEDGER: :closing_ledger

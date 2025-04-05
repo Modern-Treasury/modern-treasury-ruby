@@ -3,7 +3,8 @@
 module ModernTreasury
   module Models
     module PaymentOrders
-      class Reversal < ModernTreasury::BaseModel
+      # @see ModernTreasury::Resources::PaymentOrders::Reversals#create
+      class Reversal < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
         #
         #   @return [String]
@@ -25,14 +26,14 @@ module ModernTreasury
         #     if it exists in the test environment.
         #
         #   @return [Boolean]
-        required :live_mode, ModernTreasury::BooleanModel
+        required :live_mode, ModernTreasury::Internal::Type::Boolean
 
         # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be
         #     strings.
         #
         #   @return [Hash{Symbol=>String}]
-        required :metadata, ModernTreasury::HashOf[String]
+        required :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
         # @!attribute object
         #
@@ -60,7 +61,8 @@ module ModernTreasury
         # @!attribute transaction_ids
         #
         #   @return [Array<Object, nil>]
-        required :transaction_ids, ModernTreasury::ArrayOf[ModernTreasury::Unknown, nil?: true]
+        required :transaction_ids,
+                 ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Internal::Type::Unknown, nil?: true]
 
         # @!attribute updated_at
         #
@@ -97,11 +99,13 @@ module ModernTreasury
         #     super
         #   end
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
         # The reason for the reversal.
+        #
+        # @see ModernTreasury::Models::PaymentOrders::Reversal#reason
         module Reason
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           DUPLICATE = :duplicate
           INCORRECT_AMOUNT = :incorrect_amount
@@ -117,8 +121,10 @@ module ModernTreasury
         end
 
         # The current status of the reversal.
+        #
+        # @see ModernTreasury::Models::PaymentOrders::Reversal#status
         module Status
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           COMPLETED = :completed
           FAILED = :failed

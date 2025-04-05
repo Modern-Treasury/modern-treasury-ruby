@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class AccountCollectionFlow < ModernTreasury::BaseModel
+    class AccountCollectionFlow < ModernTreasury::Internal::Type::BaseModel
       # The ID of a counterparty. An external account created with this flow will be
       #   associated with this counterparty.
       sig { returns(String) }
@@ -132,11 +132,11 @@ module ModernTreasury
 
       # An account created with this flow will support payments of one of these types.
       module PaymentType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::AccountCollectionFlow::PaymentType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::AccountCollectionFlow::PaymentType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::AccountCollectionFlow::PaymentType::TaggedSymbol) }
 
         ACH = T.let(:ach, ModernTreasury::Models::AccountCollectionFlow::PaymentType::TaggedSymbol)
         WIRE = T.let(:wire, ModernTreasury::Models::AccountCollectionFlow::PaymentType::TaggedSymbol)
@@ -149,12 +149,12 @@ module ModernTreasury
       # An account created with this flow will support wires from the US to these
       #   countries.
       module ReceivingCountry
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry::TaggedSymbol) }
 
         USA = T.let(:USA, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry::TaggedSymbol)
         AUS = T.let(:AUS, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry::TaggedSymbol)
@@ -183,11 +183,11 @@ module ModernTreasury
       # The current status of the account collection flow. One of `pending`,
       #   `completed`, `expired`, or `cancelled`.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::AccountCollectionFlow::Status) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::AccountCollectionFlow::Status::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::AccountCollectionFlow::Status::TaggedSymbol) }
 
         CANCELLED = T.let(:cancelled, ModernTreasury::Models::AccountCollectionFlow::Status::TaggedSymbol)
         COMPLETED = T.let(:completed, ModernTreasury::Models::AccountCollectionFlow::Status::TaggedSymbol)

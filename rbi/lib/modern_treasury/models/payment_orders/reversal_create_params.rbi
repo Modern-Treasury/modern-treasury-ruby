@@ -3,9 +3,9 @@
 module ModernTreasury
   module Models
     module PaymentOrders
-      class ReversalCreateParams < ModernTreasury::BaseModel
-        extend ModernTreasury::RequestParameters::Converter
-        include ModernTreasury::RequestParameters
+      class ReversalCreateParams < ModernTreasury::Internal::Type::BaseModel
+        extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        include ModernTreasury::Internal::Type::RequestParameters
 
         # The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`,
         #   `incorrect_receiving_account`, `date_earlier_than_intended`,
@@ -23,7 +23,7 @@ module ModernTreasury
           params(
             ledger_transaction: T.any(
               ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
             .void
@@ -43,10 +43,10 @@ module ModernTreasury
             reason: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::OrSymbol,
             ledger_transaction: T.any(
               ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             ),
             metadata: T::Hash[Symbol, String],
-            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
           )
             .returns(T.attached_class)
         end
@@ -71,12 +71,12 @@ module ModernTreasury
         #   `incorrect_receiving_account`, `date_earlier_than_intended`,
         #   `date_later_than_intended`.
         module Reason
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::TaggedSymbol) }
+            T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::TaggedSymbol) }
 
           DUPLICATE =
             T.let(:duplicate, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::TaggedSymbol)
@@ -109,7 +109,7 @@ module ModernTreasury
           end
         end
 
-        class LedgerTransaction < ModernTreasury::BaseModel
+        class LedgerTransaction < ModernTreasury::Internal::Type::BaseModel
           # An array of ledger entry objects.
           sig do
             returns(
@@ -209,7 +209,7 @@ module ModernTreasury
               ledger_entries: T::Array[
               T.any(
                 ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry,
-                ModernTreasury::Util::AnyHash
+                ModernTreasury::Internal::AnyHash
               )
               ],
               description: T.nilable(String),
@@ -255,7 +255,7 @@ module ModernTreasury
           def to_hash
           end
 
-          class LedgerEntry < ModernTreasury::BaseModel
+          class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
             # Value in specified currency's smallest unit. e.g. $10 would be represented
             #   as 1000. Can be any integer up to 36 digits.
             sig { returns(Integer) }
@@ -362,7 +362,7 @@ module ModernTreasury
           #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
           #   reversal.
           module LedgerableType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             TaggedSymbol =
               T.type_alias do
@@ -372,6 +372,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
                 )
               end
@@ -421,7 +422,7 @@ module ModernTreasury
 
           # To post a ledger transaction at creation, use `posted`.
           module Status
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             TaggedSymbol =
               T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status) }
@@ -429,6 +430,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status::TaggedSymbol
                 )
               end

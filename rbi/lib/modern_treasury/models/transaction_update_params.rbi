@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class TransactionUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class TransactionUpdateParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # Additional data in the form of key-value pairs. Pairs can be removed by passing
       #   an empty string or `null` as the value.
@@ -17,7 +17,7 @@ module ModernTreasury
       sig do
         params(
           metadata: T::Hash[Symbol, String],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

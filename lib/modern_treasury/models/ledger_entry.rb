@@ -2,7 +2,8 @@
 
 module ModernTreasury
   module Models
-    class LedgerEntry < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::LedgerEntries#retrieve
+    class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -72,14 +73,14 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @return [Hash{Symbol=>String}]
-      required :metadata, ModernTreasury::HashOf[String]
+      required :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!attribute object
       #
@@ -152,9 +153,10 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-      class ResultingLedgerAccountBalances < ModernTreasury::BaseModel
+      # @see ModernTreasury::Models::LedgerEntry#resulting_ledger_account_balances
+      class ResultingLedgerAccountBalances < ModernTreasury::Internal::Type::BaseModel
         # @!attribute available_balance
         #   The available_balance is the sum of all posted inbound entries and pending
         #     outbound entries. For credit normal, available_amount = posted_credits -
@@ -194,9 +196,10 @@ module ModernTreasury
         #   #
         #   def initialize(available_balance:, pending_balance:, posted_balance:, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-        class AvailableBalance < ModernTreasury::BaseModel
+        # @see ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances#available_balance
+        class AvailableBalance < ModernTreasury::Internal::Type::BaseModel
           # @!attribute amount
           #
           #   @return [Integer]
@@ -238,10 +241,11 @@ module ModernTreasury
           #   #
           #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super
 
-          # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
         end
 
-        class PendingBalance < ModernTreasury::BaseModel
+        # @see ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances#pending_balance
+        class PendingBalance < ModernTreasury::Internal::Type::BaseModel
           # @!attribute amount
           #
           #   @return [Integer]
@@ -280,10 +284,11 @@ module ModernTreasury
           #   #
           #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super
 
-          # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
         end
 
-        class PostedBalance < ModernTreasury::BaseModel
+        # @see ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances#posted_balance
+        class PostedBalance < ModernTreasury::Internal::Type::BaseModel
           # @!attribute amount
           #
           #   @return [Integer]
@@ -322,14 +327,16 @@ module ModernTreasury
           #   #
           #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super
 
-          # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
         end
       end
 
       # Equal to the state of the ledger transaction when the ledger entry was created.
       #   One of `pending`, `posted`, or `archived`.
+      #
+      # @see ModernTreasury::Models::LedgerEntry#status
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ARCHIVED = :archived
         PENDING = :pending

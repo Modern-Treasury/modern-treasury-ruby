@@ -44,7 +44,7 @@ module ModernTreasury
         ?vendor_id: String,
         ?virtual_account_id: String,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Page[ModernTreasury::Models::Transaction]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::Transaction]
 
       def delete: (
         String id,

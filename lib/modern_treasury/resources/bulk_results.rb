@@ -5,17 +5,18 @@ module ModernTreasury
     class BulkResults
       # get bulk_result
       #
-      # @param id [String] id
+      # @overload retrieve(id, request_options: {})
       #
-      # @param params [ModernTreasury::Models::BulkResultRetrieveParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::BulkResult]
+      #
+      # @see ModernTreasury::Models::BulkResultRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
-          path: ["api/bulk_results/%0s", id],
+          path: ["api/bulk_results/%1$s", id],
           model: ModernTreasury::Models::BulkResult,
           options: params[:request_options]
         )
@@ -23,40 +24,34 @@ module ModernTreasury
 
       # list bulk_results
       #
-      # @param params [ModernTreasury::Models::BulkResultListParams, Hash{Symbol=>Object}] .
+      # @overload list(after_cursor: nil, entity_id: nil, entity_type: nil, per_page: nil, request_id: nil, request_type: nil, status: nil, request_options: {})
       #
-      #   @option params [String, nil] :after_cursor
+      # @param after_cursor [String, nil]
+      # @param entity_id [String]
+      # @param entity_type [Symbol, ModernTreasury::Models::BulkResultListParams::EntityType]
+      # @param per_page [Integer]
+      # @param request_id [String]
+      # @param request_type [Symbol, ModernTreasury::Models::BulkResultListParams::RequestType]
+      # @param status [Symbol, ModernTreasury::Models::BulkResultListParams::Status]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      #   @option params [String] :entity_id Unique identifier for the result entity object.
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::BulkResult>]
       #
-      #   @option params [Symbol, ModernTreasury::Models::BulkResultListParams::EntityType] :entity_type The type of the request that created this result. bulk_request is the only
-      #     supported `request_type`
-      #
-      #   @option params [Integer] :per_page
-      #
-      #   @option params [String] :request_id Unique identifier for the request that created this bulk result. This is the ID
-      #     of the bulk request when `request_type` is bulk_request
-      #
-      #   @option params [Symbol, ModernTreasury::Models::BulkResultListParams::RequestType] :request_type The type of the request that created this result. bulk_request is the only
-      #     supported `request_type`
-      #
-      #   @option params [Symbol, ModernTreasury::Models::BulkResultListParams::Status] :status One of successful or failed.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
-      #
-      # @return [ModernTreasury::Page<ModernTreasury::Models::BulkResult>]
+      # @see ModernTreasury::Models::BulkResultListParams
       def list(params = {})
         parsed, options = ModernTreasury::Models::BulkResultListParams.dump_request(params)
         @client.request(
           method: :get,
           path: "api/bulk_results",
           query: parsed,
-          page: ModernTreasury::Page,
+          page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Models::BulkResult,
           options: options
         )
       end
 
+      # @api private
+      #
       # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client

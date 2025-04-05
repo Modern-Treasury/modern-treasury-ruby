@@ -2,17 +2,18 @@
 
 module ModernTreasury
   module Models
-    class LedgerAccountListParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::LedgerAccounts#list
+    class LedgerAccountListParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute [r] id
       #   If you have specific IDs to retrieve in bulk, you can pass them as query
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       #
       #   @return [Array<String>, nil]
-      optional :id, ModernTreasury::ArrayOf[String]
+      optional :id, ModernTreasury::Internal::Type::ArrayOf[String]
 
       # @!parse
       #   # @return [Array<String>]
@@ -55,7 +56,7 @@ module ModernTreasury
       #     created_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
       #   @return [Hash{Symbol=>Time}, nil]
-      optional :created_at, ModernTreasury::HashOf[Time]
+      optional :created_at, ModernTreasury::Internal::Type::HashOf[Time]
 
       # @!parse
       #   # @return [Hash{Symbol=>Time}]
@@ -94,7 +95,7 @@ module ModernTreasury
       #     parameters.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -105,7 +106,7 @@ module ModernTreasury
       #     parameters delimited with `name[]=`, for example `?name[]=123&name[]=abc`.
       #
       #   @return [Array<String>, nil]
-      optional :name, ModernTreasury::ArrayOf[String]
+      optional :name, ModernTreasury::Internal::Type::ArrayOf[String]
 
       # @!parse
       #   # @return [Array<String>]
@@ -150,7 +151,7 @@ module ModernTreasury
       #     updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
       #   @return [Hash{Symbol=>Time}, nil]
-      optional :updated_at, ModernTreasury::HashOf[Time]
+      optional :updated_at, ModernTreasury::Internal::Type::HashOf[Time]
 
       # @!parse
       #   # @return [Hash{Symbol=>Time}]
@@ -194,9 +195,9 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-      class AvailableBalanceAmount < ModernTreasury::BaseModel
+      class AvailableBalanceAmount < ModernTreasury::Internal::Type::BaseModel
         # @!attribute [r] eq
         #
         #   @return [Integer, nil]
@@ -264,10 +265,10 @@ module ModernTreasury
         #   #
         #   def initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
 
-      class Balances < ModernTreasury::BaseModel
+      class Balances < ModernTreasury::Internal::Type::BaseModel
         # @!attribute [r] as_of_date
         #
         #   @return [Date, nil]
@@ -318,10 +319,10 @@ module ModernTreasury
         #   #
         #   def initialize(as_of_date: nil, effective_at: nil, effective_at_lower_bound: nil, effective_at_upper_bound: nil, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
 
-      class PendingBalanceAmount < ModernTreasury::BaseModel
+      class PendingBalanceAmount < ModernTreasury::Internal::Type::BaseModel
         # @!attribute [r] eq
         #
         #   @return [Integer, nil]
@@ -389,10 +390,10 @@ module ModernTreasury
         #   #
         #   def initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
 
-      class PostedBalanceAmount < ModernTreasury::BaseModel
+      class PostedBalanceAmount < ModernTreasury::Internal::Type::BaseModel
         # @!attribute [r] eq
         #
         #   @return [Integer, nil]
@@ -460,7 +461,7 @@ module ModernTreasury
         #   #
         #   def initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
     end
   end

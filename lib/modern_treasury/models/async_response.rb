@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class AsyncResponse < ModernTreasury::BaseModel
+    class AsyncResponse < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -19,7 +19,7 @@ module ModernTreasury
       #   #
       #   def initialize(id:, object:, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
     end
   end
 end

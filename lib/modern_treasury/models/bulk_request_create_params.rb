@@ -2,10 +2,11 @@
 
 module ModernTreasury
   module Models
-    class BulkRequestCreateParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::BulkRequests#create
+    class BulkRequestCreateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute action_type
       #   One of create, or update.
@@ -25,14 +26,14 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ID, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID>]
       required :resources,
-               -> { ModernTreasury::ArrayOf[union: ModernTreasury::Models::BulkRequestCreateParams::Resource] }
+               -> { ModernTreasury::Internal::Type::ArrayOf[union: ModernTreasury::Models::BulkRequestCreateParams::Resource] }
 
       # @!attribute [r] metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -47,11 +48,11 @@ module ModernTreasury
       #   #
       #   def initialize(action_type:, resource_type:, resources:, metadata: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # One of create, or update.
       module ActionType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CREATE = :create
         UPDATE = :update
@@ -66,12 +67,14 @@ module ModernTreasury
 
       # One of payment_order, expected_payment, or ledger_transaction.
       module ResourceType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         PAYMENT_ORDER = :payment_order
+        LEDGER_ACCOUNT = :ledger_account
         LEDGER_TRANSACTION = :ledger_transaction
-        TRANSACTION = :transaction
         EXPECTED_PAYMENT = :expected_payment
+        TRANSACTION = :transaction
+        ENTITY_LINK = :entity_link
 
         finalize!
 
@@ -81,7 +84,7 @@ module ModernTreasury
       end
 
       module Resource
-        extend ModernTreasury::Union
+        extend ModernTreasury::Internal::Type::Union
 
         variant -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest }
 
@@ -101,7 +104,7 @@ module ModernTreasury
 
         variant -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID }
 
-        class PaymentOrderAsyncCreateRequest < ModernTreasury::BaseModel
+        class PaymentOrderAsyncCreateRequest < ModernTreasury::Internal::Type::BaseModel
           # @!attribute amount
           #   Value in specified currency's smallest unit. e.g. $10 would be represented as
           #     1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
@@ -263,7 +266,7 @@ module ModernTreasury
           #
           #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem>, nil]
           optional :line_items,
-                   -> { ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem] }
+                   -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem] }
 
           # @!parse
           #   # @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem>]
@@ -274,7 +277,7 @@ module ModernTreasury
           #     strings.
           #
           #   @return [Hash{Symbol=>String}, nil]
-          optional :metadata, ModernTreasury::HashOf[String]
+          optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
           # @!parse
           #   # @return [Hash{Symbol=>String}]
@@ -285,7 +288,7 @@ module ModernTreasury
           #     that this setting must also be turned on in your organization settings page.
           #
           #   @return [Boolean, nil]
-          optional :nsf_protected, ModernTreasury::BooleanModel
+          optional :nsf_protected, ModernTreasury::Internal::Type::Boolean
 
           # @!parse
           #   # @return [Boolean]
@@ -369,7 +372,7 @@ module ModernTreasury
           #     `null`, `send_remittance_advice` on the Counterparty is used.
           #
           #   @return [Boolean, nil]
-          optional :send_remittance_advice, ModernTreasury::BooleanModel, nil?: true
+          optional :send_remittance_advice, ModernTreasury::Internal::Type::Boolean, nil?: true
 
           # @!attribute statement_descriptor
           #   An optional descriptor which will appear in the receiver's statement. For
@@ -396,7 +399,7 @@ module ModernTreasury
           #     monitoring.
           #
           #   @return [Boolean, nil]
-          optional :transaction_monitoring_enabled, ModernTreasury::BooleanModel
+          optional :transaction_monitoring_enabled, ModernTreasury::Internal::Type::Boolean
 
           # @!parse
           #   # @return [Boolean]
@@ -504,14 +507,16 @@ module ModernTreasury
           #     super
           #   end
 
-          # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
           # One of `credit`, `debit`. Describes the direction money is flowing in the
           #   transaction. A `credit` moves money from your account to someone else's. A
           #   `debit` pulls money from someone else's account to your own. Note that wire,
           #   rtp, and check payments will always be `credit`.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#direction
           module Direction
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             CREDIT = :credit
             DEBIT = :debit
@@ -523,7 +528,8 @@ module ModernTreasury
             #   def self.values; end
           end
 
-          class Accounting < ModernTreasury::BaseModel
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#accounting
+          class Accounting < ModernTreasury::Internal::Type::BaseModel
             # @!attribute account_id
             #   The ID of one of your accounting categories. Note that these will only be
             #     accessible if your accounting system has been connected.
@@ -545,14 +551,16 @@ module ModernTreasury
             #   #
             #   def initialize(account_id: nil, class_id: nil, **) = super
 
-            # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+            # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
           end
 
           # The party that will pay the fees for the payment order. Only applies to wire
           #   payment orders. Can be one of shared, sender, or receiver, which correspond
           #   respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#charge_bearer
           module ChargeBearer
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             SHARED = :shared
             SENDER = :sender
@@ -568,8 +576,10 @@ module ModernTreasury
           # A payment type to fallback to if the original type is not valid for the
           #   receiving account. Currently, this only supports falling back from RTP to ACH
           #   (type=rtp and fallback_type=ach)
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#fallback_type
           module FallbackType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             ACH = :ach
 
@@ -583,8 +593,10 @@ module ModernTreasury
           # Indicates the type of FX transfer to initiate, can be either
           #   `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
           #   currency matches the originating account currency.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#foreign_exchange_indicator
           module ForeignExchangeIndicator
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             FIXED_TO_VARIABLE = :fixed_to_variable
             VARIABLE_TO_FIXED = :variable_to_fixed
@@ -596,14 +608,15 @@ module ModernTreasury
             #   def self.values; end
           end
 
-          class LedgerTransaction < ModernTreasury::BaseModel
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#ledger_transaction
+          class LedgerTransaction < ModernTreasury::Internal::Type::BaseModel
             # @!attribute ledger_entries
             #   An array of ledger entry objects.
             #
             #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerEntry>]
             required :ledger_entries,
                      -> do
-                       ModernTreasury::ArrayOf[
+                       ModernTreasury::Internal::Type::ArrayOf[
                        ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerEntry
                        ]
                      end
@@ -677,7 +690,7 @@ module ModernTreasury
             #     strings.
             #
             #   @return [Hash{Symbol=>String}, nil]
-            optional :metadata, ModernTreasury::HashOf[String]
+            optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
             # @!parse
             #   # @return [Hash{Symbol=>String}]
@@ -725,9 +738,9 @@ module ModernTreasury
             #     super
             #   end
 
-            # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+            # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-            class LedgerEntry < ModernTreasury::BaseModel
+            class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
               # @!attribute amount
               #   Value in specified currency's smallest unit. e.g. $10 would be represented
               #     as 1000. Can be any integer up to 36 digits.
@@ -756,7 +769,7 @@ module ModernTreasury
               #     transaction is created, the entire call will fail with error code 422.
               #
               #   @return [Hash{Symbol=>Integer}, nil]
-              optional :available_balance_amount, ModernTreasury::HashOf[Integer], nil?: true
+              optional :available_balance_amount, ModernTreasury::Internal::Type::HashOf[Integer], nil?: true
 
               # @!attribute lock_version
               #   Lock version of the ledger account. This can be passed when creating a ledger
@@ -772,7 +785,7 @@ module ModernTreasury
               #     strings.
               #
               #   @return [Hash{Symbol=>String}, nil]
-              optional :metadata, ModernTreasury::HashOf[String]
+              optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
               # @!parse
               #   # @return [Hash{Symbol=>String}]
@@ -784,7 +797,7 @@ module ModernTreasury
               #     transaction is created, the entire call will fail with error code 422.
               #
               #   @return [Hash{Symbol=>Integer}, nil]
-              optional :pending_balance_amount, ModernTreasury::HashOf[Integer], nil?: true
+              optional :pending_balance_amount, ModernTreasury::Internal::Type::HashOf[Integer], nil?: true
 
               # @!attribute posted_balance_amount
               #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
@@ -792,14 +805,16 @@ module ModernTreasury
               #     transaction is created, the entire call will fail with error code 422.
               #
               #   @return [Hash{Symbol=>Integer}, nil]
-              optional :posted_balance_amount, ModernTreasury::HashOf[Integer], nil?: true
+              optional :posted_balance_amount, ModernTreasury::Internal::Type::HashOf[Integer], nil?: true
 
               # @!attribute show_resulting_ledger_account_balances
               #   If true, response will include the balance of the associated ledger account for
               #     the entry.
               #
               #   @return [Boolean, nil]
-              optional :show_resulting_ledger_account_balances, ModernTreasury::BooleanModel, nil?: true
+              optional :show_resulting_ledger_account_balances,
+                       ModernTreasury::Internal::Type::Boolean,
+                       nil?: true
 
               # @!parse
               #   # @param amount [Integer]
@@ -827,15 +842,17 @@ module ModernTreasury
               #     super
               #   end
 
-              # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+              # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
             end
 
             # If the ledger transaction can be reconciled to another object in Modern
             #   Treasury, the type will be populated here, otherwise null. This can be one of
             #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
             #   reversal.
+            #
+            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction#ledgerable_type
             module LedgerableType
-              extend ModernTreasury::Enum
+              extend ModernTreasury::Internal::Type::Enum
 
               EXPECTED_PAYMENT = :expected_payment
               INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
@@ -852,8 +869,10 @@ module ModernTreasury
             end
 
             # To post a ledger transaction at creation, use `posted`.
+            #
+            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction#status
             module Status
-              extend ModernTreasury::Enum
+              extend ModernTreasury::Internal::Type::Enum
 
               ARCHIVED = :archived
               PENDING = :pending
@@ -867,7 +886,7 @@ module ModernTreasury
             end
           end
 
-          class LineItem < ModernTreasury::BaseModel
+          class LineItem < ModernTreasury::Internal::Type::BaseModel
             # @!attribute amount
             #   Value in specified currency's smallest unit. e.g. $10 would be represented
             #     as 1000.
@@ -893,7 +912,7 @@ module ModernTreasury
             #     strings.
             #
             #   @return [Hash{Symbol=>String}, nil]
-            optional :metadata, ModernTreasury::HashOf[String]
+            optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
             # @!parse
             #   # @return [Hash{Symbol=>String}]
@@ -907,14 +926,16 @@ module ModernTreasury
             #   #
             #   def initialize(amount:, accounting_category_id: nil, description: nil, metadata: nil, **) = super
 
-            # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+            # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
           end
 
           # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
           #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
           #   an overnight check rather than standard mail.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#priority
           module Priority
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             HIGH = :high
             NORMAL = :normal
@@ -926,13 +947,14 @@ module ModernTreasury
             #   def self.values; end
           end
 
-          class ReceivingAccount < ModernTreasury::BaseModel
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#receiving_account
+          class ReceivingAccount < ModernTreasury::Internal::Type::BaseModel
             # @!attribute [r] account_details
             #
             #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail>, nil]
             optional :account_details,
                      -> do
-                       ModernTreasury::ArrayOf[
+                       ModernTreasury::Internal::Type::ArrayOf[
                        ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail
                        ]
                      end
@@ -956,7 +978,7 @@ module ModernTreasury
             #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail>, nil]
             optional :contact_details,
                      -> do
-                       ModernTreasury::ArrayOf[
+                       ModernTreasury::Internal::Type::ArrayOf[
                        ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail
                        ]
                      end
@@ -985,7 +1007,7 @@ module ModernTreasury
             #     strings.
             #
             #   @return [Hash{Symbol=>String}, nil]
-            optional :metadata, ModernTreasury::HashOf[String]
+            optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
             # @!parse
             #   # @return [Hash{Symbol=>String}]
@@ -1052,7 +1074,7 @@ module ModernTreasury
             #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail>, nil]
             optional :routing_details,
                      -> do
-                       ModernTreasury::ArrayOf[
+                       ModernTreasury::Internal::Type::ArrayOf[
                        ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail
                        ]
                      end
@@ -1097,9 +1119,9 @@ module ModernTreasury
             #     super
             #   end
 
-            # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+            # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-            class AccountDetail < ModernTreasury::BaseModel
+            class AccountDetail < ModernTreasury::Internal::Type::BaseModel
               # @!attribute account_number
               #
               #   @return [String]
@@ -1121,10 +1143,11 @@ module ModernTreasury
               #   #
               #   def initialize(account_number:, account_number_type: nil, **) = super
 
-              # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+              # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
+              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail#account_number_type
               module AccountNumberType
-                extend ModernTreasury::Enum
+                extend ModernTreasury::Internal::Type::Enum
 
                 AU_NUMBER = :au_number
                 CLABE = :clabe
@@ -1145,7 +1168,7 @@ module ModernTreasury
               end
             end
 
-            class ContactDetail < ModernTreasury::BaseModel
+            class ContactDetail < ModernTreasury::Internal::Type::BaseModel
               # @!attribute [r] contact_identifier
               #
               #   @return [String, nil]
@@ -1171,10 +1194,11 @@ module ModernTreasury
               #   #
               #   def initialize(contact_identifier: nil, contact_identifier_type: nil, **) = super
 
-              # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+              # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
+              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail#contact_identifier_type
               module ContactIdentifierType
-                extend ModernTreasury::Enum
+                extend ModernTreasury::Internal::Type::Enum
 
                 EMAIL = :email
                 PHONE_NUMBER = :phone_number
@@ -1188,7 +1212,8 @@ module ModernTreasury
               end
             end
 
-            class LedgerAccount < ModernTreasury::BaseModel
+            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount#ledger_account
+            class LedgerAccount < ModernTreasury::Internal::Type::BaseModel
               # @!attribute currency
               #   The currency of the ledger account.
               #
@@ -1230,7 +1255,7 @@ module ModernTreasury
               #     child of.
               #
               #   @return [Array<String>, nil]
-              optional :ledger_account_category_ids, ModernTreasury::ArrayOf[String]
+              optional :ledger_account_category_ids, ModernTreasury::Internal::Type::ArrayOf[String]
 
               # @!parse
               #   # @return [Array<String>]
@@ -1265,7 +1290,7 @@ module ModernTreasury
               #     strings.
               #
               #   @return [Hash{Symbol=>String}, nil]
-              optional :metadata, ModernTreasury::HashOf[String]
+              optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
               # @!parse
               #   # @return [Hash{Symbol=>String}]
@@ -1305,13 +1330,15 @@ module ModernTreasury
               #     super
               #   end
 
-              # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+              # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
               # If the ledger account links to another object in Modern Treasury, the type will
               #   be populated here, otherwise null. The value is one of internal_account or
               #   external_account.
+              #
+              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount#ledgerable_type
               module LedgerableType
-                extend ModernTreasury::Enum
+                extend ModernTreasury::Internal::Type::Enum
 
                 COUNTERPARTY = :counterparty
                 EXTERNAL_ACCOUNT = :external_account
@@ -1326,7 +1353,8 @@ module ModernTreasury
               end
             end
 
-            class PartyAddress < ModernTreasury::BaseModel
+            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount#party_address
+            class PartyAddress < ModernTreasury::Internal::Type::BaseModel
               # @!attribute country
               #   Country code conforms to [ISO 3166-1 alpha-2]
               #
@@ -1373,12 +1401,14 @@ module ModernTreasury
               #   #
               #   def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil, **) = super
 
-              # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+              # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
             end
 
             # Either `individual` or `business`.
+            #
+            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount#party_type
             module PartyType
-              extend ModernTreasury::Enum
+              extend ModernTreasury::Internal::Type::Enum
 
               BUSINESS = :business
               INDIVIDUAL = :individual
@@ -1390,7 +1420,7 @@ module ModernTreasury
               #   def self.values; end
             end
 
-            class RoutingDetail < ModernTreasury::BaseModel
+            class RoutingDetail < ModernTreasury::Internal::Type::BaseModel
               # @!attribute routing_number
               #
               #   @return [String]
@@ -1419,10 +1449,11 @@ module ModernTreasury
               #   #
               #   def initialize(routing_number:, routing_number_type:, payment_type: nil, **) = super
 
-              # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+              # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
+              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail#routing_number_type
               module RoutingNumberType
-                extend ModernTreasury::Enum
+                extend ModernTreasury::Internal::Type::Enum
 
                 ABA = :aba
                 AU_BSB = :au_bsb
@@ -1453,8 +1484,9 @@ module ModernTreasury
                 #   def self.values; end
               end
 
+              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail#payment_type
               module PaymentType
-                extend ModernTreasury::Enum
+                extend ModernTreasury::Internal::Type::Enum
 
                 ACH = :ach
                 AU_BECS = :au_becs
@@ -1497,7 +1529,7 @@ module ModernTreasury
           end
         end
 
-        class ExpectedPaymentCreateRequest < ModernTreasury::BaseModel
+        class ExpectedPaymentCreateRequest < ModernTreasury::Internal::Type::BaseModel
           # @!attribute amount_lower_bound
           #   The lowest amount this expected payment may be equal to. Value in specified
           #     currency's smallest unit. e.g. $10 would be represented as 1000.
@@ -1588,7 +1620,7 @@ module ModernTreasury
           #
           #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem>, nil]
           optional :line_items,
-                   -> { ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem] }
+                   -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem] }
 
           # @!parse
           #   # @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem>]
@@ -1599,7 +1631,7 @@ module ModernTreasury
           #     strings.
           #
           #   @return [Hash{Symbol=>String}, nil]
-          optional :metadata, ModernTreasury::HashOf[String]
+          optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
           # @!parse
           #   # @return [Hash{Symbol=>String}]
@@ -1609,20 +1641,20 @@ module ModernTreasury
           #   The reconciliation filters you have for this payment.
           #
           #   @return [Object, nil]
-          optional :reconciliation_filters, ModernTreasury::Unknown, nil?: true
+          optional :reconciliation_filters, ModernTreasury::Internal::Type::Unknown, nil?: true
 
           # @!attribute reconciliation_groups
           #   The reconciliation groups you have for this payment.
           #
           #   @return [Object, nil]
-          optional :reconciliation_groups, ModernTreasury::Unknown, nil?: true
+          optional :reconciliation_groups, ModernTreasury::Internal::Type::Unknown, nil?: true
 
           # @!attribute reconciliation_rule_variables
           #   An array of reconciliation rule variables for this payment.
           #
           #   @return [Array<ModernTreasury::Models::ReconciliationRule>, nil]
           optional :reconciliation_rule_variables,
-                   -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ReconciliationRule] },
+                   -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ReconciliationRule] },
                    nil?: true
 
           # @!attribute remittance_information
@@ -1695,12 +1727,14 @@ module ModernTreasury
           #     super
           #   end
 
-          # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
           # One of credit or debit. When you are receiving money, use credit. When you are
           #   being charged, use debit.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest#direction
           module Direction
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             CREDIT = :credit
             DEBIT = :debit
@@ -1712,14 +1746,15 @@ module ModernTreasury
             #   def self.values; end
           end
 
-          class LedgerTransaction < ModernTreasury::BaseModel
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest#ledger_transaction
+          class LedgerTransaction < ModernTreasury::Internal::Type::BaseModel
             # @!attribute ledger_entries
             #   An array of ledger entry objects.
             #
             #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerEntry>]
             required :ledger_entries,
                      -> do
-                       ModernTreasury::ArrayOf[
+                       ModernTreasury::Internal::Type::ArrayOf[
                        ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerEntry
                        ]
                      end
@@ -1793,7 +1828,7 @@ module ModernTreasury
             #     strings.
             #
             #   @return [Hash{Symbol=>String}, nil]
-            optional :metadata, ModernTreasury::HashOf[String]
+            optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
             # @!parse
             #   # @return [Hash{Symbol=>String}]
@@ -1841,9 +1876,9 @@ module ModernTreasury
             #     super
             #   end
 
-            # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+            # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-            class LedgerEntry < ModernTreasury::BaseModel
+            class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
               # @!attribute amount
               #   Value in specified currency's smallest unit. e.g. $10 would be represented
               #     as 1000. Can be any integer up to 36 digits.
@@ -1872,7 +1907,7 @@ module ModernTreasury
               #     transaction is created, the entire call will fail with error code 422.
               #
               #   @return [Hash{Symbol=>Integer}, nil]
-              optional :available_balance_amount, ModernTreasury::HashOf[Integer], nil?: true
+              optional :available_balance_amount, ModernTreasury::Internal::Type::HashOf[Integer], nil?: true
 
               # @!attribute lock_version
               #   Lock version of the ledger account. This can be passed when creating a ledger
@@ -1888,7 +1923,7 @@ module ModernTreasury
               #     strings.
               #
               #   @return [Hash{Symbol=>String}, nil]
-              optional :metadata, ModernTreasury::HashOf[String]
+              optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
               # @!parse
               #   # @return [Hash{Symbol=>String}]
@@ -1900,7 +1935,7 @@ module ModernTreasury
               #     transaction is created, the entire call will fail with error code 422.
               #
               #   @return [Hash{Symbol=>Integer}, nil]
-              optional :pending_balance_amount, ModernTreasury::HashOf[Integer], nil?: true
+              optional :pending_balance_amount, ModernTreasury::Internal::Type::HashOf[Integer], nil?: true
 
               # @!attribute posted_balance_amount
               #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
@@ -1908,14 +1943,16 @@ module ModernTreasury
               #     transaction is created, the entire call will fail with error code 422.
               #
               #   @return [Hash{Symbol=>Integer}, nil]
-              optional :posted_balance_amount, ModernTreasury::HashOf[Integer], nil?: true
+              optional :posted_balance_amount, ModernTreasury::Internal::Type::HashOf[Integer], nil?: true
 
               # @!attribute show_resulting_ledger_account_balances
               #   If true, response will include the balance of the associated ledger account for
               #     the entry.
               #
               #   @return [Boolean, nil]
-              optional :show_resulting_ledger_account_balances, ModernTreasury::BooleanModel, nil?: true
+              optional :show_resulting_ledger_account_balances,
+                       ModernTreasury::Internal::Type::Boolean,
+                       nil?: true
 
               # @!parse
               #   # @param amount [Integer]
@@ -1943,15 +1980,17 @@ module ModernTreasury
               #     super
               #   end
 
-              # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+              # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
             end
 
             # If the ledger transaction can be reconciled to another object in Modern
             #   Treasury, the type will be populated here, otherwise null. This can be one of
             #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
             #   reversal.
+            #
+            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction#ledgerable_type
             module LedgerableType
-              extend ModernTreasury::Enum
+              extend ModernTreasury::Internal::Type::Enum
 
               EXPECTED_PAYMENT = :expected_payment
               INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
@@ -1968,8 +2007,10 @@ module ModernTreasury
             end
 
             # To post a ledger transaction at creation, use `posted`.
+            #
+            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction#status
             module Status
-              extend ModernTreasury::Enum
+              extend ModernTreasury::Internal::Type::Enum
 
               ARCHIVED = :archived
               PENDING = :pending
@@ -1983,7 +2024,7 @@ module ModernTreasury
             end
           end
 
-          class LineItem < ModernTreasury::BaseModel
+          class LineItem < ModernTreasury::Internal::Type::BaseModel
             # @!attribute amount
             #   Value in specified currency's smallest unit. e.g. $10 would be represented
             #     as 1000.
@@ -2009,7 +2050,7 @@ module ModernTreasury
             #     strings.
             #
             #   @return [Hash{Symbol=>String}, nil]
-            optional :metadata, ModernTreasury::HashOf[String]
+            optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
             # @!parse
             #   # @return [Hash{Symbol=>String}]
@@ -2023,17 +2064,17 @@ module ModernTreasury
             #   #
             #   def initialize(amount:, accounting_category_id: nil, description: nil, metadata: nil, **) = super
 
-            # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+            # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
           end
         end
 
-        class LedgerTransactionCreateRequest < ModernTreasury::BaseModel
+        class LedgerTransactionCreateRequest < ModernTreasury::Internal::Type::BaseModel
           # @!attribute ledger_entries
           #   An array of ledger entry objects.
           #
           #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerEntry>]
           required :ledger_entries,
-                   -> { ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerEntry] }
+                   -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerEntry] }
 
           # @!attribute description
           #   An optional description for internal use.
@@ -2104,7 +2145,7 @@ module ModernTreasury
           #     strings.
           #
           #   @return [Hash{Symbol=>String}, nil]
-          optional :metadata, ModernTreasury::HashOf[String]
+          optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
           # @!parse
           #   # @return [Hash{Symbol=>String}]
@@ -2147,9 +2188,9 @@ module ModernTreasury
           #     super
           #   end
 
-          # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-          class LedgerEntry < ModernTreasury::BaseModel
+          class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
             # @!attribute amount
             #   Value in specified currency's smallest unit. e.g. $10 would be represented
             #     as 1000. Can be any integer up to 36 digits.
@@ -2178,7 +2219,7 @@ module ModernTreasury
             #     transaction is created, the entire call will fail with error code 422.
             #
             #   @return [Hash{Symbol=>Integer}, nil]
-            optional :available_balance_amount, ModernTreasury::HashOf[Integer], nil?: true
+            optional :available_balance_amount, ModernTreasury::Internal::Type::HashOf[Integer], nil?: true
 
             # @!attribute lock_version
             #   Lock version of the ledger account. This can be passed when creating a ledger
@@ -2194,7 +2235,7 @@ module ModernTreasury
             #     strings.
             #
             #   @return [Hash{Symbol=>String}, nil]
-            optional :metadata, ModernTreasury::HashOf[String]
+            optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
             # @!parse
             #   # @return [Hash{Symbol=>String}]
@@ -2206,7 +2247,7 @@ module ModernTreasury
             #     transaction is created, the entire call will fail with error code 422.
             #
             #   @return [Hash{Symbol=>Integer}, nil]
-            optional :pending_balance_amount, ModernTreasury::HashOf[Integer], nil?: true
+            optional :pending_balance_amount, ModernTreasury::Internal::Type::HashOf[Integer], nil?: true
 
             # @!attribute posted_balance_amount
             #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
@@ -2214,14 +2255,16 @@ module ModernTreasury
             #     transaction is created, the entire call will fail with error code 422.
             #
             #   @return [Hash{Symbol=>Integer}, nil]
-            optional :posted_balance_amount, ModernTreasury::HashOf[Integer], nil?: true
+            optional :posted_balance_amount, ModernTreasury::Internal::Type::HashOf[Integer], nil?: true
 
             # @!attribute show_resulting_ledger_account_balances
             #   If true, response will include the balance of the associated ledger account for
             #     the entry.
             #
             #   @return [Boolean, nil]
-            optional :show_resulting_ledger_account_balances, ModernTreasury::BooleanModel, nil?: true
+            optional :show_resulting_ledger_account_balances,
+                     ModernTreasury::Internal::Type::Boolean,
+                     nil?: true
 
             # @!parse
             #   # @param amount [Integer]
@@ -2249,15 +2292,17 @@ module ModernTreasury
             #     super
             #   end
 
-            # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+            # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
           end
 
           # If the ledger transaction can be reconciled to another object in Modern
           #   Treasury, the type will be populated here, otherwise null. This can be one of
           #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
           #   reversal.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest#ledgerable_type
           module LedgerableType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             EXPECTED_PAYMENT = :expected_payment
             INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
@@ -2274,8 +2319,10 @@ module ModernTreasury
           end
 
           # To post a ledger transaction at creation, use `posted`.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest#status
           module Status
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             ARCHIVED = :archived
             PENDING = :pending
@@ -2289,7 +2336,7 @@ module ModernTreasury
           end
         end
 
-        class TransactionCreateRequest < ModernTreasury::BaseModel
+        class TransactionCreateRequest < ModernTreasury::Internal::Type::BaseModel
           # @!attribute amount
           #   Value in specified currency's smallest unit. e.g. $10 would be represented
           #     as 1000.
@@ -2336,7 +2383,7 @@ module ModernTreasury
           #     strings.
           #
           #   @return [Hash{Symbol=>String}, nil]
-          optional :metadata, ModernTreasury::HashOf[String]
+          optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
           # @!parse
           #   # @return [Hash{Symbol=>String}]
@@ -2346,7 +2393,7 @@ module ModernTreasury
           #   This field will be `true` if the transaction has posted to the account.
           #
           #   @return [Boolean, nil]
-          optional :posted, ModernTreasury::BooleanModel
+          optional :posted, ModernTreasury::Internal::Type::Boolean
 
           # @!parse
           #   # @return [Boolean]
@@ -2396,12 +2443,14 @@ module ModernTreasury
           #     super
           #   end
 
-          # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
           # The type of the transaction. Examples could be
           #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest#type
           module Type
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             ACH = :ach
             AU_BECS = :au_becs
@@ -2443,7 +2492,7 @@ module ModernTreasury
           end
         end
 
-        class ID < ModernTreasury::BaseModel
+        class ID < ModernTreasury::Internal::Type::BaseModel
           # @!attribute [r] id
           #
           #   @return [String, nil]
@@ -2458,10 +2507,10 @@ module ModernTreasury
           #   #
           #   def initialize(id: nil, **) = super
 
-          # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
         end
 
-        class PaymentOrderUpdateRequestWithID < ModernTreasury::BaseModel
+        class PaymentOrderUpdateRequestWithID < ModernTreasury::Internal::Type::BaseModel
           # @!attribute [r] id
           #
           #   @return [String, nil]
@@ -2605,7 +2654,7 @@ module ModernTreasury
           #
           #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem>, nil]
           optional :line_items,
-                   -> { ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem] }
+                   -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem] }
 
           # @!parse
           #   # @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem>]
@@ -2616,7 +2665,7 @@ module ModernTreasury
           #     strings.
           #
           #   @return [Hash{Symbol=>String}, nil]
-          optional :metadata, ModernTreasury::HashOf[String]
+          optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
           # @!parse
           #   # @return [Hash{Symbol=>String}]
@@ -2627,7 +2676,7 @@ module ModernTreasury
           #     that this setting must also be turned on in your organization settings page.
           #
           #   @return [Boolean, nil]
-          optional :nsf_protected, ModernTreasury::BooleanModel
+          optional :nsf_protected, ModernTreasury::Internal::Type::Boolean
 
           # @!parse
           #   # @return [Boolean]
@@ -2721,7 +2770,7 @@ module ModernTreasury
           #     `null`, `send_remittance_advice` on the Counterparty is used.
           #
           #   @return [Boolean, nil]
-          optional :send_remittance_advice, ModernTreasury::BooleanModel, nil?: true
+          optional :send_remittance_advice, ModernTreasury::Internal::Type::Boolean, nil?: true
 
           # @!attribute statement_descriptor
           #   An optional descriptor which will appear in the receiver's statement. For
@@ -2878,9 +2927,10 @@ module ModernTreasury
           #     super
           #   end
 
-          # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-          class Accounting < ModernTreasury::BaseModel
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#accounting
+          class Accounting < ModernTreasury::Internal::Type::BaseModel
             # @!attribute account_id
             #   The ID of one of your accounting categories. Note that these will only be
             #     accessible if your accounting system has been connected.
@@ -2902,14 +2952,16 @@ module ModernTreasury
             #   #
             #   def initialize(account_id: nil, class_id: nil, **) = super
 
-            # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+            # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
           end
 
           # The party that will pay the fees for the payment order. Only applies to wire
           #   payment orders. Can be one of shared, sender, or receiver, which correspond
           #   respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#charge_bearer
           module ChargeBearer
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             SHARED = :shared
             SENDER = :sender
@@ -2926,8 +2978,10 @@ module ModernTreasury
           #   transaction. A `credit` moves money from your account to someone else's. A
           #   `debit` pulls money from someone else's account to your own. Note that wire,
           #   rtp, and check payments will always be `credit`.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#direction
           module Direction
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             CREDIT = :credit
             DEBIT = :debit
@@ -2942,8 +2996,10 @@ module ModernTreasury
           # A payment type to fallback to if the original type is not valid for the
           #   receiving account. Currently, this only supports falling back from RTP to ACH
           #   (type=rtp and fallback_type=ach)
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#fallback_type
           module FallbackType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             ACH = :ach
 
@@ -2957,8 +3013,10 @@ module ModernTreasury
           # Indicates the type of FX transfer to initiate, can be either
           #   `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
           #   currency matches the originating account currency.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#foreign_exchange_indicator
           module ForeignExchangeIndicator
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             FIXED_TO_VARIABLE = :fixed_to_variable
             VARIABLE_TO_FIXED = :variable_to_fixed
@@ -2970,7 +3028,7 @@ module ModernTreasury
             #   def self.values; end
           end
 
-          class LineItem < ModernTreasury::BaseModel
+          class LineItem < ModernTreasury::Internal::Type::BaseModel
             # @!attribute amount
             #   Value in specified currency's smallest unit. e.g. $10 would be represented
             #     as 1000.
@@ -2996,7 +3054,7 @@ module ModernTreasury
             #     strings.
             #
             #   @return [Hash{Symbol=>String}, nil]
-            optional :metadata, ModernTreasury::HashOf[String]
+            optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
             # @!parse
             #   # @return [Hash{Symbol=>String}]
@@ -3010,14 +3068,16 @@ module ModernTreasury
             #   #
             #   def initialize(amount:, accounting_category_id: nil, description: nil, metadata: nil, **) = super
 
-            # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+            # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
           end
 
           # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
           #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
           #   an overnight check rather than standard mail.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#priority
           module Priority
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             HIGH = :high
             NORMAL = :normal
@@ -3029,13 +3089,14 @@ module ModernTreasury
             #   def self.values; end
           end
 
-          class ReceivingAccount < ModernTreasury::BaseModel
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#receiving_account
+          class ReceivingAccount < ModernTreasury::Internal::Type::BaseModel
             # @!attribute [r] account_details
             #
             #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail>, nil]
             optional :account_details,
                      -> do
-                       ModernTreasury::ArrayOf[
+                       ModernTreasury::Internal::Type::ArrayOf[
                        ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail
                        ]
                      end
@@ -3059,7 +3120,7 @@ module ModernTreasury
             #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail>, nil]
             optional :contact_details,
                      -> do
-                       ModernTreasury::ArrayOf[
+                       ModernTreasury::Internal::Type::ArrayOf[
                        ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail
                        ]
                      end
@@ -3088,7 +3149,7 @@ module ModernTreasury
             #     strings.
             #
             #   @return [Hash{Symbol=>String}, nil]
-            optional :metadata, ModernTreasury::HashOf[String]
+            optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
             # @!parse
             #   # @return [Hash{Symbol=>String}]
@@ -3155,7 +3216,7 @@ module ModernTreasury
             #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail>, nil]
             optional :routing_details,
                      -> do
-                       ModernTreasury::ArrayOf[
+                       ModernTreasury::Internal::Type::ArrayOf[
                        ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail
                        ]
                      end
@@ -3200,9 +3261,9 @@ module ModernTreasury
             #     super
             #   end
 
-            # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+            # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-            class AccountDetail < ModernTreasury::BaseModel
+            class AccountDetail < ModernTreasury::Internal::Type::BaseModel
               # @!attribute account_number
               #
               #   @return [String]
@@ -3224,10 +3285,11 @@ module ModernTreasury
               #   #
               #   def initialize(account_number:, account_number_type: nil, **) = super
 
-              # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+              # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
+              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail#account_number_type
               module AccountNumberType
-                extend ModernTreasury::Enum
+                extend ModernTreasury::Internal::Type::Enum
 
                 AU_NUMBER = :au_number
                 CLABE = :clabe
@@ -3248,7 +3310,7 @@ module ModernTreasury
               end
             end
 
-            class ContactDetail < ModernTreasury::BaseModel
+            class ContactDetail < ModernTreasury::Internal::Type::BaseModel
               # @!attribute [r] contact_identifier
               #
               #   @return [String, nil]
@@ -3274,10 +3336,11 @@ module ModernTreasury
               #   #
               #   def initialize(contact_identifier: nil, contact_identifier_type: nil, **) = super
 
-              # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+              # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
+              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail#contact_identifier_type
               module ContactIdentifierType
-                extend ModernTreasury::Enum
+                extend ModernTreasury::Internal::Type::Enum
 
                 EMAIL = :email
                 PHONE_NUMBER = :phone_number
@@ -3291,7 +3354,8 @@ module ModernTreasury
               end
             end
 
-            class LedgerAccount < ModernTreasury::BaseModel
+            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount#ledger_account
+            class LedgerAccount < ModernTreasury::Internal::Type::BaseModel
               # @!attribute currency
               #   The currency of the ledger account.
               #
@@ -3333,7 +3397,7 @@ module ModernTreasury
               #     child of.
               #
               #   @return [Array<String>, nil]
-              optional :ledger_account_category_ids, ModernTreasury::ArrayOf[String]
+              optional :ledger_account_category_ids, ModernTreasury::Internal::Type::ArrayOf[String]
 
               # @!parse
               #   # @return [Array<String>]
@@ -3368,7 +3432,7 @@ module ModernTreasury
               #     strings.
               #
               #   @return [Hash{Symbol=>String}, nil]
-              optional :metadata, ModernTreasury::HashOf[String]
+              optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
               # @!parse
               #   # @return [Hash{Symbol=>String}]
@@ -3408,13 +3472,15 @@ module ModernTreasury
               #     super
               #   end
 
-              # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+              # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
               # If the ledger account links to another object in Modern Treasury, the type will
               #   be populated here, otherwise null. The value is one of internal_account or
               #   external_account.
+              #
+              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount#ledgerable_type
               module LedgerableType
-                extend ModernTreasury::Enum
+                extend ModernTreasury::Internal::Type::Enum
 
                 COUNTERPARTY = :counterparty
                 EXTERNAL_ACCOUNT = :external_account
@@ -3429,7 +3495,8 @@ module ModernTreasury
               end
             end
 
-            class PartyAddress < ModernTreasury::BaseModel
+            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount#party_address
+            class PartyAddress < ModernTreasury::Internal::Type::BaseModel
               # @!attribute country
               #   Country code conforms to [ISO 3166-1 alpha-2]
               #
@@ -3476,12 +3543,14 @@ module ModernTreasury
               #   #
               #   def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil, **) = super
 
-              # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+              # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
             end
 
             # Either `individual` or `business`.
+            #
+            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount#party_type
             module PartyType
-              extend ModernTreasury::Enum
+              extend ModernTreasury::Internal::Type::Enum
 
               BUSINESS = :business
               INDIVIDUAL = :individual
@@ -3493,7 +3562,7 @@ module ModernTreasury
               #   def self.values; end
             end
 
-            class RoutingDetail < ModernTreasury::BaseModel
+            class RoutingDetail < ModernTreasury::Internal::Type::BaseModel
               # @!attribute routing_number
               #
               #   @return [String]
@@ -3522,10 +3591,11 @@ module ModernTreasury
               #   #
               #   def initialize(routing_number:, routing_number_type:, payment_type: nil, **) = super
 
-              # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+              # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
+              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail#routing_number_type
               module RoutingNumberType
-                extend ModernTreasury::Enum
+                extend ModernTreasury::Internal::Type::Enum
 
                 ABA = :aba
                 AU_BSB = :au_bsb
@@ -3556,8 +3626,9 @@ module ModernTreasury
                 #   def self.values; end
               end
 
+              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail#payment_type
               module PaymentType
-                extend ModernTreasury::Enum
+                extend ModernTreasury::Internal::Type::Enum
 
                 ACH = :ach
                 AU_BECS = :au_becs
@@ -3602,8 +3673,10 @@ module ModernTreasury
           # To cancel a payment order, use `cancelled`. To redraft a returned payment order,
           #   use `approved`. To undo approval on a denied or approved payment order, use
           #   `needs_approval`.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#status
           module Status
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             APPROVED = :approved
             CANCELLED = :cancelled
@@ -3625,7 +3698,7 @@ module ModernTreasury
           end
         end
 
-        class ExpectedPaymentUpdateRequestWithID < ModernTreasury::BaseModel
+        class ExpectedPaymentUpdateRequestWithID < ModernTreasury::Internal::Type::BaseModel
           # @!attribute [r] id
           #
           #   @return [String, nil]
@@ -3699,7 +3772,7 @@ module ModernTreasury
           #     strings.
           #
           #   @return [Hash{Symbol=>String}, nil]
-          optional :metadata, ModernTreasury::HashOf[String]
+          optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
           # @!parse
           #   # @return [Hash{Symbol=>String}]
@@ -3709,20 +3782,20 @@ module ModernTreasury
           #   The reconciliation filters you have for this payment.
           #
           #   @return [Object, nil]
-          optional :reconciliation_filters, ModernTreasury::Unknown, nil?: true
+          optional :reconciliation_filters, ModernTreasury::Internal::Type::Unknown, nil?: true
 
           # @!attribute reconciliation_groups
           #   The reconciliation groups you have for this payment.
           #
           #   @return [Object, nil]
-          optional :reconciliation_groups, ModernTreasury::Unknown, nil?: true
+          optional :reconciliation_groups, ModernTreasury::Internal::Type::Unknown, nil?: true
 
           # @!attribute reconciliation_rule_variables
           #   An array of reconciliation rule variables for this payment.
           #
           #   @return [Array<ModernTreasury::Models::ReconciliationRule>, nil]
           optional :reconciliation_rule_variables,
-                   -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ReconciliationRule] },
+                   -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ReconciliationRule] },
                    nil?: true
 
           # @!attribute remittance_information
@@ -3802,12 +3875,14 @@ module ModernTreasury
           #     super
           #   end
 
-          # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
           # One of credit or debit. When you are receiving money, use credit. When you are
           #   being charged, use debit.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID#direction
           module Direction
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             CREDIT = :credit
             DEBIT = :debit
@@ -3821,8 +3896,10 @@ module ModernTreasury
 
           # The Expected Payment's status can be updated from partially_reconciled to
           #   reconciled.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID#status
           module Status
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             RECONCILED = :reconciled
 
@@ -3834,7 +3911,7 @@ module ModernTreasury
           end
         end
 
-        class TransactionUpdateRequestWithID < ModernTreasury::BaseModel
+        class TransactionUpdateRequestWithID < ModernTreasury::Internal::Type::BaseModel
           # @!attribute [r] id
           #
           #   @return [String, nil]
@@ -3849,7 +3926,7 @@ module ModernTreasury
           #     an empty string or `null` as the value.
           #
           #   @return [Hash{Symbol=>String}, nil]
-          optional :metadata, ModernTreasury::HashOf[String]
+          optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
           # @!parse
           #   # @return [Hash{Symbol=>String}]
@@ -3861,10 +3938,10 @@ module ModernTreasury
           #   #
           #   def initialize(id: nil, metadata: nil, **) = super
 
-          # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
         end
 
-        class LedgerTransactionUpdateRequestWithID < ModernTreasury::BaseModel
+        class LedgerTransactionUpdateRequestWithID < ModernTreasury::Internal::Type::BaseModel
           # @!attribute [r] id
           #
           #   @return [String, nil]
@@ -3897,7 +3974,7 @@ module ModernTreasury
           #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry>, nil]
           optional :ledger_entries,
                    -> do
-                     ModernTreasury::ArrayOf[
+                     ModernTreasury::Internal::Type::ArrayOf[
                      ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry
                      ]
                    end
@@ -3936,7 +4013,7 @@ module ModernTreasury
           #     strings.
           #
           #   @return [Hash{Symbol=>String}, nil]
-          optional :metadata, ModernTreasury::HashOf[String]
+          optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
           # @!parse
           #   # @return [Hash{Symbol=>String}]
@@ -3977,9 +4054,9 @@ module ModernTreasury
           #     super
           #   end
 
-          # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-          class LedgerEntry < ModernTreasury::BaseModel
+          class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
             # @!attribute amount
             #   Value in specified currency's smallest unit. e.g. $10 would be represented
             #     as 1000. Can be any integer up to 36 digits.
@@ -4008,7 +4085,7 @@ module ModernTreasury
             #     transaction is created, the entire call will fail with error code 422.
             #
             #   @return [Hash{Symbol=>Integer}, nil]
-            optional :available_balance_amount, ModernTreasury::HashOf[Integer], nil?: true
+            optional :available_balance_amount, ModernTreasury::Internal::Type::HashOf[Integer], nil?: true
 
             # @!attribute lock_version
             #   Lock version of the ledger account. This can be passed when creating a ledger
@@ -4024,7 +4101,7 @@ module ModernTreasury
             #     strings.
             #
             #   @return [Hash{Symbol=>String}, nil]
-            optional :metadata, ModernTreasury::HashOf[String]
+            optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
             # @!parse
             #   # @return [Hash{Symbol=>String}]
@@ -4036,7 +4113,7 @@ module ModernTreasury
             #     transaction is created, the entire call will fail with error code 422.
             #
             #   @return [Hash{Symbol=>Integer}, nil]
-            optional :pending_balance_amount, ModernTreasury::HashOf[Integer], nil?: true
+            optional :pending_balance_amount, ModernTreasury::Internal::Type::HashOf[Integer], nil?: true
 
             # @!attribute posted_balance_amount
             #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
@@ -4044,14 +4121,16 @@ module ModernTreasury
             #     transaction is created, the entire call will fail with error code 422.
             #
             #   @return [Hash{Symbol=>Integer}, nil]
-            optional :posted_balance_amount, ModernTreasury::HashOf[Integer], nil?: true
+            optional :posted_balance_amount, ModernTreasury::Internal::Type::HashOf[Integer], nil?: true
 
             # @!attribute show_resulting_ledger_account_balances
             #   If true, response will include the balance of the associated ledger account for
             #     the entry.
             #
             #   @return [Boolean, nil]
-            optional :show_resulting_ledger_account_balances, ModernTreasury::BooleanModel, nil?: true
+            optional :show_resulting_ledger_account_balances,
+                     ModernTreasury::Internal::Type::Boolean,
+                     nil?: true
 
             # @!parse
             #   # @param amount [Integer]
@@ -4079,15 +4158,17 @@ module ModernTreasury
             #     super
             #   end
 
-            # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+            # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
           end
 
           # If the ledger transaction can be reconciled to another object in Modern
           #   Treasury, the type will be populated here, otherwise null. This can be one of
           #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
           #   reversal.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID#ledgerable_type
           module LedgerableType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             EXPECTED_PAYMENT = :expected_payment
             INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
@@ -4104,8 +4185,10 @@ module ModernTreasury
           end
 
           # To post a ledger transaction at creation, use `posted`.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID#status
           module Status
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             ARCHIVED = :archived
             PENDING = :pending

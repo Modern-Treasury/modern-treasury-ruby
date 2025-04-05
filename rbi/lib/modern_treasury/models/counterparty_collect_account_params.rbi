@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class CounterpartyCollectAccountParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class CounterpartyCollectAccountParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # One of `credit` or `debit`. Use `credit` when you want to pay a counterparty.
       #   Use `debit` when you need to charge a counterparty. This field helps us send a
@@ -48,7 +48,7 @@ module ModernTreasury
           custom_redirect: String,
           fields: T::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol],
           send_email: T::Boolean,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -71,12 +71,12 @@ module ModernTreasury
       end
 
       module Field
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol) }
 
         NAME = T.let(:name, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol)
         NAME_ON_ACCOUNT =
@@ -148,7 +148,7 @@ module ModernTreasury
           T.let(:idSknbiCode, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol)
         ZA_NATIONAL_CLEARING_CODE =
           T.let(
-            :za_national_clearing_code,
+            :zaNationalClearingCode,
             ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol
           )
 

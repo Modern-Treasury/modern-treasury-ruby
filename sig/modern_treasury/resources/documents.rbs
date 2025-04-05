@@ -20,7 +20,7 @@ module ModernTreasury
         ?documentable_type: ModernTreasury::Models::DocumentListParams::documentable_type,
         ?per_page: Integer,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Page[ModernTreasury::Models::Document]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::Document]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

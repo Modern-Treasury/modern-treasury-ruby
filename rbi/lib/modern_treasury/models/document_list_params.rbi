@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class DocumentListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class DocumentListParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor
@@ -37,11 +37,17 @@ module ModernTreasury
           documentable_id: String,
           documentable_type: ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol,
           per_page: Integer,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
-      def self.new(after_cursor: nil, documentable_id: nil, documentable_type: nil, per_page: nil, request_options: {})
+      def self.new(
+        after_cursor: nil,
+        documentable_id: nil,
+        documentable_type: nil,
+        per_page: nil,
+        request_options: {}
+      )
       end
 
       sig do
@@ -63,12 +69,12 @@ module ModernTreasury
       #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
       #   `case`, `internal_account`, `decision`, or `external_account`.
       module DocumentableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::DocumentListParams::DocumentableType::TaggedSymbol) }
 
         CASES = T.let(:cases, ModernTreasury::Models::DocumentListParams::DocumentableType::TaggedSymbol)
         COUNTERPARTIES =

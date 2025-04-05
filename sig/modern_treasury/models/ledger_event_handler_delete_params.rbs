@@ -1,11 +1,11 @@
 module ModernTreasury
   module Models
     type ledger_event_handler_delete_params =
-      {  } & ModernTreasury::request_parameters
+      {  } & ModernTreasury::Internal::Type::request_parameters
 
-    class LedgerEventHandlerDeleteParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class LedgerEventHandlerDeleteParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       def initialize: (?request_options: ModernTreasury::request_opts) -> void
 

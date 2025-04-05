@@ -2,7 +2,8 @@
 
 module ModernTreasury
   module Models
-    class PaymentReference < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::PaymentReferences#retrieve
+    class PaymentReference < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -18,7 +19,7 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute object
       #
@@ -83,11 +84,13 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # The type of reference number.
+      #
+      # @see ModernTreasury::Models::PaymentReference#reference_number_type
       module ReferenceNumberType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH_ORIGINAL_TRACE_NUMBER = :ach_original_trace_number
         ACH_TRACE_NUMBER = :ach_trace_number
@@ -132,6 +135,7 @@ module ModernTreasury
         JPMC_PAYMENT_BATCH_ID = :jpmc_payment_batch_id
         JPMC_PAYMENT_INFORMATION_ID = :jpmc_payment_information_id
         JPMC_PAYMENT_RETURNED_DATETIME = :jpmc_payment_returned_datetime
+        JPMC_TRANSACTION_REFERENCE_NUMBER = :jpmc_transaction_reference_number
         LOB_CHECK_ID = :lob_check_id
         OTHER = :other
         PARTIAL_SWIFT_MIR = :partial_swift_mir
@@ -139,7 +143,9 @@ module ModernTreasury
         PNC_INSTRUCTION_ID = :pnc_instruction_id
         PNC_MULTIPAYMENT_ID = :pnc_multipayment_id
         PNC_PAYMENT_TRACE_ID = :pnc_payment_trace_id
+        PNC_REQUEST_FOR_PAYMENT_ID = :pnc_request_for_payment_id
         PNC_TRANSACTION_REFERENCE_NUMBER = :pnc_transaction_reference_number
+        RBC_WIRE_REFERENCE_ID = :rbc_wire_reference_id
         RSPEC_VENDOR_PAYMENT_ID = :rspec_vendor_payment_id
         RTP_INSTRUCTION_ID = :rtp_instruction_id
         SIGNET_API_REFERENCE_ID = :signet_api_reference_id
@@ -171,8 +177,10 @@ module ModernTreasury
 
       # One of the referenceable types. This must be accompanied by the id of the
       #   referenceable or will return an error.
+      #
+      # @see ModernTreasury::Models::PaymentReference#referenceable_type
       module ReferenceableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         PAYMENT_ORDER = :payment_order
         REVERSAL = :reversal

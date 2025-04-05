@@ -17,11 +17,11 @@ module ModernTreasury
         posted_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount,
         updated_at: ::Hash[Symbol, Time]
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
-    class LedgerAccountListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class LedgerAccountListParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_reader id: ::Array[String]?
 
@@ -115,7 +115,7 @@ module ModernTreasury
           not_eq: Integer
         }
 
-      class AvailableBalanceAmount < ModernTreasury::BaseModel
+      class AvailableBalanceAmount < ModernTreasury::Internal::Type::BaseModel
         attr_reader eq: Integer?
 
         def eq=: (Integer) -> Integer
@@ -160,7 +160,7 @@ module ModernTreasury
           effective_at_upper_bound: Time
         }
 
-      class Balances < ModernTreasury::BaseModel
+      class Balances < ModernTreasury::Internal::Type::BaseModel
         attr_reader as_of_date: Date?
 
         def as_of_date=: (Date) -> Date
@@ -197,7 +197,7 @@ module ModernTreasury
           not_eq: Integer
         }
 
-      class PendingBalanceAmount < ModernTreasury::BaseModel
+      class PendingBalanceAmount < ModernTreasury::Internal::Type::BaseModel
         attr_reader eq: Integer?
 
         def eq=: (Integer) -> Integer
@@ -244,7 +244,7 @@ module ModernTreasury
           not_eq: Integer
         }
 
-      class PostedBalanceAmount < ModernTreasury::BaseModel
+      class PostedBalanceAmount < ModernTreasury::Internal::Type::BaseModel
         attr_reader eq: Integer?
 
         def eq=: (Integer) -> Integer

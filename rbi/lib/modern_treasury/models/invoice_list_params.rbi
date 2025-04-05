@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class InvoiceListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class InvoiceListParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor
@@ -88,7 +88,7 @@ module ModernTreasury
           payment_order_id: String,
           per_page: Integer,
           status: ModernTreasury::Models::InvoiceListParams::Status::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -131,11 +131,11 @@ module ModernTreasury
       end
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::InvoiceListParams::Status) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::InvoiceListParams::Status::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::InvoiceListParams::Status::TaggedSymbol) }
 
         DRAFT = T.let(:draft, ModernTreasury::Models::InvoiceListParams::Status::TaggedSymbol)
         PAID = T.let(:paid, ModernTreasury::Models::InvoiceListParams::Status::TaggedSymbol)

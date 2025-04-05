@@ -3,15 +3,16 @@
 module ModernTreasury
   module Models
     module Transactions
-      class LineItemListParams < ModernTreasury::BaseModel
+      # @see ModernTreasury::Resources::Transactions::LineItems#list
+      class LineItemListParams < ModernTreasury::Internal::Type::BaseModel
         # @!parse
-        #   extend ModernTreasury::RequestParameters::Converter
-        include ModernTreasury::RequestParameters
+        #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        include ModernTreasury::Internal::Type::RequestParameters
 
         # @!attribute [r] id
         #
         #   @return [Hash{Symbol=>String}, nil]
-        optional :id, ModernTreasury::HashOf[String]
+        optional :id, ModernTreasury::Internal::Type::HashOf[String]
 
         # @!parse
         #   # @return [Hash{Symbol=>String}]
@@ -55,10 +56,10 @@ module ModernTreasury
         #   #
         #   def initialize(id: nil, after_cursor: nil, per_page: nil, transaction_id: nil, type: nil, request_options: {}, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
         module Type
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           ORIGINATING = :originating
           RECEIVING = :receiving

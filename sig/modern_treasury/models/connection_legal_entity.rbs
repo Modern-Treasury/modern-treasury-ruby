@@ -14,7 +14,7 @@ module ModernTreasury
         vendor_id: String
       }
 
-    class ConnectionLegalEntity < ModernTreasury::BaseModel
+    class ConnectionLegalEntity < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor connection_id: String
@@ -53,7 +53,7 @@ module ModernTreasury
       type status = :completed | :denied | :failed | :processing
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         COMPLETED: :completed
         DENIED: :denied

@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class ForeignExchangeQuote < ModernTreasury::BaseModel
+    class ForeignExchangeQuote < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -29,7 +29,10 @@ module ModernTreasury
 
       sig do
         params(
-          foreign_exchange_rate: T.any(ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate, ModernTreasury::Util::AnyHash)
+          foreign_exchange_rate: T.any(
+            ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate,
+            ModernTreasury::Internal::AnyHash
+          )
         )
           .void
       end
@@ -69,7 +72,10 @@ module ModernTreasury
           effective_at: Time,
           expires_at: Time,
           foreign_exchange_indicator: String,
-          foreign_exchange_rate: T.any(ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate, ModernTreasury::Util::AnyHash),
+          foreign_exchange_rate: T.any(
+            ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate,
+            ModernTreasury::Internal::AnyHash
+          ),
           internal_account_id: String,
           live_mode: T::Boolean,
           metadata: T::Hash[Symbol, String],
@@ -117,7 +123,7 @@ module ModernTreasury
       def to_hash
       end
 
-      class ForeignExchangeRate < ModernTreasury::BaseModel
+      class ForeignExchangeRate < ModernTreasury::Internal::Type::BaseModel
         # Amount in the lowest denomination of the `base_currency` to convert, often
         #   called the "sell" amount.
         sig { returns(Integer) }
@@ -163,7 +169,15 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(base_amount:, base_currency:, exponent:, rate_string:, target_amount:, target_currency:, value:)
+        def self.new(
+          base_amount:,
+          base_currency:,
+          exponent:,
+          rate_string:,
+          target_amount:,
+          target_currency:,
+          value:
+        )
         end
 
         sig do

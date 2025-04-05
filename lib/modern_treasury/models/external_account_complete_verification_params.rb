@@ -2,15 +2,16 @@
 
 module ModernTreasury
   module Models
-    class ExternalAccountCompleteVerificationParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::ExternalAccounts#complete_verification
+    class ExternalAccountCompleteVerificationParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute [r] amounts
       #
       #   @return [Array<Integer>, nil]
-      optional :amounts, ModernTreasury::ArrayOf[Integer]
+      optional :amounts, ModernTreasury::Internal::Type::ArrayOf[Integer]
 
       # @!parse
       #   # @return [Array<Integer>]
@@ -22,7 +23,7 @@ module ModernTreasury
       #   #
       #   def initialize(amounts: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
     end
   end
 end

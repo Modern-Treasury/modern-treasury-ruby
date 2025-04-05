@@ -9,7 +9,12 @@ module ModernTreasury
           params(
             id: String,
             ledger_entry_ids: T.nilable(T::Array[String]),
-            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+            request_options: T.nilable(
+              T.any(
+                ModernTreasury::RequestOptions,
+                ModernTreasury::Internal::AnyHash
+              )
+            )
           )
             .void
         end
@@ -27,8 +32,13 @@ module ModernTreasury
         sig do
           params(
             id: String,
-            ledger_entry_ids: T.nilable(T::Array[T.anything]),
-            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+            ledger_entry_ids: T.nilable(T::Array[String]),
+            request_options: T.nilable(
+              T.any(
+                ModernTreasury::RequestOptions,
+                ModernTreasury::Internal::AnyHash
+              )
+            )
           )
             .void
         end
@@ -42,6 +52,7 @@ module ModernTreasury
         )
         end
 
+        # @api private
         sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
         def self.new(client:)
         end

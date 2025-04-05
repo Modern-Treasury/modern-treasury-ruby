@@ -2,10 +2,11 @@
 
 module ModernTreasury
   module Models
-    class PaymentFlowCreateParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::PaymentFlows#create
+    class PaymentFlowCreateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute amount
       #   Required. Value in specified currency's smallest unit. e.g. $10 would be
@@ -74,12 +75,12 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # Required. Describes the direction money is flowing in the transaction. Can only
       #   be `debit`. A `debit` pulls money from someone else's account to your own.
       module Direction
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CREDIT = :credit
         DEBIT = :debit

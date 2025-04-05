@@ -2,10 +2,11 @@
 
 module ModernTreasury
   module Models
-    class IncomingPaymentDetailCreateAsyncParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::IncomingPaymentDetails#create_async
+    class IncomingPaymentDetailCreateAsyncParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute [r] amount
       #   Value in specified currency's smallest unit. e.g. $10 would be represented
@@ -29,6 +30,13 @@ module ModernTreasury
       #
       #   @return [Symbol, ModernTreasury::Models::Currency, nil]
       optional :currency, enum: -> { ModernTreasury::Models::Currency }, nil?: true
+
+      # @!attribute data
+      #   An object passed through to the simulated IPD that could reflect what a vendor
+      #     would pass.
+      #
+      #   @return [Object, nil]
+      optional :data, ModernTreasury::Internal::Type::Unknown, nil?: true
 
       # @!attribute description
       #   Defaults to a random description.
@@ -78,6 +86,7 @@ module ModernTreasury
       #   # @param amount [Integer]
       #   # @param as_of_date [Date, nil]
       #   # @param currency [Symbol, ModernTreasury::Models::Currency, nil]
+      #   # @param data [Object, nil]
       #   # @param description [String, nil]
       #   # @param direction [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction]
       #   # @param internal_account_id [String]
@@ -89,6 +98,7 @@ module ModernTreasury
       #     amount: nil,
       #     as_of_date: nil,
       #     currency: nil,
+      #     data: nil,
       #     description: nil,
       #     direction: nil,
       #     internal_account_id: nil,
@@ -100,11 +110,11 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # One of `credit`, `debit`.
       module Direction
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CREDIT = :credit
         DEBIT = :debit
@@ -118,13 +128,17 @@ module ModernTreasury
 
       # One of `ach`, `wire`, `check`.
       module Type
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH = :ach
+        AU_BECS = :au_becs
+        BACS = :bacs
         BOOK = :book
         CHECK = :check
         EFT = :eft
         INTERAC = :interac
+        NEFT = :neft
+        NZ_BECS = :nz_becs
         RTP = :rtp
         SEPA = :sepa
         SIGNET = :signet

@@ -3,9 +3,9 @@
 module ModernTreasury
   module Models
     module Invoices
-      class LineItemListParams < ModernTreasury::BaseModel
-        extend ModernTreasury::RequestParameters::Converter
-        include ModernTreasury::RequestParameters
+      class LineItemListParams < ModernTreasury::Internal::Type::BaseModel
+        extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        include ModernTreasury::Internal::Type::RequestParameters
 
         sig { returns(T.nilable(String)) }
         attr_accessor :after_cursor
@@ -20,7 +20,7 @@ module ModernTreasury
           params(
             after_cursor: T.nilable(String),
             per_page: Integer,
-            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
           )
             .returns(T.attached_class)
         end

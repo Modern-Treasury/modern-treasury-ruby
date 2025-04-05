@@ -4,11 +4,11 @@ module ModernTreasury
       {
         status: ModernTreasury::Models::ConnectionLegalEntityUpdateParams::status
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
-    class ConnectionLegalEntityUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class ConnectionLegalEntityUpdateParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_reader status: ModernTreasury::Models::ConnectionLegalEntityUpdateParams::status?
 
@@ -26,7 +26,7 @@ module ModernTreasury
       type status = :processing
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         PROCESSING: :processing
 

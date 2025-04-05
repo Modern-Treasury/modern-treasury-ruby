@@ -2,10 +2,11 @@
 
 module ModernTreasury
   module Models
-    class LedgerEventHandlerListParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::LedgerEventHandlers#list
+    class LedgerEventHandlerListParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute after_cursor
       #
@@ -18,7 +19,7 @@ module ModernTreasury
       #     created_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
       #   @return [Hash{Symbol=>Time}, nil]
-      optional :created_at, ModernTreasury::HashOf[Time]
+      optional :created_at, ModernTreasury::Internal::Type::HashOf[Time]
 
       # @!parse
       #   # @return [Hash{Symbol=>Time}]
@@ -30,7 +31,7 @@ module ModernTreasury
       #     parameters.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -64,7 +65,7 @@ module ModernTreasury
       #   #
       #   def initialize(after_cursor: nil, created_at: nil, metadata: nil, name: nil, per_page: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
     end
   end
 end

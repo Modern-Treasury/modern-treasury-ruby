@@ -24,7 +24,7 @@ module ModernTreasury
         ?name: String,
         ?per_page: Integer,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Page[ModernTreasury::Models::LedgerEventHandler]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerEventHandler]
 
       def delete: (
         String id,

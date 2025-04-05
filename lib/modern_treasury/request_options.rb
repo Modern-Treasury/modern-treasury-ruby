@@ -1,45 +1,12 @@
 # frozen_string_literal: true
 
 module ModernTreasury
-  # @api private
-  module RequestParameters
-    # @!parse
-    #   # Options to specify HTTP behaviour for this request.
-    #   # @return [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-    #   attr_accessor :request_options
-
-    # @param mod [Module]
-    def self.included(mod)
-      return unless mod <= ModernTreasury::BaseModel
-
-      mod.extend(ModernTreasury::RequestParameters::Converter)
-      mod.optional(:request_options, ModernTreasury::RequestOptions)
-    end
-
-    # @api private
-    module Converter
-      # @api private
-      #
-      # @param params [Object]
-      #
-      # @return [Array(Object, Hash{Symbol=>Object})]
-      def dump_request(params)
-        case (dumped = dump(params))
-        in Hash
-          [dumped.except(:request_options), dumped[:request_options]]
-        else
-          [dumped, nil]
-        end
-      end
-    end
-  end
-
   # Specify HTTP behaviour to use for a specific request. These options supplement
   #   or override those provided at the client level.
   #
   #   When making a request, you can pass an actual {RequestOptions} instance, or
   #   simply pass a Hash with symbol keys matching the attributes on this class.
-  class RequestOptions < ModernTreasury::BaseModel
+  class RequestOptions < ModernTreasury::Internal::Type::BaseModel
     # @api private
     #
     # @param opts [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
@@ -70,21 +37,22 @@ module ModernTreasury
     #     `query` given at the client level.
     #
     #   @return [Hash{String=>Array<String>, String, nil}, nil]
-    optional :extra_query, ModernTreasury::HashOf[ModernTreasury::ArrayOf[String]]
+    optional :extra_query,
+             ModernTreasury::Internal::Type::HashOf[ModernTreasury::Internal::Type::ArrayOf[String]]
 
     # @!attribute extra_headers
     #   Extra headers to send with the request. These are `.merged`’d into any
     #     `extra_headers` given at the client level.
     #
     #   @return [Hash{String=>String, nil}, nil]
-    optional :extra_headers, ModernTreasury::HashOf[String, nil?: true]
+    optional :extra_headers, ModernTreasury::Internal::Type::HashOf[String, nil?: true]
 
     # @!attribute extra_body
     #   Extra data to send with the request. These are deep merged into any data
     #     generated as part of the normal request.
     #
     #   @return [Object, nil]
-    optional :extra_body, ModernTreasury::HashOf[ModernTreasury::Unknown]
+    optional :extra_body, ModernTreasury::Internal::Type::HashOf[ModernTreasury::Internal::Type::Unknown]
 
     # @!attribute max_retries
     #   Maximum number of retries to attempt after a failed initial request.

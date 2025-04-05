@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class ExpectedPaymentListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class ExpectedPaymentListParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor
@@ -86,7 +86,7 @@ module ModernTreasury
           per_page: Integer,
           status: ModernTreasury::Models::ExpectedPaymentListParams::Status::OrSymbol,
           type: ModernTreasury::Models::ExpectedPaymentListParams::Type::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -128,11 +128,11 @@ module ModernTreasury
 
       # One of unreconciled, reconciled, or archived.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Status) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Status::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ExpectedPaymentListParams::Status::TaggedSymbol) }
 
         ARCHIVED = T.let(:archived, ModernTreasury::Models::ExpectedPaymentListParams::Status::TaggedSymbol)
         PARTIALLY_RECONCILED =
@@ -149,11 +149,11 @@ module ModernTreasury
       # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
       #   sepa, signet, wire
       module Type
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol) }
 
         ACH = T.let(:ach, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
         AU_BECS = T.let(:au_becs, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)

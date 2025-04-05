@@ -26,8 +26,8 @@ class ModernTreasury::Test::Resources::LineItemsTest < ModernTreasury::Test::Res
         description: String | nil,
         itemizable_id: String,
         itemizable_type: ModernTreasury::Models::LineItem::ItemizableType,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         updated_at: Time
       }
@@ -57,8 +57,8 @@ class ModernTreasury::Test::Resources::LineItemsTest < ModernTreasury::Test::Res
         description: String | nil,
         itemizable_id: String,
         itemizable_type: ModernTreasury::Models::LineItem::ItemizableType,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         updated_at: Time
       }
@@ -71,7 +71,7 @@ class ModernTreasury::Test::Resources::LineItemsTest < ModernTreasury::Test::Res
     response = @modern_treasury.line_items.list("itemizable_id", itemizable_type: :expected_payments)
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first
@@ -92,8 +92,8 @@ class ModernTreasury::Test::Resources::LineItemsTest < ModernTreasury::Test::Res
         description: String | nil,
         itemizable_id: String,
         itemizable_type: ModernTreasury::Models::LineItem::ItemizableType,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         updated_at: Time
       }

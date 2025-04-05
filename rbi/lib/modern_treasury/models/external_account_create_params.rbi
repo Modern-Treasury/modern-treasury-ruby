@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class ExternalAccountCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class ExternalAccountCreateParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       sig { returns(T.nilable(String)) }
       attr_accessor :counterparty_id
@@ -14,7 +14,12 @@ module ModernTreasury
 
       sig do
         params(
-          account_details: T::Array[T.any(ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail, ModernTreasury::Util::AnyHash)]
+          account_details: T::Array[
+          T.any(
+            ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail,
+            ModernTreasury::Internal::AnyHash
+          )
+          ]
         )
           .void
       end
@@ -32,7 +37,12 @@ module ModernTreasury
 
       sig do
         params(
-          contact_details: T::Array[T.any(ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail, ModernTreasury::Util::AnyHash)]
+          contact_details: T::Array[
+          T.any(
+            ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail,
+            ModernTreasury::Internal::AnyHash
+          )
+          ]
         )
           .void
       end
@@ -48,7 +58,10 @@ module ModernTreasury
 
       sig do
         params(
-          ledger_account: T.any(ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount, ModernTreasury::Util::AnyHash)
+          ledger_account: T.any(
+            ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount,
+            ModernTreasury::Internal::AnyHash
+          )
         )
           .void
       end
@@ -73,7 +86,10 @@ module ModernTreasury
 
       sig do
         params(
-          party_address: T.any(ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress, ModernTreasury::Util::AnyHash)
+          party_address: T.any(
+            ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress,
+            ModernTreasury::Internal::AnyHash
+          )
         )
           .void
       end
@@ -109,7 +125,12 @@ module ModernTreasury
 
       sig do
         params(
-          routing_details: T::Array[T.any(ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail, ModernTreasury::Util::AnyHash)]
+          routing_details: T::Array[
+          T.any(
+            ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail,
+            ModernTreasury::Internal::AnyHash
+          )
+          ]
         )
           .void
       end
@@ -118,19 +139,40 @@ module ModernTreasury
       sig do
         params(
           counterparty_id: T.nilable(String),
-          account_details: T::Array[T.any(ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail, ModernTreasury::Util::AnyHash)],
+          account_details: T::Array[
+          T.any(
+            ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail,
+            ModernTreasury::Internal::AnyHash
+          )
+          ],
           account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
-          contact_details: T::Array[T.any(ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail, ModernTreasury::Util::AnyHash)],
-          ledger_account: T.any(ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount, ModernTreasury::Util::AnyHash),
+          contact_details: T::Array[
+          T.any(
+            ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail,
+            ModernTreasury::Internal::AnyHash
+          )
+          ],
+          ledger_account: T.any(
+            ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount,
+            ModernTreasury::Internal::AnyHash
+          ),
           metadata: T::Hash[Symbol, String],
           name: T.nilable(String),
-          party_address: T.any(ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress, ModernTreasury::Util::AnyHash),
+          party_address: T.any(
+            ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress,
+            ModernTreasury::Internal::AnyHash
+          ),
           party_identifier: String,
           party_name: String,
           party_type: T.nilable(ModernTreasury::Models::ExternalAccountCreateParams::PartyType::OrSymbol),
           plaid_processor_token: String,
-          routing_details: T::Array[T.any(ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail, ModernTreasury::Util::AnyHash)],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          routing_details: T::Array[
+          T.any(
+            ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail,
+            ModernTreasury::Internal::AnyHash
+          )
+          ],
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -176,7 +218,7 @@ module ModernTreasury
       def to_hash
       end
 
-      class AccountDetail < ModernTreasury::BaseModel
+      class AccountDetail < ModernTreasury::Internal::Type::BaseModel
         sig { returns(String) }
         attr_accessor :account_number
 
@@ -218,7 +260,7 @@ module ModernTreasury
         end
 
         module AccountNumberType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::AccountNumberType) }
@@ -226,6 +268,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
               )
             end
@@ -292,7 +335,7 @@ module ModernTreasury
         end
       end
 
-      class ContactDetail < ModernTreasury::BaseModel
+      class ContactDetail < ModernTreasury::Internal::Type::BaseModel
         sig { returns(T.nilable(String)) }
         attr_reader :contact_identifier
 
@@ -339,7 +382,7 @@ module ModernTreasury
         end
 
         module ContactIdentifierType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::ContactIdentifierType) }
@@ -347,6 +390,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::ContactIdentifierType::TaggedSymbol
               )
             end
@@ -378,7 +422,7 @@ module ModernTreasury
         end
       end
 
-      class LedgerAccount < ModernTreasury::BaseModel
+      class LedgerAccount < ModernTreasury::Internal::Type::BaseModel
         # The currency of the ledger account.
         sig { returns(String) }
         attr_accessor :currency
@@ -503,7 +547,7 @@ module ModernTreasury
         #   be populated here, otherwise null. The value is one of internal_account or
         #   external_account.
         module LedgerableType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::LedgerableType) }
@@ -511,6 +555,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::LedgerableType::TaggedSymbol
               )
             end
@@ -547,7 +592,7 @@ module ModernTreasury
         end
       end
 
-      class PartyAddress < ModernTreasury::BaseModel
+      class PartyAddress < ModernTreasury::Internal::Type::BaseModel
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(T.nilable(String)) }
         attr_accessor :country
@@ -604,12 +649,12 @@ module ModernTreasury
 
       # Either `individual` or `business`.
       module PartyType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::ExternalAccountCreateParams::PartyType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::ExternalAccountCreateParams::PartyType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ExternalAccountCreateParams::PartyType::TaggedSymbol) }
 
         BUSINESS = T.let(:business, ModernTreasury::Models::ExternalAccountCreateParams::PartyType::TaggedSymbol)
         INDIVIDUAL =
@@ -620,7 +665,7 @@ module ModernTreasury
         end
       end
 
-      class RoutingDetail < ModernTreasury::BaseModel
+      class RoutingDetail < ModernTreasury::Internal::Type::BaseModel
         sig { returns(String) }
         attr_accessor :routing_number
 
@@ -667,7 +712,7 @@ module ModernTreasury
         end
 
         module RoutingNumberType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::RoutingNumberType) }
@@ -675,6 +720,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             end
@@ -796,7 +842,7 @@ module ModernTreasury
         end
 
         module PaymentType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::PaymentType) }
@@ -804,6 +850,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
               )
             end

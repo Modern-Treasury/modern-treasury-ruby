@@ -2,7 +2,8 @@
 
 module ModernTreasury
   module Models
-    class LegalEntity < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::LegalEntities#create
+    class LegalEntity < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -12,7 +13,8 @@ module ModernTreasury
       #   A list of addresses for the entity.
       #
       #   @return [Array<ModernTreasury::Models::LegalEntity::Address>]
-      required :addresses, -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntity::Address] }
+      required :addresses,
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::LegalEntity::Address] }
 
       # @!attribute bank_settings
       #
@@ -30,6 +32,11 @@ module ModernTreasury
       #
       #   @return [String, nil]
       required :citizenship_country, String, nil?: true
+
+      # @!attribute compliance_details
+      #
+      #   @return [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
+      required :compliance_details, -> { ModernTreasury::Models::LegalEntityComplianceDetail }, nil?: true
 
       # @!attribute created_at
       #
@@ -56,7 +63,7 @@ module ModernTreasury
       # @!attribute doing_business_as_names
       #
       #   @return [Array<String>]
-      required :doing_business_as_names, ModernTreasury::ArrayOf[String]
+      required :doing_business_as_names, ModernTreasury::Internal::Type::ArrayOf[String]
 
       # @!attribute email
       #   The entity's primary email.
@@ -75,7 +82,14 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::LegalEntity::Identification>]
       required :identifications,
-               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntity::Identification] }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::LegalEntity::Identification] }
+
+      # @!attribute industry_classifications
+      #   A list of industry classifications for the legal entity.
+      #
+      #   @return [Array<ModernTreasury::Models::LegalEntityIndustryClassification>]
+      required :industry_classifications,
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::LegalEntityIndustryClassification] }
 
       # @!attribute last_name
       #   An individual's last name.
@@ -88,7 +102,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::LegalEntityAssociation>, nil]
       required :legal_entity_associations,
-               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityAssociation] },
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::LegalEntityAssociation] },
                nil?: true
 
       # @!attribute legal_entity_type
@@ -108,14 +122,14 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @return [Hash{Symbol=>String}]
-      required :metadata, ModernTreasury::HashOf[String]
+      required :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!attribute middle_name
       #   An individual's middle name.
@@ -131,13 +145,14 @@ module ModernTreasury
       # @!attribute phone_numbers
       #
       #   @return [Array<ModernTreasury::Models::LegalEntity::PhoneNumber>]
-      required :phone_numbers, -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntity::PhoneNumber] }
+      required :phone_numbers,
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::LegalEntity::PhoneNumber] }
 
       # @!attribute politically_exposed_person
       #   Whether the individual is a politically exposed person.
       #
       #   @return [Boolean, nil]
-      required :politically_exposed_person, ModernTreasury::BooleanModel, nil?: true
+      required :politically_exposed_person, ModernTreasury::Internal::Type::Boolean, nil?: true
 
       # @!attribute preferred_name
       #   An individual's preferred name.
@@ -187,6 +202,7 @@ module ModernTreasury
       #   # @param bank_settings [ModernTreasury::Models::BankSettings, nil]
       #   # @param business_name [String, nil]
       #   # @param citizenship_country [String, nil]
+      #   # @param compliance_details [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
       #   # @param created_at [Time]
       #   # @param date_formed [Date, nil]
       #   # @param date_of_birth [Date, nil]
@@ -195,6 +211,7 @@ module ModernTreasury
       #   # @param email [String, nil]
       #   # @param first_name [String, nil]
       #   # @param identifications [Array<ModernTreasury::Models::LegalEntity::Identification>]
+      #   # @param industry_classifications [Array<ModernTreasury::Models::LegalEntityIndustryClassification>]
       #   # @param last_name [String, nil]
       #   # @param legal_entity_associations [Array<ModernTreasury::Models::LegalEntityAssociation>, nil]
       #   # @param legal_entity_type [Symbol, ModernTreasury::Models::LegalEntity::LegalEntityType]
@@ -219,6 +236,7 @@ module ModernTreasury
       #     bank_settings:,
       #     business_name:,
       #     citizenship_country:,
+      #     compliance_details:,
       #     created_at:,
       #     date_formed:,
       #     date_of_birth:,
@@ -227,6 +245,7 @@ module ModernTreasury
       #     email:,
       #     first_name:,
       #     identifications:,
+      #     industry_classifications:,
       #     last_name:,
       #     legal_entity_associations:,
       #     legal_entity_type:,
@@ -249,9 +268,9 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-      class Address < ModernTreasury::BaseModel
+      class Address < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
         #
         #   @return [String]
@@ -262,7 +281,7 @@ module ModernTreasury
         #
         #   @return [Array<Symbol, ModernTreasury::Models::LegalEntity::Address::AddressType>]
         required :address_types,
-                 -> { ModernTreasury::ArrayOf[enum: ModernTreasury::Models::LegalEntity::Address::AddressType] }
+                 -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::LegalEntity::Address::AddressType] }
 
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]
@@ -295,7 +314,7 @@ module ModernTreasury
         #     if it exists in the test environment.
         #
         #   @return [Boolean]
-        required :live_mode, ModernTreasury::BooleanModel
+        required :live_mode, ModernTreasury::Internal::Type::Boolean
 
         # @!attribute locality
         #   Locality or City.
@@ -359,10 +378,10 @@ module ModernTreasury
         #     super
         #   end
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
         module AddressType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           BUSINESS = :business
           MAILING = :mailing
@@ -378,7 +397,7 @@ module ModernTreasury
         end
       end
 
-      class Identification < ModernTreasury::BaseModel
+      class Identification < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
         #
         #   @return [String]
@@ -412,7 +431,7 @@ module ModernTreasury
         #     if it exists in the test environment.
         #
         #   @return [Boolean]
-        required :live_mode, ModernTreasury::BooleanModel
+        required :live_mode, ModernTreasury::Internal::Type::Boolean
 
         # @!attribute object
         #
@@ -436,11 +455,13 @@ module ModernTreasury
         #   #
         #   def initialize(id:, created_at:, discarded_at:, id_type:, issuing_country:, live_mode:, object:, updated_at:, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
         # The type of ID number.
+        #
+        # @see ModernTreasury::Models::LegalEntity::Identification#id_type
         module IDType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           AR_CUIL = :ar_cuil
           AR_CUIT = :ar_cuit
@@ -473,8 +494,10 @@ module ModernTreasury
       end
 
       # The type of legal entity.
+      #
+      # @see ModernTreasury::Models::LegalEntity#legal_entity_type
       module LegalEntityType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         BUSINESS = :business
         INDIVIDUAL = :individual
@@ -488,8 +511,10 @@ module ModernTreasury
       end
 
       # The business's legal structure.
+      #
+      # @see ModernTreasury::Models::LegalEntity#legal_structure
       module LegalStructure
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CORPORATION = :corporation
         LLC = :llc
@@ -505,7 +530,7 @@ module ModernTreasury
         #   def self.values; end
       end
 
-      class PhoneNumber < ModernTreasury::BaseModel
+      class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
         # @!attribute [r] phone_number
         #
         #   @return [String, nil]
@@ -522,12 +547,14 @@ module ModernTreasury
         #   #
         #   def initialize(phone_number: nil, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
 
       # The risk rating of the legal entity. One of low, medium, high.
+      #
+      # @see ModernTreasury::Models::LegalEntity#risk_rating
       module RiskRating
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         LOW = :low
         MEDIUM = :medium

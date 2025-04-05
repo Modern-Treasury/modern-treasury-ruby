@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class ExternalAccountUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class ExternalAccountUpdateParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # Can be `checking`, `savings` or `other`.
       sig { returns(T.nilable(ModernTreasury::Models::ExternalAccountType::OrSymbol)) }
@@ -34,7 +34,10 @@ module ModernTreasury
 
       sig do
         params(
-          party_address: T.any(ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress, ModernTreasury::Util::AnyHash)
+          party_address: T.any(
+            ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress,
+            ModernTreasury::Internal::AnyHash
+          )
         )
           .void
       end
@@ -57,10 +60,13 @@ module ModernTreasury
           counterparty_id: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           name: T.nilable(String),
-          party_address: T.any(ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress, ModernTreasury::Util::AnyHash),
+          party_address: T.any(
+            ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress,
+            ModernTreasury::Internal::AnyHash
+          ),
           party_name: String,
           party_type: T.nilable(ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::OrSymbol),
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -94,7 +100,7 @@ module ModernTreasury
       def to_hash
       end
 
-      class PartyAddress < ModernTreasury::BaseModel
+      class PartyAddress < ModernTreasury::Internal::Type::BaseModel
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(T.nilable(String)) }
         attr_accessor :country
@@ -150,12 +156,12 @@ module ModernTreasury
 
       # Either `individual` or `business`.
       module PartyType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::TaggedSymbol) }
 
         BUSINESS = T.let(:business, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::TaggedSymbol)
         INDIVIDUAL =

@@ -8,11 +8,11 @@ module ModernTreasury
         per_page: Integer,
         status: ModernTreasury::Models::ConnectionLegalEntityListParams::status
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
-    class ConnectionLegalEntityListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class ConnectionLegalEntityListParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor after_cursor: String?
 
@@ -48,7 +48,7 @@ module ModernTreasury
       type status = :completed | :denied | :failed | :processing
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         COMPLETED: :completed
         DENIED: :denied

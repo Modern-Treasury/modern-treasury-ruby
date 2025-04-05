@@ -27,10 +27,10 @@ class ModernTreasury::Test::Resources::PaymentFlowsTest < ModernTreasury::Test::
         currency: String | nil,
         direction: ModernTreasury::Models::PaymentFlow::Direction | nil,
         due_date: Date | nil,
-        effective_date_selection_enabled: ModernTreasury::BooleanModel | nil,
+        effective_date_selection_enabled: ModernTreasury::Internal::Type::Boolean | nil,
         existing_external_accounts_filter: ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter | nil,
         external_account_collection: ModernTreasury::Models::PaymentFlow::ExternalAccountCollection | nil,
-        live_mode: ModernTreasury::BooleanModel | nil,
+        live_mode: ModernTreasury::Internal::Type::Boolean | nil,
         object: String | nil,
         originating_account_id: String | nil,
         payment_order_id: String | nil,
@@ -59,10 +59,10 @@ class ModernTreasury::Test::Resources::PaymentFlowsTest < ModernTreasury::Test::
         currency: String | nil,
         direction: ModernTreasury::Models::PaymentFlow::Direction | nil,
         due_date: Date | nil,
-        effective_date_selection_enabled: ModernTreasury::BooleanModel | nil,
+        effective_date_selection_enabled: ModernTreasury::Internal::Type::Boolean | nil,
         existing_external_accounts_filter: ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter | nil,
         external_account_collection: ModernTreasury::Models::PaymentFlow::ExternalAccountCollection | nil,
-        live_mode: ModernTreasury::BooleanModel | nil,
+        live_mode: ModernTreasury::Internal::Type::Boolean | nil,
         object: String | nil,
         originating_account_id: String | nil,
         payment_order_id: String | nil,
@@ -91,10 +91,10 @@ class ModernTreasury::Test::Resources::PaymentFlowsTest < ModernTreasury::Test::
         currency: String | nil,
         direction: ModernTreasury::Models::PaymentFlow::Direction | nil,
         due_date: Date | nil,
-        effective_date_selection_enabled: ModernTreasury::BooleanModel | nil,
+        effective_date_selection_enabled: ModernTreasury::Internal::Type::Boolean | nil,
         existing_external_accounts_filter: ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter | nil,
         external_account_collection: ModernTreasury::Models::PaymentFlow::ExternalAccountCollection | nil,
-        live_mode: ModernTreasury::BooleanModel | nil,
+        live_mode: ModernTreasury::Internal::Type::Boolean | nil,
         object: String | nil,
         originating_account_id: String | nil,
         payment_order_id: String | nil,
@@ -110,7 +110,7 @@ class ModernTreasury::Test::Resources::PaymentFlowsTest < ModernTreasury::Test::
     response = @modern_treasury.payment_flows.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first
@@ -130,10 +130,10 @@ class ModernTreasury::Test::Resources::PaymentFlowsTest < ModernTreasury::Test::
         currency: String | nil,
         direction: ModernTreasury::Models::PaymentFlow::Direction | nil,
         due_date: Date | nil,
-        effective_date_selection_enabled: ModernTreasury::BooleanModel | nil,
+        effective_date_selection_enabled: ModernTreasury::Internal::Type::Boolean | nil,
         existing_external_accounts_filter: ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter | nil,
         external_account_collection: ModernTreasury::Models::PaymentFlow::ExternalAccountCollection | nil,
-        live_mode: ModernTreasury::BooleanModel | nil,
+        live_mode: ModernTreasury::Internal::Type::Boolean | nil,
         object: String | nil,
         originating_account_id: String | nil,
         payment_order_id: String | nil,

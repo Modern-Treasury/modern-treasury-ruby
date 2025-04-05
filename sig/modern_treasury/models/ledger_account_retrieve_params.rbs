@@ -4,11 +4,11 @@ module ModernTreasury
       {
         balances: ModernTreasury::Models::LedgerAccountRetrieveParams::Balances
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
-    class LedgerAccountRetrieveParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class LedgerAccountRetrieveParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_reader balances: ModernTreasury::Models::LedgerAccountRetrieveParams::Balances?
 
@@ -32,7 +32,7 @@ module ModernTreasury
           effective_at_upper_bound: Time
         }
 
-      class Balances < ModernTreasury::BaseModel
+      class Balances < ModernTreasury::Internal::Type::BaseModel
         attr_reader as_of_date: Date?
 
         def as_of_date=: (Date) -> Date

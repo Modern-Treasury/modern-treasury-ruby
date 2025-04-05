@@ -8,19 +8,27 @@ module ModernTreasury
         params(
           ledger_transaction_template: T.any(
             ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate,
-            ModernTreasury::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           ),
           name: String,
           conditions: T.nilable(
-            T.any(ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions, ModernTreasury::Util::AnyHash)
+            T.any(
+              ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions,
+              ModernTreasury::Internal::AnyHash
+            )
           ),
           description: T.nilable(String),
           ledger_id: String,
           metadata: T.nilable(T::Hash[Symbol, String]),
           variables: T.nilable(
-            T::Hash[Symbol, T.any(ModernTreasury::Models::LedgerEventHandlerVariable, ModernTreasury::Util::AnyHash)]
+            T::Hash[Symbol, T.any(ModernTreasury::Models::LedgerEventHandlerVariable, ModernTreasury::Internal::AnyHash)]
           ),
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::LedgerEventHandler)
       end
@@ -45,7 +53,12 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::LedgerEventHandler)
       end
@@ -64,9 +77,14 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           name: String,
           per_page: Integer,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::AnyHash
+            )
+          )
         )
-          .returns(ModernTreasury::Page[ModernTreasury::Models::LedgerEventHandler])
+          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerEventHandler])
       end
       def list(
         after_cursor: nil,
@@ -88,7 +106,12 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+          request_options: T.nilable(
+            T.any(
+              ModernTreasury::RequestOptions,
+              ModernTreasury::Internal::AnyHash
+            )
+          )
         )
           .returns(ModernTreasury::Models::LedgerEventHandler)
       end
@@ -99,6 +122,7 @@ module ModernTreasury
       )
       end
 
+      # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
       def self.new(client:)
       end

@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class ConnectionListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class ConnectionListParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor
@@ -35,11 +35,17 @@ module ModernTreasury
           entity: String,
           per_page: Integer,
           vendor_customer_id: String,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
-      def self.new(after_cursor: nil, entity: nil, per_page: nil, vendor_customer_id: nil, request_options: {})
+      def self.new(
+        after_cursor: nil,
+        entity: nil,
+        per_page: nil,
+        vendor_customer_id: nil,
+        request_options: {}
+      )
       end
 
       sig do

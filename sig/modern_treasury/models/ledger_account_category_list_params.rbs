@@ -13,11 +13,11 @@ module ModernTreasury
         parent_ledger_account_category_id: String,
         per_page: Integer
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
-    class LedgerAccountCategoryListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class LedgerAccountCategoryListParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_reader id: ::Array[String]?
 
@@ -77,7 +77,7 @@ module ModernTreasury
 
       type balances = { effective_at: Time }
 
-      class Balances < ModernTreasury::BaseModel
+      class Balances < ModernTreasury::Internal::Type::BaseModel
         attr_reader effective_at: Time?
 
         def effective_at=: (Time) -> Time

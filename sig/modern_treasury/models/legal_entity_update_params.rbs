@@ -6,12 +6,14 @@ module ModernTreasury
         bank_settings: ModernTreasury::Models::BankSettings?,
         business_name: String?,
         citizenship_country: String?,
+        compliance_details: ModernTreasury::Models::LegalEntityComplianceDetail?,
         date_formed: Date?,
         date_of_birth: Date?,
         doing_business_as_names: ::Array[String],
         email: String?,
         first_name: String?,
         identifications: ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Identification],
+        industry_classifications: ::Array[ModernTreasury::Models::LegalEntityIndustryClassification],
         last_name: String?,
         legal_structure: ModernTreasury::Models::LegalEntityUpdateParams::legal_structure?,
         metadata: ::Hash[Symbol, String],
@@ -25,11 +27,11 @@ module ModernTreasury
         wealth_and_employment_details: ModernTreasury::Models::WealthAndEmploymentDetails?,
         website: String?
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
-    class LegalEntityUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class LegalEntityUpdateParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_reader addresses: ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Address]?
 
@@ -42,6 +44,8 @@ module ModernTreasury
       attr_accessor business_name: String?
 
       attr_accessor citizenship_country: String?
+
+      attr_accessor compliance_details: ModernTreasury::Models::LegalEntityComplianceDetail?
 
       attr_accessor date_formed: Date?
 
@@ -60,6 +64,12 @@ module ModernTreasury
       def identifications=: (
         ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Identification]
       ) -> ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Identification]
+
+      attr_reader industry_classifications: ::Array[ModernTreasury::Models::LegalEntityIndustryClassification]?
+
+      def industry_classifications=: (
+        ::Array[ModernTreasury::Models::LegalEntityIndustryClassification]
+      ) -> ::Array[ModernTreasury::Models::LegalEntityIndustryClassification]
 
       attr_accessor last_name: String?
 
@@ -96,12 +106,14 @@ module ModernTreasury
         ?bank_settings: ModernTreasury::Models::BankSettings?,
         ?business_name: String?,
         ?citizenship_country: String?,
+        ?compliance_details: ModernTreasury::Models::LegalEntityComplianceDetail?,
         ?date_formed: Date?,
         ?date_of_birth: Date?,
         ?doing_business_as_names: ::Array[String],
         ?email: String?,
         ?first_name: String?,
         ?identifications: ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Identification],
+        ?industry_classifications: ::Array[ModernTreasury::Models::LegalEntityIndustryClassification],
         ?last_name: String?,
         ?legal_structure: ModernTreasury::Models::LegalEntityUpdateParams::legal_structure?,
         ?metadata: ::Hash[Symbol, String],
@@ -130,7 +142,7 @@ module ModernTreasury
           :line2 => String?
         }
 
-      class Address < ModernTreasury::BaseModel
+      class Address < ModernTreasury::Internal::Type::BaseModel
         attr_accessor country: String?
 
         attr_accessor line1: String?
@@ -165,7 +177,7 @@ module ModernTreasury
           :business | :mailing | :other | :po_box | :residential
 
         module AddressType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           BUSINESS: :business
           MAILING: :mailing
@@ -184,7 +196,7 @@ module ModernTreasury
           issuing_country: String?
         }
 
-      class Identification < ModernTreasury::BaseModel
+      class Identification < ModernTreasury::Internal::Type::BaseModel
         attr_accessor id_number: String
 
         attr_accessor id_type: ModernTreasury::Models::LegalEntityUpdateParams::Identification::id_type
@@ -223,7 +235,7 @@ module ModernTreasury
           | :vn_tin
 
         module IDType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           AR_CUIL: :ar_cuil
           AR_CUIT: :ar_cuit
@@ -260,7 +272,7 @@ module ModernTreasury
         | :trust
 
       module LegalStructure
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CORPORATION: :corporation
         LLC: :llc
@@ -274,7 +286,7 @@ module ModernTreasury
 
       type phone_number = { phone_number: String }
 
-      class PhoneNumber < ModernTreasury::BaseModel
+      class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
         attr_reader phone_number: String?
 
         def phone_number=: (String) -> String
@@ -287,7 +299,7 @@ module ModernTreasury
       type risk_rating = :low | :medium | :high
 
       module RiskRating
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         LOW: :low
         MEDIUM: :medium

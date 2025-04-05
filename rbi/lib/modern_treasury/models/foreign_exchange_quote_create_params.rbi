@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class ForeignExchangeQuoteCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class ForeignExchangeQuoteCreateParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # The ID for the `InternalAccount` this quote is associated with.
       sig { returns(String) }
@@ -52,7 +52,7 @@ module ModernTreasury
           base_currency: ModernTreasury::Models::Currency::OrSymbol,
           effective_at: Time,
           target_amount: Integer,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class LineItemUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class LineItemUpdateParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       sig { returns(ModernTreasury::Models::LineItemUpdateParams::ItemizableType::OrSymbol) }
       attr_accessor :itemizable_type
@@ -25,7 +25,7 @@ module ModernTreasury
           itemizable_type: ModernTreasury::Models::LineItemUpdateParams::ItemizableType::OrSymbol,
           itemizable_id: String,
           metadata: T::Hash[Symbol, String],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -47,12 +47,12 @@ module ModernTreasury
       end
 
       module ItemizableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::LineItemUpdateParams::ItemizableType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::LineItemUpdateParams::ItemizableType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LineItemUpdateParams::ItemizableType::TaggedSymbol) }
 
         EXPECTED_PAYMENTS =
           T.let(:expected_payments, ModernTreasury::Models::LineItemUpdateParams::ItemizableType::TaggedSymbol)

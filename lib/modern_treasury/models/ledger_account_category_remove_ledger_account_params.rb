@@ -2,10 +2,11 @@
 
 module ModernTreasury
   module Models
-    class LedgerAccountCategoryRemoveLedgerAccountParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::LedgerAccountCategories#remove_ledger_account
+    class LedgerAccountCategoryRemoveLedgerAccountParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute id
       #
@@ -18,7 +19,7 @@ module ModernTreasury
       #   #
       #   def initialize(id:, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
     end
   end
 end

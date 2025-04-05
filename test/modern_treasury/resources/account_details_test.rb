@@ -22,7 +22,7 @@ class ModernTreasury::Test::Resources::AccountDetailsTest < ModernTreasury::Test
         account_number_type: ModernTreasury::Models::AccountDetail::AccountNumberType,
         created_at: Time,
         discarded_at: Time | nil,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         updated_at: Time,
         account_number: String | nil
@@ -49,7 +49,7 @@ class ModernTreasury::Test::Resources::AccountDetailsTest < ModernTreasury::Test
         account_number_type: ModernTreasury::Models::AccountDetail::AccountNumberType,
         created_at: Time,
         discarded_at: Time | nil,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         updated_at: Time,
         account_number: String | nil
@@ -61,7 +61,7 @@ class ModernTreasury::Test::Resources::AccountDetailsTest < ModernTreasury::Test
     response = @modern_treasury.account_details.list("account_id", accounts_type: :external_accounts)
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first
@@ -78,7 +78,7 @@ class ModernTreasury::Test::Resources::AccountDetailsTest < ModernTreasury::Test
         account_number_type: ModernTreasury::Models::AccountDetail::AccountNumberType,
         created_at: Time,
         discarded_at: Time | nil,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         updated_at: Time,
         account_number: String | nil

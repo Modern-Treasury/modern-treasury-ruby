@@ -7,7 +7,7 @@ class ModernTreasury::Test::Resources::LedgerTransactions::VersionsTest < Modern
     response = @modern_treasury.ledger_transactions.versions.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first
@@ -25,13 +25,13 @@ class ModernTreasury::Test::Resources::LedgerTransactions::VersionsTest < Modern
         effective_at: Time,
         effective_date: Date,
         external_id: String | nil,
-        ledger_entries: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry]),
+        ledger_entries: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry]),
         ledger_id: String,
         ledger_transaction_id: String,
         ledgerable_id: String | nil,
         ledgerable_type: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerableType | nil,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         partially_posts_ledger_transaction_id: String | nil,
         posted_at: Time | nil,

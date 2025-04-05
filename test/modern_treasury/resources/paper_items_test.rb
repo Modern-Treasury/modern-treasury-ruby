@@ -20,7 +20,7 @@ class ModernTreasury::Test::Resources::PaperItemsTest < ModernTreasury::Test::Re
         created_at: Time,
         currency: ModernTreasury::Models::Currency,
         deposit_date: Date,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         lockbox_number: String,
         memo_field: String | nil,
         object: String,
@@ -38,7 +38,7 @@ class ModernTreasury::Test::Resources::PaperItemsTest < ModernTreasury::Test::Re
     response = @modern_treasury.paper_items.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first
@@ -58,7 +58,7 @@ class ModernTreasury::Test::Resources::PaperItemsTest < ModernTreasury::Test::Re
         created_at: Time,
         currency: ModernTreasury::Models::Currency,
         deposit_date: Date,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         lockbox_number: String,
         memo_field: String | nil,
         object: String,

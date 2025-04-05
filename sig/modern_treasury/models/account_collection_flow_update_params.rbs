@@ -4,11 +4,11 @@ module ModernTreasury
       {
         status: ModernTreasury::Models::AccountCollectionFlowUpdateParams::status
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
-    class AccountCollectionFlowUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class AccountCollectionFlowUpdateParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor status: ModernTreasury::Models::AccountCollectionFlowUpdateParams::status
 
@@ -22,7 +22,7 @@ module ModernTreasury
       type status = :cancelled
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CANCELLED: :cancelled
 

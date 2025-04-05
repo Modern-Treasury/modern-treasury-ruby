@@ -19,7 +19,7 @@ module ModernTreasury
         updated_at: Time
       }
 
-    class LedgerAccount < ModernTreasury::BaseModel
+    class LedgerAccount < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor balances: ModernTreasury::Models::LedgerAccount::Balances
@@ -79,7 +79,7 @@ module ModernTreasury
           posted_balance: ModernTreasury::Models::LedgerAccount::Balances::PostedBalance
         }
 
-      class Balances < ModernTreasury::BaseModel
+      class Balances < ModernTreasury::Internal::Type::BaseModel
         attr_accessor available_balance: ModernTreasury::Models::LedgerAccount::Balances::AvailableBalance
 
         attr_accessor effective_at_lower_bound: Time?
@@ -109,7 +109,7 @@ module ModernTreasury
             debits: Integer
           }
 
-        class AvailableBalance < ModernTreasury::BaseModel
+        class AvailableBalance < ModernTreasury::Internal::Type::BaseModel
           attr_accessor amount: Integer
 
           attr_accessor credits: Integer
@@ -140,7 +140,7 @@ module ModernTreasury
             debits: Integer
           }
 
-        class PendingBalance < ModernTreasury::BaseModel
+        class PendingBalance < ModernTreasury::Internal::Type::BaseModel
           attr_accessor amount: Integer
 
           attr_accessor credits: Integer
@@ -171,7 +171,7 @@ module ModernTreasury
             debits: Integer
           }
 
-        class PostedBalance < ModernTreasury::BaseModel
+        class PostedBalance < ModernTreasury::Internal::Type::BaseModel
           attr_accessor amount: Integer
 
           attr_accessor credits: Integer
@@ -198,7 +198,7 @@ module ModernTreasury
         :counterparty | :external_account | :internal_account | :virtual_account
 
       module LedgerableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         COUNTERPARTY: :counterparty
         EXTERNAL_ACCOUNT: :external_account

@@ -8,11 +8,11 @@ module ModernTreasury
           balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportListParams::balance_report_type,
           per_page: Integer
         }
-        & ModernTreasury::request_parameters
+        & ModernTreasury::Internal::Type::request_parameters
 
-      class BalanceReportListParams < ModernTreasury::BaseModel
-        extend ModernTreasury::RequestParameters::Converter
-        include ModernTreasury::RequestParameters
+      class BalanceReportListParams < ModernTreasury::Internal::Type::BaseModel
+        extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        include ModernTreasury::Internal::Type::RequestParameters
 
         attr_accessor after_cursor: String?
 
@@ -44,7 +44,7 @@ module ModernTreasury
           :intraday | :other | :previous_day | :real_time
 
         module BalanceReportType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           INTRADAY: :intraday
           OTHER: :other

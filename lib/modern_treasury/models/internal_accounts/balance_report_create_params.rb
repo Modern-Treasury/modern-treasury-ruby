@@ -3,10 +3,11 @@
 module ModernTreasury
   module Models
     module InternalAccounts
-      class BalanceReportCreateParams < ModernTreasury::BaseModel
+      # @see ModernTreasury::Resources::InternalAccounts::BalanceReports#create
+      class BalanceReportCreateParams < ModernTreasury::Internal::Type::BaseModel
         # @!parse
-        #   extend ModernTreasury::RequestParameters::Converter
-        include ModernTreasury::RequestParameters
+        #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        include ModernTreasury::Internal::Type::RequestParameters
 
         # @!attribute as_of_date
         #   The date of the balance report in local time.
@@ -33,7 +34,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance>]
         required :balances,
-                 -> { ModernTreasury::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance] }
+                 -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance] }
 
         # @!parse
         #   # @param as_of_date [Date]
@@ -44,12 +45,12 @@ module ModernTreasury
         #   #
         #   def initialize(as_of_date:, as_of_time:, balance_report_type:, balances:, request_options: {}, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
         # The specific type of balance report. One of `intraday`, `previous_day`,
         #   `real_time`, or `other`.
         module BalanceReportType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           INTRADAY = :intraday
           OTHER = :other
@@ -63,7 +64,7 @@ module ModernTreasury
           #   def self.values; end
         end
 
-        class Balance < ModernTreasury::BaseModel
+        class Balance < ModernTreasury::Internal::Type::BaseModel
           # @!attribute amount
           #   The balance amount.
           #
@@ -103,14 +104,16 @@ module ModernTreasury
           #   #
           #   def initialize(amount:, balance_type:, vendor_code:, vendor_code_type:, **) = super
 
-          # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
           # The specific type of balance reported. One of `opening_ledger`,
           #   `closing_ledger`, `current_ledger`, `opening_available`,
           #   `opening_available_next_business_day`, `closing_available`, `current_available`,
           #   'previously_closed_book', or `other`.
+          #
+          # @see ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance#balance_type
           module BalanceType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             CLOSING_AVAILABLE = :closing_available
             CLOSING_LEDGER = :closing_ledger

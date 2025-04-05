@@ -30,8 +30,8 @@ class ModernTreasury::Test::Resources::BulkRequestsTest < ModernTreasury::Test::
         action_type: ModernTreasury::Models::BulkRequest::ActionType,
         created_at: Time,
         failed_result_count: Integer,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         resource_type: ModernTreasury::Models::BulkRequest::ResourceType,
         status: ModernTreasury::Models::BulkRequest::Status,
@@ -55,8 +55,8 @@ class ModernTreasury::Test::Resources::BulkRequestsTest < ModernTreasury::Test::
         action_type: ModernTreasury::Models::BulkRequest::ActionType,
         created_at: Time,
         failed_result_count: Integer,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         resource_type: ModernTreasury::Models::BulkRequest::ResourceType,
         status: ModernTreasury::Models::BulkRequest::Status,
@@ -71,7 +71,7 @@ class ModernTreasury::Test::Resources::BulkRequestsTest < ModernTreasury::Test::
     response = @modern_treasury.bulk_requests.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first
@@ -87,8 +87,8 @@ class ModernTreasury::Test::Resources::BulkRequestsTest < ModernTreasury::Test::
         action_type: ModernTreasury::Models::BulkRequest::ActionType,
         created_at: Time,
         failed_result_count: Integer,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         resource_type: ModernTreasury::Models::BulkRequest::ResourceType,
         status: ModernTreasury::Models::BulkRequest::Status,

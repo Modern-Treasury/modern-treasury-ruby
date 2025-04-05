@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class Event < ModernTreasury::BaseModel
+    class Event < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -55,7 +55,18 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(id:, created_at:, data:, entity_id:, event_name:, event_time:, live_mode:, object:, resource:, updated_at:)
+      def self.new(
+        id:,
+        created_at:,
+        data:,
+        entity_id:,
+        event_name:,
+        event_time:,
+        live_mode:,
+        object:,
+        resource:,
+        updated_at:
+      )
       end
 
       sig do

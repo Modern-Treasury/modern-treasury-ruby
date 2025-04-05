@@ -17,12 +17,12 @@ class ModernTreasury::Test::Resources::IncomingPaymentDetailsTest < ModernTreasu
         as_of_date: Date,
         created_at: Time,
         currency: ModernTreasury::Models::Currency,
-        data: ^(ModernTreasury::HashOf[ModernTreasury::Unknown]),
+        data: ^(ModernTreasury::Internal::Type::HashOf[ModernTreasury::Internal::Type::Unknown]),
         direction: ModernTreasury::Models::TransactionDirection,
         internal_account_id: String,
         ledger_transaction_id: String | nil,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         originating_account_number_safe: String | nil,
         originating_account_number_type: ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType | nil,
@@ -55,12 +55,12 @@ class ModernTreasury::Test::Resources::IncomingPaymentDetailsTest < ModernTreasu
         as_of_date: Date,
         created_at: Time,
         currency: ModernTreasury::Models::Currency,
-        data: ^(ModernTreasury::HashOf[ModernTreasury::Unknown]),
+        data: ^(ModernTreasury::Internal::Type::HashOf[ModernTreasury::Internal::Type::Unknown]),
         direction: ModernTreasury::Models::TransactionDirection,
         internal_account_id: String,
         ledger_transaction_id: String | nil,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         originating_account_number_safe: String | nil,
         originating_account_number_type: ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType | nil,
@@ -83,7 +83,7 @@ class ModernTreasury::Test::Resources::IncomingPaymentDetailsTest < ModernTreasu
     response = @modern_treasury.incoming_payment_details.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first
@@ -100,12 +100,12 @@ class ModernTreasury::Test::Resources::IncomingPaymentDetailsTest < ModernTreasu
         as_of_date: Date,
         created_at: Time,
         currency: ModernTreasury::Models::Currency,
-        data: ^(ModernTreasury::HashOf[ModernTreasury::Unknown]),
+        data: ^(ModernTreasury::Internal::Type::HashOf[ModernTreasury::Internal::Type::Unknown]),
         direction: ModernTreasury::Models::TransactionDirection,
         internal_account_id: String,
         ledger_transaction_id: String | nil,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         originating_account_number_safe: String | nil,
         originating_account_number_type: ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType | nil,

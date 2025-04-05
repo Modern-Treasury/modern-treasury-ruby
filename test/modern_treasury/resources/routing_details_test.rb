@@ -23,7 +23,7 @@ class ModernTreasury::Test::Resources::RoutingDetailsTest < ModernTreasury::Test
         bank_name: String,
         created_at: Time,
         discarded_at: Time | nil,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         payment_type: ModernTreasury::Models::RoutingDetail::PaymentType | nil,
         routing_number: String,
@@ -52,7 +52,7 @@ class ModernTreasury::Test::Resources::RoutingDetailsTest < ModernTreasury::Test
         bank_name: String,
         created_at: Time,
         discarded_at: Time | nil,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         payment_type: ModernTreasury::Models::RoutingDetail::PaymentType | nil,
         routing_number: String,
@@ -66,7 +66,7 @@ class ModernTreasury::Test::Resources::RoutingDetailsTest < ModernTreasury::Test
     response = @modern_treasury.routing_details.list("account_id", accounts_type: :external_accounts)
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first
@@ -83,7 +83,7 @@ class ModernTreasury::Test::Resources::RoutingDetailsTest < ModernTreasury::Test
         bank_name: String,
         created_at: Time,
         discarded_at: Time | nil,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         payment_type: ModernTreasury::Models::RoutingDetail::PaymentType | nil,
         routing_number: String,

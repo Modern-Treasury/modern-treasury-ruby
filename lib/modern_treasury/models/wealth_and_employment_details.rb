@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class WealthAndEmploymentDetails < ModernTreasury::BaseModel
+    class WealthAndEmploymentDetails < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -81,7 +81,7 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute object
       #
@@ -161,11 +161,13 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # The employment status of the individual.
+      #
+      # @see ModernTreasury::Models::WealthAndEmploymentDetails#employment_status
       module EmploymentStatus
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         EMPLOYED = :employed
         RETIRED = :retired
@@ -181,8 +183,10 @@ module ModernTreasury
       end
 
       # The source of the individual's income.
+      #
+      # @see ModernTreasury::Models::WealthAndEmploymentDetails#income_source
       module IncomeSource
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         FAMILY_SUPPORT = :family_support
         GOVERNMENT_BENEFITS = :government_benefits
@@ -201,8 +205,10 @@ module ModernTreasury
       end
 
       # The industry of the individual.
+      #
+      # @see ModernTreasury::Models::WealthAndEmploymentDetails#industry
       module Industry
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACCOUNTING = :accounting
         AGRICULTURE = :agriculture
@@ -246,8 +252,10 @@ module ModernTreasury
       end
 
       # The occupation of the individual.
+      #
+      # @see ModernTreasury::Models::WealthAndEmploymentDetails#occupation
       module Occupation
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CONSULTING = :consulting
         EXECUTIVE = :executive
@@ -270,8 +278,10 @@ module ModernTreasury
       end
 
       # The source of the individual's funds.
+      #
+      # @see ModernTreasury::Models::WealthAndEmploymentDetails#source_of_funds
       module SourceOfFunds
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ALIMONY = :alimony
         ANNUITY = :annuity
@@ -299,8 +309,10 @@ module ModernTreasury
       end
 
       # The source of the individual's wealth.
+      #
+      # @see ModernTreasury::Models::WealthAndEmploymentDetails#wealth_source
       module WealthSource
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         BUSINESS_SALE = :business_sale
         FAMILY_SUPPORT = :family_support

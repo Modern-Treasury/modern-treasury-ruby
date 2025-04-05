@@ -16,8 +16,8 @@ class ModernTreasury::Test::Resources::LedgersTest < ModernTreasury::Test::Resou
         created_at: Time,
         description: String | nil,
         discarded_at: Time | nil,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         object: String,
         updated_at: Time
@@ -38,8 +38,8 @@ class ModernTreasury::Test::Resources::LedgersTest < ModernTreasury::Test::Resou
         created_at: Time,
         description: String | nil,
         discarded_at: Time | nil,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         object: String,
         updated_at: Time
@@ -60,8 +60,8 @@ class ModernTreasury::Test::Resources::LedgersTest < ModernTreasury::Test::Resou
         created_at: Time,
         description: String | nil,
         discarded_at: Time | nil,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         object: String,
         updated_at: Time
@@ -73,7 +73,7 @@ class ModernTreasury::Test::Resources::LedgersTest < ModernTreasury::Test::Resou
     response = @modern_treasury.ledgers.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first
@@ -89,8 +89,8 @@ class ModernTreasury::Test::Resources::LedgersTest < ModernTreasury::Test::Resou
         created_at: Time,
         description: String | nil,
         discarded_at: Time | nil,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         object: String,
         updated_at: Time
@@ -111,8 +111,8 @@ class ModernTreasury::Test::Resources::LedgersTest < ModernTreasury::Test::Resou
         created_at: Time,
         description: String | nil,
         discarded_at: Time | nil,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         object: String,
         updated_at: Time

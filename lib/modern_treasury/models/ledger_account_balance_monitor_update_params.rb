@@ -2,10 +2,11 @@
 
 module ModernTreasury
   module Models
-    class LedgerAccountBalanceMonitorUpdateParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::LedgerAccountBalanceMonitors#update
+    class LedgerAccountBalanceMonitorUpdateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute [r] description
       #   An optional, free-form description for internal use.
@@ -22,7 +23,7 @@ module ModernTreasury
       #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -35,7 +36,7 @@ module ModernTreasury
       #   #
       #   def initialize(description: nil, metadata: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
     end
   end
 end

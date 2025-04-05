@@ -2,9 +2,9 @@
 
 module ModernTreasury
   module Models
-    class BulkResultListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+    class BulkResultListParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor
@@ -62,7 +62,7 @@ module ModernTreasury
           request_id: String,
           request_type: ModernTreasury::Models::BulkResultListParams::RequestType::OrSymbol,
           status: ModernTreasury::Models::BulkResultListParams::Status::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -99,19 +99,22 @@ module ModernTreasury
       # The type of the request that created this result. bulk_request is the only
       #   supported `request_type`
       module EntityType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkResultListParams::EntityType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol) }
 
         PAYMENT_ORDER =
           T.let(:payment_order, ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol)
+        LEDGER_ACCOUNT =
+          T.let(:ledger_account, ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol)
         LEDGER_TRANSACTION =
           T.let(:ledger_transaction, ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol)
-        TRANSACTION = T.let(:transaction, ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol)
         EXPECTED_PAYMENT =
           T.let(:expected_payment, ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol)
+        TRANSACTION = T.let(:transaction, ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol)
+        ENTITY_LINK = T.let(:entity_link, ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol)
         BULK_ERROR = T.let(:bulk_error, ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol]) }
@@ -122,11 +125,11 @@ module ModernTreasury
       # The type of the request that created this result. bulk_request is the only
       #   supported `request_type`
       module RequestType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkResultListParams::RequestType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::BulkResultListParams::RequestType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::BulkResultListParams::RequestType::TaggedSymbol) }
 
         BULK_REQUEST =
           T.let(:bulk_request, ModernTreasury::Models::BulkResultListParams::RequestType::TaggedSymbol)
@@ -138,11 +141,11 @@ module ModernTreasury
 
       # One of successful or failed.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkResultListParams::Status) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::BulkResultListParams::Status::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::BulkResultListParams::Status::TaggedSymbol) }
 
         PENDING = T.let(:pending, ModernTreasury::Models::BulkResultListParams::Status::TaggedSymbol)
         SUCCESSFUL = T.let(:successful, ModernTreasury::Models::BulkResultListParams::Status::TaggedSymbol)

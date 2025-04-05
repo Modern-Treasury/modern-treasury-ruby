@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     module Transactions
-      class TransactionLineItem < ModernTreasury::BaseModel
+      class TransactionLineItem < ModernTreasury::Internal::Type::BaseModel
         sig { returns(String) }
         attr_accessor :id
 
@@ -140,12 +140,18 @@ module ModernTreasury
         # If a matching object exists in Modern Treasury, the type will be populated here,
         #   otherwise `null`.
         module TransactableType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol) }
+            T.type_alias do
+              T.any(
+                Symbol,
+                String,
+                ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol
+              )
+            end
 
           INCOMING_PAYMENT_DETAIL =
             T.let(
@@ -188,12 +194,12 @@ module ModernTreasury
         # Indicates whether the line item is `originating` or `receiving` (see
         #   https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
         module Type
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::Type) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol) }
+            T.type_alias { T.any(Symbol, String, ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol) }
 
           ORIGINATING =
             T.let(:originating, ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol)

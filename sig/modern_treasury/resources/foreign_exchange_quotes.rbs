@@ -27,7 +27,7 @@ module ModernTreasury
         ?per_page: Integer,
         ?target_currency: String,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Page[ModernTreasury::Models::ForeignExchangeQuote]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::ForeignExchangeQuote]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

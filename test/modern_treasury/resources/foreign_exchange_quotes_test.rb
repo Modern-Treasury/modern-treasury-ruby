@@ -23,8 +23,8 @@ class ModernTreasury::Test::Resources::ForeignExchangeQuotesTest < ModernTreasur
         foreign_exchange_indicator: String,
         foreign_exchange_rate: ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate,
         internal_account_id: String,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         updated_at: Time,
         vendor_id: String | nil
@@ -48,8 +48,8 @@ class ModernTreasury::Test::Resources::ForeignExchangeQuotesTest < ModernTreasur
         foreign_exchange_indicator: String,
         foreign_exchange_rate: ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate,
         internal_account_id: String,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         updated_at: Time,
         vendor_id: String | nil
@@ -61,7 +61,7 @@ class ModernTreasury::Test::Resources::ForeignExchangeQuotesTest < ModernTreasur
     response = @modern_treasury.foreign_exchange_quotes.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first
@@ -80,8 +80,8 @@ class ModernTreasury::Test::Resources::ForeignExchangeQuotesTest < ModernTreasur
         foreign_exchange_indicator: String,
         foreign_exchange_rate: ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate,
         internal_account_id: String,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         updated_at: Time,
         vendor_id: String | nil

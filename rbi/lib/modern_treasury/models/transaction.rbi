@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class Transaction < ModernTreasury::BaseModel
+    class Transaction < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -50,7 +50,9 @@ module ModernTreasury
 
       sig do
         params(
-          foreign_exchange_rate: T.nilable(T.any(ModernTreasury::Models::Transaction::ForeignExchangeRate, ModernTreasury::Util::AnyHash))
+          foreign_exchange_rate: T.nilable(
+            T.any(ModernTreasury::Models::Transaction::ForeignExchangeRate, ModernTreasury::Internal::AnyHash)
+          )
         )
           .void
       end
@@ -141,7 +143,9 @@ module ModernTreasury
           custom_identifiers: T::Hash[Symbol, String],
           direction: String,
           discarded_at: T.nilable(Time),
-          foreign_exchange_rate: T.nilable(T.any(ModernTreasury::Models::Transaction::ForeignExchangeRate, ModernTreasury::Util::AnyHash)),
+          foreign_exchange_rate: T.nilable(
+            T.any(ModernTreasury::Models::Transaction::ForeignExchangeRate, ModernTreasury::Internal::AnyHash)
+          ),
           internal_account_id: String,
           live_mode: T::Boolean,
           metadata: T::Hash[Symbol, String],
@@ -223,7 +227,7 @@ module ModernTreasury
       def to_hash
       end
 
-      class ForeignExchangeRate < ModernTreasury::BaseModel
+      class ForeignExchangeRate < ModernTreasury::Internal::Type::BaseModel
         # Amount in the lowest denomination of the `base_currency` to convert, often
         #   called the "sell" amount.
         sig { returns(Integer) }
@@ -269,7 +273,15 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(base_amount:, base_currency:, exponent:, rate_string:, target_amount:, target_currency:, value:)
+        def self.new(
+          base_amount:,
+          base_currency:,
+          exponent:,
+          rate_string:,
+          target_amount:,
+          target_currency:,
+          value:
+        )
         end
 
         sig do
@@ -293,10 +305,11 @@ module ModernTreasury
       # The type of the transaction. Examples could be
       #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       module Type
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::Transaction::Type) }
-        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::Transaction::Type::TaggedSymbol) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::Transaction::Type::TaggedSymbol) }
 
         ACH = T.let(:ach, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
         AU_BECS = T.let(:au_becs, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
@@ -340,11 +353,11 @@ module ModernTreasury
       #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
       #   `swift`, `us_bank`, or others.
       module VendorCodeType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::Transaction::VendorCodeType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol) }
 
         BAI2 = T.let(:bai2, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
         BANKING_CIRCLE =
@@ -362,6 +375,7 @@ module ModernTreasury
         ISO20022 = T.let(:iso20022, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
         JPMC = T.let(:jpmc, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
         MX = T.let(:mx, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
+        PAYPAL = T.let(:paypal, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
         PLAID = T.let(:plaid, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
         PNC = T.let(:pnc, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
         RSPEC_VENDOR = T.let(:rspec_vendor, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)

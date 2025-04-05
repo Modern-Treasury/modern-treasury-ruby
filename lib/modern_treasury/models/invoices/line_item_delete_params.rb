@@ -3,10 +3,11 @@
 module ModernTreasury
   module Models
     module Invoices
-      class LineItemDeleteParams < ModernTreasury::BaseModel
+      # @see ModernTreasury::Resources::Invoices::LineItems#delete
+      class LineItemDeleteParams < ModernTreasury::Internal::Type::BaseModel
         # @!parse
-        #   extend ModernTreasury::RequestParameters::Converter
-        include ModernTreasury::RequestParameters
+        #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        include ModernTreasury::Internal::Type::RequestParameters
 
         # @!attribute invoice_id
         #
@@ -19,7 +20,7 @@ module ModernTreasury
         #   #
         #   def initialize(invoice_id:, request_options: {}, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
     end
   end

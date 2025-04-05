@@ -2,10 +2,11 @@
 
 module ModernTreasury
   module Models
-    class AccountDetailCreateParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::AccountDetails#create
+    class AccountDetailCreateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute accounts_type
       #
@@ -38,10 +39,10 @@ module ModernTreasury
       #   #
       #   def initialize(accounts_type:, account_number:, account_number_type: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       module AccountsType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         EXTERNAL_ACCOUNTS = :external_accounts
 
@@ -55,7 +56,7 @@ module ModernTreasury
       # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
       #   account number is in a generic format.
       module AccountNumberType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         AU_NUMBER = :au_number
         CLABE = :clabe

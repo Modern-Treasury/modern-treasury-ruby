@@ -26,9 +26,9 @@ class ModernTreasury::Test::Resources::LedgerAccountsTest < ModernTreasury::Test
         ledger_id: String,
         ledgerable_id: String | nil,
         ledgerable_type: ModernTreasury::Models::LedgerAccount::LedgerableType | nil,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         lock_version: Integer,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         normal_balance: ModernTreasury::Models::TransactionDirection,
         object: String,
@@ -54,9 +54,9 @@ class ModernTreasury::Test::Resources::LedgerAccountsTest < ModernTreasury::Test
         ledger_id: String,
         ledgerable_id: String | nil,
         ledgerable_type: ModernTreasury::Models::LedgerAccount::LedgerableType | nil,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         lock_version: Integer,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         normal_balance: ModernTreasury::Models::TransactionDirection,
         object: String,
@@ -82,9 +82,9 @@ class ModernTreasury::Test::Resources::LedgerAccountsTest < ModernTreasury::Test
         ledger_id: String,
         ledgerable_id: String | nil,
         ledgerable_type: ModernTreasury::Models::LedgerAccount::LedgerableType | nil,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         lock_version: Integer,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         normal_balance: ModernTreasury::Models::TransactionDirection,
         object: String,
@@ -97,7 +97,7 @@ class ModernTreasury::Test::Resources::LedgerAccountsTest < ModernTreasury::Test
     response = @modern_treasury.ledger_accounts.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first
@@ -117,9 +117,9 @@ class ModernTreasury::Test::Resources::LedgerAccountsTest < ModernTreasury::Test
         ledger_id: String,
         ledgerable_id: String | nil,
         ledgerable_type: ModernTreasury::Models::LedgerAccount::LedgerableType | nil,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         lock_version: Integer,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         normal_balance: ModernTreasury::Models::TransactionDirection,
         object: String,
@@ -145,9 +145,9 @@ class ModernTreasury::Test::Resources::LedgerAccountsTest < ModernTreasury::Test
         ledger_id: String,
         ledgerable_id: String | nil,
         ledgerable_type: ModernTreasury::Models::LedgerAccount::LedgerableType | nil,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         lock_version: Integer,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         normal_balance: ModernTreasury::Models::TransactionDirection,
         object: String,

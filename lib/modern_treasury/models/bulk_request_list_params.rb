@@ -2,10 +2,11 @@
 
 module ModernTreasury
   module Models
-    class BulkRequestListParams < ModernTreasury::BaseModel
+    # @see ModernTreasury::Resources::BulkRequests#list
+    class BulkRequestListParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute [r] action_type
       #   One of create, or update.
@@ -28,7 +29,7 @@ module ModernTreasury
       #     parameters.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -85,11 +86,11 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # One of create, or update.
       module ActionType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CREATE = :create
         UPDATE = :update
@@ -104,12 +105,14 @@ module ModernTreasury
 
       # One of payment_order, expected_payment, or ledger_transaction.
       module ResourceType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         PAYMENT_ORDER = :payment_order
+        LEDGER_ACCOUNT = :ledger_account
         LEDGER_TRANSACTION = :ledger_transaction
-        TRANSACTION = :transaction
         EXPECTED_PAYMENT = :expected_payment
+        TRANSACTION = :transaction
+        ENTITY_LINK = :entity_link
 
         finalize!
 
@@ -120,7 +123,7 @@ module ModernTreasury
 
       # One of pending, processing, or completed.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         PENDING = :pending
         PROCESSING = :processing

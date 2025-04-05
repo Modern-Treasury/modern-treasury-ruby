@@ -17,8 +17,8 @@ class ModernTreasury::Test::Resources::Invoices::LineItemsTest < ModernTreasury:
         created_at: Time,
         description: String,
         direction: String,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         object: String,
         quantity: Integer,
@@ -43,8 +43,8 @@ class ModernTreasury::Test::Resources::Invoices::LineItemsTest < ModernTreasury:
         created_at: Time,
         description: String,
         direction: String,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         object: String,
         quantity: Integer,
@@ -69,8 +69,8 @@ class ModernTreasury::Test::Resources::Invoices::LineItemsTest < ModernTreasury:
         created_at: Time,
         description: String,
         direction: String,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         object: String,
         quantity: Integer,
@@ -85,7 +85,7 @@ class ModernTreasury::Test::Resources::Invoices::LineItemsTest < ModernTreasury:
     response = @modern_treasury.invoices.line_items.list("invoice_id")
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first
@@ -102,8 +102,8 @@ class ModernTreasury::Test::Resources::Invoices::LineItemsTest < ModernTreasury:
         created_at: Time,
         description: String,
         direction: String,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         object: String,
         quantity: Integer,
@@ -128,8 +128,8 @@ class ModernTreasury::Test::Resources::Invoices::LineItemsTest < ModernTreasury:
         created_at: Time,
         description: String,
         direction: String,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         object: String,
         quantity: Integer,
