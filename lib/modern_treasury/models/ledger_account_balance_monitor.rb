@@ -50,7 +50,7 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::Internal::Type::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
@@ -157,7 +157,7 @@ module ModernTreasury
         #     lock version.
         #
         #   @return [Boolean]
-        required :triggered, ModernTreasury::Internal::Type::BooleanModel
+        required :triggered, ModernTreasury::Internal::Type::Boolean
 
         # @!parse
         #   # The ledger account's balances and the monitor state as of the current ledger

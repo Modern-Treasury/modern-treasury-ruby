@@ -28,7 +28,7 @@ module ModernTreasury
       #     negative.
       #
       #   @return [Boolean, nil]
-      optional :allow_either_direction, ModernTreasury::Internal::Type::BooleanModel, nil?: true
+      optional :allow_either_direction, ModernTreasury::Internal::Type::Boolean, nil?: true
 
       # @!attribute description
       #   The description of the ledger account settlement.
@@ -60,7 +60,7 @@ module ModernTreasury
       #     existing settlements.
       #
       #   @return [Boolean, nil]
-      optional :skip_settlement_ledger_transaction, ModernTreasury::Internal::Type::BooleanModel, nil?: true
+      optional :skip_settlement_ledger_transaction, ModernTreasury::Internal::Type::Boolean, nil?: true
 
       # @!attribute status
       #   The status of the ledger account settlement. It is set to `pending` by default.

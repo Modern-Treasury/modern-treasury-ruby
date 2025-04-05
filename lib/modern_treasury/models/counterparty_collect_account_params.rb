@@ -50,7 +50,7 @@ module ModernTreasury
       #     body will include the link to the secure Modern Treasury form.
       #
       #   @return [Boolean, nil]
-      optional :send_email, ModernTreasury::Internal::Type::BooleanModel
+      optional :send_email, ModernTreasury::Internal::Type::Boolean
 
       # @!parse
       #   # @return [Boolean]

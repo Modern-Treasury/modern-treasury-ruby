@@ -13,7 +13,7 @@ module ModernTreasury
       #     there is no balance available, null will be returned instead.
       #
       #   @return [Boolean, nil]
-      optional :show_balances, ModernTreasury::Internal::Type::BooleanModel
+      optional :show_balances, ModernTreasury::Internal::Type::Boolean
 
       # @!parse
       #   # @return [Boolean]

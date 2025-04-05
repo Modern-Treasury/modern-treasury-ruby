@@ -269,7 +269,7 @@ module ModernTreasury
             #
             #   @return [Boolean, nil]
             optional :show_resulting_ledger_account_balances,
-                     ModernTreasury::Internal::Type::BooleanModel,
+                     ModernTreasury::Internal::Type::Boolean,
                      nil?: true
 
             # @!parse

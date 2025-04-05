@@ -43,7 +43,7 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::Internal::Type::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
@@ -68,7 +68,7 @@ module ModernTreasury
       #     to the bank.
       #
       #   @return [Boolean]
-      required :send_remittance_advice, ModernTreasury::Internal::Type::BooleanModel
+      required :send_remittance_advice, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute updated_at
       #
@@ -183,7 +183,7 @@ module ModernTreasury
         #     if it exists in the test environment.
         #
         #   @return [Boolean, nil]
-        optional :live_mode, ModernTreasury::Internal::Type::BooleanModel
+        optional :live_mode, ModernTreasury::Internal::Type::Boolean
 
         # @!parse
         #   # @return [Boolean]
@@ -352,7 +352,7 @@ module ModernTreasury
           #     if it exists in the test environment.
           #
           #   @return [Boolean]
-          required :live_mode, ModernTreasury::Internal::Type::BooleanModel
+          required :live_mode, ModernTreasury::Internal::Type::Boolean
 
           # @!attribute object
           #
@@ -439,7 +439,7 @@ module ModernTreasury
           #     if it exists in the test environment.
           #
           #   @return [Boolean]
-          required :live_mode, ModernTreasury::Internal::Type::BooleanModel
+          required :live_mode, ModernTreasury::Internal::Type::Boolean
 
           # @!attribute locality
           #   Locality or City.

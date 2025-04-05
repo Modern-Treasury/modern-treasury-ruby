@@ -57,7 +57,7 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean, nil]
-      optional :live_mode, ModernTreasury::Internal::Type::BooleanModel
+      optional :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!parse
       #   # @return [Boolean]

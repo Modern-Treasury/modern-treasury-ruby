@@ -149,7 +149,7 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::Internal::Type::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
@@ -163,7 +163,7 @@ module ModernTreasury
       #     that this setting must also be turned on in your organization settings page.
       #
       #   @return [Boolean]
-      required :nsf_protected, ModernTreasury::Internal::Type::BooleanModel
+      required :nsf_protected, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute object
       #
@@ -241,7 +241,7 @@ module ModernTreasury
       #     `null`, `send_remittance_advice` on the Counterparty is used.
       #
       #   @return [Boolean, nil]
-      required :send_remittance_advice, ModernTreasury::Internal::Type::BooleanModel, nil?: true
+      required :send_remittance_advice, ModernTreasury::Internal::Type::Boolean, nil?: true
 
       # @!attribute statement_descriptor
       #   An optional descriptor which will appear in the receiver's statement. For
@@ -283,7 +283,7 @@ module ModernTreasury
       #     monitoring.
       #
       #   @return [Boolean]
-      required :transaction_monitoring_enabled, ModernTreasury::Internal::Type::BooleanModel
+      required :transaction_monitoring_enabled, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute type
       #   One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
@@ -661,7 +661,7 @@ module ModernTreasury
         #     if it exists in the test environment.
         #
         #   @return [Boolean]
-        required :live_mode, ModernTreasury::Internal::Type::BooleanModel
+        required :live_mode, ModernTreasury::Internal::Type::Boolean
 
         # @!attribute object
         #

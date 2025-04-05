@@ -24,7 +24,7 @@ module ModernTreasury
       #     been sent to this counterparty.
       #
       #   @return [Boolean]
-      required :is_resend, ModernTreasury::Internal::Type::BooleanModel
+      required :is_resend, ModernTreasury::Internal::Type::Boolean
 
       # @!parse
       #   # @param id [String]

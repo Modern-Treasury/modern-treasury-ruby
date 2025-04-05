@@ -33,7 +33,7 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mo
         balances: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance]),
         created_at: Time,
         internal_account_id: String,
-        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         updated_at: Time
       }
@@ -60,7 +60,7 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mo
         balances: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance]),
         created_at: Time,
         internal_account_id: String,
-        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         updated_at: Time
       }
@@ -90,7 +90,7 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mo
         balances: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance]),
         created_at: Time,
         internal_account_id: String,
-        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         updated_at: Time
       }

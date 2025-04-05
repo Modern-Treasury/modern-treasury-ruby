@@ -180,9 +180,7 @@ module ModernTreasury
         #     the entry.
         #
         #   @return [Boolean, nil]
-        optional :show_resulting_ledger_account_balances,
-                 ModernTreasury::Internal::Type::BooleanModel,
-                 nil?: true
+        optional :show_resulting_ledger_account_balances, ModernTreasury::Internal::Type::Boolean, nil?: true
 
         # @!parse
         #   # @param amount [Integer]

@@ -41,7 +41,7 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::Internal::Type::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute object
       #
@@ -149,7 +149,7 @@ module ModernTreasury
           #     if it exists in the test environment.
           #
           #   @return [Boolean]
-          required :live_mode, ModernTreasury::Internal::Type::BooleanModel
+          required :live_mode, ModernTreasury::Internal::Type::Boolean
 
           # @!attribute object
           #
