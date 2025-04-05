@@ -93,9 +93,7 @@ module ModernTreasury
           unit_amount:,
           unit_amount_decimal:,
           updated_at:
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(
@@ -116,8 +114,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
       end
     end
 

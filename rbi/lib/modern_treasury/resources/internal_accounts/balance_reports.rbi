@@ -12,10 +12,10 @@ module ModernTreasury
             as_of_time: String,
             balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::OrSymbol,
             balances: T::Array[
-            T.any(
-              ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance,
-              ModernTreasury::Internal::AnyHash
-            )
+              T.any(
+                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance,
+                ModernTreasury::Internal::AnyHash
+              )
             ],
             request_options: T.nilable(
               T.any(
@@ -38,9 +38,7 @@ module ModernTreasury
           # An array of `Balance` objects.
           balances:,
           request_options: {}
-        )
-        end
-
+        ); end
         # Get a single balance report for a given internal account.
         sig do
           params(
@@ -61,9 +59,7 @@ module ModernTreasury
           id,
           internal_account_id:,
           request_options: {}
-        )
-        end
-
+        ); end
         # Get all balance reports for a given internal account.
         sig do
           params(
@@ -91,9 +87,7 @@ module ModernTreasury
           balance_report_type: nil,
           per_page: nil,
           request_options: {}
-        )
-        end
-
+        ); end
         # Deletes a given balance report.
         sig do
           params(
@@ -114,13 +108,10 @@ module ModernTreasury
           id,
           internal_account_id:,
           request_options: {}
-        )
-        end
-
+        ); end
         # @api private
         sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-        def self.new(client:)
-        end
+        def self.new(client:); end
       end
     end
   end

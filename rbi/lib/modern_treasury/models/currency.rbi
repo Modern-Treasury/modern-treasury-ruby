@@ -200,8 +200,7 @@ module ModernTreasury
       ZWR = T.let(:ZWR, ModernTreasury::Models::Currency::TaggedSymbol)
 
       sig { override.returns(T::Array[ModernTreasury::Models::Currency::TaggedSymbol]) }
-      def self.values
-      end
+      def self.values; end
     end
   end
 end

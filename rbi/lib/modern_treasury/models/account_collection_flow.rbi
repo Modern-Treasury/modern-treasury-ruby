@@ -106,9 +106,7 @@ module ModernTreasury
         receiving_countries: nil,
         status: nil,
         updated_at: nil
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -127,8 +125,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # An account created with this flow will support payments of one of these types.
       module PaymentType
@@ -142,8 +139,7 @@ module ModernTreasury
         WIRE = T.let(:wire, ModernTreasury::Models::AccountCollectionFlow::PaymentType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::AccountCollectionFlow::PaymentType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # An account created with this flow will support wires from the US to these
@@ -176,8 +172,7 @@ module ModernTreasury
         GBR = T.let(:GBR, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # The current status of the account collection flow. One of `pending`,
@@ -195,8 +190,7 @@ module ModernTreasury
         PENDING = T.let(:pending, ModernTreasury::Models::AccountCollectionFlow::Status::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::AccountCollectionFlow::Status::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

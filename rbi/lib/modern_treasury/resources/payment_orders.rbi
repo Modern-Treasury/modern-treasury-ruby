@@ -51,12 +51,7 @@ module ModernTreasury
           ultimate_originating_party_name: T.nilable(String),
           ultimate_receiving_party_identifier: T.nilable(String),
           ultimate_receiving_party_name: T.nilable(String),
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::PaymentOrder)
       end
@@ -186,24 +181,16 @@ module ModernTreasury
         # Name of the ultimate funds recipient.
         ultimate_receiving_party_name: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Get details on a single payment order
       sig do
         params(
           id: String,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::PaymentOrder)
       end
-      def retrieve(id, request_options: {})
-      end
+      def retrieve(id, request_options: {}); end
 
       # Update a payment order
       sig do
@@ -246,12 +233,7 @@ module ModernTreasury
           ultimate_originating_party_name: T.nilable(String),
           ultimate_receiving_party_identifier: T.nilable(String),
           ultimate_receiving_party_name: T.nilable(String),
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::PaymentOrder)
       end
@@ -380,9 +362,7 @@ module ModernTreasury
         #   string will be used. Any additional characters will be truncated.
         ultimate_receiving_party_name: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Get a list of all payment orders
       sig do
         params(
@@ -403,12 +383,7 @@ module ModernTreasury
           status: ModernTreasury::Models::PaymentOrderListParams::Status::OrSymbol,
           transaction_id: String,
           type: ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::PaymentOrder])
       end
@@ -445,9 +420,7 @@ module ModernTreasury
         transaction_id: nil,
         type: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Create a new payment order asynchronously
       sig do
         params(
@@ -495,12 +468,7 @@ module ModernTreasury
           ultimate_originating_party_name: T.nilable(String),
           ultimate_receiving_party_identifier: T.nilable(String),
           ultimate_receiving_party_name: T.nilable(String),
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::AsyncResponse)
       end
@@ -627,13 +595,10 @@ module ModernTreasury
         # Name of the ultimate funds recipient.
         ultimate_receiving_party_name: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

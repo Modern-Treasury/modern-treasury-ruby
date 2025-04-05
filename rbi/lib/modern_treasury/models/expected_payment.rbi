@@ -174,9 +174,7 @@ module ModernTreasury
         transaction_line_item_id:,
         type:,
         updated_at:
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -210,8 +208,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
@@ -226,8 +223,7 @@ module ModernTreasury
         DEBIT = T.let(:debit, ModernTreasury::Models::ExpectedPayment::Direction::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPayment::Direction::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # One of manual if this expected payment was manually reconciled in the dashboard,
@@ -246,8 +242,7 @@ module ModernTreasury
         MANUAL = T.let(:manual, ModernTreasury::Models::ExpectedPayment::ReconciliationMethod::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPayment::ReconciliationMethod::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # One of unreconciled, partially_reconciled, reconciled, or archived.
@@ -265,8 +260,7 @@ module ModernTreasury
         UNRECONCILED = T.let(:unreconciled, ModernTreasury::Models::ExpectedPayment::Status::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPayment::Status::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

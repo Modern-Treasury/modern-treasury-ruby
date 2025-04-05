@@ -62,9 +62,7 @@ module ModernTreasury
         referenceable_id:,
         referenceable_type:,
         updated_at:
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -81,8 +79,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # The type of reference number.
       module ReferenceNumberType
@@ -355,8 +352,7 @@ module ModernTreasury
           T.let(:wells_fargo_uetr, ModernTreasury::Models::PaymentReference::ReferenceNumberType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::PaymentReference::ReferenceNumberType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # One of the referenceable types. This must be accompanied by the id of the
@@ -375,8 +371,7 @@ module ModernTreasury
         RETURN = T.let(:return, ModernTreasury::Models::PaymentReference::ReferenceableType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::PaymentReference::ReferenceableType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

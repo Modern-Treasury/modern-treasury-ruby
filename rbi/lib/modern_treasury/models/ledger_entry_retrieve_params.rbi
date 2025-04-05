@@ -21,12 +21,10 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(show_balances: nil, request_options: {})
-      end
+      def self.new(show_balances: nil, request_options: {}); end
 
       sig { override.returns({show_balances: T::Boolean, request_options: ModernTreasury::RequestOptions}) }
-      def to_hash
-      end
+      def to_hash; end
     end
   end
 end

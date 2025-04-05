@@ -28,9 +28,7 @@ module ModernTreasury
           # The ID of the parent transaction.
           transaction_id:,
           request_options: {}
-        )
-        end
-
+        ); end
         # get transaction line item
         sig do
           params(
@@ -48,9 +46,7 @@ module ModernTreasury
           # id
           id,
           request_options: {}
-        )
-        end
-
+        ); end
         # list transaction_line_items
         sig do
           params(
@@ -95,13 +91,10 @@ module ModernTreasury
           # id
           id,
           request_options: {}
-        )
-        end
-
+        ); end
         # @api private
         sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-        def self.new(client:)
-        end
+        def self.new(client:); end
       end
     end
   end

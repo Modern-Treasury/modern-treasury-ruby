@@ -94,9 +94,7 @@ module ModernTreasury
         metadata:,
         object:,
         updated_at:
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -117,8 +115,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class Accounting < ModernTreasury::Internal::Type::BaseModel
         # The ID of one of your accounting categories. Note that these will only be
@@ -133,12 +130,10 @@ module ModernTreasury
         attr_accessor :class_id
 
         sig { params(account_id: T.nilable(String), class_id: T.nilable(String)).returns(T.attached_class) }
-        def self.new(account_id: nil, class_id: nil)
-        end
+        def self.new(account_id: nil, class_id: nil); end
 
         sig { override.returns({account_id: T.nilable(String), class_id: T.nilable(String)}) }
-        def to_hash
-        end
+        def to_hash; end
       end
 
       # One of `payment_orders` or `expected_payments`.
@@ -154,8 +149,7 @@ module ModernTreasury
         PAYMENT_ORDER = T.let(:PaymentOrder, ModernTreasury::Models::LineItem::ItemizableType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::LineItem::ItemizableType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

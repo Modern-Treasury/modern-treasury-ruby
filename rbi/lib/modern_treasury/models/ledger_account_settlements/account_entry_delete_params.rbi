@@ -19,8 +19,7 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(ledger_entry_ids:, request_options: {})
-        end
+        def self.new(ledger_entry_ids:, request_options: {}); end
 
         sig do
           override
@@ -29,8 +28,7 @@ module ModernTreasury
                        request_options: ModernTreasury::RequestOptions
                      })
         end
-        def to_hash
-        end
+        def to_hash; end
       end
     end
   end

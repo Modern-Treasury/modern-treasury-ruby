@@ -55,8 +55,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       module AccountsType
         extend ModernTreasury::Internal::Type::Enum
@@ -70,8 +69,7 @@ module ModernTreasury
           T.let(:external_accounts, ModernTreasury::Models::RoutingDetailCreateParams::AccountsType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::RoutingDetailCreateParams::AccountsType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # The type of routing number. See
@@ -155,8 +153,7 @@ module ModernTreasury
           override
             .returns(T::Array[ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType::TaggedSymbol])
         end
-        def self.values
-        end
+        def self.values; end
       end
 
       # If the routing detail is to be used for a specific payment type this field will
@@ -205,8 +202,7 @@ module ModernTreasury
         ZENGIN = T.let(:zengin, ModernTreasury::Models::RoutingDetailCreateParams::PaymentType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::RoutingDetailCreateParams::PaymentType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

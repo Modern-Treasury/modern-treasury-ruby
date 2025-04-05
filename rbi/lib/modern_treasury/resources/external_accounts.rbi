@@ -8,17 +8,17 @@ module ModernTreasury
         params(
           counterparty_id: T.nilable(String),
           account_details: T::Array[
-          T.any(
-            ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail,
-            ModernTreasury::Internal::AnyHash
-          )
+            T.any(
+              ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail,
+              ModernTreasury::Internal::AnyHash
+            )
           ],
           account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
           contact_details: T::Array[
-          T.any(
-            ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail,
-            ModernTreasury::Internal::AnyHash
-          )
+            T.any(
+              ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail,
+              ModernTreasury::Internal::AnyHash
+            )
           ],
           ledger_account: T.any(
             ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount,
@@ -35,17 +35,12 @@ module ModernTreasury
           party_type: T.nilable(ModernTreasury::Models::ExternalAccountCreateParams::PartyType::OrSymbol),
           plaid_processor_token: String,
           routing_details: T::Array[
-          T.any(
-            ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail,
-            ModernTreasury::Internal::AnyHash
-          )
-          ],
-          request_options: T.nilable(
             T.any(
-              ModernTreasury::RequestOptions,
+              ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail,
               ModernTreasury::Internal::AnyHash
             )
-          )
+          ],
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::ExternalAccount)
       end
@@ -79,19 +74,12 @@ module ModernTreasury
         plaid_processor_token: nil,
         routing_details: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # show external account
       sig do
         params(
           id: String,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::ExternalAccount)
       end
@@ -99,9 +87,7 @@ module ModernTreasury
         # external account id
         id,
         request_options: {}
-      )
-      end
-
+      ); end
       # update external account
       sig do
         params(
@@ -116,12 +102,7 @@ module ModernTreasury
           ),
           party_name: String,
           party_type: T.nilable(ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::OrSymbol),
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::ExternalAccount)
       end
@@ -143,9 +124,7 @@ module ModernTreasury
         # Either `individual` or `business`.
         party_type: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # list external accounts
       sig do
         params(
@@ -154,12 +133,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           party_name: String,
           per_page: Integer,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::ExternalAccount])
       end
@@ -174,19 +148,12 @@ module ModernTreasury
         party_name: nil,
         per_page: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # delete external account
       sig do
         params(
           id: String,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .void
       end
@@ -194,20 +161,13 @@ module ModernTreasury
         # external account id
         id,
         request_options: {}
-      )
-      end
-
+      ); end
       # complete verification of external account
       sig do
         params(
           id: String,
           amounts: T::Array[Integer],
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::ExternalAccount)
       end
@@ -216,9 +176,7 @@ module ModernTreasury
         id,
         amounts: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # verify external account
       sig do
         params(
@@ -228,12 +186,7 @@ module ModernTreasury
           currency: ModernTreasury::Models::Currency::OrSymbol,
           fallback_type: ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType::OrSymbol,
           priority: ModernTreasury::Models::ExternalAccountVerifyParams::Priority::OrSymbol,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(
             T.any(
@@ -260,13 +213,10 @@ module ModernTreasury
         #   transfer. This will apply to both `payment_type` and `fallback_type`.
         priority: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

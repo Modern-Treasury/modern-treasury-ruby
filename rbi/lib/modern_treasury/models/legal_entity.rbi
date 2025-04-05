@@ -219,9 +219,7 @@ module ModernTreasury
         updated_at:,
         wealth_and_employment_details:,
         website:
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -261,8 +259,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class Address < ModernTreasury::Internal::Type::BaseModel
         sig { returns(String) }
@@ -343,9 +340,7 @@ module ModernTreasury
           postal_code:,
           region:,
           updated_at:
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(
@@ -366,8 +361,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         module AddressType
           extend ModernTreasury::Internal::Type::Enum
@@ -384,8 +378,7 @@ module ModernTreasury
             T.let(:residential, ModernTreasury::Models::LegalEntity::Address::AddressType::TaggedSymbol)
 
           sig { override.returns(T::Array[ModernTreasury::Models::LegalEntity::Address::AddressType::TaggedSymbol]) }
-          def self.values
-          end
+          def self.values; end
         end
       end
 
@@ -459,8 +452,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         # The type of ID number.
         module IDType
@@ -495,8 +487,7 @@ module ModernTreasury
           VN_TIN = T.let(:vn_tin, ModernTreasury::Models::LegalEntity::Identification::IDType::TaggedSymbol)
 
           sig { override.returns(T::Array[ModernTreasury::Models::LegalEntity::Identification::IDType::TaggedSymbol]) }
-          def self.values
-          end
+          def self.values; end
         end
       end
 
@@ -513,8 +504,7 @@ module ModernTreasury
         JOINT = T.let(:joint, ModernTreasury::Models::LegalEntity::LegalEntityType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::LegalEntity::LegalEntityType::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       # The business's legal structure.
@@ -534,8 +524,7 @@ module ModernTreasury
         TRUST = T.let(:trust, ModernTreasury::Models::LegalEntity::LegalStructure::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::LegalEntity::LegalStructure::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
 
       class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
@@ -547,12 +536,10 @@ module ModernTreasury
 
         # A list of phone numbers in E.164 format.
         sig { params(phone_number: String).returns(T.attached_class) }
-        def self.new(phone_number: nil)
-        end
+        def self.new(phone_number: nil); end
 
         sig { override.returns({phone_number: String}) }
-        def to_hash
-        end
+        def to_hash; end
       end
 
       # The risk rating of the legal entity. One of low, medium, high.
@@ -568,8 +555,7 @@ module ModernTreasury
         HIGH = T.let(:high, ModernTreasury::Models::LegalEntity::RiskRating::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::LegalEntity::RiskRating::TaggedSymbol]) }
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

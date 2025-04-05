@@ -90,9 +90,7 @@ module ModernTreasury
         routing_number_type: nil,
         sanctions: nil,
         supported_payment_types: nil
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -106,8 +104,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       class BankAddress < ModernTreasury::Internal::Type::BaseModel
         # Country code conforms to [ISO 3166-1 alpha-2]
@@ -144,8 +141,7 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
-        end
+        def self.new(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil); end
 
         sig do
           override
@@ -160,8 +156,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
       end
 
       # The type of routing number. See
@@ -207,8 +202,7 @@ module ModernTreasury
           override
             .returns(T::Array[ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType::TaggedSymbol])
         end
-        def self.values
-        end
+        def self.values; end
       end
 
       module SupportedPaymentType
@@ -294,8 +288,7 @@ module ModernTreasury
           override
             .returns(T::Array[ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType::TaggedSymbol])
         end
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

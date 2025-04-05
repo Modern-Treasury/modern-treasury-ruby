@@ -20,12 +20,10 @@ module ModernTreasury
       attr_accessor :is_resend
 
       sig { params(id: String, form_link: String, is_resend: T::Boolean).returns(T.attached_class) }
-      def self.new(id:, form_link:, is_resend:)
-      end
+      def self.new(id:, form_link:, is_resend:); end
 
       sig { override.returns({id: String, form_link: String, is_resend: T::Boolean}) }
-      def to_hash
-      end
+      def to_hash; end
     end
   end
 end

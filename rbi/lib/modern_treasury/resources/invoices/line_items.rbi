@@ -49,9 +49,7 @@ module ModernTreasury
           #   up to 12 decimals
           unit_amount_decimal: nil,
           request_options: {}
-        )
-        end
-
+        ); end
         # get invoice_line_item
         sig do
           params(
@@ -72,9 +70,7 @@ module ModernTreasury
           # invoice_id
           invoice_id:,
           request_options: {}
-        )
-        end
-
+        ); end
         # update invoice_line_item
         sig do
           params(
@@ -123,9 +119,7 @@ module ModernTreasury
           #   with up to 12 decimals
           unit_amount_decimal: nil,
           request_options: {}
-        )
-        end
-
+        ); end
         # list invoice_line_items
         sig do
           params(
@@ -147,9 +141,7 @@ module ModernTreasury
           after_cursor: nil,
           per_page: nil,
           request_options: {}
-        )
-        end
-
+        ); end
         # delete invoice_line_item
         sig do
           params(
@@ -170,13 +162,10 @@ module ModernTreasury
           # invoice_id
           invoice_id:,
           request_options: {}
-        )
-        end
-
+        ); end
         # @api private
         sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-        def self.new(client:)
-        end
+        def self.new(client:); end
       end
     end
   end

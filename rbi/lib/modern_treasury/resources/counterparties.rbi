@@ -17,12 +17,7 @@ module ModernTreasury
           send_remittance_advice: T::Boolean,
           taxpayer_identifier: String,
           verification_status: ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus::OrSymbol,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::Counterparty)
       end
@@ -51,19 +46,12 @@ module ModernTreasury
         # The verification status of the counterparty.
         verification_status: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Get details on a single counterparty.
       sig do
         params(
           id: String,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::Counterparty)
       end
@@ -71,9 +59,7 @@ module ModernTreasury
         # The id of an existing counterparty.
         id,
         request_options: {}
-      )
-      end
-
+      ); end
       # Updates a given counterparty with new information.
       sig do
         params(
@@ -84,12 +70,7 @@ module ModernTreasury
           name: String,
           send_remittance_advice: T::Boolean,
           taxpayer_identifier: String,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::Counterparty)
       end
@@ -111,9 +92,7 @@ module ModernTreasury
         # Either a valid SSN or EIN.
         taxpayer_identifier: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Get a paginated list of all counterparties.
       sig do
         params(
@@ -125,12 +104,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           name: String,
           per_page: Integer,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::Counterparty])
       end
@@ -154,19 +128,12 @@ module ModernTreasury
         name: nil,
         per_page: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Deletes a given counterparty.
       sig do
         params(
           id: String,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .void
       end
@@ -174,9 +141,7 @@ module ModernTreasury
         # The id of an existing counterparty.
         id,
         request_options: {}
-      )
-      end
-
+      ); end
       # Send an email requesting account details.
       sig do
         params(
@@ -185,12 +150,7 @@ module ModernTreasury
           custom_redirect: String,
           fields: T::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol],
           send_email: T::Boolean,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::CounterpartyCollectAccountResponse)
       end
@@ -217,13 +177,10 @@ module ModernTreasury
         #   body will include the link to the secure Modern Treasury form.
         send_email: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

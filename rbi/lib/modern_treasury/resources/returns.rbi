@@ -13,12 +13,7 @@ module ModernTreasury
           data: T.nilable(T.anything),
           date_of_death: T.nilable(Date),
           reason: T.nilable(String),
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::ReturnObject)
       end
@@ -42,19 +37,12 @@ module ModernTreasury
         #   and will not be transmitted to the bank.”
         reason: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # Get a single return.
       sig do
         params(
           id: String,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Models::ReturnObject)
       end
@@ -62,9 +50,7 @@ module ModernTreasury
         # The ID of an existing return.
         id,
         request_options: {}
-      )
-      end
-
+      ); end
       # Get a list of returns.
       sig do
         params(
@@ -74,12 +60,7 @@ module ModernTreasury
           per_page: Integer,
           returnable_id: String,
           returnable_type: ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol,
-          request_options: T.nilable(
-            T.any(
-              ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::ReturnObject])
       end
@@ -98,13 +79,10 @@ module ModernTreasury
         #   Must be accompanied by `returnable_id`.
         returnable_type: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:)
-      end
+      def self.new(client:); end
     end
   end
 end

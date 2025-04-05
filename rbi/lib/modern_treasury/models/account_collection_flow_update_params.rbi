@@ -18,8 +18,7 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(status:, request_options: {})
-      end
+      def self.new(status:, request_options: {}); end
 
       sig do
         override
@@ -30,8 +29,7 @@ module ModernTreasury
             }
           )
       end
-      def to_hash
-      end
+      def to_hash; end
 
       # Required. The updated status of the account collection flow. Can only be used to
       #   mark a flow as `cancelled`.
@@ -49,8 +47,7 @@ module ModernTreasury
         sig do
           override.returns(T::Array[ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status::TaggedSymbol])
         end
-        def self.values
-        end
+        def self.values; end
       end
     end
   end

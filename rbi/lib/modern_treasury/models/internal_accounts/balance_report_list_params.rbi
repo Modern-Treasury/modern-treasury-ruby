@@ -71,8 +71,7 @@ module ModernTreasury
               }
             )
         end
-        def to_hash
-        end
+        def to_hash; end
 
         # The specific type of balance report. One of `intraday`, `previous_day`,
         #   `real_time`, or `other`.
@@ -117,8 +116,7 @@ module ModernTreasury
                 T::Array[ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::TaggedSymbol]
               )
           end
-          def self.values
-          end
+          def self.values; end
         end
       end
     end
