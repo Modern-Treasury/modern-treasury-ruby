@@ -29,7 +29,7 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::Internal::Type::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute object
       #
@@ -63,7 +63,7 @@ module ModernTreasury
       #   Whether entity corresponding to the compliance token has been validated.
       #
       #   @return [Boolean]
-      required :validated, ModernTreasury::Internal::Type::BooleanModel
+      required :validated, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute validated_at
       #   The timestamp when the entity was validated.

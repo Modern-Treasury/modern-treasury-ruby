@@ -18,11 +18,11 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < ModernTreasury::Test
         discarded_at: Time | nil,
         email: String | nil,
         legal_entity_id: String | nil,
-        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String | nil,
         object: String,
-        send_remittance_advice: ModernTreasury::Internal::Type::BooleanModel,
+        send_remittance_advice: ModernTreasury::Internal::Type::Boolean,
         updated_at: Time,
         verification_status: ModernTreasury::Models::Counterparty::VerificationStatus
       }
@@ -44,11 +44,11 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < ModernTreasury::Test
         discarded_at: Time | nil,
         email: String | nil,
         legal_entity_id: String | nil,
-        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String | nil,
         object: String,
-        send_remittance_advice: ModernTreasury::Internal::Type::BooleanModel,
+        send_remittance_advice: ModernTreasury::Internal::Type::Boolean,
         updated_at: Time,
         verification_status: ModernTreasury::Models::Counterparty::VerificationStatus
       }
@@ -70,11 +70,11 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < ModernTreasury::Test
         discarded_at: Time | nil,
         email: String | nil,
         legal_entity_id: String | nil,
-        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String | nil,
         object: String,
-        send_remittance_advice: ModernTreasury::Internal::Type::BooleanModel,
+        send_remittance_advice: ModernTreasury::Internal::Type::Boolean,
         updated_at: Time,
         verification_status: ModernTreasury::Models::Counterparty::VerificationStatus
       }
@@ -103,11 +103,11 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < ModernTreasury::Test
         discarded_at: Time | nil,
         email: String | nil,
         legal_entity_id: String | nil,
-        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String | nil,
         object: String,
-        send_remittance_advice: ModernTreasury::Internal::Type::BooleanModel,
+        send_remittance_advice: ModernTreasury::Internal::Type::Boolean,
         updated_at: Time,
         verification_status: ModernTreasury::Models::Counterparty::VerificationStatus
       }
@@ -133,7 +133,7 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < ModernTreasury::Test
       response => {
         id: String,
         form_link: String,
-        is_resend: ModernTreasury::Internal::Type::BooleanModel
+        is_resend: ModernTreasury::Internal::Type::Boolean
       }
     end
   end

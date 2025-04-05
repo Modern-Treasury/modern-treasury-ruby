@@ -23,7 +23,7 @@ class ModernTreasury::Test::Resources::LedgerAccountBalanceMonitorsTest < Modern
         description: String | nil,
         discarded_at: Time | nil,
         ledger_account_id: String,
-        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         updated_at: Time
@@ -47,7 +47,7 @@ class ModernTreasury::Test::Resources::LedgerAccountBalanceMonitorsTest < Modern
         description: String | nil,
         discarded_at: Time | nil,
         ledger_account_id: String,
-        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         updated_at: Time
@@ -71,7 +71,7 @@ class ModernTreasury::Test::Resources::LedgerAccountBalanceMonitorsTest < Modern
         description: String | nil,
         discarded_at: Time | nil,
         ledger_account_id: String,
-        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         updated_at: Time
@@ -102,7 +102,7 @@ class ModernTreasury::Test::Resources::LedgerAccountBalanceMonitorsTest < Modern
         description: String | nil,
         discarded_at: Time | nil,
         ledger_account_id: String,
-        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         updated_at: Time
@@ -126,7 +126,7 @@ class ModernTreasury::Test::Resources::LedgerAccountBalanceMonitorsTest < Modern
         description: String | nil,
         discarded_at: Time | nil,
         ledger_account_id: String,
-        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         updated_at: Time

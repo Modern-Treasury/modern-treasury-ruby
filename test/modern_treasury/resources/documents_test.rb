@@ -27,7 +27,7 @@ class ModernTreasury::Test::Resources::DocumentsTest < ModernTreasury::Test::Res
         documentable_id: String,
         documentable_type: ModernTreasury::Models::Document::DocumentableType,
         file: ModernTreasury::Models::Document::File,
-        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         source: String,
         updated_at: Time
@@ -52,7 +52,7 @@ class ModernTreasury::Test::Resources::DocumentsTest < ModernTreasury::Test::Res
         documentable_id: String,
         documentable_type: ModernTreasury::Models::Document::DocumentableType,
         file: ModernTreasury::Models::Document::File,
-        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         source: String,
         updated_at: Time
@@ -84,7 +84,7 @@ class ModernTreasury::Test::Resources::DocumentsTest < ModernTreasury::Test::Res
         documentable_id: String,
         documentable_type: ModernTreasury::Models::Document::DocumentableType,
         file: ModernTreasury::Models::Document::File,
-        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         source: String,
         updated_at: Time
