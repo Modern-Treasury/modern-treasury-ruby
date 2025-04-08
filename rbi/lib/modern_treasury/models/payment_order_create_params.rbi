@@ -473,7 +473,7 @@ module ModernTreasury
         sig { returns(ModernTreasury::Models::PaymentOrderCreateParams::Document::DocumentableType::OrSymbol) }
         attr_accessor :documentable_type
 
-        sig { returns(T.any(IO, StringIO)) }
+        sig { returns(T.any(Pathname, StringIO)) }
         attr_accessor :file
 
         # A category given to the document, can be `null`.
@@ -487,7 +487,7 @@ module ModernTreasury
           params(
             documentable_id: String,
             documentable_type: ModernTreasury::Models::PaymentOrderCreateParams::Document::DocumentableType::OrSymbol,
-            file: T.any(IO, StringIO),
+            file: T.any(Pathname, StringIO),
             document_type: String
           )
             .returns(T.attached_class)
@@ -500,7 +500,7 @@ module ModernTreasury
               {
                 documentable_id: String,
                 documentable_type: ModernTreasury::Models::PaymentOrderCreateParams::Document::DocumentableType::OrSymbol,
-                file: T.any(IO, StringIO),
+                file: T.any(Pathname, StringIO),
                 document_type: String
               }
             )

@@ -61,6 +61,33 @@ page.auto_paging_each do |counterparty|
 end
 ```
 
+## File uploads
+
+Request parameters that correspond to file uploads can be passed as `StringIO`, or a [`Pathname`](https://rubyapi.org/3.1/o/pathname) instance.
+
+```ruby
+require "pathname"
+
+# using `Pathname`, the file will be lazily read, without reading everything in to memory
+document =
+  modern_treasury.documents.create(
+    documentable_id: "24c6b7a3-02...",
+    documentable_type: "counterparties",
+    file: Pathname("my/file.txt")
+  )
+
+file = File.read("my/file.txt")
+# using `StringIO`, useful if you already have the data in memory
+document =
+  modern_treasury.documents.create(
+    documentable_id: "24c6b7a3-02...",
+    documentable_type: "counterparties",
+    file: StringIO.new(file)
+  )
+
+puts(document.id)
+```
+
 ### Errors
 
 When the library is unable to connect to the API, or if the API returns a non-success status code (i.e., 4xx or 5xx response), a subclass of `ModernTreasury::Error` will be thrown:
