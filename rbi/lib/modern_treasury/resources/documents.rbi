@@ -8,7 +8,7 @@ module ModernTreasury
         params(
           documentable_id: String,
           documentable_type: ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol,
-          file: T.any(IO, StringIO),
+          file: T.any(Pathname, StringIO),
           document_type: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
         )
