@@ -10,10 +10,13 @@ module ModernTreasury
 
         def self.coerce: (
           bool | top value,
-          state: ModernTreasury::Internal::Type::Converter::state
+          state: ModernTreasury::Internal::Type::Converter::coerce_state
         ) -> (bool | top)
 
-        def self.dump: (bool | top value) -> (bool | top)
+        def self.dump: (
+          bool | top value,
+          state: ModernTreasury::Internal::Type::Converter::dump_state
+        ) -> (bool | top)
       end
     end
   end

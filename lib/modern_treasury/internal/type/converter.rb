@@ -26,15 +26,24 @@ module ModernTreasury
         #
         # @param value [Object]
         #
+        # @param state [Hash{Symbol=>Object}] .
+        #
+        #   @option state [Boolean] :can_retry
+        #
         # @return [Object]
-        def dump(value)
+        def dump(value, state:)
           case value
           in Array
-            value.map { ModernTreasury::Internal::Type::Unknown.dump(_1) }
+            value.map { ModernTreasury::Internal::Type::Unknown.dump(_1, state: state) }
           in Hash
-            value.transform_values { ModernTreasury::Internal::Type::Unknown.dump(_1) }
+            value.transform_values { ModernTreasury::Internal::Type::Unknown.dump(_1, state: state) }
           in ModernTreasury::Internal::Type::BaseModel
-            value.class.dump(value)
+            value.class.dump(value, state: state)
+          in StringIO
+            value.string
+          in Pathname | IO
+            state[:can_retry] = false if value.is_a?(IO)
+            ModernTreasury::Internal::Util::SerializationAdapter.new(value)
           else
             value
           end
@@ -182,7 +191,7 @@ module ModernTreasury
                 rescue ArgumentError, TypeError => e
                   raise e if strictness == :strong
                 end
-              in -> { _1 <= IO } if value.is_a?(String)
+              in -> { _1 <= StringIO } if value.is_a?(String)
                 exactness[:yes] += 1
                 return StringIO.new(value.b)
               else
@@ -207,13 +216,21 @@ module ModernTreasury
           # @api private
           #
           # @param target [ModernTreasury::Internal::Type::Converter, Class]
+          #
           # @param value [Object]
           #
+          # @param state [Hash{Symbol=>Object}] .
+          #
+          #   @option state [Boolean] :can_retry
+          #
           # @return [Object]
-          def dump(target, value)
-            # rubocop:disable Layout/LineLength
-            target.is_a?(ModernTreasury::Internal::Type::Converter) ? target.dump(value) : ModernTreasury::Internal::Type::Unknown.dump(value)
-            # rubocop:enable Layout/LineLength
+          def dump(target, value, state: {can_retry: true})
+            case target
+            in ModernTreasury::Internal::Type::Converter
+              target.dump(value, state: state)
+            else
+              ModernTreasury::Internal::Type::Unknown.dump(value, state: state)
+            end
           end
         end
       end
