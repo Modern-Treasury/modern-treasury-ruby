@@ -67,6 +67,9 @@
   "release-type": "ruby",
   "version-file": "lib/modern_treasury/version.rb",
   "extra-files": [
-    "README.md"
+    {
+      "type": "ruby-readme",
+      "path": "README.md"
+    }
   ]
 }
