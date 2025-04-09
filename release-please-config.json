@@ -65,5 +65,8 @@
     "samridh90"
   ],
   "release-type": "ruby",
-  "version-file": "lib/modern_treasury/version.rb"
+  "version-file": "lib/modern_treasury/version.rb",
+  "extra-files": [
+    "README.md"
+  ]
 }
