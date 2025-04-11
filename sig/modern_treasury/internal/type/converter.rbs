@@ -4,19 +4,24 @@ module ModernTreasury
       module Converter
         type input = ModernTreasury::Internal::Type::Converter | Class
 
-        type state =
+        type coerce_state =
           {
             strictness: bool | :strong,
             exactness: { yes: Integer, no: Integer, maybe: Integer },
             branched: Integer
           }
 
+        type dump_state = { can_retry: bool }
+
         def coerce: (
           top value,
-          state: ModernTreasury::Internal::Type::Converter::state
+          state: ModernTreasury::Internal::Type::Converter::coerce_state
         ) -> top
 
-        def dump: (top value) -> top
+        def dump: (
+          top value,
+          state: ModernTreasury::Internal::Type::Converter::dump_state
+        ) -> top
 
         def self.type_info: (
           {
@@ -31,12 +36,13 @@ module ModernTreasury
         def self.coerce: (
           ModernTreasury::Internal::Type::Converter::input target,
           top value,
-          ?state: ModernTreasury::Internal::Type::Converter::state
+          ?state: ModernTreasury::Internal::Type::Converter::coerce_state
         ) -> top
 
         def self.dump: (
           ModernTreasury::Internal::Type::Converter::input target,
-          top value
+          top value,
+          ?state: ModernTreasury::Internal::Type::Converter::dump_state
         ) -> top
       end
     end

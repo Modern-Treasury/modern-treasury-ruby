@@ -54,7 +54,7 @@ module ModernTreasury
           # @param blk [Proc]
           #
           # @yieldparam [String]
-          # @return [Net::HTTPGenericRequest]
+          # @return [Array(Net::HTTPGenericRequest, Proc)]
           def build_request(request, &blk)
             method, url, headers, body = request.fetch_values(:method, :url, :headers, :body)
             req = Net::HTTPGenericRequest.new(
@@ -75,12 +75,12 @@ module ModernTreasury
             in StringIO
               req["content-length"] ||= body.size.to_s unless req["transfer-encoding"]
               req.body_stream = ModernTreasury::Internal::Util::ReadIOAdapter.new(body, &blk)
-            in IO | Enumerator
+            in Pathname | IO | Enumerator
               req["transfer-encoding"] ||= "chunked" unless req["content-length"]
               req.body_stream = ModernTreasury::Internal::Util::ReadIOAdapter.new(body, &blk)
             end
 
-            req
+            [req, req.body_stream&.method(:close)]
           end
         end
 
@@ -123,13 +123,17 @@ module ModernTreasury
         def execute(request)
           url, deadline = request.fetch_values(:url, :deadline)
 
+          req = nil
           eof = false
           finished = false
+          closing = nil
+
+          # rubocop:disable Metrics/BlockLength
           enum = Enumerator.new do |y|
             with_pool(url, deadline: deadline) do |conn|
               next if finished
 
-              req = self.class.build_request(request) do
+              req, closing = self.class.build_request(request) do
                 self.class.calibrate_socket_timeout(conn, deadline)
               end
 
@@ -154,8 +158,11 @@ module ModernTreasury
               end
             end
           rescue Timeout::Error
-            raise ModernTreasury::Errors::APITimeoutError
+            raise ModernTreasury::Errors::APITimeoutError.new(url: url, request: req)
+          rescue StandardError
+            raise ModernTreasury::Errors::APIConnectionError.new(url: url, request: req)
           end
+          # rubocop:enable Metrics/BlockLength
 
           conn, _, response = enum.next
           body = ModernTreasury::Internal::Util.fused_enum(enum, external: true) do
@@ -165,7 +172,9 @@ module ModernTreasury
             rescue StopIteration
               nil
             end
+          ensure
             conn.finish if !eof && conn&.started?
+            closing&.call
           end
           [Integer(response.code), response, (response.body = body)]
         end

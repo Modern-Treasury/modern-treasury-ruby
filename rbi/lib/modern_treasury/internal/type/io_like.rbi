@@ -5,8 +5,8 @@ module ModernTreasury
     module Type
       # @api private
       #
-      # Ruby has no Boolean class; this is something for models to refer to.
-      class Boolean
+      # Either `Pathname` or `StringIO`.
+      class IOLike
         extend ModernTreasury::Internal::Type::Converter
 
         abstract!
@@ -23,22 +23,21 @@ module ModernTreasury
           sig(:final) do
             override
               .params(
-                value: T.any(T::Boolean, T.anything),
+                value: T.any(StringIO, String, T.anything),
                 state: ModernTreasury::Internal::Type::Converter::CoerceState
               )
-              .returns(T.any(T::Boolean, T.anything))
+              .returns(T.any(StringIO, T.anything))
           end
           def coerce(value, state:); end
 
           # @api private
           sig(:final) do
             override
-              .params(value: T.any(
-                T::Boolean,
-                T.anything
-              ),
-                      state: ModernTreasury::Internal::Type::Converter::DumpState)
-              .returns(T.any(T::Boolean, T.anything))
+              .params(
+                value: T.any(Pathname, StringIO, IO, String, T.anything),
+                state: ModernTreasury::Internal::Type::Converter::DumpState
+              )
+              .returns(T.any(Pathname, StringIO, IO, String, T.anything))
           end
           def dump(value, state:); end
         end
