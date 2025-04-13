@@ -22,26 +22,6 @@ module ModernTreasury
       # @return [String]
       attr_accessor :after_cursor
 
-      # @api private
-      #
-      # @param client [ModernTreasury::Internal::Transport::BaseClient]
-      # @param req [Hash{Symbol=>Object}]
-      # @param headers [Hash{String=>String}, Net::HTTPHeader]
-      # @param page_data [Hash{Symbol=>Object}]
-      def initialize(client:, req:, headers:, page_data:)
-        super
-
-        case page_data
-        in Array
-          replace(page_data.map { ModernTreasury::Internal::Type::Converter.coerce(@model, _1) })
-        else
-        end
-
-        @per_page = ModernTreasury::Internal::Util.coerce_integer(headers["X-Per-Page"])
-
-        @after_cursor = headers["X-After-Cursor"]&.to_s
-      end
-
       # @return [Boolean]
       def next_page?
         !after_cursor.nil?
@@ -74,6 +54,25 @@ module ModernTreasury
           break unless page.next_page?
           page = page.next_page
         end
+      end
+
+      # @api private
+      #
+      # @param client [ModernTreasury::Internal::Transport::BaseClient]
+      # @param req [Hash{Symbol=>Object}]
+      # @param headers [Hash{String=>String}, Net::HTTPHeader]
+      # @param page_data [Hash{Symbol=>Object}]
+      def initialize(client:, req:, headers:, page_data:)
+        super
+
+        case page_data
+        in Array
+          replace(page_data.map { ModernTreasury::Internal::Type::Converter.coerce(@model, _1) })
+        else
+        end
+
+        @per_page = ModernTreasury::Internal::Util.coerce_integer(headers["X-Per-Page"])
+        @after_cursor = headers["X-After-Cursor"]&.to_s
       end
 
       # @api private
