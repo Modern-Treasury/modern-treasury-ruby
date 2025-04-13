@@ -30,11 +30,10 @@ module ModernTreasury
       # @param page_data [Hash{Symbol=>Object}]
       def initialize(client:, req:, headers:, page_data:)
         super
-        model = req.fetch(:model)
 
         case page_data
         in Array
-          replace(page_data.map { ModernTreasury::Internal::Type::Converter.coerce(model, _1) })
+          replace(page_data.map { ModernTreasury::Internal::Type::Converter.coerce(@model, _1) })
         else
         end
 
@@ -67,18 +66,24 @@ module ModernTreasury
         unless block_given?
           raise ArgumentError.new("A block must be given to ##{__method__}")
         end
+
         page = self
         loop do
-          page.each { blk.call(_1) }
+          page.each(&blk)
+
           break unless page.next_page?
           page = page.next_page
         end
       end
 
+      # @api private
+      #
       # @return [String]
       def inspect
         # rubocop:disable Layout/LineLength
-        "#<#{self.class}:0x#{object_id.to_s(16)} per_page=#{per_page.inspect} after_cursor=#{after_cursor.inspect}>"
+        model = ModernTreasury::Internal::Type::Converter.inspect(@model, depth: 1)
+
+        "#<#{self.class}[#{model}]:0x#{object_id.to_s(16)} per_page=#{per_page.inspect} after_cursor=#{after_cursor.inspect}>"
         # rubocop:enable Layout/LineLength
       end
     end
