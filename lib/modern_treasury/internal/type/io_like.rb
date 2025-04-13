@@ -11,6 +11,8 @@ module ModernTreasury
       class IOLike
         extend ModernTreasury::Internal::Type::Converter
 
+        private_class_method :new
+
         # @param other [Object]
         #
         # @return [Boolean]
