@@ -4,7 +4,7 @@ The Modern Treasury Ruby library provides convenient access to the Modern Treasu
 
 ## Documentation
 
-Documentation for released of this gem can be found [on RubyDoc](https://gemdocs.org/gems/modern_treasury).
+Documentation for releases of this gem can be found [on RubyDoc](https://gemdocs.org/gems/modern_treasury).
 
 The underlying REST API documentation can be found on [docs.moderntreasury.com](https://docs.moderntreasury.com).
 
