@@ -160,8 +160,9 @@ module ModernTreasury
       api_key: ENV["MODERN_TREASURY_API_KEY"],
       # Defaults to `ENV["MODERN_TREASURY_ORGANIZATION_ID"]`
       organization_id: ENV["MODERN_TREASURY_ORGANIZATION_ID"],
-      # Override the default base URL for the API, e.g., `"https://api.example.com/v2/"`
-      base_url: nil,
+      # Override the default base URL for the API, e.g.,
+      # `"https://api.example.com/v2/"`. Defaults to `ENV["MODERN_TREASURY_BASE_URL"]`
+      base_url: ENV["MODERN_TREASURY_BASE_URL"],
       # Max number of retries to attempt after a failed retryable request.
       max_retries: DEFAULT_MAX_RETRIES,
       timeout: DEFAULT_TIMEOUT_IN_SECONDS,
