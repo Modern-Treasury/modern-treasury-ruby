@@ -167,7 +167,8 @@ module ModernTreasury
     #
     # @param organization_id [String, nil] Defaults to `ENV["MODERN_TREASURY_ORGANIZATION_ID"]`
     #
-    # @param base_url [String, nil] Override the default base URL for the API, e.g., `"https://api.example.com/v2/"`
+    # @param base_url [String, nil] Override the default base URL for the API, e.g.,
+    # `"https://api.example.com/v2/"`. Defaults to `ENV["MODERN_TREASURY_BASE_URL"]`
     #
     # @param max_retries [Integer] Max number of retries to attempt after a failed retryable request.
     #
@@ -181,7 +182,7 @@ module ModernTreasury
     def initialize(
       api_key: ENV["MODERN_TREASURY_API_KEY"],
       organization_id: ENV["MODERN_TREASURY_ORGANIZATION_ID"],
-      base_url: nil,
+      base_url: ENV["MODERN_TREASURY_BASE_URL"],
       max_retries: DEFAULT_MAX_RETRIES,
       timeout: DEFAULT_TIMEOUT_IN_SECONDS,
       initial_retry_delay: DEFAULT_INITIAL_RETRY_DELAY,
