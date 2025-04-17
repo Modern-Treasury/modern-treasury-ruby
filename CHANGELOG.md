@@ -1,5 +1,47 @@
 # Changelog
 
+## 0.1.0-alpha.18 (2025-04-17)
+
+Full Changelog: [v0.1.0-alpha.17...v0.1.0-alpha.18](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.17...v0.1.0-alpha.18)
+
+### Features
+
+* **client:** enable setting base URL from environment variable ([8b57199](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/8b57199c16d42d8071872ba0d782887700247b80))
+* use Pathname alongside raw IO handles for file uploads ([#362](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/362)) ([597ca71](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/597ca71588eb90a6a7c0ad3fc170378bcba1f599))
+
+
+### Bug Fixes
+
+* always send idempotency header when specified as a request option ([be266d1](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/be266d1d21f0db2b1542c61d448e66421bdb92e2))
+* **client:** send correct HTTP path ([2befc5f](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/2befc5fa50540d382cd929703eec84e3c9595afb))
+* inaccuracies in the README.md ([6546328](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/65463285d724960027021dcf2ff351d06be0f10e))
+* **internal:** update release-please to use ruby strategy for README.md ([#366](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/366)) ([a04f5fd](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/a04f5fd4909acf8e7ee4e2554f06a87ba51166e6))
+* raise connection error for errors that result from HTTP transports ([#363](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/363)) ([5391daa](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/5391daa2da684394e8ae235133f9f0437e33d7e9))
+
+
+### Chores
+
+* add README docs for using solargraph when installing gem from git ([#361](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/361)) ([6768c5a](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/6768c5ab9d99bfe84382c9129cd092a789646531))
+* ensure readme.md is bumped when release please updates versions ([#365](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/365)) ([97c0c4a](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/97c0c4af8f89730fc2e1b3785bd346774ab90401))
+* fix readme typo ([#368](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/368)) ([4362053](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/4362053ecd2442a4e8a40fdd75332efacdb8aba2))
+* **internal:** always run post-processing when formatting when syntax_tree ([4e47da9](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/4e47da9b1a896bebea37a4287b5175d7519b99f9))
+* **internal:** contribute.md and contributor QoL improvements ([8297e5a](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/8297e5a75ff90e1787e77286092672ce5961d8a2))
+* **internal:** expand CI branch coverage ([#367](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/367)) ([5ee08dc](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/5ee08dc8e0598365a230df36ecade1e86c202759))
+* **internal:** loosen internal type restrictions ([5c895bd](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/5c895bdb64e2e32678ae632f246db0d4856c7c46))
+* **internal:** minor touch ups on sdk internals ([ae77c2f](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/ae77c2f7e48a4c3f26d7e4db97b973ec68ca51d2))
+* **internal:** mostly README touch ups ([568453c](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/568453cc2806f30273ad19866064a421cd33b7ee))
+* **internal:** protect SSE parsing pipeline from broken UTF-8 characters ([f67f9d8](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/f67f9d8970659c3895bc8f7dc2f2bd6c269532af))
+* **internal:** reduce CI branch coverage ([33a4b73](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/33a4b73c08d7ac413d999d5f1390924ce82382a8))
+* **internal:** version bump ([#358](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/358)) ([a8942eb](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/a8942ebb7120bd68049f6e9422a5e54cd87d0541))
+* loosen const and integer coercion rules ([#364](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/364)) ([3c2b2f4](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/3c2b2f4c8d46b6d3870164dcd117c814c54a9253))
+* make client tests look prettier ([#360](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/360)) ([7d2283b](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/7d2283b7d3a0092c82d9baf01b37af791ef6c40f))
+* make internal types pretty print ([b76c12a](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/b76c12ab4ff61ce339ea4fc1df769014b4996570))
+
+
+### Documentation
+
+* update documentation links to be more uniform ([9f1a370](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/9f1a3701c2ac13f94737ee9e89e7eef12252ed8e))
+
 ## 0.1.0-alpha.17 (2025-04-06)
 
 Full Changelog: [v0.1.0-alpha.16...v0.1.0-alpha.17](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.16...v0.1.0-alpha.17)
