@@ -57,31 +57,15 @@ module ModernTreasury
                -> { ModernTreasury::Internal::Type::HashOf[ModernTreasury::Models::LedgerEventHandlerVariable] },
                nil?: true
 
-      # @!parse
-      #   # @param ledger_transaction_template [ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate]
-      #   # @param name [String]
-      #   # @param conditions [ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions, nil]
-      #   # @param description [String, nil]
-      #   # @param ledger_id [String]
-      #   # @param metadata [Hash{Symbol=>String}, nil]
-      #   # @param variables [Hash{Symbol=>ModernTreasury::Models::LedgerEventHandlerVariable}, nil]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     ledger_transaction_template:,
-      #     name:,
-      #     conditions: nil,
-      #     description: nil,
-      #     ledger_id: nil,
-      #     metadata: nil,
-      #     variables: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(ledger_transaction_template:, name:, conditions: nil, description: nil, ledger_id: nil, metadata: nil, variables: nil, request_options: {})
+      #   @param ledger_transaction_template [ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate]
+      #   @param name [String]
+      #   @param conditions [ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions, nil]
+      #   @param description [String, nil]
+      #   @param ledger_id [String]
+      #   @param metadata [Hash{Symbol=>String}, nil]
+      #   @param variables [Hash{Symbol=>ModernTreasury::Models::LedgerEventHandlerVariable}, nil]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # @deprecated
       class LedgerTransactionTemplate < ModernTreasury::Internal::Type::BaseModel
@@ -111,15 +95,11 @@ module ModernTreasury
         #   @return [String, nil]
         required :status, String, nil?: true
 
-        # @!parse
-        #   # @param description [String, nil]
-        #   # @param effective_at [String, nil]
-        #   # @param ledger_entries [Array<ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry>]
-        #   # @param status [String, nil]
-        #   #
-        #   def initialize(description:, effective_at:, ledger_entries:, status:, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(description:, effective_at:, ledger_entries:, status:)
+        #   @param description [String, nil]
+        #   @param effective_at [String, nil]
+        #   @param ledger_entries [Array<ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry>]
+        #   @param status [String, nil]
 
         # @deprecated
         class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
@@ -141,14 +121,10 @@ module ModernTreasury
           #   @return [String]
           required :ledger_account_id, String
 
-          # @!parse
-          #   # @param amount [String]
-          #   # @param direction [String]
-          #   # @param ledger_account_id [String]
-          #   #
-          #   def initialize(amount:, direction:, ledger_account_id:, **) = super
-
-          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+          # @!method initialize(amount:, direction:, ledger_account_id:)
+          #   @param amount [String]
+          #   @param direction [String]
+          #   @param ledger_account_id [String]
         end
       end
 
@@ -172,14 +148,10 @@ module ModernTreasury
         #   @return [String]
         required :value, String
 
-        # @!parse
-        #   # @param field [String]
-        #   # @param operator [String]
-        #   # @param value [String]
-        #   #
-        #   def initialize(field:, operator:, value:, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(field:, operator:, value:)
+        #   @param field [String]
+        #   @param operator [String]
+        #   @param value [String]
       end
     end
   end

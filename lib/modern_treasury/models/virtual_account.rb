@@ -105,47 +105,23 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param account_details [Array<ModernTreasury::Models::AccountDetail>]
-      #   # @param counterparty_id [String, nil]
-      #   # @param created_at [Time]
-      #   # @param credit_ledger_account_id [String, nil]
-      #   # @param debit_ledger_account_id [String, nil]
-      #   # @param description [String, nil]
-      #   # @param discarded_at [Time, nil]
-      #   # @param internal_account_id [String]
-      #   # @param ledger_account_id [String, nil]
-      #   # @param live_mode [Boolean]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param name [String]
-      #   # @param object [String]
-      #   # @param routing_details [Array<ModernTreasury::Models::RoutingDetail>]
-      #   # @param updated_at [Time]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     account_details:,
-      #     counterparty_id:,
-      #     created_at:,
-      #     credit_ledger_account_id:,
-      #     debit_ledger_account_id:,
-      #     description:,
-      #     discarded_at:,
-      #     internal_account_id:,
-      #     ledger_account_id:,
-      #     live_mode:,
-      #     metadata:,
-      #     name:,
-      #     object:,
-      #     routing_details:,
-      #     updated_at:,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, account_details:, counterparty_id:, created_at:, credit_ledger_account_id:, debit_ledger_account_id:, description:, discarded_at:, internal_account_id:, ledger_account_id:, live_mode:, metadata:, name:, object:, routing_details:, updated_at:)
+      #   @param id [String]
+      #   @param account_details [Array<ModernTreasury::Models::AccountDetail>]
+      #   @param counterparty_id [String, nil]
+      #   @param created_at [Time]
+      #   @param credit_ledger_account_id [String, nil]
+      #   @param debit_ledger_account_id [String, nil]
+      #   @param description [String, nil]
+      #   @param discarded_at [Time, nil]
+      #   @param internal_account_id [String]
+      #   @param ledger_account_id [String, nil]
+      #   @param live_mode [Boolean]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param name [String]
+      #   @param object [String]
+      #   @param routing_details [Array<ModernTreasury::Models::RoutingDetail>]
+      #   @param updated_at [Time]
     end
   end
 end

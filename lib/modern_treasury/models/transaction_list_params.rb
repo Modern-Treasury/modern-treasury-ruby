@@ -143,45 +143,22 @@ module ModernTreasury
       #   # @return [String]
       #   attr_writer :virtual_account_id
 
-      # @!parse
-      #   # @param after_cursor [String, nil]
-      #   # @param as_of_date_end [Date]
-      #   # @param as_of_date_start [Date]
-      #   # @param counterparty_id [String]
-      #   # @param description [String]
-      #   # @param direction [String]
-      #   # @param internal_account_id [String]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param payment_type [String]
-      #   # @param per_page [Integer]
-      #   # @param posted [Boolean]
-      #   # @param transactable_type [String]
-      #   # @param vendor_id [String]
-      #   # @param virtual_account_id [String]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     after_cursor: nil,
-      #     as_of_date_end: nil,
-      #     as_of_date_start: nil,
-      #     counterparty_id: nil,
-      #     description: nil,
-      #     direction: nil,
-      #     internal_account_id: nil,
-      #     metadata: nil,
-      #     payment_type: nil,
-      #     per_page: nil,
-      #     posted: nil,
-      #     transactable_type: nil,
-      #     vendor_id: nil,
-      #     virtual_account_id: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(after_cursor: nil, as_of_date_end: nil, as_of_date_start: nil, counterparty_id: nil, description: nil, direction: nil, internal_account_id: nil, metadata: nil, payment_type: nil, per_page: nil, posted: nil, transactable_type: nil, vendor_id: nil, virtual_account_id: nil, request_options: {})
+      #   @param after_cursor [String, nil]
+      #   @param as_of_date_end [Date]
+      #   @param as_of_date_start [Date]
+      #   @param counterparty_id [String]
+      #   @param description [String]
+      #   @param direction [String]
+      #   @param internal_account_id [String]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param payment_type [String]
+      #   @param per_page [Integer]
+      #   @param posted [Boolean]
+      #   @param transactable_type [String]
+      #   @param vendor_id [String]
+      #   @param virtual_account_id [String]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

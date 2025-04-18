@@ -53,29 +53,14 @@ module ModernTreasury
       #   # @return [Date]
       #   attr_writer :due_date
 
-      # @!parse
-      #   # @param amount [Integer]
-      #   # @param counterparty_id [String]
-      #   # @param currency [String]
-      #   # @param direction [Symbol, ModernTreasury::Models::PaymentFlowCreateParams::Direction]
-      #   # @param originating_account_id [String]
-      #   # @param due_date [Date]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     amount:,
-      #     counterparty_id:,
-      #     currency:,
-      #     direction:,
-      #     originating_account_id:,
-      #     due_date: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(amount:, counterparty_id:, currency:, direction:, originating_account_id:, due_date: nil, request_options: {})
+      #   @param amount [Integer]
+      #   @param counterparty_id [String]
+      #   @param currency [String]
+      #   @param direction [Symbol, ModernTreasury::Models::PaymentFlowCreateParams::Direction]
+      #   @param originating_account_id [String]
+      #   @param due_date [Date]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # Required. Describes the direction money is flowing in the transaction. Can only
       # be `debit`. A `debit` pulls money from someone else's account to your own.
@@ -85,11 +70,8 @@ module ModernTreasury
         CREDIT = :credit
         DEBIT = :debit
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

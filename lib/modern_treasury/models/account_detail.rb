@@ -59,33 +59,16 @@ module ModernTreasury
       #   # @return [String]
       #   attr_writer :account_number
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param account_number_safe [String]
-      #   # @param account_number_type [Symbol, ModernTreasury::Models::AccountDetail::AccountNumberType]
-      #   # @param created_at [Time]
-      #   # @param discarded_at [Time, nil]
-      #   # @param live_mode [Boolean]
-      #   # @param object [String]
-      #   # @param updated_at [Time]
-      #   # @param account_number [String]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     account_number_safe:,
-      #     account_number_type:,
-      #     created_at:,
-      #     discarded_at:,
-      #     live_mode:,
-      #     object:,
-      #     updated_at:,
-      #     account_number: nil,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, account_number_safe:, account_number_type:, created_at:, discarded_at:, live_mode:, object:, updated_at:, account_number: nil)
+      #   @param id [String]
+      #   @param account_number_safe [String]
+      #   @param account_number_type [Symbol, ModernTreasury::Models::AccountDetail::AccountNumberType]
+      #   @param created_at [Time]
+      #   @param discarded_at [Time, nil]
+      #   @param live_mode [Boolean]
+      #   @param object [String]
+      #   @param updated_at [Time]
+      #   @param account_number [String]
 
       # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
       # account number is in a generic format.
@@ -105,11 +88,8 @@ module ModernTreasury
         SG_NUMBER = :sg_number
         WALLET_ADDRESS = :wallet_address
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

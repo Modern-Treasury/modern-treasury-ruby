@@ -20,13 +20,9 @@ module ModernTreasury
       #   # @return [ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances]
       #   attr_writer :balances
 
-      # @!parse
-      #   # @param balances [ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(balances: nil, request_options: {}, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(balances: nil, request_options: {})
+      #   @param balances [ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       class Balances < ModernTreasury::Internal::Type::BaseModel
         # @!attribute [r] as_of_date
@@ -47,17 +43,13 @@ module ModernTreasury
         #   # @return [Time]
         #   attr_writer :effective_at
 
-        # @!parse
-        #   # For example, if you want the balances as of a particular time (ISO8601), the
-        #   # encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
-        #   # The balances as of a time are inclusive of entries with that exact time.
-        #   #
-        #   # @param as_of_date [Date]
-        #   # @param effective_at [Time]
-        #   #
-        #   def initialize(as_of_date: nil, effective_at: nil, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(as_of_date: nil, effective_at: nil)
+        #   For example, if you want the balances as of a particular time (ISO8601), the
+        #   encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
+        #   The balances as of a time are inclusive of entries with that exact time.
+        #
+        #   @param as_of_date [Date]
+        #   @param effective_at [Time]
       end
     end
   end

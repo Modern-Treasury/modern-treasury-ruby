@@ -41,16 +41,12 @@ module ModernTreasury
       #   @return [String, nil]
       optional :name, String, nil?: true
 
-      # @!parse
-      #   # @param counterparty_id [String]
-      #   # @param ledger_account_id [String]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param name [String, nil]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, request_options: {}, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, request_options: {})
+      #   @param counterparty_id [String]
+      #   @param ledger_account_id [String]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param name [String, nil]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

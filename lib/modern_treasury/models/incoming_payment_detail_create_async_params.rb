@@ -82,35 +82,17 @@ module ModernTreasury
       #   @return [String, nil]
       optional :virtual_account_id, String, nil?: true
 
-      # @!parse
-      #   # @param amount [Integer]
-      #   # @param as_of_date [Date, nil]
-      #   # @param currency [Symbol, ModernTreasury::Models::Currency, nil]
-      #   # @param data [Object, nil]
-      #   # @param description [String, nil]
-      #   # @param direction [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction]
-      #   # @param internal_account_id [String]
-      #   # @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type]
-      #   # @param virtual_account_id [String, nil]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     amount: nil,
-      #     as_of_date: nil,
-      #     currency: nil,
-      #     data: nil,
-      #     description: nil,
-      #     direction: nil,
-      #     internal_account_id: nil,
-      #     type: nil,
-      #     virtual_account_id: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(amount: nil, as_of_date: nil, currency: nil, data: nil, description: nil, direction: nil, internal_account_id: nil, type: nil, virtual_account_id: nil, request_options: {})
+      #   @param amount [Integer]
+      #   @param as_of_date [Date, nil]
+      #   @param currency [Symbol, ModernTreasury::Models::Currency, nil]
+      #   @param data [Object, nil]
+      #   @param description [String, nil]
+      #   @param direction [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction]
+      #   @param internal_account_id [String]
+      #   @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type]
+      #   @param virtual_account_id [String, nil]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # One of `credit`, `debit`.
       module Direction
@@ -119,11 +101,8 @@ module ModernTreasury
         CREDIT = :credit
         DEBIT = :debit
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # One of `ach`, `wire`, `check`.
@@ -144,11 +123,8 @@ module ModernTreasury
         SIGNET = :signet
         WIRE = :wire
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

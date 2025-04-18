@@ -69,37 +69,18 @@ module ModernTreasury
         #   @return [Time]
         required :updated_at, Time
 
-        # @!parse
-        #   # @param id [String]
-        #   # @param created_at [Time]
-        #   # @param ledger_transaction_id [String, nil]
-        #   # @param live_mode [Boolean]
-        #   # @param metadata [Hash{Symbol=>String}]
-        #   # @param object [String]
-        #   # @param payment_order_id [String, nil]
-        #   # @param reason [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Reason]
-        #   # @param status [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Status]
-        #   # @param transaction_ids [Array<Object, nil>]
-        #   # @param updated_at [Time]
-        #   #
-        #   def initialize(
-        #     id:,
-        #     created_at:,
-        #     ledger_transaction_id:,
-        #     live_mode:,
-        #     metadata:,
-        #     object:,
-        #     payment_order_id:,
-        #     reason:,
-        #     status:,
-        #     transaction_ids:,
-        #     updated_at:,
-        #     **
-        #   )
-        #     super
-        #   end
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(id:, created_at:, ledger_transaction_id:, live_mode:, metadata:, object:, payment_order_id:, reason:, status:, transaction_ids:, updated_at:)
+        #   @param id [String]
+        #   @param created_at [Time]
+        #   @param ledger_transaction_id [String, nil]
+        #   @param live_mode [Boolean]
+        #   @param metadata [Hash{Symbol=>String}]
+        #   @param object [String]
+        #   @param payment_order_id [String, nil]
+        #   @param reason [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Reason]
+        #   @param status [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Status]
+        #   @param transaction_ids [Array<Object, nil>]
+        #   @param updated_at [Time]
 
         # The reason for the reversal.
         #
@@ -113,11 +94,8 @@ module ModernTreasury
           DATE_EARLIER_THAN_INTENDED = :date_earlier_than_intended
           DATE_LATER_THAN_INTENDED = :date_later_than_intended
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
 
         # The current status of the reversal.
@@ -133,11 +111,8 @@ module ModernTreasury
           RETURNED = :returned
           SENT = :sent
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
       end
     end

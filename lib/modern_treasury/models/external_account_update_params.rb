@@ -68,31 +68,15 @@ module ModernTreasury
                enum: -> { ModernTreasury::Models::ExternalAccountUpdateParams::PartyType },
                nil?: true
 
-      # @!parse
-      #   # @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType]
-      #   # @param counterparty_id [String, nil]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param name [String, nil]
-      #   # @param party_address [ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress]
-      #   # @param party_name [String]
-      #   # @param party_type [Symbol, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType, nil]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     account_type: nil,
-      #     counterparty_id: nil,
-      #     metadata: nil,
-      #     name: nil,
-      #     party_address: nil,
-      #     party_name: nil,
-      #     party_type: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(account_type: nil, counterparty_id: nil, metadata: nil, name: nil, party_address: nil, party_name: nil, party_type: nil, request_options: {})
+      #   @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType]
+      #   @param counterparty_id [String, nil]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param name [String, nil]
+      #   @param party_address [ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress]
+      #   @param party_name [String]
+      #   @param party_type [Symbol, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType, nil]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       class PartyAddress < ModernTreasury::Internal::Type::BaseModel
         # @!attribute country
@@ -129,17 +113,13 @@ module ModernTreasury
         #   @return [String, nil]
         optional :region, String, nil?: true
 
-        # @!parse
-        #   # @param country [String, nil]
-        #   # @param line1 [String, nil]
-        #   # @param line2 [String, nil]
-        #   # @param locality [String, nil]
-        #   # @param postal_code [String, nil]
-        #   # @param region [String, nil]
-        #   #
-        #   def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
+        #   @param country [String, nil]
+        #   @param line1 [String, nil]
+        #   @param line2 [String, nil]
+        #   @param locality [String, nil]
+        #   @param postal_code [String, nil]
+        #   @param region [String, nil]
       end
 
       # Either `individual` or `business`.
@@ -149,11 +129,8 @@ module ModernTreasury
         BUSINESS = :business
         INDIVIDUAL = :individual
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

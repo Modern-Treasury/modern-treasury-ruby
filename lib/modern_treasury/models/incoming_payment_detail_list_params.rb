@@ -99,35 +99,17 @@ module ModernTreasury
       #   # @return [String]
       #   attr_writer :virtual_account_id
 
-      # @!parse
-      #   # @param after_cursor [String, nil]
-      #   # @param as_of_date_end [Date]
-      #   # @param as_of_date_start [Date]
-      #   # @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param per_page [Integer]
-      #   # @param status [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Status]
-      #   # @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Type]
-      #   # @param virtual_account_id [String]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     after_cursor: nil,
-      #     as_of_date_end: nil,
-      #     as_of_date_start: nil,
-      #     direction: nil,
-      #     metadata: nil,
-      #     per_page: nil,
-      #     status: nil,
-      #     type: nil,
-      #     virtual_account_id: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(after_cursor: nil, as_of_date_end: nil, as_of_date_start: nil, direction: nil, metadata: nil, per_page: nil, status: nil, type: nil, virtual_account_id: nil, request_options: {})
+      #   @param after_cursor [String, nil]
+      #   @param as_of_date_end [Date]
+      #   @param as_of_date_start [Date]
+      #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param per_page [Integer]
+      #   @param status [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Status]
+      #   @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Type]
+      #   @param virtual_account_id [String]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # The current status of the incoming payment order. One of `pending`, `completed`,
       # or `returned`.
@@ -138,11 +120,8 @@ module ModernTreasury
         PENDING = :pending
         RETURNED = :returned
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
@@ -164,11 +143,8 @@ module ModernTreasury
         SIGNET = :signet
         WIRE = :wire
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

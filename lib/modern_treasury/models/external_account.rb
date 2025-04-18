@@ -116,53 +116,26 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::ExternalAccount::VerificationStatus]
       required :verification_status, enum: -> { ModernTreasury::Models::ExternalAccount::VerificationStatus }
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param account_details [Array<ModernTreasury::Models::AccountDetail>]
-      #   # @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType]
-      #   # @param contact_details [Array<ModernTreasury::Models::ExternalAccount::ContactDetail>]
-      #   # @param counterparty_id [String, nil]
-      #   # @param created_at [Time]
-      #   # @param discarded_at [Time, nil]
-      #   # @param ledger_account_id [String, nil]
-      #   # @param live_mode [Boolean]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param name [String, nil]
-      #   # @param object [String]
-      #   # @param party_address [ModernTreasury::Models::ExternalAccount::PartyAddress, nil]
-      #   # @param party_name [String]
-      #   # @param party_type [Symbol, ModernTreasury::Models::ExternalAccount::PartyType, nil]
-      #   # @param routing_details [Array<ModernTreasury::Models::RoutingDetail>]
-      #   # @param updated_at [Time]
-      #   # @param verification_source [Symbol, ModernTreasury::Models::ExternalAccount::VerificationSource, nil]
-      #   # @param verification_status [Symbol, ModernTreasury::Models::ExternalAccount::VerificationStatus]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     account_details:,
-      #     account_type:,
-      #     contact_details:,
-      #     counterparty_id:,
-      #     created_at:,
-      #     discarded_at:,
-      #     ledger_account_id:,
-      #     live_mode:,
-      #     metadata:,
-      #     name:,
-      #     object:,
-      #     party_address:,
-      #     party_name:,
-      #     party_type:,
-      #     routing_details:,
-      #     updated_at:,
-      #     verification_source:,
-      #     verification_status:,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, account_details:, account_type:, contact_details:, counterparty_id:, created_at:, discarded_at:, ledger_account_id:, live_mode:, metadata:, name:, object:, party_address:, party_name:, party_type:, routing_details:, updated_at:, verification_source:, verification_status:)
+      #   @param id [String]
+      #   @param account_details [Array<ModernTreasury::Models::AccountDetail>]
+      #   @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType]
+      #   @param contact_details [Array<ModernTreasury::Models::ExternalAccount::ContactDetail>]
+      #   @param counterparty_id [String, nil]
+      #   @param created_at [Time]
+      #   @param discarded_at [Time, nil]
+      #   @param ledger_account_id [String, nil]
+      #   @param live_mode [Boolean]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param name [String, nil]
+      #   @param object [String]
+      #   @param party_address [ModernTreasury::Models::ExternalAccount::PartyAddress, nil]
+      #   @param party_name [String]
+      #   @param party_type [Symbol, ModernTreasury::Models::ExternalAccount::PartyType, nil]
+      #   @param routing_details [Array<ModernTreasury::Models::RoutingDetail>]
+      #   @param updated_at [Time]
+      #   @param verification_source [Symbol, ModernTreasury::Models::ExternalAccount::VerificationSource, nil]
+      #   @param verification_status [Symbol, ModernTreasury::Models::ExternalAccount::VerificationStatus]
 
       class ContactDetail < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
@@ -208,31 +181,15 @@ module ModernTreasury
         #   @return [Time]
         required :updated_at, Time
 
-        # @!parse
-        #   # @param id [String]
-        #   # @param contact_identifier [String]
-        #   # @param contact_identifier_type [Symbol, ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType]
-        #   # @param created_at [Time]
-        #   # @param discarded_at [Time, nil]
-        #   # @param live_mode [Boolean]
-        #   # @param object [String]
-        #   # @param updated_at [Time]
-        #   #
-        #   def initialize(
-        #     id:,
-        #     contact_identifier:,
-        #     contact_identifier_type:,
-        #     created_at:,
-        #     discarded_at:,
-        #     live_mode:,
-        #     object:,
-        #     updated_at:,
-        #     **
-        #   )
-        #     super
-        #   end
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(id:, contact_identifier:, contact_identifier_type:, created_at:, discarded_at:, live_mode:, object:, updated_at:)
+        #   @param id [String]
+        #   @param contact_identifier [String]
+        #   @param contact_identifier_type [Symbol, ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType]
+        #   @param created_at [Time]
+        #   @param discarded_at [Time, nil]
+        #   @param live_mode [Boolean]
+        #   @param object [String]
+        #   @param updated_at [Time]
 
         # @see ModernTreasury::Models::ExternalAccount::ContactDetail#contact_identifier_type
         module ContactIdentifierType
@@ -242,11 +199,8 @@ module ModernTreasury
           PHONE_NUMBER = :phone_number
           WEBSITE = :website
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
       end
 
@@ -313,39 +267,20 @@ module ModernTreasury
         #   @return [Time]
         required :updated_at, Time
 
-        # @!parse
-        #   # The address associated with the owner or `null`.
-        #   #
-        #   # @param id [String]
-        #   # @param country [String, nil]
-        #   # @param created_at [Time]
-        #   # @param line1 [String, nil]
-        #   # @param line2 [String, nil]
-        #   # @param live_mode [Boolean]
-        #   # @param locality [String, nil]
-        #   # @param object [String]
-        #   # @param postal_code [String, nil]
-        #   # @param region [String, nil]
-        #   # @param updated_at [Time]
-        #   #
-        #   def initialize(
-        #     id:,
-        #     country:,
-        #     created_at:,
-        #     line1:,
-        #     line2:,
-        #     live_mode:,
-        #     locality:,
-        #     object:,
-        #     postal_code:,
-        #     region:,
-        #     updated_at:,
-        #     **
-        #   )
-        #     super
-        #   end
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(id:, country:, created_at:, line1:, line2:, live_mode:, locality:, object:, postal_code:, region:, updated_at:)
+        #   The address associated with the owner or `null`.
+        #
+        #   @param id [String]
+        #   @param country [String, nil]
+        #   @param created_at [Time]
+        #   @param line1 [String, nil]
+        #   @param line2 [String, nil]
+        #   @param live_mode [Boolean]
+        #   @param locality [String, nil]
+        #   @param object [String]
+        #   @param postal_code [String, nil]
+        #   @param region [String, nil]
+        #   @param updated_at [Time]
       end
 
       # Either `individual` or `business`.
@@ -357,11 +292,8 @@ module ModernTreasury
         BUSINESS = :business
         INDIVIDUAL = :individual
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # @see ModernTreasury::Models::ExternalAccount#verification_source
@@ -372,11 +304,8 @@ module ModernTreasury
         MICRODEPOSITS = :microdeposits
         PLAID = :plaid
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # @see ModernTreasury::Models::ExternalAccount#verification_status
@@ -387,11 +316,8 @@ module ModernTreasury
         UNVERIFIED = :unverified
         VERIFIED = :verified
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

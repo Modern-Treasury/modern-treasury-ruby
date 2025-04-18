@@ -42,16 +42,12 @@ module ModernTreasury
       #   # @return [Hash{Symbol=>String}]
       #   attr_writer :metadata
 
-      # @!parse
-      #   # @param alert_condition [ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition]
-      #   # @param ledger_account_id [String]
-      #   # @param description [String]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(alert_condition:, ledger_account_id:, description: nil, metadata: nil, request_options: {}, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(alert_condition:, ledger_account_id:, description: nil, metadata: nil, request_options: {})
+      #   @param alert_condition [ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition]
+      #   @param ledger_account_id [String]
+      #   @param description [String]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       class AlertCondition < ModernTreasury::Internal::Type::BaseModel
         # @!attribute field
@@ -77,16 +73,12 @@ module ModernTreasury
         #   @return [Integer]
         required :value, Integer
 
-        # @!parse
-        #   # Describes the condition that must be satisfied for the monitor to be triggered.
-        #   #
-        #   # @param field [String]
-        #   # @param operator [String]
-        #   # @param value [Integer]
-        #   #
-        #   def initialize(field:, operator:, value:, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(field:, operator:, value:)
+        #   Describes the condition that must be satisfied for the monitor to be triggered.
+        #
+        #   @param field [String]
+        #   @param operator [String]
+        #   @param value [Integer]
       end
     end
   end

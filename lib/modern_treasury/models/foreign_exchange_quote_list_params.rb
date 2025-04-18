@@ -94,35 +94,17 @@ module ModernTreasury
       #   # @return [String]
       #   attr_writer :target_currency
 
-      # @!parse
-      #   # @param after_cursor [String, nil]
-      #   # @param base_currency [String]
-      #   # @param effective_at_end [Date]
-      #   # @param effective_at_start [Date]
-      #   # @param expires_at [Time]
-      #   # @param internal_account_id [String]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param per_page [Integer]
-      #   # @param target_currency [String]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     after_cursor: nil,
-      #     base_currency: nil,
-      #     effective_at_end: nil,
-      #     effective_at_start: nil,
-      #     expires_at: nil,
-      #     internal_account_id: nil,
-      #     metadata: nil,
-      #     per_page: nil,
-      #     target_currency: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(after_cursor: nil, base_currency: nil, effective_at_end: nil, effective_at_start: nil, expires_at: nil, internal_account_id: nil, metadata: nil, per_page: nil, target_currency: nil, request_options: {})
+      #   @param after_cursor [String, nil]
+      #   @param base_currency [String]
+      #   @param effective_at_end [Date]
+      #   @param effective_at_start [Date]
+      #   @param expires_at [Time]
+      #   @param internal_account_id [String]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param per_page [Integer]
+      #   @param target_currency [String]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

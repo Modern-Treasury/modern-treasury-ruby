@@ -53,27 +53,13 @@ module ModernTreasury
       #   # @return [Integer]
       #   attr_writer :per_page
 
-      # @!parse
-      #   # @param after_cursor [String, nil]
-      #   # @param deposit_date_end [Date]
-      #   # @param deposit_date_start [Date]
-      #   # @param lockbox_number [String]
-      #   # @param per_page [Integer]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     after_cursor: nil,
-      #     deposit_date_end: nil,
-      #     deposit_date_start: nil,
-      #     lockbox_number: nil,
-      #     per_page: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(after_cursor: nil, deposit_date_end: nil, deposit_date_start: nil, lockbox_number: nil, per_page: nil, request_options: {})
+      #   @param after_cursor [String, nil]
+      #   @param deposit_date_end [Date]
+      #   @param deposit_date_start [Date]
+      #   @param lockbox_number [String]
+      #   @param per_page [Integer]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

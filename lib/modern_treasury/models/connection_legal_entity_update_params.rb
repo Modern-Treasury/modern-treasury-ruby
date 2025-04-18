@@ -18,13 +18,9 @@ module ModernTreasury
       #   # @return [Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status]
       #   attr_writer :status
 
-      # @!parse
-      #   # @param status [Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(status: nil, request_options: {}, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(status: nil, request_options: {})
+      #   @param status [Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # The status of the connection legal entity.
       module Status
@@ -32,11 +28,8 @@ module ModernTreasury
 
         PROCESSING = :processing
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

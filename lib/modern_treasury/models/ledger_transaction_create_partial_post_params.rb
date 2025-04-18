@@ -50,16 +50,12 @@ module ModernTreasury
       #   # @return [Hash{Symbol=>String}]
       #   attr_writer :metadata
 
-      # @!parse
-      #   # @param posted_ledger_entries [Array<ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry>]
-      #   # @param description [String]
-      #   # @param effective_at [Time]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(posted_ledger_entries:, description: nil, effective_at: nil, metadata: nil, request_options: {}, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(posted_ledger_entries:, description: nil, effective_at: nil, metadata: nil, request_options: {})
+      #   @param posted_ledger_entries [Array<ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry>]
+      #   @param description [String]
+      #   @param effective_at [Time]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       class PostedLedgerEntry < ModernTreasury::Internal::Type::BaseModel
         # @!attribute amount
@@ -96,15 +92,11 @@ module ModernTreasury
         #   # @return [Hash{Symbol=>String}]
         #   attr_writer :metadata
 
-        # @!parse
-        #   # @param amount [Integer]
-        #   # @param direction [Symbol, ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction]
-        #   # @param ledger_account_id [String]
-        #   # @param metadata [Hash{Symbol=>String}]
-        #   #
-        #   def initialize(amount:, direction:, ledger_account_id:, metadata: nil, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(amount:, direction:, ledger_account_id:, metadata: nil)
+        #   @param amount [Integer]
+        #   @param direction [Symbol, ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction]
+        #   @param ledger_account_id [String]
+        #   @param metadata [Hash{Symbol=>String}]
 
         # One of `credit`, `debit`. Describes the direction money is flowing in the
         # transaction. A `credit` moves money from your account to someone else's. A
@@ -118,11 +110,8 @@ module ModernTreasury
           CREDIT = :credit
           DEBIT = :debit
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
       end
     end

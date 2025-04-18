@@ -34,16 +34,12 @@ module ModernTreasury
       #   # @return [String]
       #   attr_writer :document_type
 
-      # @!parse
-      #   # @param documentable_id [String]
-      #   # @param documentable_type [Symbol, ModernTreasury::Models::DocumentCreateParams::DocumentableType]
-      #   # @param file [Pathname, StringIO]
-      #   # @param document_type [String]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(documentable_id:, documentable_type:, file:, document_type: nil, request_options: {}, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(documentable_id:, documentable_type:, file:, document_type: nil, request_options: {})
+      #   @param documentable_id [String]
+      #   @param documentable_type [Symbol, ModernTreasury::Models::DocumentCreateParams::DocumentableType]
+      #   @param file [Pathname, StringIO]
+      #   @param document_type [String]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       module DocumentableType
         extend ModernTreasury::Internal::Type::Enum
@@ -61,11 +57,8 @@ module ModernTreasury
         DECISIONS = :decisions
         CONNECTIONS = :connections
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

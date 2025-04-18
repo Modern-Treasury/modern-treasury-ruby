@@ -26,14 +26,10 @@ module ModernTreasury
       #   @return [Boolean]
       required :is_resend, ModernTreasury::Internal::Type::Boolean
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param form_link [String]
-      #   # @param is_resend [Boolean]
-      #   #
-      #   def initialize(id:, form_link:, is_resend:, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, form_link:, is_resend:)
+      #   @param id [String]
+      #   @param form_link [String]
+      #   @param is_resend [Boolean]
     end
   end
 end

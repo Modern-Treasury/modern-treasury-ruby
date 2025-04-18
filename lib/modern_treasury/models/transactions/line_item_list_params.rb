@@ -46,17 +46,13 @@ module ModernTreasury
         #   @return [Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type, nil]
         optional :type, enum: -> { ModernTreasury::Models::Transactions::LineItemListParams::Type }, nil?: true
 
-        # @!parse
-        #   # @param id [Hash{Symbol=>String}]
-        #   # @param after_cursor [String, nil]
-        #   # @param per_page [Integer]
-        #   # @param transaction_id [String]
-        #   # @param type [Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type, nil]
-        #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-        #   #
-        #   def initialize(id: nil, after_cursor: nil, per_page: nil, transaction_id: nil, type: nil, request_options: {}, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(id: nil, after_cursor: nil, per_page: nil, transaction_id: nil, type: nil, request_options: {})
+        #   @param id [Hash{Symbol=>String}]
+        #   @param after_cursor [String, nil]
+        #   @param per_page [Integer]
+        #   @param transaction_id [String]
+        #   @param type [Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type, nil]
+        #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
         module Type
           extend ModernTreasury::Internal::Type::Enum
@@ -64,11 +60,8 @@ module ModernTreasury
           ORIGINATING = :originating
           RECEIVING = :receiving
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
       end
     end

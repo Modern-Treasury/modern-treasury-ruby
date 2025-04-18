@@ -109,37 +109,18 @@ module ModernTreasury
       #   # @return [Array<ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail>]
       #   attr_writer :routing_details
 
-      # @!parse
-      #   # @param internal_account_id [String]
-      #   # @param name [String]
-      #   # @param account_details [Array<ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail>]
-      #   # @param counterparty_id [String]
-      #   # @param credit_ledger_account_id [String]
-      #   # @param debit_ledger_account_id [String]
-      #   # @param description [String]
-      #   # @param ledger_account [ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param routing_details [Array<ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail>]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     internal_account_id:,
-      #     name:,
-      #     account_details: nil,
-      #     counterparty_id: nil,
-      #     credit_ledger_account_id: nil,
-      #     debit_ledger_account_id: nil,
-      #     description: nil,
-      #     ledger_account: nil,
-      #     metadata: nil,
-      #     routing_details: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(internal_account_id:, name:, account_details: nil, counterparty_id: nil, credit_ledger_account_id: nil, debit_ledger_account_id: nil, description: nil, ledger_account: nil, metadata: nil, routing_details: nil, request_options: {})
+      #   @param internal_account_id [String]
+      #   @param name [String]
+      #   @param account_details [Array<ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail>]
+      #   @param counterparty_id [String]
+      #   @param credit_ledger_account_id [String]
+      #   @param debit_ledger_account_id [String]
+      #   @param description [String]
+      #   @param ledger_account [ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param routing_details [Array<ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail>]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       class AccountDetail < ModernTreasury::Internal::Type::BaseModel
         # @!attribute account_number
@@ -160,13 +141,9 @@ module ModernTreasury
         #   # @return [Symbol, ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType]
         #   attr_writer :account_number_type
 
-        # @!parse
-        #   # @param account_number [String]
-        #   # @param account_number_type [Symbol, ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType]
-        #   #
-        #   def initialize(account_number:, account_number_type: nil, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(account_number:, account_number_type: nil)
+        #   @param account_number [String]
+        #   @param account_number_type [Symbol, ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType]
 
         # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
         # account number is in a generic format.
@@ -186,11 +163,8 @@ module ModernTreasury
           SG_NUMBER = :sg_number
           WALLET_ADDRESS = :wallet_address
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
       end
 
@@ -277,39 +251,21 @@ module ModernTreasury
         #   # @return [Hash{Symbol=>String}]
         #   attr_writer :metadata
 
-        # @!parse
-        #   # Specifies a ledger account object that will be created with the virtual account.
-        #   # The resulting ledger account is linked to the virtual account for auto-ledgering
-        #   # IPDs.
-        #   #
-        #   # @param currency [String]
-        #   # @param ledger_id [String]
-        #   # @param name [String]
-        #   # @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection]
-        #   # @param currency_exponent [Integer, nil]
-        #   # @param description [String, nil]
-        #   # @param ledger_account_category_ids [Array<String>]
-        #   # @param ledgerable_id [String]
-        #   # @param ledgerable_type [Symbol, ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType]
-        #   # @param metadata [Hash{Symbol=>String}]
-        #   #
-        #   def initialize(
-        #     currency:,
-        #     ledger_id:,
-        #     name:,
-        #     normal_balance:,
-        #     currency_exponent: nil,
-        #     description: nil,
-        #     ledger_account_category_ids: nil,
-        #     ledgerable_id: nil,
-        #     ledgerable_type: nil,
-        #     metadata: nil,
-        #     **
-        #   )
-        #     super
-        #   end
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(currency:, ledger_id:, name:, normal_balance:, currency_exponent: nil, description: nil, ledger_account_category_ids: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil)
+        #   Specifies a ledger account object that will be created with the virtual account.
+        #   The resulting ledger account is linked to the virtual account for auto-ledgering
+        #   IPDs.
+        #
+        #   @param currency [String]
+        #   @param ledger_id [String]
+        #   @param name [String]
+        #   @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection]
+        #   @param currency_exponent [Integer, nil]
+        #   @param description [String, nil]
+        #   @param ledger_account_category_ids [Array<String>]
+        #   @param ledgerable_id [String]
+        #   @param ledgerable_type [Symbol, ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType]
+        #   @param metadata [Hash{Symbol=>String}]
 
         # If the ledger account links to another object in Modern Treasury, the type will
         # be populated here, otherwise null. The value is one of internal_account or
@@ -324,11 +280,8 @@ module ModernTreasury
           INTERNAL_ACCOUNT = :internal_account
           VIRTUAL_ACCOUNT = :virtual_account
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
       end
 
@@ -357,14 +310,10 @@ module ModernTreasury
                  enum: -> { ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType },
                  nil?: true
 
-        # @!parse
-        #   # @param routing_number [String]
-        #   # @param routing_number_type [Symbol, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType]
-        #   # @param payment_type [Symbol, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType, nil]
-        #   #
-        #   def initialize(routing_number:, routing_number_type:, payment_type: nil, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(routing_number:, routing_number_type:, payment_type: nil)
+        #   @param routing_number [String]
+        #   @param routing_number_type [Symbol, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType]
+        #   @param payment_type [Symbol, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType, nil]
 
         # The type of routing number. See
         # https://docs.moderntreasury.com/platform/reference/routing-detail-object for
@@ -396,11 +345,8 @@ module ModernTreasury
           SWIFT = :swift
           ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
 
         # If the routing detail is to be used for a specific payment type this field will
@@ -441,11 +387,8 @@ module ModernTreasury
           WIRE = :wire
           ZENGIN = :zengin
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
       end
     end

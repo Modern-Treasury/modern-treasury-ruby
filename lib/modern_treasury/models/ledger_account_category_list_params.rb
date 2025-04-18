@@ -105,37 +105,18 @@ module ModernTreasury
       #   # @return [Integer]
       #   attr_writer :per_page
 
-      # @!parse
-      #   # @param id [Array<String>]
-      #   # @param after_cursor [String, nil]
-      #   # @param balances [ModernTreasury::Models::LedgerAccountCategoryListParams::Balances]
-      #   # @param currency [String]
-      #   # @param ledger_account_id [String]
-      #   # @param ledger_id [String]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param name [String]
-      #   # @param parent_ledger_account_category_id [String]
-      #   # @param per_page [Integer]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     id: nil,
-      #     after_cursor: nil,
-      #     balances: nil,
-      #     currency: nil,
-      #     ledger_account_id: nil,
-      #     ledger_id: nil,
-      #     metadata: nil,
-      #     name: nil,
-      #     parent_ledger_account_category_id: nil,
-      #     per_page: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id: nil, after_cursor: nil, balances: nil, currency: nil, ledger_account_id: nil, ledger_id: nil, metadata: nil, name: nil, parent_ledger_account_category_id: nil, per_page: nil, request_options: {})
+      #   @param id [Array<String>]
+      #   @param after_cursor [String, nil]
+      #   @param balances [ModernTreasury::Models::LedgerAccountCategoryListParams::Balances]
+      #   @param currency [String]
+      #   @param ledger_account_id [String]
+      #   @param ledger_id [String]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param name [String]
+      #   @param parent_ledger_account_category_id [String]
+      #   @param per_page [Integer]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       class Balances < ModernTreasury::Internal::Type::BaseModel
         # @!attribute [r] effective_at
@@ -147,16 +128,12 @@ module ModernTreasury
         #   # @return [Time]
         #   attr_writer :effective_at
 
-        # @!parse
-        #   # For example, if you want the balances as of a particular time (ISO8601), the
-        #   # encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
-        #   # The balances as of a time are inclusive of entries with that exact time.
-        #   #
-        #   # @param effective_at [Time]
-        #   #
-        #   def initialize(effective_at: nil, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(effective_at: nil)
+        #   For example, if you want the balances as of a particular time (ISO8601), the
+        #   encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
+        #   The balances as of a time are inclusive of entries with that exact time.
+        #
+        #   @param effective_at [Time]
       end
     end
   end

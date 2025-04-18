@@ -357,115 +357,57 @@ module ModernTreasury
       #   @return [String, nil]
       required :vendor_failure_reason, String, nil?: true
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param accounting [ModernTreasury::Models::PaymentOrder::Accounting]
-      #   # @param accounting_category_id [String, nil]
-      #   # @param accounting_ledger_class_id [String, nil]
-      #   # @param amount [Integer]
-      #   # @param charge_bearer [Symbol, ModernTreasury::Models::PaymentOrder::ChargeBearer, nil]
-      #   # @param compliance_rule_metadata [Hash{Symbol=>Object}, nil]
-      #   # @param counterparty_id [String, nil]
-      #   # @param created_at [Time]
-      #   # @param currency [Symbol, ModernTreasury::Models::Currency]
-      #   # @param current_return [ModernTreasury::Models::ReturnObject, nil]
-      #   # @param decision_id [String, nil]
-      #   # @param description [String, nil]
-      #   # @param direction [Symbol, ModernTreasury::Models::PaymentOrder::Direction]
-      #   # @param effective_date [Date]
-      #   # @param expires_at [Time, nil]
-      #   # @param foreign_exchange_contract [String, nil]
-      #   # @param foreign_exchange_indicator [Symbol, ModernTreasury::Models::PaymentOrder::ForeignExchangeIndicator, nil]
-      #   # @param foreign_exchange_rate [ModernTreasury::Models::PaymentOrder::ForeignExchangeRate, nil]
-      #   # @param ledger_transaction_id [String, nil]
-      #   # @param live_mode [Boolean]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param nsf_protected [Boolean]
-      #   # @param object [String]
-      #   # @param originating_account_id [String]
-      #   # @param originating_party_name [String, nil]
-      #   # @param priority [Symbol, ModernTreasury::Models::PaymentOrder::Priority]
-      #   # @param process_after [Time, nil]
-      #   # @param purpose [String, nil]
-      #   # @param receiving_account_id [String]
-      #   # @param receiving_account_type [Symbol, ModernTreasury::Models::PaymentOrder::ReceivingAccountType]
-      #   # @param reference_numbers [Array<ModernTreasury::Models::PaymentOrder::ReferenceNumber>]
-      #   # @param remittance_information [String, nil]
-      #   # @param send_remittance_advice [Boolean, nil]
-      #   # @param statement_descriptor [String, nil]
-      #   # @param status [Symbol, ModernTreasury::Models::PaymentOrder::Status]
-      #   # @param subtype [Symbol, ModernTreasury::Models::PaymentOrderSubtype, nil]
-      #   # @param transaction_ids [Array<String>]
-      #   # @param transaction_monitoring_enabled [Boolean]
-      #   # @param type [Symbol, ModernTreasury::Models::PaymentOrderType]
-      #   # @param ultimate_originating_account [ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount, nil]
-      #   # @param ultimate_originating_account_id [String, nil]
-      #   # @param ultimate_originating_account_type [Symbol, ModernTreasury::Models::PaymentOrder::UltimateOriginatingAccountType, nil]
-      #   # @param ultimate_originating_party_identifier [String, nil]
-      #   # @param ultimate_originating_party_name [String, nil]
-      #   # @param ultimate_receiving_party_identifier [String, nil]
-      #   # @param ultimate_receiving_party_name [String, nil]
-      #   # @param updated_at [Time]
-      #   # @param vendor_attributes [Object, nil]
-      #   # @param vendor_failure_reason [String, nil]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     accounting:,
-      #     accounting_category_id:,
-      #     accounting_ledger_class_id:,
-      #     amount:,
-      #     charge_bearer:,
-      #     compliance_rule_metadata:,
-      #     counterparty_id:,
-      #     created_at:,
-      #     currency:,
-      #     current_return:,
-      #     decision_id:,
-      #     description:,
-      #     direction:,
-      #     effective_date:,
-      #     expires_at:,
-      #     foreign_exchange_contract:,
-      #     foreign_exchange_indicator:,
-      #     foreign_exchange_rate:,
-      #     ledger_transaction_id:,
-      #     live_mode:,
-      #     metadata:,
-      #     nsf_protected:,
-      #     object:,
-      #     originating_account_id:,
-      #     originating_party_name:,
-      #     priority:,
-      #     process_after:,
-      #     purpose:,
-      #     receiving_account_id:,
-      #     receiving_account_type:,
-      #     reference_numbers:,
-      #     remittance_information:,
-      #     send_remittance_advice:,
-      #     statement_descriptor:,
-      #     status:,
-      #     subtype:,
-      #     transaction_ids:,
-      #     transaction_monitoring_enabled:,
-      #     type:,
-      #     ultimate_originating_account:,
-      #     ultimate_originating_account_id:,
-      #     ultimate_originating_account_type:,
-      #     ultimate_originating_party_identifier:,
-      #     ultimate_originating_party_name:,
-      #     ultimate_receiving_party_identifier:,
-      #     ultimate_receiving_party_name:,
-      #     updated_at:,
-      #     vendor_attributes:,
-      #     vendor_failure_reason:,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, accounting:, accounting_category_id:, accounting_ledger_class_id:, amount:, charge_bearer:, compliance_rule_metadata:, counterparty_id:, created_at:, currency:, current_return:, decision_id:, description:, direction:, effective_date:, expires_at:, foreign_exchange_contract:, foreign_exchange_indicator:, foreign_exchange_rate:, ledger_transaction_id:, live_mode:, metadata:, nsf_protected:, object:, originating_account_id:, originating_party_name:, priority:, process_after:, purpose:, receiving_account_id:, receiving_account_type:, reference_numbers:, remittance_information:, send_remittance_advice:, statement_descriptor:, status:, subtype:, transaction_ids:, transaction_monitoring_enabled:, type:, ultimate_originating_account:, ultimate_originating_account_id:, ultimate_originating_account_type:, ultimate_originating_party_identifier:, ultimate_originating_party_name:, ultimate_receiving_party_identifier:, ultimate_receiving_party_name:, updated_at:, vendor_attributes:, vendor_failure_reason:)
+      #   @param id [String]
+      #   @param accounting [ModernTreasury::Models::PaymentOrder::Accounting]
+      #   @param accounting_category_id [String, nil]
+      #   @param accounting_ledger_class_id [String, nil]
+      #   @param amount [Integer]
+      #   @param charge_bearer [Symbol, ModernTreasury::Models::PaymentOrder::ChargeBearer, nil]
+      #   @param compliance_rule_metadata [Hash{Symbol=>Object}, nil]
+      #   @param counterparty_id [String, nil]
+      #   @param created_at [Time]
+      #   @param currency [Symbol, ModernTreasury::Models::Currency]
+      #   @param current_return [ModernTreasury::Models::ReturnObject, nil]
+      #   @param decision_id [String, nil]
+      #   @param description [String, nil]
+      #   @param direction [Symbol, ModernTreasury::Models::PaymentOrder::Direction]
+      #   @param effective_date [Date]
+      #   @param expires_at [Time, nil]
+      #   @param foreign_exchange_contract [String, nil]
+      #   @param foreign_exchange_indicator [Symbol, ModernTreasury::Models::PaymentOrder::ForeignExchangeIndicator, nil]
+      #   @param foreign_exchange_rate [ModernTreasury::Models::PaymentOrder::ForeignExchangeRate, nil]
+      #   @param ledger_transaction_id [String, nil]
+      #   @param live_mode [Boolean]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param nsf_protected [Boolean]
+      #   @param object [String]
+      #   @param originating_account_id [String]
+      #   @param originating_party_name [String, nil]
+      #   @param priority [Symbol, ModernTreasury::Models::PaymentOrder::Priority]
+      #   @param process_after [Time, nil]
+      #   @param purpose [String, nil]
+      #   @param receiving_account_id [String]
+      #   @param receiving_account_type [Symbol, ModernTreasury::Models::PaymentOrder::ReceivingAccountType]
+      #   @param reference_numbers [Array<ModernTreasury::Models::PaymentOrder::ReferenceNumber>]
+      #   @param remittance_information [String, nil]
+      #   @param send_remittance_advice [Boolean, nil]
+      #   @param statement_descriptor [String, nil]
+      #   @param status [Symbol, ModernTreasury::Models::PaymentOrder::Status]
+      #   @param subtype [Symbol, ModernTreasury::Models::PaymentOrderSubtype, nil]
+      #   @param transaction_ids [Array<String>]
+      #   @param transaction_monitoring_enabled [Boolean]
+      #   @param type [Symbol, ModernTreasury::Models::PaymentOrderType]
+      #   @param ultimate_originating_account [ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount, nil]
+      #   @param ultimate_originating_account_id [String, nil]
+      #   @param ultimate_originating_account_type [Symbol, ModernTreasury::Models::PaymentOrder::UltimateOriginatingAccountType, nil]
+      #   @param ultimate_originating_party_identifier [String, nil]
+      #   @param ultimate_originating_party_name [String, nil]
+      #   @param ultimate_receiving_party_identifier [String, nil]
+      #   @param ultimate_receiving_party_name [String, nil]
+      #   @param updated_at [Time]
+      #   @param vendor_attributes [Object, nil]
+      #   @param vendor_failure_reason [String, nil]
 
       # @see ModernTreasury::Models::PaymentOrder#accounting
       class Accounting < ModernTreasury::Internal::Type::BaseModel
@@ -484,13 +426,9 @@ module ModernTreasury
         #   @return [String, nil]
         optional :class_id, String, nil?: true
 
-        # @!parse
-        #   # @param account_id [String, nil]
-        #   # @param class_id [String, nil]
-        #   #
-        #   def initialize(account_id: nil, class_id: nil, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(account_id: nil, class_id: nil)
+        #   @param account_id [String, nil]
+        #   @param class_id [String, nil]
       end
 
       # The party that will pay the fees for the payment order. Only applies to wire
@@ -505,11 +443,8 @@ module ModernTreasury
         SENDER = :sender
         RECEIVER = :receiver
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # One of `credit`, `debit`. Describes the direction money is flowing in the
@@ -524,11 +459,8 @@ module ModernTreasury
         CREDIT = :credit
         DEBIT = :debit
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # Indicates the type of FX transfer to initiate, can be either
@@ -542,11 +474,8 @@ module ModernTreasury
         FIXED_TO_VARIABLE = :fixed_to_variable
         VARIABLE_TO_FIXED = :variable_to_fixed
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # @see ModernTreasury::Models::PaymentOrder#foreign_exchange_rate
@@ -597,20 +526,16 @@ module ModernTreasury
         #   @return [Integer]
         required :value, Integer
 
-        # @!parse
-        #   # Associated serialized foreign exchange rate information.
-        #   #
-        #   # @param base_amount [Integer]
-        #   # @param base_currency [Symbol, ModernTreasury::Models::Currency]
-        #   # @param exponent [Integer]
-        #   # @param rate_string [String]
-        #   # @param target_amount [Integer]
-        #   # @param target_currency [Symbol, ModernTreasury::Models::Currency]
-        #   # @param value [Integer]
-        #   #
-        #   def initialize(base_amount:, base_currency:, exponent:, rate_string:, target_amount:, target_currency:, value:, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(base_amount:, base_currency:, exponent:, rate_string:, target_amount:, target_currency:, value:)
+        #   Associated serialized foreign exchange rate information.
+        #
+        #   @param base_amount [Integer]
+        #   @param base_currency [Symbol, ModernTreasury::Models::Currency]
+        #   @param exponent [Integer]
+        #   @param rate_string [String]
+        #   @param target_amount [Integer]
+        #   @param target_currency [Symbol, ModernTreasury::Models::Currency]
+        #   @param value [Integer]
       end
 
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
@@ -624,11 +549,8 @@ module ModernTreasury
         HIGH = :high
         NORMAL = :normal
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # @see ModernTreasury::Models::PaymentOrder#receiving_account_type
@@ -638,11 +560,8 @@ module ModernTreasury
         INTERNAL_ACCOUNT = :internal_account
         EXTERNAL_ACCOUNT = :external_account
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       class ReferenceNumber < ModernTreasury::Internal::Type::BaseModel
@@ -686,18 +605,14 @@ module ModernTreasury
         #   @return [Time]
         required :updated_at, Time
 
-        # @!parse
-        #   # @param id [String]
-        #   # @param created_at [Time]
-        #   # @param live_mode [Boolean]
-        #   # @param object [String]
-        #   # @param reference_number [String]
-        #   # @param reference_number_type [Symbol, ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType]
-        #   # @param updated_at [Time]
-        #   #
-        #   def initialize(id:, created_at:, live_mode:, object:, reference_number:, reference_number_type:, updated_at:, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(id:, created_at:, live_mode:, object:, reference_number:, reference_number_type:, updated_at:)
+        #   @param id [String]
+        #   @param created_at [Time]
+        #   @param live_mode [Boolean]
+        #   @param object [String]
+        #   @param reference_number [String]
+        #   @param reference_number_type [Symbol, ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType]
+        #   @param updated_at [Time]
 
         # The type of the reference number. Referring to the vendor payment id.
         #
@@ -781,11 +696,8 @@ module ModernTreasury
           WELLS_FARGO_TRACE_NUMBER = :wells_fargo_trace_number
           WELLS_FARGO_UETR = :wells_fargo_uetr
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
       end
 
@@ -807,11 +719,8 @@ module ModernTreasury
         REVERSED = :reversed
         SENT = :sent
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # The account to which the originating of this payment should be attributed to.
@@ -825,9 +734,8 @@ module ModernTreasury
 
         variant -> { ModernTreasury::Models::InternalAccount }
 
-        # @!parse
-        #   # @return [Array(ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount)]
-        #   def self.variants; end
+        # @!method self.variants
+        #   @return [Array(ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount)]
       end
 
       # @see ModernTreasury::Models::PaymentOrder#ultimate_originating_account_type
@@ -837,11 +745,8 @@ module ModernTreasury
         INTERNAL_ACCOUNT = :internal_account
         VIRTUAL_ACCOUNT = :virtual_account
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

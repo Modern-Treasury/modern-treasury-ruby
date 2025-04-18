@@ -14,13 +14,9 @@ module ModernTreasury
         #   @return [String]
         required :payment_order_id, String
 
-        # @!parse
-        #   # @param payment_order_id [String]
-        #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-        #   #
-        #   def initialize(payment_order_id:, request_options: {}, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(payment_order_id:, request_options: {})
+        #   @param payment_order_id [String]
+        #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       end
     end
   end

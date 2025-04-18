@@ -91,33 +91,16 @@ module ModernTreasury
         #   # @return [String]
         #   attr_writer :unit_amount_decimal
 
-        # @!parse
-        #   # @param invoice_id [String]
-        #   # @param description [String]
-        #   # @param direction [String]
-        #   # @param metadata [Hash{Symbol=>String}]
-        #   # @param name [String]
-        #   # @param quantity [Integer]
-        #   # @param unit_amount [Integer]
-        #   # @param unit_amount_decimal [String]
-        #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-        #   #
-        #   def initialize(
-        #     invoice_id:,
-        #     description: nil,
-        #     direction: nil,
-        #     metadata: nil,
-        #     name: nil,
-        #     quantity: nil,
-        #     unit_amount: nil,
-        #     unit_amount_decimal: nil,
-        #     request_options: {},
-        #     **
-        #   )
-        #     super
-        #   end
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(invoice_id:, description: nil, direction: nil, metadata: nil, name: nil, quantity: nil, unit_amount: nil, unit_amount_decimal: nil, request_options: {})
+        #   @param invoice_id [String]
+        #   @param description [String]
+        #   @param direction [String]
+        #   @param metadata [Hash{Symbol=>String}]
+        #   @param name [String]
+        #   @param quantity [Integer]
+        #   @param unit_amount [Integer]
+        #   @param unit_amount_decimal [String]
+        #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       end
     end
   end

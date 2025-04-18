@@ -18,25 +18,18 @@ module ModernTreasury
       #   @return [String]
       required :account_id, String
 
-      # @!parse
-      #   # @param accounts_type [Symbol, ModernTreasury::Models::AccountDetailDeleteParams::AccountsType]
-      #   # @param account_id [String]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(accounts_type:, account_id:, request_options: {}, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(accounts_type:, account_id:, request_options: {})
+      #   @param accounts_type [Symbol, ModernTreasury::Models::AccountDetailDeleteParams::AccountsType]
+      #   @param account_id [String]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       module AccountsType
         extend ModernTreasury::Internal::Type::Enum
 
         EXTERNAL_ACCOUNTS = :external_accounts
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

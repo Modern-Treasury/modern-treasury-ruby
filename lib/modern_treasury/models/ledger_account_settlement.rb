@@ -109,49 +109,24 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param amount [Integer, nil]
-      #   # @param contra_ledger_account_id [String]
-      #   # @param created_at [Time]
-      #   # @param currency [String]
-      #   # @param currency_exponent [Integer, nil]
-      #   # @param description [String, nil]
-      #   # @param effective_at_upper_bound [Time]
-      #   # @param ledger_id [String]
-      #   # @param ledger_transaction_id [String, nil]
-      #   # @param live_mode [Boolean]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param object [String]
-      #   # @param settled_ledger_account_id [String]
-      #   # @param settlement_entry_direction [String, nil]
-      #   # @param status [Symbol, ModernTreasury::Models::LedgerAccountSettlement::Status]
-      #   # @param updated_at [Time]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     amount:,
-      #     contra_ledger_account_id:,
-      #     created_at:,
-      #     currency:,
-      #     currency_exponent:,
-      #     description:,
-      #     effective_at_upper_bound:,
-      #     ledger_id:,
-      #     ledger_transaction_id:,
-      #     live_mode:,
-      #     metadata:,
-      #     object:,
-      #     settled_ledger_account_id:,
-      #     settlement_entry_direction:,
-      #     status:,
-      #     updated_at:,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, amount:, contra_ledger_account_id:, created_at:, currency:, currency_exponent:, description:, effective_at_upper_bound:, ledger_id:, ledger_transaction_id:, live_mode:, metadata:, object:, settled_ledger_account_id:, settlement_entry_direction:, status:, updated_at:)
+      #   @param id [String]
+      #   @param amount [Integer, nil]
+      #   @param contra_ledger_account_id [String]
+      #   @param created_at [Time]
+      #   @param currency [String]
+      #   @param currency_exponent [Integer, nil]
+      #   @param description [String, nil]
+      #   @param effective_at_upper_bound [Time]
+      #   @param ledger_id [String]
+      #   @param ledger_transaction_id [String, nil]
+      #   @param live_mode [Boolean]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param object [String]
+      #   @param settled_ledger_account_id [String]
+      #   @param settlement_entry_direction [String, nil]
+      #   @param status [Symbol, ModernTreasury::Models::LedgerAccountSettlement::Status]
+      #   @param updated_at [Time]
 
       # The status of the ledger account settlement. One of `processing`, `pending`,
       # `posted`, `archiving` or `archived`.
@@ -167,11 +142,8 @@ module ModernTreasury
         POSTED = :posted
         PROCESSING = :processing
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

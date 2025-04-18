@@ -60,35 +60,17 @@ module ModernTreasury
       #   @return [String]
       required :vendor_id, String
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param connection_id [String]
-      #   # @param created_at [Time]
-      #   # @param discarded_at [Time, nil]
-      #   # @param legal_entity_id [String]
-      #   # @param live_mode [Boolean]
-      #   # @param object [String]
-      #   # @param status [Symbol, ModernTreasury::Models::ConnectionLegalEntity::Status]
-      #   # @param updated_at [Time]
-      #   # @param vendor_id [String]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     connection_id:,
-      #     created_at:,
-      #     discarded_at:,
-      #     legal_entity_id:,
-      #     live_mode:,
-      #     object:,
-      #     status:,
-      #     updated_at:,
-      #     vendor_id:,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, connection_id:, created_at:, discarded_at:, legal_entity_id:, live_mode:, object:, status:, updated_at:, vendor_id:)
+      #   @param id [String]
+      #   @param connection_id [String]
+      #   @param created_at [Time]
+      #   @param discarded_at [Time, nil]
+      #   @param legal_entity_id [String]
+      #   @param live_mode [Boolean]
+      #   @param object [String]
+      #   @param status [Symbol, ModernTreasury::Models::ConnectionLegalEntity::Status]
+      #   @param updated_at [Time]
+      #   @param vendor_id [String]
 
       # The status of the connection legal entity.
       #
@@ -101,11 +83,8 @@ module ModernTreasury
         FAILED = :failed
         PROCESSING = :processing
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

@@ -89,37 +89,18 @@ module ModernTreasury
       #   # @return [Hash{Symbol=>String}]
       #   attr_writer :metadata
 
-      # @!parse
-      #   # @param currency [String]
-      #   # @param ledger_id [String]
-      #   # @param name [String]
-      #   # @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection]
-      #   # @param currency_exponent [Integer, nil]
-      #   # @param description [String, nil]
-      #   # @param ledger_account_category_ids [Array<String>]
-      #   # @param ledgerable_id [String]
-      #   # @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     currency:,
-      #     ledger_id:,
-      #     name:,
-      #     normal_balance:,
-      #     currency_exponent: nil,
-      #     description: nil,
-      #     ledger_account_category_ids: nil,
-      #     ledgerable_id: nil,
-      #     ledgerable_type: nil,
-      #     metadata: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(currency:, ledger_id:, name:, normal_balance:, currency_exponent: nil, description: nil, ledger_account_category_ids: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, request_options: {})
+      #   @param currency [String]
+      #   @param ledger_id [String]
+      #   @param name [String]
+      #   @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection]
+      #   @param currency_exponent [Integer, nil]
+      #   @param description [String, nil]
+      #   @param ledger_account_category_ids [Array<String>]
+      #   @param ledgerable_id [String]
+      #   @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # If the ledger account links to another object in Modern Treasury, the type will
       # be populated here, otherwise null. The value is one of internal_account or
@@ -132,11 +113,8 @@ module ModernTreasury
         INTERNAL_ACCOUNT = :internal_account
         VIRTUAL_ACCOUNT = :virtual_account
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

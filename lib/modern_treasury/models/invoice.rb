@@ -245,89 +245,44 @@ module ModernTreasury
       #   @return [String, nil]
       required :virtual_account_id, String, nil?: true
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param amount_paid [Integer]
-      #   # @param amount_remaining [Integer]
-      #   # @param contact_details [Array<ModernTreasury::Models::Invoice::ContactDetail>]
-      #   # @param counterparty_billing_address [ModernTreasury::Models::Invoice::CounterpartyBillingAddress, nil]
-      #   # @param counterparty_id [String]
-      #   # @param counterparty_shipping_address [ModernTreasury::Models::Invoice::CounterpartyShippingAddress, nil]
-      #   # @param created_at [Time]
-      #   # @param currency [Symbol, ModernTreasury::Models::Currency]
-      #   # @param description [String]
-      #   # @param due_date [Time]
-      #   # @param expected_payments [Array<ModernTreasury::Models::ExpectedPayment>]
-      #   # @param fallback_payment_method [String, nil]
-      #   # @param hosted_url [String]
-      #   # @param invoicer_address [ModernTreasury::Models::Invoice::InvoicerAddress, nil]
-      #   # @param ledger_account_settlement_id [String, nil]
-      #   # @param live_mode [Boolean]
-      #   # @param metadata [Hash{Symbol=>String}, nil]
-      #   # @param notification_email_addresses [Array<String>, nil]
-      #   # @param notifications_enabled [Boolean]
-      #   # @param number [String]
-      #   # @param object [String]
-      #   # @param originating_account_id [String]
-      #   # @param payment_effective_date [Date, nil]
-      #   # @param payment_method [Symbol, ModernTreasury::Models::Invoice::PaymentMethod, nil]
-      #   # @param payment_orders [Array<ModernTreasury::Models::PaymentOrder>]
-      #   # @param payment_type [Symbol, ModernTreasury::Models::Invoice::PaymentType, nil]
-      #   # @param pdf_url [String, nil]
-      #   # @param receiving_account_id [String, nil]
-      #   # @param recipient_email [String, nil]
-      #   # @param recipient_name [String, nil]
-      #   # @param remind_after_overdue_days [Array<Integer>, nil]
-      #   # @param status [Symbol, ModernTreasury::Models::Invoice::Status]
-      #   # @param total_amount [Integer]
-      #   # @param transaction_line_item_ids [Array<String>]
-      #   # @param updated_at [Time]
-      #   # @param virtual_account_id [String, nil]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     amount_paid:,
-      #     amount_remaining:,
-      #     contact_details:,
-      #     counterparty_billing_address:,
-      #     counterparty_id:,
-      #     counterparty_shipping_address:,
-      #     created_at:,
-      #     currency:,
-      #     description:,
-      #     due_date:,
-      #     expected_payments:,
-      #     fallback_payment_method:,
-      #     hosted_url:,
-      #     invoicer_address:,
-      #     ledger_account_settlement_id:,
-      #     live_mode:,
-      #     metadata:,
-      #     notification_email_addresses:,
-      #     notifications_enabled:,
-      #     number:,
-      #     object:,
-      #     originating_account_id:,
-      #     payment_effective_date:,
-      #     payment_method:,
-      #     payment_orders:,
-      #     payment_type:,
-      #     pdf_url:,
-      #     receiving_account_id:,
-      #     recipient_email:,
-      #     recipient_name:,
-      #     remind_after_overdue_days:,
-      #     status:,
-      #     total_amount:,
-      #     transaction_line_item_ids:,
-      #     updated_at:,
-      #     virtual_account_id:,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, amount_paid:, amount_remaining:, contact_details:, counterparty_billing_address:, counterparty_id:, counterparty_shipping_address:, created_at:, currency:, description:, due_date:, expected_payments:, fallback_payment_method:, hosted_url:, invoicer_address:, ledger_account_settlement_id:, live_mode:, metadata:, notification_email_addresses:, notifications_enabled:, number:, object:, originating_account_id:, payment_effective_date:, payment_method:, payment_orders:, payment_type:, pdf_url:, receiving_account_id:, recipient_email:, recipient_name:, remind_after_overdue_days:, status:, total_amount:, transaction_line_item_ids:, updated_at:, virtual_account_id:)
+      #   @param id [String]
+      #   @param amount_paid [Integer]
+      #   @param amount_remaining [Integer]
+      #   @param contact_details [Array<ModernTreasury::Models::Invoice::ContactDetail>]
+      #   @param counterparty_billing_address [ModernTreasury::Models::Invoice::CounterpartyBillingAddress, nil]
+      #   @param counterparty_id [String]
+      #   @param counterparty_shipping_address [ModernTreasury::Models::Invoice::CounterpartyShippingAddress, nil]
+      #   @param created_at [Time]
+      #   @param currency [Symbol, ModernTreasury::Models::Currency]
+      #   @param description [String]
+      #   @param due_date [Time]
+      #   @param expected_payments [Array<ModernTreasury::Models::ExpectedPayment>]
+      #   @param fallback_payment_method [String, nil]
+      #   @param hosted_url [String]
+      #   @param invoicer_address [ModernTreasury::Models::Invoice::InvoicerAddress, nil]
+      #   @param ledger_account_settlement_id [String, nil]
+      #   @param live_mode [Boolean]
+      #   @param metadata [Hash{Symbol=>String}, nil]
+      #   @param notification_email_addresses [Array<String>, nil]
+      #   @param notifications_enabled [Boolean]
+      #   @param number [String]
+      #   @param object [String]
+      #   @param originating_account_id [String]
+      #   @param payment_effective_date [Date, nil]
+      #   @param payment_method [Symbol, ModernTreasury::Models::Invoice::PaymentMethod, nil]
+      #   @param payment_orders [Array<ModernTreasury::Models::PaymentOrder>]
+      #   @param payment_type [Symbol, ModernTreasury::Models::Invoice::PaymentType, nil]
+      #   @param pdf_url [String, nil]
+      #   @param receiving_account_id [String, nil]
+      #   @param recipient_email [String, nil]
+      #   @param recipient_name [String, nil]
+      #   @param remind_after_overdue_days [Array<Integer>, nil]
+      #   @param status [Symbol, ModernTreasury::Models::Invoice::Status]
+      #   @param total_amount [Integer]
+      #   @param transaction_line_item_ids [Array<String>]
+      #   @param updated_at [Time]
+      #   @param virtual_account_id [String, nil]
 
       class ContactDetail < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
@@ -373,31 +328,15 @@ module ModernTreasury
         #   @return [Time]
         required :updated_at, Time
 
-        # @!parse
-        #   # @param id [String]
-        #   # @param contact_identifier [String]
-        #   # @param contact_identifier_type [Symbol, ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType]
-        #   # @param created_at [Time]
-        #   # @param discarded_at [Time, nil]
-        #   # @param live_mode [Boolean]
-        #   # @param object [String]
-        #   # @param updated_at [Time]
-        #   #
-        #   def initialize(
-        #     id:,
-        #     contact_identifier:,
-        #     contact_identifier_type:,
-        #     created_at:,
-        #     discarded_at:,
-        #     live_mode:,
-        #     object:,
-        #     updated_at:,
-        #     **
-        #   )
-        #     super
-        #   end
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(id:, contact_identifier:, contact_identifier_type:, created_at:, discarded_at:, live_mode:, object:, updated_at:)
+        #   @param id [String]
+        #   @param contact_identifier [String]
+        #   @param contact_identifier_type [Symbol, ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType]
+        #   @param created_at [Time]
+        #   @param discarded_at [Time, nil]
+        #   @param live_mode [Boolean]
+        #   @param object [String]
+        #   @param updated_at [Time]
 
         # @see ModernTreasury::Models::Invoice::ContactDetail#contact_identifier_type
         module ContactIdentifierType
@@ -407,11 +346,8 @@ module ModernTreasury
           PHONE_NUMBER = :phone_number
           WEBSITE = :website
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
       end
 
@@ -455,19 +391,15 @@ module ModernTreasury
         #   # @return [String]
         #   attr_writer :line2
 
-        # @!parse
-        #   # The counterparty's billing address.
-        #   #
-        #   # @param country [String]
-        #   # @param line1 [String]
-        #   # @param locality [String]
-        #   # @param postal_code [String]
-        #   # @param region [String]
-        #   # @param line2 [String]
-        #   #
-        #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
+        #   The counterparty's billing address.
+        #
+        #   @param country [String]
+        #   @param line1 [String]
+        #   @param locality [String]
+        #   @param postal_code [String]
+        #   @param region [String]
+        #   @param line2 [String]
       end
 
       # @see ModernTreasury::Models::Invoice#counterparty_shipping_address
@@ -510,19 +442,15 @@ module ModernTreasury
         #   # @return [String]
         #   attr_writer :line2
 
-        # @!parse
-        #   # The counterparty's shipping address where physical goods should be delivered.
-        #   #
-        #   # @param country [String]
-        #   # @param line1 [String]
-        #   # @param locality [String]
-        #   # @param postal_code [String]
-        #   # @param region [String]
-        #   # @param line2 [String]
-        #   #
-        #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
+        #   The counterparty's shipping address where physical goods should be delivered.
+        #
+        #   @param country [String]
+        #   @param line1 [String]
+        #   @param locality [String]
+        #   @param postal_code [String]
+        #   @param region [String]
+        #   @param line2 [String]
       end
 
       # @see ModernTreasury::Models::Invoice#invoicer_address
@@ -565,19 +493,15 @@ module ModernTreasury
         #   # @return [String]
         #   attr_writer :line2
 
-        # @!parse
-        #   # The invoice issuer's business address.
-        #   #
-        #   # @param country [String]
-        #   # @param line1 [String]
-        #   # @param locality [String]
-        #   # @param postal_code [String]
-        #   # @param region [String]
-        #   # @param line2 [String]
-        #   #
-        #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
+        #   The invoice issuer's business address.
+        #
+        #   @param country [String]
+        #   @param line1 [String]
+        #   @param locality [String]
+        #   @param postal_code [String]
+        #   @param region [String]
+        #   @param line2 [String]
       end
 
       # When opening an invoice, whether to show the embedded payment UI , automatically
@@ -591,11 +515,8 @@ module ModernTreasury
         MANUAL = :manual
         AUTOMATIC = :automatic
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # One of `ach` or `eft`.
@@ -607,11 +528,8 @@ module ModernTreasury
         EFT = :eft
         ACH = :ach
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # The status of the invoice.
@@ -627,11 +545,8 @@ module ModernTreasury
         UNPAID = :unpaid
         VOIDED = :voided
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end
