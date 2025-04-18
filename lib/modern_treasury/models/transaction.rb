@@ -152,7 +152,7 @@ module ModernTreasury
       #   @return [String, nil]
       required :vendor_id, String, nil?: true
 
-      # @!attribute [r] details
+      # @!attribute details
       #   This field contains additional information that the bank provided about the
       #   transaction. This is structured data. Some of the data in here might overlap
       #   with what is in the `vendor_description`. For example, the OBI could be a part
@@ -163,10 +163,6 @@ module ModernTreasury
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :details, ModernTreasury::Internal::Type::HashOf[String]
-
-      # @!parse
-      #   # @return [Hash{Symbol=>String}]
-      #   attr_writer :details
 
       # @!attribute vendor_description
       #   The transaction detail text that often appears in on your bank statement and in

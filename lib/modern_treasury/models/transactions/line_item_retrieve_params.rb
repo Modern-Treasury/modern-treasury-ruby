@@ -5,8 +5,7 @@ module ModernTreasury
     module Transactions
       # @see ModernTreasury::Resources::Transactions::LineItems#retrieve
       class LineItemRetrieveParams < ModernTreasury::Internal::Type::BaseModel
-        # @!parse
-        #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 
         # @!method initialize(request_options: {})

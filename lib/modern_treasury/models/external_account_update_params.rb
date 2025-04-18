@@ -4,35 +4,26 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::ExternalAccounts#update
     class ExternalAccountUpdateParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
-      # @!attribute [r] account_type
+      # @!attribute account_type
       #   Can be `checking`, `savings` or `other`.
       #
       #   @return [Symbol, ModernTreasury::Models::ExternalAccountType, nil]
       optional :account_type, enum: -> { ModernTreasury::Models::ExternalAccountType }
-
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::ExternalAccountType]
-      #   attr_writer :account_type
 
       # @!attribute counterparty_id
       #
       #   @return [String, nil]
       optional :counterparty_id, String, nil?: true
 
-      # @!attribute [r] metadata
+      # @!attribute metadata
       #   Additional data in the form of key-value pairs. Pairs can be removed by passing
       #   an empty string or `null` as the value.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
-
-      # @!parse
-      #   # @return [Hash{Symbol=>String}]
-      #   attr_writer :metadata
 
       # @!attribute name
       #   A nickname for the external account. This is only for internal usage and won't
@@ -41,24 +32,16 @@ module ModernTreasury
       #   @return [String, nil]
       optional :name, String, nil?: true
 
-      # @!attribute [r] party_address
+      # @!attribute party_address
       #
       #   @return [ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress, nil]
       optional :party_address, -> { ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress }
 
-      # @!parse
-      #   # @return [ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress]
-      #   attr_writer :party_address
-
-      # @!attribute [r] party_name
+      # @!attribute party_name
       #   If this value isn't provided, it will be inherited from the counterparty's name.
       #
       #   @return [String, nil]
       optional :party_name, String
-
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :party_name
 
       # @!attribute party_type
       #   Either `individual` or `business`.

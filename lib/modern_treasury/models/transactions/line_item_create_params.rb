@@ -5,8 +5,7 @@ module ModernTreasury
     module Transactions
       # @see ModernTreasury::Resources::Transactions::LineItems#create
       class LineItemCreateParams < ModernTreasury::Internal::Type::BaseModel
-        # @!parse
-        #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 
         # @!attribute amount

@@ -531,14 +531,10 @@ module ModernTreasury
         end
 
         class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
-          # @!attribute [r] phone_number
+          # @!attribute phone_number
           #
           #   @return [String, nil]
           optional :phone_number, String
-
-          # @!parse
-          #   # @return [String]
-          #   attr_writer :phone_number
 
           # @!method initialize(phone_number: nil)
           #   A list of phone numbers in E.164 format.

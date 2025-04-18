@@ -36,15 +36,11 @@ module ModernTreasury
       #   @return [String, nil]
       optional :counterparty_id, String, nil?: true
 
-      # @!attribute [r] currency
+      # @!attribute currency
       #   Must conform to ISO 4217. Defaults to the currency of the internal account
       #
       #   @return [Symbol, ModernTreasury::Models::Currency, nil]
       optional :currency, enum: -> { ModernTreasury::Models::Currency }
-
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::Currency]
-      #   attr_writer :currency
 
       # @!attribute custom_identifiers
       #   A hash of custom identifiers for this payment

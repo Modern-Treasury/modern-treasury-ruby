@@ -4,20 +4,15 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::IncomingPaymentDetails#create_async
     class IncomingPaymentDetailCreateAsyncParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
-      # @!attribute [r] amount
+      # @!attribute amount
       #   Value in specified currency's smallest unit. e.g. $10 would be represented
       #   as 1000.
       #
       #   @return [Integer, nil]
       optional :amount, Integer
-
-      # @!parse
-      #   # @return [Integer]
-      #   attr_writer :amount
 
       # @!attribute as_of_date
       #   Defaults to today.
@@ -44,36 +39,24 @@ module ModernTreasury
       #   @return [String, nil]
       optional :description, String, nil?: true
 
-      # @!attribute [r] direction
+      # @!attribute direction
       #   One of `credit`, `debit`.
       #
       #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction, nil]
       optional :direction,
                enum: -> { ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction }
 
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction]
-      #   attr_writer :direction
-
-      # @!attribute [r] internal_account_id
+      # @!attribute internal_account_id
       #   The ID of one of your internal accounts.
       #
       #   @return [String, nil]
       optional :internal_account_id, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :internal_account_id
-
-      # @!attribute [r] type
+      # @!attribute type
       #   One of `ach`, `wire`, `check`.
       #
       #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type, nil]
       optional :type, enum: -> { ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type }
-
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type]
-      #   attr_writer :type
 
       # @!attribute virtual_account_id
       #   An optional parameter to associate the incoming payment detail to a virtual

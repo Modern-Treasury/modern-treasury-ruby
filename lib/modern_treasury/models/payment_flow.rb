@@ -4,36 +4,24 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::PaymentFlows#create
     class PaymentFlow < ModernTreasury::Internal::Type::BaseModel
-      # @!attribute [r] id
+      # @!attribute id
       #
       #   @return [String, nil]
       optional :id, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :id
-
-      # @!attribute [r] amount
+      # @!attribute amount
       #   Value in specified currency's smallest unit. e.g. $10 would be represented
       #   as 1000. Can be any integer up to 36 digits.
       #
       #   @return [Integer, nil]
       optional :amount, Integer
 
-      # @!parse
-      #   # @return [Integer]
-      #   attr_writer :amount
-
-      # @!attribute [r] client_token
+      # @!attribute client_token
       #   The client token of the payment flow. This token can be used to embed a payment
       #   workflow in your client-side application.
       #
       #   @return [String, nil]
       optional :client_token, String
-
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :client_token
 
       # @!attribute counterparty_id
       #   The ID of a counterparty associated with the payment. As part of the payment
@@ -42,35 +30,23 @@ module ModernTreasury
       #   @return [String, nil]
       optional :counterparty_id, String, nil?: true
 
-      # @!attribute [r] created_at
+      # @!attribute created_at
       #
       #   @return [Time, nil]
       optional :created_at, Time
 
-      # @!parse
-      #   # @return [Time]
-      #   attr_writer :created_at
-
-      # @!attribute [r] currency
+      # @!attribute currency
       #   The currency of the payment.
       #
       #   @return [String, nil]
       optional :currency, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :currency
-
-      # @!attribute [r] direction
+      # @!attribute direction
       #   Describes the direction money is flowing in the transaction. Can only be
       #   `debit`. A `debit` pulls money from someone else's account to your own.
       #
       #   @return [Symbol, ModernTreasury::Models::PaymentFlow::Direction, nil]
       optional :direction, enum: -> { ModernTreasury::Models::PaymentFlow::Direction }
-
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::PaymentFlow::Direction]
-      #   attr_writer :direction
 
       # @!attribute due_date
       #   The due date for the flow. Can only be passed in when
@@ -79,16 +55,12 @@ module ModernTreasury
       #   @return [Date, nil]
       optional :due_date, Date, nil?: true
 
-      # @!attribute [r] effective_date_selection_enabled
+      # @!attribute effective_date_selection_enabled
       #   When `true`, your end-user can schedule the payment `effective_date` while
       #   completing the pre-built UI.
       #
       #   @return [Boolean, nil]
       optional :effective_date_selection_enabled, ModernTreasury::Internal::Type::Boolean
-
-      # @!parse
-      #   # @return [Boolean]
-      #   attr_writer :effective_date_selection_enabled
 
       # @!attribute existing_external_accounts_filter
       #   When `verified` and `external_account_collection` is `enabled`, filters the list
@@ -100,7 +72,7 @@ module ModernTreasury
                enum: -> { ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter },
                nil?: true
 
-      # @!attribute [r] external_account_collection
+      # @!attribute external_account_collection
       #   When `enabled`, your end-user can select from an existing external account when
       #   completing the flow. When `disabled`, your end-user must add new payment details
       #   when completing the flow.
@@ -109,29 +81,17 @@ module ModernTreasury
       optional :external_account_collection,
                enum: -> { ModernTreasury::Models::PaymentFlow::ExternalAccountCollection }
 
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::PaymentFlow::ExternalAccountCollection]
-      #   attr_writer :external_account_collection
-
-      # @!attribute [r] live_mode
+      # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false
       #   if it exists in the test environment.
       #
       #   @return [Boolean, nil]
       optional :live_mode, ModernTreasury::Internal::Type::Boolean
 
-      # @!parse
-      #   # @return [Boolean]
-      #   attr_writer :live_mode
-
-      # @!attribute [r] object
+      # @!attribute object
       #
       #   @return [String, nil]
       optional :object, String
-
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :object
 
       # @!attribute originating_account_id
       #   The ID of one of your organization's internal accounts.
@@ -159,25 +119,17 @@ module ModernTreasury
       #   @return [Date, nil]
       optional :selected_effective_date, Date, nil?: true
 
-      # @!attribute [r] status
+      # @!attribute status
       #   The current status of the payment flow. One of `pending`, `completed`,
       #   `expired`, or `cancelled`.
       #
       #   @return [Symbol, ModernTreasury::Models::PaymentFlow::Status, nil]
       optional :status, enum: -> { ModernTreasury::Models::PaymentFlow::Status }
 
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::PaymentFlow::Status]
-      #   attr_writer :status
-
-      # @!attribute [r] updated_at
+      # @!attribute updated_at
       #
       #   @return [Time, nil]
       optional :updated_at, Time
-
-      # @!parse
-      #   # @return [Time]
-      #   attr_writer :updated_at
 
       # @!method initialize(id: nil, amount: nil, client_token: nil, counterparty_id: nil, created_at: nil, currency: nil, direction: nil, due_date: nil, effective_date_selection_enabled: nil, existing_external_accounts_filter: nil, external_account_collection: nil, live_mode: nil, object: nil, originating_account_id: nil, payment_order_id: nil, receiving_account_id: nil, selected_effective_date: nil, status: nil, updated_at: nil)
       #   @param id [String]

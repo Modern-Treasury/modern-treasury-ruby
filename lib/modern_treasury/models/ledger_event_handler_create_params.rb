@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::LedgerEventHandlers#create
     class LedgerEventHandlerCreateParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute ledger_transaction_template
@@ -33,15 +32,11 @@ module ModernTreasury
       #   @return [String, nil]
       optional :description, String, nil?: true
 
-      # @!attribute [r] ledger_id
+      # @!attribute ledger_id
       #   The id of the ledger that this account belongs to.
       #
       #   @return [String, nil]
       optional :ledger_id, String
-
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :ledger_id
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be

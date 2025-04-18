@@ -49,15 +49,11 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!attribute [r] account_number
+      # @!attribute account_number
       #   The account number for the bank account.
       #
       #   @return [String, nil]
       optional :account_number, String
-
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :account_number
 
       # @!method initialize(id:, account_number_safe:, account_number_type:, created_at:, discarded_at:, live_mode:, object:, updated_at:, account_number: nil)
       #   @param id [String]

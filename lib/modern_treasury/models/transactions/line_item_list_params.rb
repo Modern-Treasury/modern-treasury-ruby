@@ -5,41 +5,28 @@ module ModernTreasury
     module Transactions
       # @see ModernTreasury::Resources::Transactions::LineItems#list
       class LineItemListParams < ModernTreasury::Internal::Type::BaseModel
-        # @!parse
-        #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 
-        # @!attribute [r] id
+        # @!attribute id
         #
         #   @return [Hash{Symbol=>String}, nil]
         optional :id, ModernTreasury::Internal::Type::HashOf[String]
-
-        # @!parse
-        #   # @return [Hash{Symbol=>String}]
-        #   attr_writer :id
 
         # @!attribute after_cursor
         #
         #   @return [String, nil]
         optional :after_cursor, String, nil?: true
 
-        # @!attribute [r] per_page
+        # @!attribute per_page
         #
         #   @return [Integer, nil]
         optional :per_page, Integer
 
-        # @!parse
-        #   # @return [Integer]
-        #   attr_writer :per_page
-
-        # @!attribute [r] transaction_id
+        # @!attribute transaction_id
         #
         #   @return [String, nil]
         optional :transaction_id, String
-
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :transaction_id
 
         # @!attribute type
         #

@@ -4,20 +4,15 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::LedgerTransactions#create_reversal
     class LedgerTransactionCreateReversalParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
-      # @!attribute [r] description
+      # @!attribute description
       #   An optional free-form description for the reversal ledger transaction. Maximum
       #   of 1000 characters allowed.
       #
       #   @return [String, nil]
       optional :description, String
-
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :description
 
       # @!attribute effective_at
       #   The timestamp (ISO8601 format) at which the reversal ledger transaction happened
@@ -27,28 +22,20 @@ module ModernTreasury
       #   @return [Time, nil]
       optional :effective_at, Time, nil?: true
 
-      # @!attribute [r] external_id
+      # @!attribute external_id
       #   Must be unique within the ledger.
       #
       #   @return [String, nil]
       optional :external_id, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :external_id
-
-      # @!attribute [r] ledgerable_id
+      # @!attribute ledgerable_id
       #   Specify this if you'd like to link the reversal ledger transaction to a Payment
       #   object like Return or Reversal.
       #
       #   @return [String, nil]
       optional :ledgerable_id, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :ledgerable_id
-
-      # @!attribute [r] ledgerable_type
+      # @!attribute ledgerable_type
       #   Specify this if you'd like to link the reversal ledger transaction to a Payment
       #   object like Return or Reversal.
       #
@@ -56,31 +43,19 @@ module ModernTreasury
       optional :ledgerable_type,
                enum: -> { ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType }
 
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType]
-      #   attr_writer :ledgerable_type
-
-      # @!attribute [r] metadata
+      # @!attribute metadata
       #   Additional data to be added to the reversal ledger transaction as key-value
       #   pairs. Both the key and value must be strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
-      # @!parse
-      #   # @return [Hash{Symbol=>String}]
-      #   attr_writer :metadata
-
-      # @!attribute [r] status
+      # @!attribute status
       #   Status of the reversal ledger transaction. It defaults to `posted` if not
       #   provided.
       #
       #   @return [Symbol, ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status }
-
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status]
-      #   attr_writer :status
 
       # @!method initialize(description: nil, effective_at: nil, external_id: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, status: nil, request_options: {})
       #   @param description [String]

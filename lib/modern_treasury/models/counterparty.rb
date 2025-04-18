@@ -97,53 +97,33 @@ module ModernTreasury
       #   @param verification_status [Symbol, ModernTreasury::Models::Counterparty::VerificationStatus]
 
       class Account < ModernTreasury::Internal::Type::BaseModel
-        # @!attribute [r] id
+        # @!attribute id
         #
         #   @return [String, nil]
         optional :id, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :id
-
-        # @!attribute [r] account_details
+        # @!attribute account_details
         #
         #   @return [Array<ModernTreasury::Models::AccountDetail>, nil]
         optional :account_details,
                  -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::AccountDetail] }
 
-        # @!parse
-        #   # @return [Array<ModernTreasury::Models::AccountDetail>]
-        #   attr_writer :account_details
-
-        # @!attribute [r] account_type
+        # @!attribute account_type
         #   Can be `checking`, `savings` or `other`.
         #
         #   @return [Symbol, ModernTreasury::Models::ExternalAccountType, nil]
         optional :account_type, enum: -> { ModernTreasury::Models::ExternalAccountType }
 
-        # @!parse
-        #   # @return [Symbol, ModernTreasury::Models::ExternalAccountType]
-        #   attr_writer :account_type
-
-        # @!attribute [r] contact_details
+        # @!attribute contact_details
         #
         #   @return [Array<ModernTreasury::Models::Counterparty::Account::ContactDetail>, nil]
         optional :contact_details,
                  -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::Counterparty::Account::ContactDetail] }
 
-        # @!parse
-        #   # @return [Array<ModernTreasury::Models::Counterparty::Account::ContactDetail>]
-        #   attr_writer :contact_details
-
-        # @!attribute [r] created_at
+        # @!attribute created_at
         #
         #   @return [Time, nil]
         optional :created_at, Time
-
-        # @!parse
-        #   # @return [Time]
-        #   attr_writer :created_at
 
         # @!attribute discarded_at
         #
@@ -157,27 +137,19 @@ module ModernTreasury
         #   @return [String, nil]
         optional :ledger_account_id, String, nil?: true
 
-        # @!attribute [r] live_mode
+        # @!attribute live_mode
         #   This field will be true if this object exists in the live environment or false
         #   if it exists in the test environment.
         #
         #   @return [Boolean, nil]
         optional :live_mode, ModernTreasury::Internal::Type::Boolean
 
-        # @!parse
-        #   # @return [Boolean]
-        #   attr_writer :live_mode
-
-        # @!attribute [r] metadata
+        # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be
         #   strings.
         #
         #   @return [Hash{Symbol=>String}, nil]
         optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
-
-        # @!parse
-        #   # @return [Hash{Symbol=>String}]
-        #   attr_writer :metadata
 
         # @!attribute name
         #   A nickname for the external account. This is only for internal usage and won't
@@ -186,14 +158,10 @@ module ModernTreasury
         #   @return [String, nil]
         optional :name, String, nil?: true
 
-        # @!attribute [r] object
+        # @!attribute object
         #
         #   @return [String, nil]
         optional :object, String
-
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :object
 
         # @!attribute party_address
         #   The address associated with the owner or `null`.
@@ -201,15 +169,11 @@ module ModernTreasury
         #   @return [ModernTreasury::Models::Counterparty::Account::PartyAddress, nil]
         optional :party_address, -> { ModernTreasury::Models::Counterparty::Account::PartyAddress }, nil?: true
 
-        # @!attribute [r] party_name
+        # @!attribute party_name
         #   The legal name of the entity which owns the account.
         #
         #   @return [String, nil]
         optional :party_name, String
-
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :party_name
 
         # @!attribute party_type
         #   Either `individual` or `business`.
@@ -217,24 +181,16 @@ module ModernTreasury
         #   @return [Symbol, ModernTreasury::Models::Counterparty::Account::PartyType, nil]
         optional :party_type, enum: -> { ModernTreasury::Models::Counterparty::Account::PartyType }, nil?: true
 
-        # @!attribute [r] routing_details
+        # @!attribute routing_details
         #
         #   @return [Array<ModernTreasury::Models::RoutingDetail>, nil]
         optional :routing_details,
                  -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::RoutingDetail] }
 
-        # @!parse
-        #   # @return [Array<ModernTreasury::Models::RoutingDetail>]
-        #   attr_writer :routing_details
-
-        # @!attribute [r] updated_at
+        # @!attribute updated_at
         #
         #   @return [Time, nil]
         optional :updated_at, Time
-
-        # @!parse
-        #   # @return [Time]
-        #   attr_writer :updated_at
 
         # @!attribute verification_source
         #
@@ -243,15 +199,11 @@ module ModernTreasury
                  enum: -> { ModernTreasury::Models::Counterparty::Account::VerificationSource },
                  nil?: true
 
-        # @!attribute [r] verification_status
+        # @!attribute verification_status
         #
         #   @return [Symbol, ModernTreasury::Models::Counterparty::Account::VerificationStatus, nil]
         optional :verification_status,
                  enum: -> { ModernTreasury::Models::Counterparty::Account::VerificationStatus }
-
-        # @!parse
-        #   # @return [Symbol, ModernTreasury::Models::Counterparty::Account::VerificationStatus]
-        #   attr_writer :verification_status
 
         # @!method initialize(id: nil, account_details: nil, account_type: nil, contact_details: nil, created_at: nil, discarded_at: nil, ledger_account_id: nil, live_mode: nil, metadata: nil, name: nil, object: nil, party_address: nil, party_name: nil, party_type: nil, routing_details: nil, updated_at: nil, verification_source: nil, verification_status: nil)
         #   @param id [String]
