@@ -120,8 +120,7 @@ module ModernTreasury
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         COUNTERPARTY =
           T.let(:counterparty, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::TaggedSymbol)

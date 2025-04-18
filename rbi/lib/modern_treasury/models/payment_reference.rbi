@@ -87,8 +87,7 @@ module ModernTreasury
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentReference::ReferenceNumberType) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentReference::ReferenceNumberType::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         ACH_ORIGINAL_TRACE_NUMBER =
           T.let(
@@ -362,8 +361,7 @@ module ModernTreasury
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentReference::ReferenceableType) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentReference::ReferenceableType::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         PAYMENT_ORDER =
           T.let(:payment_order, ModernTreasury::Models::PaymentReference::ReferenceableType::TaggedSymbol)

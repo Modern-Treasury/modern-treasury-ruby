@@ -88,8 +88,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::AccountDetail::AccountNumberType) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::AccountDetail::AccountNumberType::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         AU_NUMBER = T.let(:au_number, ModernTreasury::Models::AccountDetail::AccountNumberType::TaggedSymbol)
         CLABE = T.let(:clabe, ModernTreasury::Models::AccountDetail::AccountNumberType::TaggedSymbol)

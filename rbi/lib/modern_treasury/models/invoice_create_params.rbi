@@ -374,14 +374,7 @@ module ModernTreasury
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType) }
-          OrSymbol =
-            T.type_alias do
-              T.any(
-                Symbol,
-                String,
-                ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType::TaggedSymbol
-              )
-            end
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           EMAIL =
             T.let(
@@ -676,8 +669,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         UI = T.let(:ui, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::TaggedSymbol)
         MANUAL = T.let(:manual, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::TaggedSymbol)
