@@ -30,6 +30,8 @@ module ModernTreasury
 
         def ==: (top other) -> bool
 
+        def hash: -> Integer
+
         def coerce: (
           top value,
           state: ModernTreasury::Internal::Type::Converter::coerce_state
