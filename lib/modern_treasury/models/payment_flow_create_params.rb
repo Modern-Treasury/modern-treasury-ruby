@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::PaymentFlows#create
     class PaymentFlowCreateParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute amount
@@ -41,17 +40,13 @@ module ModernTreasury
       #   @return [String]
       required :originating_account_id, String
 
-      # @!attribute [r] due_date
+      # @!attribute due_date
       #   Optional. Can only be passed in when `effective_date_selection_enabled` is
       #   `true`. When set, the due date is shown to your end-user in the pre-built UI as
       #   they are selecting a payment `effective_date`.
       #
       #   @return [Date, nil]
       optional :due_date, Date
-
-      # @!parse
-      #   # @return [Date]
-      #   attr_writer :due_date
 
       # @!method initialize(amount:, counterparty_id:, currency:, direction:, originating_account_id:, due_date: nil, request_options: {})
       #   @param amount [Integer]

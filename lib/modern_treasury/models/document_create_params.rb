@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::Documents#create
     class DocumentCreateParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute documentable_id
@@ -24,15 +23,11 @@ module ModernTreasury
       #   @return [Pathname, StringIO]
       required :file, ModernTreasury::Internal::Type::IOLike
 
-      # @!attribute [r] document_type
+      # @!attribute document_type
       #   A category given to the document, can be `null`.
       #
       #   @return [String, nil]
       optional :document_type, String
-
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :document_type
 
       # @!method initialize(documentable_id:, documentable_type:, file:, document_type: nil, request_options: {})
       #   @param documentable_id [String]

@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::Documents#list
     class DocumentListParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute after_cursor
@@ -13,17 +12,13 @@ module ModernTreasury
       #   @return [String, nil]
       optional :after_cursor, String, nil?: true
 
-      # @!attribute [r] documentable_id
+      # @!attribute documentable_id
       #   The unique identifier for the associated object.
       #
       #   @return [String, nil]
       optional :documentable_id, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :documentable_id
-
-      # @!attribute [r] documentable_type
+      # @!attribute documentable_type
       #   The type of the associated object. Currently can be one of `payment_order`,
       #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
       #   `case`, `internal_account`, `decision`, or `external_account`.
@@ -31,18 +26,10 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType, nil]
       optional :documentable_type, enum: -> { ModernTreasury::Models::DocumentListParams::DocumentableType }
 
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType]
-      #   attr_writer :documentable_type
-
-      # @!attribute [r] per_page
+      # @!attribute per_page
       #
       #   @return [Integer, nil]
       optional :per_page, Integer
-
-      # @!parse
-      #   # @return [Integer]
-      #   attr_writer :per_page
 
       # @!method initialize(after_cursor: nil, documentable_id: nil, documentable_type: nil, per_page: nil, request_options: {})
       #   @param after_cursor [String, nil]

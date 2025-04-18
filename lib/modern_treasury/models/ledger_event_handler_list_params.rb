@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::LedgerEventHandlers#list
     class LedgerEventHandlerListParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute after_cursor
@@ -13,7 +12,7 @@ module ModernTreasury
       #   @return [String, nil]
       optional :after_cursor, String, nil?: true
 
-      # @!attribute [r] created_at
+      # @!attribute created_at
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
       #   posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #   created_at%5Bgt%5D=2000-01-01T12:00:00Z.
@@ -21,11 +20,7 @@ module ModernTreasury
       #   @return [Hash{Symbol=>Time}, nil]
       optional :created_at, ModernTreasury::Internal::Type::HashOf[Time]
 
-      # @!parse
-      #   # @return [Hash{Symbol=>Time}]
-      #   attr_writer :created_at
-
-      # @!attribute [r] metadata
+      # @!attribute metadata
       #   For example, if you want to query for records with metadata key `Type` and value
       #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   parameters.
@@ -33,27 +28,15 @@ module ModernTreasury
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
-      # @!parse
-      #   # @return [Hash{Symbol=>String}]
-      #   attr_writer :metadata
-
-      # @!attribute [r] name
+      # @!attribute name
       #
       #   @return [String, nil]
       optional :name, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :name
-
-      # @!attribute [r] per_page
+      # @!attribute per_page
       #
       #   @return [Integer, nil]
       optional :per_page, Integer
-
-      # @!parse
-      #   # @return [Integer]
-      #   attr_writer :per_page
 
       # @!method initialize(after_cursor: nil, created_at: nil, metadata: nil, name: nil, per_page: nil, request_options: {})
       #   @param after_cursor [String, nil]

@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::LineItems#update
     class LineItemUpdateParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute itemizable_type
@@ -18,16 +17,12 @@ module ModernTreasury
       #   @return [String]
       required :itemizable_id, String
 
-      # @!attribute [r] metadata
+      # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
-
-      # @!parse
-      #   # @return [Hash{Symbol=>String}]
-      #   attr_writer :metadata
 
       # @!method initialize(itemizable_type:, itemizable_id:, metadata: nil, request_options: {})
       #   @param itemizable_type [Symbol, ModernTreasury::Models::LineItemUpdateParams::ItemizableType]

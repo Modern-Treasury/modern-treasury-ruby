@@ -5,8 +5,7 @@ module ModernTreasury
     module PaymentOrders
       # @see ModernTreasury::Resources::PaymentOrders::Reversals#retrieve
       class ReversalRetrieveParams < ModernTreasury::Internal::Type::BaseModel
-        # @!parse
-        #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 
         # @!attribute payment_order_id

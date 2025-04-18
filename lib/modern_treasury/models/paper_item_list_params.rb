@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::PaperItems#list
     class PaperItemListParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute after_cursor
@@ -13,45 +12,29 @@ module ModernTreasury
       #   @return [String, nil]
       optional :after_cursor, String, nil?: true
 
-      # @!attribute [r] deposit_date_end
+      # @!attribute deposit_date_end
       #   Specify an inclusive end date (YYYY-MM-DD) when filtering by deposit_date
       #
       #   @return [Date, nil]
       optional :deposit_date_end, Date
 
-      # @!parse
-      #   # @return [Date]
-      #   attr_writer :deposit_date_end
-
-      # @!attribute [r] deposit_date_start
+      # @!attribute deposit_date_start
       #   Specify an inclusive start date (YYYY-MM-DD) when filtering by deposit_date
       #
       #   @return [Date, nil]
       optional :deposit_date_start, Date
 
-      # @!parse
-      #   # @return [Date]
-      #   attr_writer :deposit_date_start
-
-      # @!attribute [r] lockbox_number
+      # @!attribute lockbox_number
       #   Specify `lockbox_number` if you wish to see paper items that are associated with
       #   a specific lockbox number.
       #
       #   @return [String, nil]
       optional :lockbox_number, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :lockbox_number
-
-      # @!attribute [r] per_page
+      # @!attribute per_page
       #
       #   @return [Integer, nil]
       optional :per_page, Integer
-
-      # @!parse
-      #   # @return [Integer]
-      #   attr_writer :per_page
 
       # @!method initialize(after_cursor: nil, deposit_date_end: nil, deposit_date_start: nil, lockbox_number: nil, per_page: nil, request_options: {})
       #   @param after_cursor [String, nil]

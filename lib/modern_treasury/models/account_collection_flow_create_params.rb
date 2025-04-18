@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::AccountCollectionFlows#create
     class AccountCollectionFlowCreateParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute counterparty_id
@@ -19,15 +18,11 @@ module ModernTreasury
       #   @return [Array<String>]
       required :payment_types, ModernTreasury::Internal::Type::ArrayOf[String]
 
-      # @!attribute [r] receiving_countries
+      # @!attribute receiving_countries
       #
       #   @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>, nil]
       optional :receiving_countries,
                -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry] }
-
-      # @!parse
-      #   # @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>]
-      #   attr_writer :receiving_countries
 
       # @!method initialize(counterparty_id:, payment_types:, receiving_countries: nil, request_options: {})
       #   @param counterparty_id [String]

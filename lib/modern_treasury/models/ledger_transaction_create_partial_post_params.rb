@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::LedgerTransactions#create_partial_post
     class LedgerTransactionCreatePartialPostParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute posted_ledger_entries
@@ -17,38 +16,26 @@ module ModernTreasury
       required :posted_ledger_entries,
                -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry] }
 
-      # @!attribute [r] description
+      # @!attribute description
       #   An optional free-form description for the posted ledger transaction. Maximum of
       #   1000 characters allowed.
       #
       #   @return [String, nil]
       optional :description, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :description
-
-      # @!attribute [r] effective_at
+      # @!attribute effective_at
       #   The timestamp (IS08601 format) at which the posted ledger transaction happened
       #   for reporting purposes.
       #
       #   @return [Time, nil]
       optional :effective_at, Time
 
-      # @!parse
-      #   # @return [Time]
-      #   attr_writer :effective_at
-
-      # @!attribute [r] metadata
+      # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
-
-      # @!parse
-      #   # @return [Hash{Symbol=>String}]
-      #   attr_writer :metadata
 
       # @!method initialize(posted_ledger_entries:, description: nil, effective_at: nil, metadata: nil, request_options: {})
       #   @param posted_ledger_entries [Array<ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry>]
@@ -81,16 +68,12 @@ module ModernTreasury
         #   @return [String]
         required :ledger_account_id, String
 
-        # @!attribute [r] metadata
+        # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be
         #   strings.
         #
         #   @return [Hash{Symbol=>String}, nil]
         optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
-
-        # @!parse
-        #   # @return [Hash{Symbol=>String}]
-        #   attr_writer :metadata
 
         # @!method initialize(amount:, direction:, ledger_account_id:, metadata: nil)
         #   @param amount [Integer]

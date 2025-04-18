@@ -4,19 +4,14 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::ConnectionLegalEntities#update
     class ConnectionLegalEntityUpdateParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
-      # @!attribute [r] status
+      # @!attribute status
       #   The status of the connection legal entity.
       #
       #   @return [Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status }
-
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status]
-      #   attr_writer :status
 
       # @!method initialize(status: nil, request_options: {})
       #   @param status [Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status]

@@ -4,19 +4,14 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::Counterparties#update
     class CounterpartyUpdateParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
-      # @!attribute [r] email
+      # @!attribute email
       #   A new email for the counterparty.
       #
       #   @return [String, nil]
       optional :email, String
-
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :email
 
       # @!attribute legal_entity_id
       #   The id of the legal entity.
@@ -24,47 +19,31 @@ module ModernTreasury
       #   @return [String, nil]
       optional :legal_entity_id, String, nil?: true
 
-      # @!attribute [r] metadata
+      # @!attribute metadata
       #   Additional data in the form of key-value pairs. Pairs can be removed by passing
       #   an empty string or `null` as the value.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
-      # @!parse
-      #   # @return [Hash{Symbol=>String}]
-      #   attr_writer :metadata
-
-      # @!attribute [r] name
+      # @!attribute name
       #   A new name for the counterparty. Will only update if passed.
       #
       #   @return [String, nil]
       optional :name, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :name
-
-      # @!attribute [r] send_remittance_advice
+      # @!attribute send_remittance_advice
       #   If this is `true`, Modern Treasury will send an email to the counterparty
       #   whenever an associated payment order is sent to the bank.
       #
       #   @return [Boolean, nil]
       optional :send_remittance_advice, ModernTreasury::Internal::Type::Boolean
 
-      # @!parse
-      #   # @return [Boolean]
-      #   attr_writer :send_remittance_advice
-
-      # @!attribute [r] taxpayer_identifier
+      # @!attribute taxpayer_identifier
       #   Either a valid SSN or EIN.
       #
       #   @return [String, nil]
       optional :taxpayer_identifier, String
-
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :taxpayer_identifier
 
       # @!method initialize(email: nil, legal_entity_id: nil, metadata: nil, name: nil, send_remittance_advice: nil, taxpayer_identifier: nil, request_options: {})
       #   @param email [String]

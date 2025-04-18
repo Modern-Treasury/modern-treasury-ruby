@@ -5,8 +5,7 @@ module ModernTreasury
     module InternalAccounts
       # @see ModernTreasury::Resources::InternalAccounts::BalanceReports#retrieve
       class BalanceReportRetrieveParams < ModernTreasury::Internal::Type::BaseModel
-        # @!parse
-        #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 
         # @!attribute internal_account_id

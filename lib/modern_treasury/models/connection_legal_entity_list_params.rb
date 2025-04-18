@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::ConnectionLegalEntities#list
     class ConnectionLegalEntityListParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute after_cursor
@@ -13,41 +12,25 @@ module ModernTreasury
       #   @return [String, nil]
       optional :after_cursor, String, nil?: true
 
-      # @!attribute [r] connection_id
+      # @!attribute connection_id
       #
       #   @return [String, nil]
       optional :connection_id, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :connection_id
-
-      # @!attribute [r] legal_entity_id
+      # @!attribute legal_entity_id
       #
       #   @return [String, nil]
       optional :legal_entity_id, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :legal_entity_id
-
-      # @!attribute [r] per_page
+      # @!attribute per_page
       #
       #   @return [Integer, nil]
       optional :per_page, Integer
 
-      # @!parse
-      #   # @return [Integer]
-      #   attr_writer :per_page
-
-      # @!attribute [r] status
+      # @!attribute status
       #
       #   @return [Symbol, ModernTreasury::Models::ConnectionLegalEntityListParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::Models::ConnectionLegalEntityListParams::Status }
-
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::ConnectionLegalEntityListParams::Status]
-      #   attr_writer :status
 
       # @!method initialize(after_cursor: nil, connection_id: nil, legal_entity_id: nil, per_page: nil, status: nil, request_options: {})
       #   @param after_cursor [String, nil]

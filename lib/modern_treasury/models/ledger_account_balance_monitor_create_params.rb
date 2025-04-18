@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::LedgerAccountBalanceMonitors#create
     class LedgerAccountBalanceMonitorCreateParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute alert_condition
@@ -21,26 +20,18 @@ module ModernTreasury
       #   @return [String]
       required :ledger_account_id, String
 
-      # @!attribute [r] description
+      # @!attribute description
       #   An optional, free-form description for internal use.
       #
       #   @return [String, nil]
       optional :description, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :description
-
-      # @!attribute [r] metadata
+      # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
-
-      # @!parse
-      #   # @return [Hash{Symbol=>String}]
-      #   attr_writer :metadata
 
       # @!method initialize(alert_condition:, ledger_account_id:, description: nil, metadata: nil, request_options: {})
       #   @param alert_condition [ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition]

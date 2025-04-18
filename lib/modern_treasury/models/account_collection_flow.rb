@@ -17,34 +17,22 @@ module ModernTreasury
       required :payment_types,
                -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::PaymentType] }
 
-      # @!attribute [r] id
+      # @!attribute id
       #
       #   @return [String, nil]
       optional :id, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :id
-
-      # @!attribute [r] client_token
+      # @!attribute client_token
       #   The client token of the account collection flow. This token can be used to embed
       #   account collection in your client-side application.
       #
       #   @return [String, nil]
       optional :client_token, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :client_token
-
-      # @!attribute [r] created_at
+      # @!attribute created_at
       #
       #   @return [Time, nil]
       optional :created_at, Time
-
-      # @!parse
-      #   # @return [Time]
-      #   attr_writer :created_at
 
       # @!attribute external_account_id
       #   If present, the ID of the external account created using this flow.
@@ -52,55 +40,35 @@ module ModernTreasury
       #   @return [String, nil]
       optional :external_account_id, String, nil?: true
 
-      # @!attribute [r] live_mode
+      # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false
       #   if it exists in the test environment.
       #
       #   @return [Boolean, nil]
       optional :live_mode, ModernTreasury::Internal::Type::Boolean
 
-      # @!parse
-      #   # @return [Boolean]
-      #   attr_writer :live_mode
-
-      # @!attribute [r] object
+      # @!attribute object
       #
       #   @return [String, nil]
       optional :object, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :object
-
-      # @!attribute [r] receiving_countries
+      # @!attribute receiving_countries
       #
       #   @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry>, nil]
       optional :receiving_countries,
                -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry] }
 
-      # @!parse
-      #   # @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry>]
-      #   attr_writer :receiving_countries
-
-      # @!attribute [r] status
+      # @!attribute status
       #   The current status of the account collection flow. One of `pending`,
       #   `completed`, `expired`, or `cancelled`.
       #
       #   @return [Symbol, ModernTreasury::Models::AccountCollectionFlow::Status, nil]
       optional :status, enum: -> { ModernTreasury::Models::AccountCollectionFlow::Status }
 
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::AccountCollectionFlow::Status]
-      #   attr_writer :status
-
-      # @!attribute [r] updated_at
+      # @!attribute updated_at
       #
       #   @return [Time, nil]
       optional :updated_at, Time
-
-      # @!parse
-      #   # @return [Time]
-      #   attr_writer :updated_at
 
       # @!method initialize(counterparty_id:, payment_types:, id: nil, client_token: nil, created_at: nil, external_account_id: nil, live_mode: nil, object: nil, receiving_countries: nil, status: nil, updated_at: nil)
       #   @param counterparty_id [String]

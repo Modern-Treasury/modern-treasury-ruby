@@ -4,60 +4,39 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::InternalAccounts#update
     class InternalAccountUpdateParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
-      # @!attribute [r] counterparty_id
+      # @!attribute counterparty_id
       #   The Counterparty associated to this account.
       #
       #   @return [String, nil]
       optional :counterparty_id, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :counterparty_id
-
-      # @!attribute [r] ledger_account_id
+      # @!attribute ledger_account_id
       #   The Ledger Account associated to this account.
       #
       #   @return [String, nil]
       optional :ledger_account_id, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :ledger_account_id
-
-      # @!attribute [r] metadata
+      # @!attribute metadata
       #   Additional data in the form of key-value pairs. Pairs can be removed by passing
       #   an empty string or `null` as the value.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
-      # @!parse
-      #   # @return [Hash{Symbol=>String}]
-      #   attr_writer :metadata
-
-      # @!attribute [r] name
+      # @!attribute name
       #   The nickname for the internal account.
       #
       #   @return [String, nil]
       optional :name, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :name
-
-      # @!attribute [r] parent_account_id
+      # @!attribute parent_account_id
       #   The parent internal account for this account.
       #
       #   @return [String, nil]
       optional :parent_account_id, String
-
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :parent_account_id
 
       # @!method initialize(counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, request_options: {})
       #   @param counterparty_id [String]

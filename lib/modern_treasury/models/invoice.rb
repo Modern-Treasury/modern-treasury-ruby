@@ -382,14 +382,10 @@ module ModernTreasury
         #   @return [String]
         required :region, String
 
-        # @!attribute [r] line2
+        # @!attribute line2
         #
         #   @return [String, nil]
         optional :line2, String
-
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :line2
 
         # @!method initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
         #   The counterparty's billing address.
@@ -433,14 +429,10 @@ module ModernTreasury
         #   @return [String]
         required :region, String
 
-        # @!attribute [r] line2
+        # @!attribute line2
         #
         #   @return [String, nil]
         optional :line2, String
-
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :line2
 
         # @!method initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
         #   The counterparty's shipping address where physical goods should be delivered.
@@ -484,14 +476,10 @@ module ModernTreasury
         #   @return [String]
         required :region, String
 
-        # @!attribute [r] line2
+        # @!attribute line2
         #
         #   @return [String, nil]
         optional :line2, String
-
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :line2
 
         # @!method initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
         #   The invoice issuer's business address.

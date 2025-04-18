@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::LedgerTransactions#create
     class LedgerTransactionCreateParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute ledger_entries
@@ -21,51 +20,35 @@ module ModernTreasury
       #   @return [String, nil]
       optional :description, String, nil?: true
 
-      # @!attribute [r] effective_at
+      # @!attribute effective_at
       #   The timestamp (ISO8601 format) at which the ledger transaction happened for
       #   reporting purposes.
       #
       #   @return [Time, nil]
       optional :effective_at, Time
 
-      # @!parse
-      #   # @return [Time]
-      #   attr_writer :effective_at
-
-      # @!attribute [r] effective_date
+      # @!attribute effective_date
       #   The date (YYYY-MM-DD) on which the ledger transaction happened for reporting
       #   purposes.
       #
       #   @return [Date, nil]
       optional :effective_date, Date
 
-      # @!parse
-      #   # @return [Date]
-      #   attr_writer :effective_date
-
-      # @!attribute [r] external_id
+      # @!attribute external_id
       #   A unique string to represent the ledger transaction. Only one pending or posted
       #   ledger transaction may have this ID in the ledger.
       #
       #   @return [String, nil]
       optional :external_id, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :external_id
-
-      # @!attribute [r] ledgerable_id
+      # @!attribute ledgerable_id
       #   If the ledger transaction can be reconciled to another object in Modern
       #   Treasury, the id will be populated here, otherwise null.
       #
       #   @return [String, nil]
       optional :ledgerable_id, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :ledgerable_id
-
-      # @!attribute [r] ledgerable_type
+      # @!attribute ledgerable_type
       #   If the ledger transaction can be reconciled to another object in Modern
       #   Treasury, the type will be populated here, otherwise null. This can be one of
       #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
@@ -75,30 +58,18 @@ module ModernTreasury
       optional :ledgerable_type,
                enum: -> { ModernTreasury::Models::LedgerTransactionCreateParams::LedgerableType }
 
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::LedgerTransactionCreateParams::LedgerableType]
-      #   attr_writer :ledgerable_type
-
-      # @!attribute [r] metadata
+      # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
-      # @!parse
-      #   # @return [Hash{Symbol=>String}]
-      #   attr_writer :metadata
-
-      # @!attribute [r] status
+      # @!attribute status
       #   To post a ledger transaction at creation, use `posted`.
       #
       #   @return [Symbol, ModernTreasury::Models::LedgerTransactionCreateParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::Models::LedgerTransactionCreateParams::Status }
-
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::LedgerTransactionCreateParams::Status]
-      #   attr_writer :status
 
       # @!method initialize(ledger_entries:, description: nil, effective_at: nil, effective_date: nil, external_id: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, status: nil, request_options: {})
       #   @param ledger_entries [Array<ModernTreasury::Models::LedgerTransactionCreateParams::LedgerEntry>]
@@ -152,16 +123,12 @@ module ModernTreasury
         #   @return [Integer, nil]
         optional :lock_version, Integer, nil?: true
 
-        # @!attribute [r] metadata
+        # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be
         #   strings.
         #
         #   @return [Hash{Symbol=>String}, nil]
         optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
-
-        # @!parse
-        #   # @return [Hash{Symbol=>String}]
-        #   attr_writer :metadata
 
         # @!attribute pending_balance_amount
         #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the

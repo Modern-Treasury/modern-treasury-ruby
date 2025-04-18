@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::LedgerAccounts#create
     class LedgerAccountCreateParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute currency
@@ -44,29 +43,21 @@ module ModernTreasury
       #   @return [String, nil]
       optional :description, String, nil?: true
 
-      # @!attribute [r] ledger_account_category_ids
+      # @!attribute ledger_account_category_ids
       #   The array of ledger account category ids that this ledger account should be a
       #   child of.
       #
       #   @return [Array<String>, nil]
       optional :ledger_account_category_ids, ModernTreasury::Internal::Type::ArrayOf[String]
 
-      # @!parse
-      #   # @return [Array<String>]
-      #   attr_writer :ledger_account_category_ids
-
-      # @!attribute [r] ledgerable_id
+      # @!attribute ledgerable_id
       #   If the ledger account links to another object in Modern Treasury, the id will be
       #   populated here, otherwise null.
       #
       #   @return [String, nil]
       optional :ledgerable_id, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :ledgerable_id
-
-      # @!attribute [r] ledgerable_type
+      # @!attribute ledgerable_type
       #   If the ledger account links to another object in Modern Treasury, the type will
       #   be populated here, otherwise null. The value is one of internal_account or
       #   external_account.
@@ -74,20 +65,12 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType, nil]
       optional :ledgerable_type, enum: -> { ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType }
 
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType]
-      #   attr_writer :ledgerable_type
-
-      # @!attribute [r] metadata
+      # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
-
-      # @!parse
-      #   # @return [Hash{Symbol=>String}]
-      #   attr_writer :metadata
 
       # @!method initialize(currency:, ledger_id:, name:, normal_balance:, currency_exponent: nil, description: nil, ledger_account_category_ids: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, request_options: {})
       #   @param currency [String]

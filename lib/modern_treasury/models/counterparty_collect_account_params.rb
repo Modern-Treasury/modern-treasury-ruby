@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::Counterparties#collect_account
     class CounterpartyCollectAccountParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute direction
@@ -16,7 +15,7 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
       required :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
 
-      # @!attribute [r] custom_redirect
+      # @!attribute custom_redirect
       #   The URL you want your customer to visit upon filling out the form. By default,
       #   they will be sent to a Modern Treasury landing page. This must be a valid HTTPS
       #   URL if set.
@@ -24,11 +23,7 @@ module ModernTreasury
       #   @return [String, nil]
       optional :custom_redirect, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :custom_redirect
-
-      # @!attribute [r] fields
+      # @!attribute fields
       #   The list of fields you want on the form. This field is optional and if it is not
       #   set, will default to [\"nameOnAccount\", \"accountType\", \"accountNumber\",
       #   \"routingNumber\", \"address\"]. The full list of options is [\"name\",
@@ -39,11 +34,7 @@ module ModernTreasury
       optional :fields,
                -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::CounterpartyCollectAccountParams::Field] }
 
-      # @!parse
-      #   # @return [Array<Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field>]
-      #   attr_writer :fields
-
-      # @!attribute [r] send_email
+      # @!attribute send_email
       #   By default, Modern Treasury will send an email to your counterparty that
       #   includes a link to the form they must fill out. However, if you would like to
       #   send the counterparty the link, you can set this parameter to `false`. The JSON
@@ -51,10 +42,6 @@ module ModernTreasury
       #
       #   @return [Boolean, nil]
       optional :send_email, ModernTreasury::Internal::Type::Boolean
-
-      # @!parse
-      #   # @return [Boolean]
-      #   attr_writer :send_email
 
       # @!method initialize(direction:, custom_redirect: nil, fields: nil, send_email: nil, request_options: {})
       #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
