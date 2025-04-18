@@ -331,85 +331,42 @@ module ModernTreasury
       #   @return [String, nil]
       optional :ultimate_receiving_party_name, String, nil?: true
 
-      # @!parse
-      #   # @param accounting [ModernTreasury::Models::PaymentOrderUpdateParams::Accounting]
-      #   # @param accounting_category_id [String, nil]
-      #   # @param accounting_ledger_class_id [String, nil]
-      #   # @param amount [Integer]
-      #   # @param charge_bearer [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ChargeBearer, nil]
-      #   # @param counterparty_id [String, nil]
-      #   # @param currency [Symbol, ModernTreasury::Models::Currency]
-      #   # @param description [String, nil]
-      #   # @param direction [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Direction]
-      #   # @param effective_date [Date]
-      #   # @param expires_at [Time, nil]
-      #   # @param fallback_type [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::FallbackType]
-      #   # @param foreign_exchange_contract [String, nil]
-      #   # @param foreign_exchange_indicator [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ForeignExchangeIndicator, nil]
-      #   # @param line_items [Array<ModernTreasury::Models::PaymentOrderUpdateParams::LineItem>]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param nsf_protected [Boolean]
-      #   # @param originating_account_id [String]
-      #   # @param originating_party_name [String, nil]
-      #   # @param priority [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Priority]
-      #   # @param process_after [Time, nil]
-      #   # @param purpose [String, nil]
-      #   # @param receiving_account [ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount]
-      #   # @param receiving_account_id [String]
-      #   # @param remittance_information [String, nil]
-      #   # @param send_remittance_advice [Boolean, nil]
-      #   # @param statement_descriptor [String, nil]
-      #   # @param status [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Status]
-      #   # @param subtype [Symbol, ModernTreasury::Models::PaymentOrderSubtype, nil]
-      #   # @param type [Symbol, ModernTreasury::Models::PaymentOrderType]
-      #   # @param ultimate_originating_party_identifier [String, nil]
-      #   # @param ultimate_originating_party_name [String, nil]
-      #   # @param ultimate_receiving_party_identifier [String, nil]
-      #   # @param ultimate_receiving_party_name [String, nil]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     accounting: nil,
-      #     accounting_category_id: nil,
-      #     accounting_ledger_class_id: nil,
-      #     amount: nil,
-      #     charge_bearer: nil,
-      #     counterparty_id: nil,
-      #     currency: nil,
-      #     description: nil,
-      #     direction: nil,
-      #     effective_date: nil,
-      #     expires_at: nil,
-      #     fallback_type: nil,
-      #     foreign_exchange_contract: nil,
-      #     foreign_exchange_indicator: nil,
-      #     line_items: nil,
-      #     metadata: nil,
-      #     nsf_protected: nil,
-      #     originating_account_id: nil,
-      #     originating_party_name: nil,
-      #     priority: nil,
-      #     process_after: nil,
-      #     purpose: nil,
-      #     receiving_account: nil,
-      #     receiving_account_id: nil,
-      #     remittance_information: nil,
-      #     send_remittance_advice: nil,
-      #     statement_descriptor: nil,
-      #     status: nil,
-      #     subtype: nil,
-      #     type: nil,
-      #     ultimate_originating_party_identifier: nil,
-      #     ultimate_originating_party_name: nil,
-      #     ultimate_receiving_party_identifier: nil,
-      #     ultimate_receiving_party_name: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(accounting: nil, accounting_category_id: nil, accounting_ledger_class_id: nil, amount: nil, charge_bearer: nil, counterparty_id: nil, currency: nil, description: nil, direction: nil, effective_date: nil, expires_at: nil, fallback_type: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, line_items: nil, metadata: nil, nsf_protected: nil, originating_account_id: nil, originating_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account: nil, receiving_account_id: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, status: nil, subtype: nil, type: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil, request_options: {})
+      #   @param accounting [ModernTreasury::Models::PaymentOrderUpdateParams::Accounting]
+      #   @param accounting_category_id [String, nil]
+      #   @param accounting_ledger_class_id [String, nil]
+      #   @param amount [Integer]
+      #   @param charge_bearer [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ChargeBearer, nil]
+      #   @param counterparty_id [String, nil]
+      #   @param currency [Symbol, ModernTreasury::Models::Currency]
+      #   @param description [String, nil]
+      #   @param direction [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Direction]
+      #   @param effective_date [Date]
+      #   @param expires_at [Time, nil]
+      #   @param fallback_type [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::FallbackType]
+      #   @param foreign_exchange_contract [String, nil]
+      #   @param foreign_exchange_indicator [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ForeignExchangeIndicator, nil]
+      #   @param line_items [Array<ModernTreasury::Models::PaymentOrderUpdateParams::LineItem>]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param nsf_protected [Boolean]
+      #   @param originating_account_id [String]
+      #   @param originating_party_name [String, nil]
+      #   @param priority [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Priority]
+      #   @param process_after [Time, nil]
+      #   @param purpose [String, nil]
+      #   @param receiving_account [ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount]
+      #   @param receiving_account_id [String]
+      #   @param remittance_information [String, nil]
+      #   @param send_remittance_advice [Boolean, nil]
+      #   @param statement_descriptor [String, nil]
+      #   @param status [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Status]
+      #   @param subtype [Symbol, ModernTreasury::Models::PaymentOrderSubtype, nil]
+      #   @param type [Symbol, ModernTreasury::Models::PaymentOrderType]
+      #   @param ultimate_originating_party_identifier [String, nil]
+      #   @param ultimate_originating_party_name [String, nil]
+      #   @param ultimate_receiving_party_identifier [String, nil]
+      #   @param ultimate_receiving_party_name [String, nil]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       class Accounting < ModernTreasury::Internal::Type::BaseModel
         # @!attribute account_id
@@ -427,13 +384,9 @@ module ModernTreasury
         #   @return [String, nil]
         optional :class_id, String, nil?: true
 
-        # @!parse
-        #   # @param account_id [String, nil]
-        #   # @param class_id [String, nil]
-        #   #
-        #   def initialize(account_id: nil, class_id: nil, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(account_id: nil, class_id: nil)
+        #   @param account_id [String, nil]
+        #   @param class_id [String, nil]
       end
 
       # The party that will pay the fees for the payment order. Only applies to wire
@@ -446,11 +399,8 @@ module ModernTreasury
         SENDER = :sender
         RECEIVER = :receiver
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # One of `credit`, `debit`. Describes the direction money is flowing in the
@@ -463,11 +413,8 @@ module ModernTreasury
         CREDIT = :credit
         DEBIT = :debit
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # A payment type to fallback to if the original type is not valid for the
@@ -478,11 +425,8 @@ module ModernTreasury
 
         ACH = :ach
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # Indicates the type of FX transfer to initiate, can be either
@@ -494,11 +438,8 @@ module ModernTreasury
         FIXED_TO_VARIABLE = :fixed_to_variable
         VARIABLE_TO_FIXED = :variable_to_fixed
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       class LineItem < ModernTreasury::Internal::Type::BaseModel
@@ -533,15 +474,11 @@ module ModernTreasury
         #   # @return [Hash{Symbol=>String}]
         #   attr_writer :metadata
 
-        # @!parse
-        #   # @param amount [Integer]
-        #   # @param accounting_category_id [String, nil]
-        #   # @param description [String, nil]
-        #   # @param metadata [Hash{Symbol=>String}]
-        #   #
-        #   def initialize(amount:, accounting_category_id: nil, description: nil, metadata: nil, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(amount:, accounting_category_id: nil, description: nil, metadata: nil)
+        #   @param amount [Integer]
+        #   @param accounting_category_id [String, nil]
+        #   @param description [String, nil]
+        #   @param metadata [Hash{Symbol=>String}]
       end
 
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
@@ -553,11 +490,8 @@ module ModernTreasury
         HIGH = :high
         NORMAL = :normal
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       class ReceivingAccount < ModernTreasury::Internal::Type::BaseModel
@@ -683,43 +617,23 @@ module ModernTreasury
         #   # @return [Array<ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail>]
         #   attr_writer :routing_details
 
-        # @!parse
-        #   # Either `receiving_account` or `receiving_account_id` must be present. When using
-        #   # `receiving_account_id`, you may pass the id of an external account or an
-        #   # internal account.
-        #   #
-        #   # @param account_details [Array<ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail>]
-        #   # @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType]
-        #   # @param contact_details [Array<ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail>]
-        #   # @param ledger_account [ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount]
-        #   # @param metadata [Hash{Symbol=>String}]
-        #   # @param name [String, nil]
-        #   # @param party_address [ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyAddress]
-        #   # @param party_identifier [String]
-        #   # @param party_name [String]
-        #   # @param party_type [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyType, nil]
-        #   # @param plaid_processor_token [String]
-        #   # @param routing_details [Array<ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail>]
-        #   #
-        #   def initialize(
-        #     account_details: nil,
-        #     account_type: nil,
-        #     contact_details: nil,
-        #     ledger_account: nil,
-        #     metadata: nil,
-        #     name: nil,
-        #     party_address: nil,
-        #     party_identifier: nil,
-        #     party_name: nil,
-        #     party_type: nil,
-        #     plaid_processor_token: nil,
-        #     routing_details: nil,
-        #     **
-        #   )
-        #     super
-        #   end
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(account_details: nil, account_type: nil, contact_details: nil, ledger_account: nil, metadata: nil, name: nil, party_address: nil, party_identifier: nil, party_name: nil, party_type: nil, plaid_processor_token: nil, routing_details: nil)
+        #   Either `receiving_account` or `receiving_account_id` must be present. When using
+        #   `receiving_account_id`, you may pass the id of an external account or an
+        #   internal account.
+        #
+        #   @param account_details [Array<ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail>]
+        #   @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType]
+        #   @param contact_details [Array<ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail>]
+        #   @param ledger_account [ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount]
+        #   @param metadata [Hash{Symbol=>String}]
+        #   @param name [String, nil]
+        #   @param party_address [ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyAddress]
+        #   @param party_identifier [String]
+        #   @param party_name [String]
+        #   @param party_type [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyType, nil]
+        #   @param plaid_processor_token [String]
+        #   @param routing_details [Array<ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail>]
 
         class AccountDetail < ModernTreasury::Internal::Type::BaseModel
           # @!attribute account_number
@@ -737,13 +651,9 @@ module ModernTreasury
           #   # @return [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType]
           #   attr_writer :account_number_type
 
-          # @!parse
-          #   # @param account_number [String]
-          #   # @param account_number_type [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType]
-          #   #
-          #   def initialize(account_number:, account_number_type: nil, **) = super
-
-          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+          # @!method initialize(account_number:, account_number_type: nil)
+          #   @param account_number [String]
+          #   @param account_number_type [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType]
 
           # @see ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail#account_number_type
           module AccountNumberType
@@ -760,11 +670,8 @@ module ModernTreasury
             SG_NUMBER = :sg_number
             WALLET_ADDRESS = :wallet_address
 
-            finalize!
-
-            # @!parse
-            #   # @return [Array<Symbol>]
-            #   def self.values; end
+            # @!method self.values
+            #   @return [Array<Symbol>]
           end
         end
 
@@ -788,13 +695,9 @@ module ModernTreasury
           #   # @return [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::ContactIdentifierType]
           #   attr_writer :contact_identifier_type
 
-          # @!parse
-          #   # @param contact_identifier [String]
-          #   # @param contact_identifier_type [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::ContactIdentifierType]
-          #   #
-          #   def initialize(contact_identifier: nil, contact_identifier_type: nil, **) = super
-
-          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+          # @!method initialize(contact_identifier: nil, contact_identifier_type: nil)
+          #   @param contact_identifier [String]
+          #   @param contact_identifier_type [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::ContactIdentifierType]
 
           # @see ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail#contact_identifier_type
           module ContactIdentifierType
@@ -804,11 +707,8 @@ module ModernTreasury
             PHONE_NUMBER = :phone_number
             WEBSITE = :website
 
-            finalize!
-
-            # @!parse
-            #   # @return [Array<Symbol>]
-            #   def self.values; end
+            # @!method self.values
+            #   @return [Array<Symbol>]
           end
         end
 
@@ -896,41 +796,23 @@ module ModernTreasury
           #   # @return [Hash{Symbol=>String}]
           #   attr_writer :metadata
 
-          # @!parse
-          #   # Specifies a ledger account object that will be created with the external
-          #   # account. The resulting ledger account is linked to the external account for
-          #   # auto-ledgering Payment objects. See
-          #   # https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
-          #   # for more details.
-          #   #
-          #   # @param currency [String]
-          #   # @param ledger_id [String]
-          #   # @param name [String]
-          #   # @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection]
-          #   # @param currency_exponent [Integer, nil]
-          #   # @param description [String, nil]
-          #   # @param ledger_account_category_ids [Array<String>]
-          #   # @param ledgerable_id [String]
-          #   # @param ledgerable_type [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::LedgerableType]
-          #   # @param metadata [Hash{Symbol=>String}]
-          #   #
-          #   def initialize(
-          #     currency:,
-          #     ledger_id:,
-          #     name:,
-          #     normal_balance:,
-          #     currency_exponent: nil,
-          #     description: nil,
-          #     ledger_account_category_ids: nil,
-          #     ledgerable_id: nil,
-          #     ledgerable_type: nil,
-          #     metadata: nil,
-          #     **
-          #   )
-          #     super
-          #   end
-
-          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+          # @!method initialize(currency:, ledger_id:, name:, normal_balance:, currency_exponent: nil, description: nil, ledger_account_category_ids: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil)
+          #   Specifies a ledger account object that will be created with the external
+          #   account. The resulting ledger account is linked to the external account for
+          #   auto-ledgering Payment objects. See
+          #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
+          #   for more details.
+          #
+          #   @param currency [String]
+          #   @param ledger_id [String]
+          #   @param name [String]
+          #   @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection]
+          #   @param currency_exponent [Integer, nil]
+          #   @param description [String, nil]
+          #   @param ledger_account_category_ids [Array<String>]
+          #   @param ledgerable_id [String]
+          #   @param ledgerable_type [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::LedgerableType]
+          #   @param metadata [Hash{Symbol=>String}]
 
           # If the ledger account links to another object in Modern Treasury, the type will
           # be populated here, otherwise null. The value is one of internal_account or
@@ -945,11 +827,8 @@ module ModernTreasury
             INTERNAL_ACCOUNT = :internal_account
             VIRTUAL_ACCOUNT = :virtual_account
 
-            finalize!
-
-            # @!parse
-            #   # @return [Array<Symbol>]
-            #   def self.values; end
+            # @!method self.values
+            #   @return [Array<Symbol>]
           end
         end
 
@@ -989,19 +868,15 @@ module ModernTreasury
           #   @return [String, nil]
           optional :region, String, nil?: true
 
-          # @!parse
-          #   # Required if receiving wire payments.
-          #   #
-          #   # @param country [String, nil]
-          #   # @param line1 [String, nil]
-          #   # @param line2 [String, nil]
-          #   # @param locality [String, nil]
-          #   # @param postal_code [String, nil]
-          #   # @param region [String, nil]
-          #   #
-          #   def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil, **) = super
-
-          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+          # @!method initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
+          #   Required if receiving wire payments.
+          #
+          #   @param country [String, nil]
+          #   @param line1 [String, nil]
+          #   @param line2 [String, nil]
+          #   @param locality [String, nil]
+          #   @param postal_code [String, nil]
+          #   @param region [String, nil]
         end
 
         # Either `individual` or `business`.
@@ -1013,11 +888,8 @@ module ModernTreasury
           BUSINESS = :business
           INDIVIDUAL = :individual
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
 
         class RoutingDetail < ModernTreasury::Internal::Type::BaseModel
@@ -1042,14 +914,10 @@ module ModernTreasury
           #   # @return [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType]
           #   attr_writer :payment_type
 
-          # @!parse
-          #   # @param routing_number [String]
-          #   # @param routing_number_type [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType]
-          #   # @param payment_type [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType]
-          #   #
-          #   def initialize(routing_number:, routing_number_type:, payment_type: nil, **) = super
-
-          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+          # @!method initialize(routing_number:, routing_number_type:, payment_type: nil)
+          #   @param routing_number [String]
+          #   @param routing_number_type [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType]
+          #   @param payment_type [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType]
 
           # @see ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail#routing_number_type
           module RoutingNumberType
@@ -1077,11 +945,8 @@ module ModernTreasury
             SWIFT = :swift
             ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
-            finalize!
-
-            # @!parse
-            #   # @return [Array<Symbol>]
-            #   def self.values; end
+            # @!method self.values
+            #   @return [Array<Symbol>]
           end
 
           # @see ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail#payment_type
@@ -1119,11 +984,8 @@ module ModernTreasury
             WIRE = :wire
             ZENGIN = :zengin
 
-            finalize!
-
-            # @!parse
-            #   # @return [Array<Symbol>]
-            #   def self.values; end
+            # @!method self.values
+            #   @return [Array<Symbol>]
           end
         end
       end
@@ -1146,11 +1008,8 @@ module ModernTreasury
         REVERSED = :reversed
         SENT = :sent
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

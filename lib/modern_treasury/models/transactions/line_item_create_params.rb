@@ -28,15 +28,11 @@ module ModernTreasury
         #   @return [String]
         required :transaction_id, String
 
-        # @!parse
-        #   # @param amount [Integer]
-        #   # @param expected_payment_id [String]
-        #   # @param transaction_id [String]
-        #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-        #   #
-        #   def initialize(amount:, expected_payment_id:, transaction_id:, request_options: {}, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(amount:, expected_payment_id:, transaction_id:, request_options: {})
+        #   @param amount [Integer]
+        #   @param expected_payment_id [String]
+        #   @param transaction_id [String]
+        #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       end
     end
   end

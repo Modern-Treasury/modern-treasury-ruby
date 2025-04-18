@@ -80,39 +80,19 @@ module ModernTreasury
       #   # @return [String]
       #   attr_writer :vendor_id
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param created_at [Time]
-      #   # @param effective_at [Time]
-      #   # @param expires_at [Time]
-      #   # @param foreign_exchange_indicator [String]
-      #   # @param foreign_exchange_rate [ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate]
-      #   # @param internal_account_id [String]
-      #   # @param live_mode [Boolean]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param object [String]
-      #   # @param updated_at [Time]
-      #   # @param vendor_id [String]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     created_at:,
-      #     effective_at:,
-      #     expires_at:,
-      #     foreign_exchange_indicator:,
-      #     foreign_exchange_rate:,
-      #     internal_account_id:,
-      #     live_mode:,
-      #     metadata:,
-      #     object:,
-      #     updated_at:,
-      #     vendor_id: nil,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, created_at:, effective_at:, expires_at:, foreign_exchange_indicator:, foreign_exchange_rate:, internal_account_id:, live_mode:, metadata:, object:, updated_at:, vendor_id: nil)
+      #   @param id [String]
+      #   @param created_at [Time]
+      #   @param effective_at [Time]
+      #   @param expires_at [Time]
+      #   @param foreign_exchange_indicator [String]
+      #   @param foreign_exchange_rate [ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate]
+      #   @param internal_account_id [String]
+      #   @param live_mode [Boolean]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param object [String]
+      #   @param updated_at [Time]
+      #   @param vendor_id [String]
 
       # @see ModernTreasury::Models::ForeignExchangeQuote#foreign_exchange_rate
       class ForeignExchangeRate < ModernTreasury::Internal::Type::BaseModel
@@ -162,20 +142,16 @@ module ModernTreasury
         #   @return [Integer]
         required :value, Integer
 
-        # @!parse
-        #   # The serialized rate information represented by this quote.
-        #   #
-        #   # @param base_amount [Integer]
-        #   # @param base_currency [Symbol, ModernTreasury::Models::Currency]
-        #   # @param exponent [Integer]
-        #   # @param rate_string [String]
-        #   # @param target_amount [Integer]
-        #   # @param target_currency [Symbol, ModernTreasury::Models::Currency]
-        #   # @param value [Integer]
-        #   #
-        #   def initialize(base_amount:, base_currency:, exponent:, rate_string:, target_amount:, target_currency:, value:, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(base_amount:, base_currency:, exponent:, rate_string:, target_amount:, target_currency:, value:)
+        #   The serialized rate information represented by this quote.
+        #
+        #   @param base_amount [Integer]
+        #   @param base_currency [Symbol, ModernTreasury::Models::Currency]
+        #   @param exponent [Integer]
+        #   @param rate_string [String]
+        #   @param target_amount [Integer]
+        #   @param target_currency [Symbol, ModernTreasury::Models::Currency]
+        #   @param value [Integer]
       end
     end
   end

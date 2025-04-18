@@ -84,33 +84,16 @@ module ModernTreasury
       #   # @return [Integer]
       #   attr_writer :per_page
 
-      # @!parse
-      #   # @param after_cursor [String, nil]
-      #   # @param counterparty_id [String]
-      #   # @param currency [Symbol, ModernTreasury::Models::Currency]
-      #   # @param legal_entity_id [String]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param payment_direction [Symbol, ModernTreasury::Models::TransactionDirection]
-      #   # @param payment_type [Symbol, ModernTreasury::Models::InternalAccountListParams::PaymentType]
-      #   # @param per_page [Integer]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     after_cursor: nil,
-      #     counterparty_id: nil,
-      #     currency: nil,
-      #     legal_entity_id: nil,
-      #     metadata: nil,
-      #     payment_direction: nil,
-      #     payment_type: nil,
-      #     per_page: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(after_cursor: nil, counterparty_id: nil, currency: nil, legal_entity_id: nil, metadata: nil, payment_direction: nil, payment_type: nil, per_page: nil, request_options: {})
+      #   @param after_cursor [String, nil]
+      #   @param counterparty_id [String]
+      #   @param currency [Symbol, ModernTreasury::Models::Currency]
+      #   @param legal_entity_id [String]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param payment_direction [Symbol, ModernTreasury::Models::TransactionDirection]
+      #   @param payment_type [Symbol, ModernTreasury::Models::InternalAccountListParams::PaymentType]
+      #   @param per_page [Integer]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # Only return internal accounts that can make this type of payment.
       module PaymentType
@@ -147,11 +130,8 @@ module ModernTreasury
         WIRE = :wire
         ZENGIN = :zengin
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

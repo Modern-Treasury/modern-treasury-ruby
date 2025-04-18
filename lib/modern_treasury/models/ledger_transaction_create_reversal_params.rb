@@ -82,31 +82,15 @@ module ModernTreasury
       #   # @return [Symbol, ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status]
       #   attr_writer :status
 
-      # @!parse
-      #   # @param description [String]
-      #   # @param effective_at [Time, nil]
-      #   # @param external_id [String]
-      #   # @param ledgerable_id [String]
-      #   # @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param status [Symbol, ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     description: nil,
-      #     effective_at: nil,
-      #     external_id: nil,
-      #     ledgerable_id: nil,
-      #     ledgerable_type: nil,
-      #     metadata: nil,
-      #     status: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(description: nil, effective_at: nil, external_id: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, status: nil, request_options: {})
+      #   @param description [String]
+      #   @param effective_at [Time, nil]
+      #   @param external_id [String]
+      #   @param ledgerable_id [String]
+      #   @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param status [Symbol, ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # Specify this if you'd like to link the reversal ledger transaction to a Payment
       # object like Return or Reversal.
@@ -120,11 +104,8 @@ module ModernTreasury
         RETURN = :return
         REVERSAL = :reversal
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # Status of the reversal ledger transaction. It defaults to `posted` if not
@@ -136,11 +117,8 @@ module ModernTreasury
         PENDING = :pending
         POSTED = :posted
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

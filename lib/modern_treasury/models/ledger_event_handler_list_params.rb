@@ -55,17 +55,13 @@ module ModernTreasury
       #   # @return [Integer]
       #   attr_writer :per_page
 
-      # @!parse
-      #   # @param after_cursor [String, nil]
-      #   # @param created_at [Hash{Symbol=>Time}]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param name [String]
-      #   # @param per_page [Integer]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(after_cursor: nil, created_at: nil, metadata: nil, name: nil, per_page: nil, request_options: {}, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(after_cursor: nil, created_at: nil, metadata: nil, name: nil, per_page: nil, request_options: {})
+      #   @param after_cursor [String, nil]
+      #   @param created_at [Hash{Symbol=>Time}]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param name [String]
+      #   @param per_page [Integer]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

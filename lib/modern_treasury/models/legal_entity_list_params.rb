@@ -52,27 +52,13 @@ module ModernTreasury
       #   # @return [String]
       #   attr_writer :show_deleted
 
-      # @!parse
-      #   # @param after_cursor [String, nil]
-      #   # @param legal_entity_type [Symbol, ModernTreasury::Models::LegalEntityListParams::LegalEntityType]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param per_page [Integer]
-      #   # @param show_deleted [String]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     after_cursor: nil,
-      #     legal_entity_type: nil,
-      #     metadata: nil,
-      #     per_page: nil,
-      #     show_deleted: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(after_cursor: nil, legal_entity_type: nil, metadata: nil, per_page: nil, show_deleted: nil, request_options: {})
+      #   @param after_cursor [String, nil]
+      #   @param legal_entity_type [Symbol, ModernTreasury::Models::LegalEntityListParams::LegalEntityType]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param per_page [Integer]
+      #   @param show_deleted [String]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       module LegalEntityType
         extend ModernTreasury::Internal::Type::Enum
@@ -80,11 +66,8 @@ module ModernTreasury
         BUSINESS = :business
         INDIVIDUAL = :individual
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

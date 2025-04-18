@@ -156,6 +156,7 @@ end
 class ModernTreasury::Test::EnumModelTest < Minitest::Test
   class E0
     include ModernTreasury::Internal::Type::Enum
+    attr_reader :values
 
     def initialize(*values) = (@values = values)
   end
@@ -575,6 +576,7 @@ end
 class ModernTreasury::Test::BaseModelQoLTest < Minitest::Test
   class E0
     include ModernTreasury::Internal::Type::Enum
+    attr_reader :values
 
     def initialize(*values) = (@values = values)
   end

@@ -48,31 +48,15 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param classification_codes [Array<String>]
-      #   # @param classification_type [Symbol, ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType]
-      #   # @param created_at [Time]
-      #   # @param discarded_at [Time, nil]
-      #   # @param live_mode [Boolean]
-      #   # @param object [String]
-      #   # @param updated_at [Time]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     classification_codes:,
-      #     classification_type:,
-      #     created_at:,
-      #     discarded_at:,
-      #     live_mode:,
-      #     object:,
-      #     updated_at:,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, classification_codes:, classification_type:, created_at:, discarded_at:, live_mode:, object:, updated_at:)
+      #   @param id [String]
+      #   @param classification_codes [Array<String>]
+      #   @param classification_type [Symbol, ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType]
+      #   @param created_at [Time]
+      #   @param discarded_at [Time, nil]
+      #   @param live_mode [Boolean]
+      #   @param object [String]
+      #   @param updated_at [Time]
 
       # The classification system of the classification codes.
       #
@@ -96,11 +80,8 @@ module ModernTreasury
         UKSIC = :uksic
         UNSPSC = :unspsc
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

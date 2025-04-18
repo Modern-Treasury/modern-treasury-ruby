@@ -76,39 +76,19 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param action_type [Symbol, ModernTreasury::Models::BulkRequest::ActionType]
-      #   # @param created_at [Time]
-      #   # @param failed_result_count [Integer]
-      #   # @param live_mode [Boolean]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param object [String]
-      #   # @param resource_type [Symbol, ModernTreasury::Models::BulkRequest::ResourceType]
-      #   # @param status [Symbol, ModernTreasury::Models::BulkRequest::Status]
-      #   # @param success_result_count [Integer]
-      #   # @param total_resource_count [Integer]
-      #   # @param updated_at [Time]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     action_type:,
-      #     created_at:,
-      #     failed_result_count:,
-      #     live_mode:,
-      #     metadata:,
-      #     object:,
-      #     resource_type:,
-      #     status:,
-      #     success_result_count:,
-      #     total_resource_count:,
-      #     updated_at:,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, action_type:, created_at:, failed_result_count:, live_mode:, metadata:, object:, resource_type:, status:, success_result_count:, total_resource_count:, updated_at:)
+      #   @param id [String]
+      #   @param action_type [Symbol, ModernTreasury::Models::BulkRequest::ActionType]
+      #   @param created_at [Time]
+      #   @param failed_result_count [Integer]
+      #   @param live_mode [Boolean]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param object [String]
+      #   @param resource_type [Symbol, ModernTreasury::Models::BulkRequest::ResourceType]
+      #   @param status [Symbol, ModernTreasury::Models::BulkRequest::Status]
+      #   @param success_result_count [Integer]
+      #   @param total_resource_count [Integer]
+      #   @param updated_at [Time]
 
       # One of create, or update.
       #
@@ -120,11 +100,8 @@ module ModernTreasury
         UPDATE = :update
         DELETE = :delete
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # One of payment_order, expected_payment, or ledger_transaction.
@@ -140,11 +117,8 @@ module ModernTreasury
         TRANSACTION = :transaction
         ENTITY_LINK = :entity_link
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # One of pending, processing, or completed.
@@ -157,11 +131,8 @@ module ModernTreasury
         PROCESSING = :processing
         COMPLETED = :completed
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

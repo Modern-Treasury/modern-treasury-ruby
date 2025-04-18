@@ -153,63 +153,31 @@ module ModernTreasury
       #   @return [Object, nil]
       optional :data, ModernTreasury::Internal::Type::Unknown, nil?: true
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param amount [Integer]
-      #   # @param code [Symbol, ModernTreasury::Models::ReturnObject::Code, nil]
-      #   # @param created_at [Time]
-      #   # @param currency [Symbol, ModernTreasury::Models::Currency]
-      #   # @param current_return [ModernTreasury::Models::ReturnObject, nil]
-      #   # @param date_of_death [Date, nil]
-      #   # @param failure_reason [String, nil]
-      #   # @param internal_account_id [String, nil]
-      #   # @param ledger_transaction_id [String, nil]
-      #   # @param live_mode [Boolean]
-      #   # @param object [String]
-      #   # @param reason [String, nil]
-      #   # @param reference_numbers [Array<ModernTreasury::Models::ReturnObject::ReferenceNumber>]
-      #   # @param returnable_id [String, nil]
-      #   # @param returnable_type [Symbol, ModernTreasury::Models::ReturnObject::ReturnableType, nil]
-      #   # @param role [Symbol, ModernTreasury::Models::ReturnObject::Role]
-      #   # @param status [Symbol, ModernTreasury::Models::ReturnObject::Status]
-      #   # @param transaction_id [String, nil]
-      #   # @param transaction_line_item_id [String, nil]
-      #   # @param type [Symbol, ModernTreasury::Models::ReturnObject::Type]
-      #   # @param updated_at [Time]
-      #   # @param additional_information [String, nil]
-      #   # @param data [Object, nil]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     amount:,
-      #     code:,
-      #     created_at:,
-      #     currency:,
-      #     current_return:,
-      #     date_of_death:,
-      #     failure_reason:,
-      #     internal_account_id:,
-      #     ledger_transaction_id:,
-      #     live_mode:,
-      #     object:,
-      #     reason:,
-      #     reference_numbers:,
-      #     returnable_id:,
-      #     returnable_type:,
-      #     role:,
-      #     status:,
-      #     transaction_id:,
-      #     transaction_line_item_id:,
-      #     type:,
-      #     updated_at:,
-      #     additional_information: nil,
-      #     data: nil,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, amount:, code:, created_at:, currency:, current_return:, date_of_death:, failure_reason:, internal_account_id:, ledger_transaction_id:, live_mode:, object:, reason:, reference_numbers:, returnable_id:, returnable_type:, role:, status:, transaction_id:, transaction_line_item_id:, type:, updated_at:, additional_information: nil, data: nil)
+      #   @param id [String]
+      #   @param amount [Integer]
+      #   @param code [Symbol, ModernTreasury::Models::ReturnObject::Code, nil]
+      #   @param created_at [Time]
+      #   @param currency [Symbol, ModernTreasury::Models::Currency]
+      #   @param current_return [ModernTreasury::Models::ReturnObject, nil]
+      #   @param date_of_death [Date, nil]
+      #   @param failure_reason [String, nil]
+      #   @param internal_account_id [String, nil]
+      #   @param ledger_transaction_id [String, nil]
+      #   @param live_mode [Boolean]
+      #   @param object [String]
+      #   @param reason [String, nil]
+      #   @param reference_numbers [Array<ModernTreasury::Models::ReturnObject::ReferenceNumber>]
+      #   @param returnable_id [String, nil]
+      #   @param returnable_type [Symbol, ModernTreasury::Models::ReturnObject::ReturnableType, nil]
+      #   @param role [Symbol, ModernTreasury::Models::ReturnObject::Role]
+      #   @param status [Symbol, ModernTreasury::Models::ReturnObject::Status]
+      #   @param transaction_id [String, nil]
+      #   @param transaction_line_item_id [String, nil]
+      #   @param type [Symbol, ModernTreasury::Models::ReturnObject::Type]
+      #   @param updated_at [Time]
+      #   @param additional_information [String, nil]
+      #   @param data [Object, nil]
 
       # The return code. For ACH returns, this is the required ACH return code.
       #
@@ -271,11 +239,8 @@ module ModernTreasury
         R53 = :R53
         CURRENCYCLOUD = :currencycloud
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       class ReferenceNumber < ModernTreasury::Internal::Type::BaseModel
@@ -319,18 +284,14 @@ module ModernTreasury
         #   @return [Time]
         required :updated_at, Time
 
-        # @!parse
-        #   # @param id [String]
-        #   # @param created_at [Time]
-        #   # @param live_mode [Boolean]
-        #   # @param object [String]
-        #   # @param reference_number [String]
-        #   # @param reference_number_type [Symbol, ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType]
-        #   # @param updated_at [Time]
-        #   #
-        #   def initialize(id:, created_at:, live_mode:, object:, reference_number:, reference_number_type:, updated_at:, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(id:, created_at:, live_mode:, object:, reference_number:, reference_number_type:, updated_at:)
+        #   @param id [String]
+        #   @param created_at [Time]
+        #   @param live_mode [Boolean]
+        #   @param object [String]
+        #   @param reference_number [String]
+        #   @param reference_number_type [Symbol, ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType]
+        #   @param updated_at [Time]
 
         # The type of the reference number. Referring to the vendor payment id.
         #
@@ -414,11 +375,8 @@ module ModernTreasury
           WELLS_FARGO_TRACE_NUMBER = :wells_fargo_trace_number
           WELLS_FARGO_UETR = :wells_fargo_uetr
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
       end
 
@@ -434,11 +392,8 @@ module ModernTreasury
         RETURN = :return
         REVERSAL = :reversal
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # The role of the return, can be `originating` or `receiving`.
@@ -450,11 +405,8 @@ module ModernTreasury
         ORIGINATING = :originating
         RECEIVING = :receiving
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # The current status of the return.
@@ -470,11 +422,8 @@ module ModernTreasury
         RETURNED = :returned
         SENT = :sent
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`,
@@ -498,11 +447,8 @@ module ModernTreasury
         SEPA = :sepa
         WIRE = :wire
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

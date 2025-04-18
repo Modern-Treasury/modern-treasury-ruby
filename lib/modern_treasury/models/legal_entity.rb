@@ -196,79 +196,39 @@ module ModernTreasury
       #   @return [String, nil]
       required :website, String, nil?: true
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param addresses [Array<ModernTreasury::Models::LegalEntity::Address>]
-      #   # @param bank_settings [ModernTreasury::Models::BankSettings, nil]
-      #   # @param business_name [String, nil]
-      #   # @param citizenship_country [String, nil]
-      #   # @param compliance_details [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
-      #   # @param created_at [Time]
-      #   # @param date_formed [Date, nil]
-      #   # @param date_of_birth [Date, nil]
-      #   # @param discarded_at [Time, nil]
-      #   # @param doing_business_as_names [Array<String>]
-      #   # @param email [String, nil]
-      #   # @param first_name [String, nil]
-      #   # @param identifications [Array<ModernTreasury::Models::LegalEntity::Identification>]
-      #   # @param industry_classifications [Array<ModernTreasury::Models::LegalEntityIndustryClassification>]
-      #   # @param last_name [String, nil]
-      #   # @param legal_entity_associations [Array<ModernTreasury::Models::LegalEntityAssociation>, nil]
-      #   # @param legal_entity_type [Symbol, ModernTreasury::Models::LegalEntity::LegalEntityType]
-      #   # @param legal_structure [Symbol, ModernTreasury::Models::LegalEntity::LegalStructure, nil]
-      #   # @param live_mode [Boolean]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param middle_name [String, nil]
-      #   # @param object [String]
-      #   # @param phone_numbers [Array<ModernTreasury::Models::LegalEntity::PhoneNumber>]
-      #   # @param politically_exposed_person [Boolean, nil]
-      #   # @param preferred_name [String, nil]
-      #   # @param prefix [String, nil]
-      #   # @param risk_rating [Symbol, ModernTreasury::Models::LegalEntity::RiskRating, nil]
-      #   # @param suffix [String, nil]
-      #   # @param updated_at [Time]
-      #   # @param wealth_and_employment_details [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
-      #   # @param website [String, nil]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     addresses:,
-      #     bank_settings:,
-      #     business_name:,
-      #     citizenship_country:,
-      #     compliance_details:,
-      #     created_at:,
-      #     date_formed:,
-      #     date_of_birth:,
-      #     discarded_at:,
-      #     doing_business_as_names:,
-      #     email:,
-      #     first_name:,
-      #     identifications:,
-      #     industry_classifications:,
-      #     last_name:,
-      #     legal_entity_associations:,
-      #     legal_entity_type:,
-      #     legal_structure:,
-      #     live_mode:,
-      #     metadata:,
-      #     middle_name:,
-      #     object:,
-      #     phone_numbers:,
-      #     politically_exposed_person:,
-      #     preferred_name:,
-      #     prefix:,
-      #     risk_rating:,
-      #     suffix:,
-      #     updated_at:,
-      #     wealth_and_employment_details:,
-      #     website:,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, addresses:, bank_settings:, business_name:, citizenship_country:, compliance_details:, created_at:, date_formed:, date_of_birth:, discarded_at:, doing_business_as_names:, email:, first_name:, identifications:, industry_classifications:, last_name:, legal_entity_associations:, legal_entity_type:, legal_structure:, live_mode:, metadata:, middle_name:, object:, phone_numbers:, politically_exposed_person:, preferred_name:, prefix:, risk_rating:, suffix:, updated_at:, wealth_and_employment_details:, website:)
+      #   @param id [String]
+      #   @param addresses [Array<ModernTreasury::Models::LegalEntity::Address>]
+      #   @param bank_settings [ModernTreasury::Models::BankSettings, nil]
+      #   @param business_name [String, nil]
+      #   @param citizenship_country [String, nil]
+      #   @param compliance_details [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
+      #   @param created_at [Time]
+      #   @param date_formed [Date, nil]
+      #   @param date_of_birth [Date, nil]
+      #   @param discarded_at [Time, nil]
+      #   @param doing_business_as_names [Array<String>]
+      #   @param email [String, nil]
+      #   @param first_name [String, nil]
+      #   @param identifications [Array<ModernTreasury::Models::LegalEntity::Identification>]
+      #   @param industry_classifications [Array<ModernTreasury::Models::LegalEntityIndustryClassification>]
+      #   @param last_name [String, nil]
+      #   @param legal_entity_associations [Array<ModernTreasury::Models::LegalEntityAssociation>, nil]
+      #   @param legal_entity_type [Symbol, ModernTreasury::Models::LegalEntity::LegalEntityType]
+      #   @param legal_structure [Symbol, ModernTreasury::Models::LegalEntity::LegalStructure, nil]
+      #   @param live_mode [Boolean]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param middle_name [String, nil]
+      #   @param object [String]
+      #   @param phone_numbers [Array<ModernTreasury::Models::LegalEntity::PhoneNumber>]
+      #   @param politically_exposed_person [Boolean, nil]
+      #   @param preferred_name [String, nil]
+      #   @param prefix [String, nil]
+      #   @param risk_rating [Symbol, ModernTreasury::Models::LegalEntity::RiskRating, nil]
+      #   @param suffix [String, nil]
+      #   @param updated_at [Time]
+      #   @param wealth_and_employment_details [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
+      #   @param website [String, nil]
 
       class Address < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
@@ -344,41 +304,20 @@ module ModernTreasury
         #   @return [Time]
         required :updated_at, Time
 
-        # @!parse
-        #   # @param id [String]
-        #   # @param address_types [Array<Symbol, ModernTreasury::Models::LegalEntity::Address::AddressType>]
-        #   # @param country [String, nil]
-        #   # @param created_at [Time]
-        #   # @param discarded_at [Time, nil]
-        #   # @param line1 [String, nil]
-        #   # @param line2 [String, nil]
-        #   # @param live_mode [Boolean]
-        #   # @param locality [String, nil]
-        #   # @param object [String]
-        #   # @param postal_code [String, nil]
-        #   # @param region [String, nil]
-        #   # @param updated_at [Time]
-        #   #
-        #   def initialize(
-        #     id:,
-        #     address_types:,
-        #     country:,
-        #     created_at:,
-        #     discarded_at:,
-        #     line1:,
-        #     line2:,
-        #     live_mode:,
-        #     locality:,
-        #     object:,
-        #     postal_code:,
-        #     region:,
-        #     updated_at:,
-        #     **
-        #   )
-        #     super
-        #   end
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(id:, address_types:, country:, created_at:, discarded_at:, line1:, line2:, live_mode:, locality:, object:, postal_code:, region:, updated_at:)
+        #   @param id [String]
+        #   @param address_types [Array<Symbol, ModernTreasury::Models::LegalEntity::Address::AddressType>]
+        #   @param country [String, nil]
+        #   @param created_at [Time]
+        #   @param discarded_at [Time, nil]
+        #   @param line1 [String, nil]
+        #   @param line2 [String, nil]
+        #   @param live_mode [Boolean]
+        #   @param locality [String, nil]
+        #   @param object [String]
+        #   @param postal_code [String, nil]
+        #   @param region [String, nil]
+        #   @param updated_at [Time]
 
         module AddressType
           extend ModernTreasury::Internal::Type::Enum
@@ -389,11 +328,8 @@ module ModernTreasury
           PO_BOX = :po_box
           RESIDENTIAL = :residential
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
       end
 
@@ -443,19 +379,15 @@ module ModernTreasury
         #   @return [Time]
         required :updated_at, Time
 
-        # @!parse
-        #   # @param id [String]
-        #   # @param created_at [Time]
-        #   # @param discarded_at [Time, nil]
-        #   # @param id_type [Symbol, ModernTreasury::Models::LegalEntity::Identification::IDType]
-        #   # @param issuing_country [String, nil]
-        #   # @param live_mode [Boolean]
-        #   # @param object [String]
-        #   # @param updated_at [Time]
-        #   #
-        #   def initialize(id:, created_at:, discarded_at:, id_type:, issuing_country:, live_mode:, object:, updated_at:, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(id:, created_at:, discarded_at:, id_type:, issuing_country:, live_mode:, object:, updated_at:)
+        #   @param id [String]
+        #   @param created_at [Time]
+        #   @param discarded_at [Time, nil]
+        #   @param id_type [Symbol, ModernTreasury::Models::LegalEntity::Identification::IDType]
+        #   @param issuing_country [String, nil]
+        #   @param live_mode [Boolean]
+        #   @param object [String]
+        #   @param updated_at [Time]
 
         # The type of ID number.
         #
@@ -485,11 +417,8 @@ module ModernTreasury
           US_SSN = :us_ssn
           VN_TIN = :vn_tin
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
       end
 
@@ -503,11 +432,8 @@ module ModernTreasury
         INDIVIDUAL = :individual
         JOINT = :joint
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # The business's legal structure.
@@ -523,11 +449,8 @@ module ModernTreasury
         SOLE_PROPRIETORSHIP = :sole_proprietorship
         TRUST = :trust
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
@@ -540,14 +463,10 @@ module ModernTreasury
         #   # @return [String]
         #   attr_writer :phone_number
 
-        # @!parse
-        #   # A list of phone numbers in E.164 format.
-        #   #
-        #   # @param phone_number [String]
-        #   #
-        #   def initialize(phone_number: nil, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(phone_number: nil)
+        #   A list of phone numbers in E.164 format.
+        #
+        #   @param phone_number [String]
       end
 
       # The risk rating of the legal entity. One of low, medium, high.
@@ -560,11 +479,8 @@ module ModernTreasury
         MEDIUM = :medium
         HIGH = :high
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

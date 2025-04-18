@@ -62,29 +62,14 @@ module ModernTreasury
       #   # @return [Integer]
       #   attr_writer :target_amount
 
-      # @!parse
-      #   # @param internal_account_id [String]
-      #   # @param target_currency [Symbol, ModernTreasury::Models::Currency]
-      #   # @param base_amount [Integer]
-      #   # @param base_currency [Symbol, ModernTreasury::Models::Currency]
-      #   # @param effective_at [Time]
-      #   # @param target_amount [Integer]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     internal_account_id:,
-      #     target_currency:,
-      #     base_amount: nil,
-      #     base_currency: nil,
-      #     effective_at: nil,
-      #     target_amount: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(internal_account_id:, target_currency:, base_amount: nil, base_currency: nil, effective_at: nil, target_amount: nil, request_options: {})
+      #   @param internal_account_id [String]
+      #   @param target_currency [Symbol, ModernTreasury::Models::Currency]
+      #   @param base_amount [Integer]
+      #   @param base_currency [Symbol, ModernTreasury::Models::Currency]
+      #   @param effective_at [Time]
+      #   @param target_amount [Integer]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

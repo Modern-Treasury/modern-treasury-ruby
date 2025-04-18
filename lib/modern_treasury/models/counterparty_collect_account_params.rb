@@ -56,16 +56,12 @@ module ModernTreasury
       #   # @return [Boolean]
       #   attr_writer :send_email
 
-      # @!parse
-      #   # @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
-      #   # @param custom_redirect [String]
-      #   # @param fields [Array<Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field>]
-      #   # @param send_email [Boolean]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(direction:, custom_redirect: nil, fields: nil, send_email: nil, request_options: {}, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(direction:, custom_redirect: nil, fields: nil, send_email: nil, request_options: {})
+      #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
+      #   @param custom_redirect [String]
+      #   @param fields [Array<Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field>]
+      #   @param send_email [Boolean]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       module Field
         extend ModernTreasury::Internal::Type::Enum
@@ -100,11 +96,8 @@ module ModernTreasury
         ID_SKNBI_CODE = :idSknbiCode
         ZA_NATIONAL_CLEARING_CODE = :zaNationalClearingCode
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

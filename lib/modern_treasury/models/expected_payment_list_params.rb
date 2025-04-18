@@ -105,37 +105,18 @@ module ModernTreasury
       #   # @return [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type]
       #   attr_writer :type
 
-      # @!parse
-      #   # @param after_cursor [String, nil]
-      #   # @param counterparty_id [String]
-      #   # @param created_at_lower_bound [Time]
-      #   # @param created_at_upper_bound [Time]
-      #   # @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
-      #   # @param internal_account_id [String]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param per_page [Integer]
-      #   # @param status [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Status]
-      #   # @param type [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     after_cursor: nil,
-      #     counterparty_id: nil,
-      #     created_at_lower_bound: nil,
-      #     created_at_upper_bound: nil,
-      #     direction: nil,
-      #     internal_account_id: nil,
-      #     metadata: nil,
-      #     per_page: nil,
-      #     status: nil,
-      #     type: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(after_cursor: nil, counterparty_id: nil, created_at_lower_bound: nil, created_at_upper_bound: nil, direction: nil, internal_account_id: nil, metadata: nil, per_page: nil, status: nil, type: nil, request_options: {})
+      #   @param after_cursor [String, nil]
+      #   @param counterparty_id [String]
+      #   @param created_at_lower_bound [Time]
+      #   @param created_at_upper_bound [Time]
+      #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
+      #   @param internal_account_id [String]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param per_page [Integer]
+      #   @param status [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Status]
+      #   @param type [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # One of unreconciled, reconciled, or archived.
       module Status
@@ -146,11 +127,8 @@ module ModernTreasury
         RECONCILED = :reconciled
         UNRECONCILED = :unreconciled
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
@@ -189,11 +167,8 @@ module ModernTreasury
         WIRE = :wire
         ZENGIN = :zengin
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

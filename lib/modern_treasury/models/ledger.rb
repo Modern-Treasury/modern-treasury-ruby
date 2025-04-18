@@ -55,20 +55,16 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param created_at [Time]
-      #   # @param description [String, nil]
-      #   # @param discarded_at [Time, nil]
-      #   # @param live_mode [Boolean]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param name [String]
-      #   # @param object [String]
-      #   # @param updated_at [Time]
-      #   #
-      #   def initialize(id:, created_at:, description:, discarded_at:, live_mode:, metadata:, name:, object:, updated_at:, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, created_at:, description:, discarded_at:, live_mode:, metadata:, name:, object:, updated_at:)
+      #   @param id [String]
+      #   @param created_at [Time]
+      #   @param description [String, nil]
+      #   @param discarded_at [Time, nil]
+      #   @param live_mode [Boolean]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param name [String]
+      #   @param object [String]
+      #   @param updated_at [Time]
     end
   end
 end

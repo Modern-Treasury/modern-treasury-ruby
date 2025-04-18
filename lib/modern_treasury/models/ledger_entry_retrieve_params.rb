@@ -19,13 +19,9 @@ module ModernTreasury
       #   # @return [Boolean]
       #   attr_writer :show_balances
 
-      # @!parse
-      #   # @param show_balances [Boolean]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(show_balances: nil, request_options: {}, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(show_balances: nil, request_options: {})
+      #   @param show_balances [Boolean]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

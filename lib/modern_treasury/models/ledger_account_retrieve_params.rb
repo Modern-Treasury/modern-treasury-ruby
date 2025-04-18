@@ -23,13 +23,9 @@ module ModernTreasury
       #   # @return [ModernTreasury::Models::LedgerAccountRetrieveParams::Balances]
       #   attr_writer :balances
 
-      # @!parse
-      #   # @param balances [ModernTreasury::Models::LedgerAccountRetrieveParams::Balances]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(balances: nil, request_options: {}, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(balances: nil, request_options: {})
+      #   @param balances [ModernTreasury::Models::LedgerAccountRetrieveParams::Balances]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       class Balances < ModernTreasury::Internal::Type::BaseModel
         # @!attribute [r] as_of_date
@@ -77,32 +73,19 @@ module ModernTreasury
         #   # @return [Time]
         #   attr_writer :effective_at_upper_bound
 
-        # @!parse
-        #   # Use `balances[effective_at_lower_bound]` and
-        #   # `balances[effective_at_upper_bound]` to get the balances change between the two
-        #   # timestamps. The lower bound is inclusive while the upper bound is exclusive of
-        #   # the provided timestamps. If no value is supplied the balances will be retrieved
-        #   # not including that bound. Use `balances[as_of_lock_version]` to retrieve a
-        #   # balance as of a specific Ledger Account `lock_version`.
-        #   #
-        #   # @param as_of_date [Date]
-        #   # @param as_of_lock_version [Integer]
-        #   # @param effective_at [Time]
-        #   # @param effective_at_lower_bound [Time]
-        #   # @param effective_at_upper_bound [Time]
-        #   #
-        #   def initialize(
-        #     as_of_date: nil,
-        #     as_of_lock_version: nil,
-        #     effective_at: nil,
-        #     effective_at_lower_bound: nil,
-        #     effective_at_upper_bound: nil,
-        #     **
-        #   )
-        #     super
-        #   end
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(as_of_date: nil, as_of_lock_version: nil, effective_at: nil, effective_at_lower_bound: nil, effective_at_upper_bound: nil)
+        #   Use `balances[effective_at_lower_bound]` and
+        #   `balances[effective_at_upper_bound]` to get the balances change between the two
+        #   timestamps. The lower bound is inclusive while the upper bound is exclusive of
+        #   the provided timestamps. If no value is supplied the balances will be retrieved
+        #   not including that bound. Use `balances[as_of_lock_version]` to retrieve a
+        #   balance as of a specific Ledger Account `lock_version`.
+        #
+        #   @param as_of_date [Date]
+        #   @param as_of_lock_version [Integer]
+        #   @param effective_at [Time]
+        #   @param effective_at_lower_bound [Time]
+        #   @param effective_at_upper_bound [Time]
       end
     end
   end

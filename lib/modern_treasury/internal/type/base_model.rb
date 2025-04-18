@@ -346,6 +346,8 @@ module ModernTreasury
         end
 
         class << self
+          # @api private
+          #
           # @param model [ModernTreasury::Internal::Type::BaseModel]
           #
           # @return [Hash{Symbol=>Object}]

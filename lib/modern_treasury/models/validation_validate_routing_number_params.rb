@@ -24,14 +24,10 @@ module ModernTreasury
       required :routing_number_type,
                enum: -> { ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType }
 
-      # @!parse
-      #   # @param routing_number [String]
-      #   # @param routing_number_type [Symbol, ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(routing_number:, routing_number_type:, request_options: {}, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(routing_number:, routing_number_type:, request_options: {})
+      #   @param routing_number [String]
+      #   @param routing_number_type [Symbol, ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # The type of routing number. See
       # https://docs.moderntreasury.com/platform/reference/routing-detail-object for
@@ -62,11 +58,8 @@ module ModernTreasury
         SWIFT = :swift
         ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

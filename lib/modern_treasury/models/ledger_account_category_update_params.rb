@@ -35,15 +35,11 @@ module ModernTreasury
       #   # @return [String]
       #   attr_writer :name
 
-      # @!parse
-      #   # @param description [String, nil]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param name [String]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(description: nil, metadata: nil, name: nil, request_options: {}, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(description: nil, metadata: nil, name: nil, request_options: {})
+      #   @param description [String, nil]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param name [String]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

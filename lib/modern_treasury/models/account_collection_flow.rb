@@ -102,37 +102,18 @@ module ModernTreasury
       #   # @return [Time]
       #   attr_writer :updated_at
 
-      # @!parse
-      #   # @param counterparty_id [String]
-      #   # @param payment_types [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::PaymentType>]
-      #   # @param id [String]
-      #   # @param client_token [String]
-      #   # @param created_at [Time]
-      #   # @param external_account_id [String, nil]
-      #   # @param live_mode [Boolean]
-      #   # @param object [String]
-      #   # @param receiving_countries [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry>]
-      #   # @param status [Symbol, ModernTreasury::Models::AccountCollectionFlow::Status]
-      #   # @param updated_at [Time]
-      #   #
-      #   def initialize(
-      #     counterparty_id:,
-      #     payment_types:,
-      #     id: nil,
-      #     client_token: nil,
-      #     created_at: nil,
-      #     external_account_id: nil,
-      #     live_mode: nil,
-      #     object: nil,
-      #     receiving_countries: nil,
-      #     status: nil,
-      #     updated_at: nil,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(counterparty_id:, payment_types:, id: nil, client_token: nil, created_at: nil, external_account_id: nil, live_mode: nil, object: nil, receiving_countries: nil, status: nil, updated_at: nil)
+      #   @param counterparty_id [String]
+      #   @param payment_types [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::PaymentType>]
+      #   @param id [String]
+      #   @param client_token [String]
+      #   @param created_at [Time]
+      #   @param external_account_id [String, nil]
+      #   @param live_mode [Boolean]
+      #   @param object [String]
+      #   @param receiving_countries [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry>]
+      #   @param status [Symbol, ModernTreasury::Models::AccountCollectionFlow::Status]
+      #   @param updated_at [Time]
 
       # An account created with this flow will support payments of one of these types.
       module PaymentType
@@ -141,11 +122,8 @@ module ModernTreasury
         ACH = :ach
         WIRE = :wire
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # An account created with this flow will support wires from the US to these
@@ -172,11 +150,8 @@ module ModernTreasury
         ESP = :ESP
         GBR = :GBR
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # The current status of the account collection flow. One of `pending`,
@@ -191,11 +166,8 @@ module ModernTreasury
         EXPIRED = :expired
         PENDING = :pending
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

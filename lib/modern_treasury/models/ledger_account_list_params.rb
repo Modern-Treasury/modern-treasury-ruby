@@ -157,45 +157,22 @@ module ModernTreasury
       #   # @return [Hash{Symbol=>Time}]
       #   attr_writer :updated_at
 
-      # @!parse
-      #   # @param id [Array<String>]
-      #   # @param after_cursor [String, nil]
-      #   # @param available_balance_amount [ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount]
-      #   # @param balances [ModernTreasury::Models::LedgerAccountListParams::Balances]
-      #   # @param created_at [Hash{Symbol=>Time}]
-      #   # @param currency [String]
-      #   # @param ledger_account_category_id [String]
-      #   # @param ledger_id [String]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param name [Array<String>]
-      #   # @param pending_balance_amount [ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount]
-      #   # @param per_page [Integer]
-      #   # @param posted_balance_amount [ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount]
-      #   # @param updated_at [Hash{Symbol=>Time}]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     id: nil,
-      #     after_cursor: nil,
-      #     available_balance_amount: nil,
-      #     balances: nil,
-      #     created_at: nil,
-      #     currency: nil,
-      #     ledger_account_category_id: nil,
-      #     ledger_id: nil,
-      #     metadata: nil,
-      #     name: nil,
-      #     pending_balance_amount: nil,
-      #     per_page: nil,
-      #     posted_balance_amount: nil,
-      #     updated_at: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id: nil, after_cursor: nil, available_balance_amount: nil, balances: nil, created_at: nil, currency: nil, ledger_account_category_id: nil, ledger_id: nil, metadata: nil, name: nil, pending_balance_amount: nil, per_page: nil, posted_balance_amount: nil, updated_at: nil, request_options: {})
+      #   @param id [Array<String>]
+      #   @param after_cursor [String, nil]
+      #   @param available_balance_amount [ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount]
+      #   @param balances [ModernTreasury::Models::LedgerAccountListParams::Balances]
+      #   @param created_at [Hash{Symbol=>Time}]
+      #   @param currency [String]
+      #   @param ledger_account_category_id [String]
+      #   @param ledger_id [String]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param name [Array<String>]
+      #   @param pending_balance_amount [ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount]
+      #   @param per_page [Integer]
+      #   @param posted_balance_amount [ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount]
+      #   @param updated_at [Hash{Symbol=>Time}]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       class AvailableBalanceAmount < ModernTreasury::Internal::Type::BaseModel
         # @!attribute [r] eq
@@ -252,20 +229,16 @@ module ModernTreasury
         #   # @return [Integer]
         #   attr_writer :not_eq
 
-        # @!parse
-        #   # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
-        #   # filter by balance amount.
-        #   #
-        #   # @param eq [Integer]
-        #   # @param gt [Integer]
-        #   # @param gte [Integer]
-        #   # @param lt [Integer]
-        #   # @param lte [Integer]
-        #   # @param not_eq [Integer]
-        #   #
-        #   def initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil)
+        #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
+        #   filter by balance amount.
+        #
+        #   @param eq [Integer]
+        #   @param gt [Integer]
+        #   @param gte [Integer]
+        #   @param lt [Integer]
+        #   @param lte [Integer]
+        #   @param not_eq [Integer]
       end
 
       class Balances < ModernTreasury::Internal::Type::BaseModel
@@ -305,21 +278,17 @@ module ModernTreasury
         #   # @return [Time]
         #   attr_writer :effective_at_upper_bound
 
-        # @!parse
-        #   # Use `balances[effective_at_lower_bound]` and
-        #   # `balances[effective_at_upper_bound]` to get the balances change between the two
-        #   # timestamps. The lower bound is inclusive while the upper bound is exclusive of
-        #   # the provided timestamps. If no value is supplied the balances will be retrieved
-        #   # not including that bound.
-        #   #
-        #   # @param as_of_date [Date]
-        #   # @param effective_at [Time]
-        #   # @param effective_at_lower_bound [Time]
-        #   # @param effective_at_upper_bound [Time]
-        #   #
-        #   def initialize(as_of_date: nil, effective_at: nil, effective_at_lower_bound: nil, effective_at_upper_bound: nil, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(as_of_date: nil, effective_at: nil, effective_at_lower_bound: nil, effective_at_upper_bound: nil)
+        #   Use `balances[effective_at_lower_bound]` and
+        #   `balances[effective_at_upper_bound]` to get the balances change between the two
+        #   timestamps. The lower bound is inclusive while the upper bound is exclusive of
+        #   the provided timestamps. If no value is supplied the balances will be retrieved
+        #   not including that bound.
+        #
+        #   @param as_of_date [Date]
+        #   @param effective_at [Time]
+        #   @param effective_at_lower_bound [Time]
+        #   @param effective_at_upper_bound [Time]
       end
 
       class PendingBalanceAmount < ModernTreasury::Internal::Type::BaseModel
@@ -377,20 +346,16 @@ module ModernTreasury
         #   # @return [Integer]
         #   attr_writer :not_eq
 
-        # @!parse
-        #   # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
-        #   # filter by balance amount.
-        #   #
-        #   # @param eq [Integer]
-        #   # @param gt [Integer]
-        #   # @param gte [Integer]
-        #   # @param lt [Integer]
-        #   # @param lte [Integer]
-        #   # @param not_eq [Integer]
-        #   #
-        #   def initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil)
+        #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
+        #   filter by balance amount.
+        #
+        #   @param eq [Integer]
+        #   @param gt [Integer]
+        #   @param gte [Integer]
+        #   @param lt [Integer]
+        #   @param lte [Integer]
+        #   @param not_eq [Integer]
       end
 
       class PostedBalanceAmount < ModernTreasury::Internal::Type::BaseModel
@@ -448,20 +413,16 @@ module ModernTreasury
         #   # @return [Integer]
         #   attr_writer :not_eq
 
-        # @!parse
-        #   # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
-        #   # filter by balance amount.
-        #   #
-        #   # @param eq [Integer]
-        #   # @param gt [Integer]
-        #   # @param gte [Integer]
-        #   # @param lt [Integer]
-        #   # @param lte [Integer]
-        #   # @param not_eq [Integer]
-        #   #
-        #   def initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil)
+        #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
+        #   filter by balance amount.
+        #
+        #   @param eq [Integer]
+        #   @param gt [Integer]
+        #   @param gte [Integer]
+        #   @param lt [Integer]
+        #   @param lte [Integer]
+        #   @param not_eq [Integer]
       end
     end
   end

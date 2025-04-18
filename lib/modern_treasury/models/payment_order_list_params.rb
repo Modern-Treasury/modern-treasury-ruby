@@ -171,51 +171,25 @@ module ModernTreasury
       #   # @return [Symbol, ModernTreasury::Models::PaymentOrderListParams::Type]
       #   attr_writer :type
 
-      # @!parse
-      #   # @param after_cursor [String, nil]
-      #   # @param counterparty_id [String]
-      #   # @param created_at_end [Date]
-      #   # @param created_at_start [Date]
-      #   # @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
-      #   # @param effective_date_end [Date]
-      #   # @param effective_date_start [Date]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param originating_account_id [String]
-      #   # @param per_page [Integer]
-      #   # @param priority [Symbol, ModernTreasury::Models::PaymentOrderListParams::Priority]
-      #   # @param process_after_end [Time]
-      #   # @param process_after_start [Time]
-      #   # @param reference_number [String]
-      #   # @param status [Symbol, ModernTreasury::Models::PaymentOrderListParams::Status]
-      #   # @param transaction_id [String]
-      #   # @param type [Symbol, ModernTreasury::Models::PaymentOrderListParams::Type]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     after_cursor: nil,
-      #     counterparty_id: nil,
-      #     created_at_end: nil,
-      #     created_at_start: nil,
-      #     direction: nil,
-      #     effective_date_end: nil,
-      #     effective_date_start: nil,
-      #     metadata: nil,
-      #     originating_account_id: nil,
-      #     per_page: nil,
-      #     priority: nil,
-      #     process_after_end: nil,
-      #     process_after_start: nil,
-      #     reference_number: nil,
-      #     status: nil,
-      #     transaction_id: nil,
-      #     type: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(after_cursor: nil, counterparty_id: nil, created_at_end: nil, created_at_start: nil, direction: nil, effective_date_end: nil, effective_date_start: nil, metadata: nil, originating_account_id: nil, per_page: nil, priority: nil, process_after_end: nil, process_after_start: nil, reference_number: nil, status: nil, transaction_id: nil, type: nil, request_options: {})
+      #   @param after_cursor [String, nil]
+      #   @param counterparty_id [String]
+      #   @param created_at_end [Date]
+      #   @param created_at_start [Date]
+      #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
+      #   @param effective_date_end [Date]
+      #   @param effective_date_start [Date]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param originating_account_id [String]
+      #   @param per_page [Integer]
+      #   @param priority [Symbol, ModernTreasury::Models::PaymentOrderListParams::Priority]
+      #   @param process_after_end [Time]
+      #   @param process_after_start [Time]
+      #   @param reference_number [String]
+      #   @param status [Symbol, ModernTreasury::Models::PaymentOrderListParams::Status]
+      #   @param transaction_id [String]
+      #   @param type [Symbol, ModernTreasury::Models::PaymentOrderListParams::Type]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
       # same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
@@ -226,11 +200,8 @@ module ModernTreasury
         HIGH = :high
         NORMAL = :normal
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       module Status
@@ -248,11 +219,8 @@ module ModernTreasury
         REVERSED = :reversed
         SENT = :sent
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       module Type
@@ -289,11 +257,8 @@ module ModernTreasury
         WIRE = :wire
         ZENGIN = :zengin
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

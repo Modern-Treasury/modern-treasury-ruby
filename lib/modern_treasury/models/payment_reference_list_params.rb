@@ -55,27 +55,13 @@ module ModernTreasury
       #   # @return [Symbol, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType]
       #   attr_writer :referenceable_type
 
-      # @!parse
-      #   # @param after_cursor [String, nil]
-      #   # @param per_page [Integer]
-      #   # @param reference_number [String]
-      #   # @param referenceable_id [String]
-      #   # @param referenceable_type [Symbol, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     after_cursor: nil,
-      #     per_page: nil,
-      #     reference_number: nil,
-      #     referenceable_id: nil,
-      #     referenceable_type: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(after_cursor: nil, per_page: nil, reference_number: nil, referenceable_id: nil, referenceable_type: nil, request_options: {})
+      #   @param after_cursor [String, nil]
+      #   @param per_page [Integer]
+      #   @param reference_number [String]
+      #   @param referenceable_id [String]
+      #   @param referenceable_type [Symbol, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # One of the referenceable types. This must be accompanied by the id of the
       # referenceable or will return an error.
@@ -86,11 +72,8 @@ module ModernTreasury
         RETURN = :return
         REVERSAL = :reversal
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

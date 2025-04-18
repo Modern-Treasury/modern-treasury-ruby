@@ -74,35 +74,17 @@ module ModernTreasury
         #   @return [Time]
         required :updated_at, Time
 
-        # @!parse
-        #   # @param id [String]
-        #   # @param created_at [Time]
-        #   # @param external_account_id [String]
-        #   # @param live_mode [Boolean]
-        #   # @param object [String]
-        #   # @param originating_account_id [String]
-        #   # @param payment_type [Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType]
-        #   # @param priority [Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority, nil]
-        #   # @param status [Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status]
-        #   # @param updated_at [Time]
-        #   #
-        #   def initialize(
-        #     id:,
-        #     created_at:,
-        #     external_account_id:,
-        #     live_mode:,
-        #     object:,
-        #     originating_account_id:,
-        #     payment_type:,
-        #     priority:,
-        #     status:,
-        #     updated_at:,
-        #     **
-        #   )
-        #     super
-        #   end
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(id:, created_at:, external_account_id:, live_mode:, object:, originating_account_id:, payment_type:, priority:, status:, updated_at:)
+        #   @param id [String]
+        #   @param created_at [Time]
+        #   @param external_account_id [String]
+        #   @param live_mode [Boolean]
+        #   @param object [String]
+        #   @param originating_account_id [String]
+        #   @param payment_type [Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType]
+        #   @param priority [Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority, nil]
+        #   @param status [Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status]
+        #   @param updated_at [Time]
 
         # The type of payment that can be made to this account. Can be `ach`, `eft`, or
         # `rtp`.
@@ -142,11 +124,8 @@ module ModernTreasury
           WIRE = :wire
           ZENGIN = :zengin
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
 
         # The priority of the payment. Can be `normal` or `high`.
@@ -158,11 +137,8 @@ module ModernTreasury
           HIGH = :high
           NORMAL = :normal
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
 
         # The status of the verification attempt. Can be `pending_verification`,
@@ -177,17 +153,13 @@ module ModernTreasury
           PENDING_VERIFICATION = :pending_verification
           VERIFIED = :verified
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
       end
 
-      # @!parse
-      #   # @return [Array(ModernTreasury::Models::ExternalAccount, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt)]
-      #   def self.variants; end
+      # @!method self.variants
+      #   @return [Array(ModernTreasury::Models::ExternalAccount, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt)]
     end
   end
 end

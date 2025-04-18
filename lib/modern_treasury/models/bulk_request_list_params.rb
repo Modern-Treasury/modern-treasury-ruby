@@ -64,29 +64,14 @@ module ModernTreasury
       #   # @return [Symbol, ModernTreasury::Models::BulkRequestListParams::Status]
       #   attr_writer :status
 
-      # @!parse
-      #   # @param action_type [Symbol, ModernTreasury::Models::BulkRequestListParams::ActionType]
-      #   # @param after_cursor [String, nil]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param per_page [Integer]
-      #   # @param resource_type [Symbol, ModernTreasury::Models::BulkRequestListParams::ResourceType]
-      #   # @param status [Symbol, ModernTreasury::Models::BulkRequestListParams::Status]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     action_type: nil,
-      #     after_cursor: nil,
-      #     metadata: nil,
-      #     per_page: nil,
-      #     resource_type: nil,
-      #     status: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(action_type: nil, after_cursor: nil, metadata: nil, per_page: nil, resource_type: nil, status: nil, request_options: {})
+      #   @param action_type [Symbol, ModernTreasury::Models::BulkRequestListParams::ActionType]
+      #   @param after_cursor [String, nil]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param per_page [Integer]
+      #   @param resource_type [Symbol, ModernTreasury::Models::BulkRequestListParams::ResourceType]
+      #   @param status [Symbol, ModernTreasury::Models::BulkRequestListParams::Status]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # One of create, or update.
       module ActionType
@@ -96,11 +81,8 @@ module ModernTreasury
         UPDATE = :update
         DELETE = :delete
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # One of payment_order, expected_payment, or ledger_transaction.
@@ -114,11 +96,8 @@ module ModernTreasury
         TRANSACTION = :transaction
         ENTITY_LINK = :entity_link
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # One of pending, processing, or completed.
@@ -129,11 +108,8 @@ module ModernTreasury
         PROCESSING = :processing
         COMPLETED = :completed
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

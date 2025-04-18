@@ -173,67 +173,33 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param amount_lower_bound [Integer, nil]
-      #   # @param amount_upper_bound [Integer, nil]
-      #   # @param counterparty_id [String, nil]
-      #   # @param created_at [Time]
-      #   # @param currency [Symbol, ModernTreasury::Models::Currency, nil]
-      #   # @param date_lower_bound [Date, nil]
-      #   # @param date_upper_bound [Date, nil]
-      #   # @param description [String, nil]
-      #   # @param direction [Symbol, ModernTreasury::Models::ExpectedPayment::Direction, nil]
-      #   # @param internal_account_id [String, nil]
-      #   # @param ledger_transaction_id [String, nil]
-      #   # @param live_mode [Boolean]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param object [String]
-      #   # @param reconciliation_filters [Object, nil]
-      #   # @param reconciliation_groups [Object, nil]
-      #   # @param reconciliation_method [Symbol, ModernTreasury::Models::ExpectedPayment::ReconciliationMethod, nil]
-      #   # @param reconciliation_rule_variables [Array<ModernTreasury::Models::ReconciliationRule>, nil]
-      #   # @param remittance_information [String, nil]
-      #   # @param statement_descriptor [String, nil]
-      #   # @param status [Symbol, ModernTreasury::Models::ExpectedPayment::Status]
-      #   # @param transaction_id [String, nil]
-      #   # @param transaction_line_item_id [String, nil]
-      #   # @param type [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil]
-      #   # @param updated_at [Time]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     amount_lower_bound:,
-      #     amount_upper_bound:,
-      #     counterparty_id:,
-      #     created_at:,
-      #     currency:,
-      #     date_lower_bound:,
-      #     date_upper_bound:,
-      #     description:,
-      #     direction:,
-      #     internal_account_id:,
-      #     ledger_transaction_id:,
-      #     live_mode:,
-      #     metadata:,
-      #     object:,
-      #     reconciliation_filters:,
-      #     reconciliation_groups:,
-      #     reconciliation_method:,
-      #     reconciliation_rule_variables:,
-      #     remittance_information:,
-      #     statement_descriptor:,
-      #     status:,
-      #     transaction_id:,
-      #     transaction_line_item_id:,
-      #     type:,
-      #     updated_at:,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, amount_lower_bound:, amount_upper_bound:, counterparty_id:, created_at:, currency:, date_lower_bound:, date_upper_bound:, description:, direction:, internal_account_id:, ledger_transaction_id:, live_mode:, metadata:, object:, reconciliation_filters:, reconciliation_groups:, reconciliation_method:, reconciliation_rule_variables:, remittance_information:, statement_descriptor:, status:, transaction_id:, transaction_line_item_id:, type:, updated_at:)
+      #   @param id [String]
+      #   @param amount_lower_bound [Integer, nil]
+      #   @param amount_upper_bound [Integer, nil]
+      #   @param counterparty_id [String, nil]
+      #   @param created_at [Time]
+      #   @param currency [Symbol, ModernTreasury::Models::Currency, nil]
+      #   @param date_lower_bound [Date, nil]
+      #   @param date_upper_bound [Date, nil]
+      #   @param description [String, nil]
+      #   @param direction [Symbol, ModernTreasury::Models::ExpectedPayment::Direction, nil]
+      #   @param internal_account_id [String, nil]
+      #   @param ledger_transaction_id [String, nil]
+      #   @param live_mode [Boolean]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param object [String]
+      #   @param reconciliation_filters [Object, nil]
+      #   @param reconciliation_groups [Object, nil]
+      #   @param reconciliation_method [Symbol, ModernTreasury::Models::ExpectedPayment::ReconciliationMethod, nil]
+      #   @param reconciliation_rule_variables [Array<ModernTreasury::Models::ReconciliationRule>, nil]
+      #   @param remittance_information [String, nil]
+      #   @param statement_descriptor [String, nil]
+      #   @param status [Symbol, ModernTreasury::Models::ExpectedPayment::Status]
+      #   @param transaction_id [String, nil]
+      #   @param transaction_line_item_id [String, nil]
+      #   @param type [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil]
+      #   @param updated_at [Time]
 
       # One of credit or debit. When you are receiving money, use credit. When you are
       # being charged, use debit.
@@ -245,11 +211,8 @@ module ModernTreasury
         CREDIT = :credit
         DEBIT = :debit
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # One of manual if this expected payment was manually reconciled in the dashboard,
@@ -263,11 +226,8 @@ module ModernTreasury
         AUTOMATIC = :automatic
         MANUAL = :manual
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # One of unreconciled, partially_reconciled, reconciled, or archived.
@@ -281,11 +241,8 @@ module ModernTreasury
         RECONCILED = :reconciled
         UNRECONCILED = :unreconciled
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

@@ -41,15 +41,11 @@ module ModernTreasury
         #   # @return [Hash{Symbol=>String}]
         #   attr_writer :metadata
 
-        # @!parse
-        #   # @param reason [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason]
-        #   # @param ledger_transaction [ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction]
-        #   # @param metadata [Hash{Symbol=>String}]
-        #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-        #   #
-        #   def initialize(reason:, ledger_transaction: nil, metadata: nil, request_options: {}, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(reason:, ledger_transaction: nil, metadata: nil, request_options: {})
+        #   @param reason [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason]
+        #   @param ledger_transaction [ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction]
+        #   @param metadata [Hash{Symbol=>String}]
+        #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
         # The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`,
         # `incorrect_receiving_account`, `date_earlier_than_intended`,
@@ -63,11 +59,8 @@ module ModernTreasury
           DATE_EARLIER_THAN_INTENDED = :date_earlier_than_intended
           DATE_LATER_THAN_INTENDED = :date_later_than_intended
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
 
         class LedgerTransaction < ModernTreasury::Internal::Type::BaseModel
@@ -164,37 +157,20 @@ module ModernTreasury
           #   # @return [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status]
           #   attr_writer :status
 
-          # @!parse
-          #   # Specifies a ledger transaction object that will be created with the reversal. If
-          #   # the ledger transaction cannot be created, then the reversal creation will fail.
-          #   # The resulting ledger transaction will mirror the status of the reversal.
-          #   #
-          #   # @param ledger_entries [Array<ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry>]
-          #   # @param description [String, nil]
-          #   # @param effective_at [Time]
-          #   # @param effective_date [Date]
-          #   # @param external_id [String]
-          #   # @param ledgerable_id [String]
-          #   # @param ledgerable_type [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType]
-          #   # @param metadata [Hash{Symbol=>String}]
-          #   # @param status [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status]
-          #   #
-          #   def initialize(
-          #     ledger_entries:,
-          #     description: nil,
-          #     effective_at: nil,
-          #     effective_date: nil,
-          #     external_id: nil,
-          #     ledgerable_id: nil,
-          #     ledgerable_type: nil,
-          #     metadata: nil,
-          #     status: nil,
-          #     **
-          #   )
-          #     super
-          #   end
-
-          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+          # @!method initialize(ledger_entries:, description: nil, effective_at: nil, effective_date: nil, external_id: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, status: nil)
+          #   Specifies a ledger transaction object that will be created with the reversal. If
+          #   the ledger transaction cannot be created, then the reversal creation will fail.
+          #   The resulting ledger transaction will mirror the status of the reversal.
+          #
+          #   @param ledger_entries [Array<ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry>]
+          #   @param description [String, nil]
+          #   @param effective_at [Time]
+          #   @param effective_date [Date]
+          #   @param external_id [String]
+          #   @param ledgerable_id [String]
+          #   @param ledgerable_type [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType]
+          #   @param metadata [Hash{Symbol=>String}]
+          #   @param status [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status]
 
           class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
             # @!attribute amount
@@ -272,33 +248,16 @@ module ModernTreasury
                      ModernTreasury::Internal::Type::Boolean,
                      nil?: true
 
-            # @!parse
-            #   # @param amount [Integer]
-            #   # @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
-            #   # @param ledger_account_id [String]
-            #   # @param available_balance_amount [Hash{Symbol=>Integer}, nil]
-            #   # @param lock_version [Integer, nil]
-            #   # @param metadata [Hash{Symbol=>String}]
-            #   # @param pending_balance_amount [Hash{Symbol=>Integer}, nil]
-            #   # @param posted_balance_amount [Hash{Symbol=>Integer}, nil]
-            #   # @param show_resulting_ledger_account_balances [Boolean, nil]
-            #   #
-            #   def initialize(
-            #     amount:,
-            #     direction:,
-            #     ledger_account_id:,
-            #     available_balance_amount: nil,
-            #     lock_version: nil,
-            #     metadata: nil,
-            #     pending_balance_amount: nil,
-            #     posted_balance_amount: nil,
-            #     show_resulting_ledger_account_balances: nil,
-            #     **
-            #   )
-            #     super
-            #   end
-
-            # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+            # @!method initialize(amount:, direction:, ledger_account_id:, available_balance_amount: nil, lock_version: nil, metadata: nil, pending_balance_amount: nil, posted_balance_amount: nil, show_resulting_ledger_account_balances: nil)
+            #   @param amount [Integer]
+            #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
+            #   @param ledger_account_id [String]
+            #   @param available_balance_amount [Hash{Symbol=>Integer}, nil]
+            #   @param lock_version [Integer, nil]
+            #   @param metadata [Hash{Symbol=>String}]
+            #   @param pending_balance_amount [Hash{Symbol=>Integer}, nil]
+            #   @param posted_balance_amount [Hash{Symbol=>Integer}, nil]
+            #   @param show_resulting_ledger_account_balances [Boolean, nil]
           end
 
           # If the ledger transaction can be reconciled to another object in Modern
@@ -317,11 +276,8 @@ module ModernTreasury
             RETURN = :return
             REVERSAL = :reversal
 
-            finalize!
-
-            # @!parse
-            #   # @return [Array<Symbol>]
-            #   def self.values; end
+            # @!method self.values
+            #   @return [Array<Symbol>]
           end
 
           # To post a ledger transaction at creation, use `posted`.
@@ -334,11 +290,8 @@ module ModernTreasury
             PENDING = :pending
             POSTED = :posted
 
-            finalize!
-
-            # @!parse
-            #   # @return [Array<Symbol>]
-            #   def self.values; end
+            # @!method self.values
+            #   @return [Array<Symbol>]
           end
         end
       end

@@ -73,39 +73,19 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param created_at [Time]
-      #   # @param discarded_at [Time, nil]
-      #   # @param document_details [Array<ModernTreasury::Models::Document::DocumentDetail>]
-      #   # @param document_type [String, nil]
-      #   # @param documentable_id [String]
-      #   # @param documentable_type [Symbol, ModernTreasury::Models::Document::DocumentableType]
-      #   # @param file [ModernTreasury::Models::Document::File]
-      #   # @param live_mode [Boolean]
-      #   # @param object [String]
-      #   # @param source [String]
-      #   # @param updated_at [Time]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     created_at:,
-      #     discarded_at:,
-      #     document_details:,
-      #     document_type:,
-      #     documentable_id:,
-      #     documentable_type:,
-      #     file:,
-      #     live_mode:,
-      #     object:,
-      #     source:,
-      #     updated_at:,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, created_at:, discarded_at:, document_details:, document_type:, documentable_id:, documentable_type:, file:, live_mode:, object:, source:, updated_at:)
+      #   @param id [String]
+      #   @param created_at [Time]
+      #   @param discarded_at [Time, nil]
+      #   @param document_details [Array<ModernTreasury::Models::Document::DocumentDetail>]
+      #   @param document_type [String, nil]
+      #   @param documentable_id [String]
+      #   @param documentable_type [Symbol, ModernTreasury::Models::Document::DocumentableType]
+      #   @param file [ModernTreasury::Models::Document::File]
+      #   @param live_mode [Boolean]
+      #   @param object [String]
+      #   @param source [String]
+      #   @param updated_at [Time]
 
       class DocumentDetail < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
@@ -150,31 +130,15 @@ module ModernTreasury
         #   @return [Time]
         required :updated_at, Time
 
-        # @!parse
-        #   # @param id [String]
-        #   # @param created_at [Time]
-        #   # @param discarded_at [Time, nil]
-        #   # @param document_identifier [String]
-        #   # @param document_identifier_type [String]
-        #   # @param live_mode [Boolean]
-        #   # @param object [String]
-        #   # @param updated_at [Time]
-        #   #
-        #   def initialize(
-        #     id:,
-        #     created_at:,
-        #     discarded_at:,
-        #     document_identifier:,
-        #     document_identifier_type:,
-        #     live_mode:,
-        #     object:,
-        #     updated_at:,
-        #     **
-        #   )
-        #     super
-        #   end
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(id:, created_at:, discarded_at:, document_identifier:, document_identifier_type:, live_mode:, object:, updated_at:)
+        #   @param id [String]
+        #   @param created_at [Time]
+        #   @param discarded_at [Time, nil]
+        #   @param document_identifier [String]
+        #   @param document_identifier_type [String]
+        #   @param live_mode [Boolean]
+        #   @param object [String]
+        #   @param updated_at [Time]
       end
 
       # The type of the associated object. Currently can be one of `payment_order`,
@@ -198,11 +162,8 @@ module ModernTreasury
         DECISION = :decision
         CONNECTION = :connection
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # @see ModernTreasury::Models::Document#file
@@ -237,14 +198,10 @@ module ModernTreasury
         #   # @return [Integer]
         #   attr_writer :size
 
-        # @!parse
-        #   # @param content_type [String]
-        #   # @param filename [String]
-        #   # @param size [Integer]
-        #   #
-        #   def initialize(content_type: nil, filename: nil, size: nil, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(content_type: nil, filename: nil, size: nil)
+        #   @param content_type [String]
+        #   @param filename [String]
+        #   @param size [Integer]
       end
     end
   end

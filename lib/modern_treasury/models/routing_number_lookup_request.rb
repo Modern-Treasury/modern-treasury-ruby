@@ -72,27 +72,13 @@ module ModernTreasury
       #   # @return [Array<Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType>]
       #   attr_writer :supported_payment_types
 
-      # @!parse
-      #   # @param bank_address [ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress]
-      #   # @param bank_name [String]
-      #   # @param routing_number [String]
-      #   # @param routing_number_type [Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType]
-      #   # @param sanctions [Hash{Symbol=>Object}]
-      #   # @param supported_payment_types [Array<Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType>]
-      #   #
-      #   def initialize(
-      #     bank_address: nil,
-      #     bank_name: nil,
-      #     routing_number: nil,
-      #     routing_number_type: nil,
-      #     sanctions: nil,
-      #     supported_payment_types: nil,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(bank_address: nil, bank_name: nil, routing_number: nil, routing_number_type: nil, sanctions: nil, supported_payment_types: nil)
+      #   @param bank_address [ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress]
+      #   @param bank_name [String]
+      #   @param routing_number [String]
+      #   @param routing_number_type [Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType]
+      #   @param sanctions [Hash{Symbol=>Object}]
+      #   @param supported_payment_types [Array<Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType>]
 
       # @see ModernTreasury::Models::RoutingNumberLookupRequest#bank_address
       class BankAddress < ModernTreasury::Internal::Type::BaseModel
@@ -130,19 +116,15 @@ module ModernTreasury
         #   @return [String, nil]
         optional :region, String, nil?: true
 
-        # @!parse
-        #   # The address of the bank.
-        #   #
-        #   # @param country [String, nil]
-        #   # @param line1 [String, nil]
-        #   # @param line2 [String, nil]
-        #   # @param locality [String, nil]
-        #   # @param postal_code [String, nil]
-        #   # @param region [String, nil]
-        #   #
-        #   def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
+        #   The address of the bank.
+        #
+        #   @param country [String, nil]
+        #   @param line1 [String, nil]
+        #   @param line2 [String, nil]
+        #   @param locality [String, nil]
+        #   @param postal_code [String, nil]
+        #   @param region [String, nil]
       end
 
       # The type of routing number. See
@@ -164,11 +146,8 @@ module ModernTreasury
         SWIFT = :swift
         ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       module SupportedPaymentType
@@ -205,11 +184,8 @@ module ModernTreasury
         WIRE = :wire
         ZENGIN = :zengin
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

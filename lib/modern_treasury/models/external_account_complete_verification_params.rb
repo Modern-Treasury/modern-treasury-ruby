@@ -17,13 +17,9 @@ module ModernTreasury
       #   # @return [Array<Integer>]
       #   attr_writer :amounts
 
-      # @!parse
-      #   # @param amounts [Array<Integer>]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(amounts: nil, request_options: {}, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(amounts: nil, request_options: {})
+      #   @param amounts [Array<Integer>]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

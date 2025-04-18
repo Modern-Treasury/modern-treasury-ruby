@@ -45,16 +45,12 @@ module ModernTreasury
         #   # @return [Integer]
         #   attr_writer :per_page
 
-        # @!parse
-        #   # @param after_cursor [String, nil]
-        #   # @param as_of_date [Date]
-        #   # @param balance_report_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType]
-        #   # @param per_page [Integer]
-        #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-        #   #
-        #   def initialize(after_cursor: nil, as_of_date: nil, balance_report_type: nil, per_page: nil, request_options: {}, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(after_cursor: nil, as_of_date: nil, balance_report_type: nil, per_page: nil, request_options: {})
+        #   @param after_cursor [String, nil]
+        #   @param as_of_date [Date]
+        #   @param balance_report_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType]
+        #   @param per_page [Integer]
+        #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
         # The specific type of balance report. One of `intraday`, `previous_day`,
         # `real_time`, or `other`.
@@ -66,11 +62,8 @@ module ModernTreasury
           PREVIOUS_DAY = :previous_day
           REAL_TIME = :real_time
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
       end
     end

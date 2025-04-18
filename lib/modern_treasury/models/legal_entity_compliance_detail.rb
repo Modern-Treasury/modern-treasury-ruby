@@ -71,39 +71,19 @@ module ModernTreasury
       #   @return [Time, nil]
       required :validated_at, Time, nil?: true
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param created_at [Time]
-      #   # @param discarded_at [Time, nil]
-      #   # @param issuer [String]
-      #   # @param live_mode [Boolean]
-      #   # @param object [String]
-      #   # @param token_expires_at [Time, nil]
-      #   # @param token_issued_at [Time, nil]
-      #   # @param token_url [String, nil]
-      #   # @param updated_at [Time]
-      #   # @param validated [Boolean]
-      #   # @param validated_at [Time, nil]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     created_at:,
-      #     discarded_at:,
-      #     issuer:,
-      #     live_mode:,
-      #     object:,
-      #     token_expires_at:,
-      #     token_issued_at:,
-      #     token_url:,
-      #     updated_at:,
-      #     validated:,
-      #     validated_at:,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, created_at:, discarded_at:, issuer:, live_mode:, object:, token_expires_at:, token_issued_at:, token_url:, updated_at:, validated:, validated_at:)
+      #   @param id [String]
+      #   @param created_at [Time]
+      #   @param discarded_at [Time, nil]
+      #   @param issuer [String]
+      #   @param live_mode [Boolean]
+      #   @param object [String]
+      #   @param token_expires_at [Time, nil]
+      #   @param token_issued_at [Time, nil]
+      #   @param token_url [String, nil]
+      #   @param updated_at [Time]
+      #   @param validated [Boolean]
+      #   @param validated_at [Time, nil]
     end
   end
 end
