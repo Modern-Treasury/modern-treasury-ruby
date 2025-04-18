@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::LineItems#list
     class LineItemListParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute itemizable_type
@@ -18,14 +17,10 @@ module ModernTreasury
       #   @return [String, nil]
       optional :after_cursor, String, nil?: true
 
-      # @!attribute [r] per_page
+      # @!attribute per_page
       #
       #   @return [Integer, nil]
       optional :per_page, Integer
-
-      # @!parse
-      #   # @return [Integer]
-      #   attr_writer :per_page
 
       # @!method initialize(itemizable_type:, after_cursor: nil, per_page: nil, request_options: {})
       #   @param itemizable_type [Symbol, ModernTreasury::Models::LineItemListParams::ItemizableType]

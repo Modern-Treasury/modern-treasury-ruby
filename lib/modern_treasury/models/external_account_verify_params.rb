@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::ExternalAccounts#verify
     class ExternalAccountVerifyParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute originating_account_id
@@ -21,17 +20,13 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType]
       required :payment_type, enum: -> { ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType }
 
-      # @!attribute [r] currency
+      # @!attribute currency
       #   Defaults to the currency of the originating account.
       #
       #   @return [Symbol, ModernTreasury::Models::Currency, nil]
       optional :currency, enum: -> { ModernTreasury::Models::Currency }
 
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::Currency]
-      #   attr_writer :currency
-
-      # @!attribute [r] fallback_type
+      # @!attribute fallback_type
       #   A payment type to fallback to if the original type is not valid for the
       #   receiving account. Currently, this only supports falling back from RTP to ACH
       #   (payment_type=rtp and fallback_type=ach)
@@ -39,20 +34,12 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType, nil]
       optional :fallback_type, enum: -> { ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType }
 
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType]
-      #   attr_writer :fallback_type
-
-      # @!attribute [r] priority
+      # @!attribute priority
       #   Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH
       #   transfer. This will apply to both `payment_type` and `fallback_type`.
       #
       #   @return [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::Priority, nil]
       optional :priority, enum: -> { ModernTreasury::Models::ExternalAccountVerifyParams::Priority }
-
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::Priority]
-      #   attr_writer :priority
 
       # @!method initialize(originating_account_id:, payment_type:, currency: nil, fallback_type: nil, priority: nil, request_options: {})
       #   @param originating_account_id [String]

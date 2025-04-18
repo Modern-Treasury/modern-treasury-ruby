@@ -5,8 +5,7 @@ module ModernTreasury
     module PaymentOrders
       # @see ModernTreasury::Resources::PaymentOrders::Reversals#list
       class ReversalListParams < ModernTreasury::Internal::Type::BaseModel
-        # @!parse
-        #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 
         # @!attribute after_cursor
@@ -14,14 +13,10 @@ module ModernTreasury
         #   @return [String, nil]
         optional :after_cursor, String, nil?: true
 
-        # @!attribute [r] per_page
+        # @!attribute per_page
         #
         #   @return [Integer, nil]
         optional :per_page, Integer
-
-        # @!parse
-        #   # @return [Integer]
-        #   attr_writer :per_page
 
         # @!method initialize(after_cursor: nil, per_page: nil, request_options: {})
         #   @param after_cursor [String, nil]

@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::ExpectedPayments#list
     class ExpectedPaymentListParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute after_cursor
@@ -13,57 +12,37 @@ module ModernTreasury
       #   @return [String, nil]
       optional :after_cursor, String, nil?: true
 
-      # @!attribute [r] counterparty_id
+      # @!attribute counterparty_id
       #   Specify counterparty_id to see expected_payments for a specific account.
       #
       #   @return [String, nil]
       optional :counterparty_id, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :counterparty_id
-
-      # @!attribute [r] created_at_lower_bound
+      # @!attribute created_at_lower_bound
       #   Used to return expected payments created after some datetime
       #
       #   @return [Time, nil]
       optional :created_at_lower_bound, Time
 
-      # @!parse
-      #   # @return [Time]
-      #   attr_writer :created_at_lower_bound
-
-      # @!attribute [r] created_at_upper_bound
+      # @!attribute created_at_upper_bound
       #   Used to return expected payments created before some datetime
       #
       #   @return [Time, nil]
       optional :created_at_upper_bound, Time
 
-      # @!parse
-      #   # @return [Time]
-      #   attr_writer :created_at_upper_bound
-
-      # @!attribute [r] direction
+      # @!attribute direction
       #   One of credit, debit
       #
       #   @return [Symbol, ModernTreasury::Models::TransactionDirection, nil]
       optional :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
 
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::TransactionDirection]
-      #   attr_writer :direction
-
-      # @!attribute [r] internal_account_id
+      # @!attribute internal_account_id
       #   Specify internal_account_id to see expected_payments for a specific account.
       #
       #   @return [String, nil]
       optional :internal_account_id, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :internal_account_id
-
-      # @!attribute [r] metadata
+      # @!attribute metadata
       #   For example, if you want to query for records with metadata key `Type` and value
       #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   parameters.
@@ -71,39 +50,23 @@ module ModernTreasury
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
-      # @!parse
-      #   # @return [Hash{Symbol=>String}]
-      #   attr_writer :metadata
-
-      # @!attribute [r] per_page
+      # @!attribute per_page
       #
       #   @return [Integer, nil]
       optional :per_page, Integer
 
-      # @!parse
-      #   # @return [Integer]
-      #   attr_writer :per_page
-
-      # @!attribute [r] status
+      # @!attribute status
       #   One of unreconciled, reconciled, or archived.
       #
       #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::Models::ExpectedPaymentListParams::Status }
 
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Status]
-      #   attr_writer :status
-
-      # @!attribute [r] type
+      # @!attribute type
       #   One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
       #   sepa, signet, wire
       #
       #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type, nil]
       optional :type, enum: -> { ModernTreasury::Models::ExpectedPaymentListParams::Type }
-
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type]
-      #   attr_writer :type
 
       # @!method initialize(after_cursor: nil, counterparty_id: nil, created_at_lower_bound: nil, created_at_upper_bound: nil, direction: nil, internal_account_id: nil, metadata: nil, per_page: nil, status: nil, type: nil, request_options: {})
       #   @param after_cursor [String, nil]

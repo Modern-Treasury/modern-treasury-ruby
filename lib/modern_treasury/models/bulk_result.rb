@@ -156,32 +156,20 @@ module ModernTreasury
           #   @param updated_at [Time]
 
           class RequestError < ModernTreasury::Internal::Type::BaseModel
-            # @!attribute [r] code
+            # @!attribute code
             #
             #   @return [String, nil]
             optional :code, String
 
-            # @!parse
-            #   # @return [String]
-            #   attr_writer :code
-
-            # @!attribute [r] message
+            # @!attribute message
             #
             #   @return [String, nil]
             optional :message, String
 
-            # @!parse
-            #   # @return [String]
-            #   attr_writer :message
-
-            # @!attribute [r] parameter
+            # @!attribute parameter
             #
             #   @return [String, nil]
             optional :parameter, String
-
-            # @!parse
-            #   # @return [String]
-            #   attr_writer :parameter
 
             # @!method initialize(code: nil, message: nil, parameter: nil)
             #   @param code [String]

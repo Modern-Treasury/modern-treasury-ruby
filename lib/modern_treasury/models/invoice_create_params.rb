@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::Invoices#create
     class InvoiceCreateParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute counterparty_id
@@ -34,16 +33,12 @@ module ModernTreasury
       #   @return [Boolean, nil]
       optional :auto_advance, ModernTreasury::Internal::Type::Boolean, nil?: true
 
-      # @!attribute [r] contact_details
+      # @!attribute contact_details
       #   The invoicer's contact details displayed at the top of the invoice.
       #
       #   @return [Array<ModernTreasury::Models::InvoiceCreateParams::ContactDetail>, nil]
       optional :contact_details,
                -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::InvoiceCreateParams::ContactDetail] }
-
-      # @!parse
-      #   # @return [Array<ModernTreasury::Models::InvoiceCreateParams::ContactDetail>]
-      #   attr_writer :contact_details
 
       # @!attribute counterparty_billing_address
       #   The counterparty's billing address.
@@ -61,25 +56,17 @@ module ModernTreasury
                -> { ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress },
                nil?: true
 
-      # @!attribute [r] currency
+      # @!attribute currency
       #   Currency that the invoice is denominated in. Defaults to `USD` if not provided.
       #
       #   @return [Symbol, ModernTreasury::Models::Currency, nil]
       optional :currency, enum: -> { ModernTreasury::Models::Currency }
 
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::Currency]
-      #   attr_writer :currency
-
-      # @!attribute [r] description
+      # @!attribute description
       #   A free-form description of the invoice.
       #
       #   @return [String, nil]
       optional :description, String
-
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :description
 
       # @!attribute fallback_payment_method
       #   When payment_method is automatic, the fallback payment method to use when an
@@ -135,18 +122,14 @@ module ModernTreasury
       #   @return [Array<String>, nil]
       optional :notification_email_addresses, ModernTreasury::Internal::Type::ArrayOf[String], nil?: true
 
-      # @!attribute [r] notifications_enabled
+      # @!attribute notifications_enabled
       #   If true, the invoice will send email notifications to the invoice recipients
       #   about invoice status changes.
       #
       #   @return [Boolean, nil]
       optional :notifications_enabled, ModernTreasury::Internal::Type::Boolean
 
-      # @!parse
-      #   # @return [Boolean]
-      #   attr_writer :notifications_enabled
-
-      # @!attribute [r] payment_effective_date
+      # @!attribute payment_effective_date
       #   Date transactions are to be posted to the participants' account. Defaults to the
       #   current business day or the next business day if the current day is a bank
       #   holiday or weekend. Format: yyyy-mm-dd.
@@ -154,11 +137,7 @@ module ModernTreasury
       #   @return [Date, nil]
       optional :payment_effective_date, Date
 
-      # @!parse
-      #   # @return [Date]
-      #   attr_writer :payment_effective_date
-
-      # @!attribute [r] payment_method
+      # @!attribute payment_method
       #   The method by which the invoice can be paid. `ui` will show the embedded payment
       #   collection flow. `automatic` will automatically initiate payment based upon the
       #   account details of the receiving_account id.\nIf the invoice amount is positive,
@@ -169,11 +148,7 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod, nil]
       optional :payment_method, enum: -> { ModernTreasury::Models::InvoiceCreateParams::PaymentMethod }
 
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod]
-      #   attr_writer :payment_method
-
-      # @!attribute [r] payment_type
+      # @!attribute payment_type
       #   One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
       #   `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
       #   `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
@@ -181,19 +156,11 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::PaymentOrderType, nil]
       optional :payment_type, enum: -> { ModernTreasury::Models::PaymentOrderType }
 
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::PaymentOrderType]
-      #   attr_writer :payment_type
-
-      # @!attribute [r] receiving_account_id
+      # @!attribute receiving_account_id
       #   The receiving account ID. Can be an `external_account`.
       #
       #   @return [String, nil]
       optional :receiving_account_id, String
-
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :receiving_account_id
 
       # @!attribute recipient_email
       #   The email of the recipient of the invoice. Leaving this value as null will
@@ -347,14 +314,10 @@ module ModernTreasury
         #   @return [String]
         required :region, String
 
-        # @!attribute [r] line2
+        # @!attribute line2
         #
         #   @return [String, nil]
         optional :line2, String
-
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :line2
 
         # @!method initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
         #   The counterparty's billing address.
@@ -397,14 +360,10 @@ module ModernTreasury
         #   @return [String]
         required :region, String
 
-        # @!attribute [r] line2
+        # @!attribute line2
         #
         #   @return [String, nil]
         optional :line2, String
-
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :line2
 
         # @!method initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
         #   The counterparty's shipping address where physical goods should be delivered.
@@ -431,17 +390,13 @@ module ModernTreasury
         #   @return [Integer]
         required :unit_amount, Integer
 
-        # @!attribute [r] description
+        # @!attribute description
         #   An optional free-form description of the line item.
         #
         #   @return [String, nil]
         optional :description, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :description
-
-        # @!attribute [r] direction
+        # @!attribute direction
         #   Either `debit` or `credit`. `debit` indicates that a client owes the business
         #   money and increases the invoice's `total_amount` due. `credit` has the opposite
         #   intention and effect.
@@ -449,43 +404,27 @@ module ModernTreasury
         #   @return [String, nil]
         optional :direction, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :direction
-
-        # @!attribute [r] metadata
+        # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be
         #   strings.
         #
         #   @return [Hash{Symbol=>String}, nil]
         optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
-        # @!parse
-        #   # @return [Hash{Symbol=>String}]
-        #   attr_writer :metadata
-
-        # @!attribute [r] quantity
+        # @!attribute quantity
         #   The number of units of a product or service that this line item is for. Must be
         #   a whole number. Defaults to 1 if not provided.
         #
         #   @return [Integer, nil]
         optional :quantity, Integer
 
-        # @!parse
-        #   # @return [Integer]
-        #   attr_writer :quantity
-
-        # @!attribute [r] unit_amount_decimal
+        # @!attribute unit_amount_decimal
         #   The cost per unit of the product or service that this line item is for,
         #   specified in the invoice currency's smallest unit. Accepts decimal strings with
         #   up to 12 decimals
         #
         #   @return [String, nil]
         optional :unit_amount_decimal, String
-
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :unit_amount_decimal
 
         # @!method initialize(name:, unit_amount:, description: nil, direction: nil, metadata: nil, quantity: nil, unit_amount_decimal: nil)
         #   @param name [String]
@@ -527,14 +466,10 @@ module ModernTreasury
         #   @return [String]
         required :region, String
 
-        # @!attribute [r] line2
+        # @!attribute line2
         #
         #   @return [String, nil]
         optional :line2, String
-
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :line2
 
         # @!method initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
         #   The invoice issuer's business address.

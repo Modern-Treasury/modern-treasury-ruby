@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::Returns#list
     class ReturnListParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute after_cursor
@@ -13,57 +12,37 @@ module ModernTreasury
       #   @return [String, nil]
       optional :after_cursor, String, nil?: true
 
-      # @!attribute [r] counterparty_id
+      # @!attribute counterparty_id
       #   Specify `counterparty_id` if you wish to see returns that occurred with a
       #   specific counterparty.
       #
       #   @return [String, nil]
       optional :counterparty_id, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :counterparty_id
-
-      # @!attribute [r] internal_account_id
+      # @!attribute internal_account_id
       #   Specify `internal_account_id` if you wish to see returns to/from a specific
       #   account.
       #
       #   @return [String, nil]
       optional :internal_account_id, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :internal_account_id
-
-      # @!attribute [r] per_page
+      # @!attribute per_page
       #
       #   @return [Integer, nil]
       optional :per_page, Integer
 
-      # @!parse
-      #   # @return [Integer]
-      #   attr_writer :per_page
-
-      # @!attribute [r] returnable_id
+      # @!attribute returnable_id
       #   The ID of a valid returnable. Must be accompanied by `returnable_type`.
       #
       #   @return [String, nil]
       optional :returnable_id, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :returnable_id
-
-      # @!attribute [r] returnable_type
+      # @!attribute returnable_type
       #   One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
       #   Must be accompanied by `returnable_id`.
       #
       #   @return [Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType, nil]
       optional :returnable_type, enum: -> { ModernTreasury::Models::ReturnListParams::ReturnableType }
-
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType]
-      #   attr_writer :returnable_type
 
       # @!method initialize(after_cursor: nil, counterparty_id: nil, internal_account_id: nil, per_page: nil, returnable_id: nil, returnable_type: nil, request_options: {})
       #   @param after_cursor [String, nil]

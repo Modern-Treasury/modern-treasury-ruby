@@ -168,35 +168,23 @@ module ModernTreasury
 
       # @see ModernTreasury::Models::Document#file
       class File < ModernTreasury::Internal::Type::BaseModel
-        # @!attribute [r] content_type
+        # @!attribute content_type
         #   The MIME content type of the document.
         #
         #   @return [String, nil]
         optional :content_type, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :content_type
-
-        # @!attribute [r] filename
+        # @!attribute filename
         #   The original filename of the document.
         #
         #   @return [String, nil]
         optional :filename, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :filename
-
-        # @!attribute [r] size
+        # @!attribute size
         #   The size of the document in bytes.
         #
         #   @return [Integer, nil]
         optional :size, Integer
-
-        # @!parse
-        #   # @return [Integer]
-        #   attr_writer :size
 
         # @!method initialize(content_type: nil, filename: nil, size: nil)
         #   @param content_type [String]

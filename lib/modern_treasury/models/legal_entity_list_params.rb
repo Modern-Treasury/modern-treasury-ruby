@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::LegalEntities#list
     class LegalEntityListParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute after_cursor
@@ -13,16 +12,12 @@ module ModernTreasury
       #   @return [String, nil]
       optional :after_cursor, String, nil?: true
 
-      # @!attribute [r] legal_entity_type
+      # @!attribute legal_entity_type
       #
       #   @return [Symbol, ModernTreasury::Models::LegalEntityListParams::LegalEntityType, nil]
       optional :legal_entity_type, enum: -> { ModernTreasury::Models::LegalEntityListParams::LegalEntityType }
 
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::LegalEntityListParams::LegalEntityType]
-      #   attr_writer :legal_entity_type
-
-      # @!attribute [r] metadata
+      # @!attribute metadata
       #   For example, if you want to query for records with metadata key `Type` and value
       #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   parameters.
@@ -30,27 +25,15 @@ module ModernTreasury
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
-      # @!parse
-      #   # @return [Hash{Symbol=>String}]
-      #   attr_writer :metadata
-
-      # @!attribute [r] per_page
+      # @!attribute per_page
       #
       #   @return [Integer, nil]
       optional :per_page, Integer
 
-      # @!parse
-      #   # @return [Integer]
-      #   attr_writer :per_page
-
-      # @!attribute [r] show_deleted
+      # @!attribute show_deleted
       #
       #   @return [String, nil]
       optional :show_deleted, String
-
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :show_deleted
 
       # @!method initialize(after_cursor: nil, legal_entity_type: nil, metadata: nil, per_page: nil, show_deleted: nil, request_options: {})
       #   @param after_cursor [String, nil]
