@@ -115,8 +115,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::TransactionCreateParams::Type) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::TransactionCreateParams::Type::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         ACH = T.let(:ach, ModernTreasury::Models::TransactionCreateParams::Type::TaggedSymbol)
         AU_BECS = T.let(:au_becs, ModernTreasury::Models::TransactionCreateParams::Type::TaggedSymbol)

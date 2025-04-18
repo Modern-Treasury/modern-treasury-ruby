@@ -377,8 +377,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerAccount::LedgerableType) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LedgerAccount::LedgerableType::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         COUNTERPARTY = T.let(:counterparty, ModernTreasury::Models::LedgerAccount::LedgerableType::TaggedSymbol)
         EXTERNAL_ACCOUNT =

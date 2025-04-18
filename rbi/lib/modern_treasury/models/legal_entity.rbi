@@ -367,8 +367,7 @@ module ModernTreasury
           extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::LegalEntity::Address::AddressType) }
-          OrSymbol =
-            T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LegalEntity::Address::AddressType::TaggedSymbol) }
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           BUSINESS = T.let(:business, ModernTreasury::Models::LegalEntity::Address::AddressType::TaggedSymbol)
           MAILING = T.let(:mailing, ModernTreasury::Models::LegalEntity::Address::AddressType::TaggedSymbol)
@@ -460,8 +459,7 @@ module ModernTreasury
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::LegalEntity::Identification::IDType) }
-          OrSymbol =
-            T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LegalEntity::Identification::IDType::TaggedSymbol) }
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           AR_CUIL = T.let(:ar_cuil, ModernTreasury::Models::LegalEntity::Identification::IDType::TaggedSymbol)
           AR_CUIT = T.let(:ar_cuit, ModernTreasury::Models::LegalEntity::Identification::IDType::TaggedSymbol)
@@ -496,8 +494,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::LegalEntity::LegalEntityType) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LegalEntity::LegalEntityType::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         BUSINESS = T.let(:business, ModernTreasury::Models::LegalEntity::LegalEntityType::TaggedSymbol)
         INDIVIDUAL = T.let(:individual, ModernTreasury::Models::LegalEntity::LegalEntityType::TaggedSymbol)
@@ -512,8 +509,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::LegalEntity::LegalStructure) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LegalEntity::LegalStructure::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         CORPORATION = T.let(:corporation, ModernTreasury::Models::LegalEntity::LegalStructure::TaggedSymbol)
         LLC = T.let(:llc, ModernTreasury::Models::LegalEntity::LegalStructure::TaggedSymbol)
@@ -547,8 +543,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::LegalEntity::RiskRating) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LegalEntity::RiskRating::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         LOW = T.let(:low, ModernTreasury::Models::LegalEntity::RiskRating::TaggedSymbol)
         MEDIUM = T.let(:medium, ModernTreasury::Models::LegalEntity::RiskRating::TaggedSymbol)

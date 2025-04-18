@@ -118,14 +118,7 @@ module ModernTreasury
             T.type_alias do
               T.all(Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType)
             end
-          OrSymbol =
-            T.type_alias do
-              T.any(
-                Symbol,
-                String,
-                ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::TaggedSymbol
-              )
-            end
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           ACH =
             T.let(
@@ -297,14 +290,7 @@ module ModernTreasury
             T.type_alias do
               T.all(Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority)
             end
-          OrSymbol =
-            T.type_alias do
-              T.any(
-                Symbol,
-                String,
-                ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority::TaggedSymbol
-              )
-            end
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           HIGH =
             T.let(
@@ -337,14 +323,7 @@ module ModernTreasury
             T.type_alias do
               T.all(Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status)
             end
-          OrSymbol =
-            T.type_alias do
-              T.any(
-                Symbol,
-                String,
-                ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status::TaggedSymbol
-              )
-            end
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           CANCELLED =
             T.let(

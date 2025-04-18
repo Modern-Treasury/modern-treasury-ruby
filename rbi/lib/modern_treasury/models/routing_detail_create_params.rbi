@@ -62,8 +62,7 @@ module ModernTreasury
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::RoutingDetailCreateParams::AccountsType) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::RoutingDetailCreateParams::AccountsType::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         EXTERNAL_ACCOUNTS =
           T.let(:external_accounts, ModernTreasury::Models::RoutingDetailCreateParams::AccountsType::TaggedSymbol)
@@ -80,8 +79,7 @@ module ModernTreasury
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         ABA = T.let(:aba, ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType::TaggedSymbol)
         AU_BSB =
@@ -163,8 +161,7 @@ module ModernTreasury
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::RoutingDetailCreateParams::PaymentType) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::RoutingDetailCreateParams::PaymentType::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         ACH = T.let(:ach, ModernTreasury::Models::RoutingDetailCreateParams::PaymentType::TaggedSymbol)
         AU_BECS = T.let(:au_becs, ModernTreasury::Models::RoutingDetailCreateParams::PaymentType::TaggedSymbol)

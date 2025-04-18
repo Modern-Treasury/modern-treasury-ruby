@@ -102,8 +102,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ReconciliationRule::Direction) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ReconciliationRule::Direction::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         CREDIT = T.let(:credit, ModernTreasury::Models::ReconciliationRule::Direction::TaggedSymbol)
         DEBIT = T.let(:debit, ModernTreasury::Models::ReconciliationRule::Direction::TaggedSymbol)
@@ -118,8 +117,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ReconciliationRule::Type) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ReconciliationRule::Type::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         ACH = T.let(:ach, ModernTreasury::Models::ReconciliationRule::Type::TaggedSymbol)
         AU_BECS = T.let(:au_becs, ModernTreasury::Models::ReconciliationRule::Type::TaggedSymbol)
