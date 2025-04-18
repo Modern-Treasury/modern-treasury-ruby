@@ -166,8 +166,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerTransaction::LedgerableType) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LedgerTransaction::LedgerableType::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         EXPECTED_PAYMENT =
           T.let(:expected_payment, ModernTreasury::Models::LedgerTransaction::LedgerableType::TaggedSymbol)
@@ -188,8 +187,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerTransaction::Status) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LedgerTransaction::Status::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         ARCHIVED = T.let(:archived, ModernTreasury::Models::LedgerTransaction::Status::TaggedSymbol)
         PENDING = T.let(:pending, ModernTreasury::Models::LedgerTransaction::Status::TaggedSymbol)

@@ -77,14 +77,7 @@ module ModernTreasury
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType) }
-        OrSymbol =
-          T.type_alias do
-            T.any(
-              Symbol,
-              String,
-              ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol
-            )
-          end
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         ANZSIC =
           T.let(

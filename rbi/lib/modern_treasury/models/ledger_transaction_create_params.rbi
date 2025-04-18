@@ -233,8 +233,7 @@ module ModernTreasury
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerTransactionCreateParams::LedgerableType) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LedgerTransactionCreateParams::LedgerableType::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         EXPECTED_PAYMENT =
           T.let(
@@ -268,8 +267,7 @@ module ModernTreasury
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerTransactionCreateParams::Status) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LedgerTransactionCreateParams::Status::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         ARCHIVED = T.let(:archived, ModernTreasury::Models::LedgerTransactionCreateParams::Status::TaggedSymbol)
         PENDING = T.let(:pending, ModernTreasury::Models::LedgerTransactionCreateParams::Status::TaggedSymbol)

@@ -75,8 +75,7 @@ module ModernTreasury
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::LegalEntityListParams::LegalEntityType) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LegalEntityListParams::LegalEntityType::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         BUSINESS = T.let(:business, ModernTreasury::Models::LegalEntityListParams::LegalEntityType::TaggedSymbol)
         INDIVIDUAL =

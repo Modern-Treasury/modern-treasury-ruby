@@ -234,8 +234,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkResult::EntityType) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         PAYMENT_ORDER = T.let(:payment_order, ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol)
         LEDGER_ACCOUNT = T.let(:ledger_account, ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol)
@@ -256,8 +255,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkResult::RequestType) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::BulkResult::RequestType::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         BULK_REQUEST = T.let(:bulk_request, ModernTreasury::Models::BulkResult::RequestType::TaggedSymbol)
 
@@ -270,8 +268,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkResult::Status) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::BulkResult::Status::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         PENDING = T.let(:pending, ModernTreasury::Models::BulkResult::Status::TaggedSymbol)
         SUCCESSFUL = T.let(:successful, ModernTreasury::Models::BulkResult::Status::TaggedSymbol)
