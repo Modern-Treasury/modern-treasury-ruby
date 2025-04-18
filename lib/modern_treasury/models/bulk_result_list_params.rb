@@ -75,31 +75,15 @@ module ModernTreasury
       #   # @return [Symbol, ModernTreasury::Models::BulkResultListParams::Status]
       #   attr_writer :status
 
-      # @!parse
-      #   # @param after_cursor [String, nil]
-      #   # @param entity_id [String]
-      #   # @param entity_type [Symbol, ModernTreasury::Models::BulkResultListParams::EntityType]
-      #   # @param per_page [Integer]
-      #   # @param request_id [String]
-      #   # @param request_type [Symbol, ModernTreasury::Models::BulkResultListParams::RequestType]
-      #   # @param status [Symbol, ModernTreasury::Models::BulkResultListParams::Status]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     after_cursor: nil,
-      #     entity_id: nil,
-      #     entity_type: nil,
-      #     per_page: nil,
-      #     request_id: nil,
-      #     request_type: nil,
-      #     status: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(after_cursor: nil, entity_id: nil, entity_type: nil, per_page: nil, request_id: nil, request_type: nil, status: nil, request_options: {})
+      #   @param after_cursor [String, nil]
+      #   @param entity_id [String]
+      #   @param entity_type [Symbol, ModernTreasury::Models::BulkResultListParams::EntityType]
+      #   @param per_page [Integer]
+      #   @param request_id [String]
+      #   @param request_type [Symbol, ModernTreasury::Models::BulkResultListParams::RequestType]
+      #   @param status [Symbol, ModernTreasury::Models::BulkResultListParams::Status]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # The type of the request that created this result. bulk_request is the only
       # supported `request_type`
@@ -114,11 +98,8 @@ module ModernTreasury
         ENTITY_LINK = :entity_link
         BULK_ERROR = :bulk_error
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # The type of the request that created this result. bulk_request is the only
@@ -128,11 +109,8 @@ module ModernTreasury
 
         BULK_REQUEST = :bulk_request
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # One of successful or failed.
@@ -143,11 +121,8 @@ module ModernTreasury
         SUCCESSFUL = :successful
         FAILED = :failed
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

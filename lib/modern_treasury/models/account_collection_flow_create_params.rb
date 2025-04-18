@@ -29,15 +29,11 @@ module ModernTreasury
       #   # @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>]
       #   attr_writer :receiving_countries
 
-      # @!parse
-      #   # @param counterparty_id [String]
-      #   # @param payment_types [Array<String>]
-      #   # @param receiving_countries [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(counterparty_id:, payment_types:, receiving_countries: nil, request_options: {}, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(counterparty_id:, payment_types:, receiving_countries: nil, request_options: {})
+      #   @param counterparty_id [String]
+      #   @param payment_types [Array<String>]
+      #   @param receiving_countries [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # Optional. Array of 3-digit ISO country codes.
       module ReceivingCountry
@@ -62,11 +58,8 @@ module ModernTreasury
         ESP = :ESP
         GBR = :GBR
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

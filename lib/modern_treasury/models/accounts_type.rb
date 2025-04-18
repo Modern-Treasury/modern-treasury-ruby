@@ -8,11 +8,8 @@ module ModernTreasury
       EXTERNAL_ACCOUNTS = :external_accounts
       INTERNAL_ACCOUNTS = :internal_accounts
 
-      finalize!
-
-      # @!parse
-      #   # @return [Array<Symbol>]
-      #   def self.values; end
+      # @!method self.values
+      #   @return [Array<Symbol>]
     end
   end
 end

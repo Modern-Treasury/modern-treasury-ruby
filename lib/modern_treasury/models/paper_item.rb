@@ -110,51 +110,25 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param account_number [String, nil]
-      #   # @param account_number_safe [String, nil]
-      #   # @param amount [Integer]
-      #   # @param check_number [String, nil]
-      #   # @param created_at [Time]
-      #   # @param currency [Symbol, ModernTreasury::Models::Currency]
-      #   # @param deposit_date [Date]
-      #   # @param live_mode [Boolean]
-      #   # @param lockbox_number [String]
-      #   # @param memo_field [String, nil]
-      #   # @param object [String]
-      #   # @param remitter_name [String, nil]
-      #   # @param routing_number [String, nil]
-      #   # @param status [Symbol, ModernTreasury::Models::PaperItem::Status]
-      #   # @param transaction_id [String, nil]
-      #   # @param transaction_line_item_id [String, nil]
-      #   # @param updated_at [Time]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     account_number:,
-      #     account_number_safe:,
-      #     amount:,
-      #     check_number:,
-      #     created_at:,
-      #     currency:,
-      #     deposit_date:,
-      #     live_mode:,
-      #     lockbox_number:,
-      #     memo_field:,
-      #     object:,
-      #     remitter_name:,
-      #     routing_number:,
-      #     status:,
-      #     transaction_id:,
-      #     transaction_line_item_id:,
-      #     updated_at:,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, account_number:, account_number_safe:, amount:, check_number:, created_at:, currency:, deposit_date:, live_mode:, lockbox_number:, memo_field:, object:, remitter_name:, routing_number:, status:, transaction_id:, transaction_line_item_id:, updated_at:)
+      #   @param id [String]
+      #   @param account_number [String, nil]
+      #   @param account_number_safe [String, nil]
+      #   @param amount [Integer]
+      #   @param check_number [String, nil]
+      #   @param created_at [Time]
+      #   @param currency [Symbol, ModernTreasury::Models::Currency]
+      #   @param deposit_date [Date]
+      #   @param live_mode [Boolean]
+      #   @param lockbox_number [String]
+      #   @param memo_field [String, nil]
+      #   @param object [String]
+      #   @param remitter_name [String, nil]
+      #   @param routing_number [String, nil]
+      #   @param status [Symbol, ModernTreasury::Models::PaperItem::Status]
+      #   @param transaction_id [String, nil]
+      #   @param transaction_line_item_id [String, nil]
+      #   @param updated_at [Time]
 
       # The current status of the paper item. One of `pending`, `completed`, or
       # `returned`.
@@ -167,11 +141,8 @@ module ModernTreasury
         PENDING = :pending
         RETURNED = :returned
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

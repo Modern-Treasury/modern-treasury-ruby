@@ -68,29 +68,14 @@ module ModernTreasury
         #   # @return [Hash{Symbol=>Integer}]
         #   attr_writer :version
 
-        # @!parse
-        #   # @param after_cursor [String, nil]
-        #   # @param created_at [Hash{Symbol=>Time}]
-        #   # @param ledger_account_statement_id [String]
-        #   # @param ledger_transaction_id [String]
-        #   # @param per_page [Integer]
-        #   # @param version [Hash{Symbol=>Integer}]
-        #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-        #   #
-        #   def initialize(
-        #     after_cursor: nil,
-        #     created_at: nil,
-        #     ledger_account_statement_id: nil,
-        #     ledger_transaction_id: nil,
-        #     per_page: nil,
-        #     version: nil,
-        #     request_options: {},
-        #     **
-        #   )
-        #     super
-        #   end
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(after_cursor: nil, created_at: nil, ledger_account_statement_id: nil, ledger_transaction_id: nil, per_page: nil, version: nil, request_options: {})
+        #   @param after_cursor [String, nil]
+        #   @param created_at [Hash{Symbol=>Time}]
+        #   @param ledger_account_statement_id [String]
+        #   @param ledger_transaction_id [String]
+        #   @param per_page [Integer]
+        #   @param version [Hash{Symbol=>Integer}]
+        #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       end
     end
   end

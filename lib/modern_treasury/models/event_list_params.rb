@@ -69,31 +69,15 @@ module ModernTreasury
       #   # @return [String]
       #   attr_writer :resource
 
-      # @!parse
-      #   # @param after_cursor [String, nil]
-      #   # @param entity_id [String]
-      #   # @param event_name [String]
-      #   # @param event_time_end [Time]
-      #   # @param event_time_start [Time]
-      #   # @param per_page [Integer]
-      #   # @param resource [String]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     after_cursor: nil,
-      #     entity_id: nil,
-      #     event_name: nil,
-      #     event_time_end: nil,
-      #     event_time_start: nil,
-      #     per_page: nil,
-      #     resource: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(after_cursor: nil, entity_id: nil, event_name: nil, event_time_end: nil, event_time_start: nil, per_page: nil, resource: nil, request_options: {})
+      #   @param after_cursor [String, nil]
+      #   @param entity_id [String]
+      #   @param event_name [String]
+      #   @param event_time_end [Time]
+      #   @param event_time_start [Time]
+      #   @param per_page [Integer]
+      #   @param resource [String]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

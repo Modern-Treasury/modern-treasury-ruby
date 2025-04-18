@@ -84,35 +84,17 @@ module ModernTreasury
       #   # @return [Hash{Symbol=>String}]
       #   attr_writer :vendor_attributes
 
-      # @!parse
-      #   # @param connection_id [String]
-      #   # @param currency [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency]
-      #   # @param name [String]
-      #   # @param party_name [String]
-      #   # @param counterparty_id [String]
-      #   # @param legal_entity_id [String]
-      #   # @param parent_account_id [String]
-      #   # @param party_address [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress]
-      #   # @param vendor_attributes [Hash{Symbol=>String}]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     connection_id:,
-      #     currency:,
-      #     name:,
-      #     party_name:,
-      #     counterparty_id: nil,
-      #     legal_entity_id: nil,
-      #     parent_account_id: nil,
-      #     party_address: nil,
-      #     vendor_attributes: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(connection_id:, currency:, name:, party_name:, counterparty_id: nil, legal_entity_id: nil, parent_account_id: nil, party_address: nil, vendor_attributes: nil, request_options: {})
+      #   @param connection_id [String]
+      #   @param currency [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency]
+      #   @param name [String]
+      #   @param party_name [String]
+      #   @param counterparty_id [String]
+      #   @param legal_entity_id [String]
+      #   @param parent_account_id [String]
+      #   @param party_address [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress]
+      #   @param vendor_attributes [Hash{Symbol=>String}]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # Either "USD" or "CAD". Internal accounts created at Increase only supports
       # "USD".
@@ -122,11 +104,8 @@ module ModernTreasury
         USD = :USD
         CAD = :CAD
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       class PartyAddress < ModernTreasury::Internal::Type::BaseModel
@@ -168,19 +147,15 @@ module ModernTreasury
         #   # @return [String]
         #   attr_writer :line2
 
-        # @!parse
-        #   # The address associated with the owner or null.
-        #   #
-        #   # @param country [String]
-        #   # @param line1 [String]
-        #   # @param locality [String]
-        #   # @param postal_code [String]
-        #   # @param region [String]
-        #   # @param line2 [String]
-        #   #
-        #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
+        #   The address associated with the owner or null.
+        #
+        #   @param country [String]
+        #   @param line1 [String]
+        #   @param locality [String]
+        #   @param postal_code [String]
+        #   @param region [String]
+        #   @param line2 [String]
       end
     end
   end

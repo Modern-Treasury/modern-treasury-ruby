@@ -179,6 +179,7 @@ module ModernTreasury
         def deconstruct_keys(keys); end
 
         class << self
+          # @api private
           sig do
             params(model: ModernTreasury::Internal::Type::BaseModel).returns(ModernTreasury::Internal::AnyHash)
           end

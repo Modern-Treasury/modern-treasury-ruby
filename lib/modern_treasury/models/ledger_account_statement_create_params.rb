@@ -46,27 +46,13 @@ module ModernTreasury
       #   # @return [Hash{Symbol=>String}]
       #   attr_writer :metadata
 
-      # @!parse
-      #   # @param effective_at_lower_bound [Time]
-      #   # @param effective_at_upper_bound [Time]
-      #   # @param ledger_account_id [String]
-      #   # @param description [String, nil]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     effective_at_lower_bound:,
-      #     effective_at_upper_bound:,
-      #     ledger_account_id:,
-      #     description: nil,
-      #     metadata: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(effective_at_lower_bound:, effective_at_upper_bound:, ledger_account_id:, description: nil, metadata: nil, request_options: {})
+      #   @param effective_at_lower_bound [Time]
+      #   @param effective_at_upper_bound [Time]
+      #   @param ledger_account_id [String]
+      #   @param description [String, nil]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

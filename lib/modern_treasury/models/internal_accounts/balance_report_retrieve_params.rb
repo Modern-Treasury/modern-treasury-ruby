@@ -14,13 +14,9 @@ module ModernTreasury
         #   @return [String]
         required :internal_account_id, String
 
-        # @!parse
-        #   # @param internal_account_id [String]
-        #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-        #   #
-        #   def initialize(internal_account_id:, request_options: {}, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(internal_account_id:, request_options: {})
+        #   @param internal_account_id [String]
+        #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       end
     end
   end

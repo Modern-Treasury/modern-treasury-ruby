@@ -109,39 +109,19 @@ module ModernTreasury
       #   # @return [Symbol, ModernTreasury::Models::InvoiceListParams::Status]
       #   attr_writer :status
 
-      # @!parse
-      #   # @param after_cursor [String, nil]
-      #   # @param counterparty_id [String]
-      #   # @param due_date_end [Date]
-      #   # @param due_date_start [Date]
-      #   # @param expected_payment_id [String]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param number [String]
-      #   # @param originating_account_id [String]
-      #   # @param payment_order_id [String]
-      #   # @param per_page [Integer]
-      #   # @param status [Symbol, ModernTreasury::Models::InvoiceListParams::Status]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     after_cursor: nil,
-      #     counterparty_id: nil,
-      #     due_date_end: nil,
-      #     due_date_start: nil,
-      #     expected_payment_id: nil,
-      #     metadata: nil,
-      #     number: nil,
-      #     originating_account_id: nil,
-      #     payment_order_id: nil,
-      #     per_page: nil,
-      #     status: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(after_cursor: nil, counterparty_id: nil, due_date_end: nil, due_date_start: nil, expected_payment_id: nil, metadata: nil, number: nil, originating_account_id: nil, payment_order_id: nil, per_page: nil, status: nil, request_options: {})
+      #   @param after_cursor [String, nil]
+      #   @param counterparty_id [String]
+      #   @param due_date_end [Date]
+      #   @param due_date_start [Date]
+      #   @param expected_payment_id [String]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param number [String]
+      #   @param originating_account_id [String]
+      #   @param payment_order_id [String]
+      #   @param per_page [Integer]
+      #   @param status [Symbol, ModernTreasury::Models::InvoiceListParams::Status]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       module Status
         extend ModernTreasury::Internal::Type::Enum
@@ -153,11 +133,8 @@ module ModernTreasury
         UNPAID = :unpaid
         VOIDED = :voided
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

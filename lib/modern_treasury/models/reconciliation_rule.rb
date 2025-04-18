@@ -71,35 +71,17 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::ReconciliationRule::Type, nil]
       optional :type, enum: -> { ModernTreasury::Models::ReconciliationRule::Type }, nil?: true
 
-      # @!parse
-      #   # @param amount_lower_bound [Integer]
-      #   # @param amount_upper_bound [Integer]
-      #   # @param direction [Symbol, ModernTreasury::Models::ReconciliationRule::Direction]
-      #   # @param internal_account_id [String]
-      #   # @param counterparty_id [String, nil]
-      #   # @param currency [Symbol, ModernTreasury::Models::Currency]
-      #   # @param custom_identifiers [Hash{Symbol=>String}, nil]
-      #   # @param date_lower_bound [Date, nil]
-      #   # @param date_upper_bound [Date, nil]
-      #   # @param type [Symbol, ModernTreasury::Models::ReconciliationRule::Type, nil]
-      #   #
-      #   def initialize(
-      #     amount_lower_bound:,
-      #     amount_upper_bound:,
-      #     direction:,
-      #     internal_account_id:,
-      #     counterparty_id: nil,
-      #     currency: nil,
-      #     custom_identifiers: nil,
-      #     date_lower_bound: nil,
-      #     date_upper_bound: nil,
-      #     type: nil,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(amount_lower_bound:, amount_upper_bound:, direction:, internal_account_id:, counterparty_id: nil, currency: nil, custom_identifiers: nil, date_lower_bound: nil, date_upper_bound: nil, type: nil)
+      #   @param amount_lower_bound [Integer]
+      #   @param amount_upper_bound [Integer]
+      #   @param direction [Symbol, ModernTreasury::Models::ReconciliationRule::Direction]
+      #   @param internal_account_id [String]
+      #   @param counterparty_id [String, nil]
+      #   @param currency [Symbol, ModernTreasury::Models::Currency]
+      #   @param custom_identifiers [Hash{Symbol=>String}, nil]
+      #   @param date_lower_bound [Date, nil]
+      #   @param date_upper_bound [Date, nil]
+      #   @param type [Symbol, ModernTreasury::Models::ReconciliationRule::Type, nil]
 
       # One of credit or debit. When you are receiving money, use credit. When you are
       # being charged, use debit.
@@ -111,11 +93,8 @@ module ModernTreasury
         CREDIT = :credit
         DEBIT = :debit
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # One of ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
@@ -156,11 +135,8 @@ module ModernTreasury
         WIRE = :wire
         ZENGIN = :zengin
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

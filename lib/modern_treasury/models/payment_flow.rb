@@ -179,53 +179,26 @@ module ModernTreasury
       #   # @return [Time]
       #   attr_writer :updated_at
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param amount [Integer]
-      #   # @param client_token [String]
-      #   # @param counterparty_id [String, nil]
-      #   # @param created_at [Time]
-      #   # @param currency [String]
-      #   # @param direction [Symbol, ModernTreasury::Models::PaymentFlow::Direction]
-      #   # @param due_date [Date, nil]
-      #   # @param effective_date_selection_enabled [Boolean]
-      #   # @param existing_external_accounts_filter [Symbol, ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter, nil]
-      #   # @param external_account_collection [Symbol, ModernTreasury::Models::PaymentFlow::ExternalAccountCollection]
-      #   # @param live_mode [Boolean]
-      #   # @param object [String]
-      #   # @param originating_account_id [String, nil]
-      #   # @param payment_order_id [String, nil]
-      #   # @param receiving_account_id [String, nil]
-      #   # @param selected_effective_date [Date, nil]
-      #   # @param status [Symbol, ModernTreasury::Models::PaymentFlow::Status]
-      #   # @param updated_at [Time]
-      #   #
-      #   def initialize(
-      #     id: nil,
-      #     amount: nil,
-      #     client_token: nil,
-      #     counterparty_id: nil,
-      #     created_at: nil,
-      #     currency: nil,
-      #     direction: nil,
-      #     due_date: nil,
-      #     effective_date_selection_enabled: nil,
-      #     existing_external_accounts_filter: nil,
-      #     external_account_collection: nil,
-      #     live_mode: nil,
-      #     object: nil,
-      #     originating_account_id: nil,
-      #     payment_order_id: nil,
-      #     receiving_account_id: nil,
-      #     selected_effective_date: nil,
-      #     status: nil,
-      #     updated_at: nil,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id: nil, amount: nil, client_token: nil, counterparty_id: nil, created_at: nil, currency: nil, direction: nil, due_date: nil, effective_date_selection_enabled: nil, existing_external_accounts_filter: nil, external_account_collection: nil, live_mode: nil, object: nil, originating_account_id: nil, payment_order_id: nil, receiving_account_id: nil, selected_effective_date: nil, status: nil, updated_at: nil)
+      #   @param id [String]
+      #   @param amount [Integer]
+      #   @param client_token [String]
+      #   @param counterparty_id [String, nil]
+      #   @param created_at [Time]
+      #   @param currency [String]
+      #   @param direction [Symbol, ModernTreasury::Models::PaymentFlow::Direction]
+      #   @param due_date [Date, nil]
+      #   @param effective_date_selection_enabled [Boolean]
+      #   @param existing_external_accounts_filter [Symbol, ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter, nil]
+      #   @param external_account_collection [Symbol, ModernTreasury::Models::PaymentFlow::ExternalAccountCollection]
+      #   @param live_mode [Boolean]
+      #   @param object [String]
+      #   @param originating_account_id [String, nil]
+      #   @param payment_order_id [String, nil]
+      #   @param receiving_account_id [String, nil]
+      #   @param selected_effective_date [Date, nil]
+      #   @param status [Symbol, ModernTreasury::Models::PaymentFlow::Status]
+      #   @param updated_at [Time]
 
       # Describes the direction money is flowing in the transaction. Can only be
       # `debit`. A `debit` pulls money from someone else's account to your own.
@@ -237,11 +210,8 @@ module ModernTreasury
         CREDIT = :credit
         DEBIT = :debit
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # When `verified` and `external_account_collection` is `enabled`, filters the list
@@ -254,11 +224,8 @@ module ModernTreasury
 
         VERIFIED = :verified
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # When `enabled`, your end-user can select from an existing external account when
@@ -272,11 +239,8 @@ module ModernTreasury
         DISABLED = :disabled
         ENABLED = :enabled
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # The current status of the payment flow. One of `pending`, `completed`,
@@ -291,11 +255,8 @@ module ModernTreasury
         EXPIRED = :expired
         PENDING = :pending
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

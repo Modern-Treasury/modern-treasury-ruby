@@ -9,12 +9,8 @@ module ModernTreasury
       #   @return [String]
       required :ping, String
 
-      # @!parse
-      #   # @param ping [String]
-      #   #
-      #   def initialize(ping:, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(ping:)
+      #   @param ping [String]
     end
   end
 end

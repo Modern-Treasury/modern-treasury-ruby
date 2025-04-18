@@ -59,27 +59,13 @@ module ModernTreasury
       #   # @return [String]
       #   attr_writer :parent_account_id
 
-      # @!parse
-      #   # @param counterparty_id [String]
-      #   # @param ledger_account_id [String]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param name [String]
-      #   # @param parent_account_id [String]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     counterparty_id: nil,
-      #     ledger_account_id: nil,
-      #     metadata: nil,
-      #     name: nil,
-      #     parent_account_id: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, request_options: {})
+      #   @param counterparty_id [String]
+      #   @param ledger_account_id [String]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param name [String]
+      #   @param parent_account_id [String]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

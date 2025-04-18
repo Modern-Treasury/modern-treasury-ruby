@@ -44,16 +44,12 @@ module ModernTreasury
       #   # @return [Integer]
       #   attr_writer :per_page
 
-      # @!parse
-      #   # @param after_cursor [String, nil]
-      #   # @param documentable_id [String]
-      #   # @param documentable_type [Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType]
-      #   # @param per_page [Integer]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(after_cursor: nil, documentable_id: nil, documentable_type: nil, per_page: nil, request_options: {}, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(after_cursor: nil, documentable_id: nil, documentable_type: nil, per_page: nil, request_options: {})
+      #   @param after_cursor [String, nil]
+      #   @param documentable_id [String]
+      #   @param documentable_type [Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType]
+      #   @param per_page [Integer]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # The type of the associated object. Currently can be one of `payment_order`,
       # `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
@@ -74,11 +70,8 @@ module ModernTreasury
         DECISIONS = :decisions
         CONNECTIONS = :connections
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

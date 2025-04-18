@@ -66,29 +66,14 @@ module ModernTreasury
       #   # @return [String]
       #   attr_writer :taxpayer_identifier
 
-      # @!parse
-      #   # @param email [String]
-      #   # @param legal_entity_id [String, nil]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param name [String]
-      #   # @param send_remittance_advice [Boolean]
-      #   # @param taxpayer_identifier [String]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     email: nil,
-      #     legal_entity_id: nil,
-      #     metadata: nil,
-      #     name: nil,
-      #     send_remittance_advice: nil,
-      #     taxpayer_identifier: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(email: nil, legal_entity_id: nil, metadata: nil, name: nil, send_remittance_advice: nil, taxpayer_identifier: nil, request_options: {})
+      #   @param email [String]
+      #   @param legal_entity_id [String, nil]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param name [String]
+      #   @param send_remittance_advice [Boolean]
+      #   @param taxpayer_identifier [String]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

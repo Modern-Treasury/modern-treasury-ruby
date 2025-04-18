@@ -218,57 +218,28 @@ module ModernTreasury
       #   # @return [Hash{Symbol=>Time}]
       #   attr_writer :updated_at
 
-      # @!parse
-      #   # @param id [Array<String>]
-      #   # @param after_cursor [String, nil]
-      #   # @param as_of_lock_version [Integer]
-      #   # @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
-      #   # @param effective_at [Hash{Symbol=>Time}]
-      #   # @param effective_date [Hash{Symbol=>Date}]
-      #   # @param ledger_account_category_id [String]
-      #   # @param ledger_account_id [String]
-      #   # @param ledger_account_lock_version [Hash{Symbol=>Integer}]
-      #   # @param ledger_account_payout_id [String]
-      #   # @param ledger_account_settlement_id [String]
-      #   # @param ledger_account_statement_id [String]
-      #   # @param ledger_transaction_id [String]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param order_by [ModernTreasury::Models::LedgerEntryListParams::OrderBy]
-      #   # @param per_page [Integer]
-      #   # @param show_balances [Boolean]
-      #   # @param show_deleted [Boolean]
-      #   # @param status [Symbol, ModernTreasury::Models::LedgerEntryListParams::Status]
-      #   # @param updated_at [Hash{Symbol=>Time}]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     id: nil,
-      #     after_cursor: nil,
-      #     as_of_lock_version: nil,
-      #     direction: nil,
-      #     effective_at: nil,
-      #     effective_date: nil,
-      #     ledger_account_category_id: nil,
-      #     ledger_account_id: nil,
-      #     ledger_account_lock_version: nil,
-      #     ledger_account_payout_id: nil,
-      #     ledger_account_settlement_id: nil,
-      #     ledger_account_statement_id: nil,
-      #     ledger_transaction_id: nil,
-      #     metadata: nil,
-      #     order_by: nil,
-      #     per_page: nil,
-      #     show_balances: nil,
-      #     show_deleted: nil,
-      #     status: nil,
-      #     updated_at: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id: nil, after_cursor: nil, as_of_lock_version: nil, direction: nil, effective_at: nil, effective_date: nil, ledger_account_category_id: nil, ledger_account_id: nil, ledger_account_lock_version: nil, ledger_account_payout_id: nil, ledger_account_settlement_id: nil, ledger_account_statement_id: nil, ledger_transaction_id: nil, metadata: nil, order_by: nil, per_page: nil, show_balances: nil, show_deleted: nil, status: nil, updated_at: nil, request_options: {})
+      #   @param id [Array<String>]
+      #   @param after_cursor [String, nil]
+      #   @param as_of_lock_version [Integer]
+      #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
+      #   @param effective_at [Hash{Symbol=>Time}]
+      #   @param effective_date [Hash{Symbol=>Date}]
+      #   @param ledger_account_category_id [String]
+      #   @param ledger_account_id [String]
+      #   @param ledger_account_lock_version [Hash{Symbol=>Integer}]
+      #   @param ledger_account_payout_id [String]
+      #   @param ledger_account_settlement_id [String]
+      #   @param ledger_account_statement_id [String]
+      #   @param ledger_transaction_id [String]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param order_by [ModernTreasury::Models::LedgerEntryListParams::OrderBy]
+      #   @param per_page [Integer]
+      #   @param show_balances [Boolean]
+      #   @param show_deleted [Boolean]
+      #   @param status [Symbol, ModernTreasury::Models::LedgerEntryListParams::Status]
+      #   @param updated_at [Hash{Symbol=>Time}]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       class OrderBy < ModernTreasury::Internal::Type::BaseModel
         # @!attribute [r] created_at
@@ -289,17 +260,13 @@ module ModernTreasury
         #   # @return [Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt]
         #   attr_writer :effective_at
 
-        # @!parse
-        #   # Order by `created_at` or `effective_at` in `asc` or `desc` order. For example,
-        #   # to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering
-        #   # by only one field at a time is supported.
-        #   #
-        #   # @param created_at [Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt]
-        #   # @param effective_at [Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt]
-        #   #
-        #   def initialize(created_at: nil, effective_at: nil, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(created_at: nil, effective_at: nil)
+        #   Order by `created_at` or `effective_at` in `asc` or `desc` order. For example,
+        #   to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering
+        #   by only one field at a time is supported.
+        #
+        #   @param created_at [Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt]
+        #   @param effective_at [Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt]
 
         # @see ModernTreasury::Models::LedgerEntryListParams::OrderBy#created_at
         module CreatedAt
@@ -308,11 +275,8 @@ module ModernTreasury
           ASC = :asc
           DESC = :desc
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
 
         # @see ModernTreasury::Models::LedgerEntryListParams::OrderBy#effective_at
@@ -322,11 +286,8 @@ module ModernTreasury
           ASC = :asc
           DESC = :desc
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
       end
 
@@ -339,11 +300,8 @@ module ModernTreasury
         POSTED = :posted
         ARCHIVED = :archived
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

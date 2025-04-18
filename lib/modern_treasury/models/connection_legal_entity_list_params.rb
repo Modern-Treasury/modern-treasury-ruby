@@ -49,27 +49,13 @@ module ModernTreasury
       #   # @return [Symbol, ModernTreasury::Models::ConnectionLegalEntityListParams::Status]
       #   attr_writer :status
 
-      # @!parse
-      #   # @param after_cursor [String, nil]
-      #   # @param connection_id [String]
-      #   # @param legal_entity_id [String]
-      #   # @param per_page [Integer]
-      #   # @param status [Symbol, ModernTreasury::Models::ConnectionLegalEntityListParams::Status]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     after_cursor: nil,
-      #     connection_id: nil,
-      #     legal_entity_id: nil,
-      #     per_page: nil,
-      #     status: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(after_cursor: nil, connection_id: nil, legal_entity_id: nil, per_page: nil, status: nil, request_options: {})
+      #   @param after_cursor [String, nil]
+      #   @param connection_id [String]
+      #   @param legal_entity_id [String]
+      #   @param per_page [Integer]
+      #   @param status [Symbol, ModernTreasury::Models::ConnectionLegalEntityListParams::Status]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       module Status
         extend ModernTreasury::Internal::Type::Enum
@@ -79,11 +65,8 @@ module ModernTreasury
         FAILED = :failed
         PROCESSING = :processing
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

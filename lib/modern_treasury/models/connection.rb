@@ -54,33 +54,16 @@ module ModernTreasury
       #   @return [String]
       required :vendor_name, String
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param created_at [Time]
-      #   # @param discarded_at [Time, nil]
-      #   # @param live_mode [Boolean]
-      #   # @param object [String]
-      #   # @param updated_at [Time]
-      #   # @param vendor_customer_id [String, nil]
-      #   # @param vendor_id [String]
-      #   # @param vendor_name [String]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     created_at:,
-      #     discarded_at:,
-      #     live_mode:,
-      #     object:,
-      #     updated_at:,
-      #     vendor_customer_id:,
-      #     vendor_id:,
-      #     vendor_name:,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, created_at:, discarded_at:, live_mode:, object:, updated_at:, vendor_customer_id:, vendor_id:, vendor_name:)
+      #   @param id [String]
+      #   @param created_at [Time]
+      #   @param discarded_at [Time, nil]
+      #   @param live_mode [Boolean]
+      #   @param object [String]
+      #   @param updated_at [Time]
+      #   @param vendor_customer_id [String, nil]
+      #   @param vendor_id [String]
+      #   @param vendor_name [String]
     end
   end
 end
