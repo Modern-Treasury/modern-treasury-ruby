@@ -32,6 +32,8 @@ module ModernTreasury
       optional :email, String, nil?: true
 
       # @!attribute ledger_type
+      #   @deprecated
+      #
       #   An optional type to auto-sync the counterparty to your ledger. Either `customer`
       #   or `vendor`.
       #
