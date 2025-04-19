@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.1.0-alpha.19 (2025-04-19)
+
+Full Changelog: [v0.1.0-alpha.18...v0.1.0-alpha.19](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.18...v0.1.0-alpha.19)
+
+### Features
+
+* implement `#hash` for data containers ([d96aea7](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/d96aea756785f1cc2cd327d201424786fd20d5b0))
+
+
+### Chores
+
+* documentation improvements ([ae02ed8](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/ae02ed86227ef8a2aba567eb8b82400b3a16c16d))
+* explicitly mark apis public under `Internal` module ([6358f72](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/6358f727a0bf1a4841d297a94a535335ee62b57e))
+* make sorbet enums easier to read ([3dc3765](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/3dc37654a43d57db2c759714933d73efa31837f7))
+* refine `#inspect` and `#to_s` for model classes ([786b22a](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/786b22a499a6ba7f923926c42f971af82ce65ac0))
+* simplify yard annotations by removing most `@!parse` directives ([5a3e8a7](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/5a3e8a75fe86fb7539a7b0396294eb905f20f58e))
+* update README with recommended editor plugins ([aadf96a](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/aadf96a28e21ea93f09b9db44f7878f00c57c394))
+* use `@!method` instead of `@!parse` for virtual method type definitions ([d23861f](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/d23861f35b0d7a9ff65efa2a9f4ff3f6e962f251))
+
 ## 0.1.0-alpha.18 (2025-04-17)
 
 Full Changelog: [v0.1.0-alpha.17...v0.1.0-alpha.18](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.17...v0.1.0-alpha.18)
