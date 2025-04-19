@@ -4,27 +4,18 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::ConnectionLegalEntities#update
     class ConnectionLegalEntityUpdateParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
-      # @!attribute [r] status
+      # @!attribute status
       #   The status of the connection legal entity.
       #
       #   @return [Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status }
 
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status]
-      #   attr_writer :status
-
-      # @!parse
-      #   # @param status [Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(status: nil, request_options: {}, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(status: nil, request_options: {})
+      #   @param status [Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # The status of the connection legal entity.
       module Status
@@ -32,11 +23,8 @@ module ModernTreasury
 
         PROCESSING = :processing
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

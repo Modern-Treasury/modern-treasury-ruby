@@ -39,8 +39,7 @@ module ModernTreasury
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::LineItemRetrieveParams::ItemizableType) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LineItemRetrieveParams::ItemizableType::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         EXPECTED_PAYMENTS =
           T.let(:expected_payments, ModernTreasury::Models::LineItemRetrieveParams::ItemizableType::TaggedSymbol)

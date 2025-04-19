@@ -113,47 +113,23 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param amount [Integer]
-      #   # @param created_at [Time]
-      #   # @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
-      #   # @param discarded_at [Time, nil]
-      #   # @param ledger_account_currency [String]
-      #   # @param ledger_account_currency_exponent [Integer]
-      #   # @param ledger_account_id [String]
-      #   # @param ledger_account_lock_version [Integer, nil]
-      #   # @param ledger_transaction_id [String]
-      #   # @param live_mode [Boolean]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param object [String]
-      #   # @param resulting_ledger_account_balances [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances, nil]
-      #   # @param status [Symbol, ModernTreasury::Models::LedgerEntry::Status]
-      #   # @param updated_at [Time]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     amount:,
-      #     created_at:,
-      #     direction:,
-      #     discarded_at:,
-      #     ledger_account_currency:,
-      #     ledger_account_currency_exponent:,
-      #     ledger_account_id:,
-      #     ledger_account_lock_version:,
-      #     ledger_transaction_id:,
-      #     live_mode:,
-      #     metadata:,
-      #     object:,
-      #     resulting_ledger_account_balances:,
-      #     status:,
-      #     updated_at:,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, amount:, created_at:, direction:, discarded_at:, ledger_account_currency:, ledger_account_currency_exponent:, ledger_account_id:, ledger_account_lock_version:, ledger_transaction_id:, live_mode:, metadata:, object:, resulting_ledger_account_balances:, status:, updated_at:)
+      #   @param id [String]
+      #   @param amount [Integer]
+      #   @param created_at [Time]
+      #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
+      #   @param discarded_at [Time, nil]
+      #   @param ledger_account_currency [String]
+      #   @param ledger_account_currency_exponent [Integer]
+      #   @param ledger_account_id [String]
+      #   @param ledger_account_lock_version [Integer, nil]
+      #   @param ledger_transaction_id [String]
+      #   @param live_mode [Boolean]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param object [String]
+      #   @param resulting_ledger_account_balances [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances, nil]
+      #   @param status [Symbol, ModernTreasury::Models::LedgerEntry::Status]
+      #   @param updated_at [Time]
 
       # @see ModernTreasury::Models::LedgerEntry#resulting_ledger_account_balances
       class ResultingLedgerAccountBalances < ModernTreasury::Internal::Type::BaseModel
@@ -181,22 +157,18 @@ module ModernTreasury
         required :posted_balance,
                  -> { ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance }
 
-        # @!parse
-        #   # The pending, posted, and available balances for this ledger entry's ledger
-        #   # account. The posted balance is the sum of all posted entries on the account. The
-        #   # pending balance is the sum of all pending and posted entries on the account. The
-        #   # available balance is the posted incoming entries minus the sum of the pending
-        #   # and posted outgoing amounts. Please see
-        #   # https://docs.moderntreasury.com/docs/transaction-status-and-balances for more
-        #   # details.
-        #   #
-        #   # @param available_balance [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance]
-        #   # @param pending_balance [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance]
-        #   # @param posted_balance [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance]
-        #   #
-        #   def initialize(available_balance:, pending_balance:, posted_balance:, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(available_balance:, pending_balance:, posted_balance:)
+        #   The pending, posted, and available balances for this ledger entry's ledger
+        #   account. The posted balance is the sum of all posted entries on the account. The
+        #   pending balance is the sum of all pending and posted entries on the account. The
+        #   available balance is the posted incoming entries minus the sum of the pending
+        #   and posted outgoing amounts. Please see
+        #   https://docs.moderntreasury.com/docs/transaction-status-and-balances for more
+        #   details.
+        #
+        #   @param available_balance [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance]
+        #   @param pending_balance [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance]
+        #   @param posted_balance [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance]
 
         # @see ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances#available_balance
         class AvailableBalance < ModernTreasury::Internal::Type::BaseModel
@@ -227,21 +199,17 @@ module ModernTreasury
           #   @return [Integer]
           required :debits, Integer
 
-          # @!parse
-          #   # The available_balance is the sum of all posted inbound entries and pending
-          #   # outbound entries. For credit normal, available_amount = posted_credits -
-          #   # pending_debits; for debit normal, available_amount = posted_debits -
-          #   # pending_credits.
-          #   #
-          #   # @param amount [Integer]
-          #   # @param credits [Integer]
-          #   # @param currency [String]
-          #   # @param currency_exponent [Integer]
-          #   # @param debits [Integer]
-          #   #
-          #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super
-
-          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+          # @!method initialize(amount:, credits:, currency:, currency_exponent:, debits:)
+          #   The available_balance is the sum of all posted inbound entries and pending
+          #   outbound entries. For credit normal, available_amount = posted_credits -
+          #   pending_debits; for debit normal, available_amount = posted_debits -
+          #   pending_credits.
+          #
+          #   @param amount [Integer]
+          #   @param credits [Integer]
+          #   @param currency [String]
+          #   @param currency_exponent [Integer]
+          #   @param debits [Integer]
         end
 
         # @see ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances#pending_balance
@@ -273,18 +241,14 @@ module ModernTreasury
           #   @return [Integer]
           required :debits, Integer
 
-          # @!parse
-          #   # The pending_balance is the sum of all pending and posted entries.
-          #   #
-          #   # @param amount [Integer]
-          #   # @param credits [Integer]
-          #   # @param currency [String]
-          #   # @param currency_exponent [Integer]
-          #   # @param debits [Integer]
-          #   #
-          #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super
-
-          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+          # @!method initialize(amount:, credits:, currency:, currency_exponent:, debits:)
+          #   The pending_balance is the sum of all pending and posted entries.
+          #
+          #   @param amount [Integer]
+          #   @param credits [Integer]
+          #   @param currency [String]
+          #   @param currency_exponent [Integer]
+          #   @param debits [Integer]
         end
 
         # @see ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances#posted_balance
@@ -316,18 +280,14 @@ module ModernTreasury
           #   @return [Integer]
           required :debits, Integer
 
-          # @!parse
-          #   # The posted_balance is the sum of all posted entries.
-          #   #
-          #   # @param amount [Integer]
-          #   # @param credits [Integer]
-          #   # @param currency [String]
-          #   # @param currency_exponent [Integer]
-          #   # @param debits [Integer]
-          #   #
-          #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super
-
-          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+          # @!method initialize(amount:, credits:, currency:, currency_exponent:, debits:)
+          #   The posted_balance is the sum of all posted entries.
+          #
+          #   @param amount [Integer]
+          #   @param credits [Integer]
+          #   @param currency [String]
+          #   @param currency_exponent [Integer]
+          #   @param debits [Integer]
         end
       end
 
@@ -342,11 +302,8 @@ module ModernTreasury
         PENDING = :pending
         POSTED = :posted
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

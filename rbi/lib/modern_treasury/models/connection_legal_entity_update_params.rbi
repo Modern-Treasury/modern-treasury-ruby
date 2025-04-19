@@ -39,8 +39,7 @@ module ModernTreasury
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         PROCESSING =
           T.let(:processing, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status::TaggedSymbol)

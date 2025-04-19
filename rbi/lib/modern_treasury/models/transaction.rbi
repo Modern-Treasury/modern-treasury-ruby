@@ -304,8 +304,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::Transaction::Type) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::Transaction::Type::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         ACH = T.let(:ach, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
         AU_BECS = T.let(:au_becs, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
@@ -351,8 +350,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::Transaction::VendorCodeType) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         BAI2 = T.let(:bai2, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
         BANKING_CIRCLE =

@@ -152,7 +152,7 @@ module ModernTreasury
       #   @return [String, nil]
       required :vendor_id, String, nil?: true
 
-      # @!attribute [r] details
+      # @!attribute details
       #   This field contains additional information that the bank provided about the
       #   transaction. This is structured data. Some of the data in here might overlap
       #   with what is in the `vendor_description`. For example, the OBI could be a part
@@ -164,10 +164,6 @@ module ModernTreasury
       #   @return [Hash{Symbol=>String}, nil]
       optional :details, ModernTreasury::Internal::Type::HashOf[String]
 
-      # @!parse
-      #   # @return [Hash{Symbol=>String}]
-      #   attr_writer :details
-
       # @!attribute vendor_description
       #   The transaction detail text that often appears in on your bank statement and in
       #   your banking portal.
@@ -175,65 +171,32 @@ module ModernTreasury
       #   @return [String, nil]
       optional :vendor_description, String, nil?: true
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param amount [Integer]
-      #   # @param as_of_date [Date, nil]
-      #   # @param as_of_time [Time, nil]
-      #   # @param as_of_timezone [String, nil]
-      #   # @param created_at [Time]
-      #   # @param currency [Symbol, ModernTreasury::Models::Currency]
-      #   # @param custom_identifiers [Hash{Symbol=>String}]
-      #   # @param direction [String]
-      #   # @param discarded_at [Time, nil]
-      #   # @param foreign_exchange_rate [ModernTreasury::Models::Transaction::ForeignExchangeRate, nil]
-      #   # @param internal_account_id [String]
-      #   # @param live_mode [Boolean]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param object [String]
-      #   # @param posted [Boolean]
-      #   # @param reconciled [Boolean]
-      #   # @param type [Symbol, ModernTreasury::Models::Transaction::Type]
-      #   # @param updated_at [Time]
-      #   # @param vendor_code [String, nil]
-      #   # @param vendor_code_type [Symbol, ModernTreasury::Models::Transaction::VendorCodeType, nil]
-      #   # @param vendor_customer_id [String, nil]
-      #   # @param vendor_id [String, nil]
-      #   # @param details [Hash{Symbol=>String}]
-      #   # @param vendor_description [String, nil]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     amount:,
-      #     as_of_date:,
-      #     as_of_time:,
-      #     as_of_timezone:,
-      #     created_at:,
-      #     currency:,
-      #     custom_identifiers:,
-      #     direction:,
-      #     discarded_at:,
-      #     foreign_exchange_rate:,
-      #     internal_account_id:,
-      #     live_mode:,
-      #     metadata:,
-      #     object:,
-      #     posted:,
-      #     reconciled:,
-      #     type:,
-      #     updated_at:,
-      #     vendor_code:,
-      #     vendor_code_type:,
-      #     vendor_customer_id:,
-      #     vendor_id:,
-      #     details: nil,
-      #     vendor_description: nil,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, amount:, as_of_date:, as_of_time:, as_of_timezone:, created_at:, currency:, custom_identifiers:, direction:, discarded_at:, foreign_exchange_rate:, internal_account_id:, live_mode:, metadata:, object:, posted:, reconciled:, type:, updated_at:, vendor_code:, vendor_code_type:, vendor_customer_id:, vendor_id:, details: nil, vendor_description: nil)
+      #   @param id [String]
+      #   @param amount [Integer]
+      #   @param as_of_date [Date, nil]
+      #   @param as_of_time [Time, nil]
+      #   @param as_of_timezone [String, nil]
+      #   @param created_at [Time]
+      #   @param currency [Symbol, ModernTreasury::Models::Currency]
+      #   @param custom_identifiers [Hash{Symbol=>String}]
+      #   @param direction [String]
+      #   @param discarded_at [Time, nil]
+      #   @param foreign_exchange_rate [ModernTreasury::Models::Transaction::ForeignExchangeRate, nil]
+      #   @param internal_account_id [String]
+      #   @param live_mode [Boolean]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param object [String]
+      #   @param posted [Boolean]
+      #   @param reconciled [Boolean]
+      #   @param type [Symbol, ModernTreasury::Models::Transaction::Type]
+      #   @param updated_at [Time]
+      #   @param vendor_code [String, nil]
+      #   @param vendor_code_type [Symbol, ModernTreasury::Models::Transaction::VendorCodeType, nil]
+      #   @param vendor_customer_id [String, nil]
+      #   @param vendor_id [String, nil]
+      #   @param details [Hash{Symbol=>String}]
+      #   @param vendor_description [String, nil]
 
       # @see ModernTreasury::Models::Transaction#foreign_exchange_rate
       class ForeignExchangeRate < ModernTreasury::Internal::Type::BaseModel
@@ -283,20 +246,16 @@ module ModernTreasury
         #   @return [Integer]
         required :value, Integer
 
-        # @!parse
-        #   # Associated serialized foreign exchange rate information.
-        #   #
-        #   # @param base_amount [Integer]
-        #   # @param base_currency [Symbol, ModernTreasury::Models::Currency]
-        #   # @param exponent [Integer]
-        #   # @param rate_string [String]
-        #   # @param target_amount [Integer]
-        #   # @param target_currency [Symbol, ModernTreasury::Models::Currency]
-        #   # @param value [Integer]
-        #   #
-        #   def initialize(base_amount:, base_currency:, exponent:, rate_string:, target_amount:, target_currency:, value:, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(base_amount:, base_currency:, exponent:, rate_string:, target_amount:, target_currency:, value:)
+        #   Associated serialized foreign exchange rate information.
+        #
+        #   @param base_amount [Integer]
+        #   @param base_currency [Symbol, ModernTreasury::Models::Currency]
+        #   @param exponent [Integer]
+        #   @param rate_string [String]
+        #   @param target_amount [Integer]
+        #   @param target_currency [Symbol, ModernTreasury::Models::Currency]
+        #   @param value [Integer]
       end
 
       # The type of the transaction. Examples could be
@@ -338,11 +297,8 @@ module ModernTreasury
         ZENGIN = :zengin
         OTHER = :other
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
@@ -379,11 +335,8 @@ module ModernTreasury
         US_BANK = :us_bank
         USER = :user
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

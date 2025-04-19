@@ -88,41 +88,20 @@ module ModernTreasury
         #   @return [Time]
         required :updated_at, Time
 
-        # @!parse
-        #   # @param id [String]
-        #   # @param amount [Integer]
-        #   # @param created_at [Time]
-        #   # @param description [String]
-        #   # @param direction [String]
-        #   # @param live_mode [Boolean]
-        #   # @param metadata [Hash{Symbol=>String}]
-        #   # @param name [String]
-        #   # @param object [String]
-        #   # @param quantity [Integer]
-        #   # @param unit_amount [Integer]
-        #   # @param unit_amount_decimal [String]
-        #   # @param updated_at [Time]
-        #   #
-        #   def initialize(
-        #     id:,
-        #     amount:,
-        #     created_at:,
-        #     description:,
-        #     direction:,
-        #     live_mode:,
-        #     metadata:,
-        #     name:,
-        #     object:,
-        #     quantity:,
-        #     unit_amount:,
-        #     unit_amount_decimal:,
-        #     updated_at:,
-        #     **
-        #   )
-        #     super
-        #   end
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(id:, amount:, created_at:, description:, direction:, live_mode:, metadata:, name:, object:, quantity:, unit_amount:, unit_amount_decimal:, updated_at:)
+        #   @param id [String]
+        #   @param amount [Integer]
+        #   @param created_at [Time]
+        #   @param description [String]
+        #   @param direction [String]
+        #   @param live_mode [Boolean]
+        #   @param metadata [Hash{Symbol=>String}]
+        #   @param name [String]
+        #   @param object [String]
+        #   @param quantity [Integer]
+        #   @param unit_amount [Integer]
+        #   @param unit_amount_decimal [String]
+        #   @param updated_at [Time]
       end
     end
 

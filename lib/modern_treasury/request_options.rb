@@ -67,10 +67,9 @@ module ModernTreasury
     optional :timeout, Float
 
     # @!parse
-    #   # Returns a new instance of RequestOptions.
+    #   # @!method initialize(values = {})
+    #   #   Returns a new instance of RequestOptions.
     #   #
-    #   # @param values [Hash{Symbol=>Object}]
-    #   #
-    #   def initialize(values = {}) = super
+    #   #   @param values [Hash{Symbol=>Object}]
   end
 end

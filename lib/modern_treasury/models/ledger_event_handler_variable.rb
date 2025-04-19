@@ -5,6 +5,7 @@ module ModernTreasury
     # @deprecated
     class LedgerEventHandlerVariable < ModernTreasury::Internal::Type::BaseModel
       # @!attribute query
+      #   @deprecated
       #
       #   @return [ModernTreasury::Models::LedgerEventHandlerVariable::Query]
       required :query, -> { ModernTreasury::Models::LedgerEventHandlerVariable::Query }
@@ -16,13 +17,9 @@ module ModernTreasury
       #   @return [String]
       required :type, String
 
-      # @!parse
-      #   # @param query [ModernTreasury::Models::LedgerEventHandlerVariable::Query]
-      #   # @param type [String]
-      #   #
-      #   def initialize(query:, type:, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(query:, type:)
+      #   @param query [ModernTreasury::Models::LedgerEventHandlerVariable::Query]
+      #   @param type [String]
 
       # @deprecated
       #
@@ -46,14 +43,10 @@ module ModernTreasury
         #   @return [String]
         required :value, String
 
-        # @!parse
-        #   # @param field [String]
-        #   # @param operator [String]
-        #   # @param value [String]
-        #   #
-        #   def initialize(field:, operator:, value:, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(field:, operator:, value:)
+        #   @param field [String]
+        #   @param operator [String]
+        #   @param value [String]
       end
     end
   end

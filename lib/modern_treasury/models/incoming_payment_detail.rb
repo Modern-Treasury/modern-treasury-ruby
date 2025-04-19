@@ -164,65 +164,32 @@ module ModernTreasury
       #   @return [String, nil]
       optional :originating_account_number, String, nil?: true
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param amount [Integer]
-      #   # @param as_of_date [Date]
-      #   # @param created_at [Time]
-      #   # @param currency [Symbol, ModernTreasury::Models::Currency]
-      #   # @param data [Hash{Symbol=>Object}]
-      #   # @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
-      #   # @param internal_account_id [String]
-      #   # @param ledger_transaction_id [String, nil]
-      #   # @param live_mode [Boolean]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param object [String]
-      #   # @param originating_account_number_safe [String, nil]
-      #   # @param originating_account_number_type [Symbol, ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType, nil]
-      #   # @param originating_routing_number [String, nil]
-      #   # @param originating_routing_number_type [Symbol, ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType, nil]
-      #   # @param status [Symbol, ModernTreasury::Models::IncomingPaymentDetail::Status]
-      #   # @param transaction_id [String, nil]
-      #   # @param transaction_line_item_id [String, nil]
-      #   # @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetail::Type]
-      #   # @param updated_at [Time]
-      #   # @param vendor_id [String, nil]
-      #   # @param virtual_account [ModernTreasury::Models::VirtualAccount, nil]
-      #   # @param virtual_account_id [String, nil]
-      #   # @param originating_account_number [String, nil]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     amount:,
-      #     as_of_date:,
-      #     created_at:,
-      #     currency:,
-      #     data:,
-      #     direction:,
-      #     internal_account_id:,
-      #     ledger_transaction_id:,
-      #     live_mode:,
-      #     metadata:,
-      #     object:,
-      #     originating_account_number_safe:,
-      #     originating_account_number_type:,
-      #     originating_routing_number:,
-      #     originating_routing_number_type:,
-      #     status:,
-      #     transaction_id:,
-      #     transaction_line_item_id:,
-      #     type:,
-      #     updated_at:,
-      #     vendor_id:,
-      #     virtual_account:,
-      #     virtual_account_id:,
-      #     originating_account_number: nil,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, amount:, as_of_date:, created_at:, currency:, data:, direction:, internal_account_id:, ledger_transaction_id:, live_mode:, metadata:, object:, originating_account_number_safe:, originating_account_number_type:, originating_routing_number:, originating_routing_number_type:, status:, transaction_id:, transaction_line_item_id:, type:, updated_at:, vendor_id:, virtual_account:, virtual_account_id:, originating_account_number: nil)
+      #   @param id [String]
+      #   @param amount [Integer]
+      #   @param as_of_date [Date]
+      #   @param created_at [Time]
+      #   @param currency [Symbol, ModernTreasury::Models::Currency]
+      #   @param data [Hash{Symbol=>Object}]
+      #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
+      #   @param internal_account_id [String]
+      #   @param ledger_transaction_id [String, nil]
+      #   @param live_mode [Boolean]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param object [String]
+      #   @param originating_account_number_safe [String, nil]
+      #   @param originating_account_number_type [Symbol, ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType, nil]
+      #   @param originating_routing_number [String, nil]
+      #   @param originating_routing_number_type [Symbol, ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType, nil]
+      #   @param status [Symbol, ModernTreasury::Models::IncomingPaymentDetail::Status]
+      #   @param transaction_id [String, nil]
+      #   @param transaction_line_item_id [String, nil]
+      #   @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetail::Type]
+      #   @param updated_at [Time]
+      #   @param vendor_id [String, nil]
+      #   @param virtual_account [ModernTreasury::Models::VirtualAccount, nil]
+      #   @param virtual_account_id [String, nil]
+      #   @param originating_account_number [String, nil]
 
       # The type of the originating account number for the incoming payment detail.
       #
@@ -241,11 +208,8 @@ module ModernTreasury
         SG_NUMBER = :sg_number
         WALLET_ADDRESS = :wallet_address
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # The type of the originating routing number for the incoming payment detail.
@@ -276,11 +240,8 @@ module ModernTreasury
         SWIFT = :swift
         ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # The current status of the incoming payment order. One of `pending`, `completed`,
@@ -294,11 +255,8 @@ module ModernTreasury
         PENDING = :pending
         RETURNED = :returned
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
@@ -322,11 +280,8 @@ module ModernTreasury
         SIGNET = :signet
         WIRE = :wire
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

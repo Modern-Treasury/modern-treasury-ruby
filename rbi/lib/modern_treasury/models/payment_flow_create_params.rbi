@@ -81,8 +81,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentFlowCreateParams::Direction) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentFlowCreateParams::Direction::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         CREDIT = T.let(:credit, ModernTreasury::Models::PaymentFlowCreateParams::Direction::TaggedSymbol)
         DEBIT = T.let(:debit, ModernTreasury::Models::PaymentFlowCreateParams::Direction::TaggedSymbol)

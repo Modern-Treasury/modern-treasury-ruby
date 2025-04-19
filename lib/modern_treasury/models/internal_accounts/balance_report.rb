@@ -65,35 +65,17 @@ module ModernTreasury
         #   @return [Time]
         required :updated_at, Time
 
-        # @!parse
-        #   # @param id [String]
-        #   # @param as_of_date [Date]
-        #   # @param as_of_time [Time, nil]
-        #   # @param balance_report_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType]
-        #   # @param balances [Array<ModernTreasury::Models::InternalAccounts::BalanceReport::Balance>]
-        #   # @param created_at [Time]
-        #   # @param internal_account_id [String]
-        #   # @param live_mode [Boolean]
-        #   # @param object [String]
-        #   # @param updated_at [Time]
-        #   #
-        #   def initialize(
-        #     id:,
-        #     as_of_date:,
-        #     as_of_time:,
-        #     balance_report_type:,
-        #     balances:,
-        #     created_at:,
-        #     internal_account_id:,
-        #     live_mode:,
-        #     object:,
-        #     updated_at:,
-        #     **
-        #   )
-        #     super
-        #   end
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(id:, as_of_date:, as_of_time:, balance_report_type:, balances:, created_at:, internal_account_id:, live_mode:, object:, updated_at:)
+        #   @param id [String]
+        #   @param as_of_date [Date]
+        #   @param as_of_time [Time, nil]
+        #   @param balance_report_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType]
+        #   @param balances [Array<ModernTreasury::Models::InternalAccounts::BalanceReport::Balance>]
+        #   @param created_at [Time]
+        #   @param internal_account_id [String]
+        #   @param live_mode [Boolean]
+        #   @param object [String]
+        #   @param updated_at [Time]
 
         # The specific type of balance report. One of `intraday`, `previous_day`,
         # `real_time`, or `other`.
@@ -107,11 +89,8 @@ module ModernTreasury
           PREVIOUS_DAY = :previous_day
           REAL_TIME = :real_time
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
 
         class Balance < ModernTreasury::Internal::Type::BaseModel
@@ -197,41 +176,20 @@ module ModernTreasury
           #   @return [String, nil]
           required :vendor_code_type, String, nil?: true
 
-          # @!parse
-          #   # @param id [String]
-          #   # @param amount [Integer]
-          #   # @param as_of_date [Date, nil]
-          #   # @param as_of_time [Time, nil]
-          #   # @param balance_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::BalanceType]
-          #   # @param created_at [Time]
-          #   # @param currency [Symbol, ModernTreasury::Models::Currency]
-          #   # @param live_mode [Boolean]
-          #   # @param object [String]
-          #   # @param updated_at [Time]
-          #   # @param value_date [Date, nil]
-          #   # @param vendor_code [String]
-          #   # @param vendor_code_type [String, nil]
-          #   #
-          #   def initialize(
-          #     id:,
-          #     amount:,
-          #     as_of_date:,
-          #     as_of_time:,
-          #     balance_type:,
-          #     created_at:,
-          #     currency:,
-          #     live_mode:,
-          #     object:,
-          #     updated_at:,
-          #     value_date:,
-          #     vendor_code:,
-          #     vendor_code_type:,
-          #     **
-          #   )
-          #     super
-          #   end
-
-          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+          # @!method initialize(id:, amount:, as_of_date:, as_of_time:, balance_type:, created_at:, currency:, live_mode:, object:, updated_at:, value_date:, vendor_code:, vendor_code_type:)
+          #   @param id [String]
+          #   @param amount [Integer]
+          #   @param as_of_date [Date, nil]
+          #   @param as_of_time [Time, nil]
+          #   @param balance_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::BalanceType]
+          #   @param created_at [Time]
+          #   @param currency [Symbol, ModernTreasury::Models::Currency]
+          #   @param live_mode [Boolean]
+          #   @param object [String]
+          #   @param updated_at [Time]
+          #   @param value_date [Date, nil]
+          #   @param vendor_code [String]
+          #   @param vendor_code_type [String, nil]
 
           # The specific type of balance reported. One of `opening_ledger`,
           # `closing_ledger`, `current_ledger`, `opening_available`,
@@ -252,11 +210,8 @@ module ModernTreasury
             OTHER = :other
             PREVIOUSLY_CLOSED_BOOK = :previously_closed_book
 
-            finalize!
-
-            # @!parse
-            #   # @return [Array<Symbol>]
-            #   def self.values; end
+            # @!method self.values
+            #   @return [Array<Symbol>]
           end
         end
       end

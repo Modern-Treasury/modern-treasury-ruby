@@ -6,8 +6,7 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::Enum
 
       TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::TransactionDirection) }
-      OrSymbol =
-        T.type_alias { T.any(Symbol, String, ModernTreasury::Models::TransactionDirection::TaggedSymbol) }
+      OrSymbol = T.type_alias { T.any(Symbol, String) }
 
       CREDIT = T.let(:credit, ModernTreasury::Models::TransactionDirection::TaggedSymbol)
       DEBIT = T.let(:debit, ModernTreasury::Models::TransactionDirection::TaggedSymbol)

@@ -61,35 +61,17 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param created_at [Time]
-      #   # @param data [Hash{Symbol=>Object}]
-      #   # @param entity_id [String]
-      #   # @param event_name [String]
-      #   # @param event_time [Time]
-      #   # @param live_mode [Boolean]
-      #   # @param object [String]
-      #   # @param resource [String]
-      #   # @param updated_at [Time]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     created_at:,
-      #     data:,
-      #     entity_id:,
-      #     event_name:,
-      #     event_time:,
-      #     live_mode:,
-      #     object:,
-      #     resource:,
-      #     updated_at:,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, created_at:, data:, entity_id:, event_name:, event_time:, live_mode:, object:, resource:, updated_at:)
+      #   @param id [String]
+      #   @param created_at [Time]
+      #   @param data [Hash{Symbol=>Object}]
+      #   @param entity_id [String]
+      #   @param event_name [String]
+      #   @param event_time [Time]
+      #   @param live_mode [Boolean]
+      #   @param object [String]
+      #   @param resource [String]
+      #   @param updated_at [Time]
     end
   end
 end

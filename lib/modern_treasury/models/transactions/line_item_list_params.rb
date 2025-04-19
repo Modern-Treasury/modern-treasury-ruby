@@ -5,58 +5,41 @@ module ModernTreasury
     module Transactions
       # @see ModernTreasury::Resources::Transactions::LineItems#list
       class LineItemListParams < ModernTreasury::Internal::Type::BaseModel
-        # @!parse
-        #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 
-        # @!attribute [r] id
+        # @!attribute id
         #
         #   @return [Hash{Symbol=>String}, nil]
         optional :id, ModernTreasury::Internal::Type::HashOf[String]
-
-        # @!parse
-        #   # @return [Hash{Symbol=>String}]
-        #   attr_writer :id
 
         # @!attribute after_cursor
         #
         #   @return [String, nil]
         optional :after_cursor, String, nil?: true
 
-        # @!attribute [r] per_page
+        # @!attribute per_page
         #
         #   @return [Integer, nil]
         optional :per_page, Integer
 
-        # @!parse
-        #   # @return [Integer]
-        #   attr_writer :per_page
-
-        # @!attribute [r] transaction_id
+        # @!attribute transaction_id
         #
         #   @return [String, nil]
         optional :transaction_id, String
-
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :transaction_id
 
         # @!attribute type
         #
         #   @return [Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type, nil]
         optional :type, enum: -> { ModernTreasury::Models::Transactions::LineItemListParams::Type }, nil?: true
 
-        # @!parse
-        #   # @param id [Hash{Symbol=>String}]
-        #   # @param after_cursor [String, nil]
-        #   # @param per_page [Integer]
-        #   # @param transaction_id [String]
-        #   # @param type [Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type, nil]
-        #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-        #   #
-        #   def initialize(id: nil, after_cursor: nil, per_page: nil, transaction_id: nil, type: nil, request_options: {}, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(id: nil, after_cursor: nil, per_page: nil, transaction_id: nil, type: nil, request_options: {})
+        #   @param id [Hash{Symbol=>String}]
+        #   @param after_cursor [String, nil]
+        #   @param per_page [Integer]
+        #   @param transaction_id [String]
+        #   @param type [Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type, nil]
+        #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
         module Type
           extend ModernTreasury::Internal::Type::Enum
@@ -64,11 +47,8 @@ module ModernTreasury
           ORIGINATING = :originating
           RECEIVING = :receiving
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
       end
     end

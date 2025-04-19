@@ -149,8 +149,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaperItem::Status) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaperItem::Status::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         COMPLETED = T.let(:completed, ModernTreasury::Models::PaperItem::Status::TaggedSymbol)
         PENDING = T.let(:pending, ModernTreasury::Models::PaperItem::Status::TaggedSymbol)

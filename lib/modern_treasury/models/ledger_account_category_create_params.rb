@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::LedgerAccountCategories#create
     class LedgerAccountCategoryCreateParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute currency
@@ -44,55 +43,30 @@ module ModernTreasury
       #   @return [String, nil]
       optional :description, String, nil?: true
 
-      # @!attribute [r] ledger_account_category_ids
+      # @!attribute ledger_account_category_ids
       #   The array of ledger account category ids that this ledger account category
       #   should be a child of.
       #
       #   @return [Array<String>, nil]
       optional :ledger_account_category_ids, ModernTreasury::Internal::Type::ArrayOf[String]
 
-      # @!parse
-      #   # @return [Array<String>]
-      #   attr_writer :ledger_account_category_ids
-
-      # @!attribute [r] metadata
+      # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
-      # @!parse
-      #   # @return [Hash{Symbol=>String}]
-      #   attr_writer :metadata
-
-      # @!parse
-      #   # @param currency [String]
-      #   # @param ledger_id [String]
-      #   # @param name [String]
-      #   # @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection]
-      #   # @param currency_exponent [Integer, nil]
-      #   # @param description [String, nil]
-      #   # @param ledger_account_category_ids [Array<String>]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     currency:,
-      #     ledger_id:,
-      #     name:,
-      #     normal_balance:,
-      #     currency_exponent: nil,
-      #     description: nil,
-      #     ledger_account_category_ids: nil,
-      #     metadata: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(currency:, ledger_id:, name:, normal_balance:, currency_exponent: nil, description: nil, ledger_account_category_ids: nil, metadata: nil, request_options: {})
+      #   @param currency [String]
+      #   @param ledger_id [String]
+      #   @param name [String]
+      #   @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection]
+      #   @param currency_exponent [Integer, nil]
+      #   @param description [String, nil]
+      #   @param ledger_account_category_ids [Array<String>]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

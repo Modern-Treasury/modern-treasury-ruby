@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::AccountDetails#retrieve
     class AccountDetailRetrieveParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute accounts_type
@@ -18,14 +17,10 @@ module ModernTreasury
       #   @return [String]
       required :account_id, String
 
-      # @!parse
-      #   # @param accounts_type [Symbol, ModernTreasury::Models::AccountsType]
-      #   # @param account_id [String]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(accounts_type:, account_id:, request_options: {}, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(accounts_type:, account_id:, request_options: {})
+      #   @param accounts_type [Symbol, ModernTreasury::Models::AccountsType]
+      #   @param account_id [String]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

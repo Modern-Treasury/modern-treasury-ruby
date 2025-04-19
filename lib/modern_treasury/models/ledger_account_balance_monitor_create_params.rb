@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::LedgerAccountBalanceMonitors#create
     class LedgerAccountBalanceMonitorCreateParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute alert_condition
@@ -21,37 +20,25 @@ module ModernTreasury
       #   @return [String]
       required :ledger_account_id, String
 
-      # @!attribute [r] description
+      # @!attribute description
       #   An optional, free-form description for internal use.
       #
       #   @return [String, nil]
       optional :description, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :description
-
-      # @!attribute [r] metadata
+      # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
-      # @!parse
-      #   # @return [Hash{Symbol=>String}]
-      #   attr_writer :metadata
-
-      # @!parse
-      #   # @param alert_condition [ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition]
-      #   # @param ledger_account_id [String]
-      #   # @param description [String]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(alert_condition:, ledger_account_id:, description: nil, metadata: nil, request_options: {}, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(alert_condition:, ledger_account_id:, description: nil, metadata: nil, request_options: {})
+      #   @param alert_condition [ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition]
+      #   @param ledger_account_id [String]
+      #   @param description [String]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       class AlertCondition < ModernTreasury::Internal::Type::BaseModel
         # @!attribute field
@@ -77,16 +64,12 @@ module ModernTreasury
         #   @return [Integer]
         required :value, Integer
 
-        # @!parse
-        #   # Describes the condition that must be satisfied for the monitor to be triggered.
-        #   #
-        #   # @param field [String]
-        #   # @param operator [String]
-        #   # @param value [Integer]
-        #   #
-        #   def initialize(field:, operator:, value:, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(field:, operator:, value:)
+        #   Describes the condition that must be satisfied for the monitor to be triggered.
+        #
+        #   @param field [String]
+        #   @param operator [String]
+        #   @param value [Integer]
       end
     end
   end

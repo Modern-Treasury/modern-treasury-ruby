@@ -199,8 +199,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ReturnObject::Code) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ReturnObject::Code::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         CODE_901 = T.let(:"901", ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
         CODE_902 = T.let(:"902", ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
@@ -331,14 +330,7 @@ module ModernTreasury
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType) }
-          OrSymbol =
-            T.type_alias do
-              T.any(
-                Symbol,
-                String,
-                ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
-              )
-            end
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           ACH_ORIGINAL_TRACE_NUMBER =
             T.let(
@@ -720,8 +712,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ReturnObject::ReturnableType) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ReturnObject::ReturnableType::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         INCOMING_PAYMENT_DETAIL =
           T.let(:incoming_payment_detail, ModernTreasury::Models::ReturnObject::ReturnableType::TaggedSymbol)
@@ -739,8 +730,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ReturnObject::Role) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ReturnObject::Role::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         ORIGINATING = T.let(:originating, ModernTreasury::Models::ReturnObject::Role::TaggedSymbol)
         RECEIVING = T.let(:receiving, ModernTreasury::Models::ReturnObject::Role::TaggedSymbol)
@@ -754,8 +744,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ReturnObject::Status) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ReturnObject::Status::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         COMPLETED = T.let(:completed, ModernTreasury::Models::ReturnObject::Status::TaggedSymbol)
         FAILED = T.let(:failed, ModernTreasury::Models::ReturnObject::Status::TaggedSymbol)
@@ -774,8 +763,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ReturnObject::Type) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ReturnObject::Type::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         ACH = T.let(:ach, ModernTreasury::Models::ReturnObject::Type::TaggedSymbol)
         ACH_NOC = T.let(:ach_noc, ModernTreasury::Models::ReturnObject::Type::TaggedSymbol)

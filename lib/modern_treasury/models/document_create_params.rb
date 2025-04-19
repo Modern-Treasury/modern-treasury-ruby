@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::Documents#create
     class DocumentCreateParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute documentable_id
@@ -24,26 +23,18 @@ module ModernTreasury
       #   @return [Pathname, StringIO]
       required :file, ModernTreasury::Internal::Type::IOLike
 
-      # @!attribute [r] document_type
+      # @!attribute document_type
       #   A category given to the document, can be `null`.
       #
       #   @return [String, nil]
       optional :document_type, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :document_type
-
-      # @!parse
-      #   # @param documentable_id [String]
-      #   # @param documentable_type [Symbol, ModernTreasury::Models::DocumentCreateParams::DocumentableType]
-      #   # @param file [Pathname, StringIO]
-      #   # @param document_type [String]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(documentable_id:, documentable_type:, file:, document_type: nil, request_options: {}, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(documentable_id:, documentable_type:, file:, document_type: nil, request_options: {})
+      #   @param documentable_id [String]
+      #   @param documentable_type [Symbol, ModernTreasury::Models::DocumentCreateParams::DocumentableType]
+      #   @param file [Pathname, StringIO]
+      #   @param document_type [String]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       module DocumentableType
         extend ModernTreasury::Internal::Type::Enum
@@ -61,11 +52,8 @@ module ModernTreasury
         DECISIONS = :decisions
         CONNECTIONS = :connections
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

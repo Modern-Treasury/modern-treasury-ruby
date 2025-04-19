@@ -5,8 +5,7 @@ module ModernTreasury
     module LedgerAccountSettlements
       # @see ModernTreasury::Resources::LedgerAccountSettlements::AccountEntries#delete
       class AccountEntryDeleteParams < ModernTreasury::Internal::Type::BaseModel
-        # @!parse
-        #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 
         # @!attribute ledger_entry_ids
@@ -16,13 +15,9 @@ module ModernTreasury
         #   @return [Array<String>, nil]
         required :ledger_entry_ids, ModernTreasury::Internal::Type::ArrayOf[String], nil?: true
 
-        # @!parse
-        #   # @param ledger_entry_ids [Array<String>, nil]
-        #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-        #   #
-        #   def initialize(ledger_entry_ids:, request_options: {}, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(ledger_entry_ids:, request_options: {})
+        #   @param ledger_entry_ids [Array<String>, nil]
+        #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       end
     end
   end

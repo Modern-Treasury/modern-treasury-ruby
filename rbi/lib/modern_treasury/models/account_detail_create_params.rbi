@@ -55,8 +55,7 @@ module ModernTreasury
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountsType) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::AccountDetailCreateParams::AccountsType::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         EXTERNAL_ACCOUNTS =
           T.let(:external_accounts, ModernTreasury::Models::AccountDetailCreateParams::AccountsType::TaggedSymbol)
@@ -72,8 +71,7 @@ module ModernTreasury
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         AU_NUMBER =
           T.let(:au_number, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::TaggedSymbol)

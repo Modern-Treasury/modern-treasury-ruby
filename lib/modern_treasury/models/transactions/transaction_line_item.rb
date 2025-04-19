@@ -102,45 +102,22 @@ module ModernTreasury
         #   @return [Time]
         required :updated_at, Time
 
-        # @!parse
-        #   # @param id [String]
-        #   # @param amount [Integer]
-        #   # @param counterparty_id [String, nil]
-        #   # @param created_at [Time]
-        #   # @param description [String]
-        #   # @param discarded_at [Time, nil]
-        #   # @param expected_payment_id [String, nil]
-        #   # @param live_mode [Boolean]
-        #   # @param object [String]
-        #   # @param reconcilable [Boolean]
-        #   # @param transactable_id [String, nil]
-        #   # @param transactable_type [Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType, nil]
-        #   # @param transaction_id [String]
-        #   # @param type [Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::Type]
-        #   # @param updated_at [Time]
-        #   #
-        #   def initialize(
-        #     id:,
-        #     amount:,
-        #     counterparty_id:,
-        #     created_at:,
-        #     description:,
-        #     discarded_at:,
-        #     expected_payment_id:,
-        #     live_mode:,
-        #     object:,
-        #     reconcilable:,
-        #     transactable_id:,
-        #     transactable_type:,
-        #     transaction_id:,
-        #     type:,
-        #     updated_at:,
-        #     **
-        #   )
-        #     super
-        #   end
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(id:, amount:, counterparty_id:, created_at:, description:, discarded_at:, expected_payment_id:, live_mode:, object:, reconcilable:, transactable_id:, transactable_type:, transaction_id:, type:, updated_at:)
+        #   @param id [String]
+        #   @param amount [Integer]
+        #   @param counterparty_id [String, nil]
+        #   @param created_at [Time]
+        #   @param description [String]
+        #   @param discarded_at [Time, nil]
+        #   @param expected_payment_id [String, nil]
+        #   @param live_mode [Boolean]
+        #   @param object [String]
+        #   @param reconcilable [Boolean]
+        #   @param transactable_id [String, nil]
+        #   @param transactable_type [Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType, nil]
+        #   @param transaction_id [String]
+        #   @param type [Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::Type]
+        #   @param updated_at [Time]
 
         # If a matching object exists in Modern Treasury, the type will be populated here,
         # otherwise `null`.
@@ -156,11 +133,8 @@ module ModernTreasury
           RETURN = :return
           REVERSAL = :reversal
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
 
         # Indicates whether the line item is `originating` or `receiving` (see
@@ -173,11 +147,8 @@ module ModernTreasury
           ORIGINATING = :originating
           RECEIVING = :receiving
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
       end
     end

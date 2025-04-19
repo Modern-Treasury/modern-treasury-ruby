@@ -7,7 +7,7 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::Enum
 
       TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::Currency) }
-      OrSymbol = T.type_alias { T.any(Symbol, String, ModernTreasury::Models::Currency::TaggedSymbol) }
+      OrSymbol = T.type_alias { T.any(Symbol, String) }
 
       AED = T.let(:AED, ModernTreasury::Models::Currency::TaggedSymbol)
       AFN = T.let(:AFN, ModernTreasury::Models::Currency::TaggedSymbol)

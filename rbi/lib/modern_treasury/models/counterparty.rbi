@@ -383,14 +383,7 @@ module ModernTreasury
 
             TaggedSymbol =
               T.type_alias { T.all(Symbol, ModernTreasury::Models::Counterparty::Account::ContactDetail::ContactIdentifierType) }
-            OrSymbol =
-              T.type_alias do
-                T.any(
-                  Symbol,
-                  String,
-                  ModernTreasury::Models::Counterparty::Account::ContactDetail::ContactIdentifierType::TaggedSymbol
-                )
-              end
+            OrSymbol = T.type_alias { T.any(Symbol, String) }
 
             EMAIL =
               T.let(
@@ -514,8 +507,7 @@ module ModernTreasury
           extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::Counterparty::Account::PartyType) }
-          OrSymbol =
-            T.type_alias { T.any(Symbol, String, ModernTreasury::Models::Counterparty::Account::PartyType::TaggedSymbol) }
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           BUSINESS = T.let(:business, ModernTreasury::Models::Counterparty::Account::PartyType::TaggedSymbol)
           INDIVIDUAL = T.let(:individual, ModernTreasury::Models::Counterparty::Account::PartyType::TaggedSymbol)
@@ -529,8 +521,7 @@ module ModernTreasury
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::Counterparty::Account::VerificationSource) }
-          OrSymbol =
-            T.type_alias { T.any(Symbol, String, ModernTreasury::Models::Counterparty::Account::VerificationSource::TaggedSymbol) }
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           ACH_PRENOTE =
             T.let(:ach_prenote, ModernTreasury::Models::Counterparty::Account::VerificationSource::TaggedSymbol)
@@ -549,8 +540,7 @@ module ModernTreasury
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::Counterparty::Account::VerificationStatus) }
-          OrSymbol =
-            T.type_alias { T.any(Symbol, String, ModernTreasury::Models::Counterparty::Account::VerificationStatus::TaggedSymbol) }
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           PENDING_VERIFICATION =
             T.let(
@@ -574,8 +564,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::Counterparty::VerificationStatus) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::Counterparty::VerificationStatus::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         DENIED = T.let(:denied, ModernTreasury::Models::Counterparty::VerificationStatus::TaggedSymbol)
         NEEDS_APPROVAL =

@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::ExpectedPayments#update
     class ExpectedPaymentUpdateParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute amount_lower_bound
@@ -67,16 +66,12 @@ module ModernTreasury
       #   @return [String, nil]
       optional :internal_account_id, String, nil?: true
 
-      # @!attribute [r] metadata
+      # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
-
-      # @!parse
-      #   # @return [Hash{Symbol=>String}]
-      #   attr_writer :metadata
 
       # @!attribute reconciliation_filters
       #   The reconciliation filters you have for this payment.
@@ -129,51 +124,25 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil]
       optional :type, enum: -> { ModernTreasury::Models::ExpectedPaymentType }, nil?: true
 
-      # @!parse
-      #   # @param amount_lower_bound [Integer, nil]
-      #   # @param amount_upper_bound [Integer, nil]
-      #   # @param counterparty_id [String, nil]
-      #   # @param currency [Symbol, ModernTreasury::Models::Currency, nil]
-      #   # @param date_lower_bound [Date, nil]
-      #   # @param date_upper_bound [Date, nil]
-      #   # @param description [String, nil]
-      #   # @param direction [Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction, nil]
-      #   # @param internal_account_id [String, nil]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param reconciliation_filters [Object, nil]
-      #   # @param reconciliation_groups [Object, nil]
-      #   # @param reconciliation_rule_variables [Array<ModernTreasury::Models::ReconciliationRule>, nil]
-      #   # @param remittance_information [String, nil]
-      #   # @param statement_descriptor [String, nil]
-      #   # @param status [Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Status, nil]
-      #   # @param type [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     amount_lower_bound: nil,
-      #     amount_upper_bound: nil,
-      #     counterparty_id: nil,
-      #     currency: nil,
-      #     date_lower_bound: nil,
-      #     date_upper_bound: nil,
-      #     description: nil,
-      #     direction: nil,
-      #     internal_account_id: nil,
-      #     metadata: nil,
-      #     reconciliation_filters: nil,
-      #     reconciliation_groups: nil,
-      #     reconciliation_rule_variables: nil,
-      #     remittance_information: nil,
-      #     statement_descriptor: nil,
-      #     status: nil,
-      #     type: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(amount_lower_bound: nil, amount_upper_bound: nil, counterparty_id: nil, currency: nil, date_lower_bound: nil, date_upper_bound: nil, description: nil, direction: nil, internal_account_id: nil, metadata: nil, reconciliation_filters: nil, reconciliation_groups: nil, reconciliation_rule_variables: nil, remittance_information: nil, statement_descriptor: nil, status: nil, type: nil, request_options: {})
+      #   @param amount_lower_bound [Integer, nil]
+      #   @param amount_upper_bound [Integer, nil]
+      #   @param counterparty_id [String, nil]
+      #   @param currency [Symbol, ModernTreasury::Models::Currency, nil]
+      #   @param date_lower_bound [Date, nil]
+      #   @param date_upper_bound [Date, nil]
+      #   @param description [String, nil]
+      #   @param direction [Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction, nil]
+      #   @param internal_account_id [String, nil]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param reconciliation_filters [Object, nil]
+      #   @param reconciliation_groups [Object, nil]
+      #   @param reconciliation_rule_variables [Array<ModernTreasury::Models::ReconciliationRule>, nil]
+      #   @param remittance_information [String, nil]
+      #   @param statement_descriptor [String, nil]
+      #   @param status [Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Status, nil]
+      #   @param type [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # One of credit or debit. When you are receiving money, use credit. When you are
       # being charged, use debit.
@@ -183,11 +152,8 @@ module ModernTreasury
         CREDIT = :credit
         DEBIT = :debit
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # The Expected Payment's status can be updated from partially_reconciled to
@@ -197,11 +163,8 @@ module ModernTreasury
 
         RECONCILED = :reconciled
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

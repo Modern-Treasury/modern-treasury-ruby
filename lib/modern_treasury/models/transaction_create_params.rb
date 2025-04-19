@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::Transactions#create
     class TransactionCreateParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute amount
@@ -49,26 +48,18 @@ module ModernTreasury
       #   @return [String, nil]
       required :vendor_code_type, String, nil?: true
 
-      # @!attribute [r] metadata
+      # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
-      # @!parse
-      #   # @return [Hash{Symbol=>String}]
-      #   attr_writer :metadata
-
-      # @!attribute [r] posted
+      # @!attribute posted
       #   This field will be `true` if the transaction has posted to the account.
       #
       #   @return [Boolean, nil]
       optional :posted, ModernTreasury::Internal::Type::Boolean
-
-      # @!parse
-      #   # @return [Boolean]
-      #   attr_writer :posted
 
       # @!attribute type
       #   The type of the transaction. Examples could be
@@ -84,37 +75,18 @@ module ModernTreasury
       #   @return [String, nil]
       optional :vendor_description, String, nil?: true
 
-      # @!parse
-      #   # @param amount [Integer]
-      #   # @param as_of_date [Date, nil]
-      #   # @param direction [String]
-      #   # @param internal_account_id [String]
-      #   # @param vendor_code [String, nil]
-      #   # @param vendor_code_type [String, nil]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param posted [Boolean]
-      #   # @param type [Symbol, ModernTreasury::Models::TransactionCreateParams::Type, nil]
-      #   # @param vendor_description [String, nil]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     amount:,
-      #     as_of_date:,
-      #     direction:,
-      #     internal_account_id:,
-      #     vendor_code:,
-      #     vendor_code_type:,
-      #     metadata: nil,
-      #     posted: nil,
-      #     type: nil,
-      #     vendor_description: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(amount:, as_of_date:, direction:, internal_account_id:, vendor_code:, vendor_code_type:, metadata: nil, posted: nil, type: nil, vendor_description: nil, request_options: {})
+      #   @param amount [Integer]
+      #   @param as_of_date [Date, nil]
+      #   @param direction [String]
+      #   @param internal_account_id [String]
+      #   @param vendor_code [String, nil]
+      #   @param vendor_code_type [String, nil]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param posted [Boolean]
+      #   @param type [Symbol, ModernTreasury::Models::TransactionCreateParams::Type, nil]
+      #   @param vendor_description [String, nil]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # The type of the transaction. Examples could be
       # `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
@@ -153,11 +125,8 @@ module ModernTreasury
         ZENGIN = :zengin
         OTHER = :other
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

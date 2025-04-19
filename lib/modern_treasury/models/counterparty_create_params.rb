@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::Counterparties#create
     class CounterpartyCreateParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute name
@@ -14,25 +13,17 @@ module ModernTreasury
       #   @return [String, nil]
       required :name, String, nil?: true
 
-      # @!attribute [r] accounting
+      # @!attribute accounting
       #
       #   @return [ModernTreasury::Models::CounterpartyCreateParams::Accounting, nil]
       optional :accounting, -> { ModernTreasury::Models::CounterpartyCreateParams::Accounting }
 
-      # @!parse
-      #   # @return [ModernTreasury::Models::CounterpartyCreateParams::Accounting]
-      #   attr_writer :accounting
-
-      # @!attribute [r] accounts
+      # @!attribute accounts
       #   The accounts for this counterparty.
       #
       #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::Account>, nil]
       optional :accounts,
                -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::CounterpartyCreateParams::Account] }
-
-      # @!parse
-      #   # @return [Array<ModernTreasury::Models::CounterpartyCreateParams::Account>]
-      #   attr_writer :accounts
 
       # @!attribute email
       #   The counterparty's email.
@@ -40,25 +31,19 @@ module ModernTreasury
       #   @return [String, nil]
       optional :email, String, nil?: true
 
-      # @!attribute [r] ledger_type
+      # @!attribute ledger_type
+      #   @deprecated
+      #
       #   An optional type to auto-sync the counterparty to your ledger. Either `customer`
       #   or `vendor`.
       #
       #   @return [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LedgerType, nil]
       optional :ledger_type, enum: -> { ModernTreasury::Models::CounterpartyCreateParams::LedgerType }
 
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LedgerType]
-      #   attr_writer :ledger_type
-
-      # @!attribute [r] legal_entity
+      # @!attribute legal_entity
       #
       #   @return [ModernTreasury::Models::CounterpartyCreateParams::LegalEntity, nil]
       optional :legal_entity, -> { ModernTreasury::Models::CounterpartyCreateParams::LegalEntity }
-
-      # @!parse
-      #   # @return [ModernTreasury::Models::CounterpartyCreateParams::LegalEntity]
-      #   attr_writer :legal_entity
 
       # @!attribute legal_entity_id
       #   The id of the legal entity.
@@ -66,101 +51,57 @@ module ModernTreasury
       #   @return [String, nil]
       optional :legal_entity_id, String, nil?: true
 
-      # @!attribute [r] metadata
+      # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
-      # @!parse
-      #   # @return [Hash{Symbol=>String}]
-      #   attr_writer :metadata
-
-      # @!attribute [r] send_remittance_advice
+      # @!attribute send_remittance_advice
       #   Send an email to the counterparty whenever an associated payment order is sent
       #   to the bank.
       #
       #   @return [Boolean, nil]
       optional :send_remittance_advice, ModernTreasury::Internal::Type::Boolean
 
-      # @!parse
-      #   # @return [Boolean]
-      #   attr_writer :send_remittance_advice
-
-      # @!attribute [r] taxpayer_identifier
+      # @!attribute taxpayer_identifier
       #   Either a valid SSN or EIN.
       #
       #   @return [String, nil]
       optional :taxpayer_identifier, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :taxpayer_identifier
-
-      # @!attribute [r] verification_status
+      # @!attribute verification_status
       #   The verification status of the counterparty.
       #
       #   @return [Symbol, ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus, nil]
       optional :verification_status,
                enum: -> { ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus }
 
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus]
-      #   attr_writer :verification_status
-
-      # @!parse
-      #   # @param name [String, nil]
-      #   # @param accounting [ModernTreasury::Models::CounterpartyCreateParams::Accounting]
-      #   # @param accounts [Array<ModernTreasury::Models::CounterpartyCreateParams::Account>]
-      #   # @param email [String, nil]
-      #   # @param ledger_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LedgerType]
-      #   # @param legal_entity [ModernTreasury::Models::CounterpartyCreateParams::LegalEntity]
-      #   # @param legal_entity_id [String, nil]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param send_remittance_advice [Boolean]
-      #   # @param taxpayer_identifier [String]
-      #   # @param verification_status [Symbol, ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     name:,
-      #     accounting: nil,
-      #     accounts: nil,
-      #     email: nil,
-      #     ledger_type: nil,
-      #     legal_entity: nil,
-      #     legal_entity_id: nil,
-      #     metadata: nil,
-      #     send_remittance_advice: nil,
-      #     taxpayer_identifier: nil,
-      #     verification_status: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(name:, accounting: nil, accounts: nil, email: nil, ledger_type: nil, legal_entity: nil, legal_entity_id: nil, metadata: nil, send_remittance_advice: nil, taxpayer_identifier: nil, verification_status: nil, request_options: {})
+      #   @param name [String, nil]
+      #   @param accounting [ModernTreasury::Models::CounterpartyCreateParams::Accounting]
+      #   @param accounts [Array<ModernTreasury::Models::CounterpartyCreateParams::Account>]
+      #   @param email [String, nil]
+      #   @param ledger_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LedgerType]
+      #   @param legal_entity [ModernTreasury::Models::CounterpartyCreateParams::LegalEntity]
+      #   @param legal_entity_id [String, nil]
+      #   @param metadata [Hash{Symbol=>String}]
+      #   @param send_remittance_advice [Boolean]
+      #   @param taxpayer_identifier [String]
+      #   @param verification_status [Symbol, ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       class Accounting < ModernTreasury::Internal::Type::BaseModel
-        # @!attribute [r] type
+        # @!attribute type
         #   An optional type to auto-sync the counterparty to your ledger. Either `customer`
         #   or `vendor`.
         #
         #   @return [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Accounting::Type, nil]
         optional :type, enum: -> { ModernTreasury::Models::CounterpartyCreateParams::Accounting::Type }
 
-        # @!parse
-        #   # @return [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Accounting::Type]
-        #   attr_writer :type
-
-        # @!parse
-        #   # @param type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Accounting::Type]
-        #   #
-        #   def initialize(type: nil, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(type: nil)
+        #   @param type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Accounting::Type]
 
         # An optional type to auto-sync the counterparty to your ledger. Either `customer`
         # or `vendor`.
@@ -172,46 +113,31 @@ module ModernTreasury
           CUSTOMER = :customer
           VENDOR = :vendor
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
       end
 
       class Account < ModernTreasury::Internal::Type::BaseModel
-        # @!attribute [r] account_details
+        # @!attribute account_details
         #
         #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail>, nil]
         optional :account_details,
                  -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail] }
 
-        # @!parse
-        #   # @return [Array<ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail>]
-        #   attr_writer :account_details
-
-        # @!attribute [r] account_type
+        # @!attribute account_type
         #   Can be `checking`, `savings` or `other`.
         #
         #   @return [Symbol, ModernTreasury::Models::ExternalAccountType, nil]
         optional :account_type, enum: -> { ModernTreasury::Models::ExternalAccountType }
 
-        # @!parse
-        #   # @return [Symbol, ModernTreasury::Models::ExternalAccountType]
-        #   attr_writer :account_type
-
-        # @!attribute [r] contact_details
+        # @!attribute contact_details
         #
         #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail>, nil]
         optional :contact_details,
                  -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail] }
 
-        # @!parse
-        #   # @return [Array<ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail>]
-        #   attr_writer :contact_details
-
-        # @!attribute [r] ledger_account
+        # @!attribute ledger_account
         #   Specifies a ledger account object that will be created with the external
         #   account. The resulting ledger account is linked to the external account for
         #   auto-ledgering Payment objects. See
@@ -221,20 +147,12 @@ module ModernTreasury
         #   @return [ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount, nil]
         optional :ledger_account, -> { ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount }
 
-        # @!parse
-        #   # @return [ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount]
-        #   attr_writer :ledger_account
-
-        # @!attribute [r] metadata
+        # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be
         #   strings.
         #
         #   @return [Hash{Symbol=>String}, nil]
         optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
-
-        # @!parse
-        #   # @return [Hash{Symbol=>String}]
-        #   attr_writer :metadata
 
         # @!attribute name
         #   A nickname for the external account. This is only for internal usage and won't
@@ -243,34 +161,22 @@ module ModernTreasury
         #   @return [String, nil]
         optional :name, String, nil?: true
 
-        # @!attribute [r] party_address
+        # @!attribute party_address
         #   Required if receiving wire payments.
         #
         #   @return [ModernTreasury::Models::CounterpartyCreateParams::Account::PartyAddress, nil]
         optional :party_address, -> { ModernTreasury::Models::CounterpartyCreateParams::Account::PartyAddress }
 
-        # @!parse
-        #   # @return [ModernTreasury::Models::CounterpartyCreateParams::Account::PartyAddress]
-        #   attr_writer :party_address
-
-        # @!attribute [r] party_identifier
+        # @!attribute party_identifier
         #
         #   @return [String, nil]
         optional :party_identifier, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :party_identifier
-
-        # @!attribute [r] party_name
+        # @!attribute party_name
         #   If this value isn't provided, it will be inherited from the counterparty's name.
         #
         #   @return [String, nil]
         optional :party_name, String
-
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :party_name
 
         # @!attribute party_type
         #   Either `individual` or `business`.
@@ -280,60 +186,32 @@ module ModernTreasury
                  enum: -> { ModernTreasury::Models::CounterpartyCreateParams::Account::PartyType },
                  nil?: true
 
-        # @!attribute [r] plaid_processor_token
+        # @!attribute plaid_processor_token
         #   If you've enabled the Modern Treasury + Plaid integration in your Plaid account,
         #   you can pass the processor token in this field.
         #
         #   @return [String, nil]
         optional :plaid_processor_token, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :plaid_processor_token
-
-        # @!attribute [r] routing_details
+        # @!attribute routing_details
         #
         #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail>, nil]
         optional :routing_details,
                  -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail] }
 
-        # @!parse
-        #   # @return [Array<ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail>]
-        #   attr_writer :routing_details
-
-        # @!parse
-        #   # @param account_details [Array<ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail>]
-        #   # @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType]
-        #   # @param contact_details [Array<ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail>]
-        #   # @param ledger_account [ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount]
-        #   # @param metadata [Hash{Symbol=>String}]
-        #   # @param name [String, nil]
-        #   # @param party_address [ModernTreasury::Models::CounterpartyCreateParams::Account::PartyAddress]
-        #   # @param party_identifier [String]
-        #   # @param party_name [String]
-        #   # @param party_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::PartyType, nil]
-        #   # @param plaid_processor_token [String]
-        #   # @param routing_details [Array<ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail>]
-        #   #
-        #   def initialize(
-        #     account_details: nil,
-        #     account_type: nil,
-        #     contact_details: nil,
-        #     ledger_account: nil,
-        #     metadata: nil,
-        #     name: nil,
-        #     party_address: nil,
-        #     party_identifier: nil,
-        #     party_name: nil,
-        #     party_type: nil,
-        #     plaid_processor_token: nil,
-        #     routing_details: nil,
-        #     **
-        #   )
-        #     super
-        #   end
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(account_details: nil, account_type: nil, contact_details: nil, ledger_account: nil, metadata: nil, name: nil, party_address: nil, party_identifier: nil, party_name: nil, party_type: nil, plaid_processor_token: nil, routing_details: nil)
+        #   @param account_details [Array<ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail>]
+        #   @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType]
+        #   @param contact_details [Array<ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail>]
+        #   @param ledger_account [ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount]
+        #   @param metadata [Hash{Symbol=>String}]
+        #   @param name [String, nil]
+        #   @param party_address [ModernTreasury::Models::CounterpartyCreateParams::Account::PartyAddress]
+        #   @param party_identifier [String]
+        #   @param party_name [String]
+        #   @param party_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::PartyType, nil]
+        #   @param plaid_processor_token [String]
+        #   @param routing_details [Array<ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail>]
 
         class AccountDetail < ModernTreasury::Internal::Type::BaseModel
           # @!attribute account_number
@@ -341,23 +219,15 @@ module ModernTreasury
           #   @return [String]
           required :account_number, String
 
-          # @!attribute [r] account_number_type
+          # @!attribute account_number_type
           #
           #   @return [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail::AccountNumberType, nil]
           optional :account_number_type,
                    enum: -> { ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail::AccountNumberType }
 
-          # @!parse
-          #   # @return [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail::AccountNumberType]
-          #   attr_writer :account_number_type
-
-          # @!parse
-          #   # @param account_number [String]
-          #   # @param account_number_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail::AccountNumberType]
-          #   #
-          #   def initialize(account_number:, account_number_type: nil, **) = super
-
-          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+          # @!method initialize(account_number:, account_number_type: nil)
+          #   @param account_number [String]
+          #   @param account_number_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail::AccountNumberType]
 
           # @see ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail#account_number_type
           module AccountNumberType
@@ -374,41 +244,26 @@ module ModernTreasury
             SG_NUMBER = :sg_number
             WALLET_ADDRESS = :wallet_address
 
-            finalize!
-
-            # @!parse
-            #   # @return [Array<Symbol>]
-            #   def self.values; end
+            # @!method self.values
+            #   @return [Array<Symbol>]
           end
         end
 
         class ContactDetail < ModernTreasury::Internal::Type::BaseModel
-          # @!attribute [r] contact_identifier
+          # @!attribute contact_identifier
           #
           #   @return [String, nil]
           optional :contact_identifier, String
 
-          # @!parse
-          #   # @return [String]
-          #   attr_writer :contact_identifier
-
-          # @!attribute [r] contact_identifier_type
+          # @!attribute contact_identifier_type
           #
           #   @return [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail::ContactIdentifierType, nil]
           optional :contact_identifier_type,
                    enum: -> { ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail::ContactIdentifierType }
 
-          # @!parse
-          #   # @return [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail::ContactIdentifierType]
-          #   attr_writer :contact_identifier_type
-
-          # @!parse
-          #   # @param contact_identifier [String]
-          #   # @param contact_identifier_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail::ContactIdentifierType]
-          #   #
-          #   def initialize(contact_identifier: nil, contact_identifier_type: nil, **) = super
-
-          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+          # @!method initialize(contact_identifier: nil, contact_identifier_type: nil)
+          #   @param contact_identifier [String]
+          #   @param contact_identifier_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail::ContactIdentifierType]
 
           # @see ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail#contact_identifier_type
           module ContactIdentifierType
@@ -418,11 +273,8 @@ module ModernTreasury
             PHONE_NUMBER = :phone_number
             WEBSITE = :website
 
-            finalize!
-
-            # @!parse
-            #   # @return [Array<Symbol>]
-            #   def self.values; end
+            # @!method self.values
+            #   @return [Array<Symbol>]
           end
         end
 
@@ -464,29 +316,21 @@ module ModernTreasury
           #   @return [String, nil]
           optional :description, String, nil?: true
 
-          # @!attribute [r] ledger_account_category_ids
+          # @!attribute ledger_account_category_ids
           #   The array of ledger account category ids that this ledger account should be a
           #   child of.
           #
           #   @return [Array<String>, nil]
           optional :ledger_account_category_ids, ModernTreasury::Internal::Type::ArrayOf[String]
 
-          # @!parse
-          #   # @return [Array<String>]
-          #   attr_writer :ledger_account_category_ids
-
-          # @!attribute [r] ledgerable_id
+          # @!attribute ledgerable_id
           #   If the ledger account links to another object in Modern Treasury, the id will be
           #   populated here, otherwise null.
           #
           #   @return [String, nil]
           optional :ledgerable_id, String
 
-          # @!parse
-          #   # @return [String]
-          #   attr_writer :ledgerable_id
-
-          # @!attribute [r] ledgerable_type
+          # @!attribute ledgerable_type
           #   If the ledger account links to another object in Modern Treasury, the type will
           #   be populated here, otherwise null. The value is one of internal_account or
           #   external_account.
@@ -495,56 +339,30 @@ module ModernTreasury
           optional :ledgerable_type,
                    enum: -> { ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount::LedgerableType }
 
-          # @!parse
-          #   # @return [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount::LedgerableType]
-          #   attr_writer :ledgerable_type
-
-          # @!attribute [r] metadata
+          # @!attribute metadata
           #   Additional data represented as key-value pairs. Both the key and value must be
           #   strings.
           #
           #   @return [Hash{Symbol=>String}, nil]
           optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
-          # @!parse
-          #   # @return [Hash{Symbol=>String}]
-          #   attr_writer :metadata
-
-          # @!parse
-          #   # Specifies a ledger account object that will be created with the external
-          #   # account. The resulting ledger account is linked to the external account for
-          #   # auto-ledgering Payment objects. See
-          #   # https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
-          #   # for more details.
-          #   #
-          #   # @param currency [String]
-          #   # @param ledger_id [String]
-          #   # @param name [String]
-          #   # @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection]
-          #   # @param currency_exponent [Integer, nil]
-          #   # @param description [String, nil]
-          #   # @param ledger_account_category_ids [Array<String>]
-          #   # @param ledgerable_id [String]
-          #   # @param ledgerable_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount::LedgerableType]
-          #   # @param metadata [Hash{Symbol=>String}]
-          #   #
-          #   def initialize(
-          #     currency:,
-          #     ledger_id:,
-          #     name:,
-          #     normal_balance:,
-          #     currency_exponent: nil,
-          #     description: nil,
-          #     ledger_account_category_ids: nil,
-          #     ledgerable_id: nil,
-          #     ledgerable_type: nil,
-          #     metadata: nil,
-          #     **
-          #   )
-          #     super
-          #   end
-
-          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+          # @!method initialize(currency:, ledger_id:, name:, normal_balance:, currency_exponent: nil, description: nil, ledger_account_category_ids: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil)
+          #   Specifies a ledger account object that will be created with the external
+          #   account. The resulting ledger account is linked to the external account for
+          #   auto-ledgering Payment objects. See
+          #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
+          #   for more details.
+          #
+          #   @param currency [String]
+          #   @param ledger_id [String]
+          #   @param name [String]
+          #   @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection]
+          #   @param currency_exponent [Integer, nil]
+          #   @param description [String, nil]
+          #   @param ledger_account_category_ids [Array<String>]
+          #   @param ledgerable_id [String]
+          #   @param ledgerable_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount::LedgerableType]
+          #   @param metadata [Hash{Symbol=>String}]
 
           # If the ledger account links to another object in Modern Treasury, the type will
           # be populated here, otherwise null. The value is one of internal_account or
@@ -559,11 +377,8 @@ module ModernTreasury
             INTERNAL_ACCOUNT = :internal_account
             VIRTUAL_ACCOUNT = :virtual_account
 
-            finalize!
-
-            # @!parse
-            #   # @return [Array<Symbol>]
-            #   def self.values; end
+            # @!method self.values
+            #   @return [Array<Symbol>]
           end
         end
 
@@ -603,19 +418,15 @@ module ModernTreasury
           #   @return [String, nil]
           optional :region, String, nil?: true
 
-          # @!parse
-          #   # Required if receiving wire payments.
-          #   #
-          #   # @param country [String, nil]
-          #   # @param line1 [String, nil]
-          #   # @param line2 [String, nil]
-          #   # @param locality [String, nil]
-          #   # @param postal_code [String, nil]
-          #   # @param region [String, nil]
-          #   #
-          #   def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil, **) = super
-
-          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+          # @!method initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
+          #   Required if receiving wire payments.
+          #
+          #   @param country [String, nil]
+          #   @param line1 [String, nil]
+          #   @param line2 [String, nil]
+          #   @param locality [String, nil]
+          #   @param postal_code [String, nil]
+          #   @param region [String, nil]
         end
 
         # Either `individual` or `business`.
@@ -627,11 +438,8 @@ module ModernTreasury
           BUSINESS = :business
           INDIVIDUAL = :individual
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
 
         class RoutingDetail < ModernTreasury::Internal::Type::BaseModel
@@ -646,24 +454,16 @@ module ModernTreasury
           required :routing_number_type,
                    enum: -> { ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::RoutingNumberType }
 
-          # @!attribute [r] payment_type
+          # @!attribute payment_type
           #
           #   @return [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::PaymentType, nil]
           optional :payment_type,
                    enum: -> { ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::PaymentType }
 
-          # @!parse
-          #   # @return [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::PaymentType]
-          #   attr_writer :payment_type
-
-          # @!parse
-          #   # @param routing_number [String]
-          #   # @param routing_number_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::RoutingNumberType]
-          #   # @param payment_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::PaymentType]
-          #   #
-          #   def initialize(routing_number:, routing_number_type:, payment_type: nil, **) = super
-
-          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+          # @!method initialize(routing_number:, routing_number_type:, payment_type: nil)
+          #   @param routing_number [String]
+          #   @param routing_number_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::RoutingNumberType]
+          #   @param payment_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::PaymentType]
 
           # @see ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail#routing_number_type
           module RoutingNumberType
@@ -691,11 +491,8 @@ module ModernTreasury
             SWIFT = :swift
             ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
-            finalize!
-
-            # @!parse
-            #   # @return [Array<Symbol>]
-            #   def self.values; end
+            # @!method self.values
+            #   @return [Array<Symbol>]
           end
 
           # @see ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail#payment_type
@@ -733,11 +530,8 @@ module ModernTreasury
             WIRE = :wire
             ZENGIN = :zengin
 
-            finalize!
-
-            # @!parse
-            #   # @return [Array<Symbol>]
-            #   def self.values; end
+            # @!method self.values
+            #   @return [Array<Symbol>]
           end
         end
       end
@@ -752,11 +546,8 @@ module ModernTreasury
         CUSTOMER = :customer
         VENDOR = :vendor
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       class LegalEntity < ModernTreasury::Internal::Type::BaseModel
@@ -767,16 +558,12 @@ module ModernTreasury
         required :legal_entity_type,
                  enum: -> { ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityType }
 
-        # @!attribute [r] addresses
+        # @!attribute addresses
         #   A list of addresses for the entity.
         #
         #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address>, nil]
         optional :addresses,
                  -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address] }
-
-        # @!parse
-        #   # @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address>]
-        #   attr_writer :addresses
 
         # @!attribute bank_settings
         #
@@ -812,14 +599,10 @@ module ModernTreasury
         #   @return [Date, nil]
         optional :date_of_birth, Date, nil?: true
 
-        # @!attribute [r] doing_business_as_names
+        # @!attribute doing_business_as_names
         #
         #   @return [Array<String>, nil]
         optional :doing_business_as_names, ModernTreasury::Internal::Type::ArrayOf[String]
-
-        # @!parse
-        #   # @return [Array<String>]
-        #   attr_writer :doing_business_as_names
 
         # @!attribute email
         #   The entity's primary email.
@@ -833,27 +616,19 @@ module ModernTreasury
         #   @return [String, nil]
         optional :first_name, String, nil?: true
 
-        # @!attribute [r] identifications
+        # @!attribute identifications
         #   A list of identifications for the legal entity.
         #
         #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification>, nil]
         optional :identifications,
                  -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification] }
 
-        # @!parse
-        #   # @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification>]
-        #   attr_writer :identifications
-
-        # @!attribute [r] industry_classifications
+        # @!attribute industry_classifications
         #   A list of industry classifications for the legal entity.
         #
         #   @return [Array<ModernTreasury::Models::LegalEntityIndustryClassification>, nil]
         optional :industry_classifications,
                  -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::LegalEntityIndustryClassification] }
-
-        # @!parse
-        #   # @return [Array<ModernTreasury::Models::LegalEntityIndustryClassification>]
-        #   attr_writer :industry_classifications
 
         # @!attribute last_name
         #   An individual's last name.
@@ -877,16 +652,12 @@ module ModernTreasury
                  enum: -> { ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalStructure },
                  nil?: true
 
-        # @!attribute [r] metadata
+        # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be
         #   strings.
         #
         #   @return [Hash{Symbol=>String}, nil]
         optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
-
-        # @!parse
-        #   # @return [Hash{Symbol=>String}]
-        #   attr_writer :metadata
 
         # @!attribute middle_name
         #   An individual's middle name.
@@ -894,15 +665,11 @@ module ModernTreasury
         #   @return [String, nil]
         optional :middle_name, String, nil?: true
 
-        # @!attribute [r] phone_numbers
+        # @!attribute phone_numbers
         #
         #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber>, nil]
         optional :phone_numbers,
                  -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber] }
-
-        # @!parse
-        #   # @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber>]
-        #   attr_writer :phone_numbers
 
         # @!attribute politically_exposed_person
         #   Whether the individual is a politically exposed person.
@@ -949,67 +716,33 @@ module ModernTreasury
         #   @return [String, nil]
         optional :website, String, nil?: true
 
-        # @!parse
-        #   # @param legal_entity_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityType]
-        #   # @param addresses [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address>]
-        #   # @param bank_settings [ModernTreasury::Models::BankSettings, nil]
-        #   # @param business_name [String, nil]
-        #   # @param citizenship_country [String, nil]
-        #   # @param compliance_details [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
-        #   # @param date_formed [Date, nil]
-        #   # @param date_of_birth [Date, nil]
-        #   # @param doing_business_as_names [Array<String>]
-        #   # @param email [String, nil]
-        #   # @param first_name [String, nil]
-        #   # @param identifications [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification>]
-        #   # @param industry_classifications [Array<ModernTreasury::Models::LegalEntityIndustryClassification>]
-        #   # @param last_name [String, nil]
-        #   # @param legal_entity_associations [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation>, nil]
-        #   # @param legal_structure [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalStructure, nil]
-        #   # @param metadata [Hash{Symbol=>String}]
-        #   # @param middle_name [String, nil]
-        #   # @param phone_numbers [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber>]
-        #   # @param politically_exposed_person [Boolean, nil]
-        #   # @param preferred_name [String, nil]
-        #   # @param prefix [String, nil]
-        #   # @param risk_rating [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::RiskRating, nil]
-        #   # @param suffix [String, nil]
-        #   # @param wealth_and_employment_details [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
-        #   # @param website [String, nil]
-        #   #
-        #   def initialize(
-        #     legal_entity_type:,
-        #     addresses: nil,
-        #     bank_settings: nil,
-        #     business_name: nil,
-        #     citizenship_country: nil,
-        #     compliance_details: nil,
-        #     date_formed: nil,
-        #     date_of_birth: nil,
-        #     doing_business_as_names: nil,
-        #     email: nil,
-        #     first_name: nil,
-        #     identifications: nil,
-        #     industry_classifications: nil,
-        #     last_name: nil,
-        #     legal_entity_associations: nil,
-        #     legal_structure: nil,
-        #     metadata: nil,
-        #     middle_name: nil,
-        #     phone_numbers: nil,
-        #     politically_exposed_person: nil,
-        #     preferred_name: nil,
-        #     prefix: nil,
-        #     risk_rating: nil,
-        #     suffix: nil,
-        #     wealth_and_employment_details: nil,
-        #     website: nil,
-        #     **
-        #   )
-        #     super
-        #   end
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(legal_entity_type:, addresses: nil, bank_settings: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, first_name: nil, identifications: nil, industry_classifications: nil, last_name: nil, legal_entity_associations: nil, legal_structure: nil, metadata: nil, middle_name: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, risk_rating: nil, suffix: nil, wealth_and_employment_details: nil, website: nil)
+        #   @param legal_entity_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityType]
+        #   @param addresses [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address>]
+        #   @param bank_settings [ModernTreasury::Models::BankSettings, nil]
+        #   @param business_name [String, nil]
+        #   @param citizenship_country [String, nil]
+        #   @param compliance_details [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
+        #   @param date_formed [Date, nil]
+        #   @param date_of_birth [Date, nil]
+        #   @param doing_business_as_names [Array<String>]
+        #   @param email [String, nil]
+        #   @param first_name [String, nil]
+        #   @param identifications [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification>]
+        #   @param industry_classifications [Array<ModernTreasury::Models::LegalEntityIndustryClassification>]
+        #   @param last_name [String, nil]
+        #   @param legal_entity_associations [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation>, nil]
+        #   @param legal_structure [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalStructure, nil]
+        #   @param metadata [Hash{Symbol=>String}]
+        #   @param middle_name [String, nil]
+        #   @param phone_numbers [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber>]
+        #   @param politically_exposed_person [Boolean, nil]
+        #   @param preferred_name [String, nil]
+        #   @param prefix [String, nil]
+        #   @param risk_rating [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::RiskRating, nil]
+        #   @param suffix [String, nil]
+        #   @param wealth_and_employment_details [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
+        #   @param website [String, nil]
 
         # The type of legal entity.
         #
@@ -1020,11 +753,8 @@ module ModernTreasury
           BUSINESS = :business
           INDIVIDUAL = :individual
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
 
         class Address < ModernTreasury::Internal::Type::BaseModel
@@ -1057,34 +787,26 @@ module ModernTreasury
           #   @return [String, nil]
           required :region, String, nil?: true
 
-          # @!attribute [r] address_types
+          # @!attribute address_types
           #   The types of this address.
           #
           #   @return [Array<Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::AddressType>, nil]
           optional :address_types,
                    -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::AddressType] }
 
-          # @!parse
-          #   # @return [Array<Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::AddressType>]
-          #   attr_writer :address_types
-
           # @!attribute line2
           #
           #   @return [String, nil]
           optional :line2, String, nil?: true
 
-          # @!parse
-          #   # @param country [String, nil]
-          #   # @param line1 [String, nil]
-          #   # @param locality [String, nil]
-          #   # @param postal_code [String, nil]
-          #   # @param region [String, nil]
-          #   # @param address_types [Array<Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::AddressType>]
-          #   # @param line2 [String, nil]
-          #   #
-          #   def initialize(country:, line1:, locality:, postal_code:, region:, address_types: nil, line2: nil, **) = super
-
-          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+          # @!method initialize(country:, line1:, locality:, postal_code:, region:, address_types: nil, line2: nil)
+          #   @param country [String, nil]
+          #   @param line1 [String, nil]
+          #   @param locality [String, nil]
+          #   @param postal_code [String, nil]
+          #   @param region [String, nil]
+          #   @param address_types [Array<Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::AddressType>]
+          #   @param line2 [String, nil]
 
           module AddressType
             extend ModernTreasury::Internal::Type::Enum
@@ -1095,11 +817,8 @@ module ModernTreasury
             PO_BOX = :po_box
             RESIDENTIAL = :residential
 
-            finalize!
-
-            # @!parse
-            #   # @return [Array<Symbol>]
-            #   def self.values; end
+            # @!method self.values
+            #   @return [Array<Symbol>]
           end
         end
 
@@ -1124,14 +843,10 @@ module ModernTreasury
           #   @return [String, nil]
           optional :issuing_country, String, nil?: true
 
-          # @!parse
-          #   # @param id_number [String]
-          #   # @param id_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification::IDType]
-          #   # @param issuing_country [String, nil]
-          #   #
-          #   def initialize(id_number:, id_type:, issuing_country: nil, **) = super
-
-          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+          # @!method initialize(id_number:, id_type:, issuing_country: nil)
+          #   @param id_number [String]
+          #   @param id_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification::IDType]
+          #   @param issuing_country [String, nil]
 
           # The type of ID number.
           #
@@ -1161,11 +876,8 @@ module ModernTreasury
             US_SSN = :us_ssn
             VN_TIN = :vn_tin
 
-            finalize!
-
-            # @!parse
-            #   # @return [Array<Symbol>]
-            #   def self.values; end
+            # @!method self.values
+            #   @return [Array<Symbol>]
           end
         end
 
@@ -1180,26 +892,18 @@ module ModernTreasury
                      ]
                    end
 
-          # @!attribute [r] child_legal_entity
+          # @!attribute child_legal_entity
           #   The child legal entity.
           #
           #   @return [ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity, nil]
           optional :child_legal_entity,
                    -> { ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity }
 
-          # @!parse
-          #   # @return [ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity]
-          #   attr_writer :child_legal_entity
-
-          # @!attribute [r] child_legal_entity_id
+          # @!attribute child_legal_entity_id
           #   The ID of the child legal entity.
           #
           #   @return [String, nil]
           optional :child_legal_entity_id, String
-
-          # @!parse
-          #   # @return [String]
-          #   attr_writer :child_legal_entity_id
 
           # @!attribute ownership_percentage
           #   The child entity's ownership percentage iff they are a beneficial owner.
@@ -1213,25 +917,12 @@ module ModernTreasury
           #   @return [String, nil]
           optional :title, String, nil?: true
 
-          # @!parse
-          #   # @param relationship_types [Array<Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType>]
-          #   # @param child_legal_entity [ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity]
-          #   # @param child_legal_entity_id [String]
-          #   # @param ownership_percentage [Integer, nil]
-          #   # @param title [String, nil]
-          #   #
-          #   def initialize(
-          #     relationship_types:,
-          #     child_legal_entity: nil,
-          #     child_legal_entity_id: nil,
-          #     ownership_percentage: nil,
-          #     title: nil,
-          #     **
-          #   )
-          #     super
-          #   end
-
-          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+          # @!method initialize(relationship_types:, child_legal_entity: nil, child_legal_entity_id: nil, ownership_percentage: nil, title: nil)
+          #   @param relationship_types [Array<Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType>]
+          #   @param child_legal_entity [ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity]
+          #   @param child_legal_entity_id [String]
+          #   @param ownership_percentage [Integer, nil]
+          #   @param title [String, nil]
 
           # A list of relationship types for how the child entity relates to parent entity.
           module RelationshipType
@@ -1240,16 +931,13 @@ module ModernTreasury
             BENEFICIAL_OWNER = :beneficial_owner
             CONTROL_PERSON = :control_person
 
-            finalize!
-
-            # @!parse
-            #   # @return [Array<Symbol>]
-            #   def self.values; end
+            # @!method self.values
+            #   @return [Array<Symbol>]
           end
 
           # @see ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation#child_legal_entity
           class ChildLegalEntity < ModernTreasury::Internal::Type::BaseModel
-            # @!attribute [r] addresses
+            # @!attribute addresses
             #   A list of addresses for the entity.
             #
             #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address>, nil]
@@ -1259,10 +947,6 @@ module ModernTreasury
                          ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address
                        ]
                      end
-
-            # @!parse
-            #   # @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address>]
-            #   attr_writer :addresses
 
             # @!attribute bank_settings
             #
@@ -1298,14 +982,10 @@ module ModernTreasury
             #   @return [Date, nil]
             optional :date_of_birth, Date, nil?: true
 
-            # @!attribute [r] doing_business_as_names
+            # @!attribute doing_business_as_names
             #
             #   @return [Array<String>, nil]
             optional :doing_business_as_names, ModernTreasury::Internal::Type::ArrayOf[String]
-
-            # @!parse
-            #   # @return [Array<String>]
-            #   attr_writer :doing_business_as_names
 
             # @!attribute email
             #   The entity's primary email.
@@ -1319,7 +999,7 @@ module ModernTreasury
             #   @return [String, nil]
             optional :first_name, String, nil?: true
 
-            # @!attribute [r] identifications
+            # @!attribute identifications
             #   A list of identifications for the legal entity.
             #
             #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification>, nil]
@@ -1330,20 +1010,12 @@ module ModernTreasury
                        ]
                      end
 
-            # @!parse
-            #   # @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification>]
-            #   attr_writer :identifications
-
-            # @!attribute [r] industry_classifications
+            # @!attribute industry_classifications
             #   A list of industry classifications for the legal entity.
             #
             #   @return [Array<ModernTreasury::Models::LegalEntityIndustryClassification>, nil]
             optional :industry_classifications,
                      -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::LegalEntityIndustryClassification] }
-
-            # @!parse
-            #   # @return [Array<ModernTreasury::Models::LegalEntityIndustryClassification>]
-            #   attr_writer :industry_classifications
 
             # @!attribute last_name
             #   An individual's last name.
@@ -1351,16 +1023,12 @@ module ModernTreasury
             #   @return [String, nil]
             optional :last_name, String, nil?: true
 
-            # @!attribute [r] legal_entity_type
+            # @!attribute legal_entity_type
             #   The type of legal entity.
             #
             #   @return [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalEntityType, nil]
             optional :legal_entity_type,
                      enum: -> { ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalEntityType }
-
-            # @!parse
-            #   # @return [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalEntityType]
-            #   attr_writer :legal_entity_type
 
             # @!attribute legal_structure
             #   The business's legal structure.
@@ -1370,16 +1038,12 @@ module ModernTreasury
                      enum: -> { ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalStructure },
                      nil?: true
 
-            # @!attribute [r] metadata
+            # @!attribute metadata
             #   Additional data represented as key-value pairs. Both the key and value must be
             #   strings.
             #
             #   @return [Hash{Symbol=>String}, nil]
             optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
-
-            # @!parse
-            #   # @return [Hash{Symbol=>String}]
-            #   attr_writer :metadata
 
             # @!attribute middle_name
             #   An individual's middle name.
@@ -1387,7 +1051,7 @@ module ModernTreasury
             #   @return [String, nil]
             optional :middle_name, String, nil?: true
 
-            # @!attribute [r] phone_numbers
+            # @!attribute phone_numbers
             #
             #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber>, nil]
             optional :phone_numbers,
@@ -1396,10 +1060,6 @@ module ModernTreasury
                          ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber
                        ]
                      end
-
-            # @!parse
-            #   # @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber>]
-            #   attr_writer :phone_numbers
 
             # @!attribute politically_exposed_person
             #   Whether the individual is a politically exposed person.
@@ -1446,67 +1106,34 @@ module ModernTreasury
             #   @return [String, nil]
             optional :website, String, nil?: true
 
-            # @!parse
-            #   # The child legal entity.
-            #   #
-            #   # @param addresses [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address>]
-            #   # @param bank_settings [ModernTreasury::Models::BankSettings, nil]
-            #   # @param business_name [String, nil]
-            #   # @param citizenship_country [String, nil]
-            #   # @param compliance_details [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
-            #   # @param date_formed [Date, nil]
-            #   # @param date_of_birth [Date, nil]
-            #   # @param doing_business_as_names [Array<String>]
-            #   # @param email [String, nil]
-            #   # @param first_name [String, nil]
-            #   # @param identifications [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification>]
-            #   # @param industry_classifications [Array<ModernTreasury::Models::LegalEntityIndustryClassification>]
-            #   # @param last_name [String, nil]
-            #   # @param legal_entity_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalEntityType]
-            #   # @param legal_structure [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalStructure, nil]
-            #   # @param metadata [Hash{Symbol=>String}]
-            #   # @param middle_name [String, nil]
-            #   # @param phone_numbers [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber>]
-            #   # @param politically_exposed_person [Boolean, nil]
-            #   # @param preferred_name [String, nil]
-            #   # @param prefix [String, nil]
-            #   # @param risk_rating [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::RiskRating, nil]
-            #   # @param suffix [String, nil]
-            #   # @param wealth_and_employment_details [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
-            #   # @param website [String, nil]
-            #   #
-            #   def initialize(
-            #     addresses: nil,
-            #     bank_settings: nil,
-            #     business_name: nil,
-            #     citizenship_country: nil,
-            #     compliance_details: nil,
-            #     date_formed: nil,
-            #     date_of_birth: nil,
-            #     doing_business_as_names: nil,
-            #     email: nil,
-            #     first_name: nil,
-            #     identifications: nil,
-            #     industry_classifications: nil,
-            #     last_name: nil,
-            #     legal_entity_type: nil,
-            #     legal_structure: nil,
-            #     metadata: nil,
-            #     middle_name: nil,
-            #     phone_numbers: nil,
-            #     politically_exposed_person: nil,
-            #     preferred_name: nil,
-            #     prefix: nil,
-            #     risk_rating: nil,
-            #     suffix: nil,
-            #     wealth_and_employment_details: nil,
-            #     website: nil,
-            #     **
-            #   )
-            #     super
-            #   end
-
-            # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+            # @!method initialize(addresses: nil, bank_settings: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, first_name: nil, identifications: nil, industry_classifications: nil, last_name: nil, legal_entity_type: nil, legal_structure: nil, metadata: nil, middle_name: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, risk_rating: nil, suffix: nil, wealth_and_employment_details: nil, website: nil)
+            #   The child legal entity.
+            #
+            #   @param addresses [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address>]
+            #   @param bank_settings [ModernTreasury::Models::BankSettings, nil]
+            #   @param business_name [String, nil]
+            #   @param citizenship_country [String, nil]
+            #   @param compliance_details [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
+            #   @param date_formed [Date, nil]
+            #   @param date_of_birth [Date, nil]
+            #   @param doing_business_as_names [Array<String>]
+            #   @param email [String, nil]
+            #   @param first_name [String, nil]
+            #   @param identifications [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification>]
+            #   @param industry_classifications [Array<ModernTreasury::Models::LegalEntityIndustryClassification>]
+            #   @param last_name [String, nil]
+            #   @param legal_entity_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalEntityType]
+            #   @param legal_structure [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalStructure, nil]
+            #   @param metadata [Hash{Symbol=>String}]
+            #   @param middle_name [String, nil]
+            #   @param phone_numbers [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber>]
+            #   @param politically_exposed_person [Boolean, nil]
+            #   @param preferred_name [String, nil]
+            #   @param prefix [String, nil]
+            #   @param risk_rating [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::RiskRating, nil]
+            #   @param suffix [String, nil]
+            #   @param wealth_and_employment_details [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
+            #   @param website [String, nil]
 
             class Address < ModernTreasury::Internal::Type::BaseModel
               # @!attribute country
@@ -1538,7 +1165,7 @@ module ModernTreasury
               #   @return [String, nil]
               required :region, String, nil?: true
 
-              # @!attribute [r] address_types
+              # @!attribute address_types
               #   The types of this address.
               #
               #   @return [Array<Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType>, nil]
@@ -1549,27 +1176,19 @@ module ModernTreasury
                          ]
                        end
 
-              # @!parse
-              #   # @return [Array<Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType>]
-              #   attr_writer :address_types
-
               # @!attribute line2
               #
               #   @return [String, nil]
               optional :line2, String, nil?: true
 
-              # @!parse
-              #   # @param country [String, nil]
-              #   # @param line1 [String, nil]
-              #   # @param locality [String, nil]
-              #   # @param postal_code [String, nil]
-              #   # @param region [String, nil]
-              #   # @param address_types [Array<Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType>]
-              #   # @param line2 [String, nil]
-              #   #
-              #   def initialize(country:, line1:, locality:, postal_code:, region:, address_types: nil, line2: nil, **) = super
-
-              # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+              # @!method initialize(country:, line1:, locality:, postal_code:, region:, address_types: nil, line2: nil)
+              #   @param country [String, nil]
+              #   @param line1 [String, nil]
+              #   @param locality [String, nil]
+              #   @param postal_code [String, nil]
+              #   @param region [String, nil]
+              #   @param address_types [Array<Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType>]
+              #   @param line2 [String, nil]
 
               module AddressType
                 extend ModernTreasury::Internal::Type::Enum
@@ -1580,11 +1199,8 @@ module ModernTreasury
                 PO_BOX = :po_box
                 RESIDENTIAL = :residential
 
-                finalize!
-
-                # @!parse
-                #   # @return [Array<Symbol>]
-                #   def self.values; end
+                # @!method self.values
+                #   @return [Array<Symbol>]
               end
             end
 
@@ -1609,14 +1225,10 @@ module ModernTreasury
               #   @return [String, nil]
               optional :issuing_country, String, nil?: true
 
-              # @!parse
-              #   # @param id_number [String]
-              #   # @param id_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::IDType]
-              #   # @param issuing_country [String, nil]
-              #   #
-              #   def initialize(id_number:, id_type:, issuing_country: nil, **) = super
-
-              # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+              # @!method initialize(id_number:, id_type:, issuing_country: nil)
+              #   @param id_number [String]
+              #   @param id_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::IDType]
+              #   @param issuing_country [String, nil]
 
               # The type of ID number.
               #
@@ -1646,11 +1258,8 @@ module ModernTreasury
                 US_SSN = :us_ssn
                 VN_TIN = :vn_tin
 
-                finalize!
-
-                # @!parse
-                #   # @return [Array<Symbol>]
-                #   def self.values; end
+                # @!method self.values
+                #   @return [Array<Symbol>]
               end
             end
 
@@ -1663,11 +1272,8 @@ module ModernTreasury
               BUSINESS = :business
               INDIVIDUAL = :individual
 
-              finalize!
-
-              # @!parse
-              #   # @return [Array<Symbol>]
-              #   def self.values; end
+              # @!method self.values
+              #   @return [Array<Symbol>]
             end
 
             # The business's legal structure.
@@ -1683,31 +1289,20 @@ module ModernTreasury
               SOLE_PROPRIETORSHIP = :sole_proprietorship
               TRUST = :trust
 
-              finalize!
-
-              # @!parse
-              #   # @return [Array<Symbol>]
-              #   def self.values; end
+              # @!method self.values
+              #   @return [Array<Symbol>]
             end
 
             class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
-              # @!attribute [r] phone_number
+              # @!attribute phone_number
               #
               #   @return [String, nil]
               optional :phone_number, String
 
-              # @!parse
-              #   # @return [String]
-              #   attr_writer :phone_number
-
-              # @!parse
-              #   # A list of phone numbers in E.164 format.
-              #   #
-              #   # @param phone_number [String]
-              #   #
-              #   def initialize(phone_number: nil, **) = super
-
-              # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+              # @!method initialize(phone_number: nil)
+              #   A list of phone numbers in E.164 format.
+              #
+              #   @param phone_number [String]
             end
 
             # The risk rating of the legal entity. One of low, medium, high.
@@ -1720,11 +1315,8 @@ module ModernTreasury
               MEDIUM = :medium
               HIGH = :high
 
-              finalize!
-
-              # @!parse
-              #   # @return [Array<Symbol>]
-              #   def self.values; end
+              # @!method self.values
+              #   @return [Array<Symbol>]
             end
           end
         end
@@ -1742,31 +1334,20 @@ module ModernTreasury
           SOLE_PROPRIETORSHIP = :sole_proprietorship
           TRUST = :trust
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
 
         class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
-          # @!attribute [r] phone_number
+          # @!attribute phone_number
           #
           #   @return [String, nil]
           optional :phone_number, String
 
-          # @!parse
-          #   # @return [String]
-          #   attr_writer :phone_number
-
-          # @!parse
-          #   # A list of phone numbers in E.164 format.
-          #   #
-          #   # @param phone_number [String]
-          #   #
-          #   def initialize(phone_number: nil, **) = super
-
-          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+          # @!method initialize(phone_number: nil)
+          #   A list of phone numbers in E.164 format.
+          #
+          #   @param phone_number [String]
         end
 
         # The risk rating of the legal entity. One of low, medium, high.
@@ -1779,11 +1360,8 @@ module ModernTreasury
           MEDIUM = :medium
           HIGH = :high
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
       end
 
@@ -1796,11 +1374,8 @@ module ModernTreasury
         UNVERIFIED = :unverified
         VERIFIED = :verified
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

@@ -4,37 +4,25 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::Validations#validate_routing_number
     class RoutingNumberLookupRequest < ModernTreasury::Internal::Type::BaseModel
-      # @!attribute [r] bank_address
+      # @!attribute bank_address
       #   The address of the bank.
       #
       #   @return [ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress, nil]
       optional :bank_address, -> { ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress }
 
-      # @!parse
-      #   # @return [ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress]
-      #   attr_writer :bank_address
-
-      # @!attribute [r] bank_name
+      # @!attribute bank_name
       #   The name of the bank.
       #
       #   @return [String, nil]
       optional :bank_name, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :bank_name
-
-      # @!attribute [r] routing_number
+      # @!attribute routing_number
       #   The routing number of the bank.
       #
       #   @return [String, nil]
       optional :routing_number, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :routing_number
-
-      # @!attribute [r] routing_number_type
+      # @!attribute routing_number_type
       #   The type of routing number. See
       #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
       #   more details. In sandbox mode we currently only support `aba` and `swift` with
@@ -44,11 +32,7 @@ module ModernTreasury
       optional :routing_number_type,
                enum: -> { ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType }
 
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType]
-      #   attr_writer :routing_number_type
-
-      # @!attribute [r] sanctions
+      # @!attribute sanctions
       #   An object containing key-value pairs, each with a sanctions list as the key and
       #   a boolean value representing whether the bank is on that particular sanctions
       #   list. Currently, this includes eu_con, uk_hmt, us_ofac, and un sanctions lists.
@@ -56,11 +40,7 @@ module ModernTreasury
       #   @return [Hash{Symbol=>Object}, nil]
       optional :sanctions, ModernTreasury::Internal::Type::HashOf[ModernTreasury::Internal::Type::Unknown]
 
-      # @!parse
-      #   # @return [Hash{Symbol=>Object}]
-      #   attr_writer :sanctions
-
-      # @!attribute [r] supported_payment_types
+      # @!attribute supported_payment_types
       #   An array of payment types that are supported for this routing number. This can
       #   include `ach`, `wire`, `rtp`, `sepa`, `bacs`, `au_becs`, and 'fednow' currently.
       #
@@ -68,31 +48,13 @@ module ModernTreasury
       optional :supported_payment_types,
                -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType] }
 
-      # @!parse
-      #   # @return [Array<Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType>]
-      #   attr_writer :supported_payment_types
-
-      # @!parse
-      #   # @param bank_address [ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress]
-      #   # @param bank_name [String]
-      #   # @param routing_number [String]
-      #   # @param routing_number_type [Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType]
-      #   # @param sanctions [Hash{Symbol=>Object}]
-      #   # @param supported_payment_types [Array<Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType>]
-      #   #
-      #   def initialize(
-      #     bank_address: nil,
-      #     bank_name: nil,
-      #     routing_number: nil,
-      #     routing_number_type: nil,
-      #     sanctions: nil,
-      #     supported_payment_types: nil,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(bank_address: nil, bank_name: nil, routing_number: nil, routing_number_type: nil, sanctions: nil, supported_payment_types: nil)
+      #   @param bank_address [ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress]
+      #   @param bank_name [String]
+      #   @param routing_number [String]
+      #   @param routing_number_type [Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType]
+      #   @param sanctions [Hash{Symbol=>Object}]
+      #   @param supported_payment_types [Array<Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType>]
 
       # @see ModernTreasury::Models::RoutingNumberLookupRequest#bank_address
       class BankAddress < ModernTreasury::Internal::Type::BaseModel
@@ -130,19 +92,15 @@ module ModernTreasury
         #   @return [String, nil]
         optional :region, String, nil?: true
 
-        # @!parse
-        #   # The address of the bank.
-        #   #
-        #   # @param country [String, nil]
-        #   # @param line1 [String, nil]
-        #   # @param line2 [String, nil]
-        #   # @param locality [String, nil]
-        #   # @param postal_code [String, nil]
-        #   # @param region [String, nil]
-        #   #
-        #   def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
+        #   The address of the bank.
+        #
+        #   @param country [String, nil]
+        #   @param line1 [String, nil]
+        #   @param line2 [String, nil]
+        #   @param locality [String, nil]
+        #   @param postal_code [String, nil]
+        #   @param region [String, nil]
       end
 
       # The type of routing number. See
@@ -164,11 +122,8 @@ module ModernTreasury
         SWIFT = :swift
         ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       module SupportedPaymentType
@@ -205,11 +160,8 @@ module ModernTreasury
         WIRE = :wire
         ZENGIN = :zengin
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

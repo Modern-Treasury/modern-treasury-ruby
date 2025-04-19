@@ -58,33 +58,16 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param created_at [Time]
-      #   # @param live_mode [Boolean]
-      #   # @param object [String]
-      #   # @param reference_number [String]
-      #   # @param reference_number_type [Symbol, ModernTreasury::Models::PaymentReference::ReferenceNumberType]
-      #   # @param referenceable_id [String]
-      #   # @param referenceable_type [Symbol, ModernTreasury::Models::PaymentReference::ReferenceableType]
-      #   # @param updated_at [Time]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     created_at:,
-      #     live_mode:,
-      #     object:,
-      #     reference_number:,
-      #     reference_number_type:,
-      #     referenceable_id:,
-      #     referenceable_type:,
-      #     updated_at:,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, created_at:, live_mode:, object:, reference_number:, reference_number_type:, referenceable_id:, referenceable_type:, updated_at:)
+      #   @param id [String]
+      #   @param created_at [Time]
+      #   @param live_mode [Boolean]
+      #   @param object [String]
+      #   @param reference_number [String]
+      #   @param reference_number_type [Symbol, ModernTreasury::Models::PaymentReference::ReferenceNumberType]
+      #   @param referenceable_id [String]
+      #   @param referenceable_type [Symbol, ModernTreasury::Models::PaymentReference::ReferenceableType]
+      #   @param updated_at [Time]
 
       # The type of reference number.
       #
@@ -168,11 +151,8 @@ module ModernTreasury
         WELLS_FARGO_TRACE_NUMBER = :wells_fargo_trace_number
         WELLS_FARGO_UETR = :wells_fargo_uetr
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # One of the referenceable types. This must be accompanied by the id of the
@@ -186,11 +166,8 @@ module ModernTreasury
         REVERSAL = :reversal
         RETURN = :return
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

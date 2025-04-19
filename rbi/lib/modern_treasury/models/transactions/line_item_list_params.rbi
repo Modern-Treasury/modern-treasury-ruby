@@ -72,8 +72,7 @@ module ModernTreasury
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type) }
-          OrSymbol =
-            T.type_alias { T.any(Symbol, String, ModernTreasury::Models::Transactions::LineItemListParams::Type::TaggedSymbol) }
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           ORIGINATING =
             T.let(:originating, ModernTreasury::Models::Transactions::LineItemListParams::Type::TaggedSymbol)

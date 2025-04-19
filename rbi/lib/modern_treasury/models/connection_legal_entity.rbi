@@ -90,8 +90,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ConnectionLegalEntity::Status) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ConnectionLegalEntity::Status::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         COMPLETED = T.let(:completed, ModernTreasury::Models::ConnectionLegalEntity::Status::TaggedSymbol)
         DENIED = T.let(:denied, ModernTreasury::Models::ConnectionLegalEntity::Status::TaggedSymbol)

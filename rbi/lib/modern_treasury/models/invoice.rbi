@@ -394,8 +394,7 @@ module ModernTreasury
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType) }
-          OrSymbol =
-            T.type_alias { T.any(Symbol, String, ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType::TaggedSymbol) }
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           EMAIL =
             T.let(:email, ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType::TaggedSymbol)
@@ -586,8 +585,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::Invoice::PaymentMethod) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::Invoice::PaymentMethod::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         UI = T.let(:ui, ModernTreasury::Models::Invoice::PaymentMethod::TaggedSymbol)
         MANUAL = T.let(:manual, ModernTreasury::Models::Invoice::PaymentMethod::TaggedSymbol)
@@ -602,8 +600,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::Invoice::PaymentType) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::Invoice::PaymentType::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         EFT = T.let(:eft, ModernTreasury::Models::Invoice::PaymentType::TaggedSymbol)
         ACH = T.let(:ach, ModernTreasury::Models::Invoice::PaymentType::TaggedSymbol)
@@ -617,7 +614,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::Invoice::Status) }
-        OrSymbol = T.type_alias { T.any(Symbol, String, ModernTreasury::Models::Invoice::Status::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         DRAFT = T.let(:draft, ModernTreasury::Models::Invoice::Status::TaggedSymbol)
         PAID = T.let(:paid, ModernTreasury::Models::Invoice::Status::TaggedSymbol)

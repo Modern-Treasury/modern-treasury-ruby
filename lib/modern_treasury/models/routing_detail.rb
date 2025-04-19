@@ -68,37 +68,18 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param bank_address [ModernTreasury::Models::RoutingDetail::BankAddress, nil]
-      #   # @param bank_name [String]
-      #   # @param created_at [Time]
-      #   # @param discarded_at [Time, nil]
-      #   # @param live_mode [Boolean]
-      #   # @param object [String]
-      #   # @param payment_type [Symbol, ModernTreasury::Models::RoutingDetail::PaymentType, nil]
-      #   # @param routing_number [String]
-      #   # @param routing_number_type [Symbol, ModernTreasury::Models::RoutingDetail::RoutingNumberType]
-      #   # @param updated_at [Time]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     bank_address:,
-      #     bank_name:,
-      #     created_at:,
-      #     discarded_at:,
-      #     live_mode:,
-      #     object:,
-      #     payment_type:,
-      #     routing_number:,
-      #     routing_number_type:,
-      #     updated_at:,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, bank_address:, bank_name:, created_at:, discarded_at:, live_mode:, object:, payment_type:, routing_number:, routing_number_type:, updated_at:)
+      #   @param id [String]
+      #   @param bank_address [ModernTreasury::Models::RoutingDetail::BankAddress, nil]
+      #   @param bank_name [String]
+      #   @param created_at [Time]
+      #   @param discarded_at [Time, nil]
+      #   @param live_mode [Boolean]
+      #   @param object [String]
+      #   @param payment_type [Symbol, ModernTreasury::Models::RoutingDetail::PaymentType, nil]
+      #   @param routing_number [String]
+      #   @param routing_number_type [Symbol, ModernTreasury::Models::RoutingDetail::RoutingNumberType]
+      #   @param updated_at [Time]
 
       # @see ModernTreasury::Models::RoutingDetail#bank_address
       class BankAddress < ModernTreasury::Internal::Type::BaseModel
@@ -163,37 +144,18 @@ module ModernTreasury
         #   @return [Time]
         required :updated_at, Time
 
-        # @!parse
-        #   # @param id [String]
-        #   # @param country [String, nil]
-        #   # @param created_at [Time]
-        #   # @param line1 [String, nil]
-        #   # @param line2 [String, nil]
-        #   # @param live_mode [Boolean]
-        #   # @param locality [String, nil]
-        #   # @param object [String]
-        #   # @param postal_code [String, nil]
-        #   # @param region [String, nil]
-        #   # @param updated_at [Time]
-        #   #
-        #   def initialize(
-        #     id:,
-        #     country:,
-        #     created_at:,
-        #     line1:,
-        #     line2:,
-        #     live_mode:,
-        #     locality:,
-        #     object:,
-        #     postal_code:,
-        #     region:,
-        #     updated_at:,
-        #     **
-        #   )
-        #     super
-        #   end
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(id:, country:, created_at:, line1:, line2:, live_mode:, locality:, object:, postal_code:, region:, updated_at:)
+        #   @param id [String]
+        #   @param country [String, nil]
+        #   @param created_at [Time]
+        #   @param line1 [String, nil]
+        #   @param line2 [String, nil]
+        #   @param live_mode [Boolean]
+        #   @param locality [String, nil]
+        #   @param object [String]
+        #   @param postal_code [String, nil]
+        #   @param region [String, nil]
+        #   @param updated_at [Time]
       end
 
       # If the routing detail is to be used for a specific payment type this field will
@@ -234,11 +196,8 @@ module ModernTreasury
         WIRE = :wire
         ZENGIN = :zengin
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # The type of routing number. See
@@ -271,11 +230,8 @@ module ModernTreasury
         SWIFT = :swift
         ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

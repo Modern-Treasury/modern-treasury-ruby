@@ -49,7 +49,11 @@ module ModernTreasury
 
         def self.==: (top other) -> bool
 
+        def self.hash: -> Integer
+
         def ==: (top other) -> bool
+
+        def hash: -> Integer
 
         def self.coerce: (
           ModernTreasury::Internal::Type::BaseModel
@@ -71,6 +75,10 @@ module ModernTreasury
 
         def deconstruct_keys: (::Array[Symbol]? keys) -> ::Hash[Symbol, top]
 
+        def self.walk: (
+          ModernTreasury::Internal::Type::BaseModel model
+        ) -> ::Hash[Symbol, top]
+
         def to_json: (*top a) -> String
 
         def to_yaml: (*top a) -> String
@@ -78,6 +86,8 @@ module ModernTreasury
         def initialize: (?::Hash[Symbol, top] | self data) -> void
 
         def self.inspect: (?depth: Integer) -> String
+
+        def to_s: -> String
 
         def inspect: -> String
       end

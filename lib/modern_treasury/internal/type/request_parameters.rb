@@ -12,9 +12,8 @@ module ModernTreasury
 
         # @param mod [Module]
         def self.included(mod)
-          return unless mod <= ModernTreasury::Internal::Type::BaseModel
+          raise ArgumentError.new(mod) unless mod <= ModernTreasury::Internal::Type::BaseModel
 
-          mod.extend(ModernTreasury::Internal::Type::RequestParameters::Converter)
           mod.optional(:request_options, ModernTreasury::RequestOptions)
         end
 

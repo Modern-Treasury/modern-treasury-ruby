@@ -177,8 +177,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::Document::DocumentableType) }
-        OrSymbol =
-          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         CASE = T.let(:case, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
         COUNTERPARTY = T.let(:counterparty, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)

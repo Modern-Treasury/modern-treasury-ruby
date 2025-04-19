@@ -99,8 +99,7 @@ module ModernTreasury
           extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Reason) }
-          OrSymbol =
-            T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentOrders::Reversal::Reason::TaggedSymbol) }
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           DUPLICATE = T.let(:duplicate, ModernTreasury::Models::PaymentOrders::Reversal::Reason::TaggedSymbol)
           INCORRECT_AMOUNT =
@@ -121,8 +120,7 @@ module ModernTreasury
           extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Status) }
-          OrSymbol =
-            T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol) }
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           COMPLETED = T.let(:completed, ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol)
           FAILED = T.let(:failed, ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol)

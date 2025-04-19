@@ -111,10 +111,16 @@ module ModernTreasury
 
           sig { params(other: T.anything).returns(T::Boolean) }
           def ==(other); end
+
+          sig { returns(Integer) }
+          def hash; end
         end
 
         sig { params(other: T.anything).returns(T::Boolean) }
         def ==(other); end
+
+        sig { returns(Integer) }
+        def hash; end
 
         class << self
           # @api private
@@ -178,6 +184,14 @@ module ModernTreasury
         sig { params(keys: T.nilable(T::Array[Symbol])).returns(ModernTreasury::Internal::AnyHash) }
         def deconstruct_keys(keys); end
 
+        class << self
+          # @api private
+          sig do
+            params(model: ModernTreasury::Internal::Type::BaseModel).returns(ModernTreasury::Internal::AnyHash)
+          end
+          def walk(model); end
+        end
+
         sig { params(a: T.anything).returns(String) }
         def to_json(*a); end
 
@@ -193,6 +207,9 @@ module ModernTreasury
           sig { params(depth: Integer).returns(String) }
           def inspect(depth: 0); end
         end
+
+        sig { returns(String) }
+        def to_s; end
 
         # @api private
         sig { returns(String) }
