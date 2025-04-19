@@ -8,6 +8,7 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute ledger_transaction_template
+      #   @deprecated
       #
       #   @return [ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate]
       required :ledger_transaction_template,
@@ -20,6 +21,7 @@ module ModernTreasury
       required :name, String
 
       # @!attribute conditions
+      #   @deprecated
       #
       #   @return [ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions, nil]
       optional :conditions,
@@ -46,6 +48,7 @@ module ModernTreasury
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String], nil?: true
 
       # @!attribute variables
+      #   @deprecated
       #
       #   @return [Hash{Symbol=>ModernTreasury::Models::LedgerEventHandlerVariable}, nil]
       optional :variables,

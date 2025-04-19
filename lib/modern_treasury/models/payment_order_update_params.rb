@@ -13,6 +13,8 @@ module ModernTreasury
       optional :accounting, -> { ModernTreasury::Models::PaymentOrderUpdateParams::Accounting }
 
       # @!attribute accounting_category_id
+      #   @deprecated
+      #
       #   The ID of one of your accounting categories. Note that these will only be
       #   accessible if your accounting system has been connected.
       #
@@ -20,6 +22,8 @@ module ModernTreasury
       optional :accounting_category_id, String, nil?: true
 
       # @!attribute accounting_ledger_class_id
+      #   @deprecated
+      #
       #   The ID of one of your accounting ledger classes. Note that these will only be
       #   accessible if your accounting system has been connected.
       #

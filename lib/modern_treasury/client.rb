@@ -183,10 +183,10 @@ module ModernTreasury
       api_key: ENV["MODERN_TREASURY_API_KEY"],
       organization_id: ENV["MODERN_TREASURY_ORGANIZATION_ID"],
       base_url: ENV["MODERN_TREASURY_BASE_URL"],
-      max_retries: DEFAULT_MAX_RETRIES,
-      timeout: DEFAULT_TIMEOUT_IN_SECONDS,
-      initial_retry_delay: DEFAULT_INITIAL_RETRY_DELAY,
-      max_retry_delay: DEFAULT_MAX_RETRY_DELAY,
+      max_retries: ModernTreasury::Client::DEFAULT_MAX_RETRIES,
+      timeout: ModernTreasury::Client::DEFAULT_TIMEOUT_IN_SECONDS,
+      initial_retry_delay: ModernTreasury::Client::DEFAULT_INITIAL_RETRY_DELAY,
+      max_retry_delay: ModernTreasury::Client::DEFAULT_MAX_RETRY_DELAY,
       idempotency_header: "Idempotency-Key"
     )
       base_url ||= "https://app.moderntreasury.com"

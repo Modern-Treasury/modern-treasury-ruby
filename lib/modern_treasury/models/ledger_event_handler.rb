@@ -12,6 +12,7 @@ module ModernTreasury
       required :id, String
 
       # @!attribute conditions
+      #   @deprecated
       #
       #   @return [ModernTreasury::Models::LedgerEventHandler::Conditions, nil]
       required :conditions, -> { ModernTreasury::Models::LedgerEventHandler::Conditions }, nil?: true
@@ -39,6 +40,7 @@ module ModernTreasury
       required :ledger_id, String, nil?: true
 
       # @!attribute ledger_transaction_template
+      #   @deprecated
       #
       #   @return [ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate]
       required :ledger_transaction_template,
@@ -75,6 +77,7 @@ module ModernTreasury
       required :updated_at, Time
 
       # @!attribute variables
+      #   @deprecated
       #
       #   @return [Hash{Symbol=>ModernTreasury::Models::LedgerEventHandlerVariable}, nil]
       required :variables,
