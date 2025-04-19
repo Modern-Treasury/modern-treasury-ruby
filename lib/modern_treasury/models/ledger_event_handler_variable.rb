@@ -5,6 +5,7 @@ module ModernTreasury
     # @deprecated
     class LedgerEventHandlerVariable < ModernTreasury::Internal::Type::BaseModel
       # @!attribute query
+      #   @deprecated
       #
       #   @return [ModernTreasury::Models::LedgerEventHandlerVariable::Query]
       required :query, -> { ModernTreasury::Models::LedgerEventHandlerVariable::Query }

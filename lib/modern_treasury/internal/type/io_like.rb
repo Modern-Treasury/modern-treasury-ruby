@@ -13,6 +13,8 @@ module ModernTreasury
 
         private_class_method :new
 
+        # @api public
+        #
         # @param other [Object]
         #
         # @return [Boolean]
@@ -25,6 +27,8 @@ module ModernTreasury
           end
         end
 
+        # @api public
+        #
         # @param other [Object]
         #
         # @return [Boolean]
