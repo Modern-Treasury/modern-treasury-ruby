@@ -397,7 +397,7 @@ module ModernTreasury
 
         # Create a new instance of a model.
         #
-        # @param data [Hash{Symbol=>Object}, ModernTreasury::Internal::Type::BaseModel]
+        # @param data [Hash{Symbol=>Object}, self]
         def initialize(data = {})
           case ModernTreasury::Internal::Util.coerce_hash(data)
           in Hash => coerced
