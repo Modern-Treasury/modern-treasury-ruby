@@ -28,6 +28,8 @@ module ModernTreasury
         #   @option spec [Proc] :union
         #
         #   @option spec [Boolean] :"nil?"
+        #
+        # @return [ModernTreasury::Internal::Type::ArrayOf]
         def self.[](...) = new(...)
 
         # @api public
