@@ -216,9 +216,9 @@ module ModernTreasury
         #
         #   @option req [Symbol, nil] :unwrap
         #
-        #   @option req [Class, nil] :page
+        #   @option req [Class<ModernTreasury::Internal::Type::BasePage>, nil] :page
         #
-        #   @option req [Class, nil] :stream
+        #   @option req [Class<ModernTreasury::Internal::Type::BaseStream>, nil] :stream
         #
         #   @option req [ModernTreasury::Internal::Type::Converter, Class, nil] :model
         #
@@ -424,9 +424,9 @@ module ModernTreasury
         #
         # @param unwrap [Symbol, nil]
         #
-        # @param page [Class, nil]
+        # @param page [Class<ModernTreasury::Internal::Type::BasePage>, nil]
         #
-        # @param stream [Class, nil]
+        # @param stream [Class<ModernTreasury::Internal::Type::BaseStream>, nil]
         #
         # @param model [ModernTreasury::Internal::Type::Converter, Class, nil]
         #
