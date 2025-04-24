@@ -57,11 +57,19 @@ module ModernTreasury
           .returns(T.attached_class)
       end
       def self.new(
+        # The ID for the `InternalAccount` this quote is associated with.
         internal_account_id:,
+        # Currency to convert the `base_currency` to, often called the "buy" currency.
         target_currency:,
+        # Amount in the lowest denomination of the `base_currency` to convert, often
+        # called the "sell" amount.
         base_amount: nil,
+        # Currency to convert, often called the "sell" currency.
         base_currency: nil,
+        # The timestamp until when the quoted rate is valid.
         effective_at: nil,
+        # Amount in the lowest denomination of the `target_currency`, often called the
+        # "buy" amount.
         target_amount: nil,
         request_options: {}
       ); end

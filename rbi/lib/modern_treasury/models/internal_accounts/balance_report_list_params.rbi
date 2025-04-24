@@ -52,13 +52,14 @@ module ModernTreasury
         end
         def self.new(
           after_cursor: nil,
+          # The date of the balance report in local time.
           as_of_date: nil,
+          # The specific type of balance report. One of `intraday`, `previous_day`,
+          # `real_time`, or `other`.
           balance_report_type: nil,
           per_page: nil,
           request_options: {}
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(

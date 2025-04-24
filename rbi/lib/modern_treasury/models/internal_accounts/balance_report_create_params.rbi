@@ -39,8 +39,18 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(as_of_date:, as_of_time:, balance_report_type:, balances:, request_options: {}); end
-
+        def self.new(
+          # The date of the balance report in local time.
+          as_of_date:,
+          # The time (24-hour clock) of the balance report in local time.
+          as_of_time:,
+          # The specific type of balance report. One of `intraday`, `previous_day`,
+          # `real_time`, or `other`.
+          balance_report_type:,
+          # An array of `Balance` objects.
+          balances:,
+          request_options: {}
+        ); end
         sig do
           override
             .returns(
@@ -130,8 +140,22 @@ module ModernTreasury
             )
               .returns(T.attached_class)
           end
-          def self.new(amount:, balance_type:, vendor_code:, vendor_code_type:); end
-
+          def self.new(
+            # The balance amount.
+            amount:,
+            # The specific type of balance reported. One of `opening_ledger`,
+            # `closing_ledger`, `current_ledger`, `opening_available`,
+            # `opening_available_next_business_day`, `closing_available`, `current_available`,
+            # 'previously_closed_book', or `other`.
+            balance_type:,
+            # The code used by the bank when reporting this specific balance.
+            vendor_code:,
+            # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
+            # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
+            # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+            # `swift`, or `us_bank`.
+            vendor_code_type:
+          ); end
           sig do
             override
               .returns(

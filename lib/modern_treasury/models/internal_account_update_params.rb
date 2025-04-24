@@ -39,11 +39,20 @@ module ModernTreasury
       optional :parent_account_id, String
 
       # @!method initialize(counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, request_options: {})
-      #   @param counterparty_id [String]
-      #   @param ledger_account_id [String]
-      #   @param metadata [Hash{Symbol=>String}]
-      #   @param name [String]
-      #   @param parent_account_id [String]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::InternalAccountUpdateParams} for more details.
+      #
+      #   @param counterparty_id [String] The Counterparty associated to this account.
+      #
+      #   @param ledger_account_id [String] The Ledger Account associated to this account.
+      #
+      #   @param metadata [Hash{Symbol=>String}] Additional data in the form of key-value pairs. Pairs can be removed by passing
+      #   ...
+      #
+      #   @param name [String] The nickname for the internal account.
+      #
+      #   @param parent_account_id [String] The parent internal account for this account.
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end

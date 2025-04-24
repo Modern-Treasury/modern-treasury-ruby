@@ -77,11 +77,21 @@ module ModernTreasury
       end
       def self.new(
         after_cursor: nil,
+        # Used to return counterparties created after some datetime.
         created_at_lower_bound: nil,
+        # Used to return counterparties created before some datetime.
         created_at_upper_bound: nil,
+        # Performs a partial string match of the email field. This is also case
+        # insensitive.
         email: nil,
+        # Filters for counterparties with the given legal entity ID.
         legal_entity_id: nil,
+        # For example, if you want to query for records with metadata key `Type` and value
+        # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+        # parameters.
         metadata: nil,
+        # Performs a partial string match of the name field. This is also case
+        # insensitive.
         name: nil,
         per_page: nil,
         request_options: {}

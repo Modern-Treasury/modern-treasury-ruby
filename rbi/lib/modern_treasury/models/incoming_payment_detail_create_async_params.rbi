@@ -75,14 +75,26 @@ module ModernTreasury
           .returns(T.attached_class)
       end
       def self.new(
+        # Value in specified currency's smallest unit. e.g. $10 would be represented
+        # as 1000.
         amount: nil,
+        # Defaults to today.
         as_of_date: nil,
+        # Defaults to the currency of the originating account.
         currency: nil,
+        # An object passed through to the simulated IPD that could reflect what a vendor
+        # would pass.
         data: nil,
+        # Defaults to a random description.
         description: nil,
+        # One of `credit`, `debit`.
         direction: nil,
+        # The ID of one of your internal accounts.
         internal_account_id: nil,
+        # One of `ach`, `wire`, `check`.
         type: nil,
+        # An optional parameter to associate the incoming payment detail to a virtual
+        # account.
         virtual_account_id: nil,
         request_options: {}
       ); end

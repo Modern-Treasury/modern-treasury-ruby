@@ -145,19 +145,33 @@ module ModernTreasury
       def self.new(
         after_cursor: nil,
         counterparty_id: nil,
+        # An inclusive upper bound for searching created_at
         created_at_end: nil,
+        # An inclusive lower bound for searching created_at
         created_at_start: nil,
         direction: nil,
+        # An inclusive upper bound for searching effective_date
         effective_date_end: nil,
+        # An inclusive lower bound for searching effective_date
         effective_date_start: nil,
+        # For example, if you want to query for records with metadata key `Type` and value
+        # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+        # parameters.
         metadata: nil,
         originating_account_id: nil,
         per_page: nil,
+        # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
+        # same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
+        # an overnight check rather than standard mail.
         priority: nil,
+        # An inclusive upper bound for searching process_after
         process_after_end: nil,
+        # An inclusive lower bound for searching process_after
         process_after_start: nil,
+        # Query for records with the provided reference number
         reference_number: nil,
         status: nil,
+        # The ID of a transaction that the payment order has been reconciled to.
         transaction_id: nil,
         type: nil,
         request_options: {}

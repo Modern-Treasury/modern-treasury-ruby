@@ -73,16 +73,33 @@ module ModernTreasury
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!method initialize(currency:, ledger_id:, name:, normal_balance:, currency_exponent: nil, description: nil, ledger_account_category_ids: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, request_options: {})
-      #   @param currency [String]
-      #   @param ledger_id [String]
-      #   @param name [String]
-      #   @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection]
-      #   @param currency_exponent [Integer, nil]
-      #   @param description [String, nil]
-      #   @param ledger_account_category_ids [Array<String>]
-      #   @param ledgerable_id [String]
-      #   @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType]
-      #   @param metadata [Hash{Symbol=>String}]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::LedgerAccountCreateParams} for more details.
+      #
+      #   @param currency [String] The currency of the ledger account.
+      #
+      #   @param ledger_id [String] The id of the ledger that this account belongs to.
+      #
+      #   @param name [String] The name of the ledger account.
+      #
+      #   @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection] The normal balance of the ledger account.
+      #
+      #   @param currency_exponent [Integer, nil] The currency exponent of the ledger account.
+      #
+      #   @param description [String, nil] The description of the ledger account.
+      #
+      #   @param ledger_account_category_ids [Array<String>] The array of ledger account category ids that this ledger account should be a ch
+      #   ...
+      #
+      #   @param ledgerable_id [String] If the ledger account links to another object in Modern Treasury, the id will be
+      #   ...
+      #
+      #   @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType] If the ledger account links to another object in Modern Treasury, the type will
+      #   ...
+      #
+      #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      #   ...
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # If the ledger account links to another object in Modern Treasury, the type will

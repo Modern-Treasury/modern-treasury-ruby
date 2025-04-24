@@ -34,10 +34,19 @@ module ModernTreasury
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!method initialize(alert_condition:, ledger_account_id:, description: nil, metadata: nil, request_options: {})
-      #   @param alert_condition [ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition]
-      #   @param ledger_account_id [String]
-      #   @param description [String]
-      #   @param metadata [Hash{Symbol=>String}]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams} for more
+      #   details.
+      #
+      #   @param alert_condition [ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition] Describes the condition that must be satisfied for the monitor to be triggered.
+      #
+      #   @param ledger_account_id [String] The ledger account associated with this balance monitor.
+      #
+      #   @param description [String] An optional, free-form description for internal use.
+      #
+      #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      #   ...
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       class AlertCondition < ModernTreasury::Internal::Type::BaseModel
@@ -65,11 +74,20 @@ module ModernTreasury
         required :value, Integer
 
         # @!method initialize(field:, operator:, value:)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition}
+        #   for more details.
+        #
         #   Describes the condition that must be satisfied for the monitor to be triggered.
         #
-        #   @param field [String]
-        #   @param operator [String]
-        #   @param value [Integer]
+        #   @param field [String] One of `available_balance_amount`, `pending_balance_amount`, `posted_balance_amo
+        #   ...
+        #
+        #   @param operator [String] A logical operator to compare the `field` against the `value`. One of `less_than
+        #   ...
+        #
+        #   @param value [Integer] The monitor's `current_ledger_account_balance_state.triggered` will be `true` wh
+        #   ...
       end
     end
   end

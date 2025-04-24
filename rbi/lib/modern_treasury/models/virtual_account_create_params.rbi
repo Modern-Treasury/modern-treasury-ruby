@@ -135,15 +135,32 @@ module ModernTreasury
           .returns(T.attached_class)
       end
       def self.new(
+        # The ID of the internal account that this virtual account is associated with.
         internal_account_id:,
+        # The name of the virtual account.
         name:,
+        # An array of account detail objects.
         account_details: nil,
+        # The ID of the counterparty that the virtual account belongs to.
         counterparty_id: nil,
+        # The ID of a credit normal ledger account. When money leaves the virtual account,
+        # this ledger account will be credited. Must be accompanied by a
+        # debit_ledger_account_id if present.
         credit_ledger_account_id: nil,
+        # The ID of a debit normal ledger account. When money enters the virtual account,
+        # this ledger account will be debited. Must be accompanied by a
+        # credit_ledger_account_id if present.
         debit_ledger_account_id: nil,
+        # An optional description for internal use.
         description: nil,
+        # Specifies a ledger account object that will be created with the virtual account.
+        # The resulting ledger account is linked to the virtual account for auto-ledgering
+        # IPDs.
         ledger_account: nil,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        # strings.
         metadata: nil,
+        # An array of routing detail objects.
         routing_details: nil,
         request_options: {}
       ); end
@@ -196,8 +213,13 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(account_number:, account_number_type: nil); end
-
+        def self.new(
+          # The account number for the bank account.
+          account_number:,
+          # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
+          # account number is in a generic format.
+          account_number_type: nil
+        ); end
         sig do
           override
             .returns(
@@ -365,15 +387,30 @@ module ModernTreasury
             .returns(T.attached_class)
         end
         def self.new(
+          # The currency of the ledger account.
           currency:,
+          # The id of the ledger that this account belongs to.
           ledger_id:,
+          # The name of the ledger account.
           name:,
+          # The normal balance of the ledger account.
           normal_balance:,
+          # The currency exponent of the ledger account.
           currency_exponent: nil,
+          # The description of the ledger account.
           description: nil,
+          # The array of ledger account category ids that this ledger account should be a
+          # child of.
           ledger_account_category_ids: nil,
+          # If the ledger account links to another object in Modern Treasury, the id will be
+          # populated here, otherwise null.
           ledgerable_id: nil,
+          # If the ledger account links to another object in Modern Treasury, the type will
+          # be populated here, otherwise null. The value is one of internal_account or
+          # external_account.
           ledgerable_type: nil,
+          # Additional data represented as key-value pairs. Both the key and value must be
+          # strings.
           metadata: nil
         ); end
         sig do
@@ -464,8 +501,17 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(routing_number:, routing_number_type:, payment_type: nil); end
-
+        def self.new(
+          # The routing number of the bank.
+          routing_number:,
+          # The type of routing number. See
+          # https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+          # more details.
+          routing_number_type:,
+          # If the routing detail is to be used for a specific payment type this field will
+          # be populated, otherwise null.
+          payment_type: nil
+        ); end
         sig do
           override
             .returns(

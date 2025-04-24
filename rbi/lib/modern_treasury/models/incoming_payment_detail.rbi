@@ -157,29 +157,60 @@ module ModernTreasury
       end
       def self.new(
         id:,
+        # Value in specified currency's smallest unit. e.g. $10 would be represented
+        # as 1000.
         amount:,
+        # The date on which the corresponding transaction will occur.
         as_of_date:,
         created_at:,
+        # The currency of the incoming payment detail.
         currency:,
+        # The raw data from the payment pre-notification file that we get from the bank.
         data:,
+        # One of `credit` or `debit`.
         direction:,
+        # The ID of the Internal Account for the incoming payment detail. This is always
+        # present.
         internal_account_id:,
+        # The ID of the ledger transaction linked to the incoming payment detail or
+        # `null`.
         ledger_transaction_id:,
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
         live_mode:,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        # strings.
         metadata:,
         object:,
+        # The last 4 digits of the originating account_number for the incoming payment
+        # detail.
         originating_account_number_safe:,
+        # The type of the originating account number for the incoming payment detail.
         originating_account_number_type:,
+        # The routing number of the originating account for the incoming payment detail.
         originating_routing_number:,
+        # The type of the originating routing number for the incoming payment detail.
         originating_routing_number_type:,
+        # The current status of the incoming payment order. One of `pending`, `completed`,
+        # or `returned`.
         status:,
+        # The ID of the reconciled Transaction or `null`.
         transaction_id:,
+        # The ID of the reconciled Transaction Line Item or `null`.
         transaction_line_item_id:,
+        # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
+        # `wire`.
         type:,
         updated_at:,
+        # The identifier of the vendor bank.
         vendor_id:,
+        # If the incoming payment detail is in a virtual account, the serialized virtual
+        # account object.
         virtual_account:,
+        # If the incoming payment detail is in a virtual account, the ID of the Virtual
+        # Account.
         virtual_account_id:,
+        # The account number of the originating account for the incoming payment detail.
         originating_account_number: nil
       ); end
       sig do

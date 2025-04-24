@@ -33,10 +33,18 @@ module ModernTreasury
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!method initialize(name:, custom_data: nil, description: nil, metadata: nil, request_options: {})
-      #   @param name [String]
-      #   @param custom_data [Object, nil]
-      #   @param description [String, nil]
-      #   @param metadata [Hash{Symbol=>String}]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::LedgerableEventCreateParams} for more details.
+      #
+      #   @param name [String] Name of the ledgerable event.
+      #
+      #   @param custom_data [Object, nil] Additionally data to be used by the Ledger Event Handler.
+      #
+      #   @param description [String, nil] Description of the ledgerable event.
+      #
+      #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      #   ...
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end

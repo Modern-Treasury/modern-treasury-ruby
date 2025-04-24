@@ -20,8 +20,11 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(status: nil, request_options: {}); end
-
+      def self.new(
+        # The status of the connection legal entity.
+        status: nil,
+        request_options: {}
+      ); end
       sig do
         override
           .returns(

@@ -84,18 +84,38 @@ module ModernTreasury
       required :updated_at, Time
 
       # @!method initialize(id:, accounting:, accounting_category_id:, accounting_ledger_class_id:, amount:, created_at:, description:, itemizable_id:, itemizable_type:, live_mode:, metadata:, object:, updated_at:)
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::LineItem} for more details.
+      #
       #   @param id [String]
+      #
       #   @param accounting [ModernTreasury::Models::LineItem::Accounting]
-      #   @param accounting_category_id [String, nil]
-      #   @param accounting_ledger_class_id [String, nil]
-      #   @param amount [Integer]
+      #
+      #   @param accounting_category_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
+      #   ...
+      #
+      #   @param accounting_ledger_class_id [String, nil] The ID of one of the class objects in your accounting system. Class objects trac
+      #   ...
+      #
+      #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
+      #   ...
+      #
       #   @param created_at [Time]
-      #   @param description [String, nil]
-      #   @param itemizable_id [String]
-      #   @param itemizable_type [Symbol, ModernTreasury::Models::LineItem::ItemizableType]
-      #   @param live_mode [Boolean]
-      #   @param metadata [Hash{Symbol=>String}]
+      #
+      #   @param description [String, nil] A free-form description of the line item.
+      #
+      #   @param itemizable_id [String] The ID of the payment order or expected payment.
+      #
+      #   @param itemizable_type [Symbol, ModernTreasury::Models::LineItem::ItemizableType] One of `payment_orders` or `expected_payments`.
+      #
+      #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+      #   ...
+      #
+      #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      #   ...
+      #
       #   @param object [String]
+      #
       #   @param updated_at [Time]
 
       # @see ModernTreasury::Models::LineItem#accounting
@@ -116,8 +136,14 @@ module ModernTreasury
         optional :class_id, String, nil?: true
 
         # @!method initialize(account_id: nil, class_id: nil)
-        #   @param account_id [String, nil]
-        #   @param class_id [String, nil]
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::LineItem::Accounting} for more details.
+        #
+        #   @param account_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
+        #   ...
+        #
+        #   @param class_id [String, nil] The ID of one of the class objects in your accounting system. Class objects trac
+        #   ...
       end
 
       # One of `payment_orders` or `expected_payments`.

@@ -49,12 +49,25 @@ module ModernTreasury
       optional :due_date, Date
 
       # @!method initialize(amount:, counterparty_id:, currency:, direction:, originating_account_id:, due_date: nil, request_options: {})
-      #   @param amount [Integer]
-      #   @param counterparty_id [String]
-      #   @param currency [String]
-      #   @param direction [Symbol, ModernTreasury::Models::PaymentFlowCreateParams::Direction]
-      #   @param originating_account_id [String]
-      #   @param due_date [Date]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::PaymentFlowCreateParams} for more details.
+      #
+      #   @param amount [Integer] Required. Value in specified currency's smallest unit. e.g. $10 would be represe
+      #   ...
+      #
+      #   @param counterparty_id [String] Required. The ID of a counterparty associated with the payment. As part of the p
+      #   ...
+      #
+      #   @param currency [String] Required. The currency of the payment.
+      #
+      #   @param direction [Symbol, ModernTreasury::Models::PaymentFlowCreateParams::Direction] Required. Describes the direction money is flowing in the transaction. Can only
+      #   ...
+      #
+      #   @param originating_account_id [String] Required. The ID of one of your organization's internal accounts.
+      #
+      #   @param due_date [Date] Optional. Can only be passed in when `effective_date_selection_enabled` is `true
+      #   ...
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # Required. Describes the direction money is flowing in the transaction. Can only

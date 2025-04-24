@@ -122,17 +122,30 @@ module ModernTreasury
       end
       def self.new(
         after_cursor: nil,
+        # Filters transactions with an `as_of_date` starting on or before the specified
+        # date (YYYY-MM-DD).
         as_of_date_end: nil,
+        # Filters transactions with an `as_of_date` starting on or after the specified
+        # date (YYYY-MM-DD).
         as_of_date_start: nil,
         counterparty_id: nil,
+        # Filters for transactions including the queried string in the description.
         description: nil,
         direction: nil,
+        # Specify `internal_account_id` if you wish to see transactions to/from a specific
+        # account.
         internal_account_id: nil,
+        # For example, if you want to query for records with metadata key `Type` and value
+        # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+        # parameters.
         metadata: nil,
         payment_type: nil,
         per_page: nil,
+        # Either `true` or `false`.
         posted: nil,
         transactable_type: nil,
+        # Filters for transactions including the queried vendor id (an identifier given to
+        # transactions by the bank).
         vendor_id: nil,
         virtual_account_id: nil,
         request_options: {}

@@ -79,12 +79,21 @@ module ModernTreasury
         def self.new(
           id:,
           created_at:,
+          # The ID of the external account.
           external_account_id:,
+          # This field will be true if this object exists in the live environment or false
+          # if it exists in the test environment.
           live_mode:,
           object:,
+          # The ID of the internal account where the micro-deposits originate from.
           originating_account_id:,
+          # The type of payment that can be made to this account. Can be `ach`, `eft`, or
+          # `rtp`.
           payment_type:,
+          # The priority of the payment. Can be `normal` or `high`.
           priority:,
+          # The status of the verification attempt. Can be `pending_verification`,
+          # `verified`, `failed`, or `cancelled`.
           status:,
           updated_at:
         ); end

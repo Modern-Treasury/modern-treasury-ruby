@@ -27,9 +27,16 @@ module ModernTreasury
       optional :name, String
 
       # @!method initialize(description: nil, metadata: nil, name: nil, request_options: {})
-      #   @param description [String, nil]
-      #   @param metadata [Hash{Symbol=>String}]
-      #   @param name [String]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::LedgerAccountCategoryUpdateParams} for more details.
+      #
+      #   @param description [String, nil] The description of the ledger account category.
+      #
+      #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      #   ...
+      #
+      #   @param name [String] The name of the ledger account category.
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end

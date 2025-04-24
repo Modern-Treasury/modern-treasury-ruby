@@ -70,15 +70,27 @@ module ModernTreasury
       end
       def self.new(
         id:,
+        # One of create, or update.
         action_type:,
         created_at:,
+        # Total number of failed bulk results so far for this request
         failed_result_count:,
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
         live_mode:,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        # strings.
         metadata:,
         object:,
+        # One of payment_order, expected_payment, or ledger_transaction.
         resource_type:,
+        # One of pending, processing, or completed.
         status:,
+        # Total number of successful bulk results so far for this request
         success_result_count:,
+        # Total number of items in the `resources` array. Once a bulk request is
+        # completed, `success_result_count` + `failed_result_count` will be equal to
+        # `total_result_count`.
         total_resource_count:,
         updated_at:
       ); end

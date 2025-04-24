@@ -4,12 +4,19 @@ module ModernTreasury
   module Resources
     class LedgerAccountSettlements
       class AccountEntries
+        # Some parameter documentations has been truncated, see
+        # {ModernTreasury::Models::LedgerAccountSettlements::AccountEntryUpdateParams} for
+        # more details.
+        #
         # Add ledger entries to a draft ledger account settlement.
         #
         # @overload update(id, ledger_entry_ids:, request_options: {})
         #
-        # @param id [String]
-        # @param ledger_entry_ids [Array<String>, nil]
+        # @param id [String] id
+        #
+        # @param ledger_entry_ids [Array<String>, nil] The ids of the ledger entries that are to be added or removed from the ledger ac
+        # ...
+        #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [nil]
@@ -27,12 +34,19 @@ module ModernTreasury
           )
         end
 
+        # Some parameter documentations has been truncated, see
+        # {ModernTreasury::Models::LedgerAccountSettlements::AccountEntryDeleteParams} for
+        # more details.
+        #
         # Remove ledger entries from a draft ledger account settlement.
         #
         # @overload delete(id, ledger_entry_ids:, request_options: {})
         #
-        # @param id [String]
-        # @param ledger_entry_ids [Array<String>, nil]
+        # @param id [String] id
+        #
+        # @param ledger_entry_ids [Array<String>, nil] The ids of the ledger entries that are to be added or removed from the ledger ac
+        # ...
+        #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [nil]

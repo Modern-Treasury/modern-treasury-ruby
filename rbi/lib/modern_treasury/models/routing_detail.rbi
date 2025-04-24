@@ -72,13 +72,22 @@ module ModernTreasury
       def self.new(
         id:,
         bank_address:,
+        # The name of the bank.
         bank_name:,
         created_at:,
         discarded_at:,
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
         live_mode:,
         object:,
+        # If the routing detail is to be used for a specific payment type this field will
+        # be populated, otherwise null.
         payment_type:,
+        # The routing number of the bank.
         routing_number:,
+        # The type of routing number. See
+        # https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+        # more details.
         routing_number_type:,
         updated_at:
       ); end
@@ -160,14 +169,20 @@ module ModernTreasury
         end
         def self.new(
           id:,
+          # Country code conforms to [ISO 3166-1 alpha-2]
           country:,
           created_at:,
           line1:,
           line2:,
+          # This field will be true if this object exists in the live environment or false
+          # if it exists in the test environment.
           live_mode:,
+          # Locality or City.
           locality:,
           object:,
+          # The postal code of the address.
           postal_code:,
+          # Region or State.
           region:,
           updated_at:
         ); end

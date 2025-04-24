@@ -179,15 +179,30 @@ module ModernTreasury
       def self.new(
         counterparty_id:,
         account_details: nil,
+        # Can be `checking`, `savings` or `other`.
         account_type: nil,
         contact_details: nil,
+        # Specifies a ledger account object that will be created with the external
+        # account. The resulting ledger account is linked to the external account for
+        # auto-ledgering Payment objects. See
+        # https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
+        # for more details.
         ledger_account: nil,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        # strings.
         metadata: nil,
+        # A nickname for the external account. This is only for internal usage and won't
+        # affect any payments
         name: nil,
+        # Required if receiving wire payments.
         party_address: nil,
         party_identifier: nil,
+        # If this value isn't provided, it will be inherited from the counterparty's name.
         party_name: nil,
+        # Either `individual` or `business`.
         party_type: nil,
+        # If you've enabled the Modern Treasury + Plaid integration in your Plaid account,
+        # you can pass the processor token in this field.
         plaid_processor_token: nil,
         routing_details: nil,
         request_options: {}
@@ -487,15 +502,30 @@ module ModernTreasury
             .returns(T.attached_class)
         end
         def self.new(
+          # The currency of the ledger account.
           currency:,
+          # The id of the ledger that this account belongs to.
           ledger_id:,
+          # The name of the ledger account.
           name:,
+          # The normal balance of the ledger account.
           normal_balance:,
+          # The currency exponent of the ledger account.
           currency_exponent: nil,
+          # The description of the ledger account.
           description: nil,
+          # The array of ledger account category ids that this ledger account should be a
+          # child of.
           ledger_account_category_ids: nil,
+          # If the ledger account links to another object in Modern Treasury, the id will be
+          # populated here, otherwise null.
           ledgerable_id: nil,
+          # If the ledger account links to another object in Modern Treasury, the type will
+          # be populated here, otherwise null. The value is one of internal_account or
+          # external_account.
           ledgerable_type: nil,
+          # Additional data represented as key-value pairs. Both the key and value must be
+          # strings.
           metadata: nil
         ); end
         sig do
@@ -593,8 +623,18 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil); end
-
+        def self.new(
+          # Country code conforms to [ISO 3166-1 alpha-2]
+          country: nil,
+          line1: nil,
+          line2: nil,
+          # Locality or City.
+          locality: nil,
+          # The postal code of the address.
+          postal_code: nil,
+          # Region or State.
+          region: nil
+        ); end
         sig do
           override
             .returns(

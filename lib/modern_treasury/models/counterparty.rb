@@ -82,19 +82,37 @@ module ModernTreasury
       required :verification_status, enum: -> { ModernTreasury::Models::Counterparty::VerificationStatus }
 
       # @!method initialize(id:, accounts:, created_at:, discarded_at:, email:, legal_entity_id:, live_mode:, metadata:, name:, object:, send_remittance_advice:, updated_at:, verification_status:)
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::Counterparty} for more details.
+      #
       #   @param id [String]
-      #   @param accounts [Array<ModernTreasury::Models::Counterparty::Account>]
+      #
+      #   @param accounts [Array<ModernTreasury::Models::Counterparty::Account>] The accounts for this counterparty.
+      #
       #   @param created_at [Time]
+      #
       #   @param discarded_at [Time, nil]
-      #   @param email [String, nil]
-      #   @param legal_entity_id [String, nil]
-      #   @param live_mode [Boolean]
-      #   @param metadata [Hash{Symbol=>String}]
-      #   @param name [String, nil]
+      #
+      #   @param email [String, nil] The counterparty's email.
+      #
+      #   @param legal_entity_id [String, nil] The id of the legal entity.
+      #
+      #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+      #   ...
+      #
+      #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      #   ...
+      #
+      #   @param name [String, nil] A human friendly name for this counterparty.
+      #
       #   @param object [String]
-      #   @param send_remittance_advice [Boolean]
+      #
+      #   @param send_remittance_advice [Boolean] Send an email to the counterparty whenever an associated payment order is sent t
+      #   ...
+      #
       #   @param updated_at [Time]
-      #   @param verification_status [Symbol, ModernTreasury::Models::Counterparty::VerificationStatus]
+      #
+      #   @param verification_status [Symbol, ModernTreasury::Models::Counterparty::VerificationStatus] The verification status of the counterparty.
 
       class Account < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
@@ -206,23 +224,47 @@ module ModernTreasury
                  enum: -> { ModernTreasury::Models::Counterparty::Account::VerificationStatus }
 
         # @!method initialize(id: nil, account_details: nil, account_type: nil, contact_details: nil, created_at: nil, discarded_at: nil, ledger_account_id: nil, live_mode: nil, metadata: nil, name: nil, object: nil, party_address: nil, party_name: nil, party_type: nil, routing_details: nil, updated_at: nil, verification_source: nil, verification_status: nil)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::Counterparty::Account} for more details.
+        #
         #   @param id [String]
+        #
         #   @param account_details [Array<ModernTreasury::Models::AccountDetail>]
-        #   @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType]
+        #
+        #   @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType] Can be `checking`, `savings` or `other`.
+        #
         #   @param contact_details [Array<ModernTreasury::Models::Counterparty::Account::ContactDetail>]
+        #
         #   @param created_at [Time]
+        #
         #   @param discarded_at [Time, nil]
-        #   @param ledger_account_id [String, nil]
-        #   @param live_mode [Boolean]
-        #   @param metadata [Hash{Symbol=>String}]
-        #   @param name [String, nil]
+        #
+        #   @param ledger_account_id [String, nil] If the external account links to a ledger account in Modern Treasury, the id of
+        #   ...
+        #
+        #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+        #   ...
+        #
+        #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+        #   ...
+        #
+        #   @param name [String, nil] A nickname for the external account. This is only for internal usage and won't a
+        #   ...
+        #
         #   @param object [String]
-        #   @param party_address [ModernTreasury::Models::Counterparty::Account::PartyAddress, nil]
-        #   @param party_name [String]
-        #   @param party_type [Symbol, ModernTreasury::Models::Counterparty::Account::PartyType, nil]
+        #
+        #   @param party_address [ModernTreasury::Models::Counterparty::Account::PartyAddress, nil] The address associated with the owner or `null`.
+        #
+        #   @param party_name [String] The legal name of the entity which owns the account.
+        #
+        #   @param party_type [Symbol, ModernTreasury::Models::Counterparty::Account::PartyType, nil] Either `individual` or `business`.
+        #
         #   @param routing_details [Array<ModernTreasury::Models::RoutingDetail>]
+        #
         #   @param updated_at [Time]
+        #
         #   @param verification_source [Symbol, ModernTreasury::Models::Counterparty::Account::VerificationSource, nil]
+        #
         #   @param verification_status [Symbol, ModernTreasury::Models::Counterparty::Account::VerificationStatus]
 
         class ContactDetail < ModernTreasury::Internal::Type::BaseModel
@@ -270,13 +312,24 @@ module ModernTreasury
           required :updated_at, Time
 
           # @!method initialize(id:, contact_identifier:, contact_identifier_type:, created_at:, discarded_at:, live_mode:, object:, updated_at:)
+          #   Some parameter documentations has been truncated, see
+          #   {ModernTreasury::Models::Counterparty::Account::ContactDetail} for more details.
+          #
           #   @param id [String]
+          #
           #   @param contact_identifier [String]
+          #
           #   @param contact_identifier_type [Symbol, ModernTreasury::Models::Counterparty::Account::ContactDetail::ContactIdentifierType]
+          #
           #   @param created_at [Time]
+          #
           #   @param discarded_at [Time, nil]
-          #   @param live_mode [Boolean]
+          #
+          #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+          #   ...
+          #
           #   @param object [String]
+          #
           #   @param updated_at [Time]
 
           # @see ModernTreasury::Models::Counterparty::Account::ContactDetail#contact_identifier_type
@@ -356,18 +409,32 @@ module ModernTreasury
           required :updated_at, Time
 
           # @!method initialize(id:, country:, created_at:, line1:, line2:, live_mode:, locality:, object:, postal_code:, region:, updated_at:)
+          #   Some parameter documentations has been truncated, see
+          #   {ModernTreasury::Models::Counterparty::Account::PartyAddress} for more details.
+          #
           #   The address associated with the owner or `null`.
           #
           #   @param id [String]
-          #   @param country [String, nil]
+          #
+          #   @param country [String, nil] Country code conforms to [ISO 3166-1 alpha-2]
+          #
           #   @param created_at [Time]
+          #
           #   @param line1 [String, nil]
+          #
           #   @param line2 [String, nil]
-          #   @param live_mode [Boolean]
-          #   @param locality [String, nil]
+          #
+          #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+          #   ...
+          #
+          #   @param locality [String, nil] Locality or City.
+          #
           #   @param object [String]
-          #   @param postal_code [String, nil]
-          #   @param region [String, nil]
+          #
+          #   @param postal_code [String, nil] The postal code of the address.
+          #
+          #   @param region [String, nil] Region or State.
+          #
           #   @param updated_at [Time]
         end
 

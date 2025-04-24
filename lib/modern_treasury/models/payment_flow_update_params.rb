@@ -15,7 +15,12 @@ module ModernTreasury
       required :status, enum: -> { ModernTreasury::Models::PaymentFlowUpdateParams::Status }
 
       # @!method initialize(status:, request_options: {})
-      #   @param status [Symbol, ModernTreasury::Models::PaymentFlowUpdateParams::Status]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::PaymentFlowUpdateParams} for more details.
+      #
+      #   @param status [Symbol, ModernTreasury::Models::PaymentFlowUpdateParams::Status] Required. The updated status of the payment flow. Can only be used to mark a flo
+      #   ...
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # Required. The updated status of the payment flow. Can only be used to mark a

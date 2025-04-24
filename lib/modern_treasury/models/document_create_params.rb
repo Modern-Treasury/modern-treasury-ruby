@@ -30,10 +30,14 @@ module ModernTreasury
       optional :document_type, String
 
       # @!method initialize(documentable_id:, documentable_type:, file:, document_type: nil, request_options: {})
-      #   @param documentable_id [String]
+      #   @param documentable_id [String] The unique identifier for the associated object.
+      #
       #   @param documentable_type [Symbol, ModernTreasury::Models::DocumentCreateParams::DocumentableType]
+      #
       #   @param file [Pathname, StringIO]
-      #   @param document_type [String]
+      #
+      #   @param document_type [String] A category given to the document, can be `null`.
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       module DocumentableType

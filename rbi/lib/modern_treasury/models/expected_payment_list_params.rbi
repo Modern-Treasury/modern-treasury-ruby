@@ -92,14 +92,25 @@ module ModernTreasury
       end
       def self.new(
         after_cursor: nil,
+        # Specify counterparty_id to see expected_payments for a specific account.
         counterparty_id: nil,
+        # Used to return expected payments created after some datetime
         created_at_lower_bound: nil,
+        # Used to return expected payments created before some datetime
         created_at_upper_bound: nil,
+        # One of credit, debit
         direction: nil,
+        # Specify internal_account_id to see expected_payments for a specific account.
         internal_account_id: nil,
+        # For example, if you want to query for records with metadata key `Type` and value
+        # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+        # parameters.
         metadata: nil,
         per_page: nil,
+        # One of unreconciled, reconciled, or archived.
         status: nil,
+        # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
+        # sepa, signet, wire
         type: nil,
         request_options: {}
       ); end

@@ -71,16 +71,33 @@ module ModernTreasury
       optional :updated_at, Time
 
       # @!method initialize(counterparty_id:, payment_types:, id: nil, client_token: nil, created_at: nil, external_account_id: nil, live_mode: nil, object: nil, receiving_countries: nil, status: nil, updated_at: nil)
-      #   @param counterparty_id [String]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::AccountCollectionFlow} for more details.
+      #
+      #   @param counterparty_id [String] The ID of a counterparty. An external account created with this flow will be ass
+      #   ...
+      #
       #   @param payment_types [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::PaymentType>]
+      #
       #   @param id [String]
-      #   @param client_token [String]
+      #
+      #   @param client_token [String] The client token of the account collection flow. This token can be used to embe
+      #   ...
+      #
       #   @param created_at [Time]
-      #   @param external_account_id [String, nil]
-      #   @param live_mode [Boolean]
+      #
+      #   @param external_account_id [String, nil] If present, the ID of the external account created using this flow.
+      #
+      #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+      #   ...
+      #
       #   @param object [String]
+      #
       #   @param receiving_countries [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry>]
-      #   @param status [Symbol, ModernTreasury::Models::AccountCollectionFlow::Status]
+      #
+      #   @param status [Symbol, ModernTreasury::Models::AccountCollectionFlow::Status] The current status of the account collection flow. One of `pending`, `completed`
+      #   ...
+      #
       #   @param updated_at [Time]
 
       # An account created with this flow will support payments of one of these types.

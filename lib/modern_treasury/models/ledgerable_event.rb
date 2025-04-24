@@ -65,15 +65,29 @@ module ModernTreasury
       required :updated_at, Time
 
       # @!method initialize(id:, created_at:, custom_data:, description:, ledger_event_handler_id:, live_mode:, metadata:, name:, object:, updated_at:)
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::LedgerableEvent} for more details.
+      #
       #   @param id [String]
+      #
       #   @param created_at [Time]
-      #   @param custom_data [Object, nil]
-      #   @param description [String, nil]
-      #   @param ledger_event_handler_id [String]
-      #   @param live_mode [Boolean]
-      #   @param metadata [Hash{Symbol=>String}, nil]
-      #   @param name [String]
+      #
+      #   @param custom_data [Object, nil] Additionally data to be used by the Ledger Event Handler.
+      #
+      #   @param description [String, nil] Description of the ledgerable event.
+      #
+      #   @param ledger_event_handler_id [String] Id of the ledger event handler that is used to create a ledger transaction.
+      #
+      #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+      #   ...
+      #
+      #   @param metadata [Hash{Symbol=>String}, nil] Additional data represented as key-value pairs. Both the key and value must be s
+      #   ...
+      #
+      #   @param name [String] Name of the ledgerable event.
+      #
       #   @param object [String]
+      #
       #   @param updated_at [Time]
     end
   end

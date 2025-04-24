@@ -19,8 +19,12 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(ledger_entry_ids:, request_options: {}); end
-
+        def self.new(
+          # The ids of the ledger entries that are to be added or removed from the ledger
+          # account settlement.
+          ledger_entry_ids:,
+          request_options: {}
+        ); end
         sig do
           override
             .returns({

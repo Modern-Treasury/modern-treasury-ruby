@@ -67,15 +67,33 @@ module ModernTreasury
       optional :virtual_account_id, String
 
       # @!method initialize(after_cursor: nil, as_of_date_end: nil, as_of_date_start: nil, direction: nil, metadata: nil, per_page: nil, status: nil, type: nil, virtual_account_id: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::IncomingPaymentDetailListParams} for more details.
+      #
       #   @param after_cursor [String, nil]
-      #   @param as_of_date_end [Date]
-      #   @param as_of_date_start [Date]
-      #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
-      #   @param metadata [Hash{Symbol=>String}]
+      #
+      #   @param as_of_date_end [Date] Filters incoming payment details with an as_of_date starting on or before the sp
+      #   ...
+      #
+      #   @param as_of_date_start [Date] Filters incoming payment details with an as_of_date starting on or after the spe
+      #   ...
+      #
+      #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection] One of `credit` or `debit`.
+      #
+      #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
+      #   ...
+      #
       #   @param per_page [Integer]
-      #   @param status [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Status]
-      #   @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Type]
-      #   @param virtual_account_id [String]
+      #
+      #   @param status [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Status] The current status of the incoming payment order. One of `pending`, `completed`,
+      #   ...
+      #
+      #   @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Type] One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or `w
+      #   ...
+      #
+      #   @param virtual_account_id [String] If the incoming payment detail is in a virtual account, the ID of the Virtual Ac
+      #   ...
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # The current status of the incoming payment order. One of `pending`, `completed`,

@@ -91,20 +91,42 @@ module ModernTreasury
       optional :virtual_account_id, String
 
       # @!method initialize(after_cursor: nil, as_of_date_end: nil, as_of_date_start: nil, counterparty_id: nil, description: nil, direction: nil, internal_account_id: nil, metadata: nil, payment_type: nil, per_page: nil, posted: nil, transactable_type: nil, vendor_id: nil, virtual_account_id: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::TransactionListParams} for more details.
+      #
       #   @param after_cursor [String, nil]
-      #   @param as_of_date_end [Date]
-      #   @param as_of_date_start [Date]
+      #
+      #   @param as_of_date_end [Date] Filters transactions with an `as_of_date` starting on or before the specified da
+      #   ...
+      #
+      #   @param as_of_date_start [Date] Filters transactions with an `as_of_date` starting on or after the specified dat
+      #   ...
+      #
       #   @param counterparty_id [String]
-      #   @param description [String]
+      #
+      #   @param description [String] Filters for transactions including the queried string in the description.
+      #
       #   @param direction [String]
-      #   @param internal_account_id [String]
-      #   @param metadata [Hash{Symbol=>String}]
+      #
+      #   @param internal_account_id [String] Specify `internal_account_id` if you wish to see transactions to/from a specific
+      #   ...
+      #
+      #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
+      #   ...
+      #
       #   @param payment_type [String]
+      #
       #   @param per_page [Integer]
-      #   @param posted [Boolean]
+      #
+      #   @param posted [Boolean] Either `true` or `false`.
+      #
       #   @param transactable_type [String]
-      #   @param vendor_id [String]
+      #
+      #   @param vendor_id [String] Filters for transactions including the queried vendor id (an identifier given to
+      #   ...
+      #
       #   @param virtual_account_id [String]
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end

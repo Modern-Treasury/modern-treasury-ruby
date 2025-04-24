@@ -97,17 +97,36 @@ module ModernTreasury
       end
       def self.new(
         id:,
+        # The pending, posted, and available balances for this ledger account. The posted
+        # balance is the sum of all posted entries on the account. The pending balance is
+        # the sum of all pending and posted entries on the account. The available balance
+        # is the posted incoming entries minus the sum of the pending and posted outgoing
+        # amounts.
         balances:,
         created_at:,
+        # The description of the ledger account.
         description:,
         discarded_at:,
+        # The id of the ledger that this account belongs to.
         ledger_id:,
+        # If the ledger account links to another object in Modern Treasury, the id will be
+        # populated here, otherwise null.
         ledgerable_id:,
+        # If the ledger account links to another object in Modern Treasury, the type will
+        # be populated here, otherwise null. The value is one of internal_account or
+        # external_account.
         ledgerable_type:,
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
         live_mode:,
+        # Lock version of the ledger account.
         lock_version:,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        # strings.
         metadata:,
+        # The name of the ledger account.
         name:,
+        # The normal balance of the ledger account.
         normal_balance:,
         object:,
         updated_at:
@@ -208,10 +227,20 @@ module ModernTreasury
             .returns(T.attached_class)
         end
         def self.new(
+          # The available_balance is the sum of all posted inbound entries and pending
+          # outbound entries. For credit normal, available_amount = posted_credits -
+          # pending_debits; for debit normal, available_amount = posted_debits -
+          # pending_credits.
           available_balance:,
+          # The inclusive lower bound of the effective_at timestamp for the returned
+          # balances.
           effective_at_lower_bound:,
+          # The exclusive upper bound of the effective_at timestamp for the returned
+          # balances.
           effective_at_upper_bound:,
+          # The pending_balance is the sum of all pending and posted entries.
           pending_balance:,
+          # The posted_balance is the sum of all posted entries.
           posted_balance:
         ); end
         sig do
@@ -260,8 +289,15 @@ module ModernTreasury
             )
               .returns(T.attached_class)
           end
-          def self.new(amount:, credits:, currency:, currency_exponent:, debits:); end
-
+          def self.new(
+            amount:,
+            credits:,
+            # The currency of the ledger account.
+            currency:,
+            # The currency exponent of the ledger account.
+            currency_exponent:,
+            debits:
+          ); end
           sig do
             override
               .returns(
@@ -306,8 +342,15 @@ module ModernTreasury
             )
               .returns(T.attached_class)
           end
-          def self.new(amount:, credits:, currency:, currency_exponent:, debits:); end
-
+          def self.new(
+            amount:,
+            credits:,
+            # The currency of the ledger account.
+            currency:,
+            # The currency exponent of the ledger account.
+            currency_exponent:,
+            debits:
+          ); end
           sig do
             override
               .returns(
@@ -352,8 +395,15 @@ module ModernTreasury
             )
               .returns(T.attached_class)
           end
-          def self.new(amount:, credits:, currency:, currency_exponent:, debits:); end
-
+          def self.new(
+            amount:,
+            credits:,
+            # The currency of the ledger account.
+            currency:,
+            # The currency exponent of the ledger account.
+            currency_exponent:,
+            debits:
+          ); end
           sig do
             override
               .returns(

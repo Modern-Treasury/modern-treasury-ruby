@@ -64,15 +64,29 @@ module ModernTreasury
       optional :vendor_attributes, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!method initialize(connection_id:, currency:, name:, party_name:, counterparty_id: nil, legal_entity_id: nil, parent_account_id: nil, party_address: nil, vendor_attributes: nil, request_options: {})
-      #   @param connection_id [String]
-      #   @param currency [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency]
-      #   @param name [String]
-      #   @param party_name [String]
-      #   @param counterparty_id [String]
-      #   @param legal_entity_id [String]
-      #   @param parent_account_id [String]
-      #   @param party_address [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress]
-      #   @param vendor_attributes [Hash{Symbol=>String}]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::InternalAccountCreateParams} for more details.
+      #
+      #   @param connection_id [String] The identifier of the financial institution the account belongs to.
+      #
+      #   @param currency [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency] Either "USD" or "CAD". Internal accounts created at Increase only supports "USD"
+      #   ...
+      #
+      #   @param name [String] The nickname of the account.
+      #
+      #   @param party_name [String] The legal name of the entity which owns the account.
+      #
+      #   @param counterparty_id [String] The Counterparty associated to this account.
+      #
+      #   @param legal_entity_id [String] The LegalEntity associated to this account.
+      #
+      #   @param parent_account_id [String] The parent internal account of this new account.
+      #
+      #   @param party_address [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress] The address associated with the owner or null.
+      #
+      #   @param vendor_attributes [Hash{Symbol=>String}] A hash of vendor specific attributes that will be used when creating the account
+      #   ...
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # Either "USD" or "CAD". Internal accounts created at Increase only supports
@@ -125,11 +139,16 @@ module ModernTreasury
         # @!method initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
         #   The address associated with the owner or null.
         #
-        #   @param country [String]
+        #   @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
+        #
         #   @param line1 [String]
-        #   @param locality [String]
-        #   @param postal_code [String]
-        #   @param region [String]
+        #
+        #   @param locality [String] Locality or City.
+        #
+        #   @param postal_code [String] The postal code of the address.
+        #
+        #   @param region [String] Region or State.
+        #
         #   @param line2 [String]
       end
     end

@@ -32,10 +32,18 @@ module ModernTreasury
       optional :per_page, Integer
 
       # @!method initialize(after_cursor: nil, documentable_id: nil, documentable_type: nil, per_page: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::DocumentListParams} for more details.
+      #
       #   @param after_cursor [String, nil]
-      #   @param documentable_id [String]
-      #   @param documentable_type [Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType]
+      #
+      #   @param documentable_id [String] The unique identifier for the associated object.
+      #
+      #   @param documentable_type [Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType] The type of the associated object. Currently can be one of `payment_order`, `tra
+      #   ...
+      #
       #   @param per_page [Integer]
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # The type of the associated object. Currently can be one of `payment_order`,

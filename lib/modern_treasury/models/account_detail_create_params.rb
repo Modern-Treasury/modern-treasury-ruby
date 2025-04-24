@@ -27,9 +27,16 @@ module ModernTreasury
                enum: -> { ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType }
 
       # @!method initialize(accounts_type:, account_number:, account_number_type: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::AccountDetailCreateParams} for more details.
+      #
       #   @param accounts_type [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountsType]
-      #   @param account_number [String]
-      #   @param account_number_type [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType]
+      #
+      #   @param account_number [String] The account number for the bank account.
+      #
+      #   @param account_number_type [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType] One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank ac
+      #   ...
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       module AccountsType

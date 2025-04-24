@@ -38,10 +38,22 @@ module ModernTreasury
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!method initialize(posted_ledger_entries:, description: nil, effective_at: nil, metadata: nil, request_options: {})
-      #   @param posted_ledger_entries [Array<ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry>]
-      #   @param description [String]
-      #   @param effective_at [Time]
-      #   @param metadata [Hash{Symbol=>String}]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::LedgerTransactionCreatePartialPostParams} for more
+      #   details.
+      #
+      #   @param posted_ledger_entries [Array<ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry>] An array of ledger entry objects to be set on the posted ledger transaction. The
+      #   ...
+      #
+      #   @param description [String] An optional free-form description for the posted ledger transaction. Maximum of
+      #   ...
+      #
+      #   @param effective_at [Time] The timestamp (IS08601 format) at which the posted ledger transaction happened f
+      #   ...
+      #
+      #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      #   ...
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       class PostedLedgerEntry < ModernTreasury::Internal::Type::BaseModel
@@ -76,10 +88,20 @@ module ModernTreasury
         optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
         # @!method initialize(amount:, direction:, ledger_account_id:, metadata: nil)
-        #   @param amount [Integer]
-        #   @param direction [Symbol, ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction]
-        #   @param ledger_account_id [String]
-        #   @param metadata [Hash{Symbol=>String}]
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry}
+        #   for more details.
+        #
+        #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
+        #   ...
+        #
+        #   @param direction [Symbol, ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction] One of `credit`, `debit`. Describes the direction money is flowing in the transa
+        #   ...
+        #
+        #   @param ledger_account_id [String] The ledger account that this ledger entry is associated with.
+        #
+        #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+        #   ...
 
         # One of `credit`, `debit`. Describes the direction money is flowing in the
         # transaction. A `credit` moves money from your account to someone else's. A

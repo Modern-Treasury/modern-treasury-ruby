@@ -61,16 +61,29 @@ module ModernTreasury
       required :vendor_id, String
 
       # @!method initialize(id:, connection_id:, created_at:, discarded_at:, legal_entity_id:, live_mode:, object:, status:, updated_at:, vendor_id:)
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::ConnectionLegalEntity} for more details.
+      #
       #   @param id [String]
-      #   @param connection_id [String]
+      #
+      #   @param connection_id [String] The ID of the connection.
+      #
       #   @param created_at [Time]
+      #
       #   @param discarded_at [Time, nil]
-      #   @param legal_entity_id [String]
-      #   @param live_mode [Boolean]
+      #
+      #   @param legal_entity_id [String] The ID of the legal entity.
+      #
+      #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+      #   ...
+      #
       #   @param object [String]
-      #   @param status [Symbol, ModernTreasury::Models::ConnectionLegalEntity::Status]
+      #
+      #   @param status [Symbol, ModernTreasury::Models::ConnectionLegalEntity::Status] The status of the connection legal entity.
+      #
       #   @param updated_at [Time]
-      #   @param vendor_id [String]
+      #
+      #   @param vendor_id [String] The ID of the legal entity at the vendor.
 
       # The status of the connection legal entity.
       #

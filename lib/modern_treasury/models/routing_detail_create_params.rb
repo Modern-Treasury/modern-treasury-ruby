@@ -37,10 +37,19 @@ module ModernTreasury
                nil?: true
 
       # @!method initialize(accounts_type:, routing_number:, routing_number_type:, payment_type: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::RoutingDetailCreateParams} for more details.
+      #
       #   @param accounts_type [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::AccountsType]
-      #   @param routing_number [String]
-      #   @param routing_number_type [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType]
-      #   @param payment_type [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::PaymentType, nil]
+      #
+      #   @param routing_number [String] The routing number of the bank.
+      #
+      #   @param routing_number_type [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType] The type of routing number. See https://docs.moderntreasury.com/platform/referen
+      #   ...
+      #
+      #   @param payment_type [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::PaymentType, nil] If the routing detail is to be used for a specific payment type this field will
+      #   ...
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       module AccountsType

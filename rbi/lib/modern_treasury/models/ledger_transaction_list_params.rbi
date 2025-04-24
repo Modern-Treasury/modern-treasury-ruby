@@ -170,9 +170,17 @@ module ModernTreasury
           .returns(T.attached_class)
       end
       def self.new(
+        # If you have specific IDs to retrieve in bulk, you can pass them as query
+        # parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
         id: nil,
         after_cursor: nil,
+        # Use "gt" (>), "gte" (>=), "lt" (<), "lte" (<=), or "eq" (=) to filter by
+        # effective at. For example, for all transactions after Jan 1 2000, use
+        # effective_at%5Bgt%5D=2000-01-01T00:00:00:00.000Z.
         effective_at: nil,
+        # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by
+        # effective date. For example, for all dates after Jan 1 2000, use
+        # effective_date%5Bgt%5D=2000-01-01.
         effective_date: nil,
         external_id: nil,
         ledger_account_category_id: nil,
@@ -181,13 +189,25 @@ module ModernTreasury
         ledger_id: nil,
         ledgerable_id: nil,
         ledgerable_type: nil,
+        # For example, if you want to query for records with metadata key `Type` and value
+        # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+        # parameters.
         metadata: nil,
+        # Order by `created_at` or `effective_at` in `asc` or `desc` order. For example,
+        # to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering
+        # by only one field at a time is supported.
         order_by: nil,
         partially_posts_ledger_transaction_id: nil,
         per_page: nil,
+        # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+        # posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
+        # posted_at%5Bgt%5D=2000-01-01T12:00:00Z.
         posted_at: nil,
         reverses_ledger_transaction_id: nil,
         status: nil,
+        # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+        # posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
+        # updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
         updated_at: nil,
         request_options: {}
       ); end

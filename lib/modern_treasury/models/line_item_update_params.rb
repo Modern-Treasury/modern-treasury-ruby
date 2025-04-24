@@ -25,9 +25,16 @@ module ModernTreasury
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!method initialize(itemizable_type:, itemizable_id:, metadata: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::LineItemUpdateParams} for more details.
+      #
       #   @param itemizable_type [Symbol, ModernTreasury::Models::LineItemUpdateParams::ItemizableType]
+      #
       #   @param itemizable_id [String]
-      #   @param metadata [Hash{Symbol=>String}]
+      #
+      #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      #   ...
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       module ItemizableType

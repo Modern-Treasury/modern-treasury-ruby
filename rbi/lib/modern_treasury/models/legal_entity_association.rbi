@@ -69,14 +69,21 @@ module ModernTreasury
       end
       def self.new(
         id:,
+        # The child legal entity.
         child_legal_entity:,
         created_at:,
         discarded_at:,
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
         live_mode:,
         object:,
+        # The child entity's ownership percentage iff they are a beneficial owner.
         ownership_percentage:,
+        # The ID of the parent legal entity. This must be a business or joint legal
+        # entity.
         parent_legal_entity_id:,
         relationship_types:,
+        # The job title of the child entity at the parent entity.
         title:,
         updated_at:
       ); end
@@ -303,35 +310,58 @@ module ModernTreasury
         end
         def self.new(
           id:,
+          # A list of addresses for the entity.
           addresses:,
           bank_settings:,
+          # The business's legal business name.
           business_name:,
+          # The country of citizenship for an individual.
           citizenship_country:,
           compliance_details:,
           created_at:,
+          # A business's formation date (YYYY-MM-DD).
           date_formed:,
+          # An individual's date of birth (YYYY-MM-DD).
           date_of_birth:,
           discarded_at:,
           doing_business_as_names:,
+          # The entity's primary email.
           email:,
+          # An individual's first name.
           first_name:,
+          # A list of identifications for the legal entity.
           identifications:,
+          # A list of industry classifications for the legal entity.
           industry_classifications:,
+          # An individual's last name.
           last_name:,
+          # The type of legal entity.
           legal_entity_type:,
+          # The business's legal structure.
           legal_structure:,
+          # This field will be true if this object exists in the live environment or false
+          # if it exists in the test environment.
           live_mode:,
+          # Additional data represented as key-value pairs. Both the key and value must be
+          # strings.
           metadata:,
+          # An individual's middle name.
           middle_name:,
           object:,
           phone_numbers:,
+          # Whether the individual is a politically exposed person.
           politically_exposed_person:,
+          # An individual's preferred name.
           preferred_name:,
+          # An individual's prefix.
           prefix:,
+          # The risk rating of the legal entity. One of low, medium, high.
           risk_rating:,
+          # An individual's suffix.
           suffix:,
           updated_at:,
           wealth_and_employment_details:,
+          # The entity's primary website URL.
           website:
         ); end
         sig do
@@ -445,16 +475,23 @@ module ModernTreasury
           end
           def self.new(
             id:,
+            # The types of this address.
             address_types:,
+            # Country code conforms to [ISO 3166-1 alpha-2]
             country:,
             created_at:,
             discarded_at:,
             line1:,
             line2:,
+            # This field will be true if this object exists in the live environment or false
+            # if it exists in the test environment.
             live_mode:,
+            # Locality or City.
             locality:,
             object:,
+            # The postal code of the address.
             postal_code:,
+            # Region or State.
             region:,
             updated_at:
           ); end
@@ -574,14 +611,17 @@ module ModernTreasury
             id:,
             created_at:,
             discarded_at:,
+            # The type of ID number.
             id_type:,
+            # The ISO 3166-1 alpha-2 country code of the country that issued the
+            # identification
             issuing_country:,
+            # This field will be true if this object exists in the live environment or false
+            # if it exists in the test environment.
             live_mode:,
             object:,
             updated_at:
-          )
-          end
-
+          ); end
           sig do
             override
               .returns(

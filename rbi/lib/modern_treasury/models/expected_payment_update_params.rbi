@@ -112,22 +112,50 @@ module ModernTreasury
           .returns(T.attached_class)
       end
       def self.new(
+        # The lowest amount this expected payment may be equal to. Value in specified
+        # currency's smallest unit. e.g. $10 would be represented as 1000.
         amount_lower_bound: nil,
+        # The highest amount this expected payment may be equal to. Value in specified
+        # currency's smallest unit. e.g. $10 would be represented as 1000.
         amount_upper_bound: nil,
+        # The ID of the counterparty you expect for this payment.
         counterparty_id: nil,
+        # Must conform to ISO 4217. Defaults to the currency of the internal account.
         currency: nil,
+        # The earliest date the payment may come in. Format: yyyy-mm-dd
         date_lower_bound: nil,
+        # The latest date the payment may come in. Format: yyyy-mm-dd
         date_upper_bound: nil,
+        # An optional description for internal use.
         description: nil,
+        # One of credit or debit. When you are receiving money, use credit. When you are
+        # being charged, use debit.
         direction: nil,
+        # The ID of the Internal Account for the expected payment.
         internal_account_id: nil,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        # strings.
         metadata: nil,
+        # The reconciliation filters you have for this payment.
         reconciliation_filters: nil,
+        # The reconciliation groups you have for this payment.
         reconciliation_groups: nil,
+        # An array of reconciliation rule variables for this payment.
         reconciliation_rule_variables: nil,
+        # For `ach`, this field will be passed through on an addenda record. For `wire`
+        # payments the field will be passed through as the "Originator to Beneficiary
+        # Information", also known as OBI or Fedwire tag 6000.
         remittance_information: nil,
+        # The statement description you expect to see on the transaction. For ACH
+        # payments, this will be the full line item passed from the bank. For wire
+        # payments, this will be the OBI field on the wire. For check payments, this will
+        # be the memo field.
         statement_descriptor: nil,
+        # The Expected Payment's status can be updated from partially_reconciled to
+        # reconciled.
         status: nil,
+        # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
+        # sepa, signet, wire.
         type: nil,
         request_options: {}
       ); end

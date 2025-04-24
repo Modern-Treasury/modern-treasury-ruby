@@ -52,12 +52,23 @@ module ModernTreasury
           .returns(T.attached_class)
       end
       def self.new(
+        # The ID of the object being returned or `null`.
         returnable_id:,
+        # The type of object being returned. Currently, this may only be
+        # incoming_payment_detail.
         returnable_type:,
+        # Some returns may include additional information from the bank. In these cases,
+        # this string will be present.
         additional_information: nil,
+        # The return code. For ACH returns, this is the required ACH return code.
         code: nil,
+        # The raw data from the return file that we get from the bank.
         data: nil,
+        # If the return code is `R14` or `R15` this is the date the deceased counterparty
+        # passed away.
         date_of_death: nil,
+        # An optional description of the reason for the return. This is for internal usage
+        # and will not be transmitted to the bank.”
         reason: nil,
         request_options: {}
       ); end

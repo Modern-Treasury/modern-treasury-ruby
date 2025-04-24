@@ -69,17 +69,32 @@ module ModernTreasury
       optional :status, enum: -> { ModernTreasury::Models::InvoiceListParams::Status }
 
       # @!method initialize(after_cursor: nil, counterparty_id: nil, due_date_end: nil, due_date_start: nil, expected_payment_id: nil, metadata: nil, number: nil, originating_account_id: nil, payment_order_id: nil, per_page: nil, status: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::InvoiceListParams} for more details.
+      #
       #   @param after_cursor [String, nil]
+      #
       #   @param counterparty_id [String]
-      #   @param due_date_end [Date]
-      #   @param due_date_start [Date]
+      #
+      #   @param due_date_end [Date] An inclusive upper bound for searching due_date
+      #
+      #   @param due_date_start [Date] An inclusive lower bound for searching due_date
+      #
       #   @param expected_payment_id [String]
-      #   @param metadata [Hash{Symbol=>String}]
-      #   @param number [String]
+      #
+      #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
+      #   ...
+      #
+      #   @param number [String] A unique record number assigned to each invoice that is issued.
+      #
       #   @param originating_account_id [String]
+      #
       #   @param payment_order_id [String]
+      #
       #   @param per_page [Integer]
+      #
       #   @param status [Symbol, ModernTreasury::Models::InvoiceListParams::Status]
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       module Status

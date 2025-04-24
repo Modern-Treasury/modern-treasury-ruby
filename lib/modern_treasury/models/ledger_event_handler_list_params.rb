@@ -39,11 +39,21 @@ module ModernTreasury
       optional :per_page, Integer
 
       # @!method initialize(after_cursor: nil, created_at: nil, metadata: nil, name: nil, per_page: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::LedgerEventHandlerListParams} for more details.
+      #
       #   @param after_cursor [String, nil]
-      #   @param created_at [Hash{Symbol=>Time}]
-      #   @param metadata [Hash{Symbol=>String}]
+      #
+      #   @param created_at [Hash{Symbol=>Time}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the pos
+      #   ...
+      #
+      #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
+      #   ...
+      #
       #   @param name [String]
+      #
       #   @param per_page [Integer]
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end

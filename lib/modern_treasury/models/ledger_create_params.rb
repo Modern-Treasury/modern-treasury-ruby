@@ -27,9 +27,16 @@ module ModernTreasury
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!method initialize(name:, description: nil, metadata: nil, request_options: {})
-      #   @param name [String]
-      #   @param description [String, nil]
-      #   @param metadata [Hash{Symbol=>String}]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::LedgerCreateParams} for more details.
+      #
+      #   @param name [String] The name of the ledger.
+      #
+      #   @param description [String, nil] An optional free-form description for internal use.
+      #
+      #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      #   ...
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end

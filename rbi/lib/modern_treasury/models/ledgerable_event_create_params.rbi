@@ -36,8 +36,18 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(name:, custom_data: nil, description: nil, metadata: nil, request_options: {}); end
-
+      def self.new(
+        # Name of the ledgerable event.
+        name:,
+        # Additionally data to be used by the Ledger Event Handler.
+        custom_data: nil,
+        # Description of the ledgerable event.
+        description: nil,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        # strings.
+        metadata: nil,
+        request_options: {}
+      ); end
       sig do
         override
           .returns(

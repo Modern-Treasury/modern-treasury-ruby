@@ -51,10 +51,19 @@ module ModernTreasury
           .returns(T.attached_class)
       end
       def self.new(
+        # The ID of the internal account where the micro-deposits originate from. Both
+        # credit and debit capabilities must be enabled.
         originating_account_id:,
+        # Can be `ach`, `eft`, or `rtp`.
         payment_type:,
+        # Defaults to the currency of the originating account.
         currency: nil,
+        # A payment type to fallback to if the original type is not valid for the
+        # receiving account. Currently, this only supports falling back from RTP to ACH
+        # (payment_type=rtp and fallback_type=ach)
         fallback_type: nil,
+        # Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH
+        # transfer. This will apply to both `payment_type` and `fallback_type`.
         priority: nil,
         request_options: {}
       ); end

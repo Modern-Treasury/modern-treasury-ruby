@@ -37,11 +37,20 @@ module ModernTreasury
       optional :per_page, Integer
 
       # @!method initialize(after_cursor: nil, counterparty_id: nil, metadata: nil, party_name: nil, per_page: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::ExternalAccountListParams} for more details.
+      #
       #   @param after_cursor [String, nil]
+      #
       #   @param counterparty_id [String]
-      #   @param metadata [Hash{Symbol=>String}]
-      #   @param party_name [String]
+      #
+      #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
+      #   ...
+      #
+      #   @param party_name [String] Searches the ExternalAccount's party_name AND the Counterparty's party_name
+      #
       #   @param per_page [Integer]
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end

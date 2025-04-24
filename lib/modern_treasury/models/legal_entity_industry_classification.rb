@@ -49,13 +49,24 @@ module ModernTreasury
       required :updated_at, Time
 
       # @!method initialize(id:, classification_codes:, classification_type:, created_at:, discarded_at:, live_mode:, object:, updated_at:)
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::LegalEntityIndustryClassification} for more details.
+      #
       #   @param id [String]
-      #   @param classification_codes [Array<String>]
-      #   @param classification_type [Symbol, ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType]
+      #
+      #   @param classification_codes [Array<String>] The industry classification codes for the legal entity.
+      #
+      #   @param classification_type [Symbol, ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType] The classification system of the classification codes.
+      #
       #   @param created_at [Time]
+      #
       #   @param discarded_at [Time, nil]
-      #   @param live_mode [Boolean]
+      #
+      #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+      #   ...
+      #
       #   @param object [String]
+      #
       #   @param updated_at [Time]
 
       # The classification system of the classification codes.

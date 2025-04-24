@@ -42,11 +42,22 @@ module ModernTreasury
       optional :priority, enum: -> { ModernTreasury::Models::ExternalAccountVerifyParams::Priority }
 
       # @!method initialize(originating_account_id:, payment_type:, currency: nil, fallback_type: nil, priority: nil, request_options: {})
-      #   @param originating_account_id [String]
-      #   @param payment_type [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType]
-      #   @param currency [Symbol, ModernTreasury::Models::Currency]
-      #   @param fallback_type [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType]
-      #   @param priority [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::Priority]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::ExternalAccountVerifyParams} for more details.
+      #
+      #   @param originating_account_id [String] The ID of the internal account where the micro-deposits originate from. Both cre
+      #   ...
+      #
+      #   @param payment_type [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType] Can be `ach`, `eft`, or `rtp`.
+      #
+      #   @param currency [Symbol, ModernTreasury::Models::Currency] Defaults to the currency of the originating account.
+      #
+      #   @param fallback_type [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType] A payment type to fallback to if the original type is not valid for the receivin
+      #   ...
+      #
+      #   @param priority [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::Priority] Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH tr
+      #   ...
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # Can be `ach`, `eft`, or `rtp`.

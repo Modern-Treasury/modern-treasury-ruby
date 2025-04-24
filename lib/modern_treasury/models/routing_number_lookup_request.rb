@@ -49,12 +49,23 @@ module ModernTreasury
                -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType] }
 
       # @!method initialize(bank_address: nil, bank_name: nil, routing_number: nil, routing_number_type: nil, sanctions: nil, supported_payment_types: nil)
-      #   @param bank_address [ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress]
-      #   @param bank_name [String]
-      #   @param routing_number [String]
-      #   @param routing_number_type [Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType]
-      #   @param sanctions [Hash{Symbol=>Object}]
-      #   @param supported_payment_types [Array<Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType>]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::RoutingNumberLookupRequest} for more details.
+      #
+      #   @param bank_address [ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress] The address of the bank.
+      #
+      #   @param bank_name [String] The name of the bank.
+      #
+      #   @param routing_number [String] The routing number of the bank.
+      #
+      #   @param routing_number_type [Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType] The type of routing number. See https://docs.moderntreasury.com/platform/referen
+      #   ...
+      #
+      #   @param sanctions [Hash{Symbol=>Object}] An object containing key-value pairs, each with a sanctions list as the key and
+      #   ...
+      #
+      #   @param supported_payment_types [Array<Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType>] An array of payment types that are supported for this routing number. This can i
+      #   ...
 
       # @see ModernTreasury::Models::RoutingNumberLookupRequest#bank_address
       class BankAddress < ModernTreasury::Internal::Type::BaseModel
@@ -95,12 +106,17 @@ module ModernTreasury
         # @!method initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
         #   The address of the bank.
         #
-        #   @param country [String, nil]
+        #   @param country [String, nil] Country code conforms to [ISO 3166-1 alpha-2]
+        #
         #   @param line1 [String, nil]
+        #
         #   @param line2 [String, nil]
-        #   @param locality [String, nil]
-        #   @param postal_code [String, nil]
-        #   @param region [String, nil]
+        #
+        #   @param locality [String, nil] Locality or City.
+        #
+        #   @param postal_code [String, nil] The postal code of the address.
+        #
+        #   @param region [String, nil] Region or State.
       end
 
       # The type of routing number. See

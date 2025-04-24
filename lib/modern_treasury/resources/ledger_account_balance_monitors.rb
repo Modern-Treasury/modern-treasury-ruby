@@ -3,14 +3,23 @@
 module ModernTreasury
   module Resources
     class LedgerAccountBalanceMonitors
+      # Some parameter documentations has been truncated, see
+      # {ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams} for more
+      # details.
+      #
       # Create a ledger account balance monitor.
       #
       # @overload create(alert_condition:, ledger_account_id:, description: nil, metadata: nil, request_options: {})
       #
-      # @param alert_condition [ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition]
-      # @param ledger_account_id [String]
-      # @param description [String]
-      # @param metadata [Hash{Symbol=>String}]
+      # @param alert_condition [ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition] Describes the condition that must be satisfied for the monitor to be triggered.
+      #
+      # @param ledger_account_id [String] The ledger account associated with this balance monitor.
+      #
+      # @param description [String] An optional, free-form description for internal use.
+      #
+      # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      # ...
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
@@ -31,7 +40,8 @@ module ModernTreasury
       #
       # @overload retrieve(id, request_options: {})
       #
-      # @param id [String]
+      # @param id [String] id
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
@@ -46,13 +56,21 @@ module ModernTreasury
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {ModernTreasury::Models::LedgerAccountBalanceMonitorUpdateParams} for more
+      # details.
+      #
       # Update a ledger account balance monitor.
       #
       # @overload update(id, description: nil, metadata: nil, request_options: {})
       #
-      # @param id [String]
-      # @param description [String]
-      # @param metadata [Hash{Symbol=>String}]
+      # @param id [String] id
+      #
+      # @param description [String] An optional, free-form description for internal use.
+      #
+      # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      # ...
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
@@ -69,15 +87,26 @@ module ModernTreasury
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {ModernTreasury::Models::LedgerAccountBalanceMonitorListParams} for more
+      # details.
+      #
       # Get a list of ledger account balance monitors.
       #
       # @overload list(id: nil, after_cursor: nil, ledger_account_id: nil, metadata: nil, per_page: nil, request_options: {})
       #
-      # @param id [Array<String>]
+      # @param id [Array<String>] If you have specific IDs to retrieve in bulk, you can pass them as query paramet
+      # ...
+      #
       # @param after_cursor [String, nil]
-      # @param ledger_account_id [String]
-      # @param metadata [Hash{Symbol=>String}]
+      #
+      # @param ledger_account_id [String] Query the balance monitors for a single ledger account.
+      #
+      # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
+      # ...
+      #
       # @param per_page [Integer]
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::LedgerAccountBalanceMonitor>]
@@ -99,7 +128,8 @@ module ModernTreasury
       #
       # @overload delete(id, request_options: {})
       #
-      # @param id [String]
+      # @param id [String] id
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]

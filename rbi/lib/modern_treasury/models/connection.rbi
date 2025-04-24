@@ -53,11 +53,16 @@ module ModernTreasury
         id:,
         created_at:,
         discarded_at:,
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
         live_mode:,
         object:,
         updated_at:,
+        # An identifier given to this connection by the bank.
         vendor_customer_id:,
+        # Unique identifier for the bank or vendor.
         vendor_id:,
+        # A human-friendly name for the bank or vendor.
         vendor_name:
       ); end
       sig do

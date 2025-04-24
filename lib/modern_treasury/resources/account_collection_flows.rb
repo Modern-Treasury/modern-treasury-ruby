@@ -7,9 +7,12 @@ module ModernTreasury
       #
       # @overload create(counterparty_id:, payment_types:, receiving_countries: nil, request_options: {})
       #
-      # @param counterparty_id [String]
+      # @param counterparty_id [String] Required.
+      #
       # @param payment_types [Array<String>]
+      #
       # @param receiving_countries [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>]
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::AccountCollectionFlow]
@@ -30,7 +33,8 @@ module ModernTreasury
       #
       # @overload retrieve(id, request_options: {})
       #
-      # @param id [String]
+      # @param id [String] id
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::AccountCollectionFlow]
@@ -45,12 +49,18 @@ module ModernTreasury
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {ModernTreasury::Models::AccountCollectionFlowUpdateParams} for more details.
+      #
       # update account_collection_flow
       #
       # @overload update(id, status:, request_options: {})
       #
-      # @param id [String]
-      # @param status [Symbol, ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status]
+      # @param id [String] id
+      #
+      # @param status [Symbol, ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status] Required. The updated status of the account collection flow. Can only be used to
+      # ...
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::AccountCollectionFlow]

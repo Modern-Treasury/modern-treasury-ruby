@@ -36,10 +36,19 @@ module ModernTreasury
                  -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance] }
 
         # @!method initialize(as_of_date:, as_of_time:, balance_report_type:, balances:, request_options: {})
-        #   @param as_of_date [Date]
-        #   @param as_of_time [String]
-        #   @param balance_report_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType]
-        #   @param balances [Array<ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance>]
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams} for more
+        #   details.
+        #
+        #   @param as_of_date [Date] The date of the balance report in local time.
+        #
+        #   @param as_of_time [String] The time (24-hour clock) of the balance report in local time.
+        #
+        #   @param balance_report_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType] The specific type of balance report. One of `intraday`, `previous_day`, `real_ti
+        #   ...
+        #
+        #   @param balances [Array<ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance>] An array of `Balance` objects.
+        #
         #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
         # The specific type of balance report. One of `intraday`, `previous_day`,
@@ -89,10 +98,19 @@ module ModernTreasury
           required :vendor_code_type, String, nil?: true
 
           # @!method initialize(amount:, balance_type:, vendor_code:, vendor_code_type:)
-          #   @param amount [Integer]
-          #   @param balance_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType]
-          #   @param vendor_code [String]
-          #   @param vendor_code_type [String, nil]
+          #   Some parameter documentations has been truncated, see
+          #   {ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance}
+          #   for more details.
+          #
+          #   @param amount [Integer] The balance amount.
+          #
+          #   @param balance_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType] The specific type of balance reported. One of `opening_ledger`, `closing_ledger`
+          #   ...
+          #
+          #   @param vendor_code [String] The code used by the bank when reporting this specific balance.
+          #
+          #   @param vendor_code_type [String, nil] The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`, `bnk
+          #   ...
 
           # The specific type of balance reported. One of `opening_ledger`,
           # `closing_ledger`, `current_ledger`, `opening_available`,

@@ -61,13 +61,23 @@ module ModernTreasury
           .returns(T.attached_class)
       end
       def self.new(
+        # The currency of the ledger account category.
         currency:,
+        # The id of the ledger that this account category belongs to.
         ledger_id:,
+        # The name of the ledger account category.
         name:,
+        # The normal balance of the ledger account category.
         normal_balance:,
+        # The currency exponent of the ledger account category.
         currency_exponent: nil,
+        # The description of the ledger account category.
         description: nil,
+        # The array of ledger account category ids that this ledger account category
+        # should be a child of.
         ledger_account_category_ids: nil,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        # strings.
         metadata: nil,
         request_options: {}
       ); end

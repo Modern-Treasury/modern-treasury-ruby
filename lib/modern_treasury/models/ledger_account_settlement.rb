@@ -110,22 +110,47 @@ module ModernTreasury
       required :updated_at, Time
 
       # @!method initialize(id:, amount:, contra_ledger_account_id:, created_at:, currency:, currency_exponent:, description:, effective_at_upper_bound:, ledger_id:, ledger_transaction_id:, live_mode:, metadata:, object:, settled_ledger_account_id:, settlement_entry_direction:, status:, updated_at:)
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::LedgerAccountSettlement} for more details.
+      #
       #   @param id [String]
-      #   @param amount [Integer, nil]
-      #   @param contra_ledger_account_id [String]
+      #
+      #   @param amount [Integer, nil] The amount of the ledger account settlement.
+      #
+      #   @param contra_ledger_account_id [String] The id of the contra ledger account that sends to or receives funds from the set
+      #   ...
+      #
       #   @param created_at [Time]
-      #   @param currency [String]
-      #   @param currency_exponent [Integer, nil]
-      #   @param description [String, nil]
-      #   @param effective_at_upper_bound [Time]
-      #   @param ledger_id [String]
-      #   @param ledger_transaction_id [String, nil]
-      #   @param live_mode [Boolean]
-      #   @param metadata [Hash{Symbol=>String}]
+      #
+      #   @param currency [String] The currency of the ledger account settlement.
+      #
+      #   @param currency_exponent [Integer, nil] The currency exponent of the ledger account settlement.
+      #
+      #   @param description [String, nil] The description of the ledger account settlement.
+      #
+      #   @param effective_at_upper_bound [Time] The exclusive upper bound of the effective_at timestamp of the ledger entries to
+      #   ...
+      #
+      #   @param ledger_id [String] The id of the ledger that this ledger account settlement belongs to.
+      #
+      #   @param ledger_transaction_id [String, nil] The id of the ledger transaction that this settlement is associated with.
+      #
+      #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+      #   ...
+      #
+      #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      #   ...
+      #
       #   @param object [String]
-      #   @param settled_ledger_account_id [String]
-      #   @param settlement_entry_direction [String, nil]
-      #   @param status [Symbol, ModernTreasury::Models::LedgerAccountSettlement::Status]
+      #
+      #   @param settled_ledger_account_id [String] The id of the settled ledger account whose ledger entries are queried against, a
+      #   ...
+      #
+      #   @param settlement_entry_direction [String, nil] The direction of the ledger entry with the settlement_ledger_account.
+      #
+      #   @param status [Symbol, ModernTreasury::Models::LedgerAccountSettlement::Status] The status of the ledger account settlement. One of `processing`, `pending`, `po
+      #   ...
+      #
       #   @param updated_at [Time]
 
       # The status of the ledger account settlement. One of `processing`, `pending`,
