@@ -153,7 +153,7 @@ module ModernTreasury
 
         # @api private
         # @return [ModernTreasury::Internal::Transport::PooledNetRequester]
-        attr_accessor :requester
+        attr_reader :requester
 
         # @api private
         #
