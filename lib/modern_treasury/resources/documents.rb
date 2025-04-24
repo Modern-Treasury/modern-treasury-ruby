@@ -11,7 +11,7 @@ module ModernTreasury
       #
       # @param documentable_type [Symbol, ModernTreasury::Models::DocumentCreateParams::DocumentableType]
       #
-      # @param file [Pathname, StringIO]
+      # @param file [Pathname, StringIO, IO, ModernTreasury::FilePart]
       #
       # @param document_type [String] A category given to the document, can be `null`.
       #

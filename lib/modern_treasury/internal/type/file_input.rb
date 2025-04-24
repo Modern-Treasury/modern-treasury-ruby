@@ -7,8 +7,12 @@ module ModernTreasury
       #
       # @abstract
       #
-      # Either `Pathname` or `StringIO`.
-      class IOLike
+      # Either `Pathname` or `StringIO`, or `IO`, or
+      # `ModernTreasury::Internal::Type::FileInput`.
+      #
+      # Note: when `IO` is used, all retries are disabled, since many IO` streams are
+      # not rewindable.
+      class FileInput
         extend ModernTreasury::Internal::Type::Converter
 
         private_class_method :new
@@ -20,7 +24,7 @@ module ModernTreasury
         # @return [Boolean]
         def self.===(other)
           case other
-          in StringIO | Pathname | IO
+          in Pathname | StringIO | IO | String | ModernTreasury::FilePart
             true
           else
             false
@@ -32,7 +36,7 @@ module ModernTreasury
         # @param other [Object]
         #
         # @return [Boolean]
-        def self.==(other) = other.is_a?(Class) && other <= ModernTreasury::Internal::Type::IOLike
+        def self.==(other) = other.is_a?(Class) && other <= ModernTreasury::Internal::Type::FileInput
 
         class << self
           # @api private
