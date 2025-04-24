@@ -52,13 +52,26 @@ module ModernTreasury
                nil?: true
 
       # @!method initialize(account_type: nil, counterparty_id: nil, metadata: nil, name: nil, party_address: nil, party_name: nil, party_type: nil, request_options: {})
-      #   @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::ExternalAccountUpdateParams} for more details.
+      #
+      #   @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType] Can be `checking`, `savings` or `other`.
+      #
       #   @param counterparty_id [String, nil]
-      #   @param metadata [Hash{Symbol=>String}]
-      #   @param name [String, nil]
+      #
+      #   @param metadata [Hash{Symbol=>String}] Additional data in the form of key-value pairs. Pairs can be removed by passing
+      #   ...
+      #
+      #   @param name [String, nil] A nickname for the external account. This is only for internal usage and won't a
+      #   ...
+      #
       #   @param party_address [ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress]
-      #   @param party_name [String]
-      #   @param party_type [Symbol, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType, nil]
+      #
+      #   @param party_name [String] If this value isn't provided, it will be inherited from the counterparty's name.
+      #   ...
+      #
+      #   @param party_type [Symbol, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType, nil] Either `individual` or `business`.
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       class PartyAddress < ModernTreasury::Internal::Type::BaseModel
@@ -97,12 +110,17 @@ module ModernTreasury
         optional :region, String, nil?: true
 
         # @!method initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
-        #   @param country [String, nil]
+        #   @param country [String, nil] Country code conforms to [ISO 3166-1 alpha-2]
+        #
         #   @param line1 [String, nil]
+        #
         #   @param line2 [String, nil]
-        #   @param locality [String, nil]
-        #   @param postal_code [String, nil]
-        #   @param region [String, nil]
+        #
+        #   @param locality [String, nil] Locality or City.
+        #
+        #   @param postal_code [String, nil] The postal code of the address.
+        #
+        #   @param region [String, nil] Region or State.
       end
 
       # Either `individual` or `business`.

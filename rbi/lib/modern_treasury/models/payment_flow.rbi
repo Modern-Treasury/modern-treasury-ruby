@@ -156,22 +156,51 @@ module ModernTreasury
       end
       def self.new(
         id: nil,
+        # Value in specified currency's smallest unit. e.g. $10 would be represented
+        # as 1000. Can be any integer up to 36 digits.
         amount: nil,
+        # The client token of the payment flow. This token can be used to embed a payment
+        # workflow in your client-side application.
         client_token: nil,
+        # The ID of a counterparty associated with the payment. As part of the payment
+        # workflow an external account will be associated with this counterparty.
         counterparty_id: nil,
         created_at: nil,
+        # The currency of the payment.
         currency: nil,
+        # Describes the direction money is flowing in the transaction. Can only be
+        # `debit`. A `debit` pulls money from someone else's account to your own.
         direction: nil,
+        # The due date for the flow. Can only be passed in when
+        # `effective_date_selection_enabled` is `true`.
         due_date: nil,
+        # When `true`, your end-user can schedule the payment `effective_date` while
+        # completing the pre-built UI.
         effective_date_selection_enabled: nil,
+        # When `verified` and `external_account_collection` is `enabled`, filters the list
+        # of external accounts your end-user can select to those with a
+        # `verification_status` of `verified`.
         existing_external_accounts_filter: nil,
+        # When `enabled`, your end-user can select from an existing external account when
+        # completing the flow. When `disabled`, your end-user must add new payment details
+        # when completing the flow.
         external_account_collection: nil,
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
         live_mode: nil,
         object: nil,
+        # The ID of one of your organization's internal accounts.
         originating_account_id: nil,
+        # If present, the ID of the payment order created using this flow.
         payment_order_id: nil,
+        # If present, the ID of the external account created using this flow.
         receiving_account_id: nil,
+        # This field is set after your end-user selects a payment date while completing
+        # the pre-built UI. This field is always `null` unless
+        # `effective_date_selection_enabled` is `true`.
         selected_effective_date: nil,
+        # The current status of the payment flow. One of `pending`, `completed`,
+        # `expired`, or `cancelled`.
         status: nil,
         updated_at: nil
       ); end

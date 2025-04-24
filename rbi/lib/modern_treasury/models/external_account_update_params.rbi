@@ -71,12 +71,19 @@ module ModernTreasury
           .returns(T.attached_class)
       end
       def self.new(
+        # Can be `checking`, `savings` or `other`.
         account_type: nil,
         counterparty_id: nil,
+        # Additional data in the form of key-value pairs. Pairs can be removed by passing
+        # an empty string or `null` as the value.
         metadata: nil,
+        # A nickname for the external account. This is only for internal usage and won't
+        # affect any payments
         name: nil,
         party_address: nil,
+        # If this value isn't provided, it will be inherited from the counterparty's name.
         party_name: nil,
+        # Either `individual` or `business`.
         party_type: nil,
         request_options: {}
       ); end
@@ -131,8 +138,18 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil); end
-
+        def self.new(
+          # Country code conforms to [ISO 3166-1 alpha-2]
+          country: nil,
+          line1: nil,
+          line2: nil,
+          # Locality or City.
+          locality: nil,
+          # The postal code of the address.
+          postal_code: nil,
+          # Region or State.
+          region: nil
+        ); end
         sig do
           override
             .returns(

@@ -16,7 +16,12 @@ module ModernTreasury
       optional :balances, -> { ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances }
 
       # @!method initialize(balances: nil, request_options: {})
-      #   @param balances [ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::LedgerAccountCategoryRetrieveParams} for more details.
+      #
+      #   @param balances [ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances] For example, if you want the balances as of a particular time (ISO8601), the enc
+      #   ...
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       class Balances < ModernTreasury::Internal::Type::BaseModel

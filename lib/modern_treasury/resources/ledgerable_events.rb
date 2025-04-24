@@ -3,14 +3,22 @@
 module ModernTreasury
   module Resources
     class LedgerableEvents
+      # Some parameter documentations has been truncated, see
+      # {ModernTreasury::Models::LedgerableEventCreateParams} for more details.
+      #
       # Create a ledgerable event.
       #
       # @overload create(name:, custom_data: nil, description: nil, metadata: nil, request_options: {})
       #
-      # @param name [String]
-      # @param custom_data [Object, nil]
-      # @param description [String, nil]
-      # @param metadata [Hash{Symbol=>String}]
+      # @param name [String] Name of the ledgerable event.
+      #
+      # @param custom_data [Object, nil] Additionally data to be used by the Ledger Event Handler.
+      #
+      # @param description [String, nil] Description of the ledgerable event.
+      #
+      # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      # ...
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::LedgerableEvent]
@@ -31,7 +39,8 @@ module ModernTreasury
       #
       # @overload retrieve(id, request_options: {})
       #
-      # @param id [String]
+      # @param id [String] id
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::LedgerableEvent]

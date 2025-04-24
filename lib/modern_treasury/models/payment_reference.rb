@@ -59,14 +59,28 @@ module ModernTreasury
       required :updated_at, Time
 
       # @!method initialize(id:, created_at:, live_mode:, object:, reference_number:, reference_number_type:, referenceable_id:, referenceable_type:, updated_at:)
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::PaymentReference} for more details.
+      #
       #   @param id [String]
+      #
       #   @param created_at [Time]
-      #   @param live_mode [Boolean]
+      #
+      #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+      #   ...
+      #
       #   @param object [String]
-      #   @param reference_number [String]
-      #   @param reference_number_type [Symbol, ModernTreasury::Models::PaymentReference::ReferenceNumberType]
-      #   @param referenceable_id [String]
-      #   @param referenceable_type [Symbol, ModernTreasury::Models::PaymentReference::ReferenceableType]
+      #
+      #   @param reference_number [String] The actual reference number assigned by the bank.
+      #
+      #   @param reference_number_type [Symbol, ModernTreasury::Models::PaymentReference::ReferenceNumberType] The type of reference number.
+      #
+      #   @param referenceable_id [String] The id of the referenceable to search for. Must be accompanied by the referencea
+      #   ...
+      #
+      #   @param referenceable_type [Symbol, ModernTreasury::Models::PaymentReference::ReferenceableType] One of the referenceable types. This must be accompanied by the id of the refere
+      #   ...
+      #
       #   @param updated_at [Time]
 
       # The type of reference number.

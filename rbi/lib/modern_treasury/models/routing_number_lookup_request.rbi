@@ -84,11 +84,23 @@ module ModernTreasury
           .returns(T.attached_class)
       end
       def self.new(
+        # The address of the bank.
         bank_address: nil,
+        # The name of the bank.
         bank_name: nil,
+        # The routing number of the bank.
         routing_number: nil,
+        # The type of routing number. See
+        # https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+        # more details. In sandbox mode we currently only support `aba` and `swift` with
+        # routing numbers '123456789' and 'GRINUST0XXX' respectively.
         routing_number_type: nil,
+        # An object containing key-value pairs, each with a sanctions list as the key and
+        # a boolean value representing whether the bank is on that particular sanctions
+        # list. Currently, this includes eu_con, uk_hmt, us_ofac, and un sanctions lists.
         sanctions: nil,
+        # An array of payment types that are supported for this routing number. This can
+        # include `ach`, `wire`, `rtp`, `sepa`, `bacs`, `au_becs`, and 'fednow' currently.
         supported_payment_types: nil
       ); end
       sig do
@@ -141,8 +153,18 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil); end
-
+        def self.new(
+          # Country code conforms to [ISO 3166-1 alpha-2]
+          country: nil,
+          line1: nil,
+          line2: nil,
+          # Locality or City.
+          locality: nil,
+          # The postal code of the address.
+          postal_code: nil,
+          # Region or State.
+          region: nil
+        ); end
         sig do
           override
             .returns(

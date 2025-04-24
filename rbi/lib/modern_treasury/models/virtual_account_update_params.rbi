@@ -40,13 +40,12 @@ module ModernTreasury
       end
       def self.new(
         counterparty_id: nil,
+        # The ledger account that you'd like to link to the virtual account.
         ledger_account_id: nil,
         metadata: nil,
         name: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(

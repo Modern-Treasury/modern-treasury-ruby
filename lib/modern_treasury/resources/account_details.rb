@@ -3,14 +3,22 @@
 module ModernTreasury
   module Resources
     class AccountDetails
+      # Some parameter documentations has been truncated, see
+      # {ModernTreasury::Models::AccountDetailCreateParams} for more details.
+      #
       # Create an account detail for an external account.
       #
       # @overload create(account_id, accounts_type:, account_number:, account_number_type: nil, request_options: {})
       #
-      # @param account_id [String]
-      # @param accounts_type [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountsType]
-      # @param account_number [String]
-      # @param account_number_type [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType]
+      # @param account_id [String] Path param: The ID of the account.
+      #
+      # @param accounts_type [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountsType] Path param:
+      #
+      # @param account_number [String] Body param: The account number for the bank account.
+      #
+      # @param account_number_type [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType] Body param: One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if
+      # ...
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::AccountDetail]
@@ -35,9 +43,12 @@ module ModernTreasury
       #
       # @overload retrieve(id, accounts_type:, account_id:, request_options: {})
       #
-      # @param id [String]
+      # @param id [String] The ID of the account detail.
+      #
       # @param accounts_type [Symbol, ModernTreasury::Models::AccountsType]
-      # @param account_id [String]
+      #
+      # @param account_id [String] The ID of the account.
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::AccountDetail]
@@ -65,10 +76,14 @@ module ModernTreasury
       #
       # @overload list(account_id, accounts_type:, after_cursor: nil, per_page: nil, request_options: {})
       #
-      # @param account_id [String]
-      # @param accounts_type [Symbol, ModernTreasury::Models::AccountsType]
-      # @param after_cursor [String, nil]
-      # @param per_page [Integer]
+      # @param account_id [String] Path param: The ID of the account.
+      #
+      # @param accounts_type [Symbol, ModernTreasury::Models::AccountsType] Path param:
+      #
+      # @param after_cursor [String, nil] Query param:
+      #
+      # @param per_page [Integer] Query param:
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::AccountDetail>]
@@ -94,9 +109,12 @@ module ModernTreasury
       #
       # @overload delete(id, accounts_type:, account_id:, request_options: {})
       #
-      # @param id [String]
+      # @param id [String] The ID of the account detail.
+      #
       # @param accounts_type [Symbol, ModernTreasury::Models::AccountDetailDeleteParams::AccountsType]
-      # @param account_id [String]
+      #
+      # @param account_id [String] The ID of the account.
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [nil]

@@ -55,13 +55,19 @@ module ModernTreasury
       end
       def self.new(
         id:,
+        # The last 4 digits of the account_number.
         account_number_safe:,
+        # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
+        # account number is in a generic format.
         account_number_type:,
         created_at:,
         discarded_at:,
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
         live_mode:,
         object:,
         updated_at:,
+        # The account number for the bank account.
         account_number: nil
       ); end
       sig do

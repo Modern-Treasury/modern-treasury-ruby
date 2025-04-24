@@ -114,21 +114,46 @@ module ModernTreasury
       required :updated_at, Time
 
       # @!method initialize(id:, amount:, created_at:, direction:, discarded_at:, ledger_account_currency:, ledger_account_currency_exponent:, ledger_account_id:, ledger_account_lock_version:, ledger_transaction_id:, live_mode:, metadata:, object:, resulting_ledger_account_balances:, status:, updated_at:)
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::LedgerEntry} for more details.
+      #
       #   @param id [String]
-      #   @param amount [Integer]
+      #
+      #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
+      #   ...
+      #
       #   @param created_at [Time]
-      #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
+      #
+      #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection] One of `credit`, `debit`. Describes the direction money is flowing in the transa
+      #   ...
+      #
       #   @param discarded_at [Time, nil]
-      #   @param ledger_account_currency [String]
-      #   @param ledger_account_currency_exponent [Integer]
-      #   @param ledger_account_id [String]
-      #   @param ledger_account_lock_version [Integer, nil]
-      #   @param ledger_transaction_id [String]
-      #   @param live_mode [Boolean]
-      #   @param metadata [Hash{Symbol=>String}]
+      #
+      #   @param ledger_account_currency [String] The currency of the ledger account.
+      #
+      #   @param ledger_account_currency_exponent [Integer] The currency exponent of the ledger account.
+      #
+      #   @param ledger_account_id [String] The ledger account that this ledger entry is associated with.
+      #
+      #   @param ledger_account_lock_version [Integer, nil] Lock version of the ledger account. This can be passed when creating a ledger tr
+      #   ...
+      #
+      #   @param ledger_transaction_id [String] The ledger transaction that this ledger entry is associated with.
+      #
+      #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+      #   ...
+      #
+      #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      #   ...
+      #
       #   @param object [String]
-      #   @param resulting_ledger_account_balances [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances, nil]
-      #   @param status [Symbol, ModernTreasury::Models::LedgerEntry::Status]
+      #
+      #   @param resulting_ledger_account_balances [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances, nil] The pending, posted, and available balances for this ledger entry's ledger accou
+      #   ...
+      #
+      #   @param status [Symbol, ModernTreasury::Models::LedgerEntry::Status] Equal to the state of the ledger transaction when the ledger entry was created.
+      #   ...
+      #
       #   @param updated_at [Time]
 
       # @see ModernTreasury::Models::LedgerEntry#resulting_ledger_account_balances
@@ -158,6 +183,10 @@ module ModernTreasury
                  -> { ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance }
 
         # @!method initialize(available_balance:, pending_balance:, posted_balance:)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances} for more
+        #   details.
+        #
         #   The pending, posted, and available balances for this ledger entry's ledger
         #   account. The posted balance is the sum of all posted entries on the account. The
         #   pending balance is the sum of all pending and posted entries on the account. The
@@ -166,9 +195,12 @@ module ModernTreasury
         #   https://docs.moderntreasury.com/docs/transaction-status-and-balances for more
         #   details.
         #
-        #   @param available_balance [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance]
-        #   @param pending_balance [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance]
-        #   @param posted_balance [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance]
+        #   @param available_balance [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance] The available_balance is the sum of all posted inbound entries and pending outbo
+        #   ...
+        #
+        #   @param pending_balance [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance] The pending_balance is the sum of all pending and posted entries.
+        #
+        #   @param posted_balance [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance] The posted_balance is the sum of all posted entries.
 
         # @see ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances#available_balance
         class AvailableBalance < ModernTreasury::Internal::Type::BaseModel
@@ -206,9 +238,13 @@ module ModernTreasury
           #   pending_credits.
           #
           #   @param amount [Integer]
+          #
           #   @param credits [Integer]
-          #   @param currency [String]
-          #   @param currency_exponent [Integer]
+          #
+          #   @param currency [String] The currency of the ledger account.
+          #
+          #   @param currency_exponent [Integer] The currency exponent of the ledger account.
+          #
           #   @param debits [Integer]
         end
 
@@ -245,9 +281,13 @@ module ModernTreasury
           #   The pending_balance is the sum of all pending and posted entries.
           #
           #   @param amount [Integer]
+          #
           #   @param credits [Integer]
-          #   @param currency [String]
-          #   @param currency_exponent [Integer]
+          #
+          #   @param currency [String] The currency of the ledger account.
+          #
+          #   @param currency_exponent [Integer] The currency exponent of the ledger account.
+          #
           #   @param debits [Integer]
         end
 
@@ -284,9 +324,13 @@ module ModernTreasury
           #   The posted_balance is the sum of all posted entries.
           #
           #   @param amount [Integer]
+          #
           #   @param credits [Integer]
-          #   @param currency [String]
-          #   @param currency_exponent [Integer]
+          #
+          #   @param currency [String] The currency of the ledger account.
+          #
+          #   @param currency_exponent [Integer] The currency exponent of the ledger account.
+          #
           #   @param debits [Integer]
         end
       end

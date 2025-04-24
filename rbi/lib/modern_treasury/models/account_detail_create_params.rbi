@@ -35,8 +35,15 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(accounts_type:, account_number:, account_number_type: nil, request_options: {}); end
-
+      def self.new(
+        accounts_type:,
+        # The account number for the bank account.
+        account_number:,
+        # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
+        # account number is in a generic format.
+        account_number_type: nil,
+        request_options: {}
+      ); end
       sig do
         override
           .returns(

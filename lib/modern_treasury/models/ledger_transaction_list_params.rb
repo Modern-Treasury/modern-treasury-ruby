@@ -124,25 +124,54 @@ module ModernTreasury
       optional :updated_at, ModernTreasury::Internal::Type::HashOf[Time]
 
       # @!method initialize(id: nil, after_cursor: nil, effective_at: nil, effective_date: nil, external_id: nil, ledger_account_category_id: nil, ledger_account_id: nil, ledger_account_settlement_id: nil, ledger_id: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, order_by: nil, partially_posts_ledger_transaction_id: nil, per_page: nil, posted_at: nil, reverses_ledger_transaction_id: nil, status: nil, updated_at: nil, request_options: {})
-      #   @param id [Array<String>]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::LedgerTransactionListParams} for more details.
+      #
+      #   @param id [Array<String>] If you have specific IDs to retrieve in bulk, you can pass them as query paramet
+      #   ...
+      #
       #   @param after_cursor [String, nil]
-      #   @param effective_at [Hash{Symbol=>Time}]
-      #   @param effective_date [Hash{Symbol=>Time}]
+      #
+      #   @param effective_at [Hash{Symbol=>Time}] Use "gt" (>), "gte" (>=), "lt" (<), "lte" (<=), or "eq" (=) to filter by effecti
+      #   ...
+      #
+      #   @param effective_date [Hash{Symbol=>Time}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by effecti
+      #   ...
+      #
       #   @param external_id [String]
+      #
       #   @param ledger_account_category_id [String]
+      #
       #   @param ledger_account_id [String]
+      #
       #   @param ledger_account_settlement_id [String]
+      #
       #   @param ledger_id [String]
+      #
       #   @param ledgerable_id [String]
+      #
       #   @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerTransactionListParams::LedgerableType]
-      #   @param metadata [Hash{Symbol=>String}]
-      #   @param order_by [ModernTreasury::Models::LedgerTransactionListParams::OrderBy]
+      #
+      #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
+      #   ...
+      #
+      #   @param order_by [ModernTreasury::Models::LedgerTransactionListParams::OrderBy] Order by `created_at` or `effective_at` in `asc` or `desc` order. For example, t
+      #   ...
+      #
       #   @param partially_posts_ledger_transaction_id [String]
+      #
       #   @param per_page [Integer]
-      #   @param posted_at [Hash{Symbol=>Time}]
+      #
+      #   @param posted_at [Hash{Symbol=>Time}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the pos
+      #   ...
+      #
       #   @param reverses_ledger_transaction_id [String]
+      #
       #   @param status [Symbol, ModernTreasury::Models::LedgerTransactionListParams::Status]
-      #   @param updated_at [Hash{Symbol=>Time}]
+      #
+      #   @param updated_at [Hash{Symbol=>Time}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the pos
+      #   ...
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       module LedgerableType

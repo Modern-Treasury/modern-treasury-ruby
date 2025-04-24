@@ -82,17 +82,37 @@ module ModernTreasury
       required :updated_at, Time
 
       # @!method initialize(id:, created_at:, entity:, entity_id:, entity_type:, live_mode:, object:, request_id:, request_params:, request_type:, status:, updated_at:)
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::BulkResult} for more details.
+      #
       #   @param id [String]
+      #
       #   @param created_at [Time]
-      #   @param entity [ModernTreasury::Models::PaymentOrder, ModernTreasury::Models::ExpectedPayment, ModernTreasury::Models::LedgerTransaction, ModernTreasury::Models::Transaction, ModernTreasury::Models::BulkResult::Entity::BulkError]
-      #   @param entity_id [String]
-      #   @param entity_type [Symbol, ModernTreasury::Models::BulkResult::EntityType]
-      #   @param live_mode [Boolean]
+      #
+      #   @param entity [ModernTreasury::Models::PaymentOrder, ModernTreasury::Models::ExpectedPayment, ModernTreasury::Models::LedgerTransaction, ModernTreasury::Models::Transaction, ModernTreasury::Models::BulkResult::Entity::BulkError] An object with type as indicated by `entity_type`. This is the result object tha
+      #   ...
+      #
+      #   @param entity_id [String] Unique identifier for the result entity object.
+      #
+      #   @param entity_type [Symbol, ModernTreasury::Models::BulkResult::EntityType] The type of the result entity object. For a successful bulk result, this is the
+      #   ...
+      #
+      #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+      #   ...
+      #
       #   @param object [String]
-      #   @param request_id [String]
-      #   @param request_params [Hash{Symbol=>String}, nil]
-      #   @param request_type [Symbol, ModernTreasury::Models::BulkResult::RequestType]
-      #   @param status [Symbol, ModernTreasury::Models::BulkResult::Status]
+      #
+      #   @param request_id [String] Unique identifier for the request that created this bulk result. This is the ID
+      #   ...
+      #
+      #   @param request_params [Hash{Symbol=>String}, nil] An optional object that contains the provided input params for the request that
+      #   ...
+      #
+      #   @param request_type [Symbol, ModernTreasury::Models::BulkResult::RequestType] The type of the request that created this result. bulk_request is the only suppo
+      #   ...
+      #
+      #   @param status [Symbol, ModernTreasury::Models::BulkResult::Status] One of successful or failed.
+      #
       #   @param updated_at [Time]
 
       # An object with type as indicated by `entity_type`. This is the result object
@@ -148,11 +168,20 @@ module ModernTreasury
           required :updated_at, Time
 
           # @!method initialize(id:, created_at:, live_mode:, object:, request_errors:, updated_at:)
+          #   Some parameter documentations has been truncated, see
+          #   {ModernTreasury::Models::BulkResult::Entity::BulkError} for more details.
+          #
           #   @param id [String]
+          #
           #   @param created_at [Time]
-          #   @param live_mode [Boolean]
+          #
+          #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+          #   ...
+          #
           #   @param object [String]
+          #
           #   @param request_errors [Array<ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError>]
+          #
           #   @param updated_at [Time]
 
           class RequestError < ModernTreasury::Internal::Type::BaseModel

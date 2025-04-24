@@ -64,7 +64,9 @@ module ModernTreasury
         after_cursor: nil,
         entity_id: nil,
         event_name: nil,
+        # An inclusive upper bound for when the event occurred
         event_time_end: nil,
+        # An inclusive lower bound for when the event occurred
         event_time_start: nil,
         per_page: nil,
         resource: nil,

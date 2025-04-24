@@ -26,8 +26,12 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(query:, type:); end
-
+      def self.new(
+        query:,
+        # The type of object this variable is. Currently, only "ledger_account" is
+        # supported.
+        type:
+      ); end
       sig { override.returns({query: ModernTreasury::Models::LedgerEventHandlerVariable::Query, type: String}) }
       def to_hash; end
 
@@ -45,8 +49,14 @@ module ModernTreasury
         attr_accessor :value
 
         sig { params(field: String, operator: String, value: String).returns(T.attached_class) }
-        def self.new(field:, operator:, value:); end
-
+        def self.new(
+          # The LHS of the conditional.
+          field:,
+          # What the operator between the `field` and `value` is.
+          operator:,
+          # The RHS of the conditional.
+          value:
+        ); end
         sig { override.returns({field: String, operator: String, value: String}) }
         def to_hash; end
       end

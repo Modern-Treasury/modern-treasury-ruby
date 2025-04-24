@@ -16,7 +16,13 @@ module ModernTreasury
         required :ledger_entry_ids, ModernTreasury::Internal::Type::ArrayOf[String], nil?: true
 
         # @!method initialize(ledger_entry_ids:, request_options: {})
-        #   @param ledger_entry_ids [Array<String>, nil]
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::LedgerAccountSettlements::AccountEntryDeleteParams} for
+        #   more details.
+        #
+        #   @param ledger_entry_ids [Array<String>, nil] The ids of the ledger entries that are to be added or removed from the ledger ac
+        #   ...
+        #
         #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       end
     end

@@ -66,15 +66,29 @@ module ModernTreasury
         required :updated_at, Time
 
         # @!method initialize(id:, as_of_date:, as_of_time:, balance_report_type:, balances:, created_at:, internal_account_id:, live_mode:, object:, updated_at:)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::InternalAccounts::BalanceReport} for more details.
+        #
         #   @param id [String]
-        #   @param as_of_date [Date]
-        #   @param as_of_time [Time, nil]
-        #   @param balance_report_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType]
-        #   @param balances [Array<ModernTreasury::Models::InternalAccounts::BalanceReport::Balance>]
+        #
+        #   @param as_of_date [Date] The date of the balance report in local time.
+        #
+        #   @param as_of_time [Time, nil] The time (24-hour clock) of the balance report in local time.
+        #
+        #   @param balance_report_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType] The specific type of balance report. One of `intraday`, `previous_day`, `real_ti
+        #   ...
+        #
+        #   @param balances [Array<ModernTreasury::Models::InternalAccounts::BalanceReport::Balance>] An array of `Balance` objects.
+        #
         #   @param created_at [Time]
-        #   @param internal_account_id [String]
-        #   @param live_mode [Boolean]
+        #
+        #   @param internal_account_id [String] The ID of one of your organization's Internal Accounts.
+        #
+        #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+        #   ...
+        #
         #   @param object [String]
+        #
         #   @param updated_at [Time]
 
         # The specific type of balance report. One of `intraday`, `previous_day`,
@@ -177,19 +191,38 @@ module ModernTreasury
           required :vendor_code_type, String, nil?: true
 
           # @!method initialize(id:, amount:, as_of_date:, as_of_time:, balance_type:, created_at:, currency:, live_mode:, object:, updated_at:, value_date:, vendor_code:, vendor_code_type:)
+          #   Some parameter documentations has been truncated, see
+          #   {ModernTreasury::Models::InternalAccounts::BalanceReport::Balance} for more
+          #   details.
+          #
           #   @param id [String]
-          #   @param amount [Integer]
-          #   @param as_of_date [Date, nil]
-          #   @param as_of_time [Time, nil]
-          #   @param balance_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::BalanceType]
+          #
+          #   @param amount [Integer] The balance amount.
+          #
+          #   @param as_of_date [Date, nil] The date on which the balance became true for the account.
+          #
+          #   @param as_of_time [Time, nil] The time on which the balance became true for the account.
+          #
+          #   @param balance_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::BalanceType] The specific type of balance reported. One of `opening_ledger`, `closing_ledger`
+          #   ...
+          #
           #   @param created_at [Time]
-          #   @param currency [Symbol, ModernTreasury::Models::Currency]
-          #   @param live_mode [Boolean]
+          #
+          #   @param currency [Symbol, ModernTreasury::Models::Currency] The currency of the balance.
+          #
+          #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+          #   ...
+          #
           #   @param object [String]
+          #
           #   @param updated_at [Time]
-          #   @param value_date [Date, nil]
-          #   @param vendor_code [String]
-          #   @param vendor_code_type [String, nil]
+          #
+          #   @param value_date [Date, nil] The date on which the balance becomes available.
+          #
+          #   @param vendor_code [String] The code used by the bank when reporting this specific balance.
+          #
+          #   @param vendor_code_type [String, nil] The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`, `bnk
+          #   ...
 
           # The specific type of balance reported. One of `opening_ledger`,
           # `closing_ledger`, `current_ledger`, `opening_available`,

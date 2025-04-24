@@ -75,15 +75,31 @@ module ModernTreasury
         required :updated_at, Time
 
         # @!method initialize(id:, created_at:, external_account_id:, live_mode:, object:, originating_account_id:, payment_type:, priority:, status:, updated_at:)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt}
+        #   for more details.
+        #
         #   @param id [String]
+        #
         #   @param created_at [Time]
-        #   @param external_account_id [String]
-        #   @param live_mode [Boolean]
+        #
+        #   @param external_account_id [String] The ID of the external account.
+        #
+        #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+        #   ...
+        #
         #   @param object [String]
-        #   @param originating_account_id [String]
-        #   @param payment_type [Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType]
-        #   @param priority [Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority, nil]
-        #   @param status [Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status]
+        #
+        #   @param originating_account_id [String] The ID of the internal account where the micro-deposits originate from.
+        #
+        #   @param payment_type [Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType] The type of payment that can be made to this account. Can be `ach`, `eft`, or `r
+        #   ...
+        #
+        #   @param priority [Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority, nil] The priority of the payment. Can be `normal` or `high`.
+        #
+        #   @param status [Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status] The status of the verification attempt. Can be `pending_verification`, `verified
+        #   ...
+        #
         #   @param updated_at [Time]
 
         # The type of payment that can be made to this account. Can be `ach`, `eft`, or

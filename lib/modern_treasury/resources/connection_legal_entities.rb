@@ -7,9 +7,12 @@ module ModernTreasury
       #
       # @overload create(connection_id:, legal_entity: nil, legal_entity_id: nil, request_options: {})
       #
-      # @param connection_id [String]
-      # @param legal_entity [ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity]
-      # @param legal_entity_id [String]
+      # @param connection_id [String] The ID of the connection.
+      #
+      # @param legal_entity [ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity] The legal entity.
+      #
+      # @param legal_entity_id [String] The ID of the legal entity.
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::ConnectionLegalEntity]
@@ -30,7 +33,8 @@ module ModernTreasury
       #
       # @overload retrieve(id, request_options: {})
       #
-      # @param id [String]
+      # @param id [String] The id of an existing connection legal entity.
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::ConnectionLegalEntity]
@@ -49,8 +53,10 @@ module ModernTreasury
       #
       # @overload update(id, status: nil, request_options: {})
       #
-      # @param id [String]
-      # @param status [Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status]
+      # @param id [String] The id of an existing connection legal entity.
+      #
+      # @param status [Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status] The status of the connection legal entity.
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::ConnectionLegalEntity]

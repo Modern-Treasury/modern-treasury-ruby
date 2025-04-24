@@ -3,18 +3,31 @@
 module ModernTreasury
   module Resources
     class LedgerAccountCategories
+      # Some parameter documentations has been truncated, see
+      # {ModernTreasury::Models::LedgerAccountCategoryCreateParams} for more details.
+      #
       # Create a ledger account category.
       #
       # @overload create(currency:, ledger_id:, name:, normal_balance:, currency_exponent: nil, description: nil, ledger_account_category_ids: nil, metadata: nil, request_options: {})
       #
-      # @param currency [String]
-      # @param ledger_id [String]
-      # @param name [String]
-      # @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection]
-      # @param currency_exponent [Integer, nil]
-      # @param description [String, nil]
-      # @param ledger_account_category_ids [Array<String>]
-      # @param metadata [Hash{Symbol=>String}]
+      # @param currency [String] The currency of the ledger account category.
+      #
+      # @param ledger_id [String] The id of the ledger that this account category belongs to.
+      #
+      # @param name [String] The name of the ledger account category.
+      #
+      # @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection] The normal balance of the ledger account category.
+      #
+      # @param currency_exponent [Integer, nil] The currency exponent of the ledger account category.
+      #
+      # @param description [String, nil] The description of the ledger account category.
+      #
+      # @param ledger_account_category_ids [Array<String>] The array of ledger account category ids that this ledger account category shoul
+      # ...
+      #
+      # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      # ...
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::LedgerAccountCategory]
@@ -31,12 +44,18 @@ module ModernTreasury
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {ModernTreasury::Models::LedgerAccountCategoryRetrieveParams} for more details.
+      #
       # Get the details on a single ledger account category.
       #
       # @overload retrieve(id, balances: nil, request_options: {})
       #
-      # @param id [String]
-      # @param balances [ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances]
+      # @param id [String] id
+      #
+      # @param balances [ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances] For example, if you want the balances as of a particular time (ISO8601), the enc
+      # ...
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::LedgerAccountCategory]
@@ -53,14 +72,22 @@ module ModernTreasury
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {ModernTreasury::Models::LedgerAccountCategoryUpdateParams} for more details.
+      #
       # Update the details of a ledger account category.
       #
       # @overload update(id, description: nil, metadata: nil, name: nil, request_options: {})
       #
-      # @param id [String]
-      # @param description [String, nil]
-      # @param metadata [Hash{Symbol=>String}]
-      # @param name [String]
+      # @param id [String] id
+      #
+      # @param description [String, nil] The description of the ledger account category.
+      #
+      # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      # ...
+      #
+      # @param name [String] The name of the ledger account category.
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::LedgerAccountCategory]
@@ -77,20 +104,37 @@ module ModernTreasury
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {ModernTreasury::Models::LedgerAccountCategoryListParams} for more details.
+      #
       # Get a list of ledger account categories.
       #
       # @overload list(id: nil, after_cursor: nil, balances: nil, currency: nil, ledger_account_id: nil, ledger_id: nil, metadata: nil, name: nil, parent_ledger_account_category_id: nil, per_page: nil, request_options: {})
       #
-      # @param id [Array<String>]
+      # @param id [Array<String>] If you have specific IDs to retrieve in bulk, you can pass them as query paramet
+      # ...
+      #
       # @param after_cursor [String, nil]
-      # @param balances [ModernTreasury::Models::LedgerAccountCategoryListParams::Balances]
+      #
+      # @param balances [ModernTreasury::Models::LedgerAccountCategoryListParams::Balances] For example, if you want the balances as of a particular time (ISO8601), the enc
+      # ...
+      #
       # @param currency [String]
-      # @param ledger_account_id [String]
+      #
+      # @param ledger_account_id [String] Query categories which contain a ledger account directly or through child catego
+      # ...
+      #
       # @param ledger_id [String]
-      # @param metadata [Hash{Symbol=>String}]
+      #
+      # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
+      # ...
+      #
       # @param name [String]
-      # @param parent_ledger_account_category_id [String]
+      #
+      # @param parent_ledger_account_category_id [String] Query categories that are nested underneath a parent category
+      #
       # @param per_page [Integer]
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::LedgerAccountCategory>]
@@ -112,7 +156,8 @@ module ModernTreasury
       #
       # @overload delete(id, request_options: {})
       #
-      # @param id [String]
+      # @param id [String] id
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::LedgerAccountCategory]
@@ -131,8 +176,10 @@ module ModernTreasury
       #
       # @overload add_ledger_account(ledger_account_id, id:, request_options: {})
       #
-      # @param ledger_account_id [String]
-      # @param id [String]
+      # @param ledger_account_id [String] ledger_account_id
+      #
+      # @param id [String] id
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [nil]
@@ -157,8 +204,10 @@ module ModernTreasury
       #
       # @overload add_nested_category(sub_category_id, id:, request_options: {})
       #
-      # @param sub_category_id [String]
-      # @param id [String]
+      # @param sub_category_id [String] sub_category_id
+      #
+      # @param id [String] id
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [nil]
@@ -183,8 +232,10 @@ module ModernTreasury
       #
       # @overload remove_ledger_account(ledger_account_id, id:, request_options: {})
       #
-      # @param ledger_account_id [String]
-      # @param id [String]
+      # @param ledger_account_id [String] ledger_account_id
+      #
+      # @param id [String] id
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [nil]
@@ -209,8 +260,10 @@ module ModernTreasury
       #
       # @overload remove_nested_category(sub_category_id, id:, request_options: {})
       #
-      # @param sub_category_id [String]
-      # @param id [String]
+      # @param sub_category_id [String] sub_category_id
+      #
+      # @param id [String] id
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [nil]

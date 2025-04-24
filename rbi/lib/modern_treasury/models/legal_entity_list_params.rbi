@@ -50,6 +50,9 @@ module ModernTreasury
       def self.new(
         after_cursor: nil,
         legal_entity_type: nil,
+        # For example, if you want to query for records with metadata key `Type` and value
+        # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+        # parameters.
         metadata: nil,
         per_page: nil,
         show_deleted: nil,

@@ -54,13 +54,27 @@ module ModernTreasury
       optional :reason, String, nil?: true
 
       # @!method initialize(returnable_id:, returnable_type:, additional_information: nil, code: nil, data: nil, date_of_death: nil, reason: nil, request_options: {})
-      #   @param returnable_id [String, nil]
-      #   @param returnable_type [Symbol, ModernTreasury::Models::ReturnCreateParams::ReturnableType]
-      #   @param additional_information [String, nil]
-      #   @param code [Symbol, ModernTreasury::Models::ReturnCreateParams::Code, nil]
-      #   @param data [Object, nil]
-      #   @param date_of_death [Date, nil]
-      #   @param reason [String, nil]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::ReturnCreateParams} for more details.
+      #
+      #   @param returnable_id [String, nil] The ID of the object being returned or `null`.
+      #
+      #   @param returnable_type [Symbol, ModernTreasury::Models::ReturnCreateParams::ReturnableType] The type of object being returned. Currently, this may only be incoming*payment*
+      #   ...
+      #
+      #   @param additional_information [String, nil] Some returns may include additional information from the bank. In these cases, t
+      #   ...
+      #
+      #   @param code [Symbol, ModernTreasury::Models::ReturnCreateParams::Code, nil] The return code. For ACH returns, this is the required ACH return code.
+      #
+      #   @param data [Object, nil] The raw data from the return file that we get from the bank.
+      #
+      #   @param date_of_death [Date, nil] If the return code is `R14` or `R15` this is the date the deceased counterparty
+      #   ...
+      #
+      #   @param reason [String, nil] An optional description of the reason for the return. This is for internal usage
+      #   ...
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # The type of object being returned. Currently, this may only be

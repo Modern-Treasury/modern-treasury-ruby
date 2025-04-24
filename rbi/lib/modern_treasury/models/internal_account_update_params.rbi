@@ -54,10 +54,16 @@ module ModernTreasury
           .returns(T.attached_class)
       end
       def self.new(
+        # The Counterparty associated to this account.
         counterparty_id: nil,
+        # The Ledger Account associated to this account.
         ledger_account_id: nil,
+        # Additional data in the form of key-value pairs. Pairs can be removed by passing
+        # an empty string or `null` as the value.
         metadata: nil,
+        # The nickname for the internal account.
         name: nil,
+        # The parent internal account for this account.
         parent_account_id: nil,
         request_options: {}
       ); end

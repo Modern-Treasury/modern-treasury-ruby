@@ -37,8 +37,13 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(counterparty_id:, payment_types:, receiving_countries: nil, request_options: {}); end
-
+      def self.new(
+        # Required.
+        counterparty_id:,
+        payment_types:,
+        receiving_countries: nil,
+        request_options: {}
+      ); end
       sig do
         override
           .returns(

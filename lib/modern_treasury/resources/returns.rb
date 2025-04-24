@@ -3,17 +3,31 @@
 module ModernTreasury
   module Resources
     class Returns
+      # Some parameter documentations has been truncated, see
+      # {ModernTreasury::Models::ReturnCreateParams} for more details.
+      #
       # Create a return.
       #
       # @overload create(returnable_id:, returnable_type:, additional_information: nil, code: nil, data: nil, date_of_death: nil, reason: nil, request_options: {})
       #
-      # @param returnable_id [String, nil]
-      # @param returnable_type [Symbol, ModernTreasury::Models::ReturnCreateParams::ReturnableType]
-      # @param additional_information [String, nil]
-      # @param code [Symbol, ModernTreasury::Models::ReturnCreateParams::Code, nil]
-      # @param data [Object, nil]
-      # @param date_of_death [Date, nil]
-      # @param reason [String, nil]
+      # @param returnable_id [String, nil] The ID of the object being returned or `null`.
+      #
+      # @param returnable_type [Symbol, ModernTreasury::Models::ReturnCreateParams::ReturnableType] The type of object being returned. Currently, this may only be incoming*payment*
+      # ...
+      #
+      # @param additional_information [String, nil] Some returns may include additional information from the bank. In these cases, t
+      # ...
+      #
+      # @param code [Symbol, ModernTreasury::Models::ReturnCreateParams::Code, nil] The return code. For ACH returns, this is the required ACH return code.
+      #
+      # @param data [Object, nil] The raw data from the return file that we get from the bank.
+      #
+      # @param date_of_death [Date, nil] If the return code is `R14` or `R15` this is the date the deceased counterparty
+      # ...
+      #
+      # @param reason [String, nil] An optional description of the reason for the return. This is for internal usage
+      # ...
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::ReturnObject]
@@ -34,7 +48,8 @@ module ModernTreasury
       #
       # @overload retrieve(id, request_options: {})
       #
-      # @param id [String]
+      # @param id [String] The ID of an existing return.
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::ReturnObject]
@@ -49,16 +64,28 @@ module ModernTreasury
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {ModernTreasury::Models::ReturnListParams} for more details.
+      #
       # Get a list of returns.
       #
       # @overload list(after_cursor: nil, counterparty_id: nil, internal_account_id: nil, per_page: nil, returnable_id: nil, returnable_type: nil, request_options: {})
       #
       # @param after_cursor [String, nil]
-      # @param counterparty_id [String]
-      # @param internal_account_id [String]
+      #
+      # @param counterparty_id [String] Specify `counterparty_id` if you wish to see returns that occurred with a specif
+      # ...
+      #
+      # @param internal_account_id [String] Specify `internal_account_id` if you wish to see returns to/from a specific acco
+      # ...
+      #
       # @param per_page [Integer]
-      # @param returnable_id [String]
-      # @param returnable_type [Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType]
+      #
+      # @param returnable_id [String] The ID of a valid returnable. Must be accompanied by `returnable_type`.
+      #
+      # @param returnable_type [Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType] One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
+      # ...
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::ReturnObject>]

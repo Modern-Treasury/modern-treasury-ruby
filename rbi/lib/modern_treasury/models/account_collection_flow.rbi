@@ -95,15 +95,24 @@ module ModernTreasury
           .returns(T.attached_class)
       end
       def self.new(
+        # The ID of a counterparty. An external account created with this flow will be
+        # associated with this counterparty.
         counterparty_id:,
         payment_types:,
         id: nil,
+        # The client token of the account collection flow. This token can be used to embed
+        # account collection in your client-side application.
         client_token: nil,
         created_at: nil,
+        # If present, the ID of the external account created using this flow.
         external_account_id: nil,
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
         live_mode: nil,
         object: nil,
         receiving_countries: nil,
+        # The current status of the account collection flow. One of `pending`,
+        # `completed`, `expired`, or `cancelled`.
         status: nil,
         updated_at: nil
       ); end

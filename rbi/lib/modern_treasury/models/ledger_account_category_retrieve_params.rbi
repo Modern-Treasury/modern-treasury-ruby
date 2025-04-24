@@ -33,8 +33,13 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(balances: nil, request_options: {}); end
-
+      def self.new(
+        # For example, if you want the balances as of a particular time (ISO8601), the
+        # encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
+        # The balances as of a time are inclusive of entries with that exact time.
+        balances: nil,
+        request_options: {}
+      ); end
       sig do
         override
           .returns(

@@ -72,18 +72,33 @@ module ModernTreasury
       required :validated_at, Time, nil?: true
 
       # @!method initialize(id:, created_at:, discarded_at:, issuer:, live_mode:, object:, token_expires_at:, token_issued_at:, token_url:, updated_at:, validated:, validated_at:)
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::LegalEntityComplianceDetail} for more details.
+      #
       #   @param id [String]
+      #
       #   @param created_at [Time]
+      #
       #   @param discarded_at [Time, nil]
-      #   @param issuer [String]
-      #   @param live_mode [Boolean]
+      #
+      #   @param issuer [String] The issuer of the compliance token.
+      #
+      #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+      #   ...
+      #
       #   @param object [String]
-      #   @param token_expires_at [Time, nil]
-      #   @param token_issued_at [Time, nil]
-      #   @param token_url [String, nil]
+      #
+      #   @param token_expires_at [Time, nil] The timestamp when the compliance token expires.
+      #
+      #   @param token_issued_at [Time, nil] The timestamp when the compliance token was issued.
+      #
+      #   @param token_url [String, nil] The URL to the compliance token. (ex. provider portal URL)
+      #
       #   @param updated_at [Time]
-      #   @param validated [Boolean]
-      #   @param validated_at [Time, nil]
+      #
+      #   @param validated [Boolean] Whether entity corresponding to the compliance token has been validated.
+      #
+      #   @param validated_at [Time, nil] The timestamp when the entity was validated.
     end
   end
 end

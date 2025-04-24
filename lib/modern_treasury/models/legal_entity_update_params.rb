@@ -158,30 +158,58 @@ module ModernTreasury
       optional :website, String, nil?: true
 
       # @!method initialize(addresses: nil, bank_settings: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, first_name: nil, identifications: nil, industry_classifications: nil, last_name: nil, legal_structure: nil, metadata: nil, middle_name: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, risk_rating: nil, suffix: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
-      #   @param addresses [Array<ModernTreasury::Models::LegalEntityUpdateParams::Address>]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::LegalEntityUpdateParams} for more details.
+      #
+      #   @param addresses [Array<ModernTreasury::Models::LegalEntityUpdateParams::Address>] A list of addresses for the entity.
+      #
       #   @param bank_settings [ModernTreasury::Models::BankSettings, nil]
-      #   @param business_name [String, nil]
-      #   @param citizenship_country [String, nil]
+      #
+      #   @param business_name [String, nil] The business's legal business name.
+      #
+      #   @param citizenship_country [String, nil] The country of citizenship for an individual.
+      #
       #   @param compliance_details [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
-      #   @param date_formed [Date, nil]
-      #   @param date_of_birth [Date, nil]
+      #
+      #   @param date_formed [Date, nil] A business's formation date (YYYY-MM-DD).
+      #
+      #   @param date_of_birth [Date, nil] An individual's date of birth (YYYY-MM-DD).
+      #
       #   @param doing_business_as_names [Array<String>]
-      #   @param email [String, nil]
-      #   @param first_name [String, nil]
-      #   @param identifications [Array<ModernTreasury::Models::LegalEntityUpdateParams::Identification>]
-      #   @param industry_classifications [Array<ModernTreasury::Models::LegalEntityIndustryClassification>]
-      #   @param last_name [String, nil]
-      #   @param legal_structure [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::LegalStructure, nil]
-      #   @param metadata [Hash{Symbol=>String}]
-      #   @param middle_name [String, nil]
+      #
+      #   @param email [String, nil] The entity's primary email.
+      #
+      #   @param first_name [String, nil] An individual's first name.
+      #
+      #   @param identifications [Array<ModernTreasury::Models::LegalEntityUpdateParams::Identification>] A list of identifications for the legal entity.
+      #
+      #   @param industry_classifications [Array<ModernTreasury::Models::LegalEntityIndustryClassification>] A list of industry classifications for the legal entity.
+      #
+      #   @param last_name [String, nil] An individual's last name.
+      #
+      #   @param legal_structure [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::LegalStructure, nil] The business's legal structure.
+      #
+      #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      #   ...
+      #
+      #   @param middle_name [String, nil] An individual's middle name.
+      #
       #   @param phone_numbers [Array<ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber>]
-      #   @param politically_exposed_person [Boolean, nil]
-      #   @param preferred_name [String, nil]
-      #   @param prefix [String, nil]
-      #   @param risk_rating [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::RiskRating, nil]
-      #   @param suffix [String, nil]
+      #
+      #   @param politically_exposed_person [Boolean, nil] Whether the individual is a politically exposed person.
+      #
+      #   @param preferred_name [String, nil] An individual's preferred name.
+      #
+      #   @param prefix [String, nil] An individual's prefix.
+      #
+      #   @param risk_rating [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::RiskRating, nil] The risk rating of the legal entity. One of low, medium, high.
+      #
+      #   @param suffix [String, nil] An individual's suffix.
+      #
       #   @param wealth_and_employment_details [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
-      #   @param website [String, nil]
+      #
+      #   @param website [String, nil] The entity's primary website URL.
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       class Address < ModernTreasury::Internal::Type::BaseModel
@@ -227,12 +255,18 @@ module ModernTreasury
         optional :line2, String, nil?: true
 
         # @!method initialize(country:, line1:, locality:, postal_code:, region:, address_types: nil, line2: nil)
-        #   @param country [String, nil]
+        #   @param country [String, nil] Country code conforms to [ISO 3166-1 alpha-2]
+        #
         #   @param line1 [String, nil]
-        #   @param locality [String, nil]
-        #   @param postal_code [String, nil]
-        #   @param region [String, nil]
-        #   @param address_types [Array<Symbol, ModernTreasury::Models::LegalEntityUpdateParams::Address::AddressType>]
+        #
+        #   @param locality [String, nil] Locality or City.
+        #
+        #   @param postal_code [String, nil] The postal code of the address.
+        #
+        #   @param region [String, nil] Region or State.
+        #
+        #   @param address_types [Array<Symbol, ModernTreasury::Models::LegalEntityUpdateParams::Address::AddressType>] The types of this address.
+        #
         #   @param line2 [String, nil]
 
         module AddressType
@@ -270,9 +304,16 @@ module ModernTreasury
         optional :issuing_country, String, nil?: true
 
         # @!method initialize(id_number:, id_type:, issuing_country: nil)
-        #   @param id_number [String]
-        #   @param id_type [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::Identification::IDType]
-        #   @param issuing_country [String, nil]
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::LegalEntityUpdateParams::Identification} for more
+        #   details.
+        #
+        #   @param id_number [String] The ID number of identification document.
+        #
+        #   @param id_type [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::Identification::IDType] The type of ID number.
+        #
+        #   @param issuing_country [String, nil] The ISO 3166-1 alpha-2 country code of the country that issued the identificatio
+        #   ...
 
         # The type of ID number.
         #

@@ -107,18 +107,30 @@ module ModernTreasury
       def self.new(
         id:,
         account_details:,
+        # Can be `checking`, `savings` or `other`.
         account_type:,
         contact_details:,
         counterparty_id:,
         created_at:,
         discarded_at:,
+        # If the external account links to a ledger account in Modern Treasury, the id of
+        # the ledger account will be populated here.
         ledger_account_id:,
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
         live_mode:,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        # strings.
         metadata:,
+        # A nickname for the external account. This is only for internal usage and won't
+        # affect any payments
         name:,
         object:,
+        # The address associated with the owner or `null`.
         party_address:,
+        # The legal name of the entity which owns the account.
         party_name:,
+        # Either `individual` or `business`.
         party_type:,
         routing_details:,
         updated_at:,
@@ -199,6 +211,8 @@ module ModernTreasury
           contact_identifier_type:,
           created_at:,
           discarded_at:,
+          # This field will be true if this object exists in the live environment or false
+          # if it exists in the test environment.
           live_mode:,
           object:,
           updated_at:
@@ -309,14 +323,20 @@ module ModernTreasury
         end
         def self.new(
           id:,
+          # Country code conforms to [ISO 3166-1 alpha-2]
           country:,
           created_at:,
           line1:,
           line2:,
+          # This field will be true if this object exists in the live environment or false
+          # if it exists in the test environment.
           live_mode:,
+          # Locality or City.
           locality:,
           object:,
+          # The postal code of the address.
           postal_code:,
+          # Region or State.
           region:,
           updated_at:
         ); end

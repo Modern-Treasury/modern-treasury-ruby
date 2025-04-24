@@ -36,11 +36,20 @@ module ModernTreasury
       optional :per_page, Integer
 
       # @!method initialize(after_cursor: nil, counterparty_id: nil, internal_account_id: nil, metadata: nil, per_page: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::VirtualAccountListParams} for more details.
+      #
       #   @param after_cursor [String, nil]
+      #
       #   @param counterparty_id [String]
+      #
       #   @param internal_account_id [String]
-      #   @param metadata [Hash{Symbol=>String}]
+      #
+      #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
+      #   ...
+      #
       #   @param per_page [Integer]
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end

@@ -83,14 +83,28 @@ module ModernTreasury
       def self.new(
         id:,
         accounting:,
+        # The ID of one of your accounting categories. Note that these will only be
+        # accessible if your accounting system has been connected.
         accounting_category_id:,
+        # The ID of one of the class objects in your accounting system. Class objects
+        # track segments of your business independent of client or project. Note that
+        # these will only be accessible if your accounting system has been connected.
         accounting_ledger_class_id:,
+        # Value in specified currency's smallest unit. e.g. $10 would be represented
+        # as 1000.
         amount:,
         created_at:,
+        # A free-form description of the line item.
         description:,
+        # The ID of the payment order or expected payment.
         itemizable_id:,
+        # One of `payment_orders` or `expected_payments`.
         itemizable_type:,
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
         live_mode:,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        # strings.
         metadata:,
         object:,
         updated_at:
@@ -130,8 +144,15 @@ module ModernTreasury
         attr_accessor :class_id
 
         sig { params(account_id: T.nilable(String), class_id: T.nilable(String)).returns(T.attached_class) }
-        def self.new(account_id: nil, class_id: nil); end
-
+        def self.new(
+          # The ID of one of your accounting categories. Note that these will only be
+          # accessible if your accounting system has been connected.
+          account_id: nil,
+          # The ID of one of the class objects in your accounting system. Class objects
+          # track segments of your business independent of client or project. Note that
+          # these will only be accessible if your accounting system has been connected.
+          class_id: nil
+        ); end
         sig { override.returns({account_id: T.nilable(String), class_id: T.nilable(String)}) }
         def to_hash; end
       end

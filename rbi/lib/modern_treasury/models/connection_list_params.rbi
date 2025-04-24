@@ -41,13 +41,13 @@ module ModernTreasury
       end
       def self.new(
         after_cursor: nil,
+        # A string code representing the vendor (i.e. bank).
         entity: nil,
         per_page: nil,
+        # An identifier assigned by the vendor to your organization.
         vendor_customer_id: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(

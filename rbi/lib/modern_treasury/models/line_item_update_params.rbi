@@ -29,8 +29,14 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(itemizable_type:, itemizable_id:, metadata: nil, request_options: {}); end
-
+      def self.new(
+        itemizable_type:,
+        itemizable_id:,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        # strings.
+        metadata: nil,
+        request_options: {}
+      ); end
       sig do
         override
           .returns(

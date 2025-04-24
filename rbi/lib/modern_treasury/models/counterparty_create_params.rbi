@@ -113,16 +113,28 @@ module ModernTreasury
           .returns(T.attached_class)
       end
       def self.new(
+        # A human friendly name for this counterparty.
         name:,
         accounting: nil,
+        # The accounts for this counterparty.
         accounts: nil,
+        # The counterparty's email.
         email: nil,
+        # An optional type to auto-sync the counterparty to your ledger. Either `customer`
+        # or `vendor`.
         ledger_type: nil,
         legal_entity: nil,
+        # The id of the legal entity.
         legal_entity_id: nil,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        # strings.
         metadata: nil,
+        # Send an email to the counterparty whenever an associated payment order is sent
+        # to the bank.
         send_remittance_advice: nil,
+        # Either a valid SSN or EIN.
         taxpayer_identifier: nil,
+        # The verification status of the counterparty.
         verification_status: nil,
         request_options: {}
       ); end
@@ -160,8 +172,11 @@ module ModernTreasury
           params(type: ModernTreasury::Models::CounterpartyCreateParams::Accounting::Type::OrSymbol)
             .returns(T.attached_class)
         end
-        def self.new(type: nil); end
-
+        def self.new(
+          # An optional type to auto-sync the counterparty to your ledger. Either `customer`
+          # or `vendor`.
+          type: nil
+        ); end
         sig { override.returns({type: ModernTreasury::Models::CounterpartyCreateParams::Accounting::Type::OrSymbol}) }
         def to_hash; end
 
@@ -354,15 +369,30 @@ module ModernTreasury
         end
         def self.new(
           account_details: nil,
+          # Can be `checking`, `savings` or `other`.
           account_type: nil,
           contact_details: nil,
+          # Specifies a ledger account object that will be created with the external
+          # account. The resulting ledger account is linked to the external account for
+          # auto-ledgering Payment objects. See
+          # https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
+          # for more details.
           ledger_account: nil,
+          # Additional data represented as key-value pairs. Both the key and value must be
+          # strings.
           metadata: nil,
+          # A nickname for the external account. This is only for internal usage and won't
+          # affect any payments
           name: nil,
+          # Required if receiving wire payments.
           party_address: nil,
           party_identifier: nil,
+          # If this value isn't provided, it will be inherited from the counterparty's name.
           party_name: nil,
+          # Either `individual` or `business`.
           party_type: nil,
+          # If you've enabled the Modern Treasury + Plaid integration in your Plaid account,
+          # you can pass the processor token in this field.
           plaid_processor_token: nil,
           routing_details: nil
         ); end
@@ -667,15 +697,30 @@ module ModernTreasury
               .returns(T.attached_class)
           end
           def self.new(
+            # The currency of the ledger account.
             currency:,
+            # The id of the ledger that this account belongs to.
             ledger_id:,
+            # The name of the ledger account.
             name:,
+            # The normal balance of the ledger account.
             normal_balance:,
+            # The currency exponent of the ledger account.
             currency_exponent: nil,
+            # The description of the ledger account.
             description: nil,
+            # The array of ledger account category ids that this ledger account should be a
+            # child of.
             ledger_account_category_ids: nil,
+            # If the ledger account links to another object in Modern Treasury, the id will be
+            # populated here, otherwise null.
             ledgerable_id: nil,
+            # If the ledger account links to another object in Modern Treasury, the type will
+            # be populated here, otherwise null. The value is one of internal_account or
+            # external_account.
             ledgerable_type: nil,
+            # Additional data represented as key-value pairs. Both the key and value must be
+            # strings.
             metadata: nil
           ); end
           sig do
@@ -773,9 +818,18 @@ module ModernTreasury
             )
               .returns(T.attached_class)
           end
-          def self.new(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
-          end
-
+          def self.new(
+            # Country code conforms to [ISO 3166-1 alpha-2]
+            country: nil,
+            line1: nil,
+            line2: nil,
+            # Locality or City.
+            locality: nil,
+            # The postal code of the address.
+            postal_code: nil,
+            # Region or State.
+            region: nil
+          ); end
           sig do
             override
               .returns(
@@ -1411,31 +1465,53 @@ module ModernTreasury
             .returns(T.attached_class)
         end
         def self.new(
+          # The type of legal entity.
           legal_entity_type:,
+          # A list of addresses for the entity.
           addresses: nil,
           bank_settings: nil,
+          # The business's legal business name.
           business_name: nil,
+          # The country of citizenship for an individual.
           citizenship_country: nil,
           compliance_details: nil,
+          # A business's formation date (YYYY-MM-DD).
           date_formed: nil,
+          # An individual's date of birth (YYYY-MM-DD).
           date_of_birth: nil,
           doing_business_as_names: nil,
+          # The entity's primary email.
           email: nil,
+          # An individual's first name.
           first_name: nil,
+          # A list of identifications for the legal entity.
           identifications: nil,
+          # A list of industry classifications for the legal entity.
           industry_classifications: nil,
+          # An individual's last name.
           last_name: nil,
+          # The legal entity associations and its child legal entities.
           legal_entity_associations: nil,
+          # The business's legal structure.
           legal_structure: nil,
+          # Additional data represented as key-value pairs. Both the key and value must be
+          # strings.
           metadata: nil,
+          # An individual's middle name.
           middle_name: nil,
           phone_numbers: nil,
+          # Whether the individual is a politically exposed person.
           politically_exposed_person: nil,
+          # An individual's preferred name.
           preferred_name: nil,
+          # An individual's prefix.
           prefix: nil,
+          # The risk rating of the legal entity. One of low, medium, high.
           risk_rating: nil,
+          # An individual's suffix.
           suffix: nil,
           wealth_and_employment_details: nil,
+          # The entity's primary website URL.
           website: nil
         ); end
         sig do
@@ -1554,9 +1630,20 @@ module ModernTreasury
             )
               .returns(T.attached_class)
           end
-          def self.new(country:, line1:, locality:, postal_code:, region:, address_types: nil, line2: nil)
-          end
-
+          def self.new(
+            # Country code conforms to [ISO 3166-1 alpha-2]
+            country:,
+            line1:,
+            # Locality or City.
+            locality:,
+            # The postal code of the address.
+            postal_code:,
+            # Region or State.
+            region:,
+            # The types of this address.
+            address_types: nil,
+            line2: nil
+          ); end
           sig do
             override
               .returns(
@@ -1638,8 +1725,15 @@ module ModernTreasury
             )
               .returns(T.attached_class)
           end
-          def self.new(id_number:, id_type:, issuing_country: nil); end
-
+          def self.new(
+            # The ID number of identification document.
+            id_number:,
+            # The type of ID number.
+            id_type:,
+            # The ISO 3166-1 alpha-2 country code of the country that issued the
+            # identification
+            issuing_country: nil
+          ); end
           sig do
             override
               .returns(
@@ -1839,9 +1933,13 @@ module ModernTreasury
           end
           def self.new(
             relationship_types:,
+            # The child legal entity.
             child_legal_entity: nil,
+            # The ID of the child legal entity.
             child_legal_entity_id: nil,
+            # The child entity's ownership percentage iff they are a beneficial owner.
             ownership_percentage: nil,
+            # The job title of the child entity at the parent entity.
             title: nil
           ); end
           sig do
@@ -2167,30 +2265,51 @@ module ModernTreasury
                 .returns(T.attached_class)
             end
             def self.new(
+              # A list of addresses for the entity.
               addresses: nil,
               bank_settings: nil,
+              # The business's legal business name.
               business_name: nil,
+              # The country of citizenship for an individual.
               citizenship_country: nil,
               compliance_details: nil,
+              # A business's formation date (YYYY-MM-DD).
               date_formed: nil,
+              # An individual's date of birth (YYYY-MM-DD).
               date_of_birth: nil,
               doing_business_as_names: nil,
+              # The entity's primary email.
               email: nil,
+              # An individual's first name.
               first_name: nil,
+              # A list of identifications for the legal entity.
               identifications: nil,
+              # A list of industry classifications for the legal entity.
               industry_classifications: nil,
+              # An individual's last name.
               last_name: nil,
+              # The type of legal entity.
               legal_entity_type: nil,
+              # The business's legal structure.
               legal_structure: nil,
+              # Additional data represented as key-value pairs. Both the key and value must be
+              # strings.
               metadata: nil,
+              # An individual's middle name.
               middle_name: nil,
               phone_numbers: nil,
+              # Whether the individual is a politically exposed person.
               politically_exposed_person: nil,
+              # An individual's preferred name.
               preferred_name: nil,
+              # An individual's prefix.
               prefix: nil,
+              # The risk rating of the legal entity. One of low, medium, high.
               risk_rating: nil,
+              # An individual's suffix.
               suffix: nil,
               wealth_and_employment_details: nil,
+              # The entity's primary website URL.
               website: nil
             ); end
             sig do
@@ -2297,16 +2416,19 @@ module ModernTreasury
                   .returns(T.attached_class)
               end
               def self.new(
+                # Country code conforms to [ISO 3166-1 alpha-2]
                 country:,
                 line1:,
+                # Locality or City.
                 locality:,
+                # The postal code of the address.
                 postal_code:,
+                # Region or State.
                 region:,
+                # The types of this address.
                 address_types: nil,
                 line2: nil
-              )
-              end
-
+              ); end
               sig do
                 override
                   .returns(
@@ -2398,8 +2520,15 @@ module ModernTreasury
                 )
                   .returns(T.attached_class)
               end
-              def self.new(id_number:, id_type:, issuing_country: nil); end
-
+              def self.new(
+                # The ID number of identification document.
+                id_number:,
+                # The type of ID number.
+                id_type:,
+                # The ISO 3166-1 alpha-2 country code of the country that issued the
+                # identification
+                issuing_country: nil
+              ); end
               sig do
                 override
                   .returns(

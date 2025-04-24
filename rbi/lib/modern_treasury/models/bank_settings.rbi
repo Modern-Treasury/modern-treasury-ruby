@@ -60,13 +60,23 @@ module ModernTreasury
       end
       def self.new(
         id:,
+        # The percentage of backup withholding to apply to the legal entity.
         backup_withholding_percentage:,
         created_at:,
         discarded_at:,
+        # Whether backup withholding is enabled. See more here -
+        # https://www.irs.gov/businesses/small-businesses-self-employed/backup-withholding.
         enable_backup_withholding:,
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
         live_mode:,
         object:,
+        # Cross River Bank specific setting to opt out of privacy policy.
         privacy_opt_out:,
+        # It covers, among other types of insider loans, extensions of credit by a member
+        # bank to an executive officer, director, or principal shareholder of the member
+        # bank; a bank holding company of which the member bank is a subsidiary; and any
+        # other subsidiary of that bank holding company.
         regulation_o:,
         updated_at:
       ); end

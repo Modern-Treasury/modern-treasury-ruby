@@ -28,9 +28,16 @@ module ModernTreasury
         required :transaction_id, String
 
         # @!method initialize(amount:, expected_payment_id:, transaction_id:, request_options: {})
-        #   @param amount [Integer]
-        #   @param expected_payment_id [String]
-        #   @param transaction_id [String]
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::Transactions::LineItemCreateParams} for more details.
+        #
+        #   @param amount [Integer] If a matching object exists in Modern Treasury, `amount` will be populated. Valu
+        #   ...
+        #
+        #   @param expected_payment_id [String] The ID of the reconciled Expected Payment, otherwise `null`.
+        #
+        #   @param transaction_id [String] The ID of the parent transaction.
+        #
         #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       end
     end

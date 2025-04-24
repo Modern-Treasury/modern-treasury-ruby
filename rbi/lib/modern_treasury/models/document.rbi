@@ -72,12 +72,20 @@ module ModernTreasury
         created_at:,
         discarded_at:,
         document_details:,
+        # A category given to the document, can be `null`.
         document_type:,
+        # The unique identifier for the associated object.
         documentable_id:,
+        # The type of the associated object. Currently can be one of `payment_order`,
+        # `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
+        # `case`, `internal_account`, `decision`, or `external_account`.
         documentable_type:,
         file:,
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
         live_mode:,
         object:,
+        # The source of the document. Can be `vendor`, `customer`, or `modern_treasury`.
         source:,
         updated_at:
       ); end
@@ -148,6 +156,8 @@ module ModernTreasury
           discarded_at:,
           document_identifier:,
           document_identifier_type:,
+          # This field will be true if this object exists in the live environment or false
+          # if it exists in the test environment.
           live_mode:,
           object:,
           updated_at:
@@ -223,8 +233,14 @@ module ModernTreasury
         attr_writer :size
 
         sig { params(content_type: String, filename: String, size: Integer).returns(T.attached_class) }
-        def self.new(content_type: nil, filename: nil, size: nil); end
-
+        def self.new(
+          # The MIME content type of the document.
+          content_type: nil,
+          # The original filename of the document.
+          filename: nil,
+          # The size of the document in bytes.
+          size: nil
+        ); end
         sig { override.returns({content_type: String, filename: String, size: Integer}) }
         def to_hash; end
       end

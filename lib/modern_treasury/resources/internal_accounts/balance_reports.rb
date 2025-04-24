@@ -4,15 +4,25 @@ module ModernTreasury
   module Resources
     class InternalAccounts
       class BalanceReports
+        # Some parameter documentations has been truncated, see
+        # {ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams} for more
+        # details.
+        #
         # create balance reports
         #
         # @overload create(internal_account_id, as_of_date:, as_of_time:, balance_report_type:, balances:, request_options: {})
         #
         # @param internal_account_id [String]
-        # @param as_of_date [Date]
-        # @param as_of_time [String]
-        # @param balance_report_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType]
-        # @param balances [Array<ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance>]
+        #
+        # @param as_of_date [Date] The date of the balance report in local time.
+        #
+        # @param as_of_time [String] The time (24-hour clock) of the balance report in local time.
+        #
+        # @param balance_report_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType] The specific type of balance report. One of `intraday`, `previous_day`, `real_ti
+        # ...
+        #
+        # @param balances [Array<ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance>] An array of `Balance` objects.
+        #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [ModernTreasury::Models::InternalAccounts::BalanceReport]
@@ -30,12 +40,19 @@ module ModernTreasury
           )
         end
 
+        # Some parameter documentations has been truncated, see
+        # {ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams} for more
+        # details.
+        #
         # Get a single balance report for a given internal account.
         #
         # @overload retrieve(id, internal_account_id:, request_options: {})
         #
-        # @param id [String]
+        # @param id [String] Either the unique identifier of the balance report or latest for the latest bala
+        # ...
+        #
         # @param internal_account_id [String]
+        #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [ModernTreasury::Models::InternalAccounts::BalanceReport]
@@ -56,15 +73,25 @@ module ModernTreasury
           )
         end
 
+        # Some parameter documentations has been truncated, see
+        # {ModernTreasury::Models::InternalAccounts::BalanceReportListParams} for more
+        # details.
+        #
         # Get all balance reports for a given internal account.
         #
         # @overload list(internal_account_id, after_cursor: nil, as_of_date: nil, balance_report_type: nil, per_page: nil, request_options: {})
         #
         # @param internal_account_id [String]
+        #
         # @param after_cursor [String, nil]
-        # @param as_of_date [Date]
-        # @param balance_report_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType]
+        #
+        # @param as_of_date [Date] The date of the balance report in local time.
+        #
+        # @param balance_report_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType] The specific type of balance report. One of `intraday`, `previous_day`, `real_ti
+        # ...
+        #
         # @param per_page [Integer]
+        #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::InternalAccounts::BalanceReport>]
@@ -82,12 +109,19 @@ module ModernTreasury
           )
         end
 
+        # Some parameter documentations has been truncated, see
+        # {ModernTreasury::Models::InternalAccounts::BalanceReportDeleteParams} for more
+        # details.
+        #
         # Deletes a given balance report.
         #
         # @overload delete(id, internal_account_id:, request_options: {})
         #
-        # @param id [String]
+        # @param id [String] Either the unique identifier of the balance report or latest for the latest bala
+        # ...
+        #
         # @param internal_account_id [String]
+        #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [nil]

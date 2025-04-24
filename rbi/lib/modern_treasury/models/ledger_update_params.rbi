@@ -34,8 +34,16 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(description: nil, metadata: nil, name: nil, request_options: {}); end
-
+      def self.new(
+        # An optional free-form description for internal use.
+        description: nil,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        # strings.
+        metadata: nil,
+        # The name of the ledger.
+        name: nil,
+        request_options: {}
+      ); end
       sig do
         override
           .returns(

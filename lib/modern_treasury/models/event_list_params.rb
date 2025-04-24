@@ -46,12 +46,19 @@ module ModernTreasury
 
       # @!method initialize(after_cursor: nil, entity_id: nil, event_name: nil, event_time_end: nil, event_time_start: nil, per_page: nil, resource: nil, request_options: {})
       #   @param after_cursor [String, nil]
+      #
       #   @param entity_id [String]
+      #
       #   @param event_name [String]
-      #   @param event_time_end [Time]
-      #   @param event_time_start [Time]
+      #
+      #   @param event_time_end [Time] An inclusive upper bound for when the event occurred
+      #
+      #   @param event_time_start [Time] An inclusive lower bound for when the event occurred
+      #
       #   @param per_page [Integer]
+      #
       #   @param resource [String]
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end

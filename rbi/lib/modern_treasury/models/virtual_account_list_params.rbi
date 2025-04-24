@@ -51,6 +51,9 @@ module ModernTreasury
         after_cursor: nil,
         counterparty_id: nil,
         internal_account_id: nil,
+        # For example, if you want to query for records with metadata key `Type` and value
+        # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+        # parameters.
         metadata: nil,
         per_page: nil,
         request_options: {}

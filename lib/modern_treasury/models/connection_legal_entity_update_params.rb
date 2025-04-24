@@ -14,7 +14,8 @@ module ModernTreasury
       optional :status, enum: -> { ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status }
 
       # @!method initialize(status: nil, request_options: {})
-      #   @param status [Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status]
+      #   @param status [Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status] The status of the connection legal entity.
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # The status of the connection legal entity.

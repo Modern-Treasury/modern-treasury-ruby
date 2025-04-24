@@ -44,10 +44,21 @@ module ModernTreasury
       optional :send_email, ModernTreasury::Internal::Type::Boolean
 
       # @!method initialize(direction:, custom_redirect: nil, fields: nil, send_email: nil, request_options: {})
-      #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
-      #   @param custom_redirect [String]
-      #   @param fields [Array<Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field>]
-      #   @param send_email [Boolean]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::CounterpartyCollectAccountParams} for more details.
+      #
+      #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection] One of `credit` or `debit`. Use `credit` when you want to pay a counterparty. Us
+      #   ...
+      #
+      #   @param custom_redirect [String] The URL you want your customer to visit upon filling out the form. By default, t
+      #   ...
+      #
+      #   @param fields [Array<Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field>] The list of fields you want on the form. This field is optional and if it is not
+      #   ...
+      #
+      #   @param send_email [Boolean] By default, Modern Treasury will send an email to your counterparty that include
+      #   ...
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       module Field

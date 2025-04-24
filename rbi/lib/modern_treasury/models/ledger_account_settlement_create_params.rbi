@@ -65,13 +65,30 @@ module ModernTreasury
           .returns(T.attached_class)
       end
       def self.new(
+        # The id of the contra ledger account that sends to or receives funds from the
+        # settled ledger account.
         contra_ledger_account_id:,
+        # The id of the settled ledger account whose ledger entries are queried against,
+        # and its balance is reduced as a result.
         settled_ledger_account_id:,
+        # If true, the settlement amount and settlement_entry_direction will bring the
+        # settlement ledger account's balance closer to zero, even if the balance is
+        # negative.
         allow_either_direction: nil,
+        # The description of the ledger account settlement.
         description: nil,
+        # The exclusive upper bound of the effective_at timestamp of the ledger entries to
+        # be included in the ledger account settlement. The default value is the
+        # created_at timestamp of the ledger account settlement.
         effective_at_upper_bound: nil,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        # strings.
         metadata: nil,
+        # It is set to `false` by default. It should be set to `true` when migrating
+        # existing settlements.
         skip_settlement_ledger_transaction: nil,
+        # The status of the ledger account settlement. It is set to `pending` by default.
+        # To post a ledger account settlement at creation, use `posted`.
         status: nil,
         request_options: {}
       ); end

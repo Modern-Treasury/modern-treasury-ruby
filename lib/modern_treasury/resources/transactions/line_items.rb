@@ -4,13 +4,20 @@ module ModernTreasury
   module Resources
     class Transactions
       class LineItems
+        # Some parameter documentations has been truncated, see
+        # {ModernTreasury::Models::Transactions::LineItemCreateParams} for more details.
+        #
         # create transaction line items
         #
         # @overload create(amount:, expected_payment_id:, transaction_id:, request_options: {})
         #
-        # @param amount [Integer]
-        # @param expected_payment_id [String]
-        # @param transaction_id [String]
+        # @param amount [Integer] If a matching object exists in Modern Treasury, `amount` will be populated. Valu
+        # ...
+        #
+        # @param expected_payment_id [String] The ID of the reconciled Expected Payment, otherwise `null`.
+        #
+        # @param transaction_id [String] The ID of the parent transaction.
+        #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [ModernTreasury::Models::Transactions::TransactionLineItem]
@@ -31,7 +38,8 @@ module ModernTreasury
         #
         # @overload retrieve(id, request_options: {})
         #
-        # @param id [String]
+        # @param id [String] id
+        #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [ModernTreasury::Models::Transactions::TransactionLineItem]
@@ -76,7 +84,8 @@ module ModernTreasury
         #
         # @overload delete(id, request_options: {})
         #
-        # @param id [String]
+        # @param id [String] id
+        #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [nil]

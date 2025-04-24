@@ -7,10 +7,14 @@ module ModernTreasury
       #
       # @overload create(documentable_id:, documentable_type:, file:, document_type: nil, request_options: {})
       #
-      # @param documentable_id [String]
+      # @param documentable_id [String] The unique identifier for the associated object.
+      #
       # @param documentable_type [Symbol, ModernTreasury::Models::DocumentCreateParams::DocumentableType]
+      #
       # @param file [Pathname, StringIO]
-      # @param document_type [String]
+      #
+      # @param document_type [String] A category given to the document, can be `null`.
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::Document]
@@ -32,7 +36,8 @@ module ModernTreasury
       #
       # @overload retrieve(id, request_options: {})
       #
-      # @param id [String]
+      # @param id [String] The ID of the document.
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::Document]
@@ -47,14 +52,22 @@ module ModernTreasury
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {ModernTreasury::Models::DocumentListParams} for more details.
+      #
       # Get a list of documents.
       #
       # @overload list(after_cursor: nil, documentable_id: nil, documentable_type: nil, per_page: nil, request_options: {})
       #
       # @param after_cursor [String, nil]
-      # @param documentable_id [String]
-      # @param documentable_type [Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType]
+      #
+      # @param documentable_id [String] The unique identifier for the associated object.
+      #
+      # @param documentable_type [Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType] The type of the associated object. Currently can be one of `payment_order`, `tra
+      # ...
+      #
       # @param per_page [Integer]
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::Document>]

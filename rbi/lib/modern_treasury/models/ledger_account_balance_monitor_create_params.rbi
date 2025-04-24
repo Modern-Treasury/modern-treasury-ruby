@@ -54,14 +54,17 @@ module ModernTreasury
           .returns(T.attached_class)
       end
       def self.new(
+        # Describes the condition that must be satisfied for the monitor to be triggered.
         alert_condition:,
+        # The ledger account associated with this balance monitor.
         ledger_account_id:,
+        # An optional, free-form description for internal use.
         description: nil,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        # strings.
         metadata: nil,
         request_options: {}
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(
@@ -96,8 +99,19 @@ module ModernTreasury
 
         # Describes the condition that must be satisfied for the monitor to be triggered.
         sig { params(field: String, operator: String, value: Integer).returns(T.attached_class) }
-        def self.new(field:, operator:, value:); end
-
+        def self.new(
+          # One of `available_balance_amount`, `pending_balance_amount`,
+          # `posted_balance_amount`, `ledger_account_lock_version`.
+          field:,
+          # A logical operator to compare the `field` against the `value`. One of
+          # `less_than`, `less_than_or_equals`, `equals`, `greater_than_or_equals`,
+          # `greater_than`.
+          operator:,
+          # The monitor's `current_ledger_account_balance_state.triggered` will be `true`
+          # when comparing the `field` to this integer value using the `operator` is
+          # logically true.
+          value:
+        ); end
         sig { override.returns({field: String, operator: String, value: Integer}) }
         def to_hash; end
       end

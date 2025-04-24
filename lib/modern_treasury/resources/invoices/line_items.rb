@@ -4,18 +4,31 @@ module ModernTreasury
   module Resources
     class Invoices
       class LineItems
+        # Some parameter documentations has been truncated, see
+        # {ModernTreasury::Models::Invoices::LineItemCreateParams} for more details.
+        #
         # create invoice_line_item
         #
         # @overload create(invoice_id, name:, unit_amount:, description: nil, direction: nil, metadata: nil, quantity: nil, unit_amount_decimal: nil, request_options: {})
         #
-        # @param invoice_id [String]
-        # @param name [String]
-        # @param unit_amount [Integer]
-        # @param description [String]
-        # @param direction [String]
-        # @param metadata [Hash{Symbol=>String}]
-        # @param quantity [Integer]
-        # @param unit_amount_decimal [String]
+        # @param invoice_id [String] invoice_id
+        #
+        # @param name [String] The name of the line item, typically a product or SKU name.
+        #
+        # @param unit_amount [Integer] The cost per unit of the product or service that this line item is for, ...
+        #
+        # @param description [String] An optional free-form description of the line item.
+        #
+        # @param direction [String] Either `debit` or `credit`. `debit` indicates that a client owes the business mo
+        # ...
+        #
+        # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+        # ...
+        #
+        # @param quantity [Integer] The number of units of a product or service that this line item is for. ...
+        #
+        # @param unit_amount_decimal [String] The cost per unit of the product or service that this line item is for, ...
+        #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
@@ -36,8 +49,10 @@ module ModernTreasury
         #
         # @overload retrieve(id, invoice_id:, request_options: {})
         #
-        # @param id [String]
-        # @param invoice_id [String]
+        # @param id [String] id
+        #
+        # @param invoice_id [String] invoice_id
+        #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
@@ -57,19 +72,36 @@ module ModernTreasury
           )
         end
 
+        # Some parameter documentations has been truncated, see
+        # {ModernTreasury::Models::Invoices::LineItemUpdateParams} for more details.
+        #
         # update invoice_line_item
         #
         # @overload update(id, invoice_id:, description: nil, direction: nil, metadata: nil, name: nil, quantity: nil, unit_amount: nil, unit_amount_decimal: nil, request_options: {})
         #
-        # @param id [String]
-        # @param invoice_id [String]
-        # @param description [String]
-        # @param direction [String]
-        # @param metadata [Hash{Symbol=>String}]
-        # @param name [String]
-        # @param quantity [Integer]
-        # @param unit_amount [Integer]
-        # @param unit_amount_decimal [String]
+        # @param id [String] Path param: id
+        #
+        # @param invoice_id [String] Path param: invoice_id
+        #
+        # @param description [String] Body param: An optional free-form description of the line item.
+        #
+        # @param direction [String] Body param: Either `debit` or `credit`. `debit` indicates that a client owes the
+        # ...
+        #
+        # @param metadata [Hash{Symbol=>String}] Body param: Additional data represented as key-value pairs. Both the key and val
+        # ...
+        #
+        # @param name [String] Body param: The name of the line item, typically a product or SKU name.
+        #
+        # @param quantity [Integer] Body param: The number of units of a product or service that this line item is f
+        # ...
+        #
+        # @param unit_amount [Integer] Body param: The cost per unit of the product or service that this line item is f
+        # ...
+        #
+        # @param unit_amount_decimal [String] Body param: The cost per unit of the product or service that this line item is f
+        # ...
+        #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
@@ -94,9 +126,12 @@ module ModernTreasury
         #
         # @overload list(invoice_id, after_cursor: nil, per_page: nil, request_options: {})
         #
-        # @param invoice_id [String]
+        # @param invoice_id [String] invoice_id
+        #
         # @param after_cursor [String, nil]
+        #
         # @param per_page [Integer]
+        #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::Invoices::InvoiceLineItem>]
@@ -118,8 +153,10 @@ module ModernTreasury
         #
         # @overload delete(id, invoice_id:, request_options: {})
         #
-        # @param id [String]
-        # @param invoice_id [String]
+        # @param id [String] id
+        #
+        # @param invoice_id [String] invoice_id
+        #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]

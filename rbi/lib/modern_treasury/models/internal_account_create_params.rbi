@@ -86,14 +86,25 @@ module ModernTreasury
           .returns(T.attached_class)
       end
       def self.new(
+        # The identifier of the financial institution the account belongs to.
         connection_id:,
+        # Either "USD" or "CAD". Internal accounts created at Increase only supports
+        # "USD".
         currency:,
+        # The nickname of the account.
         name:,
+        # The legal name of the entity which owns the account.
         party_name:,
+        # The Counterparty associated to this account.
         counterparty_id: nil,
+        # The LegalEntity associated to this account.
         legal_entity_id: nil,
+        # The parent internal account of this new account.
         parent_account_id: nil,
+        # The address associated with the owner or null.
         party_address: nil,
+        # A hash of vendor specific attributes that will be used when creating the account
+        # at the vendor specified by the given connection.
         vendor_attributes: nil,
         request_options: {}
       ); end
@@ -170,8 +181,18 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(country:, line1:, locality:, postal_code:, region:, line2: nil); end
-
+        def self.new(
+          # Country code conforms to [ISO 3166-1 alpha-2]
+          country:,
+          line1:,
+          # Locality or City.
+          locality:,
+          # The postal code of the address.
+          postal_code:,
+          # Region or State.
+          region:,
+          line2: nil
+        ); end
         sig do
           override
             .returns(

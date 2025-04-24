@@ -58,11 +58,17 @@ module ModernTreasury
           .returns(T.attached_class)
       end
       def self.new(
+        # One of create, or update.
         action_type: nil,
         after_cursor: nil,
+        # For example, if you want to query for records with metadata key `Type` and value
+        # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+        # parameters.
         metadata: nil,
         per_page: nil,
+        # One of payment_order, expected_payment, or ledger_transaction.
         resource_type: nil,
+        # One of pending, processing, or completed.
         status: nil,
         request_options: {}
       ); end

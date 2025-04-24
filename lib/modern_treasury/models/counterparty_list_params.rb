@@ -58,14 +58,28 @@ module ModernTreasury
       optional :per_page, Integer
 
       # @!method initialize(after_cursor: nil, created_at_lower_bound: nil, created_at_upper_bound: nil, email: nil, legal_entity_id: nil, metadata: nil, name: nil, per_page: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::CounterpartyListParams} for more details.
+      #
       #   @param after_cursor [String, nil]
-      #   @param created_at_lower_bound [Time]
-      #   @param created_at_upper_bound [Time]
-      #   @param email [String]
-      #   @param legal_entity_id [String]
-      #   @param metadata [Hash{Symbol=>String}]
-      #   @param name [String]
+      #
+      #   @param created_at_lower_bound [Time] Used to return counterparties created after some datetime.
+      #
+      #   @param created_at_upper_bound [Time] Used to return counterparties created before some datetime.
+      #
+      #   @param email [String] Performs a partial string match of the email field. This is also case insensitiv
+      #   ...
+      #
+      #   @param legal_entity_id [String] Filters for counterparties with the given legal entity ID.
+      #
+      #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
+      #   ...
+      #
+      #   @param name [String] Performs a partial string match of the name field. This is also case insensitive
+      #   ...
+      #
       #   @param per_page [Integer]
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end

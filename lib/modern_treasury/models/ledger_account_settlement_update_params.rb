@@ -28,9 +28,17 @@ module ModernTreasury
       optional :status, enum: -> { ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status }
 
       # @!method initialize(description: nil, metadata: nil, status: nil, request_options: {})
-      #   @param description [String, nil]
-      #   @param metadata [Hash{Symbol=>String}]
-      #   @param status [Symbol, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::LedgerAccountSettlementUpdateParams} for more details.
+      #
+      #   @param description [String, nil] The description of the ledger account settlement.
+      #
+      #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      #   ...
+      #
+      #   @param status [Symbol, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status] To post a pending ledger account settlement, use `posted`. To archive a pending
+      #   ...
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # To post a pending ledger account settlement, use `posted`. To archive a pending

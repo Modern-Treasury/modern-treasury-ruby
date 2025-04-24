@@ -30,9 +30,13 @@ module ModernTreasury
 
       # @!method initialize(counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, request_options: {})
       #   @param counterparty_id [String]
-      #   @param ledger_account_id [String]
+      #
+      #   @param ledger_account_id [String] The ledger account that you'd like to link to the virtual account.
+      #
       #   @param metadata [Hash{Symbol=>String}]
+      #
       #   @param name [String, nil]
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end

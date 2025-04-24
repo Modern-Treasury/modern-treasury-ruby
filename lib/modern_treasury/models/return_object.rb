@@ -154,30 +154,64 @@ module ModernTreasury
       optional :data, ModernTreasury::Internal::Type::Unknown, nil?: true
 
       # @!method initialize(id:, amount:, code:, created_at:, currency:, current_return:, date_of_death:, failure_reason:, internal_account_id:, ledger_transaction_id:, live_mode:, object:, reason:, reference_numbers:, returnable_id:, returnable_type:, role:, status:, transaction_id:, transaction_line_item_id:, type:, updated_at:, additional_information: nil, data: nil)
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::ReturnObject} for more details.
+      #
       #   @param id [String]
-      #   @param amount [Integer]
-      #   @param code [Symbol, ModernTreasury::Models::ReturnObject::Code, nil]
+      #
+      #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
+      #   ...
+      #
+      #   @param code [Symbol, ModernTreasury::Models::ReturnObject::Code, nil] The return code. For ACH returns, this is the required ACH return code.
+      #
       #   @param created_at [Time]
-      #   @param currency [Symbol, ModernTreasury::Models::Currency]
-      #   @param current_return [ModernTreasury::Models::ReturnObject, nil]
-      #   @param date_of_death [Date, nil]
-      #   @param failure_reason [String, nil]
-      #   @param internal_account_id [String, nil]
-      #   @param ledger_transaction_id [String, nil]
-      #   @param live_mode [Boolean]
+      #
+      #   @param currency [Symbol, ModernTreasury::Models::Currency] Currency that this transaction is denominated in.
+      #
+      #   @param current_return [ModernTreasury::Models::ReturnObject, nil] If the return's status is `returned`, this will include the return object's data
+      #   ...
+      #
+      #   @param date_of_death [Date, nil] If the return code is `R14` or `R15` this is the date the deceased counterparty
+      #   ...
+      #
+      #   @param failure_reason [String, nil] If an originating return failed to be processed by the bank, a description of th
+      #   ...
+      #
+      #   @param internal_account_id [String, nil] The ID of the relevant Internal Account.
+      #
+      #   @param ledger_transaction_id [String, nil] The ID of the ledger transaction linked to the return.
+      #
+      #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+      #   ...
+      #
       #   @param object [String]
-      #   @param reason [String, nil]
-      #   @param reference_numbers [Array<ModernTreasury::Models::ReturnObject::ReferenceNumber>]
-      #   @param returnable_id [String, nil]
-      #   @param returnable_type [Symbol, ModernTreasury::Models::ReturnObject::ReturnableType, nil]
-      #   @param role [Symbol, ModernTreasury::Models::ReturnObject::Role]
-      #   @param status [Symbol, ModernTreasury::Models::ReturnObject::Status]
-      #   @param transaction_id [String, nil]
-      #   @param transaction_line_item_id [String, nil]
-      #   @param type [Symbol, ModernTreasury::Models::ReturnObject::Type]
+      #
+      #   @param reason [String, nil] Often the bank will provide an explanation for the return, which is a short huma
+      #   ...
+      #
+      #   @param reference_numbers [Array<ModernTreasury::Models::ReturnObject::ReferenceNumber>] An array of Payment Reference objects.
+      #
+      #   @param returnable_id [String, nil] The ID of the object being returned or `null`.
+      #
+      #   @param returnable_type [Symbol, ModernTreasury::Models::ReturnObject::ReturnableType, nil] The type of object being returned or `null`.
+      #
+      #   @param role [Symbol, ModernTreasury::Models::ReturnObject::Role] The role of the return, can be `originating` or `receiving`.
+      #
+      #   @param status [Symbol, ModernTreasury::Models::ReturnObject::Status] The current status of the return.
+      #
+      #   @param transaction_id [String, nil] The ID of the relevant Transaction or `null`.
+      #
+      #   @param transaction_line_item_id [String, nil] The ID of the relevant Transaction Line Item or `null`.
+      #
+      #   @param type [Symbol, ModernTreasury::Models::ReturnObject::Type] The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`, `
+      #   ...
+      #
       #   @param updated_at [Time]
-      #   @param additional_information [String, nil]
-      #   @param data [Object, nil]
+      #
+      #   @param additional_information [String, nil] Some returns may include additional information from the bank. In these cases, t
+      #   ...
+      #
+      #   @param data [Object, nil] The raw data from the return file that we get from the bank.
 
       # The return code. For ACH returns, this is the required ACH return code.
       #
@@ -285,12 +319,22 @@ module ModernTreasury
         required :updated_at, Time
 
         # @!method initialize(id:, created_at:, live_mode:, object:, reference_number:, reference_number_type:, updated_at:)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::ReturnObject::ReferenceNumber} for more details.
+        #
         #   @param id [String]
+        #
         #   @param created_at [Time]
-        #   @param live_mode [Boolean]
+        #
+        #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+        #   ...
+        #
         #   @param object [String]
-        #   @param reference_number [String]
-        #   @param reference_number_type [Symbol, ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType]
+        #
+        #   @param reference_number [String] The vendor reference number.
+        #
+        #   @param reference_number_type [Symbol, ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType] The type of the reference number. Referring to the vendor payment id.
+        #
         #   @param updated_at [Time]
 
         # The type of the reference number. Referring to the vendor payment id.

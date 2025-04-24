@@ -58,17 +58,22 @@ module ModernTreasury
       def self.new(
         id:,
         created_at:,
+        # The body of the event.
         data:,
+        # The ID of the entity for the event.
         entity_id:,
+        # The name of the event.
         event_name:,
+        # The time of the event.
         event_time:,
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
         live_mode:,
         object:,
+        # The type of resource for the event.
         resource:,
         updated_at:
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(

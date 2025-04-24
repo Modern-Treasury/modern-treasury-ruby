@@ -15,7 +15,12 @@ module ModernTreasury
       required :status, enum: -> { ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status }
 
       # @!method initialize(status:, request_options: {})
-      #   @param status [Symbol, ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::AccountCollectionFlowUpdateParams} for more details.
+      #
+      #   @param status [Symbol, ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status] Required. The updated status of the account collection flow. Can only be used to
+      #   ...
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # Required. The updated status of the account collection flow. Can only be used to

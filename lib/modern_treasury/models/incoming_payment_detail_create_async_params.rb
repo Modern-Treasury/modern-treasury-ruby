@@ -66,15 +66,31 @@ module ModernTreasury
       optional :virtual_account_id, String, nil?: true
 
       # @!method initialize(amount: nil, as_of_date: nil, currency: nil, data: nil, description: nil, direction: nil, internal_account_id: nil, type: nil, virtual_account_id: nil, request_options: {})
-      #   @param amount [Integer]
-      #   @param as_of_date [Date, nil]
-      #   @param currency [Symbol, ModernTreasury::Models::Currency, nil]
-      #   @param data [Object, nil]
-      #   @param description [String, nil]
-      #   @param direction [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction]
-      #   @param internal_account_id [String]
-      #   @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type]
-      #   @param virtual_account_id [String, nil]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams} for more
+      #   details.
+      #
+      #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
+      #   ...
+      #
+      #   @param as_of_date [Date, nil] Defaults to today.
+      #
+      #   @param currency [Symbol, ModernTreasury::Models::Currency, nil] Defaults to the currency of the originating account.
+      #
+      #   @param data [Object, nil] An object passed through to the simulated IPD that could reflect what a vendor w
+      #   ...
+      #
+      #   @param description [String, nil] Defaults to a random description.
+      #
+      #   @param direction [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction] One of `credit`, `debit`.
+      #
+      #   @param internal_account_id [String] The ID of one of your internal accounts.
+      #
+      #   @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type] One of `ach`, `wire`, `check`.
+      #
+      #   @param virtual_account_id [String, nil] An optional parameter to associate the incoming payment detail to a virtual acco
+      #   ...
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # One of `credit`, `debit`.

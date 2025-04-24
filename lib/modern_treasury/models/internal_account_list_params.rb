@@ -56,14 +56,26 @@ module ModernTreasury
       optional :per_page, Integer
 
       # @!method initialize(after_cursor: nil, counterparty_id: nil, currency: nil, legal_entity_id: nil, metadata: nil, payment_direction: nil, payment_type: nil, per_page: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::InternalAccountListParams} for more details.
+      #
       #   @param after_cursor [String, nil]
-      #   @param counterparty_id [String]
-      #   @param currency [Symbol, ModernTreasury::Models::Currency]
-      #   @param legal_entity_id [String]
-      #   @param metadata [Hash{Symbol=>String}]
-      #   @param payment_direction [Symbol, ModernTreasury::Models::TransactionDirection]
-      #   @param payment_type [Symbol, ModernTreasury::Models::InternalAccountListParams::PaymentType]
+      #
+      #   @param counterparty_id [String] Only return internal accounts associated with this counterparty.
+      #
+      #   @param currency [Symbol, ModernTreasury::Models::Currency] Only return internal accounts with this currency.
+      #
+      #   @param legal_entity_id [String] Only return internal accounts associated with this legal entity.
+      #
+      #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
+      #   ...
+      #
+      #   @param payment_direction [Symbol, ModernTreasury::Models::TransactionDirection] Only return internal accounts that can originate payments with this direction.
+      #
+      #   @param payment_type [Symbol, ModernTreasury::Models::InternalAccountListParams::PaymentType] Only return internal accounts that can make this type of payment.
+      #
       #   @param per_page [Integer]
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # Only return internal accounts that can make this type of payment.

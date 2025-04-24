@@ -69,16 +69,32 @@ module ModernTreasury
       required :updated_at, Time
 
       # @!method initialize(id:, bank_address:, bank_name:, created_at:, discarded_at:, live_mode:, object:, payment_type:, routing_number:, routing_number_type:, updated_at:)
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::RoutingDetail} for more details.
+      #
       #   @param id [String]
+      #
       #   @param bank_address [ModernTreasury::Models::RoutingDetail::BankAddress, nil]
-      #   @param bank_name [String]
+      #
+      #   @param bank_name [String] The name of the bank.
+      #
       #   @param created_at [Time]
+      #
       #   @param discarded_at [Time, nil]
-      #   @param live_mode [Boolean]
+      #
+      #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+      #   ...
+      #
       #   @param object [String]
-      #   @param payment_type [Symbol, ModernTreasury::Models::RoutingDetail::PaymentType, nil]
-      #   @param routing_number [String]
-      #   @param routing_number_type [Symbol, ModernTreasury::Models::RoutingDetail::RoutingNumberType]
+      #
+      #   @param payment_type [Symbol, ModernTreasury::Models::RoutingDetail::PaymentType, nil] If the routing detail is to be used for a specific payment type this field will
+      #   ...
+      #
+      #   @param routing_number [String] The routing number of the bank.
+      #
+      #   @param routing_number_type [Symbol, ModernTreasury::Models::RoutingDetail::RoutingNumberType] The type of routing number. See https://docs.moderntreasury.com/platform/referen
+      #   ...
+      #
       #   @param updated_at [Time]
 
       # @see ModernTreasury::Models::RoutingDetail#bank_address
@@ -145,16 +161,30 @@ module ModernTreasury
         required :updated_at, Time
 
         # @!method initialize(id:, country:, created_at:, line1:, line2:, live_mode:, locality:, object:, postal_code:, region:, updated_at:)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::RoutingDetail::BankAddress} for more details.
+        #
         #   @param id [String]
-        #   @param country [String, nil]
+        #
+        #   @param country [String, nil] Country code conforms to [ISO 3166-1 alpha-2]
+        #
         #   @param created_at [Time]
+        #
         #   @param line1 [String, nil]
+        #
         #   @param line2 [String, nil]
-        #   @param live_mode [Boolean]
-        #   @param locality [String, nil]
+        #
+        #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+        #   ...
+        #
+        #   @param locality [String, nil] Locality or City.
+        #
         #   @param object [String]
-        #   @param postal_code [String, nil]
-        #   @param region [String, nil]
+        #
+        #   @param postal_code [String, nil] The postal code of the address.
+        #
+        #   @param region [String, nil] Region or State.
+        #
         #   @param updated_at [Time]
       end
 

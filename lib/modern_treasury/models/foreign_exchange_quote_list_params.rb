@@ -62,15 +62,28 @@ module ModernTreasury
       optional :target_currency, String
 
       # @!method initialize(after_cursor: nil, base_currency: nil, effective_at_end: nil, effective_at_start: nil, expires_at: nil, internal_account_id: nil, metadata: nil, per_page: nil, target_currency: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::ForeignExchangeQuoteListParams} for more details.
+      #
       #   @param after_cursor [String, nil]
-      #   @param base_currency [String]
-      #   @param effective_at_end [Date]
-      #   @param effective_at_start [Date]
-      #   @param expires_at [Time]
-      #   @param internal_account_id [String]
-      #   @param metadata [Hash{Symbol=>String}]
+      #
+      #   @param base_currency [String] Currency to convert, often called the "sell" currency.
+      #
+      #   @param effective_at_end [Date] An inclusive upper bound for searching effective_at
+      #
+      #   @param effective_at_start [Date] An inclusive lower bound for searching effective_at
+      #
+      #   @param expires_at [Time] The timestamp until which the quote must be booked by.
+      #
+      #   @param internal_account_id [String] The ID for the `InternalAccount` this quote is associated with.
+      #
+      #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
+      #   ...
+      #
       #   @param per_page [Integer]
-      #   @param target_currency [String]
+      #
+      #   @param target_currency [String] Currency to convert the `base_currency` to, often called the "buy" currency.
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end

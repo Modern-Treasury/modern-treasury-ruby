@@ -29,8 +29,16 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(amount:, expected_payment_id:, transaction_id:, request_options: {}); end
-
+        def self.new(
+          # If a matching object exists in Modern Treasury, `amount` will be populated.
+          # Value in specified currency's smallest unit (taken from parent Transaction).
+          amount:,
+          # The ID of the reconciled Expected Payment, otherwise `null`.
+          expected_payment_id:,
+          # The ID of the parent transaction.
+          transaction_id:,
+          request_options: {}
+        ); end
         sig do
           override
             .returns(

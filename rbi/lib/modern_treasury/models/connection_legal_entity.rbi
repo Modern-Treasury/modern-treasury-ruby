@@ -56,14 +56,20 @@ module ModernTreasury
       end
       def self.new(
         id:,
+        # The ID of the connection.
         connection_id:,
         created_at:,
         discarded_at:,
+        # The ID of the legal entity.
         legal_entity_id:,
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
         live_mode:,
         object:,
+        # The status of the connection legal entity.
         status:,
         updated_at:,
+        # The ID of the legal entity at the vendor.
         vendor_id:
       ); end
       sig do

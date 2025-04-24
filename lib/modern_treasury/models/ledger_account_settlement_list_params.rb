@@ -69,16 +69,33 @@ module ModernTreasury
       optional :updated_at, ModernTreasury::Internal::Type::HashOf[Time]
 
       # @!method initialize(id: nil, after_cursor: nil, created_at: nil, ledger_id: nil, ledger_transaction_id: nil, metadata: nil, per_page: nil, settled_ledger_account_id: nil, settlement_entry_direction: nil, updated_at: nil, request_options: {})
-      #   @param id [Array<String>]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::LedgerAccountSettlementListParams} for more details.
+      #
+      #   @param id [Array<String>] If you have specific IDs to retrieve in bulk, you can pass them as query paramet
+      #   ...
+      #
       #   @param after_cursor [String, nil]
-      #   @param created_at [Hash{Symbol=>Time}]
+      #
+      #   @param created_at [Hash{Symbol=>Time}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the cre
+      #   ...
+      #
       #   @param ledger_id [String]
+      #
       #   @param ledger_transaction_id [String]
-      #   @param metadata [Hash{Symbol=>String}]
+      #
+      #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
+      #   ...
+      #
       #   @param per_page [Integer]
+      #
       #   @param settled_ledger_account_id [String]
+      #
       #   @param settlement_entry_direction [String]
-      #   @param updated_at [Hash{Symbol=>Time}]
+      #
+      #   @param updated_at [Hash{Symbol=>Time}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the upd
+      #   ...
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end

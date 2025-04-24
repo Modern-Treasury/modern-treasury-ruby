@@ -96,22 +96,36 @@ module ModernTreasury
       end
       def self.new(
         id:,
+        # The annual income of the individual.
         annual_income:,
         created_at:,
         discarded_at:,
+        # The country in which the employer is located.
         employer_country:,
+        # The name of the employer.
         employer_name:,
+        # The state in which the employer is located.
         employer_state:,
+        # The employment status of the individual.
         employment_status:,
+        # The country in which the individual's income is earned.
         income_country:,
+        # The source of the individual's income.
         income_source:,
+        # The state in which the individual's income is earned.
         income_state:,
+        # The industry of the individual.
         industry:,
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
         live_mode:,
         object:,
+        # The occupation of the individual.
         occupation:,
+        # The source of the individual's funds.
         source_of_funds:,
         updated_at:,
+        # The source of the individual's wealth.
         wealth_source:
       ); end
       sig do

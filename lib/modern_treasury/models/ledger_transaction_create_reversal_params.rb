@@ -58,13 +58,30 @@ module ModernTreasury
       optional :status, enum: -> { ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status }
 
       # @!method initialize(description: nil, effective_at: nil, external_id: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, status: nil, request_options: {})
-      #   @param description [String]
-      #   @param effective_at [Time, nil]
-      #   @param external_id [String]
-      #   @param ledgerable_id [String]
-      #   @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType]
-      #   @param metadata [Hash{Symbol=>String}]
-      #   @param status [Symbol, ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::LedgerTransactionCreateReversalParams} for more
+      #   details.
+      #
+      #   @param description [String] An optional free-form description for the reversal ledger transaction. Maximum o
+      #   ...
+      #
+      #   @param effective_at [Time, nil] The timestamp (ISO8601 format) at which the reversal ledger transaction happened
+      #   ...
+      #
+      #   @param external_id [String] Must be unique within the ledger.
+      #
+      #   @param ledgerable_id [String] Specify this if you'd like to link the reversal ledger transaction to a Payment
+      #   ...
+      #
+      #   @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType] Specify this if you'd like to link the reversal ledger transaction to a Payment
+      #   ...
+      #
+      #   @param metadata [Hash{Symbol=>String}] Additional data to be added to the reversal ledger transaction as key-value pair
+      #   ...
+      #
+      #   @param status [Symbol, ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status] Status of the reversal ledger transaction. It defaults to `posted` if not provid
+      #   ...
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # Specify this if you'd like to link the reversal ledger transaction to a Payment

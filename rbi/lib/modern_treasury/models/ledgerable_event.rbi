@@ -59,11 +59,19 @@ module ModernTreasury
       def self.new(
         id:,
         created_at:,
+        # Additionally data to be used by the Ledger Event Handler.
         custom_data:,
+        # Description of the ledgerable event.
         description:,
+        # Id of the ledger event handler that is used to create a ledger transaction.
         ledger_event_handler_id:,
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
         live_mode:,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        # strings.
         metadata:,
+        # Name of the ledgerable event.
         name:,
         object:,
         updated_at:

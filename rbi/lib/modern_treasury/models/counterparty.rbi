@@ -73,17 +73,28 @@ module ModernTreasury
       end
       def self.new(
         id:,
+        # The accounts for this counterparty.
         accounts:,
         created_at:,
         discarded_at:,
+        # The counterparty's email.
         email:,
+        # The id of the legal entity.
         legal_entity_id:,
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
         live_mode:,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        # strings.
         metadata:,
+        # A human friendly name for this counterparty.
         name:,
         object:,
+        # Send an email to the counterparty whenever an associated payment order is sent
+        # to the bank.
         send_remittance_advice:,
         updated_at:,
+        # The verification status of the counterparty.
         verification_status:
       ); end
       sig do
@@ -267,17 +278,29 @@ module ModernTreasury
         def self.new(
           id: nil,
           account_details: nil,
+          # Can be `checking`, `savings` or `other`.
           account_type: nil,
           contact_details: nil,
           created_at: nil,
           discarded_at: nil,
+          # If the external account links to a ledger account in Modern Treasury, the id of
+          # the ledger account will be populated here.
           ledger_account_id: nil,
+          # This field will be true if this object exists in the live environment or false
+          # if it exists in the test environment.
           live_mode: nil,
+          # Additional data represented as key-value pairs. Both the key and value must be
+          # strings.
           metadata: nil,
+          # A nickname for the external account. This is only for internal usage and won't
+          # affect any payments
           name: nil,
           object: nil,
+          # The address associated with the owner or `null`.
           party_address: nil,
+          # The legal name of the entity which owns the account.
           party_name: nil,
+          # Either `individual` or `business`.
           party_type: nil,
           routing_details: nil,
           updated_at: nil,
@@ -357,6 +380,8 @@ module ModernTreasury
             contact_identifier_type:,
             created_at:,
             discarded_at:,
+            # This field will be true if this object exists in the live environment or false
+            # if it exists in the test environment.
             live_mode:,
             object:,
             updated_at:
@@ -470,14 +495,20 @@ module ModernTreasury
           end
           def self.new(
             id:,
+            # Country code conforms to [ISO 3166-1 alpha-2]
             country:,
             created_at:,
             line1:,
             line2:,
+            # This field will be true if this object exists in the live environment or false
+            # if it exists in the test environment.
             live_mode:,
+            # Locality or City.
             locality:,
             object:,
+            # The postal code of the address.
             postal_code:,
+            # Region or State.
             region:,
             updated_at:
           ); end

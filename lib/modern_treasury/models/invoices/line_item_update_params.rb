@@ -63,14 +63,27 @@ module ModernTreasury
         optional :unit_amount_decimal, String
 
         # @!method initialize(invoice_id:, description: nil, direction: nil, metadata: nil, name: nil, quantity: nil, unit_amount: nil, unit_amount_decimal: nil, request_options: {})
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::Invoices::LineItemUpdateParams} for more details.
+        #
         #   @param invoice_id [String]
-        #   @param description [String]
-        #   @param direction [String]
-        #   @param metadata [Hash{Symbol=>String}]
-        #   @param name [String]
-        #   @param quantity [Integer]
-        #   @param unit_amount [Integer]
-        #   @param unit_amount_decimal [String]
+        #
+        #   @param description [String] An optional free-form description of the line item.
+        #
+        #   @param direction [String] Either `debit` or `credit`. `debit` indicates that a client owes the business mo
+        #   ...
+        #
+        #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+        #   ...
+        #
+        #   @param name [String] The name of the line item, typically a product or SKU name.
+        #
+        #   @param quantity [Integer] The number of units of a product or service that this line item is for. ...
+        #
+        #   @param unit_amount [Integer] The cost per unit of the product or service that this line item is for, ...
+        #
+        #   @param unit_amount_decimal [String] The cost per unit of the product or service that this line item is for, ...
+        #
         #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       end
     end
