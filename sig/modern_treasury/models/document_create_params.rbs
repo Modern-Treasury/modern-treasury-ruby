@@ -4,7 +4,7 @@ module ModernTreasury
       {
         documentable_id: String,
         documentable_type: ModernTreasury::Models::DocumentCreateParams::documentable_type,
-        file: (Pathname | StringIO),
+        file: (Pathname | StringIO | IO | ModernTreasury::FilePart),
         document_type: String
       }
       & ModernTreasury::Internal::Type::request_parameters
@@ -17,7 +17,7 @@ module ModernTreasury
 
       attr_accessor documentable_type: ModernTreasury::Models::DocumentCreateParams::documentable_type
 
-      attr_accessor file: Pathname | StringIO
+      attr_accessor file: Pathname | StringIO | IO | ModernTreasury::FilePart
 
       attr_reader document_type: String?
 
@@ -26,7 +26,7 @@ module ModernTreasury
       def initialize: (
         documentable_id: String,
         documentable_type: ModernTreasury::Models::DocumentCreateParams::documentable_type,
-        file: Pathname | StringIO,
+        file: Pathname | StringIO | IO | ModernTreasury::FilePart,
         ?document_type: String,
         ?request_options: ModernTreasury::request_opts
       ) -> void
