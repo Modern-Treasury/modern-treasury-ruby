@@ -13,7 +13,7 @@ module ModernTreasury
       sig { returns(ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol) }
       attr_accessor :documentable_type
 
-      sig { returns(T.any(Pathname, StringIO)) }
+      sig { returns(T.any(Pathname, StringIO, IO, ModernTreasury::FilePart)) }
       attr_accessor :file
 
       # A category given to the document, can be `null`.
@@ -27,7 +27,7 @@ module ModernTreasury
         params(
           documentable_id: String,
           documentable_type: ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol,
-          file: T.any(Pathname, StringIO),
+          file: T.any(Pathname, StringIO, IO, ModernTreasury::FilePart),
           document_type: String,
           request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
@@ -48,7 +48,7 @@ module ModernTreasury
             {
               documentable_id: String,
               documentable_type: ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol,
-              file: T.any(Pathname, StringIO),
+              file: T.any(Pathname, StringIO, IO, ModernTreasury::FilePart),
               document_type: String,
               request_options: ModernTreasury::RequestOptions
             }

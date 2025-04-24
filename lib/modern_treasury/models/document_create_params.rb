@@ -20,8 +20,8 @@ module ModernTreasury
 
       # @!attribute file
       #
-      #   @return [Pathname, StringIO]
-      required :file, ModernTreasury::Internal::Type::IOLike
+      #   @return [Pathname, StringIO, IO, ModernTreasury::FilePart]
+      required :file, ModernTreasury::Internal::Type::FileInput
 
       # @!attribute document_type
       #   A category given to the document, can be `null`.
@@ -34,7 +34,7 @@ module ModernTreasury
       #
       #   @param documentable_type [Symbol, ModernTreasury::Models::DocumentCreateParams::DocumentableType]
       #
-      #   @param file [Pathname, StringIO]
+      #   @param file [Pathname, StringIO, IO, ModernTreasury::FilePart]
       #
       #   @param document_type [String] A category given to the document, can be `null`.
       #
