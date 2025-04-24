@@ -214,7 +214,7 @@ module ModernTreasury
         #
         #   @option req [Object, nil] :body
         #
-        #   @option req [Symbol, nil] :unwrap
+        #   @option req [Symbol, Integer, Array<Symbol, Integer>, Proc, nil] :unwrap
         #
         #   @option req [Class<ModernTreasury::Internal::Type::BasePage>, nil] :page
         #
@@ -422,7 +422,7 @@ module ModernTreasury
         #
         # @param body [Object, nil]
         #
-        # @param unwrap [Symbol, nil]
+        # @param unwrap [Symbol, Integer, Array<Symbol, Integer>, Proc, nil]
         #
         # @param page [Class<ModernTreasury::Internal::Type::BasePage>, nil]
         #
