@@ -75,7 +75,7 @@ require "pathname"
 # using `Pathname`, the file will be lazily read, without reading everything in to memory
 document = modern_treasury.documents.create(
   documentable_id: "24c6b7a3-02...",
-  documentable_type: :counterparties,
+  documentable_type: "counterparties",
   file: Pathname("my/file.txt")
 )
 
@@ -83,7 +83,7 @@ file = File.read("my/file.txt")
 # using `StringIO`, useful if you already have the data in memory
 document = modern_treasury.documents.create(
   documentable_id: "24c6b7a3-02...",
-  documentable_type: :counterparties,
+  documentable_type: "counterparties",
   file: StringIO.new(file)
 )
 
