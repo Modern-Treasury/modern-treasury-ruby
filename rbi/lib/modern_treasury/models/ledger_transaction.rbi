@@ -112,21 +112,46 @@ module ModernTreasury
       def self.new(
         id:,
         created_at:,
+        # An optional description for internal use.
         description:,
+        # The timestamp (ISO8601 format) at which the ledger transaction happened for
+        # reporting purposes.
         effective_at:,
+        # The date (YYYY-MM-DD) on which the ledger transaction happened for reporting
+        # purposes.
         effective_date:,
+        # A unique string to represent the ledger transaction. Only one pending or posted
+        # ledger transaction may have this ID in the ledger.
         external_id:,
+        # An array of ledger entry objects.
         ledger_entries:,
+        # The ID of the ledger this ledger transaction belongs to.
         ledger_id:,
+        # If the ledger transaction can be reconciled to another object in Modern
+        # Treasury, the id will be populated here, otherwise null.
         ledgerable_id:,
+        # If the ledger transaction can be reconciled to another object in Modern
+        # Treasury, the type will be populated here, otherwise null. This can be one of
+        # payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
+        # reversal.
         ledgerable_type:,
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
         live_mode:,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        # strings.
         metadata:,
         object:,
+        # The ID of the ledger transaction that this ledger transaction partially posts.
         partially_posts_ledger_transaction_id:,
+        # The time on which the ledger transaction posted. This is null if the ledger
+        # transaction is pending.
         posted_at:,
+        # The ID of the ledger transaction that reversed this ledger transaction.
         reversed_by_ledger_transaction_id:,
+        # The ID of the original ledger transaction that this ledger transaction reverses.
         reverses_ledger_transaction_id:,
+        # To post a ledger transaction at creation, use `posted`.
         status:,
         updated_at:
       ); end

@@ -107,23 +107,45 @@ module ModernTreasury
       optional :type, enum: -> { ModernTreasury::Models::PaymentOrderListParams::Type }
 
       # @!method initialize(after_cursor: nil, counterparty_id: nil, created_at_end: nil, created_at_start: nil, direction: nil, effective_date_end: nil, effective_date_start: nil, metadata: nil, originating_account_id: nil, per_page: nil, priority: nil, process_after_end: nil, process_after_start: nil, reference_number: nil, status: nil, transaction_id: nil, type: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::PaymentOrderListParams} for more details.
+      #
       #   @param after_cursor [String, nil]
+      #
       #   @param counterparty_id [String]
-      #   @param created_at_end [Date]
-      #   @param created_at_start [Date]
+      #
+      #   @param created_at_end [Date] An inclusive upper bound for searching created_at
+      #
+      #   @param created_at_start [Date] An inclusive lower bound for searching created_at
+      #
       #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
-      #   @param effective_date_end [Date]
-      #   @param effective_date_start [Date]
-      #   @param metadata [Hash{Symbol=>String}]
+      #
+      #   @param effective_date_end [Date] An inclusive upper bound for searching effective_date
+      #
+      #   @param effective_date_start [Date] An inclusive lower bound for searching effective_date
+      #
+      #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
+      #   ...
+      #
       #   @param originating_account_id [String]
+      #
       #   @param per_page [Integer]
-      #   @param priority [Symbol, ModernTreasury::Models::PaymentOrderListParams::Priority]
-      #   @param process_after_end [Time]
-      #   @param process_after_start [Time]
-      #   @param reference_number [String]
+      #
+      #   @param priority [Symbol, ModernTreasury::Models::PaymentOrderListParams::Priority] Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-da
+      #   ...
+      #
+      #   @param process_after_end [Time] An inclusive upper bound for searching process_after
+      #
+      #   @param process_after_start [Time] An inclusive lower bound for searching process_after
+      #
+      #   @param reference_number [String] Query for records with the provided reference number
+      #
       #   @param status [Symbol, ModernTreasury::Models::PaymentOrderListParams::Status]
-      #   @param transaction_id [String]
+      #
+      #   @param transaction_id [String] The ID of a transaction that the payment order has been reconciled to.
+      #
       #   @param type [Symbol, ModernTreasury::Models::PaymentOrderListParams::Type]
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a

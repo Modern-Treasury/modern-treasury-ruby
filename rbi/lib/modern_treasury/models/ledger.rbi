@@ -53,16 +53,20 @@ module ModernTreasury
       def self.new(
         id:,
         created_at:,
+        # An optional free-form description for internal use.
         description:,
         discarded_at:,
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
         live_mode:,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        # strings.
         metadata:,
+        # The name of the ledger.
         name:,
         object:,
         updated_at:
-      )
-      end
-
+      ); end
       sig do
         override
           .returns(

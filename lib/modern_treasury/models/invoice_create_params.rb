@@ -190,31 +190,72 @@ module ModernTreasury
       optional :virtual_account_id, String, nil?: true
 
       # @!method initialize(counterparty_id:, due_date:, originating_account_id:, auto_advance: nil, contact_details: nil, counterparty_billing_address: nil, counterparty_shipping_address: nil, currency: nil, description: nil, fallback_payment_method: nil, ingest_ledger_entries: nil, invoice_line_items: nil, invoicer_address: nil, ledger_account_settlement_id: nil, metadata: nil, notification_email_addresses: nil, notifications_enabled: nil, payment_effective_date: nil, payment_method: nil, payment_type: nil, receiving_account_id: nil, recipient_email: nil, recipient_name: nil, remind_after_overdue_days: nil, virtual_account_id: nil, request_options: {})
-      #   @param counterparty_id [String]
-      #   @param due_date [Time]
-      #   @param originating_account_id [String]
-      #   @param auto_advance [Boolean, nil]
-      #   @param contact_details [Array<ModernTreasury::Models::InvoiceCreateParams::ContactDetail>]
-      #   @param counterparty_billing_address [ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress, nil]
-      #   @param counterparty_shipping_address [ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress, nil]
-      #   @param currency [Symbol, ModernTreasury::Models::Currency]
-      #   @param description [String]
-      #   @param fallback_payment_method [String, nil]
-      #   @param ingest_ledger_entries [Boolean, nil]
-      #   @param invoice_line_items [Array<ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem>, nil]
-      #   @param invoicer_address [ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress, nil]
-      #   @param ledger_account_settlement_id [String, nil]
-      #   @param metadata [Hash{Symbol=>String}, nil]
-      #   @param notification_email_addresses [Array<String>, nil]
-      #   @param notifications_enabled [Boolean]
-      #   @param payment_effective_date [Date]
-      #   @param payment_method [Symbol, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod]
-      #   @param payment_type [Symbol, ModernTreasury::Models::PaymentOrderType]
-      #   @param receiving_account_id [String]
-      #   @param recipient_email [String, nil]
-      #   @param recipient_name [String, nil]
-      #   @param remind_after_overdue_days [Array<Integer>, nil]
-      #   @param virtual_account_id [String, nil]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::InvoiceCreateParams} for more details.
+      #
+      #   @param counterparty_id [String] The ID of the counterparty receiving the invoice.
+      #
+      #   @param due_date [Time] A future date by when the invoice needs to be paid.
+      #
+      #   @param originating_account_id [String] The ID of the internal account the invoice should be paid to.
+      #
+      #   @param auto_advance [Boolean, nil] When true, the invoice will progress to unpaid automatically and cannot be edite
+      #   ...
+      #
+      #   @param contact_details [Array<ModernTreasury::Models::InvoiceCreateParams::ContactDetail>] The invoicer's contact details displayed at the top of the invoice.
+      #
+      #   @param counterparty_billing_address [ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress, nil] The counterparty's billing address.
+      #
+      #   @param counterparty_shipping_address [ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress, nil] The counterparty's shipping address where physical goods should be delivered.
+      #
+      #   @param currency [Symbol, ModernTreasury::Models::Currency] Currency that the invoice is denominated in. Defaults to `USD` if not provided.
+      #
+      #   @param description [String] A free-form description of the invoice.
+      #
+      #   @param fallback_payment_method [String, nil] When payment_method is automatic, the fallback payment method to use when an aut
+      #   ...
+      #
+      #   @param ingest_ledger_entries [Boolean, nil] Whether to ingest the ledger_entries to populate the invoice line items. If this
+      #   ...
+      #
+      #   @param invoice_line_items [Array<ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem>, nil] An array of invoice line items. The API supports a maximum of 50 invoice line it
+      #   ...
+      #
+      #   @param invoicer_address [ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress, nil] The invoice issuer's business address.
+      #
+      #   @param ledger_account_settlement_id [String, nil] The ID of the virtual account the invoice should be paid to.
+      #
+      #   @param metadata [Hash{Symbol=>String}, nil] Additional data represented as key-value pairs. Both the key and value must be s
+      #   ...
+      #
+      #   @param notification_email_addresses [Array<String>, nil] Emails in addition to the counterparty email to send invoice status notification
+      #   ...
+      #
+      #   @param notifications_enabled [Boolean] If true, the invoice will send email notifications to the invoice recipients abo
+      #   ...
+      #
+      #   @param payment_effective_date [Date] Date transactions are to be posted to the participants' account. Defaults to the
+      #   ...
+      #
+      #   @param payment_method [Symbol, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod] The method by which the invoice can be paid. `ui` will show the embedded payment
+      #   ...
+      #
+      #   @param payment_type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
+      #   ...
+      #
+      #   @param receiving_account_id [String] The receiving account ID. Can be an `external_account`.
+      #
+      #   @param recipient_email [String, nil] The email of the recipient of the invoice. Leaving this value as null will fallb
+      #   ...
+      #
+      #   @param recipient_name [String, nil] The name of the recipient of the invoice. Leaving this value as null will fallba
+      #   ...
+      #
+      #   @param remind_after_overdue_days [Array<Integer>, nil] Number of days after due date when overdue reminder emails will be sent out to i
+      #   ...
+      #
+      #   @param virtual_account_id [String, nil] The ID of the virtual account the invoice should be paid to.
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       class ContactDetail < ModernTreasury::Internal::Type::BaseModel
@@ -262,13 +303,24 @@ module ModernTreasury
         required :updated_at, Time
 
         # @!method initialize(id:, contact_identifier:, contact_identifier_type:, created_at:, discarded_at:, live_mode:, object:, updated_at:)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::InvoiceCreateParams::ContactDetail} for more details.
+        #
         #   @param id [String]
+        #
         #   @param contact_identifier [String]
+        #
         #   @param contact_identifier_type [Symbol, ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType]
+        #
         #   @param created_at [Time]
+        #
         #   @param discarded_at [Time, nil]
-        #   @param live_mode [Boolean]
+        #
+        #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+        #   ...
+        #
         #   @param object [String]
+        #
         #   @param updated_at [Time]
 
         # @see ModernTreasury::Models::InvoiceCreateParams::ContactDetail#contact_identifier_type
@@ -322,11 +374,16 @@ module ModernTreasury
         # @!method initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
         #   The counterparty's billing address.
         #
-        #   @param country [String]
+        #   @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
+        #
         #   @param line1 [String]
-        #   @param locality [String]
-        #   @param postal_code [String]
-        #   @param region [String]
+        #
+        #   @param locality [String] Locality or City.
+        #
+        #   @param postal_code [String] The postal code of the address.
+        #
+        #   @param region [String] Region or State.
+        #
         #   @param line2 [String]
       end
 
@@ -368,11 +425,16 @@ module ModernTreasury
         # @!method initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
         #   The counterparty's shipping address where physical goods should be delivered.
         #
-        #   @param country [String]
+        #   @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
+        #
         #   @param line1 [String]
-        #   @param locality [String]
-        #   @param postal_code [String]
-        #   @param region [String]
+        #
+        #   @param locality [String] Locality or City.
+        #
+        #   @param postal_code [String] The postal code of the address.
+        #
+        #   @param region [String] Region or State.
+        #
         #   @param line2 [String]
       end
 
@@ -427,13 +489,24 @@ module ModernTreasury
         optional :unit_amount_decimal, String
 
         # @!method initialize(name:, unit_amount:, description: nil, direction: nil, metadata: nil, quantity: nil, unit_amount_decimal: nil)
-        #   @param name [String]
-        #   @param unit_amount [Integer]
-        #   @param description [String]
-        #   @param direction [String]
-        #   @param metadata [Hash{Symbol=>String}]
-        #   @param quantity [Integer]
-        #   @param unit_amount_decimal [String]
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem} for more details.
+        #
+        #   @param name [String] The name of the line item, typically a product or SKU name.
+        #
+        #   @param unit_amount [Integer] The cost per unit of the product or service that this line item is for, ...
+        #
+        #   @param description [String] An optional free-form description of the line item.
+        #
+        #   @param direction [String] Either `debit` or `credit`. `debit` indicates that a client owes the business mo
+        #   ...
+        #
+        #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+        #   ...
+        #
+        #   @param quantity [Integer] The number of units of a product or service that this line item is for. ...
+        #
+        #   @param unit_amount_decimal [String] The cost per unit of the product or service that this line item is for, ...
       end
 
       class InvoicerAddress < ModernTreasury::Internal::Type::BaseModel
@@ -474,11 +547,16 @@ module ModernTreasury
         # @!method initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
         #   The invoice issuer's business address.
         #
-        #   @param country [String]
+        #   @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
+        #
         #   @param line1 [String]
-        #   @param locality [String]
-        #   @param postal_code [String]
-        #   @param region [String]
+        #
+        #   @param locality [String] Locality or City.
+        #
+        #   @param postal_code [String] The postal code of the address.
+        #
+        #   @param region [String] Region or State.
+        #
         #   @param line2 [String]
       end
 

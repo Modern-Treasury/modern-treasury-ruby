@@ -118,24 +118,45 @@ module ModernTreasury
                nil?: true
 
       # @!method initialize(id:, annual_income:, created_at:, discarded_at:, employer_country:, employer_name:, employer_state:, employment_status:, income_country:, income_source:, income_state:, industry:, live_mode:, object:, occupation:, source_of_funds:, updated_at:, wealth_source:)
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::WealthAndEmploymentDetails} for more details.
+      #
       #   @param id [String]
-      #   @param annual_income [Integer, nil]
+      #
+      #   @param annual_income [Integer, nil] The annual income of the individual.
+      #
       #   @param created_at [Time]
+      #
       #   @param discarded_at [Time, nil]
-      #   @param employer_country [String, nil]
-      #   @param employer_name [String, nil]
-      #   @param employer_state [String, nil]
-      #   @param employment_status [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus, nil]
-      #   @param income_country [String, nil]
-      #   @param income_source [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource, nil]
-      #   @param income_state [String, nil]
-      #   @param industry [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::Industry, nil]
-      #   @param live_mode [Boolean]
+      #
+      #   @param employer_country [String, nil] The country in which the employer is located.
+      #
+      #   @param employer_name [String, nil] The name of the employer.
+      #
+      #   @param employer_state [String, nil] The state in which the employer is located.
+      #
+      #   @param employment_status [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus, nil] The employment status of the individual.
+      #
+      #   @param income_country [String, nil] The country in which the individual's income is earned.
+      #
+      #   @param income_source [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource, nil] The source of the individual's income.
+      #
+      #   @param income_state [String, nil] The state in which the individual's income is earned.
+      #
+      #   @param industry [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::Industry, nil] The industry of the individual.
+      #
+      #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+      #   ...
+      #
       #   @param object [String]
-      #   @param occupation [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation, nil]
-      #   @param source_of_funds [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds, nil]
+      #
+      #   @param occupation [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation, nil] The occupation of the individual.
+      #
+      #   @param source_of_funds [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds, nil] The source of the individual's funds.
+      #
       #   @param updated_at [Time]
-      #   @param wealth_source [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource, nil]
+      #
+      #   @param wealth_source [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource, nil] The source of the individual's wealth.
 
       # The employment status of the individual.
       #

@@ -103,20 +103,44 @@ module ModernTreasury
         required :updated_at, Time
 
         # @!method initialize(id:, amount:, counterparty_id:, created_at:, description:, discarded_at:, expected_payment_id:, live_mode:, object:, reconcilable:, transactable_id:, transactable_type:, transaction_id:, type:, updated_at:)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::Transactions::TransactionLineItem} for more details.
+        #
         #   @param id [String]
-        #   @param amount [Integer]
-        #   @param counterparty_id [String, nil]
+        #
+        #   @param amount [Integer] If a matching object exists in Modern Treasury, `amount` will be populated. Valu
+        #   ...
+        #
+        #   @param counterparty_id [String, nil] The ID for the counterparty for this transaction line item.
+        #
         #   @param created_at [Time]
-        #   @param description [String]
+        #
+        #   @param description [String] If no matching object is found, `description` will be a free-form text field des
+        #   ...
+        #
         #   @param discarded_at [Time, nil]
-        #   @param expected_payment_id [String, nil]
-        #   @param live_mode [Boolean]
+        #
+        #   @param expected_payment_id [String, nil] The ID of the reconciled Expected Payment, otherwise `null`.
+        #
+        #   @param live_mode [Boolean] This field will be true if this object exists in the live environment, or false
+        #   ...
+        #
         #   @param object [String]
-        #   @param reconcilable [Boolean]
-        #   @param transactable_id [String, nil]
-        #   @param transactable_type [Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType, nil]
-        #   @param transaction_id [String]
-        #   @param type [Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::Type]
+        #
+        #   @param reconcilable [Boolean] Describes whether this line item should be counted towards the corresponding tra
+        #   ...
+        #
+        #   @param transactable_id [String, nil] If a matching object exists in Modern Treasury, the ID will be populated here, o
+        #   ...
+        #
+        #   @param transactable_type [Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType, nil] If a matching object exists in Modern Treasury, the type will be populated here,
+        #   ...
+        #
+        #   @param transaction_id [String] The ID of the parent transaction.
+        #
+        #   @param type [Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::Type] Indicates whether the line item is `originating` or `receiving` (see https://www
+        #   ...
+        #
         #   @param updated_at [Time]
 
         # If a matching object exists in Modern Treasury, the type will be populated here,

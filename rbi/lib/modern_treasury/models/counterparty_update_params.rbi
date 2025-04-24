@@ -60,11 +60,19 @@ module ModernTreasury
           .returns(T.attached_class)
       end
       def self.new(
+        # A new email for the counterparty.
         email: nil,
+        # The id of the legal entity.
         legal_entity_id: nil,
+        # Additional data in the form of key-value pairs. Pairs can be removed by passing
+        # an empty string or `null` as the value.
         metadata: nil,
+        # A new name for the counterparty. Will only update if passed.
         name: nil,
+        # If this is `true`, Modern Treasury will send an email to the counterparty
+        # whenever an associated payment order is sent to the bank.
         send_remittance_advice: nil,
+        # Either a valid SSN or EIN.
         taxpayer_identifier: nil,
         request_options: {}
       ); end

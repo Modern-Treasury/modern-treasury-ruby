@@ -46,10 +46,14 @@ module ModernTreasury
       end
       def self.new(
         id:,
+        # The industry classification codes for the legal entity.
         classification_codes:,
+        # The classification system of the classification codes.
         classification_type:,
         created_at:,
         discarded_at:,
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
         live_mode:,
         object:,
         updated_at:

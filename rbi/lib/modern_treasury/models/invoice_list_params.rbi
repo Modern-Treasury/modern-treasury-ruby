@@ -95,10 +95,16 @@ module ModernTreasury
       def self.new(
         after_cursor: nil,
         counterparty_id: nil,
+        # An inclusive upper bound for searching due_date
         due_date_end: nil,
+        # An inclusive lower bound for searching due_date
         due_date_start: nil,
         expected_payment_id: nil,
+        # For example, if you want to query for records with metadata key `Type` and value
+        # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+        # parameters.
         metadata: nil,
+        # A unique record number assigned to each invoice that is issued.
         number: nil,
         originating_account_id: nil,
         payment_order_id: nil,

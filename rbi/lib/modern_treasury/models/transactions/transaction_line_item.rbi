@@ -95,18 +95,38 @@ module ModernTreasury
         end
         def self.new(
           id:,
+          # If a matching object exists in Modern Treasury, `amount` will be populated.
+          # Value in specified currency's smallest unit (taken from parent Transaction).
           amount:,
+          # The ID for the counterparty for this transaction line item.
           counterparty_id:,
           created_at:,
+          # If no matching object is found, `description` will be a free-form text field
+          # describing the line item. This field may contain personally identifiable
+          # information (PII) and is not included in API responses by default. Learn more
+          # about changing your settings at
+          # https://docs.moderntreasury.com/reference/personally-identifiable-information.
           description:,
           discarded_at:,
+          # The ID of the reconciled Expected Payment, otherwise `null`.
           expected_payment_id:,
+          # This field will be true if this object exists in the live environment, or false
+          # if it exists in the test environment.
           live_mode:,
           object:,
+          # Describes whether this line item should be counted towards the corresponding
+          # transaction’s reconciliation.
           reconcilable:,
+          # If a matching object exists in Modern Treasury, the ID will be populated here,
+          # otherwise `null`.
           transactable_id:,
+          # If a matching object exists in Modern Treasury, the type will be populated here,
+          # otherwise `null`.
           transactable_type:,
+          # The ID of the parent transaction.
           transaction_id:,
+          # Indicates whether the line item is `originating` or `receiving` (see
+          # https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
           type:,
           updated_at:
         ); end

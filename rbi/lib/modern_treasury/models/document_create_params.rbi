@@ -33,8 +33,15 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(documentable_id:, documentable_type:, file:, document_type: nil, request_options: {}); end
-
+      def self.new(
+        # The unique identifier for the associated object.
+        documentable_id:,
+        documentable_type:,
+        file:,
+        # A category given to the document, can be `null`.
+        document_type: nil,
+        request_options: {}
+      ); end
       sig do
         override
           .returns(

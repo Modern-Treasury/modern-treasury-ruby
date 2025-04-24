@@ -7,7 +7,8 @@ module ModernTreasury
       #
       # @overload retrieve(id, request_options: {})
       #
-      # @param id [String]
+      # @param id [String] id
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::BulkResult]
@@ -22,17 +23,30 @@ module ModernTreasury
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {ModernTreasury::Models::BulkResultListParams} for more details.
+      #
       # list bulk_results
       #
       # @overload list(after_cursor: nil, entity_id: nil, entity_type: nil, per_page: nil, request_id: nil, request_type: nil, status: nil, request_options: {})
       #
       # @param after_cursor [String, nil]
-      # @param entity_id [String]
-      # @param entity_type [Symbol, ModernTreasury::Models::BulkResultListParams::EntityType]
+      #
+      # @param entity_id [String] Unique identifier for the result entity object.
+      #
+      # @param entity_type [Symbol, ModernTreasury::Models::BulkResultListParams::EntityType] The type of the request that created this result. bulk_request is the only suppo
+      # ...
+      #
       # @param per_page [Integer]
-      # @param request_id [String]
-      # @param request_type [Symbol, ModernTreasury::Models::BulkResultListParams::RequestType]
-      # @param status [Symbol, ModernTreasury::Models::BulkResultListParams::Status]
+      #
+      # @param request_id [String] Unique identifier for the request that created this bulk result. This is the ID
+      # ...
+      #
+      # @param request_type [Symbol, ModernTreasury::Models::BulkResultListParams::RequestType] The type of the request that created this result. bulk_request is the only suppo
+      # ...
+      #
+      # @param status [Symbol, ModernTreasury::Models::BulkResultListParams::Status] One of successful or failed.
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::BulkResult>]

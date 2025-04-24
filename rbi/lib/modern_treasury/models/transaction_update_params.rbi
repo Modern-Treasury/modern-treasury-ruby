@@ -21,8 +21,12 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(metadata: nil, request_options: {}); end
-
+      def self.new(
+        # Additional data in the form of key-value pairs. Pairs can be removed by passing
+        # an empty string or `null` as the value.
+        metadata: nil,
+        request_options: {}
+      ); end
       sig do
         override.returns({metadata: T::Hash[Symbol, String], request_options: ModernTreasury::RequestOptions})
       end

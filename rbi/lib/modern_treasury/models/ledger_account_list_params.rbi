@@ -170,19 +170,43 @@ module ModernTreasury
           .returns(T.attached_class)
       end
       def self.new(
+        # If you have specific IDs to retrieve in bulk, you can pass them as query
+        # parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
         id: nil,
         after_cursor: nil,
+        # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
+        # filter by balance amount.
         available_balance_amount: nil,
+        # Use `balances[effective_at_lower_bound]` and
+        # `balances[effective_at_upper_bound]` to get the balances change between the two
+        # timestamps. The lower bound is inclusive while the upper bound is exclusive of
+        # the provided timestamps. If no value is supplied the balances will be retrieved
+        # not including that bound.
         balances: nil,
+        # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+        # created at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
+        # created_at%5Bgt%5D=2000-01-01T12:00:00Z.
         created_at: nil,
         currency: nil,
         ledger_account_category_id: nil,
         ledger_id: nil,
+        # For example, if you want to query for records with metadata key `Type` and value
+        # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+        # parameters.
         metadata: nil,
+        # If you have specific names to retrieve in bulk, you can pass them as query
+        # parameters delimited with `name[]=`, for example `?name[]=123&name[]=abc`.
         name: nil,
+        # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
+        # filter by balance amount.
         pending_balance_amount: nil,
         per_page: nil,
+        # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
+        # filter by balance amount.
         posted_balance_amount: nil,
+        # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+        # updated at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
+        # updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
         updated_at: nil,
         request_options: {}
       ); end

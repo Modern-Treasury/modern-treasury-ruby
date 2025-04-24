@@ -275,40 +275,104 @@ module ModernTreasury
       optional :ultimate_receiving_party_name, String, nil?: true
 
       # @!method initialize(accounting: nil, accounting_category_id: nil, accounting_ledger_class_id: nil, amount: nil, charge_bearer: nil, counterparty_id: nil, currency: nil, description: nil, direction: nil, effective_date: nil, expires_at: nil, fallback_type: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, line_items: nil, metadata: nil, nsf_protected: nil, originating_account_id: nil, originating_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account: nil, receiving_account_id: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, status: nil, subtype: nil, type: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::PaymentOrderUpdateParams} for more details.
+      #
       #   @param accounting [ModernTreasury::Models::PaymentOrderUpdateParams::Accounting]
-      #   @param accounting_category_id [String, nil]
-      #   @param accounting_ledger_class_id [String, nil]
-      #   @param amount [Integer]
-      #   @param charge_bearer [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ChargeBearer, nil]
-      #   @param counterparty_id [String, nil]
-      #   @param currency [Symbol, ModernTreasury::Models::Currency]
-      #   @param description [String, nil]
-      #   @param direction [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Direction]
-      #   @param effective_date [Date]
-      #   @param expires_at [Time, nil]
-      #   @param fallback_type [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::FallbackType]
-      #   @param foreign_exchange_contract [String, nil]
-      #   @param foreign_exchange_indicator [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ForeignExchangeIndicator, nil]
-      #   @param line_items [Array<ModernTreasury::Models::PaymentOrderUpdateParams::LineItem>]
-      #   @param metadata [Hash{Symbol=>String}]
-      #   @param nsf_protected [Boolean]
-      #   @param originating_account_id [String]
-      #   @param originating_party_name [String, nil]
-      #   @param priority [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Priority]
-      #   @param process_after [Time, nil]
-      #   @param purpose [String, nil]
-      #   @param receiving_account [ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount]
-      #   @param receiving_account_id [String]
-      #   @param remittance_information [String, nil]
-      #   @param send_remittance_advice [Boolean, nil]
-      #   @param statement_descriptor [String, nil]
-      #   @param status [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Status]
-      #   @param subtype [Symbol, ModernTreasury::Models::PaymentOrderSubtype, nil]
-      #   @param type [Symbol, ModernTreasury::Models::PaymentOrderType]
-      #   @param ultimate_originating_party_identifier [String, nil]
-      #   @param ultimate_originating_party_name [String, nil]
-      #   @param ultimate_receiving_party_identifier [String, nil]
-      #   @param ultimate_receiving_party_name [String, nil]
+      #
+      #   @param accounting_category_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
+      #   ...
+      #
+      #   @param accounting_ledger_class_id [String, nil] The ID of one of your accounting ledger classes. Note that these will only be ac
+      #   ...
+      #
+      #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
+      #   ...
+      #
+      #   @param charge_bearer [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ChargeBearer, nil] The party that will pay the fees for the payment order. Only applies to wire pay
+      #   ...
+      #
+      #   @param counterparty_id [String, nil] Required when receiving_account_id is passed the ID of an external account.
+      #
+      #   @param currency [Symbol, ModernTreasury::Models::Currency] Defaults to the currency of the originating account.
+      #
+      #   @param description [String, nil] An optional description for internal use.
+      #
+      #   @param direction [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Direction] One of `credit`, `debit`. Describes the direction money is flowing in the transa
+      #   ...
+      #
+      #   @param effective_date [Date] Date transactions are to be posted to the participants' account. Defaults to the
+      #   ...
+      #
+      #   @param expires_at [Time, nil] RFP payments require an expires_at. This value must be past the effective_date.
+      #
+      #   @param fallback_type [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::FallbackType] A payment type to fallback to if the original type is not valid for the receivin
+      #   ...
+      #
+      #   @param foreign_exchange_contract [String, nil] If present, indicates a specific foreign exchange contract number that has been
+      #   ...
+      #
+      #   @param foreign_exchange_indicator [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ForeignExchangeIndicator, nil] Indicates the type of FX transfer to initiate, can be either `variable_to_fixed`
+      #   ...
+      #
+      #   @param line_items [Array<ModernTreasury::Models::PaymentOrderUpdateParams::LineItem>] An array of line items that must sum up to the amount of the payment order.
+      #
+      #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      #   ...
+      #
+      #   @param nsf_protected [Boolean] A boolean to determine if NSF Protection is enabled for this payment order. Note
+      #   ...
+      #
+      #   @param originating_account_id [String] The ID of one of your organization's internal accounts.
+      #
+      #   @param originating_party_name [String, nil] If present, this will replace your default company name on receiver's bank state
+      #   ...
+      #
+      #   @param priority [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Priority] Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-da
+      #   ...
+      #
+      #   @param process_after [Time, nil] If present, Modern Treasury will not process the payment until after this time.
+      #   ...
+      #
+      #   @param purpose [String, nil] For `wire`, this is usually the purpose which is transmitted via the "InstrForDb
+      #   ...
+      #
+      #   @param receiving_account [ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount] Either `receiving_account` or `receiving_account_id` must be present. When using
+      #   ...
+      #
+      #   @param receiving_account_id [String] Either `receiving_account` or `receiving_account_id` must be present. When using
+      #   ...
+      #
+      #   @param remittance_information [String, nil] For `ach`, this field will be passed through on an addenda record. For `wire` pa
+      #   ...
+      #
+      #   @param send_remittance_advice [Boolean, nil] Send an email to the counterparty when the payment order is sent to the bank. If
+      #   ...
+      #
+      #   @param statement_descriptor [String, nil] An optional descriptor which will appear in the receiver's statement. For `check
+      #   ...
+      #
+      #   @param status [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Status] To cancel a payment order, use `cancelled`. To redraft a returned payment order,
+      #   ...
+      #
+      #   @param subtype [Symbol, ModernTreasury::Models::PaymentOrderSubtype, nil] An additional layer of classification for the type of payment order you are doin
+      #   ...
+      #
+      #   @param type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
+      #   ...
+      #
+      #   @param ultimate_originating_party_identifier [String, nil] This represents the identifier by which the person is known to the receiver when
+      #   ...
+      #
+      #   @param ultimate_originating_party_name [String, nil] This represents the name of the person that the payment is on behalf of when usi
+      #   ...
+      #
+      #   @param ultimate_receiving_party_identifier [String, nil] This represents the name of the merchant that the payment is being sent to when
+      #   ...
+      #
+      #   @param ultimate_receiving_party_name [String, nil] This represents the identifier by which the merchant is known to the person init
+      #   ...
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       class Accounting < ModernTreasury::Internal::Type::BaseModel
@@ -328,8 +392,14 @@ module ModernTreasury
         optional :class_id, String, nil?: true
 
         # @!method initialize(account_id: nil, class_id: nil)
-        #   @param account_id [String, nil]
-        #   @param class_id [String, nil]
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::PaymentOrderUpdateParams::Accounting} for more details.
+        #
+        #   @param account_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
+        #   ...
+        #
+        #   @param class_id [String, nil] The ID of one of the class objects in your accounting system. Class objects trac
+        #   ...
       end
 
       # The party that will pay the fees for the payment order. Only applies to wire
@@ -414,10 +484,19 @@ module ModernTreasury
         optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
         # @!method initialize(amount:, accounting_category_id: nil, description: nil, metadata: nil)
-        #   @param amount [Integer]
-        #   @param accounting_category_id [String, nil]
-        #   @param description [String, nil]
-        #   @param metadata [Hash{Symbol=>String}]
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::PaymentOrderUpdateParams::LineItem} for more details.
+        #
+        #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
+        #   ...
+        #
+        #   @param accounting_category_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
+        #   ...
+        #
+        #   @param description [String, nil] A free-form description of the line item.
+        #
+        #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+        #   ...
       end
 
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
@@ -517,21 +596,41 @@ module ModernTreasury
                  -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail] }
 
         # @!method initialize(account_details: nil, account_type: nil, contact_details: nil, ledger_account: nil, metadata: nil, name: nil, party_address: nil, party_identifier: nil, party_name: nil, party_type: nil, plaid_processor_token: nil, routing_details: nil)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount} for more
+        #   details.
+        #
         #   Either `receiving_account` or `receiving_account_id` must be present. When using
         #   `receiving_account_id`, you may pass the id of an external account or an
         #   internal account.
         #
         #   @param account_details [Array<ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail>]
-        #   @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType]
+        #
+        #   @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType] Can be `checking`, `savings` or `other`.
+        #
         #   @param contact_details [Array<ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail>]
-        #   @param ledger_account [ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount]
-        #   @param metadata [Hash{Symbol=>String}]
-        #   @param name [String, nil]
-        #   @param party_address [ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyAddress]
+        #
+        #   @param ledger_account [ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount] Specifies a ledger account object that will be created with the external account
+        #   ...
+        #
+        #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+        #   ...
+        #
+        #   @param name [String, nil] A nickname for the external account. This is only for internal usage and won't a
+        #   ...
+        #
+        #   @param party_address [ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyAddress] Required if receiving wire payments.
+        #
         #   @param party_identifier [String]
-        #   @param party_name [String]
-        #   @param party_type [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyType, nil]
-        #   @param plaid_processor_token [String]
+        #
+        #   @param party_name [String] If this value isn't provided, it will be inherited from the counterparty's name.
+        #   ...
+        #
+        #   @param party_type [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyType, nil] Either `individual` or `business`.
+        #
+        #   @param plaid_processor_token [String] If you've enabled the Modern Treasury + Plaid integration in your Plaid account,
+        #   ...
+        #
         #   @param routing_details [Array<ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail>]
 
         class AccountDetail < ModernTreasury::Internal::Type::BaseModel
@@ -668,22 +767,39 @@ module ModernTreasury
           optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
           # @!method initialize(currency:, ledger_id:, name:, normal_balance:, currency_exponent: nil, description: nil, ledger_account_category_ids: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil)
+          #   Some parameter documentations has been truncated, see
+          #   {ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount}
+          #   for more details.
+          #
           #   Specifies a ledger account object that will be created with the external
           #   account. The resulting ledger account is linked to the external account for
           #   auto-ledgering Payment objects. See
           #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
           #   for more details.
           #
-          #   @param currency [String]
-          #   @param ledger_id [String]
-          #   @param name [String]
-          #   @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection]
-          #   @param currency_exponent [Integer, nil]
-          #   @param description [String, nil]
-          #   @param ledger_account_category_ids [Array<String>]
-          #   @param ledgerable_id [String]
-          #   @param ledgerable_type [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::LedgerableType]
-          #   @param metadata [Hash{Symbol=>String}]
+          #   @param currency [String] The currency of the ledger account.
+          #
+          #   @param ledger_id [String] The id of the ledger that this account belongs to.
+          #
+          #   @param name [String] The name of the ledger account.
+          #
+          #   @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection] The normal balance of the ledger account.
+          #
+          #   @param currency_exponent [Integer, nil] The currency exponent of the ledger account.
+          #
+          #   @param description [String, nil] The description of the ledger account.
+          #
+          #   @param ledger_account_category_ids [Array<String>] The array of ledger account category ids that this ledger account should be a ch
+          #   ...
+          #
+          #   @param ledgerable_id [String] If the ledger account links to another object in Modern Treasury, the id will be
+          #   ...
+          #
+          #   @param ledgerable_type [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::LedgerableType] If the ledger account links to another object in Modern Treasury, the type will
+          #   ...
+          #
+          #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+          #   ...
 
           # If the ledger account links to another object in Modern Treasury, the type will
           # be populated here, otherwise null. The value is one of internal_account or
@@ -742,12 +858,17 @@ module ModernTreasury
           # @!method initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
           #   Required if receiving wire payments.
           #
-          #   @param country [String, nil]
+          #   @param country [String, nil] Country code conforms to [ISO 3166-1 alpha-2]
+          #
           #   @param line1 [String, nil]
+          #
           #   @param line2 [String, nil]
-          #   @param locality [String, nil]
-          #   @param postal_code [String, nil]
-          #   @param region [String, nil]
+          #
+          #   @param locality [String, nil] Locality or City.
+          #
+          #   @param postal_code [String, nil] The postal code of the address.
+          #
+          #   @param region [String, nil] Region or State.
         end
 
         # Either `individual` or `business`.

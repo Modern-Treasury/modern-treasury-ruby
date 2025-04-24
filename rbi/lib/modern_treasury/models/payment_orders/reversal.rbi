@@ -64,12 +64,20 @@ module ModernTreasury
         def self.new(
           id:,
           created_at:,
+          # The ID of the ledger transaction linked to the reversal.
           ledger_transaction_id:,
+          # This field will be true if this object exists in the live environment or false
+          # if it exists in the test environment.
           live_mode:,
+          # Additional data represented as key-value pairs. Both the key and value must be
+          # strings.
           metadata:,
           object:,
+          # The ID of the relevant Payment Order.
           payment_order_id:,
+          # The reason for the reversal.
           reason:,
+          # The current status of the reversal.
           status:,
           transaction_ids:,
           updated_at:

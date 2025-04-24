@@ -98,21 +98,37 @@ module ModernTreasury
       end
       def self.new(
         id:,
+        # The account number on the paper item.
         account_number:,
+        # The last 4 digits of the account_number.
         account_number_safe:,
+        # The amount of the paper item.
         amount:,
+        # The check number on the paper item.
         check_number:,
         created_at:,
+        # The currency of the paper item.
         currency:,
+        # The date the paper item was deposited into your organization's bank account.
         deposit_date:,
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
         live_mode:,
+        # The identifier for the lockbox assigned by the bank.
         lockbox_number:,
+        # The memo field on the paper item.
         memo_field:,
         object:,
+        # The name of the remitter on the paper item.
         remitter_name:,
+        # The routing number on the paper item.
         routing_number:,
+        # The current status of the paper item. One of `pending`, `completed`, or
+        # `returned`.
         status:,
+        # The ID of the reconciled Transaction or `null`.
         transaction_id:,
+        # The ID of the reconciled Transaction Line Item or `null`.
         transaction_line_item_id:,
         updated_at:
       ); end

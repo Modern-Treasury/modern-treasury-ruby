@@ -66,15 +66,29 @@ module ModernTreasury
           .returns(T.attached_class)
       end
       def self.new(
+        # The lowest amount this expected payment may be equal to. Value in specified
+        # currency's smallest unit. e.g. $10 would be represented as 1000.
         amount_lower_bound:,
+        # The highest amount this expected payment may be equal to. Value in specified
+        # currency's smallest unit. e.g. $10 would be represented as 1000.
         amount_upper_bound:,
+        # One of credit or debit. When you are receiving money, use credit. When you are
+        # being charged, use debit.
         direction:,
+        # The ID of the Internal Account for the expected payment
         internal_account_id:,
+        # The ID of the counterparty you expect for this payment
         counterparty_id: nil,
+        # Must conform to ISO 4217. Defaults to the currency of the internal account
         currency: nil,
+        # A hash of custom identifiers for this payment
         custom_identifiers: nil,
+        # The earliest date the payment may come in. Format is yyyy-mm-dd
         date_lower_bound: nil,
+        # The latest date the payment may come in. Format is yyyy-mm-dd
         date_upper_bound: nil,
+        # One of ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
+        # sepa, signet wire
         type: nil
       ); end
       sig do

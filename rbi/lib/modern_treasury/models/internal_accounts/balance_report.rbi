@@ -59,12 +59,20 @@ module ModernTreasury
         end
         def self.new(
           id:,
+          # The date of the balance report in local time.
           as_of_date:,
+          # The time (24-hour clock) of the balance report in local time.
           as_of_time:,
+          # The specific type of balance report. One of `intraday`, `previous_day`,
+          # `real_time`, or `other`.
           balance_report_type:,
+          # An array of `Balance` objects.
           balances:,
           created_at:,
+          # The ID of one of your organization's Internal Accounts.
           internal_account_id:,
+          # This field will be true if this object exists in the live environment or false
+          # if it exists in the test environment.
           live_mode:,
           object:,
           updated_at:
@@ -197,17 +205,33 @@ module ModernTreasury
           end
           def self.new(
             id:,
+            # The balance amount.
             amount:,
+            # The date on which the balance became true for the account.
             as_of_date:,
+            # The time on which the balance became true for the account.
             as_of_time:,
+            # The specific type of balance reported. One of `opening_ledger`,
+            # `closing_ledger`, `current_ledger`, `opening_available`,
+            # `opening_available_next_business_day`, `closing_available`, `current_available`,
+            # 'previously_closed_book', or `other`.
             balance_type:,
             created_at:,
+            # The currency of the balance.
             currency:,
+            # This field will be true if this object exists in the live environment or false
+            # if it exists in the test environment.
             live_mode:,
             object:,
             updated_at:,
+            # The date on which the balance becomes available.
             value_date:,
+            # The code used by the bank when reporting this specific balance.
             vendor_code:,
+            # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
+            # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
+            # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+            # `swift`, or `us_bank`.
             vendor_code_type:
           ); end
           sig do

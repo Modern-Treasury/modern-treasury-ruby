@@ -78,17 +78,34 @@ module ModernTreasury
       required :updated_at, Time
 
       # @!method initialize(id:, balances:, created_at:, description:, discarded_at:, ledger_id:, live_mode:, metadata:, name:, normal_balance:, object:, updated_at:)
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::LedgerAccountCategory} for more details.
+      #
       #   @param id [String]
-      #   @param balances [ModernTreasury::Models::LedgerAccountCategory::Balances]
+      #
+      #   @param balances [ModernTreasury::Models::LedgerAccountCategory::Balances] The pending, posted, and available balances for this ledger account category. Th
+      #   ...
+      #
       #   @param created_at [Time]
-      #   @param description [String, nil]
+      #
+      #   @param description [String, nil] The description of the ledger account category.
+      #
       #   @param discarded_at [Time, nil]
-      #   @param ledger_id [String]
-      #   @param live_mode [Boolean]
-      #   @param metadata [Hash{Symbol=>String}]
-      #   @param name [String]
-      #   @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection]
+      #
+      #   @param ledger_id [String] The id of the ledger that this account category belongs to.
+      #
+      #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+      #   ...
+      #
+      #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      #   ...
+      #
+      #   @param name [String] The name of the ledger account category.
+      #
+      #   @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection] The normal balance of the ledger account category.
+      #
       #   @param object [String]
+      #
       #   @param updated_at [Time]
 
       # @see ModernTreasury::Models::LedgerAccountCategory#balances
@@ -116,15 +133,21 @@ module ModernTreasury
         required :posted_balance, -> { ModernTreasury::Models::LedgerAccountCategory::Balances::PostedBalance }
 
         # @!method initialize(available_balance:, pending_balance:, posted_balance:)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::LedgerAccountCategory::Balances} for more details.
+        #
         #   The pending, posted, and available balances for this ledger account category.
         #   The posted balance is the sum of all posted entries on the account. The pending
         #   balance is the sum of all pending and posted entries on the account. The
         #   available balance is the posted incoming entries minus the sum of the pending
         #   and posted outgoing amounts.
         #
-        #   @param available_balance [ModernTreasury::Models::LedgerAccountCategory::Balances::AvailableBalance]
-        #   @param pending_balance [ModernTreasury::Models::LedgerAccountCategory::Balances::PendingBalance]
-        #   @param posted_balance [ModernTreasury::Models::LedgerAccountCategory::Balances::PostedBalance]
+        #   @param available_balance [ModernTreasury::Models::LedgerAccountCategory::Balances::AvailableBalance] The available_balance is the sum of all posted inbound entries and pending outbo
+        #   ...
+        #
+        #   @param pending_balance [ModernTreasury::Models::LedgerAccountCategory::Balances::PendingBalance] The pending_balance is the sum of all pending and posted entries.
+        #
+        #   @param posted_balance [ModernTreasury::Models::LedgerAccountCategory::Balances::PostedBalance] The posted_balance is the sum of all posted entries.
 
         # @see ModernTreasury::Models::LedgerAccountCategory::Balances#available_balance
         class AvailableBalance < ModernTreasury::Internal::Type::BaseModel
@@ -162,9 +185,13 @@ module ModernTreasury
           #   pending_credits.
           #
           #   @param amount [Integer]
+          #
           #   @param credits [Integer]
-          #   @param currency [String]
-          #   @param currency_exponent [Integer]
+          #
+          #   @param currency [String] The currency of the ledger account.
+          #
+          #   @param currency_exponent [Integer] The currency exponent of the ledger account.
+          #
           #   @param debits [Integer]
         end
 
@@ -201,9 +228,13 @@ module ModernTreasury
           #   The pending_balance is the sum of all pending and posted entries.
           #
           #   @param amount [Integer]
+          #
           #   @param credits [Integer]
-          #   @param currency [String]
-          #   @param currency_exponent [Integer]
+          #
+          #   @param currency [String] The currency of the ledger account.
+          #
+          #   @param currency_exponent [Integer] The currency exponent of the ledger account.
+          #
           #   @param debits [Integer]
         end
 
@@ -240,9 +271,13 @@ module ModernTreasury
           #   The posted_balance is the sum of all posted entries.
           #
           #   @param amount [Integer]
+          #
           #   @param credits [Integer]
-          #   @param currency [String]
-          #   @param currency_exponent [Integer]
+          #
+          #   @param currency [String] The currency of the ledger account.
+          #
+          #   @param currency_exponent [Integer] The currency exponent of the ledger account.
+          #
           #   @param debits [Integer]
         end
       end

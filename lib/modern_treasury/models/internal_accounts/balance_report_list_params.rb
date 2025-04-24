@@ -33,10 +33,19 @@ module ModernTreasury
         optional :per_page, Integer
 
         # @!method initialize(after_cursor: nil, as_of_date: nil, balance_report_type: nil, per_page: nil, request_options: {})
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::InternalAccounts::BalanceReportListParams} for more
+        #   details.
+        #
         #   @param after_cursor [String, nil]
-        #   @param as_of_date [Date]
-        #   @param balance_report_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType]
+        #
+        #   @param as_of_date [Date] The date of the balance report in local time.
+        #
+        #   @param balance_report_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType] The specific type of balance report. One of `intraday`, `previous_day`, `real_ti
+        #   ...
+        #
         #   @param per_page [Integer]
+        #
         #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
         # The specific type of balance report. One of `intraday`, `previous_day`,

@@ -46,12 +46,23 @@ module ModernTreasury
       optional :taxpayer_identifier, String
 
       # @!method initialize(email: nil, legal_entity_id: nil, metadata: nil, name: nil, send_remittance_advice: nil, taxpayer_identifier: nil, request_options: {})
-      #   @param email [String]
-      #   @param legal_entity_id [String, nil]
-      #   @param metadata [Hash{Symbol=>String}]
-      #   @param name [String]
-      #   @param send_remittance_advice [Boolean]
-      #   @param taxpayer_identifier [String]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::CounterpartyUpdateParams} for more details.
+      #
+      #   @param email [String] A new email for the counterparty.
+      #
+      #   @param legal_entity_id [String, nil] The id of the legal entity.
+      #
+      #   @param metadata [Hash{Symbol=>String}] Additional data in the form of key-value pairs. Pairs can be removed by passing
+      #   ...
+      #
+      #   @param name [String] A new name for the counterparty. Will only update if passed.
+      #
+      #   @param send_remittance_advice [Boolean] If this is `true`, Modern Treasury will send an email to the counterparty whenev
+      #   ...
+      #
+      #   @param taxpayer_identifier [String] Either a valid SSN or EIN.
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end

@@ -60,11 +60,17 @@ module ModernTreasury
           .returns(T.attached_class)
       end
       def self.new(
+        # The ID of the parent legal entity. This must be a business or joint legal
+        # entity.
         parent_legal_entity_id:,
         relationship_types:,
+        # The child legal entity.
         child_legal_entity: nil,
+        # The ID of the child legal entity.
         child_legal_entity_id: nil,
+        # The child entity's ownership percentage iff they are a beneficial owner.
         ownership_percentage: nil,
+        # The job title of the child entity at the parent entity.
         title: nil,
         request_options: {}
       ); end
@@ -379,30 +385,51 @@ module ModernTreasury
             .returns(T.attached_class)
         end
         def self.new(
+          # A list of addresses for the entity.
           addresses: nil,
           bank_settings: nil,
+          # The business's legal business name.
           business_name: nil,
+          # The country of citizenship for an individual.
           citizenship_country: nil,
           compliance_details: nil,
+          # A business's formation date (YYYY-MM-DD).
           date_formed: nil,
+          # An individual's date of birth (YYYY-MM-DD).
           date_of_birth: nil,
           doing_business_as_names: nil,
+          # The entity's primary email.
           email: nil,
+          # An individual's first name.
           first_name: nil,
+          # A list of identifications for the legal entity.
           identifications: nil,
+          # A list of industry classifications for the legal entity.
           industry_classifications: nil,
+          # An individual's last name.
           last_name: nil,
+          # The type of legal entity.
           legal_entity_type: nil,
+          # The business's legal structure.
           legal_structure: nil,
+          # Additional data represented as key-value pairs. Both the key and value must be
+          # strings.
           metadata: nil,
+          # An individual's middle name.
           middle_name: nil,
           phone_numbers: nil,
+          # Whether the individual is a politically exposed person.
           politically_exposed_person: nil,
+          # An individual's preferred name.
           preferred_name: nil,
+          # An individual's prefix.
           prefix: nil,
+          # The risk rating of the legal entity. One of low, medium, high.
           risk_rating: nil,
+          # An individual's suffix.
           suffix: nil,
           wealth_and_employment_details: nil,
+          # The entity's primary website URL.
           website: nil
         ); end
         sig do
@@ -502,9 +529,20 @@ module ModernTreasury
             )
               .returns(T.attached_class)
           end
-          def self.new(country:, line1:, locality:, postal_code:, region:, address_types: nil, line2: nil)
-          end
-
+          def self.new(
+            # Country code conforms to [ISO 3166-1 alpha-2]
+            country:,
+            line1:,
+            # Locality or City.
+            locality:,
+            # The postal code of the address.
+            postal_code:,
+            # Region or State.
+            region:,
+            # The types of this address.
+            address_types: nil,
+            line2: nil
+          ); end
           sig do
             override
               .returns(
@@ -596,8 +634,15 @@ module ModernTreasury
             )
               .returns(T.attached_class)
           end
-          def self.new(id_number:, id_type:, issuing_country: nil); end
-
+          def self.new(
+            # The ID number of identification document.
+            id_number:,
+            # The type of ID number.
+            id_type:,
+            # The ISO 3166-1 alpha-2 country code of the country that issued the
+            # identification
+            issuing_country: nil
+          ); end
           sig do
             override
               .returns(

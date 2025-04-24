@@ -91,15 +91,26 @@ module ModernTreasury
           .returns(T.attached_class)
       end
       def self.new(
+        # If you have specific IDs to retrieve in bulk, you can pass them as query
+        # parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
         id: nil,
         after_cursor: nil,
+        # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+        # created at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
+        # created_at%5Bgt%5D=2000-01-01T12:00:00Z.
         created_at: nil,
         ledger_id: nil,
         ledger_transaction_id: nil,
+        # For example, if you want to query for records with metadata key `Type` and value
+        # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+        # parameters.
         metadata: nil,
         per_page: nil,
         settled_ledger_account_id: nil,
         settlement_entry_direction: nil,
+        # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+        # updated at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
+        # updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
         updated_at: nil,
         request_options: {}
       ); end

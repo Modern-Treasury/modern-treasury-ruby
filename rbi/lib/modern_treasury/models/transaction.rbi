@@ -165,29 +165,69 @@ module ModernTreasury
       end
       def self.new(
         id:,
+        # Value in specified currency's smallest unit. e.g. $10 would be represented
+        # as 1000.
         amount:,
+        # The date on which the transaction occurred.
         as_of_date:,
+        # The time on which the transaction occurred. Depending on the granularity of the
+        # timestamp information received from the bank, it may be `null`.
         as_of_time:,
+        # The timezone in which the `as_of_time` is represented. Can be `null` if the bank
+        # does not provide timezone info.
         as_of_timezone:,
         created_at:,
+        # Currency that this transaction is denominated in.
         currency:,
+        # An object containing key-value pairs, each with a custom identifier as the key
+        # and a string value.
         custom_identifiers:,
+        # Either `credit` or `debit`.
         direction:,
         discarded_at:,
+        # Associated serialized foreign exchange rate information.
         foreign_exchange_rate:,
+        # The ID of the relevant Internal Account.
         internal_account_id:,
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
         live_mode:,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        # strings.
         metadata:,
         object:,
+        # This field will be `true` if the transaction has posted to the account.
         posted:,
+        # This field will be `true` if a transaction is reconciled by the Modern Treasury
+        # system. This means that it has transaction line items that sum up to the
+        # transaction's amount.
         reconciled:,
+        # The type of the transaction. Examples could be
+        # `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
         type:,
         updated_at:,
+        # When applicable, the bank-given code that determines the transaction's category.
+        # For most banks this is the BAI2/BTRS transaction code.
         vendor_code:,
+        # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
+        # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
+        # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+        # `swift`, `us_bank`, or others.
         vendor_code_type:,
+        # An identifier given to this transaction by the bank, often `null`.
         vendor_customer_id:,
+        # An identifier given to this transaction by the bank.
         vendor_id:,
+        # This field contains additional information that the bank provided about the
+        # transaction. This is structured data. Some of the data in here might overlap
+        # with what is in the `vendor_description`. For example, the OBI could be a part
+        # of the vendor description, and it would also be included in here. The attributes
+        # that are passed through the details field will vary based on your banking
+        # partner. Currently, the following keys may be in the details object:
+        # `originator_name`, `originator_to_beneficiary_information`.
         details: nil,
+        # The transaction detail text that often appears in on your bank statement and in
+        # your banking portal.
         vendor_description: nil
       ); end
       sig do
@@ -271,16 +311,25 @@ module ModernTreasury
             .returns(T.attached_class)
         end
         def self.new(
+          # Amount in the lowest denomination of the `base_currency` to convert, often
+          # called the "sell" amount.
           base_amount:,
+          # Currency to convert, often called the "sell" currency.
           base_currency:,
+          # The exponent component of the rate. The decimal is calculated as `value` / (10 ^
+          # `exponent`).
           exponent:,
+          # A string representation of the rate.
           rate_string:,
+          # Amount in the lowest denomination of the `target_currency`, often called the
+          # "buy" amount.
           target_amount:,
+          # Currency to convert the `base_currency` to, often called the "buy" currency.
           target_currency:,
+          # The whole number component of the rate. The decimal is calculated as `value` /
+          # (10 ^ `exponent`).
           value:
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(

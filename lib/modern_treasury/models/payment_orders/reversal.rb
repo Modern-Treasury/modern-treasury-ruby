@@ -70,16 +70,31 @@ module ModernTreasury
         required :updated_at, Time
 
         # @!method initialize(id:, created_at:, ledger_transaction_id:, live_mode:, metadata:, object:, payment_order_id:, reason:, status:, transaction_ids:, updated_at:)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::PaymentOrders::Reversal} for more details.
+        #
         #   @param id [String]
+        #
         #   @param created_at [Time]
-        #   @param ledger_transaction_id [String, nil]
-        #   @param live_mode [Boolean]
-        #   @param metadata [Hash{Symbol=>String}]
+        #
+        #   @param ledger_transaction_id [String, nil] The ID of the ledger transaction linked to the reversal.
+        #
+        #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+        #   ...
+        #
+        #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+        #   ...
+        #
         #   @param object [String]
-        #   @param payment_order_id [String, nil]
-        #   @param reason [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Reason]
-        #   @param status [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Status]
+        #
+        #   @param payment_order_id [String, nil] The ID of the relevant Payment Order.
+        #
+        #   @param reason [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Reason] The reason for the reversal.
+        #
+        #   @param status [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Status] The current status of the reversal.
+        #
         #   @param transaction_ids [Array<Object, nil>]
+        #
         #   @param updated_at [Time]
 
         # The reason for the reversal.

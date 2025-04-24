@@ -36,11 +36,20 @@ module ModernTreasury
       optional :show_deleted, String
 
       # @!method initialize(after_cursor: nil, legal_entity_type: nil, metadata: nil, per_page: nil, show_deleted: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::LegalEntityListParams} for more details.
+      #
       #   @param after_cursor [String, nil]
+      #
       #   @param legal_entity_type [Symbol, ModernTreasury::Models::LegalEntityListParams::LegalEntityType]
-      #   @param metadata [Hash{Symbol=>String}]
+      #
+      #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
+      #   ...
+      #
       #   @param per_page [Integer]
+      #
       #   @param show_deleted [String]
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       module LegalEntityType

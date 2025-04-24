@@ -45,12 +45,24 @@ module ModernTreasury
       optional :returnable_type, enum: -> { ModernTreasury::Models::ReturnListParams::ReturnableType }
 
       # @!method initialize(after_cursor: nil, counterparty_id: nil, internal_account_id: nil, per_page: nil, returnable_id: nil, returnable_type: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::ReturnListParams} for more details.
+      #
       #   @param after_cursor [String, nil]
-      #   @param counterparty_id [String]
-      #   @param internal_account_id [String]
+      #
+      #   @param counterparty_id [String] Specify `counterparty_id` if you wish to see returns that occurred with a specif
+      #   ...
+      #
+      #   @param internal_account_id [String] Specify `internal_account_id` if you wish to see returns to/from a specific acco
+      #   ...
+      #
       #   @param per_page [Integer]
-      #   @param returnable_id [String]
-      #   @param returnable_type [Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType]
+      #
+      #   @param returnable_id [String] The ID of a valid returnable. Must be accompanied by `returnable_type`.
+      #
+      #   @param returnable_type [Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType] One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
+      #   ...
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.

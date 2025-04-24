@@ -18,8 +18,12 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(status:, request_options: {}); end
-
+      def self.new(
+        # Required. The updated status of the account collection flow. Can only be used to
+        # mark a flow as `cancelled`.
+        status:,
+        request_options: {}
+      ); end
       sig do
         override
           .returns(

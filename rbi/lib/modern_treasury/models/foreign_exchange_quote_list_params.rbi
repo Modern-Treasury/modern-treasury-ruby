@@ -83,13 +83,22 @@ module ModernTreasury
       end
       def self.new(
         after_cursor: nil,
+        # Currency to convert, often called the "sell" currency.
         base_currency: nil,
+        # An inclusive upper bound for searching effective_at
         effective_at_end: nil,
+        # An inclusive lower bound for searching effective_at
         effective_at_start: nil,
+        # The timestamp until which the quote must be booked by.
         expires_at: nil,
+        # The ID for the `InternalAccount` this quote is associated with.
         internal_account_id: nil,
+        # For example, if you want to query for records with metadata key `Type` and value
+        # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+        # parameters.
         metadata: nil,
         per_page: nil,
+        # Currency to convert the `base_currency` to, often called the "buy" currency.
         target_currency: nil,
         request_options: {}
       ); end

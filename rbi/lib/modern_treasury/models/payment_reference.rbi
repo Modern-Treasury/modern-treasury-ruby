@@ -55,11 +55,19 @@ module ModernTreasury
       def self.new(
         id:,
         created_at:,
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
         live_mode:,
         object:,
+        # The actual reference number assigned by the bank.
         reference_number:,
+        # The type of reference number.
         reference_number_type:,
+        # The id of the referenceable to search for. Must be accompanied by the
+        # referenceable_type or will return an error.
         referenceable_id:,
+        # One of the referenceable types. This must be accompanied by the id of the
+        # referenceable or will return an error.
         referenceable_type:,
         updated_at:
       ); end

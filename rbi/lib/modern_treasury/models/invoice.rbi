@@ -239,41 +239,90 @@ module ModernTreasury
       end
       def self.new(
         id:,
+        # Amount paid on the invoice in specified currency's smallest unit, e.g., $10 USD
+        # would be represented as 1000.
         amount_paid:,
+        # Amount remaining due on the invoice in specified currency's smallest unit, e.g.,
+        # $10 USD would be represented as 1000.
         amount_remaining:,
+        # The invoicer's contact details displayed at the top of the invoice.
         contact_details:,
+        # The counterparty's billing address.
         counterparty_billing_address:,
+        # The ID of the counterparty receiving the invoice.
         counterparty_id:,
+        # The counterparty's shipping address where physical goods should be delivered.
         counterparty_shipping_address:,
         created_at:,
+        # Currency that the invoice is denominated in. Defaults to `USD` if not provided.
         currency:,
+        # A free-form description of the invoice.
         description:,
+        # A future date by when the invoice needs to be paid.
         due_date:,
+        # The expected payments created for an unpaid invoice.
         expected_payments:,
+        # When payment_method is automatic, the fallback payment method to use when an
+        # automatic payment fails. One of `manual` or `ui`.
         fallback_payment_method:,
+        # The URL of the hosted web UI where the invoice can be viewed.
         hosted_url:,
+        # The invoice issuer's business address.
         invoicer_address:,
+        # The ledger account settlement object linked to the invoice.
         ledger_account_settlement_id:,
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
         live_mode:,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        # strings.
         metadata:,
+        # Emails in addition to the counterparty email to send invoice status
+        # notifications to. At least one email is required if notifications are enabled
+        # and the counterparty doesn't have an email.
         notification_email_addresses:,
+        # If true, the invoice will send email notifications to the invoice recipients
+        # about invoice status changes.
         notifications_enabled:,
+        # A unique record number assigned to each invoice that is issued.
         number:,
         object:,
+        # The ID of the internal account the invoice should be paid to.
         originating_account_id:,
+        # Date transactions are to be posted to the participants' account. Defaults to the
+        # current business day or the next business day if the current day is a bank
+        # holiday or weekend. Format: yyyy-mm-dd.
         payment_effective_date:,
+        # When opening an invoice, whether to show the embedded payment UI , automatically
+        # debit the recipient, or rely on manual payment from the recipient.
         payment_method:,
+        # The payment orders created for paying the invoice through the invoice payment
+        # UI.
         payment_orders:,
+        # One of `ach` or `eft`.
         payment_type:,
+        # The URL where the invoice PDF can be downloaded.
         pdf_url:,
+        # The receiving account ID. Can be an `internal_account`.
         receiving_account_id:,
+        # The email of the recipient of the invoice. Leaving this value as null will
+        # fallback to using the counterparty's name.
         recipient_email:,
+        # The name of the recipient of the invoice. Leaving this value as null will
+        # fallback to using the counterparty's name.
         recipient_name:,
+        # Number of days after due date when overdue reminder emails will be sent out to
+        # invoice recipients.
         remind_after_overdue_days:,
+        # The status of the invoice.
         status:,
+        # Total amount due in specified currency's smallest unit, e.g., $10 USD would be
+        # represented as 1000.
         total_amount:,
+        # IDs of transaction line items associated with an invoice.
         transaction_line_item_ids:,
         updated_at:,
+        # The ID of the virtual account the invoice should be paid to.
         virtual_account_id:
       ); end
       sig do
@@ -368,6 +417,8 @@ module ModernTreasury
           contact_identifier_type:,
           created_at:,
           discarded_at:,
+          # This field will be true if this object exists in the live environment or false
+          # if it exists in the test environment.
           live_mode:,
           object:,
           updated_at:
@@ -449,8 +500,18 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(country:, line1:, locality:, postal_code:, region:, line2: nil); end
-
+        def self.new(
+          # Country code conforms to [ISO 3166-1 alpha-2]
+          country:,
+          line1:,
+          # Locality or City.
+          locality:,
+          # The postal code of the address.
+          postal_code:,
+          # Region or State.
+          region:,
+          line2: nil
+        ); end
         sig do
           override
             .returns(
@@ -505,8 +566,18 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(country:, line1:, locality:, postal_code:, region:, line2: nil); end
-
+        def self.new(
+          # Country code conforms to [ISO 3166-1 alpha-2]
+          country:,
+          line1:,
+          # Locality or City.
+          locality:,
+          # The postal code of the address.
+          postal_code:,
+          # Region or State.
+          region:,
+          line2: nil
+        ); end
         sig do
           override
             .returns(
@@ -561,8 +632,18 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(country:, line1:, locality:, postal_code:, region:, line2: nil); end
-
+        def self.new(
+          # Country code conforms to [ISO 3166-1 alpha-2]
+          country:,
+          line1:,
+          # Locality or City.
+          locality:,
+          # The postal code of the address.
+          postal_code:,
+          # Region or State.
+          region:,
+          line2: nil
+        ); end
         sig do
           override
             .returns(

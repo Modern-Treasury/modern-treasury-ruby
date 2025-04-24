@@ -137,28 +137,56 @@ module ModernTreasury
       end
       def self.new(
         id:,
+        # Value in specified currency's smallest unit. e.g. $10 would be represented
+        # as 1000.
         amount:,
+        # The return code. For ACH returns, this is the required ACH return code.
         code:,
         created_at:,
+        # Currency that this transaction is denominated in.
         currency:,
+        # If the return's status is `returned`, this will include the return object's data
+        # that is returning this return.
         current_return:,
+        # If the return code is `R14` or `R15` this is the date the deceased counterparty
+        # passed away.
         date_of_death:,
+        # If an originating return failed to be processed by the bank, a description of
+        # the failure reason will be available.
         failure_reason:,
+        # The ID of the relevant Internal Account.
         internal_account_id:,
+        # The ID of the ledger transaction linked to the return.
         ledger_transaction_id:,
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
         live_mode:,
         object:,
+        # Often the bank will provide an explanation for the return, which is a short
+        # human readable string.
         reason:,
+        # An array of Payment Reference objects.
         reference_numbers:,
+        # The ID of the object being returned or `null`.
         returnable_id:,
+        # The type of object being returned or `null`.
         returnable_type:,
+        # The role of the return, can be `originating` or `receiving`.
         role:,
+        # The current status of the return.
         status:,
+        # The ID of the relevant Transaction or `null`.
         transaction_id:,
+        # The ID of the relevant Transaction Line Item or `null`.
         transaction_line_item_id:,
+        # The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`,
+        # `interac`, `manual`, `paper_item`, `wire`.
         type:,
         updated_at:,
+        # Some returns may include additional information from the bank. In these cases,
+        # this string will be present.
         additional_information: nil,
+        # The raw data from the return file that we get from the bank.
         data: nil
       ); end
       sig do
@@ -300,14 +328,16 @@ module ModernTreasury
         def self.new(
           id:,
           created_at:,
+          # This field will be true if this object exists in the live environment or false
+          # if it exists in the test environment.
           live_mode:,
           object:,
+          # The vendor reference number.
           reference_number:,
+          # The type of the reference number. Referring to the vendor payment id.
           reference_number_type:,
           updated_at:
-        )
-        end
-
+        ); end
         sig do
           override
             .returns(

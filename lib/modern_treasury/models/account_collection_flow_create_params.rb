@@ -25,9 +25,12 @@ module ModernTreasury
                -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry] }
 
       # @!method initialize(counterparty_id:, payment_types:, receiving_countries: nil, request_options: {})
-      #   @param counterparty_id [String]
+      #   @param counterparty_id [String] Required.
+      #
       #   @param payment_types [Array<String>]
+      #
       #   @param receiving_countries [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>]
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # Optional. Array of 3-digit ISO country codes.

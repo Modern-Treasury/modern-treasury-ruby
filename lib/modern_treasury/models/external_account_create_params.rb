@@ -93,19 +93,40 @@ module ModernTreasury
                -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail] }
 
       # @!method initialize(counterparty_id:, account_details: nil, account_type: nil, contact_details: nil, ledger_account: nil, metadata: nil, name: nil, party_address: nil, party_identifier: nil, party_name: nil, party_type: nil, plaid_processor_token: nil, routing_details: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::ExternalAccountCreateParams} for more details.
+      #
       #   @param counterparty_id [String, nil]
+      #
       #   @param account_details [Array<ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail>]
-      #   @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType]
+      #
+      #   @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType] Can be `checking`, `savings` or `other`.
+      #
       #   @param contact_details [Array<ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail>]
-      #   @param ledger_account [ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount]
-      #   @param metadata [Hash{Symbol=>String}]
-      #   @param name [String, nil]
-      #   @param party_address [ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress]
+      #
+      #   @param ledger_account [ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount] Specifies a ledger account object that will be created with the external account
+      #   ...
+      #
+      #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      #   ...
+      #
+      #   @param name [String, nil] A nickname for the external account. This is only for internal usage and won't a
+      #   ...
+      #
+      #   @param party_address [ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress] Required if receiving wire payments.
+      #
       #   @param party_identifier [String]
-      #   @param party_name [String]
-      #   @param party_type [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::PartyType, nil]
-      #   @param plaid_processor_token [String]
+      #
+      #   @param party_name [String] If this value isn't provided, it will be inherited from the counterparty's name.
+      #   ...
+      #
+      #   @param party_type [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::PartyType, nil] Either `individual` or `business`.
+      #
+      #   @param plaid_processor_token [String] If you've enabled the Modern Treasury + Plaid integration in your Plaid account,
+      #   ...
+      #
       #   @param routing_details [Array<ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail>]
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       class AccountDetail < ModernTreasury::Internal::Type::BaseModel
@@ -241,22 +262,39 @@ module ModernTreasury
         optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
         # @!method initialize(currency:, ledger_id:, name:, normal_balance:, currency_exponent: nil, description: nil, ledger_account_category_ids: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount} for more
+        #   details.
+        #
         #   Specifies a ledger account object that will be created with the external
         #   account. The resulting ledger account is linked to the external account for
         #   auto-ledgering Payment objects. See
         #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
         #   for more details.
         #
-        #   @param currency [String]
-        #   @param ledger_id [String]
-        #   @param name [String]
-        #   @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection]
-        #   @param currency_exponent [Integer, nil]
-        #   @param description [String, nil]
-        #   @param ledger_account_category_ids [Array<String>]
-        #   @param ledgerable_id [String]
-        #   @param ledgerable_type [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::LedgerableType]
-        #   @param metadata [Hash{Symbol=>String}]
+        #   @param currency [String] The currency of the ledger account.
+        #
+        #   @param ledger_id [String] The id of the ledger that this account belongs to.
+        #
+        #   @param name [String] The name of the ledger account.
+        #
+        #   @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection] The normal balance of the ledger account.
+        #
+        #   @param currency_exponent [Integer, nil] The currency exponent of the ledger account.
+        #
+        #   @param description [String, nil] The description of the ledger account.
+        #
+        #   @param ledger_account_category_ids [Array<String>] The array of ledger account category ids that this ledger account should be a ch
+        #   ...
+        #
+        #   @param ledgerable_id [String] If the ledger account links to another object in Modern Treasury, the id will be
+        #   ...
+        #
+        #   @param ledgerable_type [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::LedgerableType] If the ledger account links to another object in Modern Treasury, the type will
+        #   ...
+        #
+        #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+        #   ...
 
         # If the ledger account links to another object in Modern Treasury, the type will
         # be populated here, otherwise null. The value is one of internal_account or
@@ -314,12 +352,17 @@ module ModernTreasury
         # @!method initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
         #   Required if receiving wire payments.
         #
-        #   @param country [String, nil]
+        #   @param country [String, nil] Country code conforms to [ISO 3166-1 alpha-2]
+        #
         #   @param line1 [String, nil]
+        #
         #   @param line2 [String, nil]
-        #   @param locality [String, nil]
-        #   @param postal_code [String, nil]
-        #   @param region [String, nil]
+        #
+        #   @param locality [String, nil] Locality or City.
+        #
+        #   @param postal_code [String, nil] The postal code of the address.
+        #
+        #   @param region [String, nil] Region or State.
       end
 
       # Either `individual` or `business`.

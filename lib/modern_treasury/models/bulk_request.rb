@@ -77,17 +77,34 @@ module ModernTreasury
       required :updated_at, Time
 
       # @!method initialize(id:, action_type:, created_at:, failed_result_count:, live_mode:, metadata:, object:, resource_type:, status:, success_result_count:, total_resource_count:, updated_at:)
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::BulkRequest} for more details.
+      #
       #   @param id [String]
-      #   @param action_type [Symbol, ModernTreasury::Models::BulkRequest::ActionType]
+      #
+      #   @param action_type [Symbol, ModernTreasury::Models::BulkRequest::ActionType] One of create, or update.
+      #
       #   @param created_at [Time]
-      #   @param failed_result_count [Integer]
-      #   @param live_mode [Boolean]
-      #   @param metadata [Hash{Symbol=>String}]
+      #
+      #   @param failed_result_count [Integer] Total number of failed bulk results so far for this request
+      #
+      #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+      #   ...
+      #
+      #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      #   ...
+      #
       #   @param object [String]
-      #   @param resource_type [Symbol, ModernTreasury::Models::BulkRequest::ResourceType]
-      #   @param status [Symbol, ModernTreasury::Models::BulkRequest::Status]
-      #   @param success_result_count [Integer]
-      #   @param total_resource_count [Integer]
+      #
+      #   @param resource_type [Symbol, ModernTreasury::Models::BulkRequest::ResourceType] One of payment_order, expected_payment, or ledger_transaction.
+      #
+      #   @param status [Symbol, ModernTreasury::Models::BulkRequest::Status] One of pending, processing, or completed.
+      #
+      #   @param success_result_count [Integer] Total number of successful bulk results so far for this request
+      #
+      #   @param total_resource_count [Integer] Total number of items in the `resources` array. Once a bulk request is completed
+      #   ...
+      #
       #   @param updated_at [Time]
 
       # One of create, or update.

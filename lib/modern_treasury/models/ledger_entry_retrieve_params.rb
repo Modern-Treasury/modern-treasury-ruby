@@ -15,7 +15,12 @@ module ModernTreasury
       optional :show_balances, ModernTreasury::Internal::Type::Boolean
 
       # @!method initialize(show_balances: nil, request_options: {})
-      #   @param show_balances [Boolean]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::LedgerEntryRetrieveParams} for more details.
+      #
+      #   @param show_balances [Boolean] If true, response will include the balances attached to the ledger entry. If the
+      #   ...
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end

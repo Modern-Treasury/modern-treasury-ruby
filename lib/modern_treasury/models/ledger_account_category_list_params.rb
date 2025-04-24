@@ -69,16 +69,33 @@ module ModernTreasury
       optional :per_page, Integer
 
       # @!method initialize(id: nil, after_cursor: nil, balances: nil, currency: nil, ledger_account_id: nil, ledger_id: nil, metadata: nil, name: nil, parent_ledger_account_category_id: nil, per_page: nil, request_options: {})
-      #   @param id [Array<String>]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::LedgerAccountCategoryListParams} for more details.
+      #
+      #   @param id [Array<String>] If you have specific IDs to retrieve in bulk, you can pass them as query paramet
+      #   ...
+      #
       #   @param after_cursor [String, nil]
-      #   @param balances [ModernTreasury::Models::LedgerAccountCategoryListParams::Balances]
+      #
+      #   @param balances [ModernTreasury::Models::LedgerAccountCategoryListParams::Balances] For example, if you want the balances as of a particular time (ISO8601), the enc
+      #   ...
+      #
       #   @param currency [String]
-      #   @param ledger_account_id [String]
+      #
+      #   @param ledger_account_id [String] Query categories which contain a ledger account directly or through child catego
+      #   ...
+      #
       #   @param ledger_id [String]
-      #   @param metadata [Hash{Symbol=>String}]
+      #
+      #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
+      #   ...
+      #
       #   @param name [String]
-      #   @param parent_ledger_account_category_id [String]
+      #
+      #   @param parent_ledger_account_category_id [String] Query categories that are nested underneath a parent category
+      #
       #   @param per_page [Integer]
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       class Balances < ModernTreasury::Internal::Type::BaseModel

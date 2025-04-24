@@ -41,11 +41,22 @@ module ModernTreasury
       optional :updated_at, ModernTreasury::Internal::Type::HashOf[Time]
 
       # @!method initialize(id: nil, after_cursor: nil, metadata: nil, per_page: nil, updated_at: nil, request_options: {})
-      #   @param id [Array<String>]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::LedgerListParams} for more details.
+      #
+      #   @param id [Array<String>] If you have specific IDs to retrieve in bulk, you can pass them as query paramet
+      #   ...
+      #
       #   @param after_cursor [String, nil]
-      #   @param metadata [Hash{Symbol=>String}]
+      #
+      #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
+      #   ...
+      #
       #   @param per_page [Integer]
-      #   @param updated_at [Hash{Symbol=>Time}]
+      #
+      #   @param updated_at [Hash{Symbol=>Time}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the pos
+      #   ...
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end

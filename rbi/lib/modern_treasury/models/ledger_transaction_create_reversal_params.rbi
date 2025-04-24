@@ -82,12 +82,26 @@ module ModernTreasury
           .returns(T.attached_class)
       end
       def self.new(
+        # An optional free-form description for the reversal ledger transaction. Maximum
+        # of 1000 characters allowed.
         description: nil,
+        # The timestamp (ISO8601 format) at which the reversal ledger transaction happened
+        # for reporting purposes. It defaults to the `effective_at` of the original ledger
+        # transaction if not provided.
         effective_at: nil,
+        # Must be unique within the ledger.
         external_id: nil,
+        # Specify this if you'd like to link the reversal ledger transaction to a Payment
+        # object like Return or Reversal.
         ledgerable_id: nil,
+        # Specify this if you'd like to link the reversal ledger transaction to a Payment
+        # object like Return or Reversal.
         ledgerable_type: nil,
+        # Additional data to be added to the reversal ledger transaction as key-value
+        # pairs. Both the key and value must be strings.
         metadata: nil,
+        # Status of the reversal ledger transaction. It defaults to `posted` if not
+        # provided.
         status: nil,
         request_options: {}
       ); end

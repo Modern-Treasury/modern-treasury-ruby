@@ -75,11 +75,19 @@ module ModernTreasury
       end
       def self.new(
         after_cursor: nil,
+        # Only return internal accounts associated with this counterparty.
         counterparty_id: nil,
+        # Only return internal accounts with this currency.
         currency: nil,
+        # Only return internal accounts associated with this legal entity.
         legal_entity_id: nil,
+        # For example, if you want to query for records with metadata key `Type` and value
+        # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+        # parameters.
         metadata: nil,
+        # Only return internal accounts that can originate payments with this direction.
         payment_direction: nil,
+        # Only return internal accounts that can make this type of payment.
         payment_type: nil,
         per_page: nil,
         request_options: {}

@@ -39,11 +39,22 @@ module ModernTreasury
       optional :per_page, Integer
 
       # @!method initialize(id: nil, after_cursor: nil, ledger_account_id: nil, metadata: nil, per_page: nil, request_options: {})
-      #   @param id [Array<String>]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::LedgerAccountBalanceMonitorListParams} for more
+      #   details.
+      #
+      #   @param id [Array<String>] If you have specific IDs to retrieve in bulk, you can pass them as query paramet
+      #   ...
+      #
       #   @param after_cursor [String, nil]
-      #   @param ledger_account_id [String]
-      #   @param metadata [Hash{Symbol=>String}]
+      #
+      #   @param ledger_account_id [String] Query the balance monitors for a single ledger account.
+      #
+      #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
+      #   ...
+      #
       #   @param per_page [Integer]
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end

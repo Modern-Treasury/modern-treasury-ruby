@@ -4,14 +4,24 @@ module ModernTreasury
   module Resources
     class PaymentOrders
       class Reversals
+        # Some parameter documentations has been truncated, see
+        # {ModernTreasury::Models::PaymentOrders::ReversalCreateParams} for more details.
+        #
         # Create a reversal for a payment order.
         #
         # @overload create(payment_order_id, reason:, ledger_transaction: nil, metadata: nil, request_options: {})
         #
-        # @param payment_order_id [String]
-        # @param reason [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason]
-        # @param ledger_transaction [ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction]
-        # @param metadata [Hash{Symbol=>String}]
+        # @param payment_order_id [String] The id of the payment order being reversed.
+        #
+        # @param reason [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason] The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`, `in
+        # ...
+        #
+        # @param ledger_transaction [ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction] Specifies a ledger transaction object that will be created with the reversal. If
+        # ...
+        #
+        # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+        # ...
+        #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [ModernTreasury::Models::PaymentOrders::Reversal]
@@ -32,8 +42,10 @@ module ModernTreasury
         #
         # @overload retrieve(reversal_id, payment_order_id:, request_options: {})
         #
-        # @param reversal_id [String]
-        # @param payment_order_id [String]
+        # @param reversal_id [String] The ID of the reversal.
+        #
+        # @param payment_order_id [String] The id of the payment order being reversed.
+        #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [ModernTreasury::Models::PaymentOrders::Reversal]
@@ -57,9 +69,12 @@ module ModernTreasury
         #
         # @overload list(payment_order_id, after_cursor: nil, per_page: nil, request_options: {})
         #
-        # @param payment_order_id [String]
+        # @param payment_order_id [String] The ID of the relevant Payment Order.
+        #
         # @param after_cursor [String, nil]
+        #
         # @param per_page [Integer]
+        #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::PaymentOrders::Reversal>]

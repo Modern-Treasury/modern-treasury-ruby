@@ -99,12 +99,19 @@ module ModernTreasury
         id:,
         conditions:,
         created_at:,
+        # An optional description.
         description:,
         discarded_at:,
+        # The id of the ledger that this event handler belongs to.
         ledger_id:,
         ledger_transaction_template:,
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
         live_mode:,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        # strings.
         metadata:,
+        # Name of the ledger event handler.
         name:,
         object:,
         updated_at:,
@@ -146,8 +153,14 @@ module ModernTreasury
         attr_accessor :value
 
         sig { params(field: String, operator: String, value: String).returns(T.attached_class) }
-        def self.new(field:, operator:, value:); end
-
+        def self.new(
+          # The LHS of the conditional.
+          field:,
+          # What the operator between the `field` and `value` is.
+          operator:,
+          # The RHS of the conditional.
+          value:
+        ); end
         sig { override.returns({field: String, operator: String, value: String}) }
         def to_hash; end
       end
@@ -184,8 +197,17 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(description:, effective_at:, ledger_entries:, status:); end
-
+        def self.new(
+          # An optional description for internal use.
+          description:,
+          # The timestamp (ISO8601 format) at which the ledger transaction happened for
+          # reporting purposes.
+          effective_at:,
+          # An array of ledger entry objects.
+          ledger_entries:,
+          # To post a ledger transaction at creation, use `posted`.
+          status:
+        ); end
         sig do
           override
             .returns(
@@ -215,8 +237,14 @@ module ModernTreasury
           sig do
             params(amount: String, direction: String, ledger_account_id: String).returns(T.attached_class)
           end
-          def self.new(amount:, direction:, ledger_account_id:); end
-
+          def self.new(
+            # The LHS of the conditional.
+            amount:,
+            # What the operator between the `field` and `value` is.
+            direction:,
+            # The RHS of the conditional.
+            ledger_account_id:
+          ); end
           sig { override.returns({amount: String, direction: String, ledger_account_id: String}) }
           def to_hash; end
         end

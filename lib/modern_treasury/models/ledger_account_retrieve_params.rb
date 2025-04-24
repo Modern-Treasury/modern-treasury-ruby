@@ -19,7 +19,12 @@ module ModernTreasury
       optional :balances, -> { ModernTreasury::Models::LedgerAccountRetrieveParams::Balances }
 
       # @!method initialize(balances: nil, request_options: {})
-      #   @param balances [ModernTreasury::Models::LedgerAccountRetrieveParams::Balances]
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::LedgerAccountRetrieveParams} for more details.
+      #
+      #   @param balances [ModernTreasury::Models::LedgerAccountRetrieveParams::Balances] Use `balances[effective_at_lower_bound]` and `balances[effective_at_upper_bound]
+      #   ...
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       class Balances < ModernTreasury::Internal::Type::BaseModel

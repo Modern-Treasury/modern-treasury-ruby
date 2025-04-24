@@ -68,14 +68,22 @@ module ModernTreasury
         id:,
         created_at:,
         discarded_at:,
+        # The issuer of the compliance token.
         issuer:,
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
         live_mode:,
         object:,
+        # The timestamp when the compliance token expires.
         token_expires_at:,
+        # The timestamp when the compliance token was issued.
         token_issued_at:,
+        # The URL to the compliance token. (ex. provider portal URL)
         token_url:,
         updated_at:,
+        # Whether entity corresponding to the compliance token has been validated.
         validated:,
+        # The timestamp when the entity was validated.
         validated_at:
       ); end
       sig do

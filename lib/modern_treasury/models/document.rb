@@ -74,17 +74,33 @@ module ModernTreasury
       required :updated_at, Time
 
       # @!method initialize(id:, created_at:, discarded_at:, document_details:, document_type:, documentable_id:, documentable_type:, file:, live_mode:, object:, source:, updated_at:)
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::Document} for more details.
+      #
       #   @param id [String]
+      #
       #   @param created_at [Time]
+      #
       #   @param discarded_at [Time, nil]
+      #
       #   @param document_details [Array<ModernTreasury::Models::Document::DocumentDetail>]
-      #   @param document_type [String, nil]
-      #   @param documentable_id [String]
-      #   @param documentable_type [Symbol, ModernTreasury::Models::Document::DocumentableType]
+      #
+      #   @param document_type [String, nil] A category given to the document, can be `null`.
+      #
+      #   @param documentable_id [String] The unique identifier for the associated object.
+      #
+      #   @param documentable_type [Symbol, ModernTreasury::Models::Document::DocumentableType] The type of the associated object. Currently can be one of `payment_order`, `tra
+      #   ...
+      #
       #   @param file [ModernTreasury::Models::Document::File]
-      #   @param live_mode [Boolean]
+      #
+      #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+      #   ...
+      #
       #   @param object [String]
-      #   @param source [String]
+      #
+      #   @param source [String] The source of the document. Can be `vendor`, `customer`, or `modern_treasury`.
+      #
       #   @param updated_at [Time]
 
       class DocumentDetail < ModernTreasury::Internal::Type::BaseModel
@@ -131,13 +147,24 @@ module ModernTreasury
         required :updated_at, Time
 
         # @!method initialize(id:, created_at:, discarded_at:, document_identifier:, document_identifier_type:, live_mode:, object:, updated_at:)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::Document::DocumentDetail} for more details.
+        #
         #   @param id [String]
+        #
         #   @param created_at [Time]
+        #
         #   @param discarded_at [Time, nil]
+        #
         #   @param document_identifier [String]
+        #
         #   @param document_identifier_type [String]
-        #   @param live_mode [Boolean]
+        #
+        #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+        #   ...
+        #
         #   @param object [String]
+        #
         #   @param updated_at [Time]
       end
 
@@ -187,9 +214,11 @@ module ModernTreasury
         optional :size, Integer
 
         # @!method initialize(content_type: nil, filename: nil, size: nil)
-        #   @param content_type [String]
-        #   @param filename [String]
-        #   @param size [Integer]
+        #   @param content_type [String] The MIME content type of the document.
+        #
+        #   @param filename [String] The original filename of the document.
+        #
+        #   @param size [Integer] The size of the document in bytes.
       end
     end
   end

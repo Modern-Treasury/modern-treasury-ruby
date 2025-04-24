@@ -80,15 +80,30 @@ module ModernTreasury
           .returns(T.attached_class)
       end
       def self.new(
+        # The currency of the ledger account.
         currency:,
+        # The id of the ledger that this account belongs to.
         ledger_id:,
+        # The name of the ledger account.
         name:,
+        # The normal balance of the ledger account.
         normal_balance:,
+        # The currency exponent of the ledger account.
         currency_exponent: nil,
+        # The description of the ledger account.
         description: nil,
+        # The array of ledger account category ids that this ledger account should be a
+        # child of.
         ledger_account_category_ids: nil,
+        # If the ledger account links to another object in Modern Treasury, the id will be
+        # populated here, otherwise null.
         ledgerable_id: nil,
+        # If the ledger account links to another object in Modern Treasury, the type will
+        # be populated here, otherwise null. The value is one of internal_account or
+        # external_account.
         ledgerable_type: nil,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        # strings.
         metadata: nil,
         request_options: {}
       ); end
