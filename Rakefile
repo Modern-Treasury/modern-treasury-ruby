@@ -135,5 +135,5 @@ end
 
 desc("Release ruby gem")
 multitask(release: [:"build:gem"]) do
-  sh(*%w[gem push], *FileList["modern_treasury-*.gem"])
+  sh(*%w[gem push], *FileList["*.gem"])
 end
