@@ -9,7 +9,7 @@ module ModernTreasury
           counterparty_id: String,
           payment_types: T::Array[String],
           receiving_countries: T::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol],
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::AccountCollectionFlow)
       end
@@ -22,10 +22,7 @@ module ModernTreasury
       ); end
       # get account_collection_flow
       sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
+        params(id: String, request_options: ModernTreasury::RequestOpts)
           .returns(ModernTreasury::Models::AccountCollectionFlow)
       end
       def retrieve(
@@ -38,7 +35,7 @@ module ModernTreasury
         params(
           id: String,
           status: ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status::OrSymbol,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::AccountCollectionFlow)
       end
@@ -59,7 +56,7 @@ module ModernTreasury
           external_account_id: String,
           per_page: Integer,
           status: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::AccountCollectionFlow])
       end

@@ -17,12 +17,7 @@ module ModernTreasury
                 ModernTreasury::Internal::AnyHash
               )
             ],
-            request_options: T.nilable(
-              T.any(
-                ModernTreasury::RequestOptions,
-                ModernTreasury::Internal::AnyHash
-              )
-            )
+            request_options: ModernTreasury::RequestOpts
           )
             .returns(ModernTreasury::Models::InternalAccounts::BalanceReport)
         end
@@ -41,16 +36,7 @@ module ModernTreasury
         ); end
         # Get a single balance report for a given internal account.
         sig do
-          params(
-            id: String,
-            internal_account_id: String,
-            request_options: T.nilable(
-              T.any(
-                ModernTreasury::RequestOptions,
-                ModernTreasury::Internal::AnyHash
-              )
-            )
-          )
+          params(id: String, internal_account_id: String, request_options: ModernTreasury::RequestOpts)
             .returns(ModernTreasury::Models::InternalAccounts::BalanceReport)
         end
         def retrieve(
@@ -68,12 +54,7 @@ module ModernTreasury
             as_of_date: Date,
             balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::OrSymbol,
             per_page: Integer,
-            request_options: T.nilable(
-              T.any(
-                ModernTreasury::RequestOptions,
-                ModernTreasury::Internal::AnyHash
-              )
-            )
+            request_options: ModernTreasury::RequestOpts
           )
             .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::InternalAccounts::BalanceReport])
         end
@@ -90,17 +71,7 @@ module ModernTreasury
         ); end
         # Deletes a given balance report.
         sig do
-          params(
-            id: String,
-            internal_account_id: String,
-            request_options: T.nilable(
-              T.any(
-                ModernTreasury::RequestOptions,
-                ModernTreasury::Internal::AnyHash
-              )
-            )
-          )
-            .void
+          params(id: String, internal_account_id: String, request_options: ModernTreasury::RequestOpts).void
         end
         def delete(
           # Either the unique identifier of the balance report or latest for the latest

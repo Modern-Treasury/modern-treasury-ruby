@@ -13,12 +13,7 @@ module ModernTreasury
             ledger_transaction_id: String,
             per_page: Integer,
             version: T::Hash[Symbol, Integer],
-            request_options: T.nilable(
-              T.any(
-                ModernTreasury::RequestOptions,
-                ModernTreasury::Internal::AnyHash
-              )
-            )
+            request_options: ModernTreasury::RequestOpts
           )
             .returns(
               ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion]

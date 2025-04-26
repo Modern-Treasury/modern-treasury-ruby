@@ -10,7 +10,7 @@ module ModernTreasury
           custom_data: T.nilable(T.anything),
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::LedgerableEvent)
       end
@@ -28,10 +28,7 @@ module ModernTreasury
       ); end
       # Get details on a single ledgerable event.
       sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
+        params(id: String, request_options: ModernTreasury::RequestOpts)
           .returns(ModernTreasury::Models::LedgerableEvent)
       end
       def retrieve(

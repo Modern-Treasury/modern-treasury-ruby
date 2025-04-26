@@ -12,7 +12,7 @@ module ModernTreasury
             ModernTreasury::Internal::AnyHash
           ),
           legal_entity_id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::ConnectionLegalEntity)
       end
@@ -27,10 +27,7 @@ module ModernTreasury
       ); end
       # Get details on a single connection legal entity.
       sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
+        params(id: String, request_options: ModernTreasury::RequestOpts)
           .returns(ModernTreasury::Models::ConnectionLegalEntity)
       end
       def retrieve(
@@ -43,7 +40,7 @@ module ModernTreasury
         params(
           id: String,
           status: ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status::OrSymbol,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::ConnectionLegalEntity)
       end
@@ -62,7 +59,7 @@ module ModernTreasury
           legal_entity_id: String,
           per_page: Integer,
           status: ModernTreasury::Models::ConnectionLegalEntityListParams::Status::OrSymbol,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::ConnectionLegalEntity])
       end

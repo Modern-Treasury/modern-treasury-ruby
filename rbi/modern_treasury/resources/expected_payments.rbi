@@ -28,7 +28,7 @@ module ModernTreasury
           remittance_information: T.nilable(String),
           statement_descriptor: T.nilable(String),
           type: T.nilable(ModernTreasury::Models::ExpectedPaymentType::OrSymbol),
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::ExpectedPayment)
       end
@@ -90,10 +90,7 @@ module ModernTreasury
       ); end
       # get expected payment
       sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
+        params(id: String, request_options: ModernTreasury::RequestOpts)
           .returns(ModernTreasury::Models::ExpectedPayment)
       end
       def retrieve(
@@ -122,7 +119,7 @@ module ModernTreasury
           statement_descriptor: T.nilable(String),
           status: T.nilable(ModernTreasury::Models::ExpectedPaymentUpdateParams::Status::OrSymbol),
           type: T.nilable(ModernTreasury::Models::ExpectedPaymentType::OrSymbol),
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::ExpectedPayment)
       end
@@ -189,7 +186,7 @@ module ModernTreasury
           per_page: Integer,
           status: ModernTreasury::Models::ExpectedPaymentListParams::Status::OrSymbol,
           type: ModernTreasury::Models::ExpectedPaymentListParams::Type::OrSymbol,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::ExpectedPayment])
       end
@@ -219,10 +216,7 @@ module ModernTreasury
       ); end
       # delete expected payment
       sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
+        params(id: String, request_options: ModernTreasury::RequestOpts)
           .returns(ModernTreasury::Models::ExpectedPayment)
       end
       def delete(

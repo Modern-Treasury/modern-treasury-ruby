@@ -6,7 +6,7 @@ module ModernTreasury
       # @api private
       module RequestParameters
         # Options to specify HTTP behaviour for this request.
-        sig { returns(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)) }
+        sig { returns(ModernTreasury::RequestOpts) }
         attr_accessor :request_options
 
         # @api private

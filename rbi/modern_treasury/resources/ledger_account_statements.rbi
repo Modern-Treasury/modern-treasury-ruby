@@ -11,7 +11,7 @@ module ModernTreasury
           ledger_account_id: String,
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::LedgerAccountStatementCreateResponse)
       end
@@ -34,10 +34,7 @@ module ModernTreasury
       ); end
       # Get details on a single ledger account statement.
       sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
+        params(id: String, request_options: ModernTreasury::RequestOpts)
           .returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse)
       end
       def retrieve(

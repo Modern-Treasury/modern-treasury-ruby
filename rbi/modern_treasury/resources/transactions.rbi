@@ -19,7 +19,7 @@ module ModernTreasury
           posted: T::Boolean,
           type: T.nilable(ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol),
           vendor_description: T.nilable(String),
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::Transaction)
       end
@@ -56,10 +56,7 @@ module ModernTreasury
       ); end
       # Get details on a single transaction.
       sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
+        params(id: String, request_options: ModernTreasury::RequestOpts)
           .returns(ModernTreasury::Models::Transaction)
       end
       def retrieve(
@@ -69,11 +66,7 @@ module ModernTreasury
       ); end
       # Update a single transaction.
       sig do
-        params(
-          id: String,
-          metadata: T::Hash[Symbol, String],
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
+        params(id: String, metadata: T::Hash[Symbol, String], request_options: ModernTreasury::RequestOpts)
           .returns(ModernTreasury::Models::Transaction)
       end
       def update(
@@ -101,7 +94,7 @@ module ModernTreasury
           transactable_type: String,
           vendor_id: String,
           virtual_account_id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::Transaction])
       end
@@ -136,13 +129,7 @@ module ModernTreasury
         request_options: {}
       ); end
       # delete transaction
-      sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
-          .void
-      end
+      sig { params(id: String, request_options: ModernTreasury::RequestOpts).void }
       def delete(
         # Transaction ID
         id,

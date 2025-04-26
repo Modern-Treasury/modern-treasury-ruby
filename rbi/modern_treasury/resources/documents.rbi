@@ -10,7 +10,7 @@ module ModernTreasury
           documentable_type: ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol,
           file: T.any(Pathname, StringIO, IO, ModernTreasury::FilePart),
           document_type: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::Document)
       end
@@ -24,13 +24,7 @@ module ModernTreasury
         request_options: {}
       ); end
       # Get an existing document.
-      sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
-          .returns(ModernTreasury::Models::Document)
-      end
+      sig { params(id: String, request_options: ModernTreasury::RequestOpts).returns(ModernTreasury::Models::Document) }
       def retrieve(
         # The ID of the document.
         id,
@@ -43,7 +37,7 @@ module ModernTreasury
           documentable_id: String,
           documentable_type: ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol,
           per_page: Integer,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::Document])
       end
