@@ -12,7 +12,7 @@ module ModernTreasury
           direction: ModernTreasury::Models::PaymentFlowCreateParams::Direction::OrSymbol,
           originating_account_id: String,
           due_date: Date,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::PaymentFlow)
       end
@@ -38,10 +38,7 @@ module ModernTreasury
       ); end
       # get payment_flow
       sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
+        params(id: String, request_options: ModernTreasury::RequestOpts)
           .returns(ModernTreasury::Models::PaymentFlow)
       end
       def retrieve(
@@ -54,7 +51,7 @@ module ModernTreasury
         params(
           id: String,
           status: ModernTreasury::Models::PaymentFlowUpdateParams::Status::OrSymbol,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::PaymentFlow)
       end
@@ -77,7 +74,7 @@ module ModernTreasury
           per_page: Integer,
           receiving_account_id: String,
           status: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::PaymentFlow])
       end

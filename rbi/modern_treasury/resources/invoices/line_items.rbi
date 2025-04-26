@@ -15,12 +15,7 @@ module ModernTreasury
             metadata: T::Hash[Symbol, String],
             quantity: Integer,
             unit_amount_decimal: String,
-            request_options: T.nilable(
-              T.any(
-                ModernTreasury::RequestOptions,
-                ModernTreasury::Internal::AnyHash
-              )
-            )
+            request_options: ModernTreasury::RequestOpts
           )
             .returns(ModernTreasury::Models::Invoices::InvoiceLineItem)
         end
@@ -52,16 +47,7 @@ module ModernTreasury
         ); end
         # get invoice_line_item
         sig do
-          params(
-            id: String,
-            invoice_id: String,
-            request_options: T.nilable(
-              T.any(
-                ModernTreasury::RequestOptions,
-                ModernTreasury::Internal::AnyHash
-              )
-            )
-          )
+          params(id: String, invoice_id: String, request_options: ModernTreasury::RequestOpts)
             .returns(ModernTreasury::Models::Invoices::InvoiceLineItem)
         end
         def retrieve(
@@ -83,12 +69,7 @@ module ModernTreasury
             quantity: Integer,
             unit_amount: Integer,
             unit_amount_decimal: String,
-            request_options: T.nilable(
-              T.any(
-                ModernTreasury::RequestOptions,
-                ModernTreasury::Internal::AnyHash
-              )
-            )
+            request_options: ModernTreasury::RequestOpts
           )
             .returns(ModernTreasury::Models::Invoices::InvoiceLineItem)
         end
@@ -126,12 +107,7 @@ module ModernTreasury
             invoice_id: String,
             after_cursor: T.nilable(String),
             per_page: Integer,
-            request_options: T.nilable(
-              T.any(
-                ModernTreasury::RequestOptions,
-                ModernTreasury::Internal::AnyHash
-              )
-            )
+            request_options: ModernTreasury::RequestOpts
           )
             .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::Invoices::InvoiceLineItem])
         end
@@ -144,16 +120,7 @@ module ModernTreasury
         ); end
         # delete invoice_line_item
         sig do
-          params(
-            id: String,
-            invoice_id: String,
-            request_options: T.nilable(
-              T.any(
-                ModernTreasury::RequestOptions,
-                ModernTreasury::Internal::AnyHash
-              )
-            )
-          )
+          params(id: String, invoice_id: String, request_options: ModernTreasury::RequestOpts)
             .returns(ModernTreasury::Models::Invoices::InvoiceLineItem)
         end
         def delete(

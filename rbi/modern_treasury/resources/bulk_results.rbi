@@ -5,10 +5,7 @@ module ModernTreasury
     class BulkResults
       # get bulk_result
       sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
+        params(id: String, request_options: ModernTreasury::RequestOpts)
           .returns(ModernTreasury::Models::BulkResult)
       end
       def retrieve(
@@ -26,7 +23,7 @@ module ModernTreasury
           request_id: String,
           request_type: ModernTreasury::Models::BulkResultListParams::RequestType::OrSymbol,
           status: ModernTreasury::Models::BulkResultListParams::Status::OrSymbol,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::BulkResult])
       end

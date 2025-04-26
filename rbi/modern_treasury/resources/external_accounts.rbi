@@ -40,7 +40,7 @@ module ModernTreasury
               ModernTreasury::Internal::AnyHash
             )
           ],
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::ExternalAccount)
       end
@@ -77,10 +77,7 @@ module ModernTreasury
       ); end
       # show external account
       sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
+        params(id: String, request_options: ModernTreasury::RequestOpts)
           .returns(ModernTreasury::Models::ExternalAccount)
       end
       def retrieve(
@@ -102,7 +99,7 @@ module ModernTreasury
           ),
           party_name: String,
           party_type: T.nilable(ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::OrSymbol),
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::ExternalAccount)
       end
@@ -133,7 +130,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           party_name: String,
           per_page: Integer,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::ExternalAccount])
       end
@@ -150,13 +147,7 @@ module ModernTreasury
         request_options: {}
       ); end
       # delete external account
-      sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
-          .void
-      end
+      sig { params(id: String, request_options: ModernTreasury::RequestOpts).void }
       def delete(
         # external account id
         id,
@@ -164,11 +155,7 @@ module ModernTreasury
       ); end
       # complete verification of external account
       sig do
-        params(
-          id: String,
-          amounts: T::Array[Integer],
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
+        params(id: String, amounts: T::Array[Integer], request_options: ModernTreasury::RequestOpts)
           .returns(ModernTreasury::Models::ExternalAccount)
       end
       def complete_verification(
@@ -186,7 +173,7 @@ module ModernTreasury
           currency: ModernTreasury::Models::Currency::OrSymbol,
           fallback_type: ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType::OrSymbol,
           priority: ModernTreasury::Models::ExternalAccountVerifyParams::Priority::OrSymbol,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(
             T.any(

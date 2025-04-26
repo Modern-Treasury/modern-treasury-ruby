@@ -21,7 +21,7 @@ module ModernTreasury
             ModernTreasury::Internal::AnyHash
           ),
           vendor_attributes: T::Hash[Symbol, String],
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::InternalAccount)
       end
@@ -50,10 +50,7 @@ module ModernTreasury
       ); end
       # get internal account
       sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
+        params(id: String, request_options: ModernTreasury::RequestOpts)
           .returns(ModernTreasury::Models::InternalAccount)
       end
       def retrieve(
@@ -70,7 +67,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           name: String,
           parent_account_id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::InternalAccount)
       end
@@ -101,7 +98,7 @@ module ModernTreasury
           payment_direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
           payment_type: ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol,
           per_page: Integer,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::InternalAccount])
       end

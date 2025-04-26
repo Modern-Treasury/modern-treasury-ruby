@@ -48,7 +48,7 @@ module ModernTreasury
           recipient_name: T.nilable(String),
           remind_after_overdue_days: T.nilable(T::Array[Integer]),
           virtual_account_id: T.nilable(String),
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::Invoice)
       end
@@ -129,13 +129,7 @@ module ModernTreasury
         request_options: {}
       ); end
       # get invoice
-      sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
-          .returns(ModernTreasury::Models::Invoice)
-      end
+      sig { params(id: String, request_options: ModernTreasury::RequestOpts).returns(ModernTreasury::Models::Invoice) }
       def retrieve(
         # id
         id,
@@ -184,7 +178,7 @@ module ModernTreasury
           remind_after_overdue_days: T.nilable(T::Array[Integer]),
           status: String,
           virtual_account_id: T.nilable(String),
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::Invoice)
       end
@@ -280,7 +274,7 @@ module ModernTreasury
           payment_order_id: String,
           per_page: Integer,
           status: ModernTreasury::Models::InvoiceListParams::Status::OrSymbol,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::Invoice])
       end
@@ -305,14 +299,7 @@ module ModernTreasury
         request_options: {}
       ); end
       # Add a payment order to an invoice.
-      sig do
-        params(
-          payment_order_id: String,
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
-          .void
-      end
+      sig { params(payment_order_id: String, id: String, request_options: ModernTreasury::RequestOpts).void }
       def add_payment_order(
         # payment_order_id
         payment_order_id,

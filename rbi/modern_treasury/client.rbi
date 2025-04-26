@@ -129,12 +129,7 @@ module ModernTreasury
 
     # A test endpoint often used to confirm credentials and headers are being passed
     # in correctly.
-    sig do
-      params(
-        request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-      )
-        .returns(ModernTreasury::Models::PingResponse)
-    end
+    sig { params(request_options: ModernTreasury::RequestOpts).returns(ModernTreasury::Models::PingResponse) }
     def ping(request_options: {}); end
 
     # @api private

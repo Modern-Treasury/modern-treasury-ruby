@@ -35,7 +35,7 @@ module ModernTreasury
               page: T.nilable(T::Class[ModernTreasury::Internal::Type::BasePage[ModernTreasury::Internal::Type::BaseModel]]),
               stream: T.nilable(T::Class[T.anything]),
               model: T.nilable(ModernTreasury::Internal::Type::Converter::Input),
-              options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+              options: T.nilable(ModernTreasury::RequestOpts)
             }
           end
 
@@ -188,7 +188,7 @@ module ModernTreasury
             page: T.nilable(T::Class[ModernTreasury::Internal::Type::BasePage[ModernTreasury::Internal::Type::BaseModel]]),
             stream: T.nilable(T::Class[T.anything]),
             model: T.nilable(ModernTreasury::Internal::Type::Converter::Input),
-            options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+            options: T.nilable(ModernTreasury::RequestOpts)
           )
             .returns(T.anything)
         end

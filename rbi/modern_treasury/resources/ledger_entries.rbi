@@ -5,11 +5,7 @@ module ModernTreasury
     class LedgerEntries
       # Get details on a single ledger entry.
       sig do
-        params(
-          id: String,
-          show_balances: T::Boolean,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
+        params(id: String, show_balances: T::Boolean, request_options: ModernTreasury::RequestOpts)
           .returns(ModernTreasury::Models::LedgerEntry)
       end
       def retrieve(
@@ -22,11 +18,7 @@ module ModernTreasury
       ); end
       # Update the details of a ledger entry.
       sig do
-        params(
-          id: String,
-          metadata: T::Hash[Symbol, String],
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
+        params(id: String, metadata: T::Hash[Symbol, String], request_options: ModernTreasury::RequestOpts)
           .returns(ModernTreasury::Models::LedgerEntry)
       end
       def update(
@@ -60,7 +52,7 @@ module ModernTreasury
           show_deleted: T::Boolean,
           status: ModernTreasury::Models::LedgerEntryListParams::Status::OrSymbol,
           updated_at: T::Hash[Symbol, Time],
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerEntry])
       end

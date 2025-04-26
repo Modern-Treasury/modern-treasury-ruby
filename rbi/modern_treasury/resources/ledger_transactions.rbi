@@ -23,7 +23,7 @@ module ModernTreasury
           ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateParams::LedgerableType::OrSymbol,
           metadata: T::Hash[Symbol, String],
           status: ModernTreasury::Models::LedgerTransactionCreateParams::Status::OrSymbol,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::LedgerTransaction)
       end
@@ -58,10 +58,7 @@ module ModernTreasury
       ); end
       # Get details on a single ledger transaction.
       sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
+        params(id: String, request_options: ModernTreasury::RequestOpts)
           .returns(ModernTreasury::Models::LedgerTransaction)
       end
       def retrieve(
@@ -85,7 +82,7 @@ module ModernTreasury
           ledgerable_type: ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType::OrSymbol,
           metadata: T::Hash[Symbol, String],
           status: ModernTreasury::Models::LedgerTransactionUpdateParams::Status::OrSymbol,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::LedgerTransaction)
       end
@@ -136,7 +133,7 @@ module ModernTreasury
           reverses_ledger_transaction_id: String,
           status: ModernTreasury::Models::LedgerTransactionListParams::Status::OrSymbol,
           updated_at: T::Hash[Symbol, Time],
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerTransaction])
       end
@@ -195,7 +192,7 @@ module ModernTreasury
           description: String,
           effective_at: Time,
           metadata: T::Hash[Symbol, String],
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::LedgerTransaction)
       end
@@ -228,7 +225,7 @@ module ModernTreasury
           ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType::OrSymbol,
           metadata: T::Hash[Symbol, String],
           status: ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status::OrSymbol,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::LedgerTransaction)
       end

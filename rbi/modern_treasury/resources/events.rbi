@@ -4,13 +4,7 @@ module ModernTreasury
   module Resources
     class Events
       # get event
-      sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
-          .returns(ModernTreasury::Models::Event)
-      end
+      sig { params(id: String, request_options: ModernTreasury::RequestOpts).returns(ModernTreasury::Models::Event) }
       def retrieve(
         # event id
         id,
@@ -26,7 +20,7 @@ module ModernTreasury
           event_time_start: Time,
           per_page: Integer,
           resource: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::Event])
       end

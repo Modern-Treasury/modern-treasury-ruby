@@ -9,12 +9,7 @@ module ModernTreasury
           params(
             id: String,
             ledger_entry_ids: T.nilable(T::Array[String]),
-            request_options: T.nilable(
-              T.any(
-                ModernTreasury::RequestOptions,
-                ModernTreasury::Internal::AnyHash
-              )
-            )
+            request_options: ModernTreasury::RequestOpts
           )
             .void
         end
@@ -31,12 +26,7 @@ module ModernTreasury
           params(
             id: String,
             ledger_entry_ids: T.nilable(T::Array[String]),
-            request_options: T.nilable(
-              T.any(
-                ModernTreasury::RequestOptions,
-                ModernTreasury::Internal::AnyHash
-              )
-            )
+            request_options: ModernTreasury::RequestOpts
           )
             .void
         end
