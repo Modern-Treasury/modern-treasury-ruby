@@ -5,10 +5,7 @@ module ModernTreasury
     class IncomingPaymentDetails
       # Get an existing Incoming Payment Detail.
       sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
+        params(id: String, request_options: ModernTreasury::RequestOpts)
           .returns(ModernTreasury::Models::IncomingPaymentDetail)
       end
       def retrieve(
@@ -18,11 +15,7 @@ module ModernTreasury
       ); end
       # Update an existing Incoming Payment Detail.
       sig do
-        params(
-          id: String,
-          metadata: T::Hash[Symbol, String],
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
+        params(id: String, metadata: T::Hash[Symbol, String], request_options: ModernTreasury::RequestOpts)
           .returns(ModernTreasury::Models::IncomingPaymentDetail)
       end
       def update(
@@ -45,7 +38,7 @@ module ModernTreasury
           status: ModernTreasury::Models::IncomingPaymentDetailListParams::Status::OrSymbol,
           type: ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol,
           virtual_account_id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::IncomingPaymentDetail])
       end
@@ -87,7 +80,7 @@ module ModernTreasury
           internal_account_id: String,
           type: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol,
           virtual_account_id: T.nilable(String),
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::AsyncResponse)
       end

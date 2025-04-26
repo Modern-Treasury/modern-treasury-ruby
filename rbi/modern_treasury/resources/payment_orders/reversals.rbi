@@ -14,12 +14,7 @@ module ModernTreasury
               ModernTreasury::Internal::AnyHash
             ),
             metadata: T::Hash[Symbol, String],
-            request_options: T.nilable(
-              T.any(
-                ModernTreasury::RequestOptions,
-                ModernTreasury::Internal::AnyHash
-              )
-            )
+            request_options: ModernTreasury::RequestOpts
           )
             .returns(ModernTreasury::Models::PaymentOrders::Reversal)
         end
@@ -41,16 +36,7 @@ module ModernTreasury
         ); end
         # Get details on a single reversal of a payment order.
         sig do
-          params(
-            reversal_id: String,
-            payment_order_id: String,
-            request_options: T.nilable(
-              T.any(
-                ModernTreasury::RequestOptions,
-                ModernTreasury::Internal::AnyHash
-              )
-            )
-          )
+          params(reversal_id: String, payment_order_id: String, request_options: ModernTreasury::RequestOpts)
             .returns(ModernTreasury::Models::PaymentOrders::Reversal)
         end
         def retrieve(
@@ -66,12 +52,7 @@ module ModernTreasury
             payment_order_id: String,
             after_cursor: T.nilable(String),
             per_page: Integer,
-            request_options: T.nilable(
-              T.any(
-                ModernTreasury::RequestOptions,
-                ModernTreasury::Internal::AnyHash
-              )
-            )
+            request_options: ModernTreasury::RequestOpts
           )
             .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::PaymentOrders::Reversal])
         end

@@ -17,7 +17,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           skip_settlement_ledger_transaction: T.nilable(T::Boolean),
           status: T.nilable(ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::OrSymbol),
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::LedgerAccountSettlement)
       end
@@ -51,10 +51,7 @@ module ModernTreasury
       ); end
       # Get details on a single ledger account settlement.
       sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
+        params(id: String, request_options: ModernTreasury::RequestOpts)
           .returns(ModernTreasury::Models::LedgerAccountSettlement)
       end
       def retrieve(
@@ -69,7 +66,7 @@ module ModernTreasury
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::OrSymbol,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::LedgerAccountSettlement)
       end
@@ -99,7 +96,7 @@ module ModernTreasury
           settled_ledger_account_id: String,
           settlement_entry_direction: String,
           updated_at: T::Hash[Symbol, Time],
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerAccountSettlement])
       end

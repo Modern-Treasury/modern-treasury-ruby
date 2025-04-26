@@ -10,12 +10,7 @@ module ModernTreasury
             amount: Integer,
             expected_payment_id: String,
             transaction_id: String,
-            request_options: T.nilable(
-              T.any(
-                ModernTreasury::RequestOptions,
-                ModernTreasury::Internal::AnyHash
-              )
-            )
+            request_options: ModernTreasury::RequestOpts
           )
             .returns(ModernTreasury::Models::Transactions::TransactionLineItem)
         end
@@ -31,15 +26,7 @@ module ModernTreasury
         ); end
         # get transaction line item
         sig do
-          params(
-            id: String,
-            request_options: T.nilable(
-              T.any(
-                ModernTreasury::RequestOptions,
-                ModernTreasury::Internal::AnyHash
-              )
-            )
-          )
+          params(id: String, request_options: ModernTreasury::RequestOpts)
             .returns(ModernTreasury::Models::Transactions::TransactionLineItem)
         end
         def retrieve(
@@ -55,12 +42,7 @@ module ModernTreasury
             per_page: Integer,
             transaction_id: String,
             type: T.nilable(ModernTreasury::Models::Transactions::LineItemListParams::Type::OrSymbol),
-            request_options: T.nilable(
-              T.any(
-                ModernTreasury::RequestOptions,
-                ModernTreasury::Internal::AnyHash
-              )
-            )
+            request_options: ModernTreasury::RequestOpts
           )
             .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::Transactions::TransactionLineItem])
         end
@@ -75,18 +57,7 @@ module ModernTreasury
         end
 
         # delete transaction line item
-        sig do
-          params(
-            id: String,
-            request_options: T.nilable(
-              T.any(
-                ModernTreasury::RequestOptions,
-                ModernTreasury::Internal::AnyHash
-              )
-            )
-          )
-            .void
-        end
+        sig { params(id: String, request_options: ModernTreasury::RequestOpts).void }
         def delete(
           # id
           id,

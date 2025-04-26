@@ -17,7 +17,7 @@ module ModernTreasury
           send_remittance_advice: T::Boolean,
           taxpayer_identifier: String,
           verification_status: ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus::OrSymbol,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::Counterparty)
       end
@@ -49,10 +49,7 @@ module ModernTreasury
       ); end
       # Get details on a single counterparty.
       sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
+        params(id: String, request_options: ModernTreasury::RequestOpts)
           .returns(ModernTreasury::Models::Counterparty)
       end
       def retrieve(
@@ -70,7 +67,7 @@ module ModernTreasury
           name: String,
           send_remittance_advice: T::Boolean,
           taxpayer_identifier: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::Counterparty)
       end
@@ -104,7 +101,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           name: String,
           per_page: Integer,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::Counterparty])
       end
@@ -130,13 +127,7 @@ module ModernTreasury
         request_options: {}
       ); end
       # Deletes a given counterparty.
-      sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
-          .void
-      end
+      sig { params(id: String, request_options: ModernTreasury::RequestOpts).void }
       def delete(
         # The id of an existing counterparty.
         id,
@@ -150,7 +141,7 @@ module ModernTreasury
           custom_redirect: String,
           fields: T::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol],
           send_email: T::Boolean,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::CounterpartyCollectAccountResponse)
       end

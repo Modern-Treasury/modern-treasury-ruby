@@ -23,7 +23,7 @@ module ModernTreasury
             )
           ],
           metadata: T::Hash[Symbol, String],
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::BulkRequest)
       end
@@ -42,10 +42,7 @@ module ModernTreasury
       ); end
       # get bulk_request
       sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
+        params(id: String, request_options: ModernTreasury::RequestOpts)
           .returns(ModernTreasury::Models::BulkRequest)
       end
       def retrieve(
@@ -62,7 +59,7 @@ module ModernTreasury
           per_page: Integer,
           resource_type: ModernTreasury::Models::BulkRequestListParams::ResourceType::OrSymbol,
           status: ModernTreasury::Models::BulkRequestListParams::Status::OrSymbol,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::BulkRequest])
       end

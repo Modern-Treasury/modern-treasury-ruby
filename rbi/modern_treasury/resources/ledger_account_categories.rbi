@@ -14,7 +14,7 @@ module ModernTreasury
           description: T.nilable(String),
           ledger_account_category_ids: T::Array[String],
           metadata: T::Hash[Symbol, String],
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::LedgerAccountCategory)
       end
@@ -47,7 +47,7 @@ module ModernTreasury
             ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances,
             ModernTreasury::Internal::AnyHash
           ),
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::LedgerAccountCategory)
       end
@@ -67,7 +67,7 @@ module ModernTreasury
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           name: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Models::LedgerAccountCategory)
       end
@@ -99,7 +99,7 @@ module ModernTreasury
           name: String,
           parent_ledger_account_category_id: String,
           per_page: Integer,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerAccountCategory])
       end
@@ -129,10 +129,7 @@ module ModernTreasury
       ); end
       # Delete a ledger account category.
       sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
+        params(id: String, request_options: ModernTreasury::RequestOpts)
           .returns(ModernTreasury::Models::LedgerAccountCategory)
       end
       def delete(
@@ -141,14 +138,7 @@ module ModernTreasury
         request_options: {}
       ); end
       # Add a ledger account to a ledger account category.
-      sig do
-        params(
-          ledger_account_id: String,
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
-          .void
-      end
+      sig { params(ledger_account_id: String, id: String, request_options: ModernTreasury::RequestOpts).void }
       def add_ledger_account(
         # ledger_account_id
         ledger_account_id,
@@ -157,14 +147,7 @@ module ModernTreasury
         request_options: {}
       ); end
       # Add a ledger account category to a ledger account category.
-      sig do
-        params(
-          sub_category_id: String,
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
-          .void
-      end
+      sig { params(sub_category_id: String, id: String, request_options: ModernTreasury::RequestOpts).void }
       def add_nested_category(
         # sub_category_id
         sub_category_id,
@@ -173,14 +156,7 @@ module ModernTreasury
         request_options: {}
       ); end
       # Remove a ledger account from a ledger account category.
-      sig do
-        params(
-          ledger_account_id: String,
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
-          .void
-      end
+      sig { params(ledger_account_id: String, id: String, request_options: ModernTreasury::RequestOpts).void }
       def remove_ledger_account(
         # ledger_account_id
         ledger_account_id,
@@ -189,14 +165,7 @@ module ModernTreasury
         request_options: {}
       ); end
       # Delete a ledger account category from a ledger account category.
-      sig do
-        params(
-          sub_category_id: String,
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
-          .void
-      end
+      sig { params(sub_category_id: String, id: String, request_options: ModernTreasury::RequestOpts).void }
       def remove_nested_category(
         # sub_category_id
         sub_category_id,

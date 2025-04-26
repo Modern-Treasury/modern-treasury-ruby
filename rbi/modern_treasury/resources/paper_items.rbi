@@ -5,11 +5,7 @@ module ModernTreasury
     class PaperItems
       # Get details on a single paper item.
       sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
-        )
-          .returns(ModernTreasury::Models::PaperItem)
+        params(id: String, request_options: ModernTreasury::RequestOpts).returns(ModernTreasury::Models::PaperItem)
       end
       def retrieve(
         # id
@@ -24,7 +20,7 @@ module ModernTreasury
           deposit_date_start: Date,
           lockbox_number: String,
           per_page: Integer,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
+          request_options: ModernTreasury::RequestOpts
         )
           .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::PaperItem])
       end
