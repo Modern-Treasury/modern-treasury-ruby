@@ -2,6 +2,8 @@
 
 module ModernTreasury
   module Models
+    LedgerTransactionVersion = LedgerTransactions::LedgerTransactionVersion
+
     module LedgerTransactions
       class LedgerTransactionVersion < ModernTreasury::Internal::Type::BaseModel
         sig { returns(String) }
@@ -779,7 +781,5 @@ module ModernTreasury
         end
       end
     end
-
-    LedgerTransactionVersion = LedgerTransactions::LedgerTransactionVersion
   end
 end
