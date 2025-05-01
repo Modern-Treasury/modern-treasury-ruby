@@ -137,7 +137,7 @@ module ModernTreasury
     end
 
     class InternalServerError < ModernTreasury::Errors::APIStatusError
-      HTTP_STATUS = T.let((500..), T::Range[Integer])
+      HTTP_STATUS = T.let(500.., T::Range[Integer])
     end
   end
 end
