@@ -2,6 +2,8 @@
 
 module ModernTreasury
   module Models
+    TransactionLineItem = Transactions::TransactionLineItem
+
     module Transactions
       class TransactionLineItem < ModernTreasury::Internal::Type::BaseModel
         sig { returns(String) }
@@ -219,7 +221,5 @@ module ModernTreasury
         end
       end
     end
-
-    TransactionLineItem = Transactions::TransactionLineItem
   end
 end
