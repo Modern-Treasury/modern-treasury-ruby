@@ -2,6 +2,8 @@
 
 module ModernTreasury
   module Models
+    InvoiceLineItem = Invoices::InvoiceLineItem
+
     module Invoices
       class InvoiceLineItem < ModernTreasury::Internal::Type::BaseModel
         sig { returns(String) }
@@ -135,7 +137,5 @@ module ModernTreasury
         def to_hash; end
       end
     end
-
-    InvoiceLineItem = Invoices::InvoiceLineItem
   end
 end
