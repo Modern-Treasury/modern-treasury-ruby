@@ -27,8 +27,8 @@ require "bundler/setup"
 require "modern_treasury"
 
 modern_treasury = ModernTreasury::Client.new(
-  organization_id: "my-organization-ID", # defaults to ENV["MODERN_TREASURY_ORGANIZATION_ID"]
-  api_key: "My API Key" # defaults to ENV["MODERN_TREASURY_API_KEY"]
+  organization_id: ENV["MODERN_TREASURY_ORGANIZATION_ID"], # This is the default and can be omitted
+  api_key: ENV["MODERN_TREASURY_API_KEY"] # This is the default and can be omitted
 )
 
 counterparty = modern_treasury.counterparties.create(name: "my first counterparty")
