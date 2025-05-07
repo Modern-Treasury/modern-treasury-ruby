@@ -21,7 +21,7 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mo
       )
 
     assert_pattern do
-      response => ModernTreasury::Models::InternalAccounts::BalanceReport
+      response => ModernTreasury::InternalAccounts::BalanceReport
     end
 
     assert_pattern do
@@ -29,8 +29,8 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mo
         id: String,
         as_of_date: Date,
         as_of_time: Time | nil,
-        balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType,
-        balances: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance]),
+        balance_report_type: ModernTreasury::InternalAccounts::BalanceReport::BalanceReportType,
+        balances: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccounts::BalanceReport::Balance]),
         created_at: Time,
         internal_account_id: String,
         live_mode: ModernTreasury::Internal::Type::Boolean,
@@ -48,7 +48,7 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mo
       )
 
     assert_pattern do
-      response => ModernTreasury::Models::InternalAccounts::BalanceReport
+      response => ModernTreasury::InternalAccounts::BalanceReport
     end
 
     assert_pattern do
@@ -56,8 +56,8 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mo
         id: String,
         as_of_date: Date,
         as_of_time: Time | nil,
-        balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType,
-        balances: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance]),
+        balance_report_type: ModernTreasury::InternalAccounts::BalanceReport::BalanceReportType,
+        balances: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccounts::BalanceReport::Balance]),
         created_at: Time,
         internal_account_id: String,
         live_mode: ModernTreasury::Internal::Type::Boolean,
@@ -78,7 +78,7 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mo
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Models::InternalAccounts::BalanceReport
+      row => ModernTreasury::InternalAccounts::BalanceReport
     end
 
     assert_pattern do
@@ -86,8 +86,8 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mo
         id: String,
         as_of_date: Date,
         as_of_time: Time | nil,
-        balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType,
-        balances: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance]),
+        balance_report_type: ModernTreasury::InternalAccounts::BalanceReport::BalanceReportType,
+        balances: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccounts::BalanceReport::Balance]),
         created_at: Time,
         internal_account_id: String,
         live_mode: ModernTreasury::Internal::Type::Boolean,

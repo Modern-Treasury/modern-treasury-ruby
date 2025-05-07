@@ -17,11 +17,11 @@ module ModernTreasury
       # values safely.
       #
       # @example
-      #   # `accounts_type` is a `ModernTreasury::Models::AccountsType`
+      #   # `accounts_type` is a `ModernTreasury::AccountsType`
       #   case accounts_type
-      #   when ModernTreasury::Models::AccountsType::EXTERNAL_ACCOUNTS
+      #   when ModernTreasury::AccountsType::EXTERNAL_ACCOUNTS
       #     # ...
-      #   when ModernTreasury::Models::AccountsType::INTERNAL_ACCOUNTS
+      #   when ModernTreasury::AccountsType::INTERNAL_ACCOUNTS
       #     # ...
       #   else
       #     puts(accounts_type)

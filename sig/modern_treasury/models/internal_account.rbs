@@ -3,9 +3,9 @@ module ModernTreasury
     type internal_account =
       {
         id: String,
-        account_details: ::Array[ModernTreasury::Models::AccountDetail],
-        account_type: ModernTreasury::Models::InternalAccount::account_type?,
-        connection: ModernTreasury::Models::Connection,
+        account_details: ::Array[ModernTreasury::AccountDetail],
+        account_type: ModernTreasury::InternalAccount::account_type?,
+        connection: ModernTreasury::Connection,
         counterparty_id: String?,
         created_at: Time,
         currency: ModernTreasury::Models::currency,
@@ -16,21 +16,21 @@ module ModernTreasury
         name: String?,
         object: String,
         parent_account_id: String?,
-        party_address: ModernTreasury::Models::InternalAccount::PartyAddress?,
+        party_address: ModernTreasury::InternalAccount::PartyAddress?,
         party_name: String,
-        party_type: ModernTreasury::Models::InternalAccount::party_type?,
-        routing_details: ::Array[ModernTreasury::Models::RoutingDetail],
+        party_type: ModernTreasury::InternalAccount::party_type?,
+        routing_details: ::Array[ModernTreasury::RoutingDetail],
         updated_at: Time
       }
 
     class InternalAccount < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
-      attr_accessor account_details: ::Array[ModernTreasury::Models::AccountDetail]
+      attr_accessor account_details: ::Array[ModernTreasury::AccountDetail]
 
-      attr_accessor account_type: ModernTreasury::Models::InternalAccount::account_type?
+      attr_accessor account_type: ModernTreasury::InternalAccount::account_type?
 
-      attr_accessor connection: ModernTreasury::Models::Connection
+      attr_accessor connection: ModernTreasury::Connection
 
       attr_accessor counterparty_id: String?
 
@@ -52,21 +52,21 @@ module ModernTreasury
 
       attr_accessor parent_account_id: String?
 
-      attr_accessor party_address: ModernTreasury::Models::InternalAccount::PartyAddress?
+      attr_accessor party_address: ModernTreasury::InternalAccount::PartyAddress?
 
       attr_accessor party_name: String
 
-      attr_accessor party_type: ModernTreasury::Models::InternalAccount::party_type?
+      attr_accessor party_type: ModernTreasury::InternalAccount::party_type?
 
-      attr_accessor routing_details: ::Array[ModernTreasury::Models::RoutingDetail]
+      attr_accessor routing_details: ::Array[ModernTreasury::RoutingDetail]
 
       attr_accessor updated_at: Time
 
       def initialize: (
         id: String,
-        account_details: ::Array[ModernTreasury::Models::AccountDetail],
-        account_type: ModernTreasury::Models::InternalAccount::account_type?,
-        connection: ModernTreasury::Models::Connection,
+        account_details: ::Array[ModernTreasury::AccountDetail],
+        account_type: ModernTreasury::InternalAccount::account_type?,
+        connection: ModernTreasury::Connection,
         counterparty_id: String?,
         created_at: Time,
         currency: ModernTreasury::Models::currency,
@@ -77,14 +77,12 @@ module ModernTreasury
         name: String?,
         object: String,
         parent_account_id: String?,
-        party_address: ModernTreasury::Models::InternalAccount::PartyAddress?,
+        party_address: ModernTreasury::InternalAccount::PartyAddress?,
         party_name: String,
-        party_type: ModernTreasury::Models::InternalAccount::party_type?,
-        routing_details: ::Array[ModernTreasury::Models::RoutingDetail],
+        party_type: ModernTreasury::InternalAccount::party_type?,
+        routing_details: ::Array[ModernTreasury::RoutingDetail],
         updated_at: Time
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::internal_account
 
       type account_type =
         :cash
@@ -108,7 +106,7 @@ module ModernTreasury
         OVERDRAFT: :overdraft
         SAVINGS: :savings
 
-        def self?.values: -> ::Array[ModernTreasury::Models::InternalAccount::account_type]
+        def self?.values: -> ::Array[ModernTreasury::InternalAccount::account_type]
       end
 
       type party_address =
@@ -162,8 +160,6 @@ module ModernTreasury
           region: String?,
           updated_at: Time
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::InternalAccount::party_address
       end
 
       type party_type = :business | :individual
@@ -174,7 +170,7 @@ module ModernTreasury
         BUSINESS: :business
         INDIVIDUAL: :individual
 
-        def self?.values: -> ::Array[ModernTreasury::Models::InternalAccount::party_type]
+        def self?.values: -> ::Array[ModernTreasury::InternalAccount::party_type]
       end
     end
   end

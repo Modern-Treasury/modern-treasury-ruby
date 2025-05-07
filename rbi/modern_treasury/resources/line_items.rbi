@@ -7,11 +7,11 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          itemizable_type: ModernTreasury::Models::LineItemRetrieveParams::ItemizableType::OrSymbol,
+          itemizable_type:
+            ModernTreasury::LineItemRetrieveParams::ItemizableType::OrSymbol,
           itemizable_id: String,
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::LineItem)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::LineItem)
       end
       def retrieve(
         # The ID of the line item.
@@ -21,17 +21,19 @@ module ModernTreasury
         # The ID of the payment order or expected payment.
         itemizable_id:,
         request_options: {}
-      ); end
+      )
+      end
+
       # update line item
       sig do
         params(
           id: String,
-          itemizable_type: ModernTreasury::Models::LineItemUpdateParams::ItemizableType::OrSymbol,
+          itemizable_type:
+            ModernTreasury::LineItemUpdateParams::ItemizableType::OrSymbol,
           itemizable_id: String,
           metadata: T::Hash[Symbol, String],
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::LineItem)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::LineItem)
       end
       def update(
         # Path param: The ID of the line item.
@@ -44,17 +46,19 @@ module ModernTreasury
         # value must be strings.
         metadata: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Get a list of line items
       sig do
         params(
           itemizable_id: String,
-          itemizable_type: ModernTreasury::Models::LineItemListParams::ItemizableType::OrSymbol,
+          itemizable_type:
+            ModernTreasury::LineItemListParams::ItemizableType::OrSymbol,
           after_cursor: T.nilable(String),
           per_page: Integer,
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::LineItem])
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::Internal::Page[ModernTreasury::LineItem])
       end
       def list(
         # Path param: The ID of the payment order or expected payment.
@@ -66,10 +70,13 @@ module ModernTreasury
         # Query param:
         per_page: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

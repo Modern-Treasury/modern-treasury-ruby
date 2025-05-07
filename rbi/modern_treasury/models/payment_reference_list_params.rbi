@@ -6,6 +6,9 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor
 
@@ -32,14 +35,20 @@ module ModernTreasury
 
       # One of the referenceable types. This must be accompanied by the id of the
       # referenceable or will return an error.
-      sig { returns(T.nilable(ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::OrSymbol)) }
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::PaymentReferenceListParams::ReferenceableType::OrSymbol
+          )
+        )
+      end
       attr_reader :referenceable_type
 
       sig do
         params(
-          referenceable_type: ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::OrSymbol
-        )
-          .void
+          referenceable_type:
+            ModernTreasury::PaymentReferenceListParams::ReferenceableType::OrSymbol
+        ).void
       end
       attr_writer :referenceable_type
 
@@ -49,10 +58,10 @@ module ModernTreasury
           per_page: Integer,
           reference_number: String,
           referenceable_id: String,
-          referenceable_type: ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          referenceable_type:
+            ModernTreasury::PaymentReferenceListParams::ReferenceableType::OrSymbol,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         after_cursor: nil,
@@ -66,21 +75,24 @@ module ModernTreasury
         # referenceable or will return an error.
         referenceable_type: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              after_cursor: T.nilable(String),
-              per_page: Integer,
-              reference_number: String,
-              referenceable_id: String,
-              referenceable_type: ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::OrSymbol,
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            after_cursor: T.nilable(String),
+            per_page: Integer,
+            reference_number: String,
+            referenceable_id: String,
+            referenceable_type:
+              ModernTreasury::PaymentReferenceListParams::ReferenceableType::OrSymbol,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
 
       # One of the referenceable types. This must be accompanied by the id of the
       # referenceable or will return an error.
@@ -88,21 +100,39 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
-          T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType) }
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::PaymentReferenceListParams::ReferenceableType
+            )
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         PAYMENT_ORDER =
-          T.let(:payment_order, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::TaggedSymbol)
+          T.let(
+            :payment_order,
+            ModernTreasury::PaymentReferenceListParams::ReferenceableType::TaggedSymbol
+          )
         RETURN =
-          T.let(:return, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::TaggedSymbol)
+          T.let(
+            :return,
+            ModernTreasury::PaymentReferenceListParams::ReferenceableType::TaggedSymbol
+          )
         REVERSAL =
-          T.let(:reversal, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::TaggedSymbol)
+          T.let(
+            :reversal,
+            ModernTreasury::PaymentReferenceListParams::ReferenceableType::TaggedSymbol
+          )
 
         sig do
-          override
-            .returns(T::Array[ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::TaggedSymbol])
+          override.returns(
+            T::Array[
+              ModernTreasury::PaymentReferenceListParams::ReferenceableType::TaggedSymbol
+            ]
+          )
         end
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

@@ -9,16 +9,16 @@ module ModernTreasury
           currency: String,
           ledger_id: String,
           name: String,
-          normal_balance: ModernTreasury::Models::TransactionDirection::OrSymbol,
+          normal_balance: ModernTreasury::TransactionDirection::OrSymbol,
           currency_exponent: T.nilable(Integer),
           description: T.nilable(String),
           ledger_account_category_ids: T::Array[String],
           ledgerable_id: String,
-          ledgerable_type: ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::OrSymbol,
+          ledgerable_type:
+            ModernTreasury::LedgerAccountCreateParams::LedgerableType::OrSymbol,
           metadata: T::Hash[Symbol, String],
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::LedgerAccount)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::LedgerAccount)
       end
       def create(
         # The currency of the ledger account.
@@ -47,15 +47,17 @@ module ModernTreasury
         # strings.
         metadata: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Get details on a single ledger account.
       sig do
         params(
           id: String,
-          balances: T.any(ModernTreasury::Models::LedgerAccountRetrieveParams::Balances, ModernTreasury::Internal::AnyHash),
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::LedgerAccount)
+          balances:
+            ModernTreasury::LedgerAccountRetrieveParams::Balances::OrHash,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::LedgerAccount)
       end
       def retrieve(
         # id
@@ -68,7 +70,9 @@ module ModernTreasury
         # balance as of a specific Ledger Account `lock_version`.
         balances: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Update the details of a ledger account.
       sig do
         params(
@@ -76,9 +80,8 @@ module ModernTreasury
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           name: String,
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::LedgerAccount)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::LedgerAccount)
       end
       def update(
         # id
@@ -91,36 +94,31 @@ module ModernTreasury
         # The name of the ledger account.
         name: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Get a list of ledger accounts.
       sig do
         params(
           id: T::Array[String],
           after_cursor: T.nilable(String),
-          available_balance_amount: T.any(
-            ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount,
-            ModernTreasury::Internal::AnyHash
-          ),
-          balances: T.any(ModernTreasury::Models::LedgerAccountListParams::Balances, ModernTreasury::Internal::AnyHash),
+          available_balance_amount:
+            ModernTreasury::LedgerAccountListParams::AvailableBalanceAmount::OrHash,
+          balances: ModernTreasury::LedgerAccountListParams::Balances::OrHash,
           created_at: T::Hash[Symbol, Time],
           currency: String,
           ledger_account_category_id: String,
           ledger_id: String,
           metadata: T::Hash[Symbol, String],
           name: T::Array[String],
-          pending_balance_amount: T.any(
-            ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount,
-            ModernTreasury::Internal::AnyHash
-          ),
+          pending_balance_amount:
+            ModernTreasury::LedgerAccountListParams::PendingBalanceAmount::OrHash,
           per_page: Integer,
-          posted_balance_amount: T.any(
-            ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount,
-            ModernTreasury::Internal::AnyHash
-          ),
+          posted_balance_amount:
+            ModernTreasury::LedgerAccountListParams::PostedBalanceAmount::OrHash,
           updated_at: T::Hash[Symbol, Time],
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerAccount])
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::Internal::Page[ModernTreasury::LedgerAccount])
       end
       def list(
         # If you have specific IDs to retrieve in bulk, you can pass them as query
@@ -162,20 +160,27 @@ module ModernTreasury
         # updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
         updated_at: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Delete a ledger account.
       sig do
-        params(id: String, request_options: ModernTreasury::RequestOpts)
-          .returns(ModernTreasury::Models::LedgerAccount)
+        params(
+          id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::LedgerAccount)
       end
       def delete(
         # id
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

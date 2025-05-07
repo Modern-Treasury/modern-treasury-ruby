@@ -31,8 +31,8 @@ module ModernTreasury
       #   Required. Describes the direction money is flowing in the transaction. Can only
       #   be `debit`. A `debit` pulls money from someone else's account to your own.
       #
-      #   @return [Symbol, ModernTreasury::Models::PaymentFlowCreateParams::Direction]
-      required :direction, enum: -> { ModernTreasury::Models::PaymentFlowCreateParams::Direction }
+      #   @return [Symbol, ModernTreasury::PaymentFlowCreateParams::Direction]
+      required :direction, enum: -> { ModernTreasury::PaymentFlowCreateParams::Direction }
 
       # @!attribute originating_account_id
       #   Required. The ID of one of your organization's internal accounts.
@@ -53,20 +53,16 @@ module ModernTreasury
       #   {ModernTreasury::Models::PaymentFlowCreateParams} for more details.
       #
       #   @param amount [Integer] Required. Value in specified currency's smallest unit. e.g. $10 would be represe
-      #   ...
       #
       #   @param counterparty_id [String] Required. The ID of a counterparty associated with the payment. As part of the p
-      #   ...
       #
       #   @param currency [String] Required. The currency of the payment.
       #
-      #   @param direction [Symbol, ModernTreasury::Models::PaymentFlowCreateParams::Direction] Required. Describes the direction money is flowing in the transaction. Can only
-      #   ...
+      #   @param direction [Symbol, ModernTreasury::PaymentFlowCreateParams::Direction] Required. Describes the direction money is flowing in the transaction. Can only
       #
       #   @param originating_account_id [String] Required. The ID of one of your organization's internal accounts.
       #
       #   @param due_date [Date] Optional. Can only be passed in when `effective_date_selection_enabled` is `true
-      #   ...
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 

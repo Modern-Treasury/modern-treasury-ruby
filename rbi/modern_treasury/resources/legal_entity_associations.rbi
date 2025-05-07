@@ -7,17 +7,17 @@ module ModernTreasury
       sig do
         params(
           parent_legal_entity_id: String,
-          relationship_types: T::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::RelationshipType::OrSymbol],
-          child_legal_entity: T.any(
-            ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity,
-            ModernTreasury::Internal::AnyHash
-          ),
+          relationship_types:
+            T::Array[
+              ModernTreasury::LegalEntityAssociationCreateParams::RelationshipType::OrSymbol
+            ],
+          child_legal_entity:
+            ModernTreasury::LegalEntityAssociationCreateParams::ChildLegalEntity::OrHash,
           child_legal_entity_id: String,
           ownership_percentage: T.nilable(Integer),
           title: T.nilable(String),
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::LegalEntityAssociation)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::LegalEntityAssociation)
       end
       def create(
         # The ID of the parent legal entity. This must be a business or joint legal
@@ -33,10 +33,13 @@ module ModernTreasury
         # The job title of the child entity at the parent entity.
         title: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

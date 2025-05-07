@@ -21,8 +21,6 @@ module ModernTreasury
         ?metadata: ::Hash[Symbol, String],
         ?request_options: ModernTreasury::request_opts
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::ledger_account_balance_monitor_update_params
     end
   end
 end

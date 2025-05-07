@@ -6,11 +6,23 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       # One of create, or update.
-      sig { returns(T.nilable(ModernTreasury::Models::BulkRequestListParams::ActionType::OrSymbol)) }
+      sig do
+        returns(
+          T.nilable(ModernTreasury::BulkRequestListParams::ActionType::OrSymbol)
+        )
+      end
       attr_reader :action_type
 
-      sig { params(action_type: ModernTreasury::Models::BulkRequestListParams::ActionType::OrSymbol).void }
+      sig do
+        params(
+          action_type:
+            ModernTreasury::BulkRequestListParams::ActionType::OrSymbol
+        ).void
+      end
       attr_writer :action_type
 
       sig { returns(T.nilable(String)) }
@@ -32,30 +44,50 @@ module ModernTreasury
       attr_writer :per_page
 
       # One of payment_order, expected_payment, or ledger_transaction.
-      sig { returns(T.nilable(ModernTreasury::Models::BulkRequestListParams::ResourceType::OrSymbol)) }
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::BulkRequestListParams::ResourceType::OrSymbol
+          )
+        )
+      end
       attr_reader :resource_type
 
-      sig { params(resource_type: ModernTreasury::Models::BulkRequestListParams::ResourceType::OrSymbol).void }
+      sig do
+        params(
+          resource_type:
+            ModernTreasury::BulkRequestListParams::ResourceType::OrSymbol
+        ).void
+      end
       attr_writer :resource_type
 
       # One of pending, processing, or completed.
-      sig { returns(T.nilable(ModernTreasury::Models::BulkRequestListParams::Status::OrSymbol)) }
+      sig do
+        returns(
+          T.nilable(ModernTreasury::BulkRequestListParams::Status::OrSymbol)
+        )
+      end
       attr_reader :status
 
-      sig { params(status: ModernTreasury::Models::BulkRequestListParams::Status::OrSymbol).void }
+      sig do
+        params(
+          status: ModernTreasury::BulkRequestListParams::Status::OrSymbol
+        ).void
+      end
       attr_writer :status
 
       sig do
         params(
-          action_type: ModernTreasury::Models::BulkRequestListParams::ActionType::OrSymbol,
+          action_type:
+            ModernTreasury::BulkRequestListParams::ActionType::OrSymbol,
           after_cursor: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
-          resource_type: ModernTreasury::Models::BulkRequestListParams::ResourceType::OrSymbol,
-          status: ModernTreasury::Models::BulkRequestListParams::Status::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          resource_type:
+            ModernTreasury::BulkRequestListParams::ResourceType::OrSymbol,
+          status: ModernTreasury::BulkRequestListParams::Status::OrSymbol,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # One of create, or update.
@@ -71,36 +103,62 @@ module ModernTreasury
         # One of pending, processing, or completed.
         status: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              action_type: ModernTreasury::Models::BulkRequestListParams::ActionType::OrSymbol,
-              after_cursor: T.nilable(String),
-              metadata: T::Hash[Symbol, String],
-              per_page: Integer,
-              resource_type: ModernTreasury::Models::BulkRequestListParams::ResourceType::OrSymbol,
-              status: ModernTreasury::Models::BulkRequestListParams::Status::OrSymbol,
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            action_type:
+              ModernTreasury::BulkRequestListParams::ActionType::OrSymbol,
+            after_cursor: T.nilable(String),
+            metadata: T::Hash[Symbol, String],
+            per_page: Integer,
+            resource_type:
+              ModernTreasury::BulkRequestListParams::ResourceType::OrSymbol,
+            status: ModernTreasury::BulkRequestListParams::Status::OrSymbol,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
 
       # One of create, or update.
       module ActionType
         extend ModernTreasury::Internal::Type::Enum
 
-        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkRequestListParams::ActionType) }
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::BulkRequestListParams::ActionType)
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        CREATE = T.let(:create, ModernTreasury::Models::BulkRequestListParams::ActionType::TaggedSymbol)
-        UPDATE = T.let(:update, ModernTreasury::Models::BulkRequestListParams::ActionType::TaggedSymbol)
-        DELETE = T.let(:delete, ModernTreasury::Models::BulkRequestListParams::ActionType::TaggedSymbol)
+        CREATE =
+          T.let(
+            :create,
+            ModernTreasury::BulkRequestListParams::ActionType::TaggedSymbol
+          )
+        UPDATE =
+          T.let(
+            :update,
+            ModernTreasury::BulkRequestListParams::ActionType::TaggedSymbol
+          )
+        DELETE =
+          T.let(
+            :delete,
+            ModernTreasury::BulkRequestListParams::ActionType::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::BulkRequestListParams::ActionType::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::BulkRequestListParams::ActionType::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
 
       # One of payment_order, expected_payment, or ledger_transaction.
@@ -108,39 +166,88 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
-          T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkRequestListParams::ResourceType) }
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::BulkRequestListParams::ResourceType)
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         PAYMENT_ORDER =
-          T.let(:payment_order, ModernTreasury::Models::BulkRequestListParams::ResourceType::TaggedSymbol)
+          T.let(
+            :payment_order,
+            ModernTreasury::BulkRequestListParams::ResourceType::TaggedSymbol
+          )
         LEDGER_ACCOUNT =
-          T.let(:ledger_account, ModernTreasury::Models::BulkRequestListParams::ResourceType::TaggedSymbol)
+          T.let(
+            :ledger_account,
+            ModernTreasury::BulkRequestListParams::ResourceType::TaggedSymbol
+          )
         LEDGER_TRANSACTION =
-          T.let(:ledger_transaction, ModernTreasury::Models::BulkRequestListParams::ResourceType::TaggedSymbol)
+          T.let(
+            :ledger_transaction,
+            ModernTreasury::BulkRequestListParams::ResourceType::TaggedSymbol
+          )
         EXPECTED_PAYMENT =
-          T.let(:expected_payment, ModernTreasury::Models::BulkRequestListParams::ResourceType::TaggedSymbol)
+          T.let(
+            :expected_payment,
+            ModernTreasury::BulkRequestListParams::ResourceType::TaggedSymbol
+          )
         TRANSACTION =
-          T.let(:transaction, ModernTreasury::Models::BulkRequestListParams::ResourceType::TaggedSymbol)
+          T.let(
+            :transaction,
+            ModernTreasury::BulkRequestListParams::ResourceType::TaggedSymbol
+          )
         ENTITY_LINK =
-          T.let(:entity_link, ModernTreasury::Models::BulkRequestListParams::ResourceType::TaggedSymbol)
+          T.let(
+            :entity_link,
+            ModernTreasury::BulkRequestListParams::ResourceType::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::BulkRequestListParams::ResourceType::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::BulkRequestListParams::ResourceType::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
 
       # One of pending, processing, or completed.
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
-        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkRequestListParams::Status) }
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::BulkRequestListParams::Status)
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        PENDING = T.let(:pending, ModernTreasury::Models::BulkRequestListParams::Status::TaggedSymbol)
-        PROCESSING = T.let(:processing, ModernTreasury::Models::BulkRequestListParams::Status::TaggedSymbol)
-        COMPLETED = T.let(:completed, ModernTreasury::Models::BulkRequestListParams::Status::TaggedSymbol)
+        PENDING =
+          T.let(
+            :pending,
+            ModernTreasury::BulkRequestListParams::Status::TaggedSymbol
+          )
+        PROCESSING =
+          T.let(
+            :processing,
+            ModernTreasury::BulkRequestListParams::Status::TaggedSymbol
+          )
+        COMPLETED =
+          T.let(
+            :completed,
+            ModernTreasury::BulkRequestListParams::Status::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::BulkRequestListParams::Status::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::BulkRequestListParams::Status::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
     end
   end

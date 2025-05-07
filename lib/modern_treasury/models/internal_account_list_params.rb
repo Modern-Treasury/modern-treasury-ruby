@@ -21,8 +21,8 @@ module ModernTreasury
       # @!attribute currency
       #   Only return internal accounts with this currency.
       #
-      #   @return [Symbol, ModernTreasury::Models::Currency, nil]
-      optional :currency, enum: -> { ModernTreasury::Models::Currency }
+      #   @return [Symbol, ModernTreasury::Currency, nil]
+      optional :currency, enum: -> { ModernTreasury::Currency }
 
       # @!attribute legal_entity_id
       #   Only return internal accounts associated with this legal entity.
@@ -41,14 +41,14 @@ module ModernTreasury
       # @!attribute payment_direction
       #   Only return internal accounts that can originate payments with this direction.
       #
-      #   @return [Symbol, ModernTreasury::Models::TransactionDirection, nil]
-      optional :payment_direction, enum: -> { ModernTreasury::Models::TransactionDirection }
+      #   @return [Symbol, ModernTreasury::TransactionDirection, nil]
+      optional :payment_direction, enum: -> { ModernTreasury::TransactionDirection }
 
       # @!attribute payment_type
       #   Only return internal accounts that can make this type of payment.
       #
-      #   @return [Symbol, ModernTreasury::Models::InternalAccountListParams::PaymentType, nil]
-      optional :payment_type, enum: -> { ModernTreasury::Models::InternalAccountListParams::PaymentType }
+      #   @return [Symbol, ModernTreasury::InternalAccountListParams::PaymentType, nil]
+      optional :payment_type, enum: -> { ModernTreasury::InternalAccountListParams::PaymentType }
 
       # @!attribute per_page
       #
@@ -63,16 +63,15 @@ module ModernTreasury
       #
       #   @param counterparty_id [String] Only return internal accounts associated with this counterparty.
       #
-      #   @param currency [Symbol, ModernTreasury::Models::Currency] Only return internal accounts with this currency.
+      #   @param currency [Symbol, ModernTreasury::Currency] Only return internal accounts with this currency.
       #
       #   @param legal_entity_id [String] Only return internal accounts associated with this legal entity.
       #
       #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      #   ...
       #
-      #   @param payment_direction [Symbol, ModernTreasury::Models::TransactionDirection] Only return internal accounts that can originate payments with this direction.
+      #   @param payment_direction [Symbol, ModernTreasury::TransactionDirection] Only return internal accounts that can originate payments with this direction.
       #
-      #   @param payment_type [Symbol, ModernTreasury::Models::InternalAccountListParams::PaymentType] Only return internal accounts that can make this type of payment.
+      #   @param payment_type [Symbol, ModernTreasury::InternalAccountListParams::PaymentType] Only return internal accounts that can make this type of payment.
       #
       #   @param per_page [Integer]
       #

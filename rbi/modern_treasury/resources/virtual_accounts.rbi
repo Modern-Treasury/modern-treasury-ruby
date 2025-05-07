@@ -8,30 +8,23 @@ module ModernTreasury
         params(
           internal_account_id: String,
           name: String,
-          account_details: T::Array[
-            T.any(
-              ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail,
-              ModernTreasury::Internal::AnyHash
-            )
-          ],
+          account_details:
+            T::Array[
+              ModernTreasury::VirtualAccountCreateParams::AccountDetail::OrHash
+            ],
           counterparty_id: String,
           credit_ledger_account_id: String,
           debit_ledger_account_id: String,
           description: String,
-          ledger_account: T.any(
-            ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount,
-            ModernTreasury::Internal::AnyHash
-          ),
+          ledger_account:
+            ModernTreasury::VirtualAccountCreateParams::LedgerAccount::OrHash,
           metadata: T::Hash[Symbol, String],
-          routing_details: T::Array[
-            T.any(
-              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail,
-              ModernTreasury::Internal::AnyHash
-            )
-          ],
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::VirtualAccount)
+          routing_details:
+            T::Array[
+              ModernTreasury::VirtualAccountCreateParams::RoutingDetail::OrHash
+            ],
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::VirtualAccount)
       end
       def create(
         # The ID of the internal account that this virtual account is associated with.
@@ -62,17 +55,23 @@ module ModernTreasury
         # An array of routing detail objects.
         routing_details: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # get virtual_account
       sig do
-        params(id: String, request_options: ModernTreasury::RequestOpts)
-          .returns(ModernTreasury::Models::VirtualAccount)
+        params(
+          id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::VirtualAccount)
       end
       def retrieve(
         # Virtual Acccount ID
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # update virtual_account
       sig do
         params(
@@ -81,9 +80,8 @@ module ModernTreasury
           ledger_account_id: String,
           metadata: T::Hash[Symbol, String],
           name: T.nilable(String),
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::VirtualAccount)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::VirtualAccount)
       end
       def update(
         # Virtual Acccount ID
@@ -94,7 +92,9 @@ module ModernTreasury
         metadata: nil,
         name: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Get a list of virtual accounts.
       sig do
         params(
@@ -103,9 +103,10 @@ module ModernTreasury
           internal_account_id: String,
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
-          request_options: ModernTreasury::RequestOpts
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(
+          ModernTreasury::Internal::Page[ModernTreasury::VirtualAccount]
         )
-          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::VirtualAccount])
       end
       def list(
         after_cursor: nil,
@@ -117,20 +118,27 @@ module ModernTreasury
         metadata: nil,
         per_page: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # delete virtual_account
       sig do
-        params(id: String, request_options: ModernTreasury::RequestOpts)
-          .returns(ModernTreasury::Models::VirtualAccount)
+        params(
+          id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::VirtualAccount)
       end
       def delete(
         # Virtual Acccount ID
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

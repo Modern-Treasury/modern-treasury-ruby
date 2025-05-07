@@ -45,10 +45,8 @@ module ModernTreasury
       #   @param after_cursor [String, nil]
       #
       #   @param created_at [Hash{Symbol=>Time}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the pos
-      #   ...
       #
       #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      #   ...
       #
       #   @param name [String]
       #

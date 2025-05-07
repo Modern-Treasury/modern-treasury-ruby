@@ -15,7 +15,6 @@ module ModernTreasury
         # @param id [String] id
         #
         # @param ledger_entry_ids [Array<String>, nil] The ids of the ledger entries that are to be added or removed from the ledger ac
-        # ...
         #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
@@ -23,8 +22,7 @@ module ModernTreasury
         #
         # @see ModernTreasury::Models::LedgerAccountSettlements::AccountEntryUpdateParams
         def update(id, params)
-          parsed, options =
-            ModernTreasury::Models::LedgerAccountSettlements::AccountEntryUpdateParams.dump_request(params)
+          parsed, options = ModernTreasury::LedgerAccountSettlements::AccountEntryUpdateParams.dump_request(params)
           @client.request(
             method: :patch,
             path: ["api/ledger_account_settlements/%1$s/ledger_entries", id],
@@ -45,7 +43,6 @@ module ModernTreasury
         # @param id [String] id
         #
         # @param ledger_entry_ids [Array<String>, nil] The ids of the ledger entries that are to be added or removed from the ledger ac
-        # ...
         #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
@@ -53,8 +50,7 @@ module ModernTreasury
         #
         # @see ModernTreasury::Models::LedgerAccountSettlements::AccountEntryDeleteParams
         def delete(id, params)
-          parsed, options =
-            ModernTreasury::Models::LedgerAccountSettlements::AccountEntryDeleteParams.dump_request(params)
+          parsed, options = ModernTreasury::LedgerAccountSettlements::AccountEntryDeleteParams.dump_request(params)
           @client.request(
             method: :delete,
             path: ["api/ledger_account_settlements/%1$s/ledger_entries", id],

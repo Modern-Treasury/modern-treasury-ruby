@@ -65,7 +65,7 @@ module ModernTreasury
 
       # @!method initialize(id:, backup_withholding_percentage:, created_at:, discarded_at:, enable_backup_withholding:, live_mode:, object:, privacy_opt_out:, regulation_o:, updated_at:)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::Models::BankSettings} for more details.
+      #   {ModernTreasury::BankSettings} for more details.
       #
       #   @param id [String]
       #
@@ -76,17 +76,14 @@ module ModernTreasury
       #   @param discarded_at [Time, nil]
       #
       #   @param enable_backup_withholding [Boolean, nil] Whether backup withholding is enabled. See more here - https://www.irs.gov/busin
-      #   ...
       #
       #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
-      #   ...
       #
       #   @param object [String]
       #
       #   @param privacy_opt_out [Boolean, nil] Cross River Bank specific setting to opt out of privacy policy.
       #
       #   @param regulation_o [Boolean, nil] It covers, among other types of insider loans, extensions of credit by a member
-      #   ...
       #
       #   @param updated_at [Time]
     end

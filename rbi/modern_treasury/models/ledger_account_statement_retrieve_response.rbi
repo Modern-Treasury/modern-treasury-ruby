@@ -3,6 +3,9 @@
 module ModernTreasury
   module Models
     class LedgerAccountStatementRetrieveResponse < ModernTreasury::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       sig { returns(String) }
       attr_accessor :id
 
@@ -28,17 +31,18 @@ module ModernTreasury
       # on the account. The pending balance is the sum of all pending and posted entries
       # on the account. The available balance is the posted incoming entries minus the
       # sum of the pending and posted outgoing amounts.
-      sig { returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance) }
+      sig do
+        returns(
+          ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance
+        )
+      end
       attr_reader :ending_balance
 
       sig do
         params(
-          ending_balance: T.any(
-            ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance,
-            ModernTreasury::Internal::AnyHash
-          )
-        )
-          .void
+          ending_balance:
+            ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::OrHash
+        ).void
       end
       attr_writer :ending_balance
 
@@ -52,7 +56,7 @@ module ModernTreasury
       attr_accessor :ledger_account_lock_version
 
       # The normal balance of the ledger account.
-      sig { returns(ModernTreasury::Models::TransactionDirection::TaggedSymbol) }
+      sig { returns(ModernTreasury::TransactionDirection::TaggedSymbol) }
       attr_accessor :ledger_account_normal_balance
 
       # The id of the ledger that this ledger account statement belongs to.
@@ -77,17 +81,18 @@ module ModernTreasury
       # on the account. The pending balance is the sum of all pending and posted entries
       # on the account. The available balance is the posted incoming entries minus the
       # sum of the pending and posted outgoing amounts.
-      sig { returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance) }
+      sig do
+        returns(
+          ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance
+        )
+      end
       attr_reader :starting_balance
 
       sig do
         params(
-          starting_balance: T.any(
-            ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance,
-            ModernTreasury::Internal::AnyHash
-          )
-        )
-          .void
+          starting_balance:
+            ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::OrHash
+        ).void
       end
       attr_writer :starting_balance
 
@@ -101,24 +106,20 @@ module ModernTreasury
           description: T.nilable(String),
           effective_at_lower_bound: Time,
           effective_at_upper_bound: Time,
-          ending_balance: T.any(
-            ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance,
-            ModernTreasury::Internal::AnyHash
-          ),
+          ending_balance:
+            ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::OrHash,
           ledger_account_id: String,
           ledger_account_lock_version: Integer,
-          ledger_account_normal_balance: ModernTreasury::Models::TransactionDirection::OrSymbol,
+          ledger_account_normal_balance:
+            ModernTreasury::TransactionDirection::OrSymbol,
           ledger_id: String,
           live_mode: T::Boolean,
           metadata: T::Hash[Symbol, String],
           object: String,
-          starting_balance: T.any(
-            ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance,
-            ModernTreasury::Internal::AnyHash
-          ),
+          starting_balance:
+            ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::OrHash,
           updated_at: Time
-        )
-          .returns(T.attached_class)
+        ).returns(T.attached_class)
       end
       def self.new(
         id:,
@@ -160,77 +161,88 @@ module ModernTreasury
         # sum of the pending and posted outgoing amounts.
         starting_balance:,
         updated_at:
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: String,
-              created_at: Time,
-              description: T.nilable(String),
-              effective_at_lower_bound: Time,
-              effective_at_upper_bound: Time,
-              ending_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance,
-              ledger_account_id: String,
-              ledger_account_lock_version: Integer,
-              ledger_account_normal_balance: ModernTreasury::Models::TransactionDirection::TaggedSymbol,
-              ledger_id: String,
-              live_mode: T::Boolean,
-              metadata: T::Hash[Symbol, String],
-              object: String,
-              starting_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance,
-              updated_at: Time
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            created_at: Time,
+            description: T.nilable(String),
+            effective_at_lower_bound: Time,
+            effective_at_upper_bound: Time,
+            ending_balance:
+              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance,
+            ledger_account_id: String,
+            ledger_account_lock_version: Integer,
+            ledger_account_normal_balance:
+              ModernTreasury::TransactionDirection::TaggedSymbol,
+            ledger_id: String,
+            live_mode: T::Boolean,
+            metadata: T::Hash[Symbol, String],
+            object: String,
+            starting_balance:
+              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance,
+            updated_at: Time
+          }
+        )
+      end
+      def to_hash
+      end
 
       class EndingBalance < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         # The available_balance is the sum of all posted inbound entries and pending
         # outbound entries. For credit normal, available_amount = posted_credits -
         # pending_debits; for debit normal, available_amount = posted_debits -
         # pending_credits.
-        sig { returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::AvailableBalance) }
+        sig do
+          returns(
+            ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::AvailableBalance
+          )
+        end
         attr_reader :available_balance
 
         sig do
           params(
-            available_balance: T.any(
-              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::AvailableBalance,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
-            .void
+            available_balance:
+              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::AvailableBalance::OrHash
+          ).void
         end
         attr_writer :available_balance
 
         # The pending_balance is the sum of all pending and posted entries.
-        sig { returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PendingBalance) }
+        sig do
+          returns(
+            ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PendingBalance
+          )
+        end
         attr_reader :pending_balance
 
         sig do
           params(
-            pending_balance: T.any(
-              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PendingBalance,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
-            .void
+            pending_balance:
+              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PendingBalance::OrHash
+          ).void
         end
         attr_writer :pending_balance
 
         # The posted_balance is the sum of all posted entries.
-        sig { returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PostedBalance) }
+        sig do
+          returns(
+            ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PostedBalance
+          )
+        end
         attr_reader :posted_balance
 
         sig do
           params(
-            posted_balance: T.any(
-              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PostedBalance,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
-            .void
+            posted_balance:
+              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PostedBalance::OrHash
+          ).void
         end
         attr_writer :posted_balance
 
@@ -241,20 +253,13 @@ module ModernTreasury
         # sum of the pending and posted outgoing amounts.
         sig do
           params(
-            available_balance: T.any(
-              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::AvailableBalance,
-              ModernTreasury::Internal::AnyHash
-            ),
-            pending_balance: T.any(
-              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PendingBalance,
-              ModernTreasury::Internal::AnyHash
-            ),
-            posted_balance: T.any(
-              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PostedBalance,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
-            .returns(T.attached_class)
+            available_balance:
+              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::AvailableBalance::OrHash,
+            pending_balance:
+              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PendingBalance::OrHash,
+            posted_balance:
+              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PostedBalance::OrHash
+          ).returns(T.attached_class)
         end
         def self.new(
           # The available_balance is the sum of all posted inbound entries and pending
@@ -266,20 +271,30 @@ module ModernTreasury
           pending_balance:,
           # The posted_balance is the sum of all posted entries.
           posted_balance:
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                available_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::AvailableBalance,
-                pending_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PendingBalance,
-                posted_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PostedBalance
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              available_balance:
+                ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::AvailableBalance,
+              pending_balance:
+                ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PendingBalance,
+              posted_balance:
+                ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PostedBalance
+            }
+          )
+        end
+        def to_hash
+        end
 
         class AvailableBalance < ModernTreasury::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+            end
+
           sig { returns(Integer) }
           attr_accessor :amount
 
@@ -308,8 +323,7 @@ module ModernTreasury
               currency: String,
               currency_exponent: Integer,
               debits: Integer
-            )
-              .returns(T.attached_class)
+            ).returns(T.attached_class)
           end
           def self.new(
             amount:,
@@ -319,23 +333,30 @@ module ModernTreasury
             # The currency exponent of the ledger account.
             currency_exponent:,
             debits:
-          ); end
-          sig do
-            override
-              .returns(
-                {
-                  amount: Integer,
-                  credits: Integer,
-                  currency: String,
-                  currency_exponent: Integer,
-                  debits: Integer
-                }
-              )
+          )
           end
-          def to_hash; end
+
+          sig do
+            override.returns(
+              {
+                amount: Integer,
+                credits: Integer,
+                currency: String,
+                currency_exponent: Integer,
+                debits: Integer
+              }
+            )
+          end
+          def to_hash
+          end
         end
 
         class PendingBalance < ModernTreasury::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+            end
+
           sig { returns(Integer) }
           attr_accessor :amount
 
@@ -361,8 +382,7 @@ module ModernTreasury
               currency: String,
               currency_exponent: Integer,
               debits: Integer
-            )
-              .returns(T.attached_class)
+            ).returns(T.attached_class)
           end
           def self.new(
             amount:,
@@ -372,23 +392,30 @@ module ModernTreasury
             # The currency exponent of the ledger account.
             currency_exponent:,
             debits:
-          ); end
-          sig do
-            override
-              .returns(
-                {
-                  amount: Integer,
-                  credits: Integer,
-                  currency: String,
-                  currency_exponent: Integer,
-                  debits: Integer
-                }
-              )
+          )
           end
-          def to_hash; end
+
+          sig do
+            override.returns(
+              {
+                amount: Integer,
+                credits: Integer,
+                currency: String,
+                currency_exponent: Integer,
+                debits: Integer
+              }
+            )
+          end
+          def to_hash
+          end
         end
 
         class PostedBalance < ModernTreasury::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+            end
+
           sig { returns(Integer) }
           attr_accessor :amount
 
@@ -414,8 +441,7 @@ module ModernTreasury
               currency: String,
               currency_exponent: Integer,
               debits: Integer
-            )
-              .returns(T.attached_class)
+            ).returns(T.attached_class)
           end
           def self.new(
             amount:,
@@ -425,69 +451,77 @@ module ModernTreasury
             # The currency exponent of the ledger account.
             currency_exponent:,
             debits:
-          ); end
-          sig do
-            override
-              .returns(
-                {
-                  amount: Integer,
-                  credits: Integer,
-                  currency: String,
-                  currency_exponent: Integer,
-                  debits: Integer
-                }
-              )
+          )
           end
-          def to_hash; end
+
+          sig do
+            override.returns(
+              {
+                amount: Integer,
+                credits: Integer,
+                currency: String,
+                currency_exponent: Integer,
+                debits: Integer
+              }
+            )
+          end
+          def to_hash
+          end
         end
       end
 
       class StartingBalance < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         # The available_balance is the sum of all posted inbound entries and pending
         # outbound entries. For credit normal, available_amount = posted_credits -
         # pending_debits; for debit normal, available_amount = posted_debits -
         # pending_credits.
-        sig { returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::AvailableBalance) }
+        sig do
+          returns(
+            ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::AvailableBalance
+          )
+        end
         attr_reader :available_balance
 
         sig do
           params(
-            available_balance: T.any(
-              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::AvailableBalance,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
-            .void
+            available_balance:
+              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::AvailableBalance::OrHash
+          ).void
         end
         attr_writer :available_balance
 
         # The pending_balance is the sum of all pending and posted entries.
-        sig { returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PendingBalance) }
+        sig do
+          returns(
+            ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PendingBalance
+          )
+        end
         attr_reader :pending_balance
 
         sig do
           params(
-            pending_balance: T.any(
-              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PendingBalance,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
-            .void
+            pending_balance:
+              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PendingBalance::OrHash
+          ).void
         end
         attr_writer :pending_balance
 
         # The posted_balance is the sum of all posted entries.
-        sig { returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PostedBalance) }
+        sig do
+          returns(
+            ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PostedBalance
+          )
+        end
         attr_reader :posted_balance
 
         sig do
           params(
-            posted_balance: T.any(
-              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PostedBalance,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
-            .void
+            posted_balance:
+              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PostedBalance::OrHash
+          ).void
         end
         attr_writer :posted_balance
 
@@ -498,20 +532,13 @@ module ModernTreasury
         # sum of the pending and posted outgoing amounts.
         sig do
           params(
-            available_balance: T.any(
-              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::AvailableBalance,
-              ModernTreasury::Internal::AnyHash
-            ),
-            pending_balance: T.any(
-              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PendingBalance,
-              ModernTreasury::Internal::AnyHash
-            ),
-            posted_balance: T.any(
-              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PostedBalance,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
-            .returns(T.attached_class)
+            available_balance:
+              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::AvailableBalance::OrHash,
+            pending_balance:
+              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PendingBalance::OrHash,
+            posted_balance:
+              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PostedBalance::OrHash
+          ).returns(T.attached_class)
         end
         def self.new(
           # The available_balance is the sum of all posted inbound entries and pending
@@ -523,20 +550,30 @@ module ModernTreasury
           pending_balance:,
           # The posted_balance is the sum of all posted entries.
           posted_balance:
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                available_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::AvailableBalance,
-                pending_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PendingBalance,
-                posted_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PostedBalance
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              available_balance:
+                ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::AvailableBalance,
+              pending_balance:
+                ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PendingBalance,
+              posted_balance:
+                ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PostedBalance
+            }
+          )
+        end
+        def to_hash
+        end
 
         class AvailableBalance < ModernTreasury::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+            end
+
           sig { returns(Integer) }
           attr_accessor :amount
 
@@ -565,8 +602,7 @@ module ModernTreasury
               currency: String,
               currency_exponent: Integer,
               debits: Integer
-            )
-              .returns(T.attached_class)
+            ).returns(T.attached_class)
           end
           def self.new(
             amount:,
@@ -576,23 +612,30 @@ module ModernTreasury
             # The currency exponent of the ledger account.
             currency_exponent:,
             debits:
-          ); end
-          sig do
-            override
-              .returns(
-                {
-                  amount: Integer,
-                  credits: Integer,
-                  currency: String,
-                  currency_exponent: Integer,
-                  debits: Integer
-                }
-              )
+          )
           end
-          def to_hash; end
+
+          sig do
+            override.returns(
+              {
+                amount: Integer,
+                credits: Integer,
+                currency: String,
+                currency_exponent: Integer,
+                debits: Integer
+              }
+            )
+          end
+          def to_hash
+          end
         end
 
         class PendingBalance < ModernTreasury::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+            end
+
           sig { returns(Integer) }
           attr_accessor :amount
 
@@ -618,8 +661,7 @@ module ModernTreasury
               currency: String,
               currency_exponent: Integer,
               debits: Integer
-            )
-              .returns(T.attached_class)
+            ).returns(T.attached_class)
           end
           def self.new(
             amount:,
@@ -629,23 +671,30 @@ module ModernTreasury
             # The currency exponent of the ledger account.
             currency_exponent:,
             debits:
-          ); end
-          sig do
-            override
-              .returns(
-                {
-                  amount: Integer,
-                  credits: Integer,
-                  currency: String,
-                  currency_exponent: Integer,
-                  debits: Integer
-                }
-              )
+          )
           end
-          def to_hash; end
+
+          sig do
+            override.returns(
+              {
+                amount: Integer,
+                credits: Integer,
+                currency: String,
+                currency_exponent: Integer,
+                debits: Integer
+              }
+            )
+          end
+          def to_hash
+          end
         end
 
         class PostedBalance < ModernTreasury::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+            end
+
           sig { returns(Integer) }
           attr_accessor :amount
 
@@ -671,8 +720,7 @@ module ModernTreasury
               currency: String,
               currency_exponent: Integer,
               debits: Integer
-            )
-              .returns(T.attached_class)
+            ).returns(T.attached_class)
           end
           def self.new(
             amount:,
@@ -682,20 +730,22 @@ module ModernTreasury
             # The currency exponent of the ledger account.
             currency_exponent:,
             debits:
-          ); end
-          sig do
-            override
-              .returns(
-                {
-                  amount: Integer,
-                  credits: Integer,
-                  currency: String,
-                  currency_exponent: Integer,
-                  debits: Integer
-                }
-              )
+          )
           end
-          def to_hash; end
+
+          sig do
+            override.returns(
+              {
+                amount: Integer,
+                credits: Integer,
+                currency: String,
+                currency_exponent: Integer,
+                debits: Integer
+              }
+            )
+          end
+          def to_hash
+          end
         end
       end
     end

@@ -56,7 +56,7 @@ module ModernTreasury
 
       # @!method initialize(id:, created_at:, discarded_at:, live_mode:, object:, updated_at:, vendor_customer_id:, vendor_id:, vendor_name:)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::Models::Connection} for more details.
+      #   {ModernTreasury::Connection} for more details.
       #
       #   @param id [String]
       #
@@ -65,7 +65,6 @@ module ModernTreasury
       #   @param discarded_at [Time, nil]
       #
       #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
-      #   ...
       #
       #   @param object [String]
       #

@@ -19,8 +19,8 @@ module ModernTreasury
       #   One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
       #   account number is in a generic format.
       #
-      #   @return [Symbol, ModernTreasury::Models::AccountDetail::AccountNumberType]
-      required :account_number_type, enum: -> { ModernTreasury::Models::AccountDetail::AccountNumberType }
+      #   @return [Symbol, ModernTreasury::AccountDetail::AccountNumberType]
+      required :account_number_type, enum: -> { ModernTreasury::AccountDetail::AccountNumberType }
 
       # @!attribute created_at
       #
@@ -57,21 +57,19 @@ module ModernTreasury
 
       # @!method initialize(id:, account_number_safe:, account_number_type:, created_at:, discarded_at:, live_mode:, object:, updated_at:, account_number: nil)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::Models::AccountDetail} for more details.
+      #   {ModernTreasury::AccountDetail} for more details.
       #
       #   @param id [String]
       #
       #   @param account_number_safe [String] The last 4 digits of the account_number.
       #
-      #   @param account_number_type [Symbol, ModernTreasury::Models::AccountDetail::AccountNumberType] One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank ac
-      #   ...
+      #   @param account_number_type [Symbol, ModernTreasury::AccountDetail::AccountNumberType] One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank ac
       #
       #   @param created_at [Time]
       #
       #   @param discarded_at [Time, nil]
       #
       #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
-      #   ...
       #
       #   @param object [String]
       #
@@ -82,7 +80,7 @@ module ModernTreasury
       # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
       # account number is in a generic format.
       #
-      # @see ModernTreasury::Models::AccountDetail#account_number_type
+      # @see ModernTreasury::AccountDetail#account_number_type
       module AccountNumberType
         extend ModernTreasury::Internal::Type::Enum
 

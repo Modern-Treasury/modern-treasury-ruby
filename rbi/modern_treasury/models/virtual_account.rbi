@@ -3,11 +3,14 @@
 module ModernTreasury
   module Models
     class VirtualAccount < ModernTreasury::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       sig { returns(String) }
       attr_accessor :id
 
       # An array of account detail objects.
-      sig { returns(T::Array[ModernTreasury::Models::AccountDetail]) }
+      sig { returns(T::Array[ModernTreasury::AccountDetail]) }
       attr_accessor :account_details
 
       # The ID of a counterparty that the virtual account belongs to. Optional.
@@ -64,7 +67,7 @@ module ModernTreasury
 
       # An array of routing detail objects. These will be the routing details of the
       # internal account.
-      sig { returns(T::Array[ModernTreasury::Models::RoutingDetail]) }
+      sig { returns(T::Array[ModernTreasury::RoutingDetail]) }
       attr_accessor :routing_details
 
       sig { returns(Time) }
@@ -73,7 +76,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          account_details: T::Array[T.any(ModernTreasury::Models::AccountDetail, ModernTreasury::Internal::AnyHash)],
+          account_details: T::Array[ModernTreasury::AccountDetail::OrHash],
           counterparty_id: T.nilable(String),
           created_at: Time,
           credit_ledger_account_id: T.nilable(String),
@@ -86,10 +89,9 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           name: String,
           object: String,
-          routing_details: T::Array[T.any(ModernTreasury::Models::RoutingDetail, ModernTreasury::Internal::AnyHash)],
+          routing_details: T::Array[ModernTreasury::RoutingDetail::OrHash],
           updated_at: Time
-        )
-          .returns(T.attached_class)
+        ).returns(T.attached_class)
       end
       def self.new(
         id:,
@@ -127,31 +129,33 @@ module ModernTreasury
         # internal account.
         routing_details:,
         updated_at:
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: String,
-              account_details: T::Array[ModernTreasury::Models::AccountDetail],
-              counterparty_id: T.nilable(String),
-              created_at: Time,
-              credit_ledger_account_id: T.nilable(String),
-              debit_ledger_account_id: T.nilable(String),
-              description: T.nilable(String),
-              discarded_at: T.nilable(Time),
-              internal_account_id: String,
-              ledger_account_id: T.nilable(String),
-              live_mode: T::Boolean,
-              metadata: T::Hash[Symbol, String],
-              name: String,
-              object: String,
-              routing_details: T::Array[ModernTreasury::Models::RoutingDetail],
-              updated_at: Time
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            account_details: T::Array[ModernTreasury::AccountDetail],
+            counterparty_id: T.nilable(String),
+            created_at: Time,
+            credit_ledger_account_id: T.nilable(String),
+            debit_ledger_account_id: T.nilable(String),
+            description: T.nilable(String),
+            discarded_at: T.nilable(Time),
+            internal_account_id: String,
+            ledger_account_id: T.nilable(String),
+            live_mode: T::Boolean,
+            metadata: T::Hash[Symbol, String],
+            name: String,
+            object: String,
+            routing_details: T::Array[ModernTreasury::RoutingDetail],
+            updated_at: Time
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

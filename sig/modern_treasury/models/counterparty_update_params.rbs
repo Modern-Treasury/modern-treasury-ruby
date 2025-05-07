@@ -46,8 +46,6 @@ module ModernTreasury
         ?taxpayer_identifier: String,
         ?request_options: ModernTreasury::request_opts
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::counterparty_update_params
     end
   end
 end

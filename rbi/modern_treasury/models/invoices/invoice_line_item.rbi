@@ -6,6 +6,9 @@ module ModernTreasury
 
     module Invoices
       class InvoiceLineItem < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         sig { returns(String) }
         attr_accessor :id
 
@@ -78,8 +81,7 @@ module ModernTreasury
             unit_amount: Integer,
             unit_amount_decimal: String,
             updated_at: Time
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
           id:,
@@ -113,28 +115,30 @@ module ModernTreasury
           # up to 12 decimals
           unit_amount_decimal:,
           updated_at:
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                id: String,
-                amount: Integer,
-                created_at: Time,
-                description: String,
-                direction: String,
-                live_mode: T::Boolean,
-                metadata: T::Hash[Symbol, String],
-                name: String,
-                object: String,
-                quantity: Integer,
-                unit_amount: Integer,
-                unit_amount_decimal: String,
-                updated_at: Time
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              id: String,
+              amount: Integer,
+              created_at: Time,
+              description: String,
+              direction: String,
+              live_mode: T::Boolean,
+              metadata: T::Hash[Symbol, String],
+              name: String,
+              object: String,
+              quantity: Integer,
+              unit_amount: Integer,
+              unit_amount_decimal: String,
+              updated_at: Time
+            }
+          )
+        end
+        def to_hash
+        end
       end
     end
   end

@@ -6,6 +6,9 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       # The description of the ledger account settlement.
       sig { returns(T.nilable(String)) }
       attr_accessor :description
@@ -20,20 +23,31 @@ module ModernTreasury
 
       # To post a pending ledger account settlement, use `posted`. To archive a pending
       # ledger transaction, use `archived`.
-      sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::OrSymbol)) }
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::LedgerAccountSettlementUpdateParams::Status::OrSymbol
+          )
+        )
+      end
       attr_reader :status
 
-      sig { params(status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::OrSymbol).void }
+      sig do
+        params(
+          status:
+            ModernTreasury::LedgerAccountSettlementUpdateParams::Status::OrSymbol
+        ).void
+      end
       attr_writer :status
 
       sig do
         params(
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
-          status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          status:
+            ModernTreasury::LedgerAccountSettlementUpdateParams::Status::OrSymbol,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # The description of the ledger account settlement.
@@ -45,19 +59,22 @@ module ModernTreasury
         # ledger transaction, use `archived`.
         status: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              description: T.nilable(String),
-              metadata: T::Hash[Symbol, String],
-              status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::OrSymbol,
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            description: T.nilable(String),
+            metadata: T::Hash[Symbol, String],
+            status:
+              ModernTreasury::LedgerAccountSettlementUpdateParams::Status::OrSymbol,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
 
       # To post a pending ledger account settlement, use `posted`. To archive a pending
       # ledger transaction, use `archived`.
@@ -65,19 +82,34 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
-          T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status) }
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::LedgerAccountSettlementUpdateParams::Status
+            )
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         POSTED =
-          T.let(:posted, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::TaggedSymbol)
+          T.let(
+            :posted,
+            ModernTreasury::LedgerAccountSettlementUpdateParams::Status::TaggedSymbol
+          )
         ARCHIVED =
-          T.let(:archived, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::TaggedSymbol)
+          T.let(
+            :archived,
+            ModernTreasury::LedgerAccountSettlementUpdateParams::Status::TaggedSymbol
+          )
 
         sig do
-          override
-            .returns(T::Array[ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::TaggedSymbol])
+          override.returns(
+            T::Array[
+              ModernTreasury::LedgerAccountSettlementUpdateParams::Status::TaggedSymbol
+            ]
+          )
         end
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

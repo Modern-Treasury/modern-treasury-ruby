@@ -39,8 +39,6 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
-      def to_hash: -> ModernTreasury::Models::payment_flow_create_params
-
       type direction = :credit | :debit
 
       module Direction

@@ -15,18 +15,18 @@ module ModernTreasury
         ?type: ModernTreasury::Models::TransactionCreateParams::type_?,
         ?vendor_description: String?,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::Transaction
+      ) -> ModernTreasury::Transaction
 
       def retrieve: (
         String id,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::Transaction
+      ) -> ModernTreasury::Transaction
 
       def update: (
         String id,
         ?metadata: ::Hash[Symbol, String],
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::Transaction
+      ) -> ModernTreasury::Transaction
 
       def list: (
         ?after_cursor: String?,
@@ -44,7 +44,7 @@ module ModernTreasury
         ?vendor_id: String,
         ?virtual_account_id: String,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::Transaction]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Transaction]
 
       def delete: (
         String id,

@@ -8,15 +8,13 @@ module ModernTreasury
         sig do
           params(
             payment_order_id: String,
-            reason: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::OrSymbol,
-            ledger_transaction: T.any(
-              ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction,
-              ModernTreasury::Internal::AnyHash
-            ),
+            reason:
+              ModernTreasury::PaymentOrders::ReversalCreateParams::Reason::OrSymbol,
+            ledger_transaction:
+              ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction::OrHash,
             metadata: T::Hash[Symbol, String],
-            request_options: ModernTreasury::RequestOpts
-          )
-            .returns(ModernTreasury::Models::PaymentOrders::Reversal)
+            request_options: ModernTreasury::RequestOptions::OrHash
+          ).returns(ModernTreasury::PaymentOrders::Reversal)
         end
         def create(
           # The id of the payment order being reversed.
@@ -33,11 +31,16 @@ module ModernTreasury
           # strings.
           metadata: nil,
           request_options: {}
-        ); end
+        )
+        end
+
         # Get details on a single reversal of a payment order.
         sig do
-          params(reversal_id: String, payment_order_id: String, request_options: ModernTreasury::RequestOpts)
-            .returns(ModernTreasury::Models::PaymentOrders::Reversal)
+          params(
+            reversal_id: String,
+            payment_order_id: String,
+            request_options: ModernTreasury::RequestOptions::OrHash
+          ).returns(ModernTreasury::PaymentOrders::Reversal)
         end
         def retrieve(
           # The ID of the reversal.
@@ -45,16 +48,21 @@ module ModernTreasury
           # The id of the payment order being reversed.
           payment_order_id:,
           request_options: {}
-        ); end
+        )
+        end
+
         # Get a list of all reversals of a payment order.
         sig do
           params(
             payment_order_id: String,
             after_cursor: T.nilable(String),
             per_page: Integer,
-            request_options: ModernTreasury::RequestOpts
+            request_options: ModernTreasury::RequestOptions::OrHash
+          ).returns(
+            ModernTreasury::Internal::Page[
+              ModernTreasury::PaymentOrders::Reversal
+            ]
           )
-            .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::PaymentOrders::Reversal])
         end
         def list(
           # The ID of the relevant Payment Order.
@@ -62,10 +70,13 @@ module ModernTreasury
           after_cursor: nil,
           per_page: nil,
           request_options: {}
-        ); end
+        )
+        end
+
         # @api private
         sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-        def self.new(client:); end
+        def self.new(client:)
+        end
       end
     end
   end

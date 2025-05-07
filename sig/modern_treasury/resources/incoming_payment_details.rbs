@@ -4,13 +4,13 @@ module ModernTreasury
       def retrieve: (
         String id,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::IncomingPaymentDetail
+      ) -> ModernTreasury::IncomingPaymentDetail
 
       def update: (
         String id,
         ?metadata: ::Hash[Symbol, String],
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::IncomingPaymentDetail
+      ) -> ModernTreasury::IncomingPaymentDetail
 
       def list: (
         ?after_cursor: String?,
@@ -23,7 +23,7 @@ module ModernTreasury
         ?type: ModernTreasury::Models::IncomingPaymentDetailListParams::type_,
         ?virtual_account_id: String,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::IncomingPaymentDetail]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::IncomingPaymentDetail]
 
       def create_async: (
         ?amount: Integer,
@@ -36,7 +36,7 @@ module ModernTreasury
         ?type: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::type_,
         ?virtual_account_id: String?,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::AsyncResponse
+      ) -> ModernTreasury::AsyncResponse
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

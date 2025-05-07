@@ -19,9 +19,9 @@ module ModernTreasury
       #   more details. In sandbox mode we currently only support `aba` and `swift` with
       #   routing numbers '123456789' and 'GRINUST0XXX' respectively.
       #
-      #   @return [Symbol, ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType]
+      #   @return [Symbol, ModernTreasury::ValidationValidateRoutingNumberParams::RoutingNumberType]
       required :routing_number_type,
-               enum: -> { ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType }
+               enum: -> { ModernTreasury::ValidationValidateRoutingNumberParams::RoutingNumberType }
 
       # @!method initialize(routing_number:, routing_number_type:, request_options: {})
       #   Some parameter documentations has been truncated, see
@@ -30,8 +30,7 @@ module ModernTreasury
       #
       #   @param routing_number [String] The routing number that is being validated.
       #
-      #   @param routing_number_type [Symbol, ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType] The type of routing number. See https://docs.moderntreasury.com/platform/referen
-      #   ...
+      #   @param routing_number_type [Symbol, ModernTreasury::ValidationValidateRoutingNumberParams::RoutingNumberType] The type of routing number. See https://docs.moderntreasury.com/platform/referen
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 

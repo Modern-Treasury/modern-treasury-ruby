@@ -9,12 +9,12 @@ module ModernTreasury
         ?effective_at: Time,
         ?target_amount: Integer,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::ForeignExchangeQuote
+      ) -> ModernTreasury::ForeignExchangeQuote
 
       def retrieve: (
         String id,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::ForeignExchangeQuote
+      ) -> ModernTreasury::ForeignExchangeQuote
 
       def list: (
         ?after_cursor: String?,
@@ -27,7 +27,7 @@ module ModernTreasury
         ?per_page: Integer,
         ?target_currency: String,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::ForeignExchangeQuote]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::ForeignExchangeQuote]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

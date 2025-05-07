@@ -53,8 +53,6 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
-      def to_hash: -> ModernTreasury::Models::bulk_request_list_params
-
       type action_type = :create | :update | :delete
 
       module ActionType

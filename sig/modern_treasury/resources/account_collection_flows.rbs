@@ -4,20 +4,20 @@ module ModernTreasury
       def create: (
         counterparty_id: String,
         payment_types: ::Array[String],
-        ?receiving_countries: ::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country],
+        ?receiving_countries: ::Array[ModernTreasury::AccountCollectionFlowCreateParams::receiving_country],
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::AccountCollectionFlow
+      ) -> ModernTreasury::AccountCollectionFlow
 
       def retrieve: (
         String id,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::AccountCollectionFlow
+      ) -> ModernTreasury::AccountCollectionFlow
 
       def update: (
         String id,
         status: ModernTreasury::Models::AccountCollectionFlowUpdateParams::status,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::AccountCollectionFlow
+      ) -> ModernTreasury::AccountCollectionFlow
 
       def list: (
         ?after_cursor: String?,
@@ -27,7 +27,7 @@ module ModernTreasury
         ?per_page: Integer,
         ?status: String,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::AccountCollectionFlow]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::AccountCollectionFlow]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

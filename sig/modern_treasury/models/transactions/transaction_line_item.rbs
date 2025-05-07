@@ -16,9 +16,9 @@ module ModernTreasury
           object: String,
           reconcilable: bool,
           transactable_id: String?,
-          transactable_type: ModernTreasury::Models::Transactions::TransactionLineItem::transactable_type?,
+          transactable_type: ModernTreasury::Transactions::TransactionLineItem::transactable_type?,
           transaction_id: String,
-          type: ModernTreasury::Models::Transactions::TransactionLineItem::type_,
+          type: ModernTreasury::Transactions::TransactionLineItem::type_,
           updated_at: Time
         }
 
@@ -45,11 +45,11 @@ module ModernTreasury
 
         attr_accessor transactable_id: String?
 
-        attr_accessor transactable_type: ModernTreasury::Models::Transactions::TransactionLineItem::transactable_type?
+        attr_accessor transactable_type: ModernTreasury::Transactions::TransactionLineItem::transactable_type?
 
         attr_accessor transaction_id: String
 
-        attr_accessor type: ModernTreasury::Models::Transactions::TransactionLineItem::type_
+        attr_accessor type: ModernTreasury::Transactions::TransactionLineItem::type_
 
         attr_accessor updated_at: Time
 
@@ -65,13 +65,11 @@ module ModernTreasury
           object: String,
           reconcilable: bool,
           transactable_id: String?,
-          transactable_type: ModernTreasury::Models::Transactions::TransactionLineItem::transactable_type?,
+          transactable_type: ModernTreasury::Transactions::TransactionLineItem::transactable_type?,
           transaction_id: String,
-          type: ModernTreasury::Models::Transactions::TransactionLineItem::type_,
+          type: ModernTreasury::Transactions::TransactionLineItem::type_,
           updated_at: Time
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::Transactions::transaction_line_item
 
         type transactable_type =
           :incoming_payment_detail
@@ -91,7 +89,7 @@ module ModernTreasury
           RETURN: :return
           REVERSAL: :reversal
 
-          def self?.values: -> ::Array[ModernTreasury::Models::Transactions::TransactionLineItem::transactable_type]
+          def self?.values: -> ::Array[ModernTreasury::Transactions::TransactionLineItem::transactable_type]
         end
 
         type type_ = :originating | :receiving
@@ -102,7 +100,7 @@ module ModernTreasury
           ORIGINATING: :originating
           RECEIVING: :receiving
 
-          def self?.values: -> ::Array[ModernTreasury::Models::Transactions::TransactionLineItem::type_]
+          def self?.values: -> ::Array[ModernTreasury::Transactions::TransactionLineItem::type_]
         end
       end
     end

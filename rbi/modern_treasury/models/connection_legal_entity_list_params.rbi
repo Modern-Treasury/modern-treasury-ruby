@@ -6,6 +6,9 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor
 
@@ -27,10 +30,21 @@ module ModernTreasury
       sig { params(per_page: Integer).void }
       attr_writer :per_page
 
-      sig { returns(T.nilable(ModernTreasury::Models::ConnectionLegalEntityListParams::Status::OrSymbol)) }
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::ConnectionLegalEntityListParams::Status::OrSymbol
+          )
+        )
+      end
       attr_reader :status
 
-      sig { params(status: ModernTreasury::Models::ConnectionLegalEntityListParams::Status::OrSymbol).void }
+      sig do
+        params(
+          status:
+            ModernTreasury::ConnectionLegalEntityListParams::Status::OrSymbol
+        ).void
+      end
       attr_writer :status
 
       sig do
@@ -39,10 +53,10 @@ module ModernTreasury
           connection_id: String,
           legal_entity_id: String,
           per_page: Integer,
-          status: ModernTreasury::Models::ConnectionLegalEntityListParams::Status::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          status:
+            ModernTreasury::ConnectionLegalEntityListParams::Status::OrSymbol,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         after_cursor: nil,
@@ -51,38 +65,67 @@ module ModernTreasury
         per_page: nil,
         status: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              after_cursor: T.nilable(String),
-              connection_id: String,
-              legal_entity_id: String,
-              per_page: Integer,
-              status: ModernTreasury::Models::ConnectionLegalEntityListParams::Status::OrSymbol,
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            after_cursor: T.nilable(String),
+            connection_id: String,
+            legal_entity_id: String,
+            per_page: Integer,
+            status:
+              ModernTreasury::ConnectionLegalEntityListParams::Status::OrSymbol,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
 
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
-          T.type_alias { T.all(Symbol, ModernTreasury::Models::ConnectionLegalEntityListParams::Status) }
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::ConnectionLegalEntityListParams::Status
+            )
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         COMPLETED =
-          T.let(:completed, ModernTreasury::Models::ConnectionLegalEntityListParams::Status::TaggedSymbol)
-        DENIED = T.let(:denied, ModernTreasury::Models::ConnectionLegalEntityListParams::Status::TaggedSymbol)
-        FAILED = T.let(:failed, ModernTreasury::Models::ConnectionLegalEntityListParams::Status::TaggedSymbol)
+          T.let(
+            :completed,
+            ModernTreasury::ConnectionLegalEntityListParams::Status::TaggedSymbol
+          )
+        DENIED =
+          T.let(
+            :denied,
+            ModernTreasury::ConnectionLegalEntityListParams::Status::TaggedSymbol
+          )
+        FAILED =
+          T.let(
+            :failed,
+            ModernTreasury::ConnectionLegalEntityListParams::Status::TaggedSymbol
+          )
         PROCESSING =
-          T.let(:processing, ModernTreasury::Models::ConnectionLegalEntityListParams::Status::TaggedSymbol)
+          T.let(
+            :processing,
+            ModernTreasury::ConnectionLegalEntityListParams::Status::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::ConnectionLegalEntityListParams::Status::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::ConnectionLegalEntityListParams::Status::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
     end
   end

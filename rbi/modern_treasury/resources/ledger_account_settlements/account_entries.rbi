@@ -9,9 +9,8 @@ module ModernTreasury
           params(
             id: String,
             ledger_entry_ids: T.nilable(T::Array[String]),
-            request_options: ModernTreasury::RequestOpts
-          )
-            .void
+            request_options: ModernTreasury::RequestOptions::OrHash
+          ).void
         end
         def update(
           # id
@@ -20,15 +19,16 @@ module ModernTreasury
           # account settlement.
           ledger_entry_ids:,
           request_options: {}
-        ); end
+        )
+        end
+
         # Remove ledger entries from a draft ledger account settlement.
         sig do
           params(
             id: String,
             ledger_entry_ids: T.nilable(T::Array[String]),
-            request_options: ModernTreasury::RequestOpts
-          )
-            .void
+            request_options: ModernTreasury::RequestOptions::OrHash
+          ).void
         end
         def delete(
           # id
@@ -37,10 +37,13 @@ module ModernTreasury
           # account settlement.
           ledger_entry_ids:,
           request_options: {}
-        ); end
+        )
+        end
+
         # @api private
         sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-        def self.new(client:); end
+        def self.new(client:)
+        end
       end
     end
   end

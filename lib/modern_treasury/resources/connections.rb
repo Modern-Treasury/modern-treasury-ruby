@@ -17,17 +17,17 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::Connection>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Connection>]
       #
       # @see ModernTreasury::Models::ConnectionListParams
       def list(params = {})
-        parsed, options = ModernTreasury::Models::ConnectionListParams.dump_request(params)
+        parsed, options = ModernTreasury::ConnectionListParams.dump_request(params)
         @client.request(
           method: :get,
           path: "api/connections",
           query: parsed,
           page: ModernTreasury::Internal::Page,
-          model: ModernTreasury::Models::Connection,
+          model: ModernTreasury::Connection,
           options: options
         )
       end

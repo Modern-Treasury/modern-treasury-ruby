@@ -6,6 +6,9 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       # A new email for the counterparty.
       sig { returns(T.nilable(String)) }
       attr_reader :email
@@ -55,9 +58,8 @@ module ModernTreasury
           name: String,
           send_remittance_advice: T::Boolean,
           taxpayer_identifier: String,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # A new email for the counterparty.
@@ -75,22 +77,24 @@ module ModernTreasury
         # Either a valid SSN or EIN.
         taxpayer_identifier: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              email: String,
-              legal_entity_id: T.nilable(String),
-              metadata: T::Hash[Symbol, String],
-              name: String,
-              send_remittance_advice: T::Boolean,
-              taxpayer_identifier: String,
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            email: String,
+            legal_entity_id: T.nilable(String),
+            metadata: T::Hash[Symbol, String],
+            name: String,
+            send_remittance_advice: T::Boolean,
+            taxpayer_identifier: String,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

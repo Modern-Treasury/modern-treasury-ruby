@@ -45,9 +45,9 @@ module ModernTreasury
       # @!attribute employment_status
       #   The employment status of the individual.
       #
-      #   @return [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus, nil]
+      #   @return [Symbol, ModernTreasury::WealthAndEmploymentDetails::EmploymentStatus, nil]
       required :employment_status,
-               enum: -> { ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus },
+               enum: -> { ModernTreasury::WealthAndEmploymentDetails::EmploymentStatus },
                nil?: true
 
       # @!attribute income_country
@@ -59,9 +59,11 @@ module ModernTreasury
       # @!attribute income_source
       #   The source of the individual's income.
       #
-      #   @return [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource, nil]
+      #   @return [Symbol, ModernTreasury::WealthAndEmploymentDetails::IncomeSource, nil]
       required :income_source,
-               enum: -> { ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource },
+               enum: -> {
+                 ModernTreasury::WealthAndEmploymentDetails::IncomeSource
+               },
                nil?: true
 
       # @!attribute income_state
@@ -73,8 +75,8 @@ module ModernTreasury
       # @!attribute industry
       #   The industry of the individual.
       #
-      #   @return [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::Industry, nil]
-      required :industry, enum: -> { ModernTreasury::Models::WealthAndEmploymentDetails::Industry }, nil?: true
+      #   @return [Symbol, ModernTreasury::WealthAndEmploymentDetails::Industry, nil]
+      required :industry, enum: -> { ModernTreasury::WealthAndEmploymentDetails::Industry }, nil?: true
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false
@@ -91,17 +93,15 @@ module ModernTreasury
       # @!attribute occupation
       #   The occupation of the individual.
       #
-      #   @return [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation, nil]
-      required :occupation,
-               enum: -> { ModernTreasury::Models::WealthAndEmploymentDetails::Occupation },
-               nil?: true
+      #   @return [Symbol, ModernTreasury::WealthAndEmploymentDetails::Occupation, nil]
+      required :occupation, enum: -> { ModernTreasury::WealthAndEmploymentDetails::Occupation }, nil?: true
 
       # @!attribute source_of_funds
       #   The source of the individual's funds.
       #
-      #   @return [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds, nil]
+      #   @return [Symbol, ModernTreasury::WealthAndEmploymentDetails::SourceOfFunds, nil]
       required :source_of_funds,
-               enum: -> { ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds },
+               enum: -> { ModernTreasury::WealthAndEmploymentDetails::SourceOfFunds },
                nil?: true
 
       # @!attribute updated_at
@@ -112,14 +112,16 @@ module ModernTreasury
       # @!attribute wealth_source
       #   The source of the individual's wealth.
       #
-      #   @return [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource, nil]
+      #   @return [Symbol, ModernTreasury::WealthAndEmploymentDetails::WealthSource, nil]
       required :wealth_source,
-               enum: -> { ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource },
+               enum: -> {
+                 ModernTreasury::WealthAndEmploymentDetails::WealthSource
+               },
                nil?: true
 
       # @!method initialize(id:, annual_income:, created_at:, discarded_at:, employer_country:, employer_name:, employer_state:, employment_status:, income_country:, income_source:, income_state:, industry:, live_mode:, object:, occupation:, source_of_funds:, updated_at:, wealth_source:)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::Models::WealthAndEmploymentDetails} for more details.
+      #   {ModernTreasury::WealthAndEmploymentDetails} for more details.
       #
       #   @param id [String]
       #
@@ -135,32 +137,31 @@ module ModernTreasury
       #
       #   @param employer_state [String, nil] The state in which the employer is located.
       #
-      #   @param employment_status [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus, nil] The employment status of the individual.
+      #   @param employment_status [Symbol, ModernTreasury::WealthAndEmploymentDetails::EmploymentStatus, nil] The employment status of the individual.
       #
       #   @param income_country [String, nil] The country in which the individual's income is earned.
       #
-      #   @param income_source [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource, nil] The source of the individual's income.
+      #   @param income_source [Symbol, ModernTreasury::WealthAndEmploymentDetails::IncomeSource, nil] The source of the individual's income.
       #
       #   @param income_state [String, nil] The state in which the individual's income is earned.
       #
-      #   @param industry [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::Industry, nil] The industry of the individual.
+      #   @param industry [Symbol, ModernTreasury::WealthAndEmploymentDetails::Industry, nil] The industry of the individual.
       #
       #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
-      #   ...
       #
       #   @param object [String]
       #
-      #   @param occupation [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation, nil] The occupation of the individual.
+      #   @param occupation [Symbol, ModernTreasury::WealthAndEmploymentDetails::Occupation, nil] The occupation of the individual.
       #
-      #   @param source_of_funds [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds, nil] The source of the individual's funds.
+      #   @param source_of_funds [Symbol, ModernTreasury::WealthAndEmploymentDetails::SourceOfFunds, nil] The source of the individual's funds.
       #
       #   @param updated_at [Time]
       #
-      #   @param wealth_source [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource, nil] The source of the individual's wealth.
+      #   @param wealth_source [Symbol, ModernTreasury::WealthAndEmploymentDetails::WealthSource, nil] The source of the individual's wealth.
 
       # The employment status of the individual.
       #
-      # @see ModernTreasury::Models::WealthAndEmploymentDetails#employment_status
+      # @see ModernTreasury::WealthAndEmploymentDetails#employment_status
       module EmploymentStatus
         extend ModernTreasury::Internal::Type::Enum
 
@@ -176,7 +177,7 @@ module ModernTreasury
 
       # The source of the individual's income.
       #
-      # @see ModernTreasury::Models::WealthAndEmploymentDetails#income_source
+      # @see ModernTreasury::WealthAndEmploymentDetails#income_source
       module IncomeSource
         extend ModernTreasury::Internal::Type::Enum
 
@@ -195,7 +196,7 @@ module ModernTreasury
 
       # The industry of the individual.
       #
-      # @see ModernTreasury::Models::WealthAndEmploymentDetails#industry
+      # @see ModernTreasury::WealthAndEmploymentDetails#industry
       module Industry
         extend ModernTreasury::Internal::Type::Enum
 
@@ -239,7 +240,7 @@ module ModernTreasury
 
       # The occupation of the individual.
       #
-      # @see ModernTreasury::Models::WealthAndEmploymentDetails#occupation
+      # @see ModernTreasury::WealthAndEmploymentDetails#occupation
       module Occupation
         extend ModernTreasury::Internal::Type::Enum
 
@@ -262,7 +263,7 @@ module ModernTreasury
 
       # The source of the individual's funds.
       #
-      # @see ModernTreasury::Models::WealthAndEmploymentDetails#source_of_funds
+      # @see ModernTreasury::WealthAndEmploymentDetails#source_of_funds
       module SourceOfFunds
         extend ModernTreasury::Internal::Type::Enum
 
@@ -290,7 +291,7 @@ module ModernTreasury
 
       # The source of the individual's wealth.
       #
-      # @see ModernTreasury::Models::WealthAndEmploymentDetails#wealth_source
+      # @see ModernTreasury::WealthAndEmploymentDetails#wealth_source
       module WealthSource
         extend ModernTreasury::Internal::Type::Enum
 

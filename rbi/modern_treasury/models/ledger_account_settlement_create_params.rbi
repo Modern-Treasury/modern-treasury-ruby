@@ -6,6 +6,9 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       # The id of the contra ledger account that sends to or receives funds from the
       # settled ledger account.
       sig { returns(String) }
@@ -47,7 +50,13 @@ module ModernTreasury
 
       # The status of the ledger account settlement. It is set to `pending` by default.
       # To post a ledger account settlement at creation, use `posted`.
-      sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::OrSymbol)) }
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::LedgerAccountSettlementCreateParams::Status::OrSymbol
+          )
+        )
+      end
       attr_accessor :status
 
       sig do
@@ -59,10 +68,12 @@ module ModernTreasury
           effective_at_upper_bound: T.nilable(Time),
           metadata: T::Hash[Symbol, String],
           skip_settlement_ledger_transaction: T.nilable(T::Boolean),
-          status: T.nilable(ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::OrSymbol),
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          status:
+            T.nilable(
+              ModernTreasury::LedgerAccountSettlementCreateParams::Status::OrSymbol
+            ),
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # The id of the contra ledger account that sends to or receives funds from the
@@ -91,24 +102,29 @@ module ModernTreasury
         # To post a ledger account settlement at creation, use `posted`.
         status: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              contra_ledger_account_id: String,
-              settled_ledger_account_id: String,
-              allow_either_direction: T.nilable(T::Boolean),
-              description: T.nilable(String),
-              effective_at_upper_bound: T.nilable(Time),
-              metadata: T::Hash[Symbol, String],
-              skip_settlement_ledger_transaction: T.nilable(T::Boolean),
-              status: T.nilable(ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::OrSymbol),
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            contra_ledger_account_id: String,
+            settled_ledger_account_id: String,
+            allow_either_direction: T.nilable(T::Boolean),
+            description: T.nilable(String),
+            effective_at_upper_bound: T.nilable(Time),
+            metadata: T::Hash[Symbol, String],
+            skip_settlement_ledger_transaction: T.nilable(T::Boolean),
+            status:
+              T.nilable(
+                ModernTreasury::LedgerAccountSettlementCreateParams::Status::OrSymbol
+              ),
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
 
       # The status of the ledger account settlement. It is set to `pending` by default.
       # To post a ledger account settlement at creation, use `posted`.
@@ -116,19 +132,34 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
-          T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status) }
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::LedgerAccountSettlementCreateParams::Status
+            )
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         PENDING =
-          T.let(:pending, ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::TaggedSymbol)
+          T.let(
+            :pending,
+            ModernTreasury::LedgerAccountSettlementCreateParams::Status::TaggedSymbol
+          )
         POSTED =
-          T.let(:posted, ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::TaggedSymbol)
+          T.let(
+            :posted,
+            ModernTreasury::LedgerAccountSettlementCreateParams::Status::TaggedSymbol
+          )
 
         sig do
-          override
-            .returns(T::Array[ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::TaggedSymbol])
+          override.returns(
+            T::Array[
+              ModernTreasury::LedgerAccountSettlementCreateParams::Status::TaggedSymbol
+            ]
+          )
         end
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

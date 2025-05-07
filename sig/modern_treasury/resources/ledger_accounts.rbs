@@ -13,13 +13,13 @@ module ModernTreasury
         ?ledgerable_type: ModernTreasury::Models::LedgerAccountCreateParams::ledgerable_type,
         ?metadata: ::Hash[Symbol, String],
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::LedgerAccount
+      ) -> ModernTreasury::LedgerAccount
 
       def retrieve: (
         String id,
-        ?balances: ModernTreasury::Models::LedgerAccountRetrieveParams::Balances,
+        ?balances: ModernTreasury::LedgerAccountRetrieveParams::Balances,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::LedgerAccount
+      ) -> ModernTreasury::LedgerAccount
 
       def update: (
         String id,
@@ -27,30 +27,30 @@ module ModernTreasury
         ?metadata: ::Hash[Symbol, String],
         ?name: String,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::LedgerAccount
+      ) -> ModernTreasury::LedgerAccount
 
       def list: (
         ?id: ::Array[String],
         ?after_cursor: String?,
-        ?available_balance_amount: ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount,
-        ?balances: ModernTreasury::Models::LedgerAccountListParams::Balances,
+        ?available_balance_amount: ModernTreasury::LedgerAccountListParams::AvailableBalanceAmount,
+        ?balances: ModernTreasury::LedgerAccountListParams::Balances,
         ?created_at: ::Hash[Symbol, Time],
         ?currency: String,
         ?ledger_account_category_id: String,
         ?ledger_id: String,
         ?metadata: ::Hash[Symbol, String],
         ?name: ::Array[String],
-        ?pending_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount,
+        ?pending_balance_amount: ModernTreasury::LedgerAccountListParams::PendingBalanceAmount,
         ?per_page: Integer,
-        ?posted_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount,
+        ?posted_balance_amount: ModernTreasury::LedgerAccountListParams::PostedBalanceAmount,
         ?updated_at: ::Hash[Symbol, Time],
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerAccount]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::LedgerAccount]
 
       def delete: (
         String id,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::LedgerAccount
+      ) -> ModernTreasury::LedgerAccount
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

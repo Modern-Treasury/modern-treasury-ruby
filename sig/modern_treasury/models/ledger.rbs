@@ -43,8 +43,6 @@ module ModernTreasury
         object: String,
         updated_at: Time
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::ledger
     end
   end
 end

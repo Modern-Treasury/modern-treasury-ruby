@@ -6,6 +6,9 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       # The ID of the counterparty receiving the invoice.
       sig { returns(String) }
       attr_accessor :counterparty_id
@@ -25,56 +28,68 @@ module ModernTreasury
       attr_accessor :auto_advance
 
       # The invoicer's contact details displayed at the top of the invoice.
-      sig { returns(T.nilable(T::Array[ModernTreasury::Models::InvoiceCreateParams::ContactDetail])) }
+      sig do
+        returns(
+          T.nilable(
+            T::Array[ModernTreasury::InvoiceCreateParams::ContactDetail]
+          )
+        )
+      end
       attr_reader :contact_details
 
       sig do
         params(
-          contact_details: T::Array[T.any(ModernTreasury::Models::InvoiceCreateParams::ContactDetail, ModernTreasury::Internal::AnyHash)]
-        )
-          .void
+          contact_details:
+            T::Array[ModernTreasury::InvoiceCreateParams::ContactDetail::OrHash]
+        ).void
       end
       attr_writer :contact_details
 
       # The counterparty's billing address.
-      sig { returns(T.nilable(ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress)) }
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::InvoiceCreateParams::CounterpartyBillingAddress
+          )
+        )
+      end
       attr_reader :counterparty_billing_address
 
       sig do
         params(
-          counterparty_billing_address: T.nilable(
-            T.any(
-              ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress,
-              ModernTreasury::Internal::AnyHash
+          counterparty_billing_address:
+            T.nilable(
+              ModernTreasury::InvoiceCreateParams::CounterpartyBillingAddress::OrHash
             )
-          )
-        )
-          .void
+        ).void
       end
       attr_writer :counterparty_billing_address
 
       # The counterparty's shipping address where physical goods should be delivered.
-      sig { returns(T.nilable(ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress)) }
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::InvoiceCreateParams::CounterpartyShippingAddress
+          )
+        )
+      end
       attr_reader :counterparty_shipping_address
 
       sig do
         params(
-          counterparty_shipping_address: T.nilable(
-            T.any(
-              ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress,
-              ModernTreasury::Internal::AnyHash
+          counterparty_shipping_address:
+            T.nilable(
+              ModernTreasury::InvoiceCreateParams::CounterpartyShippingAddress::OrHash
             )
-          )
-        )
-          .void
+        ).void
       end
       attr_writer :counterparty_shipping_address
 
       # Currency that the invoice is denominated in. Defaults to `USD` if not provided.
-      sig { returns(T.nilable(ModernTreasury::Models::Currency::OrSymbol)) }
+      sig { returns(T.nilable(ModernTreasury::Currency::OrSymbol)) }
       attr_reader :currency
 
-      sig { params(currency: ModernTreasury::Models::Currency::OrSymbol).void }
+      sig { params(currency: ModernTreasury::Currency::OrSymbol).void }
       attr_writer :currency
 
       # A free-form description of the invoice.
@@ -98,20 +113,28 @@ module ModernTreasury
       # An array of invoice line items. The API supports a maximum of 50 invoice line
       # items per invoice. If a greater number of invoice line items is required, please
       # contact support.
-      sig { returns(T.nilable(T::Array[ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem])) }
+      sig do
+        returns(
+          T.nilable(
+            T::Array[ModernTreasury::InvoiceCreateParams::InvoiceLineItem]
+          )
+        )
+      end
       attr_accessor :invoice_line_items
 
       # The invoice issuer's business address.
-      sig { returns(T.nilable(ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress)) }
+      sig do
+        returns(T.nilable(ModernTreasury::InvoiceCreateParams::InvoicerAddress))
+      end
       attr_reader :invoicer_address
 
       sig do
         params(
-          invoicer_address: T.nilable(
-            T.any(ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress, ModernTreasury::Internal::AnyHash)
-          )
-        )
-          .void
+          invoicer_address:
+            T.nilable(
+              ModernTreasury::InvoiceCreateParams::InvoicerAddress::OrHash
+            )
+        ).void
       end
       attr_writer :invoicer_address
 
@@ -153,19 +176,32 @@ module ModernTreasury
       # the automatically initiated payment order's direction will be debit. If the
       # invoice amount is negative, the automatically initiated payment order's
       # direction will be credit. One of `manual`, `ui`, or `automatic`.
-      sig { returns(T.nilable(ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::OrSymbol)) }
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::InvoiceCreateParams::PaymentMethod::OrSymbol
+          )
+        )
+      end
       attr_reader :payment_method
 
-      sig { params(payment_method: ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::OrSymbol).void }
+      sig do
+        params(
+          payment_method:
+            ModernTreasury::InvoiceCreateParams::PaymentMethod::OrSymbol
+        ).void
+      end
       attr_writer :payment_method
 
       # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
       # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
       # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
-      sig { returns(T.nilable(ModernTreasury::Models::PaymentOrderType::OrSymbol)) }
+      sig { returns(T.nilable(ModernTreasury::PaymentOrderType::OrSymbol)) }
       attr_reader :payment_type
 
-      sig { params(payment_type: ModernTreasury::Models::PaymentOrderType::OrSymbol).void }
+      sig do
+        params(payment_type: ModernTreasury::PaymentOrderType::OrSymbol).void
+      end
       attr_writer :payment_type
 
       # The receiving account ID. Can be an `external_account`.
@@ -200,44 +236,47 @@ module ModernTreasury
           due_date: Time,
           originating_account_id: String,
           auto_advance: T.nilable(T::Boolean),
-          contact_details: T::Array[T.any(ModernTreasury::Models::InvoiceCreateParams::ContactDetail, ModernTreasury::Internal::AnyHash)],
-          counterparty_billing_address: T.nilable(
-            T.any(
-              ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress,
-              ModernTreasury::Internal::AnyHash
-            )
-          ),
-          counterparty_shipping_address: T.nilable(
-            T.any(
-              ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress,
-              ModernTreasury::Internal::AnyHash
-            )
-          ),
-          currency: ModernTreasury::Models::Currency::OrSymbol,
+          contact_details:
+            T::Array[
+              ModernTreasury::InvoiceCreateParams::ContactDetail::OrHash
+            ],
+          counterparty_billing_address:
+            T.nilable(
+              ModernTreasury::InvoiceCreateParams::CounterpartyBillingAddress::OrHash
+            ),
+          counterparty_shipping_address:
+            T.nilable(
+              ModernTreasury::InvoiceCreateParams::CounterpartyShippingAddress::OrHash
+            ),
+          currency: ModernTreasury::Currency::OrSymbol,
           description: String,
           fallback_payment_method: T.nilable(String),
           ingest_ledger_entries: T.nilable(T::Boolean),
-          invoice_line_items: T.nilable(
-            T::Array[T.any(ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem, ModernTreasury::Internal::AnyHash)]
-          ),
-          invoicer_address: T.nilable(
-            T.any(ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress, ModernTreasury::Internal::AnyHash)
-          ),
+          invoice_line_items:
+            T.nilable(
+              T::Array[
+                ModernTreasury::InvoiceCreateParams::InvoiceLineItem::OrHash
+              ]
+            ),
+          invoicer_address:
+            T.nilable(
+              ModernTreasury::InvoiceCreateParams::InvoicerAddress::OrHash
+            ),
           ledger_account_settlement_id: T.nilable(String),
           metadata: T.nilable(T::Hash[Symbol, String]),
           notification_email_addresses: T.nilable(T::Array[String]),
           notifications_enabled: T::Boolean,
           payment_effective_date: Date,
-          payment_method: ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::OrSymbol,
-          payment_type: ModernTreasury::Models::PaymentOrderType::OrSymbol,
+          payment_method:
+            ModernTreasury::InvoiceCreateParams::PaymentMethod::OrSymbol,
+          payment_type: ModernTreasury::PaymentOrderType::OrSymbol,
           receiving_account_id: String,
           recipient_email: T.nilable(String),
           recipient_name: T.nilable(String),
           remind_after_overdue_days: T.nilable(T::Array[Integer]),
           virtual_account_id: T.nilable(String),
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # The ID of the counterparty receiving the invoice.
@@ -314,50 +353,71 @@ module ModernTreasury
         # The ID of the virtual account the invoice should be paid to.
         virtual_account_id: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              counterparty_id: String,
-              due_date: Time,
-              originating_account_id: String,
-              auto_advance: T.nilable(T::Boolean),
-              contact_details: T::Array[ModernTreasury::Models::InvoiceCreateParams::ContactDetail],
-              counterparty_billing_address: T.nilable(ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress),
-              counterparty_shipping_address: T.nilable(ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress),
-              currency: ModernTreasury::Models::Currency::OrSymbol,
-              description: String,
-              fallback_payment_method: T.nilable(String),
-              ingest_ledger_entries: T.nilable(T::Boolean),
-              invoice_line_items: T.nilable(T::Array[ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem]),
-              invoicer_address: T.nilable(ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress),
-              ledger_account_settlement_id: T.nilable(String),
-              metadata: T.nilable(T::Hash[Symbol, String]),
-              notification_email_addresses: T.nilable(T::Array[String]),
-              notifications_enabled: T::Boolean,
-              payment_effective_date: Date,
-              payment_method: ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::OrSymbol,
-              payment_type: ModernTreasury::Models::PaymentOrderType::OrSymbol,
-              receiving_account_id: String,
-              recipient_email: T.nilable(String),
-              recipient_name: T.nilable(String),
-              remind_after_overdue_days: T.nilable(T::Array[Integer]),
-              virtual_account_id: T.nilable(String),
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            counterparty_id: String,
+            due_date: Time,
+            originating_account_id: String,
+            auto_advance: T.nilable(T::Boolean),
+            contact_details:
+              T::Array[ModernTreasury::InvoiceCreateParams::ContactDetail],
+            counterparty_billing_address:
+              T.nilable(
+                ModernTreasury::InvoiceCreateParams::CounterpartyBillingAddress
+              ),
+            counterparty_shipping_address:
+              T.nilable(
+                ModernTreasury::InvoiceCreateParams::CounterpartyShippingAddress
+              ),
+            currency: ModernTreasury::Currency::OrSymbol,
+            description: String,
+            fallback_payment_method: T.nilable(String),
+            ingest_ledger_entries: T.nilable(T::Boolean),
+            invoice_line_items:
+              T.nilable(
+                T::Array[ModernTreasury::InvoiceCreateParams::InvoiceLineItem]
+              ),
+            invoicer_address:
+              T.nilable(ModernTreasury::InvoiceCreateParams::InvoicerAddress),
+            ledger_account_settlement_id: T.nilable(String),
+            metadata: T.nilable(T::Hash[Symbol, String]),
+            notification_email_addresses: T.nilable(T::Array[String]),
+            notifications_enabled: T::Boolean,
+            payment_effective_date: Date,
+            payment_method:
+              ModernTreasury::InvoiceCreateParams::PaymentMethod::OrSymbol,
+            payment_type: ModernTreasury::PaymentOrderType::OrSymbol,
+            receiving_account_id: String,
+            recipient_email: T.nilable(String),
+            recipient_name: T.nilable(String),
+            remind_after_overdue_days: T.nilable(T::Array[Integer]),
+            virtual_account_id: T.nilable(String),
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
 
       class ContactDetail < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         sig { returns(String) }
         attr_accessor :id
 
         sig { returns(String) }
         attr_accessor :contact_identifier
 
-        sig { returns(ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType::OrSymbol) }
+        sig do
+          returns(
+            ModernTreasury::InvoiceCreateParams::ContactDetail::ContactIdentifierType::OrSymbol
+          )
+        end
         attr_accessor :contact_identifier_type
 
         sig { returns(Time) }
@@ -381,14 +441,14 @@ module ModernTreasury
           params(
             id: String,
             contact_identifier: String,
-            contact_identifier_type: ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType::OrSymbol,
+            contact_identifier_type:
+              ModernTreasury::InvoiceCreateParams::ContactDetail::ContactIdentifierType::OrSymbol,
             created_at: Time,
             discarded_at: T.nilable(Time),
             live_mode: T::Boolean,
             object: String,
             updated_at: Time
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
           id:,
@@ -401,58 +461,71 @@ module ModernTreasury
           live_mode:,
           object:,
           updated_at:
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                id: String,
-                contact_identifier: String,
-                contact_identifier_type: ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType::OrSymbol,
-                created_at: Time,
-                discarded_at: T.nilable(Time),
-                live_mode: T::Boolean,
-                object: String,
-                updated_at: Time
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              id: String,
+              contact_identifier: String,
+              contact_identifier_type:
+                ModernTreasury::InvoiceCreateParams::ContactDetail::ContactIdentifierType::OrSymbol,
+              created_at: Time,
+              discarded_at: T.nilable(Time),
+              live_mode: T::Boolean,
+              object: String,
+              updated_at: Time
+            }
+          )
+        end
+        def to_hash
+        end
 
         module ContactIdentifierType
           extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
-            T.type_alias { T.all(Symbol, ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType) }
+            T.type_alias do
+              T.all(
+                Symbol,
+                ModernTreasury::InvoiceCreateParams::ContactDetail::ContactIdentifierType
+              )
+            end
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           EMAIL =
             T.let(
               :email,
-              ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType::TaggedSymbol
+              ModernTreasury::InvoiceCreateParams::ContactDetail::ContactIdentifierType::TaggedSymbol
             )
           PHONE_NUMBER =
             T.let(
               :phone_number,
-              ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType::TaggedSymbol
+              ModernTreasury::InvoiceCreateParams::ContactDetail::ContactIdentifierType::TaggedSymbol
             )
           WEBSITE =
             T.let(
               :website,
-              ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType::TaggedSymbol
+              ModernTreasury::InvoiceCreateParams::ContactDetail::ContactIdentifierType::TaggedSymbol
             )
 
           sig do
-            override
-              .returns(
-                T::Array[ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType::TaggedSymbol]
-              )
+            override.returns(
+              T::Array[
+                ModernTreasury::InvoiceCreateParams::ContactDetail::ContactIdentifierType::TaggedSymbol
+              ]
+            )
           end
-          def self.values; end
+          def self.values
+          end
         end
       end
 
       class CounterpartyBillingAddress < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(String) }
         attr_accessor :country
@@ -487,8 +560,7 @@ module ModernTreasury
             postal_code: String,
             region: String,
             line2: String
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
           # Country code conforms to [ISO 3166-1 alpha-2]
@@ -501,24 +573,29 @@ module ModernTreasury
           # Region or State.
           region:,
           line2: nil
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                country: String,
-                line1: String,
-                locality: String,
-                postal_code: String,
-                region: String,
-                line2: String
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              country: String,
+              line1: String,
+              locality: String,
+              postal_code: String,
+              region: String,
+              line2: String
+            }
+          )
+        end
+        def to_hash
+        end
       end
 
       class CounterpartyShippingAddress < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(String) }
         attr_accessor :country
@@ -553,8 +630,7 @@ module ModernTreasury
             postal_code: String,
             region: String,
             line2: String
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
           # Country code conforms to [ISO 3166-1 alpha-2]
@@ -567,24 +643,29 @@ module ModernTreasury
           # Region or State.
           region:,
           line2: nil
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                country: String,
-                line1: String,
-                locality: String,
-                postal_code: String,
-                region: String,
-                line2: String
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              country: String,
+              line1: String,
+              locality: String,
+              postal_code: String,
+              region: String,
+              line2: String
+            }
+          )
+        end
+        def to_hash
+        end
       end
 
       class InvoiceLineItem < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         # The name of the line item, typically a product or SKU name.
         sig { returns(String) }
         attr_accessor :name
@@ -644,8 +725,7 @@ module ModernTreasury
             metadata: T::Hash[Symbol, String],
             quantity: Integer,
             unit_amount_decimal: String
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
           # The name of the line item, typically a product or SKU name.
@@ -669,25 +749,30 @@ module ModernTreasury
           # specified in the invoice currency's smallest unit. Accepts decimal strings with
           # up to 12 decimals
           unit_amount_decimal: nil
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                name: String,
-                unit_amount: Integer,
-                description: String,
-                direction: String,
-                metadata: T::Hash[Symbol, String],
-                quantity: Integer,
-                unit_amount_decimal: String
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              name: String,
+              unit_amount: Integer,
+              description: String,
+              direction: String,
+              metadata: T::Hash[Symbol, String],
+              quantity: Integer,
+              unit_amount_decimal: String
+            }
+          )
+        end
+        def to_hash
+        end
       end
 
       class InvoicerAddress < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(String) }
         attr_accessor :country
@@ -722,8 +807,7 @@ module ModernTreasury
             postal_code: String,
             region: String,
             line2: String
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
           # Country code conforms to [ISO 3166-1 alpha-2]
@@ -736,21 +820,23 @@ module ModernTreasury
           # Region or State.
           region:,
           line2: nil
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                country: String,
-                line1: String,
-                locality: String,
-                postal_code: String,
-                region: String,
-                line2: String
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              country: String,
+              line1: String,
+              locality: String,
+              postal_code: String,
+              region: String,
+              line2: String
+            }
+          )
+        end
+        def to_hash
+        end
       end
 
       # The method by which the invoice can be paid. `ui` will show the embedded payment
@@ -762,15 +848,37 @@ module ModernTreasury
       module PaymentMethod
         extend ModernTreasury::Internal::Type::Enum
 
-        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod) }
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::InvoiceCreateParams::PaymentMethod)
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        UI = T.let(:ui, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::TaggedSymbol)
-        MANUAL = T.let(:manual, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::TaggedSymbol)
-        AUTOMATIC = T.let(:automatic, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::TaggedSymbol)
+        UI =
+          T.let(
+            :ui,
+            ModernTreasury::InvoiceCreateParams::PaymentMethod::TaggedSymbol
+          )
+        MANUAL =
+          T.let(
+            :manual,
+            ModernTreasury::InvoiceCreateParams::PaymentMethod::TaggedSymbol
+          )
+        AUTOMATIC =
+          T.let(
+            :automatic,
+            ModernTreasury::InvoiceCreateParams::PaymentMethod::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::InvoiceCreateParams::PaymentMethod::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
     end
   end

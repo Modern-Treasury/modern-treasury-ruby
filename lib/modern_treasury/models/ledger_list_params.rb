@@ -45,17 +45,14 @@ module ModernTreasury
       #   {ModernTreasury::Models::LedgerListParams} for more details.
       #
       #   @param id [Array<String>] If you have specific IDs to retrieve in bulk, you can pass them as query paramet
-      #   ...
       #
       #   @param after_cursor [String, nil]
       #
       #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      #   ...
       #
       #   @param per_page [Integer]
       #
       #   @param updated_at [Hash{Symbol=>Time}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the pos
-      #   ...
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end

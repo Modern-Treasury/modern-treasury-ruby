@@ -31,8 +31,8 @@ module ModernTreasury
       #   a ledger transaction to specify a new set of entries, the previous entries are
       #   deleted.
       #
-      #   @return [Symbol, ModernTreasury::Models::TransactionDirection, nil]
-      optional :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
+      #   @return [Symbol, ModernTreasury::TransactionDirection, nil]
+      optional :direction, enum: -> { ModernTreasury::TransactionDirection }
 
       # @!attribute effective_at
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
@@ -103,8 +103,8 @@ module ModernTreasury
       #   to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering
       #   by only one field at a time is supported.
       #
-      #   @return [ModernTreasury::Models::LedgerEntryListParams::OrderBy, nil]
-      optional :order_by, -> { ModernTreasury::Models::LedgerEntryListParams::OrderBy }
+      #   @return [ModernTreasury::LedgerEntryListParams::OrderBy, nil]
+      optional :order_by, -> { ModernTreasury::LedgerEntryListParams::OrderBy }
 
       # @!attribute per_page
       #
@@ -130,8 +130,8 @@ module ModernTreasury
       #   Get all ledger entries that match the status specified. One of `pending`,
       #   `posted`, or `archived`.
       #
-      #   @return [Symbol, ModernTreasury::Models::LedgerEntryListParams::Status, nil]
-      optional :status, enum: -> { ModernTreasury::Models::LedgerEntryListParams::Status }
+      #   @return [Symbol, ModernTreasury::LedgerEntryListParams::Status, nil]
+      optional :status, enum: -> { ModernTreasury::LedgerEntryListParams::Status }
 
       # @!attribute updated_at
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
@@ -146,29 +146,22 @@ module ModernTreasury
       #   {ModernTreasury::Models::LedgerEntryListParams} for more details.
       #
       #   @param id [Array<String>] If you have specific IDs to retrieve in bulk, you can pass them as query paramet
-      #   ...
       #
       #   @param after_cursor [String, nil]
       #
       #   @param as_of_lock_version [Integer] Shows all ledger entries that were present on a ledger account at a particular `
-      #   ...
       #
-      #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection] If true, response will include ledger entries that were deleted. When you update
-      #   ...
+      #   @param direction [Symbol, ModernTreasury::TransactionDirection] If true, response will include ledger entries that were deleted. When you update
       #
       #   @param effective_at [Hash{Symbol=>Time}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the tra
-      #   ...
       #
       #   @param effective_date [Hash{Symbol=>Date}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the tra
-      #   ...
       #
       #   @param ledger_account_category_id [String] Get all ledger entries that match the direction specified. One of `credit`, `deb
-      #   ...
       #
       #   @param ledger_account_id [String]
       #
       #   @param ledger_account_lock_version [Hash{Symbol=>Integer}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the loc
-      #   ...
       #
       #   @param ledger_account_payout_id [String]
       #
@@ -179,47 +172,41 @@ module ModernTreasury
       #   @param ledger_transaction_id [String]
       #
       #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      #   ...
       #
-      #   @param order_by [ModernTreasury::Models::LedgerEntryListParams::OrderBy] Order by `created_at` or `effective_at` in `asc` or `desc` order. For example, t
-      #   ...
+      #   @param order_by [ModernTreasury::LedgerEntryListParams::OrderBy] Order by `created_at` or `effective_at` in `asc` or `desc` order. For example, t
       #
       #   @param per_page [Integer]
       #
       #   @param show_balances [Boolean] If true, response will include the balances attached to the ledger entry. If the
-      #   ...
       #
       #   @param show_deleted [Boolean] If true, response will include ledger entries that were deleted. When you update
-      #   ...
       #
-      #   @param status [Symbol, ModernTreasury::Models::LedgerEntryListParams::Status] Get all ledger entries that match the status specified. One of `pending`, `poste
-      #   ...
+      #   @param status [Symbol, ModernTreasury::LedgerEntryListParams::Status] Get all ledger entries that match the status specified. One of `pending`, `poste
       #
       #   @param updated_at [Hash{Symbol=>Time}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the pos
-      #   ...
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       class OrderBy < ModernTreasury::Internal::Type::BaseModel
         # @!attribute created_at
         #
-        #   @return [Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt, nil]
-        optional :created_at, enum: -> { ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt }
+        #   @return [Symbol, ModernTreasury::LedgerEntryListParams::OrderBy::CreatedAt, nil]
+        optional :created_at, enum: -> { ModernTreasury::LedgerEntryListParams::OrderBy::CreatedAt }
 
         # @!attribute effective_at
         #
-        #   @return [Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt, nil]
-        optional :effective_at, enum: -> { ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt }
+        #   @return [Symbol, ModernTreasury::LedgerEntryListParams::OrderBy::EffectiveAt, nil]
+        optional :effective_at, enum: -> { ModernTreasury::LedgerEntryListParams::OrderBy::EffectiveAt }
 
         # @!method initialize(created_at: nil, effective_at: nil)
         #   Order by `created_at` or `effective_at` in `asc` or `desc` order. For example,
         #   to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering
         #   by only one field at a time is supported.
         #
-        #   @param created_at [Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt]
-        #   @param effective_at [Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt]
+        #   @param created_at [Symbol, ModernTreasury::LedgerEntryListParams::OrderBy::CreatedAt]
+        #   @param effective_at [Symbol, ModernTreasury::LedgerEntryListParams::OrderBy::EffectiveAt]
 
-        # @see ModernTreasury::Models::LedgerEntryListParams::OrderBy#created_at
+        # @see ModernTreasury::LedgerEntryListParams::OrderBy#created_at
         module CreatedAt
           extend ModernTreasury::Internal::Type::Enum
 
@@ -230,7 +217,7 @@ module ModernTreasury
           #   @return [Array<Symbol>]
         end
 
-        # @see ModernTreasury::Models::LedgerEntryListParams::OrderBy#effective_at
+        # @see ModernTreasury::LedgerEntryListParams::OrderBy#effective_at
         module EffectiveAt
           extend ModernTreasury::Internal::Type::Enum
 

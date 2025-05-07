@@ -9,8 +9,8 @@ module ModernTreasury
 
       # @!attribute itemizable_type
       #
-      #   @return [Symbol, ModernTreasury::Models::LineItemUpdateParams::ItemizableType]
-      required :itemizable_type, enum: -> { ModernTreasury::Models::LineItemUpdateParams::ItemizableType }
+      #   @return [Symbol, ModernTreasury::LineItemUpdateParams::ItemizableType]
+      required :itemizable_type, enum: -> { ModernTreasury::LineItemUpdateParams::ItemizableType }
 
       # @!attribute itemizable_id
       #
@@ -28,12 +28,11 @@ module ModernTreasury
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LineItemUpdateParams} for more details.
       #
-      #   @param itemizable_type [Symbol, ModernTreasury::Models::LineItemUpdateParams::ItemizableType]
+      #   @param itemizable_type [Symbol, ModernTreasury::LineItemUpdateParams::ItemizableType]
       #
       #   @param itemizable_id [String]
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-      #   ...
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 

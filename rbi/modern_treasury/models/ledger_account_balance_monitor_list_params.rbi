@@ -6,6 +6,9 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       # If you have specific IDs to retrieve in bulk, you can pass them as query
       # parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       sig { returns(T.nilable(T::Array[String])) }
@@ -46,9 +49,8 @@ module ModernTreasury
           ledger_account_id: String,
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # If you have specific IDs to retrieve in bulk, you can pass them as query
@@ -63,21 +65,23 @@ module ModernTreasury
         metadata: nil,
         per_page: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: T::Array[String],
-              after_cursor: T.nilable(String),
-              ledger_account_id: String,
-              metadata: T::Hash[Symbol, String],
-              per_page: Integer,
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: T::Array[String],
+            after_cursor: T.nilable(String),
+            ledger_account_id: String,
+            metadata: T::Hash[Symbol, String],
+            per_page: Integer,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

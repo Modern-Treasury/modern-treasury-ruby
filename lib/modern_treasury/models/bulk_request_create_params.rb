@@ -10,22 +10,24 @@ module ModernTreasury
       # @!attribute action_type
       #   One of create, or update.
       #
-      #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::ActionType]
-      required :action_type, enum: -> { ModernTreasury::Models::BulkRequestCreateParams::ActionType }
+      #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::ActionType]
+      required :action_type, enum: -> { ModernTreasury::BulkRequestCreateParams::ActionType }
 
       # @!attribute resource_type
       #   One of payment_order, expected_payment, or ledger_transaction.
       #
-      #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::ResourceType]
-      required :resource_type, enum: -> { ModernTreasury::Models::BulkRequestCreateParams::ResourceType }
+      #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::ResourceType]
+      required :resource_type, enum: -> { ModernTreasury::BulkRequestCreateParams::ResourceType }
 
       # @!attribute resources
       #   An array of objects where each object contains the input params for a single
       #   `action_type` request on a `resource_type` resource
       #
-      #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ID, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID>]
+      #   @return [Array<ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest, ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest, ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest, ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest, ModernTreasury::BulkRequestCreateParams::Resource::ID, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID, ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID, ModernTreasury::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID, ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID>]
       required :resources,
-               -> { ModernTreasury::Internal::Type::ArrayOf[union: ModernTreasury::Models::BulkRequestCreateParams::Resource] }
+               -> {
+                 ModernTreasury::Internal::Type::ArrayOf[union: ModernTreasury::BulkRequestCreateParams::Resource]
+               }
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
@@ -38,15 +40,13 @@ module ModernTreasury
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::BulkRequestCreateParams} for more details.
       #
-      #   @param action_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::ActionType] One of create, or update.
+      #   @param action_type [Symbol, ModernTreasury::BulkRequestCreateParams::ActionType] One of create, or update.
       #
-      #   @param resource_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::ResourceType] One of payment_order, expected_payment, or ledger_transaction.
+      #   @param resource_type [Symbol, ModernTreasury::BulkRequestCreateParams::ResourceType] One of payment_order, expected_payment, or ledger_transaction.
       #
-      #   @param resources [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ID, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID>] An array of objects where each object contains the input params for a single `ac
-      #   ...
+      #   @param resources [Array<ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest, ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest, ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest, ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest, ModernTreasury::BulkRequestCreateParams::Resource::ID, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID, ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID, ModernTreasury::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID, ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID>] An array of objects where each object contains the input params for a single `ac
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-      #   ...
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
@@ -80,23 +80,23 @@ module ModernTreasury
       module Resource
         extend ModernTreasury::Internal::Type::Union
 
-        variant -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest }
+        variant -> { ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest }
 
-        variant -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest }
+        variant -> { ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest }
 
-        variant -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest }
+        variant -> { ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest }
 
-        variant -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest }
+        variant -> { ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest }
 
-        variant -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::ID }
+        variant -> { ModernTreasury::BulkRequestCreateParams::Resource::ID }
 
-        variant -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID }
+        variant -> { ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID }
 
-        variant -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID }
+        variant -> { ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID }
 
-        variant -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID }
+        variant -> { ModernTreasury::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID }
 
-        variant -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID }
+        variant -> { ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID }
 
         class PaymentOrderAsyncCreateRequest < ModernTreasury::Internal::Type::BaseModel
           # @!attribute amount
@@ -112,9 +112,11 @@ module ModernTreasury
           #   `debit` pulls money from someone else's account to your own. Note that wire,
           #   rtp, and check payments will always be `credit`.
           #
-          #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Direction]
+          #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Direction]
           required :direction,
-                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Direction }
+                   enum: -> {
+                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Direction
+                   }
 
           # @!attribute originating_account_id
           #   The ID of one of your organization's internal accounts.
@@ -127,14 +129,16 @@ module ModernTreasury
           #   `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
           #   `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
           #
-          #   @return [Symbol, ModernTreasury::Models::PaymentOrderType]
-          required :type, enum: -> { ModernTreasury::Models::PaymentOrderType }
+          #   @return [Symbol, ModernTreasury::PaymentOrderType]
+          required :type, enum: -> { ModernTreasury::PaymentOrderType }
 
           # @!attribute accounting
           #
-          #   @return [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Accounting, nil]
+          #   @return [ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Accounting, nil]
           optional :accounting,
-                   -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Accounting }
+                   -> {
+                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Accounting
+                   }
 
           # @!attribute accounting_category_id
           #   @deprecated
@@ -159,16 +163,18 @@ module ModernTreasury
           #   payment orders. Can be one of shared, sender, or receiver, which correspond
           #   respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
           #
-          #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ChargeBearer, nil]
+          #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ChargeBearer, nil]
           optional :charge_bearer,
-                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ChargeBearer },
+                   enum: -> {
+                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ChargeBearer
+                   },
                    nil?: true
 
           # @!attribute currency
           #   Defaults to the currency of the originating account.
           #
-          #   @return [Symbol, ModernTreasury::Models::Currency, nil]
-          optional :currency, enum: -> { ModernTreasury::Models::Currency }
+          #   @return [Symbol, ModernTreasury::Currency, nil]
+          optional :currency, enum: -> { ModernTreasury::Currency }
 
           # @!attribute description
           #   An optional description for internal use.
@@ -195,9 +201,11 @@ module ModernTreasury
           #   receiving account. Currently, this only supports falling back from RTP to ACH
           #   (type=rtp and fallback_type=ach)
           #
-          #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::FallbackType, nil]
+          #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::FallbackType, nil]
           optional :fallback_type,
-                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::FallbackType }
+                   enum: -> {
+                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::FallbackType
+                   }
 
           # @!attribute foreign_exchange_contract
           #   If present, indicates a specific foreign exchange contract number that has been
@@ -211,9 +219,11 @@ module ModernTreasury
           #   `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
           #   currency matches the originating account currency.
           #
-          #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ForeignExchangeIndicator, nil]
+          #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ForeignExchangeIndicator, nil]
           optional :foreign_exchange_indicator,
-                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ForeignExchangeIndicator },
+                   enum: -> {
+                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ForeignExchangeIndicator
+                   },
                    nil?: true
 
           # @!attribute ledger_transaction
@@ -222,9 +232,11 @@ module ModernTreasury
           #   creation will fail. The resulting ledger transaction will mirror the status of
           #   the payment order.
           #
-          #   @return [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction, nil]
+          #   @return [ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction, nil]
           optional :ledger_transaction,
-                   -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction }
+                   -> {
+                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction
+                   }
 
           # @!attribute ledger_transaction_id
           #   Either ledger_transaction or ledger_transaction_id can be provided. Only a
@@ -238,9 +250,11 @@ module ModernTreasury
           # @!attribute line_items
           #   An array of line items that must sum up to the amount of the payment order.
           #
-          #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem>, nil]
+          #   @return [Array<ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem>, nil]
           optional :line_items,
-                   -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem] }
+                   -> {
+                     ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem]
+                   }
 
           # @!attribute metadata
           #   Additional data represented as key-value pairs. Both the key and value must be
@@ -270,9 +284,11 @@ module ModernTreasury
           #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
           #   an overnight check rather than standard mail.
           #
-          #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Priority, nil]
+          #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Priority, nil]
           optional :priority,
-                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Priority }
+                   enum: -> {
+                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Priority
+                   }
 
           # @!attribute process_after
           #   If present, Modern Treasury will not process the payment until after this time.
@@ -297,9 +313,11 @@ module ModernTreasury
           #   `receiving_account_id`, you may pass the id of an external account or an
           #   internal account.
           #
-          #   @return [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount, nil]
+          #   @return [ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount, nil]
           optional :receiving_account,
-                   -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount }
+                   -> {
+                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount
+                   }
 
           # @!attribute receiving_account_id
           #   Either `receiving_account` or `receiving_account_id` must be present. When using
@@ -341,8 +359,8 @@ module ModernTreasury
           #   payment orders, the `subtype` represents the SEC code. We currently support
           #   `CCD`, `PPD`, `IAT`, `CTX`, `WEB`, `CIE`, and `TEL`.
           #
-          #   @return [Symbol, ModernTreasury::Models::PaymentOrderSubtype, nil]
-          optional :subtype, enum: -> { ModernTreasury::Models::PaymentOrderSubtype }, nil?: true
+          #   @return [Symbol, ModernTreasury::PaymentOrderSubtype, nil]
+          optional :subtype, enum: -> { ModernTreasury::PaymentOrderSubtype }, nil?: true
 
           # @!attribute transaction_monitoring_enabled
           #   A flag that determines whether a payment order should go through transaction
@@ -377,95 +395,70 @@ module ModernTreasury
 
           # @!method initialize(amount:, direction:, originating_account_id:, type:, accounting: nil, accounting_category_id: nil, accounting_ledger_class_id: nil, charge_bearer: nil, currency: nil, description: nil, effective_date: nil, expires_at: nil, fallback_type: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, ledger_transaction: nil, ledger_transaction_id: nil, line_items: nil, metadata: nil, nsf_protected: nil, originating_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account: nil, receiving_account_id: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, subtype: nil, transaction_monitoring_enabled: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil)
           #   Some parameter documentations has been truncated, see
-          #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest}
+          #   {ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest}
           #   for more details.
           #
           #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
-          #   ...
           #
-          #   @param direction [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Direction] One of `credit`, `debit`. Describes the direction money is flowing in the transa
-          #   ...
+          #   @param direction [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Direction] One of `credit`, `debit`. Describes the direction money is flowing in the transa
           #
           #   @param originating_account_id [String] The ID of one of your organization's internal accounts.
           #
-          #   @param type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
-          #   ...
+          #   @param type [Symbol, ModernTreasury::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
           #
-          #   @param accounting [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Accounting]
+          #   @param accounting [ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Accounting]
           #
           #   @param accounting_category_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
-          #   ...
           #
           #   @param accounting_ledger_class_id [String, nil] The ID of one of your accounting ledger classes. Note that these will only be ac
-          #   ...
           #
-          #   @param charge_bearer [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ChargeBearer, nil] The party that will pay the fees for the payment order. Only applies to wire pay
-          #   ...
+          #   @param charge_bearer [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ChargeBearer, nil] The party that will pay the fees for the payment order. Only applies to wire pay
           #
-          #   @param currency [Symbol, ModernTreasury::Models::Currency] Defaults to the currency of the originating account.
+          #   @param currency [Symbol, ModernTreasury::Currency] Defaults to the currency of the originating account.
           #
           #   @param description [String, nil] An optional description for internal use.
           #
           #   @param effective_date [Date] Date transactions are to be posted to the participants' account. Defaults to the
-          #   ...
           #
           #   @param expires_at [Time, nil] RFP payments require an expires_at. This value must be past the effective_date.
           #
-          #   @param fallback_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::FallbackType] A payment type to fallback to if the original type is not valid for the receivin
-          #   ...
+          #   @param fallback_type [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::FallbackType] A payment type to fallback to if the original type is not valid for the receivin
           #
           #   @param foreign_exchange_contract [String, nil] If present, indicates a specific foreign exchange contract number that has been
-          #   ...
           #
-          #   @param foreign_exchange_indicator [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ForeignExchangeIndicator, nil] Indicates the type of FX transfer to initiate, can be either `variable_to_fixed`
-          #   ...
+          #   @param foreign_exchange_indicator [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ForeignExchangeIndicator, nil] Indicates the type of FX transfer to initiate, can be either `variable_to_fixed`
           #
-          #   @param ledger_transaction [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction] Specifies a ledger transaction object that will be created with the payment orde
-          #   ...
+          #   @param ledger_transaction [ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction] Specifies a ledger transaction object that will be created with the payment orde
           #
           #   @param ledger_transaction_id [String] Either ledger_transaction or ledger_transaction_id can be provided. Only a pendi
-          #   ...
           #
-          #   @param line_items [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem>] An array of line items that must sum up to the amount of the payment order.
+          #   @param line_items [Array<ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem>] An array of line items that must sum up to the amount of the payment order.
           #
           #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-          #   ...
           #
           #   @param nsf_protected [Boolean] A boolean to determine if NSF Protection is enabled for this payment order. Note
-          #   ...
           #
           #   @param originating_party_name [String, nil] If present, this will replace your default company name on receiver's bank state
-          #   ...
           #
-          #   @param priority [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Priority] Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-da
-          #   ...
+          #   @param priority [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Priority] Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-da
           #
           #   @param process_after [Time, nil] If present, Modern Treasury will not process the payment until after this time.
-          #   ...
           #
           #   @param purpose [String, nil] For `wire`, this is usually the purpose which is transmitted via the "InstrForDb
-          #   ...
           #
-          #   @param receiving_account [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount] Either `receiving_account` or `receiving_account_id` must be present. When using
-          #   ...
+          #   @param receiving_account [ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount] Either `receiving_account` or `receiving_account_id` must be present. When using
           #
           #   @param receiving_account_id [String] Either `receiving_account` or `receiving_account_id` must be present. When using
-          #   ...
           #
           #   @param remittance_information [String, nil] For `ach`, this field will be passed through on an addenda record. For `wire` pa
-          #   ...
           #
           #   @param send_remittance_advice [Boolean, nil] Send an email to the counterparty when the payment order is sent to the bank. If
-          #   ...
           #
           #   @param statement_descriptor [String, nil] An optional descriptor which will appear in the receiver's statement. For `check
-          #   ...
           #
-          #   @param subtype [Symbol, ModernTreasury::Models::PaymentOrderSubtype, nil] An additional layer of classification for the type of payment order you are doin
-          #   ...
+          #   @param subtype [Symbol, ModernTreasury::PaymentOrderSubtype, nil] An additional layer of classification for the type of payment order you are doin
           #
           #   @param transaction_monitoring_enabled [Boolean] A flag that determines whether a payment order should go through transaction mon
-          #   ...
           #
           #   @param ultimate_originating_party_identifier [String, nil] Identifier of the ultimate originator of the payment order.
           #
@@ -480,7 +473,7 @@ module ModernTreasury
           # `debit` pulls money from someone else's account to your own. Note that wire,
           # rtp, and check payments will always be `credit`.
           #
-          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#direction
+          # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#direction
           module Direction
             extend ModernTreasury::Internal::Type::Enum
 
@@ -491,7 +484,7 @@ module ModernTreasury
             #   @return [Array<Symbol>]
           end
 
-          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#accounting
+          # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#accounting
           class Accounting < ModernTreasury::Internal::Type::BaseModel
             # @!attribute account_id
             #   The ID of one of your accounting categories. Note that these will only be
@@ -510,21 +503,19 @@ module ModernTreasury
 
             # @!method initialize(account_id: nil, class_id: nil)
             #   Some parameter documentations has been truncated, see
-            #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Accounting}
+            #   {ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Accounting}
             #   for more details.
             #
             #   @param account_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
-            #   ...
             #
             #   @param class_id [String, nil] The ID of one of the class objects in your accounting system. Class objects trac
-            #   ...
           end
 
           # The party that will pay the fees for the payment order. Only applies to wire
           # payment orders. Can be one of shared, sender, or receiver, which correspond
           # respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
           #
-          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#charge_bearer
+          # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#charge_bearer
           module ChargeBearer
             extend ModernTreasury::Internal::Type::Enum
 
@@ -540,7 +531,7 @@ module ModernTreasury
           # receiving account. Currently, this only supports falling back from RTP to ACH
           # (type=rtp and fallback_type=ach)
           #
-          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#fallback_type
+          # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#fallback_type
           module FallbackType
             extend ModernTreasury::Internal::Type::Enum
 
@@ -554,7 +545,7 @@ module ModernTreasury
           # `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
           # currency matches the originating account currency.
           #
-          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#foreign_exchange_indicator
+          # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#foreign_exchange_indicator
           module ForeignExchangeIndicator
             extend ModernTreasury::Internal::Type::Enum
 
@@ -565,16 +556,16 @@ module ModernTreasury
             #   @return [Array<Symbol>]
           end
 
-          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#ledger_transaction
+          # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#ledger_transaction
           class LedgerTransaction < ModernTreasury::Internal::Type::BaseModel
             # @!attribute ledger_entries
             #   An array of ledger entry objects.
             #
-            #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerEntry>]
+            #   @return [Array<ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerEntry>]
             required :ledger_entries,
                      -> do
                        ModernTreasury::Internal::Type::ArrayOf[
-                         ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerEntry
+                         ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerEntry
                        ]
                      end
 
@@ -618,9 +609,11 @@ module ModernTreasury
             #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
             #   reversal.
             #
-            #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerableType, nil]
+            #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerableType, nil]
             optional :ledgerable_type,
-                     enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerableType }
+                     enum: -> {
+                       ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerableType
+                     }
 
             # @!attribute metadata
             #   Additional data represented as key-value pairs. Both the key and value must be
@@ -632,13 +625,15 @@ module ModernTreasury
             # @!attribute status
             #   To post a ledger transaction at creation, use `posted`.
             #
-            #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::Status, nil]
+            #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::Status, nil]
             optional :status,
-                     enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::Status }
+                     enum: -> {
+                       ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::Status
+                     }
 
             # @!method initialize(ledger_entries:, description: nil, effective_at: nil, effective_date: nil, external_id: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, status: nil)
             #   Some parameter documentations has been truncated, see
-            #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction}
+            #   {ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction}
             #   for more details.
             #
             #   Specifies a ledger transaction object that will be created with the payment
@@ -646,29 +641,23 @@ module ModernTreasury
             #   creation will fail. The resulting ledger transaction will mirror the status of
             #   the payment order.
             #
-            #   @param ledger_entries [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerEntry>] An array of ledger entry objects.
+            #   @param ledger_entries [Array<ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerEntry>] An array of ledger entry objects.
             #
             #   @param description [String, nil] An optional description for internal use.
             #
             #   @param effective_at [Time] The timestamp (ISO8601 format) at which the ledger transaction happened for repo
-            #   ...
             #
             #   @param effective_date [Date] The date (YYYY-MM-DD) on which the ledger transaction happened for reporting pur
-            #   ...
             #
             #   @param external_id [String] A unique string to represent the ledger transaction. Only one pending or posted
-            #   ...
             #
             #   @param ledgerable_id [String] If the ledger transaction can be reconciled to another object in Modern Treasury
-            #   ...
             #
-            #   @param ledgerable_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerableType] If the ledger transaction can be reconciled to another object in Modern Treasury
-            #   ...
+            #   @param ledgerable_type [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerableType] If the ledger transaction can be reconciled to another object in Modern Treasury
             #
             #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-            #   ...
             #
-            #   @param status [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::Status] To post a ledger transaction at creation, use `posted`.
+            #   @param status [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::Status] To post a ledger transaction at creation, use `posted`.
 
             class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
               # @!attribute amount
@@ -684,8 +673,8 @@ module ModernTreasury
               #   `debit` pulls money from someone else's account to your own. Note that wire,
               #   rtp, and check payments will always be `credit`.
               #
-              #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
-              required :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
+              #   @return [Symbol, ModernTreasury::TransactionDirection]
+              required :direction, enum: -> { ModernTreasury::TransactionDirection }
 
               # @!attribute ledger_account_id
               #   The ledger account that this ledger entry is associated with.
@@ -744,34 +733,26 @@ module ModernTreasury
 
               # @!method initialize(amount:, direction:, ledger_account_id:, available_balance_amount: nil, lock_version: nil, metadata: nil, pending_balance_amount: nil, posted_balance_amount: nil, show_resulting_ledger_account_balances: nil)
               #   Some parameter documentations has been truncated, see
-              #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerEntry}
+              #   {ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerEntry}
               #   for more details.
               #
               #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
-              #   ...
               #
-              #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection] One of `credit`, `debit`. Describes the direction money is flowing in the transa
-              #   ...
+              #   @param direction [Symbol, ModernTreasury::TransactionDirection] One of `credit`, `debit`. Describes the direction money is flowing in the transa
               #
               #   @param ledger_account_id [String] The ledger account that this ledger entry is associated with.
               #
               #   @param available_balance_amount [Hash{Symbol=>Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the accou
-              #   ...
               #
               #   @param lock_version [Integer, nil] Lock version of the ledger account. This can be passed when creating a ledger tr
-              #   ...
               #
               #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-              #   ...
               #
               #   @param pending_balance_amount [Hash{Symbol=>Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the accou
-              #   ...
               #
               #   @param posted_balance_amount [Hash{Symbol=>Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the accou
-              #   ...
               #
               #   @param show_resulting_ledger_account_balances [Boolean, nil] If true, response will include the balance of the associated ledger account for
-              #   ...
             end
 
             # If the ledger transaction can be reconciled to another object in Modern
@@ -779,7 +760,7 @@ module ModernTreasury
             # payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
             # reversal.
             #
-            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction#ledgerable_type
+            # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction#ledgerable_type
             module LedgerableType
               extend ModernTreasury::Internal::Type::Enum
 
@@ -796,7 +777,7 @@ module ModernTreasury
 
             # To post a ledger transaction at creation, use `posted`.
             #
-            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction#status
+            # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction#status
             module Status
               extend ModernTreasury::Internal::Type::Enum
 
@@ -839,26 +820,23 @@ module ModernTreasury
 
             # @!method initialize(amount:, accounting_category_id: nil, description: nil, metadata: nil)
             #   Some parameter documentations has been truncated, see
-            #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem}
+            #   {ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem}
             #   for more details.
             #
             #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
-            #   ...
             #
             #   @param accounting_category_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
-            #   ...
             #
             #   @param description [String, nil] A free-form description of the line item.
             #
             #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-            #   ...
           end
 
           # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
           # same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
           # an overnight check rather than standard mail.
           #
-          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#priority
+          # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#priority
           module Priority
             extend ModernTreasury::Internal::Type::Enum
 
@@ -869,31 +847,31 @@ module ModernTreasury
             #   @return [Array<Symbol>]
           end
 
-          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#receiving_account
+          # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#receiving_account
           class ReceivingAccount < ModernTreasury::Internal::Type::BaseModel
             # @!attribute account_details
             #
-            #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail>, nil]
+            #   @return [Array<ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail>, nil]
             optional :account_details,
                      -> do
                        ModernTreasury::Internal::Type::ArrayOf[
-                         ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail
+                         ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail
                        ]
                      end
 
             # @!attribute account_type
             #   Can be `checking`, `savings` or `other`.
             #
-            #   @return [Symbol, ModernTreasury::Models::ExternalAccountType, nil]
-            optional :account_type, enum: -> { ModernTreasury::Models::ExternalAccountType }
+            #   @return [Symbol, ModernTreasury::ExternalAccountType, nil]
+            optional :account_type, enum: -> { ModernTreasury::ExternalAccountType }
 
             # @!attribute contact_details
             #
-            #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail>, nil]
+            #   @return [Array<ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail>, nil]
             optional :contact_details,
                      -> do
                        ModernTreasury::Internal::Type::ArrayOf[
-                         ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail
+                         ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail
                        ]
                      end
 
@@ -904,9 +882,11 @@ module ModernTreasury
             #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
             #   for more details.
             #
-            #   @return [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount, nil]
+            #   @return [ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount, nil]
             optional :ledger_account,
-                     -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount }
+                     -> {
+                       ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount
+                     }
 
             # @!attribute metadata
             #   Additional data represented as key-value pairs. Both the key and value must be
@@ -925,9 +905,11 @@ module ModernTreasury
             # @!attribute party_address
             #   Required if receiving wire payments.
             #
-            #   @return [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyAddress, nil]
+            #   @return [ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyAddress, nil]
             optional :party_address,
-                     -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyAddress }
+                     -> {
+                       ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyAddress
+                     }
 
             # @!attribute party_identifier
             #
@@ -943,9 +925,11 @@ module ModernTreasury
             # @!attribute party_type
             #   Either `individual` or `business`.
             #
-            #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyType, nil]
+            #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyType, nil]
             optional :party_type,
-                     enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyType },
+                     enum: -> {
+                       ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyType
+                     },
                      nil?: true
 
             # @!attribute plaid_processor_token
@@ -957,51 +941,46 @@ module ModernTreasury
 
             # @!attribute routing_details
             #
-            #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail>, nil]
+            #   @return [Array<ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail>, nil]
             optional :routing_details,
                      -> do
                        ModernTreasury::Internal::Type::ArrayOf[
-                         ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail
+                         ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail
                        ]
                      end
 
             # @!method initialize(account_details: nil, account_type: nil, contact_details: nil, ledger_account: nil, metadata: nil, name: nil, party_address: nil, party_identifier: nil, party_name: nil, party_type: nil, plaid_processor_token: nil, routing_details: nil)
             #   Some parameter documentations has been truncated, see
-            #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount}
+            #   {ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount}
             #   for more details.
             #
             #   Either `receiving_account` or `receiving_account_id` must be present. When using
             #   `receiving_account_id`, you may pass the id of an external account or an
             #   internal account.
             #
-            #   @param account_details [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail>]
+            #   @param account_details [Array<ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail>]
             #
-            #   @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType] Can be `checking`, `savings` or `other`.
+            #   @param account_type [Symbol, ModernTreasury::ExternalAccountType] Can be `checking`, `savings` or `other`.
             #
-            #   @param contact_details [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail>]
+            #   @param contact_details [Array<ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail>]
             #
-            #   @param ledger_account [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount] Specifies a ledger account object that will be created with the external account
-            #   ...
+            #   @param ledger_account [ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount] Specifies a ledger account object that will be created with the external account
             #
             #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-            #   ...
             #
             #   @param name [String, nil] A nickname for the external account. This is only for internal usage and won't a
-            #   ...
             #
-            #   @param party_address [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyAddress] Required if receiving wire payments.
+            #   @param party_address [ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyAddress] Required if receiving wire payments.
             #
             #   @param party_identifier [String]
             #
             #   @param party_name [String] If this value isn't provided, it will be inherited from the counterparty's name.
-            #   ...
             #
-            #   @param party_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyType, nil] Either `individual` or `business`.
+            #   @param party_type [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyType, nil] Either `individual` or `business`.
             #
             #   @param plaid_processor_token [String] If you've enabled the Modern Treasury + Plaid integration in your Plaid account,
-            #   ...
             #
-            #   @param routing_details [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail>]
+            #   @param routing_details [Array<ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail>]
 
             class AccountDetail < ModernTreasury::Internal::Type::BaseModel
               # @!attribute account_number
@@ -1011,15 +990,17 @@ module ModernTreasury
 
               # @!attribute account_number_type
               #
-              #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::AccountNumberType, nil]
+              #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::AccountNumberType, nil]
               optional :account_number_type,
-                       enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::AccountNumberType }
+                       enum: -> {
+                         ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::AccountNumberType
+                       }
 
               # @!method initialize(account_number:, account_number_type: nil)
               #   @param account_number [String]
-              #   @param account_number_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::AccountNumberType]
+              #   @param account_number_type [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::AccountNumberType]
 
-              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail#account_number_type
+              # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail#account_number_type
               module AccountNumberType
                 extend ModernTreasury::Internal::Type::Enum
 
@@ -1047,15 +1028,17 @@ module ModernTreasury
 
               # @!attribute contact_identifier_type
               #
-              #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail::ContactIdentifierType, nil]
+              #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail::ContactIdentifierType, nil]
               optional :contact_identifier_type,
-                       enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail::ContactIdentifierType }
+                       enum: -> {
+                         ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail::ContactIdentifierType
+                       }
 
               # @!method initialize(contact_identifier: nil, contact_identifier_type: nil)
               #   @param contact_identifier [String]
-              #   @param contact_identifier_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail::ContactIdentifierType]
+              #   @param contact_identifier_type [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail::ContactIdentifierType]
 
-              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail#contact_identifier_type
+              # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail#contact_identifier_type
               module ContactIdentifierType
                 extend ModernTreasury::Internal::Type::Enum
 
@@ -1068,7 +1051,7 @@ module ModernTreasury
               end
             end
 
-            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount#ledger_account
+            # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount#ledger_account
             class LedgerAccount < ModernTreasury::Internal::Type::BaseModel
               # @!attribute currency
               #   The currency of the ledger account.
@@ -1091,8 +1074,8 @@ module ModernTreasury
               # @!attribute normal_balance
               #   The normal balance of the ledger account.
               #
-              #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
-              required :normal_balance, enum: -> { ModernTreasury::Models::TransactionDirection }
+              #   @return [Symbol, ModernTreasury::TransactionDirection]
+              required :normal_balance, enum: -> { ModernTreasury::TransactionDirection }
 
               # @!attribute currency_exponent
               #   The currency exponent of the ledger account.
@@ -1125,9 +1108,11 @@ module ModernTreasury
               #   be populated here, otherwise null. The value is one of internal_account or
               #   external_account.
               #
-              #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount::LedgerableType, nil]
+              #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount::LedgerableType, nil]
               optional :ledgerable_type,
-                       enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount::LedgerableType }
+                       enum: -> {
+                         ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount::LedgerableType
+                       }
 
               # @!attribute metadata
               #   Additional data represented as key-value pairs. Both the key and value must be
@@ -1138,7 +1123,7 @@ module ModernTreasury
 
               # @!method initialize(currency:, ledger_id:, name:, normal_balance:, currency_exponent: nil, description: nil, ledger_account_category_ids: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil)
               #   Some parameter documentations has been truncated, see
-              #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount}
+              #   {ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount}
               #   for more details.
               #
               #   Specifies a ledger account object that will be created with the external
@@ -1153,29 +1138,25 @@ module ModernTreasury
               #
               #   @param name [String] The name of the ledger account.
               #
-              #   @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection] The normal balance of the ledger account.
+              #   @param normal_balance [Symbol, ModernTreasury::TransactionDirection] The normal balance of the ledger account.
               #
               #   @param currency_exponent [Integer, nil] The currency exponent of the ledger account.
               #
               #   @param description [String, nil] The description of the ledger account.
               #
               #   @param ledger_account_category_ids [Array<String>] The array of ledger account category ids that this ledger account should be a ch
-              #   ...
               #
               #   @param ledgerable_id [String] If the ledger account links to another object in Modern Treasury, the id will be
-              #   ...
               #
-              #   @param ledgerable_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount::LedgerableType] If the ledger account links to another object in Modern Treasury, the type will
-              #   ...
+              #   @param ledgerable_type [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount::LedgerableType] If the ledger account links to another object in Modern Treasury, the type will
               #
               #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-              #   ...
 
               # If the ledger account links to another object in Modern Treasury, the type will
               # be populated here, otherwise null. The value is one of internal_account or
               # external_account.
               #
-              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount#ledgerable_type
+              # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount#ledgerable_type
               module LedgerableType
                 extend ModernTreasury::Internal::Type::Enum
 
@@ -1189,7 +1170,7 @@ module ModernTreasury
               end
             end
 
-            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount#party_address
+            # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount#party_address
             class PartyAddress < ModernTreasury::Internal::Type::BaseModel
               # @!attribute country
               #   Country code conforms to [ISO 3166-1 alpha-2]
@@ -1243,7 +1224,7 @@ module ModernTreasury
 
             # Either `individual` or `business`.
             #
-            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount#party_type
+            # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount#party_type
             module PartyType
               extend ModernTreasury::Internal::Type::Enum
 
@@ -1262,22 +1243,26 @@ module ModernTreasury
 
               # @!attribute routing_number_type
               #
-              #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::RoutingNumberType]
+              #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::RoutingNumberType]
               required :routing_number_type,
-                       enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::RoutingNumberType }
+                       enum: -> {
+                         ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::RoutingNumberType
+                       }
 
               # @!attribute payment_type
               #
-              #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType, nil]
+              #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType, nil]
               optional :payment_type,
-                       enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType }
+                       enum: -> {
+                         ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType
+                       }
 
               # @!method initialize(routing_number:, routing_number_type:, payment_type: nil)
               #   @param routing_number [String]
-              #   @param routing_number_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::RoutingNumberType]
-              #   @param payment_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType]
+              #   @param routing_number_type [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::RoutingNumberType]
+              #   @param payment_type [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType]
 
-              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail#routing_number_type
+              # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail#routing_number_type
               module RoutingNumberType
                 extend ModernTreasury::Internal::Type::Enum
 
@@ -1307,7 +1292,7 @@ module ModernTreasury
                 #   @return [Array<Symbol>]
               end
 
-              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail#payment_type
+              # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail#payment_type
               module PaymentType
                 extend ModernTreasury::Internal::Type::Enum
 
@@ -1373,8 +1358,8 @@ module ModernTreasury
           # @!attribute currency
           #   Must conform to ISO 4217. Defaults to the currency of the internal account.
           #
-          #   @return [Symbol, ModernTreasury::Models::Currency, nil]
-          optional :currency, enum: -> { ModernTreasury::Models::Currency }, nil?: true
+          #   @return [Symbol, ModernTreasury::Currency, nil]
+          optional :currency, enum: -> { ModernTreasury::Currency }, nil?: true
 
           # @!attribute date_lower_bound
           #   The earliest date the payment may come in. Format: yyyy-mm-dd
@@ -1398,9 +1383,11 @@ module ModernTreasury
           #   One of credit or debit. When you are receiving money, use credit. When you are
           #   being charged, use debit.
           #
-          #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Direction, nil]
+          #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Direction, nil]
           optional :direction,
-                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Direction },
+                   enum: -> {
+                     ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Direction
+                   },
                    nil?: true
 
           # @!attribute internal_account_id
@@ -1415,9 +1402,11 @@ module ModernTreasury
           #   creation will fail. The resulting ledger transaction will mirror the status of
           #   the expected payment.
           #
-          #   @return [ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction, nil]
+          #   @return [ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction, nil]
           optional :ledger_transaction,
-                   -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction }
+                   -> {
+                     ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction
+                   }
 
           # @!attribute ledger_transaction_id
           #   Either ledger_transaction or ledger_transaction_id can be provided. Only a
@@ -1430,9 +1419,11 @@ module ModernTreasury
 
           # @!attribute line_items
           #
-          #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem>, nil]
+          #   @return [Array<ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem>, nil]
           optional :line_items,
-                   -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem] }
+                   -> {
+                     ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem]
+                   }
 
           # @!attribute metadata
           #   Additional data represented as key-value pairs. Both the key and value must be
@@ -1456,9 +1447,9 @@ module ModernTreasury
           # @!attribute reconciliation_rule_variables
           #   An array of reconciliation rule variables for this payment.
           #
-          #   @return [Array<ModernTreasury::Models::ReconciliationRule>, nil]
+          #   @return [Array<ModernTreasury::ReconciliationRule>, nil]
           optional :reconciliation_rule_variables,
-                   -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ReconciliationRule] },
+                   -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ReconciliationRule] },
                    nil?: true
 
           # @!attribute remittance_information
@@ -1482,23 +1473,21 @@ module ModernTreasury
           #   One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
           #   sepa, signet, wire.
           #
-          #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil]
-          optional :type, enum: -> { ModernTreasury::Models::ExpectedPaymentType }, nil?: true
+          #   @return [Symbol, ModernTreasury::ExpectedPaymentType, nil]
+          optional :type, enum: -> { ModernTreasury::ExpectedPaymentType }, nil?: true
 
           # @!method initialize(amount_lower_bound: nil, amount_upper_bound: nil, counterparty_id: nil, currency: nil, date_lower_bound: nil, date_upper_bound: nil, description: nil, direction: nil, internal_account_id: nil, ledger_transaction: nil, ledger_transaction_id: nil, line_items: nil, metadata: nil, reconciliation_filters: nil, reconciliation_groups: nil, reconciliation_rule_variables: nil, remittance_information: nil, statement_descriptor: nil, type: nil)
           #   Some parameter documentations has been truncated, see
-          #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest}
+          #   {ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest}
           #   for more details.
           #
           #   @param amount_lower_bound [Integer, nil] The lowest amount this expected payment may be equal to. Value in specified curr
-          #   ...
           #
           #   @param amount_upper_bound [Integer, nil] The highest amount this expected payment may be equal to. Value in specified cur
-          #   ...
           #
           #   @param counterparty_id [String, nil] The ID of the counterparty you expect for this payment.
           #
-          #   @param currency [Symbol, ModernTreasury::Models::Currency, nil] Must conform to ISO 4217. Defaults to the currency of the internal account.
+          #   @param currency [Symbol, ModernTreasury::Currency, nil] Must conform to ISO 4217. Defaults to the currency of the internal account.
           #
           #   @param date_lower_bound [Date, nil] The earliest date the payment may come in. Format: yyyy-mm-dd
           #
@@ -1506,41 +1495,34 @@ module ModernTreasury
           #
           #   @param description [String, nil] An optional description for internal use.
           #
-          #   @param direction [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Direction, nil] One of credit or debit. When you are receiving money, use credit. When you are b
-          #   ...
+          #   @param direction [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Direction, nil] One of credit or debit. When you are receiving money, use credit. When you are b
           #
           #   @param internal_account_id [String, nil] The ID of the Internal Account for the expected payment.
           #
-          #   @param ledger_transaction [ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction] Specifies a ledger transaction object that will be created with the expected pay
-          #   ...
+          #   @param ledger_transaction [ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction] Specifies a ledger transaction object that will be created with the expected pay
           #
           #   @param ledger_transaction_id [String] Either ledger_transaction or ledger_transaction_id can be provided. Only a pendi
-          #   ...
           #
-          #   @param line_items [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem>]
+          #   @param line_items [Array<ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem>]
           #
           #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-          #   ...
           #
           #   @param reconciliation_filters [Object, nil] The reconciliation filters you have for this payment.
           #
           #   @param reconciliation_groups [Object, nil] The reconciliation groups you have for this payment.
           #
-          #   @param reconciliation_rule_variables [Array<ModernTreasury::Models::ReconciliationRule>, nil] An array of reconciliation rule variables for this payment.
+          #   @param reconciliation_rule_variables [Array<ModernTreasury::ReconciliationRule>, nil] An array of reconciliation rule variables for this payment.
           #
           #   @param remittance_information [String, nil] For `ach`, this field will be passed through on an addenda record. For `wire` pa
-          #   ...
           #
           #   @param statement_descriptor [String, nil] The statement description you expect to see on the transaction. For ACH payments
-          #   ...
           #
-          #   @param type [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil] One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen, se
-          #   ...
+          #   @param type [Symbol, ModernTreasury::ExpectedPaymentType, nil] One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen, se
 
           # One of credit or debit. When you are receiving money, use credit. When you are
           # being charged, use debit.
           #
-          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest#direction
+          # @see ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest#direction
           module Direction
             extend ModernTreasury::Internal::Type::Enum
 
@@ -1551,16 +1533,16 @@ module ModernTreasury
             #   @return [Array<Symbol>]
           end
 
-          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest#ledger_transaction
+          # @see ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest#ledger_transaction
           class LedgerTransaction < ModernTreasury::Internal::Type::BaseModel
             # @!attribute ledger_entries
             #   An array of ledger entry objects.
             #
-            #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerEntry>]
+            #   @return [Array<ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerEntry>]
             required :ledger_entries,
                      -> do
                        ModernTreasury::Internal::Type::ArrayOf[
-                         ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerEntry
+                         ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerEntry
                        ]
                      end
 
@@ -1604,9 +1586,11 @@ module ModernTreasury
             #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
             #   reversal.
             #
-            #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerableType, nil]
+            #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerableType, nil]
             optional :ledgerable_type,
-                     enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerableType }
+                     enum: -> {
+                       ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerableType
+                     }
 
             # @!attribute metadata
             #   Additional data represented as key-value pairs. Both the key and value must be
@@ -1618,13 +1602,15 @@ module ModernTreasury
             # @!attribute status
             #   To post a ledger transaction at creation, use `posted`.
             #
-            #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::Status, nil]
+            #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::Status, nil]
             optional :status,
-                     enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::Status }
+                     enum: -> {
+                       ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::Status
+                     }
 
             # @!method initialize(ledger_entries:, description: nil, effective_at: nil, effective_date: nil, external_id: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, status: nil)
             #   Some parameter documentations has been truncated, see
-            #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction}
+            #   {ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction}
             #   for more details.
             #
             #   Specifies a ledger transaction object that will be created with the expected
@@ -1632,29 +1618,23 @@ module ModernTreasury
             #   creation will fail. The resulting ledger transaction will mirror the status of
             #   the expected payment.
             #
-            #   @param ledger_entries [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerEntry>] An array of ledger entry objects.
+            #   @param ledger_entries [Array<ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerEntry>] An array of ledger entry objects.
             #
             #   @param description [String, nil] An optional description for internal use.
             #
             #   @param effective_at [Time] The timestamp (ISO8601 format) at which the ledger transaction happened for repo
-            #   ...
             #
             #   @param effective_date [Date] The date (YYYY-MM-DD) on which the ledger transaction happened for reporting pur
-            #   ...
             #
             #   @param external_id [String] A unique string to represent the ledger transaction. Only one pending or posted
-            #   ...
             #
             #   @param ledgerable_id [String] If the ledger transaction can be reconciled to another object in Modern Treasury
-            #   ...
             #
-            #   @param ledgerable_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerableType] If the ledger transaction can be reconciled to another object in Modern Treasury
-            #   ...
+            #   @param ledgerable_type [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerableType] If the ledger transaction can be reconciled to another object in Modern Treasury
             #
             #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-            #   ...
             #
-            #   @param status [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::Status] To post a ledger transaction at creation, use `posted`.
+            #   @param status [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::Status] To post a ledger transaction at creation, use `posted`.
 
             class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
               # @!attribute amount
@@ -1670,8 +1650,8 @@ module ModernTreasury
               #   `debit` pulls money from someone else's account to your own. Note that wire,
               #   rtp, and check payments will always be `credit`.
               #
-              #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
-              required :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
+              #   @return [Symbol, ModernTreasury::TransactionDirection]
+              required :direction, enum: -> { ModernTreasury::TransactionDirection }
 
               # @!attribute ledger_account_id
               #   The ledger account that this ledger entry is associated with.
@@ -1730,34 +1710,26 @@ module ModernTreasury
 
               # @!method initialize(amount:, direction:, ledger_account_id:, available_balance_amount: nil, lock_version: nil, metadata: nil, pending_balance_amount: nil, posted_balance_amount: nil, show_resulting_ledger_account_balances: nil)
               #   Some parameter documentations has been truncated, see
-              #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerEntry}
+              #   {ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerEntry}
               #   for more details.
               #
               #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
-              #   ...
               #
-              #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection] One of `credit`, `debit`. Describes the direction money is flowing in the transa
-              #   ...
+              #   @param direction [Symbol, ModernTreasury::TransactionDirection] One of `credit`, `debit`. Describes the direction money is flowing in the transa
               #
               #   @param ledger_account_id [String] The ledger account that this ledger entry is associated with.
               #
               #   @param available_balance_amount [Hash{Symbol=>Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the accou
-              #   ...
               #
               #   @param lock_version [Integer, nil] Lock version of the ledger account. This can be passed when creating a ledger tr
-              #   ...
               #
               #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-              #   ...
               #
               #   @param pending_balance_amount [Hash{Symbol=>Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the accou
-              #   ...
               #
               #   @param posted_balance_amount [Hash{Symbol=>Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the accou
-              #   ...
               #
               #   @param show_resulting_ledger_account_balances [Boolean, nil] If true, response will include the balance of the associated ledger account for
-              #   ...
             end
 
             # If the ledger transaction can be reconciled to another object in Modern
@@ -1765,7 +1737,7 @@ module ModernTreasury
             # payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
             # reversal.
             #
-            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction#ledgerable_type
+            # @see ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction#ledgerable_type
             module LedgerableType
               extend ModernTreasury::Internal::Type::Enum
 
@@ -1782,7 +1754,7 @@ module ModernTreasury
 
             # To post a ledger transaction at creation, use `posted`.
             #
-            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction#status
+            # @see ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction#status
             module Status
               extend ModernTreasury::Internal::Type::Enum
 
@@ -1825,19 +1797,16 @@ module ModernTreasury
 
             # @!method initialize(amount:, accounting_category_id: nil, description: nil, metadata: nil)
             #   Some parameter documentations has been truncated, see
-            #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem}
+            #   {ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem}
             #   for more details.
             #
             #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
-            #   ...
             #
             #   @param accounting_category_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
-            #   ...
             #
             #   @param description [String, nil] A free-form description of the line item.
             #
             #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-            #   ...
           end
         end
 
@@ -1845,9 +1814,11 @@ module ModernTreasury
           # @!attribute ledger_entries
           #   An array of ledger entry objects.
           #
-          #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerEntry>]
+          #   @return [Array<ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerEntry>]
           required :ledger_entries,
-                   -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerEntry] }
+                   -> {
+                     ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerEntry]
+                   }
 
           # @!attribute description
           #   An optional description for internal use.
@@ -1889,9 +1860,11 @@ module ModernTreasury
           #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
           #   reversal.
           #
-          #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerableType, nil]
+          #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerableType, nil]
           optional :ledgerable_type,
-                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerableType }
+                   enum: -> {
+                     ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerableType
+                   }
 
           # @!attribute metadata
           #   Additional data represented as key-value pairs. Both the key and value must be
@@ -1903,38 +1876,34 @@ module ModernTreasury
           # @!attribute status
           #   To post a ledger transaction at creation, use `posted`.
           #
-          #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::Status, nil]
+          #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::Status, nil]
           optional :status,
-                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::Status }
+                   enum: -> {
+                     ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::Status
+                   }
 
           # @!method initialize(ledger_entries:, description: nil, effective_at: nil, effective_date: nil, external_id: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, status: nil)
           #   Some parameter documentations has been truncated, see
-          #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest}
+          #   {ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest}
           #   for more details.
           #
-          #   @param ledger_entries [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerEntry>] An array of ledger entry objects.
+          #   @param ledger_entries [Array<ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerEntry>] An array of ledger entry objects.
           #
           #   @param description [String, nil] An optional description for internal use.
           #
           #   @param effective_at [Time] The timestamp (ISO8601 format) at which the ledger transaction happened for repo
-          #   ...
           #
           #   @param effective_date [Date] The date (YYYY-MM-DD) on which the ledger transaction happened for reporting pur
-          #   ...
           #
           #   @param external_id [String] A unique string to represent the ledger transaction. Only one pending or posted
-          #   ...
           #
           #   @param ledgerable_id [String] If the ledger transaction can be reconciled to another object in Modern Treasury
-          #   ...
           #
-          #   @param ledgerable_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerableType] If the ledger transaction can be reconciled to another object in Modern Treasury
-          #   ...
+          #   @param ledgerable_type [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerableType] If the ledger transaction can be reconciled to another object in Modern Treasury
           #
           #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-          #   ...
           #
-          #   @param status [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::Status] To post a ledger transaction at creation, use `posted`.
+          #   @param status [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::Status] To post a ledger transaction at creation, use `posted`.
 
           class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
             # @!attribute amount
@@ -1950,8 +1919,8 @@ module ModernTreasury
             #   `debit` pulls money from someone else's account to your own. Note that wire,
             #   rtp, and check payments will always be `credit`.
             #
-            #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
-            required :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
+            #   @return [Symbol, ModernTreasury::TransactionDirection]
+            required :direction, enum: -> { ModernTreasury::TransactionDirection }
 
             # @!attribute ledger_account_id
             #   The ledger account that this ledger entry is associated with.
@@ -2010,34 +1979,26 @@ module ModernTreasury
 
             # @!method initialize(amount:, direction:, ledger_account_id:, available_balance_amount: nil, lock_version: nil, metadata: nil, pending_balance_amount: nil, posted_balance_amount: nil, show_resulting_ledger_account_balances: nil)
             #   Some parameter documentations has been truncated, see
-            #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerEntry}
+            #   {ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerEntry}
             #   for more details.
             #
             #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
-            #   ...
             #
-            #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection] One of `credit`, `debit`. Describes the direction money is flowing in the transa
-            #   ...
+            #   @param direction [Symbol, ModernTreasury::TransactionDirection] One of `credit`, `debit`. Describes the direction money is flowing in the transa
             #
             #   @param ledger_account_id [String] The ledger account that this ledger entry is associated with.
             #
             #   @param available_balance_amount [Hash{Symbol=>Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the accou
-            #   ...
             #
             #   @param lock_version [Integer, nil] Lock version of the ledger account. This can be passed when creating a ledger tr
-            #   ...
             #
             #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-            #   ...
             #
             #   @param pending_balance_amount [Hash{Symbol=>Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the accou
-            #   ...
             #
             #   @param posted_balance_amount [Hash{Symbol=>Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the accou
-            #   ...
             #
             #   @param show_resulting_ledger_account_balances [Boolean, nil] If true, response will include the balance of the associated ledger account for
-            #   ...
           end
 
           # If the ledger transaction can be reconciled to another object in Modern
@@ -2045,7 +2006,7 @@ module ModernTreasury
           # payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
           # reversal.
           #
-          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest#ledgerable_type
+          # @see ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest#ledgerable_type
           module LedgerableType
             extend ModernTreasury::Internal::Type::Enum
 
@@ -2062,7 +2023,7 @@ module ModernTreasury
 
           # To post a ledger transaction at creation, use `posted`.
           #
-          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest#status
+          # @see ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest#status
           module Status
             extend ModernTreasury::Internal::Type::Enum
 
@@ -2134,9 +2095,11 @@ module ModernTreasury
           #   The type of the transaction. Examples could be
           #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
           #
-          #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type, nil]
+          #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type, nil]
           optional :type,
-                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type },
+                   enum: -> {
+                     ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type
+                   },
                    nil?: true
 
           # @!attribute vendor_description
@@ -2148,11 +2111,10 @@ module ModernTreasury
 
           # @!method initialize(amount:, as_of_date:, direction:, internal_account_id:, vendor_code:, vendor_code_type:, metadata: nil, posted: nil, type: nil, vendor_description: nil)
           #   Some parameter documentations has been truncated, see
-          #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest}
+          #   {ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest}
           #   for more details.
           #
           #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
-          #   ...
           #
           #   @param as_of_date [Date, nil] The date on which the transaction occurred.
           #
@@ -2161,26 +2123,21 @@ module ModernTreasury
           #   @param internal_account_id [String] The ID of the relevant Internal Account.
           #
           #   @param vendor_code [String, nil] When applicable, the bank-given code that determines the transaction's category.
-          #   ...
           #
           #   @param vendor_code_type [String, nil] The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`, `bnk
-          #   ...
           #
           #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-          #   ...
           #
           #   @param posted [Boolean] This field will be `true` if the transaction has posted to the account.
           #
-          #   @param type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type, nil] The type of the transaction. Examples could be `card, `ach`, `wire`, `check`, `r
-          #   ...
+          #   @param type [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type, nil] The type of the transaction. Examples could be `card, `ach`, `wire`, `check`, `r
           #
           #   @param vendor_description [String, nil] The transaction detail text that often appears in on your bank statement and in
-          #   ...
 
           # The type of the transaction. Examples could be
           # `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
           #
-          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest#type
+          # @see ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest#type
           module Type
             extend ModernTreasury::Internal::Type::Enum
 
@@ -2239,9 +2196,11 @@ module ModernTreasury
 
           # @!attribute accounting
           #
-          #   @return [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Accounting, nil]
+          #   @return [ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Accounting, nil]
           optional :accounting,
-                   -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Accounting }
+                   -> {
+                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Accounting
+                   }
 
           # @!attribute accounting_category_id
           #   @deprecated
@@ -2273,9 +2232,11 @@ module ModernTreasury
           #   payment orders. Can be one of shared, sender, or receiver, which correspond
           #   respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
           #
-          #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ChargeBearer, nil]
+          #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ChargeBearer, nil]
           optional :charge_bearer,
-                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ChargeBearer },
+                   enum: -> {
+                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ChargeBearer
+                   },
                    nil?: true
 
           # @!attribute counterparty_id
@@ -2287,8 +2248,8 @@ module ModernTreasury
           # @!attribute currency
           #   Defaults to the currency of the originating account.
           #
-          #   @return [Symbol, ModernTreasury::Models::Currency, nil]
-          optional :currency, enum: -> { ModernTreasury::Models::Currency }
+          #   @return [Symbol, ModernTreasury::Currency, nil]
+          optional :currency, enum: -> { ModernTreasury::Currency }
 
           # @!attribute description
           #   An optional description for internal use.
@@ -2302,9 +2263,11 @@ module ModernTreasury
           #   `debit` pulls money from someone else's account to your own. Note that wire,
           #   rtp, and check payments will always be `credit`.
           #
-          #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Direction, nil]
+          #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Direction, nil]
           optional :direction,
-                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Direction }
+                   enum: -> {
+                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Direction
+                   }
 
           # @!attribute effective_date
           #   Date transactions are to be posted to the participants' account. Defaults to the
@@ -2325,9 +2288,11 @@ module ModernTreasury
           #   receiving account. Currently, this only supports falling back from RTP to ACH
           #   (type=rtp and fallback_type=ach)
           #
-          #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::FallbackType, nil]
+          #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::FallbackType, nil]
           optional :fallback_type,
-                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::FallbackType }
+                   enum: -> {
+                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::FallbackType
+                   }
 
           # @!attribute foreign_exchange_contract
           #   If present, indicates a specific foreign exchange contract number that has been
@@ -2341,17 +2306,21 @@ module ModernTreasury
           #   `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
           #   currency matches the originating account currency.
           #
-          #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ForeignExchangeIndicator, nil]
+          #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ForeignExchangeIndicator, nil]
           optional :foreign_exchange_indicator,
-                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ForeignExchangeIndicator },
+                   enum: -> {
+                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ForeignExchangeIndicator
+                   },
                    nil?: true
 
           # @!attribute line_items
           #   An array of line items that must sum up to the amount of the payment order.
           #
-          #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem>, nil]
+          #   @return [Array<ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem>, nil]
           optional :line_items,
-                   -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem] }
+                   -> {
+                     ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem]
+                   }
 
           # @!attribute metadata
           #   Additional data represented as key-value pairs. Both the key and value must be
@@ -2387,9 +2356,11 @@ module ModernTreasury
           #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
           #   an overnight check rather than standard mail.
           #
-          #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Priority, nil]
+          #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Priority, nil]
           optional :priority,
-                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Priority }
+                   enum: -> {
+                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Priority
+                   }
 
           # @!attribute process_after
           #   If present, Modern Treasury will not process the payment until after this time.
@@ -2414,9 +2385,11 @@ module ModernTreasury
           #   `receiving_account_id`, you may pass the id of an external account or an
           #   internal account.
           #
-          #   @return [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount, nil]
+          #   @return [ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount, nil]
           optional :receiving_account,
-                   -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount }
+                   -> {
+                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount
+                   }
 
           # @!attribute receiving_account_id
           #   Either `receiving_account` or `receiving_account_id` must be present. When using
@@ -2457,9 +2430,11 @@ module ModernTreasury
           #   use `approved`. To undo approval on a denied or approved payment order, use
           #   `needs_approval`.
           #
-          #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Status, nil]
+          #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Status, nil]
           optional :status,
-                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Status }
+                   enum: -> {
+                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Status
+                   }
 
           # @!attribute subtype
           #   An additional layer of classification for the type of payment order you are
@@ -2467,16 +2442,16 @@ module ModernTreasury
           #   payment orders, the `subtype` represents the SEC code. We currently support
           #   `CCD`, `PPD`, `IAT`, `CTX`, `WEB`, `CIE`, and `TEL`.
           #
-          #   @return [Symbol, ModernTreasury::Models::PaymentOrderSubtype, nil]
-          optional :subtype, enum: -> { ModernTreasury::Models::PaymentOrderSubtype }, nil?: true
+          #   @return [Symbol, ModernTreasury::PaymentOrderSubtype, nil]
+          optional :subtype, enum: -> { ModernTreasury::PaymentOrderSubtype }, nil?: true
 
           # @!attribute type
           #   One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
           #   `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
           #   `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
           #
-          #   @return [Symbol, ModernTreasury::Models::PaymentOrderType, nil]
-          optional :type, enum: -> { ModernTreasury::Models::PaymentOrderType }
+          #   @return [Symbol, ModernTreasury::PaymentOrderType, nil]
+          optional :type, enum: -> { ModernTreasury::PaymentOrderType }
 
           # @!attribute ultimate_originating_party_identifier
           #   This represents the identifier by which the person is known to the receiver when
@@ -2512,107 +2487,80 @@ module ModernTreasury
 
           # @!method initialize(id: nil, accounting: nil, accounting_category_id: nil, accounting_ledger_class_id: nil, amount: nil, charge_bearer: nil, counterparty_id: nil, currency: nil, description: nil, direction: nil, effective_date: nil, expires_at: nil, fallback_type: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, line_items: nil, metadata: nil, nsf_protected: nil, originating_account_id: nil, originating_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account: nil, receiving_account_id: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, status: nil, subtype: nil, type: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil)
           #   Some parameter documentations has been truncated, see
-          #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID}
+          #   {ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID}
           #   for more details.
           #
           #   @param id [String]
           #
-          #   @param accounting [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Accounting]
+          #   @param accounting [ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Accounting]
           #
           #   @param accounting_category_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
-          #   ...
           #
           #   @param accounting_ledger_class_id [String, nil] The ID of one of your accounting ledger classes. Note that these will only be ac
-          #   ...
           #
           #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
-          #   ...
           #
-          #   @param charge_bearer [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ChargeBearer, nil] The party that will pay the fees for the payment order. Only applies to wire pay
-          #   ...
+          #   @param charge_bearer [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ChargeBearer, nil] The party that will pay the fees for the payment order. Only applies to wire pay
           #
           #   @param counterparty_id [String, nil] Required when receiving_account_id is passed the ID of an external account.
           #
-          #   @param currency [Symbol, ModernTreasury::Models::Currency] Defaults to the currency of the originating account.
+          #   @param currency [Symbol, ModernTreasury::Currency] Defaults to the currency of the originating account.
           #
           #   @param description [String, nil] An optional description for internal use.
           #
-          #   @param direction [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Direction] One of `credit`, `debit`. Describes the direction money is flowing in the transa
-          #   ...
+          #   @param direction [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Direction] One of `credit`, `debit`. Describes the direction money is flowing in the transa
           #
           #   @param effective_date [Date] Date transactions are to be posted to the participants' account. Defaults to the
-          #   ...
           #
           #   @param expires_at [Time, nil] RFP payments require an expires_at. This value must be past the effective_date.
           #
-          #   @param fallback_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::FallbackType] A payment type to fallback to if the original type is not valid for the receivin
-          #   ...
+          #   @param fallback_type [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::FallbackType] A payment type to fallback to if the original type is not valid for the receivin
           #
           #   @param foreign_exchange_contract [String, nil] If present, indicates a specific foreign exchange contract number that has been
-          #   ...
           #
-          #   @param foreign_exchange_indicator [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ForeignExchangeIndicator, nil] Indicates the type of FX transfer to initiate, can be either `variable_to_fixed`
-          #   ...
+          #   @param foreign_exchange_indicator [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ForeignExchangeIndicator, nil] Indicates the type of FX transfer to initiate, can be either `variable_to_fixed`
           #
-          #   @param line_items [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem>] An array of line items that must sum up to the amount of the payment order.
+          #   @param line_items [Array<ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem>] An array of line items that must sum up to the amount of the payment order.
           #
           #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-          #   ...
           #
           #   @param nsf_protected [Boolean] A boolean to determine if NSF Protection is enabled for this payment order. Note
-          #   ...
           #
           #   @param originating_account_id [String] The ID of one of your organization's internal accounts.
           #
           #   @param originating_party_name [String, nil] If present, this will replace your default company name on receiver's bank state
-          #   ...
           #
-          #   @param priority [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Priority] Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-da
-          #   ...
+          #   @param priority [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Priority] Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-da
           #
           #   @param process_after [Time, nil] If present, Modern Treasury will not process the payment until after this time.
-          #   ...
           #
           #   @param purpose [String, nil] For `wire`, this is usually the purpose which is transmitted via the "InstrForDb
-          #   ...
           #
-          #   @param receiving_account [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount] Either `receiving_account` or `receiving_account_id` must be present. When using
-          #   ...
+          #   @param receiving_account [ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount] Either `receiving_account` or `receiving_account_id` must be present. When using
           #
           #   @param receiving_account_id [String] Either `receiving_account` or `receiving_account_id` must be present. When using
-          #   ...
           #
           #   @param remittance_information [String, nil] For `ach`, this field will be passed through on an addenda record. For `wire` pa
-          #   ...
           #
           #   @param send_remittance_advice [Boolean, nil] Send an email to the counterparty when the payment order is sent to the bank. If
-          #   ...
           #
           #   @param statement_descriptor [String, nil] An optional descriptor which will appear in the receiver's statement. For `check
-          #   ...
           #
-          #   @param status [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Status] To cancel a payment order, use `cancelled`. To redraft a returned payment order,
-          #   ...
+          #   @param status [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Status] To cancel a payment order, use `cancelled`. To redraft a returned payment order,
           #
-          #   @param subtype [Symbol, ModernTreasury::Models::PaymentOrderSubtype, nil] An additional layer of classification for the type of payment order you are doin
-          #   ...
+          #   @param subtype [Symbol, ModernTreasury::PaymentOrderSubtype, nil] An additional layer of classification for the type of payment order you are doin
           #
-          #   @param type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
-          #   ...
+          #   @param type [Symbol, ModernTreasury::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
           #
           #   @param ultimate_originating_party_identifier [String, nil] This represents the identifier by which the person is known to the receiver when
-          #   ...
           #
           #   @param ultimate_originating_party_name [String, nil] This represents the name of the person that the payment is on behalf of when usi
-          #   ...
           #
           #   @param ultimate_receiving_party_identifier [String, nil] This represents the name of the merchant that the payment is being sent to when
-          #   ...
           #
           #   @param ultimate_receiving_party_name [String, nil] This represents the identifier by which the merchant is known to the person init
-          #   ...
 
-          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#accounting
+          # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#accounting
           class Accounting < ModernTreasury::Internal::Type::BaseModel
             # @!attribute account_id
             #   The ID of one of your accounting categories. Note that these will only be
@@ -2631,21 +2579,19 @@ module ModernTreasury
 
             # @!method initialize(account_id: nil, class_id: nil)
             #   Some parameter documentations has been truncated, see
-            #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Accounting}
+            #   {ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Accounting}
             #   for more details.
             #
             #   @param account_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
-            #   ...
             #
             #   @param class_id [String, nil] The ID of one of the class objects in your accounting system. Class objects trac
-            #   ...
           end
 
           # The party that will pay the fees for the payment order. Only applies to wire
           # payment orders. Can be one of shared, sender, or receiver, which correspond
           # respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
           #
-          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#charge_bearer
+          # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#charge_bearer
           module ChargeBearer
             extend ModernTreasury::Internal::Type::Enum
 
@@ -2662,7 +2608,7 @@ module ModernTreasury
           # `debit` pulls money from someone else's account to your own. Note that wire,
           # rtp, and check payments will always be `credit`.
           #
-          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#direction
+          # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#direction
           module Direction
             extend ModernTreasury::Internal::Type::Enum
 
@@ -2677,7 +2623,7 @@ module ModernTreasury
           # receiving account. Currently, this only supports falling back from RTP to ACH
           # (type=rtp and fallback_type=ach)
           #
-          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#fallback_type
+          # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#fallback_type
           module FallbackType
             extend ModernTreasury::Internal::Type::Enum
 
@@ -2691,7 +2637,7 @@ module ModernTreasury
           # `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
           # currency matches the originating account currency.
           #
-          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#foreign_exchange_indicator
+          # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#foreign_exchange_indicator
           module ForeignExchangeIndicator
             extend ModernTreasury::Internal::Type::Enum
 
@@ -2732,26 +2678,23 @@ module ModernTreasury
 
             # @!method initialize(amount:, accounting_category_id: nil, description: nil, metadata: nil)
             #   Some parameter documentations has been truncated, see
-            #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem}
+            #   {ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem}
             #   for more details.
             #
             #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
-            #   ...
             #
             #   @param accounting_category_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
-            #   ...
             #
             #   @param description [String, nil] A free-form description of the line item.
             #
             #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-            #   ...
           end
 
           # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
           # same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
           # an overnight check rather than standard mail.
           #
-          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#priority
+          # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#priority
           module Priority
             extend ModernTreasury::Internal::Type::Enum
 
@@ -2762,31 +2705,31 @@ module ModernTreasury
             #   @return [Array<Symbol>]
           end
 
-          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#receiving_account
+          # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#receiving_account
           class ReceivingAccount < ModernTreasury::Internal::Type::BaseModel
             # @!attribute account_details
             #
-            #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail>, nil]
+            #   @return [Array<ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail>, nil]
             optional :account_details,
                      -> do
                        ModernTreasury::Internal::Type::ArrayOf[
-                         ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail
+                         ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail
                        ]
                      end
 
             # @!attribute account_type
             #   Can be `checking`, `savings` or `other`.
             #
-            #   @return [Symbol, ModernTreasury::Models::ExternalAccountType, nil]
-            optional :account_type, enum: -> { ModernTreasury::Models::ExternalAccountType }
+            #   @return [Symbol, ModernTreasury::ExternalAccountType, nil]
+            optional :account_type, enum: -> { ModernTreasury::ExternalAccountType }
 
             # @!attribute contact_details
             #
-            #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail>, nil]
+            #   @return [Array<ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail>, nil]
             optional :contact_details,
                      -> do
                        ModernTreasury::Internal::Type::ArrayOf[
-                         ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail
+                         ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail
                        ]
                      end
 
@@ -2797,9 +2740,11 @@ module ModernTreasury
             #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
             #   for more details.
             #
-            #   @return [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount, nil]
+            #   @return [ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount, nil]
             optional :ledger_account,
-                     -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount }
+                     -> {
+                       ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount
+                     }
 
             # @!attribute metadata
             #   Additional data represented as key-value pairs. Both the key and value must be
@@ -2818,9 +2763,11 @@ module ModernTreasury
             # @!attribute party_address
             #   Required if receiving wire payments.
             #
-            #   @return [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyAddress, nil]
+            #   @return [ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyAddress, nil]
             optional :party_address,
-                     -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyAddress }
+                     -> {
+                       ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyAddress
+                     }
 
             # @!attribute party_identifier
             #
@@ -2836,9 +2783,11 @@ module ModernTreasury
             # @!attribute party_type
             #   Either `individual` or `business`.
             #
-            #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyType, nil]
+            #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyType, nil]
             optional :party_type,
-                     enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyType },
+                     enum: -> {
+                       ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyType
+                     },
                      nil?: true
 
             # @!attribute plaid_processor_token
@@ -2850,51 +2799,46 @@ module ModernTreasury
 
             # @!attribute routing_details
             #
-            #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail>, nil]
+            #   @return [Array<ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail>, nil]
             optional :routing_details,
                      -> do
                        ModernTreasury::Internal::Type::ArrayOf[
-                         ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail
+                         ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail
                        ]
                      end
 
             # @!method initialize(account_details: nil, account_type: nil, contact_details: nil, ledger_account: nil, metadata: nil, name: nil, party_address: nil, party_identifier: nil, party_name: nil, party_type: nil, plaid_processor_token: nil, routing_details: nil)
             #   Some parameter documentations has been truncated, see
-            #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount}
+            #   {ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount}
             #   for more details.
             #
             #   Either `receiving_account` or `receiving_account_id` must be present. When using
             #   `receiving_account_id`, you may pass the id of an external account or an
             #   internal account.
             #
-            #   @param account_details [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail>]
+            #   @param account_details [Array<ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail>]
             #
-            #   @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType] Can be `checking`, `savings` or `other`.
+            #   @param account_type [Symbol, ModernTreasury::ExternalAccountType] Can be `checking`, `savings` or `other`.
             #
-            #   @param contact_details [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail>]
+            #   @param contact_details [Array<ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail>]
             #
-            #   @param ledger_account [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount] Specifies a ledger account object that will be created with the external account
-            #   ...
+            #   @param ledger_account [ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount] Specifies a ledger account object that will be created with the external account
             #
             #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-            #   ...
             #
             #   @param name [String, nil] A nickname for the external account. This is only for internal usage and won't a
-            #   ...
             #
-            #   @param party_address [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyAddress] Required if receiving wire payments.
+            #   @param party_address [ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyAddress] Required if receiving wire payments.
             #
             #   @param party_identifier [String]
             #
             #   @param party_name [String] If this value isn't provided, it will be inherited from the counterparty's name.
-            #   ...
             #
-            #   @param party_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyType, nil] Either `individual` or `business`.
+            #   @param party_type [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyType, nil] Either `individual` or `business`.
             #
             #   @param plaid_processor_token [String] If you've enabled the Modern Treasury + Plaid integration in your Plaid account,
-            #   ...
             #
-            #   @param routing_details [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail>]
+            #   @param routing_details [Array<ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail>]
 
             class AccountDetail < ModernTreasury::Internal::Type::BaseModel
               # @!attribute account_number
@@ -2904,15 +2848,17 @@ module ModernTreasury
 
               # @!attribute account_number_type
               #
-              #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::AccountNumberType, nil]
+              #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::AccountNumberType, nil]
               optional :account_number_type,
-                       enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::AccountNumberType }
+                       enum: -> {
+                         ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::AccountNumberType
+                       }
 
               # @!method initialize(account_number:, account_number_type: nil)
               #   @param account_number [String]
-              #   @param account_number_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::AccountNumberType]
+              #   @param account_number_type [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::AccountNumberType]
 
-              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail#account_number_type
+              # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail#account_number_type
               module AccountNumberType
                 extend ModernTreasury::Internal::Type::Enum
 
@@ -2940,15 +2886,17 @@ module ModernTreasury
 
               # @!attribute contact_identifier_type
               #
-              #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail::ContactIdentifierType, nil]
+              #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail::ContactIdentifierType, nil]
               optional :contact_identifier_type,
-                       enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail::ContactIdentifierType }
+                       enum: -> {
+                         ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail::ContactIdentifierType
+                       }
 
               # @!method initialize(contact_identifier: nil, contact_identifier_type: nil)
               #   @param contact_identifier [String]
-              #   @param contact_identifier_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail::ContactIdentifierType]
+              #   @param contact_identifier_type [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail::ContactIdentifierType]
 
-              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail#contact_identifier_type
+              # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail#contact_identifier_type
               module ContactIdentifierType
                 extend ModernTreasury::Internal::Type::Enum
 
@@ -2961,7 +2909,7 @@ module ModernTreasury
               end
             end
 
-            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount#ledger_account
+            # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount#ledger_account
             class LedgerAccount < ModernTreasury::Internal::Type::BaseModel
               # @!attribute currency
               #   The currency of the ledger account.
@@ -2984,8 +2932,8 @@ module ModernTreasury
               # @!attribute normal_balance
               #   The normal balance of the ledger account.
               #
-              #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
-              required :normal_balance, enum: -> { ModernTreasury::Models::TransactionDirection }
+              #   @return [Symbol, ModernTreasury::TransactionDirection]
+              required :normal_balance, enum: -> { ModernTreasury::TransactionDirection }
 
               # @!attribute currency_exponent
               #   The currency exponent of the ledger account.
@@ -3018,9 +2966,11 @@ module ModernTreasury
               #   be populated here, otherwise null. The value is one of internal_account or
               #   external_account.
               #
-              #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount::LedgerableType, nil]
+              #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount::LedgerableType, nil]
               optional :ledgerable_type,
-                       enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount::LedgerableType }
+                       enum: -> {
+                         ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount::LedgerableType
+                       }
 
               # @!attribute metadata
               #   Additional data represented as key-value pairs. Both the key and value must be
@@ -3031,7 +2981,7 @@ module ModernTreasury
 
               # @!method initialize(currency:, ledger_id:, name:, normal_balance:, currency_exponent: nil, description: nil, ledger_account_category_ids: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil)
               #   Some parameter documentations has been truncated, see
-              #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount}
+              #   {ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount}
               #   for more details.
               #
               #   Specifies a ledger account object that will be created with the external
@@ -3046,29 +2996,25 @@ module ModernTreasury
               #
               #   @param name [String] The name of the ledger account.
               #
-              #   @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection] The normal balance of the ledger account.
+              #   @param normal_balance [Symbol, ModernTreasury::TransactionDirection] The normal balance of the ledger account.
               #
               #   @param currency_exponent [Integer, nil] The currency exponent of the ledger account.
               #
               #   @param description [String, nil] The description of the ledger account.
               #
               #   @param ledger_account_category_ids [Array<String>] The array of ledger account category ids that this ledger account should be a ch
-              #   ...
               #
               #   @param ledgerable_id [String] If the ledger account links to another object in Modern Treasury, the id will be
-              #   ...
               #
-              #   @param ledgerable_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount::LedgerableType] If the ledger account links to another object in Modern Treasury, the type will
-              #   ...
+              #   @param ledgerable_type [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount::LedgerableType] If the ledger account links to another object in Modern Treasury, the type will
               #
               #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-              #   ...
 
               # If the ledger account links to another object in Modern Treasury, the type will
               # be populated here, otherwise null. The value is one of internal_account or
               # external_account.
               #
-              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount#ledgerable_type
+              # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount#ledgerable_type
               module LedgerableType
                 extend ModernTreasury::Internal::Type::Enum
 
@@ -3082,7 +3028,7 @@ module ModernTreasury
               end
             end
 
-            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount#party_address
+            # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount#party_address
             class PartyAddress < ModernTreasury::Internal::Type::BaseModel
               # @!attribute country
               #   Country code conforms to [ISO 3166-1 alpha-2]
@@ -3136,7 +3082,7 @@ module ModernTreasury
 
             # Either `individual` or `business`.
             #
-            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount#party_type
+            # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount#party_type
             module PartyType
               extend ModernTreasury::Internal::Type::Enum
 
@@ -3155,22 +3101,26 @@ module ModernTreasury
 
               # @!attribute routing_number_type
               #
-              #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::RoutingNumberType]
+              #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::RoutingNumberType]
               required :routing_number_type,
-                       enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::RoutingNumberType }
+                       enum: -> {
+                         ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::RoutingNumberType
+                       }
 
               # @!attribute payment_type
               #
-              #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType, nil]
+              #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType, nil]
               optional :payment_type,
-                       enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType }
+                       enum: -> {
+                         ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType
+                       }
 
               # @!method initialize(routing_number:, routing_number_type:, payment_type: nil)
               #   @param routing_number [String]
-              #   @param routing_number_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::RoutingNumberType]
-              #   @param payment_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType]
+              #   @param routing_number_type [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::RoutingNumberType]
+              #   @param payment_type [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType]
 
-              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail#routing_number_type
+              # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail#routing_number_type
               module RoutingNumberType
                 extend ModernTreasury::Internal::Type::Enum
 
@@ -3200,7 +3150,7 @@ module ModernTreasury
                 #   @return [Array<Symbol>]
               end
 
-              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail#payment_type
+              # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail#payment_type
               module PaymentType
                 extend ModernTreasury::Internal::Type::Enum
 
@@ -3245,7 +3195,7 @@ module ModernTreasury
           # use `approved`. To undo approval on a denied or approved payment order, use
           # `needs_approval`.
           #
-          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#status
+          # @see ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#status
           module Status
             extend ModernTreasury::Internal::Type::Enum
 
@@ -3295,8 +3245,8 @@ module ModernTreasury
           # @!attribute currency
           #   Must conform to ISO 4217. Defaults to the currency of the internal account.
           #
-          #   @return [Symbol, ModernTreasury::Models::Currency, nil]
-          optional :currency, enum: -> { ModernTreasury::Models::Currency }, nil?: true
+          #   @return [Symbol, ModernTreasury::Currency, nil]
+          optional :currency, enum: -> { ModernTreasury::Currency }, nil?: true
 
           # @!attribute date_lower_bound
           #   The earliest date the payment may come in. Format: yyyy-mm-dd
@@ -3320,9 +3270,11 @@ module ModernTreasury
           #   One of credit or debit. When you are receiving money, use credit. When you are
           #   being charged, use debit.
           #
-          #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Direction, nil]
+          #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Direction, nil]
           optional :direction,
-                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Direction },
+                   enum: -> {
+                     ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Direction
+                   },
                    nil?: true
 
           # @!attribute internal_account_id
@@ -3353,9 +3305,9 @@ module ModernTreasury
           # @!attribute reconciliation_rule_variables
           #   An array of reconciliation rule variables for this payment.
           #
-          #   @return [Array<ModernTreasury::Models::ReconciliationRule>, nil]
+          #   @return [Array<ModernTreasury::ReconciliationRule>, nil]
           optional :reconciliation_rule_variables,
-                   -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ReconciliationRule] },
+                   -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ReconciliationRule] },
                    nil?: true
 
           # @!attribute remittance_information
@@ -3379,34 +3331,34 @@ module ModernTreasury
           #   The Expected Payment's status can be updated from partially_reconciled to
           #   reconciled.
           #
-          #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Status, nil]
+          #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Status, nil]
           optional :status,
-                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Status },
+                   enum: -> {
+                     ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Status
+                   },
                    nil?: true
 
           # @!attribute type
           #   One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
           #   sepa, signet, wire.
           #
-          #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil]
-          optional :type, enum: -> { ModernTreasury::Models::ExpectedPaymentType }, nil?: true
+          #   @return [Symbol, ModernTreasury::ExpectedPaymentType, nil]
+          optional :type, enum: -> { ModernTreasury::ExpectedPaymentType }, nil?: true
 
           # @!method initialize(id: nil, amount_lower_bound: nil, amount_upper_bound: nil, counterparty_id: nil, currency: nil, date_lower_bound: nil, date_upper_bound: nil, description: nil, direction: nil, internal_account_id: nil, metadata: nil, reconciliation_filters: nil, reconciliation_groups: nil, reconciliation_rule_variables: nil, remittance_information: nil, statement_descriptor: nil, status: nil, type: nil)
           #   Some parameter documentations has been truncated, see
-          #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID}
+          #   {ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID}
           #   for more details.
           #
           #   @param id [String]
           #
           #   @param amount_lower_bound [Integer, nil] The lowest amount this expected payment may be equal to. Value in specified curr
-          #   ...
           #
           #   @param amount_upper_bound [Integer, nil] The highest amount this expected payment may be equal to. Value in specified cur
-          #   ...
           #
           #   @param counterparty_id [String, nil] The ID of the counterparty you expect for this payment.
           #
-          #   @param currency [Symbol, ModernTreasury::Models::Currency, nil] Must conform to ISO 4217. Defaults to the currency of the internal account.
+          #   @param currency [Symbol, ModernTreasury::Currency, nil] Must conform to ISO 4217. Defaults to the currency of the internal account.
           #
           #   @param date_lower_bound [Date, nil] The earliest date the payment may come in. Format: yyyy-mm-dd
           #
@@ -3414,36 +3366,30 @@ module ModernTreasury
           #
           #   @param description [String, nil] An optional description for internal use.
           #
-          #   @param direction [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Direction, nil] One of credit or debit. When you are receiving money, use credit. When you are b
-          #   ...
+          #   @param direction [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Direction, nil] One of credit or debit. When you are receiving money, use credit. When you are b
           #
           #   @param internal_account_id [String, nil] The ID of the Internal Account for the expected payment.
           #
           #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-          #   ...
           #
           #   @param reconciliation_filters [Object, nil] The reconciliation filters you have for this payment.
           #
           #   @param reconciliation_groups [Object, nil] The reconciliation groups you have for this payment.
           #
-          #   @param reconciliation_rule_variables [Array<ModernTreasury::Models::ReconciliationRule>, nil] An array of reconciliation rule variables for this payment.
+          #   @param reconciliation_rule_variables [Array<ModernTreasury::ReconciliationRule>, nil] An array of reconciliation rule variables for this payment.
           #
           #   @param remittance_information [String, nil] For `ach`, this field will be passed through on an addenda record. For `wire` pa
-          #   ...
           #
           #   @param statement_descriptor [String, nil] The statement description you expect to see on the transaction. For ACH payments
-          #   ...
           #
-          #   @param status [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Status, nil] The Expected Payment's status can be updated from partially_reconciled to reconc
-          #   ...
+          #   @param status [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Status, nil] The Expected Payment's status can be updated from partially_reconciled to reconc
           #
-          #   @param type [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil] One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen, se
-          #   ...
+          #   @param type [Symbol, ModernTreasury::ExpectedPaymentType, nil] One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen, se
 
           # One of credit or debit. When you are receiving money, use credit. When you are
           # being charged, use debit.
           #
-          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID#direction
+          # @see ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID#direction
           module Direction
             extend ModernTreasury::Internal::Type::Enum
 
@@ -3457,7 +3403,7 @@ module ModernTreasury
           # The Expected Payment's status can be updated from partially_reconciled to
           # reconciled.
           #
-          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID#status
+          # @see ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID#status
           module Status
             extend ModernTreasury::Internal::Type::Enum
 
@@ -3483,13 +3429,12 @@ module ModernTreasury
 
           # @!method initialize(id: nil, metadata: nil)
           #   Some parameter documentations has been truncated, see
-          #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID}
+          #   {ModernTreasury::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID}
           #   for more details.
           #
           #   @param id [String]
           #
           #   @param metadata [Hash{Symbol=>String}] Additional data in the form of key-value pairs. Pairs can be removed by passing
-          #   ...
         end
 
         class LedgerTransactionUpdateRequestWithID < ModernTreasury::Internal::Type::BaseModel
@@ -3514,13 +3459,11 @@ module ModernTreasury
           # @!attribute ledger_entries
           #   An array of ledger entry objects.
           #
-          #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry>, nil]
+          #   @return [Array<ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry>, nil]
           optional :ledger_entries,
-                   -> do
-                     ModernTreasury::Internal::Type::ArrayOf[
-                       ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry
-                     ]
-                   end
+                   -> {
+                     ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry]
+                   }
 
           # @!attribute ledgerable_id
           #   If the ledger transaction can be reconciled to another object in Modern
@@ -3535,9 +3478,11 @@ module ModernTreasury
           #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
           #   reversal.
           #
-          #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerableType, nil]
+          #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerableType, nil]
           optional :ledgerable_type,
-                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerableType }
+                   enum: -> {
+                     ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerableType
+                   }
 
           # @!attribute metadata
           #   Additional data represented as key-value pairs. Both the key and value must be
@@ -3549,13 +3494,15 @@ module ModernTreasury
           # @!attribute status
           #   To post a ledger transaction at creation, use `posted`.
           #
-          #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::Status, nil]
+          #   @return [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::Status, nil]
           optional :status,
-                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::Status }
+                   enum: -> {
+                     ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::Status
+                   }
 
           # @!method initialize(id: nil, description: nil, effective_at: nil, ledger_entries: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, status: nil)
           #   Some parameter documentations has been truncated, see
-          #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID}
+          #   {ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID}
           #   for more details.
           #
           #   @param id [String]
@@ -3563,20 +3510,16 @@ module ModernTreasury
           #   @param description [String, nil] An optional description for internal use.
           #
           #   @param effective_at [Time] The timestamp (ISO8601 format) at which the ledger transaction happened for repo
-          #   ...
           #
-          #   @param ledger_entries [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry>] An array of ledger entry objects.
+          #   @param ledger_entries [Array<ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry>] An array of ledger entry objects.
           #
           #   @param ledgerable_id [String] If the ledger transaction can be reconciled to another object in Modern Treasury
-          #   ...
           #
-          #   @param ledgerable_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerableType] If the ledger transaction can be reconciled to another object in Modern Treasury
-          #   ...
+          #   @param ledgerable_type [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerableType] If the ledger transaction can be reconciled to another object in Modern Treasury
           #
           #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-          #   ...
           #
-          #   @param status [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::Status] To post a ledger transaction at creation, use `posted`.
+          #   @param status [Symbol, ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::Status] To post a ledger transaction at creation, use `posted`.
 
           class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
             # @!attribute amount
@@ -3592,8 +3535,8 @@ module ModernTreasury
             #   `debit` pulls money from someone else's account to your own. Note that wire,
             #   rtp, and check payments will always be `credit`.
             #
-            #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
-            required :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
+            #   @return [Symbol, ModernTreasury::TransactionDirection]
+            required :direction, enum: -> { ModernTreasury::TransactionDirection }
 
             # @!attribute ledger_account_id
             #   The ledger account that this ledger entry is associated with.
@@ -3652,34 +3595,26 @@ module ModernTreasury
 
             # @!method initialize(amount:, direction:, ledger_account_id:, available_balance_amount: nil, lock_version: nil, metadata: nil, pending_balance_amount: nil, posted_balance_amount: nil, show_resulting_ledger_account_balances: nil)
             #   Some parameter documentations has been truncated, see
-            #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry}
+            #   {ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry}
             #   for more details.
             #
             #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
-            #   ...
             #
-            #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection] One of `credit`, `debit`. Describes the direction money is flowing in the transa
-            #   ...
+            #   @param direction [Symbol, ModernTreasury::TransactionDirection] One of `credit`, `debit`. Describes the direction money is flowing in the transa
             #
             #   @param ledger_account_id [String] The ledger account that this ledger entry is associated with.
             #
             #   @param available_balance_amount [Hash{Symbol=>Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the accou
-            #   ...
             #
             #   @param lock_version [Integer, nil] Lock version of the ledger account. This can be passed when creating a ledger tr
-            #   ...
             #
             #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-            #   ...
             #
             #   @param pending_balance_amount [Hash{Symbol=>Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the accou
-            #   ...
             #
             #   @param posted_balance_amount [Hash{Symbol=>Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the accou
-            #   ...
             #
             #   @param show_resulting_ledger_account_balances [Boolean, nil] If true, response will include the balance of the associated ledger account for
-            #   ...
           end
 
           # If the ledger transaction can be reconciled to another object in Modern
@@ -3687,7 +3622,7 @@ module ModernTreasury
           # payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
           # reversal.
           #
-          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID#ledgerable_type
+          # @see ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID#ledgerable_type
           module LedgerableType
             extend ModernTreasury::Internal::Type::Enum
 
@@ -3704,7 +3639,7 @@ module ModernTreasury
 
           # To post a ledger transaction at creation, use `posted`.
           #
-          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID#status
+          # @see ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID#status
           module Status
             extend ModernTreasury::Internal::Type::Enum
 
@@ -3718,7 +3653,7 @@ module ModernTreasury
         end
 
         # @!method self.variants
-        #   @return [Array(ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ID, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID)]
+        #   @return [Array(ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest, ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest, ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest, ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest, ModernTreasury::BulkRequestCreateParams::Resource::ID, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID, ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID, ModernTreasury::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID, ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID)]
       end
     end
   end

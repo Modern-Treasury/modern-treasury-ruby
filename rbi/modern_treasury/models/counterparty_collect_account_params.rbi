@@ -6,10 +6,13 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       # One of `credit` or `debit`. Use `credit` when you want to pay a counterparty.
       # Use `debit` when you need to charge a counterparty. This field helps us send a
       # more tailored email to your counterparties."
-      sig { returns(ModernTreasury::Models::TransactionDirection::OrSymbol) }
+      sig { returns(ModernTreasury::TransactionDirection::OrSymbol) }
       attr_accessor :direction
 
       # The URL you want your customer to visit upon filling out the form. By default,
@@ -26,10 +29,25 @@ module ModernTreasury
       # \"routingNumber\", \"address\"]. The full list of options is [\"name\",
       # \"nameOnAccount\", \"taxpayerIdentifier\", \"accountType\", \"accountNumber\",
       # \"routingNumber\", \"address\", \"ibanNumber\", \"swiftCode\"].
-      sig { returns(T.nilable(T::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol])) }
+      sig do
+        returns(
+          T.nilable(
+            T::Array[
+              ModernTreasury::CounterpartyCollectAccountParams::Field::OrSymbol
+            ]
+          )
+        )
+      end
       attr_reader :fields
 
-      sig { params(fields: T::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol]).void }
+      sig do
+        params(
+          fields:
+            T::Array[
+              ModernTreasury::CounterpartyCollectAccountParams::Field::OrSymbol
+            ]
+        ).void
+      end
       attr_writer :fields
 
       # By default, Modern Treasury will send an email to your counterparty that
@@ -44,13 +62,15 @@ module ModernTreasury
 
       sig do
         params(
-          direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
+          direction: ModernTreasury::TransactionDirection::OrSymbol,
           custom_redirect: String,
-          fields: T::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol],
+          fields:
+            T::Array[
+              ModernTreasury::CounterpartyCollectAccountParams::Field::OrSymbol
+            ],
           send_email: T::Boolean,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # One of `credit` or `debit`. Use `credit` when you want to pay a counterparty.
@@ -73,104 +93,193 @@ module ModernTreasury
         # body will include the link to the secure Modern Treasury form.
         send_email: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
-              custom_redirect: String,
-              fields: T::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol],
-              send_email: T::Boolean,
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            direction: ModernTreasury::TransactionDirection::OrSymbol,
+            custom_redirect: String,
+            fields:
+              T::Array[
+                ModernTreasury::CounterpartyCollectAccountParams::Field::OrSymbol
+              ],
+            send_email: T::Boolean,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
 
       module Field
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
-          T.type_alias { T.all(Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field) }
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::CounterpartyCollectAccountParams::Field
+            )
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        NAME = T.let(:name, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol)
+        NAME =
+          T.let(
+            :name,
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
+          )
         NAME_ON_ACCOUNT =
-          T.let(:nameOnAccount, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol)
+          T.let(
+            :nameOnAccount,
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
+          )
         TAXPAYER_IDENTIFIER =
-          T.let(:taxpayerIdentifier, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol)
+          T.let(
+            :taxpayerIdentifier,
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
+          )
         ACCOUNT_TYPE =
-          T.let(:accountType, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol)
+          T.let(
+            :accountType,
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
+          )
         ACCOUNT_NUMBER =
-          T.let(:accountNumber, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol)
+          T.let(
+            :accountNumber,
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
+          )
         IBAN_NUMBER =
-          T.let(:ibanNumber, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol)
+          T.let(
+            :ibanNumber,
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
+          )
         CLABE_NUMBER =
-          T.let(:clabeNumber, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol)
+          T.let(
+            :clabeNumber,
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
+          )
         WALLET_ADDRESS =
-          T.let(:walletAddress, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol)
+          T.let(
+            :walletAddress,
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
+          )
         PAN_NUMBER =
-          T.let(:panNumber, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol)
+          T.let(
+            :panNumber,
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
+          )
         ROUTING_NUMBER =
-          T.let(:routingNumber, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol)
+          T.let(
+            :routingNumber,
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
+          )
         ABA_WIRE_ROUTING_NUMBER =
           T.let(
             :abaWireRoutingNumber,
-            ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
           )
         SWIFT_CODE =
-          T.let(:swiftCode, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol)
-        AU_BSB = T.let(:auBsb, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol)
-        CA_CPA = T.let(:caCpa, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol)
-        CNAPS = T.let(:cnaps, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol)
+          T.let(
+            :swiftCode,
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
+          )
+        AU_BSB =
+          T.let(
+            :auBsb,
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
+          )
+        CA_CPA =
+          T.let(
+            :caCpa,
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
+          )
+        CNAPS =
+          T.let(
+            :cnaps,
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
+          )
         GB_SORT_CODE =
-          T.let(:gbSortCode, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol)
-        IN_IFSC = T.let(:inIfsc, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol)
+          T.let(
+            :gbSortCode,
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
+          )
+        IN_IFSC =
+          T.let(
+            :inIfsc,
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
+          )
         MY_BRANCH_CODE =
-          T.let(:myBranchCode, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol)
+          T.let(
+            :myBranchCode,
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
+          )
         BR_CODIGO =
-          T.let(:brCodigo, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol)
+          T.let(
+            :brCodigo,
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
+          )
         ROUTING_NUMBER_TYPE =
-          T.let(:routingNumberType, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol)
-        ADDRESS = T.let(:address, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol)
+          T.let(
+            :routingNumberType,
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
+          )
+        ADDRESS =
+          T.let(
+            :address,
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
+          )
         JP_ZENGIN_CODE =
-          T.let(:jpZenginCode, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol)
+          T.let(
+            :jpZenginCode,
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
+          )
         SE_BANKGIRO_CLEARING_CODE =
           T.let(
             :seBankgiroClearingCode,
-            ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
           )
         NZ_NATIONAL_CLEARING_CODE =
           T.let(
             :nzNationalClearingCode,
-            ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
           )
         HK_INTERBANK_CLEARING_CODE =
           T.let(
             :hkInterbankClearingCode,
-            ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
           )
         HU_INTERBANK_CLEARING_CODE =
           T.let(
             :huInterbankClearingCode,
-            ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
           )
         DK_INTERBANK_CLEARING_CODE =
           T.let(
             :dkInterbankClearingCode,
-            ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
           )
         ID_SKNBI_CODE =
-          T.let(:idSknbiCode, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol)
+          T.let(
+            :idSknbiCode,
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
+          )
         ZA_NATIONAL_CLEARING_CODE =
           T.let(
             :zaNationalClearingCode,
-            ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
           )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
     end
   end

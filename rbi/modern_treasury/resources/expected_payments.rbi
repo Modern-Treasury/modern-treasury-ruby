@@ -9,28 +9,32 @@ module ModernTreasury
           amount_lower_bound: T.nilable(Integer),
           amount_upper_bound: T.nilable(Integer),
           counterparty_id: T.nilable(String),
-          currency: T.nilable(ModernTreasury::Models::Currency::OrSymbol),
+          currency: T.nilable(ModernTreasury::Currency::OrSymbol),
           date_lower_bound: T.nilable(Date),
           date_upper_bound: T.nilable(Date),
           description: T.nilable(String),
-          direction: T.nilable(ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::OrSymbol),
+          direction:
+            T.nilable(
+              ModernTreasury::ExpectedPaymentCreateParams::Direction::OrSymbol
+            ),
           internal_account_id: T.nilable(String),
-          ledger_transaction: T.any(
-            ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction,
-            ModernTreasury::Internal::AnyHash
-          ),
+          ledger_transaction:
+            ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction::OrHash,
           ledger_transaction_id: String,
-          line_items: T::Array[T.any(ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem, ModernTreasury::Internal::AnyHash)],
+          line_items:
+            T::Array[
+              ModernTreasury::ExpectedPaymentCreateParams::LineItem::OrHash
+            ],
           metadata: T::Hash[Symbol, String],
           reconciliation_filters: T.nilable(T.anything),
           reconciliation_groups: T.nilable(T.anything),
-          reconciliation_rule_variables: T.nilable(T::Array[T.any(ModernTreasury::Models::ReconciliationRule, ModernTreasury::Internal::AnyHash)]),
+          reconciliation_rule_variables:
+            T.nilable(T::Array[ModernTreasury::ReconciliationRule::OrHash]),
           remittance_information: T.nilable(String),
           statement_descriptor: T.nilable(String),
-          type: T.nilable(ModernTreasury::Models::ExpectedPaymentType::OrSymbol),
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::ExpectedPayment)
+          type: T.nilable(ModernTreasury::ExpectedPaymentType::OrSymbol),
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::ExpectedPayment)
       end
       def create(
         # The lowest amount this expected payment may be equal to. Value in specified
@@ -87,17 +91,23 @@ module ModernTreasury
         # sepa, signet, wire.
         type: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # get expected payment
       sig do
-        params(id: String, request_options: ModernTreasury::RequestOpts)
-          .returns(ModernTreasury::Models::ExpectedPayment)
+        params(
+          id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::ExpectedPayment)
       end
       def retrieve(
         # id
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # update expected payment
       sig do
         params(
@@ -105,23 +115,29 @@ module ModernTreasury
           amount_lower_bound: T.nilable(Integer),
           amount_upper_bound: T.nilable(Integer),
           counterparty_id: T.nilable(String),
-          currency: T.nilable(ModernTreasury::Models::Currency::OrSymbol),
+          currency: T.nilable(ModernTreasury::Currency::OrSymbol),
           date_lower_bound: T.nilable(Date),
           date_upper_bound: T.nilable(Date),
           description: T.nilable(String),
-          direction: T.nilable(ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::OrSymbol),
+          direction:
+            T.nilable(
+              ModernTreasury::ExpectedPaymentUpdateParams::Direction::OrSymbol
+            ),
           internal_account_id: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           reconciliation_filters: T.nilable(T.anything),
           reconciliation_groups: T.nilable(T.anything),
-          reconciliation_rule_variables: T.nilable(T::Array[T.any(ModernTreasury::Models::ReconciliationRule, ModernTreasury::Internal::AnyHash)]),
+          reconciliation_rule_variables:
+            T.nilable(T::Array[ModernTreasury::ReconciliationRule::OrHash]),
           remittance_information: T.nilable(String),
           statement_descriptor: T.nilable(String),
-          status: T.nilable(ModernTreasury::Models::ExpectedPaymentUpdateParams::Status::OrSymbol),
-          type: T.nilable(ModernTreasury::Models::ExpectedPaymentType::OrSymbol),
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::ExpectedPayment)
+          status:
+            T.nilable(
+              ModernTreasury::ExpectedPaymentUpdateParams::Status::OrSymbol
+            ),
+          type: T.nilable(ModernTreasury::ExpectedPaymentType::OrSymbol),
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::ExpectedPayment)
       end
       def update(
         # id
@@ -172,7 +188,9 @@ module ModernTreasury
         # sepa, signet, wire.
         type: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # list expected_payments
       sig do
         params(
@@ -180,15 +198,16 @@ module ModernTreasury
           counterparty_id: String,
           created_at_lower_bound: Time,
           created_at_upper_bound: Time,
-          direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
+          direction: ModernTreasury::TransactionDirection::OrSymbol,
           internal_account_id: String,
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
-          status: ModernTreasury::Models::ExpectedPaymentListParams::Status::OrSymbol,
-          type: ModernTreasury::Models::ExpectedPaymentListParams::Type::OrSymbol,
-          request_options: ModernTreasury::RequestOpts
+          status: ModernTreasury::ExpectedPaymentListParams::Status::OrSymbol,
+          type: ModernTreasury::ExpectedPaymentListParams::Type::OrSymbol,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(
+          ModernTreasury::Internal::Page[ModernTreasury::ExpectedPayment]
         )
-          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::ExpectedPayment])
       end
       def list(
         after_cursor: nil,
@@ -213,20 +232,27 @@ module ModernTreasury
         # sepa, signet, wire
         type: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # delete expected payment
       sig do
-        params(id: String, request_options: ModernTreasury::RequestOpts)
-          .returns(ModernTreasury::Models::ExpectedPayment)
+        params(
+          id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::ExpectedPayment)
       end
       def delete(
         # id
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

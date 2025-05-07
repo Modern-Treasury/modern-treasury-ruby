@@ -6,6 +6,9 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       # If you have specific IDs to retrieve in bulk, you can pass them as query
       # parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       sig { returns(T.nilable(T::Array[String])) }
@@ -20,17 +23,18 @@ module ModernTreasury
       # For example, if you want the balances as of a particular time (ISO8601), the
       # encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
       # The balances as of a time are inclusive of entries with that exact time.
-      sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountCategoryListParams::Balances)) }
+      sig do
+        returns(
+          T.nilable(ModernTreasury::LedgerAccountCategoryListParams::Balances)
+        )
+      end
       attr_reader :balances
 
       sig do
         params(
-          balances: T.any(
-            ModernTreasury::Models::LedgerAccountCategoryListParams::Balances,
-            ModernTreasury::Internal::AnyHash
-          )
-        )
-          .void
+          balances:
+            ModernTreasury::LedgerAccountCategoryListParams::Balances::OrHash
+        ).void
       end
       attr_writer :balances
 
@@ -86,10 +90,8 @@ module ModernTreasury
         params(
           id: T::Array[String],
           after_cursor: T.nilable(String),
-          balances: T.any(
-            ModernTreasury::Models::LedgerAccountCategoryListParams::Balances,
-            ModernTreasury::Internal::AnyHash
-          ),
+          balances:
+            ModernTreasury::LedgerAccountCategoryListParams::Balances::OrHash,
           currency: String,
           ledger_account_id: String,
           ledger_id: String,
@@ -97,9 +99,8 @@ module ModernTreasury
           name: String,
           parent_ledger_account_category_id: String,
           per_page: Integer,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # If you have specific IDs to retrieve in bulk, you can pass them as query
@@ -124,28 +125,33 @@ module ModernTreasury
         parent_ledger_account_category_id: nil,
         per_page: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: T::Array[String],
-              after_cursor: T.nilable(String),
-              balances: ModernTreasury::Models::LedgerAccountCategoryListParams::Balances,
-              currency: String,
-              ledger_account_id: String,
-              ledger_id: String,
-              metadata: T::Hash[Symbol, String],
-              name: String,
-              parent_ledger_account_category_id: String,
-              per_page: Integer,
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: T::Array[String],
+            after_cursor: T.nilable(String),
+            balances: ModernTreasury::LedgerAccountCategoryListParams::Balances,
+            currency: String,
+            ledger_account_id: String,
+            ledger_id: String,
+            metadata: T::Hash[Symbol, String],
+            name: String,
+            parent_ledger_account_category_id: String,
+            per_page: Integer,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
 
       class Balances < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         sig { returns(T.nilable(Time)) }
         attr_reader :effective_at
 
@@ -156,10 +162,12 @@ module ModernTreasury
         # encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
         # The balances as of a time are inclusive of entries with that exact time.
         sig { params(effective_at: Time).returns(T.attached_class) }
-        def self.new(effective_at: nil); end
+        def self.new(effective_at: nil)
+        end
 
-        sig { override.returns({effective_at: Time}) }
-        def to_hash; end
+        sig { override.returns({ effective_at: Time }) }
+        def to_hash
+        end
       end
     end
   end

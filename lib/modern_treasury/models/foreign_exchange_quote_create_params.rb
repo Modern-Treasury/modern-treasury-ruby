@@ -16,8 +16,8 @@ module ModernTreasury
       # @!attribute target_currency
       #   Currency to convert the `base_currency` to, often called the "buy" currency.
       #
-      #   @return [Symbol, ModernTreasury::Models::Currency]
-      required :target_currency, enum: -> { ModernTreasury::Models::Currency }
+      #   @return [Symbol, ModernTreasury::Currency]
+      required :target_currency, enum: -> { ModernTreasury::Currency }
 
       # @!attribute base_amount
       #   Amount in the lowest denomination of the `base_currency` to convert, often
@@ -29,8 +29,8 @@ module ModernTreasury
       # @!attribute base_currency
       #   Currency to convert, often called the "sell" currency.
       #
-      #   @return [Symbol, ModernTreasury::Models::Currency, nil]
-      optional :base_currency, enum: -> { ModernTreasury::Models::Currency }
+      #   @return [Symbol, ModernTreasury::Currency, nil]
+      optional :base_currency, enum: -> { ModernTreasury::Currency }
 
       # @!attribute effective_at
       #   The timestamp until when the quoted rate is valid.
@@ -51,17 +51,15 @@ module ModernTreasury
       #
       #   @param internal_account_id [String] The ID for the `InternalAccount` this quote is associated with.
       #
-      #   @param target_currency [Symbol, ModernTreasury::Models::Currency] Currency to convert the `base_currency` to, often called the "buy" currency.
+      #   @param target_currency [Symbol, ModernTreasury::Currency] Currency to convert the `base_currency` to, often called the "buy" currency.
       #
       #   @param base_amount [Integer] Amount in the lowest denomination of the `base_currency` to convert, often calle
-      #   ...
       #
-      #   @param base_currency [Symbol, ModernTreasury::Models::Currency] Currency to convert, often called the "sell" currency.
+      #   @param base_currency [Symbol, ModernTreasury::Currency] Currency to convert, often called the "sell" currency.
       #
       #   @param effective_at [Time] The timestamp until when the quoted rate is valid.
       #
       #   @param target_amount [Integer] Amount in the lowest denomination of the `target_currency`, often called the "bu
-      #   ...
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end

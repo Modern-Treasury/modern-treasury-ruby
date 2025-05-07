@@ -15,32 +15,30 @@ module ModernTreasury
         #
         # @param name [String] The name of the line item, typically a product or SKU name.
         #
-        # @param unit_amount [Integer] The cost per unit of the product or service that this line item is for, ...
+        # @param unit_amount [Integer] The cost per unit of the product or service that this line item is for,
         #
         # @param description [String] An optional free-form description of the line item.
         #
         # @param direction [String] Either `debit` or `credit`. `debit` indicates that a client owes the business mo
-        # ...
         #
         # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-        # ...
         #
-        # @param quantity [Integer] The number of units of a product or service that this line item is for. ...
+        # @param quantity [Integer] The number of units of a product or service that this line item is for.
         #
-        # @param unit_amount_decimal [String] The cost per unit of the product or service that this line item is for, ...
+        # @param unit_amount_decimal [String] The cost per unit of the product or service that this line item is for,
         #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
+        # @return [ModernTreasury::Invoices::InvoiceLineItem]
         #
         # @see ModernTreasury::Models::Invoices::LineItemCreateParams
         def create(invoice_id, params)
-          parsed, options = ModernTreasury::Models::Invoices::LineItemCreateParams.dump_request(params)
+          parsed, options = ModernTreasury::Invoices::LineItemCreateParams.dump_request(params)
           @client.request(
             method: :post,
             path: ["api/invoices/%1$s/invoice_line_items", invoice_id],
             body: parsed,
-            model: ModernTreasury::Models::Invoices::InvoiceLineItem,
+            model: ModernTreasury::Invoices::InvoiceLineItem,
             options: options
           )
         end
@@ -55,11 +53,11 @@ module ModernTreasury
         #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
+        # @return [ModernTreasury::Invoices::InvoiceLineItem]
         #
         # @see ModernTreasury::Models::Invoices::LineItemRetrieveParams
         def retrieve(id, params)
-          parsed, options = ModernTreasury::Models::Invoices::LineItemRetrieveParams.dump_request(params)
+          parsed, options = ModernTreasury::Invoices::LineItemRetrieveParams.dump_request(params)
           invoice_id =
             parsed.delete(:invoice_id) do
               raise ArgumentError.new("missing required path argument #{_1}")
@@ -67,7 +65,7 @@ module ModernTreasury
           @client.request(
             method: :get,
             path: ["api/invoices/%1$s/invoice_line_items/%2$s", invoice_id, id],
-            model: ModernTreasury::Models::Invoices::InvoiceLineItem,
+            model: ModernTreasury::Invoices::InvoiceLineItem,
             options: options
           )
         end
@@ -86,29 +84,24 @@ module ModernTreasury
         # @param description [String] Body param: An optional free-form description of the line item.
         #
         # @param direction [String] Body param: Either `debit` or `credit`. `debit` indicates that a client owes the
-        # ...
         #
         # @param metadata [Hash{Symbol=>String}] Body param: Additional data represented as key-value pairs. Both the key and val
-        # ...
         #
         # @param name [String] Body param: The name of the line item, typically a product or SKU name.
         #
         # @param quantity [Integer] Body param: The number of units of a product or service that this line item is f
-        # ...
         #
         # @param unit_amount [Integer] Body param: The cost per unit of the product or service that this line item is f
-        # ...
         #
         # @param unit_amount_decimal [String] Body param: The cost per unit of the product or service that this line item is f
-        # ...
         #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
+        # @return [ModernTreasury::Invoices::InvoiceLineItem]
         #
         # @see ModernTreasury::Models::Invoices::LineItemUpdateParams
         def update(id, params)
-          parsed, options = ModernTreasury::Models::Invoices::LineItemUpdateParams.dump_request(params)
+          parsed, options = ModernTreasury::Invoices::LineItemUpdateParams.dump_request(params)
           invoice_id =
             parsed.delete(:invoice_id) do
               raise ArgumentError.new("missing required path argument #{_1}")
@@ -117,7 +110,7 @@ module ModernTreasury
             method: :patch,
             path: ["api/invoices/%1$s/invoice_line_items/%2$s", invoice_id, id],
             body: parsed,
-            model: ModernTreasury::Models::Invoices::InvoiceLineItem,
+            model: ModernTreasury::Invoices::InvoiceLineItem,
             options: options
           )
         end
@@ -134,17 +127,17 @@ module ModernTreasury
         #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::Invoices::InvoiceLineItem>]
+        # @return [ModernTreasury::Internal::Page<ModernTreasury::Invoices::InvoiceLineItem>]
         #
         # @see ModernTreasury::Models::Invoices::LineItemListParams
         def list(invoice_id, params = {})
-          parsed, options = ModernTreasury::Models::Invoices::LineItemListParams.dump_request(params)
+          parsed, options = ModernTreasury::Invoices::LineItemListParams.dump_request(params)
           @client.request(
             method: :get,
             path: ["api/invoices/%1$s/invoice_line_items", invoice_id],
             query: parsed,
             page: ModernTreasury::Internal::Page,
-            model: ModernTreasury::Models::Invoices::InvoiceLineItem,
+            model: ModernTreasury::Invoices::InvoiceLineItem,
             options: options
           )
         end
@@ -159,11 +152,11 @@ module ModernTreasury
         #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
+        # @return [ModernTreasury::Invoices::InvoiceLineItem]
         #
         # @see ModernTreasury::Models::Invoices::LineItemDeleteParams
         def delete(id, params)
-          parsed, options = ModernTreasury::Models::Invoices::LineItemDeleteParams.dump_request(params)
+          parsed, options = ModernTreasury::Invoices::LineItemDeleteParams.dump_request(params)
           invoice_id =
             parsed.delete(:invoice_id) do
               raise ArgumentError.new("missing required path argument #{_1}")
@@ -171,7 +164,7 @@ module ModernTreasury
           @client.request(
             method: :delete,
             path: ["api/invoices/%1$s/invoice_line_items/%2$s", invoice_id, id],
-            model: ModernTreasury::Models::Invoices::InvoiceLineItem,
+            model: ModernTreasury::Invoices::InvoiceLineItem,
             options: options
           )
         end

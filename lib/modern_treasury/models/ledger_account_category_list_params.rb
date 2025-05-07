@@ -24,8 +24,8 @@ module ModernTreasury
       #   encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
       #   The balances as of a time are inclusive of entries with that exact time.
       #
-      #   @return [ModernTreasury::Models::LedgerAccountCategoryListParams::Balances, nil]
-      optional :balances, -> { ModernTreasury::Models::LedgerAccountCategoryListParams::Balances }
+      #   @return [ModernTreasury::LedgerAccountCategoryListParams::Balances, nil]
+      optional :balances, -> { ModernTreasury::LedgerAccountCategoryListParams::Balances }
 
       # @!attribute currency
       #
@@ -73,22 +73,18 @@ module ModernTreasury
       #   {ModernTreasury::Models::LedgerAccountCategoryListParams} for more details.
       #
       #   @param id [Array<String>] If you have specific IDs to retrieve in bulk, you can pass them as query paramet
-      #   ...
       #
       #   @param after_cursor [String, nil]
       #
-      #   @param balances [ModernTreasury::Models::LedgerAccountCategoryListParams::Balances] For example, if you want the balances as of a particular time (ISO8601), the enc
-      #   ...
+      #   @param balances [ModernTreasury::LedgerAccountCategoryListParams::Balances] For example, if you want the balances as of a particular time (ISO8601), the enc
       #
       #   @param currency [String]
       #
       #   @param ledger_account_id [String] Query categories which contain a ledger account directly or through child catego
-      #   ...
       #
       #   @param ledger_id [String]
       #
       #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      #   ...
       #
       #   @param name [String]
       #

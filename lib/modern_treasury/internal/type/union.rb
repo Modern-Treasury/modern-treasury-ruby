@@ -8,7 +8,7 @@ module ModernTreasury
       # @example
       #   # `external_account_verify_response` is a `ModernTreasury::Models::ExternalAccountVerifyResponse`
       #   case external_account_verify_response
-      #   when ModernTreasury::Models::ExternalAccount
+      #   when ModernTreasury::ExternalAccount
       #     puts(external_account_verify_response.id)
       #   when ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt
       #     puts(external_account_verify_response.created_at)

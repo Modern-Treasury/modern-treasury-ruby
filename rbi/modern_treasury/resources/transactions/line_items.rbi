@@ -10,9 +10,8 @@ module ModernTreasury
             amount: Integer,
             expected_payment_id: String,
             transaction_id: String,
-            request_options: ModernTreasury::RequestOpts
-          )
-            .returns(ModernTreasury::Models::Transactions::TransactionLineItem)
+            request_options: ModernTreasury::RequestOptions::OrHash
+          ).returns(ModernTreasury::Transactions::TransactionLineItem)
         end
         def create(
           # If a matching object exists in Modern Treasury, `amount` will be populated.
@@ -23,17 +22,23 @@ module ModernTreasury
           # The ID of the parent transaction.
           transaction_id:,
           request_options: {}
-        ); end
+        )
+        end
+
         # get transaction line item
         sig do
-          params(id: String, request_options: ModernTreasury::RequestOpts)
-            .returns(ModernTreasury::Models::Transactions::TransactionLineItem)
+          params(
+            id: String,
+            request_options: ModernTreasury::RequestOptions::OrHash
+          ).returns(ModernTreasury::Transactions::TransactionLineItem)
         end
         def retrieve(
           # id
           id,
           request_options: {}
-        ); end
+        )
+        end
+
         # list transaction_line_items
         sig do
           params(
@@ -41,10 +46,16 @@ module ModernTreasury
             after_cursor: T.nilable(String),
             per_page: Integer,
             transaction_id: String,
-            type: T.nilable(ModernTreasury::Models::Transactions::LineItemListParams::Type::OrSymbol),
-            request_options: ModernTreasury::RequestOpts
+            type:
+              T.nilable(
+                ModernTreasury::Transactions::LineItemListParams::Type::OrSymbol
+              ),
+            request_options: ModernTreasury::RequestOptions::OrHash
+          ).returns(
+            ModernTreasury::Internal::Page[
+              ModernTreasury::Transactions::TransactionLineItem
+            ]
           )
-            .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::Transactions::TransactionLineItem])
         end
         def list(
           id: nil,
@@ -57,15 +68,23 @@ module ModernTreasury
         end
 
         # delete transaction line item
-        sig { params(id: String, request_options: ModernTreasury::RequestOpts).void }
+        sig do
+          params(
+            id: String,
+            request_options: ModernTreasury::RequestOptions::OrHash
+          ).void
+        end
         def delete(
           # id
           id,
           request_options: {}
-        ); end
+        )
+        end
+
         # @api private
         sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-        def self.new(client:); end
+        def self.new(client:)
+        end
       end
     end
   end

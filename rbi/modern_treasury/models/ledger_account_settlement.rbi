@@ -3,6 +3,9 @@
 module ModernTreasury
   module Models
     class LedgerAccountSettlement < ModernTreasury::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       sig { returns(String) }
       attr_accessor :id
 
@@ -68,7 +71,9 @@ module ModernTreasury
 
       # The status of the ledger account settlement. One of `processing`, `pending`,
       # `posted`, `archiving` or `archived`.
-      sig { returns(ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol) }
+      sig do
+        returns(ModernTreasury::LedgerAccountSettlement::Status::TaggedSymbol)
+      end
       attr_accessor :status
 
       sig { returns(Time) }
@@ -91,10 +96,9 @@ module ModernTreasury
           object: String,
           settled_ledger_account_id: String,
           settlement_entry_direction: T.nilable(String),
-          status: ModernTreasury::Models::LedgerAccountSettlement::Status::OrSymbol,
+          status: ModernTreasury::LedgerAccountSettlement::Status::OrSymbol,
           updated_at: Time
-        )
-          .returns(T.attached_class)
+        ).returns(T.attached_class)
       end
       def self.new(
         id:,
@@ -134,50 +138,87 @@ module ModernTreasury
         # `posted`, `archiving` or `archived`.
         status:,
         updated_at:
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: String,
-              amount: T.nilable(Integer),
-              contra_ledger_account_id: String,
-              created_at: Time,
-              currency: String,
-              currency_exponent: T.nilable(Integer),
-              description: T.nilable(String),
-              effective_at_upper_bound: Time,
-              ledger_id: String,
-              ledger_transaction_id: T.nilable(String),
-              live_mode: T::Boolean,
-              metadata: T::Hash[Symbol, String],
-              object: String,
-              settled_ledger_account_id: String,
-              settlement_entry_direction: T.nilable(String),
-              status: ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol,
-              updated_at: Time
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            amount: T.nilable(Integer),
+            contra_ledger_account_id: String,
+            created_at: Time,
+            currency: String,
+            currency_exponent: T.nilable(Integer),
+            description: T.nilable(String),
+            effective_at_upper_bound: Time,
+            ledger_id: String,
+            ledger_transaction_id: T.nilable(String),
+            live_mode: T::Boolean,
+            metadata: T::Hash[Symbol, String],
+            object: String,
+            settled_ledger_account_id: String,
+            settlement_entry_direction: T.nilable(String),
+            status:
+              ModernTreasury::LedgerAccountSettlement::Status::TaggedSymbol,
+            updated_at: Time
+          }
+        )
+      end
+      def to_hash
+      end
 
       # The status of the ledger account settlement. One of `processing`, `pending`,
       # `posted`, `archiving` or `archived`.
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
-        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerAccountSettlement::Status) }
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::LedgerAccountSettlement::Status)
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        ARCHIVED = T.let(:archived, ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol)
-        ARCHIVING = T.let(:archiving, ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol)
-        DRAFTING = T.let(:drafting, ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol)
-        PENDING = T.let(:pending, ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol)
-        POSTED = T.let(:posted, ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol)
-        PROCESSING = T.let(:processing, ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol)
+        ARCHIVED =
+          T.let(
+            :archived,
+            ModernTreasury::LedgerAccountSettlement::Status::TaggedSymbol
+          )
+        ARCHIVING =
+          T.let(
+            :archiving,
+            ModernTreasury::LedgerAccountSettlement::Status::TaggedSymbol
+          )
+        DRAFTING =
+          T.let(
+            :drafting,
+            ModernTreasury::LedgerAccountSettlement::Status::TaggedSymbol
+          )
+        PENDING =
+          T.let(
+            :pending,
+            ModernTreasury::LedgerAccountSettlement::Status::TaggedSymbol
+          )
+        POSTED =
+          T.let(
+            :posted,
+            ModernTreasury::LedgerAccountSettlement::Status::TaggedSymbol
+          )
+        PROCESSING =
+          T.let(
+            :processing,
+            ModernTreasury::LedgerAccountSettlement::Status::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::LedgerAccountSettlement::Status::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
     end
   end

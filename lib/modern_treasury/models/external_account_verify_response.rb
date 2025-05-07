@@ -6,7 +6,7 @@ module ModernTreasury
     module ExternalAccountVerifyResponse
       extend ModernTreasury::Internal::Type::Union
 
-      variant -> { ModernTreasury::Models::ExternalAccount }
+      variant -> { ModernTreasury::ExternalAccount }
 
       variant -> { ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt }
 
@@ -86,19 +86,16 @@ module ModernTreasury
         #   @param external_account_id [String] The ID of the external account.
         #
         #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
-        #   ...
         #
         #   @param object [String]
         #
         #   @param originating_account_id [String] The ID of the internal account where the micro-deposits originate from.
         #
         #   @param payment_type [Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType] The type of payment that can be made to this account. Can be `ach`, `eft`, or `r
-        #   ...
         #
         #   @param priority [Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority, nil] The priority of the payment. Can be `normal` or `high`.
         #
         #   @param status [Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status] The status of the verification attempt. Can be `pending_verification`, `verified
-        #   ...
         #
         #   @param updated_at [Time]
 
@@ -175,7 +172,7 @@ module ModernTreasury
       end
 
       # @!method self.variants
-      #   @return [Array(ModernTreasury::Models::ExternalAccount, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt)]
+      #   @return [Array(ModernTreasury::ExternalAccount, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt)]
     end
   end
 end

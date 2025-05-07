@@ -8,10 +8,12 @@ module ModernTreasury
         params(
           counterparty_id: String,
           payment_types: T::Array[String],
-          receiving_countries: T::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol],
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::AccountCollectionFlow)
+          receiving_countries:
+            T::Array[
+              ModernTreasury::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol
+            ],
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::AccountCollectionFlow)
       end
       def create(
         # Required.
@@ -19,25 +21,31 @@ module ModernTreasury
         payment_types:,
         receiving_countries: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # get account_collection_flow
       sig do
-        params(id: String, request_options: ModernTreasury::RequestOpts)
-          .returns(ModernTreasury::Models::AccountCollectionFlow)
+        params(
+          id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::AccountCollectionFlow)
       end
       def retrieve(
         # id
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # update account_collection_flow
       sig do
         params(
           id: String,
-          status: ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status::OrSymbol,
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::AccountCollectionFlow)
+          status:
+            ModernTreasury::AccountCollectionFlowUpdateParams::Status::OrSymbol,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::AccountCollectionFlow)
       end
       def update(
         # id
@@ -46,7 +54,9 @@ module ModernTreasury
         # mark a flow as `cancelled`.
         status:,
         request_options: {}
-      ); end
+      )
+      end
+
       # list account_collection_flows
       sig do
         params(
@@ -56,9 +66,10 @@ module ModernTreasury
           external_account_id: String,
           per_page: Integer,
           status: String,
-          request_options: ModernTreasury::RequestOpts
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(
+          ModernTreasury::Internal::Page[ModernTreasury::AccountCollectionFlow]
         )
-          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::AccountCollectionFlow])
       end
       def list(
         after_cursor: nil,
@@ -68,10 +79,13 @@ module ModernTreasury
         per_page: nil,
         status: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

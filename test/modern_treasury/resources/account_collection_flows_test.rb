@@ -11,21 +11,21 @@ class ModernTreasury::Test::Resources::AccountCollectionFlowsTest < ModernTreasu
       )
 
     assert_pattern do
-      response => ModernTreasury::Models::AccountCollectionFlow
+      response => ModernTreasury::AccountCollectionFlow
     end
 
     assert_pattern do
       response => {
         counterparty_id: String,
-        payment_types: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::PaymentType]),
+        payment_types: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::AccountCollectionFlow::PaymentType]),
         id: String | nil,
         client_token: String | nil,
         created_at: Time | nil,
         external_account_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean | nil,
         object: String | nil,
-        receiving_countries: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry]) | nil,
-        status: ModernTreasury::Models::AccountCollectionFlow::Status | nil,
+        receiving_countries: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::AccountCollectionFlow::ReceivingCountry]) | nil,
+        status: ModernTreasury::AccountCollectionFlow::Status | nil,
         updated_at: Time | nil
       }
     end
@@ -35,21 +35,21 @@ class ModernTreasury::Test::Resources::AccountCollectionFlowsTest < ModernTreasu
     response = @modern_treasury.account_collection_flows.retrieve("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::AccountCollectionFlow
+      response => ModernTreasury::AccountCollectionFlow
     end
 
     assert_pattern do
       response => {
         counterparty_id: String,
-        payment_types: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::PaymentType]),
+        payment_types: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::AccountCollectionFlow::PaymentType]),
         id: String | nil,
         client_token: String | nil,
         created_at: Time | nil,
         external_account_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean | nil,
         object: String | nil,
-        receiving_countries: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry]) | nil,
-        status: ModernTreasury::Models::AccountCollectionFlow::Status | nil,
+        receiving_countries: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::AccountCollectionFlow::ReceivingCountry]) | nil,
+        status: ModernTreasury::AccountCollectionFlow::Status | nil,
         updated_at: Time | nil
       }
     end
@@ -59,21 +59,21 @@ class ModernTreasury::Test::Resources::AccountCollectionFlowsTest < ModernTreasu
     response = @modern_treasury.account_collection_flows.update("id", status: :cancelled)
 
     assert_pattern do
-      response => ModernTreasury::Models::AccountCollectionFlow
+      response => ModernTreasury::AccountCollectionFlow
     end
 
     assert_pattern do
       response => {
         counterparty_id: String,
-        payment_types: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::PaymentType]),
+        payment_types: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::AccountCollectionFlow::PaymentType]),
         id: String | nil,
         client_token: String | nil,
         created_at: Time | nil,
         external_account_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean | nil,
         object: String | nil,
-        receiving_countries: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry]) | nil,
-        status: ModernTreasury::Models::AccountCollectionFlow::Status | nil,
+        receiving_countries: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::AccountCollectionFlow::ReceivingCountry]) | nil,
+        status: ModernTreasury::AccountCollectionFlow::Status | nil,
         updated_at: Time | nil
       }
     end
@@ -90,21 +90,21 @@ class ModernTreasury::Test::Resources::AccountCollectionFlowsTest < ModernTreasu
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Models::AccountCollectionFlow
+      row => ModernTreasury::AccountCollectionFlow
     end
 
     assert_pattern do
       row => {
         counterparty_id: String,
-        payment_types: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::PaymentType]),
+        payment_types: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::AccountCollectionFlow::PaymentType]),
         id: String | nil,
         client_token: String | nil,
         created_at: Time | nil,
         external_account_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean | nil,
         object: String | nil,
-        receiving_countries: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry]) | nil,
-        status: ModernTreasury::Models::AccountCollectionFlow::Status | nil,
+        receiving_countries: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::AccountCollectionFlow::ReceivingCountry]) | nil,
+        status: ModernTreasury::AccountCollectionFlow::Status | nil,
         updated_at: Time | nil
       }
     end

@@ -9,23 +9,22 @@ module ModernTreasury
       # Create a ledger transaction.
       sig do
         params(
-          ledger_entries: T::Array[
-            T.any(
-              ModernTreasury::Models::LedgerTransactionCreateParams::LedgerEntry,
-              ModernTreasury::Internal::AnyHash
-            )
-          ],
+          ledger_entries:
+            T::Array[
+              ModernTreasury::LedgerTransactionCreateParams::LedgerEntry::OrHash
+            ],
           description: T.nilable(String),
           effective_at: Time,
           effective_date: Date,
           external_id: String,
           ledgerable_id: String,
-          ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateParams::LedgerableType::OrSymbol,
+          ledgerable_type:
+            ModernTreasury::LedgerTransactionCreateParams::LedgerableType::OrSymbol,
           metadata: T::Hash[Symbol, String],
-          status: ModernTreasury::Models::LedgerTransactionCreateParams::Status::OrSymbol,
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::LedgerTransaction)
+          status:
+            ModernTreasury::LedgerTransactionCreateParams::Status::OrSymbol,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::LedgerTransaction)
       end
       def create(
         # An array of ledger entry objects.
@@ -55,36 +54,41 @@ module ModernTreasury
         # To post a ledger transaction at creation, use `posted`.
         status: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Get details on a single ledger transaction.
       sig do
-        params(id: String, request_options: ModernTreasury::RequestOpts)
-          .returns(ModernTreasury::Models::LedgerTransaction)
+        params(
+          id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::LedgerTransaction)
       end
       def retrieve(
         # id
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # Update the details of a ledger transaction.
       sig do
         params(
           id: String,
           description: T.nilable(String),
           effective_at: Time,
-          ledger_entries: T::Array[
-            T.any(
-              ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry,
-              ModernTreasury::Internal::AnyHash
-            )
-          ],
+          ledger_entries:
+            T::Array[
+              ModernTreasury::LedgerTransactionUpdateParams::LedgerEntry::OrHash
+            ],
           ledgerable_id: String,
-          ledgerable_type: ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType::OrSymbol,
+          ledgerable_type:
+            ModernTreasury::LedgerTransactionUpdateParams::LedgerableType::OrSymbol,
           metadata: T::Hash[Symbol, String],
-          status: ModernTreasury::Models::LedgerTransactionUpdateParams::Status::OrSymbol,
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::LedgerTransaction)
+          status:
+            ModernTreasury::LedgerTransactionUpdateParams::Status::OrSymbol,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::LedgerTransaction)
       end
       def update(
         # id
@@ -110,7 +114,9 @@ module ModernTreasury
         # To post a ledger transaction at creation, use `posted`.
         status: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Get a list of ledger transactions.
       sig do
         params(
@@ -124,18 +130,21 @@ module ModernTreasury
           ledger_account_settlement_id: String,
           ledger_id: String,
           ledgerable_id: String,
-          ledgerable_type: ModernTreasury::Models::LedgerTransactionListParams::LedgerableType::OrSymbol,
+          ledgerable_type:
+            ModernTreasury::LedgerTransactionListParams::LedgerableType::OrSymbol,
           metadata: T::Hash[Symbol, String],
-          order_by: T.any(ModernTreasury::Models::LedgerTransactionListParams::OrderBy, ModernTreasury::Internal::AnyHash),
+          order_by:
+            ModernTreasury::LedgerTransactionListParams::OrderBy::OrHash,
           partially_posts_ledger_transaction_id: String,
           per_page: Integer,
           posted_at: T::Hash[Symbol, Time],
           reverses_ledger_transaction_id: String,
-          status: ModernTreasury::Models::LedgerTransactionListParams::Status::OrSymbol,
+          status: ModernTreasury::LedgerTransactionListParams::Status::OrSymbol,
           updated_at: T::Hash[Symbol, Time],
-          request_options: ModernTreasury::RequestOpts
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(
+          ModernTreasury::Internal::Page[ModernTreasury::LedgerTransaction]
         )
-          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerTransaction])
       end
       def list(
         # If you have specific IDs to retrieve in bulk, you can pass them as query
@@ -178,23 +187,22 @@ module ModernTreasury
         # updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
         updated_at: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Create a ledger transaction that partially posts another ledger transaction.
       sig do
         params(
           id: String,
-          posted_ledger_entries: T::Array[
-            T.any(
-              ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry,
-              ModernTreasury::Internal::AnyHash
-            )
-          ],
+          posted_ledger_entries:
+            T::Array[
+              ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::OrHash
+            ],
           description: String,
           effective_at: Time,
           metadata: T::Hash[Symbol, String],
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::LedgerTransaction)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::LedgerTransaction)
       end
       def create_partial_post(
         # The ID of the ledger transaction to partially post.
@@ -213,7 +221,9 @@ module ModernTreasury
         # strings.
         metadata: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Create a ledger transaction reversal.
       sig do
         params(
@@ -222,12 +232,13 @@ module ModernTreasury
           effective_at: T.nilable(Time),
           external_id: String,
           ledgerable_id: String,
-          ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType::OrSymbol,
+          ledgerable_type:
+            ModernTreasury::LedgerTransactionCreateReversalParams::LedgerableType::OrSymbol,
           metadata: T::Hash[Symbol, String],
-          status: ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status::OrSymbol,
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::LedgerTransaction)
+          status:
+            ModernTreasury::LedgerTransactionCreateReversalParams::Status::OrSymbol,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::LedgerTransaction)
       end
       def create_reversal(
         # The id of ledger transaction to reverse.
@@ -254,10 +265,13 @@ module ModernTreasury
         # provided.
         status: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

@@ -73,19 +73,16 @@ module ModernTreasury
       #   {ModernTreasury::Models::LedgerAccountSettlementListParams} for more details.
       #
       #   @param id [Array<String>] If you have specific IDs to retrieve in bulk, you can pass them as query paramet
-      #   ...
       #
       #   @param after_cursor [String, nil]
       #
       #   @param created_at [Hash{Symbol=>Time}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the cre
-      #   ...
       #
       #   @param ledger_id [String]
       #
       #   @param ledger_transaction_id [String]
       #
       #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      #   ...
       #
       #   @param per_page [Integer]
       #
@@ -94,7 +91,6 @@ module ModernTreasury
       #   @param settlement_entry_direction [String]
       #
       #   @param updated_at [Hash{Symbol=>Time}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the upd
-      #   ...
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end

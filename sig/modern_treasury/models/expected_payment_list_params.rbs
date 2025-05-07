@@ -77,8 +77,6 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
-      def to_hash: -> ModernTreasury::Models::expected_payment_list_params
-
       type status =
         :archived | :partially_reconciled | :reconciled | :unreconciled
 

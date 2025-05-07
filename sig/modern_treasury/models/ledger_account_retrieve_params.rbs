@@ -1,27 +1,23 @@
 module ModernTreasury
   module Models
     type ledger_account_retrieve_params =
-      {
-        balances: ModernTreasury::Models::LedgerAccountRetrieveParams::Balances
-      }
+      { balances: ModernTreasury::LedgerAccountRetrieveParams::Balances }
       & ModernTreasury::Internal::Type::request_parameters
 
     class LedgerAccountRetrieveParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
-      attr_reader balances: ModernTreasury::Models::LedgerAccountRetrieveParams::Balances?
+      attr_reader balances: ModernTreasury::LedgerAccountRetrieveParams::Balances?
 
       def balances=: (
-        ModernTreasury::Models::LedgerAccountRetrieveParams::Balances
-      ) -> ModernTreasury::Models::LedgerAccountRetrieveParams::Balances
+        ModernTreasury::LedgerAccountRetrieveParams::Balances
+      ) -> ModernTreasury::LedgerAccountRetrieveParams::Balances
 
       def initialize: (
-        ?balances: ModernTreasury::Models::LedgerAccountRetrieveParams::Balances,
+        ?balances: ModernTreasury::LedgerAccountRetrieveParams::Balances,
         ?request_options: ModernTreasury::request_opts
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::ledger_account_retrieve_params
 
       type balances =
         {
@@ -60,8 +56,6 @@ module ModernTreasury
           ?effective_at_lower_bound: Time,
           ?effective_at_upper_bound: Time
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::LedgerAccountRetrieveParams::balances
       end
     end
   end

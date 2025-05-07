@@ -3,6 +3,9 @@
 module ModernTreasury
   module Models
     class Event < ModernTreasury::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       sig { returns(String) }
       attr_accessor :id
 
@@ -52,8 +55,7 @@ module ModernTreasury
           object: String,
           resource: String,
           updated_at: Time
-        )
-          .returns(T.attached_class)
+        ).returns(T.attached_class)
       end
       def self.new(
         id:,
@@ -73,25 +75,27 @@ module ModernTreasury
         # The type of resource for the event.
         resource:,
         updated_at:
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: String,
-              created_at: Time,
-              data: T::Hash[Symbol, T.anything],
-              entity_id: String,
-              event_name: String,
-              event_time: Time,
-              live_mode: T::Boolean,
-              object: String,
-              resource: String,
-              updated_at: Time
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            created_at: Time,
+            data: T::Hash[Symbol, T.anything],
+            entity_id: String,
+            event_name: String,
+            event_time: Time,
+            live_mode: T::Boolean,
+            object: String,
+            resource: String,
+            updated_at: Time
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

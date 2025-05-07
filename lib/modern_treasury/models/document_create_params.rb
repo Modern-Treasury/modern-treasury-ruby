@@ -15,8 +15,8 @@ module ModernTreasury
 
       # @!attribute documentable_type
       #
-      #   @return [Symbol, ModernTreasury::Models::DocumentCreateParams::DocumentableType]
-      required :documentable_type, enum: -> { ModernTreasury::Models::DocumentCreateParams::DocumentableType }
+      #   @return [Symbol, ModernTreasury::DocumentCreateParams::DocumentableType]
+      required :documentable_type, enum: -> { ModernTreasury::DocumentCreateParams::DocumentableType }
 
       # @!attribute file
       #
@@ -32,7 +32,7 @@ module ModernTreasury
       # @!method initialize(documentable_id:, documentable_type:, file:, document_type: nil, request_options: {})
       #   @param documentable_id [String] The unique identifier for the associated object.
       #
-      #   @param documentable_type [Symbol, ModernTreasury::Models::DocumentCreateParams::DocumentableType]
+      #   @param documentable_type [Symbol, ModernTreasury::DocumentCreateParams::DocumentableType]
       #
       #   @param file [Pathname, StringIO, IO, ModernTreasury::FilePart]
       #

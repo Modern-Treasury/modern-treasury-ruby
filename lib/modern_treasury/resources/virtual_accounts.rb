@@ -14,38 +14,34 @@ module ModernTreasury
       #
       # @param name [String] The name of the virtual account.
       #
-      # @param account_details [Array<ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail>] An array of account detail objects.
+      # @param account_details [Array<ModernTreasury::VirtualAccountCreateParams::AccountDetail>] An array of account detail objects.
       #
       # @param counterparty_id [String] The ID of the counterparty that the virtual account belongs to.
       #
       # @param credit_ledger_account_id [String] The ID of a credit normal ledger account. When money leaves the virtual account,
-      # ...
       #
       # @param debit_ledger_account_id [String] The ID of a debit normal ledger account. When money enters the virtual account,
-      # ...
       #
       # @param description [String] An optional description for internal use.
       #
-      # @param ledger_account [ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount] Specifies a ledger account object that will be created with the virtual account.
-      # ...
+      # @param ledger_account [ModernTreasury::VirtualAccountCreateParams::LedgerAccount] Specifies a ledger account object that will be created with the virtual account.
       #
       # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-      # ...
       #
-      # @param routing_details [Array<ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail>] An array of routing detail objects.
+      # @param routing_details [Array<ModernTreasury::VirtualAccountCreateParams::RoutingDetail>] An array of routing detail objects.
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::VirtualAccount]
+      # @return [ModernTreasury::VirtualAccount]
       #
       # @see ModernTreasury::Models::VirtualAccountCreateParams
       def create(params)
-        parsed, options = ModernTreasury::Models::VirtualAccountCreateParams.dump_request(params)
+        parsed, options = ModernTreasury::VirtualAccountCreateParams.dump_request(params)
         @client.request(
           method: :post,
           path: "api/virtual_accounts",
           body: parsed,
-          model: ModernTreasury::Models::VirtualAccount,
+          model: ModernTreasury::VirtualAccount,
           options: options
         )
       end
@@ -58,14 +54,14 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::VirtualAccount]
+      # @return [ModernTreasury::VirtualAccount]
       #
       # @see ModernTreasury::Models::VirtualAccountRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
           path: ["api/virtual_accounts/%1$s", id],
-          model: ModernTreasury::Models::VirtualAccount,
+          model: ModernTreasury::VirtualAccount,
           options: params[:request_options]
         )
       end
@@ -86,16 +82,16 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::VirtualAccount]
+      # @return [ModernTreasury::VirtualAccount]
       #
       # @see ModernTreasury::Models::VirtualAccountUpdateParams
       def update(id, params = {})
-        parsed, options = ModernTreasury::Models::VirtualAccountUpdateParams.dump_request(params)
+        parsed, options = ModernTreasury::VirtualAccountUpdateParams.dump_request(params)
         @client.request(
           method: :patch,
           path: ["api/virtual_accounts/%1$s", id],
           body: parsed,
-          model: ModernTreasury::Models::VirtualAccount,
+          model: ModernTreasury::VirtualAccount,
           options: options
         )
       end
@@ -114,23 +110,22 @@ module ModernTreasury
       # @param internal_account_id [String]
       #
       # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      # ...
       #
       # @param per_page [Integer]
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::VirtualAccount>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::VirtualAccount>]
       #
       # @see ModernTreasury::Models::VirtualAccountListParams
       def list(params = {})
-        parsed, options = ModernTreasury::Models::VirtualAccountListParams.dump_request(params)
+        parsed, options = ModernTreasury::VirtualAccountListParams.dump_request(params)
         @client.request(
           method: :get,
           path: "api/virtual_accounts",
           query: parsed,
           page: ModernTreasury::Internal::Page,
-          model: ModernTreasury::Models::VirtualAccount,
+          model: ModernTreasury::VirtualAccount,
           options: options
         )
       end
@@ -143,14 +138,14 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::VirtualAccount]
+      # @return [ModernTreasury::VirtualAccount]
       #
       # @see ModernTreasury::Models::VirtualAccountDeleteParams
       def delete(id, params = {})
         @client.request(
           method: :delete,
           path: ["api/virtual_accounts/%1$s", id],
-          model: ModernTreasury::Models::VirtualAccount,
+          model: ModernTreasury::VirtualAccount,
           options: params[:request_options]
         )
       end

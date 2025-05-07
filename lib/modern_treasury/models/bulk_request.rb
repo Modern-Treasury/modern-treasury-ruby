@@ -12,8 +12,8 @@ module ModernTreasury
       # @!attribute action_type
       #   One of create, or update.
       #
-      #   @return [Symbol, ModernTreasury::Models::BulkRequest::ActionType]
-      required :action_type, enum: -> { ModernTreasury::Models::BulkRequest::ActionType }
+      #   @return [Symbol, ModernTreasury::BulkRequest::ActionType]
+      required :action_type, enum: -> { ModernTreasury::BulkRequest::ActionType }
 
       # @!attribute created_at
       #
@@ -48,14 +48,14 @@ module ModernTreasury
       # @!attribute resource_type
       #   One of payment_order, expected_payment, or ledger_transaction.
       #
-      #   @return [Symbol, ModernTreasury::Models::BulkRequest::ResourceType]
-      required :resource_type, enum: -> { ModernTreasury::Models::BulkRequest::ResourceType }
+      #   @return [Symbol, ModernTreasury::BulkRequest::ResourceType]
+      required :resource_type, enum: -> { ModernTreasury::BulkRequest::ResourceType }
 
       # @!attribute status
       #   One of pending, processing, or completed.
       #
-      #   @return [Symbol, ModernTreasury::Models::BulkRequest::Status]
-      required :status, enum: -> { ModernTreasury::Models::BulkRequest::Status }
+      #   @return [Symbol, ModernTreasury::BulkRequest::Status]
+      required :status, enum: -> { ModernTreasury::BulkRequest::Status }
 
       # @!attribute success_result_count
       #   Total number of successful bulk results so far for this request
@@ -78,38 +78,35 @@ module ModernTreasury
 
       # @!method initialize(id:, action_type:, created_at:, failed_result_count:, live_mode:, metadata:, object:, resource_type:, status:, success_result_count:, total_resource_count:, updated_at:)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::Models::BulkRequest} for more details.
+      #   {ModernTreasury::BulkRequest} for more details.
       #
       #   @param id [String]
       #
-      #   @param action_type [Symbol, ModernTreasury::Models::BulkRequest::ActionType] One of create, or update.
+      #   @param action_type [Symbol, ModernTreasury::BulkRequest::ActionType] One of create, or update.
       #
       #   @param created_at [Time]
       #
       #   @param failed_result_count [Integer] Total number of failed bulk results so far for this request
       #
       #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
-      #   ...
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-      #   ...
       #
       #   @param object [String]
       #
-      #   @param resource_type [Symbol, ModernTreasury::Models::BulkRequest::ResourceType] One of payment_order, expected_payment, or ledger_transaction.
+      #   @param resource_type [Symbol, ModernTreasury::BulkRequest::ResourceType] One of payment_order, expected_payment, or ledger_transaction.
       #
-      #   @param status [Symbol, ModernTreasury::Models::BulkRequest::Status] One of pending, processing, or completed.
+      #   @param status [Symbol, ModernTreasury::BulkRequest::Status] One of pending, processing, or completed.
       #
       #   @param success_result_count [Integer] Total number of successful bulk results so far for this request
       #
       #   @param total_resource_count [Integer] Total number of items in the `resources` array. Once a bulk request is completed
-      #   ...
       #
       #   @param updated_at [Time]
 
       # One of create, or update.
       #
-      # @see ModernTreasury::Models::BulkRequest#action_type
+      # @see ModernTreasury::BulkRequest#action_type
       module ActionType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -123,7 +120,7 @@ module ModernTreasury
 
       # One of payment_order, expected_payment, or ledger_transaction.
       #
-      # @see ModernTreasury::Models::BulkRequest#resource_type
+      # @see ModernTreasury::BulkRequest#resource_type
       module ResourceType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -140,7 +137,7 @@ module ModernTreasury
 
       # One of pending, processing, or completed.
       #
-      # @see ModernTreasury::Models::BulkRequest#status
+      # @see ModernTreasury::BulkRequest#status
       module Status
         extend ModernTreasury::Internal::Type::Enum
 

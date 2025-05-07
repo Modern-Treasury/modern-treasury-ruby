@@ -7,7 +7,7 @@ class ModernTreasury::Test::Resources::PaymentReferencesTest < ModernTreasury::T
     response = @modern_treasury.payment_references.retrieve("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::PaymentReference
+      response => ModernTreasury::PaymentReference
     end
 
     assert_pattern do
@@ -17,9 +17,9 @@ class ModernTreasury::Test::Resources::PaymentReferencesTest < ModernTreasury::T
         live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         reference_number: String,
-        reference_number_type: ModernTreasury::Models::PaymentReference::ReferenceNumberType,
+        reference_number_type: ModernTreasury::PaymentReference::ReferenceNumberType,
         referenceable_id: String,
-        referenceable_type: ModernTreasury::Models::PaymentReference::ReferenceableType,
+        referenceable_type: ModernTreasury::PaymentReference::ReferenceableType,
         updated_at: Time
       }
     end
@@ -36,7 +36,7 @@ class ModernTreasury::Test::Resources::PaymentReferencesTest < ModernTreasury::T
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Models::PaymentReference
+      row => ModernTreasury::PaymentReference
     end
 
     assert_pattern do
@@ -46,9 +46,9 @@ class ModernTreasury::Test::Resources::PaymentReferencesTest < ModernTreasury::T
         live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         reference_number: String,
-        reference_number_type: ModernTreasury::Models::PaymentReference::ReferenceNumberType,
+        reference_number_type: ModernTreasury::PaymentReference::ReferenceNumberType,
         referenceable_id: String,
-        referenceable_type: ModernTreasury::Models::PaymentReference::ReferenceableType,
+        referenceable_type: ModernTreasury::PaymentReference::ReferenceableType,
         updated_at: Time
       }
     end
@@ -58,7 +58,7 @@ class ModernTreasury::Test::Resources::PaymentReferencesTest < ModernTreasury::T
     response = @modern_treasury.payment_references.retireve("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::PaymentReference
+      response => ModernTreasury::PaymentReference
     end
 
     assert_pattern do
@@ -68,9 +68,9 @@ class ModernTreasury::Test::Resources::PaymentReferencesTest < ModernTreasury::T
         live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         reference_number: String,
-        reference_number_type: ModernTreasury::Models::PaymentReference::ReferenceNumberType,
+        reference_number_type: ModernTreasury::PaymentReference::ReferenceNumberType,
         referenceable_id: String,
-        referenceable_type: ModernTreasury::Models::PaymentReference::ReferenceableType,
+        referenceable_type: ModernTreasury::PaymentReference::ReferenceableType,
         updated_at: Time
       }
     end

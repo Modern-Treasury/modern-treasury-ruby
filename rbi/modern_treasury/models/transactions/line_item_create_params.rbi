@@ -7,6 +7,9 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         # If a matching object exists in Modern Treasury, `amount` will be populated.
         # Value in specified currency's smallest unit (taken from parent Transaction).
         sig { returns(Integer) }
@@ -25,9 +28,8 @@ module ModernTreasury
             amount: Integer,
             expected_payment_id: String,
             transaction_id: String,
-            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-          )
-            .returns(T.attached_class)
+            request_options: ModernTreasury::RequestOptions::OrHash
+          ).returns(T.attached_class)
         end
         def self.new(
           # If a matching object exists in Modern Treasury, `amount` will be populated.
@@ -38,19 +40,21 @@ module ModernTreasury
           # The ID of the parent transaction.
           transaction_id:,
           request_options: {}
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                amount: Integer,
-                expected_payment_id: String,
-                transaction_id: String,
-                request_options: ModernTreasury::RequestOptions
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              amount: Integer,
+              expected_payment_id: String,
+              transaction_id: String,
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
+        end
+        def to_hash
+        end
       end
     end
   end

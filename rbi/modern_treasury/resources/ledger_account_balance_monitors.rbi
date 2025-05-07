@@ -6,16 +6,13 @@ module ModernTreasury
       # Create a ledger account balance monitor.
       sig do
         params(
-          alert_condition: T.any(
-            ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
-            ModernTreasury::Internal::AnyHash
-          ),
+          alert_condition:
+            ModernTreasury::LedgerAccountBalanceMonitorCreateParams::AlertCondition::OrHash,
           ledger_account_id: String,
           description: String,
           metadata: T::Hash[Symbol, String],
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::LedgerAccountBalanceMonitor)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::LedgerAccountBalanceMonitor)
       end
       def create(
         # Describes the condition that must be satisfied for the monitor to be triggered.
@@ -28,26 +25,31 @@ module ModernTreasury
         # strings.
         metadata: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Get details on a single ledger account balance monitor.
       sig do
-        params(id: String, request_options: ModernTreasury::RequestOpts)
-          .returns(ModernTreasury::Models::LedgerAccountBalanceMonitor)
+        params(
+          id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::LedgerAccountBalanceMonitor)
       end
       def retrieve(
         # id
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # Update a ledger account balance monitor.
       sig do
         params(
           id: String,
           description: String,
           metadata: T::Hash[Symbol, String],
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::LedgerAccountBalanceMonitor)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::LedgerAccountBalanceMonitor)
       end
       def update(
         # id
@@ -58,7 +60,9 @@ module ModernTreasury
         # strings.
         metadata: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Get a list of ledger account balance monitors.
       sig do
         params(
@@ -67,9 +71,12 @@ module ModernTreasury
           ledger_account_id: String,
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
-          request_options: ModernTreasury::RequestOpts
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(
+          ModernTreasury::Internal::Page[
+            ModernTreasury::LedgerAccountBalanceMonitor
+          ]
         )
-          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerAccountBalanceMonitor])
       end
       def list(
         # If you have specific IDs to retrieve in bulk, you can pass them as query
@@ -84,20 +91,27 @@ module ModernTreasury
         metadata: nil,
         per_page: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Delete a ledger account balance monitor.
       sig do
-        params(id: String, request_options: ModernTreasury::RequestOpts)
-          .returns(ModernTreasury::Models::LedgerAccountBalanceMonitor)
+        params(
+          id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::LedgerAccountBalanceMonitor)
       end
       def delete(
         # id
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

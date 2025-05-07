@@ -33,8 +33,8 @@ module ModernTreasury
       # @!attribute direction
       #   One of credit, debit
       #
-      #   @return [Symbol, ModernTreasury::Models::TransactionDirection, nil]
-      optional :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
+      #   @return [Symbol, ModernTreasury::TransactionDirection, nil]
+      optional :direction, enum: -> { ModernTreasury::TransactionDirection }
 
       # @!attribute internal_account_id
       #   Specify internal_account_id to see expected_payments for a specific account.
@@ -58,15 +58,15 @@ module ModernTreasury
       # @!attribute status
       #   One of unreconciled, reconciled, or archived.
       #
-      #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Status, nil]
-      optional :status, enum: -> { ModernTreasury::Models::ExpectedPaymentListParams::Status }
+      #   @return [Symbol, ModernTreasury::ExpectedPaymentListParams::Status, nil]
+      optional :status, enum: -> { ModernTreasury::ExpectedPaymentListParams::Status }
 
       # @!attribute type
       #   One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
       #   sepa, signet, wire
       #
-      #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type, nil]
-      optional :type, enum: -> { ModernTreasury::Models::ExpectedPaymentListParams::Type }
+      #   @return [Symbol, ModernTreasury::ExpectedPaymentListParams::Type, nil]
+      optional :type, enum: -> { ModernTreasury::ExpectedPaymentListParams::Type }
 
       # @!method initialize(after_cursor: nil, counterparty_id: nil, created_at_lower_bound: nil, created_at_upper_bound: nil, direction: nil, internal_account_id: nil, metadata: nil, per_page: nil, status: nil, type: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
@@ -80,19 +80,17 @@ module ModernTreasury
       #
       #   @param created_at_upper_bound [Time] Used to return expected payments created before some datetime
       #
-      #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection] One of credit, debit
+      #   @param direction [Symbol, ModernTreasury::TransactionDirection] One of credit, debit
       #
       #   @param internal_account_id [String] Specify internal_account_id to see expected_payments for a specific account.
       #
       #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      #   ...
       #
       #   @param per_page [Integer]
       #
-      #   @param status [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Status] One of unreconciled, reconciled, or archived.
+      #   @param status [Symbol, ModernTreasury::ExpectedPaymentListParams::Status] One of unreconciled, reconciled, or archived.
       #
-      #   @param type [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type] One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen, sep
-      #   ...
+      #   @param type [Symbol, ModernTreasury::ExpectedPaymentListParams::Type] One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen, sep
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 

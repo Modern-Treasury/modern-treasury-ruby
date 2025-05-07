@@ -43,7 +43,6 @@ module ModernTreasury
       #   @param description [String, nil] Description of the ledgerable event.
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-      #   ...
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end

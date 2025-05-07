@@ -7,8 +7,8 @@ module ModernTreasury
       # @!attribute bank_address
       #   The address of the bank.
       #
-      #   @return [ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress, nil]
-      optional :bank_address, -> { ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress }
+      #   @return [ModernTreasury::RoutingNumberLookupRequest::BankAddress, nil]
+      optional :bank_address, -> { ModernTreasury::RoutingNumberLookupRequest::BankAddress }
 
       # @!attribute bank_name
       #   The name of the bank.
@@ -28,9 +28,11 @@ module ModernTreasury
       #   more details. In sandbox mode we currently only support `aba` and `swift` with
       #   routing numbers '123456789' and 'GRINUST0XXX' respectively.
       #
-      #   @return [Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType, nil]
+      #   @return [Symbol, ModernTreasury::RoutingNumberLookupRequest::RoutingNumberType, nil]
       optional :routing_number_type,
-               enum: -> { ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType }
+               enum: -> {
+                 ModernTreasury::RoutingNumberLookupRequest::RoutingNumberType
+               }
 
       # @!attribute sanctions
       #   An object containing key-value pairs, each with a sanctions list as the key and
@@ -44,30 +46,29 @@ module ModernTreasury
       #   An array of payment types that are supported for this routing number. This can
       #   include `ach`, `wire`, `rtp`, `sepa`, `bacs`, `au_becs`, and 'fednow' currently.
       #
-      #   @return [Array<Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType>, nil]
+      #   @return [Array<Symbol, ModernTreasury::RoutingNumberLookupRequest::SupportedPaymentType>, nil]
       optional :supported_payment_types,
-               -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType] }
+               -> {
+                 ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::RoutingNumberLookupRequest::SupportedPaymentType]
+               }
 
       # @!method initialize(bank_address: nil, bank_name: nil, routing_number: nil, routing_number_type: nil, sanctions: nil, supported_payment_types: nil)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::Models::RoutingNumberLookupRequest} for more details.
+      #   {ModernTreasury::RoutingNumberLookupRequest} for more details.
       #
-      #   @param bank_address [ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress] The address of the bank.
+      #   @param bank_address [ModernTreasury::RoutingNumberLookupRequest::BankAddress] The address of the bank.
       #
       #   @param bank_name [String] The name of the bank.
       #
       #   @param routing_number [String] The routing number of the bank.
       #
-      #   @param routing_number_type [Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType] The type of routing number. See https://docs.moderntreasury.com/platform/referen
-      #   ...
+      #   @param routing_number_type [Symbol, ModernTreasury::RoutingNumberLookupRequest::RoutingNumberType] The type of routing number. See https://docs.moderntreasury.com/platform/referen
       #
       #   @param sanctions [Hash{Symbol=>Object}] An object containing key-value pairs, each with a sanctions list as the key and
-      #   ...
       #
-      #   @param supported_payment_types [Array<Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType>] An array of payment types that are supported for this routing number. This can i
-      #   ...
+      #   @param supported_payment_types [Array<Symbol, ModernTreasury::RoutingNumberLookupRequest::SupportedPaymentType>] An array of payment types that are supported for this routing number. This can i
 
-      # @see ModernTreasury::Models::RoutingNumberLookupRequest#bank_address
+      # @see ModernTreasury::RoutingNumberLookupRequest#bank_address
       class BankAddress < ModernTreasury::Internal::Type::BaseModel
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]
@@ -124,7 +125,7 @@ module ModernTreasury
       # more details. In sandbox mode we currently only support `aba` and `swift` with
       # routing numbers '123456789' and 'GRINUST0XXX' respectively.
       #
-      # @see ModernTreasury::Models::RoutingNumberLookupRequest#routing_number_type
+      # @see ModernTreasury::RoutingNumberLookupRequest#routing_number_type
       module RoutingNumberType
         extend ModernTreasury::Internal::Type::Enum
 

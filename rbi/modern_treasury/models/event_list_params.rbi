@@ -6,6 +6,9 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor
 
@@ -56,9 +59,8 @@ module ModernTreasury
           event_time_start: Time,
           per_page: Integer,
           resource: String,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         after_cursor: nil,
@@ -71,23 +73,25 @@ module ModernTreasury
         per_page: nil,
         resource: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              after_cursor: T.nilable(String),
-              entity_id: String,
-              event_name: String,
-              event_time_end: Time,
-              event_time_start: Time,
-              per_page: Integer,
-              resource: String,
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            after_cursor: T.nilable(String),
+            entity_id: String,
+            event_name: String,
+            event_time_end: Time,
+            event_time_start: Time,
+            per_page: Integer,
+            resource: String,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

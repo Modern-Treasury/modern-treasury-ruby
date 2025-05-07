@@ -7,9 +7,9 @@ module ModernTreasury
         live_mode: bool,
         object: String,
         reference_number: String,
-        reference_number_type: ModernTreasury::Models::PaymentReference::reference_number_type,
+        reference_number_type: ModernTreasury::PaymentReference::reference_number_type,
         referenceable_id: String,
-        referenceable_type: ModernTreasury::Models::PaymentReference::referenceable_type,
+        referenceable_type: ModernTreasury::PaymentReference::referenceable_type,
         updated_at: Time
       }
 
@@ -24,11 +24,11 @@ module ModernTreasury
 
       attr_accessor reference_number: String
 
-      attr_accessor reference_number_type: ModernTreasury::Models::PaymentReference::reference_number_type
+      attr_accessor reference_number_type: ModernTreasury::PaymentReference::reference_number_type
 
       attr_accessor referenceable_id: String
 
-      attr_accessor referenceable_type: ModernTreasury::Models::PaymentReference::referenceable_type
+      attr_accessor referenceable_type: ModernTreasury::PaymentReference::referenceable_type
 
       attr_accessor updated_at: Time
 
@@ -38,13 +38,11 @@ module ModernTreasury
         live_mode: bool,
         object: String,
         reference_number: String,
-        reference_number_type: ModernTreasury::Models::PaymentReference::reference_number_type,
+        reference_number_type: ModernTreasury::PaymentReference::reference_number_type,
         referenceable_id: String,
-        referenceable_type: ModernTreasury::Models::PaymentReference::referenceable_type,
+        referenceable_type: ModernTreasury::PaymentReference::referenceable_type,
         updated_at: Time
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::payment_reference
 
       type reference_number_type =
         :ach_original_trace_number
@@ -200,7 +198,7 @@ module ModernTreasury
         WELLS_FARGO_TRACE_NUMBER: :wells_fargo_trace_number
         WELLS_FARGO_UETR: :wells_fargo_uetr
 
-        def self?.values: -> ::Array[ModernTreasury::Models::PaymentReference::reference_number_type]
+        def self?.values: -> ::Array[ModernTreasury::PaymentReference::reference_number_type]
       end
 
       type referenceable_type = :payment_order | :reversal | :return
@@ -212,7 +210,7 @@ module ModernTreasury
         REVERSAL: :reversal
         RETURN: :return
 
-        def self?.values: -> ::Array[ModernTreasury::Models::PaymentReference::referenceable_type]
+        def self?.values: -> ::Array[ModernTreasury::PaymentReference::referenceable_type]
       end
     end
   end

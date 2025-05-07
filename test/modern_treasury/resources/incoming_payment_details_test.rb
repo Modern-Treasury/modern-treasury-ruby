@@ -7,7 +7,7 @@ class ModernTreasury::Test::Resources::IncomingPaymentDetailsTest < ModernTreasu
     response = @modern_treasury.incoming_payment_details.retrieve("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::IncomingPaymentDetail
+      response => ModernTreasury::IncomingPaymentDetail
     end
 
     assert_pattern do
@@ -16,25 +16,25 @@ class ModernTreasury::Test::Resources::IncomingPaymentDetailsTest < ModernTreasu
         amount: Integer,
         as_of_date: Date,
         created_at: Time,
-        currency: ModernTreasury::Models::Currency,
+        currency: ModernTreasury::Currency,
         data: ^(ModernTreasury::Internal::Type::HashOf[ModernTreasury::Internal::Type::Unknown]),
-        direction: ModernTreasury::Models::TransactionDirection,
+        direction: ModernTreasury::TransactionDirection,
         internal_account_id: String,
         ledger_transaction_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         originating_account_number_safe: String | nil,
-        originating_account_number_type: ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType | nil,
+        originating_account_number_type: ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType | nil,
         originating_routing_number: String | nil,
-        originating_routing_number_type: ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType | nil,
-        status: ModernTreasury::Models::IncomingPaymentDetail::Status,
+        originating_routing_number_type: ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType | nil,
+        status: ModernTreasury::IncomingPaymentDetail::Status,
         transaction_id: String | nil,
         transaction_line_item_id: String | nil,
-        type: ModernTreasury::Models::IncomingPaymentDetail::Type,
+        type: ModernTreasury::IncomingPaymentDetail::Type,
         updated_at: Time,
         vendor_id: String | nil,
-        virtual_account: ModernTreasury::Models::VirtualAccount | nil,
+        virtual_account: ModernTreasury::VirtualAccount | nil,
         virtual_account_id: String | nil,
         originating_account_number: String | nil
       }
@@ -45,7 +45,7 @@ class ModernTreasury::Test::Resources::IncomingPaymentDetailsTest < ModernTreasu
     response = @modern_treasury.incoming_payment_details.update("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::IncomingPaymentDetail
+      response => ModernTreasury::IncomingPaymentDetail
     end
 
     assert_pattern do
@@ -54,25 +54,25 @@ class ModernTreasury::Test::Resources::IncomingPaymentDetailsTest < ModernTreasu
         amount: Integer,
         as_of_date: Date,
         created_at: Time,
-        currency: ModernTreasury::Models::Currency,
+        currency: ModernTreasury::Currency,
         data: ^(ModernTreasury::Internal::Type::HashOf[ModernTreasury::Internal::Type::Unknown]),
-        direction: ModernTreasury::Models::TransactionDirection,
+        direction: ModernTreasury::TransactionDirection,
         internal_account_id: String,
         ledger_transaction_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         originating_account_number_safe: String | nil,
-        originating_account_number_type: ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType | nil,
+        originating_account_number_type: ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType | nil,
         originating_routing_number: String | nil,
-        originating_routing_number_type: ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType | nil,
-        status: ModernTreasury::Models::IncomingPaymentDetail::Status,
+        originating_routing_number_type: ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType | nil,
+        status: ModernTreasury::IncomingPaymentDetail::Status,
         transaction_id: String | nil,
         transaction_line_item_id: String | nil,
-        type: ModernTreasury::Models::IncomingPaymentDetail::Type,
+        type: ModernTreasury::IncomingPaymentDetail::Type,
         updated_at: Time,
         vendor_id: String | nil,
-        virtual_account: ModernTreasury::Models::VirtualAccount | nil,
+        virtual_account: ModernTreasury::VirtualAccount | nil,
         virtual_account_id: String | nil,
         originating_account_number: String | nil
       }
@@ -90,7 +90,7 @@ class ModernTreasury::Test::Resources::IncomingPaymentDetailsTest < ModernTreasu
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Models::IncomingPaymentDetail
+      row => ModernTreasury::IncomingPaymentDetail
     end
 
     assert_pattern do
@@ -99,25 +99,25 @@ class ModernTreasury::Test::Resources::IncomingPaymentDetailsTest < ModernTreasu
         amount: Integer,
         as_of_date: Date,
         created_at: Time,
-        currency: ModernTreasury::Models::Currency,
+        currency: ModernTreasury::Currency,
         data: ^(ModernTreasury::Internal::Type::HashOf[ModernTreasury::Internal::Type::Unknown]),
-        direction: ModernTreasury::Models::TransactionDirection,
+        direction: ModernTreasury::TransactionDirection,
         internal_account_id: String,
         ledger_transaction_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         originating_account_number_safe: String | nil,
-        originating_account_number_type: ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType | nil,
+        originating_account_number_type: ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType | nil,
         originating_routing_number: String | nil,
-        originating_routing_number_type: ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType | nil,
-        status: ModernTreasury::Models::IncomingPaymentDetail::Status,
+        originating_routing_number_type: ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType | nil,
+        status: ModernTreasury::IncomingPaymentDetail::Status,
         transaction_id: String | nil,
         transaction_line_item_id: String | nil,
-        type: ModernTreasury::Models::IncomingPaymentDetail::Type,
+        type: ModernTreasury::IncomingPaymentDetail::Type,
         updated_at: Time,
         vendor_id: String | nil,
-        virtual_account: ModernTreasury::Models::VirtualAccount | nil,
+        virtual_account: ModernTreasury::VirtualAccount | nil,
         virtual_account_id: String | nil,
         originating_account_number: String | nil
       }
@@ -128,7 +128,7 @@ class ModernTreasury::Test::Resources::IncomingPaymentDetailsTest < ModernTreasu
     response = @modern_treasury.incoming_payment_details.create_async
 
     assert_pattern do
-      response => ModernTreasury::Models::AsyncResponse
+      response => ModernTreasury::AsyncResponse
     end
 
     assert_pattern do

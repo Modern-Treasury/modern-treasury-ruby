@@ -5,23 +5,23 @@ module ModernTreasury
         def create: (
           String payment_order_id,
           reason: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::reason,
-          ?ledger_transaction: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction,
+          ?ledger_transaction: ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction,
           ?metadata: ::Hash[Symbol, String],
           ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::PaymentOrders::Reversal
+        ) -> ModernTreasury::PaymentOrders::Reversal
 
         def retrieve: (
           String reversal_id,
           payment_order_id: String,
           ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::PaymentOrders::Reversal
+        ) -> ModernTreasury::PaymentOrders::Reversal
 
         def list: (
           String payment_order_id,
           ?after_cursor: String?,
           ?per_page: Integer,
           ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::PaymentOrders::Reversal]
+        ) -> ModernTreasury::Internal::Page[ModernTreasury::PaymentOrders::Reversal]
 
         def initialize: (client: ModernTreasury::Client) -> void
       end

@@ -6,29 +6,36 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       # Use `balances[effective_at_lower_bound]` and
       # `balances[effective_at_upper_bound]` to get the balances change between the two
       # timestamps. The lower bound is inclusive while the upper bound is exclusive of
       # the provided timestamps. If no value is supplied the balances will be retrieved
       # not including that bound. Use `balances[as_of_lock_version]` to retrieve a
       # balance as of a specific Ledger Account `lock_version`.
-      sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountRetrieveParams::Balances)) }
+      sig do
+        returns(
+          T.nilable(ModernTreasury::LedgerAccountRetrieveParams::Balances)
+        )
+      end
       attr_reader :balances
 
       sig do
         params(
-          balances: T.any(ModernTreasury::Models::LedgerAccountRetrieveParams::Balances, ModernTreasury::Internal::AnyHash)
-        )
-          .void
+          balances:
+            ModernTreasury::LedgerAccountRetrieveParams::Balances::OrHash
+        ).void
       end
       attr_writer :balances
 
       sig do
         params(
-          balances: T.any(ModernTreasury::Models::LedgerAccountRetrieveParams::Balances, ModernTreasury::Internal::AnyHash),
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          balances:
+            ModernTreasury::LedgerAccountRetrieveParams::Balances::OrHash,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # Use `balances[effective_at_lower_bound]` and
@@ -39,19 +46,24 @@ module ModernTreasury
         # balance as of a specific Ledger Account `lock_version`.
         balances: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              balances: ModernTreasury::Models::LedgerAccountRetrieveParams::Balances,
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            balances: ModernTreasury::LedgerAccountRetrieveParams::Balances,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
 
       class Balances < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         sig { returns(T.nilable(Date)) }
         attr_reader :as_of_date
 
@@ -95,8 +107,7 @@ module ModernTreasury
             effective_at: Time,
             effective_at_lower_bound: Time,
             effective_at_upper_bound: Time
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
           as_of_date: nil,
@@ -104,20 +115,22 @@ module ModernTreasury
           effective_at: nil,
           effective_at_lower_bound: nil,
           effective_at_upper_bound: nil
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                as_of_date: Date,
-                as_of_lock_version: Integer,
-                effective_at: Time,
-                effective_at_lower_bound: Time,
-                effective_at_upper_bound: Time
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              as_of_date: Date,
+              as_of_lock_version: Integer,
+              effective_at: Time,
+              effective_at_lower_bound: Time,
+              effective_at_upper_bound: Time
+            }
+          )
+        end
+        def to_hash
+        end
       end
     end
   end

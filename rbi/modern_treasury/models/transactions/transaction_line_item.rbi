@@ -6,6 +6,9 @@ module ModernTreasury
 
     module Transactions
       class TransactionLineItem < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         sig { returns(String) }
         attr_accessor :id
 
@@ -58,7 +61,9 @@ module ModernTreasury
         # otherwise `null`.
         sig do
           returns(
-            T.nilable(ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol)
+            T.nilable(
+              ModernTreasury::Transactions::TransactionLineItem::TransactableType::TaggedSymbol
+            )
           )
         end
         attr_accessor :transactable_type
@@ -69,7 +74,11 @@ module ModernTreasury
 
         # Indicates whether the line item is `originating` or `receiving` (see
         # https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
-        sig { returns(ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol) }
+        sig do
+          returns(
+            ModernTreasury::Transactions::TransactionLineItem::Type::TaggedSymbol
+          )
+        end
         attr_accessor :type
 
         sig { returns(Time) }
@@ -88,12 +97,15 @@ module ModernTreasury
             object: String,
             reconcilable: T::Boolean,
             transactable_id: T.nilable(String),
-            transactable_type: T.nilable(ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::OrSymbol),
+            transactable_type:
+              T.nilable(
+                ModernTreasury::Transactions::TransactionLineItem::TransactableType::OrSymbol
+              ),
             transaction_id: String,
-            type: ModernTreasury::Models::Transactions::TransactionLineItem::Type::OrSymbol,
+            type:
+              ModernTreasury::Transactions::TransactionLineItem::Type::OrSymbol,
             updated_at: Time
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
           id:,
@@ -131,30 +143,36 @@ module ModernTreasury
           # https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
           type:,
           updated_at:
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                id: String,
-                amount: Integer,
-                counterparty_id: T.nilable(String),
-                created_at: Time,
-                description: String,
-                discarded_at: T.nilable(Time),
-                expected_payment_id: T.nilable(String),
-                live_mode: T::Boolean,
-                object: String,
-                reconcilable: T::Boolean,
-                transactable_id: T.nilable(String),
-                transactable_type: T.nilable(ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol),
-                transaction_id: String,
-                type: ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol,
-                updated_at: Time
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              id: String,
+              amount: Integer,
+              counterparty_id: T.nilable(String),
+              created_at: Time,
+              description: String,
+              discarded_at: T.nilable(Time),
+              expected_payment_id: T.nilable(String),
+              live_mode: T::Boolean,
+              object: String,
+              reconcilable: T::Boolean,
+              transactable_id: T.nilable(String),
+              transactable_type:
+                T.nilable(
+                  ModernTreasury::Transactions::TransactionLineItem::TransactableType::TaggedSymbol
+                ),
+              transaction_id: String,
+              type:
+                ModernTreasury::Transactions::TransactionLineItem::Type::TaggedSymbol,
+              updated_at: Time
+            }
+          )
+        end
+        def to_hash
+        end
 
         # If a matching object exists in Modern Treasury, the type will be populated here,
         # otherwise `null`.
@@ -162,44 +180,54 @@ module ModernTreasury
           extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
-            T.type_alias { T.all(Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType) }
+            T.type_alias do
+              T.all(
+                Symbol,
+                ModernTreasury::Transactions::TransactionLineItem::TransactableType
+              )
+            end
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           INCOMING_PAYMENT_DETAIL =
             T.let(
               :incoming_payment_detail,
-              ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol
+              ModernTreasury::Transactions::TransactionLineItem::TransactableType::TaggedSymbol
             )
           PAPER_ITEM =
             T.let(
               :paper_item,
-              ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol
+              ModernTreasury::Transactions::TransactionLineItem::TransactableType::TaggedSymbol
             )
           PAYMENT_ORDER =
             T.let(
               :payment_order,
-              ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol
+              ModernTreasury::Transactions::TransactionLineItem::TransactableType::TaggedSymbol
             )
           PAYMENT_ORDER_ATTEMPT =
             T.let(
               :payment_order_attempt,
-              ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol
+              ModernTreasury::Transactions::TransactionLineItem::TransactableType::TaggedSymbol
             )
           RETURN =
-            T.let(:return, ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol)
+            T.let(
+              :return,
+              ModernTreasury::Transactions::TransactionLineItem::TransactableType::TaggedSymbol
+            )
           REVERSAL =
             T.let(
               :reversal,
-              ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol
+              ModernTreasury::Transactions::TransactionLineItem::TransactableType::TaggedSymbol
             )
 
           sig do
-            override
-              .returns(
-                T::Array[ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol]
-              )
+            override.returns(
+              T::Array[
+                ModernTreasury::Transactions::TransactionLineItem::TransactableType::TaggedSymbol
+              ]
+            )
           end
-          def self.values; end
+          def self.values
+          end
         end
 
         # Indicates whether the line item is `originating` or `receiving` (see
@@ -208,16 +236,34 @@ module ModernTreasury
           extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
-            T.type_alias { T.all(Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::Type) }
+            T.type_alias do
+              T.all(
+                Symbol,
+                ModernTreasury::Transactions::TransactionLineItem::Type
+              )
+            end
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           ORIGINATING =
-            T.let(:originating, ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol)
+            T.let(
+              :originating,
+              ModernTreasury::Transactions::TransactionLineItem::Type::TaggedSymbol
+            )
           RECEIVING =
-            T.let(:receiving, ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol)
+            T.let(
+              :receiving,
+              ModernTreasury::Transactions::TransactionLineItem::Type::TaggedSymbol
+            )
 
-          sig { override.returns(T::Array[ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol]) }
-          def self.values; end
+          sig do
+            override.returns(
+              T::Array[
+                ModernTreasury::Transactions::TransactionLineItem::Type::TaggedSymbol
+              ]
+            )
+          end
+          def self.values
+          end
         end
       end
     end

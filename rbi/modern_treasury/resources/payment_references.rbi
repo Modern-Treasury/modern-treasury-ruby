@@ -5,14 +5,18 @@ module ModernTreasury
     class PaymentReferences
       # get payment_reference
       sig do
-        params(id: String, request_options: ModernTreasury::RequestOpts)
-          .returns(ModernTreasury::Models::PaymentReference)
+        params(
+          id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::PaymentReference)
       end
       def retrieve(
         # id
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # list payment_references
       sig do
         params(
@@ -20,10 +24,12 @@ module ModernTreasury
           per_page: Integer,
           reference_number: String,
           referenceable_id: String,
-          referenceable_type: ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::OrSymbol,
-          request_options: ModernTreasury::RequestOpts
+          referenceable_type:
+            ModernTreasury::PaymentReferenceListParams::ReferenceableType::OrSymbol,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(
+          ModernTreasury::Internal::Page[ModernTreasury::PaymentReference]
         )
-          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::PaymentReference])
       end
       def list(
         after_cursor: nil,
@@ -37,10 +43,13 @@ module ModernTreasury
         # referenceable or will return an error.
         referenceable_type: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

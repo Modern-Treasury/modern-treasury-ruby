@@ -6,13 +6,18 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       # The identifier of the financial institution the account belongs to.
       sig { returns(String) }
       attr_accessor :connection_id
 
       # Either "USD" or "CAD". Internal accounts created at Increase only supports
       # "USD".
-      sig { returns(ModernTreasury::Models::InternalAccountCreateParams::Currency::OrSymbol) }
+      sig do
+        returns(ModernTreasury::InternalAccountCreateParams::Currency::OrSymbol)
+      end
       attr_accessor :currency
 
       # The nickname of the account.
@@ -45,17 +50,18 @@ module ModernTreasury
       attr_writer :parent_account_id
 
       # The address associated with the owner or null.
-      sig { returns(T.nilable(ModernTreasury::Models::InternalAccountCreateParams::PartyAddress)) }
+      sig do
+        returns(
+          T.nilable(ModernTreasury::InternalAccountCreateParams::PartyAddress)
+        )
+      end
       attr_reader :party_address
 
       sig do
         params(
-          party_address: T.any(
-            ModernTreasury::Models::InternalAccountCreateParams::PartyAddress,
-            ModernTreasury::Internal::AnyHash
-          )
-        )
-          .void
+          party_address:
+            ModernTreasury::InternalAccountCreateParams::PartyAddress::OrHash
+        ).void
       end
       attr_writer :party_address
 
@@ -70,20 +76,18 @@ module ModernTreasury
       sig do
         params(
           connection_id: String,
-          currency: ModernTreasury::Models::InternalAccountCreateParams::Currency::OrSymbol,
+          currency:
+            ModernTreasury::InternalAccountCreateParams::Currency::OrSymbol,
           name: String,
           party_name: String,
           counterparty_id: String,
           legal_entity_id: String,
           parent_account_id: String,
-          party_address: T.any(
-            ModernTreasury::Models::InternalAccountCreateParams::PartyAddress,
-            ModernTreasury::Internal::AnyHash
-          ),
+          party_address:
+            ModernTreasury::InternalAccountCreateParams::PartyAddress::OrHash,
           vendor_attributes: T::Hash[Symbol, String],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # The identifier of the financial institution the account belongs to.
@@ -107,25 +111,29 @@ module ModernTreasury
         # at the vendor specified by the given connection.
         vendor_attributes: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              connection_id: String,
-              currency: ModernTreasury::Models::InternalAccountCreateParams::Currency::OrSymbol,
-              name: String,
-              party_name: String,
-              counterparty_id: String,
-              legal_entity_id: String,
-              parent_account_id: String,
-              party_address: ModernTreasury::Models::InternalAccountCreateParams::PartyAddress,
-              vendor_attributes: T::Hash[Symbol, String],
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            connection_id: String,
+            currency:
+              ModernTreasury::InternalAccountCreateParams::Currency::OrSymbol,
+            name: String,
+            party_name: String,
+            counterparty_id: String,
+            legal_entity_id: String,
+            parent_account_id: String,
+            party_address:
+              ModernTreasury::InternalAccountCreateParams::PartyAddress,
+            vendor_attributes: T::Hash[Symbol, String],
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
 
       # Either "USD" or "CAD". Internal accounts created at Increase only supports
       # "USD".
@@ -133,17 +141,37 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
-          T.type_alias { T.all(Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency) }
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::InternalAccountCreateParams::Currency)
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        USD = T.let(:USD, ModernTreasury::Models::InternalAccountCreateParams::Currency::TaggedSymbol)
-        CAD = T.let(:CAD, ModernTreasury::Models::InternalAccountCreateParams::Currency::TaggedSymbol)
+        USD =
+          T.let(
+            :USD,
+            ModernTreasury::InternalAccountCreateParams::Currency::TaggedSymbol
+          )
+        CAD =
+          T.let(
+            :CAD,
+            ModernTreasury::InternalAccountCreateParams::Currency::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::InternalAccountCreateParams::Currency::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::InternalAccountCreateParams::Currency::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
 
       class PartyAddress < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(String) }
         attr_accessor :country
@@ -178,8 +206,7 @@ module ModernTreasury
             postal_code: String,
             region: String,
             line2: String
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
           # Country code conforms to [ISO 3166-1 alpha-2]
@@ -192,21 +219,23 @@ module ModernTreasury
           # Region or State.
           region:,
           line2: nil
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                country: String,
-                line1: String,
-                locality: String,
-                postal_code: String,
-                region: String,
-                line2: String
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              country: String,
+              line1: String,
+              locality: String,
+              postal_code: String,
+              region: String,
+              line2: String
+            }
+          )
+        end
+        def to_hash
+        end
       end
     end
   end

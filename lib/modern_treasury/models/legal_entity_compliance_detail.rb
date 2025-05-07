@@ -73,7 +73,7 @@ module ModernTreasury
 
       # @!method initialize(id:, created_at:, discarded_at:, issuer:, live_mode:, object:, token_expires_at:, token_issued_at:, token_url:, updated_at:, validated:, validated_at:)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::Models::LegalEntityComplianceDetail} for more details.
+      #   {ModernTreasury::LegalEntityComplianceDetail} for more details.
       #
       #   @param id [String]
       #
@@ -84,7 +84,6 @@ module ModernTreasury
       #   @param issuer [String] The issuer of the compliance token.
       #
       #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
-      #   ...
       #
       #   @param object [String]
       #

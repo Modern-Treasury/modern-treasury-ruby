@@ -21,8 +21,6 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
-      def to_hash: -> ModernTreasury::Models::validation_validate_routing_number_params
-
       type routing_number_type =
         :aba
         | :au_bsb

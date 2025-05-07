@@ -18,24 +18,22 @@ module ModernTreasury
         #
         # @param as_of_time [String] The time (24-hour clock) of the balance report in local time.
         #
-        # @param balance_report_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType] The specific type of balance report. One of `intraday`, `previous_day`, `real_ti
-        # ...
+        # @param balance_report_type [Symbol, ModernTreasury::InternalAccounts::BalanceReportCreateParams::BalanceReportType] The specific type of balance report. One of `intraday`, `previous_day`, `real_ti
         #
-        # @param balances [Array<ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance>] An array of `Balance` objects.
+        # @param balances [Array<ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance>] An array of `Balance` objects.
         #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::Models::InternalAccounts::BalanceReport]
+        # @return [ModernTreasury::InternalAccounts::BalanceReport]
         #
         # @see ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams
         def create(internal_account_id, params)
-          parsed, options =
-            ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams.dump_request(params)
+          parsed, options = ModernTreasury::InternalAccounts::BalanceReportCreateParams.dump_request(params)
           @client.request(
             method: :post,
             path: ["api/internal_accounts/%1$s/balance_reports", internal_account_id],
             body: parsed,
-            model: ModernTreasury::Models::InternalAccounts::BalanceReport,
+            model: ModernTreasury::InternalAccounts::BalanceReport,
             options: options
           )
         end
@@ -49,18 +47,16 @@ module ModernTreasury
         # @overload retrieve(id, internal_account_id:, request_options: {})
         #
         # @param id [String] Either the unique identifier of the balance report or latest for the latest bala
-        # ...
         #
         # @param internal_account_id [String]
         #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::Models::InternalAccounts::BalanceReport]
+        # @return [ModernTreasury::InternalAccounts::BalanceReport]
         #
         # @see ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams
         def retrieve(id, params)
-          parsed, options =
-            ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams.dump_request(params)
+          parsed, options = ModernTreasury::InternalAccounts::BalanceReportRetrieveParams.dump_request(params)
           internal_account_id =
             parsed.delete(:internal_account_id) do
               raise ArgumentError.new("missing required path argument #{_1}")
@@ -68,7 +64,7 @@ module ModernTreasury
           @client.request(
             method: :get,
             path: ["api/internal_accounts/%1$s/balance_reports/%2$s", internal_account_id, id],
-            model: ModernTreasury::Models::InternalAccounts::BalanceReport,
+            model: ModernTreasury::InternalAccounts::BalanceReport,
             options: options
           )
         end
@@ -87,24 +83,23 @@ module ModernTreasury
         #
         # @param as_of_date [Date] The date of the balance report in local time.
         #
-        # @param balance_report_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType] The specific type of balance report. One of `intraday`, `previous_day`, `real_ti
-        # ...
+        # @param balance_report_type [Symbol, ModernTreasury::InternalAccounts::BalanceReportListParams::BalanceReportType] The specific type of balance report. One of `intraday`, `previous_day`, `real_ti
         #
         # @param per_page [Integer]
         #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::InternalAccounts::BalanceReport>]
+        # @return [ModernTreasury::Internal::Page<ModernTreasury::InternalAccounts::BalanceReport>]
         #
         # @see ModernTreasury::Models::InternalAccounts::BalanceReportListParams
         def list(internal_account_id, params = {})
-          parsed, options = ModernTreasury::Models::InternalAccounts::BalanceReportListParams.dump_request(params)
+          parsed, options = ModernTreasury::InternalAccounts::BalanceReportListParams.dump_request(params)
           @client.request(
             method: :get,
             path: ["api/internal_accounts/%1$s/balance_reports", internal_account_id],
             query: parsed,
             page: ModernTreasury::Internal::Page,
-            model: ModernTreasury::Models::InternalAccounts::BalanceReport,
+            model: ModernTreasury::InternalAccounts::BalanceReport,
             options: options
           )
         end
@@ -118,7 +113,6 @@ module ModernTreasury
         # @overload delete(id, internal_account_id:, request_options: {})
         #
         # @param id [String] Either the unique identifier of the balance report or latest for the latest bala
-        # ...
         #
         # @param internal_account_id [String]
         #
@@ -128,8 +122,7 @@ module ModernTreasury
         #
         # @see ModernTreasury::Models::InternalAccounts::BalanceReportDeleteParams
         def delete(id, params)
-          parsed, options =
-            ModernTreasury::Models::InternalAccounts::BalanceReportDeleteParams.dump_request(params)
+          parsed, options = ModernTreasury::InternalAccounts::BalanceReportDeleteParams.dump_request(params)
           internal_account_id =
             parsed.delete(:internal_account_id) do
               raise ArgumentError.new("missing required path argument #{_1}")

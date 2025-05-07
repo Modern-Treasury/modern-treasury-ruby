@@ -13,21 +13,21 @@ class ModernTreasury::Test::Resources::RoutingDetailsTest < ModernTreasury::Test
       )
 
     assert_pattern do
-      response => ModernTreasury::Models::RoutingDetail
+      response => ModernTreasury::RoutingDetail
     end
 
     assert_pattern do
       response => {
         id: String,
-        bank_address: ModernTreasury::Models::RoutingDetail::BankAddress | nil,
+        bank_address: ModernTreasury::RoutingDetail::BankAddress | nil,
         bank_name: String,
         created_at: Time,
         discarded_at: Time | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
-        payment_type: ModernTreasury::Models::RoutingDetail::PaymentType | nil,
+        payment_type: ModernTreasury::RoutingDetail::PaymentType | nil,
         routing_number: String,
-        routing_number_type: ModernTreasury::Models::RoutingDetail::RoutingNumberType,
+        routing_number_type: ModernTreasury::RoutingDetail::RoutingNumberType,
         updated_at: Time
       }
     end
@@ -42,21 +42,21 @@ class ModernTreasury::Test::Resources::RoutingDetailsTest < ModernTreasury::Test
       )
 
     assert_pattern do
-      response => ModernTreasury::Models::RoutingDetail
+      response => ModernTreasury::RoutingDetail
     end
 
     assert_pattern do
       response => {
         id: String,
-        bank_address: ModernTreasury::Models::RoutingDetail::BankAddress | nil,
+        bank_address: ModernTreasury::RoutingDetail::BankAddress | nil,
         bank_name: String,
         created_at: Time,
         discarded_at: Time | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
-        payment_type: ModernTreasury::Models::RoutingDetail::PaymentType | nil,
+        payment_type: ModernTreasury::RoutingDetail::PaymentType | nil,
         routing_number: String,
-        routing_number_type: ModernTreasury::Models::RoutingDetail::RoutingNumberType,
+        routing_number_type: ModernTreasury::RoutingDetail::RoutingNumberType,
         updated_at: Time
       }
     end
@@ -73,21 +73,21 @@ class ModernTreasury::Test::Resources::RoutingDetailsTest < ModernTreasury::Test
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Models::RoutingDetail
+      row => ModernTreasury::RoutingDetail
     end
 
     assert_pattern do
       row => {
         id: String,
-        bank_address: ModernTreasury::Models::RoutingDetail::BankAddress | nil,
+        bank_address: ModernTreasury::RoutingDetail::BankAddress | nil,
         bank_name: String,
         created_at: Time,
         discarded_at: Time | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
-        payment_type: ModernTreasury::Models::RoutingDetail::PaymentType | nil,
+        payment_type: ModernTreasury::RoutingDetail::PaymentType | nil,
         routing_number: String,
-        routing_number_type: ModernTreasury::Models::RoutingDetail::RoutingNumberType,
+        routing_number_type: ModernTreasury::RoutingDetail::RoutingNumberType,
         updated_at: Time
       }
     end

@@ -29,8 +29,8 @@ module ModernTreasury
       # @!attribute direction
       #   One of `credit` or `debit`.
       #
-      #   @return [Symbol, ModernTreasury::Models::TransactionDirection, nil]
-      optional :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
+      #   @return [Symbol, ModernTreasury::TransactionDirection, nil]
+      optional :direction, enum: -> { ModernTreasury::TransactionDirection }
 
       # @!attribute metadata
       #   For example, if you want to query for records with metadata key `Type` and value
@@ -49,15 +49,15 @@ module ModernTreasury
       #   The current status of the incoming payment order. One of `pending`, `completed`,
       #   or `returned`.
       #
-      #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Status, nil]
-      optional :status, enum: -> { ModernTreasury::Models::IncomingPaymentDetailListParams::Status }
+      #   @return [Symbol, ModernTreasury::IncomingPaymentDetailListParams::Status, nil]
+      optional :status, enum: -> { ModernTreasury::IncomingPaymentDetailListParams::Status }
 
       # @!attribute type
       #   One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
       #   `wire`.
       #
-      #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Type, nil]
-      optional :type, enum: -> { ModernTreasury::Models::IncomingPaymentDetailListParams::Type }
+      #   @return [Symbol, ModernTreasury::IncomingPaymentDetailListParams::Type, nil]
+      optional :type, enum: -> { ModernTreasury::IncomingPaymentDetailListParams::Type }
 
       # @!attribute virtual_account_id
       #   If the incoming payment detail is in a virtual account, the ID of the Virtual
@@ -73,26 +73,20 @@ module ModernTreasury
       #   @param after_cursor [String, nil]
       #
       #   @param as_of_date_end [Date] Filters incoming payment details with an as_of_date starting on or before the sp
-      #   ...
       #
       #   @param as_of_date_start [Date] Filters incoming payment details with an as_of_date starting on or after the spe
-      #   ...
       #
-      #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection] One of `credit` or `debit`.
+      #   @param direction [Symbol, ModernTreasury::TransactionDirection] One of `credit` or `debit`.
       #
       #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      #   ...
       #
       #   @param per_page [Integer]
       #
-      #   @param status [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Status] The current status of the incoming payment order. One of `pending`, `completed`,
-      #   ...
+      #   @param status [Symbol, ModernTreasury::IncomingPaymentDetailListParams::Status] The current status of the incoming payment order. One of `pending`, `completed`,
       #
-      #   @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Type] One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or `w
-      #   ...
+      #   @param type [Symbol, ModernTreasury::IncomingPaymentDetailListParams::Type] One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or `w
       #
       #   @param virtual_account_id [String] If the incoming payment detail is in a virtual account, the ID of the Virtual Ac
-      #   ...
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 

@@ -35,9 +35,8 @@ module ModernTreasury
       # @!attribute reference_number_type
       #   The type of reference number.
       #
-      #   @return [Symbol, ModernTreasury::Models::PaymentReference::ReferenceNumberType]
-      required :reference_number_type,
-               enum: -> { ModernTreasury::Models::PaymentReference::ReferenceNumberType }
+      #   @return [Symbol, ModernTreasury::PaymentReference::ReferenceNumberType]
+      required :reference_number_type, enum: -> { ModernTreasury::PaymentReference::ReferenceNumberType }
 
       # @!attribute referenceable_id
       #   The id of the referenceable to search for. Must be accompanied by the
@@ -50,8 +49,8 @@ module ModernTreasury
       #   One of the referenceable types. This must be accompanied by the id of the
       #   referenceable or will return an error.
       #
-      #   @return [Symbol, ModernTreasury::Models::PaymentReference::ReferenceableType]
-      required :referenceable_type, enum: -> { ModernTreasury::Models::PaymentReference::ReferenceableType }
+      #   @return [Symbol, ModernTreasury::PaymentReference::ReferenceableType]
+      required :referenceable_type, enum: -> { ModernTreasury::PaymentReference::ReferenceableType }
 
       # @!attribute updated_at
       #
@@ -60,32 +59,29 @@ module ModernTreasury
 
       # @!method initialize(id:, created_at:, live_mode:, object:, reference_number:, reference_number_type:, referenceable_id:, referenceable_type:, updated_at:)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::Models::PaymentReference} for more details.
+      #   {ModernTreasury::PaymentReference} for more details.
       #
       #   @param id [String]
       #
       #   @param created_at [Time]
       #
       #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
-      #   ...
       #
       #   @param object [String]
       #
       #   @param reference_number [String] The actual reference number assigned by the bank.
       #
-      #   @param reference_number_type [Symbol, ModernTreasury::Models::PaymentReference::ReferenceNumberType] The type of reference number.
+      #   @param reference_number_type [Symbol, ModernTreasury::PaymentReference::ReferenceNumberType] The type of reference number.
       #
       #   @param referenceable_id [String] The id of the referenceable to search for. Must be accompanied by the referencea
-      #   ...
       #
-      #   @param referenceable_type [Symbol, ModernTreasury::Models::PaymentReference::ReferenceableType] One of the referenceable types. This must be accompanied by the id of the refere
-      #   ...
+      #   @param referenceable_type [Symbol, ModernTreasury::PaymentReference::ReferenceableType] One of the referenceable types. This must be accompanied by the id of the refere
       #
       #   @param updated_at [Time]
 
       # The type of reference number.
       #
-      # @see ModernTreasury::Models::PaymentReference#reference_number_type
+      # @see ModernTreasury::PaymentReference#reference_number_type
       module ReferenceNumberType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -172,7 +168,7 @@ module ModernTreasury
       # One of the referenceable types. This must be accompanied by the id of the
       # referenceable or will return an error.
       #
-      # @see ModernTreasury::Models::PaymentReference#referenceable_type
+      # @see ModernTreasury::PaymentReference#referenceable_type
       module ReferenceableType
         extend ModernTreasury::Internal::Type::Enum
 

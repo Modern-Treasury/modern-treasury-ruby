@@ -3,6 +3,9 @@
 module ModernTreasury
   module Models
     class LedgerableEvent < ModernTreasury::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       sig { returns(String) }
       attr_accessor :id
 
@@ -53,8 +56,7 @@ module ModernTreasury
           name: String,
           object: String,
           updated_at: Time
-        )
-          .returns(T.attached_class)
+        ).returns(T.attached_class)
       end
       def self.new(
         id:,
@@ -75,25 +77,27 @@ module ModernTreasury
         name:,
         object:,
         updated_at:
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: String,
-              created_at: Time,
-              custom_data: T.nilable(T.anything),
-              description: T.nilable(String),
-              ledger_event_handler_id: String,
-              live_mode: T::Boolean,
-              metadata: T.nilable(T::Hash[Symbol, String]),
-              name: String,
-              object: String,
-              updated_at: Time
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            created_at: Time,
+            custom_data: T.nilable(T.anything),
+            description: T.nilable(String),
+            ledger_event_handler_id: String,
+            live_mode: T::Boolean,
+            metadata: T.nilable(T::Hash[Symbol, String]),
+            name: String,
+            object: String,
+            updated_at: Time
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

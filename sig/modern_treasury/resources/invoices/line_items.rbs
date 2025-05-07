@@ -12,13 +12,13 @@ module ModernTreasury
           ?quantity: Integer,
           ?unit_amount_decimal: String,
           ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::Invoices::InvoiceLineItem
+        ) -> ModernTreasury::Invoices::InvoiceLineItem
 
         def retrieve: (
           String id,
           invoice_id: String,
           ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::Invoices::InvoiceLineItem
+        ) -> ModernTreasury::Invoices::InvoiceLineItem
 
         def update: (
           String id,
@@ -31,20 +31,20 @@ module ModernTreasury
           ?unit_amount: Integer,
           ?unit_amount_decimal: String,
           ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::Invoices::InvoiceLineItem
+        ) -> ModernTreasury::Invoices::InvoiceLineItem
 
         def list: (
           String invoice_id,
           ?after_cursor: String?,
           ?per_page: Integer,
           ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::Invoices::InvoiceLineItem]
+        ) -> ModernTreasury::Internal::Page[ModernTreasury::Invoices::InvoiceLineItem]
 
         def delete: (
           String id,
           invoice_id: String,
           ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::Invoices::InvoiceLineItem
+        ) -> ModernTreasury::Invoices::InvoiceLineItem
 
         def initialize: (client: ModernTreasury::Client) -> void
       end

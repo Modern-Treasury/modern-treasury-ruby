@@ -5,11 +5,11 @@ module ModernTreasury
         id: String,
         created_at: Time,
         discarded_at: Time?,
-        document_details: ::Array[ModernTreasury::Models::Document::DocumentDetail],
+        document_details: ::Array[ModernTreasury::Document::DocumentDetail],
         document_type: String?,
         documentable_id: String,
-        documentable_type: ModernTreasury::Models::Document::documentable_type,
-        file: ModernTreasury::Models::Document::File,
+        documentable_type: ModernTreasury::Document::documentable_type,
+        file: ModernTreasury::Document::File,
         live_mode: bool,
         object: String,
         source: String,
@@ -23,15 +23,15 @@ module ModernTreasury
 
       attr_accessor discarded_at: Time?
 
-      attr_accessor document_details: ::Array[ModernTreasury::Models::Document::DocumentDetail]
+      attr_accessor document_details: ::Array[ModernTreasury::Document::DocumentDetail]
 
       attr_accessor document_type: String?
 
       attr_accessor documentable_id: String
 
-      attr_accessor documentable_type: ModernTreasury::Models::Document::documentable_type
+      attr_accessor documentable_type: ModernTreasury::Document::documentable_type
 
-      attr_accessor file: ModernTreasury::Models::Document::File
+      attr_accessor file: ModernTreasury::Document::File
 
       attr_accessor live_mode: bool
 
@@ -45,18 +45,16 @@ module ModernTreasury
         id: String,
         created_at: Time,
         discarded_at: Time?,
-        document_details: ::Array[ModernTreasury::Models::Document::DocumentDetail],
+        document_details: ::Array[ModernTreasury::Document::DocumentDetail],
         document_type: String?,
         documentable_id: String,
-        documentable_type: ModernTreasury::Models::Document::documentable_type,
-        file: ModernTreasury::Models::Document::File,
+        documentable_type: ModernTreasury::Document::documentable_type,
+        file: ModernTreasury::Document::File,
         live_mode: bool,
         object: String,
         source: String,
         updated_at: Time
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::document
 
       type document_detail =
         {
@@ -97,8 +95,6 @@ module ModernTreasury
           object: String,
           updated_at: Time
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::Document::document_detail
       end
 
       type documentable_type =
@@ -131,7 +127,7 @@ module ModernTreasury
         DECISION: :decision
         CONNECTION: :connection
 
-        def self?.values: -> ::Array[ModernTreasury::Models::Document::documentable_type]
+        def self?.values: -> ::Array[ModernTreasury::Document::documentable_type]
       end
 
       type file = { content_type: String, filename: String, size: Integer }
@@ -154,8 +150,6 @@ module ModernTreasury
           ?filename: String,
           ?size: Integer
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::Document::file
       end
     end
   end

@@ -6,6 +6,9 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor
 
@@ -77,9 +80,8 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
           target_currency: String,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         after_cursor: nil,
@@ -101,25 +103,27 @@ module ModernTreasury
         # Currency to convert the `base_currency` to, often called the "buy" currency.
         target_currency: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              after_cursor: T.nilable(String),
-              base_currency: String,
-              effective_at_end: Date,
-              effective_at_start: Date,
-              expires_at: Time,
-              internal_account_id: String,
-              metadata: T::Hash[Symbol, String],
-              per_page: Integer,
-              target_currency: String,
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            after_cursor: T.nilable(String),
+            base_currency: String,
+            effective_at_end: Date,
+            effective_at_start: Date,
+            expires_at: Time,
+            internal_account_id: String,
+            metadata: T::Hash[Symbol, String],
+            per_page: Integer,
+            target_currency: String,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

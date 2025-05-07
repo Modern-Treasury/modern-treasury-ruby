@@ -65,8 +65,8 @@ module ModernTreasury
       #   The type of the transaction. Examples could be
       #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       #
-      #   @return [Symbol, ModernTreasury::Models::TransactionCreateParams::Type, nil]
-      optional :type, enum: -> { ModernTreasury::Models::TransactionCreateParams::Type }, nil?: true
+      #   @return [Symbol, ModernTreasury::TransactionCreateParams::Type, nil]
+      optional :type, enum: -> { ModernTreasury::TransactionCreateParams::Type }, nil?: true
 
       # @!attribute vendor_description
       #   The transaction detail text that often appears in on your bank statement and in
@@ -80,7 +80,6 @@ module ModernTreasury
       #   {ModernTreasury::Models::TransactionCreateParams} for more details.
       #
       #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
-      #   ...
       #
       #   @param as_of_date [Date, nil] The date on which the transaction occurred.
       #
@@ -89,21 +88,16 @@ module ModernTreasury
       #   @param internal_account_id [String] The ID of the relevant Internal Account.
       #
       #   @param vendor_code [String, nil] When applicable, the bank-given code that determines the transaction's category.
-      #   ...
       #
       #   @param vendor_code_type [String, nil] The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`, `bnk
-      #   ...
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-      #   ...
       #
       #   @param posted [Boolean] This field will be `true` if the transaction has posted to the account.
       #
-      #   @param type [Symbol, ModernTreasury::Models::TransactionCreateParams::Type, nil] The type of the transaction. Examples could be `card, `ach`, `wire`, `check`, `r
-      #   ...
+      #   @param type [Symbol, ModernTreasury::TransactionCreateParams::Type, nil] The type of the transaction. Examples could be `card, `ach`, `wire`, `check`, `r
       #
       #   @param vendor_description [String, nil] The transaction detail text that often appears in on your bank statement and in
-      #   ...
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 

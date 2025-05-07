@@ -3,23 +3,23 @@ module ModernTreasury
     class Counterparties
       def create: (
         name: String?,
-        ?accounting: ModernTreasury::Models::CounterpartyCreateParams::Accounting,
-        ?accounts: ::Array[ModernTreasury::Models::CounterpartyCreateParams::Account],
+        ?accounting: ModernTreasury::CounterpartyCreateParams::Accounting,
+        ?accounts: ::Array[ModernTreasury::CounterpartyCreateParams::Account],
         ?email: String?,
         ?ledger_type: ModernTreasury::Models::CounterpartyCreateParams::ledger_type,
-        ?legal_entity: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity,
+        ?legal_entity: ModernTreasury::CounterpartyCreateParams::LegalEntity,
         ?legal_entity_id: String?,
         ?metadata: ::Hash[Symbol, String],
         ?send_remittance_advice: bool,
         ?taxpayer_identifier: String,
         ?verification_status: ModernTreasury::Models::CounterpartyCreateParams::verification_status,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::Counterparty
+      ) -> ModernTreasury::Counterparty
 
       def retrieve: (
         String id,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::Counterparty
+      ) -> ModernTreasury::Counterparty
 
       def update: (
         String id,
@@ -30,7 +30,7 @@ module ModernTreasury
         ?send_remittance_advice: bool,
         ?taxpayer_identifier: String,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::Counterparty
+      ) -> ModernTreasury::Counterparty
 
       def list: (
         ?after_cursor: String?,
@@ -42,7 +42,7 @@ module ModernTreasury
         ?name: String,
         ?per_page: Integer,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::Counterparty]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Counterparty]
 
       def delete: (
         String id,
@@ -53,10 +53,10 @@ module ModernTreasury
         String id,
         direction: ModernTreasury::Models::transaction_direction,
         ?custom_redirect: String,
-        ?fields: ::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field],
+        ?fields: ::Array[ModernTreasury::CounterpartyCollectAccountParams::field],
         ?send_email: bool,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::CounterpartyCollectAccountResponse
+      ) -> ModernTreasury::CounterpartyCollectAccountResponse
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

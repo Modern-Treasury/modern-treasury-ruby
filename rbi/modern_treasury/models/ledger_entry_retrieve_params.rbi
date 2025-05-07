@@ -6,6 +6,9 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       # If true, response will include the balances attached to the ledger entry. If
       # there is no balance available, null will be returned instead.
       sig { returns(T.nilable(T::Boolean)) }
@@ -17,18 +20,27 @@ module ModernTreasury
       sig do
         params(
           show_balances: T::Boolean,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # If true, response will include the balances attached to the ledger entry. If
         # there is no balance available, null will be returned instead.
         show_balances: nil,
         request_options: {}
-      ); end
-      sig { override.returns({show_balances: T::Boolean, request_options: ModernTreasury::RequestOptions}) }
-      def to_hash; end
+      )
+      end
+
+      sig do
+        override.returns(
+          {
+            show_balances: T::Boolean,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

@@ -11,15 +11,15 @@ module ModernTreasury
         ?counterparty_id: String,
         ?legal_entity_id: String,
         ?parent_account_id: String,
-        ?party_address: ModernTreasury::Models::InternalAccountCreateParams::PartyAddress,
+        ?party_address: ModernTreasury::InternalAccountCreateParams::PartyAddress,
         ?vendor_attributes: ::Hash[Symbol, String],
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::InternalAccount
+      ) -> ModernTreasury::InternalAccount
 
       def retrieve: (
         String id,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::InternalAccount
+      ) -> ModernTreasury::InternalAccount
 
       def update: (
         String id,
@@ -29,7 +29,7 @@ module ModernTreasury
         ?name: String,
         ?parent_account_id: String,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::InternalAccount
+      ) -> ModernTreasury::InternalAccount
 
       def list: (
         ?after_cursor: String?,
@@ -41,7 +41,7 @@ module ModernTreasury
         ?payment_type: ModernTreasury::Models::InternalAccountListParams::payment_type,
         ?per_page: Integer,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::InternalAccount]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::InternalAccount]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

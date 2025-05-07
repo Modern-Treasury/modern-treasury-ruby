@@ -7,12 +7,12 @@ module ModernTreasury
       sig do
         params(
           documentable_id: String,
-          documentable_type: ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol,
+          documentable_type:
+            ModernTreasury::DocumentCreateParams::DocumentableType::OrSymbol,
           file: T.any(Pathname, StringIO, IO, ModernTreasury::FilePart),
           document_type: String,
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::Document)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::Document)
       end
       def create(
         # The unique identifier for the associated object.
@@ -22,24 +22,33 @@ module ModernTreasury
         # A category given to the document, can be `null`.
         document_type: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Get an existing document.
-      sig { params(id: String, request_options: ModernTreasury::RequestOpts).returns(ModernTreasury::Models::Document) }
+      sig do
+        params(
+          id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::Document)
+      end
       def retrieve(
         # The ID of the document.
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # Get a list of documents.
       sig do
         params(
           after_cursor: T.nilable(String),
           documentable_id: String,
-          documentable_type: ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol,
+          documentable_type:
+            ModernTreasury::DocumentListParams::DocumentableType::OrSymbol,
           per_page: Integer,
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::Document])
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::Internal::Page[ModernTreasury::Document])
       end
       def list(
         after_cursor: nil,
@@ -51,10 +60,13 @@ module ModernTreasury
         documentable_type: nil,
         per_page: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end
