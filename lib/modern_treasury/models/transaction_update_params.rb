@@ -19,7 +19,6 @@ module ModernTreasury
       #   {ModernTreasury::Models::TransactionUpdateParams} for more details.
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data in the form of key-value pairs. Pairs can be removed by passing
-      #   ...
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end

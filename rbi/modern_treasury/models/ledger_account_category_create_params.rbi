@@ -6,6 +6,9 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       # The currency of the ledger account category.
       sig { returns(String) }
       attr_accessor :currency
@@ -19,7 +22,7 @@ module ModernTreasury
       attr_accessor :name
 
       # The normal balance of the ledger account category.
-      sig { returns(ModernTreasury::Models::TransactionDirection::OrSymbol) }
+      sig { returns(ModernTreasury::TransactionDirection::OrSymbol) }
       attr_accessor :normal_balance
 
       # The currency exponent of the ledger account category.
@@ -51,14 +54,13 @@ module ModernTreasury
           currency: String,
           ledger_id: String,
           name: String,
-          normal_balance: ModernTreasury::Models::TransactionDirection::OrSymbol,
+          normal_balance: ModernTreasury::TransactionDirection::OrSymbol,
           currency_exponent: T.nilable(Integer),
           description: T.nilable(String),
           ledger_account_category_ids: T::Array[String],
           metadata: T::Hash[Symbol, String],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # The currency of the ledger account category.
@@ -80,24 +82,26 @@ module ModernTreasury
         # strings.
         metadata: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              currency: String,
-              ledger_id: String,
-              name: String,
-              normal_balance: ModernTreasury::Models::TransactionDirection::OrSymbol,
-              currency_exponent: T.nilable(Integer),
-              description: T.nilable(String),
-              ledger_account_category_ids: T::Array[String],
-              metadata: T::Hash[Symbol, String],
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            currency: String,
+            ledger_id: String,
+            name: String,
+            normal_balance: ModernTreasury::TransactionDirection::OrSymbol,
+            currency_exponent: T.nilable(Integer),
+            description: T.nilable(String),
+            ledger_account_category_ids: T::Array[String],
+            metadata: T::Hash[Symbol, String],
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

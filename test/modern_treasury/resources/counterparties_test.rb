@@ -7,13 +7,13 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < ModernTreasury::Test
     response = @modern_treasury.counterparties.create(name: "name")
 
     assert_pattern do
-      response => ModernTreasury::Models::Counterparty
+      response => ModernTreasury::Counterparty
     end
 
     assert_pattern do
       response => {
         id: String,
-        accounts: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::Counterparty::Account]),
+        accounts: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Counterparty::Account]),
         created_at: Time,
         discarded_at: Time | nil,
         email: String | nil,
@@ -24,7 +24,7 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < ModernTreasury::Test
         object: String,
         send_remittance_advice: ModernTreasury::Internal::Type::Boolean,
         updated_at: Time,
-        verification_status: ModernTreasury::Models::Counterparty::VerificationStatus
+        verification_status: ModernTreasury::Counterparty::VerificationStatus
       }
     end
   end
@@ -33,13 +33,13 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < ModernTreasury::Test
     response = @modern_treasury.counterparties.retrieve("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::Counterparty
+      response => ModernTreasury::Counterparty
     end
 
     assert_pattern do
       response => {
         id: String,
-        accounts: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::Counterparty::Account]),
+        accounts: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Counterparty::Account]),
         created_at: Time,
         discarded_at: Time | nil,
         email: String | nil,
@@ -50,7 +50,7 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < ModernTreasury::Test
         object: String,
         send_remittance_advice: ModernTreasury::Internal::Type::Boolean,
         updated_at: Time,
-        verification_status: ModernTreasury::Models::Counterparty::VerificationStatus
+        verification_status: ModernTreasury::Counterparty::VerificationStatus
       }
     end
   end
@@ -59,13 +59,13 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < ModernTreasury::Test
     response = @modern_treasury.counterparties.update("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::Counterparty
+      response => ModernTreasury::Counterparty
     end
 
     assert_pattern do
       response => {
         id: String,
-        accounts: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::Counterparty::Account]),
+        accounts: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Counterparty::Account]),
         created_at: Time,
         discarded_at: Time | nil,
         email: String | nil,
@@ -76,7 +76,7 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < ModernTreasury::Test
         object: String,
         send_remittance_advice: ModernTreasury::Internal::Type::Boolean,
         updated_at: Time,
-        verification_status: ModernTreasury::Models::Counterparty::VerificationStatus
+        verification_status: ModernTreasury::Counterparty::VerificationStatus
       }
     end
   end
@@ -92,13 +92,13 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < ModernTreasury::Test
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Models::Counterparty
+      row => ModernTreasury::Counterparty
     end
 
     assert_pattern do
       row => {
         id: String,
-        accounts: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::Counterparty::Account]),
+        accounts: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Counterparty::Account]),
         created_at: Time,
         discarded_at: Time | nil,
         email: String | nil,
@@ -109,7 +109,7 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < ModernTreasury::Test
         object: String,
         send_remittance_advice: ModernTreasury::Internal::Type::Boolean,
         updated_at: Time,
-        verification_status: ModernTreasury::Models::Counterparty::VerificationStatus
+        verification_status: ModernTreasury::Counterparty::VerificationStatus
       }
     end
   end
@@ -126,7 +126,7 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < ModernTreasury::Test
     response = @modern_treasury.counterparties.collect_account("id", direction: :credit)
 
     assert_pattern do
-      response => ModernTreasury::Models::CounterpartyCollectAccountResponse
+      response => ModernTreasury::CounterpartyCollectAccountResponse
     end
 
     assert_pattern do

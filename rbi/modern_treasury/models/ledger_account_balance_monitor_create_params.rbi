@@ -6,18 +6,22 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       # Describes the condition that must be satisfied for the monitor to be triggered.
-      sig { returns(ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition) }
+      sig do
+        returns(
+          ModernTreasury::LedgerAccountBalanceMonitorCreateParams::AlertCondition
+        )
+      end
       attr_reader :alert_condition
 
       sig do
         params(
-          alert_condition: T.any(
-            ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
-            ModernTreasury::Internal::AnyHash
-          )
-        )
-          .void
+          alert_condition:
+            ModernTreasury::LedgerAccountBalanceMonitorCreateParams::AlertCondition::OrHash
+        ).void
       end
       attr_writer :alert_condition
 
@@ -42,16 +46,13 @@ module ModernTreasury
 
       sig do
         params(
-          alert_condition: T.any(
-            ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
-            ModernTreasury::Internal::AnyHash
-          ),
+          alert_condition:
+            ModernTreasury::LedgerAccountBalanceMonitorCreateParams::AlertCondition::OrHash,
           ledger_account_id: String,
           description: String,
           metadata: T::Hash[Symbol, String],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # Describes the condition that must be satisfied for the monitor to be triggered.
@@ -64,22 +65,28 @@ module ModernTreasury
         # strings.
         metadata: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
-              ledger_account_id: String,
-              description: String,
-              metadata: T::Hash[Symbol, String],
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            alert_condition:
+              ModernTreasury::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
+            ledger_account_id: String,
+            description: String,
+            metadata: T::Hash[Symbol, String],
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
 
       class AlertCondition < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         # One of `available_balance_amount`, `pending_balance_amount`,
         # `posted_balance_amount`, `ledger_account_lock_version`.
         sig { returns(String) }
@@ -98,7 +105,11 @@ module ModernTreasury
         attr_accessor :value
 
         # Describes the condition that must be satisfied for the monitor to be triggered.
-        sig { params(field: String, operator: String, value: Integer).returns(T.attached_class) }
+        sig do
+          params(field: String, operator: String, value: Integer).returns(
+            T.attached_class
+          )
+        end
         def self.new(
           # One of `available_balance_amount`, `pending_balance_amount`,
           # `posted_balance_amount`, `ledger_account_lock_version`.
@@ -111,9 +122,14 @@ module ModernTreasury
           # when comparing the `field` to this integer value using the `operator` is
           # logically true.
           value:
-        ); end
-        sig { override.returns({field: String, operator: String, value: Integer}) }
-        def to_hash; end
+        )
+        end
+
+        sig do
+          override.returns({ field: String, operator: String, value: Integer })
+        end
+        def to_hash
+        end
       end
     end
   end

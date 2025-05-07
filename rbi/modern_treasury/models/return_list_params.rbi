@@ -6,6 +6,9 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor
 
@@ -40,10 +43,19 @@ module ModernTreasury
 
       # One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
       # Must be accompanied by `returnable_id`.
-      sig { returns(T.nilable(ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol)) }
+      sig do
+        returns(
+          T.nilable(ModernTreasury::ReturnListParams::ReturnableType::OrSymbol)
+        )
+      end
       attr_reader :returnable_type
 
-      sig { params(returnable_type: ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol).void }
+      sig do
+        params(
+          returnable_type:
+            ModernTreasury::ReturnListParams::ReturnableType::OrSymbol
+        ).void
+      end
       attr_writer :returnable_type
 
       sig do
@@ -53,10 +65,10 @@ module ModernTreasury
           internal_account_id: String,
           per_page: Integer,
           returnable_id: String,
-          returnable_type: ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          returnable_type:
+            ModernTreasury::ReturnListParams::ReturnableType::OrSymbol,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         after_cursor: nil,
@@ -73,41 +85,72 @@ module ModernTreasury
         # Must be accompanied by `returnable_id`.
         returnable_type: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              after_cursor: T.nilable(String),
-              counterparty_id: String,
-              internal_account_id: String,
-              per_page: Integer,
-              returnable_id: String,
-              returnable_type: ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol,
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            after_cursor: T.nilable(String),
+            counterparty_id: String,
+            internal_account_id: String,
+            per_page: Integer,
+            returnable_id: String,
+            returnable_type:
+              ModernTreasury::ReturnListParams::ReturnableType::OrSymbol,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
 
       # One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
       # Must be accompanied by `returnable_id`.
       module ReturnableType
         extend ModernTreasury::Internal::Type::Enum
 
-        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType) }
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::ReturnListParams::ReturnableType)
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         INCOMING_PAYMENT_DETAIL =
-          T.let(:incoming_payment_detail, ModernTreasury::Models::ReturnListParams::ReturnableType::TaggedSymbol)
-        PAPER_ITEM = T.let(:paper_item, ModernTreasury::Models::ReturnListParams::ReturnableType::TaggedSymbol)
+          T.let(
+            :incoming_payment_detail,
+            ModernTreasury::ReturnListParams::ReturnableType::TaggedSymbol
+          )
+        PAPER_ITEM =
+          T.let(
+            :paper_item,
+            ModernTreasury::ReturnListParams::ReturnableType::TaggedSymbol
+          )
         PAYMENT_ORDER =
-          T.let(:payment_order, ModernTreasury::Models::ReturnListParams::ReturnableType::TaggedSymbol)
-        RETURN = T.let(:return, ModernTreasury::Models::ReturnListParams::ReturnableType::TaggedSymbol)
-        REVERSAL = T.let(:reversal, ModernTreasury::Models::ReturnListParams::ReturnableType::TaggedSymbol)
+          T.let(
+            :payment_order,
+            ModernTreasury::ReturnListParams::ReturnableType::TaggedSymbol
+          )
+        RETURN =
+          T.let(
+            :return,
+            ModernTreasury::ReturnListParams::ReturnableType::TaggedSymbol
+          )
+        REVERSAL =
+          T.let(
+            :reversal,
+            ModernTreasury::ReturnListParams::ReturnableType::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::ReturnListParams::ReturnableType::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::ReturnListParams::ReturnableType::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
     end
   end

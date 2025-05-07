@@ -26,8 +26,6 @@ module ModernTreasury
         ?per_page: Integer,
         ?request_options: ModernTreasury::request_opts
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::account_detail_list_params
     end
   end
 end

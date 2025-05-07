@@ -30,15 +30,15 @@ module ModernTreasury
 
         # @!attribute type
         #
-        #   @return [Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type, nil]
-        optional :type, enum: -> { ModernTreasury::Models::Transactions::LineItemListParams::Type }, nil?: true
+        #   @return [Symbol, ModernTreasury::Transactions::LineItemListParams::Type, nil]
+        optional :type, enum: -> { ModernTreasury::Transactions::LineItemListParams::Type }, nil?: true
 
         # @!method initialize(id: nil, after_cursor: nil, per_page: nil, transaction_id: nil, type: nil, request_options: {})
         #   @param id [Hash{Symbol=>String}]
         #   @param after_cursor [String, nil]
         #   @param per_page [Integer]
         #   @param transaction_id [String]
-        #   @param type [Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type, nil]
+        #   @param type [Symbol, ModernTreasury::Transactions::LineItemListParams::Type, nil]
         #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
         module Type

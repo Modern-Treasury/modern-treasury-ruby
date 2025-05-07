@@ -6,6 +6,9 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       # Value in specified currency's smallest unit. e.g. $10 would be represented as
       # 1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
       sig { returns(Integer) }
@@ -15,7 +18,11 @@ module ModernTreasury
       # transaction. A `credit` moves money from your account to someone else's. A
       # `debit` pulls money from someone else's account to your own. Note that wire,
       # rtp, and check payments will always be `credit`.
-      sig { returns(ModernTreasury::Models::PaymentOrderCreateAsyncParams::Direction::OrSymbol) }
+      sig do
+        returns(
+          ModernTreasury::PaymentOrderCreateAsyncParams::Direction::OrSymbol
+        )
+      end
       attr_accessor :direction
 
       # The ID of one of your organization's internal accounts.
@@ -25,20 +32,21 @@ module ModernTreasury
       # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
       # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
       # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
-      sig { returns(ModernTreasury::Models::PaymentOrderType::OrSymbol) }
+      sig { returns(ModernTreasury::PaymentOrderType::OrSymbol) }
       attr_accessor :type
 
-      sig { returns(T.nilable(ModernTreasury::Models::PaymentOrderCreateAsyncParams::Accounting)) }
+      sig do
+        returns(
+          T.nilable(ModernTreasury::PaymentOrderCreateAsyncParams::Accounting)
+        )
+      end
       attr_reader :accounting
 
       sig do
         params(
-          accounting: T.any(
-            ModernTreasury::Models::PaymentOrderCreateAsyncParams::Accounting,
-            ModernTreasury::Internal::AnyHash
-          )
-        )
-          .void
+          accounting:
+            ModernTreasury::PaymentOrderCreateAsyncParams::Accounting::OrHash
+        ).void
       end
       attr_writer :accounting
 
@@ -55,14 +63,20 @@ module ModernTreasury
       # The party that will pay the fees for the payment order. Only applies to wire
       # payment orders. Can be one of shared, sender, or receiver, which correspond
       # respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
-      sig { returns(T.nilable(ModernTreasury::Models::PaymentOrderCreateAsyncParams::ChargeBearer::OrSymbol)) }
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::PaymentOrderCreateAsyncParams::ChargeBearer::OrSymbol
+          )
+        )
+      end
       attr_accessor :charge_bearer
 
       # Defaults to the currency of the originating account.
-      sig { returns(T.nilable(ModernTreasury::Models::Currency::OrSymbol)) }
+      sig { returns(T.nilable(ModernTreasury::Currency::OrSymbol)) }
       attr_reader :currency
 
-      sig { params(currency: ModernTreasury::Models::Currency::OrSymbol).void }
+      sig { params(currency: ModernTreasury::Currency::OrSymbol).void }
       attr_writer :currency
 
       # An optional description for internal use.
@@ -85,10 +99,21 @@ module ModernTreasury
       # A payment type to fallback to if the original type is not valid for the
       # receiving account. Currently, this only supports falling back from RTP to ACH
       # (type=rtp and fallback_type=ach)
-      sig { returns(T.nilable(ModernTreasury::Models::PaymentOrderCreateAsyncParams::FallbackType::OrSymbol)) }
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::PaymentOrderCreateAsyncParams::FallbackType::OrSymbol
+          )
+        )
+      end
       attr_reader :fallback_type
 
-      sig { params(fallback_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::FallbackType::OrSymbol).void }
+      sig do
+        params(
+          fallback_type:
+            ModernTreasury::PaymentOrderCreateAsyncParams::FallbackType::OrSymbol
+        ).void
+      end
       attr_writer :fallback_type
 
       # If present, indicates a specific foreign exchange contract number that has been
@@ -101,7 +126,9 @@ module ModernTreasury
       # currency matches the originating account currency.
       sig do
         returns(
-          T.nilable(ModernTreasury::Models::PaymentOrderCreateAsyncParams::ForeignExchangeIndicator::OrSymbol)
+          T.nilable(
+            ModernTreasury::PaymentOrderCreateAsyncParams::ForeignExchangeIndicator::OrSymbol
+          )
         )
       end
       attr_accessor :foreign_exchange_indicator
@@ -110,17 +137,20 @@ module ModernTreasury
       # order. If the ledger transaction cannot be created, then the payment order
       # creation will fail. The resulting ledger transaction will mirror the status of
       # the payment order.
-      sig { returns(T.nilable(ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction)) }
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction
+          )
+        )
+      end
       attr_reader :ledger_transaction
 
       sig do
         params(
-          ledger_transaction: T.any(
-            ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction,
-            ModernTreasury::Internal::AnyHash
-          )
-        )
-          .void
+          ledger_transaction:
+            ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::OrHash
+        ).void
       end
       attr_writer :ledger_transaction
 
@@ -135,14 +165,22 @@ module ModernTreasury
       attr_writer :ledger_transaction_id
 
       # An array of line items that must sum up to the amount of the payment order.
-      sig { returns(T.nilable(T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem])) }
+      sig do
+        returns(
+          T.nilable(
+            T::Array[ModernTreasury::PaymentOrderCreateAsyncParams::LineItem]
+          )
+        )
+      end
       attr_reader :line_items
 
       sig do
         params(
-          line_items: T::Array[T.any(ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem, ModernTreasury::Internal::AnyHash)]
-        )
-          .void
+          line_items:
+            T::Array[
+              ModernTreasury::PaymentOrderCreateAsyncParams::LineItem::OrHash
+            ]
+        ).void
       end
       attr_writer :line_items
 
@@ -172,10 +210,21 @@ module ModernTreasury
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
       # same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
       # an overnight check rather than standard mail.
-      sig { returns(T.nilable(ModernTreasury::Models::PaymentOrderCreateAsyncParams::Priority::OrSymbol)) }
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::PaymentOrderCreateAsyncParams::Priority::OrSymbol
+          )
+        )
+      end
       attr_reader :priority
 
-      sig { params(priority: ModernTreasury::Models::PaymentOrderCreateAsyncParams::Priority::OrSymbol).void }
+      sig do
+        params(
+          priority:
+            ModernTreasury::PaymentOrderCreateAsyncParams::Priority::OrSymbol
+        ).void
+      end
       attr_writer :priority
 
       # If present, Modern Treasury will not process the payment until after this time.
@@ -195,17 +244,20 @@ module ModernTreasury
       # Either `receiving_account` or `receiving_account_id` must be present. When using
       # `receiving_account_id`, you may pass the id of an external account or an
       # internal account.
-      sig { returns(T.nilable(ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount)) }
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount
+          )
+        )
+      end
       attr_reader :receiving_account
 
       sig do
         params(
-          receiving_account: T.any(
-            ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount,
-            ModernTreasury::Internal::AnyHash
-          )
-        )
-          .void
+          receiving_account:
+            ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::OrHash
+        ).void
       end
       attr_writer :receiving_account
 
@@ -242,7 +294,7 @@ module ModernTreasury
       # doing. This field is only used for `ach` payment orders currently. For `ach`
       # payment orders, the `subtype` represents the SEC code. We currently support
       # `CCD`, `PPD`, `IAT`, `CTX`, `WEB`, `CIE`, and `TEL`.
-      sig { returns(T.nilable(ModernTreasury::Models::PaymentOrderSubtype::OrSymbol)) }
+      sig { returns(T.nilable(ModernTreasury::PaymentOrderSubtype::OrSymbol)) }
       attr_accessor :subtype
 
       # A flag that determines whether a payment order should go through transaction
@@ -272,52 +324,57 @@ module ModernTreasury
       sig do
         params(
           amount: Integer,
-          direction: ModernTreasury::Models::PaymentOrderCreateAsyncParams::Direction::OrSymbol,
+          direction:
+            ModernTreasury::PaymentOrderCreateAsyncParams::Direction::OrSymbol,
           originating_account_id: String,
-          type: ModernTreasury::Models::PaymentOrderType::OrSymbol,
-          accounting: T.any(
-            ModernTreasury::Models::PaymentOrderCreateAsyncParams::Accounting,
-            ModernTreasury::Internal::AnyHash
-          ),
+          type: ModernTreasury::PaymentOrderType::OrSymbol,
+          accounting:
+            ModernTreasury::PaymentOrderCreateAsyncParams::Accounting::OrHash,
           accounting_category_id: T.nilable(String),
           accounting_ledger_class_id: T.nilable(String),
-          charge_bearer: T.nilable(ModernTreasury::Models::PaymentOrderCreateAsyncParams::ChargeBearer::OrSymbol),
-          currency: ModernTreasury::Models::Currency::OrSymbol,
+          charge_bearer:
+            T.nilable(
+              ModernTreasury::PaymentOrderCreateAsyncParams::ChargeBearer::OrSymbol
+            ),
+          currency: ModernTreasury::Currency::OrSymbol,
           description: T.nilable(String),
           effective_date: Date,
           expires_at: T.nilable(Time),
-          fallback_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::FallbackType::OrSymbol,
+          fallback_type:
+            ModernTreasury::PaymentOrderCreateAsyncParams::FallbackType::OrSymbol,
           foreign_exchange_contract: T.nilable(String),
-          foreign_exchange_indicator: T.nilable(ModernTreasury::Models::PaymentOrderCreateAsyncParams::ForeignExchangeIndicator::OrSymbol),
-          ledger_transaction: T.any(
-            ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction,
-            ModernTreasury::Internal::AnyHash
-          ),
+          foreign_exchange_indicator:
+            T.nilable(
+              ModernTreasury::PaymentOrderCreateAsyncParams::ForeignExchangeIndicator::OrSymbol
+            ),
+          ledger_transaction:
+            ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::OrHash,
           ledger_transaction_id: String,
-          line_items: T::Array[T.any(ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem, ModernTreasury::Internal::AnyHash)],
+          line_items:
+            T::Array[
+              ModernTreasury::PaymentOrderCreateAsyncParams::LineItem::OrHash
+            ],
           metadata: T::Hash[Symbol, String],
           nsf_protected: T::Boolean,
           originating_party_name: T.nilable(String),
-          priority: ModernTreasury::Models::PaymentOrderCreateAsyncParams::Priority::OrSymbol,
+          priority:
+            ModernTreasury::PaymentOrderCreateAsyncParams::Priority::OrSymbol,
           process_after: T.nilable(Time),
           purpose: T.nilable(String),
-          receiving_account: T.any(
-            ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount,
-            ModernTreasury::Internal::AnyHash
-          ),
+          receiving_account:
+            ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::OrHash,
           receiving_account_id: String,
           remittance_information: T.nilable(String),
           send_remittance_advice: T.nilable(T::Boolean),
           statement_descriptor: T.nilable(String),
-          subtype: T.nilable(ModernTreasury::Models::PaymentOrderSubtype::OrSymbol),
+          subtype: T.nilable(ModernTreasury::PaymentOrderSubtype::OrSymbol),
           transaction_monitoring_enabled: T::Boolean,
           ultimate_originating_party_identifier: T.nilable(String),
           ultimate_originating_party_name: T.nilable(String),
           ultimate_receiving_party_identifier: T.nilable(String),
           ultimate_receiving_party_name: T.nilable(String),
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # Value in specified currency's smallest unit. e.g. $10 would be represented as
@@ -442,51 +499,66 @@ module ModernTreasury
         # Name of the ultimate funds recipient.
         ultimate_receiving_party_name: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              amount: Integer,
-              direction: ModernTreasury::Models::PaymentOrderCreateAsyncParams::Direction::OrSymbol,
-              originating_account_id: String,
-              type: ModernTreasury::Models::PaymentOrderType::OrSymbol,
-              accounting: ModernTreasury::Models::PaymentOrderCreateAsyncParams::Accounting,
-              accounting_category_id: T.nilable(String),
-              accounting_ledger_class_id: T.nilable(String),
-              charge_bearer: T.nilable(ModernTreasury::Models::PaymentOrderCreateAsyncParams::ChargeBearer::OrSymbol),
-              currency: ModernTreasury::Models::Currency::OrSymbol,
-              description: T.nilable(String),
-              effective_date: Date,
-              expires_at: T.nilable(Time),
-              fallback_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::FallbackType::OrSymbol,
-              foreign_exchange_contract: T.nilable(String),
-              foreign_exchange_indicator: T.nilable(ModernTreasury::Models::PaymentOrderCreateAsyncParams::ForeignExchangeIndicator::OrSymbol),
-              ledger_transaction: ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction,
-              ledger_transaction_id: String,
-              line_items: T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem],
-              metadata: T::Hash[Symbol, String],
-              nsf_protected: T::Boolean,
-              originating_party_name: T.nilable(String),
-              priority: ModernTreasury::Models::PaymentOrderCreateAsyncParams::Priority::OrSymbol,
-              process_after: T.nilable(Time),
-              purpose: T.nilable(String),
-              receiving_account: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount,
-              receiving_account_id: String,
-              remittance_information: T.nilable(String),
-              send_remittance_advice: T.nilable(T::Boolean),
-              statement_descriptor: T.nilable(String),
-              subtype: T.nilable(ModernTreasury::Models::PaymentOrderSubtype::OrSymbol),
-              transaction_monitoring_enabled: T::Boolean,
-              ultimate_originating_party_identifier: T.nilable(String),
-              ultimate_originating_party_name: T.nilable(String),
-              ultimate_receiving_party_identifier: T.nilable(String),
-              ultimate_receiving_party_name: T.nilable(String),
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            amount: Integer,
+            direction:
+              ModernTreasury::PaymentOrderCreateAsyncParams::Direction::OrSymbol,
+            originating_account_id: String,
+            type: ModernTreasury::PaymentOrderType::OrSymbol,
+            accounting:
+              ModernTreasury::PaymentOrderCreateAsyncParams::Accounting,
+            accounting_category_id: T.nilable(String),
+            accounting_ledger_class_id: T.nilable(String),
+            charge_bearer:
+              T.nilable(
+                ModernTreasury::PaymentOrderCreateAsyncParams::ChargeBearer::OrSymbol
+              ),
+            currency: ModernTreasury::Currency::OrSymbol,
+            description: T.nilable(String),
+            effective_date: Date,
+            expires_at: T.nilable(Time),
+            fallback_type:
+              ModernTreasury::PaymentOrderCreateAsyncParams::FallbackType::OrSymbol,
+            foreign_exchange_contract: T.nilable(String),
+            foreign_exchange_indicator:
+              T.nilable(
+                ModernTreasury::PaymentOrderCreateAsyncParams::ForeignExchangeIndicator::OrSymbol
+              ),
+            ledger_transaction:
+              ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction,
+            ledger_transaction_id: String,
+            line_items:
+              T::Array[ModernTreasury::PaymentOrderCreateAsyncParams::LineItem],
+            metadata: T::Hash[Symbol, String],
+            nsf_protected: T::Boolean,
+            originating_party_name: T.nilable(String),
+            priority:
+              ModernTreasury::PaymentOrderCreateAsyncParams::Priority::OrSymbol,
+            process_after: T.nilable(Time),
+            purpose: T.nilable(String),
+            receiving_account:
+              ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount,
+            receiving_account_id: String,
+            remittance_information: T.nilable(String),
+            send_remittance_advice: T.nilable(T::Boolean),
+            statement_descriptor: T.nilable(String),
+            subtype: T.nilable(ModernTreasury::PaymentOrderSubtype::OrSymbol),
+            transaction_monitoring_enabled: T::Boolean,
+            ultimate_originating_party_identifier: T.nilable(String),
+            ultimate_originating_party_name: T.nilable(String),
+            ultimate_receiving_party_identifier: T.nilable(String),
+            ultimate_receiving_party_name: T.nilable(String),
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
 
       # One of `credit`, `debit`. Describes the direction money is flowing in the
       # transaction. A `credit` moves money from your account to someone else's. A
@@ -496,17 +568,40 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
-          T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::Direction) }
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::PaymentOrderCreateAsyncParams::Direction
+            )
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        CREDIT = T.let(:credit, ModernTreasury::Models::PaymentOrderCreateAsyncParams::Direction::TaggedSymbol)
-        DEBIT = T.let(:debit, ModernTreasury::Models::PaymentOrderCreateAsyncParams::Direction::TaggedSymbol)
+        CREDIT =
+          T.let(
+            :credit,
+            ModernTreasury::PaymentOrderCreateAsyncParams::Direction::TaggedSymbol
+          )
+        DEBIT =
+          T.let(
+            :debit,
+            ModernTreasury::PaymentOrderCreateAsyncParams::Direction::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::Direction::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::PaymentOrderCreateAsyncParams::Direction::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
 
       class Accounting < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         # The ID of one of your accounting categories. Note that these will only be
         # accessible if your accounting system has been connected.
         sig { returns(T.nilable(String)) }
@@ -518,7 +613,12 @@ module ModernTreasury
         sig { returns(T.nilable(String)) }
         attr_accessor :class_id
 
-        sig { params(account_id: T.nilable(String), class_id: T.nilable(String)).returns(T.attached_class) }
+        sig do
+          params(
+            account_id: T.nilable(String),
+            class_id: T.nilable(String)
+          ).returns(T.attached_class)
+        end
         def self.new(
           # The ID of one of your accounting categories. Note that these will only be
           # accessible if your accounting system has been connected.
@@ -527,9 +627,16 @@ module ModernTreasury
           # track segments of your business independent of client or project. Note that
           # these will only be accessible if your accounting system has been connected.
           class_id: nil
-        ); end
-        sig { override.returns({account_id: T.nilable(String), class_id: T.nilable(String)}) }
-        def to_hash; end
+        )
+        end
+
+        sig do
+          override.returns(
+            { account_id: T.nilable(String), class_id: T.nilable(String) }
+          )
+        end
+        def to_hash
+        end
       end
 
       # The party that will pay the fees for the payment order. Only applies to wire
@@ -539,21 +646,39 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
-          T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::ChargeBearer) }
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::PaymentOrderCreateAsyncParams::ChargeBearer
+            )
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         SHARED =
-          T.let(:shared, ModernTreasury::Models::PaymentOrderCreateAsyncParams::ChargeBearer::TaggedSymbol)
+          T.let(
+            :shared,
+            ModernTreasury::PaymentOrderCreateAsyncParams::ChargeBearer::TaggedSymbol
+          )
         SENDER =
-          T.let(:sender, ModernTreasury::Models::PaymentOrderCreateAsyncParams::ChargeBearer::TaggedSymbol)
+          T.let(
+            :sender,
+            ModernTreasury::PaymentOrderCreateAsyncParams::ChargeBearer::TaggedSymbol
+          )
         RECEIVER =
-          T.let(:receiver, ModernTreasury::Models::PaymentOrderCreateAsyncParams::ChargeBearer::TaggedSymbol)
+          T.let(
+            :receiver,
+            ModernTreasury::PaymentOrderCreateAsyncParams::ChargeBearer::TaggedSymbol
+          )
 
         sig do
-          override
-            .returns(T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ChargeBearer::TaggedSymbol])
+          override.returns(
+            T::Array[
+              ModernTreasury::PaymentOrderCreateAsyncParams::ChargeBearer::TaggedSymbol
+            ]
+          )
         end
-        def self.values; end
+        def self.values
+        end
       end
 
       # A payment type to fallback to if the original type is not valid for the
@@ -563,16 +688,29 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
-          T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::FallbackType) }
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::PaymentOrderCreateAsyncParams::FallbackType
+            )
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        ACH = T.let(:ach, ModernTreasury::Models::PaymentOrderCreateAsyncParams::FallbackType::TaggedSymbol)
+        ACH =
+          T.let(
+            :ach,
+            ModernTreasury::PaymentOrderCreateAsyncParams::FallbackType::TaggedSymbol
+          )
 
         sig do
-          override
-            .returns(T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::FallbackType::TaggedSymbol])
+          override.returns(
+            T::Array[
+              ModernTreasury::PaymentOrderCreateAsyncParams::FallbackType::TaggedSymbol
+            ]
+          )
         end
-        def self.values; end
+        def self.values
+        end
       end
 
       # Indicates the type of FX transfer to initiate, can be either
@@ -582,32 +720,48 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
-          T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::ForeignExchangeIndicator) }
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::PaymentOrderCreateAsyncParams::ForeignExchangeIndicator
+            )
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         FIXED_TO_VARIABLE =
           T.let(
             :fixed_to_variable,
-            ModernTreasury::Models::PaymentOrderCreateAsyncParams::ForeignExchangeIndicator::TaggedSymbol
+            ModernTreasury::PaymentOrderCreateAsyncParams::ForeignExchangeIndicator::TaggedSymbol
           )
         VARIABLE_TO_FIXED =
           T.let(
             :variable_to_fixed,
-            ModernTreasury::Models::PaymentOrderCreateAsyncParams::ForeignExchangeIndicator::TaggedSymbol
+            ModernTreasury::PaymentOrderCreateAsyncParams::ForeignExchangeIndicator::TaggedSymbol
           )
 
         sig do
-          override
-            .returns(
-              T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ForeignExchangeIndicator::TaggedSymbol]
-            )
+          override.returns(
+            T::Array[
+              ModernTreasury::PaymentOrderCreateAsyncParams::ForeignExchangeIndicator::TaggedSymbol
+            ]
+          )
         end
-        def self.values; end
+        def self.values
+        end
       end
 
       class LedgerTransaction < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         # An array of ledger entry objects.
-        sig { returns(T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerEntry]) }
+        sig do
+          returns(
+            T::Array[
+              ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerEntry
+            ]
+          )
+        end
         attr_accessor :ledger_entries
 
         # An optional description for internal use.
@@ -653,7 +807,7 @@ module ModernTreasury
         sig do
           returns(
             T.nilable(
-              ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerableType::OrSymbol
+              ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerableType::OrSymbol
             )
           )
         end
@@ -661,9 +815,9 @@ module ModernTreasury
 
         sig do
           params(
-            ledgerable_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerableType::OrSymbol
-          )
-            .void
+            ledgerable_type:
+              ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerableType::OrSymbol
+          ).void
         end
         attr_writer :ledgerable_type
 
@@ -678,14 +832,18 @@ module ModernTreasury
         # To post a ledger transaction at creation, use `posted`.
         sig do
           returns(
-            T.nilable(ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::Status::OrSymbol)
+            T.nilable(
+              ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::Status::OrSymbol
+            )
           )
         end
         attr_reader :status
 
         sig do
-          params(status: ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::Status::OrSymbol)
-            .void
+          params(
+            status:
+              ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::Status::OrSymbol
+          ).void
         end
         attr_writer :status
 
@@ -695,22 +853,21 @@ module ModernTreasury
         # the payment order.
         sig do
           params(
-            ledger_entries: T::Array[
-              T.any(
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerEntry,
-                ModernTreasury::Internal::AnyHash
-              )
-            ],
+            ledger_entries:
+              T::Array[
+                ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerEntry::OrHash
+              ],
             description: T.nilable(String),
             effective_at: Time,
             effective_date: Date,
             external_id: String,
             ledgerable_id: String,
-            ledgerable_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerableType::OrSymbol,
+            ledgerable_type:
+              ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerableType::OrSymbol,
             metadata: T::Hash[Symbol, String],
-            status: ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::Status::OrSymbol
-          )
-            .returns(T.attached_class)
+            status:
+              ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::Status::OrSymbol
+          ).returns(T.attached_class)
         end
         def self.new(
           # An array of ledger entry objects.
@@ -739,26 +896,38 @@ module ModernTreasury
           metadata: nil,
           # To post a ledger transaction at creation, use `posted`.
           status: nil
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                ledger_entries: T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerEntry],
-                description: T.nilable(String),
-                effective_at: Time,
-                effective_date: Date,
-                external_id: String,
-                ledgerable_id: String,
-                ledgerable_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerableType::OrSymbol,
-                metadata: T::Hash[Symbol, String],
-                status: ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::Status::OrSymbol
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              ledger_entries:
+                T::Array[
+                  ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerEntry
+                ],
+              description: T.nilable(String),
+              effective_at: Time,
+              effective_date: Date,
+              external_id: String,
+              ledgerable_id: String,
+              ledgerable_type:
+                ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerableType::OrSymbol,
+              metadata: T::Hash[Symbol, String],
+              status:
+                ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::Status::OrSymbol
+            }
+          )
+        end
+        def to_hash
+        end
 
         class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+            end
+
           # Value in specified currency's smallest unit. e.g. $10 would be represented
           # as 1000. Can be any integer up to 36 digits.
           sig { returns(Integer) }
@@ -768,7 +937,7 @@ module ModernTreasury
           # transaction. A `credit` moves money from your account to someone else's. A
           # `debit` pulls money from someone else's account to your own. Note that wire,
           # rtp, and check payments will always be `credit`.
-          sig { returns(ModernTreasury::Models::TransactionDirection::OrSymbol) }
+          sig { returns(ModernTreasury::TransactionDirection::OrSymbol) }
           attr_accessor :direction
 
           # The ledger account that this ledger entry is associated with.
@@ -816,7 +985,7 @@ module ModernTreasury
           sig do
             params(
               amount: Integer,
-              direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
+              direction: ModernTreasury::TransactionDirection::OrSymbol,
               ledger_account_id: String,
               available_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
               lock_version: T.nilable(Integer),
@@ -824,8 +993,7 @@ module ModernTreasury
               pending_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
               posted_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
               show_resulting_ledger_account_balances: T.nilable(T::Boolean)
-            )
-              .returns(T.attached_class)
+            ).returns(T.attached_class)
           end
           def self.new(
             # Value in specified currency's smallest unit. e.g. $10 would be represented
@@ -861,24 +1029,26 @@ module ModernTreasury
             # If true, response will include the balance of the associated ledger account for
             # the entry.
             show_resulting_ledger_account_balances: nil
-          ); end
-          sig do
-            override
-              .returns(
-                {
-                  amount: Integer,
-                  direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
-                  ledger_account_id: String,
-                  available_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
-                  lock_version: T.nilable(Integer),
-                  metadata: T::Hash[Symbol, String],
-                  pending_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
-                  posted_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
-                  show_resulting_ledger_account_balances: T.nilable(T::Boolean)
-                }
-              )
+          )
           end
-          def to_hash; end
+
+          sig do
+            override.returns(
+              {
+                amount: Integer,
+                direction: ModernTreasury::TransactionDirection::OrSymbol,
+                ledger_account_id: String,
+                available_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
+                lock_version: T.nilable(Integer),
+                metadata: T::Hash[Symbol, String],
+                pending_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
+                posted_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
+                show_resulting_ledger_account_balances: T.nilable(T::Boolean)
+              }
+            )
+          end
+          def to_hash
+          end
         end
 
         # If the ledger transaction can be reconciled to another object in Modern
@@ -889,47 +1059,54 @@ module ModernTreasury
           extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
-            T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerableType) }
+            T.type_alias do
+              T.all(
+                Symbol,
+                ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerableType
+              )
+            end
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           EXPECTED_PAYMENT =
             T.let(
               :expected_payment,
-              ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerableType::TaggedSymbol
+              ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerableType::TaggedSymbol
             )
           INCOMING_PAYMENT_DETAIL =
             T.let(
               :incoming_payment_detail,
-              ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerableType::TaggedSymbol
+              ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerableType::TaggedSymbol
             )
           PAPER_ITEM =
             T.let(
               :paper_item,
-              ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerableType::TaggedSymbol
+              ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerableType::TaggedSymbol
             )
           PAYMENT_ORDER =
             T.let(
               :payment_order,
-              ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerableType::TaggedSymbol
+              ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerableType::TaggedSymbol
             )
           RETURN =
             T.let(
               :return,
-              ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerableType::TaggedSymbol
+              ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerableType::TaggedSymbol
             )
           REVERSAL =
             T.let(
               :reversal,
-              ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerableType::TaggedSymbol
+              ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerableType::TaggedSymbol
             )
 
           sig do
-            override
-              .returns(
-                T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerableType::TaggedSymbol]
-              )
+            override.returns(
+              T::Array[
+                ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerableType::TaggedSymbol
+              ]
+            )
           end
-          def self.values; end
+          def self.values
+          end
         end
 
         # To post a ledger transaction at creation, use `posted`.
@@ -937,36 +1114,46 @@ module ModernTreasury
           extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
-            T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::Status) }
+            T.type_alias do
+              T.all(
+                Symbol,
+                ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::Status
+              )
+            end
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           ARCHIVED =
             T.let(
               :archived,
-              ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::Status::TaggedSymbol
+              ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::Status::TaggedSymbol
             )
           PENDING =
             T.let(
               :pending,
-              ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::Status::TaggedSymbol
+              ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::Status::TaggedSymbol
             )
           POSTED =
             T.let(
               :posted,
-              ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::Status::TaggedSymbol
+              ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::Status::TaggedSymbol
             )
 
           sig do
-            override
-              .returns(
-                T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::Status::TaggedSymbol]
-              )
+            override.returns(
+              T::Array[
+                ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::Status::TaggedSymbol
+              ]
+            )
           end
-          def self.values; end
+          def self.values
+          end
         end
       end
 
       class LineItem < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         # Value in specified currency's smallest unit. e.g. $10 would be represented
         # as 1000.
         sig { returns(Integer) }
@@ -995,8 +1182,7 @@ module ModernTreasury
             accounting_category_id: T.nilable(String),
             description: T.nilable(String),
             metadata: T::Hash[Symbol, String]
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
           # Value in specified currency's smallest unit. e.g. $10 would be represented
@@ -1010,19 +1196,21 @@ module ModernTreasury
           # Additional data represented as key-value pairs. Both the key and value must be
           # strings.
           metadata: nil
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                amount: Integer,
-                accounting_category_id: T.nilable(String),
-                description: T.nilable(String),
-                metadata: T::Hash[Symbol, String]
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              amount: Integer,
+              accounting_category_id: T.nilable(String),
+              description: T.nilable(String),
+              metadata: T::Hash[Symbol, String]
+            }
+          )
+        end
+        def to_hash
+        end
       end
 
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
@@ -1032,21 +1220,46 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
-          T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::Priority) }
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::PaymentOrderCreateAsyncParams::Priority
+            )
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        HIGH = T.let(:high, ModernTreasury::Models::PaymentOrderCreateAsyncParams::Priority::TaggedSymbol)
-        NORMAL = T.let(:normal, ModernTreasury::Models::PaymentOrderCreateAsyncParams::Priority::TaggedSymbol)
+        HIGH =
+          T.let(
+            :high,
+            ModernTreasury::PaymentOrderCreateAsyncParams::Priority::TaggedSymbol
+          )
+        NORMAL =
+          T.let(
+            :normal,
+            ModernTreasury::PaymentOrderCreateAsyncParams::Priority::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::Priority::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::PaymentOrderCreateAsyncParams::Priority::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
 
       class ReceivingAccount < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         sig do
           returns(
             T.nilable(
-              T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail]
+              T::Array[
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail
+              ]
             )
           )
         end
@@ -1054,28 +1267,33 @@ module ModernTreasury
 
         sig do
           params(
-            account_details: T::Array[
-              T.any(
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail,
-                ModernTreasury::Internal::AnyHash
-              )
-            ]
-          )
-            .void
+            account_details:
+              T::Array[
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::OrHash
+              ]
+          ).void
         end
         attr_writer :account_details
 
         # Can be `checking`, `savings` or `other`.
-        sig { returns(T.nilable(ModernTreasury::Models::ExternalAccountType::OrSymbol)) }
+        sig do
+          returns(T.nilable(ModernTreasury::ExternalAccountType::OrSymbol))
+        end
         attr_reader :account_type
 
-        sig { params(account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol).void }
+        sig do
+          params(
+            account_type: ModernTreasury::ExternalAccountType::OrSymbol
+          ).void
+        end
         attr_writer :account_type
 
         sig do
           returns(
             T.nilable(
-              T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail]
+              T::Array[
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail
+              ]
             )
           )
         end
@@ -1083,14 +1301,11 @@ module ModernTreasury
 
         sig do
           params(
-            contact_details: T::Array[
-              T.any(
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail,
-                ModernTreasury::Internal::AnyHash
-              )
-            ]
-          )
-            .void
+            contact_details:
+              T::Array[
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::OrHash
+              ]
+          ).void
         end
         attr_writer :contact_details
 
@@ -1099,17 +1314,20 @@ module ModernTreasury
         # auto-ledgering Payment objects. See
         # https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
         # for more details.
-        sig { returns(T.nilable(ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount)) }
+        sig do
+          returns(
+            T.nilable(
+              ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount
+            )
+          )
+        end
         attr_reader :ledger_account
 
         sig do
           params(
-            ledger_account: T.any(
-              ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
-            .void
+            ledger_account:
+              ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount::OrHash
+          ).void
         end
         attr_writer :ledger_account
 
@@ -1127,17 +1345,20 @@ module ModernTreasury
         attr_accessor :name
 
         # Required if receiving wire payments.
-        sig { returns(T.nilable(ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyAddress)) }
+        sig do
+          returns(
+            T.nilable(
+              ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyAddress
+            )
+          )
+        end
         attr_reader :party_address
 
         sig do
           params(
-            party_address: T.any(
-              ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyAddress,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
-            .void
+            party_address:
+              ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyAddress::OrHash
+          ).void
         end
         attr_writer :party_address
 
@@ -1157,7 +1378,9 @@ module ModernTreasury
         # Either `individual` or `business`.
         sig do
           returns(
-            T.nilable(ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyType::OrSymbol)
+            T.nilable(
+              ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyType::OrSymbol
+            )
           )
         end
         attr_accessor :party_type
@@ -1173,7 +1396,9 @@ module ModernTreasury
         sig do
           returns(
             T.nilable(
-              T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail]
+              T::Array[
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail
+              ]
             )
           )
         end
@@ -1181,14 +1406,11 @@ module ModernTreasury
 
         sig do
           params(
-            routing_details: T::Array[
-              T.any(
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail,
-                ModernTreasury::Internal::AnyHash
-              )
-            ]
-          )
-            .void
+            routing_details:
+              T::Array[
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::OrHash
+              ]
+          ).void
         end
         attr_writer :routing_details
 
@@ -1197,41 +1419,33 @@ module ModernTreasury
         # internal account.
         sig do
           params(
-            account_details: T::Array[
-              T.any(
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail,
-                ModernTreasury::Internal::AnyHash
-              )
-            ],
-            account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
-            contact_details: T::Array[
-              T.any(
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail,
-                ModernTreasury::Internal::AnyHash
-              )
-            ],
-            ledger_account: T.any(
-              ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount,
-              ModernTreasury::Internal::AnyHash
-            ),
+            account_details:
+              T::Array[
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::OrHash
+              ],
+            account_type: ModernTreasury::ExternalAccountType::OrSymbol,
+            contact_details:
+              T::Array[
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::OrHash
+              ],
+            ledger_account:
+              ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount::OrHash,
             metadata: T::Hash[Symbol, String],
             name: T.nilable(String),
-            party_address: T.any(
-              ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyAddress,
-              ModernTreasury::Internal::AnyHash
-            ),
+            party_address:
+              ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyAddress::OrHash,
             party_identifier: String,
             party_name: String,
-            party_type: T.nilable(ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyType::OrSymbol),
+            party_type:
+              T.nilable(
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyType::OrSymbol
+              ),
             plaid_processor_token: String,
-            routing_details: T::Array[
-              T.any(
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail,
-                ModernTreasury::Internal::AnyHash
-              )
-            ]
-          )
-            .returns(T.attached_class)
+            routing_details:
+              T::Array[
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::OrHash
+              ]
+          ).returns(T.attached_class)
         end
         def self.new(
           account_details: nil,
@@ -1261,36 +1475,57 @@ module ModernTreasury
           # you can pass the processor token in this field.
           plaid_processor_token: nil,
           routing_details: nil
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                account_details: T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail],
-                account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
-                contact_details: T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail],
-                ledger_account: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount,
-                metadata: T::Hash[Symbol, String],
-                name: T.nilable(String),
-                party_address: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyAddress,
-                party_identifier: String,
-                party_name: String,
-                party_type: T.nilable(ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyType::OrSymbol),
-                plaid_processor_token: String,
-                routing_details: T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail]
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              account_details:
+                T::Array[
+                  ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail
+                ],
+              account_type: ModernTreasury::ExternalAccountType::OrSymbol,
+              contact_details:
+                T::Array[
+                  ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail
+                ],
+              ledger_account:
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount,
+              metadata: T::Hash[Symbol, String],
+              name: T.nilable(String),
+              party_address:
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyAddress,
+              party_identifier: String,
+              party_name: String,
+              party_type:
+                T.nilable(
+                  ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyType::OrSymbol
+                ),
+              plaid_processor_token: String,
+              routing_details:
+                T::Array[
+                  ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail
+                ]
+            }
+          )
+        end
+        def to_hash
+        end
 
         class AccountDetail < ModernTreasury::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+            end
+
           sig { returns(String) }
           attr_accessor :account_number
 
           sig do
             returns(
               T.nilable(
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::OrSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::OrSymbol
               )
             )
           end
@@ -1298,105 +1533,115 @@ module ModernTreasury
 
           sig do
             params(
-              account_number_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::OrSymbol
-            )
-              .void
+              account_number_type:
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::OrSymbol
+            ).void
           end
           attr_writer :account_number_type
 
           sig do
             params(
               account_number: String,
-              account_number_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::OrSymbol
-            )
-              .returns(T.attached_class)
+              account_number_type:
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::OrSymbol
+            ).returns(T.attached_class)
           end
-          def self.new(account_number:, account_number_type: nil); end
+          def self.new(account_number:, account_number_type: nil)
+          end
 
           sig do
-            override
-              .returns(
-                {
-                  account_number: String,
-                  account_number_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::OrSymbol
-                }
-              )
+            override.returns(
+              {
+                account_number: String,
+                account_number_type:
+                  ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::OrSymbol
+              }
+            )
           end
-          def to_hash; end
+          def to_hash
+          end
 
           module AccountNumberType
             extend ModernTreasury::Internal::Type::Enum
 
             TaggedSymbol =
               T.type_alias do
-                T.all(Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType)
+                T.all(
+                  Symbol,
+                  ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType
+                )
               end
             OrSymbol = T.type_alias { T.any(Symbol, String) }
 
             AU_NUMBER =
               T.let(
                 :au_number,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
               )
             CLABE =
               T.let(
                 :clabe,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
               )
             HK_NUMBER =
               T.let(
                 :hk_number,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
               )
             IBAN =
               T.let(
                 :iban,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
               )
             ID_NUMBER =
               T.let(
                 :id_number,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
               )
             NZ_NUMBER =
               T.let(
                 :nz_number,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
               )
             OTHER =
               T.let(
                 :other,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
               )
             PAN =
               T.let(
                 :pan,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
               )
             SG_NUMBER =
               T.let(
                 :sg_number,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
               )
             WALLET_ADDRESS =
               T.let(
                 :wallet_address,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
               )
 
             sig do
-              override
-                .returns(
-                  T::Array[
-                    ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
-                  ]
-                )
+              override.returns(
+                T::Array[
+                  ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
+                ]
+              )
             end
-            def self.values; end
+            def self.values
+            end
           end
         end
 
         class ContactDetail < ModernTreasury::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+            end
+
           sig { returns(T.nilable(String)) }
           attr_reader :contact_identifier
 
@@ -1406,7 +1651,7 @@ module ModernTreasury
           sig do
             returns(
               T.nilable(
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::ContactIdentifierType::OrSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::ContactIdentifierType::OrSymbol
               )
             )
           end
@@ -1414,70 +1659,80 @@ module ModernTreasury
 
           sig do
             params(
-              contact_identifier_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::ContactIdentifierType::OrSymbol
-            )
-              .void
+              contact_identifier_type:
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::ContactIdentifierType::OrSymbol
+            ).void
           end
           attr_writer :contact_identifier_type
 
           sig do
             params(
               contact_identifier: String,
-              contact_identifier_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::ContactIdentifierType::OrSymbol
-            )
-              .returns(T.attached_class)
+              contact_identifier_type:
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::ContactIdentifierType::OrSymbol
+            ).returns(T.attached_class)
           end
-          def self.new(contact_identifier: nil, contact_identifier_type: nil); end
+          def self.new(contact_identifier: nil, contact_identifier_type: nil)
+          end
 
           sig do
-            override
-              .returns(
-                {
-                  contact_identifier: String,
-                  contact_identifier_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::ContactIdentifierType::OrSymbol
-                }
-              )
+            override.returns(
+              {
+                contact_identifier: String,
+                contact_identifier_type:
+                  ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::ContactIdentifierType::OrSymbol
+              }
+            )
           end
-          def to_hash; end
+          def to_hash
+          end
 
           module ContactIdentifierType
             extend ModernTreasury::Internal::Type::Enum
 
             TaggedSymbol =
               T.type_alias do
-                T.all(Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::ContactIdentifierType)
+                T.all(
+                  Symbol,
+                  ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::ContactIdentifierType
+                )
               end
             OrSymbol = T.type_alias { T.any(Symbol, String) }
 
             EMAIL =
               T.let(
                 :email,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
               )
             PHONE_NUMBER =
               T.let(
                 :phone_number,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
               )
             WEBSITE =
               T.let(
                 :website,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
               )
 
             sig do
-              override
-                .returns(
-                  T::Array[
-                    ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
-                  ]
-                )
+              override.returns(
+                T::Array[
+                  ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
+                ]
+              )
             end
-            def self.values; end
+            def self.values
+            end
           end
         end
 
         class LedgerAccount < ModernTreasury::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+            end
+
           # The currency of the ledger account.
           sig { returns(String) }
           attr_accessor :currency
@@ -1491,7 +1746,7 @@ module ModernTreasury
           attr_accessor :name
 
           # The normal balance of the ledger account.
-          sig { returns(ModernTreasury::Models::TransactionDirection::OrSymbol) }
+          sig { returns(ModernTreasury::TransactionDirection::OrSymbol) }
           attr_accessor :normal_balance
 
           # The currency exponent of the ledger account.
@@ -1524,7 +1779,7 @@ module ModernTreasury
           sig do
             returns(
               T.nilable(
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount::LedgerableType::OrSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount::LedgerableType::OrSymbol
               )
             )
           end
@@ -1532,9 +1787,9 @@ module ModernTreasury
 
           sig do
             params(
-              ledgerable_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount::LedgerableType::OrSymbol
-            )
-              .void
+              ledgerable_type:
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount::LedgerableType::OrSymbol
+            ).void
           end
           attr_writer :ledgerable_type
 
@@ -1556,15 +1811,15 @@ module ModernTreasury
               currency: String,
               ledger_id: String,
               name: String,
-              normal_balance: ModernTreasury::Models::TransactionDirection::OrSymbol,
+              normal_balance: ModernTreasury::TransactionDirection::OrSymbol,
               currency_exponent: T.nilable(Integer),
               description: T.nilable(String),
               ledger_account_category_ids: T::Array[String],
               ledgerable_id: String,
-              ledgerable_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount::LedgerableType::OrSymbol,
+              ledgerable_type:
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount::LedgerableType::OrSymbol,
               metadata: T::Hash[Symbol, String]
-            )
-              .returns(T.attached_class)
+            ).returns(T.attached_class)
           end
           def self.new(
             # The currency of the ledger account.
@@ -1592,25 +1847,28 @@ module ModernTreasury
             # Additional data represented as key-value pairs. Both the key and value must be
             # strings.
             metadata: nil
-          ); end
-          sig do
-            override
-              .returns(
-                {
-                  currency: String,
-                  ledger_id: String,
-                  name: String,
-                  normal_balance: ModernTreasury::Models::TransactionDirection::OrSymbol,
-                  currency_exponent: T.nilable(Integer),
-                  description: T.nilable(String),
-                  ledger_account_category_ids: T::Array[String],
-                  ledgerable_id: String,
-                  ledgerable_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount::LedgerableType::OrSymbol,
-                  metadata: T::Hash[Symbol, String]
-                }
-              )
+          )
           end
-          def to_hash; end
+
+          sig do
+            override.returns(
+              {
+                currency: String,
+                ledger_id: String,
+                name: String,
+                normal_balance: ModernTreasury::TransactionDirection::OrSymbol,
+                currency_exponent: T.nilable(Integer),
+                description: T.nilable(String),
+                ledger_account_category_ids: T::Array[String],
+                ledgerable_id: String,
+                ledgerable_type:
+                  ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount::LedgerableType::OrSymbol,
+                metadata: T::Hash[Symbol, String]
+              }
+            )
+          end
+          def to_hash
+          end
 
           # If the ledger account links to another object in Modern Treasury, the type will
           # be populated here, otherwise null. The value is one of internal_account or
@@ -1620,44 +1878,52 @@ module ModernTreasury
 
             TaggedSymbol =
               T.type_alias do
-                T.all(Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount::LedgerableType)
+                T.all(
+                  Symbol,
+                  ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount::LedgerableType
+                )
               end
             OrSymbol = T.type_alias { T.any(Symbol, String) }
 
             COUNTERPARTY =
               T.let(
                 :counterparty,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount::LedgerableType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount::LedgerableType::TaggedSymbol
               )
             EXTERNAL_ACCOUNT =
               T.let(
                 :external_account,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount::LedgerableType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount::LedgerableType::TaggedSymbol
               )
             INTERNAL_ACCOUNT =
               T.let(
                 :internal_account,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount::LedgerableType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount::LedgerableType::TaggedSymbol
               )
             VIRTUAL_ACCOUNT =
               T.let(
                 :virtual_account,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount::LedgerableType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount::LedgerableType::TaggedSymbol
               )
 
             sig do
-              override
-                .returns(
-                  T::Array[
-                    ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount::LedgerableType::TaggedSymbol
-                  ]
-                )
+              override.returns(
+                T::Array[
+                  ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount::LedgerableType::TaggedSymbol
+                ]
+              )
             end
-            def self.values; end
+            def self.values
+            end
           end
         end
 
         class PartyAddress < ModernTreasury::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+            end
+
           # Country code conforms to [ISO 3166-1 alpha-2]
           sig { returns(T.nilable(String)) }
           attr_accessor :country
@@ -1689,8 +1955,7 @@ module ModernTreasury
               locality: T.nilable(String),
               postal_code: T.nilable(String),
               region: T.nilable(String)
-            )
-              .returns(T.attached_class)
+            ).returns(T.attached_class)
           end
           def self.new(
             # Country code conforms to [ISO 3166-1 alpha-2]
@@ -1703,21 +1968,23 @@ module ModernTreasury
             postal_code: nil,
             # Region or State.
             region: nil
-          ); end
-          sig do
-            override
-              .returns(
-                {
-                  country: T.nilable(String),
-                  line1: T.nilable(String),
-                  line2: T.nilable(String),
-                  locality: T.nilable(String),
-                  postal_code: T.nilable(String),
-                  region: T.nilable(String)
-                }
-              )
+          )
           end
-          def to_hash; end
+
+          sig do
+            override.returns(
+              {
+                country: T.nilable(String),
+                line1: T.nilable(String),
+                line2: T.nilable(String),
+                locality: T.nilable(String),
+                postal_code: T.nilable(String),
+                region: T.nilable(String)
+              }
+            )
+          end
+          def to_hash
+          end
         end
 
         # Either `individual` or `business`.
@@ -1725,36 +1992,48 @@ module ModernTreasury
           extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
-            T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyType) }
+            T.type_alias do
+              T.all(
+                Symbol,
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyType
+              )
+            end
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           BUSINESS =
             T.let(
               :business,
-              ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyType::TaggedSymbol
+              ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyType::TaggedSymbol
             )
           INDIVIDUAL =
             T.let(
               :individual,
-              ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyType::TaggedSymbol
+              ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyType::TaggedSymbol
             )
 
           sig do
-            override
-              .returns(
-                T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyType::TaggedSymbol]
-              )
+            override.returns(
+              T::Array[
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyType::TaggedSymbol
+              ]
+            )
           end
-          def self.values; end
+          def self.values
+          end
         end
 
         class RoutingDetail < ModernTreasury::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+            end
+
           sig { returns(String) }
           attr_accessor :routing_number
 
           sig do
             returns(
-              ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::OrSymbol
+              ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::OrSymbol
             )
           end
           attr_accessor :routing_number_type
@@ -1762,7 +2041,7 @@ module ModernTreasury
           sig do
             returns(
               T.nilable(
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
               )
             )
           end
@@ -1770,158 +2049,165 @@ module ModernTreasury
 
           sig do
             params(
-              payment_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
-            )
-              .void
+              payment_type:
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+            ).void
           end
           attr_writer :payment_type
 
           sig do
             params(
               routing_number: String,
-              routing_number_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::OrSymbol,
-              payment_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
-            )
-              .returns(T.attached_class)
+              routing_number_type:
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::OrSymbol,
+              payment_type:
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+            ).returns(T.attached_class)
           end
-          def self.new(routing_number:, routing_number_type:, payment_type: nil); end
+          def self.new(routing_number:, routing_number_type:, payment_type: nil)
+          end
 
           sig do
-            override
-              .returns(
-                {
-                  routing_number: String,
-                  routing_number_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::OrSymbol,
-                  payment_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
-                }
-              )
+            override.returns(
+              {
+                routing_number: String,
+                routing_number_type:
+                  ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::OrSymbol,
+                payment_type:
+                  ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+              }
+            )
           end
-          def to_hash; end
+          def to_hash
+          end
 
           module RoutingNumberType
             extend ModernTreasury::Internal::Type::Enum
 
             TaggedSymbol =
               T.type_alias do
-                T.all(Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType)
+                T.all(
+                  Symbol,
+                  ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType
+                )
               end
             OrSymbol = T.type_alias { T.any(Symbol, String) }
 
             ABA =
               T.let(
                 :aba,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             AU_BSB =
               T.let(
                 :au_bsb,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             BR_CODIGO =
               T.let(
                 :br_codigo,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             CA_CPA =
               T.let(
                 :ca_cpa,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             CHIPS =
               T.let(
                 :chips,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             CNAPS =
               T.let(
                 :cnaps,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             DK_INTERBANK_CLEARING_CODE =
               T.let(
                 :dk_interbank_clearing_code,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             GB_SORT_CODE =
               T.let(
                 :gb_sort_code,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             HK_INTERBANK_CLEARING_CODE =
               T.let(
                 :hk_interbank_clearing_code,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             HU_INTERBANK_CLEARING_CODE =
               T.let(
                 :hu_interbank_clearing_code,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             ID_SKNBI_CODE =
               T.let(
                 :id_sknbi_code,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             IN_IFSC =
               T.let(
                 :in_ifsc,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             JP_ZENGIN_CODE =
               T.let(
                 :jp_zengin_code,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             MY_BRANCH_CODE =
               T.let(
                 :my_branch_code,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             MX_BANK_IDENTIFIER =
               T.let(
                 :mx_bank_identifier,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             NZ_NATIONAL_CLEARING_CODE =
               T.let(
                 :nz_national_clearing_code,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             PL_NATIONAL_CLEARING_CODE =
               T.let(
                 :pl_national_clearing_code,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             SE_BANKGIRO_CLEARING_CODE =
               T.let(
                 :se_bankgiro_clearing_code,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             SG_INTERBANK_CLEARING_CODE =
               T.let(
                 :sg_interbank_clearing_code,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             SWIFT =
               T.let(
                 :swift,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             ZA_NATIONAL_CLEARING_CODE =
               T.let(
                 :za_national_clearing_code,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
 
             sig do
-              override
-                .returns(
-                  T::Array[
-                    ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
-                  ]
-                )
+              override.returns(
+                T::Array[
+                  ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+                ]
+              )
             end
-            def self.values; end
+            def self.values
+            end
           end
 
           module PaymentType
@@ -1929,170 +2215,173 @@ module ModernTreasury
 
             TaggedSymbol =
               T.type_alias do
-                T.all(Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType)
+                T.all(
+                  Symbol,
+                  ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType
+                )
               end
             OrSymbol = T.type_alias { T.any(Symbol, String) }
 
             ACH =
               T.let(
                 :ach,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             AU_BECS =
               T.let(
                 :au_becs,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             BACS =
               T.let(
                 :bacs,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             BOOK =
               T.let(
                 :book,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             CARD =
               T.let(
                 :card,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             CHATS =
               T.let(
                 :chats,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             CHECK =
               T.let(
                 :check,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             CROSS_BORDER =
               T.let(
                 :cross_border,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             DK_NETS =
               T.let(
                 :dk_nets,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             EFT =
               T.let(
                 :eft,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             HU_ICS =
               T.let(
                 :hu_ics,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             INTERAC =
               T.let(
                 :interac,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             MASAV =
               T.let(
                 :masav,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             MX_CCEN =
               T.let(
                 :mx_ccen,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             NEFT =
               T.let(
                 :neft,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             NICS =
               T.let(
                 :nics,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             NZ_BECS =
               T.let(
                 :nz_becs,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             PL_ELIXIR =
               T.let(
                 :pl_elixir,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             PROVXCHANGE =
               T.let(
                 :provxchange,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             RO_SENT =
               T.let(
                 :ro_sent,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             RTP =
               T.let(
                 :rtp,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             SE_BANKGIROT =
               T.let(
                 :se_bankgirot,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             SEN =
               T.let(
                 :sen,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             SEPA =
               T.let(
                 :sepa,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             SG_GIRO =
               T.let(
                 :sg_giro,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             SIC =
               T.let(
                 :sic,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             SIGNET =
               T.let(
                 :signet,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             SKNBI =
               T.let(
                 :sknbi,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             WIRE =
               T.let(
                 :wire,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             ZENGIN =
               T.let(
                 :zengin,
-                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
 
             sig do
-              override
-                .returns(
-                  T::Array[
-                    ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
-                  ]
-                )
+              override.returns(
+                T::Array[
+                  ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                ]
+              )
             end
-            def self.values; end
+            def self.values
+            end
           end
         end
       end

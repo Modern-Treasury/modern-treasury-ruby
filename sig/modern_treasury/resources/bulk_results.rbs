@@ -4,7 +4,7 @@ module ModernTreasury
       def retrieve: (
         String id,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::BulkResult
+      ) -> ModernTreasury::BulkResult
 
       def list: (
         ?after_cursor: String?,
@@ -15,7 +15,7 @@ module ModernTreasury
         ?request_type: ModernTreasury::Models::BulkResultListParams::request_type,
         ?status: ModernTreasury::Models::BulkResultListParams::status,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::BulkResult]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::BulkResult]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

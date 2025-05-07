@@ -11,13 +11,13 @@ module ModernTreasury
         ?ledger_account_category_ids: ::Array[String],
         ?metadata: ::Hash[Symbol, String],
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::LedgerAccountCategory
+      ) -> ModernTreasury::LedgerAccountCategory
 
       def retrieve: (
         String id,
-        ?balances: ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances,
+        ?balances: ModernTreasury::LedgerAccountCategoryRetrieveParams::Balances,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::LedgerAccountCategory
+      ) -> ModernTreasury::LedgerAccountCategory
 
       def update: (
         String id,
@@ -25,12 +25,12 @@ module ModernTreasury
         ?metadata: ::Hash[Symbol, String],
         ?name: String,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::LedgerAccountCategory
+      ) -> ModernTreasury::LedgerAccountCategory
 
       def list: (
         ?id: ::Array[String],
         ?after_cursor: String?,
-        ?balances: ModernTreasury::Models::LedgerAccountCategoryListParams::Balances,
+        ?balances: ModernTreasury::LedgerAccountCategoryListParams::Balances,
         ?currency: String,
         ?ledger_account_id: String,
         ?ledger_id: String,
@@ -39,12 +39,12 @@ module ModernTreasury
         ?parent_ledger_account_category_id: String,
         ?per_page: Integer,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerAccountCategory]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::LedgerAccountCategory]
 
       def delete: (
         String id,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::LedgerAccountCategory
+      ) -> ModernTreasury::LedgerAccountCategory
 
       def add_ledger_account: (
         String ledger_account_id,

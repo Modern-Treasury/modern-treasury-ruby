@@ -15,7 +15,7 @@ module ModernTreasury
     }
 
   class RequestOptions < ModernTreasury::Internal::Type::BaseModel
-    def self.validate!: (self | ::Hash[Symbol, top] opts) -> void
+    def self.validate!: (ModernTreasury::request_opts opts) -> void
 
     attr_accessor idempotency_key: String?
 

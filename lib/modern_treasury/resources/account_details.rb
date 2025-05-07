@@ -12,20 +12,19 @@ module ModernTreasury
       #
       # @param account_id [String] Path param: The ID of the account.
       #
-      # @param accounts_type [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountsType] Path param:
+      # @param accounts_type [Symbol, ModernTreasury::AccountDetailCreateParams::AccountsType] Path param:
       #
       # @param account_number [String] Body param: The account number for the bank account.
       #
-      # @param account_number_type [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType] Body param: One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if
-      # ...
+      # @param account_number_type [Symbol, ModernTreasury::AccountDetailCreateParams::AccountNumberType] Body param: One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::AccountDetail]
+      # @return [ModernTreasury::AccountDetail]
       #
       # @see ModernTreasury::Models::AccountDetailCreateParams
       def create(account_id, params)
-        parsed, options = ModernTreasury::Models::AccountDetailCreateParams.dump_request(params)
+        parsed, options = ModernTreasury::AccountDetailCreateParams.dump_request(params)
         accounts_type =
           parsed.delete(:accounts_type) do
             raise ArgumentError.new("missing required path argument #{_1}")
@@ -34,7 +33,7 @@ module ModernTreasury
           method: :post,
           path: ["api/%1$s/%2$s/account_details", accounts_type, account_id],
           body: parsed,
-          model: ModernTreasury::Models::AccountDetail,
+          model: ModernTreasury::AccountDetail,
           options: options
         )
       end
@@ -45,17 +44,17 @@ module ModernTreasury
       #
       # @param id [String] The ID of the account detail.
       #
-      # @param accounts_type [Symbol, ModernTreasury::Models::AccountsType]
+      # @param accounts_type [Symbol, ModernTreasury::AccountsType]
       #
       # @param account_id [String] The ID of the account.
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::AccountDetail]
+      # @return [ModernTreasury::AccountDetail]
       #
       # @see ModernTreasury::Models::AccountDetailRetrieveParams
       def retrieve(id, params)
-        parsed, options = ModernTreasury::Models::AccountDetailRetrieveParams.dump_request(params)
+        parsed, options = ModernTreasury::AccountDetailRetrieveParams.dump_request(params)
         accounts_type =
           parsed.delete(:accounts_type) do
             raise ArgumentError.new("missing required path argument #{_1}")
@@ -67,7 +66,7 @@ module ModernTreasury
         @client.request(
           method: :get,
           path: ["api/%1$s/%2$s/account_details/%3$s", accounts_type, account_id, id],
-          model: ModernTreasury::Models::AccountDetail,
+          model: ModernTreasury::AccountDetail,
           options: options
         )
       end
@@ -78,7 +77,7 @@ module ModernTreasury
       #
       # @param account_id [String] Path param: The ID of the account.
       #
-      # @param accounts_type [Symbol, ModernTreasury::Models::AccountsType] Path param:
+      # @param accounts_type [Symbol, ModernTreasury::AccountsType] Path param:
       #
       # @param after_cursor [String, nil] Query param:
       #
@@ -86,11 +85,11 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::AccountDetail>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::AccountDetail>]
       #
       # @see ModernTreasury::Models::AccountDetailListParams
       def list(account_id, params)
-        parsed, options = ModernTreasury::Models::AccountDetailListParams.dump_request(params)
+        parsed, options = ModernTreasury::AccountDetailListParams.dump_request(params)
         accounts_type =
           parsed.delete(:accounts_type) do
             raise ArgumentError.new("missing required path argument #{_1}")
@@ -100,7 +99,7 @@ module ModernTreasury
           path: ["api/%1$s/%2$s/account_details", accounts_type, account_id],
           query: parsed,
           page: ModernTreasury::Internal::Page,
-          model: ModernTreasury::Models::AccountDetail,
+          model: ModernTreasury::AccountDetail,
           options: options
         )
       end
@@ -111,7 +110,7 @@ module ModernTreasury
       #
       # @param id [String] The ID of the account detail.
       #
-      # @param accounts_type [Symbol, ModernTreasury::Models::AccountDetailDeleteParams::AccountsType]
+      # @param accounts_type [Symbol, ModernTreasury::AccountDetailDeleteParams::AccountsType]
       #
       # @param account_id [String] The ID of the account.
       #
@@ -121,7 +120,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::AccountDetailDeleteParams
       def delete(id, params)
-        parsed, options = ModernTreasury::Models::AccountDetailDeleteParams.dump_request(params)
+        parsed, options = ModernTreasury::AccountDetailDeleteParams.dump_request(params)
         accounts_type =
           parsed.delete(:accounts_type) do
             raise ArgumentError.new("missing required path argument #{_1}")

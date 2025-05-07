@@ -3,21 +3,23 @@
 module ModernTreasury
   module Models
     class LedgerAccountBalanceMonitor < ModernTreasury::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       sig { returns(String) }
       attr_accessor :id
 
       # Describes the condition that must be satisfied for the monitor to be triggered.
-      sig { returns(ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition) }
+      sig do
+        returns(ModernTreasury::LedgerAccountBalanceMonitor::AlertCondition)
+      end
       attr_reader :alert_condition
 
       sig do
         params(
-          alert_condition: T.any(
-            ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition,
-            ModernTreasury::Internal::AnyHash
-          )
-        )
-          .void
+          alert_condition:
+            ModernTreasury::LedgerAccountBalanceMonitor::AlertCondition::OrHash
+        ).void
       end
       attr_writer :alert_condition
 
@@ -26,17 +28,18 @@ module ModernTreasury
 
       # The ledger account's balances and the monitor state as of the current ledger
       # account lock version.
-      sig { returns(ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState) }
+      sig do
+        returns(
+          ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState
+        )
+      end
       attr_reader :current_ledger_account_balance_state
 
       sig do
         params(
-          current_ledger_account_balance_state: T.any(
-            ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
-            ModernTreasury::Internal::AnyHash
-          )
-        )
-          .void
+          current_ledger_account_balance_state:
+            ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::OrHash
+        ).void
       end
       attr_writer :current_ledger_account_balance_state
 
@@ -70,15 +73,11 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          alert_condition: T.any(
-            ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition,
-            ModernTreasury::Internal::AnyHash
-          ),
+          alert_condition:
+            ModernTreasury::LedgerAccountBalanceMonitor::AlertCondition::OrHash,
           created_at: Time,
-          current_ledger_account_balance_state: T.any(
-            ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
-            ModernTreasury::Internal::AnyHash
-          ),
+          current_ledger_account_balance_state:
+            ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::OrHash,
           description: T.nilable(String),
           discarded_at: T.nilable(Time),
           ledger_account_id: String,
@@ -86,8 +85,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           object: String,
           updated_at: Time
-        )
-          .returns(T.attached_class)
+        ).returns(T.attached_class)
       end
       def self.new(
         id:,
@@ -110,28 +108,35 @@ module ModernTreasury
         metadata:,
         object:,
         updated_at:
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: String,
-              alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition,
-              created_at: Time,
-              current_ledger_account_balance_state: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
-              description: T.nilable(String),
-              discarded_at: T.nilable(Time),
-              ledger_account_id: String,
-              live_mode: T::Boolean,
-              metadata: T::Hash[Symbol, String],
-              object: String,
-              updated_at: Time
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            alert_condition:
+              ModernTreasury::LedgerAccountBalanceMonitor::AlertCondition,
+            created_at: Time,
+            current_ledger_account_balance_state:
+              ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
+            description: T.nilable(String),
+            discarded_at: T.nilable(Time),
+            ledger_account_id: String,
+            live_mode: T::Boolean,
+            metadata: T::Hash[Symbol, String],
+            object: String,
+            updated_at: Time
+          }
+        )
+      end
+      def to_hash
+      end
 
       class AlertCondition < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         # One of `available_balance_amount`, `pending_balance_amount`,
         # `posted_balance_amount`, `ledger_account_lock_version`.
         sig { returns(String) }
@@ -150,7 +155,11 @@ module ModernTreasury
         attr_accessor :value
 
         # Describes the condition that must be satisfied for the monitor to be triggered.
-        sig { params(field: String, operator: String, value: Integer).returns(T.attached_class) }
+        sig do
+          params(field: String, operator: String, value: Integer).returns(
+            T.attached_class
+          )
+        end
         def self.new(
           # One of `available_balance_amount`, `pending_balance_amount`,
           # `posted_balance_amount`, `ledger_account_lock_version`.
@@ -163,23 +172,32 @@ module ModernTreasury
           # when comparing the `field` to this integer value using the `operator` is
           # logically true.
           value:
-        ); end
-        sig { override.returns({field: String, operator: String, value: Integer}) }
-        def to_hash; end
+        )
+        end
+
+        sig do
+          override.returns({ field: String, operator: String, value: Integer })
+        end
+        def to_hash
+        end
       end
 
       class CurrentLedgerAccountBalanceState < ModernTreasury::Internal::Type::BaseModel
-        sig { returns(ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances) }
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
+        sig do
+          returns(
+            ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances
+          )
+        end
         attr_reader :balances
 
         sig do
           params(
-            balances: T.any(
-              ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances,
-              ModernTreasury::Internal::AnyHash
-            )
-          )
-            .void
+            balances:
+              ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::OrHash
+          ).void
         end
         attr_writer :balances
 
@@ -196,14 +214,11 @@ module ModernTreasury
         # account lock version.
         sig do
           params(
-            balances: T.any(
-              ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances,
-              ModernTreasury::Internal::AnyHash
-            ),
+            balances:
+              ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::OrHash,
             ledger_account_lock_version: Integer,
             triggered: T::Boolean
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
           balances:,
@@ -212,96 +227,88 @@ module ModernTreasury
           # If `true`, the ledger account's balances satisfy the `alert_condition` at this
           # lock version.
           triggered:
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                balances: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances,
-                ledger_account_lock_version: Integer,
-                triggered: T::Boolean
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              balances:
+                ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances,
+              ledger_account_lock_version: Integer,
+              triggered: T::Boolean
+            }
+          )
+        end
+        def to_hash
+        end
 
         class Balances < ModernTreasury::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+            end
+
           # The available_balance is the sum of all posted inbound entries and pending
           # outbound entries. For credit normal, available_amount = posted_credits -
           # pending_debits; for debit normal, available_amount = posted_debits -
           # pending_credits.
           sig do
             returns(
-              ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance
+              ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance
             )
           end
           attr_reader :available_balance
 
           sig do
             params(
-              available_balance: T.any(
-                ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance,
-                ModernTreasury::Internal::AnyHash
-              )
-            )
-              .void
+              available_balance:
+                ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance::OrHash
+            ).void
           end
           attr_writer :available_balance
 
           # The pending_balance is the sum of all pending and posted entries.
           sig do
             returns(
-              ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance
+              ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance
             )
           end
           attr_reader :pending_balance
 
           sig do
             params(
-              pending_balance: T.any(
-                ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance,
-                ModernTreasury::Internal::AnyHash
-              )
-            )
-              .void
+              pending_balance:
+                ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance::OrHash
+            ).void
           end
           attr_writer :pending_balance
 
           # The posted_balance is the sum of all posted entries.
           sig do
             returns(
-              ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance
+              ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance
             )
           end
           attr_reader :posted_balance
 
           sig do
             params(
-              posted_balance: T.any(
-                ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance,
-                ModernTreasury::Internal::AnyHash
-              )
-            )
-              .void
+              posted_balance:
+                ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance::OrHash
+            ).void
           end
           attr_writer :posted_balance
 
           sig do
             params(
-              available_balance: T.any(
-                ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance,
-                ModernTreasury::Internal::AnyHash
-              ),
-              pending_balance: T.any(
-                ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance,
-                ModernTreasury::Internal::AnyHash
-              ),
-              posted_balance: T.any(
-                ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance,
-                ModernTreasury::Internal::AnyHash
-              )
-            )
-              .returns(T.attached_class)
+              available_balance:
+                ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance::OrHash,
+              pending_balance:
+                ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance::OrHash,
+              posted_balance:
+                ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance::OrHash
+            ).returns(T.attached_class)
           end
           def self.new(
             # The available_balance is the sum of all posted inbound entries and pending
@@ -313,20 +320,30 @@ module ModernTreasury
             pending_balance:,
             # The posted_balance is the sum of all posted entries.
             posted_balance:
-          ); end
-          sig do
-            override
-              .returns(
-                {
-                  available_balance: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance,
-                  pending_balance: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance,
-                  posted_balance: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance
-                }
-              )
+          )
           end
-          def to_hash; end
+
+          sig do
+            override.returns(
+              {
+                available_balance:
+                  ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance,
+                pending_balance:
+                  ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance,
+                posted_balance:
+                  ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance
+              }
+            )
+          end
+          def to_hash
+          end
 
           class AvailableBalance < ModernTreasury::Internal::Type::BaseModel
+            OrHash =
+              T.type_alias do
+                T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              end
+
             sig { returns(Integer) }
             attr_accessor :amount
 
@@ -355,8 +372,7 @@ module ModernTreasury
                 currency: String,
                 currency_exponent: Integer,
                 debits: Integer
-              )
-                .returns(T.attached_class)
+              ).returns(T.attached_class)
             end
             def self.new(
               amount:,
@@ -366,23 +382,30 @@ module ModernTreasury
               # The currency exponent of the ledger account.
               currency_exponent:,
               debits:
-            ); end
-            sig do
-              override
-                .returns(
-                  {
-                    amount: Integer,
-                    credits: Integer,
-                    currency: String,
-                    currency_exponent: Integer,
-                    debits: Integer
-                  }
-                )
+            )
             end
-            def to_hash; end
+
+            sig do
+              override.returns(
+                {
+                  amount: Integer,
+                  credits: Integer,
+                  currency: String,
+                  currency_exponent: Integer,
+                  debits: Integer
+                }
+              )
+            end
+            def to_hash
+            end
           end
 
           class PendingBalance < ModernTreasury::Internal::Type::BaseModel
+            OrHash =
+              T.type_alias do
+                T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              end
+
             sig { returns(Integer) }
             attr_accessor :amount
 
@@ -408,8 +431,7 @@ module ModernTreasury
                 currency: String,
                 currency_exponent: Integer,
                 debits: Integer
-              )
-                .returns(T.attached_class)
+              ).returns(T.attached_class)
             end
             def self.new(
               amount:,
@@ -419,23 +441,30 @@ module ModernTreasury
               # The currency exponent of the ledger account.
               currency_exponent:,
               debits:
-            ); end
-            sig do
-              override
-                .returns(
-                  {
-                    amount: Integer,
-                    credits: Integer,
-                    currency: String,
-                    currency_exponent: Integer,
-                    debits: Integer
-                  }
-                )
+            )
             end
-            def to_hash; end
+
+            sig do
+              override.returns(
+                {
+                  amount: Integer,
+                  credits: Integer,
+                  currency: String,
+                  currency_exponent: Integer,
+                  debits: Integer
+                }
+              )
+            end
+            def to_hash
+            end
           end
 
           class PostedBalance < ModernTreasury::Internal::Type::BaseModel
+            OrHash =
+              T.type_alias do
+                T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              end
+
             sig { returns(Integer) }
             attr_accessor :amount
 
@@ -461,8 +490,7 @@ module ModernTreasury
                 currency: String,
                 currency_exponent: Integer,
                 debits: Integer
-              )
-                .returns(T.attached_class)
+              ).returns(T.attached_class)
             end
             def self.new(
               amount:,
@@ -472,20 +500,22 @@ module ModernTreasury
               # The currency exponent of the ledger account.
               currency_exponent:,
               debits:
-            ); end
-            sig do
-              override
-                .returns(
-                  {
-                    amount: Integer,
-                    credits: Integer,
-                    currency: String,
-                    currency_exponent: Integer,
-                    debits: Integer
-                  }
-                )
+            )
             end
-            def to_hash; end
+
+            sig do
+              override.returns(
+                {
+                  amount: Integer,
+                  credits: Integer,
+                  currency: String,
+                  currency_exponent: Integer,
+                  debits: Integer
+                }
+              )
+            end
+            def to_hash
+            end
           end
         end
       end

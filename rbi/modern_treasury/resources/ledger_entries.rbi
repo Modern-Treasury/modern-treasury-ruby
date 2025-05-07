@@ -5,8 +5,11 @@ module ModernTreasury
     class LedgerEntries
       # Get details on a single ledger entry.
       sig do
-        params(id: String, show_balances: T::Boolean, request_options: ModernTreasury::RequestOpts)
-          .returns(ModernTreasury::Models::LedgerEntry)
+        params(
+          id: String,
+          show_balances: T::Boolean,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::LedgerEntry)
       end
       def retrieve(
         # id
@@ -15,11 +18,16 @@ module ModernTreasury
         # there is no balance available, null will be returned instead.
         show_balances: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Update the details of a ledger entry.
       sig do
-        params(id: String, metadata: T::Hash[Symbol, String], request_options: ModernTreasury::RequestOpts)
-          .returns(ModernTreasury::Models::LedgerEntry)
+        params(
+          id: String,
+          metadata: T::Hash[Symbol, String],
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::LedgerEntry)
       end
       def update(
         # id
@@ -28,14 +36,16 @@ module ModernTreasury
         # strings.
         metadata: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Get a list of all ledger entries.
       sig do
         params(
           id: T::Array[String],
           after_cursor: T.nilable(String),
           as_of_lock_version: Integer,
-          direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
+          direction: ModernTreasury::TransactionDirection::OrSymbol,
           effective_at: T::Hash[Symbol, Time],
           effective_date: T::Hash[Symbol, Date],
           ledger_account_category_id: String,
@@ -46,15 +56,14 @@ module ModernTreasury
           ledger_account_statement_id: String,
           ledger_transaction_id: String,
           metadata: T::Hash[Symbol, String],
-          order_by: T.any(ModernTreasury::Models::LedgerEntryListParams::OrderBy, ModernTreasury::Internal::AnyHash),
+          order_by: ModernTreasury::LedgerEntryListParams::OrderBy::OrHash,
           per_page: Integer,
           show_balances: T::Boolean,
           show_deleted: T::Boolean,
-          status: ModernTreasury::Models::LedgerEntryListParams::Status::OrSymbol,
+          status: ModernTreasury::LedgerEntryListParams::Status::OrSymbol,
           updated_at: T::Hash[Symbol, Time],
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerEntry])
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::Internal::Page[ModernTreasury::LedgerEntry])
       end
       def list(
         # If you have specific IDs to retrieve in bulk, you can pass them as query
@@ -112,10 +121,13 @@ module ModernTreasury
         # updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
         updated_at: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

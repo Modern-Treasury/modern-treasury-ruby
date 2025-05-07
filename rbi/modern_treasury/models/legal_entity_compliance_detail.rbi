@@ -3,6 +3,9 @@
 module ModernTreasury
   module Models
     class LegalEntityComplianceDetail < ModernTreasury::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       sig { returns(String) }
       attr_accessor :id
 
@@ -61,8 +64,7 @@ module ModernTreasury
           updated_at: Time,
           validated: T::Boolean,
           validated_at: T.nilable(Time)
-        )
-          .returns(T.attached_class)
+        ).returns(T.attached_class)
       end
       def self.new(
         id:,
@@ -85,27 +87,29 @@ module ModernTreasury
         validated:,
         # The timestamp when the entity was validated.
         validated_at:
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: String,
-              created_at: Time,
-              discarded_at: T.nilable(Time),
-              issuer: String,
-              live_mode: T::Boolean,
-              object: String,
-              token_expires_at: T.nilable(Time),
-              token_issued_at: T.nilable(Time),
-              token_url: T.nilable(String),
-              updated_at: Time,
-              validated: T::Boolean,
-              validated_at: T.nilable(Time)
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            created_at: Time,
+            discarded_at: T.nilable(Time),
+            issuer: String,
+            live_mode: T::Boolean,
+            object: String,
+            token_expires_at: T.nilable(Time),
+            token_issued_at: T.nilable(Time),
+            token_url: T.nilable(String),
+            updated_at: Time,
+            validated: T::Boolean,
+            validated_at: T.nilable(Time)
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

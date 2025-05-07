@@ -65,8 +65,8 @@ module ModernTreasury
 
       # @!attribute status
       #
-      #   @return [Symbol, ModernTreasury::Models::InvoiceListParams::Status, nil]
-      optional :status, enum: -> { ModernTreasury::Models::InvoiceListParams::Status }
+      #   @return [Symbol, ModernTreasury::InvoiceListParams::Status, nil]
+      optional :status, enum: -> { ModernTreasury::InvoiceListParams::Status }
 
       # @!method initialize(after_cursor: nil, counterparty_id: nil, due_date_end: nil, due_date_start: nil, expected_payment_id: nil, metadata: nil, number: nil, originating_account_id: nil, payment_order_id: nil, per_page: nil, status: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
@@ -83,7 +83,6 @@ module ModernTreasury
       #   @param expected_payment_id [String]
       #
       #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      #   ...
       #
       #   @param number [String] A unique record number assigned to each invoice that is issued.
       #
@@ -93,7 +92,7 @@ module ModernTreasury
       #
       #   @param per_page [Integer]
       #
-      #   @param status [Symbol, ModernTreasury::Models::InvoiceListParams::Status]
+      #   @param status [Symbol, ModernTreasury::InvoiceListParams::Status]
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 

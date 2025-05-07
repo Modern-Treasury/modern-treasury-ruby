@@ -6,6 +6,9 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       # The currency of the ledger account.
       sig { returns(String) }
       attr_accessor :currency
@@ -19,7 +22,7 @@ module ModernTreasury
       attr_accessor :name
 
       # The normal balance of the ledger account.
-      sig { returns(ModernTreasury::Models::TransactionDirection::OrSymbol) }
+      sig { returns(ModernTreasury::TransactionDirection::OrSymbol) }
       attr_accessor :normal_balance
 
       # The currency exponent of the ledger account.
@@ -49,10 +52,21 @@ module ModernTreasury
       # If the ledger account links to another object in Modern Treasury, the type will
       # be populated here, otherwise null. The value is one of internal_account or
       # external_account.
-      sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::OrSymbol)) }
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::LedgerAccountCreateParams::LedgerableType::OrSymbol
+          )
+        )
+      end
       attr_reader :ledgerable_type
 
-      sig { params(ledgerable_type: ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::OrSymbol).void }
+      sig do
+        params(
+          ledgerable_type:
+            ModernTreasury::LedgerAccountCreateParams::LedgerableType::OrSymbol
+        ).void
+      end
       attr_writer :ledgerable_type
 
       # Additional data represented as key-value pairs. Both the key and value must be
@@ -68,16 +82,16 @@ module ModernTreasury
           currency: String,
           ledger_id: String,
           name: String,
-          normal_balance: ModernTreasury::Models::TransactionDirection::OrSymbol,
+          normal_balance: ModernTreasury::TransactionDirection::OrSymbol,
           currency_exponent: T.nilable(Integer),
           description: T.nilable(String),
           ledger_account_category_ids: T::Array[String],
           ledgerable_id: String,
-          ledgerable_type: ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::OrSymbol,
+          ledgerable_type:
+            ModernTreasury::LedgerAccountCreateParams::LedgerableType::OrSymbol,
           metadata: T::Hash[Symbol, String],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # The currency of the ledger account.
@@ -106,26 +120,29 @@ module ModernTreasury
         # strings.
         metadata: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              currency: String,
-              ledger_id: String,
-              name: String,
-              normal_balance: ModernTreasury::Models::TransactionDirection::OrSymbol,
-              currency_exponent: T.nilable(Integer),
-              description: T.nilable(String),
-              ledger_account_category_ids: T::Array[String],
-              ledgerable_id: String,
-              ledgerable_type: ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::OrSymbol,
-              metadata: T::Hash[Symbol, String],
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            currency: String,
+            ledger_id: String,
+            name: String,
+            normal_balance: ModernTreasury::TransactionDirection::OrSymbol,
+            currency_exponent: T.nilable(Integer),
+            description: T.nilable(String),
+            ledger_account_category_ids: T::Array[String],
+            ledgerable_id: String,
+            ledgerable_type:
+              ModernTreasury::LedgerAccountCreateParams::LedgerableType::OrSymbol,
+            metadata: T::Hash[Symbol, String],
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
 
       # If the ledger account links to another object in Modern Treasury, the type will
       # be populated here, otherwise null. The value is one of internal_account or
@@ -134,22 +151,44 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
-          T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType) }
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::LedgerAccountCreateParams::LedgerableType
+            )
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         COUNTERPARTY =
-          T.let(:counterparty, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::TaggedSymbol)
+          T.let(
+            :counterparty,
+            ModernTreasury::LedgerAccountCreateParams::LedgerableType::TaggedSymbol
+          )
         EXTERNAL_ACCOUNT =
-          T.let(:external_account, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::TaggedSymbol)
+          T.let(
+            :external_account,
+            ModernTreasury::LedgerAccountCreateParams::LedgerableType::TaggedSymbol
+          )
         INTERNAL_ACCOUNT =
-          T.let(:internal_account, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::TaggedSymbol)
+          T.let(
+            :internal_account,
+            ModernTreasury::LedgerAccountCreateParams::LedgerableType::TaggedSymbol
+          )
         VIRTUAL_ACCOUNT =
-          T.let(:virtual_account, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::TaggedSymbol)
+          T.let(
+            :virtual_account,
+            ModernTreasury::LedgerAccountCreateParams::LedgerableType::TaggedSymbol
+          )
 
         sig do
-          override.returns(T::Array[ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::TaggedSymbol])
+          override.returns(
+            T::Array[
+              ModernTreasury::LedgerAccountCreateParams::LedgerableType::TaggedSymbol
+            ]
+          )
         end
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

@@ -11,21 +11,20 @@ module ModernTreasury
 
       # @!attribute account_details
       #
-      #   @return [Array<ModernTreasury::Models::AccountDetail>]
-      required :account_details,
-               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::AccountDetail] }
+      #   @return [Array<ModernTreasury::AccountDetail>]
+      required :account_details, -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail] }
 
       # @!attribute account_type
       #   Can be `checking`, `savings` or `other`.
       #
-      #   @return [Symbol, ModernTreasury::Models::ExternalAccountType]
-      required :account_type, enum: -> { ModernTreasury::Models::ExternalAccountType }
+      #   @return [Symbol, ModernTreasury::ExternalAccountType]
+      required :account_type, enum: -> { ModernTreasury::ExternalAccountType }
 
       # @!attribute contact_details
       #
-      #   @return [Array<ModernTreasury::Models::ExternalAccount::ContactDetail>]
+      #   @return [Array<ModernTreasury::ExternalAccount::ContactDetail>]
       required :contact_details,
-               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ExternalAccount::ContactDetail] }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ExternalAccount::ContactDetail] }
 
       # @!attribute counterparty_id
       #
@@ -78,8 +77,8 @@ module ModernTreasury
       # @!attribute party_address
       #   The address associated with the owner or `null`.
       #
-      #   @return [ModernTreasury::Models::ExternalAccount::PartyAddress, nil]
-      required :party_address, -> { ModernTreasury::Models::ExternalAccount::PartyAddress }, nil?: true
+      #   @return [ModernTreasury::ExternalAccount::PartyAddress, nil]
+      required :party_address, -> { ModernTreasury::ExternalAccount::PartyAddress }, nil?: true
 
       # @!attribute party_name
       #   The legal name of the entity which owns the account.
@@ -90,14 +89,13 @@ module ModernTreasury
       # @!attribute party_type
       #   Either `individual` or `business`.
       #
-      #   @return [Symbol, ModernTreasury::Models::ExternalAccount::PartyType, nil]
-      required :party_type, enum: -> { ModernTreasury::Models::ExternalAccount::PartyType }, nil?: true
+      #   @return [Symbol, ModernTreasury::ExternalAccount::PartyType, nil]
+      required :party_type, enum: -> { ModernTreasury::ExternalAccount::PartyType }, nil?: true
 
       # @!attribute routing_details
       #
-      #   @return [Array<ModernTreasury::Models::RoutingDetail>]
-      required :routing_details,
-               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::RoutingDetail] }
+      #   @return [Array<ModernTreasury::RoutingDetail>]
+      required :routing_details, -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail] }
 
       # @!attribute updated_at
       #
@@ -106,27 +104,27 @@ module ModernTreasury
 
       # @!attribute verification_source
       #
-      #   @return [Symbol, ModernTreasury::Models::ExternalAccount::VerificationSource, nil]
+      #   @return [Symbol, ModernTreasury::ExternalAccount::VerificationSource, nil]
       required :verification_source,
-               enum: -> { ModernTreasury::Models::ExternalAccount::VerificationSource },
+               enum: -> { ModernTreasury::ExternalAccount::VerificationSource },
                nil?: true
 
       # @!attribute verification_status
       #
-      #   @return [Symbol, ModernTreasury::Models::ExternalAccount::VerificationStatus]
-      required :verification_status, enum: -> { ModernTreasury::Models::ExternalAccount::VerificationStatus }
+      #   @return [Symbol, ModernTreasury::ExternalAccount::VerificationStatus]
+      required :verification_status, enum: -> { ModernTreasury::ExternalAccount::VerificationStatus }
 
       # @!method initialize(id:, account_details:, account_type:, contact_details:, counterparty_id:, created_at:, discarded_at:, ledger_account_id:, live_mode:, metadata:, name:, object:, party_address:, party_name:, party_type:, routing_details:, updated_at:, verification_source:, verification_status:)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::Models::ExternalAccount} for more details.
+      #   {ModernTreasury::ExternalAccount} for more details.
       #
       #   @param id [String]
       #
-      #   @param account_details [Array<ModernTreasury::Models::AccountDetail>]
+      #   @param account_details [Array<ModernTreasury::AccountDetail>]
       #
-      #   @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType] Can be `checking`, `savings` or `other`.
+      #   @param account_type [Symbol, ModernTreasury::ExternalAccountType] Can be `checking`, `savings` or `other`.
       #
-      #   @param contact_details [Array<ModernTreasury::Models::ExternalAccount::ContactDetail>]
+      #   @param contact_details [Array<ModernTreasury::ExternalAccount::ContactDetail>]
       #
       #   @param counterparty_id [String, nil]
       #
@@ -135,32 +133,28 @@ module ModernTreasury
       #   @param discarded_at [Time, nil]
       #
       #   @param ledger_account_id [String, nil] If the external account links to a ledger account in Modern Treasury, the id of
-      #   ...
       #
       #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
-      #   ...
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-      #   ...
       #
       #   @param name [String, nil] A nickname for the external account. This is only for internal usage and won't a
-      #   ...
       #
       #   @param object [String]
       #
-      #   @param party_address [ModernTreasury::Models::ExternalAccount::PartyAddress, nil] The address associated with the owner or `null`.
+      #   @param party_address [ModernTreasury::ExternalAccount::PartyAddress, nil] The address associated with the owner or `null`.
       #
       #   @param party_name [String] The legal name of the entity which owns the account.
       #
-      #   @param party_type [Symbol, ModernTreasury::Models::ExternalAccount::PartyType, nil] Either `individual` or `business`.
+      #   @param party_type [Symbol, ModernTreasury::ExternalAccount::PartyType, nil] Either `individual` or `business`.
       #
-      #   @param routing_details [Array<ModernTreasury::Models::RoutingDetail>]
+      #   @param routing_details [Array<ModernTreasury::RoutingDetail>]
       #
       #   @param updated_at [Time]
       #
-      #   @param verification_source [Symbol, ModernTreasury::Models::ExternalAccount::VerificationSource, nil]
+      #   @param verification_source [Symbol, ModernTreasury::ExternalAccount::VerificationSource, nil]
       #
-      #   @param verification_status [Symbol, ModernTreasury::Models::ExternalAccount::VerificationStatus]
+      #   @param verification_status [Symbol, ModernTreasury::ExternalAccount::VerificationStatus]
 
       class ContactDetail < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
@@ -175,9 +169,9 @@ module ModernTreasury
 
         # @!attribute contact_identifier_type
         #
-        #   @return [Symbol, ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType]
+        #   @return [Symbol, ModernTreasury::ExternalAccount::ContactDetail::ContactIdentifierType]
         required :contact_identifier_type,
-                 enum: -> { ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType }
+                 enum: -> { ModernTreasury::ExternalAccount::ContactDetail::ContactIdentifierType }
 
         # @!attribute created_at
         #
@@ -208,26 +202,25 @@ module ModernTreasury
 
         # @!method initialize(id:, contact_identifier:, contact_identifier_type:, created_at:, discarded_at:, live_mode:, object:, updated_at:)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Models::ExternalAccount::ContactDetail} for more details.
+        #   {ModernTreasury::ExternalAccount::ContactDetail} for more details.
         #
         #   @param id [String]
         #
         #   @param contact_identifier [String]
         #
-        #   @param contact_identifier_type [Symbol, ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType]
+        #   @param contact_identifier_type [Symbol, ModernTreasury::ExternalAccount::ContactDetail::ContactIdentifierType]
         #
         #   @param created_at [Time]
         #
         #   @param discarded_at [Time, nil]
         #
         #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
-        #   ...
         #
         #   @param object [String]
         #
         #   @param updated_at [Time]
 
-        # @see ModernTreasury::Models::ExternalAccount::ContactDetail#contact_identifier_type
+        # @see ModernTreasury::ExternalAccount::ContactDetail#contact_identifier_type
         module ContactIdentifierType
           extend ModernTreasury::Internal::Type::Enum
 
@@ -240,7 +233,7 @@ module ModernTreasury
         end
       end
 
-      # @see ModernTreasury::Models::ExternalAccount#party_address
+      # @see ModernTreasury::ExternalAccount#party_address
       class PartyAddress < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
         #
@@ -305,7 +298,7 @@ module ModernTreasury
 
         # @!method initialize(id:, country:, created_at:, line1:, line2:, live_mode:, locality:, object:, postal_code:, region:, updated_at:)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Models::ExternalAccount::PartyAddress} for more details.
+        #   {ModernTreasury::ExternalAccount::PartyAddress} for more details.
         #
         #   The address associated with the owner or `null`.
         #
@@ -320,7 +313,6 @@ module ModernTreasury
         #   @param line2 [String, nil]
         #
         #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
-        #   ...
         #
         #   @param locality [String, nil] Locality or City.
         #
@@ -335,7 +327,7 @@ module ModernTreasury
 
       # Either `individual` or `business`.
       #
-      # @see ModernTreasury::Models::ExternalAccount#party_type
+      # @see ModernTreasury::ExternalAccount#party_type
       module PartyType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -346,7 +338,7 @@ module ModernTreasury
         #   @return [Array<Symbol>]
       end
 
-      # @see ModernTreasury::Models::ExternalAccount#verification_source
+      # @see ModernTreasury::ExternalAccount#verification_source
       module VerificationSource
         extend ModernTreasury::Internal::Type::Enum
 
@@ -358,7 +350,7 @@ module ModernTreasury
         #   @return [Array<Symbol>]
       end
 
-      # @see ModernTreasury::Models::ExternalAccount#verification_status
+      # @see ModernTreasury::ExternalAccount#verification_status
       module VerificationStatus
         extend ModernTreasury::Internal::Type::Enum
 

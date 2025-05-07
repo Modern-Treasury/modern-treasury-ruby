@@ -17,8 +17,8 @@ module ModernTreasury
       #   Either "USD" or "CAD". Internal accounts created at Increase only supports
       #   "USD".
       #
-      #   @return [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency]
-      required :currency, enum: -> { ModernTreasury::Models::InternalAccountCreateParams::Currency }
+      #   @return [Symbol, ModernTreasury::InternalAccountCreateParams::Currency]
+      required :currency, enum: -> { ModernTreasury::InternalAccountCreateParams::Currency }
 
       # @!attribute name
       #   The nickname of the account.
@@ -53,8 +53,8 @@ module ModernTreasury
       # @!attribute party_address
       #   The address associated with the owner or null.
       #
-      #   @return [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress, nil]
-      optional :party_address, -> { ModernTreasury::Models::InternalAccountCreateParams::PartyAddress }
+      #   @return [ModernTreasury::InternalAccountCreateParams::PartyAddress, nil]
+      optional :party_address, -> { ModernTreasury::InternalAccountCreateParams::PartyAddress }
 
       # @!attribute vendor_attributes
       #   A hash of vendor specific attributes that will be used when creating the account
@@ -69,8 +69,7 @@ module ModernTreasury
       #
       #   @param connection_id [String] The identifier of the financial institution the account belongs to.
       #
-      #   @param currency [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency] Either "USD" or "CAD". Internal accounts created at Increase only supports "USD"
-      #   ...
+      #   @param currency [Symbol, ModernTreasury::InternalAccountCreateParams::Currency] Either "USD" or "CAD". Internal accounts created at Increase only supports "USD"
       #
       #   @param name [String] The nickname of the account.
       #
@@ -82,10 +81,9 @@ module ModernTreasury
       #
       #   @param parent_account_id [String] The parent internal account of this new account.
       #
-      #   @param party_address [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress] The address associated with the owner or null.
+      #   @param party_address [ModernTreasury::InternalAccountCreateParams::PartyAddress] The address associated with the owner or null.
       #
       #   @param vendor_attributes [Hash{Symbol=>String}] A hash of vendor specific attributes that will be used when creating the account
-      #   ...
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 

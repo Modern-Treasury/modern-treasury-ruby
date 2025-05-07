@@ -7,12 +7,12 @@ module ModernTreasury
         ?description: String?,
         ?metadata: ::Hash[Symbol, String],
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::LedgerableEvent
+      ) -> ModernTreasury::LedgerableEvent
 
       def retrieve: (
         String id,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::LedgerableEvent
+      ) -> ModernTreasury::LedgerableEvent
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

@@ -17,20 +17,19 @@ module ModernTreasury
       # @param description [String, nil] Description of the ledgerable event.
       #
       # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-      # ...
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::LedgerableEvent]
+      # @return [ModernTreasury::LedgerableEvent]
       #
       # @see ModernTreasury::Models::LedgerableEventCreateParams
       def create(params)
-        parsed, options = ModernTreasury::Models::LedgerableEventCreateParams.dump_request(params)
+        parsed, options = ModernTreasury::LedgerableEventCreateParams.dump_request(params)
         @client.request(
           method: :post,
           path: "api/ledgerable_events",
           body: parsed,
-          model: ModernTreasury::Models::LedgerableEvent,
+          model: ModernTreasury::LedgerableEvent,
           options: options
         )
       end
@@ -43,14 +42,14 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::LedgerableEvent]
+      # @return [ModernTreasury::LedgerableEvent]
       #
       # @see ModernTreasury::Models::LedgerableEventRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
           path: ["api/ledgerable_events/%1$s", id],
-          model: ModernTreasury::Models::LedgerableEvent,
+          model: ModernTreasury::LedgerableEvent,
           options: params[:request_options]
         )
       end

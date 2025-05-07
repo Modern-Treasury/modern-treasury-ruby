@@ -6,7 +6,14 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
-      sig { returns(ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType::OrSymbol) }
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
+      sig do
+        returns(
+          ModernTreasury::RoutingDetailDeleteParams::AccountsType::OrSymbol
+        )
+      end
       attr_accessor :accounts_type
 
       sig { returns(String) }
@@ -14,38 +21,55 @@ module ModernTreasury
 
       sig do
         params(
-          accounts_type: ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType::OrSymbol,
+          accounts_type:
+            ModernTreasury::RoutingDetailDeleteParams::AccountsType::OrSymbol,
           account_id: String,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
-      def self.new(accounts_type:, account_id:, request_options: {}); end
+      def self.new(accounts_type:, account_id:, request_options: {})
+      end
 
       sig do
-        override
-          .returns(
-            {
-              accounts_type: ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType::OrSymbol,
-              account_id: String,
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+        override.returns(
+          {
+            accounts_type:
+              ModernTreasury::RoutingDetailDeleteParams::AccountsType::OrSymbol,
+            account_id: String,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       module AccountsType
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
-          T.type_alias { T.all(Symbol, ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType) }
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::RoutingDetailDeleteParams::AccountsType
+            )
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         EXTERNAL_ACCOUNTS =
-          T.let(:external_accounts, ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType::TaggedSymbol)
+          T.let(
+            :external_accounts,
+            ModernTreasury::RoutingDetailDeleteParams::AccountsType::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::RoutingDetailDeleteParams::AccountsType::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
     end
   end

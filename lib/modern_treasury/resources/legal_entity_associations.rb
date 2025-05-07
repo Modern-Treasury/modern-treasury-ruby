@@ -11,11 +11,10 @@ module ModernTreasury
       # @overload create(parent_legal_entity_id:, relationship_types:, child_legal_entity: nil, child_legal_entity_id: nil, ownership_percentage: nil, title: nil, request_options: {})
       #
       # @param parent_legal_entity_id [String] The ID of the parent legal entity. This must be a business or joint legal entity
-      # ...
       #
-      # @param relationship_types [Array<Symbol, ModernTreasury::Models::LegalEntityAssociationCreateParams::RelationshipType>]
+      # @param relationship_types [Array<Symbol, ModernTreasury::LegalEntityAssociationCreateParams::RelationshipType>]
       #
-      # @param child_legal_entity [ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity] The child legal entity.
+      # @param child_legal_entity [ModernTreasury::LegalEntityAssociationCreateParams::ChildLegalEntity] The child legal entity.
       #
       # @param child_legal_entity_id [String] The ID of the child legal entity.
       #
@@ -25,16 +24,16 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::LegalEntityAssociation]
+      # @return [ModernTreasury::LegalEntityAssociation]
       #
       # @see ModernTreasury::Models::LegalEntityAssociationCreateParams
       def create(params)
-        parsed, options = ModernTreasury::Models::LegalEntityAssociationCreateParams.dump_request(params)
+        parsed, options = ModernTreasury::LegalEntityAssociationCreateParams.dump_request(params)
         @client.request(
           method: :post,
           path: "api/legal_entity_associations",
           body: parsed,
-          model: ModernTreasury::Models::LegalEntityAssociation,
+          model: ModernTreasury::LegalEntityAssociation,
           options: options
         )
       end

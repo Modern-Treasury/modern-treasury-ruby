@@ -67,9 +67,8 @@ module ModernTreasury
 
       # @!attribute ledgerable_type
       #
-      #   @return [Symbol, ModernTreasury::Models::LedgerTransactionListParams::LedgerableType, nil]
-      optional :ledgerable_type,
-               enum: -> { ModernTreasury::Models::LedgerTransactionListParams::LedgerableType }
+      #   @return [Symbol, ModernTreasury::LedgerTransactionListParams::LedgerableType, nil]
+      optional :ledgerable_type, enum: -> { ModernTreasury::LedgerTransactionListParams::LedgerableType }
 
       # @!attribute metadata
       #   For example, if you want to query for records with metadata key `Type` and value
@@ -84,8 +83,8 @@ module ModernTreasury
       #   to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering
       #   by only one field at a time is supported.
       #
-      #   @return [ModernTreasury::Models::LedgerTransactionListParams::OrderBy, nil]
-      optional :order_by, -> { ModernTreasury::Models::LedgerTransactionListParams::OrderBy }
+      #   @return [ModernTreasury::LedgerTransactionListParams::OrderBy, nil]
+      optional :order_by, -> { ModernTreasury::LedgerTransactionListParams::OrderBy }
 
       # @!attribute partially_posts_ledger_transaction_id
       #
@@ -112,8 +111,8 @@ module ModernTreasury
 
       # @!attribute status
       #
-      #   @return [Symbol, ModernTreasury::Models::LedgerTransactionListParams::Status, nil]
-      optional :status, enum: -> { ModernTreasury::Models::LedgerTransactionListParams::Status }
+      #   @return [Symbol, ModernTreasury::LedgerTransactionListParams::Status, nil]
+      optional :status, enum: -> { ModernTreasury::LedgerTransactionListParams::Status }
 
       # @!attribute updated_at
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
@@ -128,15 +127,12 @@ module ModernTreasury
       #   {ModernTreasury::Models::LedgerTransactionListParams} for more details.
       #
       #   @param id [Array<String>] If you have specific IDs to retrieve in bulk, you can pass them as query paramet
-      #   ...
       #
       #   @param after_cursor [String, nil]
       #
       #   @param effective_at [Hash{Symbol=>Time}] Use "gt" (>), "gte" (>=), "lt" (<), "lte" (<=), or "eq" (=) to filter by effecti
-      #   ...
       #
       #   @param effective_date [Hash{Symbol=>Time}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by effecti
-      #   ...
       #
       #   @param external_id [String]
       #
@@ -150,27 +146,23 @@ module ModernTreasury
       #
       #   @param ledgerable_id [String]
       #
-      #   @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerTransactionListParams::LedgerableType]
+      #   @param ledgerable_type [Symbol, ModernTreasury::LedgerTransactionListParams::LedgerableType]
       #
       #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      #   ...
       #
-      #   @param order_by [ModernTreasury::Models::LedgerTransactionListParams::OrderBy] Order by `created_at` or `effective_at` in `asc` or `desc` order. For example, t
-      #   ...
+      #   @param order_by [ModernTreasury::LedgerTransactionListParams::OrderBy] Order by `created_at` or `effective_at` in `asc` or `desc` order. For example, t
       #
       #   @param partially_posts_ledger_transaction_id [String]
       #
       #   @param per_page [Integer]
       #
       #   @param posted_at [Hash{Symbol=>Time}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the pos
-      #   ...
       #
       #   @param reverses_ledger_transaction_id [String]
       #
-      #   @param status [Symbol, ModernTreasury::Models::LedgerTransactionListParams::Status]
+      #   @param status [Symbol, ModernTreasury::LedgerTransactionListParams::Status]
       #
       #   @param updated_at [Hash{Symbol=>Time}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the pos
-      #   ...
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
@@ -191,24 +183,23 @@ module ModernTreasury
       class OrderBy < ModernTreasury::Internal::Type::BaseModel
         # @!attribute created_at
         #
-        #   @return [Symbol, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::CreatedAt, nil]
-        optional :created_at, enum: -> { ModernTreasury::Models::LedgerTransactionListParams::OrderBy::CreatedAt }
+        #   @return [Symbol, ModernTreasury::LedgerTransactionListParams::OrderBy::CreatedAt, nil]
+        optional :created_at, enum: -> { ModernTreasury::LedgerTransactionListParams::OrderBy::CreatedAt }
 
         # @!attribute effective_at
         #
-        #   @return [Symbol, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::EffectiveAt, nil]
-        optional :effective_at,
-                 enum: -> { ModernTreasury::Models::LedgerTransactionListParams::OrderBy::EffectiveAt }
+        #   @return [Symbol, ModernTreasury::LedgerTransactionListParams::OrderBy::EffectiveAt, nil]
+        optional :effective_at, enum: -> { ModernTreasury::LedgerTransactionListParams::OrderBy::EffectiveAt }
 
         # @!method initialize(created_at: nil, effective_at: nil)
         #   Order by `created_at` or `effective_at` in `asc` or `desc` order. For example,
         #   to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering
         #   by only one field at a time is supported.
         #
-        #   @param created_at [Symbol, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::CreatedAt]
-        #   @param effective_at [Symbol, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::EffectiveAt]
+        #   @param created_at [Symbol, ModernTreasury::LedgerTransactionListParams::OrderBy::CreatedAt]
+        #   @param effective_at [Symbol, ModernTreasury::LedgerTransactionListParams::OrderBy::EffectiveAt]
 
-        # @see ModernTreasury::Models::LedgerTransactionListParams::OrderBy#created_at
+        # @see ModernTreasury::LedgerTransactionListParams::OrderBy#created_at
         module CreatedAt
           extend ModernTreasury::Internal::Type::Enum
 
@@ -219,7 +210,7 @@ module ModernTreasury
           #   @return [Array<Symbol>]
         end
 
-        # @see ModernTreasury::Models::LedgerTransactionListParams::OrderBy#effective_at
+        # @see ModernTreasury::LedgerTransactionListParams::OrderBy#effective_at
         module EffectiveAt
           extend ModernTreasury::Internal::Type::Enum
 

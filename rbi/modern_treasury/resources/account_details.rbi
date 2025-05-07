@@ -7,12 +7,13 @@ module ModernTreasury
       sig do
         params(
           account_id: String,
-          accounts_type: ModernTreasury::Models::AccountDetailCreateParams::AccountsType::OrSymbol,
+          accounts_type:
+            ModernTreasury::AccountDetailCreateParams::AccountsType::OrSymbol,
           account_number: String,
-          account_number_type: ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol,
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::AccountDetail)
+          account_number_type:
+            ModernTreasury::AccountDetailCreateParams::AccountNumberType::OrSymbol,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::AccountDetail)
       end
       def create(
         # Path param: The ID of the account.
@@ -25,16 +26,17 @@ module ModernTreasury
         # the bank account number is in a generic format.
         account_number_type: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Get a single account detail for a single internal or external account.
       sig do
         params(
           id: String,
-          accounts_type: ModernTreasury::Models::AccountsType::OrSymbol,
+          accounts_type: ModernTreasury::AccountsType::OrSymbol,
           account_id: String,
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::AccountDetail)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::AccountDetail)
       end
       def retrieve(
         # The ID of the account detail.
@@ -43,17 +45,18 @@ module ModernTreasury
         # The ID of the account.
         account_id:,
         request_options: {}
-      ); end
+      )
+      end
+
       # Get a list of account details for a single internal or external account.
       sig do
         params(
           account_id: String,
-          accounts_type: ModernTreasury::Models::AccountsType::OrSymbol,
+          accounts_type: ModernTreasury::AccountsType::OrSymbol,
           after_cursor: T.nilable(String),
           per_page: Integer,
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::AccountDetail])
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::Internal::Page[ModernTreasury::AccountDetail])
       end
       def list(
         # Path param: The ID of the account.
@@ -65,16 +68,18 @@ module ModernTreasury
         # Query param:
         per_page: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Delete a single account detail for an external account.
       sig do
         params(
           id: String,
-          accounts_type: ModernTreasury::Models::AccountDetailDeleteParams::AccountsType::OrSymbol,
+          accounts_type:
+            ModernTreasury::AccountDetailDeleteParams::AccountsType::OrSymbol,
           account_id: String,
-          request_options: ModernTreasury::RequestOpts
-        )
-          .void
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).void
       end
       def delete(
         # The ID of the account detail.
@@ -83,10 +88,13 @@ module ModernTreasury
         # The ID of the account.
         account_id:,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

@@ -19,8 +19,8 @@ module ModernTreasury
       # @!attribute code
       #   The return code. For ACH returns, this is the required ACH return code.
       #
-      #   @return [Symbol, ModernTreasury::Models::ReturnObject::Code, nil]
-      required :code, enum: -> { ModernTreasury::Models::ReturnObject::Code }, nil?: true
+      #   @return [Symbol, ModernTreasury::ReturnObject::Code, nil]
+      required :code, enum: -> { ModernTreasury::ReturnObject::Code }, nil?: true
 
       # @!attribute created_at
       #
@@ -30,15 +30,15 @@ module ModernTreasury
       # @!attribute currency
       #   Currency that this transaction is denominated in.
       #
-      #   @return [Symbol, ModernTreasury::Models::Currency]
-      required :currency, enum: -> { ModernTreasury::Models::Currency }
+      #   @return [Symbol, ModernTreasury::Currency]
+      required :currency, enum: -> { ModernTreasury::Currency }
 
       # @!attribute current_return
       #   If the return's status is `returned`, this will include the return object's data
       #   that is returning this return.
       #
-      #   @return [ModernTreasury::Models::ReturnObject, nil]
-      required :current_return, -> { ModernTreasury::Models::ReturnObject }, nil?: true
+      #   @return [ModernTreasury::ReturnObject, nil]
+      required :current_return, -> { ModernTreasury::ReturnObject }, nil?: true
 
       # @!attribute date_of_death
       #   If the return code is `R14` or `R15` this is the date the deceased counterparty
@@ -88,9 +88,9 @@ module ModernTreasury
       # @!attribute reference_numbers
       #   An array of Payment Reference objects.
       #
-      #   @return [Array<ModernTreasury::Models::ReturnObject::ReferenceNumber>]
+      #   @return [Array<ModernTreasury::ReturnObject::ReferenceNumber>]
       required :reference_numbers,
-               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ReturnObject::ReferenceNumber] }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ReturnObject::ReferenceNumber] }
 
       # @!attribute returnable_id
       #   The ID of the object being returned or `null`.
@@ -101,20 +101,20 @@ module ModernTreasury
       # @!attribute returnable_type
       #   The type of object being returned or `null`.
       #
-      #   @return [Symbol, ModernTreasury::Models::ReturnObject::ReturnableType, nil]
-      required :returnable_type, enum: -> { ModernTreasury::Models::ReturnObject::ReturnableType }, nil?: true
+      #   @return [Symbol, ModernTreasury::ReturnObject::ReturnableType, nil]
+      required :returnable_type, enum: -> { ModernTreasury::ReturnObject::ReturnableType }, nil?: true
 
       # @!attribute role
       #   The role of the return, can be `originating` or `receiving`.
       #
-      #   @return [Symbol, ModernTreasury::Models::ReturnObject::Role]
-      required :role, enum: -> { ModernTreasury::Models::ReturnObject::Role }
+      #   @return [Symbol, ModernTreasury::ReturnObject::Role]
+      required :role, enum: -> { ModernTreasury::ReturnObject::Role }
 
       # @!attribute status
       #   The current status of the return.
       #
-      #   @return [Symbol, ModernTreasury::Models::ReturnObject::Status]
-      required :status, enum: -> { ModernTreasury::Models::ReturnObject::Status }
+      #   @return [Symbol, ModernTreasury::ReturnObject::Status]
+      required :status, enum: -> { ModernTreasury::ReturnObject::Status }
 
       # @!attribute transaction_id
       #   The ID of the relevant Transaction or `null`.
@@ -132,8 +132,8 @@ module ModernTreasury
       #   The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`,
       #   `interac`, `manual`, `paper_item`, `wire`.
       #
-      #   @return [Symbol, ModernTreasury::Models::ReturnObject::Type]
-      required :type, enum: -> { ModernTreasury::Models::ReturnObject::Type }
+      #   @return [Symbol, ModernTreasury::ReturnObject::Type]
+      required :type, enum: -> { ModernTreasury::ReturnObject::Type }
 
       # @!attribute updated_at
       #
@@ -155,67 +155,59 @@ module ModernTreasury
 
       # @!method initialize(id:, amount:, code:, created_at:, currency:, current_return:, date_of_death:, failure_reason:, internal_account_id:, ledger_transaction_id:, live_mode:, object:, reason:, reference_numbers:, returnable_id:, returnable_type:, role:, status:, transaction_id:, transaction_line_item_id:, type:, updated_at:, additional_information: nil, data: nil)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::Models::ReturnObject} for more details.
+      #   {ModernTreasury::ReturnObject} for more details.
       #
       #   @param id [String]
       #
       #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
-      #   ...
       #
-      #   @param code [Symbol, ModernTreasury::Models::ReturnObject::Code, nil] The return code. For ACH returns, this is the required ACH return code.
+      #   @param code [Symbol, ModernTreasury::ReturnObject::Code, nil] The return code. For ACH returns, this is the required ACH return code.
       #
       #   @param created_at [Time]
       #
-      #   @param currency [Symbol, ModernTreasury::Models::Currency] Currency that this transaction is denominated in.
+      #   @param currency [Symbol, ModernTreasury::Currency] Currency that this transaction is denominated in.
       #
-      #   @param current_return [ModernTreasury::Models::ReturnObject, nil] If the return's status is `returned`, this will include the return object's data
-      #   ...
+      #   @param current_return [ModernTreasury::ReturnObject, nil] If the return's status is `returned`, this will include the return object's data
       #
       #   @param date_of_death [Date, nil] If the return code is `R14` or `R15` this is the date the deceased counterparty
-      #   ...
       #
       #   @param failure_reason [String, nil] If an originating return failed to be processed by the bank, a description of th
-      #   ...
       #
       #   @param internal_account_id [String, nil] The ID of the relevant Internal Account.
       #
       #   @param ledger_transaction_id [String, nil] The ID of the ledger transaction linked to the return.
       #
       #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
-      #   ...
       #
       #   @param object [String]
       #
       #   @param reason [String, nil] Often the bank will provide an explanation for the return, which is a short huma
-      #   ...
       #
-      #   @param reference_numbers [Array<ModernTreasury::Models::ReturnObject::ReferenceNumber>] An array of Payment Reference objects.
+      #   @param reference_numbers [Array<ModernTreasury::ReturnObject::ReferenceNumber>] An array of Payment Reference objects.
       #
       #   @param returnable_id [String, nil] The ID of the object being returned or `null`.
       #
-      #   @param returnable_type [Symbol, ModernTreasury::Models::ReturnObject::ReturnableType, nil] The type of object being returned or `null`.
+      #   @param returnable_type [Symbol, ModernTreasury::ReturnObject::ReturnableType, nil] The type of object being returned or `null`.
       #
-      #   @param role [Symbol, ModernTreasury::Models::ReturnObject::Role] The role of the return, can be `originating` or `receiving`.
+      #   @param role [Symbol, ModernTreasury::ReturnObject::Role] The role of the return, can be `originating` or `receiving`.
       #
-      #   @param status [Symbol, ModernTreasury::Models::ReturnObject::Status] The current status of the return.
+      #   @param status [Symbol, ModernTreasury::ReturnObject::Status] The current status of the return.
       #
       #   @param transaction_id [String, nil] The ID of the relevant Transaction or `null`.
       #
       #   @param transaction_line_item_id [String, nil] The ID of the relevant Transaction Line Item or `null`.
       #
-      #   @param type [Symbol, ModernTreasury::Models::ReturnObject::Type] The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`, `
-      #   ...
+      #   @param type [Symbol, ModernTreasury::ReturnObject::Type] The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`, `
       #
       #   @param updated_at [Time]
       #
       #   @param additional_information [String, nil] Some returns may include additional information from the bank. In these cases, t
-      #   ...
       #
       #   @param data [Object, nil] The raw data from the return file that we get from the bank.
 
       # The return code. For ACH returns, this is the required ACH return code.
       #
-      # @see ModernTreasury::Models::ReturnObject#code
+      # @see ModernTreasury::ReturnObject#code
       module Code
         extend ModernTreasury::Internal::Type::Enum
 
@@ -309,9 +301,9 @@ module ModernTreasury
         # @!attribute reference_number_type
         #   The type of the reference number. Referring to the vendor payment id.
         #
-        #   @return [Symbol, ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType]
+        #   @return [Symbol, ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType]
         required :reference_number_type,
-                 enum: -> { ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType }
+                 enum: -> { ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType }
 
         # @!attribute updated_at
         #
@@ -320,26 +312,25 @@ module ModernTreasury
 
         # @!method initialize(id:, created_at:, live_mode:, object:, reference_number:, reference_number_type:, updated_at:)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Models::ReturnObject::ReferenceNumber} for more details.
+        #   {ModernTreasury::ReturnObject::ReferenceNumber} for more details.
         #
         #   @param id [String]
         #
         #   @param created_at [Time]
         #
         #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
-        #   ...
         #
         #   @param object [String]
         #
         #   @param reference_number [String] The vendor reference number.
         #
-        #   @param reference_number_type [Symbol, ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType] The type of the reference number. Referring to the vendor payment id.
+        #   @param reference_number_type [Symbol, ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType] The type of the reference number. Referring to the vendor payment id.
         #
         #   @param updated_at [Time]
 
         # The type of the reference number. Referring to the vendor payment id.
         #
-        # @see ModernTreasury::Models::ReturnObject::ReferenceNumber#reference_number_type
+        # @see ModernTreasury::ReturnObject::ReferenceNumber#reference_number_type
         module ReferenceNumberType
           extend ModernTreasury::Internal::Type::Enum
 
@@ -426,7 +417,7 @@ module ModernTreasury
 
       # The type of object being returned or `null`.
       #
-      # @see ModernTreasury::Models::ReturnObject#returnable_type
+      # @see ModernTreasury::ReturnObject#returnable_type
       module ReturnableType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -442,7 +433,7 @@ module ModernTreasury
 
       # The role of the return, can be `originating` or `receiving`.
       #
-      # @see ModernTreasury::Models::ReturnObject#role
+      # @see ModernTreasury::ReturnObject#role
       module Role
         extend ModernTreasury::Internal::Type::Enum
 
@@ -455,7 +446,7 @@ module ModernTreasury
 
       # The current status of the return.
       #
-      # @see ModernTreasury::Models::ReturnObject#status
+      # @see ModernTreasury::ReturnObject#status
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
@@ -473,7 +464,7 @@ module ModernTreasury
       # The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`,
       # `interac`, `manual`, `paper_item`, `wire`.
       #
-      # @see ModernTreasury::Models::ReturnObject#type
+      # @see ModernTreasury::ReturnObject#type
       module Type
         extend ModernTreasury::Internal::Type::Enum
 

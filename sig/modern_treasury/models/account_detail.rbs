@@ -4,7 +4,7 @@ module ModernTreasury
       {
         id: String,
         account_number_safe: String,
-        account_number_type: ModernTreasury::Models::AccountDetail::account_number_type,
+        account_number_type: ModernTreasury::AccountDetail::account_number_type,
         created_at: Time,
         discarded_at: Time?,
         live_mode: bool,
@@ -18,7 +18,7 @@ module ModernTreasury
 
       attr_accessor account_number_safe: String
 
-      attr_accessor account_number_type: ModernTreasury::Models::AccountDetail::account_number_type
+      attr_accessor account_number_type: ModernTreasury::AccountDetail::account_number_type
 
       attr_accessor created_at: Time
 
@@ -37,7 +37,7 @@ module ModernTreasury
       def initialize: (
         id: String,
         account_number_safe: String,
-        account_number_type: ModernTreasury::Models::AccountDetail::account_number_type,
+        account_number_type: ModernTreasury::AccountDetail::account_number_type,
         created_at: Time,
         discarded_at: Time?,
         live_mode: bool,
@@ -45,8 +45,6 @@ module ModernTreasury
         updated_at: Time,
         ?account_number: String
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::account_detail
 
       type account_number_type =
         :au_number
@@ -74,7 +72,7 @@ module ModernTreasury
         SG_NUMBER: :sg_number
         WALLET_ADDRESS: :wallet_address
 
-        def self?.values: -> ::Array[ModernTreasury::Models::AccountDetail::account_number_type]
+        def self?.values: -> ::Array[ModernTreasury::AccountDetail::account_number_type]
       end
     end
   end

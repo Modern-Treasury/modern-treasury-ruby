@@ -10,7 +10,7 @@ module ModernTreasury
           ?per_page: Integer,
           ?version: ::Hash[Symbol, Integer],
           ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion]
+        ) -> ModernTreasury::Internal::Page[ModernTreasury::LedgerTransactions::LedgerTransactionVersion]
 
         def initialize: (client: ModernTreasury::Client) -> void
       end

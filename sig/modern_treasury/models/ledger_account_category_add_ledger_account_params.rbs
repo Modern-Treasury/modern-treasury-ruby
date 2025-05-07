@@ -13,8 +13,6 @@ module ModernTreasury
         id: String,
         ?request_options: ModernTreasury::request_opts
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::ledger_account_category_add_ledger_account_params
     end
   end
 end

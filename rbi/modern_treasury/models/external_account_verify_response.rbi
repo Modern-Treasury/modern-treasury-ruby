@@ -5,7 +5,18 @@ module ModernTreasury
     module ExternalAccountVerifyResponse
       extend ModernTreasury::Internal::Type::Union
 
+      Variants =
+        T.type_alias do
+          T.any(
+            ModernTreasury::ExternalAccount,
+            ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt
+          )
+        end
+
       class ExternalAccountVerificationAttempt < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         sig { returns(String) }
         attr_accessor :id
 
@@ -67,14 +78,16 @@ module ModernTreasury
             live_mode: T::Boolean,
             object: String,
             originating_account_id: String,
-            payment_type: ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::OrSymbol,
-            priority: T.nilable(
-              ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority::OrSymbol
-            ),
-            status: ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status::OrSymbol,
+            payment_type:
+              ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::OrSymbol,
+            priority:
+              T.nilable(
+                ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority::OrSymbol
+              ),
+            status:
+              ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status::OrSymbol,
             updated_at: Time
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
           id:,
@@ -96,27 +109,32 @@ module ModernTreasury
           # `verified`, `failed`, or `cancelled`.
           status:,
           updated_at:
-        ); end
+        )
+        end
+
         sig do
-          override
-            .returns(
-              {
-                id: String,
-                created_at: Time,
-                external_account_id: String,
-                live_mode: T::Boolean,
-                object: String,
-                originating_account_id: String,
-                payment_type: ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::TaggedSymbol,
-                priority: T.nilable(
+          override.returns(
+            {
+              id: String,
+              created_at: Time,
+              external_account_id: String,
+              live_mode: T::Boolean,
+              object: String,
+              originating_account_id: String,
+              payment_type:
+                ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::TaggedSymbol,
+              priority:
+                T.nilable(
                   ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority::TaggedSymbol
                 ),
-                status: ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status::TaggedSymbol,
-                updated_at: Time
-              }
-            )
+              status:
+                ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status::TaggedSymbol,
+              updated_at: Time
+            }
+          )
         end
-        def to_hash; end
+        def to_hash
+        end
 
         # The type of payment that can be made to this account. Can be `ach`, `eft`, or
         # `rtp`.
@@ -125,7 +143,10 @@ module ModernTreasury
 
           TaggedSymbol =
             T.type_alias do
-              T.all(Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType)
+              T.all(
+                Symbol,
+                ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType
+              )
             end
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
@@ -281,14 +302,14 @@ module ModernTreasury
             )
 
           sig do
-            override
-              .returns(
-                T::Array[
-                  ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::TaggedSymbol
-                ]
-              )
+            override.returns(
+              T::Array[
+                ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::TaggedSymbol
+              ]
+            )
           end
-          def self.values; end
+          def self.values
+          end
         end
 
         # The priority of the payment. Can be `normal` or `high`.
@@ -297,7 +318,10 @@ module ModernTreasury
 
           TaggedSymbol =
             T.type_alias do
-              T.all(Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority)
+              T.all(
+                Symbol,
+                ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority
+              )
             end
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
@@ -313,14 +337,14 @@ module ModernTreasury
             )
 
           sig do
-            override
-              .returns(
-                T::Array[
-                  ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority::TaggedSymbol
-                ]
-              )
+            override.returns(
+              T::Array[
+                ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority::TaggedSymbol
+              ]
+            )
           end
-          def self.values; end
+          def self.values
+          end
         end
 
         # The status of the verification attempt. Can be `pending_verification`,
@@ -330,7 +354,10 @@ module ModernTreasury
 
           TaggedSymbol =
             T.type_alias do
-              T.all(Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status)
+              T.all(
+                Symbol,
+                ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status
+              )
             end
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
@@ -356,24 +383,26 @@ module ModernTreasury
             )
 
           sig do
-            override
-              .returns(
-                T::Array[
-                  ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status::TaggedSymbol
-                ]
-              )
+            override.returns(
+              T::Array[
+                ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status::TaggedSymbol
+              ]
+            )
           end
-          def self.values; end
+          def self.values
+          end
         end
       end
 
       sig do
-        override
-          .returns(
-            [ModernTreasury::Models::ExternalAccount, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt]
-          )
+        override.returns(
+          T::Array[
+            ModernTreasury::Models::ExternalAccountVerifyResponse::Variants
+          ]
+        )
       end
-      def self.variants; end
+      def self.variants
+      end
     end
   end
 end

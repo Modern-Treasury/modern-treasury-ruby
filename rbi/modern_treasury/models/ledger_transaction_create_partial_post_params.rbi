@@ -6,10 +6,19 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       # An array of ledger entry objects to be set on the posted ledger transaction.
       # There must be one entry for each of the existing entries with a lesser amount
       # than the existing entry.
-      sig { returns(T::Array[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry]) }
+      sig do
+        returns(
+          T::Array[
+            ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry
+          ]
+        )
+      end
       attr_accessor :posted_ledger_entries
 
       # An optional free-form description for the posted ledger transaction. Maximum of
@@ -38,18 +47,15 @@ module ModernTreasury
 
       sig do
         params(
-          posted_ledger_entries: T::Array[
-            T.any(
-              ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry,
-              ModernTreasury::Internal::AnyHash
-            )
-          ],
+          posted_ledger_entries:
+            T::Array[
+              ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::OrHash
+            ],
           description: String,
           effective_at: Time,
           metadata: T::Hash[Symbol, String],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # An array of ledger entry objects to be set on the posted ledger transaction.
@@ -66,22 +72,30 @@ module ModernTreasury
         # strings.
         metadata: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              posted_ledger_entries: T::Array[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry],
-              description: String,
-              effective_at: Time,
-              metadata: T::Hash[Symbol, String],
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            posted_ledger_entries:
+              T::Array[
+                ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry
+              ],
+            description: String,
+            effective_at: Time,
+            metadata: T::Hash[Symbol, String],
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
 
       class PostedLedgerEntry < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         # Value in specified currency's smallest unit. e.g. $10 would be represented
         # as 1000. Can be any integer up to 36 digits.
         sig { returns(Integer) }
@@ -93,7 +107,7 @@ module ModernTreasury
         # rtp, and check payments will always be `credit`.
         sig do
           returns(
-            ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::OrSymbol
+            ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::OrSymbol
           )
         end
         attr_accessor :direction
@@ -113,11 +127,11 @@ module ModernTreasury
         sig do
           params(
             amount: Integer,
-            direction: ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::OrSymbol,
+            direction:
+              ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::OrSymbol,
             ledger_account_id: String,
             metadata: T::Hash[Symbol, String]
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
           # Value in specified currency's smallest unit. e.g. $10 would be represented
@@ -133,19 +147,22 @@ module ModernTreasury
           # Additional data represented as key-value pairs. Both the key and value must be
           # strings.
           metadata: nil
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                amount: Integer,
-                direction: ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::OrSymbol,
-                ledger_account_id: String,
-                metadata: T::Hash[Symbol, String]
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              amount: Integer,
+              direction:
+                ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::OrSymbol,
+              ledger_account_id: String,
+              metadata: T::Hash[Symbol, String]
+            }
+          )
+        end
+        def to_hash
+        end
 
         # One of `credit`, `debit`. Describes the direction money is flowing in the
         # transaction. A `credit` moves money from your account to someone else's. A
@@ -156,30 +173,33 @@ module ModernTreasury
 
           TaggedSymbol =
             T.type_alias do
-              T.all(Symbol, ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction)
+              T.all(
+                Symbol,
+                ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction
+              )
             end
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           CREDIT =
             T.let(
               :credit,
-              ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::TaggedSymbol
+              ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::TaggedSymbol
             )
           DEBIT =
             T.let(
               :debit,
-              ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::TaggedSymbol
+              ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::TaggedSymbol
             )
 
           sig do
-            override
-              .returns(
-                T::Array[
-                  ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::TaggedSymbol
-                ]
-              )
+            override.returns(
+              T::Array[
+                ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::TaggedSymbol
+              ]
+            )
           end
-          def self.values; end
+          def self.values
+          end
         end
       end
     end

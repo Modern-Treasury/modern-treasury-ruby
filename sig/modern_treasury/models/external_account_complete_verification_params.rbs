@@ -16,8 +16,6 @@ module ModernTreasury
         ?amounts: ::Array[Integer],
         ?request_options: ModernTreasury::request_opts
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::external_account_complete_verification_params
     end
   end
 end

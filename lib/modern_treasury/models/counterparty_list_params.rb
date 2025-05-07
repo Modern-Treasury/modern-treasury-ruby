@@ -68,15 +68,12 @@ module ModernTreasury
       #   @param created_at_upper_bound [Time] Used to return counterparties created before some datetime.
       #
       #   @param email [String] Performs a partial string match of the email field. This is also case insensitiv
-      #   ...
       #
       #   @param legal_entity_id [String] Filters for counterparties with the given legal entity ID.
       #
       #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      #   ...
       #
       #   @param name [String] Performs a partial string match of the name field. This is also case insensitive
-      #   ...
       #
       #   @param per_page [Integer]
       #

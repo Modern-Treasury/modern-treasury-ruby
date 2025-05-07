@@ -9,7 +9,7 @@ module ModernTreasury
       #
       # @param documentable_id [String] The unique identifier for the associated object.
       #
-      # @param documentable_type [Symbol, ModernTreasury::Models::DocumentCreateParams::DocumentableType]
+      # @param documentable_type [Symbol, ModernTreasury::DocumentCreateParams::DocumentableType]
       #
       # @param file [Pathname, StringIO, IO, ModernTreasury::FilePart]
       #
@@ -17,17 +17,17 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::Document]
+      # @return [ModernTreasury::Document]
       #
       # @see ModernTreasury::Models::DocumentCreateParams
       def create(params)
-        parsed, options = ModernTreasury::Models::DocumentCreateParams.dump_request(params)
+        parsed, options = ModernTreasury::DocumentCreateParams.dump_request(params)
         @client.request(
           method: :post,
           path: "api/documents",
           headers: {"content-type" => "multipart/form-data"},
           body: parsed,
-          model: ModernTreasury::Models::Document,
+          model: ModernTreasury::Document,
           options: options
         )
       end
@@ -40,14 +40,14 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::Document]
+      # @return [ModernTreasury::Document]
       #
       # @see ModernTreasury::Models::DocumentRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
           path: ["api/documents/%1$s", id],
-          model: ModernTreasury::Models::Document,
+          model: ModernTreasury::Document,
           options: params[:request_options]
         )
       end
@@ -63,24 +63,23 @@ module ModernTreasury
       #
       # @param documentable_id [String] The unique identifier for the associated object.
       #
-      # @param documentable_type [Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType] The type of the associated object. Currently can be one of `payment_order`, `tra
-      # ...
+      # @param documentable_type [Symbol, ModernTreasury::DocumentListParams::DocumentableType] The type of the associated object. Currently can be one of `payment_order`, `tra
       #
       # @param per_page [Integer]
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::Document>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Document>]
       #
       # @see ModernTreasury::Models::DocumentListParams
       def list(params = {})
-        parsed, options = ModernTreasury::Models::DocumentListParams.dump_request(params)
+        parsed, options = ModernTreasury::DocumentListParams.dump_request(params)
         @client.request(
           method: :get,
           path: "api/documents",
           query: parsed,
           page: ModernTreasury::Internal::Page,
-          model: ModernTreasury::Models::Document,
+          model: ModernTreasury::Document,
           options: options
         )
       end

@@ -7,8 +7,8 @@ module ModernTreasury
       # @!attribute query
       #   @deprecated
       #
-      #   @return [ModernTreasury::Models::LedgerEventHandlerVariable::Query]
-      required :query, -> { ModernTreasury::Models::LedgerEventHandlerVariable::Query }
+      #   @return [ModernTreasury::LedgerEventHandlerVariable::Query]
+      required :query, -> { ModernTreasury::LedgerEventHandlerVariable::Query }
 
       # @!attribute type
       #   The type of object this variable is. Currently, only "ledger_account" is
@@ -19,16 +19,15 @@ module ModernTreasury
 
       # @!method initialize(query:, type:)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::Models::LedgerEventHandlerVariable} for more details.
+      #   {ModernTreasury::LedgerEventHandlerVariable} for more details.
       #
-      #   @param query [ModernTreasury::Models::LedgerEventHandlerVariable::Query]
+      #   @param query [ModernTreasury::LedgerEventHandlerVariable::Query]
       #
       #   @param type [String] The type of object this variable is. Currently, only "ledger_account" is support
-      #   ...
 
       # @deprecated
       #
-      # @see ModernTreasury::Models::LedgerEventHandlerVariable#query
+      # @see ModernTreasury::LedgerEventHandlerVariable#query
       class Query < ModernTreasury::Internal::Type::BaseModel
         # @!attribute field
         #   The LHS of the conditional.

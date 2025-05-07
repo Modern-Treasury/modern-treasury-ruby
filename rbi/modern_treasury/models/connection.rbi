@@ -3,6 +3,9 @@
 module ModernTreasury
   module Models
     class Connection < ModernTreasury::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       sig { returns(String) }
       attr_accessor :id
 
@@ -46,8 +49,7 @@ module ModernTreasury
           vendor_customer_id: T.nilable(String),
           vendor_id: String,
           vendor_name: String
-        )
-          .returns(T.attached_class)
+        ).returns(T.attached_class)
       end
       def self.new(
         id:,
@@ -64,24 +66,26 @@ module ModernTreasury
         vendor_id:,
         # A human-friendly name for the bank or vendor.
         vendor_name:
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: String,
-              created_at: Time,
-              discarded_at: T.nilable(Time),
-              live_mode: T::Boolean,
-              object: String,
-              updated_at: Time,
-              vendor_customer_id: T.nilable(String),
-              vendor_id: String,
-              vendor_name: String
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            created_at: Time,
+            discarded_at: T.nilable(Time),
+            live_mode: T::Boolean,
+            object: String,
+            updated_at: Time,
+            vendor_customer_id: T.nilable(String),
+            vendor_id: String,
+            vendor_name: String
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

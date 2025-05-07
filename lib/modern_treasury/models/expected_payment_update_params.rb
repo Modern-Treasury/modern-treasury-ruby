@@ -30,8 +30,8 @@ module ModernTreasury
       # @!attribute currency
       #   Must conform to ISO 4217. Defaults to the currency of the internal account.
       #
-      #   @return [Symbol, ModernTreasury::Models::Currency, nil]
-      optional :currency, enum: -> { ModernTreasury::Models::Currency }, nil?: true
+      #   @return [Symbol, ModernTreasury::Currency, nil]
+      optional :currency, enum: -> { ModernTreasury::Currency }, nil?: true
 
       # @!attribute date_lower_bound
       #   The earliest date the payment may come in. Format: yyyy-mm-dd
@@ -55,10 +55,8 @@ module ModernTreasury
       #   One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
       #
-      #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction, nil]
-      optional :direction,
-               enum: -> { ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction },
-               nil?: true
+      #   @return [Symbol, ModernTreasury::ExpectedPaymentUpdateParams::Direction, nil]
+      optional :direction, enum: -> { ModernTreasury::ExpectedPaymentUpdateParams::Direction }, nil?: true
 
       # @!attribute internal_account_id
       #   The ID of the Internal Account for the expected payment.
@@ -88,9 +86,9 @@ module ModernTreasury
       # @!attribute reconciliation_rule_variables
       #   An array of reconciliation rule variables for this payment.
       #
-      #   @return [Array<ModernTreasury::Models::ReconciliationRule>, nil]
+      #   @return [Array<ModernTreasury::ReconciliationRule>, nil]
       optional :reconciliation_rule_variables,
-               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ReconciliationRule] },
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ReconciliationRule] },
                nil?: true
 
       # @!attribute remittance_information
@@ -114,29 +112,27 @@ module ModernTreasury
       #   The Expected Payment's status can be updated from partially_reconciled to
       #   reconciled.
       #
-      #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Status, nil]
-      optional :status, enum: -> { ModernTreasury::Models::ExpectedPaymentUpdateParams::Status }, nil?: true
+      #   @return [Symbol, ModernTreasury::ExpectedPaymentUpdateParams::Status, nil]
+      optional :status, enum: -> { ModernTreasury::ExpectedPaymentUpdateParams::Status }, nil?: true
 
       # @!attribute type
       #   One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
       #   sepa, signet, wire.
       #
-      #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil]
-      optional :type, enum: -> { ModernTreasury::Models::ExpectedPaymentType }, nil?: true
+      #   @return [Symbol, ModernTreasury::ExpectedPaymentType, nil]
+      optional :type, enum: -> { ModernTreasury::ExpectedPaymentType }, nil?: true
 
       # @!method initialize(amount_lower_bound: nil, amount_upper_bound: nil, counterparty_id: nil, currency: nil, date_lower_bound: nil, date_upper_bound: nil, description: nil, direction: nil, internal_account_id: nil, metadata: nil, reconciliation_filters: nil, reconciliation_groups: nil, reconciliation_rule_variables: nil, remittance_information: nil, statement_descriptor: nil, status: nil, type: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::ExpectedPaymentUpdateParams} for more details.
       #
       #   @param amount_lower_bound [Integer, nil] The lowest amount this expected payment may be equal to. Value in specified curr
-      #   ...
       #
       #   @param amount_upper_bound [Integer, nil] The highest amount this expected payment may be equal to. Value in specified cur
-      #   ...
       #
       #   @param counterparty_id [String, nil] The ID of the counterparty you expect for this payment.
       #
-      #   @param currency [Symbol, ModernTreasury::Models::Currency, nil] Must conform to ISO 4217. Defaults to the currency of the internal account.
+      #   @param currency [Symbol, ModernTreasury::Currency, nil] Must conform to ISO 4217. Defaults to the currency of the internal account.
       #
       #   @param date_lower_bound [Date, nil] The earliest date the payment may come in. Format: yyyy-mm-dd
       #
@@ -144,31 +140,25 @@ module ModernTreasury
       #
       #   @param description [String, nil] An optional description for internal use.
       #
-      #   @param direction [Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction, nil] One of credit or debit. When you are receiving money, use credit. When you are b
-      #   ...
+      #   @param direction [Symbol, ModernTreasury::ExpectedPaymentUpdateParams::Direction, nil] One of credit or debit. When you are receiving money, use credit. When you are b
       #
       #   @param internal_account_id [String, nil] The ID of the Internal Account for the expected payment.
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-      #   ...
       #
       #   @param reconciliation_filters [Object, nil] The reconciliation filters you have for this payment.
       #
       #   @param reconciliation_groups [Object, nil] The reconciliation groups you have for this payment.
       #
-      #   @param reconciliation_rule_variables [Array<ModernTreasury::Models::ReconciliationRule>, nil] An array of reconciliation rule variables for this payment.
+      #   @param reconciliation_rule_variables [Array<ModernTreasury::ReconciliationRule>, nil] An array of reconciliation rule variables for this payment.
       #
       #   @param remittance_information [String, nil] For `ach`, this field will be passed through on an addenda record. For `wire` pa
-      #   ...
       #
       #   @param statement_descriptor [String, nil] The statement description you expect to see on the transaction. For ACH payments
-      #   ...
       #
-      #   @param status [Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Status, nil] The Expected Payment's status can be updated from partially_reconciled to reconc
-      #   ...
+      #   @param status [Symbol, ModernTreasury::ExpectedPaymentUpdateParams::Status, nil] The Expected Payment's status can be updated from partially_reconciled to reconc
       #
-      #   @param type [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil] One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen, se
-      #   ...
+      #   @param type [Symbol, ModernTreasury::ExpectedPaymentType, nil] One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen, se
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 

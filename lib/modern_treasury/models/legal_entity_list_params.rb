@@ -14,8 +14,8 @@ module ModernTreasury
 
       # @!attribute legal_entity_type
       #
-      #   @return [Symbol, ModernTreasury::Models::LegalEntityListParams::LegalEntityType, nil]
-      optional :legal_entity_type, enum: -> { ModernTreasury::Models::LegalEntityListParams::LegalEntityType }
+      #   @return [Symbol, ModernTreasury::LegalEntityListParams::LegalEntityType, nil]
+      optional :legal_entity_type, enum: -> { ModernTreasury::LegalEntityListParams::LegalEntityType }
 
       # @!attribute metadata
       #   For example, if you want to query for records with metadata key `Type` and value
@@ -41,10 +41,9 @@ module ModernTreasury
       #
       #   @param after_cursor [String, nil]
       #
-      #   @param legal_entity_type [Symbol, ModernTreasury::Models::LegalEntityListParams::LegalEntityType]
+      #   @param legal_entity_type [Symbol, ModernTreasury::LegalEntityListParams::LegalEntityType]
       #
       #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      #   ...
       #
       #   @param per_page [Integer]
       #

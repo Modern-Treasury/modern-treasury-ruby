@@ -3,6 +3,9 @@
 module ModernTreasury
   module Models
     class IncomingPaymentDetail < ModernTreasury::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       sig { returns(String) }
       attr_accessor :id
 
@@ -19,7 +22,7 @@ module ModernTreasury
       attr_accessor :created_at
 
       # The currency of the incoming payment detail.
-      sig { returns(ModernTreasury::Models::Currency::TaggedSymbol) }
+      sig { returns(ModernTreasury::Currency::TaggedSymbol) }
       attr_accessor :currency
 
       # The raw data from the payment pre-notification file that we get from the bank.
@@ -27,7 +30,7 @@ module ModernTreasury
       attr_accessor :data
 
       # One of `credit` or `debit`.
-      sig { returns(ModernTreasury::Models::TransactionDirection::TaggedSymbol) }
+      sig { returns(ModernTreasury::TransactionDirection::TaggedSymbol) }
       attr_accessor :direction
 
       # The ID of the Internal Account for the incoming payment detail. This is always
@@ -61,7 +64,9 @@ module ModernTreasury
       # The type of the originating account number for the incoming payment detail.
       sig do
         returns(
-          T.nilable(ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol)
+          T.nilable(
+            ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
+          )
         )
       end
       attr_accessor :originating_account_number_type
@@ -73,14 +78,18 @@ module ModernTreasury
       # The type of the originating routing number for the incoming payment detail.
       sig do
         returns(
-          T.nilable(ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol)
+          T.nilable(
+            ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
+          )
         )
       end
       attr_accessor :originating_routing_number_type
 
       # The current status of the incoming payment order. One of `pending`, `completed`,
       # or `returned`.
-      sig { returns(ModernTreasury::Models::IncomingPaymentDetail::Status::TaggedSymbol) }
+      sig do
+        returns(ModernTreasury::IncomingPaymentDetail::Status::TaggedSymbol)
+      end
       attr_accessor :status
 
       # The ID of the reconciled Transaction or `null`.
@@ -93,7 +102,7 @@ module ModernTreasury
 
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
       # `wire`.
-      sig { returns(ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol) }
+      sig { returns(ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol) }
       attr_accessor :type
 
       sig { returns(Time) }
@@ -105,14 +114,13 @@ module ModernTreasury
 
       # If the incoming payment detail is in a virtual account, the serialized virtual
       # account object.
-      sig { returns(T.nilable(ModernTreasury::Models::VirtualAccount)) }
+      sig { returns(T.nilable(ModernTreasury::VirtualAccount)) }
       attr_reader :virtual_account
 
       sig do
         params(
-          virtual_account: T.nilable(T.any(ModernTreasury::Models::VirtualAccount, ModernTreasury::Internal::AnyHash))
-        )
-          .void
+          virtual_account: T.nilable(ModernTreasury::VirtualAccount::OrHash)
+        ).void
       end
       attr_writer :virtual_account
 
@@ -131,29 +139,34 @@ module ModernTreasury
           amount: Integer,
           as_of_date: Date,
           created_at: Time,
-          currency: ModernTreasury::Models::Currency::OrSymbol,
+          currency: ModernTreasury::Currency::OrSymbol,
           data: T::Hash[Symbol, T.anything],
-          direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
+          direction: ModernTreasury::TransactionDirection::OrSymbol,
           internal_account_id: String,
           ledger_transaction_id: T.nilable(String),
           live_mode: T::Boolean,
           metadata: T::Hash[Symbol, String],
           object: String,
           originating_account_number_safe: T.nilable(String),
-          originating_account_number_type: T.nilable(ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType::OrSymbol),
+          originating_account_number_type:
+            T.nilable(
+              ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::OrSymbol
+            ),
           originating_routing_number: T.nilable(String),
-          originating_routing_number_type: T.nilable(ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::OrSymbol),
-          status: ModernTreasury::Models::IncomingPaymentDetail::Status::OrSymbol,
+          originating_routing_number_type:
+            T.nilable(
+              ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::OrSymbol
+            ),
+          status: ModernTreasury::IncomingPaymentDetail::Status::OrSymbol,
           transaction_id: T.nilable(String),
           transaction_line_item_id: T.nilable(String),
-          type: ModernTreasury::Models::IncomingPaymentDetail::Type::OrSymbol,
+          type: ModernTreasury::IncomingPaymentDetail::Type::OrSymbol,
           updated_at: Time,
           vendor_id: T.nilable(String),
-          virtual_account: T.nilable(T.any(ModernTreasury::Models::VirtualAccount, ModernTreasury::Internal::AnyHash)),
+          virtual_account: T.nilable(ModernTreasury::VirtualAccount::OrHash),
           virtual_account_id: T.nilable(String),
           originating_account_number: T.nilable(String)
-        )
-          .returns(T.attached_class)
+        ).returns(T.attached_class)
       end
       def self.new(
         id:,
@@ -212,95 +225,122 @@ module ModernTreasury
         virtual_account_id:,
         # The account number of the originating account for the incoming payment detail.
         originating_account_number: nil
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: String,
-              amount: Integer,
-              as_of_date: Date,
-              created_at: Time,
-              currency: ModernTreasury::Models::Currency::TaggedSymbol,
-              data: T::Hash[Symbol, T.anything],
-              direction: ModernTreasury::Models::TransactionDirection::TaggedSymbol,
-              internal_account_id: String,
-              ledger_transaction_id: T.nilable(String),
-              live_mode: T::Boolean,
-              metadata: T::Hash[Symbol, String],
-              object: String,
-              originating_account_number_safe: T.nilable(String),
-              originating_account_number_type: T.nilable(ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol),
-              originating_routing_number: T.nilable(String),
-              originating_routing_number_type: T.nilable(ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol),
-              status: ModernTreasury::Models::IncomingPaymentDetail::Status::TaggedSymbol,
-              transaction_id: T.nilable(String),
-              transaction_line_item_id: T.nilable(String),
-              type: ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol,
-              updated_at: Time,
-              vendor_id: T.nilable(String),
-              virtual_account: T.nilable(ModernTreasury::Models::VirtualAccount),
-              virtual_account_id: T.nilable(String),
-              originating_account_number: T.nilable(String)
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            amount: Integer,
+            as_of_date: Date,
+            created_at: Time,
+            currency: ModernTreasury::Currency::TaggedSymbol,
+            data: T::Hash[Symbol, T.anything],
+            direction: ModernTreasury::TransactionDirection::TaggedSymbol,
+            internal_account_id: String,
+            ledger_transaction_id: T.nilable(String),
+            live_mode: T::Boolean,
+            metadata: T::Hash[Symbol, String],
+            object: String,
+            originating_account_number_safe: T.nilable(String),
+            originating_account_number_type:
+              T.nilable(
+                ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
+              ),
+            originating_routing_number: T.nilable(String),
+            originating_routing_number_type:
+              T.nilable(
+                ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
+              ),
+            status: ModernTreasury::IncomingPaymentDetail::Status::TaggedSymbol,
+            transaction_id: T.nilable(String),
+            transaction_line_item_id: T.nilable(String),
+            type: ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol,
+            updated_at: Time,
+            vendor_id: T.nilable(String),
+            virtual_account: T.nilable(ModernTreasury::VirtualAccount),
+            virtual_account_id: T.nilable(String),
+            originating_account_number: T.nilable(String)
+          }
+        )
+      end
+      def to_hash
+      end
 
       # The type of the originating account number for the incoming payment detail.
       module OriginatingAccountNumberType
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
-          T.type_alias { T.all(Symbol, ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType) }
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType
+            )
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         AU_NUMBER =
           T.let(
             :au_number,
-            ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
+            ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
           )
         CLABE =
-          T.let(:clabe, ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol)
+          T.let(
+            :clabe,
+            ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
+          )
         HK_NUMBER =
           T.let(
             :hk_number,
-            ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
+            ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
           )
         IBAN =
-          T.let(:iban, ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol)
+          T.let(
+            :iban,
+            ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
+          )
         ID_NUMBER =
           T.let(
             :id_number,
-            ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
+            ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
           )
         NZ_NUMBER =
           T.let(
             :nz_number,
-            ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
+            ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
           )
         OTHER =
-          T.let(:other, ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol)
+          T.let(
+            :other,
+            ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
+          )
         PAN =
-          T.let(:pan, ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol)
+          T.let(
+            :pan,
+            ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
+          )
         SG_NUMBER =
           T.let(
             :sg_number,
-            ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
+            ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
           )
         WALLET_ADDRESS =
           T.let(
             :wallet_address,
-            ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
+            ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
           )
 
         sig do
-          override
-            .returns(
-              T::Array[ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol]
-            )
+          override.returns(
+            T::Array[
+              ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
+            ]
+          )
         end
-        def self.values; end
+        def self.values
+        end
       end
 
       # The type of the originating routing number for the incoming payment detail.
@@ -308,101 +348,129 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
-          T.type_alias { T.all(Symbol, ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType) }
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType
+            )
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         ABA =
-          T.let(:aba, ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol)
+          T.let(
+            :aba,
+            ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
+          )
         AU_BSB =
-          T.let(:au_bsb, ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol)
+          T.let(
+            :au_bsb,
+            ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
+          )
         BR_CODIGO =
           T.let(
             :br_codigo,
-            ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
+            ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
           )
         CA_CPA =
-          T.let(:ca_cpa, ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol)
+          T.let(
+            :ca_cpa,
+            ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
+          )
         CHIPS =
-          T.let(:chips, ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol)
+          T.let(
+            :chips,
+            ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
+          )
         CNAPS =
-          T.let(:cnaps, ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol)
+          T.let(
+            :cnaps,
+            ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
+          )
         DK_INTERBANK_CLEARING_CODE =
           T.let(
             :dk_interbank_clearing_code,
-            ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
+            ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
           )
         GB_SORT_CODE =
           T.let(
             :gb_sort_code,
-            ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
+            ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
           )
         HK_INTERBANK_CLEARING_CODE =
           T.let(
             :hk_interbank_clearing_code,
-            ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
+            ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
           )
         HU_INTERBANK_CLEARING_CODE =
           T.let(
             :hu_interbank_clearing_code,
-            ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
+            ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
           )
         ID_SKNBI_CODE =
           T.let(
             :id_sknbi_code,
-            ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
+            ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
           )
         IN_IFSC =
-          T.let(:in_ifsc, ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol)
+          T.let(
+            :in_ifsc,
+            ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
+          )
         JP_ZENGIN_CODE =
           T.let(
             :jp_zengin_code,
-            ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
+            ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
           )
         MX_BANK_IDENTIFIER =
           T.let(
             :mx_bank_identifier,
-            ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
+            ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
           )
         MY_BRANCH_CODE =
           T.let(
             :my_branch_code,
-            ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
+            ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
           )
         NZ_NATIONAL_CLEARING_CODE =
           T.let(
             :nz_national_clearing_code,
-            ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
+            ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
           )
         PL_NATIONAL_CLEARING_CODE =
           T.let(
             :pl_national_clearing_code,
-            ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
+            ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
           )
         SE_BANKGIRO_CLEARING_CODE =
           T.let(
             :se_bankgiro_clearing_code,
-            ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
+            ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
           )
         SG_INTERBANK_CLEARING_CODE =
           T.let(
             :sg_interbank_clearing_code,
-            ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
+            ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
           )
         SWIFT =
-          T.let(:swift, ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol)
+          T.let(
+            :swift,
+            ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
+          )
         ZA_NATIONAL_CLEARING_CODE =
           T.let(
             :za_national_clearing_code,
-            ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
+            ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
           )
 
         sig do
-          override
-            .returns(
-              T::Array[ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol]
-            )
+          override.returns(
+            T::Array[
+              ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
+            ]
+          )
         end
-        def self.values; end
+        def self.values
+        end
       end
 
       # The current status of the incoming payment order. One of `pending`, `completed`,
@@ -410,15 +478,37 @@ module ModernTreasury
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
-        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::IncomingPaymentDetail::Status) }
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::IncomingPaymentDetail::Status)
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        COMPLETED = T.let(:completed, ModernTreasury::Models::IncomingPaymentDetail::Status::TaggedSymbol)
-        PENDING = T.let(:pending, ModernTreasury::Models::IncomingPaymentDetail::Status::TaggedSymbol)
-        RETURNED = T.let(:returned, ModernTreasury::Models::IncomingPaymentDetail::Status::TaggedSymbol)
+        COMPLETED =
+          T.let(
+            :completed,
+            ModernTreasury::IncomingPaymentDetail::Status::TaggedSymbol
+          )
+        PENDING =
+          T.let(
+            :pending,
+            ModernTreasury::IncomingPaymentDetail::Status::TaggedSymbol
+          )
+        RETURNED =
+          T.let(
+            :returned,
+            ModernTreasury::IncomingPaymentDetail::Status::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::IncomingPaymentDetail::Status::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::IncomingPaymentDetail::Status::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
 
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
@@ -426,25 +516,76 @@ module ModernTreasury
       module Type
         extend ModernTreasury::Internal::Type::Enum
 
-        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::IncomingPaymentDetail::Type) }
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::IncomingPaymentDetail::Type)
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        ACH = T.let(:ach, ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol)
-        AU_BECS = T.let(:au_becs, ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol)
-        BACS = T.let(:bacs, ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol)
-        BOOK = T.let(:book, ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol)
-        CHECK = T.let(:check, ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol)
-        EFT = T.let(:eft, ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol)
-        INTERAC = T.let(:interac, ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol)
-        NEFT = T.let(:neft, ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol)
-        NZ_BECS = T.let(:nz_becs, ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol)
-        RTP = T.let(:rtp, ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol)
-        SEPA = T.let(:sepa, ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol)
-        SIGNET = T.let(:signet, ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol)
-        WIRE = T.let(:wire, ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol)
+        ACH =
+          T.let(:ach, ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol)
+        AU_BECS =
+          T.let(
+            :au_becs,
+            ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol
+          )
+        BACS =
+          T.let(
+            :bacs,
+            ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol
+          )
+        BOOK =
+          T.let(
+            :book,
+            ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol
+          )
+        CHECK =
+          T.let(
+            :check,
+            ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol
+          )
+        EFT =
+          T.let(:eft, ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol)
+        INTERAC =
+          T.let(
+            :interac,
+            ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol
+          )
+        NEFT =
+          T.let(
+            :neft,
+            ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol
+          )
+        NZ_BECS =
+          T.let(
+            :nz_becs,
+            ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol
+          )
+        RTP =
+          T.let(:rtp, ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol)
+        SEPA =
+          T.let(
+            :sepa,
+            ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol
+          )
+        SIGNET =
+          T.let(
+            :signet,
+            ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol
+          )
+        WIRE =
+          T.let(
+            :wire,
+            ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol]
+          )
+        end
+        def self.values
+        end
       end
     end
   end

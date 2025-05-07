@@ -3,19 +3,20 @@
 module ModernTreasury
   module Models
     class LedgerEventHandler < ModernTreasury::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       sig { returns(String) }
       attr_accessor :id
 
-      sig { returns(T.nilable(ModernTreasury::Models::LedgerEventHandler::Conditions)) }
+      sig { returns(T.nilable(ModernTreasury::LedgerEventHandler::Conditions)) }
       attr_reader :conditions
 
       sig do
         params(
-          conditions: T.nilable(
-            T.any(ModernTreasury::Models::LedgerEventHandler::Conditions, ModernTreasury::Internal::AnyHash)
-          )
-        )
-          .void
+          conditions:
+            T.nilable(ModernTreasury::LedgerEventHandler::Conditions::OrHash)
+        ).void
       end
       attr_writer :conditions
 
@@ -33,17 +34,16 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :ledger_id
 
-      sig { returns(ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate) }
+      sig do
+        returns(ModernTreasury::LedgerEventHandler::LedgerTransactionTemplate)
+      end
       attr_reader :ledger_transaction_template
 
       sig do
         params(
-          ledger_transaction_template: T.any(
-            ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate,
-            ModernTreasury::Internal::AnyHash
-          )
-        )
-          .void
+          ledger_transaction_template:
+            ModernTreasury::LedgerEventHandler::LedgerTransactionTemplate::OrHash
+        ).void
       end
       attr_writer :ledger_transaction_template
 
@@ -67,33 +67,37 @@ module ModernTreasury
       sig { returns(Time) }
       attr_accessor :updated_at
 
-      sig { returns(T.nilable(T::Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable])) }
+      sig do
+        returns(
+          T.nilable(T::Hash[Symbol, ModernTreasury::LedgerEventHandlerVariable])
+        )
+      end
       attr_accessor :variables
 
       sig do
         params(
           id: String,
-          conditions: T.nilable(
-            T.any(ModernTreasury::Models::LedgerEventHandler::Conditions, ModernTreasury::Internal::AnyHash)
-          ),
+          conditions:
+            T.nilable(ModernTreasury::LedgerEventHandler::Conditions::OrHash),
           created_at: Time,
           description: T.nilable(String),
           discarded_at: T.nilable(Time),
           ledger_id: T.nilable(String),
-          ledger_transaction_template: T.any(
-            ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate,
-            ModernTreasury::Internal::AnyHash
-          ),
+          ledger_transaction_template:
+            ModernTreasury::LedgerEventHandler::LedgerTransactionTemplate::OrHash,
           live_mode: T::Boolean,
           metadata: T.nilable(T::Hash[Symbol, String]),
           name: String,
           object: String,
           updated_at: Time,
-          variables: T.nilable(
-            T::Hash[Symbol, T.any(ModernTreasury::Models::LedgerEventHandlerVariable, ModernTreasury::Internal::AnyHash)]
-          )
-        )
-          .returns(T.attached_class)
+          variables:
+            T.nilable(
+              T::Hash[
+                Symbol,
+                ModernTreasury::LedgerEventHandlerVariable::OrHash
+              ]
+            )
+        ).returns(T.attached_class)
       end
       def self.new(
         id:,
@@ -116,30 +120,40 @@ module ModernTreasury
         object:,
         updated_at:,
         variables:
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: String,
-              conditions: T.nilable(ModernTreasury::Models::LedgerEventHandler::Conditions),
-              created_at: Time,
-              description: T.nilable(String),
-              discarded_at: T.nilable(Time),
-              ledger_id: T.nilable(String),
-              ledger_transaction_template: ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate,
-              live_mode: T::Boolean,
-              metadata: T.nilable(T::Hash[Symbol, String]),
-              name: String,
-              object: String,
-              updated_at: Time,
-              variables: T.nilable(T::Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable])
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            conditions:
+              T.nilable(ModernTreasury::LedgerEventHandler::Conditions),
+            created_at: Time,
+            description: T.nilable(String),
+            discarded_at: T.nilable(Time),
+            ledger_id: T.nilable(String),
+            ledger_transaction_template:
+              ModernTreasury::LedgerEventHandler::LedgerTransactionTemplate,
+            live_mode: T::Boolean,
+            metadata: T.nilable(T::Hash[Symbol, String]),
+            name: String,
+            object: String,
+            updated_at: Time,
+            variables:
+              T.nilable(
+                T::Hash[Symbol, ModernTreasury::LedgerEventHandlerVariable]
+              )
+          }
+        )
+      end
+      def to_hash
+      end
 
       class Conditions < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         # The LHS of the conditional.
         sig { returns(String) }
         attr_accessor :field
@@ -152,7 +166,11 @@ module ModernTreasury
         sig { returns(String) }
         attr_accessor :value
 
-        sig { params(field: String, operator: String, value: String).returns(T.attached_class) }
+        sig do
+          params(field: String, operator: String, value: String).returns(
+            T.attached_class
+          )
+        end
         def self.new(
           # The LHS of the conditional.
           field:,
@@ -160,12 +178,20 @@ module ModernTreasury
           operator:,
           # The RHS of the conditional.
           value:
-        ); end
-        sig { override.returns({field: String, operator: String, value: String}) }
-        def to_hash; end
+        )
+        end
+
+        sig do
+          override.returns({ field: String, operator: String, value: String })
+        end
+        def to_hash
+        end
       end
 
       class LedgerTransactionTemplate < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         # An optional description for internal use.
         sig { returns(T.nilable(String)) }
         attr_accessor :description
@@ -176,7 +202,13 @@ module ModernTreasury
         attr_accessor :effective_at
 
         # An array of ledger entry objects.
-        sig { returns(T::Array[ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry]) }
+        sig do
+          returns(
+            T::Array[
+              ModernTreasury::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry
+            ]
+          )
+        end
         attr_accessor :ledger_entries
 
         # To post a ledger transaction at creation, use `posted`.
@@ -187,15 +219,12 @@ module ModernTreasury
           params(
             description: T.nilable(String),
             effective_at: T.nilable(String),
-            ledger_entries: T::Array[
-              T.any(
-                ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry,
-                ModernTreasury::Internal::AnyHash
-              )
-            ],
+            ledger_entries:
+              T::Array[
+                ModernTreasury::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry::OrHash
+              ],
             status: T.nilable(String)
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
           # An optional description for internal use.
@@ -207,21 +236,31 @@ module ModernTreasury
           ledger_entries:,
           # To post a ledger transaction at creation, use `posted`.
           status:
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                description: T.nilable(String),
-                effective_at: T.nilable(String),
-                ledger_entries: T::Array[ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry],
-                status: T.nilable(String)
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              description: T.nilable(String),
+              effective_at: T.nilable(String),
+              ledger_entries:
+                T::Array[
+                  ModernTreasury::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry
+                ],
+              status: T.nilable(String)
+            }
+          )
+        end
+        def to_hash
+        end
 
         class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+            end
+
           # The LHS of the conditional.
           sig { returns(String) }
           attr_accessor :amount
@@ -235,7 +274,11 @@ module ModernTreasury
           attr_accessor :ledger_account_id
 
           sig do
-            params(amount: String, direction: String, ledger_account_id: String).returns(T.attached_class)
+            params(
+              amount: String,
+              direction: String,
+              ledger_account_id: String
+            ).returns(T.attached_class)
           end
           def self.new(
             # The LHS of the conditional.
@@ -244,9 +287,16 @@ module ModernTreasury
             direction:,
             # The RHS of the conditional.
             ledger_account_id:
-          ); end
-          sig { override.returns({amount: String, direction: String, ledger_account_id: String}) }
-          def to_hash; end
+          )
+          end
+
+          sig do
+            override.returns(
+              { amount: String, direction: String, ledger_account_id: String }
+            )
+          end
+          def to_hash
+          end
         end
       end
     end

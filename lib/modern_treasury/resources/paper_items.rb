@@ -11,14 +11,14 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::PaperItem]
+      # @return [ModernTreasury::PaperItem]
       #
       # @see ModernTreasury::Models::PaperItemRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
           path: ["api/paper_items/%1$s", id],
-          model: ModernTreasury::Models::PaperItem,
+          model: ModernTreasury::PaperItem,
           options: params[:request_options]
         )
       end
@@ -37,23 +37,22 @@ module ModernTreasury
       # @param deposit_date_start [Date] Specify an inclusive start date (YYYY-MM-DD) when filtering by deposit_date
       #
       # @param lockbox_number [String] Specify `lockbox_number` if you wish to see paper items that are associated with
-      # ...
       #
       # @param per_page [Integer]
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::PaperItem>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::PaperItem>]
       #
       # @see ModernTreasury::Models::PaperItemListParams
       def list(params = {})
-        parsed, options = ModernTreasury::Models::PaperItemListParams.dump_request(params)
+        parsed, options = ModernTreasury::PaperItemListParams.dump_request(params)
         @client.request(
           method: :get,
           path: "api/paper_items",
           query: parsed,
           page: ModernTreasury::Internal::Page,
-          model: ModernTreasury::Models::PaperItem,
+          model: ModernTreasury::PaperItem,
           options: options
         )
       end

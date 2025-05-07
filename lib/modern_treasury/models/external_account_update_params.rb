@@ -10,8 +10,8 @@ module ModernTreasury
       # @!attribute account_type
       #   Can be `checking`, `savings` or `other`.
       #
-      #   @return [Symbol, ModernTreasury::Models::ExternalAccountType, nil]
-      optional :account_type, enum: -> { ModernTreasury::Models::ExternalAccountType }
+      #   @return [Symbol, ModernTreasury::ExternalAccountType, nil]
+      optional :account_type, enum: -> { ModernTreasury::ExternalAccountType }
 
       # @!attribute counterparty_id
       #
@@ -34,8 +34,8 @@ module ModernTreasury
 
       # @!attribute party_address
       #
-      #   @return [ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress, nil]
-      optional :party_address, -> { ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress }
+      #   @return [ModernTreasury::ExternalAccountUpdateParams::PartyAddress, nil]
+      optional :party_address, -> { ModernTreasury::ExternalAccountUpdateParams::PartyAddress }
 
       # @!attribute party_name
       #   If this value isn't provided, it will be inherited from the counterparty's name.
@@ -46,31 +46,26 @@ module ModernTreasury
       # @!attribute party_type
       #   Either `individual` or `business`.
       #
-      #   @return [Symbol, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType, nil]
-      optional :party_type,
-               enum: -> { ModernTreasury::Models::ExternalAccountUpdateParams::PartyType },
-               nil?: true
+      #   @return [Symbol, ModernTreasury::ExternalAccountUpdateParams::PartyType, nil]
+      optional :party_type, enum: -> { ModernTreasury::ExternalAccountUpdateParams::PartyType }, nil?: true
 
       # @!method initialize(account_type: nil, counterparty_id: nil, metadata: nil, name: nil, party_address: nil, party_name: nil, party_type: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::ExternalAccountUpdateParams} for more details.
       #
-      #   @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType] Can be `checking`, `savings` or `other`.
+      #   @param account_type [Symbol, ModernTreasury::ExternalAccountType] Can be `checking`, `savings` or `other`.
       #
       #   @param counterparty_id [String, nil]
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data in the form of key-value pairs. Pairs can be removed by passing
-      #   ...
       #
       #   @param name [String, nil] A nickname for the external account. This is only for internal usage and won't a
-      #   ...
       #
-      #   @param party_address [ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress]
+      #   @param party_address [ModernTreasury::ExternalAccountUpdateParams::PartyAddress]
       #
       #   @param party_name [String] If this value isn't provided, it will be inherited from the counterparty's name.
-      #   ...
       #
-      #   @param party_type [Symbol, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType, nil] Either `individual` or `business`.
+      #   @param party_type [Symbol, ModernTreasury::ExternalAccountUpdateParams::PartyType, nil] Either `individual` or `business`.
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 

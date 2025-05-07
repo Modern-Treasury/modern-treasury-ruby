@@ -129,12 +129,18 @@ module ModernTreasury
 
     # A test endpoint often used to confirm credentials and headers are being passed
     # in correctly.
-    sig { params(request_options: ModernTreasury::RequestOpts).returns(ModernTreasury::Models::PingResponse) }
-    def ping(request_options: {}); end
+    sig do
+      params(request_options: ModernTreasury::RequestOptions::OrHash).returns(
+        ModernTreasury::PingResponse
+      )
+    end
+    def ping(request_options: {})
+    end
 
     # @api private
     sig { override.returns(T::Hash[String, String]) }
-    private def auth_headers; end
+    private def auth_headers
+    end
 
     # Creates and returns a new client for interacting with the API.
     sig do
@@ -147,8 +153,7 @@ module ModernTreasury
         initial_retry_delay: Float,
         max_retry_delay: Float,
         idempotency_header: String
-      )
-        .returns(T.attached_class)
+      ).returns(T.attached_class)
     end
     def self.new(
       # Defaults to `ENV["MODERN_TREASURY_API_KEY"]`
@@ -164,6 +169,7 @@ module ModernTreasury
       initial_retry_delay: ModernTreasury::Client::DEFAULT_INITIAL_RETRY_DELAY,
       max_retry_delay: ModernTreasury::Client::DEFAULT_MAX_RETRY_DELAY,
       idempotency_header: "Idempotency-Key"
-    ); end
+    )
+    end
   end
 end

@@ -3,6 +3,9 @@
 module ModernTreasury
   module Models
     class ForeignExchangeQuote < ModernTreasury::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       sig { returns(String) }
       attr_accessor :id
 
@@ -24,17 +27,14 @@ module ModernTreasury
       attr_accessor :foreign_exchange_indicator
 
       # The serialized rate information represented by this quote.
-      sig { returns(ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate) }
+      sig { returns(ModernTreasury::ForeignExchangeQuote::ForeignExchangeRate) }
       attr_reader :foreign_exchange_rate
 
       sig do
         params(
-          foreign_exchange_rate: T.any(
-            ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate,
-            ModernTreasury::Internal::AnyHash
-          )
-        )
-          .void
+          foreign_exchange_rate:
+            ModernTreasury::ForeignExchangeQuote::ForeignExchangeRate::OrHash
+        ).void
       end
       attr_writer :foreign_exchange_rate
 
@@ -72,18 +72,15 @@ module ModernTreasury
           effective_at: Time,
           expires_at: Time,
           foreign_exchange_indicator: String,
-          foreign_exchange_rate: T.any(
-            ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate,
-            ModernTreasury::Internal::AnyHash
-          ),
+          foreign_exchange_rate:
+            ModernTreasury::ForeignExchangeQuote::ForeignExchangeRate::OrHash,
           internal_account_id: String,
           live_mode: T::Boolean,
           metadata: T::Hash[Symbol, String],
           object: String,
           updated_at: Time,
           vendor_id: String
-        )
-          .returns(T.attached_class)
+        ).returns(T.attached_class)
       end
       def self.new(
         id:,
@@ -110,36 +107,42 @@ module ModernTreasury
         updated_at:,
         # This vendor assigned ID for this quote.
         vendor_id: nil
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: String,
-              created_at: Time,
-              effective_at: Time,
-              expires_at: Time,
-              foreign_exchange_indicator: String,
-              foreign_exchange_rate: ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate,
-              internal_account_id: String,
-              live_mode: T::Boolean,
-              metadata: T::Hash[Symbol, String],
-              object: String,
-              updated_at: Time,
-              vendor_id: String
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            created_at: Time,
+            effective_at: Time,
+            expires_at: Time,
+            foreign_exchange_indicator: String,
+            foreign_exchange_rate:
+              ModernTreasury::ForeignExchangeQuote::ForeignExchangeRate,
+            internal_account_id: String,
+            live_mode: T::Boolean,
+            metadata: T::Hash[Symbol, String],
+            object: String,
+            updated_at: Time,
+            vendor_id: String
+          }
+        )
+      end
+      def to_hash
+      end
 
       class ForeignExchangeRate < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         # Amount in the lowest denomination of the `base_currency` to convert, often
         # called the "sell" amount.
         sig { returns(Integer) }
         attr_accessor :base_amount
 
         # Currency to convert, often called the "sell" currency.
-        sig { returns(ModernTreasury::Models::Currency::TaggedSymbol) }
+        sig { returns(ModernTreasury::Currency::TaggedSymbol) }
         attr_accessor :base_currency
 
         # The exponent component of the rate. The decimal is calculated as `value` / (10 ^
@@ -157,7 +160,7 @@ module ModernTreasury
         attr_accessor :target_amount
 
         # Currency to convert the `base_currency` to, often called the "buy" currency.
-        sig { returns(ModernTreasury::Models::Currency::TaggedSymbol) }
+        sig { returns(ModernTreasury::Currency::TaggedSymbol) }
         attr_accessor :target_currency
 
         # The whole number component of the rate. The decimal is calculated as `value` /
@@ -169,14 +172,13 @@ module ModernTreasury
         sig do
           params(
             base_amount: Integer,
-            base_currency: ModernTreasury::Models::Currency::OrSymbol,
+            base_currency: ModernTreasury::Currency::OrSymbol,
             exponent: Integer,
             rate_string: String,
             target_amount: Integer,
-            target_currency: ModernTreasury::Models::Currency::OrSymbol,
+            target_currency: ModernTreasury::Currency::OrSymbol,
             value: Integer
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
           # Amount in the lowest denomination of the `base_currency` to convert, often
@@ -197,22 +199,24 @@ module ModernTreasury
           # The whole number component of the rate. The decimal is calculated as `value` /
           # (10 ^ `exponent`).
           value:
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                base_amount: Integer,
-                base_currency: ModernTreasury::Models::Currency::TaggedSymbol,
-                exponent: Integer,
-                rate_string: String,
-                target_amount: Integer,
-                target_currency: ModernTreasury::Models::Currency::TaggedSymbol,
-                value: Integer
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              base_amount: Integer,
+              base_currency: ModernTreasury::Currency::TaggedSymbol,
+              exponent: Integer,
+              rate_string: String,
+              target_amount: Integer,
+              target_currency: ModernTreasury::Currency::TaggedSymbol,
+              value: Integer
+            }
+          )
+        end
+        def to_hash
+        end
       end
     end
   end

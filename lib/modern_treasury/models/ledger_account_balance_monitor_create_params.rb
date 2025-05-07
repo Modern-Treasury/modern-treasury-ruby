@@ -10,9 +10,11 @@ module ModernTreasury
       # @!attribute alert_condition
       #   Describes the condition that must be satisfied for the monitor to be triggered.
       #
-      #   @return [ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition]
+      #   @return [ModernTreasury::LedgerAccountBalanceMonitorCreateParams::AlertCondition]
       required :alert_condition,
-               -> { ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition }
+               -> {
+                 ModernTreasury::LedgerAccountBalanceMonitorCreateParams::AlertCondition
+               }
 
       # @!attribute ledger_account_id
       #   The ledger account associated with this balance monitor.
@@ -38,14 +40,13 @@ module ModernTreasury
       #   {ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams} for more
       #   details.
       #
-      #   @param alert_condition [ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition] Describes the condition that must be satisfied for the monitor to be triggered.
+      #   @param alert_condition [ModernTreasury::LedgerAccountBalanceMonitorCreateParams::AlertCondition] Describes the condition that must be satisfied for the monitor to be triggered.
       #
       #   @param ledger_account_id [String] The ledger account associated with this balance monitor.
       #
       #   @param description [String] An optional, free-form description for internal use.
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-      #   ...
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
@@ -75,19 +76,16 @@ module ModernTreasury
 
         # @!method initialize(field:, operator:, value:)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition}
-        #   for more details.
+        #   {ModernTreasury::LedgerAccountBalanceMonitorCreateParams::AlertCondition} for
+        #   more details.
         #
         #   Describes the condition that must be satisfied for the monitor to be triggered.
         #
         #   @param field [String] One of `available_balance_amount`, `pending_balance_amount`, `posted_balance_amo
-        #   ...
         #
         #   @param operator [String] A logical operator to compare the `field` against the `value`. One of `less_than
-        #   ...
         #
         #   @param value [Integer] The monitor's `current_ledger_account_balance_state.triggered` will be `true` wh
-        #   ...
       end
     end
   end

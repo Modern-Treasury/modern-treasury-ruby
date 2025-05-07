@@ -12,14 +12,14 @@ class ModernTreasury::Test::Resources::AccountDetailsTest < ModernTreasury::Test
       )
 
     assert_pattern do
-      response => ModernTreasury::Models::AccountDetail
+      response => ModernTreasury::AccountDetail
     end
 
     assert_pattern do
       response => {
         id: String,
         account_number_safe: String,
-        account_number_type: ModernTreasury::Models::AccountDetail::AccountNumberType,
+        account_number_type: ModernTreasury::AccountDetail::AccountNumberType,
         created_at: Time,
         discarded_at: Time | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
@@ -39,14 +39,14 @@ class ModernTreasury::Test::Resources::AccountDetailsTest < ModernTreasury::Test
       )
 
     assert_pattern do
-      response => ModernTreasury::Models::AccountDetail
+      response => ModernTreasury::AccountDetail
     end
 
     assert_pattern do
       response => {
         id: String,
         account_number_safe: String,
-        account_number_type: ModernTreasury::Models::AccountDetail::AccountNumberType,
+        account_number_type: ModernTreasury::AccountDetail::AccountNumberType,
         created_at: Time,
         discarded_at: Time | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
@@ -68,14 +68,14 @@ class ModernTreasury::Test::Resources::AccountDetailsTest < ModernTreasury::Test
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Models::AccountDetail
+      row => ModernTreasury::AccountDetail
     end
 
     assert_pattern do
       row => {
         id: String,
         account_number_safe: String,
-        account_number_type: ModernTreasury::Models::AccountDetail::AccountNumberType,
+        account_number_type: ModernTreasury::AccountDetail::AccountNumberType,
         created_at: Time,
         discarded_at: Time | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,

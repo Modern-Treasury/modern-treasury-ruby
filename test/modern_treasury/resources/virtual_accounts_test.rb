@@ -11,13 +11,13 @@ class ModernTreasury::Test::Resources::VirtualAccountsTest < ModernTreasury::Tes
       )
 
     assert_pattern do
-      response => ModernTreasury::Models::VirtualAccount
+      response => ModernTreasury::VirtualAccount
     end
 
     assert_pattern do
       response => {
         id: String,
-        account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::AccountDetail]),
+        account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail]),
         counterparty_id: String | nil,
         created_at: Time,
         credit_ledger_account_id: String | nil,
@@ -30,7 +30,7 @@ class ModernTreasury::Test::Resources::VirtualAccountsTest < ModernTreasury::Tes
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         object: String,
-        routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::RoutingDetail]),
+        routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail]),
         updated_at: Time
       }
     end
@@ -40,13 +40,13 @@ class ModernTreasury::Test::Resources::VirtualAccountsTest < ModernTreasury::Tes
     response = @modern_treasury.virtual_accounts.retrieve("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::VirtualAccount
+      response => ModernTreasury::VirtualAccount
     end
 
     assert_pattern do
       response => {
         id: String,
-        account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::AccountDetail]),
+        account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail]),
         counterparty_id: String | nil,
         created_at: Time,
         credit_ledger_account_id: String | nil,
@@ -59,7 +59,7 @@ class ModernTreasury::Test::Resources::VirtualAccountsTest < ModernTreasury::Tes
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         object: String,
-        routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::RoutingDetail]),
+        routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail]),
         updated_at: Time
       }
     end
@@ -69,13 +69,13 @@ class ModernTreasury::Test::Resources::VirtualAccountsTest < ModernTreasury::Tes
     response = @modern_treasury.virtual_accounts.update("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::VirtualAccount
+      response => ModernTreasury::VirtualAccount
     end
 
     assert_pattern do
       response => {
         id: String,
-        account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::AccountDetail]),
+        account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail]),
         counterparty_id: String | nil,
         created_at: Time,
         credit_ledger_account_id: String | nil,
@@ -88,7 +88,7 @@ class ModernTreasury::Test::Resources::VirtualAccountsTest < ModernTreasury::Tes
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         object: String,
-        routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::RoutingDetail]),
+        routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail]),
         updated_at: Time
       }
     end
@@ -105,13 +105,13 @@ class ModernTreasury::Test::Resources::VirtualAccountsTest < ModernTreasury::Tes
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Models::VirtualAccount
+      row => ModernTreasury::VirtualAccount
     end
 
     assert_pattern do
       row => {
         id: String,
-        account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::AccountDetail]),
+        account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail]),
         counterparty_id: String | nil,
         created_at: Time,
         credit_ledger_account_id: String | nil,
@@ -124,7 +124,7 @@ class ModernTreasury::Test::Resources::VirtualAccountsTest < ModernTreasury::Tes
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         object: String,
-        routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::RoutingDetail]),
+        routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail]),
         updated_at: Time
       }
     end
@@ -134,13 +134,13 @@ class ModernTreasury::Test::Resources::VirtualAccountsTest < ModernTreasury::Tes
     response = @modern_treasury.virtual_accounts.delete("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::VirtualAccount
+      response => ModernTreasury::VirtualAccount
     end
 
     assert_pattern do
       response => {
         id: String,
-        account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::AccountDetail]),
+        account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail]),
         counterparty_id: String | nil,
         created_at: Time,
         credit_ledger_account_id: String | nil,
@@ -153,7 +153,7 @@ class ModernTreasury::Test::Resources::VirtualAccountsTest < ModernTreasury::Tes
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         object: String,
-        routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::RoutingDetail]),
+        routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail]),
         updated_at: Time
       }
     end

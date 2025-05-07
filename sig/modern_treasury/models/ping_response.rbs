@@ -6,8 +6,6 @@ module ModernTreasury
       attr_accessor ping: String
 
       def initialize: (ping: String) -> void
-
-      def to_hash: -> ModernTreasury::Models::ping_response
     end
   end
 end

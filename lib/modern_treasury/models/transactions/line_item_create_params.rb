@@ -32,7 +32,6 @@ module ModernTreasury
         #   {ModernTreasury::Models::Transactions::LineItemCreateParams} for more details.
         #
         #   @param amount [Integer] If a matching object exists in Modern Treasury, `amount` will be populated. Valu
-        #   ...
         #
         #   @param expected_payment_id [String] The ID of the reconciled Expected Payment, otherwise `null`.
         #

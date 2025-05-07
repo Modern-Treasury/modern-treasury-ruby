@@ -7,42 +7,34 @@ module ModernTreasury
       sig do
         params(
           counterparty_id: T.nilable(String),
-          account_details: T::Array[
-            T.any(
-              ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail,
-              ModernTreasury::Internal::AnyHash
-            )
-          ],
-          account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
-          contact_details: T::Array[
-            T.any(
-              ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail,
-              ModernTreasury::Internal::AnyHash
-            )
-          ],
-          ledger_account: T.any(
-            ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount,
-            ModernTreasury::Internal::AnyHash
-          ),
+          account_details:
+            T::Array[
+              ModernTreasury::ExternalAccountCreateParams::AccountDetail::OrHash
+            ],
+          account_type: ModernTreasury::ExternalAccountType::OrSymbol,
+          contact_details:
+            T::Array[
+              ModernTreasury::ExternalAccountCreateParams::ContactDetail::OrHash
+            ],
+          ledger_account:
+            ModernTreasury::ExternalAccountCreateParams::LedgerAccount::OrHash,
           metadata: T::Hash[Symbol, String],
           name: T.nilable(String),
-          party_address: T.any(
-            ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress,
-            ModernTreasury::Internal::AnyHash
-          ),
+          party_address:
+            ModernTreasury::ExternalAccountCreateParams::PartyAddress::OrHash,
           party_identifier: String,
           party_name: String,
-          party_type: T.nilable(ModernTreasury::Models::ExternalAccountCreateParams::PartyType::OrSymbol),
+          party_type:
+            T.nilable(
+              ModernTreasury::ExternalAccountCreateParams::PartyType::OrSymbol
+            ),
           plaid_processor_token: String,
-          routing_details: T::Array[
-            T.any(
-              ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail,
-              ModernTreasury::Internal::AnyHash
-            )
-          ],
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::ExternalAccount)
+          routing_details:
+            T::Array[
+              ModernTreasury::ExternalAccountCreateParams::RoutingDetail::OrHash
+            ],
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::ExternalAccount)
       end
       def create(
         counterparty_id:,
@@ -74,34 +66,40 @@ module ModernTreasury
         plaid_processor_token: nil,
         routing_details: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # show external account
       sig do
-        params(id: String, request_options: ModernTreasury::RequestOpts)
-          .returns(ModernTreasury::Models::ExternalAccount)
+        params(
+          id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::ExternalAccount)
       end
       def retrieve(
         # external account id
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # update external account
       sig do
         params(
           id: String,
-          account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
+          account_type: ModernTreasury::ExternalAccountType::OrSymbol,
           counterparty_id: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           name: T.nilable(String),
-          party_address: T.any(
-            ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress,
-            ModernTreasury::Internal::AnyHash
-          ),
+          party_address:
+            ModernTreasury::ExternalAccountUpdateParams::PartyAddress::OrHash,
           party_name: String,
-          party_type: T.nilable(ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::OrSymbol),
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::ExternalAccount)
+          party_type:
+            T.nilable(
+              ModernTreasury::ExternalAccountUpdateParams::PartyType::OrSymbol
+            ),
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::ExternalAccount)
       end
       def update(
         # external account id
@@ -121,7 +119,9 @@ module ModernTreasury
         # Either `individual` or `business`.
         party_type: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # list external accounts
       sig do
         params(
@@ -130,9 +130,10 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           party_name: String,
           per_page: Integer,
-          request_options: ModernTreasury::RequestOpts
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(
+          ModernTreasury::Internal::Page[ModernTreasury::ExternalAccount]
         )
-          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::ExternalAccount])
       end
       def list(
         after_cursor: nil,
@@ -145,42 +146,58 @@ module ModernTreasury
         party_name: nil,
         per_page: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # delete external account
-      sig { params(id: String, request_options: ModernTreasury::RequestOpts).void }
+      sig do
+        params(
+          id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).void
+      end
       def delete(
         # external account id
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # complete verification of external account
       sig do
-        params(id: String, amounts: T::Array[Integer], request_options: ModernTreasury::RequestOpts)
-          .returns(ModernTreasury::Models::ExternalAccount)
+        params(
+          id: String,
+          amounts: T::Array[Integer],
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::ExternalAccount)
       end
       def complete_verification(
         # external account id
         id,
         amounts: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # verify external account
       sig do
         params(
           id: String,
           originating_account_id: String,
-          payment_type: ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol,
-          currency: ModernTreasury::Models::Currency::OrSymbol,
-          fallback_type: ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType::OrSymbol,
-          priority: ModernTreasury::Models::ExternalAccountVerifyParams::Priority::OrSymbol,
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(
-            T.any(
-              ModernTreasury::Models::ExternalAccount,
-              ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt
-            )
+          payment_type:
+            ModernTreasury::ExternalAccountVerifyParams::PaymentType::OrSymbol,
+          currency: ModernTreasury::Currency::OrSymbol,
+          fallback_type:
+            ModernTreasury::ExternalAccountVerifyParams::FallbackType::OrSymbol,
+          priority:
+            ModernTreasury::ExternalAccountVerifyParams::Priority::OrSymbol,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(
+          T.any(
+            ModernTreasury::ExternalAccount,
+            ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt
           )
+        )
       end
       def verify(
         # external account id
@@ -200,10 +217,13 @@ module ModernTreasury
         # transfer. This will apply to both `payment_type` and `fallback_type`.
         priority: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

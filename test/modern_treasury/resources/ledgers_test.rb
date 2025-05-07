@@ -7,7 +7,7 @@ class ModernTreasury::Test::Resources::LedgersTest < ModernTreasury::Test::Resou
     response = @modern_treasury.ledgers.create(name: "name")
 
     assert_pattern do
-      response => ModernTreasury::Models::Ledger
+      response => ModernTreasury::Ledger
     end
 
     assert_pattern do
@@ -29,7 +29,7 @@ class ModernTreasury::Test::Resources::LedgersTest < ModernTreasury::Test::Resou
     response = @modern_treasury.ledgers.retrieve("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::Ledger
+      response => ModernTreasury::Ledger
     end
 
     assert_pattern do
@@ -51,7 +51,7 @@ class ModernTreasury::Test::Resources::LedgersTest < ModernTreasury::Test::Resou
     response = @modern_treasury.ledgers.update("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::Ledger
+      response => ModernTreasury::Ledger
     end
 
     assert_pattern do
@@ -80,7 +80,7 @@ class ModernTreasury::Test::Resources::LedgersTest < ModernTreasury::Test::Resou
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Models::Ledger
+      row => ModernTreasury::Ledger
     end
 
     assert_pattern do
@@ -102,7 +102,7 @@ class ModernTreasury::Test::Resources::LedgersTest < ModernTreasury::Test::Resou
     response = @modern_treasury.ledgers.delete("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::Ledger
+      response => ModernTreasury::Ledger
     end
 
     assert_pattern do

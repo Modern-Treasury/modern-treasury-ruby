@@ -23,9 +23,11 @@ module ModernTreasury
       # @!attribute ledger_entries
       #   An array of ledger entry objects.
       #
-      #   @return [Array<ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry>, nil]
+      #   @return [Array<ModernTreasury::LedgerTransactionUpdateParams::LedgerEntry>, nil]
       optional :ledger_entries,
-               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry] }
+               -> {
+                 ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LedgerTransactionUpdateParams::LedgerEntry]
+               }
 
       # @!attribute ledgerable_id
       #   If the ledger transaction can be reconciled to another object in Modern
@@ -40,9 +42,8 @@ module ModernTreasury
       #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
       #   reversal.
       #
-      #   @return [Symbol, ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType, nil]
-      optional :ledgerable_type,
-               enum: -> { ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType }
+      #   @return [Symbol, ModernTreasury::LedgerTransactionUpdateParams::LedgerableType, nil]
+      optional :ledgerable_type, enum: -> { ModernTreasury::LedgerTransactionUpdateParams::LedgerableType }
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
@@ -54,8 +55,8 @@ module ModernTreasury
       # @!attribute status
       #   To post a ledger transaction at creation, use `posted`.
       #
-      #   @return [Symbol, ModernTreasury::Models::LedgerTransactionUpdateParams::Status, nil]
-      optional :status, enum: -> { ModernTreasury::Models::LedgerTransactionUpdateParams::Status }
+      #   @return [Symbol, ModernTreasury::LedgerTransactionUpdateParams::Status, nil]
+      optional :status, enum: -> { ModernTreasury::LedgerTransactionUpdateParams::Status }
 
       # @!method initialize(description: nil, effective_at: nil, ledger_entries: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, status: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
@@ -64,20 +65,16 @@ module ModernTreasury
       #   @param description [String, nil] An optional description for internal use.
       #
       #   @param effective_at [Time] The timestamp (ISO8601 format) at which the ledger transaction happened for repo
-      #   ...
       #
-      #   @param ledger_entries [Array<ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry>] An array of ledger entry objects.
+      #   @param ledger_entries [Array<ModernTreasury::LedgerTransactionUpdateParams::LedgerEntry>] An array of ledger entry objects.
       #
       #   @param ledgerable_id [String] If the ledger transaction can be reconciled to another object in Modern Treasury
-      #   ...
       #
-      #   @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType] If the ledger transaction can be reconciled to another object in Modern Treasury
-      #   ...
+      #   @param ledgerable_type [Symbol, ModernTreasury::LedgerTransactionUpdateParams::LedgerableType] If the ledger transaction can be reconciled to another object in Modern Treasury
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-      #   ...
       #
-      #   @param status [Symbol, ModernTreasury::Models::LedgerTransactionUpdateParams::Status] To post a ledger transaction at creation, use `posted`.
+      #   @param status [Symbol, ModernTreasury::LedgerTransactionUpdateParams::Status] To post a ledger transaction at creation, use `posted`.
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
@@ -95,8 +92,8 @@ module ModernTreasury
         #   `debit` pulls money from someone else's account to your own. Note that wire,
         #   rtp, and check payments will always be `credit`.
         #
-        #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
-        required :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
+        #   @return [Symbol, ModernTreasury::TransactionDirection]
+        required :direction, enum: -> { ModernTreasury::TransactionDirection }
 
         # @!attribute ledger_account_id
         #   The ledger account that this ledger entry is associated with.
@@ -153,34 +150,25 @@ module ModernTreasury
 
         # @!method initialize(amount:, direction:, ledger_account_id:, available_balance_amount: nil, lock_version: nil, metadata: nil, pending_balance_amount: nil, posted_balance_amount: nil, show_resulting_ledger_account_balances: nil)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry} for more
-        #   details.
+        #   {ModernTreasury::LedgerTransactionUpdateParams::LedgerEntry} for more details.
         #
         #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
-        #   ...
         #
-        #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection] One of `credit`, `debit`. Describes the direction money is flowing in the transa
-        #   ...
+        #   @param direction [Symbol, ModernTreasury::TransactionDirection] One of `credit`, `debit`. Describes the direction money is flowing in the transa
         #
         #   @param ledger_account_id [String] The ledger account that this ledger entry is associated with.
         #
         #   @param available_balance_amount [Hash{Symbol=>Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the accou
-        #   ...
         #
         #   @param lock_version [Integer, nil] Lock version of the ledger account. This can be passed when creating a ledger tr
-        #   ...
         #
         #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-        #   ...
         #
         #   @param pending_balance_amount [Hash{Symbol=>Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the accou
-        #   ...
         #
         #   @param posted_balance_amount [Hash{Symbol=>Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the accou
-        #   ...
         #
         #   @param show_resulting_ledger_account_balances [Boolean, nil] If true, response will include the balance of the associated ledger account for
-        #   ...
       end
 
       # If the ledger transaction can be reconciled to another object in Modern

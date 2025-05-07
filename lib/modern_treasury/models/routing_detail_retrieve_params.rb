@@ -9,8 +9,8 @@ module ModernTreasury
 
       # @!attribute accounts_type
       #
-      #   @return [Symbol, ModernTreasury::Models::AccountsType]
-      required :accounts_type, enum: -> { ModernTreasury::Models::AccountsType }
+      #   @return [Symbol, ModernTreasury::AccountsType]
+      required :accounts_type, enum: -> { ModernTreasury::AccountsType }
 
       # @!attribute account_id
       #
@@ -18,7 +18,7 @@ module ModernTreasury
       required :account_id, String
 
       # @!method initialize(accounts_type:, account_id:, request_options: {})
-      #   @param accounts_type [Symbol, ModernTreasury::Models::AccountsType]
+      #   @param accounts_type [Symbol, ModernTreasury::AccountsType]
       #   @param account_id [String]
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end

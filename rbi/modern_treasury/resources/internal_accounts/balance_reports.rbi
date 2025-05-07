@@ -10,16 +10,14 @@ module ModernTreasury
             internal_account_id: String,
             as_of_date: Date,
             as_of_time: String,
-            balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::OrSymbol,
-            balances: T::Array[
-              T.any(
-                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance,
-                ModernTreasury::Internal::AnyHash
-              )
-            ],
-            request_options: ModernTreasury::RequestOpts
-          )
-            .returns(ModernTreasury::Models::InternalAccounts::BalanceReport)
+            balance_report_type:
+              ModernTreasury::InternalAccounts::BalanceReportCreateParams::BalanceReportType::OrSymbol,
+            balances:
+              T::Array[
+                ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance::OrHash
+              ],
+            request_options: ModernTreasury::RequestOptions::OrHash
+          ).returns(ModernTreasury::InternalAccounts::BalanceReport)
         end
         def create(
           internal_account_id,
@@ -33,11 +31,16 @@ module ModernTreasury
           # An array of `Balance` objects.
           balances:,
           request_options: {}
-        ); end
+        )
+        end
+
         # Get a single balance report for a given internal account.
         sig do
-          params(id: String, internal_account_id: String, request_options: ModernTreasury::RequestOpts)
-            .returns(ModernTreasury::Models::InternalAccounts::BalanceReport)
+          params(
+            id: String,
+            internal_account_id: String,
+            request_options: ModernTreasury::RequestOptions::OrHash
+          ).returns(ModernTreasury::InternalAccounts::BalanceReport)
         end
         def retrieve(
           # Either the unique identifier of the balance report or latest for the latest
@@ -45,18 +48,24 @@ module ModernTreasury
           id,
           internal_account_id:,
           request_options: {}
-        ); end
+        )
+        end
+
         # Get all balance reports for a given internal account.
         sig do
           params(
             internal_account_id: String,
             after_cursor: T.nilable(String),
             as_of_date: Date,
-            balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::OrSymbol,
+            balance_report_type:
+              ModernTreasury::InternalAccounts::BalanceReportListParams::BalanceReportType::OrSymbol,
             per_page: Integer,
-            request_options: ModernTreasury::RequestOpts
+            request_options: ModernTreasury::RequestOptions::OrHash
+          ).returns(
+            ModernTreasury::Internal::Page[
+              ModernTreasury::InternalAccounts::BalanceReport
+            ]
           )
-            .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::InternalAccounts::BalanceReport])
         end
         def list(
           internal_account_id,
@@ -68,10 +77,16 @@ module ModernTreasury
           balance_report_type: nil,
           per_page: nil,
           request_options: {}
-        ); end
+        )
+        end
+
         # Deletes a given balance report.
         sig do
-          params(id: String, internal_account_id: String, request_options: ModernTreasury::RequestOpts).void
+          params(
+            id: String,
+            internal_account_id: String,
+            request_options: ModernTreasury::RequestOptions::OrHash
+          ).void
         end
         def delete(
           # Either the unique identifier of the balance report or latest for the latest
@@ -79,10 +94,13 @@ module ModernTreasury
           id,
           internal_account_id:,
           request_options: {}
-        ); end
+        )
+        end
+
         # @api private
         sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-        def self.new(client:); end
+        def self.new(client:)
+        end
       end
     end
   end

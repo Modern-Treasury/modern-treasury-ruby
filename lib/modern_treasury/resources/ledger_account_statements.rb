@@ -11,18 +11,14 @@ module ModernTreasury
       # @overload create(effective_at_lower_bound:, effective_at_upper_bound:, ledger_account_id:, description: nil, metadata: nil, request_options: {})
       #
       # @param effective_at_lower_bound [Time] The inclusive lower bound of the effective_at timestamp of the ledger entries to
-      # ...
       #
       # @param effective_at_upper_bound [Time] The exclusive upper bound of the effective_at timestamp of the ledger entries to
-      # ...
       #
       # @param ledger_account_id [String] The id of the ledger account whose ledger entries are queried against, and its b
-      # ...
       #
       # @param description [String, nil] The description of the ledger account statement.
       #
       # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-      # ...
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -30,7 +26,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::LedgerAccountStatementCreateParams
       def create(params)
-        parsed, options = ModernTreasury::Models::LedgerAccountStatementCreateParams.dump_request(params)
+        parsed, options = ModernTreasury::LedgerAccountStatementCreateParams.dump_request(params)
         @client.request(
           method: :post,
           path: "api/ledger_account_statements",

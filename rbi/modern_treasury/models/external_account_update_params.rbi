@@ -6,11 +6,16 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       # Can be `checking`, `savings` or `other`.
-      sig { returns(T.nilable(ModernTreasury::Models::ExternalAccountType::OrSymbol)) }
+      sig { returns(T.nilable(ModernTreasury::ExternalAccountType::OrSymbol)) }
       attr_reader :account_type
 
-      sig { params(account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol).void }
+      sig do
+        params(account_type: ModernTreasury::ExternalAccountType::OrSymbol).void
+      end
       attr_writer :account_type
 
       sig { returns(T.nilable(String)) }
@@ -29,17 +34,18 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :name
 
-      sig { returns(T.nilable(ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress)) }
+      sig do
+        returns(
+          T.nilable(ModernTreasury::ExternalAccountUpdateParams::PartyAddress)
+        )
+      end
       attr_reader :party_address
 
       sig do
         params(
-          party_address: T.any(
-            ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress,
-            ModernTreasury::Internal::AnyHash
-          )
-        )
-          .void
+          party_address:
+            ModernTreasury::ExternalAccountUpdateParams::PartyAddress::OrHash
+        ).void
       end
       attr_writer :party_address
 
@@ -51,24 +57,30 @@ module ModernTreasury
       attr_writer :party_name
 
       # Either `individual` or `business`.
-      sig { returns(T.nilable(ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::OrSymbol)) }
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::ExternalAccountUpdateParams::PartyType::OrSymbol
+          )
+        )
+      end
       attr_accessor :party_type
 
       sig do
         params(
-          account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
+          account_type: ModernTreasury::ExternalAccountType::OrSymbol,
           counterparty_id: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           name: T.nilable(String),
-          party_address: T.any(
-            ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress,
-            ModernTreasury::Internal::AnyHash
-          ),
+          party_address:
+            ModernTreasury::ExternalAccountUpdateParams::PartyAddress::OrHash,
           party_name: String,
-          party_type: T.nilable(ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::OrSymbol),
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          party_type:
+            T.nilable(
+              ModernTreasury::ExternalAccountUpdateParams::PartyType::OrSymbol
+            ),
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # Can be `checking`, `savings` or `other`.
@@ -86,25 +98,34 @@ module ModernTreasury
         # Either `individual` or `business`.
         party_type: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
-              counterparty_id: T.nilable(String),
-              metadata: T::Hash[Symbol, String],
-              name: T.nilable(String),
-              party_address: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress,
-              party_name: String,
-              party_type: T.nilable(ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::OrSymbol),
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            account_type: ModernTreasury::ExternalAccountType::OrSymbol,
+            counterparty_id: T.nilable(String),
+            metadata: T::Hash[Symbol, String],
+            name: T.nilable(String),
+            party_address:
+              ModernTreasury::ExternalAccountUpdateParams::PartyAddress,
+            party_name: String,
+            party_type:
+              T.nilable(
+                ModernTreasury::ExternalAccountUpdateParams::PartyType::OrSymbol
+              ),
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
 
       class PartyAddress < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(T.nilable(String)) }
         attr_accessor :country
@@ -135,8 +156,7 @@ module ModernTreasury
             locality: T.nilable(String),
             postal_code: T.nilable(String),
             region: T.nilable(String)
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
           # Country code conforms to [ISO 3166-1 alpha-2]
@@ -149,21 +169,23 @@ module ModernTreasury
           postal_code: nil,
           # Region or State.
           region: nil
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                country: T.nilable(String),
-                line1: T.nilable(String),
-                line2: T.nilable(String),
-                locality: T.nilable(String),
-                postal_code: T.nilable(String),
-                region: T.nilable(String)
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              country: T.nilable(String),
+              line1: T.nilable(String),
+              line2: T.nilable(String),
+              locality: T.nilable(String),
+              postal_code: T.nilable(String),
+              region: T.nilable(String)
+            }
+          )
+        end
+        def to_hash
+        end
       end
 
       # Either `individual` or `business`.
@@ -171,15 +193,34 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
-          T.type_alias { T.all(Symbol, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType) }
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::ExternalAccountUpdateParams::PartyType
+            )
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        BUSINESS = T.let(:business, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::TaggedSymbol)
+        BUSINESS =
+          T.let(
+            :business,
+            ModernTreasury::ExternalAccountUpdateParams::PartyType::TaggedSymbol
+          )
         INDIVIDUAL =
-          T.let(:individual, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::TaggedSymbol)
+          T.let(
+            :individual,
+            ModernTreasury::ExternalAccountUpdateParams::PartyType::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::ExternalAccountUpdateParams::PartyType::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
     end
   end

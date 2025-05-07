@@ -3,6 +3,9 @@
 module ModernTreasury
   module Models
     class BankSettings < ModernTreasury::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       sig { returns(String) }
       attr_accessor :id
 
@@ -55,8 +58,7 @@ module ModernTreasury
           privacy_opt_out: T.nilable(T::Boolean),
           regulation_o: T.nilable(T::Boolean),
           updated_at: Time
-        )
-          .returns(T.attached_class)
+        ).returns(T.attached_class)
       end
       def self.new(
         id:,
@@ -79,25 +81,27 @@ module ModernTreasury
         # other subsidiary of that bank holding company.
         regulation_o:,
         updated_at:
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: String,
-              backup_withholding_percentage: T.nilable(Integer),
-              created_at: Time,
-              discarded_at: T.nilable(Time),
-              enable_backup_withholding: T.nilable(T::Boolean),
-              live_mode: T::Boolean,
-              object: String,
-              privacy_opt_out: T.nilable(T::Boolean),
-              regulation_o: T.nilable(T::Boolean),
-              updated_at: Time
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            backup_withholding_percentage: T.nilable(Integer),
+            created_at: Time,
+            discarded_at: T.nilable(Time),
+            enable_backup_withholding: T.nilable(T::Boolean),
+            live_mode: T::Boolean,
+            object: String,
+            privacy_opt_out: T.nilable(T::Boolean),
+            regulation_o: T.nilable(T::Boolean),
+            updated_at: Time
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

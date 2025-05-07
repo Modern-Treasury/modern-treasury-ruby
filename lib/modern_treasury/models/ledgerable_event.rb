@@ -66,7 +66,7 @@ module ModernTreasury
 
       # @!method initialize(id:, created_at:, custom_data:, description:, ledger_event_handler_id:, live_mode:, metadata:, name:, object:, updated_at:)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::Models::LedgerableEvent} for more details.
+      #   {ModernTreasury::LedgerableEvent} for more details.
       #
       #   @param id [String]
       #
@@ -79,10 +79,8 @@ module ModernTreasury
       #   @param ledger_event_handler_id [String] Id of the ledger event handler that is used to create a ledger transaction.
       #
       #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
-      #   ...
       #
       #   @param metadata [Hash{Symbol=>String}, nil] Additional data represented as key-value pairs. Both the key and value must be s
-      #   ...
       #
       #   @param name [String] Name of the ledgerable event.
       #

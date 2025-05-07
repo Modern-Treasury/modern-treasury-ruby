@@ -3,6 +3,9 @@
 module ModernTreasury
   module Models
     class PaperItem < ModernTreasury::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       sig { returns(String) }
       attr_accessor :id
 
@@ -26,7 +29,7 @@ module ModernTreasury
       attr_accessor :created_at
 
       # The currency of the paper item.
-      sig { returns(ModernTreasury::Models::Currency::TaggedSymbol) }
+      sig { returns(ModernTreasury::Currency::TaggedSymbol) }
       attr_accessor :currency
 
       # The date the paper item was deposited into your organization's bank account.
@@ -59,7 +62,7 @@ module ModernTreasury
 
       # The current status of the paper item. One of `pending`, `completed`, or
       # `returned`.
-      sig { returns(ModernTreasury::Models::PaperItem::Status::TaggedSymbol) }
+      sig { returns(ModernTreasury::PaperItem::Status::TaggedSymbol) }
       attr_accessor :status
 
       # The ID of the reconciled Transaction or `null`.
@@ -81,7 +84,7 @@ module ModernTreasury
           amount: Integer,
           check_number: T.nilable(String),
           created_at: Time,
-          currency: ModernTreasury::Models::Currency::OrSymbol,
+          currency: ModernTreasury::Currency::OrSymbol,
           deposit_date: Date,
           live_mode: T::Boolean,
           lockbox_number: String,
@@ -89,12 +92,11 @@ module ModernTreasury
           object: String,
           remitter_name: T.nilable(String),
           routing_number: T.nilable(String),
-          status: ModernTreasury::Models::PaperItem::Status::OrSymbol,
+          status: ModernTreasury::PaperItem::Status::OrSymbol,
           transaction_id: T.nilable(String),
           transaction_line_item_id: T.nilable(String),
           updated_at: Time
-        )
-          .returns(T.attached_class)
+        ).returns(T.attached_class)
       end
       def self.new(
         id:,
@@ -131,48 +133,59 @@ module ModernTreasury
         # The ID of the reconciled Transaction Line Item or `null`.
         transaction_line_item_id:,
         updated_at:
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: String,
-              account_number: T.nilable(String),
-              account_number_safe: T.nilable(String),
-              amount: Integer,
-              check_number: T.nilable(String),
-              created_at: Time,
-              currency: ModernTreasury::Models::Currency::TaggedSymbol,
-              deposit_date: Date,
-              live_mode: T::Boolean,
-              lockbox_number: String,
-              memo_field: T.nilable(String),
-              object: String,
-              remitter_name: T.nilable(String),
-              routing_number: T.nilable(String),
-              status: ModernTreasury::Models::PaperItem::Status::TaggedSymbol,
-              transaction_id: T.nilable(String),
-              transaction_line_item_id: T.nilable(String),
-              updated_at: Time
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            account_number: T.nilable(String),
+            account_number_safe: T.nilable(String),
+            amount: Integer,
+            check_number: T.nilable(String),
+            created_at: Time,
+            currency: ModernTreasury::Currency::TaggedSymbol,
+            deposit_date: Date,
+            live_mode: T::Boolean,
+            lockbox_number: String,
+            memo_field: T.nilable(String),
+            object: String,
+            remitter_name: T.nilable(String),
+            routing_number: T.nilable(String),
+            status: ModernTreasury::PaperItem::Status::TaggedSymbol,
+            transaction_id: T.nilable(String),
+            transaction_line_item_id: T.nilable(String),
+            updated_at: Time
+          }
+        )
+      end
+      def to_hash
+      end
 
       # The current status of the paper item. One of `pending`, `completed`, or
       # `returned`.
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
-        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaperItem::Status) }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::PaperItem::Status) }
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        COMPLETED = T.let(:completed, ModernTreasury::Models::PaperItem::Status::TaggedSymbol)
-        PENDING = T.let(:pending, ModernTreasury::Models::PaperItem::Status::TaggedSymbol)
-        RETURNED = T.let(:returned, ModernTreasury::Models::PaperItem::Status::TaggedSymbol)
+        COMPLETED =
+          T.let(:completed, ModernTreasury::PaperItem::Status::TaggedSymbol)
+        PENDING =
+          T.let(:pending, ModernTreasury::PaperItem::Status::TaggedSymbol)
+        RETURNED =
+          T.let(:returned, ModernTreasury::PaperItem::Status::TaggedSymbol)
 
-        sig { override.returns(T::Array[ModernTreasury::Models::PaperItem::Status::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[ModernTreasury::PaperItem::Status::TaggedSymbol]
+          )
+        end
+        def self.values
+        end
       end
     end
   end

@@ -16,8 +16,6 @@ module ModernTreasury
         ?show_balances: bool,
         ?request_options: ModernTreasury::request_opts
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::ledger_entry_retrieve_params
     end
   end
 end

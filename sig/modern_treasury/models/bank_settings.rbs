@@ -47,8 +47,6 @@ module ModernTreasury
         regulation_o: bool?,
         updated_at: Time
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::bank_settings
     end
   end
 end

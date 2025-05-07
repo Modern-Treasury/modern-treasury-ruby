@@ -3,6 +3,9 @@
 module ModernTreasury
   module Models
     class LegalEntityIndustryClassification < ModernTreasury::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       sig { returns(String) }
       attr_accessor :id
 
@@ -11,7 +14,11 @@ module ModernTreasury
       attr_accessor :classification_codes
 
       # The classification system of the classification codes.
-      sig { returns(ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType::OrSymbol) }
+      sig do
+        returns(
+          ModernTreasury::LegalEntityIndustryClassification::ClassificationType::OrSymbol
+        )
+      end
       attr_accessor :classification_type
 
       sig { returns(Time) }
@@ -35,14 +42,14 @@ module ModernTreasury
         params(
           id: String,
           classification_codes: T::Array[String],
-          classification_type: ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType::OrSymbol,
+          classification_type:
+            ModernTreasury::LegalEntityIndustryClassification::ClassificationType::OrSymbol,
           created_at: Time,
           discarded_at: T.nilable(Time),
           live_mode: T::Boolean,
           object: String,
           updated_at: Time
-        )
-          .returns(T.attached_class)
+        ).returns(T.attached_class)
       end
       def self.new(
         id:,
@@ -57,76 +64,125 @@ module ModernTreasury
         live_mode:,
         object:,
         updated_at:
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: String,
-              classification_codes: T::Array[String],
-              classification_type: ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType::OrSymbol,
-              created_at: Time,
-              discarded_at: T.nilable(Time),
-              live_mode: T::Boolean,
-              object: String,
-              updated_at: Time
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            classification_codes: T::Array[String],
+            classification_type:
+              ModernTreasury::LegalEntityIndustryClassification::ClassificationType::OrSymbol,
+            created_at: Time,
+            discarded_at: T.nilable(Time),
+            live_mode: T::Boolean,
+            object: String,
+            updated_at: Time
+          }
+        )
+      end
+      def to_hash
+      end
 
       # The classification system of the classification codes.
       module ClassificationType
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
-          T.type_alias { T.all(Symbol, ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType) }
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::LegalEntityIndustryClassification::ClassificationType
+            )
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         ANZSIC =
           T.let(
             :anzsic,
-            ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol
+            ModernTreasury::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol
           )
         BICS =
-          T.let(:bics, ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol)
+          T.let(
+            :bics,
+            ModernTreasury::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol
+          )
         GICS =
-          T.let(:gics, ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol)
+          T.let(
+            :gics,
+            ModernTreasury::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol
+          )
         HSICS =
-          T.let(:hsics, ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol)
+          T.let(
+            :hsics,
+            ModernTreasury::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol
+          )
         ICB =
-          T.let(:icb, ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol)
+          T.let(
+            :icb,
+            ModernTreasury::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol
+          )
         ISIC =
-          T.let(:isic, ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol)
+          T.let(
+            :isic,
+            ModernTreasury::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol
+          )
         MGECS =
-          T.let(:mgecs, ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol)
+          T.let(
+            :mgecs,
+            ModernTreasury::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol
+          )
         NACE =
-          T.let(:nace, ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol)
+          T.let(
+            :nace,
+            ModernTreasury::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol
+          )
         NAICS =
-          T.let(:naics, ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol)
+          T.let(
+            :naics,
+            ModernTreasury::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol
+          )
         RBICS =
-          T.let(:rbics, ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol)
+          T.let(
+            :rbics,
+            ModernTreasury::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol
+          )
         SIC =
-          T.let(:sic, ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol)
+          T.let(
+            :sic,
+            ModernTreasury::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol
+          )
         SNI =
-          T.let(:sni, ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol)
+          T.let(
+            :sni,
+            ModernTreasury::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol
+          )
         TRBC =
-          T.let(:trbc, ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol)
+          T.let(
+            :trbc,
+            ModernTreasury::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol
+          )
         UKSIC =
-          T.let(:uksic, ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol)
+          T.let(
+            :uksic,
+            ModernTreasury::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol
+          )
         UNSPSC =
           T.let(
             :unspsc,
-            ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol
+            ModernTreasury::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol
           )
 
         sig do
-          override
-            .returns(
-              T::Array[ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol]
-            )
+          override.returns(
+            T::Array[
+              ModernTreasury::LegalEntityIndustryClassification::ClassificationType::TaggedSymbol
+            ]
+          )
         end
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

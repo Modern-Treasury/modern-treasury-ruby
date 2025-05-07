@@ -33,7 +33,6 @@ module ModernTreasury
       #   @param description [String, nil] The description of the ledger account category.
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-      #   ...
       #
       #   @param name [String] The name of the ledger account category.
       #

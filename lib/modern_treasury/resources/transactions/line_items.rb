@@ -12,7 +12,6 @@ module ModernTreasury
         # @overload create(amount:, expected_payment_id:, transaction_id:, request_options: {})
         #
         # @param amount [Integer] If a matching object exists in Modern Treasury, `amount` will be populated. Valu
-        # ...
         #
         # @param expected_payment_id [String] The ID of the reconciled Expected Payment, otherwise `null`.
         #
@@ -20,16 +19,16 @@ module ModernTreasury
         #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::Models::Transactions::TransactionLineItem]
+        # @return [ModernTreasury::Transactions::TransactionLineItem]
         #
         # @see ModernTreasury::Models::Transactions::LineItemCreateParams
         def create(params)
-          parsed, options = ModernTreasury::Models::Transactions::LineItemCreateParams.dump_request(params)
+          parsed, options = ModernTreasury::Transactions::LineItemCreateParams.dump_request(params)
           @client.request(
             method: :post,
             path: "api/transaction_line_items",
             body: parsed,
-            model: ModernTreasury::Models::Transactions::TransactionLineItem,
+            model: ModernTreasury::Transactions::TransactionLineItem,
             options: options
           )
         end
@@ -42,14 +41,14 @@ module ModernTreasury
         #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::Models::Transactions::TransactionLineItem]
+        # @return [ModernTreasury::Transactions::TransactionLineItem]
         #
         # @see ModernTreasury::Models::Transactions::LineItemRetrieveParams
         def retrieve(id, params = {})
           @client.request(
             method: :get,
             path: ["api/transaction_line_items/%1$s", id],
-            model: ModernTreasury::Models::Transactions::TransactionLineItem,
+            model: ModernTreasury::Transactions::TransactionLineItem,
             options: params[:request_options]
           )
         end
@@ -62,20 +61,20 @@ module ModernTreasury
         # @param after_cursor [String, nil]
         # @param per_page [Integer]
         # @param transaction_id [String]
-        # @param type [Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type, nil]
+        # @param type [Symbol, ModernTreasury::Transactions::LineItemListParams::Type, nil]
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::Transactions::TransactionLineItem>]
+        # @return [ModernTreasury::Internal::Page<ModernTreasury::Transactions::TransactionLineItem>]
         #
         # @see ModernTreasury::Models::Transactions::LineItemListParams
         def list(params = {})
-          parsed, options = ModernTreasury::Models::Transactions::LineItemListParams.dump_request(params)
+          parsed, options = ModernTreasury::Transactions::LineItemListParams.dump_request(params)
           @client.request(
             method: :get,
             path: "api/transaction_line_items",
             query: parsed,
             page: ModernTreasury::Internal::Page,
-            model: ModernTreasury::Models::Transactions::TransactionLineItem,
+            model: ModernTreasury::Transactions::TransactionLineItem,
             options: options
           )
         end

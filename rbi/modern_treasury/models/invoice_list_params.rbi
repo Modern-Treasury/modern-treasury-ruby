@@ -6,6 +6,9 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor
 
@@ -69,10 +72,14 @@ module ModernTreasury
       sig { params(per_page: Integer).void }
       attr_writer :per_page
 
-      sig { returns(T.nilable(ModernTreasury::Models::InvoiceListParams::Status::OrSymbol)) }
+      sig do
+        returns(T.nilable(ModernTreasury::InvoiceListParams::Status::OrSymbol))
+      end
       attr_reader :status
 
-      sig { params(status: ModernTreasury::Models::InvoiceListParams::Status::OrSymbol).void }
+      sig do
+        params(status: ModernTreasury::InvoiceListParams::Status::OrSymbol).void
+      end
       attr_writer :status
 
       sig do
@@ -87,10 +94,9 @@ module ModernTreasury
           originating_account_id: String,
           payment_order_id: String,
           per_page: Integer,
-          status: ModernTreasury::Models::InvoiceListParams::Status::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          status: ModernTreasury::InvoiceListParams::Status::OrSymbol,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         after_cursor: nil,
@@ -111,44 +117,71 @@ module ModernTreasury
         per_page: nil,
         status: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              after_cursor: T.nilable(String),
-              counterparty_id: String,
-              due_date_end: Date,
-              due_date_start: Date,
-              expected_payment_id: String,
-              metadata: T::Hash[Symbol, String],
-              number: String,
-              originating_account_id: String,
-              payment_order_id: String,
-              per_page: Integer,
-              status: ModernTreasury::Models::InvoiceListParams::Status::OrSymbol,
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            after_cursor: T.nilable(String),
+            counterparty_id: String,
+            due_date_end: Date,
+            due_date_start: Date,
+            expected_payment_id: String,
+            metadata: T::Hash[Symbol, String],
+            number: String,
+            originating_account_id: String,
+            payment_order_id: String,
+            per_page: Integer,
+            status: ModernTreasury::InvoiceListParams::Status::OrSymbol,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
 
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
-        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::InvoiceListParams::Status) }
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::InvoiceListParams::Status)
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        DRAFT = T.let(:draft, ModernTreasury::Models::InvoiceListParams::Status::TaggedSymbol)
-        PAID = T.let(:paid, ModernTreasury::Models::InvoiceListParams::Status::TaggedSymbol)
-        PARTIALLY_PAID = T.let(:partially_paid, ModernTreasury::Models::InvoiceListParams::Status::TaggedSymbol)
+        DRAFT =
+          T.let(:draft, ModernTreasury::InvoiceListParams::Status::TaggedSymbol)
+        PAID =
+          T.let(:paid, ModernTreasury::InvoiceListParams::Status::TaggedSymbol)
+        PARTIALLY_PAID =
+          T.let(
+            :partially_paid,
+            ModernTreasury::InvoiceListParams::Status::TaggedSymbol
+          )
         PAYMENT_PENDING =
-          T.let(:payment_pending, ModernTreasury::Models::InvoiceListParams::Status::TaggedSymbol)
-        UNPAID = T.let(:unpaid, ModernTreasury::Models::InvoiceListParams::Status::TaggedSymbol)
-        VOIDED = T.let(:voided, ModernTreasury::Models::InvoiceListParams::Status::TaggedSymbol)
+          T.let(
+            :payment_pending,
+            ModernTreasury::InvoiceListParams::Status::TaggedSymbol
+          )
+        UNPAID =
+          T.let(
+            :unpaid,
+            ModernTreasury::InvoiceListParams::Status::TaggedSymbol
+          )
+        VOIDED =
+          T.let(
+            :voided,
+            ModernTreasury::InvoiceListParams::Status::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::InvoiceListParams::Status::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[ModernTreasury::InvoiceListParams::Status::TaggedSymbol]
+          )
+        end
+        def self.values
+        end
       end
     end
   end

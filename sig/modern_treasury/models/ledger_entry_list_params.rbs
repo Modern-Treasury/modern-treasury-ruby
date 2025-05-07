@@ -16,7 +16,7 @@ module ModernTreasury
         ledger_account_statement_id: String,
         ledger_transaction_id: String,
         metadata: ::Hash[Symbol, String],
-        order_by: ModernTreasury::Models::LedgerEntryListParams::OrderBy,
+        order_by: ModernTreasury::LedgerEntryListParams::OrderBy,
         per_page: Integer,
         show_balances: bool,
         show_deleted: bool,
@@ -87,11 +87,11 @@ module ModernTreasury
 
       def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
-      attr_reader order_by: ModernTreasury::Models::LedgerEntryListParams::OrderBy?
+      attr_reader order_by: ModernTreasury::LedgerEntryListParams::OrderBy?
 
       def order_by=: (
-        ModernTreasury::Models::LedgerEntryListParams::OrderBy
-      ) -> ModernTreasury::Models::LedgerEntryListParams::OrderBy
+        ModernTreasury::LedgerEntryListParams::OrderBy
+      ) -> ModernTreasury::LedgerEntryListParams::OrderBy
 
       attr_reader per_page: Integer?
 
@@ -130,7 +130,7 @@ module ModernTreasury
         ?ledger_account_statement_id: String,
         ?ledger_transaction_id: String,
         ?metadata: ::Hash[Symbol, String],
-        ?order_by: ModernTreasury::Models::LedgerEntryListParams::OrderBy,
+        ?order_by: ModernTreasury::LedgerEntryListParams::OrderBy,
         ?per_page: Integer,
         ?show_balances: bool,
         ?show_deleted: bool,
@@ -139,33 +139,29 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
-      def to_hash: -> ModernTreasury::Models::ledger_entry_list_params
-
       type order_by =
         {
-          created_at: ModernTreasury::Models::LedgerEntryListParams::OrderBy::created_at,
-          effective_at: ModernTreasury::Models::LedgerEntryListParams::OrderBy::effective_at
+          created_at: ModernTreasury::LedgerEntryListParams::OrderBy::created_at,
+          effective_at: ModernTreasury::LedgerEntryListParams::OrderBy::effective_at
         }
 
       class OrderBy < ModernTreasury::Internal::Type::BaseModel
-        attr_reader created_at: ModernTreasury::Models::LedgerEntryListParams::OrderBy::created_at?
+        attr_reader created_at: ModernTreasury::LedgerEntryListParams::OrderBy::created_at?
 
         def created_at=: (
-          ModernTreasury::Models::LedgerEntryListParams::OrderBy::created_at
-        ) -> ModernTreasury::Models::LedgerEntryListParams::OrderBy::created_at
+          ModernTreasury::LedgerEntryListParams::OrderBy::created_at
+        ) -> ModernTreasury::LedgerEntryListParams::OrderBy::created_at
 
-        attr_reader effective_at: ModernTreasury::Models::LedgerEntryListParams::OrderBy::effective_at?
+        attr_reader effective_at: ModernTreasury::LedgerEntryListParams::OrderBy::effective_at?
 
         def effective_at=: (
-          ModernTreasury::Models::LedgerEntryListParams::OrderBy::effective_at
-        ) -> ModernTreasury::Models::LedgerEntryListParams::OrderBy::effective_at
+          ModernTreasury::LedgerEntryListParams::OrderBy::effective_at
+        ) -> ModernTreasury::LedgerEntryListParams::OrderBy::effective_at
 
         def initialize: (
-          ?created_at: ModernTreasury::Models::LedgerEntryListParams::OrderBy::created_at,
-          ?effective_at: ModernTreasury::Models::LedgerEntryListParams::OrderBy::effective_at
+          ?created_at: ModernTreasury::LedgerEntryListParams::OrderBy::created_at,
+          ?effective_at: ModernTreasury::LedgerEntryListParams::OrderBy::effective_at
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::LedgerEntryListParams::order_by
 
         type created_at = :asc | :desc
 
@@ -175,7 +171,7 @@ module ModernTreasury
           ASC: :asc
           DESC: :desc
 
-          def self?.values: -> ::Array[ModernTreasury::Models::LedgerEntryListParams::OrderBy::created_at]
+          def self?.values: -> ::Array[ModernTreasury::LedgerEntryListParams::OrderBy::created_at]
         end
 
         type effective_at = :asc | :desc
@@ -186,7 +182,7 @@ module ModernTreasury
           ASC: :asc
           DESC: :desc
 
-          def self?.values: -> ::Array[ModernTreasury::Models::LedgerEntryListParams::OrderBy::effective_at]
+          def self?.values: -> ::Array[ModernTreasury::LedgerEntryListParams::OrderBy::effective_at]
         end
       end
 

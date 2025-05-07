@@ -49,14 +49,14 @@ module ModernTreasury
         # @!attribute reason
         #   The reason for the reversal.
         #
-        #   @return [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Reason]
-        required :reason, enum: -> { ModernTreasury::Models::PaymentOrders::Reversal::Reason }
+        #   @return [Symbol, ModernTreasury::PaymentOrders::Reversal::Reason]
+        required :reason, enum: -> { ModernTreasury::PaymentOrders::Reversal::Reason }
 
         # @!attribute status
         #   The current status of the reversal.
         #
-        #   @return [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Status]
-        required :status, enum: -> { ModernTreasury::Models::PaymentOrders::Reversal::Status }
+        #   @return [Symbol, ModernTreasury::PaymentOrders::Reversal::Status]
+        required :status, enum: -> { ModernTreasury::PaymentOrders::Reversal::Status }
 
         # @!attribute transaction_ids
         #
@@ -71,7 +71,7 @@ module ModernTreasury
 
         # @!method initialize(id:, created_at:, ledger_transaction_id:, live_mode:, metadata:, object:, payment_order_id:, reason:, status:, transaction_ids:, updated_at:)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Models::PaymentOrders::Reversal} for more details.
+        #   {ModernTreasury::PaymentOrders::Reversal} for more details.
         #
         #   @param id [String]
         #
@@ -80,18 +80,16 @@ module ModernTreasury
         #   @param ledger_transaction_id [String, nil] The ID of the ledger transaction linked to the reversal.
         #
         #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
-        #   ...
         #
         #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-        #   ...
         #
         #   @param object [String]
         #
         #   @param payment_order_id [String, nil] The ID of the relevant Payment Order.
         #
-        #   @param reason [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Reason] The reason for the reversal.
+        #   @param reason [Symbol, ModernTreasury::PaymentOrders::Reversal::Reason] The reason for the reversal.
         #
-        #   @param status [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Status] The current status of the reversal.
+        #   @param status [Symbol, ModernTreasury::PaymentOrders::Reversal::Status] The current status of the reversal.
         #
         #   @param transaction_ids [Array<Object, nil>]
         #
@@ -99,7 +97,7 @@ module ModernTreasury
 
         # The reason for the reversal.
         #
-        # @see ModernTreasury::Models::PaymentOrders::Reversal#reason
+        # @see ModernTreasury::PaymentOrders::Reversal#reason
         module Reason
           extend ModernTreasury::Internal::Type::Enum
 
@@ -115,7 +113,7 @@ module ModernTreasury
 
         # The current status of the reversal.
         #
-        # @see ModernTreasury::Models::PaymentOrders::Reversal#status
+        # @see ModernTreasury::PaymentOrders::Reversal#status
         module Status
           extend ModernTreasury::Internal::Type::Enum
 

@@ -27,8 +27,8 @@ module ModernTreasury
       #   `debit` pulls money from someone else's account to your own. Note that wire,
       #   rtp, and check payments will always be `credit`.
       #
-      #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
-      required :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
+      #   @return [Symbol, ModernTreasury::TransactionDirection]
+      required :direction, enum: -> { ModernTreasury::TransactionDirection }
 
       # @!attribute discarded_at
       #
@@ -96,17 +96,17 @@ module ModernTreasury
       #   https://docs.moderntreasury.com/docs/transaction-status-and-balances for more
       #   details.
       #
-      #   @return [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances, nil]
+      #   @return [ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances, nil]
       required :resulting_ledger_account_balances,
-               -> { ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances },
+               -> { ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances },
                nil?: true
 
       # @!attribute status
       #   Equal to the state of the ledger transaction when the ledger entry was created.
       #   One of `pending`, `posted`, or `archived`.
       #
-      #   @return [Symbol, ModernTreasury::Models::LedgerEntry::Status]
-      required :status, enum: -> { ModernTreasury::Models::LedgerEntry::Status }
+      #   @return [Symbol, ModernTreasury::LedgerEntry::Status]
+      required :status, enum: -> { ModernTreasury::LedgerEntry::Status }
 
       # @!attribute updated_at
       #
@@ -115,17 +115,15 @@ module ModernTreasury
 
       # @!method initialize(id:, amount:, created_at:, direction:, discarded_at:, ledger_account_currency:, ledger_account_currency_exponent:, ledger_account_id:, ledger_account_lock_version:, ledger_transaction_id:, live_mode:, metadata:, object:, resulting_ledger_account_balances:, status:, updated_at:)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::Models::LedgerEntry} for more details.
+      #   {ModernTreasury::LedgerEntry} for more details.
       #
       #   @param id [String]
       #
       #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
-      #   ...
       #
       #   @param created_at [Time]
       #
-      #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection] One of `credit`, `debit`. Describes the direction money is flowing in the transa
-      #   ...
+      #   @param direction [Symbol, ModernTreasury::TransactionDirection] One of `credit`, `debit`. Describes the direction money is flowing in the transa
       #
       #   @param discarded_at [Time, nil]
       #
@@ -136,27 +134,22 @@ module ModernTreasury
       #   @param ledger_account_id [String] The ledger account that this ledger entry is associated with.
       #
       #   @param ledger_account_lock_version [Integer, nil] Lock version of the ledger account. This can be passed when creating a ledger tr
-      #   ...
       #
       #   @param ledger_transaction_id [String] The ledger transaction that this ledger entry is associated with.
       #
       #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
-      #   ...
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-      #   ...
       #
       #   @param object [String]
       #
-      #   @param resulting_ledger_account_balances [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances, nil] The pending, posted, and available balances for this ledger entry's ledger accou
-      #   ...
+      #   @param resulting_ledger_account_balances [ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances, nil] The pending, posted, and available balances for this ledger entry's ledger accou
       #
-      #   @param status [Symbol, ModernTreasury::Models::LedgerEntry::Status] Equal to the state of the ledger transaction when the ledger entry was created.
-      #   ...
+      #   @param status [Symbol, ModernTreasury::LedgerEntry::Status] Equal to the state of the ledger transaction when the ledger entry was created.
       #
       #   @param updated_at [Time]
 
-      # @see ModernTreasury::Models::LedgerEntry#resulting_ledger_account_balances
+      # @see ModernTreasury::LedgerEntry#resulting_ledger_account_balances
       class ResultingLedgerAccountBalances < ModernTreasury::Internal::Type::BaseModel
         # @!attribute available_balance
         #   The available_balance is the sum of all posted inbound entries and pending
@@ -164,28 +157,27 @@ module ModernTreasury
         #   pending_debits; for debit normal, available_amount = posted_debits -
         #   pending_credits.
         #
-        #   @return [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance]
+        #   @return [ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance]
         required :available_balance,
-                 -> { ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance }
+                 -> { ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance }
 
         # @!attribute pending_balance
         #   The pending_balance is the sum of all pending and posted entries.
         #
-        #   @return [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance]
+        #   @return [ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance]
         required :pending_balance,
-                 -> { ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance }
+                 -> { ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance }
 
         # @!attribute posted_balance
         #   The posted_balance is the sum of all posted entries.
         #
-        #   @return [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance]
+        #   @return [ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance]
         required :posted_balance,
-                 -> { ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance }
+                 -> { ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance }
 
         # @!method initialize(available_balance:, pending_balance:, posted_balance:)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances} for more
-        #   details.
+        #   {ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances} for more details.
         #
         #   The pending, posted, and available balances for this ledger entry's ledger
         #   account. The posted balance is the sum of all posted entries on the account. The
@@ -195,14 +187,13 @@ module ModernTreasury
         #   https://docs.moderntreasury.com/docs/transaction-status-and-balances for more
         #   details.
         #
-        #   @param available_balance [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance] The available_balance is the sum of all posted inbound entries and pending outbo
-        #   ...
+        #   @param available_balance [ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance] The available_balance is the sum of all posted inbound entries and pending outbo
         #
-        #   @param pending_balance [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance] The pending_balance is the sum of all pending and posted entries.
+        #   @param pending_balance [ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance] The pending_balance is the sum of all pending and posted entries.
         #
-        #   @param posted_balance [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance] The posted_balance is the sum of all posted entries.
+        #   @param posted_balance [ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance] The posted_balance is the sum of all posted entries.
 
-        # @see ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances#available_balance
+        # @see ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances#available_balance
         class AvailableBalance < ModernTreasury::Internal::Type::BaseModel
           # @!attribute amount
           #
@@ -248,7 +239,7 @@ module ModernTreasury
           #   @param debits [Integer]
         end
 
-        # @see ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances#pending_balance
+        # @see ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances#pending_balance
         class PendingBalance < ModernTreasury::Internal::Type::BaseModel
           # @!attribute amount
           #
@@ -291,7 +282,7 @@ module ModernTreasury
           #   @param debits [Integer]
         end
 
-        # @see ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances#posted_balance
+        # @see ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances#posted_balance
         class PostedBalance < ModernTreasury::Internal::Type::BaseModel
           # @!attribute amount
           #
@@ -338,7 +329,7 @@ module ModernTreasury
       # Equal to the state of the ledger transaction when the ledger entry was created.
       # One of `pending`, `posted`, or `archived`.
       #
-      # @see ModernTreasury::Models::LedgerEntry#status
+      # @see ModernTreasury::LedgerEntry#status
       module Status
         extend ModernTreasury::Internal::Type::Enum
 

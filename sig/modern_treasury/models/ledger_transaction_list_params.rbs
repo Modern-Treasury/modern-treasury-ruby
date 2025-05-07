@@ -14,7 +14,7 @@ module ModernTreasury
         ledgerable_id: String,
         ledgerable_type: ModernTreasury::Models::LedgerTransactionListParams::ledgerable_type,
         metadata: ::Hash[Symbol, String],
-        order_by: ModernTreasury::Models::LedgerTransactionListParams::OrderBy,
+        order_by: ModernTreasury::LedgerTransactionListParams::OrderBy,
         partially_posts_ledger_transaction_id: String,
         per_page: Integer,
         posted_at: ::Hash[Symbol, Time],
@@ -76,11 +76,11 @@ module ModernTreasury
 
       def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
-      attr_reader order_by: ModernTreasury::Models::LedgerTransactionListParams::OrderBy?
+      attr_reader order_by: ModernTreasury::LedgerTransactionListParams::OrderBy?
 
       def order_by=: (
-        ModernTreasury::Models::LedgerTransactionListParams::OrderBy
-      ) -> ModernTreasury::Models::LedgerTransactionListParams::OrderBy
+        ModernTreasury::LedgerTransactionListParams::OrderBy
+      ) -> ModernTreasury::LedgerTransactionListParams::OrderBy
 
       attr_reader partially_posts_ledger_transaction_id: String?
 
@@ -121,7 +121,7 @@ module ModernTreasury
         ?ledgerable_id: String,
         ?ledgerable_type: ModernTreasury::Models::LedgerTransactionListParams::ledgerable_type,
         ?metadata: ::Hash[Symbol, String],
-        ?order_by: ModernTreasury::Models::LedgerTransactionListParams::OrderBy,
+        ?order_by: ModernTreasury::LedgerTransactionListParams::OrderBy,
         ?partially_posts_ledger_transaction_id: String,
         ?per_page: Integer,
         ?posted_at: ::Hash[Symbol, Time],
@@ -130,8 +130,6 @@ module ModernTreasury
         ?updated_at: ::Hash[Symbol, Time],
         ?request_options: ModernTreasury::request_opts
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::ledger_transaction_list_params
 
       type ledgerable_type =
         :expected_payment
@@ -156,29 +154,27 @@ module ModernTreasury
 
       type order_by =
         {
-          created_at: ModernTreasury::Models::LedgerTransactionListParams::OrderBy::created_at,
-          effective_at: ModernTreasury::Models::LedgerTransactionListParams::OrderBy::effective_at
+          created_at: ModernTreasury::LedgerTransactionListParams::OrderBy::created_at,
+          effective_at: ModernTreasury::LedgerTransactionListParams::OrderBy::effective_at
         }
 
       class OrderBy < ModernTreasury::Internal::Type::BaseModel
-        attr_reader created_at: ModernTreasury::Models::LedgerTransactionListParams::OrderBy::created_at?
+        attr_reader created_at: ModernTreasury::LedgerTransactionListParams::OrderBy::created_at?
 
         def created_at=: (
-          ModernTreasury::Models::LedgerTransactionListParams::OrderBy::created_at
-        ) -> ModernTreasury::Models::LedgerTransactionListParams::OrderBy::created_at
+          ModernTreasury::LedgerTransactionListParams::OrderBy::created_at
+        ) -> ModernTreasury::LedgerTransactionListParams::OrderBy::created_at
 
-        attr_reader effective_at: ModernTreasury::Models::LedgerTransactionListParams::OrderBy::effective_at?
+        attr_reader effective_at: ModernTreasury::LedgerTransactionListParams::OrderBy::effective_at?
 
         def effective_at=: (
-          ModernTreasury::Models::LedgerTransactionListParams::OrderBy::effective_at
-        ) -> ModernTreasury::Models::LedgerTransactionListParams::OrderBy::effective_at
+          ModernTreasury::LedgerTransactionListParams::OrderBy::effective_at
+        ) -> ModernTreasury::LedgerTransactionListParams::OrderBy::effective_at
 
         def initialize: (
-          ?created_at: ModernTreasury::Models::LedgerTransactionListParams::OrderBy::created_at,
-          ?effective_at: ModernTreasury::Models::LedgerTransactionListParams::OrderBy::effective_at
+          ?created_at: ModernTreasury::LedgerTransactionListParams::OrderBy::created_at,
+          ?effective_at: ModernTreasury::LedgerTransactionListParams::OrderBy::effective_at
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::LedgerTransactionListParams::order_by
 
         type created_at = :asc | :desc
 
@@ -188,7 +184,7 @@ module ModernTreasury
           ASC: :asc
           DESC: :desc
 
-          def self?.values: -> ::Array[ModernTreasury::Models::LedgerTransactionListParams::OrderBy::created_at]
+          def self?.values: -> ::Array[ModernTreasury::LedgerTransactionListParams::OrderBy::created_at]
         end
 
         type effective_at = :asc | :desc
@@ -199,7 +195,7 @@ module ModernTreasury
           ASC: :asc
           DESC: :desc
 
-          def self?.values: -> ::Array[ModernTreasury::Models::LedgerTransactionListParams::OrderBy::effective_at]
+          def self?.values: -> ::Array[ModernTreasury::LedgerTransactionListParams::OrderBy::effective_at]
         end
       end
 

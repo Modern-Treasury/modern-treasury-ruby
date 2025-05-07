@@ -11,14 +11,14 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::PaymentReference]
+      # @return [ModernTreasury::PaymentReference]
       #
       # @see ModernTreasury::Models::PaymentReferenceRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
           path: ["api/payment_references/%1$s", id],
-          model: ModernTreasury::Models::PaymentReference,
+          model: ModernTreasury::PaymentReference,
           options: params[:request_options]
         )
       end
@@ -37,24 +37,22 @@ module ModernTreasury
       # @param reference_number [String] The actual reference number assigned by the bank.
       #
       # @param referenceable_id [String] The id of the referenceable to search for. Must be accompanied by the referencea
-      # ...
       #
-      # @param referenceable_type [Symbol, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType] One of the referenceable types. This must be accompanied by the id of the refere
-      # ...
+      # @param referenceable_type [Symbol, ModernTreasury::PaymentReferenceListParams::ReferenceableType] One of the referenceable types. This must be accompanied by the id of the refere
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::PaymentReference>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::PaymentReference>]
       #
       # @see ModernTreasury::Models::PaymentReferenceListParams
       def list(params = {})
-        parsed, options = ModernTreasury::Models::PaymentReferenceListParams.dump_request(params)
+        parsed, options = ModernTreasury::PaymentReferenceListParams.dump_request(params)
         @client.request(
           method: :get,
           path: "api/payment_references",
           query: parsed,
           page: ModernTreasury::Internal::Page,
-          model: ModernTreasury::Models::PaymentReference,
+          model: ModernTreasury::PaymentReference,
           options: options
         )
       end

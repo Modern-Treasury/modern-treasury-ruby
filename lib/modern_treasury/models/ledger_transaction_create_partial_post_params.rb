@@ -12,9 +12,11 @@ module ModernTreasury
       #   There must be one entry for each of the existing entries with a lesser amount
       #   than the existing entry.
       #
-      #   @return [Array<ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry>]
+      #   @return [Array<ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry>]
       required :posted_ledger_entries,
-               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry] }
+               -> {
+                 ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry]
+               }
 
       # @!attribute description
       #   An optional free-form description for the posted ledger transaction. Maximum of
@@ -42,17 +44,13 @@ module ModernTreasury
       #   {ModernTreasury::Models::LedgerTransactionCreatePartialPostParams} for more
       #   details.
       #
-      #   @param posted_ledger_entries [Array<ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry>] An array of ledger entry objects to be set on the posted ledger transaction. The
-      #   ...
+      #   @param posted_ledger_entries [Array<ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry>] An array of ledger entry objects to be set on the posted ledger transaction. The
       #
       #   @param description [String] An optional free-form description for the posted ledger transaction. Maximum of
-      #   ...
       #
       #   @param effective_at [Time] The timestamp (IS08601 format) at which the posted ledger transaction happened f
-      #   ...
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-      #   ...
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
@@ -70,9 +68,11 @@ module ModernTreasury
         #   `debit` pulls money from someone else's account to your own. Note that wire,
         #   rtp, and check payments will always be `credit`.
         #
-        #   @return [Symbol, ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction]
+        #   @return [Symbol, ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction]
         required :direction,
-                 enum: -> { ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction }
+                 enum: -> {
+                   ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction
+                 }
 
         # @!attribute ledger_account_id
         #   The ledger account that this ledger entry is associated with.
@@ -89,26 +89,23 @@ module ModernTreasury
 
         # @!method initialize(amount:, direction:, ledger_account_id:, metadata: nil)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry}
+        #   {ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry}
         #   for more details.
         #
         #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
-        #   ...
         #
-        #   @param direction [Symbol, ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction] One of `credit`, `debit`. Describes the direction money is flowing in the transa
-        #   ...
+        #   @param direction [Symbol, ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction] One of `credit`, `debit`. Describes the direction money is flowing in the transa
         #
         #   @param ledger_account_id [String] The ledger account that this ledger entry is associated with.
         #
         #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-        #   ...
 
         # One of `credit`, `debit`. Describes the direction money is flowing in the
         # transaction. A `credit` moves money from your account to someone else's. A
         # `debit` pulls money from someone else's account to your own. Note that wire,
         # rtp, and check payments will always be `credit`.
         #
-        # @see ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry#direction
+        # @see ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry#direction
         module Direction
           extend ModernTreasury::Internal::Type::Enum
 

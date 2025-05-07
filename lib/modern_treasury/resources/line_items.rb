@@ -9,17 +9,17 @@ module ModernTreasury
       #
       # @param id [String] The ID of the line item.
       #
-      # @param itemizable_type [Symbol, ModernTreasury::Models::LineItemRetrieveParams::ItemizableType] One of `payment_orders` or `expected_payments`.
+      # @param itemizable_type [Symbol, ModernTreasury::LineItemRetrieveParams::ItemizableType] One of `payment_orders` or `expected_payments`.
       #
       # @param itemizable_id [String] The ID of the payment order or expected payment.
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::LineItem]
+      # @return [ModernTreasury::LineItem]
       #
       # @see ModernTreasury::Models::LineItemRetrieveParams
       def retrieve(id, params)
-        parsed, options = ModernTreasury::Models::LineItemRetrieveParams.dump_request(params)
+        parsed, options = ModernTreasury::LineItemRetrieveParams.dump_request(params)
         itemizable_type =
           parsed.delete(:itemizable_type) do
             raise ArgumentError.new("missing required path argument #{_1}")
@@ -31,7 +31,7 @@ module ModernTreasury
         @client.request(
           method: :get,
           path: ["api/%1$s/%2$s/line_items/%3$s", itemizable_type, itemizable_id, id],
-          model: ModernTreasury::Models::LineItem,
+          model: ModernTreasury::LineItem,
           options: options
         )
       end
@@ -45,20 +45,19 @@ module ModernTreasury
       #
       # @param id [String] Path param: The ID of the line item.
       #
-      # @param itemizable_type [Symbol, ModernTreasury::Models::LineItemUpdateParams::ItemizableType] Path param: One of `payment_orders` or `expected_payments`.
+      # @param itemizable_type [Symbol, ModernTreasury::LineItemUpdateParams::ItemizableType] Path param: One of `payment_orders` or `expected_payments`.
       #
       # @param itemizable_id [String] Path param: The ID of the payment order or expected payment.
       #
       # @param metadata [Hash{Symbol=>String}] Body param: Additional data represented as key-value pairs. Both the key and val
-      # ...
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::LineItem]
+      # @return [ModernTreasury::LineItem]
       #
       # @see ModernTreasury::Models::LineItemUpdateParams
       def update(id, params)
-        parsed, options = ModernTreasury::Models::LineItemUpdateParams.dump_request(params)
+        parsed, options = ModernTreasury::LineItemUpdateParams.dump_request(params)
         itemizable_type =
           parsed.delete(:itemizable_type) do
             raise ArgumentError.new("missing required path argument #{_1}")
@@ -71,7 +70,7 @@ module ModernTreasury
           method: :patch,
           path: ["api/%1$s/%2$s/line_items/%3$s", itemizable_type, itemizable_id, id],
           body: parsed,
-          model: ModernTreasury::Models::LineItem,
+          model: ModernTreasury::LineItem,
           options: options
         )
       end
@@ -82,7 +81,7 @@ module ModernTreasury
       #
       # @param itemizable_id [String] Path param: The ID of the payment order or expected payment.
       #
-      # @param itemizable_type [Symbol, ModernTreasury::Models::LineItemListParams::ItemizableType] Path param: One of `payment_orders` or `expected_payments`.
+      # @param itemizable_type [Symbol, ModernTreasury::LineItemListParams::ItemizableType] Path param: One of `payment_orders` or `expected_payments`.
       #
       # @param after_cursor [String, nil] Query param:
       #
@@ -90,11 +89,11 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::LineItem>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::LineItem>]
       #
       # @see ModernTreasury::Models::LineItemListParams
       def list(itemizable_id, params)
-        parsed, options = ModernTreasury::Models::LineItemListParams.dump_request(params)
+        parsed, options = ModernTreasury::LineItemListParams.dump_request(params)
         itemizable_type =
           parsed.delete(:itemizable_type) do
             raise ArgumentError.new("missing required path argument #{_1}")
@@ -104,7 +103,7 @@ module ModernTreasury
           path: ["api/%1$s/%2$s/line_items", itemizable_type, itemizable_id],
           query: parsed,
           page: ModernTreasury::Internal::Page,
-          model: ModernTreasury::Models::LineItem,
+          model: ModernTreasury::LineItem,
           options: options
         )
       end

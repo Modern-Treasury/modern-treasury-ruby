@@ -28,15 +28,13 @@ module ModernTreasury
 
       # @!method initialize(id:, form_link:, is_resend:)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::Models::CounterpartyCollectAccountResponse} for more details.
+      #   {ModernTreasury::CounterpartyCollectAccountResponse} for more details.
       #
       #   @param id [String] The id of the existing counterparty.
       #
       #   @param form_link [String] This is the link to the secure Modern Treasury form. By default, Modern Treasury
-      #   ...
       #
       #   @param is_resend [Boolean] This field will be `true` if an email requesting account details has already bee
-      #   ...
     end
   end
 end

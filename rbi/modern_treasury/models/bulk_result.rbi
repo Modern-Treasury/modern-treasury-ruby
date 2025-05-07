@@ -3,6 +3,9 @@
 module ModernTreasury
   module Models
     class BulkResult < ModernTreasury::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       sig { returns(String) }
       attr_accessor :id
 
@@ -15,11 +18,11 @@ module ModernTreasury
       sig do
         returns(
           T.any(
-            ModernTreasury::Models::PaymentOrder,
-            ModernTreasury::Models::ExpectedPayment,
-            ModernTreasury::Models::LedgerTransaction,
-            ModernTreasury::Models::Transaction,
-            ModernTreasury::Models::BulkResult::Entity::BulkError
+            ModernTreasury::PaymentOrder,
+            ModernTreasury::ExpectedPayment,
+            ModernTreasury::LedgerTransaction,
+            ModernTreasury::Transaction,
+            ModernTreasury::BulkResult::Entity::BulkError
           )
         )
       end
@@ -32,7 +35,7 @@ module ModernTreasury
       # The type of the result entity object. For a successful bulk result, this is the
       # same as the `resource_type` of the bulk request. For a failed bulk result, this
       # is always bulk_error
-      sig { returns(ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol) }
+      sig { returns(ModernTreasury::BulkResult::EntityType::TaggedSymbol) }
       attr_accessor :entity_type
 
       # This field will be true if this object exists in the live environment or false
@@ -56,11 +59,11 @@ module ModernTreasury
 
       # The type of the request that created this result. bulk_request is the only
       # supported `request_type`
-      sig { returns(ModernTreasury::Models::BulkResult::RequestType::TaggedSymbol) }
+      sig { returns(ModernTreasury::BulkResult::RequestType::TaggedSymbol) }
       attr_accessor :request_type
 
       # One of successful or failed.
-      sig { returns(ModernTreasury::Models::BulkResult::Status::TaggedSymbol) }
+      sig { returns(ModernTreasury::BulkResult::Status::TaggedSymbol) }
       attr_accessor :status
 
       sig { returns(Time) }
@@ -70,25 +73,24 @@ module ModernTreasury
         params(
           id: String,
           created_at: Time,
-          entity: T.any(
-            ModernTreasury::Models::PaymentOrder,
-            ModernTreasury::Internal::AnyHash,
-            ModernTreasury::Models::ExpectedPayment,
-            ModernTreasury::Models::LedgerTransaction,
-            ModernTreasury::Models::Transaction,
-            ModernTreasury::Models::BulkResult::Entity::BulkError
-          ),
+          entity:
+            T.any(
+              ModernTreasury::PaymentOrder::OrHash,
+              ModernTreasury::ExpectedPayment::OrHash,
+              ModernTreasury::LedgerTransaction::OrHash,
+              ModernTreasury::Transaction::OrHash,
+              ModernTreasury::BulkResult::Entity::BulkError::OrHash
+            ),
           entity_id: String,
-          entity_type: ModernTreasury::Models::BulkResult::EntityType::OrSymbol,
+          entity_type: ModernTreasury::BulkResult::EntityType::OrSymbol,
           live_mode: T::Boolean,
           object: String,
           request_id: String,
           request_params: T.nilable(T::Hash[Symbol, String]),
-          request_type: ModernTreasury::Models::BulkResult::RequestType::OrSymbol,
-          status: ModernTreasury::Models::BulkResult::Status::OrSymbol,
+          request_type: ModernTreasury::BulkResult::RequestType::OrSymbol,
+          status: ModernTreasury::BulkResult::Status::OrSymbol,
           updated_at: Time
-        )
-          .returns(T.attached_class)
+        ).returns(T.attached_class)
       end
       def self.new(
         id:,
@@ -120,33 +122,36 @@ module ModernTreasury
         # One of successful or failed.
         status:,
         updated_at:
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: String,
-              created_at: Time,
-              entity: T.any(
-                ModernTreasury::Models::PaymentOrder,
-                ModernTreasury::Models::ExpectedPayment,
-                ModernTreasury::Models::LedgerTransaction,
-                ModernTreasury::Models::Transaction,
-                ModernTreasury::Models::BulkResult::Entity::BulkError
-              ),
-              entity_id: String,
-              entity_type: ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol,
-              live_mode: T::Boolean,
-              object: String,
-              request_id: String,
-              request_params: T.nilable(T::Hash[Symbol, String]),
-              request_type: ModernTreasury::Models::BulkResult::RequestType::TaggedSymbol,
-              status: ModernTreasury::Models::BulkResult::Status::TaggedSymbol,
-              updated_at: Time
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            created_at: Time,
+            entity:
+              T.any(
+                ModernTreasury::PaymentOrder,
+                ModernTreasury::ExpectedPayment,
+                ModernTreasury::LedgerTransaction,
+                ModernTreasury::Transaction,
+                ModernTreasury::BulkResult::Entity::BulkError
+              ),
+            entity_id: String,
+            entity_type: ModernTreasury::BulkResult::EntityType::TaggedSymbol,
+            live_mode: T::Boolean,
+            object: String,
+            request_id: String,
+            request_params: T.nilable(T::Hash[Symbol, String]),
+            request_type: ModernTreasury::BulkResult::RequestType::TaggedSymbol,
+            status: ModernTreasury::BulkResult::Status::TaggedSymbol,
+            updated_at: Time
+          }
+        )
+      end
+      def to_hash
+      end
 
       # An object with type as indicated by `entity_type`. This is the result object
       # that is generated by performing the requested action on the provided input
@@ -154,7 +159,23 @@ module ModernTreasury
       module Entity
         extend ModernTreasury::Internal::Type::Union
 
+        Variants =
+          T.type_alias do
+            T.any(
+              ModernTreasury::PaymentOrder,
+              ModernTreasury::ExpectedPayment,
+              ModernTreasury::LedgerTransaction,
+              ModernTreasury::Transaction,
+              ModernTreasury::BulkResult::Entity::BulkError
+            )
+          end
+
         class BulkError < ModernTreasury::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+            end
+
           sig { returns(String) }
           attr_accessor :id
 
@@ -169,7 +190,13 @@ module ModernTreasury
           sig { returns(String) }
           attr_accessor :object
 
-          sig { returns(T::Array[ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError]) }
+          sig do
+            returns(
+              T::Array[
+                ModernTreasury::BulkResult::Entity::BulkError::RequestError
+              ]
+            )
+          end
           attr_accessor :request_errors
 
           sig { returns(Time) }
@@ -181,15 +208,12 @@ module ModernTreasury
               created_at: Time,
               live_mode: T::Boolean,
               object: String,
-              request_errors: T::Array[
-                T.any(
-                  ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError,
-                  ModernTreasury::Internal::AnyHash
-                )
-              ],
+              request_errors:
+                T::Array[
+                  ModernTreasury::BulkResult::Entity::BulkError::RequestError::OrHash
+                ],
               updated_at: Time
-            )
-              .returns(T.attached_class)
+            ).returns(T.attached_class)
           end
           def self.new(
             id:,
@@ -200,23 +224,33 @@ module ModernTreasury
             object:,
             request_errors:,
             updated_at:
-          ); end
-          sig do
-            override
-              .returns(
-                {
-                  id: String,
-                  created_at: Time,
-                  live_mode: T::Boolean,
-                  object: String,
-                  request_errors: T::Array[ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError],
-                  updated_at: Time
-                }
-              )
+          )
           end
-          def to_hash; end
+
+          sig do
+            override.returns(
+              {
+                id: String,
+                created_at: Time,
+                live_mode: T::Boolean,
+                object: String,
+                request_errors:
+                  T::Array[
+                    ModernTreasury::BulkResult::Entity::BulkError::RequestError
+                  ],
+                updated_at: Time
+              }
+            )
+          end
+          def to_hash
+          end
 
           class RequestError < ModernTreasury::Internal::Type::BaseModel
+            OrHash =
+              T.type_alias do
+                T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              end
+
             sig { returns(T.nilable(String)) }
             attr_reader :code
 
@@ -235,21 +269,31 @@ module ModernTreasury
             sig { params(parameter: String).void }
             attr_writer :parameter
 
-            sig { params(code: String, message: String, parameter: String).returns(T.attached_class) }
-            def self.new(code: nil, message: nil, parameter: nil); end
+            sig do
+              params(code: String, message: String, parameter: String).returns(
+                T.attached_class
+              )
+            end
+            def self.new(code: nil, message: nil, parameter: nil)
+            end
 
-            sig { override.returns({code: String, message: String, parameter: String}) }
-            def to_hash; end
+            sig do
+              override.returns(
+                { code: String, message: String, parameter: String }
+              )
+            end
+            def to_hash
+            end
           end
         end
 
         sig do
-          override
-            .returns(
-              [ModernTreasury::Models::PaymentOrder, ModernTreasury::Models::ExpectedPayment, ModernTreasury::Models::LedgerTransaction, ModernTreasury::Models::Transaction, ModernTreasury::Models::BulkResult::Entity::BulkError]
-            )
+          override.returns(
+            T::Array[ModernTreasury::BulkResult::Entity::Variants]
+          )
         end
-        def self.variants; end
+        def self.variants
+        end
       end
 
       # The type of the result entity object. For a successful bulk result, this is the
@@ -258,20 +302,53 @@ module ModernTreasury
       module EntityType
         extend ModernTreasury::Internal::Type::Enum
 
-        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkResult::EntityType) }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::BulkResult::EntityType) }
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        PAYMENT_ORDER = T.let(:payment_order, ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol)
-        LEDGER_ACCOUNT = T.let(:ledger_account, ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol)
+        PAYMENT_ORDER =
+          T.let(
+            :payment_order,
+            ModernTreasury::BulkResult::EntityType::TaggedSymbol
+          )
+        LEDGER_ACCOUNT =
+          T.let(
+            :ledger_account,
+            ModernTreasury::BulkResult::EntityType::TaggedSymbol
+          )
         LEDGER_TRANSACTION =
-          T.let(:ledger_transaction, ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol)
-        EXPECTED_PAYMENT = T.let(:expected_payment, ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol)
-        TRANSACTION = T.let(:transaction, ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol)
-        ENTITY_LINK = T.let(:entity_link, ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol)
-        BULK_ERROR = T.let(:bulk_error, ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol)
+          T.let(
+            :ledger_transaction,
+            ModernTreasury::BulkResult::EntityType::TaggedSymbol
+          )
+        EXPECTED_PAYMENT =
+          T.let(
+            :expected_payment,
+            ModernTreasury::BulkResult::EntityType::TaggedSymbol
+          )
+        TRANSACTION =
+          T.let(
+            :transaction,
+            ModernTreasury::BulkResult::EntityType::TaggedSymbol
+          )
+        ENTITY_LINK =
+          T.let(
+            :entity_link,
+            ModernTreasury::BulkResult::EntityType::TaggedSymbol
+          )
+        BULK_ERROR =
+          T.let(
+            :bulk_error,
+            ModernTreasury::BulkResult::EntityType::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[ModernTreasury::BulkResult::EntityType::TaggedSymbol]
+          )
+        end
+        def self.values
+        end
       end
 
       # The type of the request that created this result. bulk_request is the only
@@ -279,28 +356,49 @@ module ModernTreasury
       module RequestType
         extend ModernTreasury::Internal::Type::Enum
 
-        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkResult::RequestType) }
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::BulkResult::RequestType)
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        BULK_REQUEST = T.let(:bulk_request, ModernTreasury::Models::BulkResult::RequestType::TaggedSymbol)
+        BULK_REQUEST =
+          T.let(
+            :bulk_request,
+            ModernTreasury::BulkResult::RequestType::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::BulkResult::RequestType::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[ModernTreasury::BulkResult::RequestType::TaggedSymbol]
+          )
+        end
+        def self.values
+        end
       end
 
       # One of successful or failed.
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
-        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkResult::Status) }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::BulkResult::Status) }
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        PENDING = T.let(:pending, ModernTreasury::Models::BulkResult::Status::TaggedSymbol)
-        SUCCESSFUL = T.let(:successful, ModernTreasury::Models::BulkResult::Status::TaggedSymbol)
-        FAILED = T.let(:failed, ModernTreasury::Models::BulkResult::Status::TaggedSymbol)
+        PENDING =
+          T.let(:pending, ModernTreasury::BulkResult::Status::TaggedSymbol)
+        SUCCESSFUL =
+          T.let(:successful, ModernTreasury::BulkResult::Status::TaggedSymbol)
+        FAILED =
+          T.let(:failed, ModernTreasury::BulkResult::Status::TaggedSymbol)
 
-        sig { override.returns(T::Array[ModernTreasury::Models::BulkResult::Status::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[ModernTreasury::BulkResult::Status::TaggedSymbol]
+          )
+        end
+        def self.values
+        end
       end
     end
   end

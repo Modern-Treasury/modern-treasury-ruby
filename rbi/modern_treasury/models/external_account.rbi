@@ -3,17 +3,20 @@
 module ModernTreasury
   module Models
     class ExternalAccount < ModernTreasury::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       sig { returns(String) }
       attr_accessor :id
 
-      sig { returns(T::Array[ModernTreasury::Models::AccountDetail]) }
+      sig { returns(T::Array[ModernTreasury::AccountDetail]) }
       attr_accessor :account_details
 
       # Can be `checking`, `savings` or `other`.
-      sig { returns(ModernTreasury::Models::ExternalAccountType::TaggedSymbol) }
+      sig { returns(ModernTreasury::ExternalAccountType::TaggedSymbol) }
       attr_accessor :account_type
 
-      sig { returns(T::Array[ModernTreasury::Models::ExternalAccount::ContactDetail]) }
+      sig { returns(T::Array[ModernTreasury::ExternalAccount::ContactDetail]) }
       attr_accessor :contact_details
 
       sig { returns(T.nilable(String)) }
@@ -49,14 +52,14 @@ module ModernTreasury
       attr_accessor :object
 
       # The address associated with the owner or `null`.
-      sig { returns(T.nilable(ModernTreasury::Models::ExternalAccount::PartyAddress)) }
+      sig { returns(T.nilable(ModernTreasury::ExternalAccount::PartyAddress)) }
       attr_reader :party_address
 
       sig do
         params(
-          party_address: T.nilable(T.any(ModernTreasury::Models::ExternalAccount::PartyAddress, ModernTreasury::Internal::AnyHash))
-        )
-          .void
+          party_address:
+            T.nilable(ModernTreasury::ExternalAccount::PartyAddress::OrHash)
+        ).void
       end
       attr_writer :party_address
 
@@ -65,27 +68,42 @@ module ModernTreasury
       attr_accessor :party_name
 
       # Either `individual` or `business`.
-      sig { returns(T.nilable(ModernTreasury::Models::ExternalAccount::PartyType::TaggedSymbol)) }
+      sig do
+        returns(
+          T.nilable(ModernTreasury::ExternalAccount::PartyType::TaggedSymbol)
+        )
+      end
       attr_accessor :party_type
 
-      sig { returns(T::Array[ModernTreasury::Models::RoutingDetail]) }
+      sig { returns(T::Array[ModernTreasury::RoutingDetail]) }
       attr_accessor :routing_details
 
       sig { returns(Time) }
       attr_accessor :updated_at
 
-      sig { returns(T.nilable(ModernTreasury::Models::ExternalAccount::VerificationSource::TaggedSymbol)) }
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::ExternalAccount::VerificationSource::TaggedSymbol
+          )
+        )
+      end
       attr_accessor :verification_source
 
-      sig { returns(ModernTreasury::Models::ExternalAccount::VerificationStatus::TaggedSymbol) }
+      sig do
+        returns(
+          ModernTreasury::ExternalAccount::VerificationStatus::TaggedSymbol
+        )
+      end
       attr_accessor :verification_status
 
       sig do
         params(
           id: String,
-          account_details: T::Array[T.any(ModernTreasury::Models::AccountDetail, ModernTreasury::Internal::AnyHash)],
-          account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
-          contact_details: T::Array[T.any(ModernTreasury::Models::ExternalAccount::ContactDetail, ModernTreasury::Internal::AnyHash)],
+          account_details: T::Array[ModernTreasury::AccountDetail::OrHash],
+          account_type: ModernTreasury::ExternalAccountType::OrSymbol,
+          contact_details:
+            T::Array[ModernTreasury::ExternalAccount::ContactDetail::OrHash],
           counterparty_id: T.nilable(String),
           created_at: Time,
           discarded_at: T.nilable(Time),
@@ -94,15 +112,20 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           name: T.nilable(String),
           object: String,
-          party_address: T.nilable(T.any(ModernTreasury::Models::ExternalAccount::PartyAddress, ModernTreasury::Internal::AnyHash)),
+          party_address:
+            T.nilable(ModernTreasury::ExternalAccount::PartyAddress::OrHash),
           party_name: String,
-          party_type: T.nilable(ModernTreasury::Models::ExternalAccount::PartyType::OrSymbol),
-          routing_details: T::Array[T.any(ModernTreasury::Models::RoutingDetail, ModernTreasury::Internal::AnyHash)],
+          party_type:
+            T.nilable(ModernTreasury::ExternalAccount::PartyType::OrSymbol),
+          routing_details: T::Array[ModernTreasury::RoutingDetail::OrHash],
           updated_at: Time,
-          verification_source: T.nilable(ModernTreasury::Models::ExternalAccount::VerificationSource::OrSymbol),
-          verification_status: ModernTreasury::Models::ExternalAccount::VerificationStatus::OrSymbol
-        )
-          .returns(T.attached_class)
+          verification_source:
+            T.nilable(
+              ModernTreasury::ExternalAccount::VerificationSource::OrSymbol
+            ),
+          verification_status:
+            ModernTreasury::ExternalAccount::VerificationStatus::OrSymbol
+        ).returns(T.attached_class)
       end
       def self.new(
         id:,
@@ -136,43 +159,61 @@ module ModernTreasury
         updated_at:,
         verification_source:,
         verification_status:
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: String,
-              account_details: T::Array[ModernTreasury::Models::AccountDetail],
-              account_type: ModernTreasury::Models::ExternalAccountType::TaggedSymbol,
-              contact_details: T::Array[ModernTreasury::Models::ExternalAccount::ContactDetail],
-              counterparty_id: T.nilable(String),
-              created_at: Time,
-              discarded_at: T.nilable(Time),
-              ledger_account_id: T.nilable(String),
-              live_mode: T::Boolean,
-              metadata: T::Hash[Symbol, String],
-              name: T.nilable(String),
-              object: String,
-              party_address: T.nilable(ModernTreasury::Models::ExternalAccount::PartyAddress),
-              party_name: String,
-              party_type: T.nilable(ModernTreasury::Models::ExternalAccount::PartyType::TaggedSymbol),
-              routing_details: T::Array[ModernTreasury::Models::RoutingDetail],
-              updated_at: Time,
-              verification_source: T.nilable(ModernTreasury::Models::ExternalAccount::VerificationSource::TaggedSymbol),
-              verification_status: ModernTreasury::Models::ExternalAccount::VerificationStatus::TaggedSymbol
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            account_details: T::Array[ModernTreasury::AccountDetail],
+            account_type: ModernTreasury::ExternalAccountType::TaggedSymbol,
+            contact_details:
+              T::Array[ModernTreasury::ExternalAccount::ContactDetail],
+            counterparty_id: T.nilable(String),
+            created_at: Time,
+            discarded_at: T.nilable(Time),
+            ledger_account_id: T.nilable(String),
+            live_mode: T::Boolean,
+            metadata: T::Hash[Symbol, String],
+            name: T.nilable(String),
+            object: String,
+            party_address:
+              T.nilable(ModernTreasury::ExternalAccount::PartyAddress),
+            party_name: String,
+            party_type:
+              T.nilable(
+                ModernTreasury::ExternalAccount::PartyType::TaggedSymbol
+              ),
+            routing_details: T::Array[ModernTreasury::RoutingDetail],
+            updated_at: Time,
+            verification_source:
+              T.nilable(
+                ModernTreasury::ExternalAccount::VerificationSource::TaggedSymbol
+              ),
+            verification_status:
+              ModernTreasury::ExternalAccount::VerificationStatus::TaggedSymbol
+          }
+        )
+      end
+      def to_hash
+      end
 
       class ContactDetail < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         sig { returns(String) }
         attr_accessor :id
 
         sig { returns(String) }
         attr_accessor :contact_identifier
 
-        sig { returns(ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType::TaggedSymbol) }
+        sig do
+          returns(
+            ModernTreasury::ExternalAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
+          )
+        end
         attr_accessor :contact_identifier_type
 
         sig { returns(Time) }
@@ -196,14 +237,14 @@ module ModernTreasury
           params(
             id: String,
             contact_identifier: String,
-            contact_identifier_type: ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType::OrSymbol,
+            contact_identifier_type:
+              ModernTreasury::ExternalAccount::ContactDetail::ContactIdentifierType::OrSymbol,
             created_at: Time,
             discarded_at: T.nilable(Time),
             live_mode: T::Boolean,
             object: String,
             updated_at: Time
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
           id:,
@@ -216,55 +257,71 @@ module ModernTreasury
           live_mode:,
           object:,
           updated_at:
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                id: String,
-                contact_identifier: String,
-                contact_identifier_type: ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType::TaggedSymbol,
-                created_at: Time,
-                discarded_at: T.nilable(Time),
-                live_mode: T::Boolean,
-                object: String,
-                updated_at: Time
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              id: String,
+              contact_identifier: String,
+              contact_identifier_type:
+                ModernTreasury::ExternalAccount::ContactDetail::ContactIdentifierType::TaggedSymbol,
+              created_at: Time,
+              discarded_at: T.nilable(Time),
+              live_mode: T::Boolean,
+              object: String,
+              updated_at: Time
+            }
+          )
+        end
+        def to_hash
+        end
 
         module ContactIdentifierType
           extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
-            T.type_alias { T.all(Symbol, ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType) }
+            T.type_alias do
+              T.all(
+                Symbol,
+                ModernTreasury::ExternalAccount::ContactDetail::ContactIdentifierType
+              )
+            end
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           EMAIL =
-            T.let(:email, ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType::TaggedSymbol)
+            T.let(
+              :email,
+              ModernTreasury::ExternalAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
+            )
           PHONE_NUMBER =
             T.let(
               :phone_number,
-              ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
+              ModernTreasury::ExternalAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
             )
           WEBSITE =
             T.let(
               :website,
-              ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
+              ModernTreasury::ExternalAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
             )
 
           sig do
-            override
-              .returns(
-                T::Array[ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType::TaggedSymbol]
-              )
+            override.returns(
+              T::Array[
+                ModernTreasury::ExternalAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
+              ]
+            )
           end
-          def self.values; end
+          def self.values
+          end
         end
       end
 
       class PartyAddress < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         sig { returns(String) }
         attr_accessor :id
 
@@ -318,8 +375,7 @@ module ModernTreasury
             postal_code: T.nilable(String),
             region: T.nilable(String),
             updated_at: Time
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
           id:,
@@ -339,74 +395,130 @@ module ModernTreasury
           # Region or State.
           region:,
           updated_at:
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                id: String,
-                country: T.nilable(String),
-                created_at: Time,
-                line1: T.nilable(String),
-                line2: T.nilable(String),
-                live_mode: T::Boolean,
-                locality: T.nilable(String),
-                object: String,
-                postal_code: T.nilable(String),
-                region: T.nilable(String),
-                updated_at: Time
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              id: String,
+              country: T.nilable(String),
+              created_at: Time,
+              line1: T.nilable(String),
+              line2: T.nilable(String),
+              live_mode: T::Boolean,
+              locality: T.nilable(String),
+              object: String,
+              postal_code: T.nilable(String),
+              region: T.nilable(String),
+              updated_at: Time
+            }
+          )
+        end
+        def to_hash
+        end
       end
 
       # Either `individual` or `business`.
       module PartyType
         extend ModernTreasury::Internal::Type::Enum
 
-        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ExternalAccount::PartyType) }
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::ExternalAccount::PartyType)
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        BUSINESS = T.let(:business, ModernTreasury::Models::ExternalAccount::PartyType::TaggedSymbol)
-        INDIVIDUAL = T.let(:individual, ModernTreasury::Models::ExternalAccount::PartyType::TaggedSymbol)
+        BUSINESS =
+          T.let(
+            :business,
+            ModernTreasury::ExternalAccount::PartyType::TaggedSymbol
+          )
+        INDIVIDUAL =
+          T.let(
+            :individual,
+            ModernTreasury::ExternalAccount::PartyType::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::ExternalAccount::PartyType::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[ModernTreasury::ExternalAccount::PartyType::TaggedSymbol]
+          )
+        end
+        def self.values
+        end
       end
 
       module VerificationSource
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
-          T.type_alias { T.all(Symbol, ModernTreasury::Models::ExternalAccount::VerificationSource) }
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::ExternalAccount::VerificationSource)
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         ACH_PRENOTE =
-          T.let(:ach_prenote, ModernTreasury::Models::ExternalAccount::VerificationSource::TaggedSymbol)
+          T.let(
+            :ach_prenote,
+            ModernTreasury::ExternalAccount::VerificationSource::TaggedSymbol
+          )
         MICRODEPOSITS =
-          T.let(:microdeposits, ModernTreasury::Models::ExternalAccount::VerificationSource::TaggedSymbol)
-        PLAID = T.let(:plaid, ModernTreasury::Models::ExternalAccount::VerificationSource::TaggedSymbol)
+          T.let(
+            :microdeposits,
+            ModernTreasury::ExternalAccount::VerificationSource::TaggedSymbol
+          )
+        PLAID =
+          T.let(
+            :plaid,
+            ModernTreasury::ExternalAccount::VerificationSource::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::ExternalAccount::VerificationSource::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::ExternalAccount::VerificationSource::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
 
       module VerificationStatus
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
-          T.type_alias { T.all(Symbol, ModernTreasury::Models::ExternalAccount::VerificationStatus) }
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::ExternalAccount::VerificationStatus)
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         PENDING_VERIFICATION =
-          T.let(:pending_verification, ModernTreasury::Models::ExternalAccount::VerificationStatus::TaggedSymbol)
+          T.let(
+            :pending_verification,
+            ModernTreasury::ExternalAccount::VerificationStatus::TaggedSymbol
+          )
         UNVERIFIED =
-          T.let(:unverified, ModernTreasury::Models::ExternalAccount::VerificationStatus::TaggedSymbol)
-        VERIFIED = T.let(:verified, ModernTreasury::Models::ExternalAccount::VerificationStatus::TaggedSymbol)
+          T.let(
+            :unverified,
+            ModernTreasury::ExternalAccount::VerificationStatus::TaggedSymbol
+          )
+        VERIFIED =
+          T.let(
+            :verified,
+            ModernTreasury::ExternalAccount::VerificationStatus::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::ExternalAccount::VerificationStatus::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::ExternalAccount::VerificationStatus::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
     end
   end

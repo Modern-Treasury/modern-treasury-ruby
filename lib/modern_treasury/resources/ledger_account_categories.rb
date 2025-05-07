@@ -16,30 +16,28 @@ module ModernTreasury
       #
       # @param name [String] The name of the ledger account category.
       #
-      # @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection] The normal balance of the ledger account category.
+      # @param normal_balance [Symbol, ModernTreasury::TransactionDirection] The normal balance of the ledger account category.
       #
       # @param currency_exponent [Integer, nil] The currency exponent of the ledger account category.
       #
       # @param description [String, nil] The description of the ledger account category.
       #
       # @param ledger_account_category_ids [Array<String>] The array of ledger account category ids that this ledger account category shoul
-      # ...
       #
       # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-      # ...
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::LedgerAccountCategory]
+      # @return [ModernTreasury::LedgerAccountCategory]
       #
       # @see ModernTreasury::Models::LedgerAccountCategoryCreateParams
       def create(params)
-        parsed, options = ModernTreasury::Models::LedgerAccountCategoryCreateParams.dump_request(params)
+        parsed, options = ModernTreasury::LedgerAccountCategoryCreateParams.dump_request(params)
         @client.request(
           method: :post,
           path: "api/ledger_account_categories",
           body: parsed,
-          model: ModernTreasury::Models::LedgerAccountCategory,
+          model: ModernTreasury::LedgerAccountCategory,
           options: options
         )
       end
@@ -53,21 +51,20 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param balances [ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances] For example, if you want the balances as of a particular time (ISO8601), the enc
-      # ...
+      # @param balances [ModernTreasury::LedgerAccountCategoryRetrieveParams::Balances] For example, if you want the balances as of a particular time (ISO8601), the enc
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::LedgerAccountCategory]
+      # @return [ModernTreasury::LedgerAccountCategory]
       #
       # @see ModernTreasury::Models::LedgerAccountCategoryRetrieveParams
       def retrieve(id, params = {})
-        parsed, options = ModernTreasury::Models::LedgerAccountCategoryRetrieveParams.dump_request(params)
+        parsed, options = ModernTreasury::LedgerAccountCategoryRetrieveParams.dump_request(params)
         @client.request(
           method: :get,
           path: ["api/ledger_account_categories/%1$s", id],
           query: parsed,
-          model: ModernTreasury::Models::LedgerAccountCategory,
+          model: ModernTreasury::LedgerAccountCategory,
           options: options
         )
       end
@@ -84,22 +81,21 @@ module ModernTreasury
       # @param description [String, nil] The description of the ledger account category.
       #
       # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-      # ...
       #
       # @param name [String] The name of the ledger account category.
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::LedgerAccountCategory]
+      # @return [ModernTreasury::LedgerAccountCategory]
       #
       # @see ModernTreasury::Models::LedgerAccountCategoryUpdateParams
       def update(id, params = {})
-        parsed, options = ModernTreasury::Models::LedgerAccountCategoryUpdateParams.dump_request(params)
+        parsed, options = ModernTreasury::LedgerAccountCategoryUpdateParams.dump_request(params)
         @client.request(
           method: :patch,
           path: ["api/ledger_account_categories/%1$s", id],
           body: parsed,
-          model: ModernTreasury::Models::LedgerAccountCategory,
+          model: ModernTreasury::LedgerAccountCategory,
           options: options
         )
       end
@@ -112,22 +108,18 @@ module ModernTreasury
       # @overload list(id: nil, after_cursor: nil, balances: nil, currency: nil, ledger_account_id: nil, ledger_id: nil, metadata: nil, name: nil, parent_ledger_account_category_id: nil, per_page: nil, request_options: {})
       #
       # @param id [Array<String>] If you have specific IDs to retrieve in bulk, you can pass them as query paramet
-      # ...
       #
       # @param after_cursor [String, nil]
       #
-      # @param balances [ModernTreasury::Models::LedgerAccountCategoryListParams::Balances] For example, if you want the balances as of a particular time (ISO8601), the enc
-      # ...
+      # @param balances [ModernTreasury::LedgerAccountCategoryListParams::Balances] For example, if you want the balances as of a particular time (ISO8601), the enc
       #
       # @param currency [String]
       #
       # @param ledger_account_id [String] Query categories which contain a ledger account directly or through child catego
-      # ...
       #
       # @param ledger_id [String]
       #
       # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      # ...
       #
       # @param name [String]
       #
@@ -137,17 +129,17 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::LedgerAccountCategory>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::LedgerAccountCategory>]
       #
       # @see ModernTreasury::Models::LedgerAccountCategoryListParams
       def list(params = {})
-        parsed, options = ModernTreasury::Models::LedgerAccountCategoryListParams.dump_request(params)
+        parsed, options = ModernTreasury::LedgerAccountCategoryListParams.dump_request(params)
         @client.request(
           method: :get,
           path: "api/ledger_account_categories",
           query: parsed,
           page: ModernTreasury::Internal::Page,
-          model: ModernTreasury::Models::LedgerAccountCategory,
+          model: ModernTreasury::LedgerAccountCategory,
           options: options
         )
       end
@@ -160,14 +152,14 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::LedgerAccountCategory]
+      # @return [ModernTreasury::LedgerAccountCategory]
       #
       # @see ModernTreasury::Models::LedgerAccountCategoryDeleteParams
       def delete(id, params = {})
         @client.request(
           method: :delete,
           path: ["api/ledger_account_categories/%1$s", id],
-          model: ModernTreasury::Models::LedgerAccountCategory,
+          model: ModernTreasury::LedgerAccountCategory,
           options: params[:request_options]
         )
       end
@@ -186,8 +178,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::LedgerAccountCategoryAddLedgerAccountParams
       def add_ledger_account(ledger_account_id, params)
-        parsed, options =
-          ModernTreasury::Models::LedgerAccountCategoryAddLedgerAccountParams.dump_request(params)
+        parsed, options = ModernTreasury::LedgerAccountCategoryAddLedgerAccountParams.dump_request(params)
         id =
           parsed.delete(:id) do
             raise ArgumentError.new("missing required path argument #{_1}")
@@ -214,8 +205,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::LedgerAccountCategoryAddNestedCategoryParams
       def add_nested_category(sub_category_id, params)
-        parsed, options =
-          ModernTreasury::Models::LedgerAccountCategoryAddNestedCategoryParams.dump_request(params)
+        parsed, options = ModernTreasury::LedgerAccountCategoryAddNestedCategoryParams.dump_request(params)
         id =
           parsed.delete(:id) do
             raise ArgumentError.new("missing required path argument #{_1}")
@@ -242,8 +232,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::LedgerAccountCategoryRemoveLedgerAccountParams
       def remove_ledger_account(ledger_account_id, params)
-        parsed, options =
-          ModernTreasury::Models::LedgerAccountCategoryRemoveLedgerAccountParams.dump_request(params)
+        parsed, options = ModernTreasury::LedgerAccountCategoryRemoveLedgerAccountParams.dump_request(params)
         id =
           parsed.delete(:id) do
             raise ArgumentError.new("missing required path argument #{_1}")
@@ -270,8 +259,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::LedgerAccountCategoryRemoveNestedCategoryParams
       def remove_nested_category(sub_category_id, params)
-        parsed, options =
-          ModernTreasury::Models::LedgerAccountCategoryRemoveNestedCategoryParams.dump_request(params)
+        parsed, options = ModernTreasury::LedgerAccountCategoryRemoveNestedCategoryParams.dump_request(params)
         id =
           parsed.delete(:id) do
             raise ArgumentError.new("missing required path argument #{_1}")

@@ -7,7 +7,7 @@ class ModernTreasury::Test::Resources::LedgerableEventsTest < ModernTreasury::Te
     response = @modern_treasury.ledgerable_events.create(name: "name")
 
     assert_pattern do
-      response => ModernTreasury::Models::LedgerableEvent
+      response => ModernTreasury::LedgerableEvent
     end
 
     assert_pattern do
@@ -30,7 +30,7 @@ class ModernTreasury::Test::Resources::LedgerableEventsTest < ModernTreasury::Te
     response = @modern_treasury.ledgerable_events.retrieve("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::LedgerableEvent
+      response => ModernTreasury::LedgerableEvent
     end
 
     assert_pattern do

@@ -3,7 +3,11 @@
 module ModernTreasury
   module Resources
     class LedgerAccountSettlements
-      sig { returns(ModernTreasury::Resources::LedgerAccountSettlements::AccountEntries) }
+      sig do
+        returns(
+          ModernTreasury::Resources::LedgerAccountSettlements::AccountEntries
+        )
+      end
       attr_reader :account_entries
 
       # Create a ledger account settlement.
@@ -16,10 +20,12 @@ module ModernTreasury
           effective_at_upper_bound: T.nilable(Time),
           metadata: T::Hash[Symbol, String],
           skip_settlement_ledger_transaction: T.nilable(T::Boolean),
-          status: T.nilable(ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::OrSymbol),
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::LedgerAccountSettlement)
+          status:
+            T.nilable(
+              ModernTreasury::LedgerAccountSettlementCreateParams::Status::OrSymbol
+            ),
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::LedgerAccountSettlement)
       end
       def create(
         # The id of the contra ledger account that sends to or receives funds from the
@@ -48,27 +54,33 @@ module ModernTreasury
         # To post a ledger account settlement at creation, use `posted`.
         status: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Get details on a single ledger account settlement.
       sig do
-        params(id: String, request_options: ModernTreasury::RequestOpts)
-          .returns(ModernTreasury::Models::LedgerAccountSettlement)
+        params(
+          id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::LedgerAccountSettlement)
       end
       def retrieve(
         # id
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # Update the details of a ledger account settlement.
       sig do
         params(
           id: String,
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
-          status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::OrSymbol,
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::LedgerAccountSettlement)
+          status:
+            ModernTreasury::LedgerAccountSettlementUpdateParams::Status::OrSymbol,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::LedgerAccountSettlement)
       end
       def update(
         # id
@@ -82,7 +94,9 @@ module ModernTreasury
         # ledger transaction, use `archived`.
         status: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Get a list of ledger account settlements.
       sig do
         params(
@@ -96,9 +110,12 @@ module ModernTreasury
           settled_ledger_account_id: String,
           settlement_entry_direction: String,
           updated_at: T::Hash[Symbol, Time],
-          request_options: ModernTreasury::RequestOpts
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(
+          ModernTreasury::Internal::Page[
+            ModernTreasury::LedgerAccountSettlement
+          ]
         )
-          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerAccountSettlement])
       end
       def list(
         # If you have specific IDs to retrieve in bulk, you can pass them as query
@@ -123,10 +140,13 @@ module ModernTreasury
         # updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
         updated_at: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

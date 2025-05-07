@@ -46,7 +46,6 @@ module ModernTreasury
       #   @param internal_account_id [String]
       #
       #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      #   ...
       #
       #   @param per_page [Integer]
       #

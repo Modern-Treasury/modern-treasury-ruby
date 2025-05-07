@@ -79,8 +79,6 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
-      def to_hash: -> ModernTreasury::Models::invoice_list_params
-
       type status =
         :draft | :paid | :partially_paid | :payment_pending | :unpaid | :voided
 

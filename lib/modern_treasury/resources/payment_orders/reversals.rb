@@ -13,27 +13,24 @@ module ModernTreasury
         #
         # @param payment_order_id [String] The id of the payment order being reversed.
         #
-        # @param reason [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason] The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`, `in
-        # ...
+        # @param reason [Symbol, ModernTreasury::PaymentOrders::ReversalCreateParams::Reason] The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`, `in
         #
-        # @param ledger_transaction [ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction] Specifies a ledger transaction object that will be created with the reversal. If
-        # ...
+        # @param ledger_transaction [ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction] Specifies a ledger transaction object that will be created with the reversal. If
         #
         # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-        # ...
         #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::Models::PaymentOrders::Reversal]
+        # @return [ModernTreasury::PaymentOrders::Reversal]
         #
         # @see ModernTreasury::Models::PaymentOrders::ReversalCreateParams
         def create(payment_order_id, params)
-          parsed, options = ModernTreasury::Models::PaymentOrders::ReversalCreateParams.dump_request(params)
+          parsed, options = ModernTreasury::PaymentOrders::ReversalCreateParams.dump_request(params)
           @client.request(
             method: :post,
             path: ["api/payment_orders/%1$s/reversals", payment_order_id],
             body: parsed,
-            model: ModernTreasury::Models::PaymentOrders::Reversal,
+            model: ModernTreasury::PaymentOrders::Reversal,
             options: options
           )
         end
@@ -48,11 +45,11 @@ module ModernTreasury
         #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::Models::PaymentOrders::Reversal]
+        # @return [ModernTreasury::PaymentOrders::Reversal]
         #
         # @see ModernTreasury::Models::PaymentOrders::ReversalRetrieveParams
         def retrieve(reversal_id, params)
-          parsed, options = ModernTreasury::Models::PaymentOrders::ReversalRetrieveParams.dump_request(params)
+          parsed, options = ModernTreasury::PaymentOrders::ReversalRetrieveParams.dump_request(params)
           payment_order_id =
             parsed.delete(:payment_order_id) do
               raise ArgumentError.new("missing required path argument #{_1}")
@@ -60,7 +57,7 @@ module ModernTreasury
           @client.request(
             method: :get,
             path: ["api/payment_orders/%1$s/reversals/%2$s", payment_order_id, reversal_id],
-            model: ModernTreasury::Models::PaymentOrders::Reversal,
+            model: ModernTreasury::PaymentOrders::Reversal,
             options: options
           )
         end
@@ -77,17 +74,17 @@ module ModernTreasury
         #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::PaymentOrders::Reversal>]
+        # @return [ModernTreasury::Internal::Page<ModernTreasury::PaymentOrders::Reversal>]
         #
         # @see ModernTreasury::Models::PaymentOrders::ReversalListParams
         def list(payment_order_id, params = {})
-          parsed, options = ModernTreasury::Models::PaymentOrders::ReversalListParams.dump_request(params)
+          parsed, options = ModernTreasury::PaymentOrders::ReversalListParams.dump_request(params)
           @client.request(
             method: :get,
             path: ["api/payment_orders/%1$s/reversals", payment_order_id],
             query: parsed,
             page: ModernTreasury::Internal::Page,
-            model: ModernTreasury::Models::PaymentOrders::Reversal,
+            model: ModernTreasury::PaymentOrders::Reversal,
             options: options
           )
         end
