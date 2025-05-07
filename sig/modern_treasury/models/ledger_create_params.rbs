@@ -22,8 +22,6 @@ module ModernTreasury
         ?metadata: ::Hash[Symbol, String],
         ?request_options: ModernTreasury::request_opts
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::ledger_create_params
     end
   end
 end

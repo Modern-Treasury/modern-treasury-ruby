@@ -16,7 +16,7 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < ModernTreasury::
       )
 
     assert_pattern do
-      response => ModernTreasury::Models::LedgerTransaction
+      response => ModernTreasury::LedgerTransaction
     end
 
     assert_pattern do
@@ -27,10 +27,10 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < ModernTreasury::
         effective_at: Time,
         effective_date: Date,
         external_id: String | nil,
-        ledger_entries: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::LedgerEntry]),
+        ledger_entries: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LedgerEntry]),
         ledger_id: String,
         ledgerable_id: String | nil,
-        ledgerable_type: ModernTreasury::Models::LedgerTransaction::LedgerableType | nil,
+        ledgerable_type: ModernTreasury::LedgerTransaction::LedgerableType | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
@@ -38,7 +38,7 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < ModernTreasury::
         posted_at: Time | nil,
         reversed_by_ledger_transaction_id: String | nil,
         reverses_ledger_transaction_id: String | nil,
-        status: ModernTreasury::Models::LedgerTransaction::Status,
+        status: ModernTreasury::LedgerTransaction::Status,
         updated_at: Time
       }
     end
@@ -48,7 +48,7 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < ModernTreasury::
     response = @modern_treasury.ledger_transactions.retrieve("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::LedgerTransaction
+      response => ModernTreasury::LedgerTransaction
     end
 
     assert_pattern do
@@ -59,10 +59,10 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < ModernTreasury::
         effective_at: Time,
         effective_date: Date,
         external_id: String | nil,
-        ledger_entries: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::LedgerEntry]),
+        ledger_entries: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LedgerEntry]),
         ledger_id: String,
         ledgerable_id: String | nil,
-        ledgerable_type: ModernTreasury::Models::LedgerTransaction::LedgerableType | nil,
+        ledgerable_type: ModernTreasury::LedgerTransaction::LedgerableType | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
@@ -70,7 +70,7 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < ModernTreasury::
         posted_at: Time | nil,
         reversed_by_ledger_transaction_id: String | nil,
         reverses_ledger_transaction_id: String | nil,
-        status: ModernTreasury::Models::LedgerTransaction::Status,
+        status: ModernTreasury::LedgerTransaction::Status,
         updated_at: Time
       }
     end
@@ -80,7 +80,7 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < ModernTreasury::
     response = @modern_treasury.ledger_transactions.update("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::LedgerTransaction
+      response => ModernTreasury::LedgerTransaction
     end
 
     assert_pattern do
@@ -91,10 +91,10 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < ModernTreasury::
         effective_at: Time,
         effective_date: Date,
         external_id: String | nil,
-        ledger_entries: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::LedgerEntry]),
+        ledger_entries: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LedgerEntry]),
         ledger_id: String,
         ledgerable_id: String | nil,
-        ledgerable_type: ModernTreasury::Models::LedgerTransaction::LedgerableType | nil,
+        ledgerable_type: ModernTreasury::LedgerTransaction::LedgerableType | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
@@ -102,7 +102,7 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < ModernTreasury::
         posted_at: Time | nil,
         reversed_by_ledger_transaction_id: String | nil,
         reverses_ledger_transaction_id: String | nil,
-        status: ModernTreasury::Models::LedgerTransaction::Status,
+        status: ModernTreasury::LedgerTransaction::Status,
         updated_at: Time
       }
     end
@@ -119,7 +119,7 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < ModernTreasury::
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Models::LedgerTransaction
+      row => ModernTreasury::LedgerTransaction
     end
 
     assert_pattern do
@@ -130,10 +130,10 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < ModernTreasury::
         effective_at: Time,
         effective_date: Date,
         external_id: String | nil,
-        ledger_entries: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::LedgerEntry]),
+        ledger_entries: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LedgerEntry]),
         ledger_id: String,
         ledgerable_id: String | nil,
-        ledgerable_type: ModernTreasury::Models::LedgerTransaction::LedgerableType | nil,
+        ledgerable_type: ModernTreasury::LedgerTransaction::LedgerableType | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
@@ -141,7 +141,7 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < ModernTreasury::
         posted_at: Time | nil,
         reversed_by_ledger_transaction_id: String | nil,
         reverses_ledger_transaction_id: String | nil,
-        status: ModernTreasury::Models::LedgerTransaction::Status,
+        status: ModernTreasury::LedgerTransaction::Status,
         updated_at: Time
       }
     end
@@ -161,7 +161,7 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < ModernTreasury::
       )
 
     assert_pattern do
-      response => ModernTreasury::Models::LedgerTransaction
+      response => ModernTreasury::LedgerTransaction
     end
 
     assert_pattern do
@@ -172,10 +172,10 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < ModernTreasury::
         effective_at: Time,
         effective_date: Date,
         external_id: String | nil,
-        ledger_entries: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::LedgerEntry]),
+        ledger_entries: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LedgerEntry]),
         ledger_id: String,
         ledgerable_id: String | nil,
-        ledgerable_type: ModernTreasury::Models::LedgerTransaction::LedgerableType | nil,
+        ledgerable_type: ModernTreasury::LedgerTransaction::LedgerableType | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
@@ -183,7 +183,7 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < ModernTreasury::
         posted_at: Time | nil,
         reversed_by_ledger_transaction_id: String | nil,
         reverses_ledger_transaction_id: String | nil,
-        status: ModernTreasury::Models::LedgerTransaction::Status,
+        status: ModernTreasury::LedgerTransaction::Status,
         updated_at: Time
       }
     end
@@ -193,7 +193,7 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < ModernTreasury::
     response = @modern_treasury.ledger_transactions.create_reversal("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::LedgerTransaction
+      response => ModernTreasury::LedgerTransaction
     end
 
     assert_pattern do
@@ -204,10 +204,10 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < ModernTreasury::
         effective_at: Time,
         effective_date: Date,
         external_id: String | nil,
-        ledger_entries: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::LedgerEntry]),
+        ledger_entries: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LedgerEntry]),
         ledger_id: String,
         ledgerable_id: String | nil,
-        ledgerable_type: ModernTreasury::Models::LedgerTransaction::LedgerableType | nil,
+        ledgerable_type: ModernTreasury::LedgerTransaction::LedgerableType | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
@@ -215,7 +215,7 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < ModernTreasury::
         posted_at: Time | nil,
         reversed_by_ledger_transaction_id: String | nil,
         reverses_ledger_transaction_id: String | nil,
-        status: ModernTreasury::Models::LedgerTransaction::Status,
+        status: ModernTreasury::LedgerTransaction::Status,
         updated_at: Time
       }
     end

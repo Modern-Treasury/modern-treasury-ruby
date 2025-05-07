@@ -6,26 +6,25 @@ module ModernTreasury
       # create ledger_event_handler
       sig do
         params(
-          ledger_transaction_template: T.any(
-            ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate,
-            ModernTreasury::Internal::AnyHash
-          ),
+          ledger_transaction_template:
+            ModernTreasury::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::OrHash,
           name: String,
-          conditions: T.nilable(
-            T.any(
-              ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions,
-              ModernTreasury::Internal::AnyHash
-            )
-          ),
+          conditions:
+            T.nilable(
+              ModernTreasury::LedgerEventHandlerCreateParams::Conditions::OrHash
+            ),
           description: T.nilable(String),
           ledger_id: String,
           metadata: T.nilable(T::Hash[Symbol, String]),
-          variables: T.nilable(
-            T::Hash[Symbol, T.any(ModernTreasury::Models::LedgerEventHandlerVariable, ModernTreasury::Internal::AnyHash)]
-          ),
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::LedgerEventHandler)
+          variables:
+            T.nilable(
+              T::Hash[
+                Symbol,
+                ModernTreasury::LedgerEventHandlerVariable::OrHash
+              ]
+            ),
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::LedgerEventHandler)
       end
       def create(
         ledger_transaction_template:,
@@ -41,17 +40,23 @@ module ModernTreasury
         metadata: nil,
         variables: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Get details on a single ledger event handler.
       sig do
-        params(id: String, request_options: ModernTreasury::RequestOpts)
-          .returns(ModernTreasury::Models::LedgerEventHandler)
+        params(
+          id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::LedgerEventHandler)
       end
       def retrieve(
         # id
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # Get a list of ledger event handlers.
       sig do
         params(
@@ -60,9 +65,10 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           name: String,
           per_page: Integer,
-          request_options: ModernTreasury::RequestOpts
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(
+          ModernTreasury::Internal::Page[ModernTreasury::LedgerEventHandler]
         )
-          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerEventHandler])
       end
       def list(
         after_cursor: nil,
@@ -77,20 +83,27 @@ module ModernTreasury
         name: nil,
         per_page: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Archive a ledger event handler.
       sig do
-        params(id: String, request_options: ModernTreasury::RequestOpts)
-          .returns(ModernTreasury::Models::LedgerEventHandler)
+        params(
+          id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::LedgerEventHandler)
       end
       def delete(
         # id
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

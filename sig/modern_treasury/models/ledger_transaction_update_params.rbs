@@ -4,7 +4,7 @@ module ModernTreasury
       {
         description: String?,
         effective_at: Time,
-        ledger_entries: ::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry],
+        ledger_entries: ::Array[ModernTreasury::LedgerTransactionUpdateParams::LedgerEntry],
         ledgerable_id: String,
         ledgerable_type: ModernTreasury::Models::LedgerTransactionUpdateParams::ledgerable_type,
         metadata: ::Hash[Symbol, String],
@@ -22,11 +22,11 @@ module ModernTreasury
 
       def effective_at=: (Time) -> Time
 
-      attr_reader ledger_entries: ::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry]?
+      attr_reader ledger_entries: ::Array[ModernTreasury::LedgerTransactionUpdateParams::LedgerEntry]?
 
       def ledger_entries=: (
-        ::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry]
-      ) -> ::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry]
+        ::Array[ModernTreasury::LedgerTransactionUpdateParams::LedgerEntry]
+      ) -> ::Array[ModernTreasury::LedgerTransactionUpdateParams::LedgerEntry]
 
       attr_reader ledgerable_id: String?
 
@@ -51,15 +51,13 @@ module ModernTreasury
       def initialize: (
         ?description: String?,
         ?effective_at: Time,
-        ?ledger_entries: ::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry],
+        ?ledger_entries: ::Array[ModernTreasury::LedgerTransactionUpdateParams::LedgerEntry],
         ?ledgerable_id: String,
         ?ledgerable_type: ModernTreasury::Models::LedgerTransactionUpdateParams::ledgerable_type,
         ?metadata: ::Hash[Symbol, String],
         ?status: ModernTreasury::Models::LedgerTransactionUpdateParams::status,
         ?request_options: ModernTreasury::request_opts
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::ledger_transaction_update_params
 
       type ledger_entry =
         {
@@ -106,8 +104,6 @@ module ModernTreasury
           ?posted_balance_amount: ::Hash[Symbol, Integer]?,
           ?show_resulting_ledger_account_balances: bool?
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::LedgerTransactionUpdateParams::ledger_entry
       end
 
       type ledgerable_type =

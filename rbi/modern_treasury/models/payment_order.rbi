@@ -3,17 +3,19 @@
 module ModernTreasury
   module Models
     class PaymentOrder < ModernTreasury::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       sig { returns(String) }
       attr_accessor :id
 
-      sig { returns(ModernTreasury::Models::PaymentOrder::Accounting) }
+      sig { returns(ModernTreasury::PaymentOrder::Accounting) }
       attr_reader :accounting
 
       sig do
         params(
-          accounting: T.any(ModernTreasury::Models::PaymentOrder::Accounting, ModernTreasury::Internal::AnyHash)
-        )
-          .void
+          accounting: ModernTreasury::PaymentOrder::Accounting::OrHash
+        ).void
       end
       attr_writer :accounting
 
@@ -35,7 +37,11 @@ module ModernTreasury
       # The party that will pay the fees for the payment order. Only applies to wire
       # payment orders. Can be one of shared, sender, or receiver, which correspond
       # respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
-      sig { returns(T.nilable(ModernTreasury::Models::PaymentOrder::ChargeBearer::TaggedSymbol)) }
+      sig do
+        returns(
+          T.nilable(ModernTreasury::PaymentOrder::ChargeBearer::TaggedSymbol)
+        )
+      end
       attr_accessor :charge_bearer
 
       # Custom key-value pair for usage in compliance rules. Please contact support
@@ -52,19 +58,18 @@ module ModernTreasury
       attr_accessor :created_at
 
       # Defaults to the currency of the originating account.
-      sig { returns(ModernTreasury::Models::Currency::TaggedSymbol) }
+      sig { returns(ModernTreasury::Currency::TaggedSymbol) }
       attr_accessor :currency
 
       # If the payment order's status is `returned`, this will include the return
       # object's data.
-      sig { returns(T.nilable(ModernTreasury::Models::ReturnObject)) }
+      sig { returns(T.nilable(ModernTreasury::ReturnObject)) }
       attr_reader :current_return
 
       sig do
         params(
-          current_return: T.nilable(T.any(ModernTreasury::Models::ReturnObject, ModernTreasury::Internal::AnyHash))
-        )
-          .void
+          current_return: T.nilable(ModernTreasury::ReturnObject::OrHash)
+        ).void
       end
       attr_writer :current_return
 
@@ -81,7 +86,7 @@ module ModernTreasury
       # transaction. A `credit` moves money from your account to someone else's. A
       # `debit` pulls money from someone else's account to your own. Note that wire,
       # rtp, and check payments will always be `credit`.
-      sig { returns(ModernTreasury::Models::PaymentOrder::Direction::TaggedSymbol) }
+      sig { returns(ModernTreasury::PaymentOrder::Direction::TaggedSymbol) }
       attr_accessor :direction
 
       # Date transactions are to be posted to the participants' account. Defaults to the
@@ -102,20 +107,26 @@ module ModernTreasury
       # Indicates the type of FX transfer to initiate, can be either
       # `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
       # currency matches the originating account currency.
-      sig { returns(T.nilable(ModernTreasury::Models::PaymentOrder::ForeignExchangeIndicator::TaggedSymbol)) }
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::PaymentOrder::ForeignExchangeIndicator::TaggedSymbol
+          )
+        )
+      end
       attr_accessor :foreign_exchange_indicator
 
       # Associated serialized foreign exchange rate information.
-      sig { returns(T.nilable(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate)) }
+      sig do
+        returns(T.nilable(ModernTreasury::PaymentOrder::ForeignExchangeRate))
+      end
       attr_reader :foreign_exchange_rate
 
       sig do
         params(
-          foreign_exchange_rate: T.nilable(
-            T.any(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate, ModernTreasury::Internal::AnyHash)
-          )
-        )
-          .void
+          foreign_exchange_rate:
+            T.nilable(ModernTreasury::PaymentOrder::ForeignExchangeRate::OrHash)
+        ).void
       end
       attr_writer :foreign_exchange_rate
 
@@ -155,7 +166,7 @@ module ModernTreasury
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
       # same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
       # an overnight check rather than standard mail.
-      sig { returns(ModernTreasury::Models::PaymentOrder::Priority::TaggedSymbol) }
+      sig { returns(ModernTreasury::PaymentOrder::Priority::TaggedSymbol) }
       attr_accessor :priority
 
       # If present, Modern Treasury will not process the payment until after this time.
@@ -176,10 +187,14 @@ module ModernTreasury
       sig { returns(String) }
       attr_accessor :receiving_account_id
 
-      sig { returns(ModernTreasury::Models::PaymentOrder::ReceivingAccountType::TaggedSymbol) }
+      sig do
+        returns(
+          ModernTreasury::PaymentOrder::ReceivingAccountType::TaggedSymbol
+        )
+      end
       attr_accessor :receiving_account_type
 
-      sig { returns(T::Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber]) }
+      sig { returns(T::Array[ModernTreasury::PaymentOrder::ReferenceNumber]) }
       attr_accessor :reference_numbers
 
       # For `ach`, this field will be passed through on an addenda record. For `wire`
@@ -203,14 +218,16 @@ module ModernTreasury
       attr_accessor :statement_descriptor
 
       # The current status of the payment order.
-      sig { returns(ModernTreasury::Models::PaymentOrder::Status::TaggedSymbol) }
+      sig { returns(ModernTreasury::PaymentOrder::Status::TaggedSymbol) }
       attr_accessor :status
 
       # An additional layer of classification for the type of payment order you are
       # doing. This field is only used for `ach` payment orders currently. For `ach`
       # payment orders, the `subtype` represents the SEC code. We currently support
       # `CCD`, `PPD`, `IAT`, `CTX`, `WEB`, `CIE`, and `TEL`.
-      sig { returns(T.nilable(ModernTreasury::Models::PaymentOrderSubtype::TaggedSymbol)) }
+      sig do
+        returns(T.nilable(ModernTreasury::PaymentOrderSubtype::TaggedSymbol))
+      end
       attr_accessor :subtype
 
       # The IDs of all the transactions associated to this payment order. Usually, you
@@ -228,12 +245,21 @@ module ModernTreasury
       # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
       # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
       # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
-      sig { returns(ModernTreasury::Models::PaymentOrderType::TaggedSymbol) }
+      sig { returns(ModernTreasury::PaymentOrderType::TaggedSymbol) }
       attr_accessor :type
 
       # The account to which the originating of this payment should be attributed to.
       # Can be a `virtual_account` or `internal_account`.
-      sig { returns(T.nilable(T.any(ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount))) }
+      sig do
+        returns(
+          T.nilable(
+            T.any(
+              ModernTreasury::VirtualAccount,
+              ModernTreasury::InternalAccount
+            )
+          )
+        )
+      end
       attr_accessor :ultimate_originating_account
 
       # The ultimate originating account ID. Can be a `virtual_account` or
@@ -241,7 +267,13 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :ultimate_originating_account_id
 
-      sig { returns(T.nilable(ModernTreasury::Models::PaymentOrder::UltimateOriginatingAccountType::TaggedSymbol)) }
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::PaymentOrder::UltimateOriginatingAccountType::TaggedSymbol
+          )
+        )
+      end
       attr_accessor :ultimate_originating_account_type
 
       # Identifier of the ultimate originator of the payment order.
@@ -274,26 +306,31 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          accounting: T.any(ModernTreasury::Models::PaymentOrder::Accounting, ModernTreasury::Internal::AnyHash),
+          accounting: ModernTreasury::PaymentOrder::Accounting::OrHash,
           accounting_category_id: T.nilable(String),
           accounting_ledger_class_id: T.nilable(String),
           amount: Integer,
-          charge_bearer: T.nilable(ModernTreasury::Models::PaymentOrder::ChargeBearer::OrSymbol),
+          charge_bearer:
+            T.nilable(ModernTreasury::PaymentOrder::ChargeBearer::OrSymbol),
           compliance_rule_metadata: T.nilable(T::Hash[Symbol, T.anything]),
           counterparty_id: T.nilable(String),
           created_at: Time,
-          currency: ModernTreasury::Models::Currency::OrSymbol,
-          current_return: T.nilable(T.any(ModernTreasury::Models::ReturnObject, ModernTreasury::Internal::AnyHash)),
+          currency: ModernTreasury::Currency::OrSymbol,
+          current_return: T.nilable(ModernTreasury::ReturnObject::OrHash),
           decision_id: T.nilable(String),
           description: T.nilable(String),
-          direction: ModernTreasury::Models::PaymentOrder::Direction::OrSymbol,
+          direction: ModernTreasury::PaymentOrder::Direction::OrSymbol,
           effective_date: Date,
           expires_at: T.nilable(Time),
           foreign_exchange_contract: T.nilable(String),
-          foreign_exchange_indicator: T.nilable(ModernTreasury::Models::PaymentOrder::ForeignExchangeIndicator::OrSymbol),
-          foreign_exchange_rate: T.nilable(
-            T.any(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate, ModernTreasury::Internal::AnyHash)
-          ),
+          foreign_exchange_indicator:
+            T.nilable(
+              ModernTreasury::PaymentOrder::ForeignExchangeIndicator::OrSymbol
+            ),
+          foreign_exchange_rate:
+            T.nilable(
+              ModernTreasury::PaymentOrder::ForeignExchangeRate::OrHash
+            ),
           ledger_transaction_id: T.nilable(String),
           live_mode: T::Boolean,
           metadata: T::Hash[Symbol, String],
@@ -301,29 +338,34 @@ module ModernTreasury
           object: String,
           originating_account_id: String,
           originating_party_name: T.nilable(String),
-          priority: ModernTreasury::Models::PaymentOrder::Priority::OrSymbol,
+          priority: ModernTreasury::PaymentOrder::Priority::OrSymbol,
           process_after: T.nilable(Time),
           purpose: T.nilable(String),
           receiving_account_id: String,
-          receiving_account_type: ModernTreasury::Models::PaymentOrder::ReceivingAccountType::OrSymbol,
-          reference_numbers: T::Array[T.any(ModernTreasury::Models::PaymentOrder::ReferenceNumber, ModernTreasury::Internal::AnyHash)],
+          receiving_account_type:
+            ModernTreasury::PaymentOrder::ReceivingAccountType::OrSymbol,
+          reference_numbers:
+            T::Array[ModernTreasury::PaymentOrder::ReferenceNumber::OrHash],
           remittance_information: T.nilable(String),
           send_remittance_advice: T.nilable(T::Boolean),
           statement_descriptor: T.nilable(String),
-          status: ModernTreasury::Models::PaymentOrder::Status::OrSymbol,
-          subtype: T.nilable(ModernTreasury::Models::PaymentOrderSubtype::OrSymbol),
+          status: ModernTreasury::PaymentOrder::Status::OrSymbol,
+          subtype: T.nilable(ModernTreasury::PaymentOrderSubtype::OrSymbol),
           transaction_ids: T::Array[String],
           transaction_monitoring_enabled: T::Boolean,
-          type: ModernTreasury::Models::PaymentOrderType::OrSymbol,
-          ultimate_originating_account: T.nilable(
-            T.any(
-              ModernTreasury::Models::VirtualAccount,
-              ModernTreasury::Internal::AnyHash,
-              ModernTreasury::Models::InternalAccount
-            )
-          ),
+          type: ModernTreasury::PaymentOrderType::OrSymbol,
+          ultimate_originating_account:
+            T.nilable(
+              T.any(
+                ModernTreasury::VirtualAccount::OrHash,
+                ModernTreasury::InternalAccount::OrHash
+              )
+            ),
           ultimate_originating_account_id: T.nilable(String),
-          ultimate_originating_account_type: T.nilable(ModernTreasury::Models::PaymentOrder::UltimateOriginatingAccountType::OrSymbol),
+          ultimate_originating_account_type:
+            T.nilable(
+              ModernTreasury::PaymentOrder::UltimateOriginatingAccountType::OrSymbol
+            ),
           ultimate_originating_party_identifier: T.nilable(String),
           ultimate_originating_party_name: T.nilable(String),
           ultimate_receiving_party_identifier: T.nilable(String),
@@ -331,8 +373,7 @@ module ModernTreasury
           updated_at: Time,
           vendor_attributes: T.nilable(T.anything),
           vendor_failure_reason: T.nilable(String)
-        )
-          .returns(T.attached_class)
+        ).returns(T.attached_class)
       end
       def self.new(
         id:,
@@ -477,67 +518,91 @@ module ModernTreasury
         # This field will be populated if a vendor failure occurs. Logic shouldn't be
         # built on its value as it is free-form.
         vendor_failure_reason:
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: String,
-              accounting: ModernTreasury::Models::PaymentOrder::Accounting,
-              accounting_category_id: T.nilable(String),
-              accounting_ledger_class_id: T.nilable(String),
-              amount: Integer,
-              charge_bearer: T.nilable(ModernTreasury::Models::PaymentOrder::ChargeBearer::TaggedSymbol),
-              compliance_rule_metadata: T.nilable(T::Hash[Symbol, T.anything]),
-              counterparty_id: T.nilable(String),
-              created_at: Time,
-              currency: ModernTreasury::Models::Currency::TaggedSymbol,
-              current_return: T.nilable(ModernTreasury::Models::ReturnObject),
-              decision_id: T.nilable(String),
-              description: T.nilable(String),
-              direction: ModernTreasury::Models::PaymentOrder::Direction::TaggedSymbol,
-              effective_date: Date,
-              expires_at: T.nilable(Time),
-              foreign_exchange_contract: T.nilable(String),
-              foreign_exchange_indicator: T.nilable(ModernTreasury::Models::PaymentOrder::ForeignExchangeIndicator::TaggedSymbol),
-              foreign_exchange_rate: T.nilable(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate),
-              ledger_transaction_id: T.nilable(String),
-              live_mode: T::Boolean,
-              metadata: T::Hash[Symbol, String],
-              nsf_protected: T::Boolean,
-              object: String,
-              originating_account_id: String,
-              originating_party_name: T.nilable(String),
-              priority: ModernTreasury::Models::PaymentOrder::Priority::TaggedSymbol,
-              process_after: T.nilable(Time),
-              purpose: T.nilable(String),
-              receiving_account_id: String,
-              receiving_account_type: ModernTreasury::Models::PaymentOrder::ReceivingAccountType::TaggedSymbol,
-              reference_numbers: T::Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber],
-              remittance_information: T.nilable(String),
-              send_remittance_advice: T.nilable(T::Boolean),
-              statement_descriptor: T.nilable(String),
-              status: ModernTreasury::Models::PaymentOrder::Status::TaggedSymbol,
-              subtype: T.nilable(ModernTreasury::Models::PaymentOrderSubtype::TaggedSymbol),
-              transaction_ids: T::Array[String],
-              transaction_monitoring_enabled: T::Boolean,
-              type: ModernTreasury::Models::PaymentOrderType::TaggedSymbol,
-              ultimate_originating_account: T.nilable(T.any(ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount)),
-              ultimate_originating_account_id: T.nilable(String),
-              ultimate_originating_account_type: T.nilable(ModernTreasury::Models::PaymentOrder::UltimateOriginatingAccountType::TaggedSymbol),
-              ultimate_originating_party_identifier: T.nilable(String),
-              ultimate_originating_party_name: T.nilable(String),
-              ultimate_receiving_party_identifier: T.nilable(String),
-              ultimate_receiving_party_name: T.nilable(String),
-              updated_at: Time,
-              vendor_attributes: T.nilable(T.anything),
-              vendor_failure_reason: T.nilable(String)
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            accounting: ModernTreasury::PaymentOrder::Accounting,
+            accounting_category_id: T.nilable(String),
+            accounting_ledger_class_id: T.nilable(String),
+            amount: Integer,
+            charge_bearer:
+              T.nilable(
+                ModernTreasury::PaymentOrder::ChargeBearer::TaggedSymbol
+              ),
+            compliance_rule_metadata: T.nilable(T::Hash[Symbol, T.anything]),
+            counterparty_id: T.nilable(String),
+            created_at: Time,
+            currency: ModernTreasury::Currency::TaggedSymbol,
+            current_return: T.nilable(ModernTreasury::ReturnObject),
+            decision_id: T.nilable(String),
+            description: T.nilable(String),
+            direction: ModernTreasury::PaymentOrder::Direction::TaggedSymbol,
+            effective_date: Date,
+            expires_at: T.nilable(Time),
+            foreign_exchange_contract: T.nilable(String),
+            foreign_exchange_indicator:
+              T.nilable(
+                ModernTreasury::PaymentOrder::ForeignExchangeIndicator::TaggedSymbol
+              ),
+            foreign_exchange_rate:
+              T.nilable(ModernTreasury::PaymentOrder::ForeignExchangeRate),
+            ledger_transaction_id: T.nilable(String),
+            live_mode: T::Boolean,
+            metadata: T::Hash[Symbol, String],
+            nsf_protected: T::Boolean,
+            object: String,
+            originating_account_id: String,
+            originating_party_name: T.nilable(String),
+            priority: ModernTreasury::PaymentOrder::Priority::TaggedSymbol,
+            process_after: T.nilable(Time),
+            purpose: T.nilable(String),
+            receiving_account_id: String,
+            receiving_account_type:
+              ModernTreasury::PaymentOrder::ReceivingAccountType::TaggedSymbol,
+            reference_numbers:
+              T::Array[ModernTreasury::PaymentOrder::ReferenceNumber],
+            remittance_information: T.nilable(String),
+            send_remittance_advice: T.nilable(T::Boolean),
+            statement_descriptor: T.nilable(String),
+            status: ModernTreasury::PaymentOrder::Status::TaggedSymbol,
+            subtype:
+              T.nilable(ModernTreasury::PaymentOrderSubtype::TaggedSymbol),
+            transaction_ids: T::Array[String],
+            transaction_monitoring_enabled: T::Boolean,
+            type: ModernTreasury::PaymentOrderType::TaggedSymbol,
+            ultimate_originating_account:
+              T.nilable(
+                T.any(
+                  ModernTreasury::VirtualAccount,
+                  ModernTreasury::InternalAccount
+                )
+              ),
+            ultimate_originating_account_id: T.nilable(String),
+            ultimate_originating_account_type:
+              T.nilable(
+                ModernTreasury::PaymentOrder::UltimateOriginatingAccountType::TaggedSymbol
+              ),
+            ultimate_originating_party_identifier: T.nilable(String),
+            ultimate_originating_party_name: T.nilable(String),
+            ultimate_receiving_party_identifier: T.nilable(String),
+            ultimate_receiving_party_name: T.nilable(String),
+            updated_at: Time,
+            vendor_attributes: T.nilable(T.anything),
+            vendor_failure_reason: T.nilable(String)
+          }
+        )
+      end
+      def to_hash
+      end
 
       class Accounting < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         # The ID of one of your accounting categories. Note that these will only be
         # accessible if your accounting system has been connected.
         sig { returns(T.nilable(String)) }
@@ -549,7 +614,12 @@ module ModernTreasury
         sig { returns(T.nilable(String)) }
         attr_accessor :class_id
 
-        sig { params(account_id: T.nilable(String), class_id: T.nilable(String)).returns(T.attached_class) }
+        sig do
+          params(
+            account_id: T.nilable(String),
+            class_id: T.nilable(String)
+          ).returns(T.attached_class)
+        end
         def self.new(
           # The ID of one of your accounting categories. Note that these will only be
           # accessible if your accounting system has been connected.
@@ -558,9 +628,16 @@ module ModernTreasury
           # track segments of your business independent of client or project. Note that
           # these will only be accessible if your accounting system has been connected.
           class_id: nil
-        ); end
-        sig { override.returns({account_id: T.nilable(String), class_id: T.nilable(String)}) }
-        def to_hash; end
+        )
+        end
+
+        sig do
+          override.returns(
+            { account_id: T.nilable(String), class_id: T.nilable(String) }
+          )
+        end
+        def to_hash
+        end
       end
 
       # The party that will pay the fees for the payment order. Only applies to wire
@@ -569,15 +646,35 @@ module ModernTreasury
       module ChargeBearer
         extend ModernTreasury::Internal::Type::Enum
 
-        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrder::ChargeBearer) }
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::PaymentOrder::ChargeBearer)
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        SHARED = T.let(:shared, ModernTreasury::Models::PaymentOrder::ChargeBearer::TaggedSymbol)
-        SENDER = T.let(:sender, ModernTreasury::Models::PaymentOrder::ChargeBearer::TaggedSymbol)
-        RECEIVER = T.let(:receiver, ModernTreasury::Models::PaymentOrder::ChargeBearer::TaggedSymbol)
+        SHARED =
+          T.let(
+            :shared,
+            ModernTreasury::PaymentOrder::ChargeBearer::TaggedSymbol
+          )
+        SENDER =
+          T.let(
+            :sender,
+            ModernTreasury::PaymentOrder::ChargeBearer::TaggedSymbol
+          )
+        RECEIVER =
+          T.let(
+            :receiver,
+            ModernTreasury::PaymentOrder::ChargeBearer::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrder::ChargeBearer::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[ModernTreasury::PaymentOrder::ChargeBearer::TaggedSymbol]
+          )
+        end
+        def self.values
+        end
       end
 
       # One of `credit`, `debit`. Describes the direction money is flowing in the
@@ -587,14 +684,24 @@ module ModernTreasury
       module Direction
         extend ModernTreasury::Internal::Type::Enum
 
-        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrder::Direction) }
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::PaymentOrder::Direction)
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        CREDIT = T.let(:credit, ModernTreasury::Models::PaymentOrder::Direction::TaggedSymbol)
-        DEBIT = T.let(:debit, ModernTreasury::Models::PaymentOrder::Direction::TaggedSymbol)
+        CREDIT =
+          T.let(:credit, ModernTreasury::PaymentOrder::Direction::TaggedSymbol)
+        DEBIT =
+          T.let(:debit, ModernTreasury::PaymentOrder::Direction::TaggedSymbol)
 
-        sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrder::Direction::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[ModernTreasury::PaymentOrder::Direction::TaggedSymbol]
+          )
+        end
+        def self.values
+        end
       end
 
       # Indicates the type of FX transfer to initiate, can be either
@@ -604,26 +711,47 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
-          T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrder::ForeignExchangeIndicator) }
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::PaymentOrder::ForeignExchangeIndicator
+            )
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         FIXED_TO_VARIABLE =
-          T.let(:fixed_to_variable, ModernTreasury::Models::PaymentOrder::ForeignExchangeIndicator::TaggedSymbol)
+          T.let(
+            :fixed_to_variable,
+            ModernTreasury::PaymentOrder::ForeignExchangeIndicator::TaggedSymbol
+          )
         VARIABLE_TO_FIXED =
-          T.let(:variable_to_fixed, ModernTreasury::Models::PaymentOrder::ForeignExchangeIndicator::TaggedSymbol)
+          T.let(
+            :variable_to_fixed,
+            ModernTreasury::PaymentOrder::ForeignExchangeIndicator::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrder::ForeignExchangeIndicator::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::PaymentOrder::ForeignExchangeIndicator::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
 
       class ForeignExchangeRate < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         # Amount in the lowest denomination of the `base_currency` to convert, often
         # called the "sell" amount.
         sig { returns(Integer) }
         attr_accessor :base_amount
 
         # Currency to convert, often called the "sell" currency.
-        sig { returns(ModernTreasury::Models::Currency::TaggedSymbol) }
+        sig { returns(ModernTreasury::Currency::TaggedSymbol) }
         attr_accessor :base_currency
 
         # The exponent component of the rate. The decimal is calculated as `value` / (10 ^
@@ -641,7 +769,7 @@ module ModernTreasury
         attr_accessor :target_amount
 
         # Currency to convert the `base_currency` to, often called the "buy" currency.
-        sig { returns(ModernTreasury::Models::Currency::TaggedSymbol) }
+        sig { returns(ModernTreasury::Currency::TaggedSymbol) }
         attr_accessor :target_currency
 
         # The whole number component of the rate. The decimal is calculated as `value` /
@@ -653,14 +781,13 @@ module ModernTreasury
         sig do
           params(
             base_amount: Integer,
-            base_currency: ModernTreasury::Models::Currency::OrSymbol,
+            base_currency: ModernTreasury::Currency::OrSymbol,
             exponent: Integer,
             rate_string: String,
             target_amount: Integer,
-            target_currency: ModernTreasury::Models::Currency::OrSymbol,
+            target_currency: ModernTreasury::Currency::OrSymbol,
             value: Integer
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
           # Amount in the lowest denomination of the `base_currency` to convert, often
@@ -681,22 +808,24 @@ module ModernTreasury
           # The whole number component of the rate. The decimal is calculated as `value` /
           # (10 ^ `exponent`).
           value:
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                base_amount: Integer,
-                base_currency: ModernTreasury::Models::Currency::TaggedSymbol,
-                exponent: Integer,
-                rate_string: String,
-                target_amount: Integer,
-                target_currency: ModernTreasury::Models::Currency::TaggedSymbol,
-                value: Integer
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              base_amount: Integer,
+              base_currency: ModernTreasury::Currency::TaggedSymbol,
+              exponent: Integer,
+              rate_string: String,
+              target_amount: Integer,
+              target_currency: ModernTreasury::Currency::TaggedSymbol,
+              value: Integer
+            }
+          )
+        end
+        def to_hash
+        end
       end
 
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
@@ -705,32 +834,59 @@ module ModernTreasury
       module Priority
         extend ModernTreasury::Internal::Type::Enum
 
-        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrder::Priority) }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::PaymentOrder::Priority) }
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        HIGH = T.let(:high, ModernTreasury::Models::PaymentOrder::Priority::TaggedSymbol)
-        NORMAL = T.let(:normal, ModernTreasury::Models::PaymentOrder::Priority::TaggedSymbol)
+        HIGH =
+          T.let(:high, ModernTreasury::PaymentOrder::Priority::TaggedSymbol)
+        NORMAL =
+          T.let(:normal, ModernTreasury::PaymentOrder::Priority::TaggedSymbol)
 
-        sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrder::Priority::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[ModernTreasury::PaymentOrder::Priority::TaggedSymbol]
+          )
+        end
+        def self.values
+        end
       end
 
       module ReceivingAccountType
         extend ModernTreasury::Internal::Type::Enum
 
-        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrder::ReceivingAccountType) }
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::PaymentOrder::ReceivingAccountType)
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         INTERNAL_ACCOUNT =
-          T.let(:internal_account, ModernTreasury::Models::PaymentOrder::ReceivingAccountType::TaggedSymbol)
+          T.let(
+            :internal_account,
+            ModernTreasury::PaymentOrder::ReceivingAccountType::TaggedSymbol
+          )
         EXTERNAL_ACCOUNT =
-          T.let(:external_account, ModernTreasury::Models::PaymentOrder::ReceivingAccountType::TaggedSymbol)
+          T.let(
+            :external_account,
+            ModernTreasury::PaymentOrder::ReceivingAccountType::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrder::ReceivingAccountType::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::PaymentOrder::ReceivingAccountType::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
 
       class ReferenceNumber < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         sig { returns(String) }
         attr_accessor :id
 
@@ -750,7 +906,11 @@ module ModernTreasury
         attr_accessor :reference_number
 
         # The type of the reference number. Referring to the vendor payment id.
-        sig { returns(ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol) }
+        sig do
+          returns(
+            ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+          )
+        end
         attr_accessor :reference_number_type
 
         sig { returns(Time) }
@@ -763,10 +923,10 @@ module ModernTreasury
             live_mode: T::Boolean,
             object: String,
             reference_number: String,
-            reference_number_type: ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::OrSymbol,
+            reference_number_type:
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::OrSymbol,
             updated_at: Time
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
           id:,
@@ -780,403 +940,419 @@ module ModernTreasury
           # The type of the reference number. Referring to the vendor payment id.
           reference_number_type:,
           updated_at:
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                id: String,
-                created_at: Time,
-                live_mode: T::Boolean,
-                object: String,
-                reference_number: String,
-                reference_number_type: ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol,
-                updated_at: Time
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              id: String,
+              created_at: Time,
+              live_mode: T::Boolean,
+              object: String,
+              reference_number: String,
+              reference_number_type:
+                ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol,
+              updated_at: Time
+            }
+          )
+        end
+        def to_hash
+        end
 
         # The type of the reference number. Referring to the vendor payment id.
         module ReferenceNumberType
           extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
-            T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType) }
+            T.type_alias do
+              T.all(
+                Symbol,
+                ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType
+              )
+            end
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           ACH_ORIGINAL_TRACE_NUMBER =
             T.let(
               :ach_original_trace_number,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           ACH_TRACE_NUMBER =
             T.let(
               :ach_trace_number,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           BANKPROV_PAYMENT_ACTIVITY_DATE =
             T.let(
               :bankprov_payment_activity_date,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           BANKPROV_PAYMENT_ID =
             T.let(
               :bankprov_payment_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           BNK_DEV_PRENOTIFICATION_ID =
             T.let(
               :bnk_dev_prenotification_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           BNK_DEV_TRANSFER_ID =
             T.let(
               :bnk_dev_transfer_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           BOFA_END_TO_END_ID =
             T.let(
               :bofa_end_to_end_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           BOFA_TRANSACTION_ID =
             T.let(
               :bofa_transaction_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           CHECK_NUMBER =
             T.let(
               :check_number,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           CITIBANK_REFERENCE_NUMBER =
             T.let(
               :citibank_reference_number,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           CITIBANK_WORLDLINK_CLEARING_SYSTEM_REFERENCE_NUMBER =
             T.let(
               :citibank_worldlink_clearing_system_reference_number,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           COLUMN_FX_QUOTE_ID =
             T.let(
               :column_fx_quote_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           COLUMN_REVERSAL_PAIR_TRANSFER_ID =
             T.let(
               :column_reversal_pair_transfer_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           COLUMN_TRANSFER_ID =
             T.let(
               :column_transfer_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           CROSS_RIVER_PAYMENT_ID =
             T.let(
               :cross_river_payment_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           CROSS_RIVER_SERVICE_MESSAGE =
             T.let(
               :cross_river_service_message,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           CROSS_RIVER_TRANSACTION_ID =
             T.let(
               :cross_river_transaction_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           CURRENCYCLOUD_CONVERSION_ID =
             T.let(
               :currencycloud_conversion_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           CURRENCYCLOUD_PAYMENT_ID =
             T.let(
               :currencycloud_payment_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           DC_BANK_TRANSACTION_ID =
             T.let(
               :dc_bank_transaction_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           DWOLLA_TRANSACTION_ID =
             T.let(
               :dwolla_transaction_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           EFT_TRACE_NUMBER =
             T.let(
               :eft_trace_number,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           EVOLVE_TRANSACTION_ID =
             T.let(
               :evolve_transaction_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           FEDWIRE_IMAD =
             T.let(
               :fedwire_imad,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           FEDWIRE_OMAD =
             T.let(
               :fedwire_omad,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           FIRST_REPUBLIC_INTERNAL_ID =
             T.let(
               :first_republic_internal_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           GOLDMAN_SACHS_COLLECTION_REQUEST_ID =
             T.let(
               :goldman_sachs_collection_request_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           GOLDMAN_SACHS_END_TO_END_ID =
             T.let(
               :goldman_sachs_end_to_end_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           GOLDMAN_SACHS_PAYMENT_REQUEST_ID =
             T.let(
               :goldman_sachs_payment_request_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           GOLDMAN_SACHS_REQUEST_ID =
             T.let(
               :goldman_sachs_request_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           GOLDMAN_SACHS_UNIQUE_PAYMENT_ID =
             T.let(
               :goldman_sachs_unique_payment_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           INTERAC_MESSAGE_ID =
             T.let(
               :interac_message_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           JPMC_CCN =
-            T.let(:jpmc_ccn, ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol)
+            T.let(
+              :jpmc_ccn,
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
           JPMC_CLEARING_SYSTEM_REFERENCE =
             T.let(
               :jpmc_clearing_system_reference,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           JPMC_CUSTOMER_REFERENCE_ID =
             T.let(
               :jpmc_customer_reference_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           JPMC_END_TO_END_ID =
             T.let(
               :jpmc_end_to_end_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           JPMC_FIRM_ROOT_ID =
             T.let(
               :jpmc_firm_root_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           JPMC_FX_TRN_ID =
             T.let(
               :jpmc_fx_trn_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           JPMC_P3_ID =
             T.let(
               :jpmc_p3_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           JPMC_PAYMENT_BATCH_ID =
             T.let(
               :jpmc_payment_batch_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           JPMC_PAYMENT_INFORMATION_ID =
             T.let(
               :jpmc_payment_information_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           JPMC_PAYMENT_RETURNED_DATETIME =
             T.let(
               :jpmc_payment_returned_datetime,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           JPMC_TRANSACTION_REFERENCE_NUMBER =
             T.let(
               :jpmc_transaction_reference_number,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           LOB_CHECK_ID =
             T.let(
               :lob_check_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           OTHER =
-            T.let(:other, ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol)
+            T.let(
+              :other,
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
           PARTIAL_SWIFT_MIR =
             T.let(
               :partial_swift_mir,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           PNC_CLEARING_REFERENCE =
             T.let(
               :pnc_clearing_reference,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           PNC_INSTRUCTION_ID =
             T.let(
               :pnc_instruction_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           PNC_MULTIPAYMENT_ID =
             T.let(
               :pnc_multipayment_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           PNC_PAYMENT_TRACE_ID =
             T.let(
               :pnc_payment_trace_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           PNC_REQUEST_FOR_PAYMENT_ID =
             T.let(
               :pnc_request_for_payment_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           PNC_TRANSACTION_REFERENCE_NUMBER =
             T.let(
               :pnc_transaction_reference_number,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           RBC_WIRE_REFERENCE_ID =
             T.let(
               :rbc_wire_reference_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           RSPEC_VENDOR_PAYMENT_ID =
             T.let(
               :rspec_vendor_payment_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           RTP_INSTRUCTION_ID =
             T.let(
               :rtp_instruction_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           SIGNET_API_REFERENCE_ID =
             T.let(
               :signet_api_reference_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           SIGNET_CONFIRMATION_ID =
             T.let(
               :signet_confirmation_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           SIGNET_REQUEST_ID =
             T.let(
               :signet_request_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           SILVERGATE_PAYMENT_ID =
             T.let(
               :silvergate_payment_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           SVB_END_TO_END_ID =
             T.let(
               :svb_end_to_end_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           SVB_PAYMENT_ID =
             T.let(
               :svb_payment_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           SVB_TRANSACTION_CLEARED_FOR_SANCTIONS_REVIEW =
             T.let(
               :svb_transaction_cleared_for_sanctions_review,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           SVB_TRANSACTION_HELD_FOR_SANCTIONS_REVIEW =
             T.let(
               :svb_transaction_held_for_sanctions_review,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           SWIFT_MIR =
             T.let(
               :swift_mir,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           SWIFT_UETR =
             T.let(
               :swift_uetr,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           UMB_PRODUCT_PARTNER_ACCOUNT_NUMBER =
             T.let(
               :umb_product_partner_account_number,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           USBANK_PAYMENT_APPLICATION_REFERENCE_ID =
             T.let(
               :usbank_payment_application_reference_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           USBANK_PAYMENT_ID =
             T.let(
               :usbank_payment_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           USBANK_PENDING_RTP_PAYMENT_ID =
             T.let(
               :usbank_pending_rtp_payment_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           USBANK_POSTED_RTP_PAYMENT_ID =
             T.let(
               :usbank_posted_rtp_payment_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           WELLS_FARGO_END_TO_END_ID =
             T.let(
               :wells_fargo_end_to_end_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           WELLS_FARGO_PAYMENT_ID =
             T.let(
               :wells_fargo_payment_id,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           WELLS_FARGO_TRACE_NUMBER =
             T.let(
               :wells_fargo_trace_number,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           WELLS_FARGO_UETR =
             T.let(
               :wells_fargo_uetr,
-              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
 
           sig do
-            override
-              .returns(
-                T::Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol]
-              )
+            override.returns(
+              T::Array[
+                ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              ]
+            )
           end
-          def self.values; end
+          def self.values
+          end
         end
       end
 
@@ -1184,23 +1360,42 @@ module ModernTreasury
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
-        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrder::Status) }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::PaymentOrder::Status) }
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        APPROVED = T.let(:approved, ModernTreasury::Models::PaymentOrder::Status::TaggedSymbol)
-        CANCELLED = T.let(:cancelled, ModernTreasury::Models::PaymentOrder::Status::TaggedSymbol)
-        COMPLETED = T.let(:completed, ModernTreasury::Models::PaymentOrder::Status::TaggedSymbol)
-        DENIED = T.let(:denied, ModernTreasury::Models::PaymentOrder::Status::TaggedSymbol)
-        FAILED = T.let(:failed, ModernTreasury::Models::PaymentOrder::Status::TaggedSymbol)
-        NEEDS_APPROVAL = T.let(:needs_approval, ModernTreasury::Models::PaymentOrder::Status::TaggedSymbol)
-        PENDING = T.let(:pending, ModernTreasury::Models::PaymentOrder::Status::TaggedSymbol)
-        PROCESSING = T.let(:processing, ModernTreasury::Models::PaymentOrder::Status::TaggedSymbol)
-        RETURNED = T.let(:returned, ModernTreasury::Models::PaymentOrder::Status::TaggedSymbol)
-        REVERSED = T.let(:reversed, ModernTreasury::Models::PaymentOrder::Status::TaggedSymbol)
-        SENT = T.let(:sent, ModernTreasury::Models::PaymentOrder::Status::TaggedSymbol)
+        APPROVED =
+          T.let(:approved, ModernTreasury::PaymentOrder::Status::TaggedSymbol)
+        CANCELLED =
+          T.let(:cancelled, ModernTreasury::PaymentOrder::Status::TaggedSymbol)
+        COMPLETED =
+          T.let(:completed, ModernTreasury::PaymentOrder::Status::TaggedSymbol)
+        DENIED =
+          T.let(:denied, ModernTreasury::PaymentOrder::Status::TaggedSymbol)
+        FAILED =
+          T.let(:failed, ModernTreasury::PaymentOrder::Status::TaggedSymbol)
+        NEEDS_APPROVAL =
+          T.let(
+            :needs_approval,
+            ModernTreasury::PaymentOrder::Status::TaggedSymbol
+          )
+        PENDING =
+          T.let(:pending, ModernTreasury::PaymentOrder::Status::TaggedSymbol)
+        PROCESSING =
+          T.let(:processing, ModernTreasury::PaymentOrder::Status::TaggedSymbol)
+        RETURNED =
+          T.let(:returned, ModernTreasury::PaymentOrder::Status::TaggedSymbol)
+        REVERSED =
+          T.let(:reversed, ModernTreasury::PaymentOrder::Status::TaggedSymbol)
+        SENT = T.let(:sent, ModernTreasury::PaymentOrder::Status::TaggedSymbol)
 
-        sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrder::Status::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[ModernTreasury::PaymentOrder::Status::TaggedSymbol]
+          )
+        end
+        def self.values
+        end
       end
 
       # The account to which the originating of this payment should be attributed to.
@@ -1208,33 +1403,57 @@ module ModernTreasury
       module UltimateOriginatingAccount
         extend ModernTreasury::Internal::Type::Union
 
-        sig { override.returns([ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount]) }
-        def self.variants; end
+        Variants =
+          T.type_alias do
+            T.any(
+              ModernTreasury::VirtualAccount,
+              ModernTreasury::InternalAccount
+            )
+          end
+
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::PaymentOrder::UltimateOriginatingAccount::Variants
+            ]
+          )
+        end
+        def self.variants
+        end
       end
 
       module UltimateOriginatingAccountType
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
-          T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrder::UltimateOriginatingAccountType) }
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::PaymentOrder::UltimateOriginatingAccountType
+            )
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         INTERNAL_ACCOUNT =
           T.let(
             :internal_account,
-            ModernTreasury::Models::PaymentOrder::UltimateOriginatingAccountType::TaggedSymbol
+            ModernTreasury::PaymentOrder::UltimateOriginatingAccountType::TaggedSymbol
           )
         VIRTUAL_ACCOUNT =
           T.let(
             :virtual_account,
-            ModernTreasury::Models::PaymentOrder::UltimateOriginatingAccountType::TaggedSymbol
+            ModernTreasury::PaymentOrder::UltimateOriginatingAccountType::TaggedSymbol
           )
 
         sig do
-          override
-            .returns(T::Array[ModernTreasury::Models::PaymentOrder::UltimateOriginatingAccountType::TaggedSymbol])
+          override.returns(
+            T::Array[
+              ModernTreasury::PaymentOrder::UltimateOriginatingAccountType::TaggedSymbol
+            ]
+          )
         end
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

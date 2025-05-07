@@ -8,8 +8,6 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       def initialize: (?request_options: ModernTreasury::request_opts) -> void
-
-      def to_hash: -> ModernTreasury::Models::external_account_retrieve_params
     end
   end
 end

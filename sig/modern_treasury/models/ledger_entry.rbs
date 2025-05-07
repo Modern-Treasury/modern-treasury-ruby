@@ -15,8 +15,8 @@ module ModernTreasury
         live_mode: bool,
         metadata: ::Hash[Symbol, String],
         object: String,
-        resulting_ledger_account_balances: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances?,
-        status: ModernTreasury::Models::LedgerEntry::status,
+        resulting_ledger_account_balances: ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances?,
+        status: ModernTreasury::LedgerEntry::status,
         updated_at: Time
       }
 
@@ -47,9 +47,9 @@ module ModernTreasury
 
       attr_accessor object: String
 
-      attr_accessor resulting_ledger_account_balances: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances?
+      attr_accessor resulting_ledger_account_balances: ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances?
 
-      attr_accessor status: ModernTreasury::Models::LedgerEntry::status
+      attr_accessor status: ModernTreasury::LedgerEntry::status
 
       attr_accessor updated_at: Time
 
@@ -67,34 +67,30 @@ module ModernTreasury
         live_mode: bool,
         metadata: ::Hash[Symbol, String],
         object: String,
-        resulting_ledger_account_balances: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances?,
-        status: ModernTreasury::Models::LedgerEntry::status,
+        resulting_ledger_account_balances: ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances?,
+        status: ModernTreasury::LedgerEntry::status,
         updated_at: Time
       ) -> void
 
-      def to_hash: -> ModernTreasury::Models::ledger_entry
-
       type resulting_ledger_account_balances =
         {
-          available_balance: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance,
-          pending_balance: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance,
-          posted_balance: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance
+          available_balance: ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance,
+          pending_balance: ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance,
+          posted_balance: ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance
         }
 
       class ResultingLedgerAccountBalances < ModernTreasury::Internal::Type::BaseModel
-        attr_accessor available_balance: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance
+        attr_accessor available_balance: ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance
 
-        attr_accessor pending_balance: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance
+        attr_accessor pending_balance: ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance
 
-        attr_accessor posted_balance: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance
+        attr_accessor posted_balance: ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance
 
         def initialize: (
-          available_balance: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance,
-          pending_balance: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance,
-          posted_balance: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance
+          available_balance: ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance,
+          pending_balance: ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance,
+          posted_balance: ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::LedgerEntry::resulting_ledger_account_balances
 
         type available_balance =
           {
@@ -123,8 +119,6 @@ module ModernTreasury
             currency_exponent: Integer,
             debits: Integer
           ) -> void
-
-          def to_hash: -> ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::available_balance
         end
 
         type pending_balance =
@@ -154,8 +148,6 @@ module ModernTreasury
             currency_exponent: Integer,
             debits: Integer
           ) -> void
-
-          def to_hash: -> ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::pending_balance
         end
 
         type posted_balance =
@@ -185,8 +177,6 @@ module ModernTreasury
             currency_exponent: Integer,
             debits: Integer
           ) -> void
-
-          def to_hash: -> ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::posted_balance
         end
       end
 
@@ -199,7 +189,7 @@ module ModernTreasury
         PENDING: :pending
         POSTED: :posted
 
-        def self?.values: -> ::Array[ModernTreasury::Models::LedgerEntry::status]
+        def self?.values: -> ::Array[ModernTreasury::LedgerEntry::status]
       end
     end
   end

@@ -3,6 +3,9 @@
 module ModernTreasury
   module Models
     class Document < ModernTreasury::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       sig { returns(String) }
       attr_accessor :id
 
@@ -12,7 +15,7 @@ module ModernTreasury
       sig { returns(T.nilable(Time)) }
       attr_accessor :discarded_at
 
-      sig { returns(T::Array[ModernTreasury::Models::Document::DocumentDetail]) }
+      sig { returns(T::Array[ModernTreasury::Document::DocumentDetail]) }
       attr_accessor :document_details
 
       # A category given to the document, can be `null`.
@@ -26,13 +29,13 @@ module ModernTreasury
       # The type of the associated object. Currently can be one of `payment_order`,
       # `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
       # `case`, `internal_account`, `decision`, or `external_account`.
-      sig { returns(ModernTreasury::Models::Document::DocumentableType::TaggedSymbol) }
+      sig { returns(ModernTreasury::Document::DocumentableType::TaggedSymbol) }
       attr_accessor :documentable_type
 
-      sig { returns(ModernTreasury::Models::Document::File) }
+      sig { returns(ModernTreasury::Document::File) }
       attr_reader :file
 
-      sig { params(file: T.any(ModernTreasury::Models::Document::File, ModernTreasury::Internal::AnyHash)).void }
+      sig { params(file: ModernTreasury::Document::File::OrHash).void }
       attr_writer :file
 
       # This field will be true if this object exists in the live environment or false
@@ -55,17 +58,18 @@ module ModernTreasury
           id: String,
           created_at: Time,
           discarded_at: T.nilable(Time),
-          document_details: T::Array[T.any(ModernTreasury::Models::Document::DocumentDetail, ModernTreasury::Internal::AnyHash)],
+          document_details:
+            T::Array[ModernTreasury::Document::DocumentDetail::OrHash],
           document_type: T.nilable(String),
           documentable_id: String,
-          documentable_type: ModernTreasury::Models::Document::DocumentableType::OrSymbol,
-          file: T.any(ModernTreasury::Models::Document::File, ModernTreasury::Internal::AnyHash),
+          documentable_type:
+            ModernTreasury::Document::DocumentableType::OrSymbol,
+          file: ModernTreasury::Document::File::OrHash,
           live_mode: T::Boolean,
           object: String,
           source: String,
           updated_at: Time
-        )
-          .returns(T.attached_class)
+        ).returns(T.attached_class)
       end
       def self.new(
         id:,
@@ -88,29 +92,36 @@ module ModernTreasury
         # The source of the document. Can be `vendor`, `customer`, or `modern_treasury`.
         source:,
         updated_at:
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: String,
-              created_at: Time,
-              discarded_at: T.nilable(Time),
-              document_details: T::Array[ModernTreasury::Models::Document::DocumentDetail],
-              document_type: T.nilable(String),
-              documentable_id: String,
-              documentable_type: ModernTreasury::Models::Document::DocumentableType::TaggedSymbol,
-              file: ModernTreasury::Models::Document::File,
-              live_mode: T::Boolean,
-              object: String,
-              source: String,
-              updated_at: Time
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            created_at: Time,
+            discarded_at: T.nilable(Time),
+            document_details:
+              T::Array[ModernTreasury::Document::DocumentDetail],
+            document_type: T.nilable(String),
+            documentable_id: String,
+            documentable_type:
+              ModernTreasury::Document::DocumentableType::TaggedSymbol,
+            file: ModernTreasury::Document::File,
+            live_mode: T::Boolean,
+            object: String,
+            source: String,
+            updated_at: Time
+          }
+        )
+      end
+      def to_hash
+      end
 
       class DocumentDetail < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         sig { returns(String) }
         attr_accessor :id
 
@@ -147,8 +158,7 @@ module ModernTreasury
             live_mode: T::Boolean,
             object: String,
             updated_at: Time
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
           id:,
@@ -161,23 +171,25 @@ module ModernTreasury
           live_mode:,
           object:,
           updated_at:
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                id: String,
-                created_at: Time,
-                discarded_at: T.nilable(Time),
-                document_identifier: String,
-                document_identifier_type: String,
-                live_mode: T::Boolean,
-                object: String,
-                updated_at: Time
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              id: String,
+              created_at: Time,
+              discarded_at: T.nilable(Time),
+              document_identifier: String,
+              document_identifier_type: String,
+              live_mode: T::Boolean,
+              object: String,
+              updated_at: Time
+            }
+          )
+        end
+        def to_hash
+        end
       end
 
       # The type of the associated object. Currently can be one of `payment_order`,
@@ -186,31 +198,83 @@ module ModernTreasury
       module DocumentableType
         extend ModernTreasury::Internal::Type::Enum
 
-        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::Document::DocumentableType) }
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::Document::DocumentableType)
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        CASE = T.let(:case, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
-        COUNTERPARTY = T.let(:counterparty, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
+        CASE =
+          T.let(:case, ModernTreasury::Document::DocumentableType::TaggedSymbol)
+        COUNTERPARTY =
+          T.let(
+            :counterparty,
+            ModernTreasury::Document::DocumentableType::TaggedSymbol
+          )
         EXPECTED_PAYMENT =
-          T.let(:expected_payment, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
+          T.let(
+            :expected_payment,
+            ModernTreasury::Document::DocumentableType::TaggedSymbol
+          )
         EXTERNAL_ACCOUNT =
-          T.let(:external_account, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
+          T.let(
+            :external_account,
+            ModernTreasury::Document::DocumentableType::TaggedSymbol
+          )
         INCOMING_PAYMENT_DETAIL =
-          T.let(:incoming_payment_detail, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
+          T.let(
+            :incoming_payment_detail,
+            ModernTreasury::Document::DocumentableType::TaggedSymbol
+          )
         INTERNAL_ACCOUNT =
-          T.let(:internal_account, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
-        ORGANIZATION = T.let(:organization, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
-        PAPER_ITEM = T.let(:paper_item, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
-        PAYMENT_ORDER = T.let(:payment_order, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
-        TRANSACTION = T.let(:transaction, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
-        DECISION = T.let(:decision, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
-        CONNECTION = T.let(:connection, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
+          T.let(
+            :internal_account,
+            ModernTreasury::Document::DocumentableType::TaggedSymbol
+          )
+        ORGANIZATION =
+          T.let(
+            :organization,
+            ModernTreasury::Document::DocumentableType::TaggedSymbol
+          )
+        PAPER_ITEM =
+          T.let(
+            :paper_item,
+            ModernTreasury::Document::DocumentableType::TaggedSymbol
+          )
+        PAYMENT_ORDER =
+          T.let(
+            :payment_order,
+            ModernTreasury::Document::DocumentableType::TaggedSymbol
+          )
+        TRANSACTION =
+          T.let(
+            :transaction,
+            ModernTreasury::Document::DocumentableType::TaggedSymbol
+          )
+        DECISION =
+          T.let(
+            :decision,
+            ModernTreasury::Document::DocumentableType::TaggedSymbol
+          )
+        CONNECTION =
+          T.let(
+            :connection,
+            ModernTreasury::Document::DocumentableType::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::Document::DocumentableType::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[ModernTreasury::Document::DocumentableType::TaggedSymbol]
+          )
+        end
+        def self.values
+        end
       end
 
       class File < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         # The MIME content type of the document.
         sig { returns(T.nilable(String)) }
         attr_reader :content_type
@@ -232,7 +296,11 @@ module ModernTreasury
         sig { params(size: Integer).void }
         attr_writer :size
 
-        sig { params(content_type: String, filename: String, size: Integer).returns(T.attached_class) }
+        sig do
+          params(content_type: String, filename: String, size: Integer).returns(
+            T.attached_class
+          )
+        end
         def self.new(
           # The MIME content type of the document.
           content_type: nil,
@@ -240,9 +308,16 @@ module ModernTreasury
           filename: nil,
           # The size of the document in bytes.
           size: nil
-        ); end
-        sig { override.returns({content_type: String, filename: String, size: Integer}) }
-        def to_hash; end
+        )
+        end
+
+        sig do
+          override.returns(
+            { content_type: String, filename: String, size: Integer }
+          )
+        end
+        def to_hash
+        end
       end
     end
   end

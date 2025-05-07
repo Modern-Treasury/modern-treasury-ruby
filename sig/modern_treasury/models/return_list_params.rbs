@@ -49,8 +49,6 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
-      def to_hash: -> ModernTreasury::Models::return_list_params
-
       type returnable_type =
         :incoming_payment_detail
         | :paper_item

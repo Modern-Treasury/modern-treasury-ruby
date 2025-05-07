@@ -13,44 +13,47 @@ module ModernTreasury
           due_date: Time,
           originating_account_id: String,
           auto_advance: T.nilable(T::Boolean),
-          contact_details: T::Array[T.any(ModernTreasury::Models::InvoiceCreateParams::ContactDetail, ModernTreasury::Internal::AnyHash)],
-          counterparty_billing_address: T.nilable(
-            T.any(
-              ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress,
-              ModernTreasury::Internal::AnyHash
-            )
-          ),
-          counterparty_shipping_address: T.nilable(
-            T.any(
-              ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress,
-              ModernTreasury::Internal::AnyHash
-            )
-          ),
-          currency: ModernTreasury::Models::Currency::OrSymbol,
+          contact_details:
+            T::Array[
+              ModernTreasury::InvoiceCreateParams::ContactDetail::OrHash
+            ],
+          counterparty_billing_address:
+            T.nilable(
+              ModernTreasury::InvoiceCreateParams::CounterpartyBillingAddress::OrHash
+            ),
+          counterparty_shipping_address:
+            T.nilable(
+              ModernTreasury::InvoiceCreateParams::CounterpartyShippingAddress::OrHash
+            ),
+          currency: ModernTreasury::Currency::OrSymbol,
           description: String,
           fallback_payment_method: T.nilable(String),
           ingest_ledger_entries: T.nilable(T::Boolean),
-          invoice_line_items: T.nilable(
-            T::Array[T.any(ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem, ModernTreasury::Internal::AnyHash)]
-          ),
-          invoicer_address: T.nilable(
-            T.any(ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress, ModernTreasury::Internal::AnyHash)
-          ),
+          invoice_line_items:
+            T.nilable(
+              T::Array[
+                ModernTreasury::InvoiceCreateParams::InvoiceLineItem::OrHash
+              ]
+            ),
+          invoicer_address:
+            T.nilable(
+              ModernTreasury::InvoiceCreateParams::InvoicerAddress::OrHash
+            ),
           ledger_account_settlement_id: T.nilable(String),
           metadata: T.nilable(T::Hash[Symbol, String]),
           notification_email_addresses: T.nilable(T::Array[String]),
           notifications_enabled: T::Boolean,
           payment_effective_date: Date,
-          payment_method: ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::OrSymbol,
-          payment_type: ModernTreasury::Models::PaymentOrderType::OrSymbol,
+          payment_method:
+            ModernTreasury::InvoiceCreateParams::PaymentMethod::OrSymbol,
+          payment_type: ModernTreasury::PaymentOrderType::OrSymbol,
           receiving_account_id: String,
           recipient_email: T.nilable(String),
           recipient_name: T.nilable(String),
           remind_after_overdue_days: T.nilable(T::Array[Integer]),
           virtual_account_id: T.nilable(String),
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::Invoice)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::Invoice)
       end
       def create(
         # The ID of the counterparty receiving the invoice.
@@ -127,60 +130,72 @@ module ModernTreasury
         # The ID of the virtual account the invoice should be paid to.
         virtual_account_id: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # get invoice
-      sig { params(id: String, request_options: ModernTreasury::RequestOpts).returns(ModernTreasury::Models::Invoice) }
+      sig do
+        params(
+          id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::Invoice)
+      end
       def retrieve(
         # id
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # update invoice
       sig do
         params(
           id: String,
-          contact_details: T::Array[T.any(ModernTreasury::Models::InvoiceUpdateParams::ContactDetail, ModernTreasury::Internal::AnyHash)],
-          counterparty_billing_address: T.nilable(
-            T.any(
-              ModernTreasury::Models::InvoiceUpdateParams::CounterpartyBillingAddress,
-              ModernTreasury::Internal::AnyHash
-            )
-          ),
+          contact_details:
+            T::Array[
+              ModernTreasury::InvoiceUpdateParams::ContactDetail::OrHash
+            ],
+          counterparty_billing_address:
+            T.nilable(
+              ModernTreasury::InvoiceUpdateParams::CounterpartyBillingAddress::OrHash
+            ),
           counterparty_id: String,
-          counterparty_shipping_address: T.nilable(
-            T.any(
-              ModernTreasury::Models::InvoiceUpdateParams::CounterpartyShippingAddress,
-              ModernTreasury::Internal::AnyHash
-            )
-          ),
-          currency: ModernTreasury::Models::Currency::OrSymbol,
+          counterparty_shipping_address:
+            T.nilable(
+              ModernTreasury::InvoiceUpdateParams::CounterpartyShippingAddress::OrHash
+            ),
+          currency: ModernTreasury::Currency::OrSymbol,
           description: String,
           due_date: Time,
           fallback_payment_method: T.nilable(String),
           ingest_ledger_entries: T.nilable(T::Boolean),
-          invoice_line_items: T.nilable(
-            T::Array[T.any(ModernTreasury::Models::InvoiceUpdateParams::InvoiceLineItem, ModernTreasury::Internal::AnyHash)]
-          ),
-          invoicer_address: T.nilable(
-            T.any(ModernTreasury::Models::InvoiceUpdateParams::InvoicerAddress, ModernTreasury::Internal::AnyHash)
-          ),
+          invoice_line_items:
+            T.nilable(
+              T::Array[
+                ModernTreasury::InvoiceUpdateParams::InvoiceLineItem::OrHash
+              ]
+            ),
+          invoicer_address:
+            T.nilable(
+              ModernTreasury::InvoiceUpdateParams::InvoicerAddress::OrHash
+            ),
           ledger_account_settlement_id: T.nilable(String),
           metadata: T.nilable(T::Hash[Symbol, String]),
           notification_email_addresses: T.nilable(T::Array[String]),
           notifications_enabled: T::Boolean,
           originating_account_id: String,
           payment_effective_date: Date,
-          payment_method: ModernTreasury::Models::InvoiceUpdateParams::PaymentMethod::OrSymbol,
-          payment_type: ModernTreasury::Models::PaymentOrderType::OrSymbol,
+          payment_method:
+            ModernTreasury::InvoiceUpdateParams::PaymentMethod::OrSymbol,
+          payment_type: ModernTreasury::PaymentOrderType::OrSymbol,
           receiving_account_id: String,
           recipient_email: T.nilable(String),
           recipient_name: T.nilable(String),
           remind_after_overdue_days: T.nilable(T::Array[Integer]),
           status: String,
           virtual_account_id: T.nilable(String),
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::Invoice)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::Invoice)
       end
       def update(
         # id
@@ -259,7 +274,9 @@ module ModernTreasury
         # The ID of the virtual account the invoice should be paid to.
         virtual_account_id: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # list invoices
       sig do
         params(
@@ -273,10 +290,9 @@ module ModernTreasury
           originating_account_id: String,
           payment_order_id: String,
           per_page: Integer,
-          status: ModernTreasury::Models::InvoiceListParams::Status::OrSymbol,
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::Invoice])
+          status: ModernTreasury::InvoiceListParams::Status::OrSymbol,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::Internal::Page[ModernTreasury::Invoice])
       end
       def list(
         after_cursor: nil,
@@ -297,19 +313,30 @@ module ModernTreasury
         per_page: nil,
         status: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Add a payment order to an invoice.
-      sig { params(payment_order_id: String, id: String, request_options: ModernTreasury::RequestOpts).void }
+      sig do
+        params(
+          payment_order_id: String,
+          id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).void
+      end
       def add_payment_order(
         # payment_order_id
         payment_order_id,
         # id
         id:,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

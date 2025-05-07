@@ -6,11 +6,18 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       # The unique identifier for the associated object.
       sig { returns(String) }
       attr_accessor :documentable_id
 
-      sig { returns(ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol) }
+      sig do
+        returns(
+          ModernTreasury::DocumentCreateParams::DocumentableType::OrSymbol
+        )
+      end
       attr_accessor :documentable_type
 
       sig { returns(T.any(Pathname, StringIO, IO, ModernTreasury::FilePart)) }
@@ -26,12 +33,12 @@ module ModernTreasury
       sig do
         params(
           documentable_id: String,
-          documentable_type: ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol,
+          documentable_type:
+            ModernTreasury::DocumentCreateParams::DocumentableType::OrSymbol,
           file: T.any(Pathname, StringIO, IO, ModernTreasury::FilePart),
           document_type: String,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # The unique identifier for the associated object.
@@ -41,57 +48,106 @@ module ModernTreasury
         # A category given to the document, can be `null`.
         document_type: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              documentable_id: String,
-              documentable_type: ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol,
-              file: T.any(Pathname, StringIO, IO, ModernTreasury::FilePart),
-              document_type: String,
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            documentable_id: String,
+            documentable_type:
+              ModernTreasury::DocumentCreateParams::DocumentableType::OrSymbol,
+            file: T.any(Pathname, StringIO, IO, ModernTreasury::FilePart),
+            document_type: String,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
 
       module DocumentableType
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
-          T.type_alias { T.all(Symbol, ModernTreasury::Models::DocumentCreateParams::DocumentableType) }
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::DocumentCreateParams::DocumentableType
+            )
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        CASES = T.let(:cases, ModernTreasury::Models::DocumentCreateParams::DocumentableType::TaggedSymbol)
+        CASES =
+          T.let(
+            :cases,
+            ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
+          )
         COUNTERPARTIES =
-          T.let(:counterparties, ModernTreasury::Models::DocumentCreateParams::DocumentableType::TaggedSymbol)
+          T.let(
+            :counterparties,
+            ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
+          )
         EXPECTED_PAYMENTS =
-          T.let(:expected_payments, ModernTreasury::Models::DocumentCreateParams::DocumentableType::TaggedSymbol)
+          T.let(
+            :expected_payments,
+            ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
+          )
         EXTERNAL_ACCOUNTS =
-          T.let(:external_accounts, ModernTreasury::Models::DocumentCreateParams::DocumentableType::TaggedSymbol)
+          T.let(
+            :external_accounts,
+            ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
+          )
         INCOMING_PAYMENT_DETAILS =
           T.let(
             :incoming_payment_details,
-            ModernTreasury::Models::DocumentCreateParams::DocumentableType::TaggedSymbol
+            ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
           )
         INTERNAL_ACCOUNTS =
-          T.let(:internal_accounts, ModernTreasury::Models::DocumentCreateParams::DocumentableType::TaggedSymbol)
+          T.let(
+            :internal_accounts,
+            ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
+          )
         ORGANIZATIONS =
-          T.let(:organizations, ModernTreasury::Models::DocumentCreateParams::DocumentableType::TaggedSymbol)
+          T.let(
+            :organizations,
+            ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
+          )
         PAPER_ITEMS =
-          T.let(:paper_items, ModernTreasury::Models::DocumentCreateParams::DocumentableType::TaggedSymbol)
+          T.let(
+            :paper_items,
+            ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
+          )
         PAYMENT_ORDERS =
-          T.let(:payment_orders, ModernTreasury::Models::DocumentCreateParams::DocumentableType::TaggedSymbol)
+          T.let(
+            :payment_orders,
+            ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
+          )
         TRANSACTIONS =
-          T.let(:transactions, ModernTreasury::Models::DocumentCreateParams::DocumentableType::TaggedSymbol)
+          T.let(
+            :transactions,
+            ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
+          )
         DECISIONS =
-          T.let(:decisions, ModernTreasury::Models::DocumentCreateParams::DocumentableType::TaggedSymbol)
+          T.let(
+            :decisions,
+            ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
+          )
         CONNECTIONS =
-          T.let(:connections, ModernTreasury::Models::DocumentCreateParams::DocumentableType::TaggedSymbol)
+          T.let(
+            :connections,
+            ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::DocumentCreateParams::DocumentableType::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
     end
   end

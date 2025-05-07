@@ -6,6 +6,9 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       # An optional free-form description for internal use.
       sig { returns(T.nilable(String)) }
       attr_accessor :description
@@ -30,9 +33,8 @@ module ModernTreasury
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           name: String,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # An optional free-form description for internal use.
@@ -43,19 +45,21 @@ module ModernTreasury
         # The name of the ledger.
         name: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              description: T.nilable(String),
-              metadata: T::Hash[Symbol, String],
-              name: String,
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            description: T.nilable(String),
+            metadata: T::Hash[Symbol, String],
+            name: String,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

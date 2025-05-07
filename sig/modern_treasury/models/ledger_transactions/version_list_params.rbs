@@ -47,8 +47,6 @@ module ModernTreasury
           ?version: ::Hash[Symbol, Integer],
           ?request_options: ModernTreasury::request_opts
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::LedgerTransactions::version_list_params
       end
     end
   end

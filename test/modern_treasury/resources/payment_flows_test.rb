@@ -14,7 +14,7 @@ class ModernTreasury::Test::Resources::PaymentFlowsTest < ModernTreasury::Test::
       )
 
     assert_pattern do
-      response => ModernTreasury::Models::PaymentFlow
+      response => ModernTreasury::PaymentFlow
     end
 
     assert_pattern do
@@ -25,18 +25,18 @@ class ModernTreasury::Test::Resources::PaymentFlowsTest < ModernTreasury::Test::
         counterparty_id: String | nil,
         created_at: Time | nil,
         currency: String | nil,
-        direction: ModernTreasury::Models::PaymentFlow::Direction | nil,
+        direction: ModernTreasury::PaymentFlow::Direction | nil,
         due_date: Date | nil,
         effective_date_selection_enabled: ModernTreasury::Internal::Type::Boolean | nil,
-        existing_external_accounts_filter: ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter | nil,
-        external_account_collection: ModernTreasury::Models::PaymentFlow::ExternalAccountCollection | nil,
+        existing_external_accounts_filter: ModernTreasury::PaymentFlow::ExistingExternalAccountsFilter | nil,
+        external_account_collection: ModernTreasury::PaymentFlow::ExternalAccountCollection | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean | nil,
         object: String | nil,
         originating_account_id: String | nil,
         payment_order_id: String | nil,
         receiving_account_id: String | nil,
         selected_effective_date: Date | nil,
-        status: ModernTreasury::Models::PaymentFlow::Status | nil,
+        status: ModernTreasury::PaymentFlow::Status | nil,
         updated_at: Time | nil
       }
     end
@@ -46,7 +46,7 @@ class ModernTreasury::Test::Resources::PaymentFlowsTest < ModernTreasury::Test::
     response = @modern_treasury.payment_flows.retrieve("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::PaymentFlow
+      response => ModernTreasury::PaymentFlow
     end
 
     assert_pattern do
@@ -57,18 +57,18 @@ class ModernTreasury::Test::Resources::PaymentFlowsTest < ModernTreasury::Test::
         counterparty_id: String | nil,
         created_at: Time | nil,
         currency: String | nil,
-        direction: ModernTreasury::Models::PaymentFlow::Direction | nil,
+        direction: ModernTreasury::PaymentFlow::Direction | nil,
         due_date: Date | nil,
         effective_date_selection_enabled: ModernTreasury::Internal::Type::Boolean | nil,
-        existing_external_accounts_filter: ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter | nil,
-        external_account_collection: ModernTreasury::Models::PaymentFlow::ExternalAccountCollection | nil,
+        existing_external_accounts_filter: ModernTreasury::PaymentFlow::ExistingExternalAccountsFilter | nil,
+        external_account_collection: ModernTreasury::PaymentFlow::ExternalAccountCollection | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean | nil,
         object: String | nil,
         originating_account_id: String | nil,
         payment_order_id: String | nil,
         receiving_account_id: String | nil,
         selected_effective_date: Date | nil,
-        status: ModernTreasury::Models::PaymentFlow::Status | nil,
+        status: ModernTreasury::PaymentFlow::Status | nil,
         updated_at: Time | nil
       }
     end
@@ -78,7 +78,7 @@ class ModernTreasury::Test::Resources::PaymentFlowsTest < ModernTreasury::Test::
     response = @modern_treasury.payment_flows.update("id", status: :cancelled)
 
     assert_pattern do
-      response => ModernTreasury::Models::PaymentFlow
+      response => ModernTreasury::PaymentFlow
     end
 
     assert_pattern do
@@ -89,18 +89,18 @@ class ModernTreasury::Test::Resources::PaymentFlowsTest < ModernTreasury::Test::
         counterparty_id: String | nil,
         created_at: Time | nil,
         currency: String | nil,
-        direction: ModernTreasury::Models::PaymentFlow::Direction | nil,
+        direction: ModernTreasury::PaymentFlow::Direction | nil,
         due_date: Date | nil,
         effective_date_selection_enabled: ModernTreasury::Internal::Type::Boolean | nil,
-        existing_external_accounts_filter: ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter | nil,
-        external_account_collection: ModernTreasury::Models::PaymentFlow::ExternalAccountCollection | nil,
+        existing_external_accounts_filter: ModernTreasury::PaymentFlow::ExistingExternalAccountsFilter | nil,
+        external_account_collection: ModernTreasury::PaymentFlow::ExternalAccountCollection | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean | nil,
         object: String | nil,
         originating_account_id: String | nil,
         payment_order_id: String | nil,
         receiving_account_id: String | nil,
         selected_effective_date: Date | nil,
-        status: ModernTreasury::Models::PaymentFlow::Status | nil,
+        status: ModernTreasury::PaymentFlow::Status | nil,
         updated_at: Time | nil
       }
     end
@@ -117,7 +117,7 @@ class ModernTreasury::Test::Resources::PaymentFlowsTest < ModernTreasury::Test::
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Models::PaymentFlow
+      row => ModernTreasury::PaymentFlow
     end
 
     assert_pattern do
@@ -128,18 +128,18 @@ class ModernTreasury::Test::Resources::PaymentFlowsTest < ModernTreasury::Test::
         counterparty_id: String | nil,
         created_at: Time | nil,
         currency: String | nil,
-        direction: ModernTreasury::Models::PaymentFlow::Direction | nil,
+        direction: ModernTreasury::PaymentFlow::Direction | nil,
         due_date: Date | nil,
         effective_date_selection_enabled: ModernTreasury::Internal::Type::Boolean | nil,
-        existing_external_accounts_filter: ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter | nil,
-        external_account_collection: ModernTreasury::Models::PaymentFlow::ExternalAccountCollection | nil,
+        existing_external_accounts_filter: ModernTreasury::PaymentFlow::ExistingExternalAccountsFilter | nil,
+        external_account_collection: ModernTreasury::PaymentFlow::ExternalAccountCollection | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean | nil,
         object: String | nil,
         originating_account_id: String | nil,
         payment_order_id: String | nil,
         receiving_account_id: String | nil,
         selected_effective_date: Date | nil,
-        status: ModernTreasury::Models::PaymentFlow::Status | nil,
+        status: ModernTreasury::PaymentFlow::Status | nil,
         updated_at: Time | nil
       }
     end

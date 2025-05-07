@@ -3,25 +3,25 @@ module ModernTreasury
     class ExternalAccounts
       def create: (
         counterparty_id: String?,
-        ?account_details: ::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail],
+        ?account_details: ::Array[ModernTreasury::ExternalAccountCreateParams::AccountDetail],
         ?account_type: ModernTreasury::Models::external_account_type,
-        ?contact_details: ::Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail],
-        ?ledger_account: ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount,
+        ?contact_details: ::Array[ModernTreasury::ExternalAccountCreateParams::ContactDetail],
+        ?ledger_account: ModernTreasury::ExternalAccountCreateParams::LedgerAccount,
         ?metadata: ::Hash[Symbol, String],
         ?name: String?,
-        ?party_address: ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress,
+        ?party_address: ModernTreasury::ExternalAccountCreateParams::PartyAddress,
         ?party_identifier: String,
         ?party_name: String,
         ?party_type: ModernTreasury::Models::ExternalAccountCreateParams::party_type?,
         ?plaid_processor_token: String,
-        ?routing_details: ::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail],
+        ?routing_details: ::Array[ModernTreasury::ExternalAccountCreateParams::RoutingDetail],
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::ExternalAccount
+      ) -> ModernTreasury::ExternalAccount
 
       def retrieve: (
         String id,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::ExternalAccount
+      ) -> ModernTreasury::ExternalAccount
 
       def update: (
         String id,
@@ -29,11 +29,11 @@ module ModernTreasury
         ?counterparty_id: String?,
         ?metadata: ::Hash[Symbol, String],
         ?name: String?,
-        ?party_address: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress,
+        ?party_address: ModernTreasury::ExternalAccountUpdateParams::PartyAddress,
         ?party_name: String,
         ?party_type: ModernTreasury::Models::ExternalAccountUpdateParams::party_type?,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::ExternalAccount
+      ) -> ModernTreasury::ExternalAccount
 
       def list: (
         ?after_cursor: String?,
@@ -42,7 +42,7 @@ module ModernTreasury
         ?party_name: String,
         ?per_page: Integer,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::ExternalAccount]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::ExternalAccount]
 
       def delete: (
         String id,
@@ -53,7 +53,7 @@ module ModernTreasury
         String id,
         ?amounts: ::Array[Integer],
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::ExternalAccount
+      ) -> ModernTreasury::ExternalAccount
 
       def verify: (
         String id,

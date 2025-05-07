@@ -21,7 +21,6 @@ module ModernTreasury
         #   more details.
         #
         #   @param ledger_entry_ids [Array<String>, nil] The ids of the ledger entries that are to be added or removed from the ledger ac
-        #   ...
         #
         #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       end

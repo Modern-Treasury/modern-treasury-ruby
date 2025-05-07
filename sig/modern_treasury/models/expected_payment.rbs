@@ -11,7 +11,7 @@ module ModernTreasury
         date_lower_bound: Date?,
         date_upper_bound: Date?,
         description: String?,
-        direction: ModernTreasury::Models::ExpectedPayment::direction?,
+        direction: ModernTreasury::ExpectedPayment::direction?,
         internal_account_id: String?,
         ledger_transaction_id: String?,
         live_mode: bool,
@@ -19,11 +19,11 @@ module ModernTreasury
         object: String,
         reconciliation_filters: top?,
         reconciliation_groups: top?,
-        reconciliation_method: ModernTreasury::Models::ExpectedPayment::reconciliation_method?,
-        reconciliation_rule_variables: ::Array[ModernTreasury::Models::ReconciliationRule]?,
+        reconciliation_method: ModernTreasury::ExpectedPayment::reconciliation_method?,
+        reconciliation_rule_variables: ::Array[ModernTreasury::ReconciliationRule]?,
         remittance_information: String?,
         statement_descriptor: String?,
-        status: ModernTreasury::Models::ExpectedPayment::status,
+        status: ModernTreasury::ExpectedPayment::status,
         transaction_id: String?,
         transaction_line_item_id: String?,
         type: ModernTreasury::Models::expected_payment_type?,
@@ -49,7 +49,7 @@ module ModernTreasury
 
       attr_accessor description: String?
 
-      attr_accessor direction: ModernTreasury::Models::ExpectedPayment::direction?
+      attr_accessor direction: ModernTreasury::ExpectedPayment::direction?
 
       attr_accessor internal_account_id: String?
 
@@ -65,15 +65,15 @@ module ModernTreasury
 
       attr_accessor reconciliation_groups: top?
 
-      attr_accessor reconciliation_method: ModernTreasury::Models::ExpectedPayment::reconciliation_method?
+      attr_accessor reconciliation_method: ModernTreasury::ExpectedPayment::reconciliation_method?
 
-      attr_accessor reconciliation_rule_variables: ::Array[ModernTreasury::Models::ReconciliationRule]?
+      attr_accessor reconciliation_rule_variables: ::Array[ModernTreasury::ReconciliationRule]?
 
       attr_accessor remittance_information: String?
 
       attr_accessor statement_descriptor: String?
 
-      attr_accessor status: ModernTreasury::Models::ExpectedPayment::status
+      attr_accessor status: ModernTreasury::ExpectedPayment::status
 
       attr_accessor transaction_id: String?
 
@@ -93,7 +93,7 @@ module ModernTreasury
         date_lower_bound: Date?,
         date_upper_bound: Date?,
         description: String?,
-        direction: ModernTreasury::Models::ExpectedPayment::direction?,
+        direction: ModernTreasury::ExpectedPayment::direction?,
         internal_account_id: String?,
         ledger_transaction_id: String?,
         live_mode: bool,
@@ -101,18 +101,16 @@ module ModernTreasury
         object: String,
         reconciliation_filters: top?,
         reconciliation_groups: top?,
-        reconciliation_method: ModernTreasury::Models::ExpectedPayment::reconciliation_method?,
-        reconciliation_rule_variables: ::Array[ModernTreasury::Models::ReconciliationRule]?,
+        reconciliation_method: ModernTreasury::ExpectedPayment::reconciliation_method?,
+        reconciliation_rule_variables: ::Array[ModernTreasury::ReconciliationRule]?,
         remittance_information: String?,
         statement_descriptor: String?,
-        status: ModernTreasury::Models::ExpectedPayment::status,
+        status: ModernTreasury::ExpectedPayment::status,
         transaction_id: String?,
         transaction_line_item_id: String?,
         type: ModernTreasury::Models::expected_payment_type?,
         updated_at: Time
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::expected_payment
 
       type direction = :credit | :debit
 
@@ -122,7 +120,7 @@ module ModernTreasury
         CREDIT: :credit
         DEBIT: :debit
 
-        def self?.values: -> ::Array[ModernTreasury::Models::ExpectedPayment::direction]
+        def self?.values: -> ::Array[ModernTreasury::ExpectedPayment::direction]
       end
 
       type reconciliation_method = :automatic | :manual
@@ -133,7 +131,7 @@ module ModernTreasury
         AUTOMATIC: :automatic
         MANUAL: :manual
 
-        def self?.values: -> ::Array[ModernTreasury::Models::ExpectedPayment::reconciliation_method]
+        def self?.values: -> ::Array[ModernTreasury::ExpectedPayment::reconciliation_method]
       end
 
       type status =
@@ -147,7 +145,7 @@ module ModernTreasury
         RECONCILED: :reconciled
         UNRECONCILED: :unreconciled
 
-        def self?.values: -> ::Array[ModernTreasury::Models::ExpectedPayment::status]
+        def self?.values: -> ::Array[ModernTreasury::ExpectedPayment::status]
       end
     end
   end

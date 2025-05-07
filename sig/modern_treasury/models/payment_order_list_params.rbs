@@ -121,8 +121,6 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
-      def to_hash: -> ModernTreasury::Models::payment_order_list_params
-
       type priority = :high | :normal
 
       module Priority

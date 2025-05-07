@@ -7,14 +7,13 @@ module ModernTreasury
       sig do
         params(
           internal_account_id: String,
-          target_currency: ModernTreasury::Models::Currency::OrSymbol,
+          target_currency: ModernTreasury::Currency::OrSymbol,
           base_amount: Integer,
-          base_currency: ModernTreasury::Models::Currency::OrSymbol,
+          base_currency: ModernTreasury::Currency::OrSymbol,
           effective_at: Time,
           target_amount: Integer,
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::ForeignExchangeQuote)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::ForeignExchangeQuote)
       end
       def create(
         # The ID for the `InternalAccount` this quote is associated with.
@@ -32,17 +31,23 @@ module ModernTreasury
         # "buy" amount.
         target_amount: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # get foreign_exchange_quote
       sig do
-        params(id: String, request_options: ModernTreasury::RequestOpts)
-          .returns(ModernTreasury::Models::ForeignExchangeQuote)
+        params(
+          id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::ForeignExchangeQuote)
       end
       def retrieve(
         # id
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # list foreign_exchange_quotes
       sig do
         params(
@@ -55,9 +60,10 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
           target_currency: String,
-          request_options: ModernTreasury::RequestOpts
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(
+          ModernTreasury::Internal::Page[ModernTreasury::ForeignExchangeQuote]
         )
-          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::ForeignExchangeQuote])
       end
       def list(
         after_cursor: nil,
@@ -79,10 +85,13 @@ module ModernTreasury
         # Currency to convert the `base_currency` to, often called the "buy" currency.
         target_currency: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

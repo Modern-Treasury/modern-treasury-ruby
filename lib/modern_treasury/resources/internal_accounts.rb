@@ -15,8 +15,7 @@ module ModernTreasury
       #
       # @param connection_id [String] The identifier of the financial institution the account belongs to.
       #
-      # @param currency [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency] Either "USD" or "CAD". Internal accounts created at Increase only supports "USD"
-      # ...
+      # @param currency [Symbol, ModernTreasury::InternalAccountCreateParams::Currency] Either "USD" or "CAD". Internal accounts created at Increase only supports "USD"
       #
       # @param name [String] The nickname of the account.
       #
@@ -28,23 +27,22 @@ module ModernTreasury
       #
       # @param parent_account_id [String] The parent internal account of this new account.
       #
-      # @param party_address [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress] The address associated with the owner or null.
+      # @param party_address [ModernTreasury::InternalAccountCreateParams::PartyAddress] The address associated with the owner or null.
       #
       # @param vendor_attributes [Hash{Symbol=>String}] A hash of vendor specific attributes that will be used when creating the account
-      # ...
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::InternalAccount]
+      # @return [ModernTreasury::InternalAccount]
       #
       # @see ModernTreasury::Models::InternalAccountCreateParams
       def create(params)
-        parsed, options = ModernTreasury::Models::InternalAccountCreateParams.dump_request(params)
+        parsed, options = ModernTreasury::InternalAccountCreateParams.dump_request(params)
         @client.request(
           method: :post,
           path: "api/internal_accounts",
           body: parsed,
-          model: ModernTreasury::Models::InternalAccount,
+          model: ModernTreasury::InternalAccount,
           options: options
         )
       end
@@ -57,14 +55,14 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::InternalAccount]
+      # @return [ModernTreasury::InternalAccount]
       #
       # @see ModernTreasury::Models::InternalAccountRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
           path: ["api/internal_accounts/%1$s", id],
-          model: ModernTreasury::Models::InternalAccount,
+          model: ModernTreasury::InternalAccount,
           options: params[:request_options]
         )
       end
@@ -83,7 +81,6 @@ module ModernTreasury
       # @param ledger_account_id [String] The Ledger Account associated to this account.
       #
       # @param metadata [Hash{Symbol=>String}] Additional data in the form of key-value pairs. Pairs can be removed by passing
-      # ...
       #
       # @param name [String] The nickname for the internal account.
       #
@@ -91,16 +88,16 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::InternalAccount]
+      # @return [ModernTreasury::InternalAccount]
       #
       # @see ModernTreasury::Models::InternalAccountUpdateParams
       def update(id, params = {})
-        parsed, options = ModernTreasury::Models::InternalAccountUpdateParams.dump_request(params)
+        parsed, options = ModernTreasury::InternalAccountUpdateParams.dump_request(params)
         @client.request(
           method: :patch,
           path: ["api/internal_accounts/%1$s", id],
           body: parsed,
-          model: ModernTreasury::Models::InternalAccount,
+          model: ModernTreasury::InternalAccount,
           options: options
         )
       end
@@ -116,32 +113,31 @@ module ModernTreasury
       #
       # @param counterparty_id [String] Only return internal accounts associated with this counterparty.
       #
-      # @param currency [Symbol, ModernTreasury::Models::Currency] Only return internal accounts with this currency.
+      # @param currency [Symbol, ModernTreasury::Currency] Only return internal accounts with this currency.
       #
       # @param legal_entity_id [String] Only return internal accounts associated with this legal entity.
       #
       # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      # ...
       #
-      # @param payment_direction [Symbol, ModernTreasury::Models::TransactionDirection] Only return internal accounts that can originate payments with this direction.
+      # @param payment_direction [Symbol, ModernTreasury::TransactionDirection] Only return internal accounts that can originate payments with this direction.
       #
-      # @param payment_type [Symbol, ModernTreasury::Models::InternalAccountListParams::PaymentType] Only return internal accounts that can make this type of payment.
+      # @param payment_type [Symbol, ModernTreasury::InternalAccountListParams::PaymentType] Only return internal accounts that can make this type of payment.
       #
       # @param per_page [Integer]
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::InternalAccount>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::InternalAccount>]
       #
       # @see ModernTreasury::Models::InternalAccountListParams
       def list(params = {})
-        parsed, options = ModernTreasury::Models::InternalAccountListParams.dump_request(params)
+        parsed, options = ModernTreasury::InternalAccountListParams.dump_request(params)
         @client.request(
           method: :get,
           path: "api/internal_accounts",
           query: parsed,
           page: ModernTreasury::Internal::Page,
-          model: ModernTreasury::Models::InternalAccount,
+          model: ModernTreasury::InternalAccount,
           options: options
         )
       end

@@ -9,9 +9,8 @@ module ModernTreasury
           name: String,
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::Ledger)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::Ledger)
       end
       def create(
         # The name of the ledger.
@@ -22,14 +21,23 @@ module ModernTreasury
         # strings.
         metadata: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Get details on a single ledger.
-      sig { params(id: String, request_options: ModernTreasury::RequestOpts).returns(ModernTreasury::Models::Ledger) }
+      sig do
+        params(
+          id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::Ledger)
+      end
       def retrieve(
         # id
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # Update the details of a ledger.
       sig do
         params(
@@ -37,9 +45,8 @@ module ModernTreasury
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           name: String,
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::Ledger)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::Ledger)
       end
       def update(
         # id
@@ -52,7 +59,9 @@ module ModernTreasury
         # The name of the ledger.
         name: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Get a list of ledgers.
       sig do
         params(
@@ -61,9 +70,8 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
           updated_at: T::Hash[Symbol, Time],
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::Ledger])
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::Internal::Page[ModernTreasury::Ledger])
       end
       def list(
         # If you have specific IDs to retrieve in bulk, you can pass them as query
@@ -80,17 +88,27 @@ module ModernTreasury
         # updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
         updated_at: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Delete a ledger.
-      sig { params(id: String, request_options: ModernTreasury::RequestOpts).returns(ModernTreasury::Models::Ledger) }
+      sig do
+        params(
+          id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::Ledger)
+      end
       def delete(
         # id
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

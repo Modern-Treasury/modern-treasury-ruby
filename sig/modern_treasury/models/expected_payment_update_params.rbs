@@ -14,7 +14,7 @@ module ModernTreasury
         metadata: ::Hash[Symbol, String],
         reconciliation_filters: top?,
         reconciliation_groups: top?,
-        reconciliation_rule_variables: ::Array[ModernTreasury::Models::ReconciliationRule]?,
+        reconciliation_rule_variables: ::Array[ModernTreasury::ReconciliationRule]?,
         remittance_information: String?,
         statement_descriptor: String?,
         status: ModernTreasury::Models::ExpectedPaymentUpdateParams::status?,
@@ -52,7 +52,7 @@ module ModernTreasury
 
       attr_accessor reconciliation_groups: top?
 
-      attr_accessor reconciliation_rule_variables: ::Array[ModernTreasury::Models::ReconciliationRule]?
+      attr_accessor reconciliation_rule_variables: ::Array[ModernTreasury::ReconciliationRule]?
 
       attr_accessor remittance_information: String?
 
@@ -75,15 +75,13 @@ module ModernTreasury
         ?metadata: ::Hash[Symbol, String],
         ?reconciliation_filters: top?,
         ?reconciliation_groups: top?,
-        ?reconciliation_rule_variables: ::Array[ModernTreasury::Models::ReconciliationRule]?,
+        ?reconciliation_rule_variables: ::Array[ModernTreasury::ReconciliationRule]?,
         ?remittance_information: String?,
         ?statement_descriptor: String?,
         ?status: ModernTreasury::Models::ExpectedPaymentUpdateParams::status?,
         ?type: ModernTreasury::Models::expected_payment_type?,
         ?request_options: ModernTreasury::request_opts
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::expected_payment_update_params
 
       type direction = :credit | :debit
 

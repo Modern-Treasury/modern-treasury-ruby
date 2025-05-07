@@ -6,6 +6,9 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       # Additional data in the form of key-value pairs. Pairs can be removed by passing
       # an empty string or `null` as the value.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
@@ -17,20 +20,27 @@ module ModernTreasury
       sig do
         params(
           metadata: T::Hash[Symbol, String],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # Additional data in the form of key-value pairs. Pairs can be removed by passing
         # an empty string or `null` as the value.
         metadata: nil,
         request_options: {}
-      ); end
-      sig do
-        override.returns({metadata: T::Hash[Symbol, String], request_options: ModernTreasury::RequestOptions})
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            metadata: T::Hash[Symbol, String],
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

@@ -7,7 +7,7 @@ class ModernTreasury::Test::Resources::Invoices::LineItemsTest < ModernTreasury:
     response = @modern_treasury.invoices.line_items.create("invoice_id", name: "name", unit_amount: 0)
 
     assert_pattern do
-      response => ModernTreasury::Models::Invoices::InvoiceLineItem
+      response => ModernTreasury::Invoices::InvoiceLineItem
     end
 
     assert_pattern do
@@ -33,7 +33,7 @@ class ModernTreasury::Test::Resources::Invoices::LineItemsTest < ModernTreasury:
     response = @modern_treasury.invoices.line_items.retrieve("id", invoice_id: "invoice_id")
 
     assert_pattern do
-      response => ModernTreasury::Models::Invoices::InvoiceLineItem
+      response => ModernTreasury::Invoices::InvoiceLineItem
     end
 
     assert_pattern do
@@ -59,7 +59,7 @@ class ModernTreasury::Test::Resources::Invoices::LineItemsTest < ModernTreasury:
     response = @modern_treasury.invoices.line_items.update("id", invoice_id: "invoice_id")
 
     assert_pattern do
-      response => ModernTreasury::Models::Invoices::InvoiceLineItem
+      response => ModernTreasury::Invoices::InvoiceLineItem
     end
 
     assert_pattern do
@@ -92,7 +92,7 @@ class ModernTreasury::Test::Resources::Invoices::LineItemsTest < ModernTreasury:
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Models::Invoices::InvoiceLineItem
+      row => ModernTreasury::Invoices::InvoiceLineItem
     end
 
     assert_pattern do
@@ -118,7 +118,7 @@ class ModernTreasury::Test::Resources::Invoices::LineItemsTest < ModernTreasury:
     response = @modern_treasury.invoices.line_items.delete("id", invoice_id: "invoice_id")
 
     assert_pattern do
-      response => ModernTreasury::Models::Invoices::InvoiceLineItem
+      response => ModernTreasury::Invoices::InvoiceLineItem
     end
 
     assert_pattern do

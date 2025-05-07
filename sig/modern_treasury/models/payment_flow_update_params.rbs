@@ -15,8 +15,6 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
-      def to_hash: -> ModernTreasury::Models::payment_flow_update_params
-
       type status = :cancelled
 
       module Status

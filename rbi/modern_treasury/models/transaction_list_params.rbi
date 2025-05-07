@@ -6,6 +6,9 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor
 
@@ -116,9 +119,8 @@ module ModernTreasury
           transactable_type: String,
           vendor_id: String,
           virtual_account_id: String,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         after_cursor: nil,
@@ -149,30 +151,32 @@ module ModernTreasury
         vendor_id: nil,
         virtual_account_id: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              after_cursor: T.nilable(String),
-              as_of_date_end: Date,
-              as_of_date_start: Date,
-              counterparty_id: String,
-              description: String,
-              direction: String,
-              internal_account_id: String,
-              metadata: T::Hash[Symbol, String],
-              payment_type: String,
-              per_page: Integer,
-              posted: T::Boolean,
-              transactable_type: String,
-              vendor_id: String,
-              virtual_account_id: String,
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            after_cursor: T.nilable(String),
+            as_of_date_end: Date,
+            as_of_date_start: Date,
+            counterparty_id: String,
+            description: String,
+            direction: String,
+            internal_account_id: String,
+            metadata: T::Hash[Symbol, String],
+            payment_type: String,
+            per_page: Integer,
+            posted: T::Boolean,
+            transactable_type: String,
+            vendor_id: String,
+            virtual_account_id: String,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

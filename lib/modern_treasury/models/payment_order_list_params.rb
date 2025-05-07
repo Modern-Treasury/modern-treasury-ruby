@@ -31,8 +31,8 @@ module ModernTreasury
 
       # @!attribute direction
       #
-      #   @return [Symbol, ModernTreasury::Models::TransactionDirection, nil]
-      optional :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
+      #   @return [Symbol, ModernTreasury::TransactionDirection, nil]
+      optional :direction, enum: -> { ModernTreasury::TransactionDirection }
 
       # @!attribute effective_date_end
       #   An inclusive upper bound for searching effective_date
@@ -69,8 +69,8 @@ module ModernTreasury
       #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
       #   an overnight check rather than standard mail.
       #
-      #   @return [Symbol, ModernTreasury::Models::PaymentOrderListParams::Priority, nil]
-      optional :priority, enum: -> { ModernTreasury::Models::PaymentOrderListParams::Priority }
+      #   @return [Symbol, ModernTreasury::PaymentOrderListParams::Priority, nil]
+      optional :priority, enum: -> { ModernTreasury::PaymentOrderListParams::Priority }
 
       # @!attribute process_after_end
       #   An inclusive upper bound for searching process_after
@@ -92,8 +92,8 @@ module ModernTreasury
 
       # @!attribute status
       #
-      #   @return [Symbol, ModernTreasury::Models::PaymentOrderListParams::Status, nil]
-      optional :status, enum: -> { ModernTreasury::Models::PaymentOrderListParams::Status }
+      #   @return [Symbol, ModernTreasury::PaymentOrderListParams::Status, nil]
+      optional :status, enum: -> { ModernTreasury::PaymentOrderListParams::Status }
 
       # @!attribute transaction_id
       #   The ID of a transaction that the payment order has been reconciled to.
@@ -103,8 +103,8 @@ module ModernTreasury
 
       # @!attribute type
       #
-      #   @return [Symbol, ModernTreasury::Models::PaymentOrderListParams::Type, nil]
-      optional :type, enum: -> { ModernTreasury::Models::PaymentOrderListParams::Type }
+      #   @return [Symbol, ModernTreasury::PaymentOrderListParams::Type, nil]
+      optional :type, enum: -> { ModernTreasury::PaymentOrderListParams::Type }
 
       # @!method initialize(after_cursor: nil, counterparty_id: nil, created_at_end: nil, created_at_start: nil, direction: nil, effective_date_end: nil, effective_date_start: nil, metadata: nil, originating_account_id: nil, per_page: nil, priority: nil, process_after_end: nil, process_after_start: nil, reference_number: nil, status: nil, transaction_id: nil, type: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
@@ -118,21 +118,19 @@ module ModernTreasury
       #
       #   @param created_at_start [Date] An inclusive lower bound for searching created_at
       #
-      #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
+      #   @param direction [Symbol, ModernTreasury::TransactionDirection]
       #
       #   @param effective_date_end [Date] An inclusive upper bound for searching effective_date
       #
       #   @param effective_date_start [Date] An inclusive lower bound for searching effective_date
       #
       #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      #   ...
       #
       #   @param originating_account_id [String]
       #
       #   @param per_page [Integer]
       #
-      #   @param priority [Symbol, ModernTreasury::Models::PaymentOrderListParams::Priority] Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-da
-      #   ...
+      #   @param priority [Symbol, ModernTreasury::PaymentOrderListParams::Priority] Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-da
       #
       #   @param process_after_end [Time] An inclusive upper bound for searching process_after
       #
@@ -140,11 +138,11 @@ module ModernTreasury
       #
       #   @param reference_number [String] Query for records with the provided reference number
       #
-      #   @param status [Symbol, ModernTreasury::Models::PaymentOrderListParams::Status]
+      #   @param status [Symbol, ModernTreasury::PaymentOrderListParams::Status]
       #
       #   @param transaction_id [String] The ID of a transaction that the payment order has been reconciled to.
       #
-      #   @param type [Symbol, ModernTreasury::Models::PaymentOrderListParams::Type]
+      #   @param type [Symbol, ModernTreasury::PaymentOrderListParams::Type]
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 

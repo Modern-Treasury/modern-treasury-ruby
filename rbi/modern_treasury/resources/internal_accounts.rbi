@@ -3,27 +3,27 @@
 module ModernTreasury
   module Resources
     class InternalAccounts
-      sig { returns(ModernTreasury::Resources::InternalAccounts::BalanceReports) }
+      sig do
+        returns(ModernTreasury::Resources::InternalAccounts::BalanceReports)
+      end
       attr_reader :balance_reports
 
       # create internal account
       sig do
         params(
           connection_id: String,
-          currency: ModernTreasury::Models::InternalAccountCreateParams::Currency::OrSymbol,
+          currency:
+            ModernTreasury::InternalAccountCreateParams::Currency::OrSymbol,
           name: String,
           party_name: String,
           counterparty_id: String,
           legal_entity_id: String,
           parent_account_id: String,
-          party_address: T.any(
-            ModernTreasury::Models::InternalAccountCreateParams::PartyAddress,
-            ModernTreasury::Internal::AnyHash
-          ),
+          party_address:
+            ModernTreasury::InternalAccountCreateParams::PartyAddress::OrHash,
           vendor_attributes: T::Hash[Symbol, String],
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::InternalAccount)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::InternalAccount)
       end
       def create(
         # The identifier of the financial institution the account belongs to.
@@ -47,17 +47,23 @@ module ModernTreasury
         # at the vendor specified by the given connection.
         vendor_attributes: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # get internal account
       sig do
-        params(id: String, request_options: ModernTreasury::RequestOpts)
-          .returns(ModernTreasury::Models::InternalAccount)
+        params(
+          id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::InternalAccount)
       end
       def retrieve(
         # Unique identifier for the account.
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # update internal account
       sig do
         params(
@@ -67,9 +73,8 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           name: String,
           parent_account_id: String,
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::InternalAccount)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::InternalAccount)
       end
       def update(
         # Unique identifier for the account.
@@ -86,21 +91,25 @@ module ModernTreasury
         # The parent internal account for this account.
         parent_account_id: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # list internal accounts
       sig do
         params(
           after_cursor: T.nilable(String),
           counterparty_id: String,
-          currency: ModernTreasury::Models::Currency::OrSymbol,
+          currency: ModernTreasury::Currency::OrSymbol,
           legal_entity_id: String,
           metadata: T::Hash[Symbol, String],
-          payment_direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
-          payment_type: ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol,
+          payment_direction: ModernTreasury::TransactionDirection::OrSymbol,
+          payment_type:
+            ModernTreasury::InternalAccountListParams::PaymentType::OrSymbol,
           per_page: Integer,
-          request_options: ModernTreasury::RequestOpts
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(
+          ModernTreasury::Internal::Page[ModernTreasury::InternalAccount]
         )
-          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::InternalAccount])
       end
       def list(
         after_cursor: nil,
@@ -120,10 +129,13 @@ module ModernTreasury
         payment_type: nil,
         per_page: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

@@ -6,6 +6,9 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       # If you have specific IDs to retrieve in bulk, you can pass them as query
       # parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       sig { returns(T.nilable(T::Array[String])) }
@@ -19,17 +22,20 @@ module ModernTreasury
 
       # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
       # filter by balance amount.
-      sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount)) }
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::LedgerAccountListParams::AvailableBalanceAmount
+          )
+        )
+      end
       attr_reader :available_balance_amount
 
       sig do
         params(
-          available_balance_amount: T.any(
-            ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount,
-            ModernTreasury::Internal::AnyHash
-          )
-        )
-          .void
+          available_balance_amount:
+            ModernTreasury::LedgerAccountListParams::AvailableBalanceAmount::OrHash
+        ).void
       end
       attr_writer :available_balance_amount
 
@@ -38,14 +44,15 @@ module ModernTreasury
       # timestamps. The lower bound is inclusive while the upper bound is exclusive of
       # the provided timestamps. If no value is supplied the balances will be retrieved
       # not including that bound.
-      sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountListParams::Balances)) }
+      sig do
+        returns(T.nilable(ModernTreasury::LedgerAccountListParams::Balances))
+      end
       attr_reader :balances
 
       sig do
         params(
-          balances: T.any(ModernTreasury::Models::LedgerAccountListParams::Balances, ModernTreasury::Internal::AnyHash)
-        )
-          .void
+          balances: ModernTreasury::LedgerAccountListParams::Balances::OrHash
+        ).void
       end
       attr_writer :balances
 
@@ -95,17 +102,20 @@ module ModernTreasury
 
       # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
       # filter by balance amount.
-      sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount)) }
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::LedgerAccountListParams::PendingBalanceAmount
+          )
+        )
+      end
       attr_reader :pending_balance_amount
 
       sig do
         params(
-          pending_balance_amount: T.any(
-            ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount,
-            ModernTreasury::Internal::AnyHash
-          )
-        )
-          .void
+          pending_balance_amount:
+            ModernTreasury::LedgerAccountListParams::PendingBalanceAmount::OrHash
+        ).void
       end
       attr_writer :pending_balance_amount
 
@@ -117,17 +127,20 @@ module ModernTreasury
 
       # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
       # filter by balance amount.
-      sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount)) }
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::LedgerAccountListParams::PostedBalanceAmount
+          )
+        )
+      end
       attr_reader :posted_balance_amount
 
       sig do
         params(
-          posted_balance_amount: T.any(
-            ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount,
-            ModernTreasury::Internal::AnyHash
-          )
-        )
-          .void
+          posted_balance_amount:
+            ModernTreasury::LedgerAccountListParams::PostedBalanceAmount::OrHash
+        ).void
       end
       attr_writer :posted_balance_amount
 
@@ -144,30 +157,23 @@ module ModernTreasury
         params(
           id: T::Array[String],
           after_cursor: T.nilable(String),
-          available_balance_amount: T.any(
-            ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount,
-            ModernTreasury::Internal::AnyHash
-          ),
-          balances: T.any(ModernTreasury::Models::LedgerAccountListParams::Balances, ModernTreasury::Internal::AnyHash),
+          available_balance_amount:
+            ModernTreasury::LedgerAccountListParams::AvailableBalanceAmount::OrHash,
+          balances: ModernTreasury::LedgerAccountListParams::Balances::OrHash,
           created_at: T::Hash[Symbol, Time],
           currency: String,
           ledger_account_category_id: String,
           ledger_id: String,
           metadata: T::Hash[Symbol, String],
           name: T::Array[String],
-          pending_balance_amount: T.any(
-            ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount,
-            ModernTreasury::Internal::AnyHash
-          ),
+          pending_balance_amount:
+            ModernTreasury::LedgerAccountListParams::PendingBalanceAmount::OrHash,
           per_page: Integer,
-          posted_balance_amount: T.any(
-            ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount,
-            ModernTreasury::Internal::AnyHash
-          ),
+          posted_balance_amount:
+            ModernTreasury::LedgerAccountListParams::PostedBalanceAmount::OrHash,
           updated_at: T::Hash[Symbol, Time],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # If you have specific IDs to retrieve in bulk, you can pass them as query
@@ -209,32 +215,40 @@ module ModernTreasury
         # updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
         updated_at: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: T::Array[String],
-              after_cursor: T.nilable(String),
-              available_balance_amount: ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount,
-              balances: ModernTreasury::Models::LedgerAccountListParams::Balances,
-              created_at: T::Hash[Symbol, Time],
-              currency: String,
-              ledger_account_category_id: String,
-              ledger_id: String,
-              metadata: T::Hash[Symbol, String],
-              name: T::Array[String],
-              pending_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount,
-              per_page: Integer,
-              posted_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount,
-              updated_at: T::Hash[Symbol, Time],
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: T::Array[String],
+            after_cursor: T.nilable(String),
+            available_balance_amount:
+              ModernTreasury::LedgerAccountListParams::AvailableBalanceAmount,
+            balances: ModernTreasury::LedgerAccountListParams::Balances,
+            created_at: T::Hash[Symbol, Time],
+            currency: String,
+            ledger_account_category_id: String,
+            ledger_id: String,
+            metadata: T::Hash[Symbol, String],
+            name: T::Array[String],
+            pending_balance_amount:
+              ModernTreasury::LedgerAccountListParams::PendingBalanceAmount,
+            per_page: Integer,
+            posted_balance_amount:
+              ModernTreasury::LedgerAccountListParams::PostedBalanceAmount,
+            updated_at: T::Hash[Symbol, Time],
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
 
       class AvailableBalanceAmount < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         sig { returns(T.nilable(Integer)) }
         attr_reader :eq
 
@@ -274,10 +288,17 @@ module ModernTreasury
         # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
         # filter by balance amount.
         sig do
-          params(eq: Integer, gt: Integer, gte: Integer, lt: Integer, lte: Integer, not_eq: Integer)
-            .returns(T.attached_class)
+          params(
+            eq: Integer,
+            gt: Integer,
+            gte: Integer,
+            lt: Integer,
+            lte: Integer,
+            not_eq: Integer
+          ).returns(T.attached_class)
         end
-        def self.new(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil); end
+        def self.new(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil)
+        end
 
         sig do
           override.returns(
@@ -291,10 +312,14 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
       end
 
       class Balances < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         sig { returns(T.nilable(Date)) }
         attr_reader :as_of_date
 
@@ -330,8 +355,7 @@ module ModernTreasury
             effective_at: Time,
             effective_at_lower_bound: Time,
             effective_at_upper_bound: Time
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
           as_of_date: nil,
@@ -342,20 +366,23 @@ module ModernTreasury
         end
 
         sig do
-          override
-            .returns(
-              {
-                as_of_date: Date,
-                effective_at: Time,
-                effective_at_lower_bound: Time,
-                effective_at_upper_bound: Time
-              }
-            )
+          override.returns(
+            {
+              as_of_date: Date,
+              effective_at: Time,
+              effective_at_lower_bound: Time,
+              effective_at_upper_bound: Time
+            }
+          )
         end
-        def to_hash; end
+        def to_hash
+        end
       end
 
       class PendingBalanceAmount < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         sig { returns(T.nilable(Integer)) }
         attr_reader :eq
 
@@ -395,10 +422,17 @@ module ModernTreasury
         # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
         # filter by balance amount.
         sig do
-          params(eq: Integer, gt: Integer, gte: Integer, lt: Integer, lte: Integer, not_eq: Integer)
-            .returns(T.attached_class)
+          params(
+            eq: Integer,
+            gt: Integer,
+            gte: Integer,
+            lt: Integer,
+            lte: Integer,
+            not_eq: Integer
+          ).returns(T.attached_class)
         end
-        def self.new(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil); end
+        def self.new(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil)
+        end
 
         sig do
           override.returns(
@@ -412,10 +446,14 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
       end
 
       class PostedBalanceAmount < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         sig { returns(T.nilable(Integer)) }
         attr_reader :eq
 
@@ -455,10 +493,17 @@ module ModernTreasury
         # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
         # filter by balance amount.
         sig do
-          params(eq: Integer, gt: Integer, gte: Integer, lt: Integer, lte: Integer, not_eq: Integer)
-            .returns(T.attached_class)
+          params(
+            eq: Integer,
+            gt: Integer,
+            gte: Integer,
+            lt: Integer,
+            lte: Integer,
+            not_eq: Integer
+          ).returns(T.attached_class)
         end
-        def self.new(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil); end
+        def self.new(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil)
+        end
 
         sig do
           override.returns(
@@ -472,7 +517,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
       end
     end
   end

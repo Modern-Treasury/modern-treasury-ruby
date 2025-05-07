@@ -7,15 +7,15 @@ module ModernTreasury
       sig do
         params(
           returnable_id: T.nilable(String),
-          returnable_type: ModernTreasury::Models::ReturnCreateParams::ReturnableType::OrSymbol,
+          returnable_type:
+            ModernTreasury::ReturnCreateParams::ReturnableType::OrSymbol,
           additional_information: T.nilable(String),
-          code: T.nilable(ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol),
+          code: T.nilable(ModernTreasury::ReturnCreateParams::Code::OrSymbol),
           data: T.nilable(T.anything),
           date_of_death: T.nilable(Date),
           reason: T.nilable(String),
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::ReturnObject)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::ReturnObject)
       end
       def create(
         # The ID of the object being returned or `null`.
@@ -37,17 +37,23 @@ module ModernTreasury
         # and will not be transmitted to the bank.”
         reason: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Get a single return.
       sig do
-        params(id: String, request_options: ModernTreasury::RequestOpts)
-          .returns(ModernTreasury::Models::ReturnObject)
+        params(
+          id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::ReturnObject)
       end
       def retrieve(
         # The ID of an existing return.
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # Get a list of returns.
       sig do
         params(
@@ -56,10 +62,10 @@ module ModernTreasury
           internal_account_id: String,
           per_page: Integer,
           returnable_id: String,
-          returnable_type: ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol,
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::ReturnObject])
+          returnable_type:
+            ModernTreasury::ReturnListParams::ReturnableType::OrSymbol,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::Internal::Page[ModernTreasury::ReturnObject])
       end
       def list(
         after_cursor: nil,
@@ -76,10 +82,13 @@ module ModernTreasury
         # Must be accompanied by `returnable_id`.
         returnable_type: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

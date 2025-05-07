@@ -26,16 +26,18 @@ module ModernTreasury
         #   The specific type of balance report. One of `intraday`, `previous_day`,
         #   `real_time`, or `other`.
         #
-        #   @return [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType]
+        #   @return [Symbol, ModernTreasury::InternalAccounts::BalanceReport::BalanceReportType]
         required :balance_report_type,
-                 enum: -> { ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType }
+                 enum: -> { ModernTreasury::InternalAccounts::BalanceReport::BalanceReportType }
 
         # @!attribute balances
         #   An array of `Balance` objects.
         #
-        #   @return [Array<ModernTreasury::Models::InternalAccounts::BalanceReport::Balance>]
+        #   @return [Array<ModernTreasury::InternalAccounts::BalanceReport::Balance>]
         required :balances,
-                 -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance] }
+                 -> {
+                   ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccounts::BalanceReport::Balance]
+                 }
 
         # @!attribute created_at
         #
@@ -67,7 +69,7 @@ module ModernTreasury
 
         # @!method initialize(id:, as_of_date:, as_of_time:, balance_report_type:, balances:, created_at:, internal_account_id:, live_mode:, object:, updated_at:)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Models::InternalAccounts::BalanceReport} for more details.
+        #   {ModernTreasury::InternalAccounts::BalanceReport} for more details.
         #
         #   @param id [String]
         #
@@ -75,17 +77,15 @@ module ModernTreasury
         #
         #   @param as_of_time [Time, nil] The time (24-hour clock) of the balance report in local time.
         #
-        #   @param balance_report_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType] The specific type of balance report. One of `intraday`, `previous_day`, `real_ti
-        #   ...
+        #   @param balance_report_type [Symbol, ModernTreasury::InternalAccounts::BalanceReport::BalanceReportType] The specific type of balance report. One of `intraday`, `previous_day`, `real_ti
         #
-        #   @param balances [Array<ModernTreasury::Models::InternalAccounts::BalanceReport::Balance>] An array of `Balance` objects.
+        #   @param balances [Array<ModernTreasury::InternalAccounts::BalanceReport::Balance>] An array of `Balance` objects.
         #
         #   @param created_at [Time]
         #
         #   @param internal_account_id [String] The ID of one of your organization's Internal Accounts.
         #
         #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
-        #   ...
         #
         #   @param object [String]
         #
@@ -94,7 +94,7 @@ module ModernTreasury
         # The specific type of balance report. One of `intraday`, `previous_day`,
         # `real_time`, or `other`.
         #
-        # @see ModernTreasury::Models::InternalAccounts::BalanceReport#balance_report_type
+        # @see ModernTreasury::InternalAccounts::BalanceReport#balance_report_type
         module BalanceReportType
           extend ModernTreasury::Internal::Type::Enum
 
@@ -137,9 +137,11 @@ module ModernTreasury
           #   `opening_available_next_business_day`, `closing_available`, `current_available`,
           #   'previously_closed_book', or `other`.
           #
-          #   @return [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::BalanceType]
+          #   @return [Symbol, ModernTreasury::InternalAccounts::BalanceReport::Balance::BalanceType]
           required :balance_type,
-                   enum: -> { ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::BalanceType }
+                   enum: -> {
+                     ModernTreasury::InternalAccounts::BalanceReport::Balance::BalanceType
+                   }
 
           # @!attribute created_at
           #
@@ -149,8 +151,8 @@ module ModernTreasury
           # @!attribute currency
           #   The currency of the balance.
           #
-          #   @return [Symbol, ModernTreasury::Models::Currency]
-          required :currency, enum: -> { ModernTreasury::Models::Currency }
+          #   @return [Symbol, ModernTreasury::Currency]
+          required :currency, enum: -> { ModernTreasury::Currency }
 
           # @!attribute live_mode
           #   This field will be true if this object exists in the live environment or false
@@ -192,8 +194,7 @@ module ModernTreasury
 
           # @!method initialize(id:, amount:, as_of_date:, as_of_time:, balance_type:, created_at:, currency:, live_mode:, object:, updated_at:, value_date:, vendor_code:, vendor_code_type:)
           #   Some parameter documentations has been truncated, see
-          #   {ModernTreasury::Models::InternalAccounts::BalanceReport::Balance} for more
-          #   details.
+          #   {ModernTreasury::InternalAccounts::BalanceReport::Balance} for more details.
           #
           #   @param id [String]
           #
@@ -203,15 +204,13 @@ module ModernTreasury
           #
           #   @param as_of_time [Time, nil] The time on which the balance became true for the account.
           #
-          #   @param balance_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::BalanceType] The specific type of balance reported. One of `opening_ledger`, `closing_ledger`
-          #   ...
+          #   @param balance_type [Symbol, ModernTreasury::InternalAccounts::BalanceReport::Balance::BalanceType] The specific type of balance reported. One of `opening_ledger`, `closing_ledger`
           #
           #   @param created_at [Time]
           #
-          #   @param currency [Symbol, ModernTreasury::Models::Currency] The currency of the balance.
+          #   @param currency [Symbol, ModernTreasury::Currency] The currency of the balance.
           #
           #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
-          #   ...
           #
           #   @param object [String]
           #
@@ -222,14 +221,13 @@ module ModernTreasury
           #   @param vendor_code [String] The code used by the bank when reporting this specific balance.
           #
           #   @param vendor_code_type [String, nil] The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`, `bnk
-          #   ...
 
           # The specific type of balance reported. One of `opening_ledger`,
           # `closing_ledger`, `current_ledger`, `opening_available`,
           # `opening_available_next_business_day`, `closing_available`, `current_available`,
           # 'previously_closed_book', or `other`.
           #
-          # @see ModernTreasury::Models::InternalAccounts::BalanceReport::Balance#balance_type
+          # @see ModernTreasury::InternalAccounts::BalanceReport::Balance#balance_type
           module BalanceType
             extend ModernTreasury::Internal::Type::Enum
 

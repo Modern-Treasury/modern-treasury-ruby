@@ -29,15 +29,15 @@ module ModernTreasury
 
       # @!attribute status
       #
-      #   @return [Symbol, ModernTreasury::Models::ConnectionLegalEntityListParams::Status, nil]
-      optional :status, enum: -> { ModernTreasury::Models::ConnectionLegalEntityListParams::Status }
+      #   @return [Symbol, ModernTreasury::ConnectionLegalEntityListParams::Status, nil]
+      optional :status, enum: -> { ModernTreasury::ConnectionLegalEntityListParams::Status }
 
       # @!method initialize(after_cursor: nil, connection_id: nil, legal_entity_id: nil, per_page: nil, status: nil, request_options: {})
       #   @param after_cursor [String, nil]
       #   @param connection_id [String]
       #   @param legal_entity_id [String]
       #   @param per_page [Integer]
-      #   @param status [Symbol, ModernTreasury::Models::ConnectionLegalEntityListParams::Status]
+      #   @param status [Symbol, ModernTreasury::ConnectionLegalEntityListParams::Status]
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       module Status

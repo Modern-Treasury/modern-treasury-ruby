@@ -14,21 +14,25 @@ module ModernTreasury
 
       # @!attribute account_details
       #
-      #   @return [Array<ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail>, nil]
+      #   @return [Array<ModernTreasury::ExternalAccountCreateParams::AccountDetail>, nil]
       optional :account_details,
-               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail] }
+               -> {
+                 ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ExternalAccountCreateParams::AccountDetail]
+               }
 
       # @!attribute account_type
       #   Can be `checking`, `savings` or `other`.
       #
-      #   @return [Symbol, ModernTreasury::Models::ExternalAccountType, nil]
-      optional :account_type, enum: -> { ModernTreasury::Models::ExternalAccountType }
+      #   @return [Symbol, ModernTreasury::ExternalAccountType, nil]
+      optional :account_type, enum: -> { ModernTreasury::ExternalAccountType }
 
       # @!attribute contact_details
       #
-      #   @return [Array<ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail>, nil]
+      #   @return [Array<ModernTreasury::ExternalAccountCreateParams::ContactDetail>, nil]
       optional :contact_details,
-               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail] }
+               -> {
+                 ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ExternalAccountCreateParams::ContactDetail]
+               }
 
       # @!attribute ledger_account
       #   Specifies a ledger account object that will be created with the external
@@ -37,8 +41,8 @@ module ModernTreasury
       #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
       #   for more details.
       #
-      #   @return [ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount, nil]
-      optional :ledger_account, -> { ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount }
+      #   @return [ModernTreasury::ExternalAccountCreateParams::LedgerAccount, nil]
+      optional :ledger_account, -> { ModernTreasury::ExternalAccountCreateParams::LedgerAccount }
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
@@ -57,8 +61,8 @@ module ModernTreasury
       # @!attribute party_address
       #   Required if receiving wire payments.
       #
-      #   @return [ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress, nil]
-      optional :party_address, -> { ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress }
+      #   @return [ModernTreasury::ExternalAccountCreateParams::PartyAddress, nil]
+      optional :party_address, -> { ModernTreasury::ExternalAccountCreateParams::PartyAddress }
 
       # @!attribute party_identifier
       #
@@ -74,10 +78,8 @@ module ModernTreasury
       # @!attribute party_type
       #   Either `individual` or `business`.
       #
-      #   @return [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::PartyType, nil]
-      optional :party_type,
-               enum: -> { ModernTreasury::Models::ExternalAccountCreateParams::PartyType },
-               nil?: true
+      #   @return [Symbol, ModernTreasury::ExternalAccountCreateParams::PartyType, nil]
+      optional :party_type, enum: -> { ModernTreasury::ExternalAccountCreateParams::PartyType }, nil?: true
 
       # @!attribute plaid_processor_token
       #   If you've enabled the Modern Treasury + Plaid integration in your Plaid account,
@@ -88,9 +90,11 @@ module ModernTreasury
 
       # @!attribute routing_details
       #
-      #   @return [Array<ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail>, nil]
+      #   @return [Array<ModernTreasury::ExternalAccountCreateParams::RoutingDetail>, nil]
       optional :routing_details,
-               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail] }
+               -> {
+                 ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ExternalAccountCreateParams::RoutingDetail]
+               }
 
       # @!method initialize(counterparty_id:, account_details: nil, account_type: nil, contact_details: nil, ledger_account: nil, metadata: nil, name: nil, party_address: nil, party_identifier: nil, party_name: nil, party_type: nil, plaid_processor_token: nil, routing_details: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
@@ -98,34 +102,29 @@ module ModernTreasury
       #
       #   @param counterparty_id [String, nil]
       #
-      #   @param account_details [Array<ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail>]
+      #   @param account_details [Array<ModernTreasury::ExternalAccountCreateParams::AccountDetail>]
       #
-      #   @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType] Can be `checking`, `savings` or `other`.
+      #   @param account_type [Symbol, ModernTreasury::ExternalAccountType] Can be `checking`, `savings` or `other`.
       #
-      #   @param contact_details [Array<ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail>]
+      #   @param contact_details [Array<ModernTreasury::ExternalAccountCreateParams::ContactDetail>]
       #
-      #   @param ledger_account [ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount] Specifies a ledger account object that will be created with the external account
-      #   ...
+      #   @param ledger_account [ModernTreasury::ExternalAccountCreateParams::LedgerAccount] Specifies a ledger account object that will be created with the external account
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-      #   ...
       #
       #   @param name [String, nil] A nickname for the external account. This is only for internal usage and won't a
-      #   ...
       #
-      #   @param party_address [ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress] Required if receiving wire payments.
+      #   @param party_address [ModernTreasury::ExternalAccountCreateParams::PartyAddress] Required if receiving wire payments.
       #
       #   @param party_identifier [String]
       #
       #   @param party_name [String] If this value isn't provided, it will be inherited from the counterparty's name.
-      #   ...
       #
-      #   @param party_type [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::PartyType, nil] Either `individual` or `business`.
+      #   @param party_type [Symbol, ModernTreasury::ExternalAccountCreateParams::PartyType, nil] Either `individual` or `business`.
       #
       #   @param plaid_processor_token [String] If you've enabled the Modern Treasury + Plaid integration in your Plaid account,
-      #   ...
       #
-      #   @param routing_details [Array<ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail>]
+      #   @param routing_details [Array<ModernTreasury::ExternalAccountCreateParams::RoutingDetail>]
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
@@ -137,15 +136,15 @@ module ModernTreasury
 
         # @!attribute account_number_type
         #
-        #   @return [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::AccountNumberType, nil]
+        #   @return [Symbol, ModernTreasury::ExternalAccountCreateParams::AccountDetail::AccountNumberType, nil]
         optional :account_number_type,
-                 enum: -> { ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::AccountNumberType }
+                 enum: -> { ModernTreasury::ExternalAccountCreateParams::AccountDetail::AccountNumberType }
 
         # @!method initialize(account_number:, account_number_type: nil)
         #   @param account_number [String]
-        #   @param account_number_type [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::AccountNumberType]
+        #   @param account_number_type [Symbol, ModernTreasury::ExternalAccountCreateParams::AccountDetail::AccountNumberType]
 
-        # @see ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail#account_number_type
+        # @see ModernTreasury::ExternalAccountCreateParams::AccountDetail#account_number_type
         module AccountNumberType
           extend ModernTreasury::Internal::Type::Enum
 
@@ -173,15 +172,17 @@ module ModernTreasury
 
         # @!attribute contact_identifier_type
         #
-        #   @return [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::ContactIdentifierType, nil]
+        #   @return [Symbol, ModernTreasury::ExternalAccountCreateParams::ContactDetail::ContactIdentifierType, nil]
         optional :contact_identifier_type,
-                 enum: -> { ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::ContactIdentifierType }
+                 enum: -> {
+                   ModernTreasury::ExternalAccountCreateParams::ContactDetail::ContactIdentifierType
+                 }
 
         # @!method initialize(contact_identifier: nil, contact_identifier_type: nil)
         #   @param contact_identifier [String]
-        #   @param contact_identifier_type [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::ContactIdentifierType]
+        #   @param contact_identifier_type [Symbol, ModernTreasury::ExternalAccountCreateParams::ContactDetail::ContactIdentifierType]
 
-        # @see ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail#contact_identifier_type
+        # @see ModernTreasury::ExternalAccountCreateParams::ContactDetail#contact_identifier_type
         module ContactIdentifierType
           extend ModernTreasury::Internal::Type::Enum
 
@@ -216,8 +217,8 @@ module ModernTreasury
         # @!attribute normal_balance
         #   The normal balance of the ledger account.
         #
-        #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
-        required :normal_balance, enum: -> { ModernTreasury::Models::TransactionDirection }
+        #   @return [Symbol, ModernTreasury::TransactionDirection]
+        required :normal_balance, enum: -> { ModernTreasury::TransactionDirection }
 
         # @!attribute currency_exponent
         #   The currency exponent of the ledger account.
@@ -250,9 +251,9 @@ module ModernTreasury
         #   be populated here, otherwise null. The value is one of internal_account or
         #   external_account.
         #
-        #   @return [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::LedgerableType, nil]
+        #   @return [Symbol, ModernTreasury::ExternalAccountCreateParams::LedgerAccount::LedgerableType, nil]
         optional :ledgerable_type,
-                 enum: -> { ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::LedgerableType }
+                 enum: -> { ModernTreasury::ExternalAccountCreateParams::LedgerAccount::LedgerableType }
 
         # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be
@@ -263,8 +264,7 @@ module ModernTreasury
 
         # @!method initialize(currency:, ledger_id:, name:, normal_balance:, currency_exponent: nil, description: nil, ledger_account_category_ids: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount} for more
-        #   details.
+        #   {ModernTreasury::ExternalAccountCreateParams::LedgerAccount} for more details.
         #
         #   Specifies a ledger account object that will be created with the external
         #   account. The resulting ledger account is linked to the external account for
@@ -278,29 +278,25 @@ module ModernTreasury
         #
         #   @param name [String] The name of the ledger account.
         #
-        #   @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection] The normal balance of the ledger account.
+        #   @param normal_balance [Symbol, ModernTreasury::TransactionDirection] The normal balance of the ledger account.
         #
         #   @param currency_exponent [Integer, nil] The currency exponent of the ledger account.
         #
         #   @param description [String, nil] The description of the ledger account.
         #
         #   @param ledger_account_category_ids [Array<String>] The array of ledger account category ids that this ledger account should be a ch
-        #   ...
         #
         #   @param ledgerable_id [String] If the ledger account links to another object in Modern Treasury, the id will be
-        #   ...
         #
-        #   @param ledgerable_type [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::LedgerableType] If the ledger account links to another object in Modern Treasury, the type will
-        #   ...
+        #   @param ledgerable_type [Symbol, ModernTreasury::ExternalAccountCreateParams::LedgerAccount::LedgerableType] If the ledger account links to another object in Modern Treasury, the type will
         #
         #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-        #   ...
 
         # If the ledger account links to another object in Modern Treasury, the type will
         # be populated here, otherwise null. The value is one of internal_account or
         # external_account.
         #
-        # @see ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount#ledgerable_type
+        # @see ModernTreasury::ExternalAccountCreateParams::LedgerAccount#ledgerable_type
         module LedgerableType
           extend ModernTreasury::Internal::Type::Enum
 
@@ -384,22 +380,22 @@ module ModernTreasury
 
         # @!attribute routing_number_type
         #
-        #   @return [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::RoutingNumberType]
+        #   @return [Symbol, ModernTreasury::ExternalAccountCreateParams::RoutingDetail::RoutingNumberType]
         required :routing_number_type,
-                 enum: -> { ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::RoutingNumberType }
+                 enum: -> { ModernTreasury::ExternalAccountCreateParams::RoutingDetail::RoutingNumberType }
 
         # @!attribute payment_type
         #
-        #   @return [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::PaymentType, nil]
+        #   @return [Symbol, ModernTreasury::ExternalAccountCreateParams::RoutingDetail::PaymentType, nil]
         optional :payment_type,
-                 enum: -> { ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::PaymentType }
+                 enum: -> { ModernTreasury::ExternalAccountCreateParams::RoutingDetail::PaymentType }
 
         # @!method initialize(routing_number:, routing_number_type:, payment_type: nil)
         #   @param routing_number [String]
-        #   @param routing_number_type [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::RoutingNumberType]
-        #   @param payment_type [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::PaymentType]
+        #   @param routing_number_type [Symbol, ModernTreasury::ExternalAccountCreateParams::RoutingDetail::RoutingNumberType]
+        #   @param payment_type [Symbol, ModernTreasury::ExternalAccountCreateParams::RoutingDetail::PaymentType]
 
-        # @see ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail#routing_number_type
+        # @see ModernTreasury::ExternalAccountCreateParams::RoutingDetail#routing_number_type
         module RoutingNumberType
           extend ModernTreasury::Internal::Type::Enum
 
@@ -429,7 +425,7 @@ module ModernTreasury
           #   @return [Array<Symbol>]
         end
 
-        # @see ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail#payment_type
+        # @see ModernTreasury::ExternalAccountCreateParams::RoutingDetail#payment_type
         module PaymentType
           extend ModernTreasury::Internal::Type::Enum
 

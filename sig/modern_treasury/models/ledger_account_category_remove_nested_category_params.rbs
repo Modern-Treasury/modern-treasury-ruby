@@ -13,8 +13,6 @@ module ModernTreasury
         id: String,
         ?request_options: ModernTreasury::request_opts
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::ledger_account_category_remove_nested_category_params
     end
   end
 end

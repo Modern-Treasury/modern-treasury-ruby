@@ -7,7 +7,7 @@ class ModernTreasury::Test::Resources::EventsTest < ModernTreasury::Test::Resour
     response = @modern_treasury.events.retrieve("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::Event
+      response => ModernTreasury::Event
     end
 
     assert_pattern do
@@ -37,7 +37,7 @@ class ModernTreasury::Test::Resources::EventsTest < ModernTreasury::Test::Resour
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Models::Event
+      row => ModernTreasury::Event
     end
 
     assert_pattern do

@@ -10,12 +10,12 @@ module ModernTreasury
         ?date_of_death: Date?,
         ?reason: String?,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::ReturnObject
+      ) -> ModernTreasury::ReturnObject
 
       def retrieve: (
         String id,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::ReturnObject
+      ) -> ModernTreasury::ReturnObject
 
       def list: (
         ?after_cursor: String?,
@@ -25,7 +25,7 @@ module ModernTreasury
         ?returnable_id: String,
         ?returnable_type: ModernTreasury::Models::ReturnListParams::returnable_type,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::ReturnObject]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::ReturnObject]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

@@ -6,7 +6,12 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
-      sig { returns(ModernTreasury::Models::LineItemListParams::ItemizableType::OrSymbol) }
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
+      sig do
+        returns(ModernTreasury::LineItemListParams::ItemizableType::OrSymbol)
+      end
       attr_accessor :itemizable_type
 
       sig { returns(T.nilable(String)) }
@@ -20,41 +25,64 @@ module ModernTreasury
 
       sig do
         params(
-          itemizable_type: ModernTreasury::Models::LineItemListParams::ItemizableType::OrSymbol,
+          itemizable_type:
+            ModernTreasury::LineItemListParams::ItemizableType::OrSymbol,
           after_cursor: T.nilable(String),
           per_page: Integer,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
-      def self.new(itemizable_type:, after_cursor: nil, per_page: nil, request_options: {}); end
+      def self.new(
+        itemizable_type:,
+        after_cursor: nil,
+        per_page: nil,
+        request_options: {}
+      )
+      end
 
       sig do
-        override
-          .returns(
-            {
-              itemizable_type: ModernTreasury::Models::LineItemListParams::ItemizableType::OrSymbol,
-              after_cursor: T.nilable(String),
-              per_page: Integer,
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+        override.returns(
+          {
+            itemizable_type:
+              ModernTreasury::LineItemListParams::ItemizableType::OrSymbol,
+            after_cursor: T.nilable(String),
+            per_page: Integer,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       module ItemizableType
         extend ModernTreasury::Internal::Type::Enum
 
-        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::LineItemListParams::ItemizableType) }
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::LineItemListParams::ItemizableType)
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         EXPECTED_PAYMENTS =
-          T.let(:expected_payments, ModernTreasury::Models::LineItemListParams::ItemizableType::TaggedSymbol)
+          T.let(
+            :expected_payments,
+            ModernTreasury::LineItemListParams::ItemizableType::TaggedSymbol
+          )
         PAYMENT_ORDERS =
-          T.let(:payment_orders, ModernTreasury::Models::LineItemListParams::ItemizableType::TaggedSymbol)
+          T.let(
+            :payment_orders,
+            ModernTreasury::LineItemListParams::ItemizableType::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::LineItemListParams::ItemizableType::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::LineItemListParams::ItemizableType::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
     end
   end

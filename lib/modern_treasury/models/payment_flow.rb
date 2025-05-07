@@ -45,8 +45,8 @@ module ModernTreasury
       #   Describes the direction money is flowing in the transaction. Can only be
       #   `debit`. A `debit` pulls money from someone else's account to your own.
       #
-      #   @return [Symbol, ModernTreasury::Models::PaymentFlow::Direction, nil]
-      optional :direction, enum: -> { ModernTreasury::Models::PaymentFlow::Direction }
+      #   @return [Symbol, ModernTreasury::PaymentFlow::Direction, nil]
+      optional :direction, enum: -> { ModernTreasury::PaymentFlow::Direction }
 
       # @!attribute due_date
       #   The due date for the flow. Can only be passed in when
@@ -67,9 +67,9 @@ module ModernTreasury
       #   of external accounts your end-user can select to those with a
       #   `verification_status` of `verified`.
       #
-      #   @return [Symbol, ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter, nil]
+      #   @return [Symbol, ModernTreasury::PaymentFlow::ExistingExternalAccountsFilter, nil]
       optional :existing_external_accounts_filter,
-               enum: -> { ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter },
+               enum: -> { ModernTreasury::PaymentFlow::ExistingExternalAccountsFilter },
                nil?: true
 
       # @!attribute external_account_collection
@@ -77,9 +77,11 @@ module ModernTreasury
       #   completing the flow. When `disabled`, your end-user must add new payment details
       #   when completing the flow.
       #
-      #   @return [Symbol, ModernTreasury::Models::PaymentFlow::ExternalAccountCollection, nil]
+      #   @return [Symbol, ModernTreasury::PaymentFlow::ExternalAccountCollection, nil]
       optional :external_account_collection,
-               enum: -> { ModernTreasury::Models::PaymentFlow::ExternalAccountCollection }
+               enum: -> {
+                 ModernTreasury::PaymentFlow::ExternalAccountCollection
+               }
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false
@@ -123,8 +125,8 @@ module ModernTreasury
       #   The current status of the payment flow. One of `pending`, `completed`,
       #   `expired`, or `cancelled`.
       #
-      #   @return [Symbol, ModernTreasury::Models::PaymentFlow::Status, nil]
-      optional :status, enum: -> { ModernTreasury::Models::PaymentFlow::Status }
+      #   @return [Symbol, ModernTreasury::PaymentFlow::Status, nil]
+      optional :status, enum: -> { ModernTreasury::PaymentFlow::Status }
 
       # @!attribute updated_at
       #
@@ -133,40 +135,31 @@ module ModernTreasury
 
       # @!method initialize(id: nil, amount: nil, client_token: nil, counterparty_id: nil, created_at: nil, currency: nil, direction: nil, due_date: nil, effective_date_selection_enabled: nil, existing_external_accounts_filter: nil, external_account_collection: nil, live_mode: nil, object: nil, originating_account_id: nil, payment_order_id: nil, receiving_account_id: nil, selected_effective_date: nil, status: nil, updated_at: nil)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::Models::PaymentFlow} for more details.
+      #   {ModernTreasury::PaymentFlow} for more details.
       #
       #   @param id [String]
       #
       #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
-      #   ...
       #
       #   @param client_token [String] The client token of the payment flow. This token can be used to embed a payment
-      #   ...
       #
       #   @param counterparty_id [String, nil] The ID of a counterparty associated with the payment. As part of the payment wor
-      #   ...
       #
       #   @param created_at [Time]
       #
       #   @param currency [String] The currency of the payment.
       #
-      #   @param direction [Symbol, ModernTreasury::Models::PaymentFlow::Direction] Describes the direction money is flowing in the transaction. Can only be `debit`
-      #   ...
+      #   @param direction [Symbol, ModernTreasury::PaymentFlow::Direction] Describes the direction money is flowing in the transaction. Can only be `debit`
       #
       #   @param due_date [Date, nil] The due date for the flow. Can only be passed in when `effective*date_selection*
-      #   ...
       #
       #   @param effective_date_selection_enabled [Boolean] When `true`, your end-user can schedule the payment `effective_date` while compl
-      #   ...
       #
-      #   @param existing_external_accounts_filter [Symbol, ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter, nil] When `verified` and `external_account_collection` is `enabled`, filters the list
-      #   ...
+      #   @param existing_external_accounts_filter [Symbol, ModernTreasury::PaymentFlow::ExistingExternalAccountsFilter, nil] When `verified` and `external_account_collection` is `enabled`, filters the list
       #
-      #   @param external_account_collection [Symbol, ModernTreasury::Models::PaymentFlow::ExternalAccountCollection] When `enabled`, your end-user can select from an existing external account when
-      #   ...
+      #   @param external_account_collection [Symbol, ModernTreasury::PaymentFlow::ExternalAccountCollection] When `enabled`, your end-user can select from an existing external account when
       #
       #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
-      #   ...
       #
       #   @param object [String]
       #
@@ -177,17 +170,15 @@ module ModernTreasury
       #   @param receiving_account_id [String, nil] If present, the ID of the external account created using this flow.
       #
       #   @param selected_effective_date [Date, nil] This field is set after your end-user selects a payment date while completing th
-      #   ...
       #
-      #   @param status [Symbol, ModernTreasury::Models::PaymentFlow::Status] The current status of the payment flow. One of `pending`, `completed`, `expired`
-      #   ...
+      #   @param status [Symbol, ModernTreasury::PaymentFlow::Status] The current status of the payment flow. One of `pending`, `completed`, `expired`
       #
       #   @param updated_at [Time]
 
       # Describes the direction money is flowing in the transaction. Can only be
       # `debit`. A `debit` pulls money from someone else's account to your own.
       #
-      # @see ModernTreasury::Models::PaymentFlow#direction
+      # @see ModernTreasury::PaymentFlow#direction
       module Direction
         extend ModernTreasury::Internal::Type::Enum
 
@@ -202,7 +193,7 @@ module ModernTreasury
       # of external accounts your end-user can select to those with a
       # `verification_status` of `verified`.
       #
-      # @see ModernTreasury::Models::PaymentFlow#existing_external_accounts_filter
+      # @see ModernTreasury::PaymentFlow#existing_external_accounts_filter
       module ExistingExternalAccountsFilter
         extend ModernTreasury::Internal::Type::Enum
 
@@ -216,7 +207,7 @@ module ModernTreasury
       # completing the flow. When `disabled`, your end-user must add new payment details
       # when completing the flow.
       #
-      # @see ModernTreasury::Models::PaymentFlow#external_account_collection
+      # @see ModernTreasury::PaymentFlow#external_account_collection
       module ExternalAccountCollection
         extend ModernTreasury::Internal::Type::Enum
 
@@ -230,7 +221,7 @@ module ModernTreasury
       # The current status of the payment flow. One of `pending`, `completed`,
       # `expired`, or `cancelled`.
       #
-      # @see ModernTreasury::Models::PaymentFlow#status
+      # @see ModernTreasury::PaymentFlow#status
       module Status
         extend ModernTreasury::Internal::Type::Enum
 

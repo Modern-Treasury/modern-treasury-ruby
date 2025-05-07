@@ -6,34 +6,44 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       # Required. The updated status of the account collection flow. Can only be used to
       # mark a flow as `cancelled`.
-      sig { returns(ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status::OrSymbol) }
+      sig do
+        returns(
+          ModernTreasury::AccountCollectionFlowUpdateParams::Status::OrSymbol
+        )
+      end
       attr_accessor :status
 
       sig do
         params(
-          status: ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          status:
+            ModernTreasury::AccountCollectionFlowUpdateParams::Status::OrSymbol,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # Required. The updated status of the account collection flow. Can only be used to
         # mark a flow as `cancelled`.
         status:,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              status: ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status::OrSymbol,
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            status:
+              ModernTreasury::AccountCollectionFlowUpdateParams::Status::OrSymbol,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
 
       # Required. The updated status of the account collection flow. Can only be used to
       # mark a flow as `cancelled`.
@@ -41,16 +51,29 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
-          T.type_alias { T.all(Symbol, ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status) }
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::AccountCollectionFlowUpdateParams::Status
+            )
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         CANCELLED =
-          T.let(:cancelled, ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status::TaggedSymbol)
+          T.let(
+            :cancelled,
+            ModernTreasury::AccountCollectionFlowUpdateParams::Status::TaggedSymbol
+          )
 
         sig do
-          override.returns(T::Array[ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status::TaggedSymbol])
+          override.returns(
+            T::Array[
+              ModernTreasury::AccountCollectionFlowUpdateParams::Status::TaggedSymbol
+            ]
+          )
         end
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

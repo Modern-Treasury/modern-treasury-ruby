@@ -5,18 +5,25 @@ module ModernTreasury
     class IncomingPaymentDetails
       # Get an existing Incoming Payment Detail.
       sig do
-        params(id: String, request_options: ModernTreasury::RequestOpts)
-          .returns(ModernTreasury::Models::IncomingPaymentDetail)
+        params(
+          id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::IncomingPaymentDetail)
       end
       def retrieve(
         # The unique identifier of the incoming payment detail.
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # Update an existing Incoming Payment Detail.
       sig do
-        params(id: String, metadata: T::Hash[Symbol, String], request_options: ModernTreasury::RequestOpts)
-          .returns(ModernTreasury::Models::IncomingPaymentDetail)
+        params(
+          id: String,
+          metadata: T::Hash[Symbol, String],
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::IncomingPaymentDetail)
       end
       def update(
         # The unique identifier of the incoming payment detail.
@@ -25,22 +32,26 @@ module ModernTreasury
         # an empty string or `null` as the value.
         metadata: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Get a list of Incoming Payment Details.
       sig do
         params(
           after_cursor: T.nilable(String),
           as_of_date_end: Date,
           as_of_date_start: Date,
-          direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
+          direction: ModernTreasury::TransactionDirection::OrSymbol,
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
-          status: ModernTreasury::Models::IncomingPaymentDetailListParams::Status::OrSymbol,
-          type: ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol,
+          status:
+            ModernTreasury::IncomingPaymentDetailListParams::Status::OrSymbol,
+          type: ModernTreasury::IncomingPaymentDetailListParams::Type::OrSymbol,
           virtual_account_id: String,
-          request_options: ModernTreasury::RequestOpts
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(
+          ModernTreasury::Internal::Page[ModernTreasury::IncomingPaymentDetail]
         )
-          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::IncomingPaymentDetail])
       end
       def list(
         after_cursor: nil,
@@ -67,22 +78,25 @@ module ModernTreasury
         # Account.
         virtual_account_id: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Simulate Incoming Payment Detail
       sig do
         params(
           amount: Integer,
           as_of_date: T.nilable(Date),
-          currency: T.nilable(ModernTreasury::Models::Currency::OrSymbol),
+          currency: T.nilable(ModernTreasury::Currency::OrSymbol),
           data: T.nilable(T.anything),
           description: T.nilable(String),
-          direction: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction::OrSymbol,
+          direction:
+            ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Direction::OrSymbol,
           internal_account_id: String,
-          type: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol,
+          type:
+            ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol,
           virtual_account_id: T.nilable(String),
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::AsyncResponse)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::AsyncResponse)
       end
       def create_async(
         # Value in specified currency's smallest unit. e.g. $10 would be represented
@@ -107,10 +121,13 @@ module ModernTreasury
         # account.
         virtual_account_id: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

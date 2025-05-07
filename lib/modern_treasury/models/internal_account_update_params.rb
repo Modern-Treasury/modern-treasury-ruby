@@ -47,7 +47,6 @@ module ModernTreasury
       #   @param ledger_account_id [String] The Ledger Account associated to this account.
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data in the form of key-value pairs. Pairs can be removed by passing
-      #   ...
       #
       #   @param name [String] The nickname for the internal account.
       #

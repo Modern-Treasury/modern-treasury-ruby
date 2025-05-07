@@ -19,7 +19,6 @@ module ModernTreasury
       #   {ModernTreasury::Models::LedgerEntryRetrieveParams} for more details.
       #
       #   @param show_balances [Boolean] If true, response will include the balances attached to the ledger entry. If the
-      #   ...
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end

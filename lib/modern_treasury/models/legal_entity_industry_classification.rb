@@ -17,9 +17,9 @@ module ModernTreasury
       # @!attribute classification_type
       #   The classification system of the classification codes.
       #
-      #   @return [Symbol, ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType]
+      #   @return [Symbol, ModernTreasury::LegalEntityIndustryClassification::ClassificationType]
       required :classification_type,
-               enum: -> { ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType }
+               enum: -> { ModernTreasury::LegalEntityIndustryClassification::ClassificationType }
 
       # @!attribute created_at
       #
@@ -50,20 +50,19 @@ module ModernTreasury
 
       # @!method initialize(id:, classification_codes:, classification_type:, created_at:, discarded_at:, live_mode:, object:, updated_at:)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::Models::LegalEntityIndustryClassification} for more details.
+      #   {ModernTreasury::LegalEntityIndustryClassification} for more details.
       #
       #   @param id [String]
       #
       #   @param classification_codes [Array<String>] The industry classification codes for the legal entity.
       #
-      #   @param classification_type [Symbol, ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType] The classification system of the classification codes.
+      #   @param classification_type [Symbol, ModernTreasury::LegalEntityIndustryClassification::ClassificationType] The classification system of the classification codes.
       #
       #   @param created_at [Time]
       #
       #   @param discarded_at [Time, nil]
       #
       #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
-      #   ...
       #
       #   @param object [String]
       #
@@ -71,7 +70,7 @@ module ModernTreasury
 
       # The classification system of the classification codes.
       #
-      # @see ModernTreasury::Models::LegalEntityIndustryClassification#classification_type
+      # @see ModernTreasury::LegalEntityIndustryClassification#classification_type
       module ClassificationType
         extend ModernTreasury::Internal::Type::Enum
 

@@ -21,8 +21,6 @@ module ModernTreasury
           transaction_id: String,
           ?request_options: ModernTreasury::request_opts
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::Transactions::line_item_create_params
       end
     end
   end

@@ -44,14 +44,12 @@ module ModernTreasury
       #   details.
       #
       #   @param id [Array<String>] If you have specific IDs to retrieve in bulk, you can pass them as query paramet
-      #   ...
       #
       #   @param after_cursor [String, nil]
       #
       #   @param ledger_account_id [String] Query the balance monitors for a single ledger account.
       #
       #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      #   ...
       #
       #   @param per_page [Integer]
       #

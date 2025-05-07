@@ -11,9 +11,8 @@ module ModernTreasury
           ledger_account_id: String,
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::LedgerAccountStatementCreateResponse)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::Models::LedgerAccountStatementCreateResponse)
       end
       def create(
         # The inclusive lower bound of the effective_at timestamp of the ledger entries to
@@ -31,20 +30,29 @@ module ModernTreasury
         # strings.
         metadata: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Get details on a single ledger account statement.
       sig do
-        params(id: String, request_options: ModernTreasury::RequestOpts)
-          .returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse)
+        params(
+          id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(
+          ModernTreasury::Models::LedgerAccountStatementRetrieveResponse
+        )
       end
       def retrieve(
         # id
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

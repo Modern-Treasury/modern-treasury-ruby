@@ -3,6 +3,9 @@
 module ModernTreasury
   module Models
     class CounterpartyCollectAccountResponse < ModernTreasury::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       # The id of the existing counterparty.
       sig { returns(String) }
       attr_accessor :id
@@ -19,7 +22,11 @@ module ModernTreasury
       sig { returns(T::Boolean) }
       attr_accessor :is_resend
 
-      sig { params(id: String, form_link: String, is_resend: T::Boolean).returns(T.attached_class) }
+      sig do
+        params(id: String, form_link: String, is_resend: T::Boolean).returns(
+          T.attached_class
+        )
+      end
       def self.new(
         # The id of the existing counterparty.
         id:,
@@ -31,9 +38,16 @@ module ModernTreasury
         # This field will be `true` if an email requesting account details has already
         # been sent to this counterparty.
         is_resend:
-      ); end
-      sig { override.returns({id: String, form_link: String, is_resend: T::Boolean}) }
-      def to_hash; end
+      )
+      end
+
+      sig do
+        override.returns(
+          { id: String, form_link: String, is_resend: T::Boolean }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

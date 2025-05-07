@@ -4,12 +4,19 @@ module ModernTreasury
   module Resources
     class Events
       # get event
-      sig { params(id: String, request_options: ModernTreasury::RequestOpts).returns(ModernTreasury::Models::Event) }
+      sig do
+        params(
+          id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::Event)
+      end
       def retrieve(
         # event id
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # list events
       sig do
         params(
@@ -20,9 +27,8 @@ module ModernTreasury
           event_time_start: Time,
           per_page: Integer,
           resource: String,
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::Event])
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::Internal::Page[ModernTreasury::Event])
       end
       def list(
         after_cursor: nil,
@@ -35,10 +41,13 @@ module ModernTreasury
         per_page: nil,
         resource: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

@@ -6,12 +6,15 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       # The ID for the `InternalAccount` this quote is associated with.
       sig { returns(String) }
       attr_accessor :internal_account_id
 
       # Currency to convert the `base_currency` to, often called the "buy" currency.
-      sig { returns(ModernTreasury::Models::Currency::OrSymbol) }
+      sig { returns(ModernTreasury::Currency::OrSymbol) }
       attr_accessor :target_currency
 
       # Amount in the lowest denomination of the `base_currency` to convert, often
@@ -23,10 +26,10 @@ module ModernTreasury
       attr_writer :base_amount
 
       # Currency to convert, often called the "sell" currency.
-      sig { returns(T.nilable(ModernTreasury::Models::Currency::OrSymbol)) }
+      sig { returns(T.nilable(ModernTreasury::Currency::OrSymbol)) }
       attr_reader :base_currency
 
-      sig { params(base_currency: ModernTreasury::Models::Currency::OrSymbol).void }
+      sig { params(base_currency: ModernTreasury::Currency::OrSymbol).void }
       attr_writer :base_currency
 
       # The timestamp until when the quoted rate is valid.
@@ -47,14 +50,13 @@ module ModernTreasury
       sig do
         params(
           internal_account_id: String,
-          target_currency: ModernTreasury::Models::Currency::OrSymbol,
+          target_currency: ModernTreasury::Currency::OrSymbol,
           base_amount: Integer,
-          base_currency: ModernTreasury::Models::Currency::OrSymbol,
+          base_currency: ModernTreasury::Currency::OrSymbol,
           effective_at: Time,
           target_amount: Integer,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         # The ID for the `InternalAccount` this quote is associated with.
@@ -72,22 +74,24 @@ module ModernTreasury
         # "buy" amount.
         target_amount: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              internal_account_id: String,
-              target_currency: ModernTreasury::Models::Currency::OrSymbol,
-              base_amount: Integer,
-              base_currency: ModernTreasury::Models::Currency::OrSymbol,
-              effective_at: Time,
-              target_amount: Integer,
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            internal_account_id: String,
+            target_currency: ModernTreasury::Currency::OrSymbol,
+            base_amount: Integer,
+            base_currency: ModernTreasury::Currency::OrSymbol,
+            effective_at: Time,
+            target_amount: Integer,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
     end
   end
 end

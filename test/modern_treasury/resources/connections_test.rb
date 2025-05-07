@@ -14,7 +14,7 @@ class ModernTreasury::Test::Resources::ConnectionsTest < ModernTreasury::Test::R
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Models::Connection
+      row => ModernTreasury::Connection
     end
 
     assert_pattern do

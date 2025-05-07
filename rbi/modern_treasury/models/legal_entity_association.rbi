@@ -3,18 +3,21 @@
 module ModernTreasury
   module Models
     class LegalEntityAssociation < ModernTreasury::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       sig { returns(String) }
       attr_accessor :id
 
       # The child legal entity.
-      sig { returns(ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity) }
+      sig { returns(ModernTreasury::LegalEntityAssociation::ChildLegalEntity) }
       attr_reader :child_legal_entity
 
       sig do
         params(
-          child_legal_entity: T.any(ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity, ModernTreasury::Internal::AnyHash)
-        )
-          .void
+          child_legal_entity:
+            ModernTreasury::LegalEntityAssociation::ChildLegalEntity::OrHash
+        ).void
       end
       attr_writer :child_legal_entity
 
@@ -41,7 +44,13 @@ module ModernTreasury
       sig { returns(String) }
       attr_accessor :parent_legal_entity_id
 
-      sig { returns(T::Array[ModernTreasury::Models::LegalEntityAssociation::RelationshipType::TaggedSymbol]) }
+      sig do
+        returns(
+          T::Array[
+            ModernTreasury::LegalEntityAssociation::RelationshipType::TaggedSymbol
+          ]
+        )
+      end
       attr_accessor :relationship_types
 
       # The job title of the child entity at the parent entity.
@@ -54,18 +63,21 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          child_legal_entity: T.any(ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity, ModernTreasury::Internal::AnyHash),
+          child_legal_entity:
+            ModernTreasury::LegalEntityAssociation::ChildLegalEntity::OrHash,
           created_at: Time,
           discarded_at: T.nilable(Time),
           live_mode: T::Boolean,
           object: String,
           ownership_percentage: T.nilable(Integer),
           parent_legal_entity_id: String,
-          relationship_types: T::Array[ModernTreasury::Models::LegalEntityAssociation::RelationshipType::OrSymbol],
+          relationship_types:
+            T::Array[
+              ModernTreasury::LegalEntityAssociation::RelationshipType::OrSymbol
+            ],
           title: T.nilable(String),
           updated_at: Time
-        )
-          .returns(T.attached_class)
+        ).returns(T.attached_class)
       end
       def self.new(
         id:,
@@ -86,43 +98,57 @@ module ModernTreasury
         # The job title of the child entity at the parent entity.
         title:,
         updated_at:
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: String,
-              child_legal_entity: ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity,
-              created_at: Time,
-              discarded_at: T.nilable(Time),
-              live_mode: T::Boolean,
-              object: String,
-              ownership_percentage: T.nilable(Integer),
-              parent_legal_entity_id: String,
-              relationship_types: T::Array[ModernTreasury::Models::LegalEntityAssociation::RelationshipType::TaggedSymbol],
-              title: T.nilable(String),
-              updated_at: Time
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            child_legal_entity:
+              ModernTreasury::LegalEntityAssociation::ChildLegalEntity,
+            created_at: Time,
+            discarded_at: T.nilable(Time),
+            live_mode: T::Boolean,
+            object: String,
+            ownership_percentage: T.nilable(Integer),
+            parent_legal_entity_id: String,
+            relationship_types:
+              T::Array[
+                ModernTreasury::LegalEntityAssociation::RelationshipType::TaggedSymbol
+              ],
+            title: T.nilable(String),
+            updated_at: Time
+          }
+        )
+      end
+      def to_hash
+      end
 
       class ChildLegalEntity < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         sig { returns(String) }
         attr_accessor :id
 
         # A list of addresses for the entity.
-        sig { returns(T::Array[ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address]) }
+        sig do
+          returns(
+            T::Array[
+              ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Address
+            ]
+          )
+        end
         attr_accessor :addresses
 
-        sig { returns(T.nilable(ModernTreasury::Models::BankSettings)) }
+        sig { returns(T.nilable(ModernTreasury::BankSettings)) }
         attr_reader :bank_settings
 
         sig do
           params(
-            bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Internal::AnyHash))
-          )
-            .void
+            bank_settings: T.nilable(ModernTreasury::BankSettings::OrHash)
+          ).void
         end
         attr_writer :bank_settings
 
@@ -134,14 +160,14 @@ module ModernTreasury
         sig { returns(T.nilable(String)) }
         attr_accessor :citizenship_country
 
-        sig { returns(T.nilable(ModernTreasury::Models::LegalEntityComplianceDetail)) }
+        sig { returns(T.nilable(ModernTreasury::LegalEntityComplianceDetail)) }
         attr_reader :compliance_details
 
         sig do
           params(
-            compliance_details: T.nilable(T.any(ModernTreasury::Models::LegalEntityComplianceDetail, ModernTreasury::Internal::AnyHash))
-          )
-            .void
+            compliance_details:
+              T.nilable(ModernTreasury::LegalEntityComplianceDetail::OrHash)
+          ).void
         end
         attr_writer :compliance_details
 
@@ -171,11 +197,19 @@ module ModernTreasury
         attr_accessor :first_name
 
         # A list of identifications for the legal entity.
-        sig { returns(T::Array[ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification]) }
+        sig do
+          returns(
+            T::Array[
+              ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification
+            ]
+          )
+        end
         attr_accessor :identifications
 
         # A list of industry classifications for the legal entity.
-        sig { returns(T::Array[ModernTreasury::Models::LegalEntityIndustryClassification]) }
+        sig do
+          returns(T::Array[ModernTreasury::LegalEntityIndustryClassification])
+        end
         attr_accessor :industry_classifications
 
         # An individual's last name.
@@ -183,13 +217,19 @@ module ModernTreasury
         attr_accessor :last_name
 
         # The type of legal entity.
-        sig { returns(ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::TaggedSymbol) }
+        sig do
+          returns(
+            ModernTreasury::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::TaggedSymbol
+          )
+        end
         attr_accessor :legal_entity_type
 
         # The business's legal structure.
         sig do
           returns(
-            T.nilable(ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol)
+            T.nilable(
+              ModernTreasury::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
+            )
           )
         end
         attr_accessor :legal_structure
@@ -211,7 +251,13 @@ module ModernTreasury
         sig { returns(String) }
         attr_accessor :object
 
-        sig { returns(T::Array[ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::PhoneNumber]) }
+        sig do
+          returns(
+            T::Array[
+              ModernTreasury::LegalEntityAssociation::ChildLegalEntity::PhoneNumber
+            ]
+          )
+        end
         attr_accessor :phone_numbers
 
         # Whether the individual is a politically exposed person.
@@ -229,7 +275,9 @@ module ModernTreasury
         # The risk rating of the legal entity. One of low, medium, high.
         sig do
           returns(
-            T.nilable(ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol)
+            T.nilable(
+              ModernTreasury::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol
+            )
           )
         end
         attr_accessor :risk_rating
@@ -241,14 +289,14 @@ module ModernTreasury
         sig { returns(Time) }
         attr_accessor :updated_at
 
-        sig { returns(T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails)) }
+        sig { returns(T.nilable(ModernTreasury::WealthAndEmploymentDetails)) }
         attr_reader :wealth_and_employment_details
 
         sig do
           params(
-            wealth_and_employment_details: T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Internal::AnyHash))
-          )
-            .void
+            wealth_and_employment_details:
+              T.nilable(ModernTreasury::WealthAndEmploymentDetails::OrHash)
+          ).void
         end
         attr_writer :wealth_and_employment_details
 
@@ -260,16 +308,15 @@ module ModernTreasury
         sig do
           params(
             id: String,
-            addresses: T::Array[
-              T.any(
-                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address,
-                ModernTreasury::Internal::AnyHash
-              )
-            ],
-            bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Internal::AnyHash)),
+            addresses:
+              T::Array[
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Address::OrHash
+              ],
+            bank_settings: T.nilable(ModernTreasury::BankSettings::OrHash),
             business_name: T.nilable(String),
             citizenship_country: T.nilable(String),
-            compliance_details: T.nilable(T.any(ModernTreasury::Models::LegalEntityComplianceDetail, ModernTreasury::Internal::AnyHash)),
+            compliance_details:
+              T.nilable(ModernTreasury::LegalEntityComplianceDetail::OrHash),
             created_at: Time,
             date_formed: T.nilable(Date),
             date_of_birth: T.nilable(Date),
@@ -277,36 +324,42 @@ module ModernTreasury
             doing_business_as_names: T::Array[String],
             email: T.nilable(String),
             first_name: T.nilable(String),
-            identifications: T::Array[
-              T.any(
-                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification,
-                ModernTreasury::Internal::AnyHash
-              )
-            ],
-            industry_classifications: T::Array[T.any(ModernTreasury::Models::LegalEntityIndustryClassification, ModernTreasury::Internal::AnyHash)],
+            identifications:
+              T::Array[
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification::OrHash
+              ],
+            industry_classifications:
+              T::Array[
+                ModernTreasury::LegalEntityIndustryClassification::OrHash
+              ],
             last_name: T.nilable(String),
-            legal_entity_type: ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::OrSymbol,
-            legal_structure: T.nilable(ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalStructure::OrSymbol),
+            legal_entity_type:
+              ModernTreasury::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::OrSymbol,
+            legal_structure:
+              T.nilable(
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::LegalStructure::OrSymbol
+              ),
             live_mode: T::Boolean,
             metadata: T::Hash[Symbol, String],
             middle_name: T.nilable(String),
             object: String,
-            phone_numbers: T::Array[
-              T.any(
-                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::PhoneNumber,
-                ModernTreasury::Internal::AnyHash
-              )
-            ],
+            phone_numbers:
+              T::Array[
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::PhoneNumber::OrHash
+              ],
             politically_exposed_person: T.nilable(T::Boolean),
             preferred_name: T.nilable(String),
             prefix: T.nilable(String),
-            risk_rating: T.nilable(ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::RiskRating::OrSymbol),
+            risk_rating:
+              T.nilable(
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::RiskRating::OrSymbol
+              ),
             suffix: T.nilable(String),
             updated_at: Time,
-            wealth_and_employment_details: T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Internal::AnyHash)),
+            wealth_and_employment_details:
+              T.nilable(ModernTreasury::WealthAndEmploymentDetails::OrHash),
             website: T.nilable(String)
-          )
-            .returns(T.attached_class)
+          ).returns(T.attached_class)
         end
         def self.new(
           id:,
@@ -363,55 +416,83 @@ module ModernTreasury
           wealth_and_employment_details:,
           # The entity's primary website URL.
           website:
-        ); end
-        sig do
-          override
-            .returns(
-              {
-                id: String,
-                addresses: T::Array[ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address],
-                bank_settings: T.nilable(ModernTreasury::Models::BankSettings),
-                business_name: T.nilable(String),
-                citizenship_country: T.nilable(String),
-                compliance_details: T.nilable(ModernTreasury::Models::LegalEntityComplianceDetail),
-                created_at: Time,
-                date_formed: T.nilable(Date),
-                date_of_birth: T.nilable(Date),
-                discarded_at: T.nilable(Time),
-                doing_business_as_names: T::Array[String],
-                email: T.nilable(String),
-                first_name: T.nilable(String),
-                identifications: T::Array[ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification],
-                industry_classifications: T::Array[ModernTreasury::Models::LegalEntityIndustryClassification],
-                last_name: T.nilable(String),
-                legal_entity_type: ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::TaggedSymbol,
-                legal_structure: T.nilable(ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol),
-                live_mode: T::Boolean,
-                metadata: T::Hash[Symbol, String],
-                middle_name: T.nilable(String),
-                object: String,
-                phone_numbers: T::Array[ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::PhoneNumber],
-                politically_exposed_person: T.nilable(T::Boolean),
-                preferred_name: T.nilable(String),
-                prefix: T.nilable(String),
-                risk_rating: T.nilable(ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol),
-                suffix: T.nilable(String),
-                updated_at: Time,
-                wealth_and_employment_details: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails),
-                website: T.nilable(String)
-              }
-            )
+        )
         end
-        def to_hash; end
+
+        sig do
+          override.returns(
+            {
+              id: String,
+              addresses:
+                T::Array[
+                  ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Address
+                ],
+              bank_settings: T.nilable(ModernTreasury::BankSettings),
+              business_name: T.nilable(String),
+              citizenship_country: T.nilable(String),
+              compliance_details:
+                T.nilable(ModernTreasury::LegalEntityComplianceDetail),
+              created_at: Time,
+              date_formed: T.nilable(Date),
+              date_of_birth: T.nilable(Date),
+              discarded_at: T.nilable(Time),
+              doing_business_as_names: T::Array[String],
+              email: T.nilable(String),
+              first_name: T.nilable(String),
+              identifications:
+                T::Array[
+                  ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification
+                ],
+              industry_classifications:
+                T::Array[ModernTreasury::LegalEntityIndustryClassification],
+              last_name: T.nilable(String),
+              legal_entity_type:
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::TaggedSymbol,
+              legal_structure:
+                T.nilable(
+                  ModernTreasury::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
+                ),
+              live_mode: T::Boolean,
+              metadata: T::Hash[Symbol, String],
+              middle_name: T.nilable(String),
+              object: String,
+              phone_numbers:
+                T::Array[
+                  ModernTreasury::LegalEntityAssociation::ChildLegalEntity::PhoneNumber
+                ],
+              politically_exposed_person: T.nilable(T::Boolean),
+              preferred_name: T.nilable(String),
+              prefix: T.nilable(String),
+              risk_rating:
+                T.nilable(
+                  ModernTreasury::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol
+                ),
+              suffix: T.nilable(String),
+              updated_at: Time,
+              wealth_and_employment_details:
+                T.nilable(ModernTreasury::WealthAndEmploymentDetails),
+              website: T.nilable(String)
+            }
+          )
+        end
+        def to_hash
+        end
 
         class Address < ModernTreasury::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+            end
+
           sig { returns(String) }
           attr_accessor :id
 
           # The types of this address.
           sig do
             returns(
-              T::Array[ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol]
+              T::Array[
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
+              ]
             )
           end
           attr_accessor :address_types
@@ -458,7 +539,10 @@ module ModernTreasury
           sig do
             params(
               id: String,
-              address_types: T::Array[ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::OrSymbol],
+              address_types:
+                T::Array[
+                  ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::OrSymbol
+                ],
               country: T.nilable(String),
               created_at: Time,
               discarded_at: T.nilable(Time),
@@ -470,8 +554,7 @@ module ModernTreasury
               postal_code: T.nilable(String),
               region: T.nilable(String),
               updated_at: Time
-            )
-              .returns(T.attached_class)
+            ).returns(T.attached_class)
           end
           def self.new(
             id:,
@@ -494,73 +577,90 @@ module ModernTreasury
             # Region or State.
             region:,
             updated_at:
-          ); end
-          sig do
-            override
-              .returns(
-                {
-                  id: String,
-                  address_types: T::Array[ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol],
-                  country: T.nilable(String),
-                  created_at: Time,
-                  discarded_at: T.nilable(Time),
-                  line1: T.nilable(String),
-                  line2: T.nilable(String),
-                  live_mode: T::Boolean,
-                  locality: T.nilable(String),
-                  object: String,
-                  postal_code: T.nilable(String),
-                  region: T.nilable(String),
-                  updated_at: Time
-                }
-              )
+          )
           end
-          def to_hash; end
+
+          sig do
+            override.returns(
+              {
+                id: String,
+                address_types:
+                  T::Array[
+                    ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
+                  ],
+                country: T.nilable(String),
+                created_at: Time,
+                discarded_at: T.nilable(Time),
+                line1: T.nilable(String),
+                line2: T.nilable(String),
+                live_mode: T::Boolean,
+                locality: T.nilable(String),
+                object: String,
+                postal_code: T.nilable(String),
+                region: T.nilable(String),
+                updated_at: Time
+              }
+            )
+          end
+          def to_hash
+          end
 
           module AddressType
             extend ModernTreasury::Internal::Type::Enum
 
             TaggedSymbol =
-              T.type_alias { T.all(Symbol, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address::AddressType) }
+              T.type_alias do
+                T.all(
+                  Symbol,
+                  ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Address::AddressType
+                )
+              end
             OrSymbol = T.type_alias { T.any(Symbol, String) }
 
             BUSINESS =
               T.let(
                 :business,
-                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
               )
             MAILING =
               T.let(
                 :mailing,
-                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
               )
             OTHER =
               T.let(
                 :other,
-                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
               )
             PO_BOX =
               T.let(
                 :po_box,
-                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
               )
             RESIDENTIAL =
               T.let(
                 :residential,
-                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
               )
 
             sig do
-              override
-                .returns(
-                  T::Array[ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol]
-                )
+              override.returns(
+                T::Array[
+                  ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
+                ]
+              )
             end
-            def self.values; end
+            def self.values
+            end
           end
         end
 
         class Identification < ModernTreasury::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+            end
+
           sig { returns(String) }
           attr_accessor :id
 
@@ -573,7 +673,7 @@ module ModernTreasury
           # The type of ID number.
           sig do
             returns(
-              ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
+              ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
             )
           end
           attr_accessor :id_type
@@ -599,13 +699,13 @@ module ModernTreasury
               id: String,
               created_at: Time,
               discarded_at: T.nilable(Time),
-              id_type: ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol,
+              id_type:
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol,
               issuing_country: T.nilable(String),
               live_mode: T::Boolean,
               object: String,
               updated_at: Time
-            )
-              .returns(T.attached_class)
+            ).returns(T.attached_class)
           end
           def self.new(
             id:,
@@ -621,145 +721,155 @@ module ModernTreasury
             live_mode:,
             object:,
             updated_at:
-          ); end
-          sig do
-            override
-              .returns(
-                {
-                  id: String,
-                  created_at: Time,
-                  discarded_at: T.nilable(Time),
-                  id_type: ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol,
-                  issuing_country: T.nilable(String),
-                  live_mode: T::Boolean,
-                  object: String,
-                  updated_at: Time
-                }
-              )
+          )
           end
-          def to_hash; end
+
+          sig do
+            override.returns(
+              {
+                id: String,
+                created_at: Time,
+                discarded_at: T.nilable(Time),
+                id_type:
+                  ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol,
+                issuing_country: T.nilable(String),
+                live_mode: T::Boolean,
+                object: String,
+                updated_at: Time
+              }
+            )
+          end
+          def to_hash
+          end
 
           # The type of ID number.
           module IDType
             extend ModernTreasury::Internal::Type::Enum
 
             TaggedSymbol =
-              T.type_alias { T.all(Symbol, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType) }
+              T.type_alias do
+                T.all(
+                  Symbol,
+                  ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification::IDType
+                )
+              end
             OrSymbol = T.type_alias { T.any(Symbol, String) }
 
             AR_CUIL =
               T.let(
                 :ar_cuil,
-                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
               )
             AR_CUIT =
               T.let(
                 :ar_cuit,
-                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
               )
             BR_CNPJ =
               T.let(
                 :br_cnpj,
-                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
               )
             BR_CPF =
               T.let(
                 :br_cpf,
-                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
               )
             CL_RUN =
               T.let(
                 :cl_run,
-                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
               )
             CL_RUT =
               T.let(
                 :cl_rut,
-                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
               )
             CO_CEDULAS =
               T.let(
                 :co_cedulas,
-                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
               )
             CO_NIT =
               T.let(
                 :co_nit,
-                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
               )
             HN_ID =
               T.let(
                 :hn_id,
-                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
               )
             HN_RTN =
               T.let(
                 :hn_rtn,
-                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
               )
             IN_LEI =
               T.let(
                 :in_lei,
-                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
               )
             KR_BRN =
               T.let(
                 :kr_brn,
-                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
               )
             KR_CRN =
               T.let(
                 :kr_crn,
-                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
               )
             KR_RRN =
               T.let(
                 :kr_rrn,
-                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
               )
             PASSPORT =
               T.let(
                 :passport,
-                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
               )
             SA_TIN =
               T.let(
                 :sa_tin,
-                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
               )
             SA_VAT =
               T.let(
                 :sa_vat,
-                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
               )
             US_EIN =
               T.let(
                 :us_ein,
-                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
               )
             US_ITIN =
               T.let(
                 :us_itin,
-                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
               )
             US_SSN =
               T.let(
                 :us_ssn,
-                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
               )
             VN_TIN =
               T.let(
                 :vn_tin,
-                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
               )
 
             sig do
-              override
-                .returns(
-                  T::Array[ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol]
-                )
+              override.returns(
+                T::Array[
+                  ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
+                ]
+              )
             end
-            def self.values; end
+            def self.values
+            end
           end
         end
 
@@ -768,32 +878,39 @@ module ModernTreasury
           extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
-            T.type_alias { T.all(Symbol, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalEntityType) }
+            T.type_alias do
+              T.all(
+                Symbol,
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::LegalEntityType
+              )
+            end
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           BUSINESS =
             T.let(
               :business,
-              ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::TaggedSymbol
+              ModernTreasury::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::TaggedSymbol
             )
           INDIVIDUAL =
             T.let(
               :individual,
-              ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::TaggedSymbol
+              ModernTreasury::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::TaggedSymbol
             )
           JOINT =
             T.let(
               :joint,
-              ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::TaggedSymbol
+              ModernTreasury::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::TaggedSymbol
             )
 
           sig do
-            override
-              .returns(
-                T::Array[ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::TaggedSymbol]
-              )
+            override.returns(
+              T::Array[
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::TaggedSymbol
+              ]
+            )
           end
-          def self.values; end
+          def self.values
+          end
         end
 
         # The business's legal structure.
@@ -801,50 +918,62 @@ module ModernTreasury
           extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
-            T.type_alias { T.all(Symbol, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalStructure) }
+            T.type_alias do
+              T.all(
+                Symbol,
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::LegalStructure
+              )
+            end
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           CORPORATION =
             T.let(
               :corporation,
-              ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
+              ModernTreasury::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
             )
           LLC =
             T.let(
               :llc,
-              ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
+              ModernTreasury::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
             )
           NON_PROFIT =
             T.let(
               :non_profit,
-              ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
+              ModernTreasury::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
             )
           PARTNERSHIP =
             T.let(
               :partnership,
-              ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
+              ModernTreasury::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
             )
           SOLE_PROPRIETORSHIP =
             T.let(
               :sole_proprietorship,
-              ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
+              ModernTreasury::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
             )
           TRUST =
             T.let(
               :trust,
-              ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
+              ModernTreasury::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
             )
 
           sig do
-            override
-              .returns(
-                T::Array[ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol]
-              )
+            override.returns(
+              T::Array[
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
+              ]
+            )
           end
-          def self.values; end
+          def self.values
+          end
         end
 
         class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+            end
+
           sig { returns(T.nilable(String)) }
           attr_reader :phone_number
 
@@ -853,10 +982,12 @@ module ModernTreasury
 
           # A list of phone numbers in E.164 format.
           sig { params(phone_number: String).returns(T.attached_class) }
-          def self.new(phone_number: nil); end
+          def self.new(phone_number: nil)
+          end
 
-          sig { override.returns({phone_number: String}) }
-          def to_hash; end
+          sig { override.returns({ phone_number: String }) }
+          def to_hash
+          end
         end
 
         # The risk rating of the legal entity. One of low, medium, high.
@@ -864,23 +995,39 @@ module ModernTreasury
           extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
-            T.type_alias { T.all(Symbol, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::RiskRating) }
+            T.type_alias do
+              T.all(
+                Symbol,
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::RiskRating
+              )
+            end
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
           LOW =
-            T.let(:low, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol)
+            T.let(
+              :low,
+              ModernTreasury::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol
+            )
           MEDIUM =
-            T.let(:medium, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol)
+            T.let(
+              :medium,
+              ModernTreasury::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol
+            )
           HIGH =
-            T.let(:high, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol)
+            T.let(
+              :high,
+              ModernTreasury::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol
+            )
 
           sig do
-            override
-              .returns(
-                T::Array[ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol]
-              )
+            override.returns(
+              T::Array[
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol
+              ]
+            )
           end
-          def self.values; end
+          def self.values
+          end
         end
       end
 
@@ -889,16 +1036,34 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
-          T.type_alias { T.all(Symbol, ModernTreasury::Models::LegalEntityAssociation::RelationshipType) }
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::LegalEntityAssociation::RelationshipType
+            )
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         BENEFICIAL_OWNER =
-          T.let(:beneficial_owner, ModernTreasury::Models::LegalEntityAssociation::RelationshipType::TaggedSymbol)
+          T.let(
+            :beneficial_owner,
+            ModernTreasury::LegalEntityAssociation::RelationshipType::TaggedSymbol
+          )
         CONTROL_PERSON =
-          T.let(:control_person, ModernTreasury::Models::LegalEntityAssociation::RelationshipType::TaggedSymbol)
+          T.let(
+            :control_person,
+            ModernTreasury::LegalEntityAssociation::RelationshipType::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::LegalEntityAssociation::RelationshipType::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::LegalEntityAssociation::RelationshipType::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
     end
   end

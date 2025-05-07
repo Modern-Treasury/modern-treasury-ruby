@@ -47,7 +47,6 @@ module ModernTreasury
       #   @param deposit_date_start [Date] Specify an inclusive start date (YYYY-MM-DD) when filtering by deposit_date
       #
       #   @param lockbox_number [String] Specify `lockbox_number` if you wish to see paper items that are associated with
-      #   ...
       #
       #   @param per_page [Integer]
       #

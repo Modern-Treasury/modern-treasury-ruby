@@ -54,12 +54,10 @@ module ModernTreasury
       #   @param legal_entity_id [String, nil] The id of the legal entity.
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data in the form of key-value pairs. Pairs can be removed by passing
-      #   ...
       #
       #   @param name [String] A new name for the counterparty. Will only update if passed.
       #
       #   @param send_remittance_advice [Boolean] If this is `true`, Modern Treasury will send an email to the counterparty whenev
-      #   ...
       #
       #   @param taxpayer_identifier [String] Either a valid SSN or EIN.
       #

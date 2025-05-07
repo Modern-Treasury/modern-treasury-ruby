@@ -2,7 +2,7 @@ module ModernTreasury
   module Models
     type ledger_account_category_retrieve_params =
       {
-        balances: ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances
+        balances: ModernTreasury::LedgerAccountCategoryRetrieveParams::Balances
       }
       & ModernTreasury::Internal::Type::request_parameters
 
@@ -10,18 +10,16 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
-      attr_reader balances: ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances?
+      attr_reader balances: ModernTreasury::LedgerAccountCategoryRetrieveParams::Balances?
 
       def balances=: (
-        ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances
-      ) -> ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances
+        ModernTreasury::LedgerAccountCategoryRetrieveParams::Balances
+      ) -> ModernTreasury::LedgerAccountCategoryRetrieveParams::Balances
 
       def initialize: (
-        ?balances: ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances,
+        ?balances: ModernTreasury::LedgerAccountCategoryRetrieveParams::Balances,
         ?request_options: ModernTreasury::request_opts
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::ledger_account_category_retrieve_params
 
       type balances = { as_of_date: Date, effective_at: Time }
 
@@ -35,8 +33,6 @@ module ModernTreasury
         def effective_at=: (Time) -> Time
 
         def initialize: (?as_of_date: Date, ?effective_at: Time) -> void
-
-        def to_hash: -> ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::balances
       end
     end
   end

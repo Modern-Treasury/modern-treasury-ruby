@@ -42,8 +42,6 @@ module ModernTreasury
         ?parent_account_id: String,
         ?request_options: ModernTreasury::request_opts
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::internal_account_update_params
     end
   end
 end

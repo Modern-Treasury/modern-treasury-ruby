@@ -14,7 +14,6 @@ module ModernTreasury
       # @overload create(amount:, as_of_date:, direction:, internal_account_id:, vendor_code:, vendor_code_type:, metadata: nil, posted: nil, type: nil, vendor_description: nil, request_options: {})
       #
       # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
-      # ...
       #
       # @param as_of_date [Date, nil] The date on which the transaction occurred.
       #
@@ -23,34 +22,29 @@ module ModernTreasury
       # @param internal_account_id [String] The ID of the relevant Internal Account.
       #
       # @param vendor_code [String, nil] When applicable, the bank-given code that determines the transaction's category.
-      # ...
       #
       # @param vendor_code_type [String, nil] The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`, `bnk
-      # ...
       #
       # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-      # ...
       #
       # @param posted [Boolean] This field will be `true` if the transaction has posted to the account.
       #
-      # @param type [Symbol, ModernTreasury::Models::TransactionCreateParams::Type, nil] The type of the transaction. Examples could be `card, `ach`, `wire`, `check`, `r
-      # ...
+      # @param type [Symbol, ModernTreasury::TransactionCreateParams::Type, nil] The type of the transaction. Examples could be `card, `ach`, `wire`, `check`, `r
       #
       # @param vendor_description [String, nil] The transaction detail text that often appears in on your bank statement and in
-      # ...
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::Transaction]
+      # @return [ModernTreasury::Transaction]
       #
       # @see ModernTreasury::Models::TransactionCreateParams
       def create(params)
-        parsed, options = ModernTreasury::Models::TransactionCreateParams.dump_request(params)
+        parsed, options = ModernTreasury::TransactionCreateParams.dump_request(params)
         @client.request(
           method: :post,
           path: "api/transactions",
           body: parsed,
-          model: ModernTreasury::Models::Transaction,
+          model: ModernTreasury::Transaction,
           options: options
         )
       end
@@ -63,14 +57,14 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::Transaction]
+      # @return [ModernTreasury::Transaction]
       #
       # @see ModernTreasury::Models::TransactionRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
           path: ["api/transactions/%1$s", id],
-          model: ModernTreasury::Models::Transaction,
+          model: ModernTreasury::Transaction,
           options: params[:request_options]
         )
       end
@@ -85,20 +79,19 @@ module ModernTreasury
       # @param id [String] Transaction ID
       #
       # @param metadata [Hash{Symbol=>String}] Additional data in the form of key-value pairs. Pairs can be removed by passing
-      # ...
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::Transaction]
+      # @return [ModernTreasury::Transaction]
       #
       # @see ModernTreasury::Models::TransactionUpdateParams
       def update(id, params = {})
-        parsed, options = ModernTreasury::Models::TransactionUpdateParams.dump_request(params)
+        parsed, options = ModernTreasury::TransactionUpdateParams.dump_request(params)
         @client.request(
           method: :patch,
           path: ["api/transactions/%1$s", id],
           body: parsed,
-          model: ModernTreasury::Models::Transaction,
+          model: ModernTreasury::Transaction,
           options: options
         )
       end
@@ -113,10 +106,8 @@ module ModernTreasury
       # @param after_cursor [String, nil]
       #
       # @param as_of_date_end [Date] Filters transactions with an `as_of_date` starting on or before the specified da
-      # ...
       #
       # @param as_of_date_start [Date] Filters transactions with an `as_of_date` starting on or after the specified dat
-      # ...
       #
       # @param counterparty_id [String]
       #
@@ -125,10 +116,8 @@ module ModernTreasury
       # @param direction [String]
       #
       # @param internal_account_id [String] Specify `internal_account_id` if you wish to see transactions to/from a specific
-      # ...
       #
       # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      # ...
       #
       # @param payment_type [String]
       #
@@ -139,23 +128,22 @@ module ModernTreasury
       # @param transactable_type [String]
       #
       # @param vendor_id [String] Filters for transactions including the queried vendor id (an identifier given to
-      # ...
       #
       # @param virtual_account_id [String]
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::Transaction>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Transaction>]
       #
       # @see ModernTreasury::Models::TransactionListParams
       def list(params = {})
-        parsed, options = ModernTreasury::Models::TransactionListParams.dump_request(params)
+        parsed, options = ModernTreasury::TransactionListParams.dump_request(params)
         @client.request(
           method: :get,
           path: "api/transactions",
           query: parsed,
           page: ModernTreasury::Internal::Page,
-          model: ModernTreasury::Models::Transaction,
+          model: ModernTreasury::Transaction,
           options: options
         )
       end

@@ -12,21 +12,20 @@ module ModernTreasury
       # @!attribute account_details
       #   An array of account detail objects.
       #
-      #   @return [Array<ModernTreasury::Models::AccountDetail>]
-      required :account_details,
-               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::AccountDetail] }
+      #   @return [Array<ModernTreasury::AccountDetail>]
+      required :account_details, -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail] }
 
       # @!attribute account_type
       #   Can be checking, savings or other.
       #
-      #   @return [Symbol, ModernTreasury::Models::InternalAccount::AccountType, nil]
-      required :account_type, enum: -> { ModernTreasury::Models::InternalAccount::AccountType }, nil?: true
+      #   @return [Symbol, ModernTreasury::InternalAccount::AccountType, nil]
+      required :account_type, enum: -> { ModernTreasury::InternalAccount::AccountType }, nil?: true
 
       # @!attribute connection
       #   Specifies which financial institution the accounts belong to.
       #
-      #   @return [ModernTreasury::Models::Connection]
-      required :connection, -> { ModernTreasury::Models::Connection }
+      #   @return [ModernTreasury::Connection]
+      required :connection, -> { ModernTreasury::Connection }
 
       # @!attribute counterparty_id
       #   The Counterparty associated to this account.
@@ -42,8 +41,8 @@ module ModernTreasury
       # @!attribute currency
       #   The currency of the account.
       #
-      #   @return [Symbol, ModernTreasury::Models::Currency]
-      required :currency, enum: -> { ModernTreasury::Models::Currency }
+      #   @return [Symbol, ModernTreasury::Currency]
+      required :currency, enum: -> { ModernTreasury::Currency }
 
       # @!attribute ledger_account_id
       #   If the internal account links to a ledger account in Modern Treasury, the id of
@@ -92,8 +91,8 @@ module ModernTreasury
       # @!attribute party_address
       #   The address associated with the owner or null.
       #
-      #   @return [ModernTreasury::Models::InternalAccount::PartyAddress, nil]
-      required :party_address, -> { ModernTreasury::Models::InternalAccount::PartyAddress }, nil?: true
+      #   @return [ModernTreasury::InternalAccount::PartyAddress, nil]
+      required :party_address, -> { ModernTreasury::InternalAccount::PartyAddress }, nil?: true
 
       # @!attribute party_name
       #   The legal name of the entity which owns the account.
@@ -104,15 +103,14 @@ module ModernTreasury
       # @!attribute party_type
       #   Either individual or business.
       #
-      #   @return [Symbol, ModernTreasury::Models::InternalAccount::PartyType, nil]
-      required :party_type, enum: -> { ModernTreasury::Models::InternalAccount::PartyType }, nil?: true
+      #   @return [Symbol, ModernTreasury::InternalAccount::PartyType, nil]
+      required :party_type, enum: -> { ModernTreasury::InternalAccount::PartyType }, nil?: true
 
       # @!attribute routing_details
       #   An array of routing detail objects.
       #
-      #   @return [Array<ModernTreasury::Models::RoutingDetail>]
-      required :routing_details,
-               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::RoutingDetail] }
+      #   @return [Array<ModernTreasury::RoutingDetail>]
+      required :routing_details, -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail] }
 
       # @!attribute updated_at
       #
@@ -121,32 +119,29 @@ module ModernTreasury
 
       # @!method initialize(id:, account_details:, account_type:, connection:, counterparty_id:, created_at:, currency:, ledger_account_id:, legal_entity_id:, live_mode:, metadata:, name:, object:, parent_account_id:, party_address:, party_name:, party_type:, routing_details:, updated_at:)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::Models::InternalAccount} for more details.
+      #   {ModernTreasury::InternalAccount} for more details.
       #
       #   @param id [String]
       #
-      #   @param account_details [Array<ModernTreasury::Models::AccountDetail>] An array of account detail objects.
+      #   @param account_details [Array<ModernTreasury::AccountDetail>] An array of account detail objects.
       #
-      #   @param account_type [Symbol, ModernTreasury::Models::InternalAccount::AccountType, nil] Can be checking, savings or other.
+      #   @param account_type [Symbol, ModernTreasury::InternalAccount::AccountType, nil] Can be checking, savings or other.
       #
-      #   @param connection [ModernTreasury::Models::Connection] Specifies which financial institution the accounts belong to.
+      #   @param connection [ModernTreasury::Connection] Specifies which financial institution the accounts belong to.
       #
       #   @param counterparty_id [String, nil] The Counterparty associated to this account.
       #
       #   @param created_at [Time]
       #
-      #   @param currency [Symbol, ModernTreasury::Models::Currency] The currency of the account.
+      #   @param currency [Symbol, ModernTreasury::Currency] The currency of the account.
       #
       #   @param ledger_account_id [String, nil] If the internal account links to a ledger account in Modern Treasury, the id of
-      #   ...
       #
       #   @param legal_entity_id [String, nil] The Legal Entity associated to this account
       #
       #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
-      #   ...
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-      #   ...
       #
       #   @param name [String, nil] A nickname for the account.
       #
@@ -154,19 +149,19 @@ module ModernTreasury
       #
       #   @param parent_account_id [String, nil] The parent InternalAccount of this account.
       #
-      #   @param party_address [ModernTreasury::Models::InternalAccount::PartyAddress, nil] The address associated with the owner or null.
+      #   @param party_address [ModernTreasury::InternalAccount::PartyAddress, nil] The address associated with the owner or null.
       #
       #   @param party_name [String] The legal name of the entity which owns the account.
       #
-      #   @param party_type [Symbol, ModernTreasury::Models::InternalAccount::PartyType, nil] Either individual or business.
+      #   @param party_type [Symbol, ModernTreasury::InternalAccount::PartyType, nil] Either individual or business.
       #
-      #   @param routing_details [Array<ModernTreasury::Models::RoutingDetail>] An array of routing detail objects.
+      #   @param routing_details [Array<ModernTreasury::RoutingDetail>] An array of routing detail objects.
       #
       #   @param updated_at [Time]
 
       # Can be checking, savings or other.
       #
-      # @see ModernTreasury::Models::InternalAccount#account_type
+      # @see ModernTreasury::InternalAccount#account_type
       module AccountType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -183,7 +178,7 @@ module ModernTreasury
         #   @return [Array<Symbol>]
       end
 
-      # @see ModernTreasury::Models::InternalAccount#party_address
+      # @see ModernTreasury::InternalAccount#party_address
       class PartyAddress < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
         #
@@ -248,7 +243,7 @@ module ModernTreasury
 
         # @!method initialize(id:, country:, created_at:, line1:, line2:, live_mode:, locality:, object:, postal_code:, region:, updated_at:)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Models::InternalAccount::PartyAddress} for more details.
+        #   {ModernTreasury::InternalAccount::PartyAddress} for more details.
         #
         #   The address associated with the owner or null.
         #
@@ -263,7 +258,6 @@ module ModernTreasury
         #   @param line2 [String, nil]
         #
         #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
-        #   ...
         #
         #   @param locality [String, nil] Locality or City.
         #
@@ -278,7 +272,7 @@ module ModernTreasury
 
       # Either individual or business.
       #
-      # @see ModernTreasury::Models::InternalAccount#party_type
+      # @see ModernTreasury::InternalAccount#party_type
       module PartyType
         extend ModernTreasury::Internal::Type::Enum
 

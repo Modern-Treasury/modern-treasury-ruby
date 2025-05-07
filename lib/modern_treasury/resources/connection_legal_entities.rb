@@ -9,22 +9,22 @@ module ModernTreasury
       #
       # @param connection_id [String] The ID of the connection.
       #
-      # @param legal_entity [ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity] The legal entity.
+      # @param legal_entity [ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity] The legal entity.
       #
       # @param legal_entity_id [String] The ID of the legal entity.
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::ConnectionLegalEntity]
+      # @return [ModernTreasury::ConnectionLegalEntity]
       #
       # @see ModernTreasury::Models::ConnectionLegalEntityCreateParams
       def create(params)
-        parsed, options = ModernTreasury::Models::ConnectionLegalEntityCreateParams.dump_request(params)
+        parsed, options = ModernTreasury::ConnectionLegalEntityCreateParams.dump_request(params)
         @client.request(
           method: :post,
           path: "api/connection_legal_entities",
           body: parsed,
-          model: ModernTreasury::Models::ConnectionLegalEntity,
+          model: ModernTreasury::ConnectionLegalEntity,
           options: options
         )
       end
@@ -37,14 +37,14 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::ConnectionLegalEntity]
+      # @return [ModernTreasury::ConnectionLegalEntity]
       #
       # @see ModernTreasury::Models::ConnectionLegalEntityRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
           path: ["api/connection_legal_entities/%1$s", id],
-          model: ModernTreasury::Models::ConnectionLegalEntity,
+          model: ModernTreasury::ConnectionLegalEntity,
           options: params[:request_options]
         )
       end
@@ -55,20 +55,20 @@ module ModernTreasury
       #
       # @param id [String] The id of an existing connection legal entity.
       #
-      # @param status [Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status] The status of the connection legal entity.
+      # @param status [Symbol, ModernTreasury::ConnectionLegalEntityUpdateParams::Status] The status of the connection legal entity.
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::ConnectionLegalEntity]
+      # @return [ModernTreasury::ConnectionLegalEntity]
       #
       # @see ModernTreasury::Models::ConnectionLegalEntityUpdateParams
       def update(id, params = {})
-        parsed, options = ModernTreasury::Models::ConnectionLegalEntityUpdateParams.dump_request(params)
+        parsed, options = ModernTreasury::ConnectionLegalEntityUpdateParams.dump_request(params)
         @client.request(
           method: :patch,
           path: ["api/connection_legal_entities/%1$s", id],
           body: parsed,
-          model: ModernTreasury::Models::ConnectionLegalEntity,
+          model: ModernTreasury::ConnectionLegalEntity,
           options: options
         )
       end
@@ -81,20 +81,20 @@ module ModernTreasury
       # @param connection_id [String]
       # @param legal_entity_id [String]
       # @param per_page [Integer]
-      # @param status [Symbol, ModernTreasury::Models::ConnectionLegalEntityListParams::Status]
+      # @param status [Symbol, ModernTreasury::ConnectionLegalEntityListParams::Status]
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::ConnectionLegalEntity>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::ConnectionLegalEntity>]
       #
       # @see ModernTreasury::Models::ConnectionLegalEntityListParams
       def list(params = {})
-        parsed, options = ModernTreasury::Models::ConnectionLegalEntityListParams.dump_request(params)
+        parsed, options = ModernTreasury::ConnectionLegalEntityListParams.dump_request(params)
         @client.request(
           method: :get,
           path: "api/connection_legal_entities",
           query: parsed,
           page: ModernTreasury::Internal::Page,
-          model: ModernTreasury::Models::ConnectionLegalEntity,
+          model: ModernTreasury::ConnectionLegalEntity,
           options: options
         )
       end

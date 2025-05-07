@@ -24,16 +24,18 @@ module ModernTreasury
         #   The specific type of balance report. One of `intraday`, `previous_day`,
         #   `real_time`, or `other`.
         #
-        #   @return [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType]
+        #   @return [Symbol, ModernTreasury::InternalAccounts::BalanceReportCreateParams::BalanceReportType]
         required :balance_report_type,
-                 enum: -> { ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType }
+                 enum: -> { ModernTreasury::InternalAccounts::BalanceReportCreateParams::BalanceReportType }
 
         # @!attribute balances
         #   An array of `Balance` objects.
         #
-        #   @return [Array<ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance>]
+        #   @return [Array<ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance>]
         required :balances,
-                 -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance] }
+                 -> {
+                   ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance]
+                 }
 
         # @!method initialize(as_of_date:, as_of_time:, balance_report_type:, balances:, request_options: {})
         #   Some parameter documentations has been truncated, see
@@ -44,10 +46,9 @@ module ModernTreasury
         #
         #   @param as_of_time [String] The time (24-hour clock) of the balance report in local time.
         #
-        #   @param balance_report_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType] The specific type of balance report. One of `intraday`, `previous_day`, `real_ti
-        #   ...
+        #   @param balance_report_type [Symbol, ModernTreasury::InternalAccounts::BalanceReportCreateParams::BalanceReportType] The specific type of balance report. One of `intraday`, `previous_day`, `real_ti
         #
-        #   @param balances [Array<ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance>] An array of `Balance` objects.
+        #   @param balances [Array<ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance>] An array of `Balance` objects.
         #
         #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
@@ -78,9 +79,11 @@ module ModernTreasury
           #   `opening_available_next_business_day`, `closing_available`, `current_available`,
           #   'previously_closed_book', or `other`.
           #
-          #   @return [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType]
+          #   @return [Symbol, ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType]
           required :balance_type,
-                   enum: -> { ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType }
+                   enum: -> {
+                     ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType
+                   }
 
           # @!attribute vendor_code
           #   The code used by the bank when reporting this specific balance.
@@ -99,25 +102,23 @@ module ModernTreasury
 
           # @!method initialize(amount:, balance_type:, vendor_code:, vendor_code_type:)
           #   Some parameter documentations has been truncated, see
-          #   {ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance}
-          #   for more details.
+          #   {ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance} for more
+          #   details.
           #
           #   @param amount [Integer] The balance amount.
           #
-          #   @param balance_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType] The specific type of balance reported. One of `opening_ledger`, `closing_ledger`
-          #   ...
+          #   @param balance_type [Symbol, ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType] The specific type of balance reported. One of `opening_ledger`, `closing_ledger`
           #
           #   @param vendor_code [String] The code used by the bank when reporting this specific balance.
           #
           #   @param vendor_code_type [String, nil] The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`, `bnk
-          #   ...
 
           # The specific type of balance reported. One of `opening_ledger`,
           # `closing_ledger`, `current_ledger`, `opening_available`,
           # `opening_available_next_business_day`, `closing_available`, `current_available`,
           # 'previously_closed_book', or `other`.
           #
-          # @see ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance#balance_type
+          # @see ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance#balance_type
           module BalanceType
             extend ModernTreasury::Internal::Type::Enum
 

@@ -62,8 +62,8 @@ module ModernTreasury
       required :updated_at, Time
 
       # @!method initialize(id:, created_at:, data:, entity_id:, event_name:, event_time:, live_mode:, object:, resource:, updated_at:)
-      #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::Models::Event} for more details.
+      #   Some parameter documentations has been truncated, see {ModernTreasury::Event}
+      #   for more details.
       #
       #   @param id [String]
       #
@@ -78,7 +78,6 @@ module ModernTreasury
       #   @param event_time [Time] The time of the event.
       #
       #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
-      #   ...
       #
       #   @param object [String]
       #

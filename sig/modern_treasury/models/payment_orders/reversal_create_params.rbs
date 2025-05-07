@@ -4,7 +4,7 @@ module ModernTreasury
       type reversal_create_params =
         {
           reason: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::reason,
-          ledger_transaction: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction,
+          ledger_transaction: ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction,
           metadata: ::Hash[Symbol, String]
         }
         & ModernTreasury::Internal::Type::request_parameters
@@ -15,11 +15,11 @@ module ModernTreasury
 
         attr_accessor reason: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::reason
 
-        attr_reader ledger_transaction: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction?
+        attr_reader ledger_transaction: ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction?
 
         def ledger_transaction=: (
-          ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction
-        ) -> ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction
+          ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction
+        ) -> ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction
 
         attr_reader metadata: ::Hash[Symbol, String]?
 
@@ -27,12 +27,10 @@ module ModernTreasury
 
         def initialize: (
           reason: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::reason,
-          ?ledger_transaction: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction,
+          ?ledger_transaction: ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction,
           ?metadata: ::Hash[Symbol, String],
           ?request_options: ModernTreasury::request_opts
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::PaymentOrders::reversal_create_params
 
         type reason =
           :duplicate
@@ -55,19 +53,19 @@ module ModernTreasury
 
         type ledger_transaction =
           {
-            ledger_entries: ::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry],
+            ledger_entries: ::Array[ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry],
             description: String?,
             effective_at: Time,
             effective_date: Date,
             external_id: String,
             ledgerable_id: String,
-            ledgerable_type: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::ledgerable_type,
+            ledgerable_type: ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction::ledgerable_type,
             metadata: ::Hash[Symbol, String],
-            status: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::status
+            status: ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction::status
           }
 
         class LedgerTransaction < ModernTreasury::Internal::Type::BaseModel
-          attr_accessor ledger_entries: ::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry]
+          attr_accessor ledger_entries: ::Array[ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry]
 
           attr_accessor description: String?
 
@@ -87,35 +85,33 @@ module ModernTreasury
 
           def ledgerable_id=: (String) -> String
 
-          attr_reader ledgerable_type: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::ledgerable_type?
+          attr_reader ledgerable_type: ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction::ledgerable_type?
 
           def ledgerable_type=: (
-            ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::ledgerable_type
-          ) -> ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::ledgerable_type
+            ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction::ledgerable_type
+          ) -> ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction::ledgerable_type
 
           attr_reader metadata: ::Hash[Symbol, String]?
 
           def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
-          attr_reader status: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::status?
+          attr_reader status: ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction::status?
 
           def status=: (
-            ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::status
-          ) -> ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::status
+            ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction::status
+          ) -> ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction::status
 
           def initialize: (
-            ledger_entries: ::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry],
+            ledger_entries: ::Array[ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry],
             ?description: String?,
             ?effective_at: Time,
             ?effective_date: Date,
             ?external_id: String,
             ?ledgerable_id: String,
-            ?ledgerable_type: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::ledgerable_type,
+            ?ledgerable_type: ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction::ledgerable_type,
             ?metadata: ::Hash[Symbol, String],
-            ?status: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::status
+            ?status: ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction::status
           ) -> void
-
-          def to_hash: -> ModernTreasury::Models::PaymentOrders::ReversalCreateParams::ledger_transaction
 
           type ledger_entry =
             {
@@ -162,8 +158,6 @@ module ModernTreasury
               ?posted_balance_amount: ::Hash[Symbol, Integer]?,
               ?show_resulting_ledger_account_balances: bool?
             ) -> void
-
-            def to_hash: -> ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::ledger_entry
           end
 
           type ledgerable_type =
@@ -184,7 +178,7 @@ module ModernTreasury
             RETURN: :return
             REVERSAL: :reversal
 
-            def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::ledgerable_type]
+            def self?.values: -> ::Array[ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction::ledgerable_type]
           end
 
           type status = :archived | :pending | :posted
@@ -196,7 +190,7 @@ module ModernTreasury
             PENDING: :pending
             POSTED: :posted
 
-            def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::status]
+            def self?.values: -> ::Array[ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction::status]
           end
         end
       end

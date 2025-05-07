@@ -3,15 +3,17 @@
 module ModernTreasury
   module Models
     class LineItem < ModernTreasury::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       sig { returns(String) }
       attr_accessor :id
 
-      sig { returns(ModernTreasury::Models::LineItem::Accounting) }
+      sig { returns(ModernTreasury::LineItem::Accounting) }
       attr_reader :accounting
 
       sig do
-        params(accounting: T.any(ModernTreasury::Models::LineItem::Accounting, ModernTreasury::Internal::AnyHash))
-          .void
+        params(accounting: ModernTreasury::LineItem::Accounting::OrHash).void
       end
       attr_writer :accounting
 
@@ -43,7 +45,7 @@ module ModernTreasury
       attr_accessor :itemizable_id
 
       # One of `payment_orders` or `expected_payments`.
-      sig { returns(ModernTreasury::Models::LineItem::ItemizableType::TaggedSymbol) }
+      sig { returns(ModernTreasury::LineItem::ItemizableType::TaggedSymbol) }
       attr_accessor :itemizable_type
 
       # This field will be true if this object exists in the live environment or false
@@ -65,20 +67,19 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          accounting: T.any(ModernTreasury::Models::LineItem::Accounting, ModernTreasury::Internal::AnyHash),
+          accounting: ModernTreasury::LineItem::Accounting::OrHash,
           accounting_category_id: T.nilable(String),
           accounting_ledger_class_id: T.nilable(String),
           amount: Integer,
           created_at: Time,
           description: T.nilable(String),
           itemizable_id: String,
-          itemizable_type: ModernTreasury::Models::LineItem::ItemizableType::OrSymbol,
+          itemizable_type: ModernTreasury::LineItem::ItemizableType::OrSymbol,
           live_mode: T::Boolean,
           metadata: T::Hash[Symbol, String],
           object: String,
           updated_at: Time
-        )
-          .returns(T.attached_class)
+        ).returns(T.attached_class)
       end
       def self.new(
         id:,
@@ -108,30 +109,36 @@ module ModernTreasury
         metadata:,
         object:,
         updated_at:
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              id: String,
-              accounting: ModernTreasury::Models::LineItem::Accounting,
-              accounting_category_id: T.nilable(String),
-              accounting_ledger_class_id: T.nilable(String),
-              amount: Integer,
-              created_at: Time,
-              description: T.nilable(String),
-              itemizable_id: String,
-              itemizable_type: ModernTreasury::Models::LineItem::ItemizableType::TaggedSymbol,
-              live_mode: T::Boolean,
-              metadata: T::Hash[Symbol, String],
-              object: String,
-              updated_at: Time
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            id: String,
+            accounting: ModernTreasury::LineItem::Accounting,
+            accounting_category_id: T.nilable(String),
+            accounting_ledger_class_id: T.nilable(String),
+            amount: Integer,
+            created_at: Time,
+            description: T.nilable(String),
+            itemizable_id: String,
+            itemizable_type:
+              ModernTreasury::LineItem::ItemizableType::TaggedSymbol,
+            live_mode: T::Boolean,
+            metadata: T::Hash[Symbol, String],
+            object: String,
+            updated_at: Time
+          }
+        )
+      end
+      def to_hash
+      end
 
       class Accounting < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
         # The ID of one of your accounting categories. Note that these will only be
         # accessible if your accounting system has been connected.
         sig { returns(T.nilable(String)) }
@@ -143,7 +150,12 @@ module ModernTreasury
         sig { returns(T.nilable(String)) }
         attr_accessor :class_id
 
-        sig { params(account_id: T.nilable(String), class_id: T.nilable(String)).returns(T.attached_class) }
+        sig do
+          params(
+            account_id: T.nilable(String),
+            class_id: T.nilable(String)
+          ).returns(T.attached_class)
+        end
         def self.new(
           # The ID of one of your accounting categories. Note that these will only be
           # accessible if your accounting system has been connected.
@@ -152,24 +164,46 @@ module ModernTreasury
           # track segments of your business independent of client or project. Note that
           # these will only be accessible if your accounting system has been connected.
           class_id: nil
-        ); end
-        sig { override.returns({account_id: T.nilable(String), class_id: T.nilable(String)}) }
-        def to_hash; end
+        )
+        end
+
+        sig do
+          override.returns(
+            { account_id: T.nilable(String), class_id: T.nilable(String) }
+          )
+        end
+        def to_hash
+        end
       end
 
       # One of `payment_orders` or `expected_payments`.
       module ItemizableType
         extend ModernTreasury::Internal::Type::Enum
 
-        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::LineItem::ItemizableType) }
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::LineItem::ItemizableType)
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
         EXPECTED_PAYMENT =
-          T.let(:ExpectedPayment, ModernTreasury::Models::LineItem::ItemizableType::TaggedSymbol)
-        PAYMENT_ORDER = T.let(:PaymentOrder, ModernTreasury::Models::LineItem::ItemizableType::TaggedSymbol)
+          T.let(
+            :ExpectedPayment,
+            ModernTreasury::LineItem::ItemizableType::TaggedSymbol
+          )
+        PAYMENT_ORDER =
+          T.let(
+            :PaymentOrder,
+            ModernTreasury::LineItem::ItemizableType::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::LineItem::ItemizableType::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[ModernTreasury::LineItem::ItemizableType::TaggedSymbol]
+          )
+        end
+        def self.values
+        end
       end
     end
   end

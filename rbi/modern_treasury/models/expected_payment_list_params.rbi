@@ -6,6 +6,9 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor
 
@@ -31,10 +34,12 @@ module ModernTreasury
       attr_writer :created_at_upper_bound
 
       # One of credit, debit
-      sig { returns(T.nilable(ModernTreasury::Models::TransactionDirection::OrSymbol)) }
+      sig { returns(T.nilable(ModernTreasury::TransactionDirection::OrSymbol)) }
       attr_reader :direction
 
-      sig { params(direction: ModernTreasury::Models::TransactionDirection::OrSymbol).void }
+      sig do
+        params(direction: ModernTreasury::TransactionDirection::OrSymbol).void
+      end
       attr_writer :direction
 
       # Specify internal_account_id to see expected_payments for a specific account.
@@ -60,18 +65,34 @@ module ModernTreasury
       attr_writer :per_page
 
       # One of unreconciled, reconciled, or archived.
-      sig { returns(T.nilable(ModernTreasury::Models::ExpectedPaymentListParams::Status::OrSymbol)) }
+      sig do
+        returns(
+          T.nilable(ModernTreasury::ExpectedPaymentListParams::Status::OrSymbol)
+        )
+      end
       attr_reader :status
 
-      sig { params(status: ModernTreasury::Models::ExpectedPaymentListParams::Status::OrSymbol).void }
+      sig do
+        params(
+          status: ModernTreasury::ExpectedPaymentListParams::Status::OrSymbol
+        ).void
+      end
       attr_writer :status
 
       # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
       # sepa, signet, wire
-      sig { returns(T.nilable(ModernTreasury::Models::ExpectedPaymentListParams::Type::OrSymbol)) }
+      sig do
+        returns(
+          T.nilable(ModernTreasury::ExpectedPaymentListParams::Type::OrSymbol)
+        )
+      end
       attr_reader :type
 
-      sig { params(type: ModernTreasury::Models::ExpectedPaymentListParams::Type::OrSymbol).void }
+      sig do
+        params(
+          type: ModernTreasury::ExpectedPaymentListParams::Type::OrSymbol
+        ).void
+      end
       attr_writer :type
 
       sig do
@@ -80,15 +101,14 @@ module ModernTreasury
           counterparty_id: String,
           created_at_lower_bound: Time,
           created_at_upper_bound: Time,
-          direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
+          direction: ModernTreasury::TransactionDirection::OrSymbol,
           internal_account_id: String,
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
-          status: ModernTreasury::Models::ExpectedPaymentListParams::Status::OrSymbol,
-          type: ModernTreasury::Models::ExpectedPaymentListParams::Type::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
-        )
-          .returns(T.attached_class)
+          status: ModernTreasury::ExpectedPaymentListParams::Status::OrSymbol,
+          type: ModernTreasury::ExpectedPaymentListParams::Type::OrSymbol,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
       end
       def self.new(
         after_cursor: nil,
@@ -113,43 +133,69 @@ module ModernTreasury
         # sepa, signet, wire
         type: nil,
         request_options: {}
-      ); end
-      sig do
-        override
-          .returns(
-            {
-              after_cursor: T.nilable(String),
-              counterparty_id: String,
-              created_at_lower_bound: Time,
-              created_at_upper_bound: Time,
-              direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
-              internal_account_id: String,
-              metadata: T::Hash[Symbol, String],
-              per_page: Integer,
-              status: ModernTreasury::Models::ExpectedPaymentListParams::Status::OrSymbol,
-              type: ModernTreasury::Models::ExpectedPaymentListParams::Type::OrSymbol,
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+      )
       end
-      def to_hash; end
+
+      sig do
+        override.returns(
+          {
+            after_cursor: T.nilable(String),
+            counterparty_id: String,
+            created_at_lower_bound: Time,
+            created_at_upper_bound: Time,
+            direction: ModernTreasury::TransactionDirection::OrSymbol,
+            internal_account_id: String,
+            metadata: T::Hash[Symbol, String],
+            per_page: Integer,
+            status: ModernTreasury::ExpectedPaymentListParams::Status::OrSymbol,
+            type: ModernTreasury::ExpectedPaymentListParams::Type::OrSymbol,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
 
       # One of unreconciled, reconciled, or archived.
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
-        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Status) }
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::ExpectedPaymentListParams::Status)
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        ARCHIVED = T.let(:archived, ModernTreasury::Models::ExpectedPaymentListParams::Status::TaggedSymbol)
+        ARCHIVED =
+          T.let(
+            :archived,
+            ModernTreasury::ExpectedPaymentListParams::Status::TaggedSymbol
+          )
         PARTIALLY_RECONCILED =
-          T.let(:partially_reconciled, ModernTreasury::Models::ExpectedPaymentListParams::Status::TaggedSymbol)
-        RECONCILED = T.let(:reconciled, ModernTreasury::Models::ExpectedPaymentListParams::Status::TaggedSymbol)
+          T.let(
+            :partially_reconciled,
+            ModernTreasury::ExpectedPaymentListParams::Status::TaggedSymbol
+          )
+        RECONCILED =
+          T.let(
+            :reconciled,
+            ModernTreasury::ExpectedPaymentListParams::Status::TaggedSymbol
+          )
         UNRECONCILED =
-          T.let(:unreconciled, ModernTreasury::Models::ExpectedPaymentListParams::Status::TaggedSymbol)
+          T.let(
+            :unreconciled,
+            ModernTreasury::ExpectedPaymentListParams::Status::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPaymentListParams::Status::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::ExpectedPaymentListParams::Status::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
 
       # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
@@ -157,44 +203,172 @@ module ModernTreasury
       module Type
         extend ModernTreasury::Internal::Type::Enum
 
-        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type) }
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::ExpectedPaymentListParams::Type)
+          end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        ACH = T.let(:ach, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
-        AU_BECS = T.let(:au_becs, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
-        BACS = T.let(:bacs, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
-        BOOK = T.let(:book, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
-        CARD = T.let(:card, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
-        CHATS = T.let(:chats, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
-        CHECK = T.let(:check, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
+        ACH =
+          T.let(
+            :ach,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        AU_BECS =
+          T.let(
+            :au_becs,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        BACS =
+          T.let(
+            :bacs,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        BOOK =
+          T.let(
+            :book,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        CARD =
+          T.let(
+            :card,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        CHATS =
+          T.let(
+            :chats,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        CHECK =
+          T.let(
+            :check,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
         CROSS_BORDER =
-          T.let(:cross_border, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
-        DK_NETS = T.let(:dk_nets, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
-        EFT = T.let(:eft, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
-        HU_ICS = T.let(:hu_ics, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
-        INTERAC = T.let(:interac, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
-        MASAV = T.let(:masav, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
-        MX_CCEN = T.let(:mx_ccen, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
-        NEFT = T.let(:neft, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
-        NICS = T.let(:nics, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
-        NZ_BECS = T.let(:nz_becs, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
-        PL_ELIXIR = T.let(:pl_elixir, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
-        PROVXCHANGE = T.let(:provxchange, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
-        RO_SENT = T.let(:ro_sent, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
-        RTP = T.let(:rtp, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
+          T.let(
+            :cross_border,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        DK_NETS =
+          T.let(
+            :dk_nets,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        EFT =
+          T.let(
+            :eft,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        HU_ICS =
+          T.let(
+            :hu_ics,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        INTERAC =
+          T.let(
+            :interac,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        MASAV =
+          T.let(
+            :masav,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        MX_CCEN =
+          T.let(
+            :mx_ccen,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        NEFT =
+          T.let(
+            :neft,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        NICS =
+          T.let(
+            :nics,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        NZ_BECS =
+          T.let(
+            :nz_becs,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        PL_ELIXIR =
+          T.let(
+            :pl_elixir,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        PROVXCHANGE =
+          T.let(
+            :provxchange,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        RO_SENT =
+          T.let(
+            :ro_sent,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        RTP =
+          T.let(
+            :rtp,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
         SE_BANKGIROT =
-          T.let(:se_bankgirot, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
-        SEN = T.let(:sen, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
-        SEPA = T.let(:sepa, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
-        SG_GIRO = T.let(:sg_giro, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
-        SIC = T.let(:sic, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
-        SIGNET = T.let(:signet, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
-        SKNBI = T.let(:sknbi, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
-        WIRE = T.let(:wire, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
-        ZENGIN = T.let(:zengin, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
+          T.let(
+            :se_bankgirot,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        SEN =
+          T.let(
+            :sen,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        SEPA =
+          T.let(
+            :sepa,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        SG_GIRO =
+          T.let(
+            :sg_giro,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        SIC =
+          T.let(
+            :sic,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        SIGNET =
+          T.let(
+            :signet,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        SKNBI =
+          T.let(
+            :sknbi,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        WIRE =
+          T.let(
+            :wire,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        ZENGIN =
+          T.let(
+            :zengin,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
 
-        sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol]) }
-        def self.values; end
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
     end
   end

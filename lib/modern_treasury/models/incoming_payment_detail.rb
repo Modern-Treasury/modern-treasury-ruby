@@ -30,8 +30,8 @@ module ModernTreasury
       # @!attribute currency
       #   The currency of the incoming payment detail.
       #
-      #   @return [Symbol, ModernTreasury::Models::Currency]
-      required :currency, enum: -> { ModernTreasury::Models::Currency }
+      #   @return [Symbol, ModernTreasury::Currency]
+      required :currency, enum: -> { ModernTreasury::Currency }
 
       # @!attribute data
       #   The raw data from the payment pre-notification file that we get from the bank.
@@ -42,8 +42,8 @@ module ModernTreasury
       # @!attribute direction
       #   One of `credit` or `debit`.
       #
-      #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
-      required :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
+      #   @return [Symbol, ModernTreasury::TransactionDirection]
+      required :direction, enum: -> { ModernTreasury::TransactionDirection }
 
       # @!attribute internal_account_id
       #   The ID of the Internal Account for the incoming payment detail. This is always
@@ -88,9 +88,9 @@ module ModernTreasury
       # @!attribute originating_account_number_type
       #   The type of the originating account number for the incoming payment detail.
       #
-      #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType, nil]
+      #   @return [Symbol, ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType, nil]
       required :originating_account_number_type,
-               enum: -> { ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType },
+               enum: -> { ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType },
                nil?: true
 
       # @!attribute originating_routing_number
@@ -102,17 +102,17 @@ module ModernTreasury
       # @!attribute originating_routing_number_type
       #   The type of the originating routing number for the incoming payment detail.
       #
-      #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType, nil]
+      #   @return [Symbol, ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType, nil]
       required :originating_routing_number_type,
-               enum: -> { ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType },
+               enum: -> { ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType },
                nil?: true
 
       # @!attribute status
       #   The current status of the incoming payment order. One of `pending`, `completed`,
       #   or `returned`.
       #
-      #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetail::Status]
-      required :status, enum: -> { ModernTreasury::Models::IncomingPaymentDetail::Status }
+      #   @return [Symbol, ModernTreasury::IncomingPaymentDetail::Status]
+      required :status, enum: -> { ModernTreasury::IncomingPaymentDetail::Status }
 
       # @!attribute transaction_id
       #   The ID of the reconciled Transaction or `null`.
@@ -130,8 +130,8 @@ module ModernTreasury
       #   One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
       #   `wire`.
       #
-      #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetail::Type]
-      required :type, enum: -> { ModernTreasury::Models::IncomingPaymentDetail::Type }
+      #   @return [Symbol, ModernTreasury::IncomingPaymentDetail::Type]
+      required :type, enum: -> { ModernTreasury::IncomingPaymentDetail::Type }
 
       # @!attribute updated_at
       #
@@ -148,8 +148,8 @@ module ModernTreasury
       #   If the incoming payment detail is in a virtual account, the serialized virtual
       #   account object.
       #
-      #   @return [ModernTreasury::Models::VirtualAccount, nil]
-      required :virtual_account, -> { ModernTreasury::Models::VirtualAccount }, nil?: true
+      #   @return [ModernTreasury::VirtualAccount, nil]
+      required :virtual_account, -> { ModernTreasury::VirtualAccount }, nil?: true
 
       # @!attribute virtual_account_id
       #   If the incoming payment detail is in a virtual account, the ID of the Virtual
@@ -166,71 +166,61 @@ module ModernTreasury
 
       # @!method initialize(id:, amount:, as_of_date:, created_at:, currency:, data:, direction:, internal_account_id:, ledger_transaction_id:, live_mode:, metadata:, object:, originating_account_number_safe:, originating_account_number_type:, originating_routing_number:, originating_routing_number_type:, status:, transaction_id:, transaction_line_item_id:, type:, updated_at:, vendor_id:, virtual_account:, virtual_account_id:, originating_account_number: nil)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::Models::IncomingPaymentDetail} for more details.
+      #   {ModernTreasury::IncomingPaymentDetail} for more details.
       #
       #   @param id [String]
       #
       #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
-      #   ...
       #
       #   @param as_of_date [Date] The date on which the corresponding transaction will occur.
       #
       #   @param created_at [Time]
       #
-      #   @param currency [Symbol, ModernTreasury::Models::Currency] The currency of the incoming payment detail.
+      #   @param currency [Symbol, ModernTreasury::Currency] The currency of the incoming payment detail.
       #
       #   @param data [Hash{Symbol=>Object}] The raw data from the payment pre-notification file that we get from the bank.
       #
-      #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection] One of `credit` or `debit`.
+      #   @param direction [Symbol, ModernTreasury::TransactionDirection] One of `credit` or `debit`.
       #
       #   @param internal_account_id [String] The ID of the Internal Account for the incoming payment detail. This is always p
-      #   ...
       #
       #   @param ledger_transaction_id [String, nil] The ID of the ledger transaction linked to the incoming payment detail or `null`
-      #   ...
       #
       #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
-      #   ...
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-      #   ...
       #
       #   @param object [String]
       #
       #   @param originating_account_number_safe [String, nil] The last 4 digits of the originating account_number for the incoming payment det
-      #   ...
       #
-      #   @param originating_account_number_type [Symbol, ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType, nil] The type of the originating account number for the incoming payment detail.
+      #   @param originating_account_number_type [Symbol, ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType, nil] The type of the originating account number for the incoming payment detail.
       #
       #   @param originating_routing_number [String, nil] The routing number of the originating account for the incoming payment detail.
       #
-      #   @param originating_routing_number_type [Symbol, ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType, nil] The type of the originating routing number for the incoming payment detail.
+      #   @param originating_routing_number_type [Symbol, ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType, nil] The type of the originating routing number for the incoming payment detail.
       #
-      #   @param status [Symbol, ModernTreasury::Models::IncomingPaymentDetail::Status] The current status of the incoming payment order. One of `pending`, `completed`,
-      #   ...
+      #   @param status [Symbol, ModernTreasury::IncomingPaymentDetail::Status] The current status of the incoming payment order. One of `pending`, `completed`,
       #
       #   @param transaction_id [String, nil] The ID of the reconciled Transaction or `null`.
       #
       #   @param transaction_line_item_id [String, nil] The ID of the reconciled Transaction Line Item or `null`.
       #
-      #   @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetail::Type] One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or `w
-      #   ...
+      #   @param type [Symbol, ModernTreasury::IncomingPaymentDetail::Type] One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or `w
       #
       #   @param updated_at [Time]
       #
       #   @param vendor_id [String, nil] The identifier of the vendor bank.
       #
-      #   @param virtual_account [ModernTreasury::Models::VirtualAccount, nil] If the incoming payment detail is in a virtual account, the serialized virtual a
-      #   ...
+      #   @param virtual_account [ModernTreasury::VirtualAccount, nil] If the incoming payment detail is in a virtual account, the serialized virtual a
       #
       #   @param virtual_account_id [String, nil] If the incoming payment detail is in a virtual account, the ID of the Virtual Ac
-      #   ...
       #
       #   @param originating_account_number [String, nil] The account number of the originating account for the incoming payment detail.
 
       # The type of the originating account number for the incoming payment detail.
       #
-      # @see ModernTreasury::Models::IncomingPaymentDetail#originating_account_number_type
+      # @see ModernTreasury::IncomingPaymentDetail#originating_account_number_type
       module OriginatingAccountNumberType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -251,7 +241,7 @@ module ModernTreasury
 
       # The type of the originating routing number for the incoming payment detail.
       #
-      # @see ModernTreasury::Models::IncomingPaymentDetail#originating_routing_number_type
+      # @see ModernTreasury::IncomingPaymentDetail#originating_routing_number_type
       module OriginatingRoutingNumberType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -284,7 +274,7 @@ module ModernTreasury
       # The current status of the incoming payment order. One of `pending`, `completed`,
       # or `returned`.
       #
-      # @see ModernTreasury::Models::IncomingPaymentDetail#status
+      # @see ModernTreasury::IncomingPaymentDetail#status
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
@@ -299,7 +289,7 @@ module ModernTreasury
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
       # `wire`.
       #
-      # @see ModernTreasury::Models::IncomingPaymentDetail#type
+      # @see ModernTreasury::IncomingPaymentDetail#type
       module Type
         extend ModernTreasury::Internal::Type::Enum
 

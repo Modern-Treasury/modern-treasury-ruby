@@ -17,11 +17,11 @@ module ModernTreasury
           vendor_code_type: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           posted: T::Boolean,
-          type: T.nilable(ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol),
+          type:
+            T.nilable(ModernTreasury::TransactionCreateParams::Type::OrSymbol),
           vendor_description: T.nilable(String),
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Models::Transaction)
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::Transaction)
       end
       def create(
         # Value in specified currency's smallest unit. e.g. $10 would be represented
@@ -53,21 +53,30 @@ module ModernTreasury
         # your banking portal.
         vendor_description: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Get details on a single transaction.
       sig do
-        params(id: String, request_options: ModernTreasury::RequestOpts)
-          .returns(ModernTreasury::Models::Transaction)
+        params(
+          id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::Transaction)
       end
       def retrieve(
         # Transaction ID
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # Update a single transaction.
       sig do
-        params(id: String, metadata: T::Hash[Symbol, String], request_options: ModernTreasury::RequestOpts)
-          .returns(ModernTreasury::Models::Transaction)
+        params(
+          id: String,
+          metadata: T::Hash[Symbol, String],
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::Transaction)
       end
       def update(
         # Transaction ID
@@ -76,7 +85,9 @@ module ModernTreasury
         # an empty string or `null` as the value.
         metadata: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # Get a list of all transactions.
       sig do
         params(
@@ -94,9 +105,8 @@ module ModernTreasury
           transactable_type: String,
           vendor_id: String,
           virtual_account_id: String,
-          request_options: ModernTreasury::RequestOpts
-        )
-          .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::Transaction])
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::Internal::Page[ModernTreasury::Transaction])
       end
       def list(
         after_cursor: nil,
@@ -127,17 +137,27 @@ module ModernTreasury
         vendor_id: nil,
         virtual_account_id: nil,
         request_options: {}
-      ); end
+      )
+      end
+
       # delete transaction
-      sig { params(id: String, request_options: ModernTreasury::RequestOpts).void }
+      sig do
+        params(
+          id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).void
+      end
       def delete(
         # Transaction ID
         id,
         request_options: {}
-      ); end
+      )
+      end
+
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
-      def self.new(client:); end
+      def self.new(client:)
+      end
     end
   end
 end

@@ -5,14 +5,21 @@ module ModernTreasury
     module TransactionDirection
       extend ModernTreasury::Internal::Type::Enum
 
-      TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::TransactionDirection) }
+      TaggedSymbol =
+        T.type_alias { T.all(Symbol, ModernTreasury::TransactionDirection) }
       OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-      CREDIT = T.let(:credit, ModernTreasury::Models::TransactionDirection::TaggedSymbol)
-      DEBIT = T.let(:debit, ModernTreasury::Models::TransactionDirection::TaggedSymbol)
+      CREDIT =
+        T.let(:credit, ModernTreasury::TransactionDirection::TaggedSymbol)
+      DEBIT = T.let(:debit, ModernTreasury::TransactionDirection::TaggedSymbol)
 
-      sig { override.returns(T::Array[ModernTreasury::Models::TransactionDirection::TaggedSymbol]) }
-      def self.values; end
+      sig do
+        override.returns(
+          T::Array[ModernTreasury::TransactionDirection::TaggedSymbol]
+        )
+      end
+      def self.values
+      end
     end
   end
 end
