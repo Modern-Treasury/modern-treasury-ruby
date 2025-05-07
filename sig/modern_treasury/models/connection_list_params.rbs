@@ -34,8 +34,6 @@ module ModernTreasury
         ?vendor_customer_id: String,
         ?request_options: ModernTreasury::request_opts
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::connection_list_params
     end
   end
 end

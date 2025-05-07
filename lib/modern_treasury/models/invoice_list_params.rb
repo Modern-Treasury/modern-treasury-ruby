@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::Invoices#list
     class InvoiceListParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute after_cursor
@@ -13,45 +12,29 @@ module ModernTreasury
       #   @return [String, nil]
       optional :after_cursor, String, nil?: true
 
-      # @!attribute [r] counterparty_id
+      # @!attribute counterparty_id
       #
       #   @return [String, nil]
       optional :counterparty_id, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :counterparty_id
-
-      # @!attribute [r] due_date_end
+      # @!attribute due_date_end
       #   An inclusive upper bound for searching due_date
       #
       #   @return [Date, nil]
       optional :due_date_end, Date
 
-      # @!parse
-      #   # @return [Date]
-      #   attr_writer :due_date_end
-
-      # @!attribute [r] due_date_start
+      # @!attribute due_date_start
       #   An inclusive lower bound for searching due_date
       #
       #   @return [Date, nil]
       optional :due_date_start, Date
 
-      # @!parse
-      #   # @return [Date]
-      #   attr_writer :due_date_start
-
-      # @!attribute [r] expected_payment_id
+      # @!attribute expected_payment_id
       #
       #   @return [String, nil]
       optional :expected_payment_id, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :expected_payment_id
-
-      # @!attribute [r] metadata
+      # @!attribute metadata
       #   For example, if you want to query for records with metadata key `Type` and value
       #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   parameters.
@@ -59,89 +42,59 @@ module ModernTreasury
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
-      # @!parse
-      #   # @return [Hash{Symbol=>String}]
-      #   attr_writer :metadata
-
-      # @!attribute [r] number
+      # @!attribute number
       #   A unique record number assigned to each invoice that is issued.
       #
       #   @return [String, nil]
       optional :number, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :number
-
-      # @!attribute [r] originating_account_id
+      # @!attribute originating_account_id
       #
       #   @return [String, nil]
       optional :originating_account_id, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :originating_account_id
-
-      # @!attribute [r] payment_order_id
+      # @!attribute payment_order_id
       #
       #   @return [String, nil]
       optional :payment_order_id, String
 
-      # @!parse
-      #   # @return [String]
-      #   attr_writer :payment_order_id
-
-      # @!attribute [r] per_page
+      # @!attribute per_page
       #
       #   @return [Integer, nil]
       optional :per_page, Integer
 
-      # @!parse
-      #   # @return [Integer]
-      #   attr_writer :per_page
-
-      # @!attribute [r] status
+      # @!attribute status
       #
-      #   @return [Symbol, ModernTreasury::Models::InvoiceListParams::Status, nil]
-      optional :status, enum: -> { ModernTreasury::Models::InvoiceListParams::Status }
+      #   @return [Symbol, ModernTreasury::InvoiceListParams::Status, nil]
+      optional :status, enum: -> { ModernTreasury::InvoiceListParams::Status }
 
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::InvoiceListParams::Status]
-      #   attr_writer :status
-
-      # @!parse
-      #   # @param after_cursor [String, nil]
-      #   # @param counterparty_id [String]
-      #   # @param due_date_end [Date]
-      #   # @param due_date_start [Date]
-      #   # @param expected_payment_id [String]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param number [String]
-      #   # @param originating_account_id [String]
-      #   # @param payment_order_id [String]
-      #   # @param per_page [Integer]
-      #   # @param status [Symbol, ModernTreasury::Models::InvoiceListParams::Status]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     after_cursor: nil,
-      #     counterparty_id: nil,
-      #     due_date_end: nil,
-      #     due_date_start: nil,
-      #     expected_payment_id: nil,
-      #     metadata: nil,
-      #     number: nil,
-      #     originating_account_id: nil,
-      #     payment_order_id: nil,
-      #     per_page: nil,
-      #     status: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(after_cursor: nil, counterparty_id: nil, due_date_end: nil, due_date_start: nil, expected_payment_id: nil, metadata: nil, number: nil, originating_account_id: nil, payment_order_id: nil, per_page: nil, status: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::InvoiceListParams} for more details.
+      #
+      #   @param after_cursor [String, nil]
+      #
+      #   @param counterparty_id [String]
+      #
+      #   @param due_date_end [Date] An inclusive upper bound for searching due_date
+      #
+      #   @param due_date_start [Date] An inclusive lower bound for searching due_date
+      #
+      #   @param expected_payment_id [String]
+      #
+      #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
+      #
+      #   @param number [String] A unique record number assigned to each invoice that is issued.
+      #
+      #   @param originating_account_id [String]
+      #
+      #   @param payment_order_id [String]
+      #
+      #   @param per_page [Integer]
+      #
+      #   @param status [Symbol, ModernTreasury::InvoiceListParams::Status]
+      #
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       module Status
         extend ModernTreasury::Internal::Type::Enum
@@ -153,11 +106,8 @@ module ModernTreasury
         UNPAID = :unpaid
         VOIDED = :voided
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

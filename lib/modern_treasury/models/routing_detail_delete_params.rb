@@ -4,39 +4,31 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::RoutingDetails#delete
     class RoutingDetailDeleteParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute accounts_type
       #
-      #   @return [Symbol, ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType]
-      required :accounts_type, enum: -> { ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType }
+      #   @return [Symbol, ModernTreasury::RoutingDetailDeleteParams::AccountsType]
+      required :accounts_type, enum: -> { ModernTreasury::RoutingDetailDeleteParams::AccountsType }
 
       # @!attribute account_id
       #
       #   @return [String]
       required :account_id, String
 
-      # @!parse
-      #   # @param accounts_type [Symbol, ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType]
-      #   # @param account_id [String]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(accounts_type:, account_id:, request_options: {}, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(accounts_type:, account_id:, request_options: {})
+      #   @param accounts_type [Symbol, ModernTreasury::RoutingDetailDeleteParams::AccountsType]
+      #   @param account_id [String]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       module AccountsType
         extend ModernTreasury::Internal::Type::Enum
 
         EXTERNAL_ACCOUNTS = :external_accounts
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

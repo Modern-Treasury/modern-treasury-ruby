@@ -1,0 +1,403 @@
+module ModernTreasury
+  class AccountCollectionFlow = ModernTreasury::Models::AccountCollectionFlow
+
+  class AccountCollectionFlowCreateParams = ModernTreasury::Models::AccountCollectionFlowCreateParams
+
+  class AccountCollectionFlowListParams = ModernTreasury::Models::AccountCollectionFlowListParams
+
+  class AccountCollectionFlowRetrieveParams = ModernTreasury::Models::AccountCollectionFlowRetrieveParams
+
+  class AccountCollectionFlowUpdateParams = ModernTreasury::Models::AccountCollectionFlowUpdateParams
+
+  class AccountDetail = ModernTreasury::Models::AccountDetail
+
+  class AccountDetailCreateParams = ModernTreasury::Models::AccountDetailCreateParams
+
+  class AccountDetailDeleteParams = ModernTreasury::Models::AccountDetailDeleteParams
+
+  class AccountDetailListParams = ModernTreasury::Models::AccountDetailListParams
+
+  class AccountDetailRetrieveParams = ModernTreasury::Models::AccountDetailRetrieveParams
+
+  module AccountsType = ModernTreasury::Models::AccountsType
+
+  class AsyncResponse = ModernTreasury::Models::AsyncResponse
+
+  class BankSettings = ModernTreasury::Models::BankSettings
+
+  class BulkRequest = ModernTreasury::Models::BulkRequest
+
+  class BulkRequestCreateParams = ModernTreasury::Models::BulkRequestCreateParams
+
+  class BulkRequestListParams = ModernTreasury::Models::BulkRequestListParams
+
+  class BulkRequestRetrieveParams = ModernTreasury::Models::BulkRequestRetrieveParams
+
+  class BulkResult = ModernTreasury::Models::BulkResult
+
+  class BulkResultListParams = ModernTreasury::Models::BulkResultListParams
+
+  class BulkResultRetrieveParams = ModernTreasury::Models::BulkResultRetrieveParams
+
+  class ClientPingParams = ModernTreasury::Models::ClientPingParams
+
+  class Connection = ModernTreasury::Models::Connection
+
+  class ConnectionLegalEntity = ModernTreasury::Models::ConnectionLegalEntity
+
+  class ConnectionLegalEntityCreateParams = ModernTreasury::Models::ConnectionLegalEntityCreateParams
+
+  class ConnectionLegalEntityListParams = ModernTreasury::Models::ConnectionLegalEntityListParams
+
+  class ConnectionLegalEntityRetrieveParams = ModernTreasury::Models::ConnectionLegalEntityRetrieveParams
+
+  class ConnectionLegalEntityUpdateParams = ModernTreasury::Models::ConnectionLegalEntityUpdateParams
+
+  class ConnectionListParams = ModernTreasury::Models::ConnectionListParams
+
+  class Counterparty = ModernTreasury::Models::Counterparty
+
+  class CounterpartyCollectAccountParams = ModernTreasury::Models::CounterpartyCollectAccountParams
+
+  class CounterpartyCollectAccountResponse = ModernTreasury::Models::CounterpartyCollectAccountResponse
+
+  class CounterpartyCreateParams = ModernTreasury::Models::CounterpartyCreateParams
+
+  class CounterpartyDeleteParams = ModernTreasury::Models::CounterpartyDeleteParams
+
+  class CounterpartyListParams = ModernTreasury::Models::CounterpartyListParams
+
+  class CounterpartyRetrieveParams = ModernTreasury::Models::CounterpartyRetrieveParams
+
+  class CounterpartyUpdateParams = ModernTreasury::Models::CounterpartyUpdateParams
+
+  module Currency = ModernTreasury::Models::Currency
+
+  class Document = ModernTreasury::Models::Document
+
+  class DocumentCreateParams = ModernTreasury::Models::DocumentCreateParams
+
+  class DocumentListParams = ModernTreasury::Models::DocumentListParams
+
+  class DocumentRetrieveParams = ModernTreasury::Models::DocumentRetrieveParams
+
+  class Event = ModernTreasury::Models::Event
+
+  class EventListParams = ModernTreasury::Models::EventListParams
+
+  class EventRetrieveParams = ModernTreasury::Models::EventRetrieveParams
+
+  class ExpectedPayment = ModernTreasury::Models::ExpectedPayment
+
+  class ExpectedPaymentCreateParams = ModernTreasury::Models::ExpectedPaymentCreateParams
+
+  class ExpectedPaymentDeleteParams = ModernTreasury::Models::ExpectedPaymentDeleteParams
+
+  class ExpectedPaymentListParams = ModernTreasury::Models::ExpectedPaymentListParams
+
+  class ExpectedPaymentRetrieveParams = ModernTreasury::Models::ExpectedPaymentRetrieveParams
+
+  module ExpectedPaymentType = ModernTreasury::Models::ExpectedPaymentType
+
+  class ExpectedPaymentUpdateParams = ModernTreasury::Models::ExpectedPaymentUpdateParams
+
+  class ExternalAccount = ModernTreasury::Models::ExternalAccount
+
+  class ExternalAccountCompleteVerificationParams = ModernTreasury::Models::ExternalAccountCompleteVerificationParams
+
+  class ExternalAccountCreateParams = ModernTreasury::Models::ExternalAccountCreateParams
+
+  class ExternalAccountDeleteParams = ModernTreasury::Models::ExternalAccountDeleteParams
+
+  class ExternalAccountListParams = ModernTreasury::Models::ExternalAccountListParams
+
+  class ExternalAccountRetrieveParams = ModernTreasury::Models::ExternalAccountRetrieveParams
+
+  module ExternalAccountType = ModernTreasury::Models::ExternalAccountType
+
+  class ExternalAccountUpdateParams = ModernTreasury::Models::ExternalAccountUpdateParams
+
+  class ExternalAccountVerifyParams = ModernTreasury::Models::ExternalAccountVerifyParams
+
+  class ForeignExchangeQuote = ModernTreasury::Models::ForeignExchangeQuote
+
+  class ForeignExchangeQuoteCreateParams = ModernTreasury::Models::ForeignExchangeQuoteCreateParams
+
+  class ForeignExchangeQuoteListParams = ModernTreasury::Models::ForeignExchangeQuoteListParams
+
+  class ForeignExchangeQuoteRetrieveParams = ModernTreasury::Models::ForeignExchangeQuoteRetrieveParams
+
+  class IncomingPaymentDetail = ModernTreasury::Models::IncomingPaymentDetail
+
+  class IncomingPaymentDetailCreateAsyncParams = ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams
+
+  class IncomingPaymentDetailListParams = ModernTreasury::Models::IncomingPaymentDetailListParams
+
+  class IncomingPaymentDetailRetrieveParams = ModernTreasury::Models::IncomingPaymentDetailRetrieveParams
+
+  class IncomingPaymentDetailUpdateParams = ModernTreasury::Models::IncomingPaymentDetailUpdateParams
+
+  class InternalAccount = ModernTreasury::Models::InternalAccount
+
+  class InternalAccountCreateParams = ModernTreasury::Models::InternalAccountCreateParams
+
+  class InternalAccountListParams = ModernTreasury::Models::InternalAccountListParams
+
+  class InternalAccountRetrieveParams = ModernTreasury::Models::InternalAccountRetrieveParams
+
+  module InternalAccounts = ModernTreasury::Models::InternalAccounts
+
+  class InternalAccountUpdateParams = ModernTreasury::Models::InternalAccountUpdateParams
+
+  class Invoice = ModernTreasury::Models::Invoice
+
+  class InvoiceAddPaymentOrderParams = ModernTreasury::Models::InvoiceAddPaymentOrderParams
+
+  class InvoiceCreateParams = ModernTreasury::Models::InvoiceCreateParams
+
+  class InvoiceListParams = ModernTreasury::Models::InvoiceListParams
+
+  class InvoiceRetrieveParams = ModernTreasury::Models::InvoiceRetrieveParams
+
+  module Invoices = ModernTreasury::Models::Invoices
+
+  class InvoiceUpdateParams = ModernTreasury::Models::InvoiceUpdateParams
+
+  class Ledger = ModernTreasury::Models::Ledger
+
+  class LedgerableEvent = ModernTreasury::Models::LedgerableEvent
+
+  class LedgerableEventCreateParams = ModernTreasury::Models::LedgerableEventCreateParams
+
+  class LedgerableEventRetrieveParams = ModernTreasury::Models::LedgerableEventRetrieveParams
+
+  class LedgerAccount = ModernTreasury::Models::LedgerAccount
+
+  class LedgerAccountBalanceMonitor = ModernTreasury::Models::LedgerAccountBalanceMonitor
+
+  class LedgerAccountBalanceMonitorCreateParams = ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams
+
+  class LedgerAccountBalanceMonitorDeleteParams = ModernTreasury::Models::LedgerAccountBalanceMonitorDeleteParams
+
+  class LedgerAccountBalanceMonitorListParams = ModernTreasury::Models::LedgerAccountBalanceMonitorListParams
+
+  class LedgerAccountBalanceMonitorRetrieveParams = ModernTreasury::Models::LedgerAccountBalanceMonitorRetrieveParams
+
+  class LedgerAccountBalanceMonitorUpdateParams = ModernTreasury::Models::LedgerAccountBalanceMonitorUpdateParams
+
+  class LedgerAccountCategory = ModernTreasury::Models::LedgerAccountCategory
+
+  class LedgerAccountCategoryAddLedgerAccountParams = ModernTreasury::Models::LedgerAccountCategoryAddLedgerAccountParams
+
+  class LedgerAccountCategoryAddNestedCategoryParams = ModernTreasury::Models::LedgerAccountCategoryAddNestedCategoryParams
+
+  class LedgerAccountCategoryCreateParams = ModernTreasury::Models::LedgerAccountCategoryCreateParams
+
+  class LedgerAccountCategoryDeleteParams = ModernTreasury::Models::LedgerAccountCategoryDeleteParams
+
+  class LedgerAccountCategoryListParams = ModernTreasury::Models::LedgerAccountCategoryListParams
+
+  class LedgerAccountCategoryRemoveLedgerAccountParams = ModernTreasury::Models::LedgerAccountCategoryRemoveLedgerAccountParams
+
+  class LedgerAccountCategoryRemoveNestedCategoryParams = ModernTreasury::Models::LedgerAccountCategoryRemoveNestedCategoryParams
+
+  class LedgerAccountCategoryRetrieveParams = ModernTreasury::Models::LedgerAccountCategoryRetrieveParams
+
+  class LedgerAccountCategoryUpdateParams = ModernTreasury::Models::LedgerAccountCategoryUpdateParams
+
+  class LedgerAccountCreateParams = ModernTreasury::Models::LedgerAccountCreateParams
+
+  class LedgerAccountDeleteParams = ModernTreasury::Models::LedgerAccountDeleteParams
+
+  class LedgerAccountListParams = ModernTreasury::Models::LedgerAccountListParams
+
+  class LedgerAccountRetrieveParams = ModernTreasury::Models::LedgerAccountRetrieveParams
+
+  class LedgerAccountSettlement = ModernTreasury::Models::LedgerAccountSettlement
+
+  class LedgerAccountSettlementCreateParams = ModernTreasury::Models::LedgerAccountSettlementCreateParams
+
+  class LedgerAccountSettlementListParams = ModernTreasury::Models::LedgerAccountSettlementListParams
+
+  class LedgerAccountSettlementRetrieveParams = ModernTreasury::Models::LedgerAccountSettlementRetrieveParams
+
+  module LedgerAccountSettlements = ModernTreasury::Models::LedgerAccountSettlements
+
+  class LedgerAccountSettlementUpdateParams = ModernTreasury::Models::LedgerAccountSettlementUpdateParams
+
+  class LedgerAccountStatementCreateParams = ModernTreasury::Models::LedgerAccountStatementCreateParams
+
+  class LedgerAccountStatementRetrieveParams = ModernTreasury::Models::LedgerAccountStatementRetrieveParams
+
+  class LedgerAccountUpdateParams = ModernTreasury::Models::LedgerAccountUpdateParams
+
+  class LedgerCreateParams = ModernTreasury::Models::LedgerCreateParams
+
+  class LedgerDeleteParams = ModernTreasury::Models::LedgerDeleteParams
+
+  class LedgerEntry = ModernTreasury::Models::LedgerEntry
+
+  class LedgerEntryListParams = ModernTreasury::Models::LedgerEntryListParams
+
+  class LedgerEntryRetrieveParams = ModernTreasury::Models::LedgerEntryRetrieveParams
+
+  class LedgerEntryUpdateParams = ModernTreasury::Models::LedgerEntryUpdateParams
+
+  class LedgerEventHandler = ModernTreasury::Models::LedgerEventHandler
+
+  class LedgerEventHandlerCreateParams = ModernTreasury::Models::LedgerEventHandlerCreateParams
+
+  class LedgerEventHandlerDeleteParams = ModernTreasury::Models::LedgerEventHandlerDeleteParams
+
+  class LedgerEventHandlerListParams = ModernTreasury::Models::LedgerEventHandlerListParams
+
+  class LedgerEventHandlerRetrieveParams = ModernTreasury::Models::LedgerEventHandlerRetrieveParams
+
+  class LedgerEventHandlerVariable = ModernTreasury::Models::LedgerEventHandlerVariable
+
+  class LedgerListParams = ModernTreasury::Models::LedgerListParams
+
+  class LedgerRetrieveParams = ModernTreasury::Models::LedgerRetrieveParams
+
+  class LedgerTransaction = ModernTreasury::Models::LedgerTransaction
+
+  class LedgerTransactionCreateParams = ModernTreasury::Models::LedgerTransactionCreateParams
+
+  class LedgerTransactionCreatePartialPostParams = ModernTreasury::Models::LedgerTransactionCreatePartialPostParams
+
+  class LedgerTransactionCreateReversalParams = ModernTreasury::Models::LedgerTransactionCreateReversalParams
+
+  class LedgerTransactionListParams = ModernTreasury::Models::LedgerTransactionListParams
+
+  class LedgerTransactionRetrieveParams = ModernTreasury::Models::LedgerTransactionRetrieveParams
+
+  module LedgerTransactions = ModernTreasury::Models::LedgerTransactions
+
+  class LedgerTransactionUpdateParams = ModernTreasury::Models::LedgerTransactionUpdateParams
+
+  class LedgerUpdateParams = ModernTreasury::Models::LedgerUpdateParams
+
+  class LegalEntity = ModernTreasury::Models::LegalEntity
+
+  class LegalEntityAssociation = ModernTreasury::Models::LegalEntityAssociation
+
+  class LegalEntityAssociationCreateParams = ModernTreasury::Models::LegalEntityAssociationCreateParams
+
+  class LegalEntityComplianceDetail = ModernTreasury::Models::LegalEntityComplianceDetail
+
+  class LegalEntityCreateParams = ModernTreasury::Models::LegalEntityCreateParams
+
+  class LegalEntityIndustryClassification = ModernTreasury::Models::LegalEntityIndustryClassification
+
+  class LegalEntityListParams = ModernTreasury::Models::LegalEntityListParams
+
+  class LegalEntityRetrieveParams = ModernTreasury::Models::LegalEntityRetrieveParams
+
+  class LegalEntityUpdateParams = ModernTreasury::Models::LegalEntityUpdateParams
+
+  class LineItem = ModernTreasury::Models::LineItem
+
+  class LineItemListParams = ModernTreasury::Models::LineItemListParams
+
+  class LineItemRetrieveParams = ModernTreasury::Models::LineItemRetrieveParams
+
+  class LineItemUpdateParams = ModernTreasury::Models::LineItemUpdateParams
+
+  class PaperItem = ModernTreasury::Models::PaperItem
+
+  class PaperItemListParams = ModernTreasury::Models::PaperItemListParams
+
+  class PaperItemRetrieveParams = ModernTreasury::Models::PaperItemRetrieveParams
+
+  class PaymentFlow = ModernTreasury::Models::PaymentFlow
+
+  class PaymentFlowCreateParams = ModernTreasury::Models::PaymentFlowCreateParams
+
+  class PaymentFlowListParams = ModernTreasury::Models::PaymentFlowListParams
+
+  class PaymentFlowRetrieveParams = ModernTreasury::Models::PaymentFlowRetrieveParams
+
+  class PaymentFlowUpdateParams = ModernTreasury::Models::PaymentFlowUpdateParams
+
+  class PaymentOrder = ModernTreasury::Models::PaymentOrder
+
+  class PaymentOrderCreateAsyncParams = ModernTreasury::Models::PaymentOrderCreateAsyncParams
+
+  class PaymentOrderCreateParams = ModernTreasury::Models::PaymentOrderCreateParams
+
+  class PaymentOrderListParams = ModernTreasury::Models::PaymentOrderListParams
+
+  class PaymentOrderRetrieveParams = ModernTreasury::Models::PaymentOrderRetrieveParams
+
+  module PaymentOrders = ModernTreasury::Models::PaymentOrders
+
+  module PaymentOrderSubtype = ModernTreasury::Models::PaymentOrderSubtype
+
+  module PaymentOrderType = ModernTreasury::Models::PaymentOrderType
+
+  class PaymentOrderUpdateParams = ModernTreasury::Models::PaymentOrderUpdateParams
+
+  class PaymentReference = ModernTreasury::Models::PaymentReference
+
+  class PaymentReferenceListParams = ModernTreasury::Models::PaymentReferenceListParams
+
+  class PaymentReferenceRetireveParams = ModernTreasury::Models::PaymentReferenceRetireveParams
+
+  class PaymentReferenceRetrieveParams = ModernTreasury::Models::PaymentReferenceRetrieveParams
+
+  class PingResponse = ModernTreasury::Models::PingResponse
+
+  class ReconciliationRule = ModernTreasury::Models::ReconciliationRule
+
+  class ReturnCreateParams = ModernTreasury::Models::ReturnCreateParams
+
+  class ReturnListParams = ModernTreasury::Models::ReturnListParams
+
+  class ReturnObject = ModernTreasury::Models::ReturnObject
+
+  class ReturnRetrieveParams = ModernTreasury::Models::ReturnRetrieveParams
+
+  class RoutingDetail = ModernTreasury::Models::RoutingDetail
+
+  class RoutingDetailCreateParams = ModernTreasury::Models::RoutingDetailCreateParams
+
+  class RoutingDetailDeleteParams = ModernTreasury::Models::RoutingDetailDeleteParams
+
+  class RoutingDetailListParams = ModernTreasury::Models::RoutingDetailListParams
+
+  class RoutingDetailRetrieveParams = ModernTreasury::Models::RoutingDetailRetrieveParams
+
+  class RoutingNumberLookupRequest = ModernTreasury::Models::RoutingNumberLookupRequest
+
+  class Transaction = ModernTreasury::Models::Transaction
+
+  class TransactionCreateParams = ModernTreasury::Models::TransactionCreateParams
+
+  class TransactionDeleteParams = ModernTreasury::Models::TransactionDeleteParams
+
+  module TransactionDirection = ModernTreasury::Models::TransactionDirection
+
+  class TransactionListParams = ModernTreasury::Models::TransactionListParams
+
+  class TransactionRetrieveParams = ModernTreasury::Models::TransactionRetrieveParams
+
+  module Transactions = ModernTreasury::Models::Transactions
+
+  class TransactionUpdateParams = ModernTreasury::Models::TransactionUpdateParams
+
+  class ValidationValidateRoutingNumberParams = ModernTreasury::Models::ValidationValidateRoutingNumberParams
+
+  class VirtualAccount = ModernTreasury::Models::VirtualAccount
+
+  class VirtualAccountCreateParams = ModernTreasury::Models::VirtualAccountCreateParams
+
+  class VirtualAccountDeleteParams = ModernTreasury::Models::VirtualAccountDeleteParams
+
+  class VirtualAccountListParams = ModernTreasury::Models::VirtualAccountListParams
+
+  class VirtualAccountRetrieveParams = ModernTreasury::Models::VirtualAccountRetrieveParams
+
+  class VirtualAccountUpdateParams = ModernTreasury::Models::VirtualAccountUpdateParams
+
+  class WealthAndEmploymentDetails = ModernTreasury::Models::WealthAndEmploymentDetails
+end

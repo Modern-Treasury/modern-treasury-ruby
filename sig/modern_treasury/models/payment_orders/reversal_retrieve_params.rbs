@@ -15,8 +15,6 @@ module ModernTreasury
           payment_order_id: String,
           ?request_options: ModernTreasury::request_opts
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::PaymentOrders::reversal_retrieve_params
       end
     end
   end

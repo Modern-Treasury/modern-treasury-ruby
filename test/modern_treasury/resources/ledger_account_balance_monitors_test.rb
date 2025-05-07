@@ -11,15 +11,15 @@ class ModernTreasury::Test::Resources::LedgerAccountBalanceMonitorsTest < Modern
       )
 
     assert_pattern do
-      response => ModernTreasury::Models::LedgerAccountBalanceMonitor
+      response => ModernTreasury::LedgerAccountBalanceMonitor
     end
 
     assert_pattern do
       response => {
         id: String,
-        alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition,
+        alert_condition: ModernTreasury::LedgerAccountBalanceMonitor::AlertCondition,
         created_at: Time,
-        current_ledger_account_balance_state: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
+        current_ledger_account_balance_state: ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
         description: String | nil,
         discarded_at: Time | nil,
         ledger_account_id: String,
@@ -35,15 +35,15 @@ class ModernTreasury::Test::Resources::LedgerAccountBalanceMonitorsTest < Modern
     response = @modern_treasury.ledger_account_balance_monitors.retrieve("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::LedgerAccountBalanceMonitor
+      response => ModernTreasury::LedgerAccountBalanceMonitor
     end
 
     assert_pattern do
       response => {
         id: String,
-        alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition,
+        alert_condition: ModernTreasury::LedgerAccountBalanceMonitor::AlertCondition,
         created_at: Time,
-        current_ledger_account_balance_state: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
+        current_ledger_account_balance_state: ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
         description: String | nil,
         discarded_at: Time | nil,
         ledger_account_id: String,
@@ -59,15 +59,15 @@ class ModernTreasury::Test::Resources::LedgerAccountBalanceMonitorsTest < Modern
     response = @modern_treasury.ledger_account_balance_monitors.update("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::LedgerAccountBalanceMonitor
+      response => ModernTreasury::LedgerAccountBalanceMonitor
     end
 
     assert_pattern do
       response => {
         id: String,
-        alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition,
+        alert_condition: ModernTreasury::LedgerAccountBalanceMonitor::AlertCondition,
         created_at: Time,
-        current_ledger_account_balance_state: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
+        current_ledger_account_balance_state: ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
         description: String | nil,
         discarded_at: Time | nil,
         ledger_account_id: String,
@@ -90,15 +90,15 @@ class ModernTreasury::Test::Resources::LedgerAccountBalanceMonitorsTest < Modern
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Models::LedgerAccountBalanceMonitor
+      row => ModernTreasury::LedgerAccountBalanceMonitor
     end
 
     assert_pattern do
       row => {
         id: String,
-        alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition,
+        alert_condition: ModernTreasury::LedgerAccountBalanceMonitor::AlertCondition,
         created_at: Time,
-        current_ledger_account_balance_state: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
+        current_ledger_account_balance_state: ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
         description: String | nil,
         discarded_at: Time | nil,
         ledger_account_id: String,
@@ -114,15 +114,15 @@ class ModernTreasury::Test::Resources::LedgerAccountBalanceMonitorsTest < Modern
     response = @modern_treasury.ledger_account_balance_monitors.delete("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::LedgerAccountBalanceMonitor
+      response => ModernTreasury::LedgerAccountBalanceMonitor
     end
 
     assert_pattern do
       response => {
         id: String,
-        alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition,
+        alert_condition: ModernTreasury::LedgerAccountBalanceMonitor::AlertCondition,
         created_at: Time,
-        current_ledger_account_balance_state: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
+        current_ledger_account_balance_state: ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
         description: String | nil,
         discarded_at: Time | nil,
         ledger_account_id: String,

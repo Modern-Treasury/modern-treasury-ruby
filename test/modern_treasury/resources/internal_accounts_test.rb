@@ -13,18 +13,18 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
       )
 
     assert_pattern do
-      response => ModernTreasury::Models::InternalAccount
+      response => ModernTreasury::InternalAccount
     end
 
     assert_pattern do
       response => {
         id: String,
-        account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::AccountDetail]),
-        account_type: ModernTreasury::Models::InternalAccount::AccountType | nil,
-        connection: ModernTreasury::Models::Connection,
+        account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail]),
+        account_type: ModernTreasury::InternalAccount::AccountType | nil,
+        connection: ModernTreasury::Connection,
         counterparty_id: String | nil,
         created_at: Time,
-        currency: ModernTreasury::Models::Currency,
+        currency: ModernTreasury::Currency,
         ledger_account_id: String | nil,
         legal_entity_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
@@ -32,10 +32,10 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
         name: String | nil,
         object: String,
         parent_account_id: String | nil,
-        party_address: ModernTreasury::Models::InternalAccount::PartyAddress | nil,
+        party_address: ModernTreasury::InternalAccount::PartyAddress | nil,
         party_name: String,
-        party_type: ModernTreasury::Models::InternalAccount::PartyType | nil,
-        routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::RoutingDetail]),
+        party_type: ModernTreasury::InternalAccount::PartyType | nil,
+        routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail]),
         updated_at: Time
       }
     end
@@ -45,18 +45,18 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
     response = @modern_treasury.internal_accounts.retrieve("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::InternalAccount
+      response => ModernTreasury::InternalAccount
     end
 
     assert_pattern do
       response => {
         id: String,
-        account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::AccountDetail]),
-        account_type: ModernTreasury::Models::InternalAccount::AccountType | nil,
-        connection: ModernTreasury::Models::Connection,
+        account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail]),
+        account_type: ModernTreasury::InternalAccount::AccountType | nil,
+        connection: ModernTreasury::Connection,
         counterparty_id: String | nil,
         created_at: Time,
-        currency: ModernTreasury::Models::Currency,
+        currency: ModernTreasury::Currency,
         ledger_account_id: String | nil,
         legal_entity_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
@@ -64,10 +64,10 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
         name: String | nil,
         object: String,
         parent_account_id: String | nil,
-        party_address: ModernTreasury::Models::InternalAccount::PartyAddress | nil,
+        party_address: ModernTreasury::InternalAccount::PartyAddress | nil,
         party_name: String,
-        party_type: ModernTreasury::Models::InternalAccount::PartyType | nil,
-        routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::RoutingDetail]),
+        party_type: ModernTreasury::InternalAccount::PartyType | nil,
+        routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail]),
         updated_at: Time
       }
     end
@@ -77,18 +77,18 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
     response = @modern_treasury.internal_accounts.update("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::InternalAccount
+      response => ModernTreasury::InternalAccount
     end
 
     assert_pattern do
       response => {
         id: String,
-        account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::AccountDetail]),
-        account_type: ModernTreasury::Models::InternalAccount::AccountType | nil,
-        connection: ModernTreasury::Models::Connection,
+        account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail]),
+        account_type: ModernTreasury::InternalAccount::AccountType | nil,
+        connection: ModernTreasury::Connection,
         counterparty_id: String | nil,
         created_at: Time,
-        currency: ModernTreasury::Models::Currency,
+        currency: ModernTreasury::Currency,
         ledger_account_id: String | nil,
         legal_entity_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
@@ -96,10 +96,10 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
         name: String | nil,
         object: String,
         parent_account_id: String | nil,
-        party_address: ModernTreasury::Models::InternalAccount::PartyAddress | nil,
+        party_address: ModernTreasury::InternalAccount::PartyAddress | nil,
         party_name: String,
-        party_type: ModernTreasury::Models::InternalAccount::PartyType | nil,
-        routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::RoutingDetail]),
+        party_type: ModernTreasury::InternalAccount::PartyType | nil,
+        routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail]),
         updated_at: Time
       }
     end
@@ -116,18 +116,18 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Models::InternalAccount
+      row => ModernTreasury::InternalAccount
     end
 
     assert_pattern do
       row => {
         id: String,
-        account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::AccountDetail]),
-        account_type: ModernTreasury::Models::InternalAccount::AccountType | nil,
-        connection: ModernTreasury::Models::Connection,
+        account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail]),
+        account_type: ModernTreasury::InternalAccount::AccountType | nil,
+        connection: ModernTreasury::Connection,
         counterparty_id: String | nil,
         created_at: Time,
-        currency: ModernTreasury::Models::Currency,
+        currency: ModernTreasury::Currency,
         ledger_account_id: String | nil,
         legal_entity_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
@@ -135,10 +135,10 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
         name: String | nil,
         object: String,
         parent_account_id: String | nil,
-        party_address: ModernTreasury::Models::InternalAccount::PartyAddress | nil,
+        party_address: ModernTreasury::InternalAccount::PartyAddress | nil,
         party_name: String,
-        party_type: ModernTreasury::Models::InternalAccount::PartyType | nil,
-        routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::RoutingDetail]),
+        party_type: ModernTreasury::InternalAccount::PartyType | nil,
+        routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail]),
         updated_at: Time
       }
     end

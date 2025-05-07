@@ -55,8 +55,6 @@ module ModernTreasury
         validated: bool,
         validated_at: Time?
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::legal_entity_compliance_detail
     end
   end
 end

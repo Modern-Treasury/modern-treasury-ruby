@@ -9,18 +9,18 @@ module ModernTreasury
         originating_account_id: String,
         ?due_date: Date,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::PaymentFlow
+      ) -> ModernTreasury::PaymentFlow
 
       def retrieve: (
         String id,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::PaymentFlow
+      ) -> ModernTreasury::PaymentFlow
 
       def update: (
         String id,
         status: ModernTreasury::Models::PaymentFlowUpdateParams::status,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::PaymentFlow
+      ) -> ModernTreasury::PaymentFlow
 
       def list: (
         ?after_cursor: String?,
@@ -32,7 +32,7 @@ module ModernTreasury
         ?receiving_account_id: String,
         ?status: String,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::PaymentFlow]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::PaymentFlow]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

@@ -2,29 +2,29 @@ module ModernTreasury
   module Models
     type legal_entity_update_params =
       {
-        addresses: ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Address],
-        bank_settings: ModernTreasury::Models::BankSettings?,
+        addresses: ::Array[ModernTreasury::LegalEntityUpdateParams::Address],
+        bank_settings: ModernTreasury::BankSettings?,
         business_name: String?,
         citizenship_country: String?,
-        compliance_details: ModernTreasury::Models::LegalEntityComplianceDetail?,
+        compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
         date_formed: Date?,
         date_of_birth: Date?,
         doing_business_as_names: ::Array[String],
         email: String?,
         first_name: String?,
-        identifications: ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Identification],
-        industry_classifications: ::Array[ModernTreasury::Models::LegalEntityIndustryClassification],
+        identifications: ::Array[ModernTreasury::LegalEntityUpdateParams::Identification],
+        industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification],
         last_name: String?,
         legal_structure: ModernTreasury::Models::LegalEntityUpdateParams::legal_structure?,
         metadata: ::Hash[Symbol, String],
         middle_name: String?,
-        phone_numbers: ::Array[ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber],
+        phone_numbers: ::Array[ModernTreasury::LegalEntityUpdateParams::PhoneNumber],
         politically_exposed_person: bool?,
         preferred_name: String?,
         prefix: String?,
         risk_rating: ModernTreasury::Models::LegalEntityUpdateParams::risk_rating?,
         suffix: String?,
-        wealth_and_employment_details: ModernTreasury::Models::WealthAndEmploymentDetails?,
+        wealth_and_employment_details: ModernTreasury::WealthAndEmploymentDetails?,
         website: String?
       }
       & ModernTreasury::Internal::Type::request_parameters
@@ -33,19 +33,19 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
-      attr_reader addresses: ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Address]?
+      attr_reader addresses: ::Array[ModernTreasury::LegalEntityUpdateParams::Address]?
 
       def addresses=: (
-        ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Address]
-      ) -> ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Address]
+        ::Array[ModernTreasury::LegalEntityUpdateParams::Address]
+      ) -> ::Array[ModernTreasury::LegalEntityUpdateParams::Address]
 
-      attr_accessor bank_settings: ModernTreasury::Models::BankSettings?
+      attr_accessor bank_settings: ModernTreasury::BankSettings?
 
       attr_accessor business_name: String?
 
       attr_accessor citizenship_country: String?
 
-      attr_accessor compliance_details: ModernTreasury::Models::LegalEntityComplianceDetail?
+      attr_accessor compliance_details: ModernTreasury::LegalEntityComplianceDetail?
 
       attr_accessor date_formed: Date?
 
@@ -59,17 +59,17 @@ module ModernTreasury
 
       attr_accessor first_name: String?
 
-      attr_reader identifications: ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Identification]?
+      attr_reader identifications: ::Array[ModernTreasury::LegalEntityUpdateParams::Identification]?
 
       def identifications=: (
-        ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Identification]
-      ) -> ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Identification]
+        ::Array[ModernTreasury::LegalEntityUpdateParams::Identification]
+      ) -> ::Array[ModernTreasury::LegalEntityUpdateParams::Identification]
 
-      attr_reader industry_classifications: ::Array[ModernTreasury::Models::LegalEntityIndustryClassification]?
+      attr_reader industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification]?
 
       def industry_classifications=: (
-        ::Array[ModernTreasury::Models::LegalEntityIndustryClassification]
-      ) -> ::Array[ModernTreasury::Models::LegalEntityIndustryClassification]
+        ::Array[ModernTreasury::LegalEntityIndustryClassification]
+      ) -> ::Array[ModernTreasury::LegalEntityIndustryClassification]
 
       attr_accessor last_name: String?
 
@@ -81,11 +81,11 @@ module ModernTreasury
 
       attr_accessor middle_name: String?
 
-      attr_reader phone_numbers: ::Array[ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber]?
+      attr_reader phone_numbers: ::Array[ModernTreasury::LegalEntityUpdateParams::PhoneNumber]?
 
       def phone_numbers=: (
-        ::Array[ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber]
-      ) -> ::Array[ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber]
+        ::Array[ModernTreasury::LegalEntityUpdateParams::PhoneNumber]
+      ) -> ::Array[ModernTreasury::LegalEntityUpdateParams::PhoneNumber]
 
       attr_accessor politically_exposed_person: bool?
 
@@ -97,39 +97,37 @@ module ModernTreasury
 
       attr_accessor suffix: String?
 
-      attr_accessor wealth_and_employment_details: ModernTreasury::Models::WealthAndEmploymentDetails?
+      attr_accessor wealth_and_employment_details: ModernTreasury::WealthAndEmploymentDetails?
 
       attr_accessor website: String?
 
       def initialize: (
-        ?addresses: ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Address],
-        ?bank_settings: ModernTreasury::Models::BankSettings?,
+        ?addresses: ::Array[ModernTreasury::LegalEntityUpdateParams::Address],
+        ?bank_settings: ModernTreasury::BankSettings?,
         ?business_name: String?,
         ?citizenship_country: String?,
-        ?compliance_details: ModernTreasury::Models::LegalEntityComplianceDetail?,
+        ?compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
         ?date_formed: Date?,
         ?date_of_birth: Date?,
         ?doing_business_as_names: ::Array[String],
         ?email: String?,
         ?first_name: String?,
-        ?identifications: ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Identification],
-        ?industry_classifications: ::Array[ModernTreasury::Models::LegalEntityIndustryClassification],
+        ?identifications: ::Array[ModernTreasury::LegalEntityUpdateParams::Identification],
+        ?industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification],
         ?last_name: String?,
         ?legal_structure: ModernTreasury::Models::LegalEntityUpdateParams::legal_structure?,
         ?metadata: ::Hash[Symbol, String],
         ?middle_name: String?,
-        ?phone_numbers: ::Array[ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber],
+        ?phone_numbers: ::Array[ModernTreasury::LegalEntityUpdateParams::PhoneNumber],
         ?politically_exposed_person: bool?,
         ?preferred_name: String?,
         ?prefix: String?,
         ?risk_rating: ModernTreasury::Models::LegalEntityUpdateParams::risk_rating?,
         ?suffix: String?,
-        ?wealth_and_employment_details: ModernTreasury::Models::WealthAndEmploymentDetails?,
+        ?wealth_and_employment_details: ModernTreasury::WealthAndEmploymentDetails?,
         ?website: String?,
         ?request_options: ModernTreasury::request_opts
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::legal_entity_update_params
 
       type address =
         {
@@ -138,7 +136,7 @@ module ModernTreasury
           locality: String?,
           postal_code: String?,
           region: String?,
-          address_types: ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Address::address_type],
+          address_types: ::Array[ModernTreasury::LegalEntityUpdateParams::Address::address_type],
           :line2 => String?
         }
 
@@ -153,11 +151,11 @@ module ModernTreasury
 
         attr_accessor region: String?
 
-        attr_reader address_types: ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Address::address_type]?
+        attr_reader address_types: ::Array[ModernTreasury::LegalEntityUpdateParams::Address::address_type]?
 
         def address_types=: (
-          ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Address::address_type]
-        ) -> ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Address::address_type]
+          ::Array[ModernTreasury::LegalEntityUpdateParams::Address::address_type]
+        ) -> ::Array[ModernTreasury::LegalEntityUpdateParams::Address::address_type]
 
         attr_accessor line2: String?
 
@@ -167,11 +165,9 @@ module ModernTreasury
           locality: String?,
           postal_code: String?,
           region: String?,
-          ?address_types: ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Address::address_type],
+          ?address_types: ::Array[ModernTreasury::LegalEntityUpdateParams::Address::address_type],
           ?line2: String?
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::LegalEntityUpdateParams::address
 
         type address_type =
           :business | :mailing | :other | :po_box | :residential
@@ -185,31 +181,29 @@ module ModernTreasury
           PO_BOX: :po_box
           RESIDENTIAL: :residential
 
-          def self?.values: -> ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Address::address_type]
+          def self?.values: -> ::Array[ModernTreasury::LegalEntityUpdateParams::Address::address_type]
         end
       end
 
       type identification =
         {
           id_number: String,
-          id_type: ModernTreasury::Models::LegalEntityUpdateParams::Identification::id_type,
+          id_type: ModernTreasury::LegalEntityUpdateParams::Identification::id_type,
           issuing_country: String?
         }
 
       class Identification < ModernTreasury::Internal::Type::BaseModel
         attr_accessor id_number: String
 
-        attr_accessor id_type: ModernTreasury::Models::LegalEntityUpdateParams::Identification::id_type
+        attr_accessor id_type: ModernTreasury::LegalEntityUpdateParams::Identification::id_type
 
         attr_accessor issuing_country: String?
 
         def initialize: (
           id_number: String,
-          id_type: ModernTreasury::Models::LegalEntityUpdateParams::Identification::id_type,
+          id_type: ModernTreasury::LegalEntityUpdateParams::Identification::id_type,
           ?issuing_country: String?
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::LegalEntityUpdateParams::identification
 
         type id_type =
           :ar_cuil
@@ -259,7 +253,7 @@ module ModernTreasury
           US_SSN: :us_ssn
           VN_TIN: :vn_tin
 
-          def self?.values: -> ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Identification::id_type]
+          def self?.values: -> ::Array[ModernTreasury::LegalEntityUpdateParams::Identification::id_type]
         end
       end
 
@@ -292,8 +286,6 @@ module ModernTreasury
         def phone_number=: (String) -> String
 
         def initialize: (?phone_number: String) -> void
-
-        def to_hash: -> ModernTreasury::Models::LegalEntityUpdateParams::phone_number
       end
 
       type risk_rating = :low | :medium | :high

@@ -12,9 +12,10 @@ module ModernTreasury
       required :id, String
 
       # @!attribute conditions
+      #   @deprecated
       #
-      #   @return [ModernTreasury::Models::LedgerEventHandler::Conditions, nil]
-      required :conditions, -> { ModernTreasury::Models::LedgerEventHandler::Conditions }, nil?: true
+      #   @return [ModernTreasury::LedgerEventHandler::Conditions, nil]
+      required :conditions, -> { ModernTreasury::LedgerEventHandler::Conditions }, nil?: true
 
       # @!attribute created_at
       #
@@ -39,10 +40,11 @@ module ModernTreasury
       required :ledger_id, String, nil?: true
 
       # @!attribute ledger_transaction_template
+      #   @deprecated
       #
-      #   @return [ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate]
+      #   @return [ModernTreasury::LedgerEventHandler::LedgerTransactionTemplate]
       required :ledger_transaction_template,
-               -> { ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate }
+               -> { ModernTreasury::LedgerEventHandler::LedgerTransactionTemplate }
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false
@@ -75,51 +77,46 @@ module ModernTreasury
       required :updated_at, Time
 
       # @!attribute variables
+      #   @deprecated
       #
-      #   @return [Hash{Symbol=>ModernTreasury::Models::LedgerEventHandlerVariable}, nil]
+      #   @return [Hash{Symbol=>ModernTreasury::LedgerEventHandlerVariable}, nil]
       required :variables,
-               -> { ModernTreasury::Internal::Type::HashOf[ModernTreasury::Models::LedgerEventHandlerVariable] },
+               -> { ModernTreasury::Internal::Type::HashOf[ModernTreasury::LedgerEventHandlerVariable] },
                nil?: true
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param conditions [ModernTreasury::Models::LedgerEventHandler::Conditions, nil]
-      #   # @param created_at [Time]
-      #   # @param description [String, nil]
-      #   # @param discarded_at [Time, nil]
-      #   # @param ledger_id [String, nil]
-      #   # @param ledger_transaction_template [ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate]
-      #   # @param live_mode [Boolean]
-      #   # @param metadata [Hash{Symbol=>String}, nil]
-      #   # @param name [String]
-      #   # @param object [String]
-      #   # @param updated_at [Time]
-      #   # @param variables [Hash{Symbol=>ModernTreasury::Models::LedgerEventHandlerVariable}, nil]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     conditions:,
-      #     created_at:,
-      #     description:,
-      #     discarded_at:,
-      #     ledger_id:,
-      #     ledger_transaction_template:,
-      #     live_mode:,
-      #     metadata:,
-      #     name:,
-      #     object:,
-      #     updated_at:,
-      #     variables:,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, conditions:, created_at:, description:, discarded_at:, ledger_id:, ledger_transaction_template:, live_mode:, metadata:, name:, object:, updated_at:, variables:)
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::LedgerEventHandler} for more details.
+      #
+      #   @param id [String]
+      #
+      #   @param conditions [ModernTreasury::LedgerEventHandler::Conditions, nil]
+      #
+      #   @param created_at [Time]
+      #
+      #   @param description [String, nil] An optional description.
+      #
+      #   @param discarded_at [Time, nil]
+      #
+      #   @param ledger_id [String, nil] The id of the ledger that this event handler belongs to.
+      #
+      #   @param ledger_transaction_template [ModernTreasury::LedgerEventHandler::LedgerTransactionTemplate]
+      #
+      #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+      #
+      #   @param metadata [Hash{Symbol=>String}, nil] Additional data represented as key-value pairs. Both the key and value must be s
+      #
+      #   @param name [String] Name of the ledger event handler.
+      #
+      #   @param object [String]
+      #
+      #   @param updated_at [Time]
+      #
+      #   @param variables [Hash{Symbol=>ModernTreasury::LedgerEventHandlerVariable}, nil]
 
       # @deprecated
       #
-      # @see ModernTreasury::Models::LedgerEventHandler#conditions
+      # @see ModernTreasury::LedgerEventHandler#conditions
       class Conditions < ModernTreasury::Internal::Type::BaseModel
         # @!attribute field
         #   The LHS of the conditional.
@@ -139,19 +136,17 @@ module ModernTreasury
         #   @return [String]
         required :value, String
 
-        # @!parse
-        #   # @param field [String]
-        #   # @param operator [String]
-        #   # @param value [String]
-        #   #
-        #   def initialize(field:, operator:, value:, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(field:, operator:, value:)
+        #   @param field [String] The LHS of the conditional.
+        #
+        #   @param operator [String] What the operator between the `field` and `value` is.
+        #
+        #   @param value [String] The RHS of the conditional.
       end
 
       # @deprecated
       #
-      # @see ModernTreasury::Models::LedgerEventHandler#ledger_transaction_template
+      # @see ModernTreasury::LedgerEventHandler#ledger_transaction_template
       class LedgerTransactionTemplate < ModernTreasury::Internal::Type::BaseModel
         # @!attribute description
         #   An optional description for internal use.
@@ -169,9 +164,11 @@ module ModernTreasury
         # @!attribute ledger_entries
         #   An array of ledger entry objects.
         #
-        #   @return [Array<ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry>]
+        #   @return [Array<ModernTreasury::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry>]
         required :ledger_entries,
-                 -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry] }
+                 -> {
+                   ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry]
+                 }
 
         # @!attribute status
         #   To post a ledger transaction at creation, use `posted`.
@@ -179,15 +176,18 @@ module ModernTreasury
         #   @return [String, nil]
         required :status, String, nil?: true
 
-        # @!parse
-        #   # @param description [String, nil]
-        #   # @param effective_at [String, nil]
-        #   # @param ledger_entries [Array<ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry>]
-        #   # @param status [String, nil]
-        #   #
-        #   def initialize(description:, effective_at:, ledger_entries:, status:, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(description:, effective_at:, ledger_entries:, status:)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::LedgerEventHandler::LedgerTransactionTemplate} for more
+        #   details.
+        #
+        #   @param description [String, nil] An optional description for internal use.
+        #
+        #   @param effective_at [String, nil] The timestamp (ISO8601 format) at which the ledger transaction happened for repo
+        #
+        #   @param ledger_entries [Array<ModernTreasury::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry>] An array of ledger entry objects.
+        #
+        #   @param status [String, nil] To post a ledger transaction at creation, use `posted`.
 
         # @deprecated
         class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
@@ -209,14 +209,12 @@ module ModernTreasury
           #   @return [String]
           required :ledger_account_id, String
 
-          # @!parse
-          #   # @param amount [String]
-          #   # @param direction [String]
-          #   # @param ledger_account_id [String]
-          #   #
-          #   def initialize(amount:, direction:, ledger_account_id:, **) = super
-
-          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+          # @!method initialize(amount:, direction:, ledger_account_id:)
+          #   @param amount [String] The LHS of the conditional.
+          #
+          #   @param direction [String] What the operator between the `field` and `value` is.
+          #
+          #   @param ledger_account_id [String] The RHS of the conditional.
         end
       end
     end

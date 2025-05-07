@@ -47,8 +47,6 @@ module ModernTreasury
         resource: String,
         updated_at: Time
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::event
     end
   end
 end

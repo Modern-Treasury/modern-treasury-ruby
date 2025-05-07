@@ -12,8 +12,8 @@ module ModernTreasury
       # @!attribute alert_condition
       #   Describes the condition that must be satisfied for the monitor to be triggered.
       #
-      #   @return [ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition]
-      required :alert_condition, -> { ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition }
+      #   @return [ModernTreasury::LedgerAccountBalanceMonitor::AlertCondition]
+      required :alert_condition, -> { ModernTreasury::LedgerAccountBalanceMonitor::AlertCondition }
 
       # @!attribute created_at
       #
@@ -24,9 +24,9 @@ module ModernTreasury
       #   The ledger account's balances and the monitor state as of the current ledger
       #   account lock version.
       #
-      #   @return [ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState]
+      #   @return [ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState]
       required :current_ledger_account_balance_state,
-               -> { ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState }
+               -> { ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState }
 
       # @!attribute description
       #   An optional, free-form description for internal use.
@@ -69,39 +69,33 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param alert_condition [ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition]
-      #   # @param created_at [Time]
-      #   # @param current_ledger_account_balance_state [ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState]
-      #   # @param description [String, nil]
-      #   # @param discarded_at [Time, nil]
-      #   # @param ledger_account_id [String]
-      #   # @param live_mode [Boolean]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param object [String]
-      #   # @param updated_at [Time]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     alert_condition:,
-      #     created_at:,
-      #     current_ledger_account_balance_state:,
-      #     description:,
-      #     discarded_at:,
-      #     ledger_account_id:,
-      #     live_mode:,
-      #     metadata:,
-      #     object:,
-      #     updated_at:,
-      #     **
-      #   )
-      #     super
-      #   end
+      # @!method initialize(id:, alert_condition:, created_at:, current_ledger_account_balance_state:, description:, discarded_at:, ledger_account_id:, live_mode:, metadata:, object:, updated_at:)
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::LedgerAccountBalanceMonitor} for more details.
+      #
+      #   @param id [String]
+      #
+      #   @param alert_condition [ModernTreasury::LedgerAccountBalanceMonitor::AlertCondition] Describes the condition that must be satisfied for the monitor to be triggered.
+      #
+      #   @param created_at [Time]
+      #
+      #   @param current_ledger_account_balance_state [ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState] The ledger account's balances and the monitor state as of the current ledger acc
+      #
+      #   @param description [String, nil] An optional, free-form description for internal use.
+      #
+      #   @param discarded_at [Time, nil]
+      #
+      #   @param ledger_account_id [String] The ledger account associated with this balance monitor.
+      #
+      #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+      #
+      #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      #
+      #   @param object [String]
+      #
+      #   @param updated_at [Time]
 
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
-
-      # @see ModernTreasury::Models::LedgerAccountBalanceMonitor#alert_condition
+      # @see ModernTreasury::LedgerAccountBalanceMonitor#alert_condition
       class AlertCondition < ModernTreasury::Internal::Type::BaseModel
         # @!attribute field
         #   One of `available_balance_amount`, `pending_balance_amount`,
@@ -126,25 +120,28 @@ module ModernTreasury
         #   @return [Integer]
         required :value, Integer
 
-        # @!parse
-        #   # Describes the condition that must be satisfied for the monitor to be triggered.
-        #   #
-        #   # @param field [String]
-        #   # @param operator [String]
-        #   # @param value [Integer]
-        #   #
-        #   def initialize(field:, operator:, value:, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(field:, operator:, value:)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::LedgerAccountBalanceMonitor::AlertCondition} for more details.
+        #
+        #   Describes the condition that must be satisfied for the monitor to be triggered.
+        #
+        #   @param field [String] One of `available_balance_amount`, `pending_balance_amount`, `posted_balance_amo
+        #
+        #   @param operator [String] A logical operator to compare the `field` against the `value`. One of `less_than
+        #
+        #   @param value [Integer] The monitor's `current_ledger_account_balance_state.triggered` will be `true` wh
       end
 
-      # @see ModernTreasury::Models::LedgerAccountBalanceMonitor#current_ledger_account_balance_state
+      # @see ModernTreasury::LedgerAccountBalanceMonitor#current_ledger_account_balance_state
       class CurrentLedgerAccountBalanceState < ModernTreasury::Internal::Type::BaseModel
         # @!attribute balances
         #
-        #   @return [ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances]
+        #   @return [ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances]
         required :balances,
-                 -> { ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances }
+                 -> {
+                   ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances
+                 }
 
         # @!attribute ledger_account_lock_version
         #   The current lock version of the ledger account.
@@ -159,19 +156,21 @@ module ModernTreasury
         #   @return [Boolean]
         required :triggered, ModernTreasury::Internal::Type::Boolean
 
-        # @!parse
-        #   # The ledger account's balances and the monitor state as of the current ledger
-        #   # account lock version.
-        #   #
-        #   # @param balances [ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances]
-        #   # @param ledger_account_lock_version [Integer]
-        #   # @param triggered [Boolean]
-        #   #
-        #   def initialize(balances:, ledger_account_lock_version:, triggered:, **) = super
+        # @!method initialize(balances:, ledger_account_lock_version:, triggered:)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState}
+        #   for more details.
+        #
+        #   The ledger account's balances and the monitor state as of the current ledger
+        #   account lock version.
+        #
+        #   @param balances [ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances]
+        #
+        #   @param ledger_account_lock_version [Integer] The current lock version of the ledger account.
+        #
+        #   @param triggered [Boolean] If `true`, the ledger account's balances satisfy the `alert_condition` at this l
 
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
-
-        # @see ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState#balances
+        # @see ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState#balances
         class Balances < ModernTreasury::Internal::Type::BaseModel
           # @!attribute available_balance
           #   The available_balance is the sum of all posted inbound entries and pending
@@ -179,34 +178,42 @@ module ModernTreasury
           #   pending_debits; for debit normal, available_amount = posted_debits -
           #   pending_credits.
           #
-          #   @return [ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance]
+          #   @return [ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance]
           required :available_balance,
-                   -> { ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance }
+                   -> {
+                     ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance
+                   }
 
           # @!attribute pending_balance
           #   The pending_balance is the sum of all pending and posted entries.
           #
-          #   @return [ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance]
+          #   @return [ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance]
           required :pending_balance,
-                   -> { ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance }
+                   -> {
+                     ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance
+                   }
 
           # @!attribute posted_balance
           #   The posted_balance is the sum of all posted entries.
           #
-          #   @return [ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance]
+          #   @return [ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance]
           required :posted_balance,
-                   -> { ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance }
+                   -> {
+                     ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance
+                   }
 
-          # @!parse
-          #   # @param available_balance [ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance]
-          #   # @param pending_balance [ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance]
-          #   # @param posted_balance [ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance]
-          #   #
-          #   def initialize(available_balance:, pending_balance:, posted_balance:, **) = super
+          # @!method initialize(available_balance:, pending_balance:, posted_balance:)
+          #   Some parameter documentations has been truncated, see
+          #   {ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances}
+          #   for more details.
+          #
+          #   @param available_balance [ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance] The available_balance is the sum of all posted inbound entries and pending outbo
+          #
+          #   @param pending_balance [ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance] The pending_balance is the sum of all pending and posted entries.
+          #
+          #   @param posted_balance [ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance] The posted_balance is the sum of all posted entries.
 
-          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
-
-          # @see ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances#available_balance
+          # @see ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances#available_balance
           class AvailableBalance < ModernTreasury::Internal::Type::BaseModel
             # @!attribute amount
             #
@@ -235,24 +242,24 @@ module ModernTreasury
             #   @return [Integer]
             required :debits, Integer
 
-            # @!parse
-            #   # The available_balance is the sum of all posted inbound entries and pending
-            #   # outbound entries. For credit normal, available_amount = posted_credits -
-            #   # pending_debits; for debit normal, available_amount = posted_debits -
-            #   # pending_credits.
-            #   #
-            #   # @param amount [Integer]
-            #   # @param credits [Integer]
-            #   # @param currency [String]
-            #   # @param currency_exponent [Integer]
-            #   # @param debits [Integer]
-            #   #
-            #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super
-
-            # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+            # @!method initialize(amount:, credits:, currency:, currency_exponent:, debits:)
+            #   The available_balance is the sum of all posted inbound entries and pending
+            #   outbound entries. For credit normal, available_amount = posted_credits -
+            #   pending_debits; for debit normal, available_amount = posted_debits -
+            #   pending_credits.
+            #
+            #   @param amount [Integer]
+            #
+            #   @param credits [Integer]
+            #
+            #   @param currency [String] The currency of the ledger account.
+            #
+            #   @param currency_exponent [Integer] The currency exponent of the ledger account.
+            #
+            #   @param debits [Integer]
           end
 
-          # @see ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances#pending_balance
+          # @see ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances#pending_balance
           class PendingBalance < ModernTreasury::Internal::Type::BaseModel
             # @!attribute amount
             #
@@ -281,21 +288,21 @@ module ModernTreasury
             #   @return [Integer]
             required :debits, Integer
 
-            # @!parse
-            #   # The pending_balance is the sum of all pending and posted entries.
-            #   #
-            #   # @param amount [Integer]
-            #   # @param credits [Integer]
-            #   # @param currency [String]
-            #   # @param currency_exponent [Integer]
-            #   # @param debits [Integer]
-            #   #
-            #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super
-
-            # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+            # @!method initialize(amount:, credits:, currency:, currency_exponent:, debits:)
+            #   The pending_balance is the sum of all pending and posted entries.
+            #
+            #   @param amount [Integer]
+            #
+            #   @param credits [Integer]
+            #
+            #   @param currency [String] The currency of the ledger account.
+            #
+            #   @param currency_exponent [Integer] The currency exponent of the ledger account.
+            #
+            #   @param debits [Integer]
           end
 
-          # @see ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances#posted_balance
+          # @see ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances#posted_balance
           class PostedBalance < ModernTreasury::Internal::Type::BaseModel
             # @!attribute amount
             #
@@ -324,18 +331,18 @@ module ModernTreasury
             #   @return [Integer]
             required :debits, Integer
 
-            # @!parse
-            #   # The posted_balance is the sum of all posted entries.
-            #   #
-            #   # @param amount [Integer]
-            #   # @param credits [Integer]
-            #   # @param currency [String]
-            #   # @param currency_exponent [Integer]
-            #   # @param debits [Integer]
-            #   #
-            #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super
-
-            # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+            # @!method initialize(amount:, credits:, currency:, currency_exponent:, debits:)
+            #   The posted_balance is the sum of all posted entries.
+            #
+            #   @param amount [Integer]
+            #
+            #   @param credits [Integer]
+            #
+            #   @param currency [String] The currency of the ledger account.
+            #
+            #   @param currency_exponent [Integer] The currency exponent of the ledger account.
+            #
+            #   @param debits [Integer]
           end
         end
       end

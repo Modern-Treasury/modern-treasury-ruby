@@ -61,35 +61,29 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param created_at [Time]
-      #   # @param data [Hash{Symbol=>Object}]
-      #   # @param entity_id [String]
-      #   # @param event_name [String]
-      #   # @param event_time [Time]
-      #   # @param live_mode [Boolean]
-      #   # @param object [String]
-      #   # @param resource [String]
-      #   # @param updated_at [Time]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     created_at:,
-      #     data:,
-      #     entity_id:,
-      #     event_name:,
-      #     event_time:,
-      #     live_mode:,
-      #     object:,
-      #     resource:,
-      #     updated_at:,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, created_at:, data:, entity_id:, event_name:, event_time:, live_mode:, object:, resource:, updated_at:)
+      #   Some parameter documentations has been truncated, see {ModernTreasury::Event}
+      #   for more details.
+      #
+      #   @param id [String]
+      #
+      #   @param created_at [Time]
+      #
+      #   @param data [Hash{Symbol=>Object}] The body of the event.
+      #
+      #   @param entity_id [String] The ID of the entity for the event.
+      #
+      #   @param event_name [String] The name of the event.
+      #
+      #   @param event_time [Time] The time of the event.
+      #
+      #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+      #
+      #   @param object [String]
+      #
+      #   @param resource [String] The type of resource for the event.
+      #
+      #   @param updated_at [Time]
     end
   end
 end

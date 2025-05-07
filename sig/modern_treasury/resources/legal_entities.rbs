@@ -3,67 +3,67 @@ module ModernTreasury
     class LegalEntities
       def create: (
         legal_entity_type: ModernTreasury::Models::LegalEntityCreateParams::legal_entity_type,
-        ?addresses: ::Array[ModernTreasury::Models::LegalEntityCreateParams::Address],
-        ?bank_settings: ModernTreasury::Models::BankSettings?,
+        ?addresses: ::Array[ModernTreasury::LegalEntityCreateParams::Address],
+        ?bank_settings: ModernTreasury::BankSettings?,
         ?business_name: String?,
         ?citizenship_country: String?,
-        ?compliance_details: ModernTreasury::Models::LegalEntityComplianceDetail?,
+        ?compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
         ?date_formed: Date?,
         ?date_of_birth: Date?,
         ?doing_business_as_names: ::Array[String],
         ?email: String?,
         ?first_name: String?,
-        ?identifications: ::Array[ModernTreasury::Models::LegalEntityCreateParams::Identification],
-        ?industry_classifications: ::Array[ModernTreasury::Models::LegalEntityIndustryClassification],
+        ?identifications: ::Array[ModernTreasury::LegalEntityCreateParams::Identification],
+        ?industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification],
         ?last_name: String?,
-        ?legal_entity_associations: ::Array[ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation]?,
+        ?legal_entity_associations: ::Array[ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation]?,
         ?legal_structure: ModernTreasury::Models::LegalEntityCreateParams::legal_structure?,
         ?metadata: ::Hash[Symbol, String],
         ?middle_name: String?,
-        ?phone_numbers: ::Array[ModernTreasury::Models::LegalEntityCreateParams::PhoneNumber],
+        ?phone_numbers: ::Array[ModernTreasury::LegalEntityCreateParams::PhoneNumber],
         ?politically_exposed_person: bool?,
         ?preferred_name: String?,
         ?prefix: String?,
         ?risk_rating: ModernTreasury::Models::LegalEntityCreateParams::risk_rating?,
         ?suffix: String?,
-        ?wealth_and_employment_details: ModernTreasury::Models::WealthAndEmploymentDetails?,
+        ?wealth_and_employment_details: ModernTreasury::WealthAndEmploymentDetails?,
         ?website: String?,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::LegalEntity
+      ) -> ModernTreasury::LegalEntity
 
       def retrieve: (
         String id,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::LegalEntity
+      ) -> ModernTreasury::LegalEntity
 
       def update: (
         String id,
-        ?addresses: ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Address],
-        ?bank_settings: ModernTreasury::Models::BankSettings?,
+        ?addresses: ::Array[ModernTreasury::LegalEntityUpdateParams::Address],
+        ?bank_settings: ModernTreasury::BankSettings?,
         ?business_name: String?,
         ?citizenship_country: String?,
-        ?compliance_details: ModernTreasury::Models::LegalEntityComplianceDetail?,
+        ?compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
         ?date_formed: Date?,
         ?date_of_birth: Date?,
         ?doing_business_as_names: ::Array[String],
         ?email: String?,
         ?first_name: String?,
-        ?identifications: ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Identification],
-        ?industry_classifications: ::Array[ModernTreasury::Models::LegalEntityIndustryClassification],
+        ?identifications: ::Array[ModernTreasury::LegalEntityUpdateParams::Identification],
+        ?industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification],
         ?last_name: String?,
         ?legal_structure: ModernTreasury::Models::LegalEntityUpdateParams::legal_structure?,
         ?metadata: ::Hash[Symbol, String],
         ?middle_name: String?,
-        ?phone_numbers: ::Array[ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber],
+        ?phone_numbers: ::Array[ModernTreasury::LegalEntityUpdateParams::PhoneNumber],
         ?politically_exposed_person: bool?,
         ?preferred_name: String?,
         ?prefix: String?,
         ?risk_rating: ModernTreasury::Models::LegalEntityUpdateParams::risk_rating?,
         ?suffix: String?,
-        ?wealth_and_employment_details: ModernTreasury::Models::WealthAndEmploymentDetails?,
+        ?wealth_and_employment_details: ModernTreasury::WealthAndEmploymentDetails?,
         ?website: String?,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::LegalEntity
+      ) -> ModernTreasury::LegalEntity
 
       def list: (
         ?after_cursor: String?,
@@ -72,7 +72,7 @@ module ModernTreasury
         ?per_page: Integer,
         ?show_deleted: String,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::LegalEntity]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::LegalEntity]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

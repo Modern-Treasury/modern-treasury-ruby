@@ -6,12 +6,12 @@ module ModernTreasury
         ?description: String?,
         ?metadata: ::Hash[Symbol, String],
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::Ledger
+      ) -> ModernTreasury::Ledger
 
       def retrieve: (
         String id,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::Ledger
+      ) -> ModernTreasury::Ledger
 
       def update: (
         String id,
@@ -19,7 +19,7 @@ module ModernTreasury
         ?metadata: ::Hash[Symbol, String],
         ?name: String,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::Ledger
+      ) -> ModernTreasury::Ledger
 
       def list: (
         ?id: ::Array[String],
@@ -28,12 +28,12 @@ module ModernTreasury
         ?per_page: Integer,
         ?updated_at: ::Hash[Symbol, Time],
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::Ledger]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Ledger]
 
       def delete: (
         String id,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::Ledger
+      ) -> ModernTreasury::Ledger
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

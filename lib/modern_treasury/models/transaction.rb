@@ -44,8 +44,8 @@ module ModernTreasury
       # @!attribute currency
       #   Currency that this transaction is denominated in.
       #
-      #   @return [Symbol, ModernTreasury::Models::Currency]
-      required :currency, enum: -> { ModernTreasury::Models::Currency }
+      #   @return [Symbol, ModernTreasury::Currency]
+      required :currency, enum: -> { ModernTreasury::Currency }
 
       # @!attribute custom_identifiers
       #   An object containing key-value pairs, each with a custom identifier as the key
@@ -68,10 +68,8 @@ module ModernTreasury
       # @!attribute foreign_exchange_rate
       #   Associated serialized foreign exchange rate information.
       #
-      #   @return [ModernTreasury::Models::Transaction::ForeignExchangeRate, nil]
-      required :foreign_exchange_rate,
-               -> { ModernTreasury::Models::Transaction::ForeignExchangeRate },
-               nil?: true
+      #   @return [ModernTreasury::Transaction::ForeignExchangeRate, nil]
+      required :foreign_exchange_rate, -> { ModernTreasury::Transaction::ForeignExchangeRate }, nil?: true
 
       # @!attribute internal_account_id
       #   The ID of the relevant Internal Account.
@@ -116,8 +114,8 @@ module ModernTreasury
       #   The type of the transaction. Examples could be
       #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       #
-      #   @return [Symbol, ModernTreasury::Models::Transaction::Type]
-      required :type, enum: -> { ModernTreasury::Models::Transaction::Type }
+      #   @return [Symbol, ModernTreasury::Transaction::Type]
+      required :type, enum: -> { ModernTreasury::Transaction::Type }
 
       # @!attribute updated_at
       #
@@ -137,8 +135,8 @@ module ModernTreasury
       #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
       #   `swift`, `us_bank`, or others.
       #
-      #   @return [Symbol, ModernTreasury::Models::Transaction::VendorCodeType, nil]
-      required :vendor_code_type, enum: -> { ModernTreasury::Models::Transaction::VendorCodeType }, nil?: true
+      #   @return [Symbol, ModernTreasury::Transaction::VendorCodeType, nil]
+      required :vendor_code_type, enum: -> { ModernTreasury::Transaction::VendorCodeType }, nil?: true
 
       # @!attribute vendor_customer_id
       #   An identifier given to this transaction by the bank, often `null`.
@@ -152,7 +150,7 @@ module ModernTreasury
       #   @return [String, nil]
       required :vendor_id, String, nil?: true
 
-      # @!attribute [r] details
+      # @!attribute details
       #   This field contains additional information that the bank provided about the
       #   transaction. This is structured data. Some of the data in here might overlap
       #   with what is in the `vendor_description`. For example, the OBI could be a part
@@ -164,10 +162,6 @@ module ModernTreasury
       #   @return [Hash{Symbol=>String}, nil]
       optional :details, ModernTreasury::Internal::Type::HashOf[String]
 
-      # @!parse
-      #   # @return [Hash{Symbol=>String}]
-      #   attr_writer :details
-
       # @!attribute vendor_description
       #   The transaction detail text that often appears in on your bank statement and in
       #   your banking portal.
@@ -175,67 +169,61 @@ module ModernTreasury
       #   @return [String, nil]
       optional :vendor_description, String, nil?: true
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param amount [Integer]
-      #   # @param as_of_date [Date, nil]
-      #   # @param as_of_time [Time, nil]
-      #   # @param as_of_timezone [String, nil]
-      #   # @param created_at [Time]
-      #   # @param currency [Symbol, ModernTreasury::Models::Currency]
-      #   # @param custom_identifiers [Hash{Symbol=>String}]
-      #   # @param direction [String]
-      #   # @param discarded_at [Time, nil]
-      #   # @param foreign_exchange_rate [ModernTreasury::Models::Transaction::ForeignExchangeRate, nil]
-      #   # @param internal_account_id [String]
-      #   # @param live_mode [Boolean]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param object [String]
-      #   # @param posted [Boolean]
-      #   # @param reconciled [Boolean]
-      #   # @param type [Symbol, ModernTreasury::Models::Transaction::Type]
-      #   # @param updated_at [Time]
-      #   # @param vendor_code [String, nil]
-      #   # @param vendor_code_type [Symbol, ModernTreasury::Models::Transaction::VendorCodeType, nil]
-      #   # @param vendor_customer_id [String, nil]
-      #   # @param vendor_id [String, nil]
-      #   # @param details [Hash{Symbol=>String}]
-      #   # @param vendor_description [String, nil]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     amount:,
-      #     as_of_date:,
-      #     as_of_time:,
-      #     as_of_timezone:,
-      #     created_at:,
-      #     currency:,
-      #     custom_identifiers:,
-      #     direction:,
-      #     discarded_at:,
-      #     foreign_exchange_rate:,
-      #     internal_account_id:,
-      #     live_mode:,
-      #     metadata:,
-      #     object:,
-      #     posted:,
-      #     reconciled:,
-      #     type:,
-      #     updated_at:,
-      #     vendor_code:,
-      #     vendor_code_type:,
-      #     vendor_customer_id:,
-      #     vendor_id:,
-      #     details: nil,
-      #     vendor_description: nil,
-      #     **
-      #   )
-      #     super
-      #   end
+      # @!method initialize(id:, amount:, as_of_date:, as_of_time:, as_of_timezone:, created_at:, currency:, custom_identifiers:, direction:, discarded_at:, foreign_exchange_rate:, internal_account_id:, live_mode:, metadata:, object:, posted:, reconciled:, type:, updated_at:, vendor_code:, vendor_code_type:, vendor_customer_id:, vendor_id:, details: nil, vendor_description: nil)
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Transaction} for more details.
+      #
+      #   @param id [String]
+      #
+      #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
+      #
+      #   @param as_of_date [Date, nil] The date on which the transaction occurred.
+      #
+      #   @param as_of_time [Time, nil] The time on which the transaction occurred. Depending on the granularity of the
+      #
+      #   @param as_of_timezone [String, nil] The timezone in which the `as_of_time` is represented. Can be `null` if the bank
+      #
+      #   @param created_at [Time]
+      #
+      #   @param currency [Symbol, ModernTreasury::Currency] Currency that this transaction is denominated in.
+      #
+      #   @param custom_identifiers [Hash{Symbol=>String}] An object containing key-value pairs, each with a custom identifier as the key a
+      #
+      #   @param direction [String] Either `credit` or `debit`.
+      #
+      #   @param discarded_at [Time, nil]
+      #
+      #   @param foreign_exchange_rate [ModernTreasury::Transaction::ForeignExchangeRate, nil] Associated serialized foreign exchange rate information.
+      #
+      #   @param internal_account_id [String] The ID of the relevant Internal Account.
+      #
+      #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+      #
+      #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      #
+      #   @param object [String]
+      #
+      #   @param posted [Boolean] This field will be `true` if the transaction has posted to the account.
+      #
+      #   @param reconciled [Boolean] This field will be `true` if a transaction is reconciled by the Modern Treasury
+      #
+      #   @param type [Symbol, ModernTreasury::Transaction::Type] The type of the transaction. Examples could be `card, `ach`, `wire`, `check`, `r
+      #
+      #   @param updated_at [Time]
+      #
+      #   @param vendor_code [String, nil] When applicable, the bank-given code that determines the transaction's category.
+      #
+      #   @param vendor_code_type [Symbol, ModernTreasury::Transaction::VendorCodeType, nil] The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`, `bnk
+      #
+      #   @param vendor_customer_id [String, nil] An identifier given to this transaction by the bank, often `null`.
+      #
+      #   @param vendor_id [String, nil] An identifier given to this transaction by the bank.
+      #
+      #   @param details [Hash{Symbol=>String}] This field contains additional information that the bank provided about the tran
+      #
+      #   @param vendor_description [String, nil] The transaction detail text that often appears in on your bank statement and in
 
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
-
-      # @see ModernTreasury::Models::Transaction#foreign_exchange_rate
+      # @see ModernTreasury::Transaction#foreign_exchange_rate
       class ForeignExchangeRate < ModernTreasury::Internal::Type::BaseModel
         # @!attribute base_amount
         #   Amount in the lowest denomination of the `base_currency` to convert, often
@@ -247,8 +235,8 @@ module ModernTreasury
         # @!attribute base_currency
         #   Currency to convert, often called the "sell" currency.
         #
-        #   @return [Symbol, ModernTreasury::Models::Currency]
-        required :base_currency, enum: -> { ModernTreasury::Models::Currency }
+        #   @return [Symbol, ModernTreasury::Currency]
+        required :base_currency, enum: -> { ModernTreasury::Currency }
 
         # @!attribute exponent
         #   The exponent component of the rate. The decimal is calculated as `value` / (10 ^
@@ -273,8 +261,8 @@ module ModernTreasury
         # @!attribute target_currency
         #   Currency to convert the `base_currency` to, often called the "buy" currency.
         #
-        #   @return [Symbol, ModernTreasury::Models::Currency]
-        required :target_currency, enum: -> { ModernTreasury::Models::Currency }
+        #   @return [Symbol, ModernTreasury::Currency]
+        required :target_currency, enum: -> { ModernTreasury::Currency }
 
         # @!attribute value
         #   The whole number component of the rate. The decimal is calculated as `value` /
@@ -283,26 +271,31 @@ module ModernTreasury
         #   @return [Integer]
         required :value, Integer
 
-        # @!parse
-        #   # Associated serialized foreign exchange rate information.
-        #   #
-        #   # @param base_amount [Integer]
-        #   # @param base_currency [Symbol, ModernTreasury::Models::Currency]
-        #   # @param exponent [Integer]
-        #   # @param rate_string [String]
-        #   # @param target_amount [Integer]
-        #   # @param target_currency [Symbol, ModernTreasury::Models::Currency]
-        #   # @param value [Integer]
-        #   #
-        #   def initialize(base_amount:, base_currency:, exponent:, rate_string:, target_amount:, target_currency:, value:, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(base_amount:, base_currency:, exponent:, rate_string:, target_amount:, target_currency:, value:)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Transaction::ForeignExchangeRate} for more details.
+        #
+        #   Associated serialized foreign exchange rate information.
+        #
+        #   @param base_amount [Integer] Amount in the lowest denomination of the `base_currency` to convert, often calle
+        #
+        #   @param base_currency [Symbol, ModernTreasury::Currency] Currency to convert, often called the "sell" currency.
+        #
+        #   @param exponent [Integer] The exponent component of the rate. The decimal is calculated as `value` / (10 ^
+        #
+        #   @param rate_string [String] A string representation of the rate.
+        #
+        #   @param target_amount [Integer] Amount in the lowest denomination of the `target_currency`, often called the "bu
+        #
+        #   @param target_currency [Symbol, ModernTreasury::Currency] Currency to convert the `base_currency` to, often called the "buy" currency.
+        #
+        #   @param value [Integer] The whole number component of the rate. The decimal is calculated as `value` / (
       end
 
       # The type of the transaction. Examples could be
       # `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       #
-      # @see ModernTreasury::Models::Transaction#type
+      # @see ModernTreasury::Transaction#type
       module Type
         extend ModernTreasury::Internal::Type::Enum
 
@@ -338,11 +331,8 @@ module ModernTreasury
         ZENGIN = :zengin
         OTHER = :other
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
@@ -350,7 +340,7 @@ module ModernTreasury
       # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
       # `swift`, `us_bank`, or others.
       #
-      # @see ModernTreasury::Models::Transaction#vendor_code_type
+      # @see ModernTreasury::Transaction#vendor_code_type
       module VendorCodeType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -379,11 +369,8 @@ module ModernTreasury
         US_BANK = :us_bank
         USER = :user
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

@@ -43,8 +43,6 @@ module ModernTreasury
         vendor_id: String,
         vendor_name: String
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::connection
     end
   end
 end

@@ -46,8 +46,8 @@ module ModernTreasury
       # @!attribute status
       #   The status of the connection legal entity.
       #
-      #   @return [Symbol, ModernTreasury::Models::ConnectionLegalEntity::Status]
-      required :status, enum: -> { ModernTreasury::Models::ConnectionLegalEntity::Status }
+      #   @return [Symbol, ModernTreasury::ConnectionLegalEntity::Status]
+      required :status, enum: -> { ModernTreasury::ConnectionLegalEntity::Status }
 
       # @!attribute updated_at
       #
@@ -60,39 +60,33 @@ module ModernTreasury
       #   @return [String]
       required :vendor_id, String
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param connection_id [String]
-      #   # @param created_at [Time]
-      #   # @param discarded_at [Time, nil]
-      #   # @param legal_entity_id [String]
-      #   # @param live_mode [Boolean]
-      #   # @param object [String]
-      #   # @param status [Symbol, ModernTreasury::Models::ConnectionLegalEntity::Status]
-      #   # @param updated_at [Time]
-      #   # @param vendor_id [String]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     connection_id:,
-      #     created_at:,
-      #     discarded_at:,
-      #     legal_entity_id:,
-      #     live_mode:,
-      #     object:,
-      #     status:,
-      #     updated_at:,
-      #     vendor_id:,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, connection_id:, created_at:, discarded_at:, legal_entity_id:, live_mode:, object:, status:, updated_at:, vendor_id:)
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::ConnectionLegalEntity} for more details.
+      #
+      #   @param id [String]
+      #
+      #   @param connection_id [String] The ID of the connection.
+      #
+      #   @param created_at [Time]
+      #
+      #   @param discarded_at [Time, nil]
+      #
+      #   @param legal_entity_id [String] The ID of the legal entity.
+      #
+      #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+      #
+      #   @param object [String]
+      #
+      #   @param status [Symbol, ModernTreasury::ConnectionLegalEntity::Status] The status of the connection legal entity.
+      #
+      #   @param updated_at [Time]
+      #
+      #   @param vendor_id [String] The ID of the legal entity at the vendor.
 
       # The status of the connection legal entity.
       #
-      # @see ModernTreasury::Models::ConnectionLegalEntity#status
+      # @see ModernTreasury::ConnectionLegalEntity#status
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
@@ -101,11 +95,8 @@ module ModernTreasury
         FAILED = :failed
         PROCESSING = :processing
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

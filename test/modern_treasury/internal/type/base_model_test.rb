@@ -94,7 +94,7 @@ class ModernTreasury::Test::PrimitiveModelTest < Minitest::Test
       [:a, :b] => :b,
       [:a, "a"] => "a",
       [String, StringIO.new("one")] => "one",
-      [String, Pathname(__FILE__)] => ModernTreasury::Internal::Util::SerializationAdapter
+      [String, Pathname(__FILE__)] => ModernTreasury::FilePart
     }
 
     cases.each do
@@ -156,6 +156,7 @@ end
 class ModernTreasury::Test::EnumModelTest < Minitest::Test
   class E0
     include ModernTreasury::Internal::Type::Enum
+    attr_reader :values
 
     def initialize(*values) = (@values = values)
   end
@@ -193,11 +194,9 @@ class ModernTreasury::Test::EnumModelTest < Minitest::Test
       [E0.new(:one), "one"] => [{yes: 1}, :one],
       [E0.new(:two), "one"] => [{maybe: 1}, "one"],
 
-      # rubocop:disable Lint/BooleanSymbol
       [E1, true] => [{yes: 1}, true],
       [E1, false] => [{no: 1}, false],
       [E1, :true] => [{no: 1}, :true],
-      # rubocop:enable Lint/BooleanSymbol
 
       [E2, 1] => [{yes: 1}, 1],
       [E2, 1.0] => [{yes: 1}, 1],
@@ -575,6 +574,7 @@ end
 class ModernTreasury::Test::BaseModelQoLTest < Minitest::Test
   class E0
     include ModernTreasury::Internal::Type::Enum
+    attr_reader :values
 
     def initialize(*values) = (@values = values)
   end
@@ -645,14 +645,17 @@ class ModernTreasury::Test::BaseModelQoLTest < Minitest::Test
       [U0.new(String, Float), U0.new(String, Integer)] => false,
       [U1, U2] => true,
       [M1, M2] => false,
-      [M1, M3] => true
+      [M1, M3] => true,
+      [M1.new(a: 1), M1.new(a: 1)] => true
     }
 
     cases.each do
       if _2
         assert_equal(*_1)
+        assert_equal(*_1.map(&:hash))
       else
         refute_equal(*_1)
+        refute_equal(*_1.map(&:hash))
       end
     end
   end

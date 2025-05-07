@@ -24,11 +24,11 @@ module ModernTreasury
 
       # @return [Boolean]
       def next_page?
-        !after_cursor.nil?
+        !empty? && !after_cursor.to_s.empty?
       end
 
       # @raise [ModernTreasury::HTTP::Error]
-      # @return [ModernTreasury::Internal::Page]
+      # @return [self]
       def next_page
         unless next_page?
           message = "No more pages available. Please check #next_page? before calling ##{__method__}"

@@ -71,8 +71,6 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
-      def to_hash: -> ModernTreasury::Models::incoming_payment_detail_list_params
-
       type status = :completed | :pending | :returned
 
       module Status

@@ -5,9 +5,10 @@ module ModernTreasury
     # @deprecated
     class LedgerEventHandlerVariable < ModernTreasury::Internal::Type::BaseModel
       # @!attribute query
+      #   @deprecated
       #
-      #   @return [ModernTreasury::Models::LedgerEventHandlerVariable::Query]
-      required :query, -> { ModernTreasury::Models::LedgerEventHandlerVariable::Query }
+      #   @return [ModernTreasury::LedgerEventHandlerVariable::Query]
+      required :query, -> { ModernTreasury::LedgerEventHandlerVariable::Query }
 
       # @!attribute type
       #   The type of object this variable is. Currently, only "ledger_account" is
@@ -16,17 +17,17 @@ module ModernTreasury
       #   @return [String]
       required :type, String
 
-      # @!parse
-      #   # @param query [ModernTreasury::Models::LedgerEventHandlerVariable::Query]
-      #   # @param type [String]
-      #   #
-      #   def initialize(query:, type:, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(query:, type:)
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::LedgerEventHandlerVariable} for more details.
+      #
+      #   @param query [ModernTreasury::LedgerEventHandlerVariable::Query]
+      #
+      #   @param type [String] The type of object this variable is. Currently, only "ledger_account" is support
 
       # @deprecated
       #
-      # @see ModernTreasury::Models::LedgerEventHandlerVariable#query
+      # @see ModernTreasury::LedgerEventHandlerVariable#query
       class Query < ModernTreasury::Internal::Type::BaseModel
         # @!attribute field
         #   The LHS of the conditional.
@@ -46,14 +47,12 @@ module ModernTreasury
         #   @return [String]
         required :value, String
 
-        # @!parse
-        #   # @param field [String]
-        #   # @param operator [String]
-        #   # @param value [String]
-        #   #
-        #   def initialize(field:, operator:, value:, **) = super
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(field:, operator:, value:)
+        #   @param field [String] The LHS of the conditional.
+        #
+        #   @param operator [String] What the operator between the `field` and `value` is.
+        #
+        #   @param value [String] The RHS of the conditional.
       end
     end
   end

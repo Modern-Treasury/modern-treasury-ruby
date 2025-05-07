@@ -2,7 +2,7 @@ module ModernTreasury
   module Models
     type ledger_account_balance_monitor_create_params =
       {
-        alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
+        alert_condition: ModernTreasury::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
         ledger_account_id: String,
         description: String,
         metadata: ::Hash[Symbol, String]
@@ -13,7 +13,7 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
-      attr_accessor alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition
+      attr_accessor alert_condition: ModernTreasury::LedgerAccountBalanceMonitorCreateParams::AlertCondition
 
       attr_accessor ledger_account_id: String
 
@@ -26,14 +26,12 @@ module ModernTreasury
       def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       def initialize: (
-        alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
+        alert_condition: ModernTreasury::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
         ledger_account_id: String,
         ?description: String,
         ?metadata: ::Hash[Symbol, String],
         ?request_options: ModernTreasury::request_opts
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::ledger_account_balance_monitor_create_params
 
       type alert_condition = { field: String, operator: String, value: Integer }
 
@@ -49,8 +47,6 @@ module ModernTreasury
           operator: String,
           value: Integer
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::alert_condition
       end
     end
   end

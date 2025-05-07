@@ -2,24 +2,24 @@ module ModernTreasury
   module Resources
     class LedgerAccountBalanceMonitors
       def create: (
-        alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
+        alert_condition: ModernTreasury::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
         ledger_account_id: String,
         ?description: String,
         ?metadata: ::Hash[Symbol, String],
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::LedgerAccountBalanceMonitor
+      ) -> ModernTreasury::LedgerAccountBalanceMonitor
 
       def retrieve: (
         String id,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::LedgerAccountBalanceMonitor
+      ) -> ModernTreasury::LedgerAccountBalanceMonitor
 
       def update: (
         String id,
         ?description: String,
         ?metadata: ::Hash[Symbol, String],
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::LedgerAccountBalanceMonitor
+      ) -> ModernTreasury::LedgerAccountBalanceMonitor
 
       def list: (
         ?id: ::Array[String],
@@ -28,12 +28,12 @@ module ModernTreasury
         ?metadata: ::Hash[Symbol, String],
         ?per_page: Integer,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerAccountBalanceMonitor]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::LedgerAccountBalanceMonitor]
 
       def delete: (
         String id,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::LedgerAccountBalanceMonitor
+      ) -> ModernTreasury::LedgerAccountBalanceMonitor
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

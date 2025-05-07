@@ -14,7 +14,7 @@ class ModernTreasury::Test::Resources::DocumentsTest < ModernTreasury::Test::Res
       )
 
     assert_pattern do
-      response => ModernTreasury::Models::Document
+      response => ModernTreasury::Document
     end
 
     assert_pattern do
@@ -22,11 +22,11 @@ class ModernTreasury::Test::Resources::DocumentsTest < ModernTreasury::Test::Res
         id: String,
         created_at: Time,
         discarded_at: Time | nil,
-        document_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::Document::DocumentDetail]),
+        document_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Document::DocumentDetail]),
         document_type: String | nil,
         documentable_id: String,
-        documentable_type: ModernTreasury::Models::Document::DocumentableType,
-        file: ModernTreasury::Models::Document::File,
+        documentable_type: ModernTreasury::Document::DocumentableType,
+        file: ModernTreasury::Document::File,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         source: String,
@@ -39,7 +39,7 @@ class ModernTreasury::Test::Resources::DocumentsTest < ModernTreasury::Test::Res
     response = @modern_treasury.documents.retrieve("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::Document
+      response => ModernTreasury::Document
     end
 
     assert_pattern do
@@ -47,11 +47,11 @@ class ModernTreasury::Test::Resources::DocumentsTest < ModernTreasury::Test::Res
         id: String,
         created_at: Time,
         discarded_at: Time | nil,
-        document_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::Document::DocumentDetail]),
+        document_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Document::DocumentDetail]),
         document_type: String | nil,
         documentable_id: String,
-        documentable_type: ModernTreasury::Models::Document::DocumentableType,
-        file: ModernTreasury::Models::Document::File,
+        documentable_type: ModernTreasury::Document::DocumentableType,
+        file: ModernTreasury::Document::File,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         source: String,
@@ -71,7 +71,7 @@ class ModernTreasury::Test::Resources::DocumentsTest < ModernTreasury::Test::Res
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Models::Document
+      row => ModernTreasury::Document
     end
 
     assert_pattern do
@@ -79,11 +79,11 @@ class ModernTreasury::Test::Resources::DocumentsTest < ModernTreasury::Test::Res
         id: String,
         created_at: Time,
         discarded_at: Time | nil,
-        document_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::Document::DocumentDetail]),
+        document_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Document::DocumentDetail]),
         document_type: String | nil,
         documentable_id: String,
-        documentable_type: ModernTreasury::Models::Document::DocumentableType,
-        file: ModernTreasury::Models::Document::File,
+        documentable_type: ModernTreasury::Document::DocumentableType,
+        file: ModernTreasury::Document::File,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         source: String,

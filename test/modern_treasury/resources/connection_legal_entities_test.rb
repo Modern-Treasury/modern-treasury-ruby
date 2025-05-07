@@ -7,7 +7,7 @@ class ModernTreasury::Test::Resources::ConnectionLegalEntitiesTest < ModernTreas
     response = @modern_treasury.connection_legal_entities.create(connection_id: "connection_id")
 
     assert_pattern do
-      response => ModernTreasury::Models::ConnectionLegalEntity
+      response => ModernTreasury::ConnectionLegalEntity
     end
 
     assert_pattern do
@@ -19,7 +19,7 @@ class ModernTreasury::Test::Resources::ConnectionLegalEntitiesTest < ModernTreas
         legal_entity_id: String,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
-        status: ModernTreasury::Models::ConnectionLegalEntity::Status,
+        status: ModernTreasury::ConnectionLegalEntity::Status,
         updated_at: Time,
         vendor_id: String
       }
@@ -30,7 +30,7 @@ class ModernTreasury::Test::Resources::ConnectionLegalEntitiesTest < ModernTreas
     response = @modern_treasury.connection_legal_entities.retrieve("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::ConnectionLegalEntity
+      response => ModernTreasury::ConnectionLegalEntity
     end
 
     assert_pattern do
@@ -42,7 +42,7 @@ class ModernTreasury::Test::Resources::ConnectionLegalEntitiesTest < ModernTreas
         legal_entity_id: String,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
-        status: ModernTreasury::Models::ConnectionLegalEntity::Status,
+        status: ModernTreasury::ConnectionLegalEntity::Status,
         updated_at: Time,
         vendor_id: String
       }
@@ -53,7 +53,7 @@ class ModernTreasury::Test::Resources::ConnectionLegalEntitiesTest < ModernTreas
     response = @modern_treasury.connection_legal_entities.update("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::ConnectionLegalEntity
+      response => ModernTreasury::ConnectionLegalEntity
     end
 
     assert_pattern do
@@ -65,7 +65,7 @@ class ModernTreasury::Test::Resources::ConnectionLegalEntitiesTest < ModernTreas
         legal_entity_id: String,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
-        status: ModernTreasury::Models::ConnectionLegalEntity::Status,
+        status: ModernTreasury::ConnectionLegalEntity::Status,
         updated_at: Time,
         vendor_id: String
       }
@@ -83,7 +83,7 @@ class ModernTreasury::Test::Resources::ConnectionLegalEntitiesTest < ModernTreas
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Models::ConnectionLegalEntity
+      row => ModernTreasury::ConnectionLegalEntity
     end
 
     assert_pattern do
@@ -95,7 +95,7 @@ class ModernTreasury::Test::Resources::ConnectionLegalEntitiesTest < ModernTreas
         legal_entity_id: String,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
-        status: ModernTreasury::Models::ConnectionLegalEntity::Status,
+        status: ModernTreasury::ConnectionLegalEntity::Status,
         updated_at: Time,
         vendor_id: String
       }

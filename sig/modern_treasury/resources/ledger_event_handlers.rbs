@@ -2,20 +2,20 @@ module ModernTreasury
   module Resources
     class LedgerEventHandlers
       def create: (
-        ledger_transaction_template: ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate,
+        ledger_transaction_template: ModernTreasury::LedgerEventHandlerCreateParams::LedgerTransactionTemplate,
         name: String,
-        ?conditions: ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions?,
+        ?conditions: ModernTreasury::LedgerEventHandlerCreateParams::Conditions?,
         ?description: String?,
         ?ledger_id: String,
         ?metadata: ::Hash[Symbol, String]?,
-        ?variables: ::Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable]?,
+        ?variables: ::Hash[Symbol, ModernTreasury::LedgerEventHandlerVariable]?,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::LedgerEventHandler
+      ) -> ModernTreasury::LedgerEventHandler
 
       def retrieve: (
         String id,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::LedgerEventHandler
+      ) -> ModernTreasury::LedgerEventHandler
 
       def list: (
         ?after_cursor: String?,
@@ -24,12 +24,12 @@ module ModernTreasury
         ?name: String,
         ?per_page: Integer,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerEventHandler]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::LedgerEventHandler]
 
       def delete: (
         String id,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::LedgerEventHandler
+      ) -> ModernTreasury::LedgerEventHandler
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

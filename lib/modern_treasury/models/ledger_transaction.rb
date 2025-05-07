@@ -44,9 +44,8 @@ module ModernTreasury
       # @!attribute ledger_entries
       #   An array of ledger entry objects.
       #
-      #   @return [Array<ModernTreasury::Models::LedgerEntry>]
-      required :ledger_entries,
-               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::LedgerEntry] }
+      #   @return [Array<ModernTreasury::LedgerEntry>]
+      required :ledger_entries, -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LedgerEntry] }
 
       # @!attribute ledger_id
       #   The ID of the ledger this ledger transaction belongs to.
@@ -67,10 +66,8 @@ module ModernTreasury
       #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
       #   reversal.
       #
-      #   @return [Symbol, ModernTreasury::Models::LedgerTransaction::LedgerableType, nil]
-      required :ledgerable_type,
-               enum: -> { ModernTreasury::Models::LedgerTransaction::LedgerableType },
-               nil?: true
+      #   @return [Symbol, ModernTreasury::LedgerTransaction::LedgerableType, nil]
+      required :ledgerable_type, enum: -> { ModernTreasury::LedgerTransaction::LedgerableType }, nil?: true
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false
@@ -119,68 +116,62 @@ module ModernTreasury
       # @!attribute status
       #   To post a ledger transaction at creation, use `posted`.
       #
-      #   @return [Symbol, ModernTreasury::Models::LedgerTransaction::Status]
-      required :status, enum: -> { ModernTreasury::Models::LedgerTransaction::Status }
+      #   @return [Symbol, ModernTreasury::LedgerTransaction::Status]
+      required :status, enum: -> { ModernTreasury::LedgerTransaction::Status }
 
       # @!attribute updated_at
       #
       #   @return [Time]
       required :updated_at, Time
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param created_at [Time]
-      #   # @param description [String, nil]
-      #   # @param effective_at [Time]
-      #   # @param effective_date [Date]
-      #   # @param external_id [String, nil]
-      #   # @param ledger_entries [Array<ModernTreasury::Models::LedgerEntry>]
-      #   # @param ledger_id [String]
-      #   # @param ledgerable_id [String, nil]
-      #   # @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerTransaction::LedgerableType, nil]
-      #   # @param live_mode [Boolean]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param object [String]
-      #   # @param partially_posts_ledger_transaction_id [String, nil]
-      #   # @param posted_at [Time, nil]
-      #   # @param reversed_by_ledger_transaction_id [String, nil]
-      #   # @param reverses_ledger_transaction_id [String, nil]
-      #   # @param status [Symbol, ModernTreasury::Models::LedgerTransaction::Status]
-      #   # @param updated_at [Time]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     created_at:,
-      #     description:,
-      #     effective_at:,
-      #     effective_date:,
-      #     external_id:,
-      #     ledger_entries:,
-      #     ledger_id:,
-      #     ledgerable_id:,
-      #     ledgerable_type:,
-      #     live_mode:,
-      #     metadata:,
-      #     object:,
-      #     partially_posts_ledger_transaction_id:,
-      #     posted_at:,
-      #     reversed_by_ledger_transaction_id:,
-      #     reverses_ledger_transaction_id:,
-      #     status:,
-      #     updated_at:,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, created_at:, description:, effective_at:, effective_date:, external_id:, ledger_entries:, ledger_id:, ledgerable_id:, ledgerable_type:, live_mode:, metadata:, object:, partially_posts_ledger_transaction_id:, posted_at:, reversed_by_ledger_transaction_id:, reverses_ledger_transaction_id:, status:, updated_at:)
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::LedgerTransaction} for more details.
+      #
+      #   @param id [String]
+      #
+      #   @param created_at [Time]
+      #
+      #   @param description [String, nil] An optional description for internal use.
+      #
+      #   @param effective_at [Time] The timestamp (ISO8601 format) at which the ledger transaction happened for repo
+      #
+      #   @param effective_date [Date] The date (YYYY-MM-DD) on which the ledger transaction happened for reporting pur
+      #
+      #   @param external_id [String, nil] A unique string to represent the ledger transaction. Only one pending or posted
+      #
+      #   @param ledger_entries [Array<ModernTreasury::LedgerEntry>] An array of ledger entry objects.
+      #
+      #   @param ledger_id [String] The ID of the ledger this ledger transaction belongs to.
+      #
+      #   @param ledgerable_id [String, nil] If the ledger transaction can be reconciled to another object in Modern Treasury
+      #
+      #   @param ledgerable_type [Symbol, ModernTreasury::LedgerTransaction::LedgerableType, nil] If the ledger transaction can be reconciled to another object in Modern Treasury
+      #
+      #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+      #
+      #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      #
+      #   @param object [String]
+      #
+      #   @param partially_posts_ledger_transaction_id [String, nil] The ID of the ledger transaction that this ledger transaction partially posts.
+      #
+      #   @param posted_at [Time, nil] The time on which the ledger transaction posted. This is null if the ledger tran
+      #
+      #   @param reversed_by_ledger_transaction_id [String, nil] The ID of the ledger transaction that reversed this ledger transaction.
+      #
+      #   @param reverses_ledger_transaction_id [String, nil] The ID of the original ledger transaction that this ledger transaction reverses.
+      #
+      #   @param status [Symbol, ModernTreasury::LedgerTransaction::Status] To post a ledger transaction at creation, use `posted`.
+      #
+      #   @param updated_at [Time]
 
       # If the ledger transaction can be reconciled to another object in Modern
       # Treasury, the type will be populated here, otherwise null. This can be one of
       # payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
       # reversal.
       #
-      # @see ModernTreasury::Models::LedgerTransaction#ledgerable_type
+      # @see ModernTreasury::LedgerTransaction#ledgerable_type
       module LedgerableType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -191,16 +182,13 @@ module ModernTreasury
         RETURN = :return
         REVERSAL = :reversal
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # To post a ledger transaction at creation, use `posted`.
       #
-      # @see ModernTreasury::Models::LedgerTransaction#status
+      # @see ModernTreasury::LedgerTransaction#status
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
@@ -208,11 +196,8 @@ module ModernTreasury
         PENDING = :pending
         POSTED = :posted
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

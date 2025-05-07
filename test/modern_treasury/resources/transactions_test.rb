@@ -15,7 +15,7 @@ class ModernTreasury::Test::Resources::TransactionsTest < ModernTreasury::Test::
       )
 
     assert_pattern do
-      response => ModernTreasury::Models::Transaction
+      response => ModernTreasury::Transaction
     end
 
     assert_pattern do
@@ -26,21 +26,21 @@ class ModernTreasury::Test::Resources::TransactionsTest < ModernTreasury::Test::
         as_of_time: Time | nil,
         as_of_timezone: String | nil,
         created_at: Time,
-        currency: ModernTreasury::Models::Currency,
+        currency: ModernTreasury::Currency,
         custom_identifiers: ^(ModernTreasury::Internal::Type::HashOf[String]),
         direction: String,
         discarded_at: Time | nil,
-        foreign_exchange_rate: ModernTreasury::Models::Transaction::ForeignExchangeRate | nil,
+        foreign_exchange_rate: ModernTreasury::Transaction::ForeignExchangeRate | nil,
         internal_account_id: String,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         posted: ModernTreasury::Internal::Type::Boolean,
         reconciled: ModernTreasury::Internal::Type::Boolean,
-        type: ModernTreasury::Models::Transaction::Type,
+        type: ModernTreasury::Transaction::Type,
         updated_at: Time,
         vendor_code: String | nil,
-        vendor_code_type: ModernTreasury::Models::Transaction::VendorCodeType | nil,
+        vendor_code_type: ModernTreasury::Transaction::VendorCodeType | nil,
         vendor_customer_id: String | nil,
         vendor_id: String | nil,
         details: ^(ModernTreasury::Internal::Type::HashOf[String]) | nil,
@@ -53,7 +53,7 @@ class ModernTreasury::Test::Resources::TransactionsTest < ModernTreasury::Test::
     response = @modern_treasury.transactions.retrieve("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::Transaction
+      response => ModernTreasury::Transaction
     end
 
     assert_pattern do
@@ -64,21 +64,21 @@ class ModernTreasury::Test::Resources::TransactionsTest < ModernTreasury::Test::
         as_of_time: Time | nil,
         as_of_timezone: String | nil,
         created_at: Time,
-        currency: ModernTreasury::Models::Currency,
+        currency: ModernTreasury::Currency,
         custom_identifiers: ^(ModernTreasury::Internal::Type::HashOf[String]),
         direction: String,
         discarded_at: Time | nil,
-        foreign_exchange_rate: ModernTreasury::Models::Transaction::ForeignExchangeRate | nil,
+        foreign_exchange_rate: ModernTreasury::Transaction::ForeignExchangeRate | nil,
         internal_account_id: String,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         posted: ModernTreasury::Internal::Type::Boolean,
         reconciled: ModernTreasury::Internal::Type::Boolean,
-        type: ModernTreasury::Models::Transaction::Type,
+        type: ModernTreasury::Transaction::Type,
         updated_at: Time,
         vendor_code: String | nil,
-        vendor_code_type: ModernTreasury::Models::Transaction::VendorCodeType | nil,
+        vendor_code_type: ModernTreasury::Transaction::VendorCodeType | nil,
         vendor_customer_id: String | nil,
         vendor_id: String | nil,
         details: ^(ModernTreasury::Internal::Type::HashOf[String]) | nil,
@@ -91,7 +91,7 @@ class ModernTreasury::Test::Resources::TransactionsTest < ModernTreasury::Test::
     response = @modern_treasury.transactions.update("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::Transaction
+      response => ModernTreasury::Transaction
     end
 
     assert_pattern do
@@ -102,21 +102,21 @@ class ModernTreasury::Test::Resources::TransactionsTest < ModernTreasury::Test::
         as_of_time: Time | nil,
         as_of_timezone: String | nil,
         created_at: Time,
-        currency: ModernTreasury::Models::Currency,
+        currency: ModernTreasury::Currency,
         custom_identifiers: ^(ModernTreasury::Internal::Type::HashOf[String]),
         direction: String,
         discarded_at: Time | nil,
-        foreign_exchange_rate: ModernTreasury::Models::Transaction::ForeignExchangeRate | nil,
+        foreign_exchange_rate: ModernTreasury::Transaction::ForeignExchangeRate | nil,
         internal_account_id: String,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         posted: ModernTreasury::Internal::Type::Boolean,
         reconciled: ModernTreasury::Internal::Type::Boolean,
-        type: ModernTreasury::Models::Transaction::Type,
+        type: ModernTreasury::Transaction::Type,
         updated_at: Time,
         vendor_code: String | nil,
-        vendor_code_type: ModernTreasury::Models::Transaction::VendorCodeType | nil,
+        vendor_code_type: ModernTreasury::Transaction::VendorCodeType | nil,
         vendor_customer_id: String | nil,
         vendor_id: String | nil,
         details: ^(ModernTreasury::Internal::Type::HashOf[String]) | nil,
@@ -136,7 +136,7 @@ class ModernTreasury::Test::Resources::TransactionsTest < ModernTreasury::Test::
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Models::Transaction
+      row => ModernTreasury::Transaction
     end
 
     assert_pattern do
@@ -147,21 +147,21 @@ class ModernTreasury::Test::Resources::TransactionsTest < ModernTreasury::Test::
         as_of_time: Time | nil,
         as_of_timezone: String | nil,
         created_at: Time,
-        currency: ModernTreasury::Models::Currency,
+        currency: ModernTreasury::Currency,
         custom_identifiers: ^(ModernTreasury::Internal::Type::HashOf[String]),
         direction: String,
         discarded_at: Time | nil,
-        foreign_exchange_rate: ModernTreasury::Models::Transaction::ForeignExchangeRate | nil,
+        foreign_exchange_rate: ModernTreasury::Transaction::ForeignExchangeRate | nil,
         internal_account_id: String,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         posted: ModernTreasury::Internal::Type::Boolean,
         reconciled: ModernTreasury::Internal::Type::Boolean,
-        type: ModernTreasury::Models::Transaction::Type,
+        type: ModernTreasury::Transaction::Type,
         updated_at: Time,
         vendor_code: String | nil,
-        vendor_code_type: ModernTreasury::Models::Transaction::VendorCodeType | nil,
+        vendor_code_type: ModernTreasury::Transaction::VendorCodeType | nil,
         vendor_customer_id: String | nil,
         vendor_id: String | nil,
         details: ^(ModernTreasury::Internal::Type::HashOf[String]) | nil,

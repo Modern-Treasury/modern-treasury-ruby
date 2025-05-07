@@ -6,7 +6,7 @@ module ModernTreasury
         counterparty_id: String?,
         metadata: ::Hash[Symbol, String],
         name: String?,
-        party_address: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress,
+        party_address: ModernTreasury::ExternalAccountUpdateParams::PartyAddress,
         party_name: String,
         party_type: ModernTreasury::Models::ExternalAccountUpdateParams::party_type?
       }
@@ -30,11 +30,11 @@ module ModernTreasury
 
       attr_accessor name: String?
 
-      attr_reader party_address: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress?
+      attr_reader party_address: ModernTreasury::ExternalAccountUpdateParams::PartyAddress?
 
       def party_address=: (
-        ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress
-      ) -> ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress
+        ModernTreasury::ExternalAccountUpdateParams::PartyAddress
+      ) -> ModernTreasury::ExternalAccountUpdateParams::PartyAddress
 
       attr_reader party_name: String?
 
@@ -47,13 +47,11 @@ module ModernTreasury
         ?counterparty_id: String?,
         ?metadata: ::Hash[Symbol, String],
         ?name: String?,
-        ?party_address: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress,
+        ?party_address: ModernTreasury::ExternalAccountUpdateParams::PartyAddress,
         ?party_name: String,
         ?party_type: ModernTreasury::Models::ExternalAccountUpdateParams::party_type?,
         ?request_options: ModernTreasury::request_opts
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::external_account_update_params
 
       type party_address =
         {
@@ -86,8 +84,6 @@ module ModernTreasury
           ?postal_code: String?,
           ?region: String?
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::ExternalAccountUpdateParams::party_address
       end
 
       type party_type = :business | :individual

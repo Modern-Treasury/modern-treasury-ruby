@@ -11,23 +11,23 @@ module ModernTreasury
         ?description: String?,
         ?direction: ModernTreasury::Models::ExpectedPaymentCreateParams::direction?,
         ?internal_account_id: String?,
-        ?ledger_transaction: ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction,
+        ?ledger_transaction: ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction,
         ?ledger_transaction_id: String,
-        ?line_items: ::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem],
+        ?line_items: ::Array[ModernTreasury::ExpectedPaymentCreateParams::LineItem],
         ?metadata: ::Hash[Symbol, String],
         ?reconciliation_filters: top?,
         ?reconciliation_groups: top?,
-        ?reconciliation_rule_variables: ::Array[ModernTreasury::Models::ReconciliationRule]?,
+        ?reconciliation_rule_variables: ::Array[ModernTreasury::ReconciliationRule]?,
         ?remittance_information: String?,
         ?statement_descriptor: String?,
         ?type: ModernTreasury::Models::expected_payment_type?,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::ExpectedPayment
+      ) -> ModernTreasury::ExpectedPayment
 
       def retrieve: (
         String id,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::ExpectedPayment
+      ) -> ModernTreasury::ExpectedPayment
 
       def update: (
         String id,
@@ -43,13 +43,13 @@ module ModernTreasury
         ?metadata: ::Hash[Symbol, String],
         ?reconciliation_filters: top?,
         ?reconciliation_groups: top?,
-        ?reconciliation_rule_variables: ::Array[ModernTreasury::Models::ReconciliationRule]?,
+        ?reconciliation_rule_variables: ::Array[ModernTreasury::ReconciliationRule]?,
         ?remittance_information: String?,
         ?statement_descriptor: String?,
         ?status: ModernTreasury::Models::ExpectedPaymentUpdateParams::status?,
         ?type: ModernTreasury::Models::expected_payment_type?,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::ExpectedPayment
+      ) -> ModernTreasury::ExpectedPayment
 
       def list: (
         ?after_cursor: String?,
@@ -63,12 +63,12 @@ module ModernTreasury
         ?status: ModernTreasury::Models::ExpectedPaymentListParams::status,
         ?type: ModernTreasury::Models::ExpectedPaymentListParams::type_,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::ExpectedPayment]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::ExpectedPayment]
 
       def delete: (
         String id,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::ExpectedPayment
+      ) -> ModernTreasury::ExpectedPayment
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

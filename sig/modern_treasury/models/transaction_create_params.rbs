@@ -57,8 +57,6 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
-      def to_hash: -> ModernTreasury::Models::transaction_create_params
-
       type type_ =
         :ach
         | :au_becs

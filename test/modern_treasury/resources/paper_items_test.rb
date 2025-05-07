@@ -7,7 +7,7 @@ class ModernTreasury::Test::Resources::PaperItemsTest < ModernTreasury::Test::Re
     response = @modern_treasury.paper_items.retrieve("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::PaperItem
+      response => ModernTreasury::PaperItem
     end
 
     assert_pattern do
@@ -18,7 +18,7 @@ class ModernTreasury::Test::Resources::PaperItemsTest < ModernTreasury::Test::Re
         amount: Integer,
         check_number: String | nil,
         created_at: Time,
-        currency: ModernTreasury::Models::Currency,
+        currency: ModernTreasury::Currency,
         deposit_date: Date,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         lockbox_number: String,
@@ -26,7 +26,7 @@ class ModernTreasury::Test::Resources::PaperItemsTest < ModernTreasury::Test::Re
         object: String,
         remitter_name: String | nil,
         routing_number: String | nil,
-        status: ModernTreasury::Models::PaperItem::Status,
+        status: ModernTreasury::PaperItem::Status,
         transaction_id: String | nil,
         transaction_line_item_id: String | nil,
         updated_at: Time
@@ -45,7 +45,7 @@ class ModernTreasury::Test::Resources::PaperItemsTest < ModernTreasury::Test::Re
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Models::PaperItem
+      row => ModernTreasury::PaperItem
     end
 
     assert_pattern do
@@ -56,7 +56,7 @@ class ModernTreasury::Test::Resources::PaperItemsTest < ModernTreasury::Test::Re
         amount: Integer,
         check_number: String | nil,
         created_at: Time,
-        currency: ModernTreasury::Models::Currency,
+        currency: ModernTreasury::Currency,
         deposit_date: Date,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         lockbox_number: String,
@@ -64,7 +64,7 @@ class ModernTreasury::Test::Resources::PaperItemsTest < ModernTreasury::Test::Re
         object: String,
         remitter_name: String | nil,
         routing_number: String | nil,
-        status: ModernTreasury::Models::PaperItem::Status,
+        status: ModernTreasury::PaperItem::Status,
         transaction_id: String | nil,
         transaction_line_item_id: String | nil,
         updated_at: Time

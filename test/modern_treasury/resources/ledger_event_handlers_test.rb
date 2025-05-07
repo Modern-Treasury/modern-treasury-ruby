@@ -22,24 +22,24 @@ class ModernTreasury::Test::Resources::LedgerEventHandlersTest < ModernTreasury:
       )
 
     assert_pattern do
-      response => ModernTreasury::Models::LedgerEventHandler
+      response => ModernTreasury::LedgerEventHandler
     end
 
     assert_pattern do
       response => {
         id: String,
-        conditions: ModernTreasury::Models::LedgerEventHandler::Conditions | nil,
+        conditions: ModernTreasury::LedgerEventHandler::Conditions | nil,
         created_at: Time,
         description: String | nil,
         discarded_at: Time | nil,
         ledger_id: String | nil,
-        ledger_transaction_template: ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate,
+        ledger_transaction_template: ModernTreasury::LedgerEventHandler::LedgerTransactionTemplate,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]) | nil,
         name: String,
         object: String,
         updated_at: Time,
-        variables: ^(ModernTreasury::Internal::Type::HashOf[ModernTreasury::Models::LedgerEventHandlerVariable]) | nil
+        variables: ^(ModernTreasury::Internal::Type::HashOf[ModernTreasury::LedgerEventHandlerVariable]) | nil
       }
     end
   end
@@ -48,24 +48,24 @@ class ModernTreasury::Test::Resources::LedgerEventHandlersTest < ModernTreasury:
     response = @modern_treasury.ledger_event_handlers.retrieve("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::LedgerEventHandler
+      response => ModernTreasury::LedgerEventHandler
     end
 
     assert_pattern do
       response => {
         id: String,
-        conditions: ModernTreasury::Models::LedgerEventHandler::Conditions | nil,
+        conditions: ModernTreasury::LedgerEventHandler::Conditions | nil,
         created_at: Time,
         description: String | nil,
         discarded_at: Time | nil,
         ledger_id: String | nil,
-        ledger_transaction_template: ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate,
+        ledger_transaction_template: ModernTreasury::LedgerEventHandler::LedgerTransactionTemplate,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]) | nil,
         name: String,
         object: String,
         updated_at: Time,
-        variables: ^(ModernTreasury::Internal::Type::HashOf[ModernTreasury::Models::LedgerEventHandlerVariable]) | nil
+        variables: ^(ModernTreasury::Internal::Type::HashOf[ModernTreasury::LedgerEventHandlerVariable]) | nil
       }
     end
   end
@@ -81,24 +81,24 @@ class ModernTreasury::Test::Resources::LedgerEventHandlersTest < ModernTreasury:
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Models::LedgerEventHandler
+      row => ModernTreasury::LedgerEventHandler
     end
 
     assert_pattern do
       row => {
         id: String,
-        conditions: ModernTreasury::Models::LedgerEventHandler::Conditions | nil,
+        conditions: ModernTreasury::LedgerEventHandler::Conditions | nil,
         created_at: Time,
         description: String | nil,
         discarded_at: Time | nil,
         ledger_id: String | nil,
-        ledger_transaction_template: ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate,
+        ledger_transaction_template: ModernTreasury::LedgerEventHandler::LedgerTransactionTemplate,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]) | nil,
         name: String,
         object: String,
         updated_at: Time,
-        variables: ^(ModernTreasury::Internal::Type::HashOf[ModernTreasury::Models::LedgerEventHandlerVariable]) | nil
+        variables: ^(ModernTreasury::Internal::Type::HashOf[ModernTreasury::LedgerEventHandlerVariable]) | nil
       }
     end
   end
@@ -107,24 +107,24 @@ class ModernTreasury::Test::Resources::LedgerEventHandlersTest < ModernTreasury:
     response = @modern_treasury.ledger_event_handlers.delete("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::LedgerEventHandler
+      response => ModernTreasury::LedgerEventHandler
     end
 
     assert_pattern do
       response => {
         id: String,
-        conditions: ModernTreasury::Models::LedgerEventHandler::Conditions | nil,
+        conditions: ModernTreasury::LedgerEventHandler::Conditions | nil,
         created_at: Time,
         description: String | nil,
         discarded_at: Time | nil,
         ledger_id: String | nil,
-        ledger_transaction_template: ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate,
+        ledger_transaction_template: ModernTreasury::LedgerEventHandler::LedgerTransactionTemplate,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]) | nil,
         name: String,
         object: String,
         updated_at: Time,
-        variables: ^(ModernTreasury::Internal::Type::HashOf[ModernTreasury::Models::LedgerEventHandlerVariable]) | nil
+        variables: ^(ModernTreasury::Internal::Type::HashOf[ModernTreasury::LedgerEventHandlerVariable]) | nil
       }
     end
   end

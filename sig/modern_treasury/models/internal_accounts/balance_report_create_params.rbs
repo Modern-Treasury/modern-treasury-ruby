@@ -6,7 +6,7 @@ module ModernTreasury
           as_of_date: Date,
           as_of_time: String,
           balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::balance_report_type,
-          balances: ::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance]
+          balances: ::Array[ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance]
         }
         & ModernTreasury::Internal::Type::request_parameters
 
@@ -20,17 +20,15 @@ module ModernTreasury
 
         attr_accessor balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::balance_report_type
 
-        attr_accessor balances: ::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance]
+        attr_accessor balances: ::Array[ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance]
 
         def initialize: (
           as_of_date: Date,
           as_of_time: String,
           balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::balance_report_type,
-          balances: ::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance],
+          balances: ::Array[ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance],
           ?request_options: ModernTreasury::request_opts
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::InternalAccounts::balance_report_create_params
 
         type balance_report_type =
           :intraday | :other | :previous_day | :real_time
@@ -49,7 +47,7 @@ module ModernTreasury
         type balance =
           {
             amount: Integer,
-            balance_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::balance_type,
+            balance_type: ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance::balance_type,
             vendor_code: String,
             vendor_code_type: String?
           }
@@ -57,7 +55,7 @@ module ModernTreasury
         class Balance < ModernTreasury::Internal::Type::BaseModel
           attr_accessor amount: Integer
 
-          attr_accessor balance_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::balance_type
+          attr_accessor balance_type: ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance::balance_type
 
           attr_accessor vendor_code: String
 
@@ -65,12 +63,10 @@ module ModernTreasury
 
           def initialize: (
             amount: Integer,
-            balance_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::balance_type,
+            balance_type: ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance::balance_type,
             vendor_code: String,
             vendor_code_type: String?
           ) -> void
-
-          def to_hash: -> ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::balance
 
           type balance_type =
             :closing_available
@@ -96,7 +92,7 @@ module ModernTreasury
             OTHER: :other
             PREVIOUSLY_CLOSED_BOOK: :previously_closed_book
 
-            def self?.values: -> ::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::balance_type]
+            def self?.values: -> ::Array[ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance::balance_type]
           end
         end
       end

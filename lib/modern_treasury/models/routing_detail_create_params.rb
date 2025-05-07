@@ -4,14 +4,13 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::RoutingDetails#create
     class RoutingDetailCreateParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute accounts_type
       #
-      #   @return [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::AccountsType]
-      required :accounts_type, enum: -> { ModernTreasury::Models::RoutingDetailCreateParams::AccountsType }
+      #   @return [Symbol, ModernTreasury::RoutingDetailCreateParams::AccountsType]
+      required :accounts_type, enum: -> { ModernTreasury::RoutingDetailCreateParams::AccountsType }
 
       # @!attribute routing_number
       #   The routing number of the bank.
@@ -24,40 +23,37 @@ module ModernTreasury
       #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
       #   more details.
       #
-      #   @return [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType]
-      required :routing_number_type,
-               enum: -> { ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType }
+      #   @return [Symbol, ModernTreasury::RoutingDetailCreateParams::RoutingNumberType]
+      required :routing_number_type, enum: -> { ModernTreasury::RoutingDetailCreateParams::RoutingNumberType }
 
       # @!attribute payment_type
       #   If the routing detail is to be used for a specific payment type this field will
       #   be populated, otherwise null.
       #
-      #   @return [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::PaymentType, nil]
-      optional :payment_type,
-               enum: -> { ModernTreasury::Models::RoutingDetailCreateParams::PaymentType },
-               nil?: true
+      #   @return [Symbol, ModernTreasury::RoutingDetailCreateParams::PaymentType, nil]
+      optional :payment_type, enum: -> { ModernTreasury::RoutingDetailCreateParams::PaymentType }, nil?: true
 
-      # @!parse
-      #   # @param accounts_type [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::AccountsType]
-      #   # @param routing_number [String]
-      #   # @param routing_number_type [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType]
-      #   # @param payment_type [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::PaymentType, nil]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(accounts_type:, routing_number:, routing_number_type:, payment_type: nil, request_options: {}, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(accounts_type:, routing_number:, routing_number_type:, payment_type: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::RoutingDetailCreateParams} for more details.
+      #
+      #   @param accounts_type [Symbol, ModernTreasury::RoutingDetailCreateParams::AccountsType]
+      #
+      #   @param routing_number [String] The routing number of the bank.
+      #
+      #   @param routing_number_type [Symbol, ModernTreasury::RoutingDetailCreateParams::RoutingNumberType] The type of routing number. See https://docs.moderntreasury.com/platform/referen
+      #
+      #   @param payment_type [Symbol, ModernTreasury::RoutingDetailCreateParams::PaymentType, nil] If the routing detail is to be used for a specific payment type this field will
+      #
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       module AccountsType
         extend ModernTreasury::Internal::Type::Enum
 
         EXTERNAL_ACCOUNTS = :external_accounts
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # The type of routing number. See
@@ -88,11 +84,8 @@ module ModernTreasury
         SWIFT = :swift
         ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # If the routing detail is to be used for a specific payment type this field will
@@ -131,11 +124,8 @@ module ModernTreasury
         WIRE = :wire
         ZENGIN = :zengin
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

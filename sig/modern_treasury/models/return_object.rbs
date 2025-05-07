@@ -4,10 +4,10 @@ module ModernTreasury
       {
         id: String,
         amount: Integer,
-        code: ModernTreasury::Models::ReturnObject::code?,
+        code: ModernTreasury::ReturnObject::code?,
         created_at: Time,
         currency: ModernTreasury::Models::currency,
-        current_return: ModernTreasury::Models::ReturnObject?,
+        current_return: ModernTreasury::ReturnObject?,
         date_of_death: Date?,
         failure_reason: String?,
         internal_account_id: String?,
@@ -15,14 +15,14 @@ module ModernTreasury
         live_mode: bool,
         object: String,
         reason: String?,
-        reference_numbers: ::Array[ModernTreasury::Models::ReturnObject::ReferenceNumber],
+        reference_numbers: ::Array[ModernTreasury::ReturnObject::ReferenceNumber],
         returnable_id: String?,
-        returnable_type: ModernTreasury::Models::ReturnObject::returnable_type?,
-        role: ModernTreasury::Models::ReturnObject::role,
-        status: ModernTreasury::Models::ReturnObject::status,
+        returnable_type: ModernTreasury::ReturnObject::returnable_type?,
+        role: ModernTreasury::ReturnObject::role,
+        status: ModernTreasury::ReturnObject::status,
         transaction_id: String?,
         transaction_line_item_id: String?,
-        type: ModernTreasury::Models::ReturnObject::type_,
+        type: ModernTreasury::ReturnObject::type_,
         updated_at: Time,
         additional_information: String?,
         data: top?
@@ -33,13 +33,13 @@ module ModernTreasury
 
       attr_accessor amount: Integer
 
-      attr_accessor code: ModernTreasury::Models::ReturnObject::code?
+      attr_accessor code: ModernTreasury::ReturnObject::code?
 
       attr_accessor created_at: Time
 
       attr_accessor currency: ModernTreasury::Models::currency
 
-      attr_accessor current_return: ModernTreasury::Models::ReturnObject?
+      attr_accessor current_return: ModernTreasury::ReturnObject?
 
       attr_accessor date_of_death: Date?
 
@@ -55,21 +55,21 @@ module ModernTreasury
 
       attr_accessor reason: String?
 
-      attr_accessor reference_numbers: ::Array[ModernTreasury::Models::ReturnObject::ReferenceNumber]
+      attr_accessor reference_numbers: ::Array[ModernTreasury::ReturnObject::ReferenceNumber]
 
       attr_accessor returnable_id: String?
 
-      attr_accessor returnable_type: ModernTreasury::Models::ReturnObject::returnable_type?
+      attr_accessor returnable_type: ModernTreasury::ReturnObject::returnable_type?
 
-      attr_accessor role: ModernTreasury::Models::ReturnObject::role
+      attr_accessor role: ModernTreasury::ReturnObject::role
 
-      attr_accessor status: ModernTreasury::Models::ReturnObject::status
+      attr_accessor status: ModernTreasury::ReturnObject::status
 
       attr_accessor transaction_id: String?
 
       attr_accessor transaction_line_item_id: String?
 
-      attr_accessor type: ModernTreasury::Models::ReturnObject::type_
+      attr_accessor type: ModernTreasury::ReturnObject::type_
 
       attr_accessor updated_at: Time
 
@@ -80,10 +80,10 @@ module ModernTreasury
       def initialize: (
         id: String,
         amount: Integer,
-        code: ModernTreasury::Models::ReturnObject::code?,
+        code: ModernTreasury::ReturnObject::code?,
         created_at: Time,
         currency: ModernTreasury::Models::currency,
-        current_return: ModernTreasury::Models::ReturnObject?,
+        current_return: ModernTreasury::ReturnObject?,
         date_of_death: Date?,
         failure_reason: String?,
         internal_account_id: String?,
@@ -91,20 +91,18 @@ module ModernTreasury
         live_mode: bool,
         object: String,
         reason: String?,
-        reference_numbers: ::Array[ModernTreasury::Models::ReturnObject::ReferenceNumber],
+        reference_numbers: ::Array[ModernTreasury::ReturnObject::ReferenceNumber],
         returnable_id: String?,
-        returnable_type: ModernTreasury::Models::ReturnObject::returnable_type?,
-        role: ModernTreasury::Models::ReturnObject::role,
-        status: ModernTreasury::Models::ReturnObject::status,
+        returnable_type: ModernTreasury::ReturnObject::returnable_type?,
+        role: ModernTreasury::ReturnObject::role,
+        status: ModernTreasury::ReturnObject::status,
         transaction_id: String?,
         transaction_line_item_id: String?,
-        type: ModernTreasury::Models::ReturnObject::type_,
+        type: ModernTreasury::ReturnObject::type_,
         updated_at: Time,
         ?additional_information: String?,
         ?data: top?
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::return_object
 
       type code =
         :"901"
@@ -218,7 +216,7 @@ module ModernTreasury
         R53: :R53
         CURRENCYCLOUD: :currencycloud
 
-        def self?.values: -> ::Array[ModernTreasury::Models::ReturnObject::code]
+        def self?.values: -> ::Array[ModernTreasury::ReturnObject::code]
       end
 
       type reference_number =
@@ -228,7 +226,7 @@ module ModernTreasury
           live_mode: bool,
           object: String,
           reference_number: String,
-          reference_number_type: ModernTreasury::Models::ReturnObject::ReferenceNumber::reference_number_type,
+          reference_number_type: ModernTreasury::ReturnObject::ReferenceNumber::reference_number_type,
           updated_at: Time
         }
 
@@ -243,7 +241,7 @@ module ModernTreasury
 
         attr_accessor reference_number: String
 
-        attr_accessor reference_number_type: ModernTreasury::Models::ReturnObject::ReferenceNumber::reference_number_type
+        attr_accessor reference_number_type: ModernTreasury::ReturnObject::ReferenceNumber::reference_number_type
 
         attr_accessor updated_at: Time
 
@@ -253,11 +251,9 @@ module ModernTreasury
           live_mode: bool,
           object: String,
           reference_number: String,
-          reference_number_type: ModernTreasury::Models::ReturnObject::ReferenceNumber::reference_number_type,
+          reference_number_type: ModernTreasury::ReturnObject::ReferenceNumber::reference_number_type,
           updated_at: Time
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::ReturnObject::reference_number
 
         type reference_number_type =
           :ach_original_trace_number
@@ -413,7 +409,7 @@ module ModernTreasury
           WELLS_FARGO_TRACE_NUMBER: :wells_fargo_trace_number
           WELLS_FARGO_UETR: :wells_fargo_uetr
 
-          def self?.values: -> ::Array[ModernTreasury::Models::ReturnObject::ReferenceNumber::reference_number_type]
+          def self?.values: -> ::Array[ModernTreasury::ReturnObject::ReferenceNumber::reference_number_type]
         end
       end
 
@@ -433,7 +429,7 @@ module ModernTreasury
         RETURN: :return
         REVERSAL: :reversal
 
-        def self?.values: -> ::Array[ModernTreasury::Models::ReturnObject::returnable_type]
+        def self?.values: -> ::Array[ModernTreasury::ReturnObject::returnable_type]
       end
 
       type role = :originating | :receiving
@@ -444,7 +440,7 @@ module ModernTreasury
         ORIGINATING: :originating
         RECEIVING: :receiving
 
-        def self?.values: -> ::Array[ModernTreasury::Models::ReturnObject::role]
+        def self?.values: -> ::Array[ModernTreasury::ReturnObject::role]
       end
 
       type status =
@@ -460,7 +456,7 @@ module ModernTreasury
         RETURNED: :returned
         SENT: :sent
 
-        def self?.values: -> ::Array[ModernTreasury::Models::ReturnObject::status]
+        def self?.values: -> ::Array[ModernTreasury::ReturnObject::status]
       end
 
       type type_ =
@@ -495,7 +491,7 @@ module ModernTreasury
         SEPA: :sepa
         WIRE: :wire
 
-        def self?.values: -> ::Array[ModernTreasury::Models::ReturnObject::type_]
+        def self?.values: -> ::Array[ModernTreasury::ReturnObject::type_]
       end
     end
   end

@@ -11,8 +11,8 @@ module ModernTreasury
 
       # @!attribute bank_address
       #
-      #   @return [ModernTreasury::Models::RoutingDetail::BankAddress, nil]
-      required :bank_address, -> { ModernTreasury::Models::RoutingDetail::BankAddress }, nil?: true
+      #   @return [ModernTreasury::RoutingDetail::BankAddress, nil]
+      required :bank_address, -> { ModernTreasury::RoutingDetail::BankAddress }, nil?: true
 
       # @!attribute bank_name
       #   The name of the bank.
@@ -46,8 +46,8 @@ module ModernTreasury
       #   If the routing detail is to be used for a specific payment type this field will
       #   be populated, otherwise null.
       #
-      #   @return [Symbol, ModernTreasury::Models::RoutingDetail::PaymentType, nil]
-      required :payment_type, enum: -> { ModernTreasury::Models::RoutingDetail::PaymentType }, nil?: true
+      #   @return [Symbol, ModernTreasury::RoutingDetail::PaymentType, nil]
+      required :payment_type, enum: -> { ModernTreasury::RoutingDetail::PaymentType }, nil?: true
 
       # @!attribute routing_number
       #   The routing number of the bank.
@@ -60,47 +60,41 @@ module ModernTreasury
       #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
       #   more details.
       #
-      #   @return [Symbol, ModernTreasury::Models::RoutingDetail::RoutingNumberType]
-      required :routing_number_type, enum: -> { ModernTreasury::Models::RoutingDetail::RoutingNumberType }
+      #   @return [Symbol, ModernTreasury::RoutingDetail::RoutingNumberType]
+      required :routing_number_type, enum: -> { ModernTreasury::RoutingDetail::RoutingNumberType }
 
       # @!attribute updated_at
       #
       #   @return [Time]
       required :updated_at, Time
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param bank_address [ModernTreasury::Models::RoutingDetail::BankAddress, nil]
-      #   # @param bank_name [String]
-      #   # @param created_at [Time]
-      #   # @param discarded_at [Time, nil]
-      #   # @param live_mode [Boolean]
-      #   # @param object [String]
-      #   # @param payment_type [Symbol, ModernTreasury::Models::RoutingDetail::PaymentType, nil]
-      #   # @param routing_number [String]
-      #   # @param routing_number_type [Symbol, ModernTreasury::Models::RoutingDetail::RoutingNumberType]
-      #   # @param updated_at [Time]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     bank_address:,
-      #     bank_name:,
-      #     created_at:,
-      #     discarded_at:,
-      #     live_mode:,
-      #     object:,
-      #     payment_type:,
-      #     routing_number:,
-      #     routing_number_type:,
-      #     updated_at:,
-      #     **
-      #   )
-      #     super
-      #   end
+      # @!method initialize(id:, bank_address:, bank_name:, created_at:, discarded_at:, live_mode:, object:, payment_type:, routing_number:, routing_number_type:, updated_at:)
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::RoutingDetail} for more details.
+      #
+      #   @param id [String]
+      #
+      #   @param bank_address [ModernTreasury::RoutingDetail::BankAddress, nil]
+      #
+      #   @param bank_name [String] The name of the bank.
+      #
+      #   @param created_at [Time]
+      #
+      #   @param discarded_at [Time, nil]
+      #
+      #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+      #
+      #   @param object [String]
+      #
+      #   @param payment_type [Symbol, ModernTreasury::RoutingDetail::PaymentType, nil] If the routing detail is to be used for a specific payment type this field will
+      #
+      #   @param routing_number [String] The routing number of the bank.
+      #
+      #   @param routing_number_type [Symbol, ModernTreasury::RoutingDetail::RoutingNumberType] The type of routing number. See https://docs.moderntreasury.com/platform/referen
+      #
+      #   @param updated_at [Time]
 
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
-
-      # @see ModernTreasury::Models::RoutingDetail#bank_address
+      # @see ModernTreasury::RoutingDetail#bank_address
       class BankAddress < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
         #
@@ -163,43 +157,37 @@ module ModernTreasury
         #   @return [Time]
         required :updated_at, Time
 
-        # @!parse
-        #   # @param id [String]
-        #   # @param country [String, nil]
-        #   # @param created_at [Time]
-        #   # @param line1 [String, nil]
-        #   # @param line2 [String, nil]
-        #   # @param live_mode [Boolean]
-        #   # @param locality [String, nil]
-        #   # @param object [String]
-        #   # @param postal_code [String, nil]
-        #   # @param region [String, nil]
-        #   # @param updated_at [Time]
-        #   #
-        #   def initialize(
-        #     id:,
-        #     country:,
-        #     created_at:,
-        #     line1:,
-        #     line2:,
-        #     live_mode:,
-        #     locality:,
-        #     object:,
-        #     postal_code:,
-        #     region:,
-        #     updated_at:,
-        #     **
-        #   )
-        #     super
-        #   end
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(id:, country:, created_at:, line1:, line2:, live_mode:, locality:, object:, postal_code:, region:, updated_at:)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::RoutingDetail::BankAddress} for more details.
+        #
+        #   @param id [String]
+        #
+        #   @param country [String, nil] Country code conforms to [ISO 3166-1 alpha-2]
+        #
+        #   @param created_at [Time]
+        #
+        #   @param line1 [String, nil]
+        #
+        #   @param line2 [String, nil]
+        #
+        #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+        #
+        #   @param locality [String, nil] Locality or City.
+        #
+        #   @param object [String]
+        #
+        #   @param postal_code [String, nil] The postal code of the address.
+        #
+        #   @param region [String, nil] Region or State.
+        #
+        #   @param updated_at [Time]
       end
 
       # If the routing detail is to be used for a specific payment type this field will
       # be populated, otherwise null.
       #
-      # @see ModernTreasury::Models::RoutingDetail#payment_type
+      # @see ModernTreasury::RoutingDetail#payment_type
       module PaymentType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -234,18 +222,15 @@ module ModernTreasury
         WIRE = :wire
         ZENGIN = :zengin
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # The type of routing number. See
       # https://docs.moderntreasury.com/platform/reference/routing-detail-object for
       # more details.
       #
-      # @see ModernTreasury::Models::RoutingDetail#routing_number_type
+      # @see ModernTreasury::RoutingDetail#routing_number_type
       module RoutingNumberType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -271,11 +256,8 @@ module ModernTreasury
         SWIFT = :swift
         ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

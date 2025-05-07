@@ -4,28 +4,23 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::RoutingDetails#retrieve
     class RoutingDetailRetrieveParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute accounts_type
       #
-      #   @return [Symbol, ModernTreasury::Models::AccountsType]
-      required :accounts_type, enum: -> { ModernTreasury::Models::AccountsType }
+      #   @return [Symbol, ModernTreasury::AccountsType]
+      required :accounts_type, enum: -> { ModernTreasury::AccountsType }
 
       # @!attribute account_id
       #
       #   @return [String]
       required :account_id, String
 
-      # @!parse
-      #   # @param accounts_type [Symbol, ModernTreasury::Models::AccountsType]
-      #   # @param account_id [String]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(accounts_type:, account_id:, request_options: {}, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(accounts_type:, account_id:, request_options: {})
+      #   @param accounts_type [Symbol, ModernTreasury::AccountsType]
+      #   @param account_id [String]
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end
 end

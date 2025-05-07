@@ -68,8 +68,6 @@ module ModernTreasury
         updated_at: Time
       ) -> void
 
-      def to_hash: -> ModernTreasury::Models::ledger_account_statement_retrieve_response
-
       type ending_balance =
         {
           available_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::AvailableBalance,
@@ -89,8 +87,6 @@ module ModernTreasury
           pending_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PendingBalance,
           posted_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PostedBalance
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::ending_balance
 
         type available_balance =
           {
@@ -119,8 +115,6 @@ module ModernTreasury
             currency_exponent: Integer,
             debits: Integer
           ) -> void
-
-          def to_hash: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::available_balance
         end
 
         type pending_balance =
@@ -150,8 +144,6 @@ module ModernTreasury
             currency_exponent: Integer,
             debits: Integer
           ) -> void
-
-          def to_hash: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::pending_balance
         end
 
         type posted_balance =
@@ -181,8 +173,6 @@ module ModernTreasury
             currency_exponent: Integer,
             debits: Integer
           ) -> void
-
-          def to_hash: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::posted_balance
         end
       end
 
@@ -206,8 +196,6 @@ module ModernTreasury
           posted_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PostedBalance
         ) -> void
 
-        def to_hash: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::starting_balance
-
         type available_balance =
           {
             amount: Integer,
@@ -235,8 +223,6 @@ module ModernTreasury
             currency_exponent: Integer,
             debits: Integer
           ) -> void
-
-          def to_hash: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::available_balance
         end
 
         type pending_balance =
@@ -266,8 +252,6 @@ module ModernTreasury
             currency_exponent: Integer,
             debits: Integer
           ) -> void
-
-          def to_hash: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::pending_balance
         end
 
         type posted_balance =
@@ -297,8 +281,6 @@ module ModernTreasury
             currency_exponent: Integer,
             debits: Integer
           ) -> void
-
-          def to_hash: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::posted_balance
         end
       end
     end

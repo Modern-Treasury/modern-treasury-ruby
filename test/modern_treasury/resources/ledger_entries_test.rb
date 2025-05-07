@@ -7,7 +7,7 @@ class ModernTreasury::Test::Resources::LedgerEntriesTest < ModernTreasury::Test:
     response = @modern_treasury.ledger_entries.retrieve("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::LedgerEntry
+      response => ModernTreasury::LedgerEntry
     end
 
     assert_pattern do
@@ -15,7 +15,7 @@ class ModernTreasury::Test::Resources::LedgerEntriesTest < ModernTreasury::Test:
         id: String,
         amount: Integer,
         created_at: Time,
-        direction: ModernTreasury::Models::TransactionDirection,
+        direction: ModernTreasury::TransactionDirection,
         discarded_at: Time | nil,
         ledger_account_currency: String,
         ledger_account_currency_exponent: Integer,
@@ -25,8 +25,8 @@ class ModernTreasury::Test::Resources::LedgerEntriesTest < ModernTreasury::Test:
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
-        resulting_ledger_account_balances: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances | nil,
-        status: ModernTreasury::Models::LedgerEntry::Status,
+        resulting_ledger_account_balances: ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances | nil,
+        status: ModernTreasury::LedgerEntry::Status,
         updated_at: Time
       }
     end
@@ -36,7 +36,7 @@ class ModernTreasury::Test::Resources::LedgerEntriesTest < ModernTreasury::Test:
     response = @modern_treasury.ledger_entries.update("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::LedgerEntry
+      response => ModernTreasury::LedgerEntry
     end
 
     assert_pattern do
@@ -44,7 +44,7 @@ class ModernTreasury::Test::Resources::LedgerEntriesTest < ModernTreasury::Test:
         id: String,
         amount: Integer,
         created_at: Time,
-        direction: ModernTreasury::Models::TransactionDirection,
+        direction: ModernTreasury::TransactionDirection,
         discarded_at: Time | nil,
         ledger_account_currency: String,
         ledger_account_currency_exponent: Integer,
@@ -54,8 +54,8 @@ class ModernTreasury::Test::Resources::LedgerEntriesTest < ModernTreasury::Test:
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
-        resulting_ledger_account_balances: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances | nil,
-        status: ModernTreasury::Models::LedgerEntry::Status,
+        resulting_ledger_account_balances: ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances | nil,
+        status: ModernTreasury::LedgerEntry::Status,
         updated_at: Time
       }
     end
@@ -72,7 +72,7 @@ class ModernTreasury::Test::Resources::LedgerEntriesTest < ModernTreasury::Test:
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Models::LedgerEntry
+      row => ModernTreasury::LedgerEntry
     end
 
     assert_pattern do
@@ -80,7 +80,7 @@ class ModernTreasury::Test::Resources::LedgerEntriesTest < ModernTreasury::Test:
         id: String,
         amount: Integer,
         created_at: Time,
-        direction: ModernTreasury::Models::TransactionDirection,
+        direction: ModernTreasury::TransactionDirection,
         discarded_at: Time | nil,
         ledger_account_currency: String,
         ledger_account_currency_exponent: Integer,
@@ -90,8 +90,8 @@ class ModernTreasury::Test::Resources::LedgerEntriesTest < ModernTreasury::Test:
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
-        resulting_ledger_account_balances: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances | nil,
-        status: ModernTreasury::Models::LedgerEntry::Status,
+        resulting_ledger_account_balances: ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances | nil,
+        status: ModernTreasury::LedgerEntry::Status,
         updated_at: Time
       }
     end

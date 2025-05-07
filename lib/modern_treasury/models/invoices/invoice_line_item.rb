@@ -88,41 +88,35 @@ module ModernTreasury
         #   @return [Time]
         required :updated_at, Time
 
-        # @!parse
-        #   # @param id [String]
-        #   # @param amount [Integer]
-        #   # @param created_at [Time]
-        #   # @param description [String]
-        #   # @param direction [String]
-        #   # @param live_mode [Boolean]
-        #   # @param metadata [Hash{Symbol=>String}]
-        #   # @param name [String]
-        #   # @param object [String]
-        #   # @param quantity [Integer]
-        #   # @param unit_amount [Integer]
-        #   # @param unit_amount_decimal [String]
-        #   # @param updated_at [Time]
-        #   #
-        #   def initialize(
-        #     id:,
-        #     amount:,
-        #     created_at:,
-        #     description:,
-        #     direction:,
-        #     live_mode:,
-        #     metadata:,
-        #     name:,
-        #     object:,
-        #     quantity:,
-        #     unit_amount:,
-        #     unit_amount_decimal:,
-        #     updated_at:,
-        #     **
-        #   )
-        #     super
-        #   end
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(id:, amount:, created_at:, description:, direction:, live_mode:, metadata:, name:, object:, quantity:, unit_amount:, unit_amount_decimal:, updated_at:)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Invoices::InvoiceLineItem} for more details.
+        #
+        #   @param id [String]
+        #
+        #   @param amount [Integer] The total amount for this line item specified in the invoice currency's smallest
+        #
+        #   @param created_at [Time]
+        #
+        #   @param description [String] An optional free-form description of the line item.
+        #
+        #   @param direction [String] Either `debit` or `credit`. `debit` indicates that a client owes the business mo
+        #
+        #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+        #
+        #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+        #
+        #   @param name [String] The name of the line item, typically a product or SKU name.
+        #
+        #   @param object [String]
+        #
+        #   @param quantity [Integer] The number of units of a product or service that this line item is for.
+        #
+        #   @param unit_amount [Integer] The cost per unit of the product or service that this line item is for,
+        #
+        #   @param unit_amount_decimal [String] The cost per unit of the product or service that this line item is for,
+        #
+        #   @param updated_at [Time]
       end
     end
 

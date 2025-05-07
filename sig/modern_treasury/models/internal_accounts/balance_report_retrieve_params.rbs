@@ -15,8 +15,6 @@ module ModernTreasury
           internal_account_id: String,
           ?request_options: ModernTreasury::request_opts
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::InternalAccounts::balance_report_retrieve_params
       end
     end
   end

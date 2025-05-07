@@ -79,9 +79,9 @@ module ModernTreasury
         #   If a matching object exists in Modern Treasury, the type will be populated here,
         #   otherwise `null`.
         #
-        #   @return [Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType, nil]
+        #   @return [Symbol, ModernTreasury::Transactions::TransactionLineItem::TransactableType, nil]
         required :transactable_type,
-                 enum: -> { ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType },
+                 enum: -> { ModernTreasury::Transactions::TransactionLineItem::TransactableType },
                  nil?: true
 
         # @!attribute transaction_id
@@ -94,58 +94,52 @@ module ModernTreasury
         #   Indicates whether the line item is `originating` or `receiving` (see
         #   https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
         #
-        #   @return [Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::Type]
-        required :type, enum: -> { ModernTreasury::Models::Transactions::TransactionLineItem::Type }
+        #   @return [Symbol, ModernTreasury::Transactions::TransactionLineItem::Type]
+        required :type, enum: -> { ModernTreasury::Transactions::TransactionLineItem::Type }
 
         # @!attribute updated_at
         #
         #   @return [Time]
         required :updated_at, Time
 
-        # @!parse
-        #   # @param id [String]
-        #   # @param amount [Integer]
-        #   # @param counterparty_id [String, nil]
-        #   # @param created_at [Time]
-        #   # @param description [String]
-        #   # @param discarded_at [Time, nil]
-        #   # @param expected_payment_id [String, nil]
-        #   # @param live_mode [Boolean]
-        #   # @param object [String]
-        #   # @param reconcilable [Boolean]
-        #   # @param transactable_id [String, nil]
-        #   # @param transactable_type [Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType, nil]
-        #   # @param transaction_id [String]
-        #   # @param type [Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::Type]
-        #   # @param updated_at [Time]
-        #   #
-        #   def initialize(
-        #     id:,
-        #     amount:,
-        #     counterparty_id:,
-        #     created_at:,
-        #     description:,
-        #     discarded_at:,
-        #     expected_payment_id:,
-        #     live_mode:,
-        #     object:,
-        #     reconcilable:,
-        #     transactable_id:,
-        #     transactable_type:,
-        #     transaction_id:,
-        #     type:,
-        #     updated_at:,
-        #     **
-        #   )
-        #     super
-        #   end
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(id:, amount:, counterparty_id:, created_at:, description:, discarded_at:, expected_payment_id:, live_mode:, object:, reconcilable:, transactable_id:, transactable_type:, transaction_id:, type:, updated_at:)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Transactions::TransactionLineItem} for more details.
+        #
+        #   @param id [String]
+        #
+        #   @param amount [Integer] If a matching object exists in Modern Treasury, `amount` will be populated. Valu
+        #
+        #   @param counterparty_id [String, nil] The ID for the counterparty for this transaction line item.
+        #
+        #   @param created_at [Time]
+        #
+        #   @param description [String] If no matching object is found, `description` will be a free-form text field des
+        #
+        #   @param discarded_at [Time, nil]
+        #
+        #   @param expected_payment_id [String, nil] The ID of the reconciled Expected Payment, otherwise `null`.
+        #
+        #   @param live_mode [Boolean] This field will be true if this object exists in the live environment, or false
+        #
+        #   @param object [String]
+        #
+        #   @param reconcilable [Boolean] Describes whether this line item should be counted towards the corresponding tra
+        #
+        #   @param transactable_id [String, nil] If a matching object exists in Modern Treasury, the ID will be populated here, o
+        #
+        #   @param transactable_type [Symbol, ModernTreasury::Transactions::TransactionLineItem::TransactableType, nil] If a matching object exists in Modern Treasury, the type will be populated here,
+        #
+        #   @param transaction_id [String] The ID of the parent transaction.
+        #
+        #   @param type [Symbol, ModernTreasury::Transactions::TransactionLineItem::Type] Indicates whether the line item is `originating` or `receiving` (see https://www
+        #
+        #   @param updated_at [Time]
 
         # If a matching object exists in Modern Treasury, the type will be populated here,
         # otherwise `null`.
         #
-        # @see ModernTreasury::Models::Transactions::TransactionLineItem#transactable_type
+        # @see ModernTreasury::Transactions::TransactionLineItem#transactable_type
         module TransactableType
           extend ModernTreasury::Internal::Type::Enum
 
@@ -156,28 +150,22 @@ module ModernTreasury
           RETURN = :return
           REVERSAL = :reversal
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
 
         # Indicates whether the line item is `originating` or `receiving` (see
         # https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
         #
-        # @see ModernTreasury::Models::Transactions::TransactionLineItem#type
+        # @see ModernTreasury::Transactions::TransactionLineItem#type
         module Type
           extend ModernTreasury::Internal::Type::Enum
 
           ORIGINATING = :originating
           RECEIVING = :receiving
 
-          finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def self.values; end
+          # @!method self.values
+          #   @return [Array<Symbol>]
         end
       end
     end

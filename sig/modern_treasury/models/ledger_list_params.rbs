@@ -40,8 +40,6 @@ module ModernTreasury
         ?updated_at: ::Hash[Symbol, Time],
         ?request_options: ModernTreasury::request_opts
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::ledger_list_params
     end
   end
 end

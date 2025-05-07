@@ -8,28 +8,28 @@ module ModernTreasury
         direction: ModernTreasury::Models::PaymentOrderCreateParams::direction,
         originating_account_id: String,
         type: ModernTreasury::Models::payment_order_type,
-        ?accounting: ModernTreasury::Models::PaymentOrderCreateParams::Accounting,
+        ?accounting: ModernTreasury::PaymentOrderCreateParams::Accounting,
         ?accounting_category_id: String?,
         ?accounting_ledger_class_id: String?,
         ?charge_bearer: ModernTreasury::Models::PaymentOrderCreateParams::charge_bearer?,
         ?currency: ModernTreasury::Models::currency,
         ?description: String?,
-        ?documents: ::Array[ModernTreasury::Models::PaymentOrderCreateParams::Document],
+        ?documents: ::Array[ModernTreasury::PaymentOrderCreateParams::Document],
         ?effective_date: Date,
         ?expires_at: Time?,
         ?fallback_type: ModernTreasury::Models::PaymentOrderCreateParams::fallback_type,
         ?foreign_exchange_contract: String?,
         ?foreign_exchange_indicator: ModernTreasury::Models::PaymentOrderCreateParams::foreign_exchange_indicator?,
-        ?ledger_transaction: ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction,
+        ?ledger_transaction: ModernTreasury::PaymentOrderCreateParams::LedgerTransaction,
         ?ledger_transaction_id: String,
-        ?line_items: ::Array[ModernTreasury::Models::PaymentOrderCreateParams::LineItem],
+        ?line_items: ::Array[ModernTreasury::PaymentOrderCreateParams::LineItem],
         ?metadata: ::Hash[Symbol, String],
         ?nsf_protected: bool,
         ?originating_party_name: String?,
         ?priority: ModernTreasury::Models::PaymentOrderCreateParams::priority,
         ?process_after: Time?,
         ?purpose: String?,
-        ?receiving_account: ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount,
+        ?receiving_account: ModernTreasury::PaymentOrderCreateParams::ReceivingAccount,
         ?receiving_account_id: String,
         ?remittance_information: String?,
         ?send_remittance_advice: bool?,
@@ -41,16 +41,16 @@ module ModernTreasury
         ?ultimate_receiving_party_identifier: String?,
         ?ultimate_receiving_party_name: String?,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::PaymentOrder
+      ) -> ModernTreasury::PaymentOrder
 
       def retrieve: (
         String id,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::PaymentOrder
+      ) -> ModernTreasury::PaymentOrder
 
       def update: (
         String id,
-        ?accounting: ModernTreasury::Models::PaymentOrderUpdateParams::Accounting,
+        ?accounting: ModernTreasury::PaymentOrderUpdateParams::Accounting,
         ?accounting_category_id: String?,
         ?accounting_ledger_class_id: String?,
         ?amount: Integer,
@@ -64,7 +64,7 @@ module ModernTreasury
         ?fallback_type: ModernTreasury::Models::PaymentOrderUpdateParams::fallback_type,
         ?foreign_exchange_contract: String?,
         ?foreign_exchange_indicator: ModernTreasury::Models::PaymentOrderUpdateParams::foreign_exchange_indicator?,
-        ?line_items: ::Array[ModernTreasury::Models::PaymentOrderUpdateParams::LineItem],
+        ?line_items: ::Array[ModernTreasury::PaymentOrderUpdateParams::LineItem],
         ?metadata: ::Hash[Symbol, String],
         ?nsf_protected: bool,
         ?originating_account_id: String,
@@ -72,7 +72,7 @@ module ModernTreasury
         ?priority: ModernTreasury::Models::PaymentOrderUpdateParams::priority,
         ?process_after: Time?,
         ?purpose: String?,
-        ?receiving_account: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount,
+        ?receiving_account: ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount,
         ?receiving_account_id: String,
         ?remittance_information: String?,
         ?send_remittance_advice: bool?,
@@ -85,7 +85,7 @@ module ModernTreasury
         ?ultimate_receiving_party_identifier: String?,
         ?ultimate_receiving_party_name: String?,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::PaymentOrder
+      ) -> ModernTreasury::PaymentOrder
 
       def list: (
         ?after_cursor: String?,
@@ -106,14 +106,14 @@ module ModernTreasury
         ?transaction_id: String,
         ?type: ModernTreasury::Models::PaymentOrderListParams::type_,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::PaymentOrder]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::PaymentOrder]
 
       def create_async: (
         amount: Integer,
         direction: ModernTreasury::Models::PaymentOrderCreateAsyncParams::direction,
         originating_account_id: String,
         type: ModernTreasury::Models::payment_order_type,
-        ?accounting: ModernTreasury::Models::PaymentOrderCreateAsyncParams::Accounting,
+        ?accounting: ModernTreasury::PaymentOrderCreateAsyncParams::Accounting,
         ?accounting_category_id: String?,
         ?accounting_ledger_class_id: String?,
         ?charge_bearer: ModernTreasury::Models::PaymentOrderCreateAsyncParams::charge_bearer?,
@@ -124,16 +124,16 @@ module ModernTreasury
         ?fallback_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::fallback_type,
         ?foreign_exchange_contract: String?,
         ?foreign_exchange_indicator: ModernTreasury::Models::PaymentOrderCreateAsyncParams::foreign_exchange_indicator?,
-        ?ledger_transaction: ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction,
+        ?ledger_transaction: ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction,
         ?ledger_transaction_id: String,
-        ?line_items: ::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem],
+        ?line_items: ::Array[ModernTreasury::PaymentOrderCreateAsyncParams::LineItem],
         ?metadata: ::Hash[Symbol, String],
         ?nsf_protected: bool,
         ?originating_party_name: String?,
         ?priority: ModernTreasury::Models::PaymentOrderCreateAsyncParams::priority,
         ?process_after: Time?,
         ?purpose: String?,
-        ?receiving_account: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount,
+        ?receiving_account: ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount,
         ?receiving_account_id: String,
         ?remittance_information: String?,
         ?send_remittance_advice: bool?,
@@ -145,7 +145,7 @@ module ModernTreasury
         ?ultimate_receiving_party_identifier: String?,
         ?ultimate_receiving_party_name: String?,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::AsyncResponse
+      ) -> ModernTreasury::AsyncResponse
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

@@ -65,8 +65,6 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
-      def to_hash: -> ModernTreasury::Models::internal_account_list_params
-
       type payment_type =
         :ach
         | :au_becs

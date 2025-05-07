@@ -17,11 +17,11 @@ module ModernTreasury
       # values safely.
       #
       # @example
-      #   # `accounts_type` is a `ModernTreasury::Models::AccountsType`
+      #   # `accounts_type` is a `ModernTreasury::AccountsType`
       #   case accounts_type
-      #   when ModernTreasury::Models::AccountsType::EXTERNAL_ACCOUNTS
+      #   when ModernTreasury::AccountsType::EXTERNAL_ACCOUNTS
       #     # ...
-      #   when ModernTreasury::Models::AccountsType::INTERNAL_ACCOUNTS
+      #   when ModernTreasury::AccountsType::INTERNAL_ACCOUNTS
       #     # ...
       #   else
       #     puts(accounts_type)
@@ -42,18 +42,17 @@ module ModernTreasury
         # All of the valid Symbol values for this enum.
         #
         # @return [Array<NilClass, Boolean, Integer, Float, Symbol>]
-        def values = (@values ||= constants.map { const_get(_1) })
+        def values = constants.map { const_get(_1) }
 
-        # @api private
+        # @api public
         #
-        # Guard against thread safety issues by instantiating `@values`.
-        private def finalize! = values
-
         # @param other [Object]
         #
         # @return [Boolean]
         def ===(other) = values.include?(other)
 
+        # @api public
+        #
         # @param other [Object]
         #
         # @return [Boolean]
@@ -62,6 +61,11 @@ module ModernTreasury
           ModernTreasury::Internal::Type::Enum === other && other.values.to_set == values.to_set
           # rubocop:enable Style/CaseEquality
         end
+
+        # @api public
+        #
+        # @return [Integer]
+        def hash = values.to_set.hash
 
         # @api private
         #
@@ -92,17 +96,16 @@ module ModernTreasury
           end
         end
 
-        # @!parse
-        #   # @api private
-        #   #
-        #   # @param value [Symbol, Object]
-        #   #
-        #   # @param state [Hash{Symbol=>Object}] .
-        #   #
-        #   #   @option state [Boolean] :can_retry
-        #   #
-        #   # @return [Symbol, Object]
-        #   def dump(value, state:) = super
+        # @!method dump(value, state:)
+        #   @api private
+        #
+        #   @param value [Symbol, Object]
+        #
+        #   @param state [Hash{Symbol=>Object}] .
+        #
+        #     @option state [Boolean] :can_retry
+        #
+        #   @return [Symbol, Object]
 
         # @api private
         #

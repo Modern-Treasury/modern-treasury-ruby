@@ -19,15 +19,6 @@ require "uri"
 # We already ship the preferred sorbet manifests in the package itself.
 # `tapioca` currently does not offer us a way to opt out of unnecessary compilation.
 if Object.const_defined?(:Tapioca) && caller.chain([$PROGRAM_NAME]).chain(ARGV).grep(/tapioca/)
-  Warning.warn(
-    <<~WARN
-      \n
-      ⚠️ skipped loading of "modern_treasury" gem under `tapioca`.
-
-      This message is normal and expected if you are running a `tapioca` command, and does not impact `.rbi` generation.
-      \n
-    WARN
-  )
   return
 end
 
@@ -40,7 +31,7 @@ require_relative "modern_treasury/internal/util"
 require_relative "modern_treasury/internal/type/converter"
 require_relative "modern_treasury/internal/type/unknown"
 require_relative "modern_treasury/internal/type/boolean"
-require_relative "modern_treasury/internal/type/io_like"
+require_relative "modern_treasury/internal/type/file_input"
 require_relative "modern_treasury/internal/type/enum"
 require_relative "modern_treasury/internal/type/union"
 require_relative "modern_treasury/internal/type/array_of"
@@ -50,6 +41,7 @@ require_relative "modern_treasury/internal/type/base_page"
 require_relative "modern_treasury/internal/type/request_parameters"
 require_relative "modern_treasury/internal"
 require_relative "modern_treasury/request_options"
+require_relative "modern_treasury/file_part"
 require_relative "modern_treasury/errors"
 require_relative "modern_treasury/internal/transport/base_client"
 require_relative "modern_treasury/internal/transport/pooled_net_requester"
@@ -277,6 +269,7 @@ require_relative "modern_treasury/models/virtual_account_list_params"
 require_relative "modern_treasury/models/virtual_account_retrieve_params"
 require_relative "modern_treasury/models/virtual_account_update_params"
 require_relative "modern_treasury/models/wealth_and_employment_details"
+require_relative "modern_treasury/models"
 require_relative "modern_treasury/resources/account_collection_flows"
 require_relative "modern_treasury/resources/account_details"
 require_relative "modern_treasury/resources/bulk_requests"

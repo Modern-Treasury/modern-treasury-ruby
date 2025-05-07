@@ -31,8 +31,6 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
-      def to_hash: -> ModernTreasury::Models::ledger_account_settlement_update_params
-
       type status = :posted | :archived
 
       module Status

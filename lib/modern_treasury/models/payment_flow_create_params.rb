@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::PaymentFlows#create
     class PaymentFlowCreateParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute amount
@@ -32,8 +31,8 @@ module ModernTreasury
       #   Required. Describes the direction money is flowing in the transaction. Can only
       #   be `debit`. A `debit` pulls money from someone else's account to your own.
       #
-      #   @return [Symbol, ModernTreasury::Models::PaymentFlowCreateParams::Direction]
-      required :direction, enum: -> { ModernTreasury::Models::PaymentFlowCreateParams::Direction }
+      #   @return [Symbol, ModernTreasury::PaymentFlowCreateParams::Direction]
+      required :direction, enum: -> { ModernTreasury::PaymentFlowCreateParams::Direction }
 
       # @!attribute originating_account_id
       #   Required. The ID of one of your organization's internal accounts.
@@ -41,7 +40,7 @@ module ModernTreasury
       #   @return [String]
       required :originating_account_id, String
 
-      # @!attribute [r] due_date
+      # @!attribute due_date
       #   Optional. Can only be passed in when `effective_date_selection_enabled` is
       #   `true`. When set, the due date is shown to your end-user in the pre-built UI as
       #   they are selecting a payment `effective_date`.
@@ -49,33 +48,23 @@ module ModernTreasury
       #   @return [Date, nil]
       optional :due_date, Date
 
-      # @!parse
-      #   # @return [Date]
-      #   attr_writer :due_date
-
-      # @!parse
-      #   # @param amount [Integer]
-      #   # @param counterparty_id [String]
-      #   # @param currency [String]
-      #   # @param direction [Symbol, ModernTreasury::Models::PaymentFlowCreateParams::Direction]
-      #   # @param originating_account_id [String]
-      #   # @param due_date [Date]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     amount:,
-      #     counterparty_id:,
-      #     currency:,
-      #     direction:,
-      #     originating_account_id:,
-      #     due_date: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(amount:, counterparty_id:, currency:, direction:, originating_account_id:, due_date: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::PaymentFlowCreateParams} for more details.
+      #
+      #   @param amount [Integer] Required. Value in specified currency's smallest unit. e.g. $10 would be represe
+      #
+      #   @param counterparty_id [String] Required. The ID of a counterparty associated with the payment. As part of the p
+      #
+      #   @param currency [String] Required. The currency of the payment.
+      #
+      #   @param direction [Symbol, ModernTreasury::PaymentFlowCreateParams::Direction] Required. Describes the direction money is flowing in the transaction. Can only
+      #
+      #   @param originating_account_id [String] Required. The ID of one of your organization's internal accounts.
+      #
+      #   @param due_date [Date] Optional. Can only be passed in when `effective_date_selection_enabled` is `true
+      #
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # Required. Describes the direction money is flowing in the transaction. Can only
       # be `debit`. A `debit` pulls money from someone else's account to your own.
@@ -85,11 +74,8 @@ module ModernTreasury
         CREDIT = :credit
         DEBIT = :debit
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

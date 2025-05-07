@@ -4,24 +4,23 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::PaymentFlows#update
     class PaymentFlowUpdateParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute status
       #   Required. The updated status of the payment flow. Can only be used to mark a
       #   flow as `cancelled`.
       #
-      #   @return [Symbol, ModernTreasury::Models::PaymentFlowUpdateParams::Status]
-      required :status, enum: -> { ModernTreasury::Models::PaymentFlowUpdateParams::Status }
+      #   @return [Symbol, ModernTreasury::PaymentFlowUpdateParams::Status]
+      required :status, enum: -> { ModernTreasury::PaymentFlowUpdateParams::Status }
 
-      # @!parse
-      #   # @param status [Symbol, ModernTreasury::Models::PaymentFlowUpdateParams::Status]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(status:, request_options: {}, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(status:, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::PaymentFlowUpdateParams} for more details.
+      #
+      #   @param status [Symbol, ModernTreasury::PaymentFlowUpdateParams::Status] Required. The updated status of the payment flow. Can only be used to mark a flo
+      #
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # Required. The updated status of the payment flow. Can only be used to mark a
       # flow as `cancelled`.
@@ -30,11 +29,8 @@ module ModernTreasury
 
         CANCELLED = :cancelled
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

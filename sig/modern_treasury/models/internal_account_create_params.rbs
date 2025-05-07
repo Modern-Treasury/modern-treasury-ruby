@@ -9,7 +9,7 @@ module ModernTreasury
         counterparty_id: String,
         legal_entity_id: String,
         parent_account_id: String,
-        party_address: ModernTreasury::Models::InternalAccountCreateParams::PartyAddress,
+        party_address: ModernTreasury::InternalAccountCreateParams::PartyAddress,
         vendor_attributes: ::Hash[Symbol, String]
       }
       & ModernTreasury::Internal::Type::request_parameters
@@ -38,11 +38,11 @@ module ModernTreasury
 
       def parent_account_id=: (String) -> String
 
-      attr_reader party_address: ModernTreasury::Models::InternalAccountCreateParams::PartyAddress?
+      attr_reader party_address: ModernTreasury::InternalAccountCreateParams::PartyAddress?
 
       def party_address=: (
-        ModernTreasury::Models::InternalAccountCreateParams::PartyAddress
-      ) -> ModernTreasury::Models::InternalAccountCreateParams::PartyAddress
+        ModernTreasury::InternalAccountCreateParams::PartyAddress
+      ) -> ModernTreasury::InternalAccountCreateParams::PartyAddress
 
       attr_reader vendor_attributes: ::Hash[Symbol, String]?
 
@@ -56,12 +56,10 @@ module ModernTreasury
         ?counterparty_id: String,
         ?legal_entity_id: String,
         ?parent_account_id: String,
-        ?party_address: ModernTreasury::Models::InternalAccountCreateParams::PartyAddress,
+        ?party_address: ModernTreasury::InternalAccountCreateParams::PartyAddress,
         ?vendor_attributes: ::Hash[Symbol, String],
         ?request_options: ModernTreasury::request_opts
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::internal_account_create_params
 
       type currency = :USD | :CAD
 
@@ -107,8 +105,6 @@ module ModernTreasury
           region: String,
           ?line2: String
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::InternalAccountCreateParams::party_address
       end
     end
   end

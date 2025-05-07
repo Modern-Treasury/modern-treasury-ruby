@@ -4,17 +4,17 @@ module ModernTreasury
       {
         id: ::Array[String],
         after_cursor: String?,
-        available_balance_amount: ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount,
-        balances: ModernTreasury::Models::LedgerAccountListParams::Balances,
+        available_balance_amount: ModernTreasury::LedgerAccountListParams::AvailableBalanceAmount,
+        balances: ModernTreasury::LedgerAccountListParams::Balances,
         created_at: ::Hash[Symbol, Time],
         currency: String,
         ledger_account_category_id: String,
         ledger_id: String,
         metadata: ::Hash[Symbol, String],
         name: ::Array[String],
-        pending_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount,
+        pending_balance_amount: ModernTreasury::LedgerAccountListParams::PendingBalanceAmount,
         per_page: Integer,
-        posted_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount,
+        posted_balance_amount: ModernTreasury::LedgerAccountListParams::PostedBalanceAmount,
         updated_at: ::Hash[Symbol, Time]
       }
       & ModernTreasury::Internal::Type::request_parameters
@@ -29,17 +29,17 @@ module ModernTreasury
 
       attr_accessor after_cursor: String?
 
-      attr_reader available_balance_amount: ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount?
+      attr_reader available_balance_amount: ModernTreasury::LedgerAccountListParams::AvailableBalanceAmount?
 
       def available_balance_amount=: (
-        ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount
-      ) -> ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount
+        ModernTreasury::LedgerAccountListParams::AvailableBalanceAmount
+      ) -> ModernTreasury::LedgerAccountListParams::AvailableBalanceAmount
 
-      attr_reader balances: ModernTreasury::Models::LedgerAccountListParams::Balances?
+      attr_reader balances: ModernTreasury::LedgerAccountListParams::Balances?
 
       def balances=: (
-        ModernTreasury::Models::LedgerAccountListParams::Balances
-      ) -> ModernTreasury::Models::LedgerAccountListParams::Balances
+        ModernTreasury::LedgerAccountListParams::Balances
+      ) -> ModernTreasury::LedgerAccountListParams::Balances
 
       attr_reader created_at: ::Hash[Symbol, Time]?
 
@@ -65,21 +65,21 @@ module ModernTreasury
 
       def name=: (::Array[String]) -> ::Array[String]
 
-      attr_reader pending_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount?
+      attr_reader pending_balance_amount: ModernTreasury::LedgerAccountListParams::PendingBalanceAmount?
 
       def pending_balance_amount=: (
-        ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount
-      ) -> ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount
+        ModernTreasury::LedgerAccountListParams::PendingBalanceAmount
+      ) -> ModernTreasury::LedgerAccountListParams::PendingBalanceAmount
 
       attr_reader per_page: Integer?
 
       def per_page=: (Integer) -> Integer
 
-      attr_reader posted_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount?
+      attr_reader posted_balance_amount: ModernTreasury::LedgerAccountListParams::PostedBalanceAmount?
 
       def posted_balance_amount=: (
-        ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount
-      ) -> ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount
+        ModernTreasury::LedgerAccountListParams::PostedBalanceAmount
+      ) -> ModernTreasury::LedgerAccountListParams::PostedBalanceAmount
 
       attr_reader updated_at: ::Hash[Symbol, Time]?
 
@@ -88,22 +88,20 @@ module ModernTreasury
       def initialize: (
         ?id: ::Array[String],
         ?after_cursor: String?,
-        ?available_balance_amount: ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount,
-        ?balances: ModernTreasury::Models::LedgerAccountListParams::Balances,
+        ?available_balance_amount: ModernTreasury::LedgerAccountListParams::AvailableBalanceAmount,
+        ?balances: ModernTreasury::LedgerAccountListParams::Balances,
         ?created_at: ::Hash[Symbol, Time],
         ?currency: String,
         ?ledger_account_category_id: String,
         ?ledger_id: String,
         ?metadata: ::Hash[Symbol, String],
         ?name: ::Array[String],
-        ?pending_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount,
+        ?pending_balance_amount: ModernTreasury::LedgerAccountListParams::PendingBalanceAmount,
         ?per_page: Integer,
-        ?posted_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount,
+        ?posted_balance_amount: ModernTreasury::LedgerAccountListParams::PostedBalanceAmount,
         ?updated_at: ::Hash[Symbol, Time],
         ?request_options: ModernTreasury::request_opts
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::ledger_account_list_params
 
       type available_balance_amount =
         {
@@ -148,8 +146,6 @@ module ModernTreasury
           ?lte: Integer,
           ?not_eq: Integer
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::LedgerAccountListParams::available_balance_amount
       end
 
       type balances =
@@ -183,8 +179,6 @@ module ModernTreasury
           ?effective_at_lower_bound: Time,
           ?effective_at_upper_bound: Time
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::LedgerAccountListParams::balances
       end
 
       type pending_balance_amount =
@@ -230,8 +224,6 @@ module ModernTreasury
           ?lte: Integer,
           ?not_eq: Integer
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::LedgerAccountListParams::pending_balance_amount
       end
 
       type posted_balance_amount =
@@ -277,8 +269,6 @@ module ModernTreasury
           ?lte: Integer,
           ?not_eq: Integer
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::LedgerAccountListParams::posted_balance_amount
       end
     end
   end

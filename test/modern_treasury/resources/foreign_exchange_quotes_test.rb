@@ -11,7 +11,7 @@ class ModernTreasury::Test::Resources::ForeignExchangeQuotesTest < ModernTreasur
       )
 
     assert_pattern do
-      response => ModernTreasury::Models::ForeignExchangeQuote
+      response => ModernTreasury::ForeignExchangeQuote
     end
 
     assert_pattern do
@@ -21,7 +21,7 @@ class ModernTreasury::Test::Resources::ForeignExchangeQuotesTest < ModernTreasur
         effective_at: Time,
         expires_at: Time,
         foreign_exchange_indicator: String,
-        foreign_exchange_rate: ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate,
+        foreign_exchange_rate: ModernTreasury::ForeignExchangeQuote::ForeignExchangeRate,
         internal_account_id: String,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
@@ -36,7 +36,7 @@ class ModernTreasury::Test::Resources::ForeignExchangeQuotesTest < ModernTreasur
     response = @modern_treasury.foreign_exchange_quotes.retrieve("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::ForeignExchangeQuote
+      response => ModernTreasury::ForeignExchangeQuote
     end
 
     assert_pattern do
@@ -46,7 +46,7 @@ class ModernTreasury::Test::Resources::ForeignExchangeQuotesTest < ModernTreasur
         effective_at: Time,
         expires_at: Time,
         foreign_exchange_indicator: String,
-        foreign_exchange_rate: ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate,
+        foreign_exchange_rate: ModernTreasury::ForeignExchangeQuote::ForeignExchangeRate,
         internal_account_id: String,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
@@ -68,7 +68,7 @@ class ModernTreasury::Test::Resources::ForeignExchangeQuotesTest < ModernTreasur
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Models::ForeignExchangeQuote
+      row => ModernTreasury::ForeignExchangeQuote
     end
 
     assert_pattern do
@@ -78,7 +78,7 @@ class ModernTreasury::Test::Resources::ForeignExchangeQuotesTest < ModernTreasur
         effective_at: Time,
         expires_at: Time,
         foreign_exchange_indicator: String,
-        foreign_exchange_rate: ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate,
+        foreign_exchange_rate: ModernTreasury::ForeignExchangeQuote::ForeignExchangeRate,
         internal_account_id: String,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),

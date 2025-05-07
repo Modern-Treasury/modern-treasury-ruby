@@ -21,8 +21,8 @@ module ModernTreasury
       #   One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
       #
-      #   @return [Symbol, ModernTreasury::Models::ReconciliationRule::Direction]
-      required :direction, enum: -> { ModernTreasury::Models::ReconciliationRule::Direction }
+      #   @return [Symbol, ModernTreasury::ReconciliationRule::Direction]
+      required :direction, enum: -> { ModernTreasury::ReconciliationRule::Direction }
 
       # @!attribute internal_account_id
       #   The ID of the Internal Account for the expected payment
@@ -36,15 +36,11 @@ module ModernTreasury
       #   @return [String, nil]
       optional :counterparty_id, String, nil?: true
 
-      # @!attribute [r] currency
+      # @!attribute currency
       #   Must conform to ISO 4217. Defaults to the currency of the internal account
       #
-      #   @return [Symbol, ModernTreasury::Models::Currency, nil]
-      optional :currency, enum: -> { ModernTreasury::Models::Currency }
-
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::Currency]
-      #   attr_writer :currency
+      #   @return [Symbol, ModernTreasury::Currency, nil]
+      optional :currency, enum: -> { ModernTreasury::Currency }
 
       # @!attribute custom_identifiers
       #   A hash of custom identifiers for this payment
@@ -68,60 +64,51 @@ module ModernTreasury
       #   One of ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
       #   sepa, signet wire
       #
-      #   @return [Symbol, ModernTreasury::Models::ReconciliationRule::Type, nil]
-      optional :type, enum: -> { ModernTreasury::Models::ReconciliationRule::Type }, nil?: true
+      #   @return [Symbol, ModernTreasury::ReconciliationRule::Type, nil]
+      optional :type, enum: -> { ModernTreasury::ReconciliationRule::Type }, nil?: true
 
-      # @!parse
-      #   # @param amount_lower_bound [Integer]
-      #   # @param amount_upper_bound [Integer]
-      #   # @param direction [Symbol, ModernTreasury::Models::ReconciliationRule::Direction]
-      #   # @param internal_account_id [String]
-      #   # @param counterparty_id [String, nil]
-      #   # @param currency [Symbol, ModernTreasury::Models::Currency]
-      #   # @param custom_identifiers [Hash{Symbol=>String}, nil]
-      #   # @param date_lower_bound [Date, nil]
-      #   # @param date_upper_bound [Date, nil]
-      #   # @param type [Symbol, ModernTreasury::Models::ReconciliationRule::Type, nil]
-      #   #
-      #   def initialize(
-      #     amount_lower_bound:,
-      #     amount_upper_bound:,
-      #     direction:,
-      #     internal_account_id:,
-      #     counterparty_id: nil,
-      #     currency: nil,
-      #     custom_identifiers: nil,
-      #     date_lower_bound: nil,
-      #     date_upper_bound: nil,
-      #     type: nil,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(amount_lower_bound:, amount_upper_bound:, direction:, internal_account_id:, counterparty_id: nil, currency: nil, custom_identifiers: nil, date_lower_bound: nil, date_upper_bound: nil, type: nil)
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::ReconciliationRule} for more details.
+      #
+      #   @param amount_lower_bound [Integer] The lowest amount this expected payment may be equal to. Value in specified curr
+      #
+      #   @param amount_upper_bound [Integer] The highest amount this expected payment may be equal to. Value in specified cur
+      #
+      #   @param direction [Symbol, ModernTreasury::ReconciliationRule::Direction] One of credit or debit. When you are receiving money, use credit. When you are b
+      #
+      #   @param internal_account_id [String] The ID of the Internal Account for the expected payment
+      #
+      #   @param counterparty_id [String, nil] The ID of the counterparty you expect for this payment
+      #
+      #   @param currency [Symbol, ModernTreasury::Currency] Must conform to ISO 4217. Defaults to the currency of the internal account
+      #
+      #   @param custom_identifiers [Hash{Symbol=>String}, nil] A hash of custom identifiers for this payment
+      #
+      #   @param date_lower_bound [Date, nil] The earliest date the payment may come in. Format is yyyy-mm-dd
+      #
+      #   @param date_upper_bound [Date, nil] The latest date the payment may come in. Format is yyyy-mm-dd
+      #
+      #   @param type [Symbol, ModernTreasury::ReconciliationRule::Type, nil] One of ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen, sep
 
       # One of credit or debit. When you are receiving money, use credit. When you are
       # being charged, use debit.
       #
-      # @see ModernTreasury::Models::ReconciliationRule#direction
+      # @see ModernTreasury::ReconciliationRule#direction
       module Direction
         extend ModernTreasury::Internal::Type::Enum
 
         CREDIT = :credit
         DEBIT = :debit
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # One of ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
       # sepa, signet wire
       #
-      # @see ModernTreasury::Models::ReconciliationRule#type
+      # @see ModernTreasury::ReconciliationRule#type
       module Type
         extend ModernTreasury::Internal::Type::Enum
 
@@ -156,11 +143,8 @@ module ModernTreasury
         WIRE = :wire
         ZENGIN = :zengin
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

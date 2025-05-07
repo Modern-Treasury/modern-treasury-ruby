@@ -1,22 +1,17 @@
 module ModernTreasury
   module Models
     type ledger_event_handler_variable =
-      {
-        query: ModernTreasury::Models::LedgerEventHandlerVariable::Query,
-        type: String
-      }
+      { query: ModernTreasury::LedgerEventHandlerVariable::Query, type: String }
 
     class LedgerEventHandlerVariable < ModernTreasury::Internal::Type::BaseModel
-      attr_accessor query: ModernTreasury::Models::LedgerEventHandlerVariable::Query
+      attr_accessor query: ModernTreasury::LedgerEventHandlerVariable::Query
 
       attr_accessor type: String
 
       def initialize: (
-        query: ModernTreasury::Models::LedgerEventHandlerVariable::Query,
+        query: ModernTreasury::LedgerEventHandlerVariable::Query,
         type: String
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::ledger_event_handler_variable
 
       type query = { field: String, operator: String, value: String }
 
@@ -28,8 +23,6 @@ module ModernTreasury
         attr_accessor value: String
 
         def initialize: (field: String, operator: String, value: String) -> void
-
-        def to_hash: -> ModernTreasury::Models::LedgerEventHandlerVariable::query
       end
     end
   end

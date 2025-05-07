@@ -8,14 +8,14 @@ module ModernTreasury
         routing_number_type: ModernTreasury::Models::RoutingDetailCreateParams::routing_number_type,
         ?payment_type: ModernTreasury::Models::RoutingDetailCreateParams::payment_type?,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::RoutingDetail
+      ) -> ModernTreasury::RoutingDetail
 
       def retrieve: (
         String id,
         accounts_type: ModernTreasury::Models::accounts_type,
         account_id: String,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::RoutingDetail
+      ) -> ModernTreasury::RoutingDetail
 
       def list: (
         String account_id,
@@ -23,7 +23,7 @@ module ModernTreasury
         ?after_cursor: String?,
         ?per_page: Integer,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::RoutingDetail]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::RoutingDetail]
 
       def delete: (
         String id,

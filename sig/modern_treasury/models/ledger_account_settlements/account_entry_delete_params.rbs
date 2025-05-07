@@ -15,8 +15,6 @@ module ModernTreasury
           ledger_entry_ids: ::Array[String]?,
           ?request_options: ModernTreasury::request_opts
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::LedgerAccountSettlements::account_entry_delete_params
       end
     end
   end

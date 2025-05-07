@@ -7,15 +7,15 @@ module ModernTreasury
           as_of_date: Date,
           as_of_time: String,
           balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::balance_report_type,
-          balances: ::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance],
+          balances: ::Array[ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance],
           ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::InternalAccounts::BalanceReport
+        ) -> ModernTreasury::InternalAccounts::BalanceReport
 
         def retrieve: (
           String id,
           internal_account_id: String,
           ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::InternalAccounts::BalanceReport
+        ) -> ModernTreasury::InternalAccounts::BalanceReport
 
         def list: (
           String internal_account_id,
@@ -24,7 +24,7 @@ module ModernTreasury
           ?balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportListParams::balance_report_type,
           ?per_page: Integer,
           ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::InternalAccounts::BalanceReport]
+        ) -> ModernTreasury::Internal::Page[ModernTreasury::InternalAccounts::BalanceReport]
 
         def delete: (
           String id,

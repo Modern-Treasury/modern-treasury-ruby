@@ -88,7 +88,7 @@ module ModernTreasury
 
     def ping: (
       ?request_options: ModernTreasury::request_opts
-    ) -> ModernTreasury::Models::PingResponse
+    ) -> ModernTreasury::PingResponse
 
     private def auth_headers: -> ::Hash[String, String]
 

@@ -3,7 +3,7 @@ module ModernTreasury
     type ledger_account_category =
       {
         id: String,
-        balances: ModernTreasury::Models::LedgerAccountCategory::Balances,
+        balances: ModernTreasury::LedgerAccountCategory::Balances,
         created_at: Time,
         description: String?,
         discarded_at: Time?,
@@ -19,7 +19,7 @@ module ModernTreasury
     class LedgerAccountCategory < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
-      attr_accessor balances: ModernTreasury::Models::LedgerAccountCategory::Balances
+      attr_accessor balances: ModernTreasury::LedgerAccountCategory::Balances
 
       attr_accessor created_at: Time
 
@@ -43,7 +43,7 @@ module ModernTreasury
 
       def initialize: (
         id: String,
-        balances: ModernTreasury::Models::LedgerAccountCategory::Balances,
+        balances: ModernTreasury::LedgerAccountCategory::Balances,
         created_at: Time,
         description: String?,
         discarded_at: Time?,
@@ -56,29 +56,25 @@ module ModernTreasury
         updated_at: Time
       ) -> void
 
-      def to_hash: -> ModernTreasury::Models::ledger_account_category
-
       type balances =
         {
-          available_balance: ModernTreasury::Models::LedgerAccountCategory::Balances::AvailableBalance,
-          pending_balance: ModernTreasury::Models::LedgerAccountCategory::Balances::PendingBalance,
-          posted_balance: ModernTreasury::Models::LedgerAccountCategory::Balances::PostedBalance
+          available_balance: ModernTreasury::LedgerAccountCategory::Balances::AvailableBalance,
+          pending_balance: ModernTreasury::LedgerAccountCategory::Balances::PendingBalance,
+          posted_balance: ModernTreasury::LedgerAccountCategory::Balances::PostedBalance
         }
 
       class Balances < ModernTreasury::Internal::Type::BaseModel
-        attr_accessor available_balance: ModernTreasury::Models::LedgerAccountCategory::Balances::AvailableBalance
+        attr_accessor available_balance: ModernTreasury::LedgerAccountCategory::Balances::AvailableBalance
 
-        attr_accessor pending_balance: ModernTreasury::Models::LedgerAccountCategory::Balances::PendingBalance
+        attr_accessor pending_balance: ModernTreasury::LedgerAccountCategory::Balances::PendingBalance
 
-        attr_accessor posted_balance: ModernTreasury::Models::LedgerAccountCategory::Balances::PostedBalance
+        attr_accessor posted_balance: ModernTreasury::LedgerAccountCategory::Balances::PostedBalance
 
         def initialize: (
-          available_balance: ModernTreasury::Models::LedgerAccountCategory::Balances::AvailableBalance,
-          pending_balance: ModernTreasury::Models::LedgerAccountCategory::Balances::PendingBalance,
-          posted_balance: ModernTreasury::Models::LedgerAccountCategory::Balances::PostedBalance
+          available_balance: ModernTreasury::LedgerAccountCategory::Balances::AvailableBalance,
+          pending_balance: ModernTreasury::LedgerAccountCategory::Balances::PendingBalance,
+          posted_balance: ModernTreasury::LedgerAccountCategory::Balances::PostedBalance
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::LedgerAccountCategory::balances
 
         type available_balance =
           {
@@ -107,8 +103,6 @@ module ModernTreasury
             currency_exponent: Integer,
             debits: Integer
           ) -> void
-
-          def to_hash: -> ModernTreasury::Models::LedgerAccountCategory::Balances::available_balance
         end
 
         type pending_balance =
@@ -138,8 +132,6 @@ module ModernTreasury
             currency_exponent: Integer,
             debits: Integer
           ) -> void
-
-          def to_hash: -> ModernTreasury::Models::LedgerAccountCategory::Balances::pending_balance
         end
 
         type posted_balance =
@@ -169,8 +161,6 @@ module ModernTreasury
             currency_exponent: Integer,
             debits: Integer
           ) -> void
-
-          def to_hash: -> ModernTreasury::Models::LedgerAccountCategory::Balances::posted_balance
         end
       end
     end

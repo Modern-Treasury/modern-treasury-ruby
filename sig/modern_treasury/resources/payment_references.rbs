@@ -4,7 +4,7 @@ module ModernTreasury
       def retrieve: (
         String id,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::PaymentReference
+      ) -> ModernTreasury::PaymentReference
 
       def list: (
         ?after_cursor: String?,
@@ -13,7 +13,7 @@ module ModernTreasury
         ?referenceable_id: String,
         ?referenceable_type: ModernTreasury::Models::PaymentReferenceListParams::referenceable_type,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::PaymentReference]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::PaymentReference]
 
       alias retireve retrieve
 

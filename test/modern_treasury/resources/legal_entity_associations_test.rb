@@ -11,20 +11,20 @@ class ModernTreasury::Test::Resources::LegalEntityAssociationsTest < ModernTreas
       )
 
     assert_pattern do
-      response => ModernTreasury::Models::LegalEntityAssociation
+      response => ModernTreasury::LegalEntityAssociation
     end
 
     assert_pattern do
       response => {
         id: String,
-        child_legal_entity: ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity,
+        child_legal_entity: ModernTreasury::LegalEntityAssociation::ChildLegalEntity,
         created_at: Time,
         discarded_at: Time | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
         ownership_percentage: Integer | nil,
         parent_legal_entity_id: String,
-        relationship_types: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::LegalEntityAssociation::RelationshipType]),
+        relationship_types: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::LegalEntityAssociation::RelationshipType]),
         title: String | nil,
         updated_at: Time
       }

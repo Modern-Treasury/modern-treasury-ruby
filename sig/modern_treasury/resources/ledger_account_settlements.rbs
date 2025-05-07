@@ -13,12 +13,12 @@ module ModernTreasury
         ?skip_settlement_ledger_transaction: bool?,
         ?status: ModernTreasury::Models::LedgerAccountSettlementCreateParams::status?,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::LedgerAccountSettlement
+      ) -> ModernTreasury::LedgerAccountSettlement
 
       def retrieve: (
         String id,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::LedgerAccountSettlement
+      ) -> ModernTreasury::LedgerAccountSettlement
 
       def update: (
         String id,
@@ -26,7 +26,7 @@ module ModernTreasury
         ?metadata: ::Hash[Symbol, String],
         ?status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::LedgerAccountSettlement
+      ) -> ModernTreasury::LedgerAccountSettlement
 
       def list: (
         ?id: ::Array[String],
@@ -40,7 +40,7 @@ module ModernTreasury
         ?settlement_entry_direction: String,
         ?updated_at: ::Hash[Symbol, Time],
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerAccountSettlement]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::LedgerAccountSettlement]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

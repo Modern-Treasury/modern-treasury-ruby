@@ -4,7 +4,7 @@ module ModernTreasury
       def retrieve: (
         String id,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::PaperItem
+      ) -> ModernTreasury::PaperItem
 
       def list: (
         ?after_cursor: String?,
@@ -13,7 +13,7 @@ module ModernTreasury
         ?lockbox_number: String,
         ?per_page: Integer,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::PaperItem]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::PaperItem]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

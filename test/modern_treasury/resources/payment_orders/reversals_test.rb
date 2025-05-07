@@ -7,7 +7,7 @@ class ModernTreasury::Test::Resources::PaymentOrders::ReversalsTest < ModernTrea
     response = @modern_treasury.payment_orders.reversals.create("payment_order_id", reason: :duplicate)
 
     assert_pattern do
-      response => ModernTreasury::Models::PaymentOrders::Reversal
+      response => ModernTreasury::PaymentOrders::Reversal
     end
 
     assert_pattern do
@@ -19,8 +19,8 @@ class ModernTreasury::Test::Resources::PaymentOrders::ReversalsTest < ModernTrea
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         payment_order_id: String | nil,
-        reason: ModernTreasury::Models::PaymentOrders::Reversal::Reason,
-        status: ModernTreasury::Models::PaymentOrders::Reversal::Status,
+        reason: ModernTreasury::PaymentOrders::Reversal::Reason,
+        status: ModernTreasury::PaymentOrders::Reversal::Status,
         transaction_ids: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Internal::Type::Unknown,
                                                                    nil?: true]),
         updated_at: Time
@@ -33,7 +33,7 @@ class ModernTreasury::Test::Resources::PaymentOrders::ReversalsTest < ModernTrea
       @modern_treasury.payment_orders.reversals.retrieve("reversal_id", payment_order_id: "payment_order_id")
 
     assert_pattern do
-      response => ModernTreasury::Models::PaymentOrders::Reversal
+      response => ModernTreasury::PaymentOrders::Reversal
     end
 
     assert_pattern do
@@ -45,8 +45,8 @@ class ModernTreasury::Test::Resources::PaymentOrders::ReversalsTest < ModernTrea
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         payment_order_id: String | nil,
-        reason: ModernTreasury::Models::PaymentOrders::Reversal::Reason,
-        status: ModernTreasury::Models::PaymentOrders::Reversal::Status,
+        reason: ModernTreasury::PaymentOrders::Reversal::Reason,
+        status: ModernTreasury::PaymentOrders::Reversal::Status,
         transaction_ids: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Internal::Type::Unknown,
                                                                    nil?: true]),
         updated_at: Time
@@ -65,7 +65,7 @@ class ModernTreasury::Test::Resources::PaymentOrders::ReversalsTest < ModernTrea
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Models::PaymentOrders::Reversal
+      row => ModernTreasury::PaymentOrders::Reversal
     end
 
     assert_pattern do
@@ -77,8 +77,8 @@ class ModernTreasury::Test::Resources::PaymentOrders::ReversalsTest < ModernTrea
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         payment_order_id: String | nil,
-        reason: ModernTreasury::Models::PaymentOrders::Reversal::Reason,
-        status: ModernTreasury::Models::PaymentOrders::Reversal::Status,
+        reason: ModernTreasury::PaymentOrders::Reversal::Reason,
+        status: ModernTreasury::PaymentOrders::Reversal::Status,
         transaction_ids: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Internal::Type::Unknown,
                                                                    nil?: true]),
         updated_at: Time

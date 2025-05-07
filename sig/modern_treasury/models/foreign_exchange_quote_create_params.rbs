@@ -46,8 +46,6 @@ module ModernTreasury
         ?target_amount: Integer,
         ?request_options: ModernTreasury::request_opts
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::foreign_exchange_quote_create_params
     end
   end
 end

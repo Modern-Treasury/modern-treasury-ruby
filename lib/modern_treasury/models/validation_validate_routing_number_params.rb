@@ -4,8 +4,7 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::Validations#validate_routing_number
     class ValidationValidateRoutingNumberParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute routing_number
@@ -20,18 +19,20 @@ module ModernTreasury
       #   more details. In sandbox mode we currently only support `aba` and `swift` with
       #   routing numbers '123456789' and 'GRINUST0XXX' respectively.
       #
-      #   @return [Symbol, ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType]
+      #   @return [Symbol, ModernTreasury::ValidationValidateRoutingNumberParams::RoutingNumberType]
       required :routing_number_type,
-               enum: -> { ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType }
+               enum: -> { ModernTreasury::ValidationValidateRoutingNumberParams::RoutingNumberType }
 
-      # @!parse
-      #   # @param routing_number [String]
-      #   # @param routing_number_type [Symbol, ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(routing_number:, routing_number_type:, request_options: {}, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(routing_number:, routing_number_type:, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::ValidationValidateRoutingNumberParams} for more
+      #   details.
+      #
+      #   @param routing_number [String] The routing number that is being validated.
+      #
+      #   @param routing_number_type [Symbol, ModernTreasury::ValidationValidateRoutingNumberParams::RoutingNumberType] The type of routing number. See https://docs.moderntreasury.com/platform/referen
+      #
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # The type of routing number. See
       # https://docs.moderntreasury.com/platform/reference/routing-detail-object for
@@ -62,11 +63,8 @@ module ModernTreasury
         SWIFT = :swift
         ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

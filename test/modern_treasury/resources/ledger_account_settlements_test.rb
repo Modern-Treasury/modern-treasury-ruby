@@ -11,7 +11,7 @@ class ModernTreasury::Test::Resources::LedgerAccountSettlementsTest < ModernTrea
       )
 
     assert_pattern do
-      response => ModernTreasury::Models::LedgerAccountSettlement
+      response => ModernTreasury::LedgerAccountSettlement
     end
 
     assert_pattern do
@@ -31,7 +31,7 @@ class ModernTreasury::Test::Resources::LedgerAccountSettlementsTest < ModernTrea
         object: String,
         settled_ledger_account_id: String,
         settlement_entry_direction: String | nil,
-        status: ModernTreasury::Models::LedgerAccountSettlement::Status,
+        status: ModernTreasury::LedgerAccountSettlement::Status,
         updated_at: Time
       }
     end
@@ -41,7 +41,7 @@ class ModernTreasury::Test::Resources::LedgerAccountSettlementsTest < ModernTrea
     response = @modern_treasury.ledger_account_settlements.retrieve("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::LedgerAccountSettlement
+      response => ModernTreasury::LedgerAccountSettlement
     end
 
     assert_pattern do
@@ -61,7 +61,7 @@ class ModernTreasury::Test::Resources::LedgerAccountSettlementsTest < ModernTrea
         object: String,
         settled_ledger_account_id: String,
         settlement_entry_direction: String | nil,
-        status: ModernTreasury::Models::LedgerAccountSettlement::Status,
+        status: ModernTreasury::LedgerAccountSettlement::Status,
         updated_at: Time
       }
     end
@@ -71,7 +71,7 @@ class ModernTreasury::Test::Resources::LedgerAccountSettlementsTest < ModernTrea
     response = @modern_treasury.ledger_account_settlements.update("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::LedgerAccountSettlement
+      response => ModernTreasury::LedgerAccountSettlement
     end
 
     assert_pattern do
@@ -91,7 +91,7 @@ class ModernTreasury::Test::Resources::LedgerAccountSettlementsTest < ModernTrea
         object: String,
         settled_ledger_account_id: String,
         settlement_entry_direction: String | nil,
-        status: ModernTreasury::Models::LedgerAccountSettlement::Status,
+        status: ModernTreasury::LedgerAccountSettlement::Status,
         updated_at: Time
       }
     end
@@ -108,7 +108,7 @@ class ModernTreasury::Test::Resources::LedgerAccountSettlementsTest < ModernTrea
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Models::LedgerAccountSettlement
+      row => ModernTreasury::LedgerAccountSettlement
     end
 
     assert_pattern do
@@ -128,7 +128,7 @@ class ModernTreasury::Test::Resources::LedgerAccountSettlementsTest < ModernTrea
         object: String,
         settled_ledger_account_id: String,
         settlement_entry_direction: String | nil,
-        status: ModernTreasury::Models::LedgerAccountSettlement::Status,
+        status: ModernTreasury::LedgerAccountSettlement::Status,
         updated_at: Time
       }
     end

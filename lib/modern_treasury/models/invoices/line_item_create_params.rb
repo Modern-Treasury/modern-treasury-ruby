@@ -5,8 +5,7 @@ module ModernTreasury
     module Invoices
       # @see ModernTreasury::Resources::Invoices::LineItems#create
       class LineItemCreateParams < ModernTreasury::Internal::Type::BaseModel
-        # @!parse
-        #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 
         # @!attribute name
@@ -22,17 +21,13 @@ module ModernTreasury
         #   @return [Integer]
         required :unit_amount, Integer
 
-        # @!attribute [r] description
+        # @!attribute description
         #   An optional free-form description of the line item.
         #
         #   @return [String, nil]
         optional :description, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :description
-
-        # @!attribute [r] direction
+        # @!attribute direction
         #   Either `debit` or `credit`. `debit` indicates that a client owes the business
         #   money and increases the invoice's `total_amount` due. `credit` has the opposite
         #   intention and effect.
@@ -40,33 +35,21 @@ module ModernTreasury
         #   @return [String, nil]
         optional :direction, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :direction
-
-        # @!attribute [r] metadata
+        # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be
         #   strings.
         #
         #   @return [Hash{Symbol=>String}, nil]
         optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
-        # @!parse
-        #   # @return [Hash{Symbol=>String}]
-        #   attr_writer :metadata
-
-        # @!attribute [r] quantity
+        # @!attribute quantity
         #   The number of units of a product or service that this line item is for. Must be
         #   a whole number. Defaults to 1 if not provided.
         #
         #   @return [Integer, nil]
         optional :quantity, Integer
 
-        # @!parse
-        #   # @return [Integer]
-        #   attr_writer :quantity
-
-        # @!attribute [r] unit_amount_decimal
+        # @!attribute unit_amount_decimal
         #   The cost per unit of the product or service that this line item is for,
         #   specified in the invoice currency's smallest unit. Accepts decimal strings with
         #   up to 12 decimals
@@ -74,35 +57,25 @@ module ModernTreasury
         #   @return [String, nil]
         optional :unit_amount_decimal, String
 
-        # @!parse
-        #   # @return [String]
-        #   attr_writer :unit_amount_decimal
-
-        # @!parse
-        #   # @param name [String]
-        #   # @param unit_amount [Integer]
-        #   # @param description [String]
-        #   # @param direction [String]
-        #   # @param metadata [Hash{Symbol=>String}]
-        #   # @param quantity [Integer]
-        #   # @param unit_amount_decimal [String]
-        #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-        #   #
-        #   def initialize(
-        #     name:,
-        #     unit_amount:,
-        #     description: nil,
-        #     direction: nil,
-        #     metadata: nil,
-        #     quantity: nil,
-        #     unit_amount_decimal: nil,
-        #     request_options: {},
-        #     **
-        #   )
-        #     super
-        #   end
-
-        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+        # @!method initialize(name:, unit_amount:, description: nil, direction: nil, metadata: nil, quantity: nil, unit_amount_decimal: nil, request_options: {})
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::Invoices::LineItemCreateParams} for more details.
+        #
+        #   @param name [String] The name of the line item, typically a product or SKU name.
+        #
+        #   @param unit_amount [Integer] The cost per unit of the product or service that this line item is for,
+        #
+        #   @param description [String] An optional free-form description of the line item.
+        #
+        #   @param direction [String] Either `debit` or `credit`. `debit` indicates that a client owes the business mo
+        #
+        #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+        #
+        #   @param quantity [Integer] The number of units of a product or service that this line item is for.
+        #
+        #   @param unit_amount_decimal [String] The cost per unit of the product or service that this line item is for,
+        #
+        #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       end
     end
   end

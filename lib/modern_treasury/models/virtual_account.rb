@@ -12,9 +12,8 @@ module ModernTreasury
       # @!attribute account_details
       #   An array of account detail objects.
       #
-      #   @return [Array<ModernTreasury::Models::AccountDetail>]
-      required :account_details,
-               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::AccountDetail] }
+      #   @return [Array<ModernTreasury::AccountDetail>]
+      required :account_details, -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail] }
 
       # @!attribute counterparty_id
       #   The ID of a counterparty that the virtual account belongs to. Optional.
@@ -96,56 +95,49 @@ module ModernTreasury
       #   An array of routing detail objects. These will be the routing details of the
       #   internal account.
       #
-      #   @return [Array<ModernTreasury::Models::RoutingDetail>]
-      required :routing_details,
-               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::RoutingDetail] }
+      #   @return [Array<ModernTreasury::RoutingDetail>]
+      required :routing_details, -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail] }
 
       # @!attribute updated_at
       #
       #   @return [Time]
       required :updated_at, Time
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param account_details [Array<ModernTreasury::Models::AccountDetail>]
-      #   # @param counterparty_id [String, nil]
-      #   # @param created_at [Time]
-      #   # @param credit_ledger_account_id [String, nil]
-      #   # @param debit_ledger_account_id [String, nil]
-      #   # @param description [String, nil]
-      #   # @param discarded_at [Time, nil]
-      #   # @param internal_account_id [String]
-      #   # @param ledger_account_id [String, nil]
-      #   # @param live_mode [Boolean]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param name [String]
-      #   # @param object [String]
-      #   # @param routing_details [Array<ModernTreasury::Models::RoutingDetail>]
-      #   # @param updated_at [Time]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     account_details:,
-      #     counterparty_id:,
-      #     created_at:,
-      #     credit_ledger_account_id:,
-      #     debit_ledger_account_id:,
-      #     description:,
-      #     discarded_at:,
-      #     internal_account_id:,
-      #     ledger_account_id:,
-      #     live_mode:,
-      #     metadata:,
-      #     name:,
-      #     object:,
-      #     routing_details:,
-      #     updated_at:,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, account_details:, counterparty_id:, created_at:, credit_ledger_account_id:, debit_ledger_account_id:, description:, discarded_at:, internal_account_id:, ledger_account_id:, live_mode:, metadata:, name:, object:, routing_details:, updated_at:)
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::VirtualAccount} for more details.
+      #
+      #   @param id [String]
+      #
+      #   @param account_details [Array<ModernTreasury::AccountDetail>] An array of account detail objects.
+      #
+      #   @param counterparty_id [String, nil] The ID of a counterparty that the virtual account belongs to. Optional.
+      #
+      #   @param created_at [Time]
+      #
+      #   @param credit_ledger_account_id [String, nil] The ID of a credit normal ledger account. When money enters the virtual account,
+      #
+      #   @param debit_ledger_account_id [String, nil] The ID of a debit normal ledger account. When money enters the virtual account,
+      #
+      #   @param description [String, nil] An optional free-form description for internal use.
+      #
+      #   @param discarded_at [Time, nil]
+      #
+      #   @param internal_account_id [String] The ID of the internal account that the virtual account is in.
+      #
+      #   @param ledger_account_id [String, nil] If the virtual account links to a ledger account in Modern Treasury, the id of t
+      #
+      #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+      #
+      #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      #
+      #   @param name [String] The name of the virtual account.
+      #
+      #   @param object [String]
+      #
+      #   @param routing_details [Array<ModernTreasury::RoutingDetail>] An array of routing detail objects. These will be the routing details of the int
+      #
+      #   @param updated_at [Time]
     end
   end
 end

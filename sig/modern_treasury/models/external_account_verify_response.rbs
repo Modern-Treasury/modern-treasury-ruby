@@ -1,7 +1,7 @@
 module ModernTreasury
   module Models
     type external_account_verify_response =
-      ModernTreasury::Models::ExternalAccount
+      ModernTreasury::ExternalAccount
       | ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt
 
     module ExternalAccountVerifyResponse
@@ -54,8 +54,6 @@ module ModernTreasury
           status: ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::status,
           updated_at: Time
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::ExternalAccountVerifyResponse::external_account_verification_attempt
 
         type payment_type =
           :ach
@@ -151,7 +149,7 @@ module ModernTreasury
         end
       end
 
-      def self?.variants: -> [ModernTreasury::Models::ExternalAccount, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt]
+      def self?.variants: -> ::Array[ModernTreasury::Models::external_account_verify_response]
     end
   end
 end

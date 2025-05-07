@@ -1,0 +1,70 @@
+# typed: strong
+
+module ModernTreasury
+  module Models
+    class ConnectionListParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
+
+      OrHash =
+        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+
+      sig { returns(T.nilable(String)) }
+      attr_accessor :after_cursor
+
+      # A string code representing the vendor (i.e. bank).
+      sig { returns(T.nilable(String)) }
+      attr_reader :entity
+
+      sig { params(entity: String).void }
+      attr_writer :entity
+
+      sig { returns(T.nilable(Integer)) }
+      attr_reader :per_page
+
+      sig { params(per_page: Integer).void }
+      attr_writer :per_page
+
+      # An identifier assigned by the vendor to your organization.
+      sig { returns(T.nilable(String)) }
+      attr_reader :vendor_customer_id
+
+      sig { params(vendor_customer_id: String).void }
+      attr_writer :vendor_customer_id
+
+      sig do
+        params(
+          after_cursor: T.nilable(String),
+          entity: String,
+          per_page: Integer,
+          vendor_customer_id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(T.attached_class)
+      end
+      def self.new(
+        after_cursor: nil,
+        # A string code representing the vendor (i.e. bank).
+        entity: nil,
+        per_page: nil,
+        # An identifier assigned by the vendor to your organization.
+        vendor_customer_id: nil,
+        request_options: {}
+      )
+      end
+
+      sig do
+        override.returns(
+          {
+            after_cursor: T.nilable(String),
+            entity: String,
+            per_page: Integer,
+            vendor_customer_id: String,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash
+      end
+    end
+  end
+end

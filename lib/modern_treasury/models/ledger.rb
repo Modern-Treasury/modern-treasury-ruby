@@ -55,20 +55,27 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param created_at [Time]
-      #   # @param description [String, nil]
-      #   # @param discarded_at [Time, nil]
-      #   # @param live_mode [Boolean]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param name [String]
-      #   # @param object [String]
-      #   # @param updated_at [Time]
-      #   #
-      #   def initialize(id:, created_at:, description:, discarded_at:, live_mode:, metadata:, name:, object:, updated_at:, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, created_at:, description:, discarded_at:, live_mode:, metadata:, name:, object:, updated_at:)
+      #   Some parameter documentations has been truncated, see {ModernTreasury::Ledger}
+      #   for more details.
+      #
+      #   @param id [String]
+      #
+      #   @param created_at [Time]
+      #
+      #   @param description [String, nil] An optional free-form description for internal use.
+      #
+      #   @param discarded_at [Time, nil]
+      #
+      #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+      #
+      #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      #
+      #   @param name [String] The name of the ledger.
+      #
+      #   @param object [String]
+      #
+      #   @param updated_at [Time]
     end
   end
 end

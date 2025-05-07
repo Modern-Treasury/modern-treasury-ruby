@@ -4,14 +4,14 @@ module ModernTreasury
       {
         internal_account_id: String,
         name: String,
-        account_details: ::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail],
+        account_details: ::Array[ModernTreasury::VirtualAccountCreateParams::AccountDetail],
         counterparty_id: String,
         credit_ledger_account_id: String,
         debit_ledger_account_id: String,
         description: String,
-        ledger_account: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount,
+        ledger_account: ModernTreasury::VirtualAccountCreateParams::LedgerAccount,
         metadata: ::Hash[Symbol, String],
-        routing_details: ::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail]
+        routing_details: ::Array[ModernTreasury::VirtualAccountCreateParams::RoutingDetail]
       }
       & ModernTreasury::Internal::Type::request_parameters
 
@@ -23,11 +23,11 @@ module ModernTreasury
 
       attr_accessor name: String
 
-      attr_reader account_details: ::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail]?
+      attr_reader account_details: ::Array[ModernTreasury::VirtualAccountCreateParams::AccountDetail]?
 
       def account_details=: (
-        ::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail]
-      ) -> ::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail]
+        ::Array[ModernTreasury::VirtualAccountCreateParams::AccountDetail]
+      ) -> ::Array[ModernTreasury::VirtualAccountCreateParams::AccountDetail]
 
       attr_reader counterparty_id: String?
 
@@ -45,59 +45,55 @@ module ModernTreasury
 
       def description=: (String) -> String
 
-      attr_reader ledger_account: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount?
+      attr_reader ledger_account: ModernTreasury::VirtualAccountCreateParams::LedgerAccount?
 
       def ledger_account=: (
-        ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount
-      ) -> ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount
+        ModernTreasury::VirtualAccountCreateParams::LedgerAccount
+      ) -> ModernTreasury::VirtualAccountCreateParams::LedgerAccount
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
       def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
-      attr_reader routing_details: ::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail]?
+      attr_reader routing_details: ::Array[ModernTreasury::VirtualAccountCreateParams::RoutingDetail]?
 
       def routing_details=: (
-        ::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail]
-      ) -> ::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail]
+        ::Array[ModernTreasury::VirtualAccountCreateParams::RoutingDetail]
+      ) -> ::Array[ModernTreasury::VirtualAccountCreateParams::RoutingDetail]
 
       def initialize: (
         internal_account_id: String,
         name: String,
-        ?account_details: ::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail],
+        ?account_details: ::Array[ModernTreasury::VirtualAccountCreateParams::AccountDetail],
         ?counterparty_id: String,
         ?credit_ledger_account_id: String,
         ?debit_ledger_account_id: String,
         ?description: String,
-        ?ledger_account: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount,
+        ?ledger_account: ModernTreasury::VirtualAccountCreateParams::LedgerAccount,
         ?metadata: ::Hash[Symbol, String],
-        ?routing_details: ::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail],
+        ?routing_details: ::Array[ModernTreasury::VirtualAccountCreateParams::RoutingDetail],
         ?request_options: ModernTreasury::request_opts
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::virtual_account_create_params
 
       type account_detail =
         {
           account_number: String,
-          account_number_type: ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::account_number_type
+          account_number_type: ModernTreasury::VirtualAccountCreateParams::AccountDetail::account_number_type
         }
 
       class AccountDetail < ModernTreasury::Internal::Type::BaseModel
         attr_accessor account_number: String
 
-        attr_reader account_number_type: ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::account_number_type?
+        attr_reader account_number_type: ModernTreasury::VirtualAccountCreateParams::AccountDetail::account_number_type?
 
         def account_number_type=: (
-          ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::account_number_type
-        ) -> ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::account_number_type
+          ModernTreasury::VirtualAccountCreateParams::AccountDetail::account_number_type
+        ) -> ModernTreasury::VirtualAccountCreateParams::AccountDetail::account_number_type
 
         def initialize: (
           account_number: String,
-          ?account_number_type: ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::account_number_type
+          ?account_number_type: ModernTreasury::VirtualAccountCreateParams::AccountDetail::account_number_type
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::VirtualAccountCreateParams::account_detail
 
         type account_number_type =
           :au_number
@@ -125,7 +121,7 @@ module ModernTreasury
           SG_NUMBER: :sg_number
           WALLET_ADDRESS: :wallet_address
 
-          def self?.values: -> ::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::account_number_type]
+          def self?.values: -> ::Array[ModernTreasury::VirtualAccountCreateParams::AccountDetail::account_number_type]
         end
       end
 
@@ -139,7 +135,7 @@ module ModernTreasury
           description: String?,
           ledger_account_category_ids: ::Array[String],
           ledgerable_id: String,
-          ledgerable_type: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::ledgerable_type,
+          ledgerable_type: ModernTreasury::VirtualAccountCreateParams::LedgerAccount::ledgerable_type,
           metadata: ::Hash[Symbol, String]
         }
 
@@ -164,11 +160,11 @@ module ModernTreasury
 
         def ledgerable_id=: (String) -> String
 
-        attr_reader ledgerable_type: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::ledgerable_type?
+        attr_reader ledgerable_type: ModernTreasury::VirtualAccountCreateParams::LedgerAccount::ledgerable_type?
 
         def ledgerable_type=: (
-          ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::ledgerable_type
-        ) -> ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::ledgerable_type
+          ModernTreasury::VirtualAccountCreateParams::LedgerAccount::ledgerable_type
+        ) -> ModernTreasury::VirtualAccountCreateParams::LedgerAccount::ledgerable_type
 
         attr_reader metadata: ::Hash[Symbol, String]?
 
@@ -183,11 +179,9 @@ module ModernTreasury
           ?description: String?,
           ?ledger_account_category_ids: ::Array[String],
           ?ledgerable_id: String,
-          ?ledgerable_type: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::ledgerable_type,
+          ?ledgerable_type: ModernTreasury::VirtualAccountCreateParams::LedgerAccount::ledgerable_type,
           ?metadata: ::Hash[Symbol, String]
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::VirtualAccountCreateParams::ledger_account
 
         type ledgerable_type =
           :counterparty
@@ -203,31 +197,29 @@ module ModernTreasury
           INTERNAL_ACCOUNT: :internal_account
           VIRTUAL_ACCOUNT: :virtual_account
 
-          def self?.values: -> ::Array[ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::ledgerable_type]
+          def self?.values: -> ::Array[ModernTreasury::VirtualAccountCreateParams::LedgerAccount::ledgerable_type]
         end
       end
 
       type routing_detail =
         {
           routing_number: String,
-          routing_number_type: ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::routing_number_type,
-          payment_type: ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::payment_type?
+          routing_number_type: ModernTreasury::VirtualAccountCreateParams::RoutingDetail::routing_number_type,
+          payment_type: ModernTreasury::VirtualAccountCreateParams::RoutingDetail::payment_type?
         }
 
       class RoutingDetail < ModernTreasury::Internal::Type::BaseModel
         attr_accessor routing_number: String
 
-        attr_accessor routing_number_type: ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::routing_number_type
+        attr_accessor routing_number_type: ModernTreasury::VirtualAccountCreateParams::RoutingDetail::routing_number_type
 
-        attr_accessor payment_type: ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::payment_type?
+        attr_accessor payment_type: ModernTreasury::VirtualAccountCreateParams::RoutingDetail::payment_type?
 
         def initialize: (
           routing_number: String,
-          routing_number_type: ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::routing_number_type,
-          ?payment_type: ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::payment_type?
+          routing_number_type: ModernTreasury::VirtualAccountCreateParams::RoutingDetail::routing_number_type,
+          ?payment_type: ModernTreasury::VirtualAccountCreateParams::RoutingDetail::payment_type?
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::VirtualAccountCreateParams::routing_detail
 
         type routing_number_type =
           :aba
@@ -277,7 +269,7 @@ module ModernTreasury
           SWIFT: :swift
           ZA_NATIONAL_CLEARING_CODE: :za_national_clearing_code
 
-          def self?.values: -> ::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::routing_number_type]
+          def self?.values: -> ::Array[ModernTreasury::VirtualAccountCreateParams::RoutingDetail::routing_number_type]
         end
 
         type payment_type =
@@ -346,7 +338,7 @@ module ModernTreasury
           WIRE: :wire
           ZENGIN: :zengin
 
-          def self?.values: -> ::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::payment_type]
+          def self?.values: -> ::Array[ModernTreasury::VirtualAccountCreateParams::RoutingDetail::payment_type]
         end
       end
     end

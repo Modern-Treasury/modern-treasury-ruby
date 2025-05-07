@@ -153,7 +153,7 @@ module ModernTreasury
 
         # @api private
         # @return [ModernTreasury::Internal::Transport::PooledNetRequester]
-        attr_accessor :requester
+        attr_reader :requester
 
         # @api private
         #
@@ -214,11 +214,11 @@ module ModernTreasury
         #
         #   @option req [Object, nil] :body
         #
-        #   @option req [Symbol, nil] :unwrap
+        #   @option req [Symbol, Integer, Array<Symbol, Integer>, Proc, nil] :unwrap
         #
-        #   @option req [Class, nil] :page
+        #   @option req [Class<ModernTreasury::Internal::Type::BasePage>, nil] :page
         #
-        #   @option req [Class, nil] :stream
+        #   @option req [Class<ModernTreasury::Internal::Type::BaseStream>, nil] :stream
         #
         #   @option req [ModernTreasury::Internal::Type::Converter, Class, nil] :model
         #
@@ -253,7 +253,7 @@ module ModernTreasury
 
           if @idempotency_header &&
              !headers.key?(@idempotency_header) &&
-             (!Net::HTTP::IDEMPOTENT_METHODS_.include?(method.to_s.upcase) || opts.key?(:idempotency_key))
+             (%w[POST PUT].include?(method.to_s.upcase) || opts.key?(:idempotency_key))
             headers[@idempotency_header] = opts.fetch(:idempotency_key) { generate_idempotency_key }
           end
 
@@ -261,7 +261,7 @@ module ModernTreasury
             headers["x-stainless-retry-count"] = "0"
           end
 
-          timeout = opts.fetch(:timeout, @timeout).to_f.clamp((0..))
+          timeout = opts.fetch(:timeout, @timeout).to_f.clamp(0..)
           unless headers.key?("x-stainless-timeout") || timeout.zero?
             headers["x-stainless-timeout"] = timeout.to_s
           end
@@ -422,11 +422,11 @@ module ModernTreasury
         #
         # @param body [Object, nil]
         #
-        # @param unwrap [Symbol, nil]
+        # @param unwrap [Symbol, Integer, Array<Symbol, Integer>, Proc, nil]
         #
-        # @param page [Class, nil]
+        # @param page [Class<ModernTreasury::Internal::Type::BasePage>, nil]
         #
-        # @param stream [Class, nil]
+        # @param stream [Class<ModernTreasury::Internal::Type::BaseStream>, nil]
         #
         # @param model [ModernTreasury::Internal::Type::Converter, Class, nil]
         #
@@ -465,9 +465,9 @@ module ModernTreasury
 
           decoded = ModernTreasury::Internal::Util.decode_content(response, stream: stream)
           case req
-          in { stream: Class => st }
+          in {stream: Class => st}
             st.new(model: model, url: url, status: status, response: response, stream: decoded)
-          in { page: Class => page }
+          in {page: Class => page}
             page.new(client: self, req: req, headers: response, page_data: decoded)
           else
             unwrapped = ModernTreasury::Internal::Util.dig(decoded, req[:unwrap])

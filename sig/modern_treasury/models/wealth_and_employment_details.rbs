@@ -9,17 +9,17 @@ module ModernTreasury
         employer_country: String?,
         employer_name: String?,
         employer_state: String?,
-        employment_status: ModernTreasury::Models::WealthAndEmploymentDetails::employment_status?,
+        employment_status: ModernTreasury::WealthAndEmploymentDetails::employment_status?,
         income_country: String?,
-        income_source: ModernTreasury::Models::WealthAndEmploymentDetails::income_source?,
+        income_source: ModernTreasury::WealthAndEmploymentDetails::income_source?,
         income_state: String?,
-        industry: ModernTreasury::Models::WealthAndEmploymentDetails::industry?,
+        industry: ModernTreasury::WealthAndEmploymentDetails::industry?,
         live_mode: bool,
         object: String,
-        occupation: ModernTreasury::Models::WealthAndEmploymentDetails::occupation?,
-        source_of_funds: ModernTreasury::Models::WealthAndEmploymentDetails::source_of_funds?,
+        occupation: ModernTreasury::WealthAndEmploymentDetails::occupation?,
+        source_of_funds: ModernTreasury::WealthAndEmploymentDetails::source_of_funds?,
         updated_at: Time,
-        wealth_source: ModernTreasury::Models::WealthAndEmploymentDetails::wealth_source?
+        wealth_source: ModernTreasury::WealthAndEmploymentDetails::wealth_source?
       }
 
     class WealthAndEmploymentDetails < ModernTreasury::Internal::Type::BaseModel
@@ -37,27 +37,27 @@ module ModernTreasury
 
       attr_accessor employer_state: String?
 
-      attr_accessor employment_status: ModernTreasury::Models::WealthAndEmploymentDetails::employment_status?
+      attr_accessor employment_status: ModernTreasury::WealthAndEmploymentDetails::employment_status?
 
       attr_accessor income_country: String?
 
-      attr_accessor income_source: ModernTreasury::Models::WealthAndEmploymentDetails::income_source?
+      attr_accessor income_source: ModernTreasury::WealthAndEmploymentDetails::income_source?
 
       attr_accessor income_state: String?
 
-      attr_accessor industry: ModernTreasury::Models::WealthAndEmploymentDetails::industry?
+      attr_accessor industry: ModernTreasury::WealthAndEmploymentDetails::industry?
 
       attr_accessor live_mode: bool
 
       attr_accessor object: String
 
-      attr_accessor occupation: ModernTreasury::Models::WealthAndEmploymentDetails::occupation?
+      attr_accessor occupation: ModernTreasury::WealthAndEmploymentDetails::occupation?
 
-      attr_accessor source_of_funds: ModernTreasury::Models::WealthAndEmploymentDetails::source_of_funds?
+      attr_accessor source_of_funds: ModernTreasury::WealthAndEmploymentDetails::source_of_funds?
 
       attr_accessor updated_at: Time
 
-      attr_accessor wealth_source: ModernTreasury::Models::WealthAndEmploymentDetails::wealth_source?
+      attr_accessor wealth_source: ModernTreasury::WealthAndEmploymentDetails::wealth_source?
 
       def initialize: (
         id: String,
@@ -67,20 +67,18 @@ module ModernTreasury
         employer_country: String?,
         employer_name: String?,
         employer_state: String?,
-        employment_status: ModernTreasury::Models::WealthAndEmploymentDetails::employment_status?,
+        employment_status: ModernTreasury::WealthAndEmploymentDetails::employment_status?,
         income_country: String?,
-        income_source: ModernTreasury::Models::WealthAndEmploymentDetails::income_source?,
+        income_source: ModernTreasury::WealthAndEmploymentDetails::income_source?,
         income_state: String?,
-        industry: ModernTreasury::Models::WealthAndEmploymentDetails::industry?,
+        industry: ModernTreasury::WealthAndEmploymentDetails::industry?,
         live_mode: bool,
         object: String,
-        occupation: ModernTreasury::Models::WealthAndEmploymentDetails::occupation?,
-        source_of_funds: ModernTreasury::Models::WealthAndEmploymentDetails::source_of_funds?,
+        occupation: ModernTreasury::WealthAndEmploymentDetails::occupation?,
+        source_of_funds: ModernTreasury::WealthAndEmploymentDetails::source_of_funds?,
         updated_at: Time,
-        wealth_source: ModernTreasury::Models::WealthAndEmploymentDetails::wealth_source?
+        wealth_source: ModernTreasury::WealthAndEmploymentDetails::wealth_source?
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::wealth_and_employment_details
 
       type employment_status =
         :employed | :retired | :self_employed | :student | :unemployed
@@ -94,7 +92,7 @@ module ModernTreasury
         STUDENT: :student
         UNEMPLOYED: :unemployed
 
-        def self?.values: -> ::Array[ModernTreasury::Models::WealthAndEmploymentDetails::employment_status]
+        def self?.values: -> ::Array[ModernTreasury::WealthAndEmploymentDetails::employment_status]
       end
 
       type income_source =
@@ -119,7 +117,7 @@ module ModernTreasury
         SALARY: :salary
         SELF_EMPLOYED: :self_employed
 
-        def self?.values: -> ::Array[ModernTreasury::Models::WealthAndEmploymentDetails::income_source]
+        def self?.values: -> ::Array[ModernTreasury::WealthAndEmploymentDetails::income_source]
       end
 
       type industry =
@@ -194,7 +192,7 @@ module ModernTreasury
         TRAVEL: :travel
         UTILITIES: :utilities
 
-        def self?.values: -> ::Array[ModernTreasury::Models::WealthAndEmploymentDetails::industry]
+        def self?.values: -> ::Array[ModernTreasury::WealthAndEmploymentDetails::industry]
       end
 
       type occupation =
@@ -227,7 +225,7 @@ module ModernTreasury
         SCIENCE_ENGINEERING: :science_engineering
         TECHNOLOGY: :technology
 
-        def self?.values: -> ::Array[ModernTreasury::Models::WealthAndEmploymentDetails::occupation]
+        def self?.values: -> ::Array[ModernTreasury::WealthAndEmploymentDetails::occupation]
       end
 
       type source_of_funds =
@@ -270,7 +268,7 @@ module ModernTreasury
         SENIOR_EXECUTIVE: :senior_executive
         TRUST_INCOME: :trust_income
 
-        def self?.values: -> ::Array[ModernTreasury::Models::WealthAndEmploymentDetails::source_of_funds]
+        def self?.values: -> ::Array[ModernTreasury::WealthAndEmploymentDetails::source_of_funds]
       end
 
       type wealth_source =
@@ -299,7 +297,7 @@ module ModernTreasury
         SALARY: :salary
         SELF_EMPLOYED: :self_employed
 
-        def self?.values: -> ::Array[ModernTreasury::Models::WealthAndEmploymentDetails::wealth_source]
+        def self?.values: -> ::Array[ModernTreasury::WealthAndEmploymentDetails::wealth_source]
       end
     end
   end

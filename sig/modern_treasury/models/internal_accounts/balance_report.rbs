@@ -6,8 +6,8 @@ module ModernTreasury
           id: String,
           as_of_date: Date,
           as_of_time: Time?,
-          balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::balance_report_type,
-          balances: ::Array[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance],
+          balance_report_type: ModernTreasury::InternalAccounts::BalanceReport::balance_report_type,
+          balances: ::Array[ModernTreasury::InternalAccounts::BalanceReport::Balance],
           created_at: Time,
           internal_account_id: String,
           live_mode: bool,
@@ -22,9 +22,9 @@ module ModernTreasury
 
         attr_accessor as_of_time: Time?
 
-        attr_accessor balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::balance_report_type
+        attr_accessor balance_report_type: ModernTreasury::InternalAccounts::BalanceReport::balance_report_type
 
-        attr_accessor balances: ::Array[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance]
+        attr_accessor balances: ::Array[ModernTreasury::InternalAccounts::BalanceReport::Balance]
 
         attr_accessor created_at: Time
 
@@ -40,16 +40,14 @@ module ModernTreasury
           id: String,
           as_of_date: Date,
           as_of_time: Time?,
-          balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::balance_report_type,
-          balances: ::Array[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance],
+          balance_report_type: ModernTreasury::InternalAccounts::BalanceReport::balance_report_type,
+          balances: ::Array[ModernTreasury::InternalAccounts::BalanceReport::Balance],
           created_at: Time,
           internal_account_id: String,
           live_mode: bool,
           object: String,
           updated_at: Time
         ) -> void
-
-        def to_hash: -> ModernTreasury::Models::InternalAccounts::balance_report
 
         type balance_report_type =
           :intraday | :other | :previous_day | :real_time
@@ -62,7 +60,7 @@ module ModernTreasury
           PREVIOUS_DAY: :previous_day
           REAL_TIME: :real_time
 
-          def self?.values: -> ::Array[ModernTreasury::Models::InternalAccounts::BalanceReport::balance_report_type]
+          def self?.values: -> ::Array[ModernTreasury::InternalAccounts::BalanceReport::balance_report_type]
         end
 
         type balance =
@@ -71,7 +69,7 @@ module ModernTreasury
             amount: Integer,
             as_of_date: Date?,
             as_of_time: Time?,
-            balance_type: ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::balance_type,
+            balance_type: ModernTreasury::InternalAccounts::BalanceReport::Balance::balance_type,
             created_at: Time,
             currency: ModernTreasury::Models::currency,
             live_mode: bool,
@@ -91,7 +89,7 @@ module ModernTreasury
 
           attr_accessor as_of_time: Time?
 
-          attr_accessor balance_type: ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::balance_type
+          attr_accessor balance_type: ModernTreasury::InternalAccounts::BalanceReport::Balance::balance_type
 
           attr_accessor created_at: Time
 
@@ -114,7 +112,7 @@ module ModernTreasury
             amount: Integer,
             as_of_date: Date?,
             as_of_time: Time?,
-            balance_type: ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::balance_type,
+            balance_type: ModernTreasury::InternalAccounts::BalanceReport::Balance::balance_type,
             created_at: Time,
             currency: ModernTreasury::Models::currency,
             live_mode: bool,
@@ -124,8 +122,6 @@ module ModernTreasury
             vendor_code: String,
             vendor_code_type: String?
           ) -> void
-
-          def to_hash: -> ModernTreasury::Models::InternalAccounts::BalanceReport::balance
 
           type balance_type =
             :closing_available
@@ -151,7 +147,7 @@ module ModernTreasury
             OTHER: :other
             PREVIOUSLY_CLOSED_BOOK: :previously_closed_book
 
-            def self?.values: -> ::Array[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::balance_type]
+            def self?.values: -> ::Array[ModernTreasury::InternalAccounts::BalanceReport::Balance::balance_type]
           end
         end
       end

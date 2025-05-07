@@ -40,8 +40,6 @@ module ModernTreasury
           ?request_options: ModernTreasury::request_opts
         ) -> void
 
-        def to_hash: -> ModernTreasury::Models::Transactions::line_item_list_params
-
         type type_ = :originating | :receiving
 
         module Type

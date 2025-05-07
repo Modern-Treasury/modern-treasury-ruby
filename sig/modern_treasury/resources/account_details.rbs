@@ -7,14 +7,14 @@ module ModernTreasury
         account_number: String,
         ?account_number_type: ModernTreasury::Models::AccountDetailCreateParams::account_number_type,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::AccountDetail
+      ) -> ModernTreasury::AccountDetail
 
       def retrieve: (
         String id,
         accounts_type: ModernTreasury::Models::accounts_type,
         account_id: String,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::AccountDetail
+      ) -> ModernTreasury::AccountDetail
 
       def list: (
         String account_id,
@@ -22,7 +22,7 @@ module ModernTreasury
         ?after_cursor: String?,
         ?per_page: Integer,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::AccountDetail]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::AccountDetail]
 
       def delete: (
         String id,

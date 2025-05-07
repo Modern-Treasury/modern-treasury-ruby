@@ -52,8 +52,6 @@ module ModernTreasury
         ?resource: String,
         ?request_options: ModernTreasury::request_opts
       ) -> void
-
-      def to_hash: -> ModernTreasury::Models::event_list_params
     end
   end
 end

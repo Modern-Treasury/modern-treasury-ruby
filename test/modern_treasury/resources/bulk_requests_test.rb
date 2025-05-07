@@ -21,20 +21,20 @@ class ModernTreasury::Test::Resources::BulkRequestsTest < ModernTreasury::Test::
       )
 
     assert_pattern do
-      response => ModernTreasury::Models::BulkRequest
+      response => ModernTreasury::BulkRequest
     end
 
     assert_pattern do
       response => {
         id: String,
-        action_type: ModernTreasury::Models::BulkRequest::ActionType,
+        action_type: ModernTreasury::BulkRequest::ActionType,
         created_at: Time,
         failed_result_count: Integer,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
-        resource_type: ModernTreasury::Models::BulkRequest::ResourceType,
-        status: ModernTreasury::Models::BulkRequest::Status,
+        resource_type: ModernTreasury::BulkRequest::ResourceType,
+        status: ModernTreasury::BulkRequest::Status,
         success_result_count: Integer,
         total_resource_count: Integer,
         updated_at: Time
@@ -46,20 +46,20 @@ class ModernTreasury::Test::Resources::BulkRequestsTest < ModernTreasury::Test::
     response = @modern_treasury.bulk_requests.retrieve("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::BulkRequest
+      response => ModernTreasury::BulkRequest
     end
 
     assert_pattern do
       response => {
         id: String,
-        action_type: ModernTreasury::Models::BulkRequest::ActionType,
+        action_type: ModernTreasury::BulkRequest::ActionType,
         created_at: Time,
         failed_result_count: Integer,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
-        resource_type: ModernTreasury::Models::BulkRequest::ResourceType,
-        status: ModernTreasury::Models::BulkRequest::Status,
+        resource_type: ModernTreasury::BulkRequest::ResourceType,
+        status: ModernTreasury::BulkRequest::Status,
         success_result_count: Integer,
         total_resource_count: Integer,
         updated_at: Time
@@ -78,20 +78,20 @@ class ModernTreasury::Test::Resources::BulkRequestsTest < ModernTreasury::Test::
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Models::BulkRequest
+      row => ModernTreasury::BulkRequest
     end
 
     assert_pattern do
       row => {
         id: String,
-        action_type: ModernTreasury::Models::BulkRequest::ActionType,
+        action_type: ModernTreasury::BulkRequest::ActionType,
         created_at: Time,
         failed_result_count: Integer,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
-        resource_type: ModernTreasury::Models::BulkRequest::ResourceType,
-        status: ModernTreasury::Models::BulkRequest::Status,
+        resource_type: ModernTreasury::BulkRequest::ResourceType,
+        status: ModernTreasury::BulkRequest::Status,
         success_result_count: Integer,
         total_resource_count: Integer,
         updated_at: Time

@@ -12,7 +12,7 @@ class ModernTreasury::Test::Resources::Transactions::LineItemsTest < ModernTreas
       )
 
     assert_pattern do
-      response => ModernTreasury::Models::Transactions::TransactionLineItem
+      response => ModernTreasury::Transactions::TransactionLineItem
     end
 
     assert_pattern do
@@ -28,9 +28,9 @@ class ModernTreasury::Test::Resources::Transactions::LineItemsTest < ModernTreas
         object: String,
         reconcilable: ModernTreasury::Internal::Type::Boolean,
         transactable_id: String | nil,
-        transactable_type: ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType | nil,
+        transactable_type: ModernTreasury::Transactions::TransactionLineItem::TransactableType | nil,
         transaction_id: String,
-        type: ModernTreasury::Models::Transactions::TransactionLineItem::Type,
+        type: ModernTreasury::Transactions::TransactionLineItem::Type,
         updated_at: Time
       }
     end
@@ -40,7 +40,7 @@ class ModernTreasury::Test::Resources::Transactions::LineItemsTest < ModernTreas
     response = @modern_treasury.transactions.line_items.retrieve("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::Transactions::TransactionLineItem
+      response => ModernTreasury::Transactions::TransactionLineItem
     end
 
     assert_pattern do
@@ -56,9 +56,9 @@ class ModernTreasury::Test::Resources::Transactions::LineItemsTest < ModernTreas
         object: String,
         reconcilable: ModernTreasury::Internal::Type::Boolean,
         transactable_id: String | nil,
-        transactable_type: ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType | nil,
+        transactable_type: ModernTreasury::Transactions::TransactionLineItem::TransactableType | nil,
         transaction_id: String,
-        type: ModernTreasury::Models::Transactions::TransactionLineItem::Type,
+        type: ModernTreasury::Transactions::TransactionLineItem::Type,
         updated_at: Time
       }
     end
@@ -75,7 +75,7 @@ class ModernTreasury::Test::Resources::Transactions::LineItemsTest < ModernTreas
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Models::Transactions::TransactionLineItem
+      row => ModernTreasury::Transactions::TransactionLineItem
     end
 
     assert_pattern do
@@ -91,9 +91,9 @@ class ModernTreasury::Test::Resources::Transactions::LineItemsTest < ModernTreas
         object: String,
         reconcilable: ModernTreasury::Internal::Type::Boolean,
         transactable_id: String | nil,
-        transactable_type: ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType | nil,
+        transactable_type: ModernTreasury::Transactions::TransactionLineItem::TransactableType | nil,
         transaction_id: String,
-        type: ModernTreasury::Models::Transactions::TransactionLineItem::Type,
+        type: ModernTreasury::Transactions::TransactionLineItem::Type,
         updated_at: Time
       }
     end

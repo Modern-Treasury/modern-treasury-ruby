@@ -41,8 +41,8 @@ module ModernTreasury
       # @!attribute currency
       #   The currency of the paper item.
       #
-      #   @return [Symbol, ModernTreasury::Models::Currency]
-      required :currency, enum: -> { ModernTreasury::Models::Currency }
+      #   @return [Symbol, ModernTreasury::Currency]
+      required :currency, enum: -> { ModernTreasury::Currency }
 
       # @!attribute deposit_date
       #   The date the paper item was deposited into your organization's bank account.
@@ -90,8 +90,8 @@ module ModernTreasury
       #   The current status of the paper item. One of `pending`, `completed`, or
       #   `returned`.
       #
-      #   @return [Symbol, ModernTreasury::Models::PaperItem::Status]
-      required :status, enum: -> { ModernTreasury::Models::PaperItem::Status }
+      #   @return [Symbol, ModernTreasury::PaperItem::Status]
+      required :status, enum: -> { ModernTreasury::PaperItem::Status }
 
       # @!attribute transaction_id
       #   The ID of the reconciled Transaction or `null`.
@@ -110,56 +110,50 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param account_number [String, nil]
-      #   # @param account_number_safe [String, nil]
-      #   # @param amount [Integer]
-      #   # @param check_number [String, nil]
-      #   # @param created_at [Time]
-      #   # @param currency [Symbol, ModernTreasury::Models::Currency]
-      #   # @param deposit_date [Date]
-      #   # @param live_mode [Boolean]
-      #   # @param lockbox_number [String]
-      #   # @param memo_field [String, nil]
-      #   # @param object [String]
-      #   # @param remitter_name [String, nil]
-      #   # @param routing_number [String, nil]
-      #   # @param status [Symbol, ModernTreasury::Models::PaperItem::Status]
-      #   # @param transaction_id [String, nil]
-      #   # @param transaction_line_item_id [String, nil]
-      #   # @param updated_at [Time]
-      #   #
-      #   def initialize(
-      #     id:,
-      #     account_number:,
-      #     account_number_safe:,
-      #     amount:,
-      #     check_number:,
-      #     created_at:,
-      #     currency:,
-      #     deposit_date:,
-      #     live_mode:,
-      #     lockbox_number:,
-      #     memo_field:,
-      #     object:,
-      #     remitter_name:,
-      #     routing_number:,
-      #     status:,
-      #     transaction_id:,
-      #     transaction_line_item_id:,
-      #     updated_at:,
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, account_number:, account_number_safe:, amount:, check_number:, created_at:, currency:, deposit_date:, live_mode:, lockbox_number:, memo_field:, object:, remitter_name:, routing_number:, status:, transaction_id:, transaction_line_item_id:, updated_at:)
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::PaperItem} for more details.
+      #
+      #   @param id [String]
+      #
+      #   @param account_number [String, nil] The account number on the paper item.
+      #
+      #   @param account_number_safe [String, nil] The last 4 digits of the account_number.
+      #
+      #   @param amount [Integer] The amount of the paper item.
+      #
+      #   @param check_number [String, nil] The check number on the paper item.
+      #
+      #   @param created_at [Time]
+      #
+      #   @param currency [Symbol, ModernTreasury::Currency] The currency of the paper item.
+      #
+      #   @param deposit_date [Date] The date the paper item was deposited into your organization's bank account.
+      #
+      #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+      #
+      #   @param lockbox_number [String] The identifier for the lockbox assigned by the bank.
+      #
+      #   @param memo_field [String, nil] The memo field on the paper item.
+      #
+      #   @param object [String]
+      #
+      #   @param remitter_name [String, nil] The name of the remitter on the paper item.
+      #
+      #   @param routing_number [String, nil] The routing number on the paper item.
+      #
+      #   @param status [Symbol, ModernTreasury::PaperItem::Status] The current status of the paper item. One of `pending`, `completed`, or `returne
+      #
+      #   @param transaction_id [String, nil] The ID of the reconciled Transaction or `null`.
+      #
+      #   @param transaction_line_item_id [String, nil] The ID of the reconciled Transaction Line Item or `null`.
+      #
+      #   @param updated_at [Time]
 
       # The current status of the paper item. One of `pending`, `completed`, or
       # `returned`.
       #
-      # @see ModernTreasury::Models::PaperItem#status
+      # @see ModernTreasury::PaperItem#status
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
@@ -167,11 +161,8 @@ module ModernTreasury
         PENDING = :pending
         RETURNED = :returned
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

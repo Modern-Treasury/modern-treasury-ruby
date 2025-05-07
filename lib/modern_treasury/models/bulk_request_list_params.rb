@@ -4,26 +4,21 @@ module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::BulkRequests#list
     class BulkRequestListParams < ModernTreasury::Internal::Type::BaseModel
-      # @!parse
-      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
-      # @!attribute [r] action_type
+      # @!attribute action_type
       #   One of create, or update.
       #
-      #   @return [Symbol, ModernTreasury::Models::BulkRequestListParams::ActionType, nil]
-      optional :action_type, enum: -> { ModernTreasury::Models::BulkRequestListParams::ActionType }
-
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::BulkRequestListParams::ActionType]
-      #   attr_writer :action_type
+      #   @return [Symbol, ModernTreasury::BulkRequestListParams::ActionType, nil]
+      optional :action_type, enum: -> { ModernTreasury::BulkRequestListParams::ActionType }
 
       # @!attribute after_cursor
       #
       #   @return [String, nil]
       optional :after_cursor, String, nil?: true
 
-      # @!attribute [r] metadata
+      # @!attribute metadata
       #   For example, if you want to query for records with metadata key `Type` and value
       #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   parameters.
@@ -31,62 +26,40 @@ module ModernTreasury
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
-      # @!parse
-      #   # @return [Hash{Symbol=>String}]
-      #   attr_writer :metadata
-
-      # @!attribute [r] per_page
+      # @!attribute per_page
       #
       #   @return [Integer, nil]
       optional :per_page, Integer
 
-      # @!parse
-      #   # @return [Integer]
-      #   attr_writer :per_page
-
-      # @!attribute [r] resource_type
+      # @!attribute resource_type
       #   One of payment_order, expected_payment, or ledger_transaction.
       #
-      #   @return [Symbol, ModernTreasury::Models::BulkRequestListParams::ResourceType, nil]
-      optional :resource_type, enum: -> { ModernTreasury::Models::BulkRequestListParams::ResourceType }
+      #   @return [Symbol, ModernTreasury::BulkRequestListParams::ResourceType, nil]
+      optional :resource_type, enum: -> { ModernTreasury::BulkRequestListParams::ResourceType }
 
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::BulkRequestListParams::ResourceType]
-      #   attr_writer :resource_type
-
-      # @!attribute [r] status
+      # @!attribute status
       #   One of pending, processing, or completed.
       #
-      #   @return [Symbol, ModernTreasury::Models::BulkRequestListParams::Status, nil]
-      optional :status, enum: -> { ModernTreasury::Models::BulkRequestListParams::Status }
+      #   @return [Symbol, ModernTreasury::BulkRequestListParams::Status, nil]
+      optional :status, enum: -> { ModernTreasury::BulkRequestListParams::Status }
 
-      # @!parse
-      #   # @return [Symbol, ModernTreasury::Models::BulkRequestListParams::Status]
-      #   attr_writer :status
-
-      # @!parse
-      #   # @param action_type [Symbol, ModernTreasury::Models::BulkRequestListParams::ActionType]
-      #   # @param after_cursor [String, nil]
-      #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param per_page [Integer]
-      #   # @param resource_type [Symbol, ModernTreasury::Models::BulkRequestListParams::ResourceType]
-      #   # @param status [Symbol, ModernTreasury::Models::BulkRequestListParams::Status]
-      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-      #   #
-      #   def initialize(
-      #     action_type: nil,
-      #     after_cursor: nil,
-      #     metadata: nil,
-      #     per_page: nil,
-      #     resource_type: nil,
-      #     status: nil,
-      #     request_options: {},
-      #     **
-      #   )
-      #     super
-      #   end
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(action_type: nil, after_cursor: nil, metadata: nil, per_page: nil, resource_type: nil, status: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::BulkRequestListParams} for more details.
+      #
+      #   @param action_type [Symbol, ModernTreasury::BulkRequestListParams::ActionType] One of create, or update.
+      #
+      #   @param after_cursor [String, nil]
+      #
+      #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
+      #
+      #   @param per_page [Integer]
+      #
+      #   @param resource_type [Symbol, ModernTreasury::BulkRequestListParams::ResourceType] One of payment_order, expected_payment, or ledger_transaction.
+      #
+      #   @param status [Symbol, ModernTreasury::BulkRequestListParams::Status] One of pending, processing, or completed.
+      #
+      #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # One of create, or update.
       module ActionType
@@ -96,11 +69,8 @@ module ModernTreasury
         UPDATE = :update
         DELETE = :delete
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # One of payment_order, expected_payment, or ledger_transaction.
@@ -114,11 +84,8 @@ module ModernTreasury
         TRANSACTION = :transaction
         ENTITY_LINK = :entity_link
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # One of pending, processing, or completed.
@@ -129,11 +96,8 @@ module ModernTreasury
         PROCESSING = :processing
         COMPLETED = :completed
 
-        finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   def self.values; end
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

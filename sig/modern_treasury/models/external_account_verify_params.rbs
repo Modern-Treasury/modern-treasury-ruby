@@ -45,8 +45,6 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
-      def to_hash: -> ModernTreasury::Models::external_account_verify_params
-
       type payment_type =
         :ach
         | :au_becs

@@ -139,14 +139,14 @@ module ModernTreasury
     #
     # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
     #
-    # @return [ModernTreasury::Models::PingResponse]
+    # @return [ModernTreasury::PingResponse]
     #
     # @see ModernTreasury::Models::ClientPingParams
     def ping(params = {})
       request(
         method: :get,
         path: "api/ping",
-        model: ModernTreasury::Models::PingResponse,
+        model: ModernTreasury::PingResponse,
         options: params[:request_options]
       )
     end
@@ -183,10 +183,10 @@ module ModernTreasury
       api_key: ENV["MODERN_TREASURY_API_KEY"],
       organization_id: ENV["MODERN_TREASURY_ORGANIZATION_ID"],
       base_url: ENV["MODERN_TREASURY_BASE_URL"],
-      max_retries: DEFAULT_MAX_RETRIES,
-      timeout: DEFAULT_TIMEOUT_IN_SECONDS,
-      initial_retry_delay: DEFAULT_INITIAL_RETRY_DELAY,
-      max_retry_delay: DEFAULT_MAX_RETRY_DELAY,
+      max_retries: ModernTreasury::Client::DEFAULT_MAX_RETRIES,
+      timeout: ModernTreasury::Client::DEFAULT_TIMEOUT_IN_SECONDS,
+      initial_retry_delay: ModernTreasury::Client::DEFAULT_INITIAL_RETRY_DELAY,
+      max_retry_delay: ModernTreasury::Client::DEFAULT_MAX_RETRY_DELAY,
       idempotency_header: "Idempotency-Key"
     )
       base_url ||= "https://app.moderntreasury.com"

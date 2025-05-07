@@ -7,7 +7,7 @@ class ModernTreasury::Test::Resources::ExpectedPaymentsTest < ModernTreasury::Te
     response = @modern_treasury.expected_payments.create
 
     assert_pattern do
-      response => ModernTreasury::Models::ExpectedPayment
+      response => ModernTreasury::ExpectedPayment
     end
 
     assert_pattern do
@@ -17,11 +17,11 @@ class ModernTreasury::Test::Resources::ExpectedPaymentsTest < ModernTreasury::Te
         amount_upper_bound: Integer | nil,
         counterparty_id: String | nil,
         created_at: Time,
-        currency: ModernTreasury::Models::Currency | nil,
+        currency: ModernTreasury::Currency | nil,
         date_lower_bound: Date | nil,
         date_upper_bound: Date | nil,
         description: String | nil,
-        direction: ModernTreasury::Models::ExpectedPayment::Direction | nil,
+        direction: ModernTreasury::ExpectedPayment::Direction | nil,
         internal_account_id: String | nil,
         ledger_transaction_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
@@ -29,14 +29,14 @@ class ModernTreasury::Test::Resources::ExpectedPaymentsTest < ModernTreasury::Te
         object: String,
         reconciliation_filters: ModernTreasury::Internal::Type::Unknown | nil,
         reconciliation_groups: ModernTreasury::Internal::Type::Unknown | nil,
-        reconciliation_method: ModernTreasury::Models::ExpectedPayment::ReconciliationMethod | nil,
-        reconciliation_rule_variables: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ReconciliationRule]) | nil,
+        reconciliation_method: ModernTreasury::ExpectedPayment::ReconciliationMethod | nil,
+        reconciliation_rule_variables: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ReconciliationRule]) | nil,
         remittance_information: String | nil,
         statement_descriptor: String | nil,
-        status: ModernTreasury::Models::ExpectedPayment::Status,
+        status: ModernTreasury::ExpectedPayment::Status,
         transaction_id: String | nil,
         transaction_line_item_id: String | nil,
-        type: ModernTreasury::Models::ExpectedPaymentType | nil,
+        type: ModernTreasury::ExpectedPaymentType | nil,
         updated_at: Time
       }
     end
@@ -46,7 +46,7 @@ class ModernTreasury::Test::Resources::ExpectedPaymentsTest < ModernTreasury::Te
     response = @modern_treasury.expected_payments.retrieve("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::ExpectedPayment
+      response => ModernTreasury::ExpectedPayment
     end
 
     assert_pattern do
@@ -56,11 +56,11 @@ class ModernTreasury::Test::Resources::ExpectedPaymentsTest < ModernTreasury::Te
         amount_upper_bound: Integer | nil,
         counterparty_id: String | nil,
         created_at: Time,
-        currency: ModernTreasury::Models::Currency | nil,
+        currency: ModernTreasury::Currency | nil,
         date_lower_bound: Date | nil,
         date_upper_bound: Date | nil,
         description: String | nil,
-        direction: ModernTreasury::Models::ExpectedPayment::Direction | nil,
+        direction: ModernTreasury::ExpectedPayment::Direction | nil,
         internal_account_id: String | nil,
         ledger_transaction_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
@@ -68,14 +68,14 @@ class ModernTreasury::Test::Resources::ExpectedPaymentsTest < ModernTreasury::Te
         object: String,
         reconciliation_filters: ModernTreasury::Internal::Type::Unknown | nil,
         reconciliation_groups: ModernTreasury::Internal::Type::Unknown | nil,
-        reconciliation_method: ModernTreasury::Models::ExpectedPayment::ReconciliationMethod | nil,
-        reconciliation_rule_variables: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ReconciliationRule]) | nil,
+        reconciliation_method: ModernTreasury::ExpectedPayment::ReconciliationMethod | nil,
+        reconciliation_rule_variables: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ReconciliationRule]) | nil,
         remittance_information: String | nil,
         statement_descriptor: String | nil,
-        status: ModernTreasury::Models::ExpectedPayment::Status,
+        status: ModernTreasury::ExpectedPayment::Status,
         transaction_id: String | nil,
         transaction_line_item_id: String | nil,
-        type: ModernTreasury::Models::ExpectedPaymentType | nil,
+        type: ModernTreasury::ExpectedPaymentType | nil,
         updated_at: Time
       }
     end
@@ -85,7 +85,7 @@ class ModernTreasury::Test::Resources::ExpectedPaymentsTest < ModernTreasury::Te
     response = @modern_treasury.expected_payments.update("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::ExpectedPayment
+      response => ModernTreasury::ExpectedPayment
     end
 
     assert_pattern do
@@ -95,11 +95,11 @@ class ModernTreasury::Test::Resources::ExpectedPaymentsTest < ModernTreasury::Te
         amount_upper_bound: Integer | nil,
         counterparty_id: String | nil,
         created_at: Time,
-        currency: ModernTreasury::Models::Currency | nil,
+        currency: ModernTreasury::Currency | nil,
         date_lower_bound: Date | nil,
         date_upper_bound: Date | nil,
         description: String | nil,
-        direction: ModernTreasury::Models::ExpectedPayment::Direction | nil,
+        direction: ModernTreasury::ExpectedPayment::Direction | nil,
         internal_account_id: String | nil,
         ledger_transaction_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
@@ -107,14 +107,14 @@ class ModernTreasury::Test::Resources::ExpectedPaymentsTest < ModernTreasury::Te
         object: String,
         reconciliation_filters: ModernTreasury::Internal::Type::Unknown | nil,
         reconciliation_groups: ModernTreasury::Internal::Type::Unknown | nil,
-        reconciliation_method: ModernTreasury::Models::ExpectedPayment::ReconciliationMethod | nil,
-        reconciliation_rule_variables: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ReconciliationRule]) | nil,
+        reconciliation_method: ModernTreasury::ExpectedPayment::ReconciliationMethod | nil,
+        reconciliation_rule_variables: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ReconciliationRule]) | nil,
         remittance_information: String | nil,
         statement_descriptor: String | nil,
-        status: ModernTreasury::Models::ExpectedPayment::Status,
+        status: ModernTreasury::ExpectedPayment::Status,
         transaction_id: String | nil,
         transaction_line_item_id: String | nil,
-        type: ModernTreasury::Models::ExpectedPaymentType | nil,
+        type: ModernTreasury::ExpectedPaymentType | nil,
         updated_at: Time
       }
     end
@@ -131,7 +131,7 @@ class ModernTreasury::Test::Resources::ExpectedPaymentsTest < ModernTreasury::Te
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Models::ExpectedPayment
+      row => ModernTreasury::ExpectedPayment
     end
 
     assert_pattern do
@@ -141,11 +141,11 @@ class ModernTreasury::Test::Resources::ExpectedPaymentsTest < ModernTreasury::Te
         amount_upper_bound: Integer | nil,
         counterparty_id: String | nil,
         created_at: Time,
-        currency: ModernTreasury::Models::Currency | nil,
+        currency: ModernTreasury::Currency | nil,
         date_lower_bound: Date | nil,
         date_upper_bound: Date | nil,
         description: String | nil,
-        direction: ModernTreasury::Models::ExpectedPayment::Direction | nil,
+        direction: ModernTreasury::ExpectedPayment::Direction | nil,
         internal_account_id: String | nil,
         ledger_transaction_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
@@ -153,14 +153,14 @@ class ModernTreasury::Test::Resources::ExpectedPaymentsTest < ModernTreasury::Te
         object: String,
         reconciliation_filters: ModernTreasury::Internal::Type::Unknown | nil,
         reconciliation_groups: ModernTreasury::Internal::Type::Unknown | nil,
-        reconciliation_method: ModernTreasury::Models::ExpectedPayment::ReconciliationMethod | nil,
-        reconciliation_rule_variables: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ReconciliationRule]) | nil,
+        reconciliation_method: ModernTreasury::ExpectedPayment::ReconciliationMethod | nil,
+        reconciliation_rule_variables: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ReconciliationRule]) | nil,
         remittance_information: String | nil,
         statement_descriptor: String | nil,
-        status: ModernTreasury::Models::ExpectedPayment::Status,
+        status: ModernTreasury::ExpectedPayment::Status,
         transaction_id: String | nil,
         transaction_line_item_id: String | nil,
-        type: ModernTreasury::Models::ExpectedPaymentType | nil,
+        type: ModernTreasury::ExpectedPaymentType | nil,
         updated_at: Time
       }
     end
@@ -170,7 +170,7 @@ class ModernTreasury::Test::Resources::ExpectedPaymentsTest < ModernTreasury::Te
     response = @modern_treasury.expected_payments.delete("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::ExpectedPayment
+      response => ModernTreasury::ExpectedPayment
     end
 
     assert_pattern do
@@ -180,11 +180,11 @@ class ModernTreasury::Test::Resources::ExpectedPaymentsTest < ModernTreasury::Te
         amount_upper_bound: Integer | nil,
         counterparty_id: String | nil,
         created_at: Time,
-        currency: ModernTreasury::Models::Currency | nil,
+        currency: ModernTreasury::Currency | nil,
         date_lower_bound: Date | nil,
         date_upper_bound: Date | nil,
         description: String | nil,
-        direction: ModernTreasury::Models::ExpectedPayment::Direction | nil,
+        direction: ModernTreasury::ExpectedPayment::Direction | nil,
         internal_account_id: String | nil,
         ledger_transaction_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
@@ -192,14 +192,14 @@ class ModernTreasury::Test::Resources::ExpectedPaymentsTest < ModernTreasury::Te
         object: String,
         reconciliation_filters: ModernTreasury::Internal::Type::Unknown | nil,
         reconciliation_groups: ModernTreasury::Internal::Type::Unknown | nil,
-        reconciliation_method: ModernTreasury::Models::ExpectedPayment::ReconciliationMethod | nil,
-        reconciliation_rule_variables: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ReconciliationRule]) | nil,
+        reconciliation_method: ModernTreasury::ExpectedPayment::ReconciliationMethod | nil,
+        reconciliation_rule_variables: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ReconciliationRule]) | nil,
         remittance_information: String | nil,
         statement_descriptor: String | nil,
-        status: ModernTreasury::Models::ExpectedPayment::Status,
+        status: ModernTreasury::ExpectedPayment::Status,
         transaction_id: String | nil,
         transaction_line_item_id: String | nil,
-        type: ModernTreasury::Models::ExpectedPaymentType | nil,
+        type: ModernTreasury::ExpectedPaymentType | nil,
         updated_at: Time
       }
     end

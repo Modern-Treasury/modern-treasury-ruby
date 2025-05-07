@@ -11,17 +11,17 @@ class ModernTreasury::Test::Resources::ValidationsTest < ModernTreasury::Test::R
       )
 
     assert_pattern do
-      response => ModernTreasury::Models::RoutingNumberLookupRequest
+      response => ModernTreasury::RoutingNumberLookupRequest
     end
 
     assert_pattern do
       response => {
-        bank_address: ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress | nil,
+        bank_address: ModernTreasury::RoutingNumberLookupRequest::BankAddress | nil,
         bank_name: String | nil,
         routing_number: String | nil,
-        routing_number_type: ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType | nil,
+        routing_number_type: ModernTreasury::RoutingNumberLookupRequest::RoutingNumberType | nil,
         sanctions: ^(ModernTreasury::Internal::Type::HashOf[ModernTreasury::Internal::Type::Unknown]) | nil,
-        supported_payment_types: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType]) | nil
+        supported_payment_types: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::RoutingNumberLookupRequest::SupportedPaymentType]) | nil
       }
     end
   end

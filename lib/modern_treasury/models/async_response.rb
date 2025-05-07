@@ -13,13 +13,9 @@ module ModernTreasury
       #   @return [String]
       required :object, String
 
-      # @!parse
-      #   # @param id [String]
-      #   # @param object [String]
-      #   #
-      #   def initialize(id:, object:, **) = super
-
-      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
+      # @!method initialize(id:, object:)
+      #   @param id [String]
+      #   @param object [String]
     end
   end
 end
