@@ -4,7 +4,9 @@ module ModernTreasury
   module Models
     class Invoice < ModernTreasury::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(ModernTreasury::Invoice, ModernTreasury::Internal::AnyHash)
+        end
 
       sig { returns(String) }
       attr_accessor :id
@@ -396,7 +398,12 @@ module ModernTreasury
 
       class ContactDetail < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::Invoice::ContactDetail,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         sig { returns(String) }
         attr_accessor :id
@@ -515,7 +522,12 @@ module ModernTreasury
 
       class CounterpartyBillingAddress < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::Invoice::CounterpartyBillingAddress,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(String) }
@@ -585,7 +597,12 @@ module ModernTreasury
 
       class CounterpartyShippingAddress < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::Invoice::CounterpartyShippingAddress,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(String) }
@@ -655,7 +672,12 @@ module ModernTreasury
 
       class InvoicerAddress < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::Invoice::InvoicerAddress,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(String) }

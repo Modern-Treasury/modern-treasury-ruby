@@ -173,6 +173,15 @@ module ModernTreasury
 
       # @!method self.variants
       #   @return [Array(ModernTreasury::ExternalAccount, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt)]
+
+      define_sorbet_constant!(:Variants) do
+        T.type_alias do
+          T.any(
+            ModernTreasury::ExternalAccount,
+            ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt
+          )
+        end
+      end
     end
   end
 end

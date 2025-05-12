@@ -2,6 +2,8 @@ module ModernTreasury
   module Internal
     module Transport
       class BaseClient
+        extend ModernTreasury::Internal::Util::SorbetRuntimeSupport
+
         type request_components =
           {
             method: Symbol,
@@ -20,7 +22,6 @@ module ModernTreasury
             model: ModernTreasury::Internal::Type::Converter::input?,
             options: ModernTreasury::request_opts?
           }
-
         type request_input =
           {
             method: Symbol,

@@ -7,7 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::LedgerTransactionCreateReversalParams,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       # An optional free-form description for the reversal ledger transaction. Maximum
       # of 1000 characters allowed.

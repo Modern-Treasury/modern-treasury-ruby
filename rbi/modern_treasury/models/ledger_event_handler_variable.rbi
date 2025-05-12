@@ -4,7 +4,12 @@ module ModernTreasury
   module Models
     class LedgerEventHandlerVariable < ModernTreasury::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::LedgerEventHandlerVariable,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       sig { returns(ModernTreasury::LedgerEventHandlerVariable::Query) }
       attr_reader :query
@@ -48,7 +53,12 @@ module ModernTreasury
 
       class Query < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::LedgerEventHandlerVariable::Query,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # The LHS of the conditional.
         sig { returns(String) }

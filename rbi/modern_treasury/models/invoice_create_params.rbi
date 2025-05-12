@@ -7,7 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::InvoiceCreateParams,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       # The ID of the counterparty receiving the invoice.
       sig { returns(String) }
@@ -405,7 +410,12 @@ module ModernTreasury
 
       class ContactDetail < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::InvoiceCreateParams::ContactDetail,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         sig { returns(String) }
         attr_accessor :id
@@ -524,7 +534,12 @@ module ModernTreasury
 
       class CounterpartyBillingAddress < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::InvoiceCreateParams::CounterpartyBillingAddress,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(String) }
@@ -594,7 +609,12 @@ module ModernTreasury
 
       class CounterpartyShippingAddress < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::InvoiceCreateParams::CounterpartyShippingAddress,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(String) }
@@ -664,7 +684,12 @@ module ModernTreasury
 
       class InvoiceLineItem < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::InvoiceCreateParams::InvoiceLineItem,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # The name of the line item, typically a product or SKU name.
         sig { returns(String) }
@@ -771,7 +796,12 @@ module ModernTreasury
 
       class InvoicerAddress < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::InvoiceCreateParams::InvoicerAddress,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(String) }

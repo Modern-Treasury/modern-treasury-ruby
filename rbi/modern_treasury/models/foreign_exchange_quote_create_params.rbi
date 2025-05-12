@@ -7,7 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::ForeignExchangeQuoteCreateParams,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       # The ID for the `InternalAccount` this quote is associated with.
       sig { returns(String) }

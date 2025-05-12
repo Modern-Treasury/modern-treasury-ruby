@@ -7,7 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::ExternalAccountUpdateParams,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       # Can be `checking`, `savings` or `other`.
       sig { returns(T.nilable(ModernTreasury::ExternalAccountType::OrSymbol)) }
@@ -124,7 +129,12 @@ module ModernTreasury
 
       class PartyAddress < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::ExternalAccountUpdateParams::PartyAddress,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(T.nilable(String)) }

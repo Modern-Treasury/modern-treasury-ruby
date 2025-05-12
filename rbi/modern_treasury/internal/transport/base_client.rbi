@@ -5,9 +5,11 @@ module ModernTreasury
     module Transport
       # @api private
       class BaseClient
+        extend ModernTreasury::Internal::Util::SorbetRuntimeSupport
+
         abstract!
 
-        RequestComponentsShape =
+        RequestComponents =
           T.type_alias do
             {
               method: Symbol,
@@ -54,7 +56,7 @@ module ModernTreasury
             }
           end
 
-        RequestInputShape =
+        RequestInput =
           T.type_alias do
             {
               method: Symbol,
@@ -76,7 +78,7 @@ module ModernTreasury
           sig do
             params(
               req:
-                ModernTreasury::Internal::Transport::BaseClient::RequestComponentsShape
+                ModernTreasury::Internal::Transport::BaseClient::RequestComponents
             ).void
           end
           def validate!(req)
@@ -96,11 +98,11 @@ module ModernTreasury
           sig do
             params(
               request:
-                ModernTreasury::Internal::Transport::BaseClient::RequestInputShape,
+                ModernTreasury::Internal::Transport::BaseClient::RequestInput,
               status: Integer,
               response_headers: T.any(T::Hash[String, String], Net::HTTPHeader)
             ).returns(
-              ModernTreasury::Internal::Transport::BaseClient::RequestInputShape
+              ModernTreasury::Internal::Transport::BaseClient::RequestInput
             )
           end
           def follow_redirect(request, status:, response_headers:)
@@ -170,11 +172,11 @@ module ModernTreasury
           overridable
             .params(
               req:
-                ModernTreasury::Internal::Transport::BaseClient::RequestComponentsShape,
+                ModernTreasury::Internal::Transport::BaseClient::RequestComponents,
               opts: ModernTreasury::Internal::AnyHash
             )
             .returns(
-              ModernTreasury::Internal::Transport::BaseClient::RequestInputShape
+              ModernTreasury::Internal::Transport::BaseClient::RequestInput
             )
         end
         private def build_request(req, opts)
@@ -194,7 +196,7 @@ module ModernTreasury
         sig do
           params(
             request:
-              ModernTreasury::Internal::Transport::BaseClient::RequestInputShape,
+              ModernTreasury::Internal::Transport::BaseClient::RequestInput,
             redirect_count: Integer,
             retry_count: Integer,
             send_retry_header: T::Boolean

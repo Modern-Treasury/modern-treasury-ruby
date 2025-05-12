@@ -4,7 +4,9 @@ module ModernTreasury
   module Models
     class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(ModernTreasury::LedgerEntry, ModernTreasury::Internal::AnyHash)
+        end
 
       sig { returns(String) }
       attr_accessor :id
@@ -195,7 +197,12 @@ module ModernTreasury
 
       class ResultingLedgerAccountBalances < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # The available_balance is the sum of all posted inbound entries and pending
         # outbound entries. For credit normal, available_amount = posted_credits -
@@ -296,7 +303,10 @@ module ModernTreasury
         class AvailableBalance < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           sig { returns(Integer) }
@@ -358,7 +368,10 @@ module ModernTreasury
         class PendingBalance < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           sig { returns(Integer) }
@@ -417,7 +430,10 @@ module ModernTreasury
         class PostedBalance < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           sig { returns(Integer) }

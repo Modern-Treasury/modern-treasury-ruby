@@ -7,7 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::CounterpartyCreateParams,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       # A human friendly name for this counterparty.
       sig { returns(T.nilable(String)) }
@@ -200,7 +205,12 @@ module ModernTreasury
 
       class Accounting < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::CounterpartyCreateParams::Accounting,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # An optional type to auto-sync the counterparty to your ledger. Either `customer`
         # or `vendor`.
@@ -284,7 +294,12 @@ module ModernTreasury
 
       class Account < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::CounterpartyCreateParams::Account,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         sig do
           returns(
@@ -545,7 +560,10 @@ module ModernTreasury
         class AccountDetail < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::CounterpartyCreateParams::Account::AccountDetail,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           sig { returns(String) }
@@ -668,7 +686,10 @@ module ModernTreasury
         class ContactDetail < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::CounterpartyCreateParams::Account::ContactDetail,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           sig { returns(T.nilable(String)) }
@@ -759,7 +780,10 @@ module ModernTreasury
         class LedgerAccount < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::CounterpartyCreateParams::Account::LedgerAccount,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           # The currency of the ledger account.
@@ -950,7 +974,10 @@ module ModernTreasury
         class PartyAddress < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::CounterpartyCreateParams::Account::PartyAddress,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           # Country code conforms to [ISO 3166-1 alpha-2]
@@ -1054,7 +1081,10 @@ module ModernTreasury
         class RoutingDetail < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::CounterpartyCreateParams::Account::RoutingDetail,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           sig { returns(String) }
@@ -1450,7 +1480,12 @@ module ModernTreasury
 
       class LegalEntity < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::CounterpartyCreateParams::LegalEntity,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # The type of legal entity.
         sig do
@@ -1880,7 +1915,10 @@ module ModernTreasury
         class Address < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::CounterpartyCreateParams::LegalEntity::Address,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           # Country code conforms to [ISO 3166-1 alpha-2]
@@ -2029,7 +2067,10 @@ module ModernTreasury
         class Identification < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::CounterpartyCreateParams::LegalEntity::Identification,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           # The ID number of identification document.
@@ -2215,7 +2256,10 @@ module ModernTreasury
         class LegalEntityAssociation < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           sig do
@@ -2342,7 +2386,10 @@ module ModernTreasury
           class ChildLegalEntity < ModernTreasury::Internal::Type::BaseModel
             OrHash =
               T.type_alias do
-                T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                T.any(
+                  ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity,
+                  ModernTreasury::Internal::AnyHash
+                )
               end
 
             # A list of addresses for the entity.
@@ -2729,7 +2776,10 @@ module ModernTreasury
             class Address < ModernTreasury::Internal::Type::BaseModel
               OrHash =
                 T.type_alias do
-                  T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                  T.any(
+                    ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address,
+                    ModernTreasury::Internal::AnyHash
+                  )
                 end
 
               # Country code conforms to [ISO 3166-1 alpha-2]
@@ -2878,7 +2928,10 @@ module ModernTreasury
             class Identification < ModernTreasury::Internal::Type::BaseModel
               OrHash =
                 T.type_alias do
-                  T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                  T.any(
+                    ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification,
+                    ModernTreasury::Internal::AnyHash
+                  )
                 end
 
               # The ID number of identification document.
@@ -3154,7 +3207,10 @@ module ModernTreasury
             class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
               OrHash =
                 T.type_alias do
-                  T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                  T.any(
+                    ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber,
+                    ModernTreasury::Internal::AnyHash
+                  )
                 end
 
               sig { returns(T.nilable(String)) }
@@ -3273,7 +3329,10 @@ module ModernTreasury
         class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::CounterpartyCreateParams::LegalEntity::PhoneNumber,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           sig { returns(T.nilable(String)) }

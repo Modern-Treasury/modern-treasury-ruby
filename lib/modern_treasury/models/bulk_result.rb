@@ -204,6 +204,18 @@ module ModernTreasury
 
         # @!method self.variants
         #   @return [Array(ModernTreasury::PaymentOrder, ModernTreasury::ExpectedPayment, ModernTreasury::LedgerTransaction, ModernTreasury::Transaction, ModernTreasury::BulkResult::Entity::BulkError)]
+
+        define_sorbet_constant!(:Variants) do
+          T.type_alias do
+            T.any(
+              ModernTreasury::PaymentOrder,
+              ModernTreasury::ExpectedPayment,
+              ModernTreasury::LedgerTransaction,
+              ModernTreasury::Transaction,
+              ModernTreasury::BulkResult::Entity::BulkError
+            )
+          end
+        end
       end
 
       # The type of the result entity object. For a successful bulk result, this is the

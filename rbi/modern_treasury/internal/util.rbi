@@ -4,6 +4,8 @@ module ModernTreasury
   module Internal
     # @api private
     module Util
+      extend ModernTreasury::Internal::Util::SorbetRuntimeSupport
+
       # @api private
       sig { returns(Float) }
       def self.monotonic_secs
@@ -172,7 +174,7 @@ module ModernTreasury
         end
       end
 
-      ParsedUriShape =
+      ParsedUri =
         T.type_alias do
           {
             scheme: T.nilable(String),
@@ -187,7 +189,7 @@ module ModernTreasury
         # @api private
         sig do
           params(url: T.any(URI::Generic, String)).returns(
-            ModernTreasury::Internal::Util::ParsedUriShape
+            ModernTreasury::Internal::Util::ParsedUri
           )
         end
         def parse_uri(url)
@@ -195,9 +197,9 @@ module ModernTreasury
 
         # @api private
         sig do
-          params(
-            parsed: ModernTreasury::Internal::Util::ParsedUriShape
-          ).returns(URI::Generic)
+          params(parsed: ModernTreasury::Internal::Util::ParsedUri).returns(
+            URI::Generic
+          )
         end
         def unparse_uri(parsed)
         end
@@ -205,8 +207,8 @@ module ModernTreasury
         # @api private
         sig do
           params(
-            lhs: ModernTreasury::Internal::Util::ParsedUriShape,
-            rhs: ModernTreasury::Internal::Util::ParsedUriShape
+            lhs: ModernTreasury::Internal::Util::ParsedUri,
+            rhs: ModernTreasury::Internal::Util::ParsedUri
           ).returns(URI::Generic)
         end
         def join_parsed_uri(lhs, rhs)
@@ -421,6 +423,27 @@ module ModernTreasury
           )
         end
         def decode_sse(lines)
+        end
+      end
+
+      # @api private
+      module SorbetRuntimeSupport
+        class MissingSorbetRuntimeError < ::RuntimeError
+        end
+
+        # @api private
+        sig { returns(T::Hash[Symbol, T.anything]) }
+        private def sorbet_runtime_constants
+        end
+
+        # @api private
+        sig { params(name: Symbol).void }
+        def const_missing(name)
+        end
+
+        # @api private
+        sig { params(name: Symbol, blk: T.proc.returns(T.anything)).void }
+        def define_sorbet_constant!(name, &blk)
         end
       end
     end

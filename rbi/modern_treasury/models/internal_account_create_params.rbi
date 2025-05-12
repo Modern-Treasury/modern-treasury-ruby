@@ -7,7 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::InternalAccountCreateParams,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       # The identifier of the financial institution the account belongs to.
       sig { returns(String) }
@@ -170,7 +175,12 @@ module ModernTreasury
 
       class PartyAddress < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::InternalAccountCreateParams::PartyAddress,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(String) }

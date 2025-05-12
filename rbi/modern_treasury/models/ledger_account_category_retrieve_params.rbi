@@ -7,7 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::LedgerAccountCategoryRetrieveParams,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       # For example, if you want the balances as of a particular time (ISO8601), the
       # encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
@@ -59,7 +64,12 @@ module ModernTreasury
 
       class Balances < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::LedgerAccountCategoryRetrieveParams::Balances,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         sig { returns(T.nilable(Date)) }
         attr_reader :as_of_date

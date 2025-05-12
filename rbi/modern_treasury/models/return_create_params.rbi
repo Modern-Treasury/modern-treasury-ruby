@@ -7,7 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::ReturnCreateParams,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       # The ID of the object being returned or `null`.
       sig { returns(T.nilable(String)) }

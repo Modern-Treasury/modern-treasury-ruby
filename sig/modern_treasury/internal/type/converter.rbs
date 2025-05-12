@@ -2,6 +2,8 @@ module ModernTreasury
   module Internal
     module Type
       module Converter
+        extend ModernTreasury::Internal::Util::SorbetRuntimeSupport
+
         type input = ModernTreasury::Internal::Type::Converter | Class
 
         type coerce_state =

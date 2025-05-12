@@ -7,6 +7,8 @@ module ModernTreasury
       #
       # @abstract
       class BaseClient
+        extend ModernTreasury::Internal::Util::SorbetRuntimeSupport
+
         # from whatwg fetch spec
         MAX_REDIRECTS = 20
 
@@ -483,6 +485,51 @@ module ModernTreasury
           base_url = ModernTreasury::Internal::Util.unparse_uri(@base_url)
           "#<#{self.class.name}:0x#{object_id.to_s(16)} base_url=#{base_url} max_retries=#{@max_retries} timeout=#{@timeout}>"
           # rubocop:enable Layout/LineLength
+        end
+
+        define_sorbet_constant!(:RequestComponents) do
+          T.type_alias do
+            {
+              method: Symbol,
+              path: T.any(String, T::Array[String]),
+              query: T.nilable(T::Hash[String, T.nilable(T.any(T::Array[String], String))]),
+              headers: T.nilable(
+                T::Hash[String,
+                        T.nilable(
+                          T.any(
+                            String,
+                            Integer,
+                            T::Array[T.nilable(T.any(String, Integer))]
+                          )
+                        )]
+              ),
+              body: T.nilable(T.anything),
+              unwrap: T.nilable(
+                T.any(
+                  Symbol,
+                  Integer,
+                  T::Array[T.any(Symbol, Integer)],
+                  T.proc.params(arg0: T.anything).returns(T.anything)
+                )
+              ),
+              page: T.nilable(T::Class[ModernTreasury::Internal::Type::BasePage[ModernTreasury::Internal::Type::BaseModel]]),
+              stream: T.nilable(T::Class[T.anything]),
+              model: T.nilable(ModernTreasury::Internal::Type::Converter::Input),
+              options: T.nilable(ModernTreasury::RequestOptions::OrHash)
+            }
+          end
+        end
+        define_sorbet_constant!(:RequestInput) do
+          T.type_alias do
+            {
+              method: Symbol,
+              url: URI::Generic,
+              headers: T::Hash[String, String],
+              body: T.anything,
+              max_retries: Integer,
+              timeout: Float
+            }
+          end
         end
       end
     end

@@ -7,7 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::BulkRequestCreateParams,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       # One of create, or update.
       sig do
@@ -228,7 +233,10 @@ module ModernTreasury
         class PaymentOrderAsyncCreateRequest < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           # Value in specified currency's smallest unit. e.g. $10 would be represented as
@@ -829,7 +837,10 @@ module ModernTreasury
           class Accounting < ModernTreasury::Internal::Type::BaseModel
             OrHash =
               T.type_alias do
-                T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                T.any(
+                  ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Accounting,
+                  ModernTreasury::Internal::AnyHash
+                )
               end
 
             # The ID of one of your accounting categories. Note that these will only be
@@ -983,7 +994,10 @@ module ModernTreasury
           class LedgerTransaction < ModernTreasury::Internal::Type::BaseModel
             OrHash =
               T.type_alias do
-                T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                T.any(
+                  ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction,
+                  ModernTreasury::Internal::AnyHash
+                )
               end
 
             # An array of ledger entry objects.
@@ -1157,7 +1171,10 @@ module ModernTreasury
             class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
               OrHash =
                 T.type_alias do
-                  T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                  T.any(
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerEntry,
+                    ModernTreasury::Internal::AnyHash
+                  )
                 end
 
               # Value in specified currency's smallest unit. e.g. $10 would be represented
@@ -1387,7 +1404,10 @@ module ModernTreasury
           class LineItem < ModernTreasury::Internal::Type::BaseModel
             OrHash =
               T.type_alias do
-                T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                T.any(
+                  ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem,
+                  ModernTreasury::Internal::AnyHash
+                )
               end
 
             # Value in specified currency's smallest unit. e.g. $10 would be represented
@@ -1489,7 +1509,10 @@ module ModernTreasury
           class ReceivingAccount < ModernTreasury::Internal::Type::BaseModel
             OrHash =
               T.type_alias do
-                T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                T.any(
+                  ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount,
+                  ModernTreasury::Internal::AnyHash
+                )
               end
 
             sig do
@@ -1754,7 +1777,10 @@ module ModernTreasury
             class AccountDetail < ModernTreasury::Internal::Type::BaseModel
               OrHash =
                 T.type_alias do
-                  T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                  T.any(
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail,
+                    ModernTreasury::Internal::AnyHash
+                  )
                 end
 
               sig { returns(String) }
@@ -1877,7 +1903,10 @@ module ModernTreasury
             class ContactDetail < ModernTreasury::Internal::Type::BaseModel
               OrHash =
                 T.type_alias do
-                  T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                  T.any(
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail,
+                    ModernTreasury::Internal::AnyHash
+                  )
                 end
 
               sig { returns(T.nilable(String)) }
@@ -1971,7 +2000,10 @@ module ModernTreasury
             class LedgerAccount < ModernTreasury::Internal::Type::BaseModel
               OrHash =
                 T.type_alias do
-                  T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                  T.any(
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount,
+                    ModernTreasury::Internal::AnyHash
+                  )
                 end
 
               # The currency of the ledger account.
@@ -2164,7 +2196,10 @@ module ModernTreasury
             class PartyAddress < ModernTreasury::Internal::Type::BaseModel
               OrHash =
                 T.type_alias do
-                  T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                  T.any(
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyAddress,
+                    ModernTreasury::Internal::AnyHash
+                  )
                 end
 
               # Country code conforms to [ISO 3166-1 alpha-2]
@@ -2268,7 +2303,10 @@ module ModernTreasury
             class RoutingDetail < ModernTreasury::Internal::Type::BaseModel
               OrHash =
                 T.type_alias do
-                  T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                  T.any(
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail,
+                    ModernTreasury::Internal::AnyHash
+                  )
                 end
 
               sig { returns(String) }
@@ -2637,7 +2675,10 @@ module ModernTreasury
         class ExpectedPaymentCreateRequest < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           # The lowest amount this expected payment may be equal to. Value in specified
@@ -2942,7 +2983,10 @@ module ModernTreasury
           class LedgerTransaction < ModernTreasury::Internal::Type::BaseModel
             OrHash =
               T.type_alias do
-                T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                T.any(
+                  ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction,
+                  ModernTreasury::Internal::AnyHash
+                )
               end
 
             # An array of ledger entry objects.
@@ -3116,7 +3160,10 @@ module ModernTreasury
             class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
               OrHash =
                 T.type_alias do
-                  T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                  T.any(
+                    ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerEntry,
+                    ModernTreasury::Internal::AnyHash
+                  )
                 end
 
               # Value in specified currency's smallest unit. e.g. $10 would be represented
@@ -3346,7 +3393,10 @@ module ModernTreasury
           class LineItem < ModernTreasury::Internal::Type::BaseModel
             OrHash =
               T.type_alias do
-                T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                T.any(
+                  ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem,
+                  ModernTreasury::Internal::AnyHash
+                )
               end
 
             # Value in specified currency's smallest unit. e.g. $10 would be represented
@@ -3412,7 +3462,10 @@ module ModernTreasury
         class LedgerTransactionCreateRequest < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           # An array of ledger entry objects.
@@ -3582,7 +3635,10 @@ module ModernTreasury
           class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
             OrHash =
               T.type_alias do
-                T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                T.any(
+                  ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerEntry,
+                  ModernTreasury::Internal::AnyHash
+                )
               end
 
             # Value in specified currency's smallest unit. e.g. $10 would be represented
@@ -3810,7 +3866,10 @@ module ModernTreasury
         class TransactionCreateRequest < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           # Value in specified currency's smallest unit. e.g. $10 would be represented
@@ -4129,7 +4188,10 @@ module ModernTreasury
         class ID < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::BulkRequestCreateParams::Resource::ID,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           sig { returns(T.nilable(String)) }
@@ -4150,7 +4212,10 @@ module ModernTreasury
         class PaymentOrderUpdateRequestWithID < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           sig { returns(T.nilable(String)) }
@@ -4733,7 +4798,10 @@ module ModernTreasury
           class Accounting < ModernTreasury::Internal::Type::BaseModel
             OrHash =
               T.type_alias do
-                T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                T.any(
+                  ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Accounting,
+                  ModernTreasury::Internal::AnyHash
+                )
               end
 
             # The ID of one of your accounting categories. Note that these will only be
@@ -4925,7 +4993,10 @@ module ModernTreasury
           class LineItem < ModernTreasury::Internal::Type::BaseModel
             OrHash =
               T.type_alias do
-                T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                T.any(
+                  ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem,
+                  ModernTreasury::Internal::AnyHash
+                )
               end
 
             # Value in specified currency's smallest unit. e.g. $10 would be represented
@@ -5027,7 +5098,10 @@ module ModernTreasury
           class ReceivingAccount < ModernTreasury::Internal::Type::BaseModel
             OrHash =
               T.type_alias do
-                T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                T.any(
+                  ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount,
+                  ModernTreasury::Internal::AnyHash
+                )
               end
 
             sig do
@@ -5292,7 +5366,10 @@ module ModernTreasury
             class AccountDetail < ModernTreasury::Internal::Type::BaseModel
               OrHash =
                 T.type_alias do
-                  T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                  T.any(
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail,
+                    ModernTreasury::Internal::AnyHash
+                  )
                 end
 
               sig { returns(String) }
@@ -5415,7 +5492,10 @@ module ModernTreasury
             class ContactDetail < ModernTreasury::Internal::Type::BaseModel
               OrHash =
                 T.type_alias do
-                  T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                  T.any(
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail,
+                    ModernTreasury::Internal::AnyHash
+                  )
                 end
 
               sig { returns(T.nilable(String)) }
@@ -5509,7 +5589,10 @@ module ModernTreasury
             class LedgerAccount < ModernTreasury::Internal::Type::BaseModel
               OrHash =
                 T.type_alias do
-                  T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                  T.any(
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount,
+                    ModernTreasury::Internal::AnyHash
+                  )
                 end
 
               # The currency of the ledger account.
@@ -5702,7 +5785,10 @@ module ModernTreasury
             class PartyAddress < ModernTreasury::Internal::Type::BaseModel
               OrHash =
                 T.type_alias do
-                  T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                  T.any(
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyAddress,
+                    ModernTreasury::Internal::AnyHash
+                  )
                 end
 
               # Country code conforms to [ISO 3166-1 alpha-2]
@@ -5806,7 +5892,10 @@ module ModernTreasury
             class RoutingDetail < ModernTreasury::Internal::Type::BaseModel
               OrHash =
                 T.type_alias do
-                  T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                  T.any(
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail,
+                    ModernTreasury::Internal::AnyHash
+                  )
                 end
 
               sig { returns(String) }
@@ -6257,7 +6346,10 @@ module ModernTreasury
         class ExpectedPaymentUpdateRequestWithID < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           sig { returns(T.nilable(String)) }
@@ -6548,7 +6640,10 @@ module ModernTreasury
         class TransactionUpdateRequestWithID < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           sig { returns(T.nilable(String)) }
@@ -6588,7 +6683,10 @@ module ModernTreasury
         class LedgerTransactionUpdateRequestWithID < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           sig { returns(T.nilable(String)) }
@@ -6753,7 +6851,10 @@ module ModernTreasury
           class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
             OrHash =
               T.type_alias do
-                T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                T.any(
+                  ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry,
+                  ModernTreasury::Internal::AnyHash
+                )
               end
 
             # Value in specified currency's smallest unit. e.g. $10 would be represented

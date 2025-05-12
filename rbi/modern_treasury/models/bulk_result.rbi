@@ -4,7 +4,9 @@ module ModernTreasury
   module Models
     class BulkResult < ModernTreasury::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(ModernTreasury::BulkResult, ModernTreasury::Internal::AnyHash)
+        end
 
       sig { returns(String) }
       attr_accessor :id
@@ -173,7 +175,10 @@ module ModernTreasury
         class BulkError < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::BulkResult::Entity::BulkError,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           sig { returns(String) }
@@ -248,7 +253,10 @@ module ModernTreasury
           class RequestError < ModernTreasury::Internal::Type::BaseModel
             OrHash =
               T.type_alias do
-                T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                T.any(
+                  ModernTreasury::BulkResult::Entity::BulkError::RequestError,
+                  ModernTreasury::Internal::AnyHash
+                )
               end
 
             sig { returns(T.nilable(String)) }
