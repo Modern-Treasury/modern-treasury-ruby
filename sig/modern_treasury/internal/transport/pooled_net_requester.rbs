@@ -2,6 +2,8 @@ module ModernTreasury
   module Internal
     module Transport
       class PooledNetRequester
+        extend ModernTreasury::Internal::Util::SorbetRuntimeSupport
+
         type request =
           {
             method: Symbol,

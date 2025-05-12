@@ -8,7 +8,12 @@ module ModernTreasury
         include ModernTreasury::Internal::Type::RequestParameters
 
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::InternalAccounts::BalanceReportCreateParams,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # The date of the balance report in local time.
         sig { returns(Date) }
@@ -131,7 +136,10 @@ module ModernTreasury
         class Balance < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           # The balance amount.

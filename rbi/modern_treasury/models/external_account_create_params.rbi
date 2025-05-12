@@ -7,7 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::ExternalAccountCreateParams,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       sig { returns(T.nilable(String)) }
       attr_accessor :counterparty_id
@@ -262,7 +267,12 @@ module ModernTreasury
 
       class AccountDetail < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::ExternalAccountCreateParams::AccountDetail,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         sig { returns(String) }
         attr_accessor :account_number
@@ -383,7 +393,12 @@ module ModernTreasury
 
       class ContactDetail < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::ExternalAccountCreateParams::ContactDetail,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         sig { returns(T.nilable(String)) }
         attr_reader :contact_identifier
@@ -472,7 +487,12 @@ module ModernTreasury
 
       class LedgerAccount < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::ExternalAccountCreateParams::LedgerAccount,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # The currency of the ledger account.
         sig { returns(String) }
@@ -661,7 +681,12 @@ module ModernTreasury
 
       class PartyAddress < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::ExternalAccountCreateParams::PartyAddress,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(T.nilable(String)) }
@@ -763,7 +788,12 @@ module ModernTreasury
 
       class RoutingDetail < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::ExternalAccountCreateParams::RoutingDetail,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         sig { returns(String) }
         attr_accessor :routing_number

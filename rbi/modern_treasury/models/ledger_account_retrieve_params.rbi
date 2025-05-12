@@ -7,7 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::LedgerAccountRetrieveParams,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       # Use `balances[effective_at_lower_bound]` and
       # `balances[effective_at_upper_bound]` to get the balances change between the two
@@ -62,7 +67,12 @@ module ModernTreasury
 
       class Balances < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::LedgerAccountRetrieveParams::Balances,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         sig { returns(T.nilable(Date)) }
         attr_reader :as_of_date

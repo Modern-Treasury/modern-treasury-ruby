@@ -7,7 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::LegalEntityUpdateParams,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       # A list of addresses for the entity.
       sig do
@@ -340,7 +345,12 @@ module ModernTreasury
 
       class Address < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::LegalEntityUpdateParams::Address,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(T.nilable(String)) }
@@ -487,7 +497,12 @@ module ModernTreasury
 
       class Identification < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::LegalEntityUpdateParams::Identification,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # The ID number of identification document.
         sig { returns(String) }
@@ -726,7 +741,12 @@ module ModernTreasury
 
       class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::LegalEntityUpdateParams::PhoneNumber,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         sig { returns(T.nilable(String)) }
         attr_reader :phone_number

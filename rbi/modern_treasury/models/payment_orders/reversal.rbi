@@ -5,7 +5,12 @@ module ModernTreasury
     module PaymentOrders
       class Reversal < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::PaymentOrders::Reversal,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         sig { returns(String) }
         attr_accessor :id

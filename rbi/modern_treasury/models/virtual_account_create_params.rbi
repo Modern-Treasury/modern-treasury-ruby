@@ -7,7 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::VirtualAccountCreateParams,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       # The ID of the internal account that this virtual account is associated with.
       sig { returns(String) }
@@ -198,7 +203,12 @@ module ModernTreasury
 
       class AccountDetail < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::VirtualAccountCreateParams::AccountDetail,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # The account number for the bank account.
         sig { returns(String) }
@@ -330,7 +340,12 @@ module ModernTreasury
 
       class LedgerAccount < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::VirtualAccountCreateParams::LedgerAccount,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # The currency of the ledger account.
         sig { returns(String) }
@@ -517,7 +532,12 @@ module ModernTreasury
 
       class RoutingDetail < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::VirtualAccountCreateParams::RoutingDetail,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # The routing number of the bank.
         sig { returns(String) }

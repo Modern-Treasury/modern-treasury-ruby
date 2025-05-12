@@ -1,5 +1,7 @@
 module ModernTreasury
   module Internal
+    extend ModernTreasury::Internal::Util::SorbetRuntimeSupport
+
     OMIT: Object
   end
 end

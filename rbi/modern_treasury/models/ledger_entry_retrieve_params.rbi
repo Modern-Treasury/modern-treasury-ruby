@@ -7,7 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::LedgerEntryRetrieveParams,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       # If true, response will include the balances attached to the ledger entry. If
       # there is no balance available, null will be returned instead.

@@ -3,9 +3,12 @@ module ModernTreasury
     module Type
       class BaseModel
         extend ModernTreasury::Internal::Type::Converter
+        extend ModernTreasury::Internal::Util::SorbetRuntimeSupport
 
         type known_field =
           { mode: (:coerce | :dump)?, required: bool, nilable: bool }
+
+        def self.inherited: (self child) -> void
 
         def self.known_fields: -> ::Hash[Symbol, (ModernTreasury::Internal::Type::BaseModel::known_field
         & { type_fn: (^-> ModernTreasury::Internal::Type::Converter::input) })]
@@ -60,10 +63,10 @@ module ModernTreasury
           | ::Hash[top, top]
           | top value,
           state: ModernTreasury::Internal::Type::Converter::coerce_state
-        ) -> (instance | top)
+        ) -> (self | top)
 
         def self.dump: (
-          instance | top value,
+          self | top value,
           state: ModernTreasury::Internal::Type::Converter::dump_state
         ) -> (::Hash[top, top] | top)
 

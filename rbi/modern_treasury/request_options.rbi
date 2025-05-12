@@ -8,7 +8,9 @@ module ModernTreasury
   # simply pass a Hash with symbol keys matching the attributes on this class.
   class RequestOptions < ModernTreasury::Internal::Type::BaseModel
     OrHash =
-      T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+      T.type_alias do
+        T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
+      end
 
     # @api private
     sig { params(opts: ModernTreasury::RequestOptions::OrHash).void }

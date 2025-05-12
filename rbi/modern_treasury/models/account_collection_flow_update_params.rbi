@@ -7,7 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::AccountCollectionFlowUpdateParams,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       # Required. The updated status of the account collection flow. Can only be used to
       # mark a flow as `cancelled`.

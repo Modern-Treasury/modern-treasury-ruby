@@ -7,7 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::ExternalAccountVerifyParams,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       # The ID of the internal account where the micro-deposits originate from. Both
       # credit and debit capabilities must be enabled.

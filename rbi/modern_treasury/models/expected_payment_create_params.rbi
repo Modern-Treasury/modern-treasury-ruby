@@ -7,7 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::ExpectedPaymentCreateParams,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       # The lowest amount this expected payment may be equal to. Value in specified
       # currency's smallest unit. e.g. $10 would be represented as 1000.
@@ -305,7 +310,12 @@ module ModernTreasury
 
       class LedgerTransaction < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # An array of ledger entry objects.
         sig do
@@ -478,7 +488,10 @@ module ModernTreasury
         class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           # Value in specified currency's smallest unit. e.g. $10 would be represented
@@ -705,7 +718,12 @@ module ModernTreasury
 
       class LineItem < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::ExpectedPaymentCreateParams::LineItem,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # Value in specified currency's smallest unit. e.g. $10 would be represented
         # as 1000.

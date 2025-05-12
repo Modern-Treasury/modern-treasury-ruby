@@ -7,7 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::LedgerAccountSettlementCreateParams,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       # The id of the contra ledger account that sends to or receives funds from the
       # settled ledger account.

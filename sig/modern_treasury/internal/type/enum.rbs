@@ -3,6 +3,7 @@ module ModernTreasury
     module Type
       module Enum
         include ModernTreasury::Internal::Type::Converter
+        include ModernTreasury::Internal::Util::SorbetRuntimeSupport
 
         def self.values: -> ::Array[(nil | bool | Integer | Float | Symbol)]
 

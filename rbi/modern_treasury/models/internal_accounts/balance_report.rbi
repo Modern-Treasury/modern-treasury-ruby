@@ -5,7 +5,12 @@ module ModernTreasury
     module InternalAccounts
       class BalanceReport < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::InternalAccounts::BalanceReport,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         sig { returns(String) }
         attr_accessor :id
@@ -165,7 +170,10 @@ module ModernTreasury
         class Balance < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::InternalAccounts::BalanceReport::Balance,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           sig { returns(String) }

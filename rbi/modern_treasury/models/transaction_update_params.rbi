@@ -7,7 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::TransactionUpdateParams,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       # Additional data in the form of key-value pairs. Pairs can be removed by passing
       # an empty string or `null` as the value.

@@ -5,6 +5,8 @@ module ModernTreasury
     module Type
       # @api private
       module Converter
+        extend ModernTreasury::Internal::Util::SorbetRuntimeSupport
+
         Input =
           T.type_alias do
             T.any(

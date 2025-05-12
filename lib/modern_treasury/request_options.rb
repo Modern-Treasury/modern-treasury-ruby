@@ -70,5 +70,9 @@ module ModernTreasury
     #   Returns a new instance of RequestOptions.
     #
     #   @param values [Hash{Symbol=>Object}]
+
+    define_sorbet_constant!(:OrHash) do
+      T.type_alias { T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash) }
+    end
   end
 end

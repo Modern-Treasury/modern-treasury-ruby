@@ -7,7 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::LedgerCreateParams,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       # The name of the ledger.
       sig { returns(String) }

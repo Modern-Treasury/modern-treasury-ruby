@@ -8,7 +8,12 @@ module ModernTreasury
         include ModernTreasury::Internal::Type::RequestParameters
 
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::Transactions::LineItemCreateParams,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # If a matching object exists in Modern Treasury, `amount` will be populated.
         # Value in specified currency's smallest unit (taken from parent Transaction).

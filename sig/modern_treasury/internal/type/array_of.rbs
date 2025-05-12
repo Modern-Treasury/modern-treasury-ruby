@@ -9,7 +9,7 @@ module ModernTreasury
           | ^-> ModernTreasury::Internal::Type::Converter::input
           | ModernTreasury::Internal::Type::Converter::input type_info,
           ?::Hash[Symbol, top] spec
-        ) -> instance
+        ) -> self
 
         def ===: (top other) -> bool
 

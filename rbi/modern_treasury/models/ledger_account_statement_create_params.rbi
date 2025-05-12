@@ -7,7 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::LedgerAccountStatementCreateParams,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       # The inclusive lower bound of the effective_at timestamp of the ledger entries to
       # be included in the ledger account statement.

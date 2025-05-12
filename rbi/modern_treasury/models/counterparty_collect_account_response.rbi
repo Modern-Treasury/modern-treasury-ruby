@@ -4,7 +4,12 @@ module ModernTreasury
   module Models
     class CounterpartyCollectAccountResponse < ModernTreasury::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::CounterpartyCollectAccountResponse,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       # The id of the existing counterparty.
       sig { returns(String) }

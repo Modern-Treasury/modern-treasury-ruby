@@ -7,7 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::LedgerEventHandlerCreateParams,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       sig do
         returns(
@@ -133,7 +138,12 @@ module ModernTreasury
 
       class LedgerTransactionTemplate < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::LedgerEventHandlerCreateParams::LedgerTransactionTemplate,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # An optional description for internal use.
         sig { returns(T.nilable(String)) }
@@ -201,7 +211,10 @@ module ModernTreasury
         class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           # The LHS of the conditional.
@@ -245,7 +258,12 @@ module ModernTreasury
 
       class Conditions < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::LedgerEventHandlerCreateParams::Conditions,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # The LHS of the conditional.
         sig { returns(String) }
