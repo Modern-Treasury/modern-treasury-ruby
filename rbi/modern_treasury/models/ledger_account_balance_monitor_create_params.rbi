@@ -7,7 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::LedgerAccountBalanceMonitorCreateParams,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       # Describes the condition that must be satisfied for the monitor to be triggered.
       sig do
@@ -85,7 +90,12 @@ module ModernTreasury
 
       class AlertCondition < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # One of `available_balance_amount`, `pending_balance_amount`,
         # `posted_balance_amount`, `ledger_account_lock_version`.

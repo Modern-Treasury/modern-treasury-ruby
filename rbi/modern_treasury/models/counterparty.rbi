@@ -4,7 +4,9 @@ module ModernTreasury
   module Models
     class Counterparty < ModernTreasury::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(ModernTreasury::Counterparty, ModernTreasury::Internal::AnyHash)
+        end
 
       sig { returns(String) }
       attr_accessor :id
@@ -129,7 +131,12 @@ module ModernTreasury
 
       class Account < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::Counterparty::Account,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         sig { returns(T.nilable(String)) }
         attr_reader :id
@@ -405,7 +412,10 @@ module ModernTreasury
         class ContactDetail < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::Counterparty::Account::ContactDetail,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           sig { returns(String) }
@@ -526,7 +536,10 @@ module ModernTreasury
         class PartyAddress < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::Counterparty::Account::PartyAddress,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           sig { returns(String) }

@@ -4,7 +4,12 @@ module ModernTreasury
   module Models
     class AccountCollectionFlow < ModernTreasury::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::AccountCollectionFlow,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       # The ID of a counterparty. An external account created with this flow will be
       # associated with this counterparty.

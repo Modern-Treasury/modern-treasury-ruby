@@ -4,7 +4,12 @@ module ModernTreasury
   module Models
     class LedgerAccountBalanceMonitor < ModernTreasury::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::LedgerAccountBalanceMonitor,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       sig { returns(String) }
       attr_accessor :id
@@ -135,7 +140,12 @@ module ModernTreasury
 
       class AlertCondition < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::LedgerAccountBalanceMonitor::AlertCondition,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # One of `available_balance_amount`, `pending_balance_amount`,
         # `posted_balance_amount`, `ledger_account_lock_version`.
@@ -184,7 +194,12 @@ module ModernTreasury
 
       class CurrentLedgerAccountBalanceState < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         sig do
           returns(
@@ -246,7 +261,10 @@ module ModernTreasury
         class Balances < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           # The available_balance is the sum of all posted inbound entries and pending
@@ -341,7 +359,10 @@ module ModernTreasury
           class AvailableBalance < ModernTreasury::Internal::Type::BaseModel
             OrHash =
               T.type_alias do
-                T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                T.any(
+                  ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance,
+                  ModernTreasury::Internal::AnyHash
+                )
               end
 
             sig { returns(Integer) }
@@ -403,7 +424,10 @@ module ModernTreasury
           class PendingBalance < ModernTreasury::Internal::Type::BaseModel
             OrHash =
               T.type_alias do
-                T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                T.any(
+                  ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance,
+                  ModernTreasury::Internal::AnyHash
+                )
               end
 
             sig { returns(Integer) }
@@ -462,7 +486,10 @@ module ModernTreasury
           class PostedBalance < ModernTreasury::Internal::Type::BaseModel
             OrHash =
               T.type_alias do
-                T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                T.any(
+                  ModernTreasury::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance,
+                  ModernTreasury::Internal::AnyHash
+                )
               end
 
             sig { returns(Integer) }

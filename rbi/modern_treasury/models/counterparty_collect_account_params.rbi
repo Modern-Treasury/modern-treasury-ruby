@@ -7,7 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::CounterpartyCollectAccountParams,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       # One of `credit` or `debit`. Use `credit` when you want to pay a counterparty.
       # Use `debit` when you need to charge a counterparty. This field helps us send a

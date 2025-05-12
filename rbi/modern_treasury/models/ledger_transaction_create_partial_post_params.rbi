@@ -7,7 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::LedgerTransactionCreatePartialPostParams,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       # An array of ledger entry objects to be set on the posted ledger transaction.
       # There must be one entry for each of the existing entries with a lesser amount
@@ -94,7 +99,12 @@ module ModernTreasury
 
       class PostedLedgerEntry < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # Value in specified currency's smallest unit. e.g. $10 would be represented
         # as 1000. Can be any integer up to 36 digits.

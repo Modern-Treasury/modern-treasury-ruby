@@ -7,7 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::PaymentReferenceListParams,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor

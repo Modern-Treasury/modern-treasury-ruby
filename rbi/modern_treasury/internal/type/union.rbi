@@ -6,6 +6,7 @@ module ModernTreasury
       # @api private
       module Union
         include ModernTreasury::Internal::Type::Converter
+        include ModernTreasury::Internal::Util::SorbetRuntimeSupport
 
         # @api private
         #

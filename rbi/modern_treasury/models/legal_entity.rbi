@@ -4,7 +4,9 @@ module ModernTreasury
   module Models
     class LegalEntity < ModernTreasury::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(ModernTreasury::LegalEntity, ModernTreasury::Internal::AnyHash)
+        end
 
       sig { returns(String) }
       attr_accessor :id
@@ -321,7 +323,12 @@ module ModernTreasury
 
       class Address < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::LegalEntity::Address,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         sig { returns(String) }
         attr_accessor :id
@@ -493,7 +500,12 @@ module ModernTreasury
 
       class Identification < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::LegalEntity::Identification,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         sig { returns(String) }
         attr_accessor :id
@@ -788,7 +800,12 @@ module ModernTreasury
 
       class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::LegalEntity::PhoneNumber,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         sig { returns(T.nilable(String)) }
         attr_reader :phone_number

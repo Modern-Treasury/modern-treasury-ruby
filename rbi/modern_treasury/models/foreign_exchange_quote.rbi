@@ -4,7 +4,12 @@ module ModernTreasury
   module Models
     class ForeignExchangeQuote < ModernTreasury::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::ForeignExchangeQuote,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       sig { returns(String) }
       attr_accessor :id
@@ -134,7 +139,12 @@ module ModernTreasury
 
       class ForeignExchangeRate < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::ForeignExchangeQuote::ForeignExchangeRate,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # Amount in the lowest denomination of the `base_currency` to convert, often
         # called the "sell" amount.

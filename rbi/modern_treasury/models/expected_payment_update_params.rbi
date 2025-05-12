@@ -7,7 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::ExpectedPaymentUpdateParams,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       # The lowest amount this expected payment may be equal to. Value in specified
       # currency's smallest unit. e.g. $10 would be represented as 1000.

@@ -30,7 +30,7 @@ module ModernTreasury
           params(
             client: ModernTreasury::Internal::Transport::BaseClient,
             req:
-              ModernTreasury::Internal::Transport::BaseClient::RequestComponentsShape,
+              ModernTreasury::Internal::Transport::BaseClient::RequestComponents,
             headers: T.any(T::Hash[String, String], Net::HTTPHeader),
             page_data: T.anything
           ).void

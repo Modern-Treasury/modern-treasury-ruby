@@ -8,7 +8,12 @@ module ModernTreasury
         include ModernTreasury::Internal::Type::RequestParameters
 
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::PaymentOrders::ReversalCreateParams,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`,
         # `incorrect_receiving_account`, `date_earlier_than_intended`,
@@ -144,7 +149,10 @@ module ModernTreasury
         class LedgerTransaction < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
-              T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+              T.any(
+                ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction,
+                ModernTreasury::Internal::AnyHash
+              )
             end
 
           # An array of ledger entry objects.
@@ -317,7 +325,10 @@ module ModernTreasury
           class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
             OrHash =
               T.type_alias do
-                T.any(T.self_type, ModernTreasury::Internal::AnyHash)
+                T.any(
+                  ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry,
+                  ModernTreasury::Internal::AnyHash
+                )
               end
 
             # Value in specified currency's smallest unit. e.g. $10 would be represented

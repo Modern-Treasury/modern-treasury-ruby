@@ -29,7 +29,7 @@ module ModernTreasury
         #
         #   @option spec [Boolean] :"nil?"
         #
-        # @return [ModernTreasury::Internal::Type::HashOf]
+        # @return [self]
         def self.[](...) = new(...)
 
         # @api public

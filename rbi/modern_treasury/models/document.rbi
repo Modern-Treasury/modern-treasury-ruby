@@ -4,7 +4,9 @@ module ModernTreasury
   module Models
     class Document < ModernTreasury::Internal::Type::BaseModel
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(ModernTreasury::Document, ModernTreasury::Internal::AnyHash)
+        end
 
       sig { returns(String) }
       attr_accessor :id
@@ -120,7 +122,12 @@ module ModernTreasury
 
       class DocumentDetail < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::Document::DocumentDetail,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         sig { returns(String) }
         attr_accessor :id
@@ -273,7 +280,12 @@ module ModernTreasury
 
       class File < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::Document::File,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         # The MIME content type of the document.
         sig { returns(T.nilable(String)) }

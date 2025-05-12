@@ -7,7 +7,12 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       OrHash =
-        T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+        T.type_alias do
+          T.any(
+            ModernTreasury::LedgerEntryListParams,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
 
       # If you have specific IDs to retrieve in bulk, you can pass them as query
       # parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
@@ -290,7 +295,12 @@ module ModernTreasury
 
       class OrderBy < ModernTreasury::Internal::Type::BaseModel
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::LedgerEntryListParams::OrderBy,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         sig do
           returns(

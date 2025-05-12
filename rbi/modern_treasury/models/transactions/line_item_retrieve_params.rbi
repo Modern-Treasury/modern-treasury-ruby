@@ -8,7 +8,12 @@ module ModernTreasury
         include ModernTreasury::Internal::Type::RequestParameters
 
         OrHash =
-          T.type_alias { T.any(T.self_type, ModernTreasury::Internal::AnyHash) }
+          T.type_alias do
+            T.any(
+              ModernTreasury::Transactions::LineItemRetrieveParams,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
 
         sig do
           params(

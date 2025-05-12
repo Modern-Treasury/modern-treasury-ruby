@@ -38,6 +38,7 @@ module ModernTreasury
       #   end
       module Enum
         include ModernTreasury::Internal::Type::Converter
+        include ModernTreasury::Internal::Util::SorbetRuntimeSupport
 
         # All of the valid Symbol values for this enum.
         #
