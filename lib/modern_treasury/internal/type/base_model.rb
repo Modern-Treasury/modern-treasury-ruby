@@ -314,6 +314,39 @@ module ModernTreasury
           end
         end
 
+        class << self
+          # @api private
+          #
+          # @param model [ModernTreasury::Internal::Type::BaseModel]
+          # @param convert [Boolean]
+          #
+          # @return [Hash{Symbol=>Object}]
+          def recursively_to_h(model, convert:)
+            rec = ->(x) do
+              case x
+              in ModernTreasury::Internal::Type::BaseModel
+                if convert
+                  fields = x.class.known_fields
+                  x.to_h.to_h do |key, val|
+                    [key, rec.call(fields.key?(key) ? x.public_send(key) : val)]
+                  rescue ModernTreasury::Errors::ConversionError
+                    [key, rec.call(val)]
+                  end
+                else
+                  rec.call(x.to_h)
+                end
+              in Hash
+                x.transform_values(&rec)
+              in Array
+                x.map(&rec)
+              else
+                x
+              end
+            end
+            rec.call(model)
+          end
+        end
+
         # @api public
         #
         # Returns the raw value associated with the given key, if found. Otherwise, nil is
@@ -350,6 +383,14 @@ module ModernTreasury
 
         alias_method :to_hash, :to_h
 
+        # @api public
+        #
+        # In addition to the behaviour of `#to_h`, this method will recursively call
+        # `#to_h` on nested models.
+        #
+        # @return [Hash{Symbol=>Object}]
+        def deep_to_h = self.class.recursively_to_h(@data, convert: false)
+
         # @param keys [Array<Symbol>, nil]
         #
         # @return [Hash{Symbol=>Object}]
@@ -363,29 +404,6 @@ module ModernTreasury
               [k, public_send(k)]
             end
             .to_h
-        end
-
-        class << self
-          # @api private
-          #
-          # @param model [ModernTreasury::Internal::Type::BaseModel]
-          #
-          # @return [Hash{Symbol=>Object}]
-          def walk(model)
-            walk = ->(x) do
-              case x
-              in ModernTreasury::Internal::Type::BaseModel
-                walk.call(x.to_h)
-              in Hash
-                x.transform_values(&walk)
-              in Array
-                x.map(&walk)
-              else
-                x
-              end
-            end
-            walk.call(model)
-          end
         end
 
         # @api public
@@ -433,12 +451,15 @@ module ModernTreasury
         # @api public
         #
         # @return [String]
-        def to_s = self.class.walk(@data).to_s
+        def to_s = deep_to_h.to_s
 
         # @api private
         #
         # @return [String]
-        def inspect = "#<#{self.class}:0x#{object_id.to_s(16)} #{self}>"
+        def inspect
+          converted = self.class.recursively_to_h(self, convert: true)
+          "#<#{self.class}:0x#{object_id.to_s(16)} #{converted}>"
+        end
 
         define_sorbet_constant!(:KnownField) do
           T.type_alias { {mode: T.nilable(Symbol), required: T::Boolean, nilable: T::Boolean} }
