@@ -1,5 +1,70 @@
 # Changelog
 
+## 0.1.0-alpha.19 (2025-05-13)
+
+Full Changelog: [v0.1.0-alpha.18...v0.1.0-alpha.19](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.18...v0.1.0-alpha.19)
+
+### Features
+
+* **api:** only send idempotency headers on PUT / POST requests ([83fd4af](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/83fd4af298abec1b714675e7acc40a276f1283f2))
+* expose base client options as read only attributes ([60a211d](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/60a211d7ae5e60e4a53e90fe22d543b130744de4))
+* expose recursive `#to_h` conversion ([06efb53](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/06efb534c53987cb36ca7ccee45bf50d426ed36b))
+* implement `#hash` for data containers ([d96aea7](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/d96aea756785f1cc2cd327d201424786fd20d5b0))
+* support sorbet aliases at the runtime ([c606bc7](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/c606bc705110611d96dffbe82f4dd53f5bca2679))
+* support specifying content-type with FilePart class ([db20b0a](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/db20b0afeeb1b6db89f454045f55acb39b6f9fa4))
+* support webmock for testing ([4644eaa](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/4644eaa0de6336e235c200158efc2927613f27e2))
+
+
+### Bug Fixes
+
+* always check if current page is empty in `next_page?` ([6efc146](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/6efc146540017fdc0cc7fb0475e1afc4a6d7ecfc))
+* ensure gem release is unaffected by renaming ([606ca8c](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/606ca8cc2e6c40c0abb89bd22ebe99a11c2de4d5))
+* **internal:** ensure formatting always uses c.utf-8 locale ([4303382](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/43033823e1670e0e66970524ad253d56b4e4ceb9))
+* **internal:** fix formatting script for macos ([850b98b](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/850b98b36836357549b7c056fd382027dea014f4))
+* **internal:** update gemspec name ([db69e0e](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/db69e0efc6b4fed197f481336fdb29a4025ae13a))
+* make a typo for `FilePart.content` ([442af9e](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/442af9e1e043f36ceaa0a2dc863ab93dc3fa7c66))
+
+
+### Chores
+
+* accept all nd-json mimetype variants ([d009d1a](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/d009d1a3e63bb3cffe1d77ec6708d4df2e804178))
+* add generator safe directory ([c7c4009](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/c7c4009c059fc4af63c464b5b368d13b821695b5))
+* broadly detect json family of content-type headers ([4e9190f](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/4e9190f728bf54a3d05bd21bc34cb4379d35d683))
+* **ci:** add timeout thresholds for CI jobs ([51098dd](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/51098dde2b1e6a0d5da51579efa6d3222ae0b6e7))
+* **ci:** only use depot for staging repos ([163402a](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/163402af8b04a17a425a72d958d7d9017030d84b))
+* **ci:** run on more branches and use depot runners ([1aaaa6f](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/1aaaa6f569a67f3e33d5d2529d38494f49e4808a))
+* consistently use string in examples, even for enums ([3766f9f](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/3766f9fd246d700b7c1fd936d16a5988267b3030))
+* documentation improvements ([ae02ed8](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/ae02ed86227ef8a2aba567eb8b82400b3a16c16d))
+* explicitly mark apis public under `Internal` module ([6358f72](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/6358f727a0bf1a4841d297a94a535335ee62b57e))
+* fix misc linting / minor issues ([de1286e](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/de1286ec80d18859be5bc2d402d1cef3aa3bd158))
+* **internal:** annotate request options with type aliases in sorbet ([a6d3efa](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/a6d3efa58e61ef821a4b77fde957a086b5ca430a))
+* **internal:** codegen related update ([13f2ea4](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/13f2ea46f28401e2265af8ffc60ebd9b16277bea))
+* **internal:** codegen related update ([a70306b](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/a70306bf04b718b8386bbb5498e5f1a2e103d4bf))
+* **internal:** codegen related update ([320f66e](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/320f66efad24e22c522025127a9ac4f06daf2a99))
+* **internal:** improve response envelope unwrap functionality ([91c54a5](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/91c54a535ab97caa3f0f10f5909803f8fd484a49))
+* **internal:** minor type annotation improvements ([80c7729](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/80c7729b33c9c8ae9f14b5ab2792ad37a7299379))
+* **internal:** remove unnecessary `rbi/lib` folder ([6d6e5ed](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/6d6e5ed2c64f7afd36b0304ce363efb64c13bc5f))
+* loosen rubocop rules that don't always make sense ([a7ecdad](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/a7ecdad7899b6b85ad59c08617740a27544db180))
+* make sorbet enums easier to read ([3dc3765](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/3dc37654a43d57db2c759714933d73efa31837f7))
+* migrate away from deprecated `JSON#fast_generate` ([9cf605d](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/9cf605dd27df53480a369f01677f886809afa69e))
+* more accurate type annotations and aliases ([dd1f15d](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/dd1f15dbf267e6d437b7ed83d1377f8aca17350e))
+* re-export top level models under library namespace ([ac629fe](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/ac629fecccb2b54de95280c575178c48be04416f))
+* refine `#inspect` and `#to_s` for model classes ([786b22a](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/786b22a499a6ba7f923926c42f971af82ce65ac0))
+* remove Gemfile.lock during bootstrap ([08680ae](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/08680ae4ffe4c4caccba19359315a1151a181599))
+* reorganize type aliases ([c28f2b8](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/c28f2b8ca8350ae72b7f5d39b6f5c939a7eb4a17))
+* revert ignoring Gemfile.lock ([6a27e21](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/6a27e21bee317a61e8abf393cd98686787dc970d))
+* show truncated parameter docs in yard ([5df7631](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/5df7631e3e10b14d383e6e38a6d4efc79d0883a4))
+* simplify yard annotations by removing most `@!parse` directives ([5a3e8a7](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/5a3e8a75fe86fb7539a7b0396294eb905f20f58e))
+* update README with recommended editor plugins ([aadf96a](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/aadf96a28e21ea93f09b9db44f7878f00c57c394))
+* use `@!method` instead of `@!parse` for virtual method type definitions ([d23861f](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/d23861f35b0d7a9ff65efa2a9f4ff3f6e962f251))
+* validate request option coercion correctness ([313bbc7](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/313bbc7003e71a20a5268115bfadf2feda148db8))
+
+
+### Documentation
+
+* illustrate environmental defaults for auth variables ([2313757](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/23137570576c7d32b0581f9d4b3b2581b5e563aa))
+* **readme:** fix typo ([90db191](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/90db19112353146360a44a9abb0bdc061d991915))
+
 ## 0.1.0-alpha.18 (2025-04-17)
 
 Full Changelog: [v0.1.0-alpha.17...v0.1.0-alpha.18](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.17...v0.1.0-alpha.18)
