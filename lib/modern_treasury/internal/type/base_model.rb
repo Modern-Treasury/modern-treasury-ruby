@@ -394,6 +394,13 @@ module ModernTreasury
         # @param keys [Array<Symbol>, nil]
         #
         # @return [Hash{Symbol=>Object}]
+        #
+        # @example
+        #   # `async_response` is a `ModernTreasury::AsyncResponse`
+        #   async_response => {
+        #     id: id,
+        #     object: object
+        #   }
         def deconstruct_keys(keys)
           (keys || self.class.known_fields.keys)
             .filter_map do |k|
