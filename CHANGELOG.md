@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.20 (2025-05-15)
+
+Full Changelog: [v0.1.0-alpha.19...v0.1.0-alpha.20](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.19...v0.1.0-alpha.20)
+
+### Features
+
+* bump default connection pool size limit to minimum of 99 ([f9b80ac](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/f9b80ace0577c91d113b36f8c02906cd2df41495))
+
+
+### Documentation
+
+* rewrite much of README.md for readability ([e426334](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/e426334cca1f4df82faa6675a909601f3480c186))
+
 ## 0.1.0-alpha.19 (2025-05-13)
 
 Full Changelog: [v0.1.0-alpha.18...v0.1.0-alpha.19](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.18...v0.1.0-alpha.19)
