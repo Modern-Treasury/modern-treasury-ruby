@@ -255,10 +255,7 @@ module ModernTreasury
       sig do
         returns(
           T.nilable(
-            T.any(
-              ModernTreasury::VirtualAccount,
-              ModernTreasury::InternalAccount
-            )
+            ModernTreasury::PaymentOrder::UltimateOriginatingAccount::Variants
           )
         )
       end
@@ -578,10 +575,7 @@ module ModernTreasury
             type: ModernTreasury::PaymentOrderType::TaggedSymbol,
             ultimate_originating_account:
               T.nilable(
-                T.any(
-                  ModernTreasury::VirtualAccount,
-                  ModernTreasury::InternalAccount
-                )
+                ModernTreasury::PaymentOrder::UltimateOriginatingAccount::Variants
               ),
             ultimate_originating_account_id: T.nilable(String),
             ultimate_originating_account_type:
