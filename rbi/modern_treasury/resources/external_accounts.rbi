@@ -193,10 +193,7 @@ module ModernTreasury
             ModernTreasury::ExternalAccountVerifyParams::Priority::OrSymbol,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(
-          T.any(
-            ModernTreasury::ExternalAccount,
-            ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt
-          )
+          ModernTreasury::Models::ExternalAccountVerifyResponse::Variants
         )
       end
       def verify(
