@@ -89,6 +89,13 @@ module ModernTreasury
 
             value
           end
+
+          # @api private
+          #
+          # @return [Object]
+          def to_sorbet_type
+            T.any(Pathname, StringIO, IO, String, ModernTreasury::FilePart)
+          end
         end
       end
     end

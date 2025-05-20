@@ -70,6 +70,8 @@ module ModernTreasury
           state: ModernTreasury::Internal::Type::Converter::dump_state
         ) -> (::Hash[top, top] | top)
 
+        def self.to_sorbet_type: -> top
+
         def self.recursively_to_h: (
           ModernTreasury::Internal::Type::BaseModel model,
           convert: bool

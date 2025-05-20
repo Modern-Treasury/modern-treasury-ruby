@@ -8,6 +8,7 @@ module ModernTreasury
       # Hash of items of a given type.
       class HashOf
         include ModernTreasury::Internal::Type::Converter
+        include ModernTreasury::Internal::Util::SorbetRuntimeSupport
 
         abstract!
 
@@ -63,6 +64,11 @@ module ModernTreasury
             .returns(T.any(ModernTreasury::Internal::AnyHash, T.anything))
         end
         def dump(value, state:)
+        end
+
+        # @api private
+        sig { returns(T.anything) }
+        def to_sorbet_type
         end
 
         # @api private
