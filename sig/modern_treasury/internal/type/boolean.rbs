@@ -3,6 +3,7 @@ module ModernTreasury
     module Type
       class Boolean
         extend ModernTreasury::Internal::Type::Converter
+        extend ModernTreasury::Internal::Util::SorbetRuntimeSupport
 
         def self.===: (top other) -> bool
 
@@ -17,6 +18,8 @@ module ModernTreasury
           bool | top value,
           state: ModernTreasury::Internal::Type::Converter::dump_state
         ) -> (bool | top)
+
+        def self.to_sorbet_type: -> top
       end
     end
   end

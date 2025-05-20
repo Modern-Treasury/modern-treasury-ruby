@@ -3654,22 +3654,6 @@ module ModernTreasury
 
         # @!method self.variants
         #   @return [Array(ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest, ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest, ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest, ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest, ModernTreasury::BulkRequestCreateParams::Resource::ID, ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID, ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID, ModernTreasury::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID, ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID)]
-
-        define_sorbet_constant!(:Variants) do
-          T.type_alias do
-            T.any(
-              ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest,
-              ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest,
-              ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest,
-              ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest,
-              ModernTreasury::BulkRequestCreateParams::Resource::ID,
-              ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID,
-              ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID,
-              ModernTreasury::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID,
-              ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID
-            )
-          end
-        end
       end
     end
   end

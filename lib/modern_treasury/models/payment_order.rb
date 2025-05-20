@@ -812,10 +812,6 @@ module ModernTreasury
 
         # @!method self.variants
         #   @return [Array(ModernTreasury::VirtualAccount, ModernTreasury::InternalAccount)]
-
-        define_sorbet_constant!(:Variants) do
-          T.type_alias { T.any(ModernTreasury::VirtualAccount, ModernTreasury::InternalAccount) }
-        end
       end
 
       # @see ModernTreasury::PaymentOrder#ultimate_originating_account_type
