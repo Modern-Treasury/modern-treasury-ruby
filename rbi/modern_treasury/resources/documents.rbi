@@ -9,7 +9,7 @@ module ModernTreasury
           documentable_id: String,
           documentable_type:
             ModernTreasury::DocumentCreateParams::DocumentableType::OrSymbol,
-          file: T.any(Pathname, StringIO, IO, ModernTreasury::FilePart),
+          file: ModernTreasury::Internal::FileInput,
           document_type: String,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::Document)

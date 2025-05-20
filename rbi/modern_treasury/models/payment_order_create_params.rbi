@@ -724,7 +724,7 @@ module ModernTreasury
         end
         attr_accessor :documentable_type
 
-        sig { returns(T.any(Pathname, StringIO, IO, ModernTreasury::FilePart)) }
+        sig { returns(ModernTreasury::Internal::FileInput) }
         attr_accessor :file
 
         # A category given to the document, can be `null`.
@@ -739,7 +739,7 @@ module ModernTreasury
             documentable_id: String,
             documentable_type:
               ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::OrSymbol,
-            file: T.any(Pathname, StringIO, IO, ModernTreasury::FilePart),
+            file: ModernTreasury::Internal::FileInput,
             document_type: String
           ).returns(T.attached_class)
         end
@@ -759,7 +759,7 @@ module ModernTreasury
               documentable_id: String,
               documentable_type:
                 ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::OrSymbol,
-              file: T.any(Pathname, StringIO, IO, ModernTreasury::FilePart),
+              file: ModernTreasury::Internal::FileInput,
               document_type: String
             }
           )

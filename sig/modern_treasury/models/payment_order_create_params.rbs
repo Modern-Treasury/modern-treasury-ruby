@@ -238,7 +238,7 @@ module ModernTreasury
         {
           documentable_id: String,
           documentable_type: ModernTreasury::PaymentOrderCreateParams::Document::documentable_type,
-          file: Pathname | StringIO | IO | ModernTreasury::FilePart,
+          file: ModernTreasury::Internal::file_input,
           document_type: String
         }
 
@@ -247,7 +247,7 @@ module ModernTreasury
 
         attr_accessor documentable_type: ModernTreasury::PaymentOrderCreateParams::Document::documentable_type
 
-        attr_accessor file: Pathname | StringIO | IO | ModernTreasury::FilePart
+        attr_accessor file: ModernTreasury::Internal::file_input
 
         attr_reader document_type: String?
 
@@ -256,7 +256,7 @@ module ModernTreasury
         def initialize: (
           documentable_id: String,
           documentable_type: ModernTreasury::PaymentOrderCreateParams::Document::documentable_type,
-          file: Pathname | StringIO | IO | ModernTreasury::FilePart,
+          file: ModernTreasury::Internal::file_input,
           ?document_type: String
         ) -> void
 
