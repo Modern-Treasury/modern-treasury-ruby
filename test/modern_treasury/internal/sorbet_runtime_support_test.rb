@@ -25,6 +25,7 @@ class ModernTreasury::Test::SorbetRuntimeSupportTest < Minitest::Test
     err = ModernTreasury::Internal::Util::SorbetRuntimeSupport::MissingSorbetRuntimeError
 
     assert_raises(err) { ModernTreasury::Internal::AnyHash }
+    assert_raises(err) { ModernTreasury::Internal::FileInput }
     assert_raises(err) { ModernTreasury::Internal::Type::Converter::Input }
     assert_raises(err) { ModernTreasury::Internal::Type::Converter::CoerceState }
     assert_raises(err) { ModernTreasury::Internal::Type::Converter::DumpState }
