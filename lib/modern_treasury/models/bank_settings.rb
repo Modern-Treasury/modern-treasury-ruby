@@ -65,7 +65,7 @@ module ModernTreasury
 
       # @!method initialize(id:, backup_withholding_percentage:, created_at:, discarded_at:, enable_backup_withholding:, live_mode:, object:, privacy_opt_out:, regulation_o:, updated_at:)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::BankSettings} for more details.
+      #   {ModernTreasury::Models::BankSettings} for more details.
       #
       #   @param id [String]
       #

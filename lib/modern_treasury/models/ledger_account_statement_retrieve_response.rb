@@ -61,7 +61,7 @@ module ModernTreasury
       # @!attribute ledger_account_normal_balance
       #   The normal balance of the ledger account.
       #
-      #   @return [Symbol, ModernTreasury::TransactionDirection]
+      #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
       required :ledger_account_normal_balance, enum: -> { ModernTreasury::TransactionDirection }
 
       # @!attribute ledger_id
@@ -126,7 +126,7 @@ module ModernTreasury
       #
       #   @param ledger_account_lock_version [Integer] Lock version of the ledger account at the time of statement generation.
       #
-      #   @param ledger_account_normal_balance [Symbol, ModernTreasury::TransactionDirection] The normal balance of the ledger account.
+      #   @param ledger_account_normal_balance [Symbol, ModernTreasury::Models::TransactionDirection] The normal balance of the ledger account.
       #
       #   @param ledger_id [String] The id of the ledger that this ledger account statement belongs to.
       #

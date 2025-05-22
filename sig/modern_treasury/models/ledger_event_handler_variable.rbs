@@ -13,6 +13,11 @@ module ModernTreasury
         type: String
       ) -> void
 
+      def to_hash: -> {
+        query: ModernTreasury::LedgerEventHandlerVariable::Query,
+        type: String
+      }
+
       type query = { field: String, operator: String, value: String }
 
       class Query < ModernTreasury::Internal::Type::BaseModel
@@ -23,6 +28,8 @@ module ModernTreasury
         attr_accessor value: String
 
         def initialize: (field: String, operator: String, value: String) -> void
+
+        def to_hash: -> { field: String, operator: String, value: String }
       end
     end
   end

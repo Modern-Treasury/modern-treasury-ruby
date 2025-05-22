@@ -28,7 +28,7 @@ module ModernTreasury
       # @!attribute normal_balance
       #   The normal balance of the ledger account category.
       #
-      #   @return [Symbol, ModernTreasury::TransactionDirection]
+      #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
       required :normal_balance, enum: -> { ModernTreasury::TransactionDirection }
 
       # @!attribute currency_exponent
@@ -67,7 +67,7 @@ module ModernTreasury
       #
       #   @param name [String] The name of the ledger account category.
       #
-      #   @param normal_balance [Symbol, ModernTreasury::TransactionDirection] The normal balance of the ledger account category.
+      #   @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection] The normal balance of the ledger account category.
       #
       #   @param currency_exponent [Integer, nil] The currency exponent of the ledger account category.
       #

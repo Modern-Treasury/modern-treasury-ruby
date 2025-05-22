@@ -9,7 +9,7 @@ module ModernTreasury
 
       # @!attribute accounting
       #
-      #   @return [ModernTreasury::PaymentOrderUpdateParams::Accounting, nil]
+      #   @return [ModernTreasury::Models::PaymentOrderUpdateParams::Accounting, nil]
       optional :accounting, -> { ModernTreasury::PaymentOrderUpdateParams::Accounting }
 
       # @!attribute accounting_category_id
@@ -42,7 +42,7 @@ module ModernTreasury
       #   payment orders. Can be one of shared, sender, or receiver, which correspond
       #   respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
       #
-      #   @return [Symbol, ModernTreasury::PaymentOrderUpdateParams::ChargeBearer, nil]
+      #   @return [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ChargeBearer, nil]
       optional :charge_bearer, enum: -> { ModernTreasury::PaymentOrderUpdateParams::ChargeBearer }, nil?: true
 
       # @!attribute counterparty_id
@@ -54,7 +54,7 @@ module ModernTreasury
       # @!attribute currency
       #   Defaults to the currency of the originating account.
       #
-      #   @return [Symbol, ModernTreasury::Currency, nil]
+      #   @return [Symbol, ModernTreasury::Models::Currency, nil]
       optional :currency, enum: -> { ModernTreasury::Currency }
 
       # @!attribute description
@@ -69,7 +69,7 @@ module ModernTreasury
       #   `debit` pulls money from someone else's account to your own. Note that wire,
       #   rtp, and check payments will always be `credit`.
       #
-      #   @return [Symbol, ModernTreasury::PaymentOrderUpdateParams::Direction, nil]
+      #   @return [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Direction, nil]
       optional :direction, enum: -> { ModernTreasury::PaymentOrderUpdateParams::Direction }
 
       # @!attribute effective_date
@@ -91,7 +91,7 @@ module ModernTreasury
       #   receiving account. Currently, this only supports falling back from RTP to ACH
       #   (type=rtp and fallback_type=ach)
       #
-      #   @return [Symbol, ModernTreasury::PaymentOrderUpdateParams::FallbackType, nil]
+      #   @return [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::FallbackType, nil]
       optional :fallback_type, enum: -> { ModernTreasury::PaymentOrderUpdateParams::FallbackType }
 
       # @!attribute foreign_exchange_contract
@@ -106,7 +106,7 @@ module ModernTreasury
       #   `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
       #   currency matches the originating account currency.
       #
-      #   @return [Symbol, ModernTreasury::PaymentOrderUpdateParams::ForeignExchangeIndicator, nil]
+      #   @return [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ForeignExchangeIndicator, nil]
       optional :foreign_exchange_indicator,
                enum: -> { ModernTreasury::PaymentOrderUpdateParams::ForeignExchangeIndicator },
                nil?: true
@@ -114,7 +114,7 @@ module ModernTreasury
       # @!attribute line_items
       #   An array of line items that must sum up to the amount of the payment order.
       #
-      #   @return [Array<ModernTreasury::PaymentOrderUpdateParams::LineItem>, nil]
+      #   @return [Array<ModernTreasury::Models::PaymentOrderUpdateParams::LineItem>, nil]
       optional :line_items,
                -> {
                  ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::PaymentOrderUpdateParams::LineItem]
@@ -154,7 +154,7 @@ module ModernTreasury
       #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
       #   an overnight check rather than standard mail.
       #
-      #   @return [Symbol, ModernTreasury::PaymentOrderUpdateParams::Priority, nil]
+      #   @return [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Priority, nil]
       optional :priority, enum: -> { ModernTreasury::PaymentOrderUpdateParams::Priority }
 
       # @!attribute process_after
@@ -180,7 +180,7 @@ module ModernTreasury
       #   `receiving_account_id`, you may pass the id of an external account or an
       #   internal account.
       #
-      #   @return [ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount, nil]
+      #   @return [ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount, nil]
       optional :receiving_account, -> { ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount }
 
       # @!attribute receiving_account_id
@@ -222,7 +222,7 @@ module ModernTreasury
       #   use `approved`. To undo approval on a denied or approved payment order, use
       #   `needs_approval`.
       #
-      #   @return [Symbol, ModernTreasury::PaymentOrderUpdateParams::Status, nil]
+      #   @return [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::PaymentOrderUpdateParams::Status }
 
       # @!attribute subtype
@@ -231,7 +231,7 @@ module ModernTreasury
       #   payment orders, the `subtype` represents the SEC code. We currently support
       #   `CCD`, `PPD`, `IAT`, `CTX`, `WEB`, `CIE`, and `TEL`.
       #
-      #   @return [Symbol, ModernTreasury::PaymentOrderSubtype, nil]
+      #   @return [Symbol, ModernTreasury::Models::PaymentOrderSubtype, nil]
       optional :subtype, enum: -> { ModernTreasury::PaymentOrderSubtype }, nil?: true
 
       # @!attribute type
@@ -239,7 +239,7 @@ module ModernTreasury
       #   `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
       #   `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
       #
-      #   @return [Symbol, ModernTreasury::PaymentOrderType, nil]
+      #   @return [Symbol, ModernTreasury::Models::PaymentOrderType, nil]
       optional :type, enum: -> { ModernTreasury::PaymentOrderType }
 
       # @!attribute ultimate_originating_party_identifier
@@ -278,7 +278,7 @@ module ModernTreasury
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::PaymentOrderUpdateParams} for more details.
       #
-      #   @param accounting [ModernTreasury::PaymentOrderUpdateParams::Accounting]
+      #   @param accounting [ModernTreasury::Models::PaymentOrderUpdateParams::Accounting]
       #
       #   @param accounting_category_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
       #
@@ -286,27 +286,27 @@ module ModernTreasury
       #
       #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
       #
-      #   @param charge_bearer [Symbol, ModernTreasury::PaymentOrderUpdateParams::ChargeBearer, nil] The party that will pay the fees for the payment order. Only applies to wire pay
+      #   @param charge_bearer [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ChargeBearer, nil] The party that will pay the fees for the payment order. Only applies to wire pay
       #
       #   @param counterparty_id [String, nil] Required when receiving_account_id is passed the ID of an external account.
       #
-      #   @param currency [Symbol, ModernTreasury::Currency] Defaults to the currency of the originating account.
+      #   @param currency [Symbol, ModernTreasury::Models::Currency] Defaults to the currency of the originating account.
       #
       #   @param description [String, nil] An optional description for internal use.
       #
-      #   @param direction [Symbol, ModernTreasury::PaymentOrderUpdateParams::Direction] One of `credit`, `debit`. Describes the direction money is flowing in the transa
+      #   @param direction [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Direction] One of `credit`, `debit`. Describes the direction money is flowing in the transa
       #
       #   @param effective_date [Date] Date transactions are to be posted to the participants' account. Defaults to the
       #
       #   @param expires_at [Time, nil] RFP payments require an expires_at. This value must be past the effective_date.
       #
-      #   @param fallback_type [Symbol, ModernTreasury::PaymentOrderUpdateParams::FallbackType] A payment type to fallback to if the original type is not valid for the receivin
+      #   @param fallback_type [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::FallbackType] A payment type to fallback to if the original type is not valid for the receivin
       #
       #   @param foreign_exchange_contract [String, nil] If present, indicates a specific foreign exchange contract number that has been
       #
-      #   @param foreign_exchange_indicator [Symbol, ModernTreasury::PaymentOrderUpdateParams::ForeignExchangeIndicator, nil] Indicates the type of FX transfer to initiate, can be either `variable_to_fixed`
+      #   @param foreign_exchange_indicator [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ForeignExchangeIndicator, nil] Indicates the type of FX transfer to initiate, can be either `variable_to_fixed`
       #
-      #   @param line_items [Array<ModernTreasury::PaymentOrderUpdateParams::LineItem>] An array of line items that must sum up to the amount of the payment order.
+      #   @param line_items [Array<ModernTreasury::Models::PaymentOrderUpdateParams::LineItem>] An array of line items that must sum up to the amount of the payment order.
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #
@@ -316,13 +316,13 @@ module ModernTreasury
       #
       #   @param originating_party_name [String, nil] If present, this will replace your default company name on receiver's bank state
       #
-      #   @param priority [Symbol, ModernTreasury::PaymentOrderUpdateParams::Priority] Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-da
+      #   @param priority [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Priority] Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-da
       #
       #   @param process_after [Time, nil] If present, Modern Treasury will not process the payment until after this time.
       #
       #   @param purpose [String, nil] For `wire`, this is usually the purpose which is transmitted via the "InstrForDb
       #
-      #   @param receiving_account [ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount] Either `receiving_account` or `receiving_account_id` must be present. When using
+      #   @param receiving_account [ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount] Either `receiving_account` or `receiving_account_id` must be present. When using
       #
       #   @param receiving_account_id [String] Either `receiving_account` or `receiving_account_id` must be present. When using
       #
@@ -332,11 +332,11 @@ module ModernTreasury
       #
       #   @param statement_descriptor [String, nil] An optional descriptor which will appear in the receiver's statement. For `check
       #
-      #   @param status [Symbol, ModernTreasury::PaymentOrderUpdateParams::Status] To cancel a payment order, use `cancelled`. To redraft a returned payment order,
+      #   @param status [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Status] To cancel a payment order, use `cancelled`. To redraft a returned payment order,
       #
-      #   @param subtype [Symbol, ModernTreasury::PaymentOrderSubtype, nil] An additional layer of classification for the type of payment order you are doin
+      #   @param subtype [Symbol, ModernTreasury::Models::PaymentOrderSubtype, nil] An additional layer of classification for the type of payment order you are doin
       #
-      #   @param type [Symbol, ModernTreasury::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
+      #   @param type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
       #
       #   @param ultimate_originating_party_identifier [String, nil] This represents the identifier by which the person is known to the receiver when
       #
@@ -366,7 +366,7 @@ module ModernTreasury
 
         # @!method initialize(account_id: nil, class_id: nil)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::PaymentOrderUpdateParams::Accounting} for more details.
+        #   {ModernTreasury::Models::PaymentOrderUpdateParams::Accounting} for more details.
         #
         #   @param account_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
         #
@@ -456,7 +456,7 @@ module ModernTreasury
 
         # @!method initialize(amount:, accounting_category_id: nil, description: nil, metadata: nil)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::PaymentOrderUpdateParams::LineItem} for more details.
+        #   {ModernTreasury::Models::PaymentOrderUpdateParams::LineItem} for more details.
         #
         #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
         #
@@ -483,7 +483,7 @@ module ModernTreasury
       class ReceivingAccount < ModernTreasury::Internal::Type::BaseModel
         # @!attribute account_details
         #
-        #   @return [Array<ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail>, nil]
+        #   @return [Array<ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail>, nil]
         optional :account_details,
                  -> {
                    ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail]
@@ -492,12 +492,12 @@ module ModernTreasury
         # @!attribute account_type
         #   Can be `checking`, `savings` or `other`.
         #
-        #   @return [Symbol, ModernTreasury::ExternalAccountType, nil]
+        #   @return [Symbol, ModernTreasury::Models::ExternalAccountType, nil]
         optional :account_type, enum: -> { ModernTreasury::ExternalAccountType }
 
         # @!attribute contact_details
         #
-        #   @return [Array<ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail>, nil]
+        #   @return [Array<ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail>, nil]
         optional :contact_details,
                  -> {
                    ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail]
@@ -510,7 +510,7 @@ module ModernTreasury
         #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
         #   for more details.
         #
-        #   @return [ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount, nil]
+        #   @return [ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount, nil]
         optional :ledger_account,
                  -> {
                    ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount
@@ -533,7 +533,7 @@ module ModernTreasury
         # @!attribute party_address
         #   Required if receiving wire payments.
         #
-        #   @return [ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::PartyAddress, nil]
+        #   @return [ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyAddress, nil]
         optional :party_address,
                  -> {
                    ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::PartyAddress
@@ -553,7 +553,7 @@ module ModernTreasury
         # @!attribute party_type
         #   Either `individual` or `business`.
         #
-        #   @return [Symbol, ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::PartyType, nil]
+        #   @return [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyType, nil]
         optional :party_type,
                  enum: -> { ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::PartyType },
                  nil?: true
@@ -567,7 +567,7 @@ module ModernTreasury
 
         # @!attribute routing_details
         #
-        #   @return [Array<ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail>, nil]
+        #   @return [Array<ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail>, nil]
         optional :routing_details,
                  -> {
                    ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail]
@@ -575,35 +575,36 @@ module ModernTreasury
 
         # @!method initialize(account_details: nil, account_type: nil, contact_details: nil, ledger_account: nil, metadata: nil, name: nil, party_address: nil, party_identifier: nil, party_name: nil, party_type: nil, plaid_processor_token: nil, routing_details: nil)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount} for more details.
+        #   {ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount} for more
+        #   details.
         #
         #   Either `receiving_account` or `receiving_account_id` must be present. When using
         #   `receiving_account_id`, you may pass the id of an external account or an
         #   internal account.
         #
-        #   @param account_details [Array<ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail>]
+        #   @param account_details [Array<ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail>]
         #
-        #   @param account_type [Symbol, ModernTreasury::ExternalAccountType] Can be `checking`, `savings` or `other`.
+        #   @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType] Can be `checking`, `savings` or `other`.
         #
-        #   @param contact_details [Array<ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail>]
+        #   @param contact_details [Array<ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail>]
         #
-        #   @param ledger_account [ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount] Specifies a ledger account object that will be created with the external account
+        #   @param ledger_account [ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount] Specifies a ledger account object that will be created with the external account
         #
         #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
         #
         #   @param name [String, nil] A nickname for the external account. This is only for internal usage and won't a
         #
-        #   @param party_address [ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::PartyAddress] Required if receiving wire payments.
+        #   @param party_address [ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyAddress] Required if receiving wire payments.
         #
         #   @param party_identifier [String]
         #
         #   @param party_name [String] If this value isn't provided, it will be inherited from the counterparty's name.
         #
-        #   @param party_type [Symbol, ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::PartyType, nil] Either `individual` or `business`.
+        #   @param party_type [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyType, nil] Either `individual` or `business`.
         #
         #   @param plaid_processor_token [String] If you've enabled the Modern Treasury + Plaid integration in your Plaid account,
         #
-        #   @param routing_details [Array<ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail>]
+        #   @param routing_details [Array<ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail>]
 
         class AccountDetail < ModernTreasury::Internal::Type::BaseModel
           # @!attribute account_number
@@ -613,7 +614,7 @@ module ModernTreasury
 
           # @!attribute account_number_type
           #
-          #   @return [Symbol, ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType, nil]
+          #   @return [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType, nil]
           optional :account_number_type,
                    enum: -> {
                      ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType
@@ -621,9 +622,9 @@ module ModernTreasury
 
           # @!method initialize(account_number:, account_number_type: nil)
           #   @param account_number [String]
-          #   @param account_number_type [Symbol, ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType]
+          #   @param account_number_type [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType]
 
-          # @see ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail#account_number_type
+          # @see ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail#account_number_type
           module AccountNumberType
             extend ModernTreasury::Internal::Type::Enum
 
@@ -651,7 +652,7 @@ module ModernTreasury
 
           # @!attribute contact_identifier_type
           #
-          #   @return [Symbol, ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::ContactIdentifierType, nil]
+          #   @return [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::ContactIdentifierType, nil]
           optional :contact_identifier_type,
                    enum: -> {
                      ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::ContactIdentifierType
@@ -659,9 +660,9 @@ module ModernTreasury
 
           # @!method initialize(contact_identifier: nil, contact_identifier_type: nil)
           #   @param contact_identifier [String]
-          #   @param contact_identifier_type [Symbol, ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::ContactIdentifierType]
+          #   @param contact_identifier_type [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::ContactIdentifierType]
 
-          # @see ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail#contact_identifier_type
+          # @see ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail#contact_identifier_type
           module ContactIdentifierType
             extend ModernTreasury::Internal::Type::Enum
 
@@ -674,7 +675,7 @@ module ModernTreasury
           end
         end
 
-        # @see ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount#ledger_account
+        # @see ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount#ledger_account
         class LedgerAccount < ModernTreasury::Internal::Type::BaseModel
           # @!attribute currency
           #   The currency of the ledger account.
@@ -697,7 +698,7 @@ module ModernTreasury
           # @!attribute normal_balance
           #   The normal balance of the ledger account.
           #
-          #   @return [Symbol, ModernTreasury::TransactionDirection]
+          #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
           required :normal_balance, enum: -> { ModernTreasury::TransactionDirection }
 
           # @!attribute currency_exponent
@@ -731,7 +732,7 @@ module ModernTreasury
           #   be populated here, otherwise null. The value is one of internal_account or
           #   external_account.
           #
-          #   @return [Symbol, ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::LedgerableType, nil]
+          #   @return [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::LedgerableType, nil]
           optional :ledgerable_type,
                    enum: -> {
                      ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::LedgerableType
@@ -746,8 +747,8 @@ module ModernTreasury
 
           # @!method initialize(currency:, ledger_id:, name:, normal_balance:, currency_exponent: nil, description: nil, ledger_account_category_ids: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil)
           #   Some parameter documentations has been truncated, see
-          #   {ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount} for
-          #   more details.
+          #   {ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount}
+          #   for more details.
           #
           #   Specifies a ledger account object that will be created with the external
           #   account. The resulting ledger account is linked to the external account for
@@ -761,7 +762,7 @@ module ModernTreasury
           #
           #   @param name [String] The name of the ledger account.
           #
-          #   @param normal_balance [Symbol, ModernTreasury::TransactionDirection] The normal balance of the ledger account.
+          #   @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection] The normal balance of the ledger account.
           #
           #   @param currency_exponent [Integer, nil] The currency exponent of the ledger account.
           #
@@ -771,7 +772,7 @@ module ModernTreasury
           #
           #   @param ledgerable_id [String] If the ledger account links to another object in Modern Treasury, the id will be
           #
-          #   @param ledgerable_type [Symbol, ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::LedgerableType] If the ledger account links to another object in Modern Treasury, the type will
+          #   @param ledgerable_type [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::LedgerableType] If the ledger account links to another object in Modern Treasury, the type will
           #
           #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
 
@@ -779,7 +780,7 @@ module ModernTreasury
           # be populated here, otherwise null. The value is one of internal_account or
           # external_account.
           #
-          # @see ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount#ledgerable_type
+          # @see ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount#ledgerable_type
           module LedgerableType
             extend ModernTreasury::Internal::Type::Enum
 
@@ -793,7 +794,7 @@ module ModernTreasury
           end
         end
 
-        # @see ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount#party_address
+        # @see ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount#party_address
         class PartyAddress < ModernTreasury::Internal::Type::BaseModel
           # @!attribute country
           #   Country code conforms to [ISO 3166-1 alpha-2]
@@ -847,7 +848,7 @@ module ModernTreasury
 
         # Either `individual` or `business`.
         #
-        # @see ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount#party_type
+        # @see ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount#party_type
         module PartyType
           extend ModernTreasury::Internal::Type::Enum
 
@@ -866,7 +867,7 @@ module ModernTreasury
 
           # @!attribute routing_number_type
           #
-          #   @return [Symbol, ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType]
+          #   @return [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType]
           required :routing_number_type,
                    enum: -> {
                      ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType
@@ -874,7 +875,7 @@ module ModernTreasury
 
           # @!attribute payment_type
           #
-          #   @return [Symbol, ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType, nil]
+          #   @return [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType, nil]
           optional :payment_type,
                    enum: -> {
                      ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType
@@ -882,10 +883,10 @@ module ModernTreasury
 
           # @!method initialize(routing_number:, routing_number_type:, payment_type: nil)
           #   @param routing_number [String]
-          #   @param routing_number_type [Symbol, ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType]
-          #   @param payment_type [Symbol, ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType]
+          #   @param routing_number_type [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType]
+          #   @param payment_type [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType]
 
-          # @see ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail#routing_number_type
+          # @see ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail#routing_number_type
           module RoutingNumberType
             extend ModernTreasury::Internal::Type::Enum
 
@@ -915,7 +916,7 @@ module ModernTreasury
             #   @return [Array<Symbol>]
           end
 
-          # @see ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail#payment_type
+          # @see ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail#payment_type
           module PaymentType
             extend ModernTreasury::Internal::Type::Enum
 

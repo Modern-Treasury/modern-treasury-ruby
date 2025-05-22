@@ -44,7 +44,7 @@ module ModernTreasury
       # @!attribute ledger_entries
       #   An array of ledger entry objects.
       #
-      #   @return [Array<ModernTreasury::LedgerEntry>]
+      #   @return [Array<ModernTreasury::Models::LedgerEntry>]
       required :ledger_entries, -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LedgerEntry] }
 
       # @!attribute ledger_id
@@ -66,7 +66,7 @@ module ModernTreasury
       #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
       #   reversal.
       #
-      #   @return [Symbol, ModernTreasury::LedgerTransaction::LedgerableType, nil]
+      #   @return [Symbol, ModernTreasury::Models::LedgerTransaction::LedgerableType, nil]
       required :ledgerable_type, enum: -> { ModernTreasury::LedgerTransaction::LedgerableType }, nil?: true
 
       # @!attribute live_mode
@@ -116,7 +116,7 @@ module ModernTreasury
       # @!attribute status
       #   To post a ledger transaction at creation, use `posted`.
       #
-      #   @return [Symbol, ModernTreasury::LedgerTransaction::Status]
+      #   @return [Symbol, ModernTreasury::Models::LedgerTransaction::Status]
       required :status, enum: -> { ModernTreasury::LedgerTransaction::Status }
 
       # @!attribute updated_at
@@ -126,7 +126,7 @@ module ModernTreasury
 
       # @!method initialize(id:, created_at:, description:, effective_at:, effective_date:, external_id:, ledger_entries:, ledger_id:, ledgerable_id:, ledgerable_type:, live_mode:, metadata:, object:, partially_posts_ledger_transaction_id:, posted_at:, reversed_by_ledger_transaction_id:, reverses_ledger_transaction_id:, status:, updated_at:)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::LedgerTransaction} for more details.
+      #   {ModernTreasury::Models::LedgerTransaction} for more details.
       #
       #   @param id [String]
       #
@@ -140,13 +140,13 @@ module ModernTreasury
       #
       #   @param external_id [String, nil] A unique string to represent the ledger transaction. Only one pending or posted
       #
-      #   @param ledger_entries [Array<ModernTreasury::LedgerEntry>] An array of ledger entry objects.
+      #   @param ledger_entries [Array<ModernTreasury::Models::LedgerEntry>] An array of ledger entry objects.
       #
       #   @param ledger_id [String] The ID of the ledger this ledger transaction belongs to.
       #
       #   @param ledgerable_id [String, nil] If the ledger transaction can be reconciled to another object in Modern Treasury
       #
-      #   @param ledgerable_type [Symbol, ModernTreasury::LedgerTransaction::LedgerableType, nil] If the ledger transaction can be reconciled to another object in Modern Treasury
+      #   @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerTransaction::LedgerableType, nil] If the ledger transaction can be reconciled to another object in Modern Treasury
       #
       #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
       #
@@ -162,7 +162,7 @@ module ModernTreasury
       #
       #   @param reverses_ledger_transaction_id [String, nil] The ID of the original ledger transaction that this ledger transaction reverses.
       #
-      #   @param status [Symbol, ModernTreasury::LedgerTransaction::Status] To post a ledger transaction at creation, use `posted`.
+      #   @param status [Symbol, ModernTreasury::Models::LedgerTransaction::Status] To post a ledger transaction at creation, use `posted`.
       #
       #   @param updated_at [Time]
 
@@ -171,7 +171,7 @@ module ModernTreasury
       # payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
       # reversal.
       #
-      # @see ModernTreasury::LedgerTransaction#ledgerable_type
+      # @see ModernTreasury::Models::LedgerTransaction#ledgerable_type
       module LedgerableType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -188,7 +188,7 @@ module ModernTreasury
 
       # To post a ledger transaction at creation, use `posted`.
       #
-      # @see ModernTreasury::LedgerTransaction#status
+      # @see ModernTreasury::Models::LedgerTransaction#status
       module Status
         extend ModernTreasury::Internal::Type::Enum
 

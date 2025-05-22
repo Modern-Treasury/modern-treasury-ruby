@@ -41,6 +41,17 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
+      def to_hash: -> {
+        returnable_id: String?,
+        returnable_type: ModernTreasury::Models::ReturnCreateParams::returnable_type,
+        additional_information: String?,
+        code: ModernTreasury::Models::ReturnCreateParams::code?,
+        data: top?,
+        date_of_death: Date?,
+        reason: String?,
+        request_options: ModernTreasury::RequestOptions
+      }
+
       type returnable_type = :incoming_payment_detail
 
       module ReturnableType

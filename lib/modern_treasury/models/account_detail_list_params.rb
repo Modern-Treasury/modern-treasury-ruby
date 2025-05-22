@@ -9,7 +9,7 @@ module ModernTreasury
 
       # @!attribute accounts_type
       #
-      #   @return [Symbol, ModernTreasury::AccountsType]
+      #   @return [Symbol, ModernTreasury::Models::AccountsType]
       required :accounts_type, enum: -> { ModernTreasury::AccountsType }
 
       # @!attribute after_cursor
@@ -23,7 +23,7 @@ module ModernTreasury
       optional :per_page, Integer
 
       # @!method initialize(accounts_type:, after_cursor: nil, per_page: nil, request_options: {})
-      #   @param accounts_type [Symbol, ModernTreasury::AccountsType]
+      #   @param accounts_type [Symbol, ModernTreasury::Models::AccountsType]
       #   @param after_cursor [String, nil]
       #   @param per_page [Integer]
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]

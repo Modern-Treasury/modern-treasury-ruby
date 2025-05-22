@@ -29,7 +29,7 @@ module ModernTreasury
         #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::Invoices::InvoiceLineItem]
+        # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
         #
         # @see ModernTreasury::Models::Invoices::LineItemCreateParams
         def create(invoice_id, params)
@@ -53,7 +53,7 @@ module ModernTreasury
         #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::Invoices::InvoiceLineItem]
+        # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
         #
         # @see ModernTreasury::Models::Invoices::LineItemRetrieveParams
         def retrieve(id, params)
@@ -97,7 +97,7 @@ module ModernTreasury
         #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::Invoices::InvoiceLineItem]
+        # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
         #
         # @see ModernTreasury::Models::Invoices::LineItemUpdateParams
         def update(id, params)
@@ -127,7 +127,7 @@ module ModernTreasury
         #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::Internal::Page<ModernTreasury::Invoices::InvoiceLineItem>]
+        # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::Invoices::InvoiceLineItem>]
         #
         # @see ModernTreasury::Models::Invoices::LineItemListParams
         def list(invoice_id, params = {})
@@ -152,7 +152,7 @@ module ModernTreasury
         #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::Invoices::InvoiceLineItem]
+        # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
         #
         # @see ModernTreasury::Models::Invoices::LineItemDeleteParams
         def delete(id, params)

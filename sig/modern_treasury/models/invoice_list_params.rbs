@@ -79,6 +79,21 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
+      def to_hash: -> {
+        after_cursor: String?,
+        counterparty_id: String,
+        due_date_end: Date,
+        due_date_start: Date,
+        expected_payment_id: String,
+        metadata: ::Hash[Symbol, String],
+        number: String,
+        originating_account_id: String,
+        payment_order_id: String,
+        per_page: Integer,
+        status: ModernTreasury::Models::InvoiceListParams::status,
+        request_options: ModernTreasury::RequestOptions
+      }
+
       type status =
         :draft | :paid | :partially_paid | :payment_pending | :unpaid | :voided
 

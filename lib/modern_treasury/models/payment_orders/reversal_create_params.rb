@@ -13,7 +13,7 @@ module ModernTreasury
         #   `incorrect_receiving_account`, `date_earlier_than_intended`,
         #   `date_later_than_intended`.
         #
-        #   @return [Symbol, ModernTreasury::PaymentOrders::ReversalCreateParams::Reason]
+        #   @return [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason]
         required :reason, enum: -> { ModernTreasury::PaymentOrders::ReversalCreateParams::Reason }
 
         # @!attribute ledger_transaction
@@ -21,7 +21,7 @@ module ModernTreasury
         #   the ledger transaction cannot be created, then the reversal creation will fail.
         #   The resulting ledger transaction will mirror the status of the reversal.
         #
-        #   @return [ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction, nil]
+        #   @return [ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction, nil]
         optional :ledger_transaction,
                  -> { ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction }
 
@@ -36,9 +36,9 @@ module ModernTreasury
         #   Some parameter documentations has been truncated, see
         #   {ModernTreasury::Models::PaymentOrders::ReversalCreateParams} for more details.
         #
-        #   @param reason [Symbol, ModernTreasury::PaymentOrders::ReversalCreateParams::Reason] The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`, `in
+        #   @param reason [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason] The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`, `in
         #
-        #   @param ledger_transaction [ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction] Specifies a ledger transaction object that will be created with the reversal. If
+        #   @param ledger_transaction [ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction] Specifies a ledger transaction object that will be created with the reversal. If
         #
         #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
         #
@@ -64,7 +64,7 @@ module ModernTreasury
           # @!attribute ledger_entries
           #   An array of ledger entry objects.
           #
-          #   @return [Array<ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry>]
+          #   @return [Array<ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry>]
           required :ledger_entries,
                    -> {
                      ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry]
@@ -110,7 +110,7 @@ module ModernTreasury
           #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
           #   reversal.
           #
-          #   @return [Symbol, ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType, nil]
+          #   @return [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType, nil]
           optional :ledgerable_type,
                    enum: -> {
                      ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType
@@ -126,20 +126,20 @@ module ModernTreasury
           # @!attribute status
           #   To post a ledger transaction at creation, use `posted`.
           #
-          #   @return [Symbol, ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status, nil]
+          #   @return [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status, nil]
           optional :status,
                    enum: -> { ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status }
 
           # @!method initialize(ledger_entries:, description: nil, effective_at: nil, effective_date: nil, external_id: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, status: nil)
           #   Some parameter documentations has been truncated, see
-          #   {ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction} for
-          #   more details.
+          #   {ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction}
+          #   for more details.
           #
           #   Specifies a ledger transaction object that will be created with the reversal. If
           #   the ledger transaction cannot be created, then the reversal creation will fail.
           #   The resulting ledger transaction will mirror the status of the reversal.
           #
-          #   @param ledger_entries [Array<ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry>] An array of ledger entry objects.
+          #   @param ledger_entries [Array<ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry>] An array of ledger entry objects.
           #
           #   @param description [String, nil] An optional description for internal use.
           #
@@ -151,11 +151,11 @@ module ModernTreasury
           #
           #   @param ledgerable_id [String] If the ledger transaction can be reconciled to another object in Modern Treasury
           #
-          #   @param ledgerable_type [Symbol, ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType] If the ledger transaction can be reconciled to another object in Modern Treasury
+          #   @param ledgerable_type [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType] If the ledger transaction can be reconciled to another object in Modern Treasury
           #
           #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
           #
-          #   @param status [Symbol, ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status] To post a ledger transaction at creation, use `posted`.
+          #   @param status [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status] To post a ledger transaction at creation, use `posted`.
 
           class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
             # @!attribute amount
@@ -171,7 +171,7 @@ module ModernTreasury
             #   `debit` pulls money from someone else's account to your own. Note that wire,
             #   rtp, and check payments will always be `credit`.
             #
-            #   @return [Symbol, ModernTreasury::TransactionDirection]
+            #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
             required :direction, enum: -> { ModernTreasury::TransactionDirection }
 
             # @!attribute ledger_account_id
@@ -231,12 +231,12 @@ module ModernTreasury
 
             # @!method initialize(amount:, direction:, ledger_account_id:, available_balance_amount: nil, lock_version: nil, metadata: nil, pending_balance_amount: nil, posted_balance_amount: nil, show_resulting_ledger_account_balances: nil)
             #   Some parameter documentations has been truncated, see
-            #   {ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry}
+            #   {ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry}
             #   for more details.
             #
             #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
             #
-            #   @param direction [Symbol, ModernTreasury::TransactionDirection] One of `credit`, `debit`. Describes the direction money is flowing in the transa
+            #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection] One of `credit`, `debit`. Describes the direction money is flowing in the transa
             #
             #   @param ledger_account_id [String] The ledger account that this ledger entry is associated with.
             #
@@ -258,7 +258,7 @@ module ModernTreasury
           # payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
           # reversal.
           #
-          # @see ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction#ledgerable_type
+          # @see ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction#ledgerable_type
           module LedgerableType
             extend ModernTreasury::Internal::Type::Enum
 
@@ -275,7 +275,7 @@ module ModernTreasury
 
           # To post a ledger transaction at creation, use `posted`.
           #
-          # @see ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction#status
+          # @see ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction#status
           module Status
             extend ModernTreasury::Internal::Type::Enum
 

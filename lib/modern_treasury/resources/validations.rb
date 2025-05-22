@@ -14,11 +14,11 @@ module ModernTreasury
       #
       # @param routing_number [String] The routing number that is being validated.
       #
-      # @param routing_number_type [Symbol, ModernTreasury::ValidationValidateRoutingNumberParams::RoutingNumberType] The type of routing number. See https://docs.moderntreasury.com/platform/referen
+      # @param routing_number_type [Symbol, ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType] The type of routing number. See https://docs.moderntreasury.com/platform/referen
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::RoutingNumberLookupRequest]
+      # @return [ModernTreasury::Models::RoutingNumberLookupRequest]
       #
       # @see ModernTreasury::Models::ValidationValidateRoutingNumberParams
       def validate_routing_number(params)

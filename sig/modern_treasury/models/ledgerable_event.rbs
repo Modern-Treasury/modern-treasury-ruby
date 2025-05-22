@@ -47,6 +47,19 @@ module ModernTreasury
         object: String,
         updated_at: Time
       ) -> void
+
+      def to_hash: -> {
+        id: String,
+        created_at: Time,
+        custom_data: top?,
+        description: String?,
+        ledger_event_handler_id: String,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String]?,
+        name: String,
+        object: String,
+        updated_at: Time
+      }
     end
   end
 end

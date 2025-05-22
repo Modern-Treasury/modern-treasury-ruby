@@ -101,7 +101,7 @@ module ModernTreasury
       #   The status of the ledger account settlement. One of `processing`, `pending`,
       #   `posted`, `archiving` or `archived`.
       #
-      #   @return [Symbol, ModernTreasury::LedgerAccountSettlement::Status]
+      #   @return [Symbol, ModernTreasury::Models::LedgerAccountSettlement::Status]
       required :status, enum: -> { ModernTreasury::LedgerAccountSettlement::Status }
 
       # @!attribute updated_at
@@ -111,7 +111,7 @@ module ModernTreasury
 
       # @!method initialize(id:, amount:, contra_ledger_account_id:, created_at:, currency:, currency_exponent:, description:, effective_at_upper_bound:, ledger_id:, ledger_transaction_id:, live_mode:, metadata:, object:, settled_ledger_account_id:, settlement_entry_direction:, status:, updated_at:)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::LedgerAccountSettlement} for more details.
+      #   {ModernTreasury::Models::LedgerAccountSettlement} for more details.
       #
       #   @param id [String]
       #
@@ -143,14 +143,14 @@ module ModernTreasury
       #
       #   @param settlement_entry_direction [String, nil] The direction of the ledger entry with the settlement_ledger_account.
       #
-      #   @param status [Symbol, ModernTreasury::LedgerAccountSettlement::Status] The status of the ledger account settlement. One of `processing`, `pending`, `po
+      #   @param status [Symbol, ModernTreasury::Models::LedgerAccountSettlement::Status] The status of the ledger account settlement. One of `processing`, `pending`, `po
       #
       #   @param updated_at [Time]
 
       # The status of the ledger account settlement. One of `processing`, `pending`,
       # `posted`, `archiving` or `archived`.
       #
-      # @see ModernTreasury::LedgerAccountSettlement#status
+      # @see ModernTreasury::Models::LedgerAccountSettlement#status
       module Status
         extend ModernTreasury::Internal::Type::Enum
 

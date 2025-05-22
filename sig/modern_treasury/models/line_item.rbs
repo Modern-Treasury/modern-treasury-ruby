@@ -10,7 +10,7 @@ module ModernTreasury
         created_at: Time,
         description: String?,
         itemizable_id: String,
-        itemizable_type: ModernTreasury::LineItem::itemizable_type,
+        itemizable_type: ModernTreasury::Models::LineItem::itemizable_type,
         live_mode: bool,
         metadata: ::Hash[Symbol, String],
         object: String,
@@ -34,7 +34,7 @@ module ModernTreasury
 
       attr_accessor itemizable_id: String
 
-      attr_accessor itemizable_type: ModernTreasury::LineItem::itemizable_type
+      attr_accessor itemizable_type: ModernTreasury::Models::LineItem::itemizable_type
 
       attr_accessor live_mode: bool
 
@@ -53,12 +53,28 @@ module ModernTreasury
         created_at: Time,
         description: String?,
         itemizable_id: String,
-        itemizable_type: ModernTreasury::LineItem::itemizable_type,
+        itemizable_type: ModernTreasury::Models::LineItem::itemizable_type,
         live_mode: bool,
         metadata: ::Hash[Symbol, String],
         object: String,
         updated_at: Time
       ) -> void
+
+      def to_hash: -> {
+        id: String,
+        accounting: ModernTreasury::LineItem::Accounting,
+        accounting_category_id: String?,
+        accounting_ledger_class_id: String?,
+        amount: Integer,
+        created_at: Time,
+        description: String?,
+        itemizable_id: String,
+        itemizable_type: ModernTreasury::Models::LineItem::itemizable_type,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String],
+        object: String,
+        updated_at: Time
+      }
 
       type accounting = { account_id: String?, class_id: String? }
 
@@ -68,6 +84,8 @@ module ModernTreasury
         attr_accessor class_id: String?
 
         def initialize: (?account_id: String?, ?class_id: String?) -> void
+
+        def to_hash: -> { account_id: String?, class_id: String? }
       end
 
       type itemizable_type = :ExpectedPayment | :PaymentOrder
@@ -78,7 +96,7 @@ module ModernTreasury
         EXPECTED_PAYMENT: :ExpectedPayment
         PAYMENT_ORDER: :PaymentOrder
 
-        def self?.values: -> ::Array[ModernTreasury::LineItem::itemizable_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::LineItem::itemizable_type]
       end
     end
   end

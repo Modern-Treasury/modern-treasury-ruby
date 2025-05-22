@@ -26,7 +26,7 @@ module ModernTreasury
         #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::Internal::Page<ModernTreasury::LedgerTransactions::LedgerTransactionVersion>]
+        # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion>]
         #
         # @see ModernTreasury::Models::LedgerTransactions::VersionListParams
         def list(params = {})

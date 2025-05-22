@@ -31,6 +31,13 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
+      def to_hash: -> {
+        description: String?,
+        metadata: ::Hash[Symbol, String],
+        status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status,
+        request_options: ModernTreasury::RequestOptions
+      }
+
       type status = :posted | :archived
 
       module Status

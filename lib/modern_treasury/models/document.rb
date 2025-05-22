@@ -21,7 +21,7 @@ module ModernTreasury
 
       # @!attribute document_details
       #
-      #   @return [Array<ModernTreasury::Document::DocumentDetail>]
+      #   @return [Array<ModernTreasury::Models::Document::DocumentDetail>]
       required :document_details,
                -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Document::DocumentDetail] }
 
@@ -42,12 +42,12 @@ module ModernTreasury
       #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
       #   `case`, `internal_account`, `decision`, or `external_account`.
       #
-      #   @return [Symbol, ModernTreasury::Document::DocumentableType]
+      #   @return [Symbol, ModernTreasury::Models::Document::DocumentableType]
       required :documentable_type, enum: -> { ModernTreasury::Document::DocumentableType }
 
       # @!attribute file
       #
-      #   @return [ModernTreasury::Document::File]
+      #   @return [ModernTreasury::Models::Document::File]
       required :file, -> { ModernTreasury::Document::File }
 
       # @!attribute live_mode
@@ -74,8 +74,8 @@ module ModernTreasury
       required :updated_at, Time
 
       # @!method initialize(id:, created_at:, discarded_at:, document_details:, document_type:, documentable_id:, documentable_type:, file:, live_mode:, object:, source:, updated_at:)
-      #   Some parameter documentations has been truncated, see {ModernTreasury::Document}
-      #   for more details.
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::Document} for more details.
       #
       #   @param id [String]
       #
@@ -83,15 +83,15 @@ module ModernTreasury
       #
       #   @param discarded_at [Time, nil]
       #
-      #   @param document_details [Array<ModernTreasury::Document::DocumentDetail>]
+      #   @param document_details [Array<ModernTreasury::Models::Document::DocumentDetail>]
       #
       #   @param document_type [String, nil] A category given to the document, can be `null`.
       #
       #   @param documentable_id [String] The unique identifier for the associated object.
       #
-      #   @param documentable_type [Symbol, ModernTreasury::Document::DocumentableType] The type of the associated object. Currently can be one of `payment_order`, `tra
+      #   @param documentable_type [Symbol, ModernTreasury::Models::Document::DocumentableType] The type of the associated object. Currently can be one of `payment_order`, `tra
       #
-      #   @param file [ModernTreasury::Document::File]
+      #   @param file [ModernTreasury::Models::Document::File]
       #
       #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
       #
@@ -146,7 +146,7 @@ module ModernTreasury
 
         # @!method initialize(id:, created_at:, discarded_at:, document_identifier:, document_identifier_type:, live_mode:, object:, updated_at:)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Document::DocumentDetail} for more details.
+        #   {ModernTreasury::Models::Document::DocumentDetail} for more details.
         #
         #   @param id [String]
         #
@@ -169,7 +169,7 @@ module ModernTreasury
       # `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
       # `case`, `internal_account`, `decision`, or `external_account`.
       #
-      # @see ModernTreasury::Document#documentable_type
+      # @see ModernTreasury::Models::Document#documentable_type
       module DocumentableType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -190,7 +190,7 @@ module ModernTreasury
         #   @return [Array<Symbol>]
       end
 
-      # @see ModernTreasury::Document#file
+      # @see ModernTreasury::Models::Document#file
       class File < ModernTreasury::Internal::Type::BaseModel
         # @!attribute content_type
         #   The MIME content type of the document.

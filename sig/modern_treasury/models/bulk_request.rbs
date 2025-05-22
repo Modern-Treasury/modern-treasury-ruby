@@ -3,14 +3,14 @@ module ModernTreasury
     type bulk_request =
       {
         id: String,
-        action_type: ModernTreasury::BulkRequest::action_type,
+        action_type: ModernTreasury::Models::BulkRequest::action_type,
         created_at: Time,
         failed_result_count: Integer,
         live_mode: bool,
         metadata: ::Hash[Symbol, String],
         object: String,
-        resource_type: ModernTreasury::BulkRequest::resource_type,
-        status: ModernTreasury::BulkRequest::status,
+        resource_type: ModernTreasury::Models::BulkRequest::resource_type,
+        status: ModernTreasury::Models::BulkRequest::status,
         success_result_count: Integer,
         total_resource_count: Integer,
         updated_at: Time
@@ -19,7 +19,7 @@ module ModernTreasury
     class BulkRequest < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
-      attr_accessor action_type: ModernTreasury::BulkRequest::action_type
+      attr_accessor action_type: ModernTreasury::Models::BulkRequest::action_type
 
       attr_accessor created_at: Time
 
@@ -31,9 +31,9 @@ module ModernTreasury
 
       attr_accessor object: String
 
-      attr_accessor resource_type: ModernTreasury::BulkRequest::resource_type
+      attr_accessor resource_type: ModernTreasury::Models::BulkRequest::resource_type
 
-      attr_accessor status: ModernTreasury::BulkRequest::status
+      attr_accessor status: ModernTreasury::Models::BulkRequest::status
 
       attr_accessor success_result_count: Integer
 
@@ -43,18 +43,33 @@ module ModernTreasury
 
       def initialize: (
         id: String,
-        action_type: ModernTreasury::BulkRequest::action_type,
+        action_type: ModernTreasury::Models::BulkRequest::action_type,
         created_at: Time,
         failed_result_count: Integer,
         live_mode: bool,
         metadata: ::Hash[Symbol, String],
         object: String,
-        resource_type: ModernTreasury::BulkRequest::resource_type,
-        status: ModernTreasury::BulkRequest::status,
+        resource_type: ModernTreasury::Models::BulkRequest::resource_type,
+        status: ModernTreasury::Models::BulkRequest::status,
         success_result_count: Integer,
         total_resource_count: Integer,
         updated_at: Time
       ) -> void
+
+      def to_hash: -> {
+        id: String,
+        action_type: ModernTreasury::Models::BulkRequest::action_type,
+        created_at: Time,
+        failed_result_count: Integer,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String],
+        object: String,
+        resource_type: ModernTreasury::Models::BulkRequest::resource_type,
+        status: ModernTreasury::Models::BulkRequest::status,
+        success_result_count: Integer,
+        total_resource_count: Integer,
+        updated_at: Time
+      }
 
       type action_type = :create | :update | :delete
 
@@ -65,7 +80,7 @@ module ModernTreasury
         UPDATE: :update
         DELETE: :delete
 
-        def self?.values: -> ::Array[ModernTreasury::BulkRequest::action_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::BulkRequest::action_type]
       end
 
       type resource_type =
@@ -86,7 +101,7 @@ module ModernTreasury
         TRANSACTION: :transaction
         ENTITY_LINK: :entity_link
 
-        def self?.values: -> ::Array[ModernTreasury::BulkRequest::resource_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::BulkRequest::resource_type]
       end
 
       type status = :pending | :processing | :completed
@@ -98,7 +113,7 @@ module ModernTreasury
         PROCESSING: :processing
         COMPLETED: :completed
 
-        def self?.values: -> ::Array[ModernTreasury::BulkRequest::status]
+        def self?.values: -> ::Array[ModernTreasury::Models::BulkRequest::status]
       end
     end
   end

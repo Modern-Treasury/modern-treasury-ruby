@@ -10,11 +10,11 @@ module ModernTreasury
       #
       # @overload create(ledger_transaction_template:, name:, conditions: nil, description: nil, ledger_id: nil, metadata: nil, variables: nil, request_options: {})
       #
-      # @param ledger_transaction_template [ModernTreasury::LedgerEventHandlerCreateParams::LedgerTransactionTemplate]
+      # @param ledger_transaction_template [ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate]
       #
       # @param name [String] Name of the ledger event handler.
       #
-      # @param conditions [ModernTreasury::LedgerEventHandlerCreateParams::Conditions, nil]
+      # @param conditions [ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions, nil]
       #
       # @param description [String, nil] An optional description.
       #
@@ -22,11 +22,11 @@ module ModernTreasury
       #
       # @param metadata [Hash{Symbol=>String}, nil] Additional data represented as key-value pairs. Both the key and value must be s
       #
-      # @param variables [Hash{Symbol=>ModernTreasury::LedgerEventHandlerVariable}, nil]
+      # @param variables [Hash{Symbol=>ModernTreasury::Models::LedgerEventHandlerVariable}, nil]
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::LedgerEventHandler]
+      # @return [ModernTreasury::Models::LedgerEventHandler]
       #
       # @see ModernTreasury::Models::LedgerEventHandlerCreateParams
       def create(params)
@@ -48,7 +48,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::LedgerEventHandler]
+      # @return [ModernTreasury::Models::LedgerEventHandler]
       #
       # @see ModernTreasury::Models::LedgerEventHandlerRetrieveParams
       def retrieve(id, params = {})
@@ -79,7 +79,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::LedgerEventHandler>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::LedgerEventHandler>]
       #
       # @see ModernTreasury::Models::LedgerEventHandlerListParams
       def list(params = {})
@@ -102,7 +102,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::LedgerEventHandler]
+      # @return [ModernTreasury::Models::LedgerEventHandler]
       #
       # @see ModernTreasury::Models::LedgerEventHandlerDeleteParams
       def delete(id, params = {})

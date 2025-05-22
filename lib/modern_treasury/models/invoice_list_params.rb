@@ -65,7 +65,7 @@ module ModernTreasury
 
       # @!attribute status
       #
-      #   @return [Symbol, ModernTreasury::InvoiceListParams::Status, nil]
+      #   @return [Symbol, ModernTreasury::Models::InvoiceListParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::InvoiceListParams::Status }
 
       # @!method initialize(after_cursor: nil, counterparty_id: nil, due_date_end: nil, due_date_start: nil, expected_payment_id: nil, metadata: nil, number: nil, originating_account_id: nil, payment_order_id: nil, per_page: nil, status: nil, request_options: {})
@@ -92,7 +92,7 @@ module ModernTreasury
       #
       #   @param per_page [Integer]
       #
-      #   @param status [Symbol, ModernTreasury::InvoiceListParams::Status]
+      #   @param status [Symbol, ModernTreasury::Models::InvoiceListParams::Status]
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 

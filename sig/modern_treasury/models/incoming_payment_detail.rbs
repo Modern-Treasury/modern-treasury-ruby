@@ -15,13 +15,13 @@ module ModernTreasury
         metadata: ::Hash[Symbol, String],
         object: String,
         originating_account_number_safe: String?,
-        originating_account_number_type: ModernTreasury::IncomingPaymentDetail::originating_account_number_type?,
+        originating_account_number_type: ModernTreasury::Models::IncomingPaymentDetail::originating_account_number_type?,
         originating_routing_number: String?,
-        originating_routing_number_type: ModernTreasury::IncomingPaymentDetail::originating_routing_number_type?,
-        status: ModernTreasury::IncomingPaymentDetail::status,
+        originating_routing_number_type: ModernTreasury::Models::IncomingPaymentDetail::originating_routing_number_type?,
+        status: ModernTreasury::Models::IncomingPaymentDetail::status,
         transaction_id: String?,
         transaction_line_item_id: String?,
-        type: ModernTreasury::IncomingPaymentDetail::type_,
+        type: ModernTreasury::Models::IncomingPaymentDetail::type_,
         updated_at: Time,
         vendor_id: String?,
         virtual_account: ModernTreasury::VirtualAccount?,
@@ -56,19 +56,19 @@ module ModernTreasury
 
       attr_accessor originating_account_number_safe: String?
 
-      attr_accessor originating_account_number_type: ModernTreasury::IncomingPaymentDetail::originating_account_number_type?
+      attr_accessor originating_account_number_type: ModernTreasury::Models::IncomingPaymentDetail::originating_account_number_type?
 
       attr_accessor originating_routing_number: String?
 
-      attr_accessor originating_routing_number_type: ModernTreasury::IncomingPaymentDetail::originating_routing_number_type?
+      attr_accessor originating_routing_number_type: ModernTreasury::Models::IncomingPaymentDetail::originating_routing_number_type?
 
-      attr_accessor status: ModernTreasury::IncomingPaymentDetail::status
+      attr_accessor status: ModernTreasury::Models::IncomingPaymentDetail::status
 
       attr_accessor transaction_id: String?
 
       attr_accessor transaction_line_item_id: String?
 
-      attr_accessor type: ModernTreasury::IncomingPaymentDetail::type_
+      attr_accessor type: ModernTreasury::Models::IncomingPaymentDetail::type_
 
       attr_accessor updated_at: Time
 
@@ -94,19 +94,47 @@ module ModernTreasury
         metadata: ::Hash[Symbol, String],
         object: String,
         originating_account_number_safe: String?,
-        originating_account_number_type: ModernTreasury::IncomingPaymentDetail::originating_account_number_type?,
+        originating_account_number_type: ModernTreasury::Models::IncomingPaymentDetail::originating_account_number_type?,
         originating_routing_number: String?,
-        originating_routing_number_type: ModernTreasury::IncomingPaymentDetail::originating_routing_number_type?,
-        status: ModernTreasury::IncomingPaymentDetail::status,
+        originating_routing_number_type: ModernTreasury::Models::IncomingPaymentDetail::originating_routing_number_type?,
+        status: ModernTreasury::Models::IncomingPaymentDetail::status,
         transaction_id: String?,
         transaction_line_item_id: String?,
-        type: ModernTreasury::IncomingPaymentDetail::type_,
+        type: ModernTreasury::Models::IncomingPaymentDetail::type_,
         updated_at: Time,
         vendor_id: String?,
         virtual_account: ModernTreasury::VirtualAccount?,
         virtual_account_id: String?,
         ?originating_account_number: String?
       ) -> void
+
+      def to_hash: -> {
+        id: String,
+        amount: Integer,
+        as_of_date: Date,
+        created_at: Time,
+        currency: ModernTreasury::Models::currency,
+        data: ::Hash[Symbol, top],
+        direction: ModernTreasury::Models::transaction_direction,
+        internal_account_id: String,
+        ledger_transaction_id: String?,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String],
+        object: String,
+        originating_account_number_safe: String?,
+        originating_account_number_type: ModernTreasury::Models::IncomingPaymentDetail::originating_account_number_type?,
+        originating_routing_number: String?,
+        originating_routing_number_type: ModernTreasury::Models::IncomingPaymentDetail::originating_routing_number_type?,
+        status: ModernTreasury::Models::IncomingPaymentDetail::status,
+        transaction_id: String?,
+        transaction_line_item_id: String?,
+        type: ModernTreasury::Models::IncomingPaymentDetail::type_,
+        updated_at: Time,
+        vendor_id: String?,
+        virtual_account: ModernTreasury::VirtualAccount?,
+        virtual_account_id: String?,
+        originating_account_number: String?
+      }
 
       type originating_account_number_type =
         :au_number
@@ -134,7 +162,7 @@ module ModernTreasury
         SG_NUMBER: :sg_number
         WALLET_ADDRESS: :wallet_address
 
-        def self?.values: -> ::Array[ModernTreasury::IncomingPaymentDetail::originating_account_number_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::IncomingPaymentDetail::originating_account_number_type]
       end
 
       type originating_routing_number_type =
@@ -185,7 +213,7 @@ module ModernTreasury
         SWIFT: :swift
         ZA_NATIONAL_CLEARING_CODE: :za_national_clearing_code
 
-        def self?.values: -> ::Array[ModernTreasury::IncomingPaymentDetail::originating_routing_number_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::IncomingPaymentDetail::originating_routing_number_type]
       end
 
       type status = :completed | :pending | :returned
@@ -197,7 +225,7 @@ module ModernTreasury
         PENDING: :pending
         RETURNED: :returned
 
-        def self?.values: -> ::Array[ModernTreasury::IncomingPaymentDetail::status]
+        def self?.values: -> ::Array[ModernTreasury::Models::IncomingPaymentDetail::status]
       end
 
       type type_ =
@@ -232,7 +260,7 @@ module ModernTreasury
         SIGNET: :signet
         WIRE: :wire
 
-        def self?.values: -> ::Array[ModernTreasury::IncomingPaymentDetail::type_]
+        def self?.values: -> ::Array[ModernTreasury::Models::IncomingPaymentDetail::type_]
       end
     end
   end

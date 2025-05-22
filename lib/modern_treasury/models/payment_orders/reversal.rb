@@ -49,13 +49,13 @@ module ModernTreasury
         # @!attribute reason
         #   The reason for the reversal.
         #
-        #   @return [Symbol, ModernTreasury::PaymentOrders::Reversal::Reason]
+        #   @return [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Reason]
         required :reason, enum: -> { ModernTreasury::PaymentOrders::Reversal::Reason }
 
         # @!attribute status
         #   The current status of the reversal.
         #
-        #   @return [Symbol, ModernTreasury::PaymentOrders::Reversal::Status]
+        #   @return [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Status]
         required :status, enum: -> { ModernTreasury::PaymentOrders::Reversal::Status }
 
         # @!attribute transaction_ids
@@ -71,7 +71,7 @@ module ModernTreasury
 
         # @!method initialize(id:, created_at:, ledger_transaction_id:, live_mode:, metadata:, object:, payment_order_id:, reason:, status:, transaction_ids:, updated_at:)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::PaymentOrders::Reversal} for more details.
+        #   {ModernTreasury::Models::PaymentOrders::Reversal} for more details.
         #
         #   @param id [String]
         #
@@ -87,9 +87,9 @@ module ModernTreasury
         #
         #   @param payment_order_id [String, nil] The ID of the relevant Payment Order.
         #
-        #   @param reason [Symbol, ModernTreasury::PaymentOrders::Reversal::Reason] The reason for the reversal.
+        #   @param reason [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Reason] The reason for the reversal.
         #
-        #   @param status [Symbol, ModernTreasury::PaymentOrders::Reversal::Status] The current status of the reversal.
+        #   @param status [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Status] The current status of the reversal.
         #
         #   @param transaction_ids [Array<Object, nil>]
         #
@@ -97,7 +97,7 @@ module ModernTreasury
 
         # The reason for the reversal.
         #
-        # @see ModernTreasury::PaymentOrders::Reversal#reason
+        # @see ModernTreasury::Models::PaymentOrders::Reversal#reason
         module Reason
           extend ModernTreasury::Internal::Type::Enum
 
@@ -113,7 +113,7 @@ module ModernTreasury
 
         # The current status of the reversal.
         #
-        # @see ModernTreasury::PaymentOrders::Reversal#status
+        # @see ModernTreasury::Models::PaymentOrders::Reversal#status
         module Status
           extend ModernTreasury::Internal::Type::Enum
 

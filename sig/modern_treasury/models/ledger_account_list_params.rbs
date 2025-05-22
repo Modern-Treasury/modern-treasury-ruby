@@ -103,6 +103,24 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
+      def to_hash: -> {
+        id: ::Array[String],
+        after_cursor: String?,
+        available_balance_amount: ModernTreasury::LedgerAccountListParams::AvailableBalanceAmount,
+        balances: ModernTreasury::LedgerAccountListParams::Balances,
+        created_at: ::Hash[Symbol, Time],
+        currency: String,
+        ledger_account_category_id: String,
+        ledger_id: String,
+        metadata: ::Hash[Symbol, String],
+        name: ::Array[String],
+        pending_balance_amount: ModernTreasury::LedgerAccountListParams::PendingBalanceAmount,
+        per_page: Integer,
+        posted_balance_amount: ModernTreasury::LedgerAccountListParams::PostedBalanceAmount,
+        updated_at: ::Hash[Symbol, Time],
+        request_options: ModernTreasury::RequestOptions
+      }
+
       type available_balance_amount =
         {
           eq: Integer,
@@ -146,6 +164,15 @@ module ModernTreasury
           ?lte: Integer,
           ?not_eq: Integer
         ) -> void
+
+        def to_hash: -> {
+          eq: Integer,
+          gt: Integer,
+          gte: Integer,
+          lt: Integer,
+          lte: Integer,
+          not_eq: Integer
+        }
       end
 
       type balances =
@@ -179,6 +206,13 @@ module ModernTreasury
           ?effective_at_lower_bound: Time,
           ?effective_at_upper_bound: Time
         ) -> void
+
+        def to_hash: -> {
+          as_of_date: Date,
+          effective_at: Time,
+          effective_at_lower_bound: Time,
+          effective_at_upper_bound: Time
+        }
       end
 
       type pending_balance_amount =
@@ -224,6 +258,15 @@ module ModernTreasury
           ?lte: Integer,
           ?not_eq: Integer
         ) -> void
+
+        def to_hash: -> {
+          eq: Integer,
+          gt: Integer,
+          gte: Integer,
+          lt: Integer,
+          lte: Integer,
+          not_eq: Integer
+        }
       end
 
       type posted_balance_amount =
@@ -269,6 +312,15 @@ module ModernTreasury
           ?lte: Integer,
           ?not_eq: Integer
         ) -> void
+
+        def to_hash: -> {
+          eq: Integer,
+          gt: Integer,
+          gte: Integer,
+          lt: Integer,
+          lte: Integer,
+          not_eq: Integer
+        }
       end
     end
   end

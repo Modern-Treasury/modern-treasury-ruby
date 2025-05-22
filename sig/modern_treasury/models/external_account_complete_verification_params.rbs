@@ -16,6 +16,11 @@ module ModernTreasury
         ?amounts: ::Array[Integer],
         ?request_options: ModernTreasury::request_opts
       ) -> void
+
+      def to_hash: -> {
+        amounts: ::Array[Integer],
+        request_options: ModernTreasury::RequestOptions
+      }
     end
   end
 end

@@ -43,6 +43,15 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
+      def to_hash: -> {
+        after_cursor: String?,
+        legal_entity_type: ModernTreasury::Models::LegalEntityListParams::legal_entity_type,
+        metadata: ::Hash[Symbol, String],
+        per_page: Integer,
+        show_deleted: String,
+        request_options: ModernTreasury::RequestOptions
+      }
+
       type legal_entity_type = :business | :individual
 
       module LegalEntityType

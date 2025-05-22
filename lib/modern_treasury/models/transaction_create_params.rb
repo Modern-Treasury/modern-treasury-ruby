@@ -65,7 +65,7 @@ module ModernTreasury
       #   The type of the transaction. Examples could be
       #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       #
-      #   @return [Symbol, ModernTreasury::TransactionCreateParams::Type, nil]
+      #   @return [Symbol, ModernTreasury::Models::TransactionCreateParams::Type, nil]
       optional :type, enum: -> { ModernTreasury::TransactionCreateParams::Type }, nil?: true
 
       # @!attribute vendor_description
@@ -95,7 +95,7 @@ module ModernTreasury
       #
       #   @param posted [Boolean] This field will be `true` if the transaction has posted to the account.
       #
-      #   @param type [Symbol, ModernTreasury::TransactionCreateParams::Type, nil] The type of the transaction. Examples could be `card, `ach`, `wire`, `check`, `r
+      #   @param type [Symbol, ModernTreasury::Models::TransactionCreateParams::Type, nil] The type of the transaction. Examples could be `card, `ach`, `wire`, `check`, `r
       #
       #   @param vendor_description [String, nil] The transaction detail text that often appears in on your bank statement and in
       #

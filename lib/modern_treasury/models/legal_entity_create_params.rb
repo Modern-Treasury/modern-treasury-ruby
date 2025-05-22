@@ -10,13 +10,13 @@ module ModernTreasury
       # @!attribute legal_entity_type
       #   The type of legal entity.
       #
-      #   @return [Symbol, ModernTreasury::LegalEntityCreateParams::LegalEntityType]
+      #   @return [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityType]
       required :legal_entity_type, enum: -> { ModernTreasury::LegalEntityCreateParams::LegalEntityType }
 
       # @!attribute addresses
       #   A list of addresses for the entity.
       #
-      #   @return [Array<ModernTreasury::LegalEntityCreateParams::Address>, nil]
+      #   @return [Array<ModernTreasury::Models::LegalEntityCreateParams::Address>, nil]
       optional :addresses,
                -> {
                  ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityCreateParams::Address]
@@ -24,7 +24,7 @@ module ModernTreasury
 
       # @!attribute bank_settings
       #
-      #   @return [ModernTreasury::BankSettings, nil]
+      #   @return [ModernTreasury::Models::BankSettings, nil]
       optional :bank_settings, -> { ModernTreasury::BankSettings }, nil?: true
 
       # @!attribute business_name
@@ -41,7 +41,7 @@ module ModernTreasury
 
       # @!attribute compliance_details
       #
-      #   @return [ModernTreasury::LegalEntityComplianceDetail, nil]
+      #   @return [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
       optional :compliance_details, -> { ModernTreasury::LegalEntityComplianceDetail }, nil?: true
 
       # @!attribute date_formed
@@ -76,7 +76,7 @@ module ModernTreasury
       # @!attribute identifications
       #   A list of identifications for the legal entity.
       #
-      #   @return [Array<ModernTreasury::LegalEntityCreateParams::Identification>, nil]
+      #   @return [Array<ModernTreasury::Models::LegalEntityCreateParams::Identification>, nil]
       optional :identifications,
                -> {
                  ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityCreateParams::Identification]
@@ -85,7 +85,7 @@ module ModernTreasury
       # @!attribute industry_classifications
       #   A list of industry classifications for the legal entity.
       #
-      #   @return [Array<ModernTreasury::LegalEntityIndustryClassification>, nil]
+      #   @return [Array<ModernTreasury::Models::LegalEntityIndustryClassification>, nil]
       optional :industry_classifications,
                -> {
                  ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityIndustryClassification]
@@ -100,7 +100,7 @@ module ModernTreasury
       # @!attribute legal_entity_associations
       #   The legal entity associations and its child legal entities.
       #
-      #   @return [Array<ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation>, nil]
+      #   @return [Array<ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation>, nil]
       optional :legal_entity_associations,
                -> {
                  ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation]
@@ -110,7 +110,7 @@ module ModernTreasury
       # @!attribute legal_structure
       #   The business's legal structure.
       #
-      #   @return [Symbol, ModernTreasury::LegalEntityCreateParams::LegalStructure, nil]
+      #   @return [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalStructure, nil]
       optional :legal_structure,
                enum: -> { ModernTreasury::LegalEntityCreateParams::LegalStructure },
                nil?: true
@@ -130,7 +130,7 @@ module ModernTreasury
 
       # @!attribute phone_numbers
       #
-      #   @return [Array<ModernTreasury::LegalEntityCreateParams::PhoneNumber>, nil]
+      #   @return [Array<ModernTreasury::Models::LegalEntityCreateParams::PhoneNumber>, nil]
       optional :phone_numbers,
                -> {
                  ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityCreateParams::PhoneNumber]
@@ -157,7 +157,7 @@ module ModernTreasury
       # @!attribute risk_rating
       #   The risk rating of the legal entity. One of low, medium, high.
       #
-      #   @return [Symbol, ModernTreasury::LegalEntityCreateParams::RiskRating, nil]
+      #   @return [Symbol, ModernTreasury::Models::LegalEntityCreateParams::RiskRating, nil]
       optional :risk_rating, enum: -> { ModernTreasury::LegalEntityCreateParams::RiskRating }, nil?: true
 
       # @!attribute suffix
@@ -168,7 +168,7 @@ module ModernTreasury
 
       # @!attribute wealth_and_employment_details
       #
-      #   @return [ModernTreasury::WealthAndEmploymentDetails, nil]
+      #   @return [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
       optional :wealth_and_employment_details, -> { ModernTreasury::WealthAndEmploymentDetails }, nil?: true
 
       # @!attribute website
@@ -181,17 +181,17 @@ module ModernTreasury
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LegalEntityCreateParams} for more details.
       #
-      #   @param legal_entity_type [Symbol, ModernTreasury::LegalEntityCreateParams::LegalEntityType] The type of legal entity.
+      #   @param legal_entity_type [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityType] The type of legal entity.
       #
-      #   @param addresses [Array<ModernTreasury::LegalEntityCreateParams::Address>] A list of addresses for the entity.
+      #   @param addresses [Array<ModernTreasury::Models::LegalEntityCreateParams::Address>] A list of addresses for the entity.
       #
-      #   @param bank_settings [ModernTreasury::BankSettings, nil]
+      #   @param bank_settings [ModernTreasury::Models::BankSettings, nil]
       #
       #   @param business_name [String, nil] The business's legal business name.
       #
       #   @param citizenship_country [String, nil] The country of citizenship for an individual.
       #
-      #   @param compliance_details [ModernTreasury::LegalEntityComplianceDetail, nil]
+      #   @param compliance_details [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
       #
       #   @param date_formed [Date, nil] A business's formation date (YYYY-MM-DD).
       #
@@ -203,21 +203,21 @@ module ModernTreasury
       #
       #   @param first_name [String, nil] An individual's first name.
       #
-      #   @param identifications [Array<ModernTreasury::LegalEntityCreateParams::Identification>] A list of identifications for the legal entity.
+      #   @param identifications [Array<ModernTreasury::Models::LegalEntityCreateParams::Identification>] A list of identifications for the legal entity.
       #
-      #   @param industry_classifications [Array<ModernTreasury::LegalEntityIndustryClassification>] A list of industry classifications for the legal entity.
+      #   @param industry_classifications [Array<ModernTreasury::Models::LegalEntityIndustryClassification>] A list of industry classifications for the legal entity.
       #
       #   @param last_name [String, nil] An individual's last name.
       #
-      #   @param legal_entity_associations [Array<ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation>, nil] The legal entity associations and its child legal entities.
+      #   @param legal_entity_associations [Array<ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation>, nil] The legal entity associations and its child legal entities.
       #
-      #   @param legal_structure [Symbol, ModernTreasury::LegalEntityCreateParams::LegalStructure, nil] The business's legal structure.
+      #   @param legal_structure [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalStructure, nil] The business's legal structure.
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #
       #   @param middle_name [String, nil] An individual's middle name.
       #
-      #   @param phone_numbers [Array<ModernTreasury::LegalEntityCreateParams::PhoneNumber>]
+      #   @param phone_numbers [Array<ModernTreasury::Models::LegalEntityCreateParams::PhoneNumber>]
       #
       #   @param politically_exposed_person [Boolean, nil] Whether the individual is a politically exposed person.
       #
@@ -225,11 +225,11 @@ module ModernTreasury
       #
       #   @param prefix [String, nil] An individual's prefix.
       #
-      #   @param risk_rating [Symbol, ModernTreasury::LegalEntityCreateParams::RiskRating, nil] The risk rating of the legal entity. One of low, medium, high.
+      #   @param risk_rating [Symbol, ModernTreasury::Models::LegalEntityCreateParams::RiskRating, nil] The risk rating of the legal entity. One of low, medium, high.
       #
       #   @param suffix [String, nil] An individual's suffix.
       #
-      #   @param wealth_and_employment_details [ModernTreasury::WealthAndEmploymentDetails, nil]
+      #   @param wealth_and_employment_details [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
       #
       #   @param website [String, nil] The entity's primary website URL.
       #
@@ -279,7 +279,7 @@ module ModernTreasury
         # @!attribute address_types
         #   The types of this address.
         #
-        #   @return [Array<Symbol, ModernTreasury::LegalEntityCreateParams::Address::AddressType>, nil]
+        #   @return [Array<Symbol, ModernTreasury::Models::LegalEntityCreateParams::Address::AddressType>, nil]
         optional :address_types,
                  -> {
                    ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::LegalEntityCreateParams::Address::AddressType]
@@ -301,7 +301,7 @@ module ModernTreasury
         #
         #   @param region [String, nil] Region or State.
         #
-        #   @param address_types [Array<Symbol, ModernTreasury::LegalEntityCreateParams::Address::AddressType>] The types of this address.
+        #   @param address_types [Array<Symbol, ModernTreasury::Models::LegalEntityCreateParams::Address::AddressType>] The types of this address.
         #
         #   @param line2 [String, nil]
 
@@ -329,7 +329,7 @@ module ModernTreasury
         # @!attribute id_type
         #   The type of ID number.
         #
-        #   @return [Symbol, ModernTreasury::LegalEntityCreateParams::Identification::IDType]
+        #   @return [Symbol, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType]
         required :id_type, enum: -> { ModernTreasury::LegalEntityCreateParams::Identification::IDType }
 
         # @!attribute issuing_country
@@ -341,17 +341,18 @@ module ModernTreasury
 
         # @!method initialize(id_number:, id_type:, issuing_country: nil)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::LegalEntityCreateParams::Identification} for more details.
+        #   {ModernTreasury::Models::LegalEntityCreateParams::Identification} for more
+        #   details.
         #
         #   @param id_number [String] The ID number of identification document.
         #
-        #   @param id_type [Symbol, ModernTreasury::LegalEntityCreateParams::Identification::IDType] The type of ID number.
+        #   @param id_type [Symbol, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType] The type of ID number.
         #
         #   @param issuing_country [String, nil] The ISO 3166-1 alpha-2 country code of the country that issued the identificatio
 
         # The type of ID number.
         #
-        # @see ModernTreasury::LegalEntityCreateParams::Identification#id_type
+        # @see ModernTreasury::Models::LegalEntityCreateParams::Identification#id_type
         module IDType
           extend ModernTreasury::Internal::Type::Enum
 
@@ -385,7 +386,7 @@ module ModernTreasury
       class LegalEntityAssociation < ModernTreasury::Internal::Type::BaseModel
         # @!attribute relationship_types
         #
-        #   @return [Array<Symbol, ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::RelationshipType>]
+        #   @return [Array<Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::RelationshipType>]
         required :relationship_types,
                  -> {
                    ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::RelationshipType]
@@ -394,7 +395,7 @@ module ModernTreasury
         # @!attribute child_legal_entity
         #   The child legal entity.
         #
-        #   @return [ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity, nil]
+        #   @return [ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity, nil]
         optional :child_legal_entity,
                  -> { ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity }
 
@@ -417,9 +418,9 @@ module ModernTreasury
         optional :title, String, nil?: true
 
         # @!method initialize(relationship_types:, child_legal_entity: nil, child_legal_entity_id: nil, ownership_percentage: nil, title: nil)
-        #   @param relationship_types [Array<Symbol, ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::RelationshipType>]
+        #   @param relationship_types [Array<Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::RelationshipType>]
         #
-        #   @param child_legal_entity [ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity] The child legal entity.
+        #   @param child_legal_entity [ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity] The child legal entity.
         #
         #   @param child_legal_entity_id [String] The ID of the child legal entity.
         #
@@ -438,12 +439,12 @@ module ModernTreasury
           #   @return [Array<Symbol>]
         end
 
-        # @see ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation#child_legal_entity
+        # @see ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation#child_legal_entity
         class ChildLegalEntity < ModernTreasury::Internal::Type::BaseModel
           # @!attribute addresses
           #   A list of addresses for the entity.
           #
-          #   @return [Array<ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Address>, nil]
+          #   @return [Array<ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Address>, nil]
           optional :addresses,
                    -> {
                      ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Address]
@@ -451,7 +452,7 @@ module ModernTreasury
 
           # @!attribute bank_settings
           #
-          #   @return [ModernTreasury::BankSettings, nil]
+          #   @return [ModernTreasury::Models::BankSettings, nil]
           optional :bank_settings, -> { ModernTreasury::BankSettings }, nil?: true
 
           # @!attribute business_name
@@ -468,7 +469,7 @@ module ModernTreasury
 
           # @!attribute compliance_details
           #
-          #   @return [ModernTreasury::LegalEntityComplianceDetail, nil]
+          #   @return [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
           optional :compliance_details, -> { ModernTreasury::LegalEntityComplianceDetail }, nil?: true
 
           # @!attribute date_formed
@@ -503,7 +504,7 @@ module ModernTreasury
           # @!attribute identifications
           #   A list of identifications for the legal entity.
           #
-          #   @return [Array<ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification>, nil]
+          #   @return [Array<ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification>, nil]
           optional :identifications,
                    -> {
                      ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification]
@@ -512,7 +513,7 @@ module ModernTreasury
           # @!attribute industry_classifications
           #   A list of industry classifications for the legal entity.
           #
-          #   @return [Array<ModernTreasury::LegalEntityIndustryClassification>, nil]
+          #   @return [Array<ModernTreasury::Models::LegalEntityIndustryClassification>, nil]
           optional :industry_classifications,
                    -> {
                      ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityIndustryClassification]
@@ -527,7 +528,7 @@ module ModernTreasury
           # @!attribute legal_entity_type
           #   The type of legal entity.
           #
-          #   @return [Symbol, ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalEntityType, nil]
+          #   @return [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalEntityType, nil]
           optional :legal_entity_type,
                    enum: -> {
                      ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalEntityType
@@ -536,7 +537,7 @@ module ModernTreasury
           # @!attribute legal_structure
           #   The business's legal structure.
           #
-          #   @return [Symbol, ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalStructure, nil]
+          #   @return [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalStructure, nil]
           optional :legal_structure,
                    enum: -> {
                      ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalStructure
@@ -558,7 +559,7 @@ module ModernTreasury
 
           # @!attribute phone_numbers
           #
-          #   @return [Array<ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::PhoneNumber>, nil]
+          #   @return [Array<ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::PhoneNumber>, nil]
           optional :phone_numbers,
                    -> {
                      ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::PhoneNumber]
@@ -585,7 +586,7 @@ module ModernTreasury
           # @!attribute risk_rating
           #   The risk rating of the legal entity. One of low, medium, high.
           #
-          #   @return [Symbol, ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::RiskRating, nil]
+          #   @return [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::RiskRating, nil]
           optional :risk_rating,
                    enum: -> {
                      ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::RiskRating
@@ -600,7 +601,7 @@ module ModernTreasury
 
           # @!attribute wealth_and_employment_details
           #
-          #   @return [ModernTreasury::WealthAndEmploymentDetails, nil]
+          #   @return [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
           optional :wealth_and_employment_details,
                    -> {
                      ModernTreasury::WealthAndEmploymentDetails
@@ -615,20 +616,20 @@ module ModernTreasury
 
           # @!method initialize(addresses: nil, bank_settings: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, first_name: nil, identifications: nil, industry_classifications: nil, last_name: nil, legal_entity_type: nil, legal_structure: nil, metadata: nil, middle_name: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, risk_rating: nil, suffix: nil, wealth_and_employment_details: nil, website: nil)
           #   Some parameter documentations has been truncated, see
-          #   {ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity}
+          #   {ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity}
           #   for more details.
           #
           #   The child legal entity.
           #
-          #   @param addresses [Array<ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Address>] A list of addresses for the entity.
+          #   @param addresses [Array<ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Address>] A list of addresses for the entity.
           #
-          #   @param bank_settings [ModernTreasury::BankSettings, nil]
+          #   @param bank_settings [ModernTreasury::Models::BankSettings, nil]
           #
           #   @param business_name [String, nil] The business's legal business name.
           #
           #   @param citizenship_country [String, nil] The country of citizenship for an individual.
           #
-          #   @param compliance_details [ModernTreasury::LegalEntityComplianceDetail, nil]
+          #   @param compliance_details [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
           #
           #   @param date_formed [Date, nil] A business's formation date (YYYY-MM-DD).
           #
@@ -640,21 +641,21 @@ module ModernTreasury
           #
           #   @param first_name [String, nil] An individual's first name.
           #
-          #   @param identifications [Array<ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification>] A list of identifications for the legal entity.
+          #   @param identifications [Array<ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification>] A list of identifications for the legal entity.
           #
-          #   @param industry_classifications [Array<ModernTreasury::LegalEntityIndustryClassification>] A list of industry classifications for the legal entity.
+          #   @param industry_classifications [Array<ModernTreasury::Models::LegalEntityIndustryClassification>] A list of industry classifications for the legal entity.
           #
           #   @param last_name [String, nil] An individual's last name.
           #
-          #   @param legal_entity_type [Symbol, ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalEntityType] The type of legal entity.
+          #   @param legal_entity_type [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalEntityType] The type of legal entity.
           #
-          #   @param legal_structure [Symbol, ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalStructure, nil] The business's legal structure.
+          #   @param legal_structure [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalStructure, nil] The business's legal structure.
           #
           #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
           #
           #   @param middle_name [String, nil] An individual's middle name.
           #
-          #   @param phone_numbers [Array<ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::PhoneNumber>]
+          #   @param phone_numbers [Array<ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::PhoneNumber>]
           #
           #   @param politically_exposed_person [Boolean, nil] Whether the individual is a politically exposed person.
           #
@@ -662,11 +663,11 @@ module ModernTreasury
           #
           #   @param prefix [String, nil] An individual's prefix.
           #
-          #   @param risk_rating [Symbol, ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::RiskRating, nil] The risk rating of the legal entity. One of low, medium, high.
+          #   @param risk_rating [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::RiskRating, nil] The risk rating of the legal entity. One of low, medium, high.
           #
           #   @param suffix [String, nil] An individual's suffix.
           #
-          #   @param wealth_and_employment_details [ModernTreasury::WealthAndEmploymentDetails, nil]
+          #   @param wealth_and_employment_details [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
           #
           #   @param website [String, nil] The entity's primary website URL.
 
@@ -703,7 +704,7 @@ module ModernTreasury
             # @!attribute address_types
             #   The types of this address.
             #
-            #   @return [Array<Symbol, ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Address::AddressType>, nil]
+            #   @return [Array<Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Address::AddressType>, nil]
             optional :address_types,
                      -> do
                        ModernTreasury::Internal::Type::ArrayOf[
@@ -727,7 +728,7 @@ module ModernTreasury
             #
             #   @param region [String, nil] Region or State.
             #
-            #   @param address_types [Array<Symbol, ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Address::AddressType>] The types of this address.
+            #   @param address_types [Array<Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Address::AddressType>] The types of this address.
             #
             #   @param line2 [String, nil]
 
@@ -755,7 +756,7 @@ module ModernTreasury
             # @!attribute id_type
             #   The type of ID number.
             #
-            #   @return [Symbol, ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType]
+            #   @return [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType]
             required :id_type,
                      enum: -> {
                        ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType
@@ -770,18 +771,18 @@ module ModernTreasury
 
             # @!method initialize(id_number:, id_type:, issuing_country: nil)
             #   Some parameter documentations has been truncated, see
-            #   {ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification}
+            #   {ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification}
             #   for more details.
             #
             #   @param id_number [String] The ID number of identification document.
             #
-            #   @param id_type [Symbol, ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType] The type of ID number.
+            #   @param id_type [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType] The type of ID number.
             #
             #   @param issuing_country [String, nil] The ISO 3166-1 alpha-2 country code of the country that issued the identificatio
 
             # The type of ID number.
             #
-            # @see ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification#id_type
+            # @see ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification#id_type
             module IDType
               extend ModernTreasury::Internal::Type::Enum
 
@@ -814,7 +815,7 @@ module ModernTreasury
 
           # The type of legal entity.
           #
-          # @see ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity#legal_entity_type
+          # @see ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity#legal_entity_type
           module LegalEntityType
             extend ModernTreasury::Internal::Type::Enum
 
@@ -827,7 +828,7 @@ module ModernTreasury
 
           # The business's legal structure.
           #
-          # @see ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity#legal_structure
+          # @see ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity#legal_structure
           module LegalStructure
             extend ModernTreasury::Internal::Type::Enum
 
@@ -856,7 +857,7 @@ module ModernTreasury
 
           # The risk rating of the legal entity. One of low, medium, high.
           #
-          # @see ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity#risk_rating
+          # @see ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity#risk_rating
           module RiskRating
             extend ModernTreasury::Internal::Type::Enum
 

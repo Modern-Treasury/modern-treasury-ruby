@@ -40,6 +40,15 @@ module ModernTreasury
         ?per_page: Integer,
         ?request_options: ModernTreasury::request_opts
       ) -> void
+
+      def to_hash: -> {
+        after_cursor: String?,
+        created_at: ::Hash[Symbol, Time],
+        metadata: ::Hash[Symbol, String],
+        name: String,
+        per_page: Integer,
+        request_options: ModernTreasury::RequestOptions
+      }
     end
   end
 end

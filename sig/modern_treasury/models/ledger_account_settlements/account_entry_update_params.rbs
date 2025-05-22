@@ -15,6 +15,11 @@ module ModernTreasury
           ledger_entry_ids: ::Array[String]?,
           ?request_options: ModernTreasury::request_opts
         ) -> void
+
+        def to_hash: -> {
+          ledger_entry_ids: ::Array[String]?,
+          request_options: ModernTreasury::RequestOptions
+        }
       end
     end
   end

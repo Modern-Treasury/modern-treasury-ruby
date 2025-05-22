@@ -4,7 +4,7 @@ module ModernTreasury
       {
         direction: ModernTreasury::Models::transaction_direction,
         custom_redirect: String,
-        fields: ::Array[ModernTreasury::CounterpartyCollectAccountParams::field],
+        fields: ::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field],
         send_email: bool
       }
       & ModernTreasury::Internal::Type::request_parameters
@@ -19,11 +19,11 @@ module ModernTreasury
 
       def custom_redirect=: (String) -> String
 
-      attr_reader fields: ::Array[ModernTreasury::CounterpartyCollectAccountParams::field]?
+      attr_reader fields: ::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field]?
 
       def fields=: (
-        ::Array[ModernTreasury::CounterpartyCollectAccountParams::field]
-      ) -> ::Array[ModernTreasury::CounterpartyCollectAccountParams::field]
+        ::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field]
+      ) -> ::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field]
 
       attr_reader send_email: bool?
 
@@ -32,10 +32,18 @@ module ModernTreasury
       def initialize: (
         direction: ModernTreasury::Models::transaction_direction,
         ?custom_redirect: String,
-        ?fields: ::Array[ModernTreasury::CounterpartyCollectAccountParams::field],
+        ?fields: ::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field],
         ?send_email: bool,
         ?request_options: ModernTreasury::request_opts
       ) -> void
+
+      def to_hash: -> {
+        direction: ModernTreasury::Models::transaction_direction,
+        custom_redirect: String,
+        fields: ::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field],
+        send_email: bool,
+        request_options: ModernTreasury::RequestOptions
+      }
 
       type field =
         :name
@@ -101,7 +109,7 @@ module ModernTreasury
         ID_SKNBI_CODE: :idSknbiCode
         ZA_NATIONAL_CLEARING_CODE: :zaNationalClearingCode
 
-        def self?.values: -> ::Array[ModernTreasury::CounterpartyCollectAccountParams::field]
+        def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field]
       end
     end
   end

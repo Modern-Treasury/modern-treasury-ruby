@@ -9,13 +9,13 @@ module ModernTreasury
       #
       # @param connection_id [String] The ID of the connection.
       #
-      # @param legal_entity [ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity] The legal entity.
+      # @param legal_entity [ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity] The legal entity.
       #
       # @param legal_entity_id [String] The ID of the legal entity.
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::ConnectionLegalEntity]
+      # @return [ModernTreasury::Models::ConnectionLegalEntity]
       #
       # @see ModernTreasury::Models::ConnectionLegalEntityCreateParams
       def create(params)
@@ -37,7 +37,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::ConnectionLegalEntity]
+      # @return [ModernTreasury::Models::ConnectionLegalEntity]
       #
       # @see ModernTreasury::Models::ConnectionLegalEntityRetrieveParams
       def retrieve(id, params = {})
@@ -55,11 +55,11 @@ module ModernTreasury
       #
       # @param id [String] The id of an existing connection legal entity.
       #
-      # @param status [Symbol, ModernTreasury::ConnectionLegalEntityUpdateParams::Status] The status of the connection legal entity.
+      # @param status [Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status] The status of the connection legal entity.
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::ConnectionLegalEntity]
+      # @return [ModernTreasury::Models::ConnectionLegalEntity]
       #
       # @see ModernTreasury::Models::ConnectionLegalEntityUpdateParams
       def update(id, params = {})
@@ -81,10 +81,10 @@ module ModernTreasury
       # @param connection_id [String]
       # @param legal_entity_id [String]
       # @param per_page [Integer]
-      # @param status [Symbol, ModernTreasury::ConnectionLegalEntityListParams::Status]
+      # @param status [Symbol, ModernTreasury::Models::ConnectionLegalEntityListParams::Status]
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::ConnectionLegalEntity>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::ConnectionLegalEntity>]
       #
       # @see ModernTreasury::Models::ConnectionLegalEntityListParams
       def list(params = {})

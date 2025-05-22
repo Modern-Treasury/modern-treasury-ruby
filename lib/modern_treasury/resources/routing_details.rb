@@ -12,17 +12,17 @@ module ModernTreasury
       #
       # @param account_id [String] Path param: The ID of the account.
       #
-      # @param accounts_type [Symbol, ModernTreasury::RoutingDetailCreateParams::AccountsType] Path param:
+      # @param accounts_type [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::AccountsType] Path param:
       #
       # @param routing_number [String] Body param: The routing number of the bank.
       #
-      # @param routing_number_type [Symbol, ModernTreasury::RoutingDetailCreateParams::RoutingNumberType] Body param: The type of routing number. See https://docs.moderntreasury.com/plat
+      # @param routing_number_type [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType] Body param: The type of routing number. See https://docs.moderntreasury.com/plat
       #
-      # @param payment_type [Symbol, ModernTreasury::RoutingDetailCreateParams::PaymentType, nil] Body param: If the routing detail is to be used for a specific payment type this
+      # @param payment_type [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::PaymentType, nil] Body param: If the routing detail is to be used for a specific payment type this
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::RoutingDetail]
+      # @return [ModernTreasury::Models::RoutingDetail]
       #
       # @see ModernTreasury::Models::RoutingDetailCreateParams
       def create(account_id, params)
@@ -46,13 +46,13 @@ module ModernTreasury
       #
       # @param id [String] The ID of the routing detail.
       #
-      # @param accounts_type [Symbol, ModernTreasury::AccountsType]
+      # @param accounts_type [Symbol, ModernTreasury::Models::AccountsType]
       #
       # @param account_id [String] The ID of the account.
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::RoutingDetail]
+      # @return [ModernTreasury::Models::RoutingDetail]
       #
       # @see ModernTreasury::Models::RoutingDetailRetrieveParams
       def retrieve(id, params)
@@ -79,7 +79,7 @@ module ModernTreasury
       #
       # @param account_id [String] Path param: The ID of the account.
       #
-      # @param accounts_type [Symbol, ModernTreasury::AccountsType] Path param:
+      # @param accounts_type [Symbol, ModernTreasury::Models::AccountsType] Path param:
       #
       # @param after_cursor [String, nil] Query param:
       #
@@ -87,7 +87,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::RoutingDetail>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::RoutingDetail>]
       #
       # @see ModernTreasury::Models::RoutingDetailListParams
       def list(account_id, params)
@@ -112,7 +112,7 @@ module ModernTreasury
       #
       # @param id [String] The ID of the routing detail.
       #
-      # @param accounts_type [Symbol, ModernTreasury::RoutingDetailDeleteParams::AccountsType]
+      # @param accounts_type [Symbol, ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType]
       #
       # @param account_id [String] The ID of the account.
       #

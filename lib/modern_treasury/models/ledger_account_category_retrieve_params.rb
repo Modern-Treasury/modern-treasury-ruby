@@ -12,14 +12,14 @@ module ModernTreasury
       #   encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
       #   The balances as of a time are inclusive of entries with that exact time.
       #
-      #   @return [ModernTreasury::LedgerAccountCategoryRetrieveParams::Balances, nil]
+      #   @return [ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances, nil]
       optional :balances, -> { ModernTreasury::LedgerAccountCategoryRetrieveParams::Balances }
 
       # @!method initialize(balances: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LedgerAccountCategoryRetrieveParams} for more details.
       #
-      #   @param balances [ModernTreasury::LedgerAccountCategoryRetrieveParams::Balances] For example, if you want the balances as of a particular time (ISO8601), the enc
+      #   @param balances [ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances] For example, if you want the balances as of a particular time (ISO8601), the enc
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 

@@ -30,7 +30,7 @@ module ModernTreasury
       # @!attribute currency
       #   Must conform to ISO 4217. Defaults to the currency of the internal account.
       #
-      #   @return [Symbol, ModernTreasury::Currency, nil]
+      #   @return [Symbol, ModernTreasury::Models::Currency, nil]
       optional :currency, enum: -> { ModernTreasury::Currency }, nil?: true
 
       # @!attribute date_lower_bound
@@ -55,7 +55,7 @@ module ModernTreasury
       #   One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
       #
-      #   @return [Symbol, ModernTreasury::ExpectedPaymentCreateParams::Direction, nil]
+      #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::Direction, nil]
       optional :direction, enum: -> { ModernTreasury::ExpectedPaymentCreateParams::Direction }, nil?: true
 
       # @!attribute internal_account_id
@@ -70,7 +70,7 @@ module ModernTreasury
       #   creation will fail. The resulting ledger transaction will mirror the status of
       #   the expected payment.
       #
-      #   @return [ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction, nil]
+      #   @return [ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction, nil]
       optional :ledger_transaction, -> { ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction }
 
       # @!attribute ledger_transaction_id
@@ -84,7 +84,7 @@ module ModernTreasury
 
       # @!attribute line_items
       #
-      #   @return [Array<ModernTreasury::ExpectedPaymentCreateParams::LineItem>, nil]
+      #   @return [Array<ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem>, nil]
       optional :line_items,
                -> {
                  ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ExpectedPaymentCreateParams::LineItem]
@@ -112,7 +112,7 @@ module ModernTreasury
       # @!attribute reconciliation_rule_variables
       #   An array of reconciliation rule variables for this payment.
       #
-      #   @return [Array<ModernTreasury::ReconciliationRule>, nil]
+      #   @return [Array<ModernTreasury::Models::ReconciliationRule>, nil]
       optional :reconciliation_rule_variables,
                -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ReconciliationRule] },
                nil?: true
@@ -138,7 +138,7 @@ module ModernTreasury
       #   One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
       #   sepa, signet, wire.
       #
-      #   @return [Symbol, ModernTreasury::ExpectedPaymentType, nil]
+      #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil]
       optional :type, enum: -> { ModernTreasury::ExpectedPaymentType }, nil?: true
 
       # @!method initialize(amount_lower_bound: nil, amount_upper_bound: nil, counterparty_id: nil, currency: nil, date_lower_bound: nil, date_upper_bound: nil, description: nil, direction: nil, internal_account_id: nil, ledger_transaction: nil, ledger_transaction_id: nil, line_items: nil, metadata: nil, reconciliation_filters: nil, reconciliation_groups: nil, reconciliation_rule_variables: nil, remittance_information: nil, statement_descriptor: nil, type: nil, request_options: {})
@@ -151,7 +151,7 @@ module ModernTreasury
       #
       #   @param counterparty_id [String, nil] The ID of the counterparty you expect for this payment.
       #
-      #   @param currency [Symbol, ModernTreasury::Currency, nil] Must conform to ISO 4217. Defaults to the currency of the internal account.
+      #   @param currency [Symbol, ModernTreasury::Models::Currency, nil] Must conform to ISO 4217. Defaults to the currency of the internal account.
       #
       #   @param date_lower_bound [Date, nil] The earliest date the payment may come in. Format: yyyy-mm-dd
       #
@@ -159,15 +159,15 @@ module ModernTreasury
       #
       #   @param description [String, nil] An optional description for internal use.
       #
-      #   @param direction [Symbol, ModernTreasury::ExpectedPaymentCreateParams::Direction, nil] One of credit or debit. When you are receiving money, use credit. When you are b
+      #   @param direction [Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::Direction, nil] One of credit or debit. When you are receiving money, use credit. When you are b
       #
       #   @param internal_account_id [String, nil] The ID of the Internal Account for the expected payment.
       #
-      #   @param ledger_transaction [ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction] Specifies a ledger transaction object that will be created with the expected pay
+      #   @param ledger_transaction [ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction] Specifies a ledger transaction object that will be created with the expected pay
       #
       #   @param ledger_transaction_id [String] Either ledger_transaction or ledger_transaction_id can be provided. Only a pendi
       #
-      #   @param line_items [Array<ModernTreasury::ExpectedPaymentCreateParams::LineItem>]
+      #   @param line_items [Array<ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem>]
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #
@@ -175,13 +175,13 @@ module ModernTreasury
       #
       #   @param reconciliation_groups [Object, nil] The reconciliation groups you have for this payment.
       #
-      #   @param reconciliation_rule_variables [Array<ModernTreasury::ReconciliationRule>, nil] An array of reconciliation rule variables for this payment.
+      #   @param reconciliation_rule_variables [Array<ModernTreasury::Models::ReconciliationRule>, nil] An array of reconciliation rule variables for this payment.
       #
       #   @param remittance_information [String, nil] For `ach`, this field will be passed through on an addenda record. For `wire` pa
       #
       #   @param statement_descriptor [String, nil] The statement description you expect to see on the transaction. For ACH payments
       #
-      #   @param type [Symbol, ModernTreasury::ExpectedPaymentType, nil] One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen, se
+      #   @param type [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil] One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen, se
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
@@ -201,7 +201,7 @@ module ModernTreasury
         # @!attribute ledger_entries
         #   An array of ledger entry objects.
         #
-        #   @return [Array<ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry>]
+        #   @return [Array<ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry>]
         required :ledger_entries,
                  -> {
                    ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry]
@@ -247,7 +247,7 @@ module ModernTreasury
         #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
         #   reversal.
         #
-        #   @return [Symbol, ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType, nil]
+        #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType, nil]
         optional :ledgerable_type,
                  enum: -> { ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType }
 
@@ -261,20 +261,20 @@ module ModernTreasury
         # @!attribute status
         #   To post a ledger transaction at creation, use `posted`.
         #
-        #   @return [Symbol, ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction::Status, nil]
+        #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status, nil]
         optional :status, enum: -> { ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction::Status }
 
         # @!method initialize(ledger_entries:, description: nil, effective_at: nil, effective_date: nil, external_id: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, status: nil)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction} for more
-        #   details.
+        #   {ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction} for
+        #   more details.
         #
         #   Specifies a ledger transaction object that will be created with the expected
         #   payment. If the ledger transaction cannot be created, then the expected payment
         #   creation will fail. The resulting ledger transaction will mirror the status of
         #   the expected payment.
         #
-        #   @param ledger_entries [Array<ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry>] An array of ledger entry objects.
+        #   @param ledger_entries [Array<ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry>] An array of ledger entry objects.
         #
         #   @param description [String, nil] An optional description for internal use.
         #
@@ -286,11 +286,11 @@ module ModernTreasury
         #
         #   @param ledgerable_id [String] If the ledger transaction can be reconciled to another object in Modern Treasury
         #
-        #   @param ledgerable_type [Symbol, ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType] If the ledger transaction can be reconciled to another object in Modern Treasury
+        #   @param ledgerable_type [Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType] If the ledger transaction can be reconciled to another object in Modern Treasury
         #
         #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
         #
-        #   @param status [Symbol, ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction::Status] To post a ledger transaction at creation, use `posted`.
+        #   @param status [Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status] To post a ledger transaction at creation, use `posted`.
 
         class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
           # @!attribute amount
@@ -306,7 +306,7 @@ module ModernTreasury
           #   `debit` pulls money from someone else's account to your own. Note that wire,
           #   rtp, and check payments will always be `credit`.
           #
-          #   @return [Symbol, ModernTreasury::TransactionDirection]
+          #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
           required :direction, enum: -> { ModernTreasury::TransactionDirection }
 
           # @!attribute ledger_account_id
@@ -366,12 +366,12 @@ module ModernTreasury
 
           # @!method initialize(amount:, direction:, ledger_account_id:, available_balance_amount: nil, lock_version: nil, metadata: nil, pending_balance_amount: nil, posted_balance_amount: nil, show_resulting_ledger_account_balances: nil)
           #   Some parameter documentations has been truncated, see
-          #   {ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry}
+          #   {ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry}
           #   for more details.
           #
           #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
           #
-          #   @param direction [Symbol, ModernTreasury::TransactionDirection] One of `credit`, `debit`. Describes the direction money is flowing in the transa
+          #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection] One of `credit`, `debit`. Describes the direction money is flowing in the transa
           #
           #   @param ledger_account_id [String] The ledger account that this ledger entry is associated with.
           #
@@ -393,7 +393,7 @@ module ModernTreasury
         # payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
         # reversal.
         #
-        # @see ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction#ledgerable_type
+        # @see ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction#ledgerable_type
         module LedgerableType
           extend ModernTreasury::Internal::Type::Enum
 
@@ -410,7 +410,7 @@ module ModernTreasury
 
         # To post a ledger transaction at creation, use `posted`.
         #
-        # @see ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction#status
+        # @see ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction#status
         module Status
           extend ModernTreasury::Internal::Type::Enum
 
@@ -453,7 +453,8 @@ module ModernTreasury
 
         # @!method initialize(amount:, accounting_category_id: nil, description: nil, metadata: nil)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::ExpectedPaymentCreateParams::LineItem} for more details.
+        #   {ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem} for more
+        #   details.
         #
         #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
         #

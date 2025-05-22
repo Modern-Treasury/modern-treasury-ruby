@@ -66,7 +66,7 @@ module ModernTreasury
 
       # @!method initialize(id:, created_at:, custom_data:, description:, ledger_event_handler_id:, live_mode:, metadata:, name:, object:, updated_at:)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::LedgerableEvent} for more details.
+      #   {ModernTreasury::Models::LedgerableEvent} for more details.
       #
       #   @param id [String]
       #

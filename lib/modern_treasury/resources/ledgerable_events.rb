@@ -20,7 +20,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::LedgerableEvent]
+      # @return [ModernTreasury::Models::LedgerableEvent]
       #
       # @see ModernTreasury::Models::LedgerableEventCreateParams
       def create(params)
@@ -42,7 +42,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::LedgerableEvent]
+      # @return [ModernTreasury::Models::LedgerableEvent]
       #
       # @see ModernTreasury::Models::LedgerableEventRetrieveParams
       def retrieve(id, params = {})

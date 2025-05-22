@@ -46,7 +46,7 @@ module ModernTreasury
       # @!attribute status
       #   The status of the connection legal entity.
       #
-      #   @return [Symbol, ModernTreasury::ConnectionLegalEntity::Status]
+      #   @return [Symbol, ModernTreasury::Models::ConnectionLegalEntity::Status]
       required :status, enum: -> { ModernTreasury::ConnectionLegalEntity::Status }
 
       # @!attribute updated_at
@@ -62,7 +62,7 @@ module ModernTreasury
 
       # @!method initialize(id:, connection_id:, created_at:, discarded_at:, legal_entity_id:, live_mode:, object:, status:, updated_at:, vendor_id:)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::ConnectionLegalEntity} for more details.
+      #   {ModernTreasury::Models::ConnectionLegalEntity} for more details.
       #
       #   @param id [String]
       #
@@ -78,7 +78,7 @@ module ModernTreasury
       #
       #   @param object [String]
       #
-      #   @param status [Symbol, ModernTreasury::ConnectionLegalEntity::Status] The status of the connection legal entity.
+      #   @param status [Symbol, ModernTreasury::Models::ConnectionLegalEntity::Status] The status of the connection legal entity.
       #
       #   @param updated_at [Time]
       #
@@ -86,7 +86,7 @@ module ModernTreasury
 
       # The status of the connection legal entity.
       #
-      # @see ModernTreasury::ConnectionLegalEntity#status
+      # @see ModernTreasury::Models::ConnectionLegalEntity#status
       module Status
         extend ModernTreasury::Internal::Type::Enum
 

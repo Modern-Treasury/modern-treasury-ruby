@@ -55,6 +55,21 @@ module ModernTreasury
         validated: bool,
         validated_at: Time?
       ) -> void
+
+      def to_hash: -> {
+        id: String,
+        created_at: Time,
+        discarded_at: Time?,
+        issuer: String,
+        live_mode: bool,
+        object: String,
+        token_expires_at: Time?,
+        token_issued_at: Time?,
+        token_url: String?,
+        updated_at: Time,
+        validated: bool,
+        validated_at: Time?
+      }
     end
   end
 end

@@ -10,7 +10,7 @@ module ModernTreasury
       # @!attribute alert_condition
       #   Describes the condition that must be satisfied for the monitor to be triggered.
       #
-      #   @return [ModernTreasury::LedgerAccountBalanceMonitorCreateParams::AlertCondition]
+      #   @return [ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition]
       required :alert_condition,
                -> {
                  ModernTreasury::LedgerAccountBalanceMonitorCreateParams::AlertCondition
@@ -40,7 +40,7 @@ module ModernTreasury
       #   {ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams} for more
       #   details.
       #
-      #   @param alert_condition [ModernTreasury::LedgerAccountBalanceMonitorCreateParams::AlertCondition] Describes the condition that must be satisfied for the monitor to be triggered.
+      #   @param alert_condition [ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition] Describes the condition that must be satisfied for the monitor to be triggered.
       #
       #   @param ledger_account_id [String] The ledger account associated with this balance monitor.
       #
@@ -76,8 +76,8 @@ module ModernTreasury
 
         # @!method initialize(field:, operator:, value:)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::LedgerAccountBalanceMonitorCreateParams::AlertCondition} for
-        #   more details.
+        #   {ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition}
+        #   for more details.
         #
         #   Describes the condition that must be satisfied for the monitor to be triggered.
         #

@@ -56,6 +56,21 @@ module ModernTreasury
         updated_at: Time
       ) -> void
 
+      def to_hash: -> {
+        id: String,
+        balances: ModernTreasury::LedgerAccountCategory::Balances,
+        created_at: Time,
+        description: String?,
+        discarded_at: Time?,
+        ledger_id: String,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String],
+        name: String,
+        normal_balance: ModernTreasury::Models::transaction_direction,
+        object: String,
+        updated_at: Time
+      }
+
       type balances =
         {
           available_balance: ModernTreasury::LedgerAccountCategory::Balances::AvailableBalance,
@@ -75,6 +90,12 @@ module ModernTreasury
           pending_balance: ModernTreasury::LedgerAccountCategory::Balances::PendingBalance,
           posted_balance: ModernTreasury::LedgerAccountCategory::Balances::PostedBalance
         ) -> void
+
+        def to_hash: -> {
+          available_balance: ModernTreasury::LedgerAccountCategory::Balances::AvailableBalance,
+          pending_balance: ModernTreasury::LedgerAccountCategory::Balances::PendingBalance,
+          posted_balance: ModernTreasury::LedgerAccountCategory::Balances::PostedBalance
+        }
 
         type available_balance =
           {
@@ -103,6 +124,14 @@ module ModernTreasury
             currency_exponent: Integer,
             debits: Integer
           ) -> void
+
+          def to_hash: -> {
+            amount: Integer,
+            credits: Integer,
+            currency: String,
+            currency_exponent: Integer,
+            debits: Integer
+          }
         end
 
         type pending_balance =
@@ -132,6 +161,14 @@ module ModernTreasury
             currency_exponent: Integer,
             debits: Integer
           ) -> void
+
+          def to_hash: -> {
+            amount: Integer,
+            credits: Integer,
+            currency: String,
+            currency_exponent: Integer,
+            debits: Integer
+          }
         end
 
         type posted_balance =
@@ -161,6 +198,14 @@ module ModernTreasury
             currency_exponent: Integer,
             debits: Integer
           ) -> void
+
+          def to_hash: -> {
+            amount: Integer,
+            credits: Integer,
+            currency: String,
+            currency_exponent: Integer,
+            debits: Integer
+          }
         end
       end
     end

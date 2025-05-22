@@ -16,6 +16,11 @@ module ModernTreasury
         ?show_balances: bool,
         ?request_options: ModernTreasury::request_opts
       ) -> void
+
+      def to_hash: -> {
+        show_balances: bool,
+        request_options: ModernTreasury::RequestOptions
+      }
     end
   end
 end

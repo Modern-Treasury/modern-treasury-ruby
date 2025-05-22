@@ -9,7 +9,7 @@ module ModernTreasury
         discarded_at: Time?,
         ledger_id: String,
         ledgerable_id: String?,
-        ledgerable_type: ModernTreasury::LedgerAccount::ledgerable_type?,
+        ledgerable_type: ModernTreasury::Models::LedgerAccount::ledgerable_type?,
         live_mode: bool,
         lock_version: Integer,
         metadata: ::Hash[Symbol, String],
@@ -34,7 +34,7 @@ module ModernTreasury
 
       attr_accessor ledgerable_id: String?
 
-      attr_accessor ledgerable_type: ModernTreasury::LedgerAccount::ledgerable_type?
+      attr_accessor ledgerable_type: ModernTreasury::Models::LedgerAccount::ledgerable_type?
 
       attr_accessor live_mode: bool
 
@@ -58,7 +58,7 @@ module ModernTreasury
         discarded_at: Time?,
         ledger_id: String,
         ledgerable_id: String?,
-        ledgerable_type: ModernTreasury::LedgerAccount::ledgerable_type?,
+        ledgerable_type: ModernTreasury::Models::LedgerAccount::ledgerable_type?,
         live_mode: bool,
         lock_version: Integer,
         metadata: ::Hash[Symbol, String],
@@ -67,6 +67,24 @@ module ModernTreasury
         object: String,
         updated_at: Time
       ) -> void
+
+      def to_hash: -> {
+        id: String,
+        balances: ModernTreasury::LedgerAccount::Balances,
+        created_at: Time,
+        description: String?,
+        discarded_at: Time?,
+        ledger_id: String,
+        ledgerable_id: String?,
+        ledgerable_type: ModernTreasury::Models::LedgerAccount::ledgerable_type?,
+        live_mode: bool,
+        lock_version: Integer,
+        metadata: ::Hash[Symbol, String],
+        name: String,
+        normal_balance: ModernTreasury::Models::transaction_direction,
+        object: String,
+        updated_at: Time
+      }
 
       type balances =
         {
@@ -96,6 +114,14 @@ module ModernTreasury
           posted_balance: ModernTreasury::LedgerAccount::Balances::PostedBalance
         ) -> void
 
+        def to_hash: -> {
+          available_balance: ModernTreasury::LedgerAccount::Balances::AvailableBalance,
+          effective_at_lower_bound: Time?,
+          effective_at_upper_bound: Time?,
+          pending_balance: ModernTreasury::LedgerAccount::Balances::PendingBalance,
+          posted_balance: ModernTreasury::LedgerAccount::Balances::PostedBalance
+        }
+
         type available_balance =
           {
             amount: Integer,
@@ -123,6 +149,14 @@ module ModernTreasury
             currency_exponent: Integer,
             debits: Integer
           ) -> void
+
+          def to_hash: -> {
+            amount: Integer,
+            credits: Integer,
+            currency: String,
+            currency_exponent: Integer,
+            debits: Integer
+          }
         end
 
         type pending_balance =
@@ -152,6 +186,14 @@ module ModernTreasury
             currency_exponent: Integer,
             debits: Integer
           ) -> void
+
+          def to_hash: -> {
+            amount: Integer,
+            credits: Integer,
+            currency: String,
+            currency_exponent: Integer,
+            debits: Integer
+          }
         end
 
         type posted_balance =
@@ -181,6 +223,14 @@ module ModernTreasury
             currency_exponent: Integer,
             debits: Integer
           ) -> void
+
+          def to_hash: -> {
+            amount: Integer,
+            credits: Integer,
+            currency: String,
+            currency_exponent: Integer,
+            debits: Integer
+          }
         end
       end
 
@@ -195,7 +245,7 @@ module ModernTreasury
         INTERNAL_ACCOUNT: :internal_account
         VIRTUAL_ACCOUNT: :virtual_account
 
-        def self?.values: -> ::Array[ModernTreasury::LedgerAccount::ledgerable_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::LedgerAccount::ledgerable_type]
       end
     end
   end

@@ -101,6 +101,29 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
+      def to_hash: -> {
+        amount_lower_bound: Integer?,
+        amount_upper_bound: Integer?,
+        counterparty_id: String?,
+        currency: ModernTreasury::Models::currency?,
+        date_lower_bound: Date?,
+        date_upper_bound: Date?,
+        description: String?,
+        direction: ModernTreasury::Models::ExpectedPaymentCreateParams::direction?,
+        internal_account_id: String?,
+        ledger_transaction: ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction,
+        ledger_transaction_id: String,
+        line_items: ::Array[ModernTreasury::ExpectedPaymentCreateParams::LineItem],
+        metadata: ::Hash[Symbol, String],
+        reconciliation_filters: top?,
+        reconciliation_groups: top?,
+        reconciliation_rule_variables: ::Array[ModernTreasury::ReconciliationRule]?,
+        remittance_information: String?,
+        statement_descriptor: String?,
+        type: ModernTreasury::Models::expected_payment_type?,
+        request_options: ModernTreasury::RequestOptions
+      }
+
       type direction = :credit | :debit
 
       module Direction
@@ -120,9 +143,9 @@ module ModernTreasury
           effective_date: Date,
           external_id: String,
           ledgerable_id: String,
-          ledgerable_type: ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction::ledgerable_type,
+          ledgerable_type: ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::ledgerable_type,
           metadata: ::Hash[Symbol, String],
-          status: ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction::status
+          status: ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::status
         }
 
       class LedgerTransaction < ModernTreasury::Internal::Type::BaseModel
@@ -146,21 +169,21 @@ module ModernTreasury
 
         def ledgerable_id=: (String) -> String
 
-        attr_reader ledgerable_type: ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction::ledgerable_type?
+        attr_reader ledgerable_type: ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::ledgerable_type?
 
         def ledgerable_type=: (
-          ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction::ledgerable_type
-        ) -> ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction::ledgerable_type
+          ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::ledgerable_type
+        ) -> ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::ledgerable_type
 
         attr_reader metadata: ::Hash[Symbol, String]?
 
         def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
-        attr_reader status: ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction::status?
+        attr_reader status: ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::status?
 
         def status=: (
-          ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction::status
-        ) -> ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction::status
+          ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::status
+        ) -> ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::status
 
         def initialize: (
           ledger_entries: ::Array[ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry],
@@ -169,10 +192,22 @@ module ModernTreasury
           ?effective_date: Date,
           ?external_id: String,
           ?ledgerable_id: String,
-          ?ledgerable_type: ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction::ledgerable_type,
+          ?ledgerable_type: ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::ledgerable_type,
           ?metadata: ::Hash[Symbol, String],
-          ?status: ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction::status
+          ?status: ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::status
         ) -> void
+
+        def to_hash: -> {
+          ledger_entries: ::Array[ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry],
+          description: String?,
+          effective_at: Time,
+          effective_date: Date,
+          external_id: String,
+          ledgerable_id: String,
+          ledgerable_type: ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::ledgerable_type,
+          metadata: ::Hash[Symbol, String],
+          status: ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::status
+        }
 
         type ledger_entry =
           {
@@ -219,6 +254,18 @@ module ModernTreasury
             ?posted_balance_amount: ::Hash[Symbol, Integer]?,
             ?show_resulting_ledger_account_balances: bool?
           ) -> void
+
+          def to_hash: -> {
+            amount: Integer,
+            direction: ModernTreasury::Models::transaction_direction,
+            ledger_account_id: String,
+            available_balance_amount: ::Hash[Symbol, Integer]?,
+            lock_version: Integer?,
+            metadata: ::Hash[Symbol, String],
+            pending_balance_amount: ::Hash[Symbol, Integer]?,
+            posted_balance_amount: ::Hash[Symbol, Integer]?,
+            show_resulting_ledger_account_balances: bool?
+          }
         end
 
         type ledgerable_type =
@@ -239,7 +286,7 @@ module ModernTreasury
           RETURN: :return
           REVERSAL: :reversal
 
-          def self?.values: -> ::Array[ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction::ledgerable_type]
+          def self?.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::ledgerable_type]
         end
 
         type status = :archived | :pending | :posted
@@ -251,7 +298,7 @@ module ModernTreasury
           PENDING: :pending
           POSTED: :posted
 
-          def self?.values: -> ::Array[ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction::status]
+          def self?.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::status]
         end
       end
 
@@ -280,6 +327,13 @@ module ModernTreasury
           ?description: String?,
           ?metadata: ::Hash[Symbol, String]
         ) -> void
+
+        def to_hash: -> {
+          amount: Integer,
+          accounting_category_id: String?,
+          description: String?,
+          metadata: ::Hash[Symbol, String]
+        }
       end
     end
   end

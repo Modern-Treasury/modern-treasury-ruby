@@ -79,7 +79,7 @@ module ModernTreasury
         #   If a matching object exists in Modern Treasury, the type will be populated here,
         #   otherwise `null`.
         #
-        #   @return [Symbol, ModernTreasury::Transactions::TransactionLineItem::TransactableType, nil]
+        #   @return [Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType, nil]
         required :transactable_type,
                  enum: -> { ModernTreasury::Transactions::TransactionLineItem::TransactableType },
                  nil?: true
@@ -94,7 +94,7 @@ module ModernTreasury
         #   Indicates whether the line item is `originating` or `receiving` (see
         #   https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
         #
-        #   @return [Symbol, ModernTreasury::Transactions::TransactionLineItem::Type]
+        #   @return [Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::Type]
         required :type, enum: -> { ModernTreasury::Transactions::TransactionLineItem::Type }
 
         # @!attribute updated_at
@@ -104,7 +104,7 @@ module ModernTreasury
 
         # @!method initialize(id:, amount:, counterparty_id:, created_at:, description:, discarded_at:, expected_payment_id:, live_mode:, object:, reconcilable:, transactable_id:, transactable_type:, transaction_id:, type:, updated_at:)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Transactions::TransactionLineItem} for more details.
+        #   {ModernTreasury::Models::Transactions::TransactionLineItem} for more details.
         #
         #   @param id [String]
         #
@@ -128,18 +128,18 @@ module ModernTreasury
         #
         #   @param transactable_id [String, nil] If a matching object exists in Modern Treasury, the ID will be populated here, o
         #
-        #   @param transactable_type [Symbol, ModernTreasury::Transactions::TransactionLineItem::TransactableType, nil] If a matching object exists in Modern Treasury, the type will be populated here,
+        #   @param transactable_type [Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType, nil] If a matching object exists in Modern Treasury, the type will be populated here,
         #
         #   @param transaction_id [String] The ID of the parent transaction.
         #
-        #   @param type [Symbol, ModernTreasury::Transactions::TransactionLineItem::Type] Indicates whether the line item is `originating` or `receiving` (see https://www
+        #   @param type [Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::Type] Indicates whether the line item is `originating` or `receiving` (see https://www
         #
         #   @param updated_at [Time]
 
         # If a matching object exists in Modern Treasury, the type will be populated here,
         # otherwise `null`.
         #
-        # @see ModernTreasury::Transactions::TransactionLineItem#transactable_type
+        # @see ModernTreasury::Models::Transactions::TransactionLineItem#transactable_type
         module TransactableType
           extend ModernTreasury::Internal::Type::Enum
 
@@ -157,7 +157,7 @@ module ModernTreasury
         # Indicates whether the line item is `originating` or `receiving` (see
         # https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
         #
-        # @see ModernTreasury::Transactions::TransactionLineItem#type
+        # @see ModernTreasury::Models::Transactions::TransactionLineItem#type
         module Type
           extend ModernTreasury::Internal::Type::Enum
 

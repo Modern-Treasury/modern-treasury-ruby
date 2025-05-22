@@ -22,7 +22,7 @@ module ModernTreasury
       #   The type of the request that created this result. bulk_request is the only
       #   supported `request_type`
       #
-      #   @return [Symbol, ModernTreasury::BulkResultListParams::EntityType, nil]
+      #   @return [Symbol, ModernTreasury::Models::BulkResultListParams::EntityType, nil]
       optional :entity_type, enum: -> { ModernTreasury::BulkResultListParams::EntityType }
 
       # @!attribute per_page
@@ -41,13 +41,13 @@ module ModernTreasury
       #   The type of the request that created this result. bulk_request is the only
       #   supported `request_type`
       #
-      #   @return [Symbol, ModernTreasury::BulkResultListParams::RequestType, nil]
+      #   @return [Symbol, ModernTreasury::Models::BulkResultListParams::RequestType, nil]
       optional :request_type, enum: -> { ModernTreasury::BulkResultListParams::RequestType }
 
       # @!attribute status
       #   One of successful or failed.
       #
-      #   @return [Symbol, ModernTreasury::BulkResultListParams::Status, nil]
+      #   @return [Symbol, ModernTreasury::Models::BulkResultListParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::BulkResultListParams::Status }
 
       # @!method initialize(after_cursor: nil, entity_id: nil, entity_type: nil, per_page: nil, request_id: nil, request_type: nil, status: nil, request_options: {})
@@ -58,15 +58,15 @@ module ModernTreasury
       #
       #   @param entity_id [String] Unique identifier for the result entity object.
       #
-      #   @param entity_type [Symbol, ModernTreasury::BulkResultListParams::EntityType] The type of the request that created this result. bulk_request is the only suppo
+      #   @param entity_type [Symbol, ModernTreasury::Models::BulkResultListParams::EntityType] The type of the request that created this result. bulk_request is the only suppo
       #
       #   @param per_page [Integer]
       #
       #   @param request_id [String] Unique identifier for the request that created this bulk result. This is the ID
       #
-      #   @param request_type [Symbol, ModernTreasury::BulkResultListParams::RequestType] The type of the request that created this result. bulk_request is the only suppo
+      #   @param request_type [Symbol, ModernTreasury::Models::BulkResultListParams::RequestType] The type of the request that created this result. bulk_request is the only suppo
       #
-      #   @param status [Symbol, ModernTreasury::BulkResultListParams::Status] One of successful or failed.
+      #   @param status [Symbol, ModernTreasury::Models::BulkResultListParams::Status] One of successful or failed.
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 

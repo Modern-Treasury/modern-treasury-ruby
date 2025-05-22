@@ -11,7 +11,7 @@ module ModernTreasury
       #
       # @overload create(alert_condition:, ledger_account_id:, description: nil, metadata: nil, request_options: {})
       #
-      # @param alert_condition [ModernTreasury::LedgerAccountBalanceMonitorCreateParams::AlertCondition] Describes the condition that must be satisfied for the monitor to be triggered.
+      # @param alert_condition [ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition] Describes the condition that must be satisfied for the monitor to be triggered.
       #
       # @param ledger_account_id [String] The ledger account associated with this balance monitor.
       #
@@ -21,7 +21,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::LedgerAccountBalanceMonitor]
+      # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
       #
       # @see ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams
       def create(params)
@@ -43,7 +43,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::LedgerAccountBalanceMonitor]
+      # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
       #
       # @see ModernTreasury::Models::LedgerAccountBalanceMonitorRetrieveParams
       def retrieve(id, params = {})
@@ -71,7 +71,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::LedgerAccountBalanceMonitor]
+      # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
       #
       # @see ModernTreasury::Models::LedgerAccountBalanceMonitorUpdateParams
       def update(id, params = {})
@@ -105,7 +105,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::LedgerAccountBalanceMonitor>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::LedgerAccountBalanceMonitor>]
       #
       # @see ModernTreasury::Models::LedgerAccountBalanceMonitorListParams
       def list(params = {})
@@ -128,7 +128,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::LedgerAccountBalanceMonitor]
+      # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
       #
       # @see ModernTreasury::Models::LedgerAccountBalanceMonitorDeleteParams
       def delete(id, params = {})

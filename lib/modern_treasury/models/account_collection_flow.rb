@@ -13,7 +13,7 @@ module ModernTreasury
 
       # @!attribute payment_types
       #
-      #   @return [Array<Symbol, ModernTreasury::AccountCollectionFlow::PaymentType>]
+      #   @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::PaymentType>]
       required :payment_types,
                -> {
                  ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::AccountCollectionFlow::PaymentType]
@@ -56,7 +56,7 @@ module ModernTreasury
 
       # @!attribute receiving_countries
       #
-      #   @return [Array<Symbol, ModernTreasury::AccountCollectionFlow::ReceivingCountry>, nil]
+      #   @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry>, nil]
       optional :receiving_countries,
                -> {
                  ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::AccountCollectionFlow::ReceivingCountry]
@@ -66,7 +66,7 @@ module ModernTreasury
       #   The current status of the account collection flow. One of `pending`,
       #   `completed`, `expired`, or `cancelled`.
       #
-      #   @return [Symbol, ModernTreasury::AccountCollectionFlow::Status, nil]
+      #   @return [Symbol, ModernTreasury::Models::AccountCollectionFlow::Status, nil]
       optional :status, enum: -> { ModernTreasury::AccountCollectionFlow::Status }
 
       # @!attribute updated_at
@@ -76,11 +76,11 @@ module ModernTreasury
 
       # @!method initialize(counterparty_id:, payment_types:, id: nil, client_token: nil, created_at: nil, external_account_id: nil, live_mode: nil, object: nil, receiving_countries: nil, status: nil, updated_at: nil)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::AccountCollectionFlow} for more details.
+      #   {ModernTreasury::Models::AccountCollectionFlow} for more details.
       #
       #   @param counterparty_id [String] The ID of a counterparty. An external account created with this flow will be ass
       #
-      #   @param payment_types [Array<Symbol, ModernTreasury::AccountCollectionFlow::PaymentType>]
+      #   @param payment_types [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::PaymentType>]
       #
       #   @param id [String]
       #
@@ -94,9 +94,9 @@ module ModernTreasury
       #
       #   @param object [String]
       #
-      #   @param receiving_countries [Array<Symbol, ModernTreasury::AccountCollectionFlow::ReceivingCountry>]
+      #   @param receiving_countries [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry>]
       #
-      #   @param status [Symbol, ModernTreasury::AccountCollectionFlow::Status] The current status of the account collection flow. One of `pending`, `completed`
+      #   @param status [Symbol, ModernTreasury::Models::AccountCollectionFlow::Status] The current status of the account collection flow. One of `pending`, `completed`
       #
       #   @param updated_at [Time]
 
@@ -142,7 +142,7 @@ module ModernTreasury
       # The current status of the account collection flow. One of `pending`,
       # `completed`, `expired`, or `cancelled`.
       #
-      # @see ModernTreasury::AccountCollectionFlow#status
+      # @see ModernTreasury::Models::AccountCollectionFlow#status
       module Status
         extend ModernTreasury::Internal::Type::Enum
 

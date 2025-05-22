@@ -40,6 +40,15 @@ module ModernTreasury
         ?per_page: Integer,
         ?request_options: ModernTreasury::request_opts
       ) -> void
+
+      def to_hash: -> {
+        after_cursor: String?,
+        deposit_date_end: Date,
+        deposit_date_start: Date,
+        lockbox_number: String,
+        per_page: Integer,
+        request_options: ModernTreasury::RequestOptions
+      }
     end
   end
 end

@@ -12,7 +12,7 @@ module ModernTreasury
       #   There must be one entry for each of the existing entries with a lesser amount
       #   than the existing entry.
       #
-      #   @return [Array<ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry>]
+      #   @return [Array<ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry>]
       required :posted_ledger_entries,
                -> {
                  ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry]
@@ -44,7 +44,7 @@ module ModernTreasury
       #   {ModernTreasury::Models::LedgerTransactionCreatePartialPostParams} for more
       #   details.
       #
-      #   @param posted_ledger_entries [Array<ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry>] An array of ledger entry objects to be set on the posted ledger transaction. The
+      #   @param posted_ledger_entries [Array<ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry>] An array of ledger entry objects to be set on the posted ledger transaction. The
       #
       #   @param description [String] An optional free-form description for the posted ledger transaction. Maximum of
       #
@@ -68,7 +68,7 @@ module ModernTreasury
         #   `debit` pulls money from someone else's account to your own. Note that wire,
         #   rtp, and check payments will always be `credit`.
         #
-        #   @return [Symbol, ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction]
+        #   @return [Symbol, ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction]
         required :direction,
                  enum: -> {
                    ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction
@@ -89,12 +89,12 @@ module ModernTreasury
 
         # @!method initialize(amount:, direction:, ledger_account_id:, metadata: nil)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry}
+        #   {ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry}
         #   for more details.
         #
         #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
         #
-        #   @param direction [Symbol, ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction] One of `credit`, `debit`. Describes the direction money is flowing in the transa
+        #   @param direction [Symbol, ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction] One of `credit`, `debit`. Describes the direction money is flowing in the transa
         #
         #   @param ledger_account_id [String] The ledger account that this ledger entry is associated with.
         #
@@ -105,7 +105,7 @@ module ModernTreasury
         # `debit` pulls money from someone else's account to your own. Note that wire,
         # rtp, and check payments will always be `credit`.
         #
-        # @see ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry#direction
+        # @see ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry#direction
         module Direction
           extend ModernTreasury::Internal::Type::Enum
 

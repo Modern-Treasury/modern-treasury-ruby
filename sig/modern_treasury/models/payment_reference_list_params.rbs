@@ -43,6 +43,15 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
+      def to_hash: -> {
+        after_cursor: String?,
+        per_page: Integer,
+        reference_number: String,
+        referenceable_id: String,
+        referenceable_type: ModernTreasury::Models::PaymentReferenceListParams::referenceable_type,
+        request_options: ModernTreasury::RequestOptions
+      }
+
       type referenceable_type = :payment_order | :return | :reversal
 
       module ReferenceableType

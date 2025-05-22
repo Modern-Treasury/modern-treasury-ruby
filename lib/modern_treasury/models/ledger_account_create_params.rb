@@ -28,7 +28,7 @@ module ModernTreasury
       # @!attribute normal_balance
       #   The normal balance of the ledger account.
       #
-      #   @return [Symbol, ModernTreasury::TransactionDirection]
+      #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
       required :normal_balance, enum: -> { ModernTreasury::TransactionDirection }
 
       # @!attribute currency_exponent
@@ -62,7 +62,7 @@ module ModernTreasury
       #   be populated here, otherwise null. The value is one of internal_account or
       #   external_account.
       #
-      #   @return [Symbol, ModernTreasury::LedgerAccountCreateParams::LedgerableType, nil]
+      #   @return [Symbol, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType, nil]
       optional :ledgerable_type, enum: -> { ModernTreasury::LedgerAccountCreateParams::LedgerableType }
 
       # @!attribute metadata
@@ -82,7 +82,7 @@ module ModernTreasury
       #
       #   @param name [String] The name of the ledger account.
       #
-      #   @param normal_balance [Symbol, ModernTreasury::TransactionDirection] The normal balance of the ledger account.
+      #   @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection] The normal balance of the ledger account.
       #
       #   @param currency_exponent [Integer, nil] The currency exponent of the ledger account.
       #
@@ -92,7 +92,7 @@ module ModernTreasury
       #
       #   @param ledgerable_id [String] If the ledger account links to another object in Modern Treasury, the id will be
       #
-      #   @param ledgerable_type [Symbol, ModernTreasury::LedgerAccountCreateParams::LedgerableType] If the ledger account links to another object in Modern Treasury, the type will
+      #   @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType] If the ledger account links to another object in Modern Treasury, the type will
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #

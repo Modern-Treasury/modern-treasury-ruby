@@ -77,6 +77,20 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
+      def to_hash: -> {
+        after_cursor: String?,
+        counterparty_id: String,
+        created_at_lower_bound: Time,
+        created_at_upper_bound: Time,
+        direction: ModernTreasury::Models::transaction_direction,
+        internal_account_id: String,
+        metadata: ::Hash[Symbol, String],
+        per_page: Integer,
+        status: ModernTreasury::Models::ExpectedPaymentListParams::status,
+        type: ModernTreasury::Models::ExpectedPaymentListParams::type_,
+        request_options: ModernTreasury::RequestOptions
+      }
+
       type status =
         :archived | :partially_reconciled | :reconciled | :unreconciled
 
