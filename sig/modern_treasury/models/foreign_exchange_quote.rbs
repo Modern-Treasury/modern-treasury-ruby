@@ -58,6 +58,21 @@ module ModernTreasury
         ?vendor_id: String
       ) -> void
 
+      def to_hash: -> {
+        id: String,
+        created_at: Time,
+        effective_at: Time,
+        expires_at: Time,
+        foreign_exchange_indicator: String,
+        foreign_exchange_rate: ModernTreasury::ForeignExchangeQuote::ForeignExchangeRate,
+        internal_account_id: String,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String],
+        object: String,
+        updated_at: Time,
+        vendor_id: String
+      }
+
       type foreign_exchange_rate =
         {
           base_amount: Integer,
@@ -93,6 +108,16 @@ module ModernTreasury
           target_currency: ModernTreasury::Models::currency,
           value: Integer
         ) -> void
+
+        def to_hash: -> {
+          base_amount: Integer,
+          base_currency: ModernTreasury::Models::currency,
+          exponent: Integer,
+          rate_string: String,
+          target_amount: Integer,
+          target_currency: ModernTreasury::Models::currency,
+          value: Integer
+        }
       end
     end
   end

@@ -4,7 +4,7 @@ module ModernTreasury
       {
         id: String,
         classification_codes: ::Array[String],
-        classification_type: ModernTreasury::LegalEntityIndustryClassification::classification_type,
+        classification_type: ModernTreasury::Models::LegalEntityIndustryClassification::classification_type,
         created_at: Time,
         discarded_at: Time?,
         live_mode: bool,
@@ -17,7 +17,7 @@ module ModernTreasury
 
       attr_accessor classification_codes: ::Array[String]
 
-      attr_accessor classification_type: ModernTreasury::LegalEntityIndustryClassification::classification_type
+      attr_accessor classification_type: ModernTreasury::Models::LegalEntityIndustryClassification::classification_type
 
       attr_accessor created_at: Time
 
@@ -32,13 +32,24 @@ module ModernTreasury
       def initialize: (
         id: String,
         classification_codes: ::Array[String],
-        classification_type: ModernTreasury::LegalEntityIndustryClassification::classification_type,
+        classification_type: ModernTreasury::Models::LegalEntityIndustryClassification::classification_type,
         created_at: Time,
         discarded_at: Time?,
         live_mode: bool,
         object: String,
         updated_at: Time
       ) -> void
+
+      def to_hash: -> {
+        id: String,
+        classification_codes: ::Array[String],
+        classification_type: ModernTreasury::Models::LegalEntityIndustryClassification::classification_type,
+        created_at: Time,
+        discarded_at: Time?,
+        live_mode: bool,
+        object: String,
+        updated_at: Time
+      }
 
       type classification_type =
         :anzsic
@@ -76,7 +87,7 @@ module ModernTreasury
         UKSIC: :uksic
         UNSPSC: :unspsc
 
-        def self?.values: -> ::Array[ModernTreasury::LegalEntityIndustryClassification::classification_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::LegalEntityIndustryClassification::classification_type]
       end
     end
   end

@@ -20,7 +20,7 @@ module ModernTreasury
 
       # @!attribute receiving_countries
       #
-      #   @return [Array<Symbol, ModernTreasury::AccountCollectionFlowCreateParams::ReceivingCountry>, nil]
+      #   @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>, nil]
       optional :receiving_countries,
                -> {
                  ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::AccountCollectionFlowCreateParams::ReceivingCountry]
@@ -31,7 +31,7 @@ module ModernTreasury
       #
       #   @param payment_types [Array<String>]
       #
-      #   @param receiving_countries [Array<Symbol, ModernTreasury::AccountCollectionFlowCreateParams::ReceivingCountry>]
+      #   @param receiving_countries [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>]
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 

@@ -35,10 +35,18 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
+      def to_hash: -> {
+        posted_ledger_entries: ::Array[ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry],
+        description: String,
+        effective_at: Time,
+        metadata: ::Hash[Symbol, String],
+        request_options: ModernTreasury::RequestOptions
+      }
+
       type posted_ledger_entry =
         {
           amount: Integer,
-          direction: ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::direction,
+          direction: ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::direction,
           ledger_account_id: String,
           metadata: ::Hash[Symbol, String]
         }
@@ -46,7 +54,7 @@ module ModernTreasury
       class PostedLedgerEntry < ModernTreasury::Internal::Type::BaseModel
         attr_accessor amount: Integer
 
-        attr_accessor direction: ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::direction
+        attr_accessor direction: ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::direction
 
         attr_accessor ledger_account_id: String
 
@@ -56,10 +64,17 @@ module ModernTreasury
 
         def initialize: (
           amount: Integer,
-          direction: ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::direction,
+          direction: ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::direction,
           ledger_account_id: String,
           ?metadata: ::Hash[Symbol, String]
         ) -> void
+
+        def to_hash: -> {
+          amount: Integer,
+          direction: ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::direction,
+          ledger_account_id: String,
+          metadata: ::Hash[Symbol, String]
+        }
 
         type direction = :credit | :debit
 
@@ -69,7 +84,7 @@ module ModernTreasury
           CREDIT: :credit
           DEBIT: :debit
 
-          def self?.values: -> ::Array[ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::direction]
+          def self?.values: -> ::Array[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::direction]
         end
       end
     end

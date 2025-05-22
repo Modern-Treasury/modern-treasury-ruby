@@ -12,11 +12,11 @@ module ModernTreasury
       #
       # @param returnable_id [String, nil] The ID of the object being returned or `null`.
       #
-      # @param returnable_type [Symbol, ModernTreasury::ReturnCreateParams::ReturnableType] The type of object being returned. Currently, this may only be incoming*payment*
+      # @param returnable_type [Symbol, ModernTreasury::Models::ReturnCreateParams::ReturnableType] The type of object being returned. Currently, this may only be incoming*payment*
       #
       # @param additional_information [String, nil] Some returns may include additional information from the bank. In these cases, t
       #
-      # @param code [Symbol, ModernTreasury::ReturnCreateParams::Code, nil] The return code. For ACH returns, this is the required ACH return code.
+      # @param code [Symbol, ModernTreasury::Models::ReturnCreateParams::Code, nil] The return code. For ACH returns, this is the required ACH return code.
       #
       # @param data [Object, nil] The raw data from the return file that we get from the bank.
       #
@@ -26,7 +26,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::ReturnObject]
+      # @return [ModernTreasury::Models::ReturnObject]
       #
       # @see ModernTreasury::Models::ReturnCreateParams
       def create(params)
@@ -48,7 +48,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::ReturnObject]
+      # @return [ModernTreasury::Models::ReturnObject]
       #
       # @see ModernTreasury::Models::ReturnRetrieveParams
       def retrieve(id, params = {})
@@ -77,11 +77,11 @@ module ModernTreasury
       #
       # @param returnable_id [String] The ID of a valid returnable. Must be accompanied by `returnable_type`.
       #
-      # @param returnable_type [Symbol, ModernTreasury::ReturnListParams::ReturnableType] One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
+      # @param returnable_type [Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType] One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::ReturnObject>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::ReturnObject>]
       #
       # @see ModernTreasury::Models::ReturnListParams
       def list(params = {})

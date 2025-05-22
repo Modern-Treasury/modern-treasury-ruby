@@ -16,7 +16,7 @@ module ModernTreasury
         object: String,
         remitter_name: String?,
         routing_number: String?,
-        status: ModernTreasury::PaperItem::status,
+        status: ModernTreasury::Models::PaperItem::status,
         transaction_id: String?,
         transaction_line_item_id: String?,
         updated_at: Time
@@ -51,7 +51,7 @@ module ModernTreasury
 
       attr_accessor routing_number: String?
 
-      attr_accessor status: ModernTreasury::PaperItem::status
+      attr_accessor status: ModernTreasury::Models::PaperItem::status
 
       attr_accessor transaction_id: String?
 
@@ -74,11 +74,32 @@ module ModernTreasury
         object: String,
         remitter_name: String?,
         routing_number: String?,
-        status: ModernTreasury::PaperItem::status,
+        status: ModernTreasury::Models::PaperItem::status,
         transaction_id: String?,
         transaction_line_item_id: String?,
         updated_at: Time
       ) -> void
+
+      def to_hash: -> {
+        id: String,
+        account_number: String?,
+        account_number_safe: String?,
+        amount: Integer,
+        check_number: String?,
+        created_at: Time,
+        currency: ModernTreasury::Models::currency,
+        deposit_date: Date,
+        live_mode: bool,
+        lockbox_number: String,
+        memo_field: String?,
+        object: String,
+        remitter_name: String?,
+        routing_number: String?,
+        status: ModernTreasury::Models::PaperItem::status,
+        transaction_id: String?,
+        transaction_line_item_id: String?,
+        updated_at: Time
+      }
 
       type status = :completed | :pending | :returned
 
@@ -89,7 +110,7 @@ module ModernTreasury
         PENDING: :pending
         RETURNED: :returned
 
-        def self?.values: -> ::Array[ModernTreasury::PaperItem::status]
+        def self?.values: -> ::Array[ModernTreasury::Models::PaperItem::status]
       end
     end
   end

@@ -15,6 +15,11 @@ module ModernTreasury
           invoice_id: String,
           ?request_options: ModernTreasury::request_opts
         ) -> void
+
+        def to_hash: -> {
+          invoice_id: String,
+          request_options: ModernTreasury::RequestOptions
+        }
       end
     end
   end

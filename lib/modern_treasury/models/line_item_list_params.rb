@@ -9,7 +9,7 @@ module ModernTreasury
 
       # @!attribute itemizable_type
       #
-      #   @return [Symbol, ModernTreasury::LineItemListParams::ItemizableType]
+      #   @return [Symbol, ModernTreasury::Models::LineItemListParams::ItemizableType]
       required :itemizable_type, enum: -> { ModernTreasury::LineItemListParams::ItemizableType }
 
       # @!attribute after_cursor
@@ -23,7 +23,7 @@ module ModernTreasury
       optional :per_page, Integer
 
       # @!method initialize(itemizable_type:, after_cursor: nil, per_page: nil, request_options: {})
-      #   @param itemizable_type [Symbol, ModernTreasury::LineItemListParams::ItemizableType]
+      #   @param itemizable_type [Symbol, ModernTreasury::Models::LineItemListParams::ItemizableType]
       #   @param after_cursor [String, nil]
       #   @param per_page [Integer]
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]

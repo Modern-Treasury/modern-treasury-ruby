@@ -46,6 +46,16 @@ module ModernTreasury
         ?taxpayer_identifier: String,
         ?request_options: ModernTreasury::request_opts
       ) -> void
+
+      def to_hash: -> {
+        email: String,
+        legal_entity_id: String?,
+        metadata: ::Hash[Symbol, String],
+        name: String,
+        send_remittance_advice: bool,
+        taxpayer_identifier: String,
+        request_options: ModernTreasury::RequestOptions
+      }
     end
   end
 end

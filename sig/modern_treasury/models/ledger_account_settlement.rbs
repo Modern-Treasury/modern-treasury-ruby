@@ -17,7 +17,7 @@ module ModernTreasury
         object: String,
         settled_ledger_account_id: String,
         settlement_entry_direction: String?,
-        status: ModernTreasury::LedgerAccountSettlement::status,
+        status: ModernTreasury::Models::LedgerAccountSettlement::status,
         updated_at: Time
       }
 
@@ -52,7 +52,7 @@ module ModernTreasury
 
       attr_accessor settlement_entry_direction: String?
 
-      attr_accessor status: ModernTreasury::LedgerAccountSettlement::status
+      attr_accessor status: ModernTreasury::Models::LedgerAccountSettlement::status
 
       attr_accessor updated_at: Time
 
@@ -72,9 +72,29 @@ module ModernTreasury
         object: String,
         settled_ledger_account_id: String,
         settlement_entry_direction: String?,
-        status: ModernTreasury::LedgerAccountSettlement::status,
+        status: ModernTreasury::Models::LedgerAccountSettlement::status,
         updated_at: Time
       ) -> void
+
+      def to_hash: -> {
+        id: String,
+        amount: Integer?,
+        contra_ledger_account_id: String,
+        created_at: Time,
+        currency: String,
+        currency_exponent: Integer?,
+        description: String?,
+        effective_at_upper_bound: Time,
+        ledger_id: String,
+        ledger_transaction_id: String?,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String],
+        object: String,
+        settled_ledger_account_id: String,
+        settlement_entry_direction: String?,
+        status: ModernTreasury::Models::LedgerAccountSettlement::status,
+        updated_at: Time
+      }
 
       type status =
         :archived | :archiving | :drafting | :pending | :posted | :processing
@@ -89,7 +109,7 @@ module ModernTreasury
         POSTED: :posted
         PROCESSING: :processing
 
-        def self?.values: -> ::Array[ModernTreasury::LedgerAccountSettlement::status]
+        def self?.values: -> ::Array[ModernTreasury::Models::LedgerAccountSettlement::status]
       end
     end
   end

@@ -56,8 +56,8 @@ module ModernTreasury
       required :updated_at, Time
 
       # @!method initialize(id:, created_at:, description:, discarded_at:, live_mode:, metadata:, name:, object:, updated_at:)
-      #   Some parameter documentations has been truncated, see {ModernTreasury::Ledger}
-      #   for more details.
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::Ledger} for more details.
       #
       #   @param id [String]
       #

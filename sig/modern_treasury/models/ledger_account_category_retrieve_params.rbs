@@ -21,6 +21,11 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
+      def to_hash: -> {
+        balances: ModernTreasury::LedgerAccountCategoryRetrieveParams::Balances,
+        request_options: ModernTreasury::RequestOptions
+      }
+
       type balances = { as_of_date: Date, effective_at: Time }
 
       class Balances < ModernTreasury::Internal::Type::BaseModel
@@ -33,6 +38,8 @@ module ModernTreasury
         def effective_at=: (Time) -> Time
 
         def initialize: (?as_of_date: Date, ?effective_at: Time) -> void
+
+        def to_hash: -> { as_of_date: Date, effective_at: Time }
       end
     end
   end

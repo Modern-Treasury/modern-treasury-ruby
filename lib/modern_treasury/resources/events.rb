@@ -11,7 +11,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Event]
+      # @return [ModernTreasury::Models::Event]
       #
       # @see ModernTreasury::Models::EventRetrieveParams
       def retrieve(id, params = {})
@@ -43,7 +43,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::Event>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::Event>]
       #
       # @see ModernTreasury::Models::EventListParams
       def list(params = {})

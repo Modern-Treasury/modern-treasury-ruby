@@ -11,7 +11,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::IncomingPaymentDetail]
+      # @return [ModernTreasury::Models::IncomingPaymentDetail]
       #
       # @see ModernTreasury::Models::IncomingPaymentDetailRetrieveParams
       def retrieve(id, params = {})
@@ -36,7 +36,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::IncomingPaymentDetail]
+      # @return [ModernTreasury::Models::IncomingPaymentDetail]
       #
       # @see ModernTreasury::Models::IncomingPaymentDetailUpdateParams
       def update(id, params = {})
@@ -63,21 +63,21 @@ module ModernTreasury
       #
       # @param as_of_date_start [Date] Filters incoming payment details with an as_of_date starting on or after the spe
       #
-      # @param direction [Symbol, ModernTreasury::TransactionDirection] One of `credit` or `debit`.
+      # @param direction [Symbol, ModernTreasury::Models::TransactionDirection] One of `credit` or `debit`.
       #
       # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
       #
       # @param per_page [Integer]
       #
-      # @param status [Symbol, ModernTreasury::IncomingPaymentDetailListParams::Status] The current status of the incoming payment order. One of `pending`, `completed`,
+      # @param status [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Status] The current status of the incoming payment order. One of `pending`, `completed`,
       #
-      # @param type [Symbol, ModernTreasury::IncomingPaymentDetailListParams::Type] One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or `w
+      # @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Type] One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or `w
       #
       # @param virtual_account_id [String] If the incoming payment detail is in a virtual account, the ID of the Virtual Ac
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::IncomingPaymentDetail>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::IncomingPaymentDetail>]
       #
       # @see ModernTreasury::Models::IncomingPaymentDetailListParams
       def list(params = {})
@@ -104,23 +104,23 @@ module ModernTreasury
       #
       # @param as_of_date [Date, nil] Defaults to today.
       #
-      # @param currency [Symbol, ModernTreasury::Currency, nil] Defaults to the currency of the originating account.
+      # @param currency [Symbol, ModernTreasury::Models::Currency, nil] Defaults to the currency of the originating account.
       #
       # @param data [Object, nil] An object passed through to the simulated IPD that could reflect what a vendor w
       #
       # @param description [String, nil] Defaults to a random description.
       #
-      # @param direction [Symbol, ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Direction] One of `credit`, `debit`.
+      # @param direction [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction] One of `credit`, `debit`.
       #
       # @param internal_account_id [String] The ID of one of your internal accounts.
       #
-      # @param type [Symbol, ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Type] One of `ach`, `wire`, `check`.
+      # @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type] One of `ach`, `wire`, `check`.
       #
       # @param virtual_account_id [String, nil] An optional parameter to associate the incoming payment detail to a virtual acco
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::AsyncResponse]
+      # @return [ModernTreasury::Models::AsyncResponse]
       #
       # @see ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams
       def create_async(params = {})

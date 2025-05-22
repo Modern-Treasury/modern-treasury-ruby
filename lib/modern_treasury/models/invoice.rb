@@ -26,14 +26,14 @@ module ModernTreasury
       # @!attribute contact_details
       #   The invoicer's contact details displayed at the top of the invoice.
       #
-      #   @return [Array<ModernTreasury::Invoice::ContactDetail>]
+      #   @return [Array<ModernTreasury::Models::Invoice::ContactDetail>]
       required :contact_details,
                -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Invoice::ContactDetail] }
 
       # @!attribute counterparty_billing_address
       #   The counterparty's billing address.
       #
-      #   @return [ModernTreasury::Invoice::CounterpartyBillingAddress, nil]
+      #   @return [ModernTreasury::Models::Invoice::CounterpartyBillingAddress, nil]
       required :counterparty_billing_address,
                -> { ModernTreasury::Invoice::CounterpartyBillingAddress },
                nil?: true
@@ -47,7 +47,7 @@ module ModernTreasury
       # @!attribute counterparty_shipping_address
       #   The counterparty's shipping address where physical goods should be delivered.
       #
-      #   @return [ModernTreasury::Invoice::CounterpartyShippingAddress, nil]
+      #   @return [ModernTreasury::Models::Invoice::CounterpartyShippingAddress, nil]
       required :counterparty_shipping_address,
                -> { ModernTreasury::Invoice::CounterpartyShippingAddress },
                nil?: true
@@ -60,7 +60,7 @@ module ModernTreasury
       # @!attribute currency
       #   Currency that the invoice is denominated in. Defaults to `USD` if not provided.
       #
-      #   @return [Symbol, ModernTreasury::Currency]
+      #   @return [Symbol, ModernTreasury::Models::Currency]
       required :currency, enum: -> { ModernTreasury::Currency }
 
       # @!attribute description
@@ -78,7 +78,7 @@ module ModernTreasury
       # @!attribute expected_payments
       #   The expected payments created for an unpaid invoice.
       #
-      #   @return [Array<ModernTreasury::ExpectedPayment>]
+      #   @return [Array<ModernTreasury::Models::ExpectedPayment>]
       required :expected_payments,
                -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ExpectedPayment] }
 
@@ -98,7 +98,7 @@ module ModernTreasury
       # @!attribute invoicer_address
       #   The invoice issuer's business address.
       #
-      #   @return [ModernTreasury::Invoice::InvoicerAddress, nil]
+      #   @return [ModernTreasury::Models::Invoice::InvoicerAddress, nil]
       required :invoicer_address, -> { ModernTreasury::Invoice::InvoicerAddress }, nil?: true
 
       # @!attribute ledger_account_settlement_id
@@ -165,20 +165,20 @@ module ModernTreasury
       #   When opening an invoice, whether to show the embedded payment UI , automatically
       #   debit the recipient, or rely on manual payment from the recipient.
       #
-      #   @return [Symbol, ModernTreasury::Invoice::PaymentMethod, nil]
+      #   @return [Symbol, ModernTreasury::Models::Invoice::PaymentMethod, nil]
       required :payment_method, enum: -> { ModernTreasury::Invoice::PaymentMethod }, nil?: true
 
       # @!attribute payment_orders
       #   The payment orders created for paying the invoice through the invoice payment
       #   UI.
       #
-      #   @return [Array<ModernTreasury::PaymentOrder>]
+      #   @return [Array<ModernTreasury::Models::PaymentOrder>]
       required :payment_orders, -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::PaymentOrder] }
 
       # @!attribute payment_type
       #   One of `ach` or `eft`.
       #
-      #   @return [Symbol, ModernTreasury::Invoice::PaymentType, nil]
+      #   @return [Symbol, ModernTreasury::Models::Invoice::PaymentType, nil]
       required :payment_type, enum: -> { ModernTreasury::Invoice::PaymentType }, nil?: true
 
       # @!attribute pdf_url
@@ -217,7 +217,7 @@ module ModernTreasury
       # @!attribute status
       #   The status of the invoice.
       #
-      #   @return [Symbol, ModernTreasury::Invoice::Status]
+      #   @return [Symbol, ModernTreasury::Models::Invoice::Status]
       required :status, enum: -> { ModernTreasury::Invoice::Status }
 
       # @!attribute total_amount
@@ -245,8 +245,8 @@ module ModernTreasury
       required :virtual_account_id, String, nil?: true
 
       # @!method initialize(id:, amount_paid:, amount_remaining:, contact_details:, counterparty_billing_address:, counterparty_id:, counterparty_shipping_address:, created_at:, currency:, description:, due_date:, expected_payments:, fallback_payment_method:, hosted_url:, invoicer_address:, ledger_account_settlement_id:, live_mode:, metadata:, notification_email_addresses:, notifications_enabled:, number:, object:, originating_account_id:, payment_effective_date:, payment_method:, payment_orders:, payment_type:, pdf_url:, receiving_account_id:, recipient_email:, recipient_name:, remind_after_overdue_days:, status:, total_amount:, transaction_line_item_ids:, updated_at:, virtual_account_id:)
-      #   Some parameter documentations has been truncated, see {ModernTreasury::Invoice}
-      #   for more details.
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::Invoice} for more details.
       #
       #   @param id [String]
       #
@@ -254,29 +254,29 @@ module ModernTreasury
       #
       #   @param amount_remaining [Integer] Amount remaining due on the invoice in specified currency's smallest unit, e.g.,
       #
-      #   @param contact_details [Array<ModernTreasury::Invoice::ContactDetail>] The invoicer's contact details displayed at the top of the invoice.
+      #   @param contact_details [Array<ModernTreasury::Models::Invoice::ContactDetail>] The invoicer's contact details displayed at the top of the invoice.
       #
-      #   @param counterparty_billing_address [ModernTreasury::Invoice::CounterpartyBillingAddress, nil] The counterparty's billing address.
+      #   @param counterparty_billing_address [ModernTreasury::Models::Invoice::CounterpartyBillingAddress, nil] The counterparty's billing address.
       #
       #   @param counterparty_id [String] The ID of the counterparty receiving the invoice.
       #
-      #   @param counterparty_shipping_address [ModernTreasury::Invoice::CounterpartyShippingAddress, nil] The counterparty's shipping address where physical goods should be delivered.
+      #   @param counterparty_shipping_address [ModernTreasury::Models::Invoice::CounterpartyShippingAddress, nil] The counterparty's shipping address where physical goods should be delivered.
       #
       #   @param created_at [Time]
       #
-      #   @param currency [Symbol, ModernTreasury::Currency] Currency that the invoice is denominated in. Defaults to `USD` if not provided.
+      #   @param currency [Symbol, ModernTreasury::Models::Currency] Currency that the invoice is denominated in. Defaults to `USD` if not provided.
       #
       #   @param description [String] A free-form description of the invoice.
       #
       #   @param due_date [Time] A future date by when the invoice needs to be paid.
       #
-      #   @param expected_payments [Array<ModernTreasury::ExpectedPayment>] The expected payments created for an unpaid invoice.
+      #   @param expected_payments [Array<ModernTreasury::Models::ExpectedPayment>] The expected payments created for an unpaid invoice.
       #
       #   @param fallback_payment_method [String, nil] When payment_method is automatic, the fallback payment method to use when an aut
       #
       #   @param hosted_url [String] The URL of the hosted web UI where the invoice can be viewed.
       #
-      #   @param invoicer_address [ModernTreasury::Invoice::InvoicerAddress, nil] The invoice issuer's business address.
+      #   @param invoicer_address [ModernTreasury::Models::Invoice::InvoicerAddress, nil] The invoice issuer's business address.
       #
       #   @param ledger_account_settlement_id [String, nil] The ledger account settlement object linked to the invoice.
       #
@@ -296,11 +296,11 @@ module ModernTreasury
       #
       #   @param payment_effective_date [Date, nil] Date transactions are to be posted to the participants' account. Defaults to the
       #
-      #   @param payment_method [Symbol, ModernTreasury::Invoice::PaymentMethod, nil] When opening an invoice, whether to show the embedded payment UI , automatically
+      #   @param payment_method [Symbol, ModernTreasury::Models::Invoice::PaymentMethod, nil] When opening an invoice, whether to show the embedded payment UI , automatically
       #
-      #   @param payment_orders [Array<ModernTreasury::PaymentOrder>] The payment orders created for paying the invoice through the invoice payment UI
+      #   @param payment_orders [Array<ModernTreasury::Models::PaymentOrder>] The payment orders created for paying the invoice through the invoice payment UI
       #
-      #   @param payment_type [Symbol, ModernTreasury::Invoice::PaymentType, nil] One of `ach` or `eft`.
+      #   @param payment_type [Symbol, ModernTreasury::Models::Invoice::PaymentType, nil] One of `ach` or `eft`.
       #
       #   @param pdf_url [String, nil] The URL where the invoice PDF can be downloaded.
       #
@@ -312,7 +312,7 @@ module ModernTreasury
       #
       #   @param remind_after_overdue_days [Array<Integer>, nil] Number of days after due date when overdue reminder emails will be sent out to i
       #
-      #   @param status [Symbol, ModernTreasury::Invoice::Status] The status of the invoice.
+      #   @param status [Symbol, ModernTreasury::Models::Invoice::Status] The status of the invoice.
       #
       #   @param total_amount [Integer] Total amount due in specified currency's smallest unit, e.g., $10 USD would be r
       #
@@ -335,7 +335,7 @@ module ModernTreasury
 
         # @!attribute contact_identifier_type
         #
-        #   @return [Symbol, ModernTreasury::Invoice::ContactDetail::ContactIdentifierType]
+        #   @return [Symbol, ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType]
         required :contact_identifier_type,
                  enum: -> { ModernTreasury::Invoice::ContactDetail::ContactIdentifierType }
 
@@ -368,13 +368,13 @@ module ModernTreasury
 
         # @!method initialize(id:, contact_identifier:, contact_identifier_type:, created_at:, discarded_at:, live_mode:, object:, updated_at:)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Invoice::ContactDetail} for more details.
+        #   {ModernTreasury::Models::Invoice::ContactDetail} for more details.
         #
         #   @param id [String]
         #
         #   @param contact_identifier [String]
         #
-        #   @param contact_identifier_type [Symbol, ModernTreasury::Invoice::ContactDetail::ContactIdentifierType]
+        #   @param contact_identifier_type [Symbol, ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType]
         #
         #   @param created_at [Time]
         #
@@ -386,7 +386,7 @@ module ModernTreasury
         #
         #   @param updated_at [Time]
 
-        # @see ModernTreasury::Invoice::ContactDetail#contact_identifier_type
+        # @see ModernTreasury::Models::Invoice::ContactDetail#contact_identifier_type
         module ContactIdentifierType
           extend ModernTreasury::Internal::Type::Enum
 
@@ -399,7 +399,7 @@ module ModernTreasury
         end
       end
 
-      # @see ModernTreasury::Invoice#counterparty_billing_address
+      # @see ModernTreasury::Models::Invoice#counterparty_billing_address
       class CounterpartyBillingAddress < ModernTreasury::Internal::Type::BaseModel
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]
@@ -451,7 +451,7 @@ module ModernTreasury
         #   @param line2 [String]
       end
 
-      # @see ModernTreasury::Invoice#counterparty_shipping_address
+      # @see ModernTreasury::Models::Invoice#counterparty_shipping_address
       class CounterpartyShippingAddress < ModernTreasury::Internal::Type::BaseModel
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]
@@ -503,7 +503,7 @@ module ModernTreasury
         #   @param line2 [String]
       end
 
-      # @see ModernTreasury::Invoice#invoicer_address
+      # @see ModernTreasury::Models::Invoice#invoicer_address
       class InvoicerAddress < ModernTreasury::Internal::Type::BaseModel
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]
@@ -558,7 +558,7 @@ module ModernTreasury
       # When opening an invoice, whether to show the embedded payment UI , automatically
       # debit the recipient, or rely on manual payment from the recipient.
       #
-      # @see ModernTreasury::Invoice#payment_method
+      # @see ModernTreasury::Models::Invoice#payment_method
       module PaymentMethod
         extend ModernTreasury::Internal::Type::Enum
 
@@ -572,7 +572,7 @@ module ModernTreasury
 
       # One of `ach` or `eft`.
       #
-      # @see ModernTreasury::Invoice#payment_type
+      # @see ModernTreasury::Models::Invoice#payment_type
       module PaymentType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -585,7 +585,7 @@ module ModernTreasury
 
       # The status of the invoice.
       #
-      # @see ModernTreasury::Invoice#status
+      # @see ModernTreasury::Models::Invoice#status
       module Status
         extend ModernTreasury::Internal::Type::Enum
 

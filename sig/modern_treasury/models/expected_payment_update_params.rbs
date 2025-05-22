@@ -83,6 +83,27 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
+      def to_hash: -> {
+        amount_lower_bound: Integer?,
+        amount_upper_bound: Integer?,
+        counterparty_id: String?,
+        currency: ModernTreasury::Models::currency?,
+        date_lower_bound: Date?,
+        date_upper_bound: Date?,
+        description: String?,
+        direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::direction?,
+        internal_account_id: String?,
+        metadata: ::Hash[Symbol, String],
+        reconciliation_filters: top?,
+        reconciliation_groups: top?,
+        reconciliation_rule_variables: ::Array[ModernTreasury::ReconciliationRule]?,
+        remittance_information: String?,
+        statement_descriptor: String?,
+        status: ModernTreasury::Models::ExpectedPaymentUpdateParams::status?,
+        type: ModernTreasury::Models::expected_payment_type?,
+        request_options: ModernTreasury::RequestOptions
+      }
+
       type direction = :credit | :debit
 
       module Direction

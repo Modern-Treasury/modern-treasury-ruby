@@ -20,6 +20,12 @@ module ModernTreasury
         account_id: String,
         ?request_options: ModernTreasury::request_opts
       ) -> void
+
+      def to_hash: -> {
+        accounts_type: ModernTreasury::Models::accounts_type,
+        account_id: String,
+        request_options: ModernTreasury::RequestOptions
+      }
     end
   end
 end

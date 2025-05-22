@@ -21,13 +21,13 @@ module ModernTreasury
       #
       # @param auto_advance [Boolean, nil] When true, the invoice will progress to unpaid automatically and cannot be edite
       #
-      # @param contact_details [Array<ModernTreasury::InvoiceCreateParams::ContactDetail>] The invoicer's contact details displayed at the top of the invoice.
+      # @param contact_details [Array<ModernTreasury::Models::InvoiceCreateParams::ContactDetail>] The invoicer's contact details displayed at the top of the invoice.
       #
-      # @param counterparty_billing_address [ModernTreasury::InvoiceCreateParams::CounterpartyBillingAddress, nil] The counterparty's billing address.
+      # @param counterparty_billing_address [ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress, nil] The counterparty's billing address.
       #
-      # @param counterparty_shipping_address [ModernTreasury::InvoiceCreateParams::CounterpartyShippingAddress, nil] The counterparty's shipping address where physical goods should be delivered.
+      # @param counterparty_shipping_address [ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress, nil] The counterparty's shipping address where physical goods should be delivered.
       #
-      # @param currency [Symbol, ModernTreasury::Currency] Currency that the invoice is denominated in. Defaults to `USD` if not provided.
+      # @param currency [Symbol, ModernTreasury::Models::Currency] Currency that the invoice is denominated in. Defaults to `USD` if not provided.
       #
       # @param description [String] A free-form description of the invoice.
       #
@@ -35,9 +35,9 @@ module ModernTreasury
       #
       # @param ingest_ledger_entries [Boolean, nil] Whether to ingest the ledger_entries to populate the invoice line items. If this
       #
-      # @param invoice_line_items [Array<ModernTreasury::InvoiceCreateParams::InvoiceLineItem>, nil] An array of invoice line items. The API supports a maximum of 50 invoice line it
+      # @param invoice_line_items [Array<ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem>, nil] An array of invoice line items. The API supports a maximum of 50 invoice line it
       #
-      # @param invoicer_address [ModernTreasury::InvoiceCreateParams::InvoicerAddress, nil] The invoice issuer's business address.
+      # @param invoicer_address [ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress, nil] The invoice issuer's business address.
       #
       # @param ledger_account_settlement_id [String, nil] The ID of the virtual account the invoice should be paid to.
       #
@@ -49,9 +49,9 @@ module ModernTreasury
       #
       # @param payment_effective_date [Date] Date transactions are to be posted to the participants' account. Defaults to the
       #
-      # @param payment_method [Symbol, ModernTreasury::InvoiceCreateParams::PaymentMethod] The method by which the invoice can be paid. `ui` will show the embedded payment
+      # @param payment_method [Symbol, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod] The method by which the invoice can be paid. `ui` will show the embedded payment
       #
-      # @param payment_type [Symbol, ModernTreasury::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
+      # @param payment_type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
       #
       # @param receiving_account_id [String] The receiving account ID. Can be an `external_account`.
       #
@@ -65,7 +65,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Invoice]
+      # @return [ModernTreasury::Models::Invoice]
       #
       # @see ModernTreasury::Models::InvoiceCreateParams
       def create(params)
@@ -87,7 +87,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Invoice]
+      # @return [ModernTreasury::Models::Invoice]
       #
       # @see ModernTreasury::Models::InvoiceRetrieveParams
       def retrieve(id, params = {})
@@ -108,15 +108,15 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param contact_details [Array<ModernTreasury::InvoiceUpdateParams::ContactDetail>] The invoicer's contact details displayed at the top of the invoice.
+      # @param contact_details [Array<ModernTreasury::Models::InvoiceUpdateParams::ContactDetail>] The invoicer's contact details displayed at the top of the invoice.
       #
-      # @param counterparty_billing_address [ModernTreasury::InvoiceUpdateParams::CounterpartyBillingAddress, nil] The counterparty's billing address.
+      # @param counterparty_billing_address [ModernTreasury::Models::InvoiceUpdateParams::CounterpartyBillingAddress, nil] The counterparty's billing address.
       #
       # @param counterparty_id [String] The ID of the counterparty receiving the invoice.
       #
-      # @param counterparty_shipping_address [ModernTreasury::InvoiceUpdateParams::CounterpartyShippingAddress, nil] The counterparty's shipping address where physical goods should be delivered.
+      # @param counterparty_shipping_address [ModernTreasury::Models::InvoiceUpdateParams::CounterpartyShippingAddress, nil] The counterparty's shipping address where physical goods should be delivered.
       #
-      # @param currency [Symbol, ModernTreasury::Currency] Currency that the invoice is denominated in. Defaults to `USD` if not provided.
+      # @param currency [Symbol, ModernTreasury::Models::Currency] Currency that the invoice is denominated in. Defaults to `USD` if not provided.
       #
       # @param description [String] A free-form description of the invoice.
       #
@@ -126,9 +126,9 @@ module ModernTreasury
       #
       # @param ingest_ledger_entries [Boolean, nil] Whether to ingest the ledger_entries to populate the invoice line items. If this
       #
-      # @param invoice_line_items [Array<ModernTreasury::InvoiceUpdateParams::InvoiceLineItem>, nil] An array of invoice line items. The API supports a maximum of 50 invoice line it
+      # @param invoice_line_items [Array<ModernTreasury::Models::InvoiceUpdateParams::InvoiceLineItem>, nil] An array of invoice line items. The API supports a maximum of 50 invoice line it
       #
-      # @param invoicer_address [ModernTreasury::InvoiceUpdateParams::InvoicerAddress, nil] The invoice issuer's business address.
+      # @param invoicer_address [ModernTreasury::Models::InvoiceUpdateParams::InvoicerAddress, nil] The invoice issuer's business address.
       #
       # @param ledger_account_settlement_id [String, nil] The ID of the virtual account the invoice should be paid to.
       #
@@ -142,9 +142,9 @@ module ModernTreasury
       #
       # @param payment_effective_date [Date] Date transactions are to be posted to the participants' account. Defaults to the
       #
-      # @param payment_method [Symbol, ModernTreasury::InvoiceUpdateParams::PaymentMethod] The method by which the invoice can be paid. `ui` will show the embedded payment
+      # @param payment_method [Symbol, ModernTreasury::Models::InvoiceUpdateParams::PaymentMethod] The method by which the invoice can be paid. `ui` will show the embedded payment
       #
-      # @param payment_type [Symbol, ModernTreasury::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
+      # @param payment_type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
       #
       # @param receiving_account_id [String] The receiving account ID. Can be an `external_account`.
       #
@@ -160,7 +160,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Invoice]
+      # @return [ModernTreasury::Models::Invoice]
       #
       # @see ModernTreasury::Models::InvoiceUpdateParams
       def update(id, params = {})
@@ -201,11 +201,11 @@ module ModernTreasury
       #
       # @param per_page [Integer]
       #
-      # @param status [Symbol, ModernTreasury::InvoiceListParams::Status]
+      # @param status [Symbol, ModernTreasury::Models::InvoiceListParams::Status]
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::Invoice>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::Invoice>]
       #
       # @see ModernTreasury::Models::InvoiceListParams
       def list(params = {})

@@ -10,7 +10,7 @@ module ModernTreasury
       # @!attribute ledger_transaction_template
       #   @deprecated
       #
-      #   @return [ModernTreasury::LedgerEventHandlerCreateParams::LedgerTransactionTemplate]
+      #   @return [ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate]
       required :ledger_transaction_template,
                -> { ModernTreasury::LedgerEventHandlerCreateParams::LedgerTransactionTemplate }
 
@@ -23,7 +23,7 @@ module ModernTreasury
       # @!attribute conditions
       #   @deprecated
       #
-      #   @return [ModernTreasury::LedgerEventHandlerCreateParams::Conditions, nil]
+      #   @return [ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions, nil]
       optional :conditions, -> { ModernTreasury::LedgerEventHandlerCreateParams::Conditions }, nil?: true
 
       # @!attribute description
@@ -48,7 +48,7 @@ module ModernTreasury
       # @!attribute variables
       #   @deprecated
       #
-      #   @return [Hash{Symbol=>ModernTreasury::LedgerEventHandlerVariable}, nil]
+      #   @return [Hash{Symbol=>ModernTreasury::Models::LedgerEventHandlerVariable}, nil]
       optional :variables,
                -> { ModernTreasury::Internal::Type::HashOf[ModernTreasury::LedgerEventHandlerVariable] },
                nil?: true
@@ -57,11 +57,11 @@ module ModernTreasury
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LedgerEventHandlerCreateParams} for more details.
       #
-      #   @param ledger_transaction_template [ModernTreasury::LedgerEventHandlerCreateParams::LedgerTransactionTemplate]
+      #   @param ledger_transaction_template [ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate]
       #
       #   @param name [String] Name of the ledger event handler.
       #
-      #   @param conditions [ModernTreasury::LedgerEventHandlerCreateParams::Conditions, nil]
+      #   @param conditions [ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions, nil]
       #
       #   @param description [String, nil] An optional description.
       #
@@ -69,7 +69,7 @@ module ModernTreasury
       #
       #   @param metadata [Hash{Symbol=>String}, nil] Additional data represented as key-value pairs. Both the key and value must be s
       #
-      #   @param variables [Hash{Symbol=>ModernTreasury::LedgerEventHandlerVariable}, nil]
+      #   @param variables [Hash{Symbol=>ModernTreasury::Models::LedgerEventHandlerVariable}, nil]
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
@@ -91,7 +91,7 @@ module ModernTreasury
         # @!attribute ledger_entries
         #   An array of ledger entry objects.
         #
-        #   @return [Array<ModernTreasury::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry>]
+        #   @return [Array<ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry>]
         required :ledger_entries,
                  -> {
                    ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry]
@@ -105,14 +105,14 @@ module ModernTreasury
 
         # @!method initialize(description:, effective_at:, ledger_entries:, status:)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::LedgerEventHandlerCreateParams::LedgerTransactionTemplate} for
-        #   more details.
+        #   {ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate}
+        #   for more details.
         #
         #   @param description [String, nil] An optional description for internal use.
         #
         #   @param effective_at [String, nil] The timestamp (ISO8601 format) at which the ledger transaction happened for repo
         #
-        #   @param ledger_entries [Array<ModernTreasury::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry>] An array of ledger entry objects.
+        #   @param ledger_entries [Array<ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry>] An array of ledger entry objects.
         #
         #   @param status [String, nil] To post a ledger transaction at creation, use `posted`.
 

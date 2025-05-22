@@ -34,7 +34,7 @@ module ModernTreasury
       #   One of the referenceable types. This must be accompanied by the id of the
       #   referenceable or will return an error.
       #
-      #   @return [Symbol, ModernTreasury::PaymentReferenceListParams::ReferenceableType, nil]
+      #   @return [Symbol, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType, nil]
       optional :referenceable_type, enum: -> { ModernTreasury::PaymentReferenceListParams::ReferenceableType }
 
       # @!method initialize(after_cursor: nil, per_page: nil, reference_number: nil, referenceable_id: nil, referenceable_type: nil, request_options: {})
@@ -49,7 +49,7 @@ module ModernTreasury
       #
       #   @param referenceable_id [String] The id of the referenceable to search for. Must be accompanied by the referencea
       #
-      #   @param referenceable_type [Symbol, ModernTreasury::PaymentReferenceListParams::ReferenceableType] One of the referenceable types. This must be accompanied by the id of the refere
+      #   @param referenceable_type [Symbol, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType] One of the referenceable types. This must be accompanied by the id of the refere
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 

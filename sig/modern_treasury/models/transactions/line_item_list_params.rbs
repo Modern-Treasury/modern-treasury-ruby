@@ -40,6 +40,15 @@ module ModernTreasury
           ?request_options: ModernTreasury::request_opts
         ) -> void
 
+        def to_hash: -> {
+          id: ::Hash[Symbol, String],
+          after_cursor: String?,
+          per_page: Integer,
+          transaction_id: String,
+          type: ModernTreasury::Models::Transactions::LineItemListParams::type_?,
+          request_options: ModernTreasury::RequestOptions
+        }
+
         type type_ = :originating | :receiving
 
         module Type

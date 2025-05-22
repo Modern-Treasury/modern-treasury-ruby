@@ -27,11 +27,11 @@ module ModernTreasury
       #
       # @param skip_settlement_ledger_transaction [Boolean, nil] It is set to `false` by default. It should be set to `true` when migrating exist
       #
-      # @param status [Symbol, ModernTreasury::LedgerAccountSettlementCreateParams::Status, nil] The status of the ledger account settlement. It is set to `pending` by default.
+      # @param status [Symbol, ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status, nil] The status of the ledger account settlement. It is set to `pending` by default.
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::LedgerAccountSettlement]
+      # @return [ModernTreasury::Models::LedgerAccountSettlement]
       #
       # @see ModernTreasury::Models::LedgerAccountSettlementCreateParams
       def create(params)
@@ -53,7 +53,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::LedgerAccountSettlement]
+      # @return [ModernTreasury::Models::LedgerAccountSettlement]
       #
       # @see ModernTreasury::Models::LedgerAccountSettlementRetrieveParams
       def retrieve(id, params = {})
@@ -78,11 +78,11 @@ module ModernTreasury
       #
       # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #
-      # @param status [Symbol, ModernTreasury::LedgerAccountSettlementUpdateParams::Status] To post a pending ledger account settlement, use `posted`. To archive a pending
+      # @param status [Symbol, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status] To post a pending ledger account settlement, use `posted`. To archive a pending
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::LedgerAccountSettlement]
+      # @return [ModernTreasury::Models::LedgerAccountSettlement]
       #
       # @see ModernTreasury::Models::LedgerAccountSettlementUpdateParams
       def update(id, params = {})
@@ -125,7 +125,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::LedgerAccountSettlement>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::LedgerAccountSettlement>]
       #
       # @see ModernTreasury::Models::LedgerAccountSettlementListParams
       def list(params = {})

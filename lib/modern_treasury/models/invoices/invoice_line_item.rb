@@ -90,7 +90,7 @@ module ModernTreasury
 
         # @!method initialize(id:, amount:, created_at:, description:, direction:, live_mode:, metadata:, name:, object:, quantity:, unit_amount:, unit_amount_decimal:, updated_at:)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Invoices::InvoiceLineItem} for more details.
+        #   {ModernTreasury::Models::Invoices::InvoiceLineItem} for more details.
         #
         #   @param id [String]
         #

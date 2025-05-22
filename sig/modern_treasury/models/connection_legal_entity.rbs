@@ -9,7 +9,7 @@ module ModernTreasury
         legal_entity_id: String,
         live_mode: bool,
         object: String,
-        status: ModernTreasury::ConnectionLegalEntity::status,
+        status: ModernTreasury::Models::ConnectionLegalEntity::status,
         updated_at: Time,
         vendor_id: String
       }
@@ -29,7 +29,7 @@ module ModernTreasury
 
       attr_accessor object: String
 
-      attr_accessor status: ModernTreasury::ConnectionLegalEntity::status
+      attr_accessor status: ModernTreasury::Models::ConnectionLegalEntity::status
 
       attr_accessor updated_at: Time
 
@@ -43,10 +43,23 @@ module ModernTreasury
         legal_entity_id: String,
         live_mode: bool,
         object: String,
-        status: ModernTreasury::ConnectionLegalEntity::status,
+        status: ModernTreasury::Models::ConnectionLegalEntity::status,
         updated_at: Time,
         vendor_id: String
       ) -> void
+
+      def to_hash: -> {
+        id: String,
+        connection_id: String,
+        created_at: Time,
+        discarded_at: Time?,
+        legal_entity_id: String,
+        live_mode: bool,
+        object: String,
+        status: ModernTreasury::Models::ConnectionLegalEntity::status,
+        updated_at: Time,
+        vendor_id: String
+      }
 
       type status = :completed | :denied | :failed | :processing
 
@@ -58,7 +71,7 @@ module ModernTreasury
         FAILED: :failed
         PROCESSING: :processing
 
-        def self?.values: -> ::Array[ModernTreasury::ConnectionLegalEntity::status]
+        def self?.values: -> ::Array[ModernTreasury::Models::ConnectionLegalEntity::status]
       end
     end
   end

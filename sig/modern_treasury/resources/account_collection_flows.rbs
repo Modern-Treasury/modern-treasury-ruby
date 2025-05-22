@@ -4,7 +4,7 @@ module ModernTreasury
       def create: (
         counterparty_id: String,
         payment_types: ::Array[String],
-        ?receiving_countries: ::Array[ModernTreasury::AccountCollectionFlowCreateParams::receiving_country],
+        ?receiving_countries: ::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country],
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::AccountCollectionFlow
 

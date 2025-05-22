@@ -62,6 +62,22 @@ module ModernTreasury
           unit_amount_decimal: String,
           updated_at: Time
         ) -> void
+
+        def to_hash: -> {
+          id: String,
+          amount: Integer,
+          created_at: Time,
+          description: String,
+          direction: String,
+          live_mode: bool,
+          metadata: ::Hash[Symbol, String],
+          name: String,
+          object: String,
+          quantity: Integer,
+          unit_amount: Integer,
+          unit_amount_decimal: String,
+          updated_at: Time
+        }
       end
     end
   end

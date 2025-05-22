@@ -12,9 +12,9 @@ module ModernTreasury
       #
       # @param parent_legal_entity_id [String] The ID of the parent legal entity. This must be a business or joint legal entity
       #
-      # @param relationship_types [Array<Symbol, ModernTreasury::LegalEntityAssociationCreateParams::RelationshipType>]
+      # @param relationship_types [Array<Symbol, ModernTreasury::Models::LegalEntityAssociationCreateParams::RelationshipType>]
       #
-      # @param child_legal_entity [ModernTreasury::LegalEntityAssociationCreateParams::ChildLegalEntity] The child legal entity.
+      # @param child_legal_entity [ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity] The child legal entity.
       #
       # @param child_legal_entity_id [String] The ID of the child legal entity.
       #
@@ -24,7 +24,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::LegalEntityAssociation]
+      # @return [ModernTreasury::Models::LegalEntityAssociation]
       #
       # @see ModernTreasury::Models::LegalEntityAssociationCreateParams
       def create(params)

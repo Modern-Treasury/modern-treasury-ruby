@@ -4,14 +4,14 @@ module ModernTreasury
       {
         amount_lower_bound: Integer,
         amount_upper_bound: Integer,
-        direction: ModernTreasury::ReconciliationRule::direction,
+        direction: ModernTreasury::Models::ReconciliationRule::direction,
         internal_account_id: String,
         counterparty_id: String?,
         currency: ModernTreasury::Models::currency,
         custom_identifiers: ::Hash[Symbol, String]?,
         date_lower_bound: Date?,
         date_upper_bound: Date?,
-        type: ModernTreasury::ReconciliationRule::type_?
+        type: ModernTreasury::Models::ReconciliationRule::type_?
       }
 
     class ReconciliationRule < ModernTreasury::Internal::Type::BaseModel
@@ -19,7 +19,7 @@ module ModernTreasury
 
       attr_accessor amount_upper_bound: Integer
 
-      attr_accessor direction: ModernTreasury::ReconciliationRule::direction
+      attr_accessor direction: ModernTreasury::Models::ReconciliationRule::direction
 
       attr_accessor internal_account_id: String
 
@@ -37,20 +37,33 @@ module ModernTreasury
 
       attr_accessor date_upper_bound: Date?
 
-      attr_accessor type: ModernTreasury::ReconciliationRule::type_?
+      attr_accessor type: ModernTreasury::Models::ReconciliationRule::type_?
 
       def initialize: (
         amount_lower_bound: Integer,
         amount_upper_bound: Integer,
-        direction: ModernTreasury::ReconciliationRule::direction,
+        direction: ModernTreasury::Models::ReconciliationRule::direction,
         internal_account_id: String,
         ?counterparty_id: String?,
         ?currency: ModernTreasury::Models::currency,
         ?custom_identifiers: ::Hash[Symbol, String]?,
         ?date_lower_bound: Date?,
         ?date_upper_bound: Date?,
-        ?type: ModernTreasury::ReconciliationRule::type_?
+        ?type: ModernTreasury::Models::ReconciliationRule::type_?
       ) -> void
+
+      def to_hash: -> {
+        amount_lower_bound: Integer,
+        amount_upper_bound: Integer,
+        direction: ModernTreasury::Models::ReconciliationRule::direction,
+        internal_account_id: String,
+        counterparty_id: String?,
+        currency: ModernTreasury::Models::currency,
+        custom_identifiers: ::Hash[Symbol, String]?,
+        date_lower_bound: Date?,
+        date_upper_bound: Date?,
+        type: ModernTreasury::Models::ReconciliationRule::type_?
+      }
 
       type direction = :credit | :debit
 
@@ -60,7 +73,7 @@ module ModernTreasury
         CREDIT: :credit
         DEBIT: :debit
 
-        def self?.values: -> ::Array[ModernTreasury::ReconciliationRule::direction]
+        def self?.values: -> ::Array[ModernTreasury::Models::ReconciliationRule::direction]
       end
 
       type type_ =
@@ -129,7 +142,7 @@ module ModernTreasury
         WIRE: :wire
         ZENGIN: :zengin
 
-        def self?.values: -> ::Array[ModernTreasury::ReconciliationRule::type_]
+        def self?.values: -> ::Array[ModernTreasury::Models::ReconciliationRule::type_]
       end
     end
   end

@@ -11,7 +11,7 @@ module ModernTreasury
 
       # @!attribute bank_address
       #
-      #   @return [ModernTreasury::RoutingDetail::BankAddress, nil]
+      #   @return [ModernTreasury::Models::RoutingDetail::BankAddress, nil]
       required :bank_address, -> { ModernTreasury::RoutingDetail::BankAddress }, nil?: true
 
       # @!attribute bank_name
@@ -46,7 +46,7 @@ module ModernTreasury
       #   If the routing detail is to be used for a specific payment type this field will
       #   be populated, otherwise null.
       #
-      #   @return [Symbol, ModernTreasury::RoutingDetail::PaymentType, nil]
+      #   @return [Symbol, ModernTreasury::Models::RoutingDetail::PaymentType, nil]
       required :payment_type, enum: -> { ModernTreasury::RoutingDetail::PaymentType }, nil?: true
 
       # @!attribute routing_number
@@ -60,7 +60,7 @@ module ModernTreasury
       #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
       #   more details.
       #
-      #   @return [Symbol, ModernTreasury::RoutingDetail::RoutingNumberType]
+      #   @return [Symbol, ModernTreasury::Models::RoutingDetail::RoutingNumberType]
       required :routing_number_type, enum: -> { ModernTreasury::RoutingDetail::RoutingNumberType }
 
       # @!attribute updated_at
@@ -70,11 +70,11 @@ module ModernTreasury
 
       # @!method initialize(id:, bank_address:, bank_name:, created_at:, discarded_at:, live_mode:, object:, payment_type:, routing_number:, routing_number_type:, updated_at:)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::RoutingDetail} for more details.
+      #   {ModernTreasury::Models::RoutingDetail} for more details.
       #
       #   @param id [String]
       #
-      #   @param bank_address [ModernTreasury::RoutingDetail::BankAddress, nil]
+      #   @param bank_address [ModernTreasury::Models::RoutingDetail::BankAddress, nil]
       #
       #   @param bank_name [String] The name of the bank.
       #
@@ -86,15 +86,15 @@ module ModernTreasury
       #
       #   @param object [String]
       #
-      #   @param payment_type [Symbol, ModernTreasury::RoutingDetail::PaymentType, nil] If the routing detail is to be used for a specific payment type this field will
+      #   @param payment_type [Symbol, ModernTreasury::Models::RoutingDetail::PaymentType, nil] If the routing detail is to be used for a specific payment type this field will
       #
       #   @param routing_number [String] The routing number of the bank.
       #
-      #   @param routing_number_type [Symbol, ModernTreasury::RoutingDetail::RoutingNumberType] The type of routing number. See https://docs.moderntreasury.com/platform/referen
+      #   @param routing_number_type [Symbol, ModernTreasury::Models::RoutingDetail::RoutingNumberType] The type of routing number. See https://docs.moderntreasury.com/platform/referen
       #
       #   @param updated_at [Time]
 
-      # @see ModernTreasury::RoutingDetail#bank_address
+      # @see ModernTreasury::Models::RoutingDetail#bank_address
       class BankAddress < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
         #
@@ -159,7 +159,7 @@ module ModernTreasury
 
         # @!method initialize(id:, country:, created_at:, line1:, line2:, live_mode:, locality:, object:, postal_code:, region:, updated_at:)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::RoutingDetail::BankAddress} for more details.
+        #   {ModernTreasury::Models::RoutingDetail::BankAddress} for more details.
         #
         #   @param id [String]
         #
@@ -187,7 +187,7 @@ module ModernTreasury
       # If the routing detail is to be used for a specific payment type this field will
       # be populated, otherwise null.
       #
-      # @see ModernTreasury::RoutingDetail#payment_type
+      # @see ModernTreasury::Models::RoutingDetail#payment_type
       module PaymentType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -230,7 +230,7 @@ module ModernTreasury
       # https://docs.moderntreasury.com/platform/reference/routing-detail-object for
       # more details.
       #
-      # @see ModernTreasury::RoutingDetail#routing_number_type
+      # @see ModernTreasury::Models::RoutingDetail#routing_number_type
       module RoutingNumberType
         extend ModernTreasury::Internal::Type::Enum
 

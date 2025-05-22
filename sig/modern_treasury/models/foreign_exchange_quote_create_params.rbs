@@ -46,6 +46,16 @@ module ModernTreasury
         ?target_amount: Integer,
         ?request_options: ModernTreasury::request_opts
       ) -> void
+
+      def to_hash: -> {
+        internal_account_id: String,
+        target_currency: ModernTreasury::Models::currency,
+        base_amount: Integer,
+        base_currency: ModernTreasury::Models::currency,
+        effective_at: Time,
+        target_amount: Integer,
+        request_options: ModernTreasury::RequestOptions
+      }
     end
   end
 end

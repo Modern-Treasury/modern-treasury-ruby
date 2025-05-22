@@ -73,7 +73,7 @@ module ModernTreasury
 
       # @!method initialize(id:, created_at:, discarded_at:, issuer:, live_mode:, object:, token_expires_at:, token_issued_at:, token_url:, updated_at:, validated:, validated_at:)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::LegalEntityComplianceDetail} for more details.
+      #   {ModernTreasury::Models::LegalEntityComplianceDetail} for more details.
       #
       #   @param id [String]
       #

@@ -23,7 +23,7 @@ module ModernTreasury
       # @!attribute currency
       #   Defaults to the currency of the originating account.
       #
-      #   @return [Symbol, ModernTreasury::Currency, nil]
+      #   @return [Symbol, ModernTreasury::Models::Currency, nil]
       optional :currency, enum: -> { ModernTreasury::Currency }, nil?: true
 
       # @!attribute data
@@ -42,7 +42,7 @@ module ModernTreasury
       # @!attribute direction
       #   One of `credit`, `debit`.
       #
-      #   @return [Symbol, ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Direction, nil]
+      #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction, nil]
       optional :direction, enum: -> { ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Direction }
 
       # @!attribute internal_account_id
@@ -54,7 +54,7 @@ module ModernTreasury
       # @!attribute type
       #   One of `ach`, `wire`, `check`.
       #
-      #   @return [Symbol, ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Type, nil]
+      #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type, nil]
       optional :type, enum: -> { ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Type }
 
       # @!attribute virtual_account_id
@@ -73,17 +73,17 @@ module ModernTreasury
       #
       #   @param as_of_date [Date, nil] Defaults to today.
       #
-      #   @param currency [Symbol, ModernTreasury::Currency, nil] Defaults to the currency of the originating account.
+      #   @param currency [Symbol, ModernTreasury::Models::Currency, nil] Defaults to the currency of the originating account.
       #
       #   @param data [Object, nil] An object passed through to the simulated IPD that could reflect what a vendor w
       #
       #   @param description [String, nil] Defaults to a random description.
       #
-      #   @param direction [Symbol, ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Direction] One of `credit`, `debit`.
+      #   @param direction [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction] One of `credit`, `debit`.
       #
       #   @param internal_account_id [String] The ID of one of your internal accounts.
       #
-      #   @param type [Symbol, ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Type] One of `ach`, `wire`, `check`.
+      #   @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type] One of `ach`, `wire`, `check`.
       #
       #   @param virtual_account_id [String, nil] An optional parameter to associate the incoming payment detail to a virtual acco
       #

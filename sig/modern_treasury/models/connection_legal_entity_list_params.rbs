@@ -43,6 +43,15 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
+      def to_hash: -> {
+        after_cursor: String?,
+        connection_id: String,
+        legal_entity_id: String,
+        per_page: Integer,
+        status: ModernTreasury::Models::ConnectionLegalEntityListParams::status,
+        request_options: ModernTreasury::RequestOptions
+      }
+
       type status = :completed | :denied | :failed | :processing
 
       module Status

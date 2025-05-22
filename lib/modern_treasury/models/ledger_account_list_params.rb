@@ -23,7 +23,7 @@ module ModernTreasury
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
       #   filter by balance amount.
       #
-      #   @return [ModernTreasury::LedgerAccountListParams::AvailableBalanceAmount, nil]
+      #   @return [ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount, nil]
       optional :available_balance_amount,
                -> {
                  ModernTreasury::LedgerAccountListParams::AvailableBalanceAmount
@@ -36,7 +36,7 @@ module ModernTreasury
       #   the provided timestamps. If no value is supplied the balances will be retrieved
       #   not including that bound.
       #
-      #   @return [ModernTreasury::LedgerAccountListParams::Balances, nil]
+      #   @return [ModernTreasury::Models::LedgerAccountListParams::Balances, nil]
       optional :balances, -> { ModernTreasury::LedgerAccountListParams::Balances }
 
       # @!attribute created_at
@@ -81,7 +81,7 @@ module ModernTreasury
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
       #   filter by balance amount.
       #
-      #   @return [ModernTreasury::LedgerAccountListParams::PendingBalanceAmount, nil]
+      #   @return [ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount, nil]
       optional :pending_balance_amount, -> { ModernTreasury::LedgerAccountListParams::PendingBalanceAmount }
 
       # @!attribute per_page
@@ -93,7 +93,7 @@ module ModernTreasury
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
       #   filter by balance amount.
       #
-      #   @return [ModernTreasury::LedgerAccountListParams::PostedBalanceAmount, nil]
+      #   @return [ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount, nil]
       optional :posted_balance_amount, -> { ModernTreasury::LedgerAccountListParams::PostedBalanceAmount }
 
       # @!attribute updated_at
@@ -112,9 +112,9 @@ module ModernTreasury
       #
       #   @param after_cursor [String, nil]
       #
-      #   @param available_balance_amount [ModernTreasury::LedgerAccountListParams::AvailableBalanceAmount] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to fi
+      #   @param available_balance_amount [ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to fi
       #
-      #   @param balances [ModernTreasury::LedgerAccountListParams::Balances] Use `balances[effective_at_lower_bound]` and `balances[effective_at_upper_bound]
+      #   @param balances [ModernTreasury::Models::LedgerAccountListParams::Balances] Use `balances[effective_at_lower_bound]` and `balances[effective_at_upper_bound]
       #
       #   @param created_at [Hash{Symbol=>Time}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the cre
       #
@@ -128,11 +128,11 @@ module ModernTreasury
       #
       #   @param name [Array<String>] If you have specific names to retrieve in bulk, you can pass them as query param
       #
-      #   @param pending_balance_amount [ModernTreasury::LedgerAccountListParams::PendingBalanceAmount] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to fi
+      #   @param pending_balance_amount [ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to fi
       #
       #   @param per_page [Integer]
       #
-      #   @param posted_balance_amount [ModernTreasury::LedgerAccountListParams::PostedBalanceAmount] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to fi
+      #   @param posted_balance_amount [ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to fi
       #
       #   @param updated_at [Hash{Symbol=>Time}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the upd
       #

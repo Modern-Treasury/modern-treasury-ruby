@@ -4,15 +4,15 @@ module ModernTreasury
       {
         id: String,
         created_at: Time,
-        entity: ModernTreasury::BulkResult::entity,
+        entity: ModernTreasury::Models::BulkResult::entity,
         entity_id: String,
-        entity_type: ModernTreasury::BulkResult::entity_type,
+        entity_type: ModernTreasury::Models::BulkResult::entity_type,
         live_mode: bool,
         object: String,
         request_id: String,
         request_params: ::Hash[Symbol, String]?,
-        request_type: ModernTreasury::BulkResult::request_type,
-        status: ModernTreasury::BulkResult::status,
+        request_type: ModernTreasury::Models::BulkResult::request_type,
+        status: ModernTreasury::Models::BulkResult::status,
         updated_at: Time
       }
 
@@ -21,11 +21,11 @@ module ModernTreasury
 
       attr_accessor created_at: Time
 
-      attr_accessor entity: ModernTreasury::BulkResult::entity
+      attr_accessor entity: ModernTreasury::Models::BulkResult::entity
 
       attr_accessor entity_id: String
 
-      attr_accessor entity_type: ModernTreasury::BulkResult::entity_type
+      attr_accessor entity_type: ModernTreasury::Models::BulkResult::entity_type
 
       attr_accessor live_mode: bool
 
@@ -35,26 +35,41 @@ module ModernTreasury
 
       attr_accessor request_params: ::Hash[Symbol, String]?
 
-      attr_accessor request_type: ModernTreasury::BulkResult::request_type
+      attr_accessor request_type: ModernTreasury::Models::BulkResult::request_type
 
-      attr_accessor status: ModernTreasury::BulkResult::status
+      attr_accessor status: ModernTreasury::Models::BulkResult::status
 
       attr_accessor updated_at: Time
 
       def initialize: (
         id: String,
         created_at: Time,
-        entity: ModernTreasury::BulkResult::entity,
+        entity: ModernTreasury::Models::BulkResult::entity,
         entity_id: String,
-        entity_type: ModernTreasury::BulkResult::entity_type,
+        entity_type: ModernTreasury::Models::BulkResult::entity_type,
         live_mode: bool,
         object: String,
         request_id: String,
         request_params: ::Hash[Symbol, String]?,
-        request_type: ModernTreasury::BulkResult::request_type,
-        status: ModernTreasury::BulkResult::status,
+        request_type: ModernTreasury::Models::BulkResult::request_type,
+        status: ModernTreasury::Models::BulkResult::status,
         updated_at: Time
       ) -> void
+
+      def to_hash: -> {
+        id: String,
+        created_at: Time,
+        entity: ModernTreasury::Models::BulkResult::entity,
+        entity_id: String,
+        entity_type: ModernTreasury::Models::BulkResult::entity_type,
+        live_mode: bool,
+        object: String,
+        request_id: String,
+        request_params: ::Hash[Symbol, String]?,
+        request_type: ModernTreasury::Models::BulkResult::request_type,
+        status: ModernTreasury::Models::BulkResult::status,
+        updated_at: Time
+      }
 
       type entity =
         ModernTreasury::PaymentOrder
@@ -98,6 +113,15 @@ module ModernTreasury
             updated_at: Time
           ) -> void
 
+          def to_hash: -> {
+            id: String,
+            created_at: Time,
+            live_mode: bool,
+            object: String,
+            request_errors: ::Array[ModernTreasury::BulkResult::Entity::BulkError::RequestError],
+            updated_at: Time
+          }
+
           type request_error =
             { code: String, message: String, parameter: String }
 
@@ -119,10 +143,12 @@ module ModernTreasury
               ?message: String,
               ?parameter: String
             ) -> void
+
+            def to_hash: -> { code: String, message: String, parameter: String }
           end
         end
 
-        def self?.variants: -> ::Array[ModernTreasury::BulkResult::entity]
+        def self?.variants: -> ::Array[ModernTreasury::Models::BulkResult::entity]
       end
 
       type entity_type =
@@ -145,7 +171,7 @@ module ModernTreasury
         ENTITY_LINK: :entity_link
         BULK_ERROR: :bulk_error
 
-        def self?.values: -> ::Array[ModernTreasury::BulkResult::entity_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::BulkResult::entity_type]
       end
 
       type request_type = :bulk_request
@@ -155,7 +181,7 @@ module ModernTreasury
 
         BULK_REQUEST: :bulk_request
 
-        def self?.values: -> ::Array[ModernTreasury::BulkResult::request_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::BulkResult::request_type]
       end
 
       type status = :pending | :successful | :failed
@@ -167,7 +193,7 @@ module ModernTreasury
         SUCCESSFUL: :successful
         FAILED: :failed
 
-        def self?.values: -> ::Array[ModernTreasury::BulkResult::status]
+        def self?.values: -> ::Array[ModernTreasury::Models::BulkResult::status]
       end
     end
   end

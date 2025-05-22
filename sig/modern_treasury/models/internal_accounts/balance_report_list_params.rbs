@@ -38,6 +38,14 @@ module ModernTreasury
           ?request_options: ModernTreasury::request_opts
         ) -> void
 
+        def to_hash: -> {
+          after_cursor: String?,
+          as_of_date: Date,
+          balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportListParams::balance_report_type,
+          per_page: Integer,
+          request_options: ModernTreasury::RequestOptions
+        }
+
         type balance_report_type =
           :intraday | :other | :previous_day | :real_time
 

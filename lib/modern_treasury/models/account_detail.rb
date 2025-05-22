@@ -19,7 +19,7 @@ module ModernTreasury
       #   One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
       #   account number is in a generic format.
       #
-      #   @return [Symbol, ModernTreasury::AccountDetail::AccountNumberType]
+      #   @return [Symbol, ModernTreasury::Models::AccountDetail::AccountNumberType]
       required :account_number_type, enum: -> { ModernTreasury::AccountDetail::AccountNumberType }
 
       # @!attribute created_at
@@ -57,13 +57,13 @@ module ModernTreasury
 
       # @!method initialize(id:, account_number_safe:, account_number_type:, created_at:, discarded_at:, live_mode:, object:, updated_at:, account_number: nil)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::AccountDetail} for more details.
+      #   {ModernTreasury::Models::AccountDetail} for more details.
       #
       #   @param id [String]
       #
       #   @param account_number_safe [String] The last 4 digits of the account_number.
       #
-      #   @param account_number_type [Symbol, ModernTreasury::AccountDetail::AccountNumberType] One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank ac
+      #   @param account_number_type [Symbol, ModernTreasury::Models::AccountDetail::AccountNumberType] One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank ac
       #
       #   @param created_at [Time]
       #
@@ -80,7 +80,7 @@ module ModernTreasury
       # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
       # account number is in a generic format.
       #
-      # @see ModernTreasury::AccountDetail#account_number_type
+      # @see ModernTreasury::Models::AccountDetail#account_number_type
       module AccountNumberType
         extend ModernTreasury::Internal::Type::Enum
 

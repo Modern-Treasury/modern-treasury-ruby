@@ -43,6 +43,18 @@ module ModernTreasury
         vendor_id: String,
         vendor_name: String
       ) -> void
+
+      def to_hash: -> {
+        id: String,
+        created_at: Time,
+        discarded_at: Time?,
+        live_mode: bool,
+        object: String,
+        updated_at: Time,
+        vendor_customer_id: String?,
+        vendor_id: String,
+        vendor_name: String
+      }
     end
   end
 end

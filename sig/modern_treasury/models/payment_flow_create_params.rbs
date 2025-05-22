@@ -39,6 +39,16 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
+      def to_hash: -> {
+        amount: Integer,
+        counterparty_id: String,
+        currency: String,
+        direction: ModernTreasury::Models::PaymentFlowCreateParams::direction,
+        originating_account_id: String,
+        due_date: Date,
+        request_options: ModernTreasury::RequestOptions
+      }
+
       type direction = :credit | :debit
 
       module Direction

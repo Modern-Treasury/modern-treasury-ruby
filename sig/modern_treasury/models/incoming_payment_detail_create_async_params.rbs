@@ -61,6 +61,19 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
+      def to_hash: -> {
+        amount: Integer,
+        as_of_date: Date?,
+        currency: ModernTreasury::Models::currency?,
+        data: top?,
+        description: String?,
+        direction: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::direction,
+        internal_account_id: String,
+        type: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::type_,
+        virtual_account_id: String?,
+        request_options: ModernTreasury::RequestOptions
+      }
+
       type direction = :credit | :debit
 
       module Direction

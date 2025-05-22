@@ -145,11 +145,40 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
+      def to_hash: -> {
+        contact_details: ::Array[ModernTreasury::InvoiceUpdateParams::ContactDetail],
+        counterparty_billing_address: ModernTreasury::InvoiceUpdateParams::CounterpartyBillingAddress?,
+        counterparty_id: String,
+        counterparty_shipping_address: ModernTreasury::InvoiceUpdateParams::CounterpartyShippingAddress?,
+        currency: ModernTreasury::Models::currency,
+        description: String,
+        due_date: Time,
+        fallback_payment_method: String?,
+        ingest_ledger_entries: bool?,
+        invoice_line_items: ::Array[ModernTreasury::InvoiceUpdateParams::InvoiceLineItem]?,
+        invoicer_address: ModernTreasury::InvoiceUpdateParams::InvoicerAddress?,
+        ledger_account_settlement_id: String?,
+        metadata: ::Hash[Symbol, String]?,
+        notification_email_addresses: ::Array[String]?,
+        notifications_enabled: bool,
+        originating_account_id: String,
+        payment_effective_date: Date,
+        payment_method: ModernTreasury::Models::InvoiceUpdateParams::payment_method,
+        payment_type: ModernTreasury::Models::payment_order_type,
+        receiving_account_id: String,
+        recipient_email: String?,
+        recipient_name: String?,
+        remind_after_overdue_days: ::Array[Integer]?,
+        status: String,
+        virtual_account_id: String?,
+        request_options: ModernTreasury::RequestOptions
+      }
+
       type contact_detail =
         {
           id: String,
           contact_identifier: String,
-          contact_identifier_type: ModernTreasury::InvoiceUpdateParams::ContactDetail::contact_identifier_type,
+          contact_identifier_type: ModernTreasury::Models::InvoiceUpdateParams::ContactDetail::contact_identifier_type,
           created_at: Time,
           discarded_at: Time?,
           live_mode: bool,
@@ -162,7 +191,7 @@ module ModernTreasury
 
         attr_accessor contact_identifier: String
 
-        attr_accessor contact_identifier_type: ModernTreasury::InvoiceUpdateParams::ContactDetail::contact_identifier_type
+        attr_accessor contact_identifier_type: ModernTreasury::Models::InvoiceUpdateParams::ContactDetail::contact_identifier_type
 
         attr_accessor created_at: Time
 
@@ -177,13 +206,24 @@ module ModernTreasury
         def initialize: (
           id: String,
           contact_identifier: String,
-          contact_identifier_type: ModernTreasury::InvoiceUpdateParams::ContactDetail::contact_identifier_type,
+          contact_identifier_type: ModernTreasury::Models::InvoiceUpdateParams::ContactDetail::contact_identifier_type,
           created_at: Time,
           discarded_at: Time?,
           live_mode: bool,
           object: String,
           updated_at: Time
         ) -> void
+
+        def to_hash: -> {
+          id: String,
+          contact_identifier: String,
+          contact_identifier_type: ModernTreasury::Models::InvoiceUpdateParams::ContactDetail::contact_identifier_type,
+          created_at: Time,
+          discarded_at: Time?,
+          live_mode: bool,
+          object: String,
+          updated_at: Time
+        }
 
         type contact_identifier_type = :email | :phone_number | :website
 
@@ -194,7 +234,7 @@ module ModernTreasury
           PHONE_NUMBER: :phone_number
           WEBSITE: :website
 
-          def self?.values: -> ::Array[ModernTreasury::InvoiceUpdateParams::ContactDetail::contact_identifier_type]
+          def self?.values: -> ::Array[ModernTreasury::Models::InvoiceUpdateParams::ContactDetail::contact_identifier_type]
         end
       end
 
@@ -231,6 +271,15 @@ module ModernTreasury
           region: String,
           ?line2: String
         ) -> void
+
+        def to_hash: -> {
+          country: String,
+          :line1 => String,
+          locality: String,
+          postal_code: String,
+          region: String,
+          :line2 => String
+        }
       end
 
       type counterparty_shipping_address =
@@ -266,6 +315,15 @@ module ModernTreasury
           region: String,
           ?line2: String
         ) -> void
+
+        def to_hash: -> {
+          country: String,
+          :line1 => String,
+          locality: String,
+          postal_code: String,
+          region: String,
+          :line2 => String
+        }
       end
 
       type invoice_line_item =
@@ -313,6 +371,16 @@ module ModernTreasury
           ?quantity: Integer,
           ?unit_amount_decimal: String
         ) -> void
+
+        def to_hash: -> {
+          name: String,
+          unit_amount: Integer,
+          description: String,
+          direction: String,
+          metadata: ::Hash[Symbol, String],
+          quantity: Integer,
+          unit_amount_decimal: String
+        }
       end
 
       type invoicer_address =
@@ -348,6 +416,15 @@ module ModernTreasury
           region: String,
           ?line2: String
         ) -> void
+
+        def to_hash: -> {
+          country: String,
+          :line1 => String,
+          locality: String,
+          postal_code: String,
+          region: String,
+          :line2 => String
+        }
       end
 
       type payment_method = :ui | :manual | :automatic

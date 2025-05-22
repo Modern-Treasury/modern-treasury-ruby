@@ -18,7 +18,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Ledger]
+      # @return [ModernTreasury::Models::Ledger]
       #
       # @see ModernTreasury::Models::LedgerCreateParams
       def create(params)
@@ -40,7 +40,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Ledger]
+      # @return [ModernTreasury::Models::Ledger]
       #
       # @see ModernTreasury::Models::LedgerRetrieveParams
       def retrieve(id, params = {})
@@ -69,7 +69,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Ledger]
+      # @return [ModernTreasury::Models::Ledger]
       #
       # @see ModernTreasury::Models::LedgerUpdateParams
       def update(id, params = {})
@@ -102,7 +102,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::Ledger>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::Ledger>]
       #
       # @see ModernTreasury::Models::LedgerListParams
       def list(params = {})
@@ -125,7 +125,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Ledger]
+      # @return [ModernTreasury::Models::Ledger]
       #
       # @see ModernTreasury::Models::LedgerDeleteParams
       def delete(id, params = {})

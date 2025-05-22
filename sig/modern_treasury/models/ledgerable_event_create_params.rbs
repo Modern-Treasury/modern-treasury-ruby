@@ -30,6 +30,14 @@ module ModernTreasury
         ?metadata: ::Hash[Symbol, String],
         ?request_options: ModernTreasury::request_opts
       ) -> void
+
+      def to_hash: -> {
+        name: String,
+        custom_data: top?,
+        description: String?,
+        metadata: ::Hash[Symbol, String],
+        request_options: ModernTreasury::RequestOptions
+      }
     end
   end
 end

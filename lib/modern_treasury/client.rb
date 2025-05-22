@@ -139,7 +139,7 @@ module ModernTreasury
     #
     # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
     #
-    # @return [ModernTreasury::PingResponse]
+    # @return [ModernTreasury::Models::PingResponse]
     #
     # @see ModernTreasury::Models::ClientPingParams
     def ping(params = {})

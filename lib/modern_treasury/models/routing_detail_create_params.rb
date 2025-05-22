@@ -9,7 +9,7 @@ module ModernTreasury
 
       # @!attribute accounts_type
       #
-      #   @return [Symbol, ModernTreasury::RoutingDetailCreateParams::AccountsType]
+      #   @return [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::AccountsType]
       required :accounts_type, enum: -> { ModernTreasury::RoutingDetailCreateParams::AccountsType }
 
       # @!attribute routing_number
@@ -23,27 +23,27 @@ module ModernTreasury
       #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
       #   more details.
       #
-      #   @return [Symbol, ModernTreasury::RoutingDetailCreateParams::RoutingNumberType]
+      #   @return [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType]
       required :routing_number_type, enum: -> { ModernTreasury::RoutingDetailCreateParams::RoutingNumberType }
 
       # @!attribute payment_type
       #   If the routing detail is to be used for a specific payment type this field will
       #   be populated, otherwise null.
       #
-      #   @return [Symbol, ModernTreasury::RoutingDetailCreateParams::PaymentType, nil]
+      #   @return [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::PaymentType, nil]
       optional :payment_type, enum: -> { ModernTreasury::RoutingDetailCreateParams::PaymentType }, nil?: true
 
       # @!method initialize(accounts_type:, routing_number:, routing_number_type:, payment_type: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::RoutingDetailCreateParams} for more details.
       #
-      #   @param accounts_type [Symbol, ModernTreasury::RoutingDetailCreateParams::AccountsType]
+      #   @param accounts_type [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::AccountsType]
       #
       #   @param routing_number [String] The routing number of the bank.
       #
-      #   @param routing_number_type [Symbol, ModernTreasury::RoutingDetailCreateParams::RoutingNumberType] The type of routing number. See https://docs.moderntreasury.com/platform/referen
+      #   @param routing_number_type [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType] The type of routing number. See https://docs.moderntreasury.com/platform/referen
       #
-      #   @param payment_type [Symbol, ModernTreasury::RoutingDetailCreateParams::PaymentType, nil] If the routing detail is to be used for a specific payment type this field will
+      #   @param payment_type [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::PaymentType, nil] If the routing detail is to be used for a specific payment type this field will
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 

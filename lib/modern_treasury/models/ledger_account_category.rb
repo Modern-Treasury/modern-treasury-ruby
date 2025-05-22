@@ -16,7 +16,7 @@ module ModernTreasury
       #   available balance is the posted incoming entries minus the sum of the pending
       #   and posted outgoing amounts.
       #
-      #   @return [ModernTreasury::LedgerAccountCategory::Balances]
+      #   @return [ModernTreasury::Models::LedgerAccountCategory::Balances]
       required :balances, -> { ModernTreasury::LedgerAccountCategory::Balances }
 
       # @!attribute created_at
@@ -64,7 +64,7 @@ module ModernTreasury
       # @!attribute normal_balance
       #   The normal balance of the ledger account category.
       #
-      #   @return [Symbol, ModernTreasury::TransactionDirection]
+      #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
       required :normal_balance, enum: -> { ModernTreasury::TransactionDirection }
 
       # @!attribute object
@@ -79,11 +79,11 @@ module ModernTreasury
 
       # @!method initialize(id:, balances:, created_at:, description:, discarded_at:, ledger_id:, live_mode:, metadata:, name:, normal_balance:, object:, updated_at:)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::LedgerAccountCategory} for more details.
+      #   {ModernTreasury::Models::LedgerAccountCategory} for more details.
       #
       #   @param id [String]
       #
-      #   @param balances [ModernTreasury::LedgerAccountCategory::Balances] The pending, posted, and available balances for this ledger account category. Th
+      #   @param balances [ModernTreasury::Models::LedgerAccountCategory::Balances] The pending, posted, and available balances for this ledger account category. Th
       #
       #   @param created_at [Time]
       #
@@ -99,13 +99,13 @@ module ModernTreasury
       #
       #   @param name [String] The name of the ledger account category.
       #
-      #   @param normal_balance [Symbol, ModernTreasury::TransactionDirection] The normal balance of the ledger account category.
+      #   @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection] The normal balance of the ledger account category.
       #
       #   @param object [String]
       #
       #   @param updated_at [Time]
 
-      # @see ModernTreasury::LedgerAccountCategory#balances
+      # @see ModernTreasury::Models::LedgerAccountCategory#balances
       class Balances < ModernTreasury::Internal::Type::BaseModel
         # @!attribute available_balance
         #   The available_balance is the sum of all posted inbound entries and pending
@@ -113,24 +113,24 @@ module ModernTreasury
         #   pending_debits; for debit normal, available_amount = posted_debits -
         #   pending_credits.
         #
-        #   @return [ModernTreasury::LedgerAccountCategory::Balances::AvailableBalance]
+        #   @return [ModernTreasury::Models::LedgerAccountCategory::Balances::AvailableBalance]
         required :available_balance, -> { ModernTreasury::LedgerAccountCategory::Balances::AvailableBalance }
 
         # @!attribute pending_balance
         #   The pending_balance is the sum of all pending and posted entries.
         #
-        #   @return [ModernTreasury::LedgerAccountCategory::Balances::PendingBalance]
+        #   @return [ModernTreasury::Models::LedgerAccountCategory::Balances::PendingBalance]
         required :pending_balance, -> { ModernTreasury::LedgerAccountCategory::Balances::PendingBalance }
 
         # @!attribute posted_balance
         #   The posted_balance is the sum of all posted entries.
         #
-        #   @return [ModernTreasury::LedgerAccountCategory::Balances::PostedBalance]
+        #   @return [ModernTreasury::Models::LedgerAccountCategory::Balances::PostedBalance]
         required :posted_balance, -> { ModernTreasury::LedgerAccountCategory::Balances::PostedBalance }
 
         # @!method initialize(available_balance:, pending_balance:, posted_balance:)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::LedgerAccountCategory::Balances} for more details.
+        #   {ModernTreasury::Models::LedgerAccountCategory::Balances} for more details.
         #
         #   The pending, posted, and available balances for this ledger account category.
         #   The posted balance is the sum of all posted entries on the account. The pending
@@ -138,13 +138,13 @@ module ModernTreasury
         #   available balance is the posted incoming entries minus the sum of the pending
         #   and posted outgoing amounts.
         #
-        #   @param available_balance [ModernTreasury::LedgerAccountCategory::Balances::AvailableBalance] The available_balance is the sum of all posted inbound entries and pending outbo
+        #   @param available_balance [ModernTreasury::Models::LedgerAccountCategory::Balances::AvailableBalance] The available_balance is the sum of all posted inbound entries and pending outbo
         #
-        #   @param pending_balance [ModernTreasury::LedgerAccountCategory::Balances::PendingBalance] The pending_balance is the sum of all pending and posted entries.
+        #   @param pending_balance [ModernTreasury::Models::LedgerAccountCategory::Balances::PendingBalance] The pending_balance is the sum of all pending and posted entries.
         #
-        #   @param posted_balance [ModernTreasury::LedgerAccountCategory::Balances::PostedBalance] The posted_balance is the sum of all posted entries.
+        #   @param posted_balance [ModernTreasury::Models::LedgerAccountCategory::Balances::PostedBalance] The posted_balance is the sum of all posted entries.
 
-        # @see ModernTreasury::LedgerAccountCategory::Balances#available_balance
+        # @see ModernTreasury::Models::LedgerAccountCategory::Balances#available_balance
         class AvailableBalance < ModernTreasury::Internal::Type::BaseModel
           # @!attribute amount
           #
@@ -190,7 +190,7 @@ module ModernTreasury
           #   @param debits [Integer]
         end
 
-        # @see ModernTreasury::LedgerAccountCategory::Balances#pending_balance
+        # @see ModernTreasury::Models::LedgerAccountCategory::Balances#pending_balance
         class PendingBalance < ModernTreasury::Internal::Type::BaseModel
           # @!attribute amount
           #
@@ -233,7 +233,7 @@ module ModernTreasury
           #   @param debits [Integer]
         end
 
-        # @see ModernTreasury::LedgerAccountCategory::Balances#posted_balance
+        # @see ModernTreasury::Models::LedgerAccountCategory::Balances#posted_balance
         class PostedBalance < ModernTreasury::Internal::Type::BaseModel
           # @!attribute amount
           #

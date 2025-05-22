@@ -61,7 +61,7 @@ module ModernTreasury
       #   The status of the ledger account settlement. It is set to `pending` by default.
       #   To post a ledger account settlement at creation, use `posted`.
       #
-      #   @return [Symbol, ModernTreasury::LedgerAccountSettlementCreateParams::Status, nil]
+      #   @return [Symbol, ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::LedgerAccountSettlementCreateParams::Status }, nil?: true
 
       # @!method initialize(contra_ledger_account_id:, settled_ledger_account_id:, allow_either_direction: nil, description: nil, effective_at_upper_bound: nil, metadata: nil, skip_settlement_ledger_transaction: nil, status: nil, request_options: {})
@@ -82,7 +82,7 @@ module ModernTreasury
       #
       #   @param skip_settlement_ledger_transaction [Boolean, nil] It is set to `false` by default. It should be set to `true` when migrating exist
       #
-      #   @param status [Symbol, ModernTreasury::LedgerAccountSettlementCreateParams::Status, nil] The status of the ledger account settlement. It is set to `pending` by default.
+      #   @param status [Symbol, ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status, nil] The status of the ledger account settlement. It is set to `pending` by default.
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 

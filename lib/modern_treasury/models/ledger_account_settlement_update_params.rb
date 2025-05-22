@@ -24,7 +24,7 @@ module ModernTreasury
       #   To post a pending ledger account settlement, use `posted`. To archive a pending
       #   ledger transaction, use `archived`.
       #
-      #   @return [Symbol, ModernTreasury::LedgerAccountSettlementUpdateParams::Status, nil]
+      #   @return [Symbol, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::LedgerAccountSettlementUpdateParams::Status }
 
       # @!method initialize(description: nil, metadata: nil, status: nil, request_options: {})
@@ -35,7 +35,7 @@ module ModernTreasury
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #
-      #   @param status [Symbol, ModernTreasury::LedgerAccountSettlementUpdateParams::Status] To post a pending ledger account settlement, use `posted`. To archive a pending
+      #   @param status [Symbol, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status] To post a pending ledger account settlement, use `posted`. To archive a pending
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 

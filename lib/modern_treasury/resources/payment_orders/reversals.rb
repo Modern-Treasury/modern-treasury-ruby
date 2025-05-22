@@ -13,15 +13,15 @@ module ModernTreasury
         #
         # @param payment_order_id [String] The id of the payment order being reversed.
         #
-        # @param reason [Symbol, ModernTreasury::PaymentOrders::ReversalCreateParams::Reason] The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`, `in
+        # @param reason [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason] The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`, `in
         #
-        # @param ledger_transaction [ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction] Specifies a ledger transaction object that will be created with the reversal. If
+        # @param ledger_transaction [ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction] Specifies a ledger transaction object that will be created with the reversal. If
         #
         # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
         #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::PaymentOrders::Reversal]
+        # @return [ModernTreasury::Models::PaymentOrders::Reversal]
         #
         # @see ModernTreasury::Models::PaymentOrders::ReversalCreateParams
         def create(payment_order_id, params)
@@ -45,7 +45,7 @@ module ModernTreasury
         #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::PaymentOrders::Reversal]
+        # @return [ModernTreasury::Models::PaymentOrders::Reversal]
         #
         # @see ModernTreasury::Models::PaymentOrders::ReversalRetrieveParams
         def retrieve(reversal_id, params)
@@ -74,7 +74,7 @@ module ModernTreasury
         #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::Internal::Page<ModernTreasury::PaymentOrders::Reversal>]
+        # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::PaymentOrders::Reversal>]
         #
         # @see ModernTreasury::Models::PaymentOrders::ReversalListParams
         def list(payment_order_id, params = {})

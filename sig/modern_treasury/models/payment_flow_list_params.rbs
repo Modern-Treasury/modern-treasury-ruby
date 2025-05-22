@@ -58,6 +58,18 @@ module ModernTreasury
         ?status: String,
         ?request_options: ModernTreasury::request_opts
       ) -> void
+
+      def to_hash: -> {
+        after_cursor: String?,
+        client_token: String,
+        counterparty_id: String,
+        originating_account_id: String,
+        payment_order_id: String,
+        per_page: Integer,
+        receiving_account_id: String,
+        status: String,
+        request_options: ModernTreasury::RequestOptions
+      }
     end
   end
 end

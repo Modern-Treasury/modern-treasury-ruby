@@ -45,6 +45,15 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
+      def to_hash: -> {
+        originating_account_id: String,
+        payment_type: ModernTreasury::Models::ExternalAccountVerifyParams::payment_type,
+        currency: ModernTreasury::Models::currency,
+        fallback_type: ModernTreasury::Models::ExternalAccountVerifyParams::fallback_type,
+        priority: ModernTreasury::Models::ExternalAccountVerifyParams::priority,
+        request_options: ModernTreasury::RequestOptions
+      }
+
       type payment_type =
         :ach
         | :au_becs

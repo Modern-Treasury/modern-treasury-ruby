@@ -26,6 +26,13 @@ module ModernTreasury
         ?per_page: Integer,
         ?request_options: ModernTreasury::request_opts
       ) -> void
+
+      def to_hash: -> {
+        accounts_type: ModernTreasury::Models::accounts_type,
+        after_cursor: String?,
+        per_page: Integer,
+        request_options: ModernTreasury::RequestOptions
+      }
     end
   end
 end

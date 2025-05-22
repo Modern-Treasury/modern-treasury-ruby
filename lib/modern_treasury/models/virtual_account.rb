@@ -12,7 +12,7 @@ module ModernTreasury
       # @!attribute account_details
       #   An array of account detail objects.
       #
-      #   @return [Array<ModernTreasury::AccountDetail>]
+      #   @return [Array<ModernTreasury::Models::AccountDetail>]
       required :account_details, -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail] }
 
       # @!attribute counterparty_id
@@ -95,7 +95,7 @@ module ModernTreasury
       #   An array of routing detail objects. These will be the routing details of the
       #   internal account.
       #
-      #   @return [Array<ModernTreasury::RoutingDetail>]
+      #   @return [Array<ModernTreasury::Models::RoutingDetail>]
       required :routing_details, -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail] }
 
       # @!attribute updated_at
@@ -105,11 +105,11 @@ module ModernTreasury
 
       # @!method initialize(id:, account_details:, counterparty_id:, created_at:, credit_ledger_account_id:, debit_ledger_account_id:, description:, discarded_at:, internal_account_id:, ledger_account_id:, live_mode:, metadata:, name:, object:, routing_details:, updated_at:)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::VirtualAccount} for more details.
+      #   {ModernTreasury::Models::VirtualAccount} for more details.
       #
       #   @param id [String]
       #
-      #   @param account_details [Array<ModernTreasury::AccountDetail>] An array of account detail objects.
+      #   @param account_details [Array<ModernTreasury::Models::AccountDetail>] An array of account detail objects.
       #
       #   @param counterparty_id [String, nil] The ID of a counterparty that the virtual account belongs to. Optional.
       #
@@ -135,7 +135,7 @@ module ModernTreasury
       #
       #   @param object [String]
       #
-      #   @param routing_details [Array<ModernTreasury::RoutingDetail>] An array of routing detail objects. These will be the routing details of the int
+      #   @param routing_details [Array<ModernTreasury::Models::RoutingDetail>] An array of routing detail objects. These will be the routing details of the int
       #
       #   @param updated_at [Time]
     end

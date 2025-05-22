@@ -9,7 +9,7 @@ module ModernTreasury
 
       # @!attribute accounts_type
       #
-      #   @return [Symbol, ModernTreasury::AccountDetailCreateParams::AccountsType]
+      #   @return [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountsType]
       required :accounts_type, enum: -> { ModernTreasury::AccountDetailCreateParams::AccountsType }
 
       # @!attribute account_number
@@ -22,18 +22,18 @@ module ModernTreasury
       #   One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
       #   account number is in a generic format.
       #
-      #   @return [Symbol, ModernTreasury::AccountDetailCreateParams::AccountNumberType, nil]
+      #   @return [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType, nil]
       optional :account_number_type, enum: -> { ModernTreasury::AccountDetailCreateParams::AccountNumberType }
 
       # @!method initialize(accounts_type:, account_number:, account_number_type: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::AccountDetailCreateParams} for more details.
       #
-      #   @param accounts_type [Symbol, ModernTreasury::AccountDetailCreateParams::AccountsType]
+      #   @param accounts_type [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountsType]
       #
       #   @param account_number [String] The account number for the bank account.
       #
-      #   @param account_number_type [Symbol, ModernTreasury::AccountDetailCreateParams::AccountNumberType] One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank ac
+      #   @param account_number_type [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType] One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank ac
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 

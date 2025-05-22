@@ -44,7 +44,7 @@ module ModernTreasury
       # @!attribute currency
       #   Currency that this transaction is denominated in.
       #
-      #   @return [Symbol, ModernTreasury::Currency]
+      #   @return [Symbol, ModernTreasury::Models::Currency]
       required :currency, enum: -> { ModernTreasury::Currency }
 
       # @!attribute custom_identifiers
@@ -68,7 +68,7 @@ module ModernTreasury
       # @!attribute foreign_exchange_rate
       #   Associated serialized foreign exchange rate information.
       #
-      #   @return [ModernTreasury::Transaction::ForeignExchangeRate, nil]
+      #   @return [ModernTreasury::Models::Transaction::ForeignExchangeRate, nil]
       required :foreign_exchange_rate, -> { ModernTreasury::Transaction::ForeignExchangeRate }, nil?: true
 
       # @!attribute internal_account_id
@@ -114,7 +114,7 @@ module ModernTreasury
       #   The type of the transaction. Examples could be
       #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       #
-      #   @return [Symbol, ModernTreasury::Transaction::Type]
+      #   @return [Symbol, ModernTreasury::Models::Transaction::Type]
       required :type, enum: -> { ModernTreasury::Transaction::Type }
 
       # @!attribute updated_at
@@ -135,7 +135,7 @@ module ModernTreasury
       #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
       #   `swift`, `us_bank`, or others.
       #
-      #   @return [Symbol, ModernTreasury::Transaction::VendorCodeType, nil]
+      #   @return [Symbol, ModernTreasury::Models::Transaction::VendorCodeType, nil]
       required :vendor_code_type, enum: -> { ModernTreasury::Transaction::VendorCodeType }, nil?: true
 
       # @!attribute vendor_customer_id
@@ -171,7 +171,7 @@ module ModernTreasury
 
       # @!method initialize(id:, amount:, as_of_date:, as_of_time:, as_of_timezone:, created_at:, currency:, custom_identifiers:, direction:, discarded_at:, foreign_exchange_rate:, internal_account_id:, live_mode:, metadata:, object:, posted:, reconciled:, type:, updated_at:, vendor_code:, vendor_code_type:, vendor_customer_id:, vendor_id:, details: nil, vendor_description: nil)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::Transaction} for more details.
+      #   {ModernTreasury::Models::Transaction} for more details.
       #
       #   @param id [String]
       #
@@ -185,7 +185,7 @@ module ModernTreasury
       #
       #   @param created_at [Time]
       #
-      #   @param currency [Symbol, ModernTreasury::Currency] Currency that this transaction is denominated in.
+      #   @param currency [Symbol, ModernTreasury::Models::Currency] Currency that this transaction is denominated in.
       #
       #   @param custom_identifiers [Hash{Symbol=>String}] An object containing key-value pairs, each with a custom identifier as the key a
       #
@@ -193,7 +193,7 @@ module ModernTreasury
       #
       #   @param discarded_at [Time, nil]
       #
-      #   @param foreign_exchange_rate [ModernTreasury::Transaction::ForeignExchangeRate, nil] Associated serialized foreign exchange rate information.
+      #   @param foreign_exchange_rate [ModernTreasury::Models::Transaction::ForeignExchangeRate, nil] Associated serialized foreign exchange rate information.
       #
       #   @param internal_account_id [String] The ID of the relevant Internal Account.
       #
@@ -207,13 +207,13 @@ module ModernTreasury
       #
       #   @param reconciled [Boolean] This field will be `true` if a transaction is reconciled by the Modern Treasury
       #
-      #   @param type [Symbol, ModernTreasury::Transaction::Type] The type of the transaction. Examples could be `card, `ach`, `wire`, `check`, `r
+      #   @param type [Symbol, ModernTreasury::Models::Transaction::Type] The type of the transaction. Examples could be `card, `ach`, `wire`, `check`, `r
       #
       #   @param updated_at [Time]
       #
       #   @param vendor_code [String, nil] When applicable, the bank-given code that determines the transaction's category.
       #
-      #   @param vendor_code_type [Symbol, ModernTreasury::Transaction::VendorCodeType, nil] The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`, `bnk
+      #   @param vendor_code_type [Symbol, ModernTreasury::Models::Transaction::VendorCodeType, nil] The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`, `bnk
       #
       #   @param vendor_customer_id [String, nil] An identifier given to this transaction by the bank, often `null`.
       #
@@ -223,7 +223,7 @@ module ModernTreasury
       #
       #   @param vendor_description [String, nil] The transaction detail text that often appears in on your bank statement and in
 
-      # @see ModernTreasury::Transaction#foreign_exchange_rate
+      # @see ModernTreasury::Models::Transaction#foreign_exchange_rate
       class ForeignExchangeRate < ModernTreasury::Internal::Type::BaseModel
         # @!attribute base_amount
         #   Amount in the lowest denomination of the `base_currency` to convert, often
@@ -235,7 +235,7 @@ module ModernTreasury
         # @!attribute base_currency
         #   Currency to convert, often called the "sell" currency.
         #
-        #   @return [Symbol, ModernTreasury::Currency]
+        #   @return [Symbol, ModernTreasury::Models::Currency]
         required :base_currency, enum: -> { ModernTreasury::Currency }
 
         # @!attribute exponent
@@ -261,7 +261,7 @@ module ModernTreasury
         # @!attribute target_currency
         #   Currency to convert the `base_currency` to, often called the "buy" currency.
         #
-        #   @return [Symbol, ModernTreasury::Currency]
+        #   @return [Symbol, ModernTreasury::Models::Currency]
         required :target_currency, enum: -> { ModernTreasury::Currency }
 
         # @!attribute value
@@ -273,13 +273,13 @@ module ModernTreasury
 
         # @!method initialize(base_amount:, base_currency:, exponent:, rate_string:, target_amount:, target_currency:, value:)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Transaction::ForeignExchangeRate} for more details.
+        #   {ModernTreasury::Models::Transaction::ForeignExchangeRate} for more details.
         #
         #   Associated serialized foreign exchange rate information.
         #
         #   @param base_amount [Integer] Amount in the lowest denomination of the `base_currency` to convert, often calle
         #
-        #   @param base_currency [Symbol, ModernTreasury::Currency] Currency to convert, often called the "sell" currency.
+        #   @param base_currency [Symbol, ModernTreasury::Models::Currency] Currency to convert, often called the "sell" currency.
         #
         #   @param exponent [Integer] The exponent component of the rate. The decimal is calculated as `value` / (10 ^
         #
@@ -287,7 +287,7 @@ module ModernTreasury
         #
         #   @param target_amount [Integer] Amount in the lowest denomination of the `target_currency`, often called the "bu
         #
-        #   @param target_currency [Symbol, ModernTreasury::Currency] Currency to convert the `base_currency` to, often called the "buy" currency.
+        #   @param target_currency [Symbol, ModernTreasury::Models::Currency] Currency to convert the `base_currency` to, often called the "buy" currency.
         #
         #   @param value [Integer] The whole number component of the rate. The decimal is calculated as `value` / (
       end
@@ -295,7 +295,7 @@ module ModernTreasury
       # The type of the transaction. Examples could be
       # `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       #
-      # @see ModernTreasury::Transaction#type
+      # @see ModernTreasury::Models::Transaction#type
       module Type
         extend ModernTreasury::Internal::Type::Enum
 
@@ -340,7 +340,7 @@ module ModernTreasury
       # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
       # `swift`, `us_bank`, or others.
       #
-      # @see ModernTreasury::Transaction#vendor_code_type
+      # @see ModernTreasury::Models::Transaction#vendor_code_type
       module VendorCodeType
         extend ModernTreasury::Internal::Type::Enum
 

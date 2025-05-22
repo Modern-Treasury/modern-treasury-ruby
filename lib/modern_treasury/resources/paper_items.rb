@@ -11,7 +11,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::PaperItem]
+      # @return [ModernTreasury::Models::PaperItem]
       #
       # @see ModernTreasury::Models::PaperItemRetrieveParams
       def retrieve(id, params = {})
@@ -42,7 +42,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::PaperItem>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::PaperItem>]
       #
       # @see ModernTreasury::Models::PaperItemListParams
       def list(params = {})

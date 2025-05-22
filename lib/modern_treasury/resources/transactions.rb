@@ -29,13 +29,13 @@ module ModernTreasury
       #
       # @param posted [Boolean] This field will be `true` if the transaction has posted to the account.
       #
-      # @param type [Symbol, ModernTreasury::TransactionCreateParams::Type, nil] The type of the transaction. Examples could be `card, `ach`, `wire`, `check`, `r
+      # @param type [Symbol, ModernTreasury::Models::TransactionCreateParams::Type, nil] The type of the transaction. Examples could be `card, `ach`, `wire`, `check`, `r
       #
       # @param vendor_description [String, nil] The transaction detail text that often appears in on your bank statement and in
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Transaction]
+      # @return [ModernTreasury::Models::Transaction]
       #
       # @see ModernTreasury::Models::TransactionCreateParams
       def create(params)
@@ -57,7 +57,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Transaction]
+      # @return [ModernTreasury::Models::Transaction]
       #
       # @see ModernTreasury::Models::TransactionRetrieveParams
       def retrieve(id, params = {})
@@ -82,7 +82,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Transaction]
+      # @return [ModernTreasury::Models::Transaction]
       #
       # @see ModernTreasury::Models::TransactionUpdateParams
       def update(id, params = {})
@@ -133,7 +133,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::Transaction>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::Transaction>]
       #
       # @see ModernTreasury::Models::TransactionListParams
       def list(params = {})
