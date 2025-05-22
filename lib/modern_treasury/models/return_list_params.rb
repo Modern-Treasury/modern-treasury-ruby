@@ -41,7 +41,7 @@ module ModernTreasury
       #   One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
       #   Must be accompanied by `returnable_id`.
       #
-      #   @return [Symbol, ModernTreasury::ReturnListParams::ReturnableType, nil]
+      #   @return [Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType, nil]
       optional :returnable_type, enum: -> { ModernTreasury::ReturnListParams::ReturnableType }
 
       # @!method initialize(after_cursor: nil, counterparty_id: nil, internal_account_id: nil, per_page: nil, returnable_id: nil, returnable_type: nil, request_options: {})
@@ -58,7 +58,7 @@ module ModernTreasury
       #
       #   @param returnable_id [String] The ID of a valid returnable. Must be accompanied by `returnable_type`.
       #
-      #   @param returnable_type [Symbol, ModernTreasury::ReturnListParams::ReturnableType] One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
+      #   @param returnable_type [Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType] One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 

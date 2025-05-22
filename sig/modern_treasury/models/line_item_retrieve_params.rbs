@@ -21,6 +21,12 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
+      def to_hash: -> {
+        itemizable_type: ModernTreasury::Models::LineItemRetrieveParams::itemizable_type,
+        itemizable_id: String,
+        request_options: ModernTreasury::RequestOptions
+      }
+
       type itemizable_type = :expected_payments | :payment_orders
 
       module ItemizableType

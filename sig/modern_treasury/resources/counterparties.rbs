@@ -53,7 +53,7 @@ module ModernTreasury
         String id,
         direction: ModernTreasury::Models::transaction_direction,
         ?custom_redirect: String,
-        ?fields: ::Array[ModernTreasury::CounterpartyCollectAccountParams::field],
+        ?fields: ::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field],
         ?send_email: bool,
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::CounterpartyCollectAccountResponse

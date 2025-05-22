@@ -9,7 +9,7 @@ module ModernTreasury
 
       # @!attribute accounts_type
       #
-      #   @return [Symbol, ModernTreasury::RoutingDetailDeleteParams::AccountsType]
+      #   @return [Symbol, ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType]
       required :accounts_type, enum: -> { ModernTreasury::RoutingDetailDeleteParams::AccountsType }
 
       # @!attribute account_id
@@ -18,7 +18,7 @@ module ModernTreasury
       required :account_id, String
 
       # @!method initialize(accounts_type:, account_id:, request_options: {})
-      #   @param accounts_type [Symbol, ModernTreasury::RoutingDetailDeleteParams::AccountsType]
+      #   @param accounts_type [Symbol, ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType]
       #   @param account_id [String]
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 

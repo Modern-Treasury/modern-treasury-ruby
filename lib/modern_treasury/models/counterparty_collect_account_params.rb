@@ -12,7 +12,7 @@ module ModernTreasury
       #   Use `debit` when you need to charge a counterparty. This field helps us send a
       #   more tailored email to your counterparties."
       #
-      #   @return [Symbol, ModernTreasury::TransactionDirection]
+      #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
       required :direction, enum: -> { ModernTreasury::TransactionDirection }
 
       # @!attribute custom_redirect
@@ -30,7 +30,7 @@ module ModernTreasury
       #   \"nameOnAccount\", \"taxpayerIdentifier\", \"accountType\", \"accountNumber\",
       #   \"routingNumber\", \"address\", \"ibanNumber\", \"swiftCode\"].
       #
-      #   @return [Array<Symbol, ModernTreasury::CounterpartyCollectAccountParams::Field>, nil]
+      #   @return [Array<Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field>, nil]
       optional :fields,
                -> {
                  ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::CounterpartyCollectAccountParams::Field]
@@ -49,11 +49,11 @@ module ModernTreasury
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::CounterpartyCollectAccountParams} for more details.
       #
-      #   @param direction [Symbol, ModernTreasury::TransactionDirection] One of `credit` or `debit`. Use `credit` when you want to pay a counterparty. Us
+      #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection] One of `credit` or `debit`. Use `credit` when you want to pay a counterparty. Us
       #
       #   @param custom_redirect [String] The URL you want your customer to visit upon filling out the form. By default, t
       #
-      #   @param fields [Array<Symbol, ModernTreasury::CounterpartyCollectAccountParams::Field>] The list of fields you want on the form. This field is optional and if it is not
+      #   @param fields [Array<Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field>] The list of fields you want on the form. This field is optional and if it is not
       #
       #   @param send_email [Boolean] By default, Modern Treasury will send an email to your counterparty that include
       #

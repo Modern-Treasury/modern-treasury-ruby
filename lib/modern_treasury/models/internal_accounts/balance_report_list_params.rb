@@ -23,7 +23,7 @@ module ModernTreasury
         #   The specific type of balance report. One of `intraday`, `previous_day`,
         #   `real_time`, or `other`.
         #
-        #   @return [Symbol, ModernTreasury::InternalAccounts::BalanceReportListParams::BalanceReportType, nil]
+        #   @return [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType, nil]
         optional :balance_report_type,
                  enum: -> { ModernTreasury::InternalAccounts::BalanceReportListParams::BalanceReportType }
 
@@ -41,7 +41,7 @@ module ModernTreasury
         #
         #   @param as_of_date [Date] The date of the balance report in local time.
         #
-        #   @param balance_report_type [Symbol, ModernTreasury::InternalAccounts::BalanceReportListParams::BalanceReportType] The specific type of balance report. One of `intraday`, `previous_day`, `real_ti
+        #   @param balance_report_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType] The specific type of balance report. One of `intraday`, `previous_day`, `real_ti
         #
         #   @param per_page [Integer]
         #

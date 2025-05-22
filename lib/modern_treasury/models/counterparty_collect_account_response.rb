@@ -28,7 +28,7 @@ module ModernTreasury
 
       # @!method initialize(id:, form_link:, is_resend:)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::CounterpartyCollectAccountResponse} for more details.
+      #   {ModernTreasury::Models::CounterpartyCollectAccountResponse} for more details.
       #
       #   @param id [String] The id of the existing counterparty.
       #

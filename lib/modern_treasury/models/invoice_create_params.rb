@@ -36,7 +36,7 @@ module ModernTreasury
       # @!attribute contact_details
       #   The invoicer's contact details displayed at the top of the invoice.
       #
-      #   @return [Array<ModernTreasury::InvoiceCreateParams::ContactDetail>, nil]
+      #   @return [Array<ModernTreasury::Models::InvoiceCreateParams::ContactDetail>, nil]
       optional :contact_details,
                -> {
                  ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InvoiceCreateParams::ContactDetail]
@@ -45,7 +45,7 @@ module ModernTreasury
       # @!attribute counterparty_billing_address
       #   The counterparty's billing address.
       #
-      #   @return [ModernTreasury::InvoiceCreateParams::CounterpartyBillingAddress, nil]
+      #   @return [ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress, nil]
       optional :counterparty_billing_address,
                -> { ModernTreasury::InvoiceCreateParams::CounterpartyBillingAddress },
                nil?: true
@@ -53,7 +53,7 @@ module ModernTreasury
       # @!attribute counterparty_shipping_address
       #   The counterparty's shipping address where physical goods should be delivered.
       #
-      #   @return [ModernTreasury::InvoiceCreateParams::CounterpartyShippingAddress, nil]
+      #   @return [ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress, nil]
       optional :counterparty_shipping_address,
                -> { ModernTreasury::InvoiceCreateParams::CounterpartyShippingAddress },
                nil?: true
@@ -61,7 +61,7 @@ module ModernTreasury
       # @!attribute currency
       #   Currency that the invoice is denominated in. Defaults to `USD` if not provided.
       #
-      #   @return [Symbol, ModernTreasury::Currency, nil]
+      #   @return [Symbol, ModernTreasury::Models::Currency, nil]
       optional :currency, enum: -> { ModernTreasury::Currency }
 
       # @!attribute description
@@ -90,7 +90,7 @@ module ModernTreasury
       #   items per invoice. If a greater number of invoice line items is required, please
       #   contact support.
       #
-      #   @return [Array<ModernTreasury::InvoiceCreateParams::InvoiceLineItem>, nil]
+      #   @return [Array<ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem>, nil]
       optional :invoice_line_items,
                -> {
                  ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InvoiceCreateParams::InvoiceLineItem]
@@ -100,7 +100,7 @@ module ModernTreasury
       # @!attribute invoicer_address
       #   The invoice issuer's business address.
       #
-      #   @return [ModernTreasury::InvoiceCreateParams::InvoicerAddress, nil]
+      #   @return [ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress, nil]
       optional :invoicer_address, -> { ModernTreasury::InvoiceCreateParams::InvoicerAddress }, nil?: true
 
       # @!attribute ledger_account_settlement_id
@@ -147,7 +147,7 @@ module ModernTreasury
       #   invoice amount is negative, the automatically initiated payment order's
       #   direction will be credit. One of `manual`, `ui`, or `automatic`.
       #
-      #   @return [Symbol, ModernTreasury::InvoiceCreateParams::PaymentMethod, nil]
+      #   @return [Symbol, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod, nil]
       optional :payment_method, enum: -> { ModernTreasury::InvoiceCreateParams::PaymentMethod }
 
       # @!attribute payment_type
@@ -155,7 +155,7 @@ module ModernTreasury
       #   `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
       #   `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
       #
-      #   @return [Symbol, ModernTreasury::PaymentOrderType, nil]
+      #   @return [Symbol, ModernTreasury::Models::PaymentOrderType, nil]
       optional :payment_type, enum: -> { ModernTreasury::PaymentOrderType }
 
       # @!attribute receiving_account_id
@@ -203,13 +203,13 @@ module ModernTreasury
       #
       #   @param auto_advance [Boolean, nil] When true, the invoice will progress to unpaid automatically and cannot be edite
       #
-      #   @param contact_details [Array<ModernTreasury::InvoiceCreateParams::ContactDetail>] The invoicer's contact details displayed at the top of the invoice.
+      #   @param contact_details [Array<ModernTreasury::Models::InvoiceCreateParams::ContactDetail>] The invoicer's contact details displayed at the top of the invoice.
       #
-      #   @param counterparty_billing_address [ModernTreasury::InvoiceCreateParams::CounterpartyBillingAddress, nil] The counterparty's billing address.
+      #   @param counterparty_billing_address [ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress, nil] The counterparty's billing address.
       #
-      #   @param counterparty_shipping_address [ModernTreasury::InvoiceCreateParams::CounterpartyShippingAddress, nil] The counterparty's shipping address where physical goods should be delivered.
+      #   @param counterparty_shipping_address [ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress, nil] The counterparty's shipping address where physical goods should be delivered.
       #
-      #   @param currency [Symbol, ModernTreasury::Currency] Currency that the invoice is denominated in. Defaults to `USD` if not provided.
+      #   @param currency [Symbol, ModernTreasury::Models::Currency] Currency that the invoice is denominated in. Defaults to `USD` if not provided.
       #
       #   @param description [String] A free-form description of the invoice.
       #
@@ -217,9 +217,9 @@ module ModernTreasury
       #
       #   @param ingest_ledger_entries [Boolean, nil] Whether to ingest the ledger_entries to populate the invoice line items. If this
       #
-      #   @param invoice_line_items [Array<ModernTreasury::InvoiceCreateParams::InvoiceLineItem>, nil] An array of invoice line items. The API supports a maximum of 50 invoice line it
+      #   @param invoice_line_items [Array<ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem>, nil] An array of invoice line items. The API supports a maximum of 50 invoice line it
       #
-      #   @param invoicer_address [ModernTreasury::InvoiceCreateParams::InvoicerAddress, nil] The invoice issuer's business address.
+      #   @param invoicer_address [ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress, nil] The invoice issuer's business address.
       #
       #   @param ledger_account_settlement_id [String, nil] The ID of the virtual account the invoice should be paid to.
       #
@@ -231,9 +231,9 @@ module ModernTreasury
       #
       #   @param payment_effective_date [Date] Date transactions are to be posted to the participants' account. Defaults to the
       #
-      #   @param payment_method [Symbol, ModernTreasury::InvoiceCreateParams::PaymentMethod] The method by which the invoice can be paid. `ui` will show the embedded payment
+      #   @param payment_method [Symbol, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod] The method by which the invoice can be paid. `ui` will show the embedded payment
       #
-      #   @param payment_type [Symbol, ModernTreasury::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
+      #   @param payment_type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
       #
       #   @param receiving_account_id [String] The receiving account ID. Can be an `external_account`.
       #
@@ -260,7 +260,7 @@ module ModernTreasury
 
         # @!attribute contact_identifier_type
         #
-        #   @return [Symbol, ModernTreasury::InvoiceCreateParams::ContactDetail::ContactIdentifierType]
+        #   @return [Symbol, ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType]
         required :contact_identifier_type,
                  enum: -> { ModernTreasury::InvoiceCreateParams::ContactDetail::ContactIdentifierType }
 
@@ -293,13 +293,13 @@ module ModernTreasury
 
         # @!method initialize(id:, contact_identifier:, contact_identifier_type:, created_at:, discarded_at:, live_mode:, object:, updated_at:)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::InvoiceCreateParams::ContactDetail} for more details.
+        #   {ModernTreasury::Models::InvoiceCreateParams::ContactDetail} for more details.
         #
         #   @param id [String]
         #
         #   @param contact_identifier [String]
         #
-        #   @param contact_identifier_type [Symbol, ModernTreasury::InvoiceCreateParams::ContactDetail::ContactIdentifierType]
+        #   @param contact_identifier_type [Symbol, ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType]
         #
         #   @param created_at [Time]
         #
@@ -311,7 +311,7 @@ module ModernTreasury
         #
         #   @param updated_at [Time]
 
-        # @see ModernTreasury::InvoiceCreateParams::ContactDetail#contact_identifier_type
+        # @see ModernTreasury::Models::InvoiceCreateParams::ContactDetail#contact_identifier_type
         module ContactIdentifierType
           extend ModernTreasury::Internal::Type::Enum
 
@@ -478,7 +478,7 @@ module ModernTreasury
 
         # @!method initialize(name:, unit_amount:, description: nil, direction: nil, metadata: nil, quantity: nil, unit_amount_decimal: nil)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::InvoiceCreateParams::InvoiceLineItem} for more details.
+        #   {ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem} for more details.
         #
         #   @param name [String] The name of the line item, typically a product or SKU name.
         #

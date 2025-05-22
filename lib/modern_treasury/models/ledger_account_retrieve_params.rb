@@ -15,14 +15,14 @@ module ModernTreasury
       #   not including that bound. Use `balances[as_of_lock_version]` to retrieve a
       #   balance as of a specific Ledger Account `lock_version`.
       #
-      #   @return [ModernTreasury::LedgerAccountRetrieveParams::Balances, nil]
+      #   @return [ModernTreasury::Models::LedgerAccountRetrieveParams::Balances, nil]
       optional :balances, -> { ModernTreasury::LedgerAccountRetrieveParams::Balances }
 
       # @!method initialize(balances: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LedgerAccountRetrieveParams} for more details.
       #
-      #   @param balances [ModernTreasury::LedgerAccountRetrieveParams::Balances] Use `balances[effective_at_lower_bound]` and `balances[effective_at_upper_bound]
+      #   @param balances [ModernTreasury::Models::LedgerAccountRetrieveParams::Balances] Use `balances[effective_at_lower_bound]` and `balances[effective_at_upper_bound]
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 

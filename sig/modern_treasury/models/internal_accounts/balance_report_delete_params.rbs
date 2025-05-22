@@ -15,6 +15,11 @@ module ModernTreasury
           internal_account_id: String,
           ?request_options: ModernTreasury::request_opts
         ) -> void
+
+        def to_hash: -> {
+          internal_account_id: String,
+          request_options: ModernTreasury::RequestOptions
+        }
       end
     end
   end

@@ -59,6 +59,18 @@ module ModernTreasury
           ?unit_amount_decimal: String,
           ?request_options: ModernTreasury::request_opts
         ) -> void
+
+        def to_hash: -> {
+          invoice_id: String,
+          description: String,
+          direction: String,
+          metadata: ::Hash[Symbol, String],
+          name: String,
+          quantity: Integer,
+          unit_amount: Integer,
+          unit_amount_decimal: String,
+          request_options: ModernTreasury::RequestOptions
+        }
       end
     end
   end

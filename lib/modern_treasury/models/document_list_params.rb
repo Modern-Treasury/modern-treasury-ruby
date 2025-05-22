@@ -23,7 +23,7 @@ module ModernTreasury
       #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
       #   `case`, `internal_account`, `decision`, or `external_account`.
       #
-      #   @return [Symbol, ModernTreasury::DocumentListParams::DocumentableType, nil]
+      #   @return [Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType, nil]
       optional :documentable_type, enum: -> { ModernTreasury::DocumentListParams::DocumentableType }
 
       # @!attribute per_page
@@ -39,7 +39,7 @@ module ModernTreasury
       #
       #   @param documentable_id [String] The unique identifier for the associated object.
       #
-      #   @param documentable_type [Symbol, ModernTreasury::DocumentListParams::DocumentableType] The type of the associated object. Currently can be one of `payment_order`, `tra
+      #   @param documentable_type [Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType] The type of the associated object. Currently can be one of `payment_order`, `tra
       #
       #   @param per_page [Integer]
       #

@@ -13,7 +13,7 @@ module ModernTreasury
       #
       # @overload create(ledger_entries:, description: nil, effective_at: nil, effective_date: nil, external_id: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, status: nil, request_options: {})
       #
-      # @param ledger_entries [Array<ModernTreasury::LedgerTransactionCreateParams::LedgerEntry>] An array of ledger entry objects.
+      # @param ledger_entries [Array<ModernTreasury::Models::LedgerTransactionCreateParams::LedgerEntry>] An array of ledger entry objects.
       #
       # @param description [String, nil] An optional description for internal use.
       #
@@ -25,15 +25,15 @@ module ModernTreasury
       #
       # @param ledgerable_id [String] If the ledger transaction can be reconciled to another object in Modern Treasury
       #
-      # @param ledgerable_type [Symbol, ModernTreasury::LedgerTransactionCreateParams::LedgerableType] If the ledger transaction can be reconciled to another object in Modern Treasury
+      # @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerTransactionCreateParams::LedgerableType] If the ledger transaction can be reconciled to another object in Modern Treasury
       #
       # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #
-      # @param status [Symbol, ModernTreasury::LedgerTransactionCreateParams::Status] To post a ledger transaction at creation, use `posted`.
+      # @param status [Symbol, ModernTreasury::Models::LedgerTransactionCreateParams::Status] To post a ledger transaction at creation, use `posted`.
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::LedgerTransaction]
+      # @return [ModernTreasury::Models::LedgerTransaction]
       #
       # @see ModernTreasury::Models::LedgerTransactionCreateParams
       def create(params)
@@ -55,7 +55,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::LedgerTransaction]
+      # @return [ModernTreasury::Models::LedgerTransaction]
       #
       # @see ModernTreasury::Models::LedgerTransactionRetrieveParams
       def retrieve(id, params = {})
@@ -80,19 +80,19 @@ module ModernTreasury
       #
       # @param effective_at [Time] The timestamp (ISO8601 format) at which the ledger transaction happened for repo
       #
-      # @param ledger_entries [Array<ModernTreasury::LedgerTransactionUpdateParams::LedgerEntry>] An array of ledger entry objects.
+      # @param ledger_entries [Array<ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry>] An array of ledger entry objects.
       #
       # @param ledgerable_id [String] If the ledger transaction can be reconciled to another object in Modern Treasury
       #
-      # @param ledgerable_type [Symbol, ModernTreasury::LedgerTransactionUpdateParams::LedgerableType] If the ledger transaction can be reconciled to another object in Modern Treasury
+      # @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType] If the ledger transaction can be reconciled to another object in Modern Treasury
       #
       # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #
-      # @param status [Symbol, ModernTreasury::LedgerTransactionUpdateParams::Status] To post a ledger transaction at creation, use `posted`.
+      # @param status [Symbol, ModernTreasury::Models::LedgerTransactionUpdateParams::Status] To post a ledger transaction at creation, use `posted`.
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::LedgerTransaction]
+      # @return [ModernTreasury::Models::LedgerTransaction]
       #
       # @see ModernTreasury::Models::LedgerTransactionUpdateParams
       def update(id, params = {})
@@ -133,11 +133,11 @@ module ModernTreasury
       #
       # @param ledgerable_id [String]
       #
-      # @param ledgerable_type [Symbol, ModernTreasury::LedgerTransactionListParams::LedgerableType]
+      # @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerTransactionListParams::LedgerableType]
       #
       # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
       #
-      # @param order_by [ModernTreasury::LedgerTransactionListParams::OrderBy] Order by `created_at` or `effective_at` in `asc` or `desc` order. For example, t
+      # @param order_by [ModernTreasury::Models::LedgerTransactionListParams::OrderBy] Order by `created_at` or `effective_at` in `asc` or `desc` order. For example, t
       #
       # @param partially_posts_ledger_transaction_id [String]
       #
@@ -147,13 +147,13 @@ module ModernTreasury
       #
       # @param reverses_ledger_transaction_id [String]
       #
-      # @param status [Symbol, ModernTreasury::LedgerTransactionListParams::Status]
+      # @param status [Symbol, ModernTreasury::Models::LedgerTransactionListParams::Status]
       #
       # @param updated_at [Hash{Symbol=>Time}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the pos
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::LedgerTransaction>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::LedgerTransaction>]
       #
       # @see ModernTreasury::Models::LedgerTransactionListParams
       def list(params = {})
@@ -178,7 +178,7 @@ module ModernTreasury
       #
       # @param id [String] The ID of the ledger transaction to partially post.
       #
-      # @param posted_ledger_entries [Array<ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry>] An array of ledger entry objects to be set on the posted ledger transaction. The
+      # @param posted_ledger_entries [Array<ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry>] An array of ledger entry objects to be set on the posted ledger transaction. The
       #
       # @param description [String] An optional free-form description for the posted ledger transaction. Maximum of
       #
@@ -188,7 +188,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::LedgerTransaction]
+      # @return [ModernTreasury::Models::LedgerTransaction]
       #
       # @see ModernTreasury::Models::LedgerTransactionCreatePartialPostParams
       def create_partial_post(id, params)
@@ -220,15 +220,15 @@ module ModernTreasury
       #
       # @param ledgerable_id [String] Specify this if you'd like to link the reversal ledger transaction to a Payment
       #
-      # @param ledgerable_type [Symbol, ModernTreasury::LedgerTransactionCreateReversalParams::LedgerableType] Specify this if you'd like to link the reversal ledger transaction to a Payment
+      # @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType] Specify this if you'd like to link the reversal ledger transaction to a Payment
       #
       # @param metadata [Hash{Symbol=>String}] Additional data to be added to the reversal ledger transaction as key-value pair
       #
-      # @param status [Symbol, ModernTreasury::LedgerTransactionCreateReversalParams::Status] Status of the reversal ledger transaction. It defaults to `posted` if not provid
+      # @param status [Symbol, ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status] Status of the reversal ledger transaction. It defaults to `posted` if not provid
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::LedgerTransaction]
+      # @return [ModernTreasury::Models::LedgerTransaction]
       #
       # @see ModernTreasury::Models::LedgerTransactionCreateReversalParams
       def create_reversal(id, params = {})

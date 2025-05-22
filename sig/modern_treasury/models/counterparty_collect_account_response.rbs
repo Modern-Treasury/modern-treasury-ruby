@@ -11,6 +11,8 @@ module ModernTreasury
       attr_accessor is_resend: bool
 
       def initialize: (id: String, form_link: String, is_resend: bool) -> void
+
+      def to_hash: -> { id: String, form_link: String, is_resend: bool }
     end
   end
 end

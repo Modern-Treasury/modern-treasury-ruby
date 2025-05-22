@@ -17,7 +17,7 @@ module ModernTreasury
       #   The type of object being returned. Currently, this may only be
       #   incoming_payment_detail.
       #
-      #   @return [Symbol, ModernTreasury::ReturnCreateParams::ReturnableType]
+      #   @return [Symbol, ModernTreasury::Models::ReturnCreateParams::ReturnableType]
       required :returnable_type, enum: -> { ModernTreasury::ReturnCreateParams::ReturnableType }
 
       # @!attribute additional_information
@@ -30,7 +30,7 @@ module ModernTreasury
       # @!attribute code
       #   The return code. For ACH returns, this is the required ACH return code.
       #
-      #   @return [Symbol, ModernTreasury::ReturnCreateParams::Code, nil]
+      #   @return [Symbol, ModernTreasury::Models::ReturnCreateParams::Code, nil]
       optional :code, enum: -> { ModernTreasury::ReturnCreateParams::Code }, nil?: true
 
       # @!attribute data
@@ -59,11 +59,11 @@ module ModernTreasury
       #
       #   @param returnable_id [String, nil] The ID of the object being returned or `null`.
       #
-      #   @param returnable_type [Symbol, ModernTreasury::ReturnCreateParams::ReturnableType] The type of object being returned. Currently, this may only be incoming*payment*
+      #   @param returnable_type [Symbol, ModernTreasury::Models::ReturnCreateParams::ReturnableType] The type of object being returned. Currently, this may only be incoming*payment*
       #
       #   @param additional_information [String, nil] Some returns may include additional information from the bank. In these cases, t
       #
-      #   @param code [Symbol, ModernTreasury::ReturnCreateParams::Code, nil] The return code. For ACH returns, this is the required ACH return code.
+      #   @param code [Symbol, ModernTreasury::Models::ReturnCreateParams::Code, nil] The return code. For ACH returns, this is the required ACH return code.
       #
       #   @param data [Object, nil] The raw data from the return file that we get from the bank.
       #

@@ -10,8 +10,8 @@ module ModernTreasury
           metadata: ::Hash[Symbol, String],
           object: String,
           payment_order_id: String?,
-          reason: ModernTreasury::PaymentOrders::Reversal::reason,
-          status: ModernTreasury::PaymentOrders::Reversal::status,
+          reason: ModernTreasury::Models::PaymentOrders::Reversal::reason,
+          status: ModernTreasury::Models::PaymentOrders::Reversal::status,
           transaction_ids: ::Array[top?],
           updated_at: Time
         }
@@ -31,9 +31,9 @@ module ModernTreasury
 
         attr_accessor payment_order_id: String?
 
-        attr_accessor reason: ModernTreasury::PaymentOrders::Reversal::reason
+        attr_accessor reason: ModernTreasury::Models::PaymentOrders::Reversal::reason
 
-        attr_accessor status: ModernTreasury::PaymentOrders::Reversal::status
+        attr_accessor status: ModernTreasury::Models::PaymentOrders::Reversal::status
 
         attr_accessor transaction_ids: ::Array[top?]
 
@@ -47,11 +47,25 @@ module ModernTreasury
           metadata: ::Hash[Symbol, String],
           object: String,
           payment_order_id: String?,
-          reason: ModernTreasury::PaymentOrders::Reversal::reason,
-          status: ModernTreasury::PaymentOrders::Reversal::status,
+          reason: ModernTreasury::Models::PaymentOrders::Reversal::reason,
+          status: ModernTreasury::Models::PaymentOrders::Reversal::status,
           transaction_ids: ::Array[top?],
           updated_at: Time
         ) -> void
+
+        def to_hash: -> {
+          id: String,
+          created_at: Time,
+          ledger_transaction_id: String?,
+          live_mode: bool,
+          metadata: ::Hash[Symbol, String],
+          object: String,
+          payment_order_id: String?,
+          reason: ModernTreasury::Models::PaymentOrders::Reversal::reason,
+          status: ModernTreasury::Models::PaymentOrders::Reversal::status,
+          transaction_ids: ::Array[top?],
+          updated_at: Time
+        }
 
         type reason =
           :duplicate
@@ -69,7 +83,7 @@ module ModernTreasury
           DATE_EARLIER_THAN_INTENDED: :date_earlier_than_intended
           DATE_LATER_THAN_INTENDED: :date_later_than_intended
 
-          def self?.values: -> ::Array[ModernTreasury::PaymentOrders::Reversal::reason]
+          def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrders::Reversal::reason]
         end
 
         type status =
@@ -85,7 +99,7 @@ module ModernTreasury
           RETURNED: :returned
           SENT: :sent
 
-          def self?.values: -> ::Array[ModernTreasury::PaymentOrders::Reversal::status]
+          def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrders::Reversal::status]
         end
       end
     end

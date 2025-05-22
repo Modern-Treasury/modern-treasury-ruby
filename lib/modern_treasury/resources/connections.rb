@@ -17,7 +17,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::Connection>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::Connection>]
       #
       # @see ModernTreasury::Models::ConnectionListParams
       def list(params = {})

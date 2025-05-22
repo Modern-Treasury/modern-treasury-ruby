@@ -9,7 +9,7 @@ module ModernTreasury
       #
       # @param documentable_id [String] The unique identifier for the associated object.
       #
-      # @param documentable_type [Symbol, ModernTreasury::DocumentCreateParams::DocumentableType]
+      # @param documentable_type [Symbol, ModernTreasury::Models::DocumentCreateParams::DocumentableType]
       #
       # @param file [Pathname, StringIO, IO, String, ModernTreasury::FilePart]
       #
@@ -17,7 +17,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Document]
+      # @return [ModernTreasury::Models::Document]
       #
       # @see ModernTreasury::Models::DocumentCreateParams
       def create(params)
@@ -40,7 +40,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Document]
+      # @return [ModernTreasury::Models::Document]
       #
       # @see ModernTreasury::Models::DocumentRetrieveParams
       def retrieve(id, params = {})
@@ -63,13 +63,13 @@ module ModernTreasury
       #
       # @param documentable_id [String] The unique identifier for the associated object.
       #
-      # @param documentable_type [Symbol, ModernTreasury::DocumentListParams::DocumentableType] The type of the associated object. Currently can be one of `payment_order`, `tra
+      # @param documentable_type [Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType] The type of the associated object. Currently can be one of `payment_order`, `tra
       #
       # @param per_page [Integer]
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::Document>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::Document>]
       #
       # @see ModernTreasury::Models::DocumentListParams
       def list(params = {})

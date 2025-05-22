@@ -53,6 +53,17 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
+      def to_hash: -> {
+        account_type: ModernTreasury::Models::external_account_type,
+        counterparty_id: String?,
+        metadata: ::Hash[Symbol, String],
+        name: String?,
+        party_address: ModernTreasury::ExternalAccountUpdateParams::PartyAddress,
+        party_name: String,
+        party_type: ModernTreasury::Models::ExternalAccountUpdateParams::party_type?,
+        request_options: ModernTreasury::RequestOptions
+      }
+
       type party_address =
         {
           country: String?,
@@ -84,6 +95,15 @@ module ModernTreasury
           ?postal_code: String?,
           ?region: String?
         ) -> void
+
+        def to_hash: -> {
+          country: String?,
+          :line1 => String?,
+          :line2 => String?,
+          locality: String?,
+          postal_code: String?,
+          region: String?
+        }
       end
 
       type party_type = :business | :individual

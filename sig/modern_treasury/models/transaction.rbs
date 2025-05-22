@@ -19,10 +19,10 @@ module ModernTreasury
         object: String,
         posted: bool,
         reconciled: bool,
-        type: ModernTreasury::Transaction::type_,
+        type: ModernTreasury::Models::Transaction::type_,
         updated_at: Time,
         vendor_code: String?,
-        vendor_code_type: ModernTreasury::Transaction::vendor_code_type?,
+        vendor_code_type: ModernTreasury::Models::Transaction::vendor_code_type?,
         vendor_customer_id: String?,
         vendor_id: String?,
         details: ::Hash[Symbol, String],
@@ -64,13 +64,13 @@ module ModernTreasury
 
       attr_accessor reconciled: bool
 
-      attr_accessor type: ModernTreasury::Transaction::type_
+      attr_accessor type: ModernTreasury::Models::Transaction::type_
 
       attr_accessor updated_at: Time
 
       attr_accessor vendor_code: String?
 
-      attr_accessor vendor_code_type: ModernTreasury::Transaction::vendor_code_type?
+      attr_accessor vendor_code_type: ModernTreasury::Models::Transaction::vendor_code_type?
 
       attr_accessor vendor_customer_id: String?
 
@@ -100,15 +100,43 @@ module ModernTreasury
         object: String,
         posted: bool,
         reconciled: bool,
-        type: ModernTreasury::Transaction::type_,
+        type: ModernTreasury::Models::Transaction::type_,
         updated_at: Time,
         vendor_code: String?,
-        vendor_code_type: ModernTreasury::Transaction::vendor_code_type?,
+        vendor_code_type: ModernTreasury::Models::Transaction::vendor_code_type?,
         vendor_customer_id: String?,
         vendor_id: String?,
         ?details: ::Hash[Symbol, String],
         ?vendor_description: String?
       ) -> void
+
+      def to_hash: -> {
+        id: String,
+        amount: Integer,
+        as_of_date: Date?,
+        as_of_time: Time?,
+        as_of_timezone: String?,
+        created_at: Time,
+        currency: ModernTreasury::Models::currency,
+        custom_identifiers: ::Hash[Symbol, String],
+        direction: String,
+        discarded_at: Time?,
+        foreign_exchange_rate: ModernTreasury::Transaction::ForeignExchangeRate?,
+        internal_account_id: String,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String],
+        object: String,
+        posted: bool,
+        reconciled: bool,
+        type: ModernTreasury::Models::Transaction::type_,
+        updated_at: Time,
+        vendor_code: String?,
+        vendor_code_type: ModernTreasury::Models::Transaction::vendor_code_type?,
+        vendor_customer_id: String?,
+        vendor_id: String?,
+        details: ::Hash[Symbol, String],
+        vendor_description: String?
+      }
 
       type foreign_exchange_rate =
         {
@@ -145,6 +173,16 @@ module ModernTreasury
           target_currency: ModernTreasury::Models::currency,
           value: Integer
         ) -> void
+
+        def to_hash: -> {
+          base_amount: Integer,
+          base_currency: ModernTreasury::Models::currency,
+          exponent: Integer,
+          rate_string: String,
+          target_amount: Integer,
+          target_currency: ModernTreasury::Models::currency,
+          value: Integer
+        }
       end
 
       type type_ =
@@ -215,7 +253,7 @@ module ModernTreasury
         ZENGIN: :zengin
         OTHER: :other
 
-        def self?.values: -> ::Array[ModernTreasury::Transaction::type_]
+        def self?.values: -> ::Array[ModernTreasury::Models::Transaction::type_]
       end
 
       type vendor_code_type =
@@ -272,7 +310,7 @@ module ModernTreasury
         US_BANK: :us_bank
         USER: :user
 
-        def self?.values: -> ::Array[ModernTreasury::Transaction::vendor_code_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::Transaction::vendor_code_type]
       end
     end
   end

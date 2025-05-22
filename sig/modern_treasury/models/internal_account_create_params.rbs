@@ -61,6 +61,19 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
+      def to_hash: -> {
+        connection_id: String,
+        currency: ModernTreasury::Models::InternalAccountCreateParams::currency,
+        name: String,
+        party_name: String,
+        counterparty_id: String,
+        legal_entity_id: String,
+        parent_account_id: String,
+        party_address: ModernTreasury::InternalAccountCreateParams::PartyAddress,
+        vendor_attributes: ::Hash[Symbol, String],
+        request_options: ModernTreasury::RequestOptions
+      }
+
       type currency = :USD | :CAD
 
       module Currency
@@ -105,6 +118,15 @@ module ModernTreasury
           region: String,
           ?line2: String
         ) -> void
+
+        def to_hash: -> {
+          country: String,
+          :line1 => String,
+          locality: String,
+          postal_code: String,
+          region: String,
+          :line2 => String
+        }
       end
     end
   end

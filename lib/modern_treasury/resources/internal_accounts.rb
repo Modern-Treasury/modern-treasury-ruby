@@ -15,7 +15,7 @@ module ModernTreasury
       #
       # @param connection_id [String] The identifier of the financial institution the account belongs to.
       #
-      # @param currency [Symbol, ModernTreasury::InternalAccountCreateParams::Currency] Either "USD" or "CAD". Internal accounts created at Increase only supports "USD"
+      # @param currency [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency] Either "USD" or "CAD". Internal accounts created at Increase only supports "USD"
       #
       # @param name [String] The nickname of the account.
       #
@@ -27,13 +27,13 @@ module ModernTreasury
       #
       # @param parent_account_id [String] The parent internal account of this new account.
       #
-      # @param party_address [ModernTreasury::InternalAccountCreateParams::PartyAddress] The address associated with the owner or null.
+      # @param party_address [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress] The address associated with the owner or null.
       #
       # @param vendor_attributes [Hash{Symbol=>String}] A hash of vendor specific attributes that will be used when creating the account
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::InternalAccount]
+      # @return [ModernTreasury::Models::InternalAccount]
       #
       # @see ModernTreasury::Models::InternalAccountCreateParams
       def create(params)
@@ -55,7 +55,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::InternalAccount]
+      # @return [ModernTreasury::Models::InternalAccount]
       #
       # @see ModernTreasury::Models::InternalAccountRetrieveParams
       def retrieve(id, params = {})
@@ -88,7 +88,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::InternalAccount]
+      # @return [ModernTreasury::Models::InternalAccount]
       #
       # @see ModernTreasury::Models::InternalAccountUpdateParams
       def update(id, params = {})
@@ -113,21 +113,21 @@ module ModernTreasury
       #
       # @param counterparty_id [String] Only return internal accounts associated with this counterparty.
       #
-      # @param currency [Symbol, ModernTreasury::Currency] Only return internal accounts with this currency.
+      # @param currency [Symbol, ModernTreasury::Models::Currency] Only return internal accounts with this currency.
       #
       # @param legal_entity_id [String] Only return internal accounts associated with this legal entity.
       #
       # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
       #
-      # @param payment_direction [Symbol, ModernTreasury::TransactionDirection] Only return internal accounts that can originate payments with this direction.
+      # @param payment_direction [Symbol, ModernTreasury::Models::TransactionDirection] Only return internal accounts that can originate payments with this direction.
       #
-      # @param payment_type [Symbol, ModernTreasury::InternalAccountListParams::PaymentType] Only return internal accounts that can make this type of payment.
+      # @param payment_type [Symbol, ModernTreasury::Models::InternalAccountListParams::PaymentType] Only return internal accounts that can make this type of payment.
       #
       # @param per_page [Integer]
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::InternalAccount>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::InternalAccount>]
       #
       # @see ModernTreasury::Models::InternalAccountListParams
       def list(params = {})

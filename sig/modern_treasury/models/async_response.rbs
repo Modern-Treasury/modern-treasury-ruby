@@ -8,6 +8,8 @@ module ModernTreasury
       attr_accessor object: String
 
       def initialize: (id: String, object: String) -> void
+
+      def to_hash: -> { id: String, object: String }
     end
   end
 end

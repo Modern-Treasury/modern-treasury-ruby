@@ -197,6 +197,44 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
+      def to_hash: -> {
+        accounting: ModernTreasury::PaymentOrderUpdateParams::Accounting,
+        accounting_category_id: String?,
+        accounting_ledger_class_id: String?,
+        amount: Integer,
+        charge_bearer: ModernTreasury::Models::PaymentOrderUpdateParams::charge_bearer?,
+        counterparty_id: String?,
+        currency: ModernTreasury::Models::currency,
+        description: String?,
+        direction: ModernTreasury::Models::PaymentOrderUpdateParams::direction,
+        effective_date: Date,
+        expires_at: Time?,
+        fallback_type: ModernTreasury::Models::PaymentOrderUpdateParams::fallback_type,
+        foreign_exchange_contract: String?,
+        foreign_exchange_indicator: ModernTreasury::Models::PaymentOrderUpdateParams::foreign_exchange_indicator?,
+        line_items: ::Array[ModernTreasury::PaymentOrderUpdateParams::LineItem],
+        metadata: ::Hash[Symbol, String],
+        nsf_protected: bool,
+        originating_account_id: String,
+        originating_party_name: String?,
+        priority: ModernTreasury::Models::PaymentOrderUpdateParams::priority,
+        process_after: Time?,
+        purpose: String?,
+        receiving_account: ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount,
+        receiving_account_id: String,
+        remittance_information: String?,
+        send_remittance_advice: bool?,
+        statement_descriptor: String?,
+        status: ModernTreasury::Models::PaymentOrderUpdateParams::status,
+        subtype: ModernTreasury::Models::payment_order_subtype?,
+        type: ModernTreasury::Models::payment_order_type,
+        ultimate_originating_party_identifier: String?,
+        ultimate_originating_party_name: String?,
+        ultimate_receiving_party_identifier: String?,
+        ultimate_receiving_party_name: String?,
+        request_options: ModernTreasury::RequestOptions
+      }
+
       type accounting = { account_id: String?, class_id: String? }
 
       class Accounting < ModernTreasury::Internal::Type::BaseModel
@@ -205,6 +243,8 @@ module ModernTreasury
         attr_accessor class_id: String?
 
         def initialize: (?account_id: String?, ?class_id: String?) -> void
+
+        def to_hash: -> { account_id: String?, class_id: String? }
       end
 
       type charge_bearer = :shared | :sender | :receiver
@@ -276,6 +316,13 @@ module ModernTreasury
           ?description: String?,
           ?metadata: ::Hash[Symbol, String]
         ) -> void
+
+        def to_hash: -> {
+          amount: Integer,
+          accounting_category_id: String?,
+          description: String?,
+          metadata: ::Hash[Symbol, String]
+        }
       end
 
       type priority = :high | :normal
@@ -300,7 +347,7 @@ module ModernTreasury
           party_address: ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::PartyAddress,
           party_identifier: String,
           party_name: String,
-          party_type: ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::party_type?,
+          party_type: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::party_type?,
           plaid_processor_token: String,
           routing_details: ::Array[ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail]
         }
@@ -350,7 +397,7 @@ module ModernTreasury
 
         def party_name=: (String) -> String
 
-        attr_accessor party_type: ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::party_type?
+        attr_accessor party_type: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::party_type?
 
         attr_reader plaid_processor_token: String?
 
@@ -372,30 +419,50 @@ module ModernTreasury
           ?party_address: ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::PartyAddress,
           ?party_identifier: String,
           ?party_name: String,
-          ?party_type: ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::party_type?,
+          ?party_type: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::party_type?,
           ?plaid_processor_token: String,
           ?routing_details: ::Array[ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail]
         ) -> void
 
+        def to_hash: -> {
+          account_details: ::Array[ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail],
+          account_type: ModernTreasury::Models::external_account_type,
+          contact_details: ::Array[ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail],
+          ledger_account: ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount,
+          metadata: ::Hash[Symbol, String],
+          name: String?,
+          party_address: ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::PartyAddress,
+          party_identifier: String,
+          party_name: String,
+          party_type: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::party_type?,
+          plaid_processor_token: String,
+          routing_details: ::Array[ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail]
+        }
+
         type account_detail =
           {
             account_number: String,
-            account_number_type: ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::account_number_type
+            account_number_type: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::account_number_type
           }
 
         class AccountDetail < ModernTreasury::Internal::Type::BaseModel
           attr_accessor account_number: String
 
-          attr_reader account_number_type: ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::account_number_type?
+          attr_reader account_number_type: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::account_number_type?
 
           def account_number_type=: (
-            ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::account_number_type
-          ) -> ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::account_number_type
+            ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::account_number_type
+          ) -> ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::account_number_type
 
           def initialize: (
             account_number: String,
-            ?account_number_type: ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::account_number_type
+            ?account_number_type: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::account_number_type
           ) -> void
+
+          def to_hash: -> {
+            account_number: String,
+            account_number_type: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::account_number_type
+          }
 
           type account_number_type =
             :au_number
@@ -423,14 +490,14 @@ module ModernTreasury
             SG_NUMBER: :sg_number
             WALLET_ADDRESS: :wallet_address
 
-            def self?.values: -> ::Array[ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::account_number_type]
+            def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::account_number_type]
           end
         end
 
         type contact_detail =
           {
             contact_identifier: String,
-            contact_identifier_type: ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::contact_identifier_type
+            contact_identifier_type: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::contact_identifier_type
           }
 
         class ContactDetail < ModernTreasury::Internal::Type::BaseModel
@@ -438,16 +505,21 @@ module ModernTreasury
 
           def contact_identifier=: (String) -> String
 
-          attr_reader contact_identifier_type: ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::contact_identifier_type?
+          attr_reader contact_identifier_type: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::contact_identifier_type?
 
           def contact_identifier_type=: (
-            ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::contact_identifier_type
-          ) -> ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::contact_identifier_type
+            ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::contact_identifier_type
+          ) -> ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::contact_identifier_type
 
           def initialize: (
             ?contact_identifier: String,
-            ?contact_identifier_type: ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::contact_identifier_type
+            ?contact_identifier_type: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::contact_identifier_type
           ) -> void
+
+          def to_hash: -> {
+            contact_identifier: String,
+            contact_identifier_type: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::contact_identifier_type
+          }
 
           type contact_identifier_type = :email | :phone_number | :website
 
@@ -458,7 +530,7 @@ module ModernTreasury
             PHONE_NUMBER: :phone_number
             WEBSITE: :website
 
-            def self?.values: -> ::Array[ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::contact_identifier_type]
+            def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::contact_identifier_type]
           end
         end
 
@@ -472,7 +544,7 @@ module ModernTreasury
             description: String?,
             ledger_account_category_ids: ::Array[String],
             ledgerable_id: String,
-            ledgerable_type: ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::ledgerable_type,
+            ledgerable_type: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::ledgerable_type,
             metadata: ::Hash[Symbol, String]
           }
 
@@ -497,11 +569,11 @@ module ModernTreasury
 
           def ledgerable_id=: (String) -> String
 
-          attr_reader ledgerable_type: ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::ledgerable_type?
+          attr_reader ledgerable_type: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::ledgerable_type?
 
           def ledgerable_type=: (
-            ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::ledgerable_type
-          ) -> ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::ledgerable_type
+            ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::ledgerable_type
+          ) -> ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::ledgerable_type
 
           attr_reader metadata: ::Hash[Symbol, String]?
 
@@ -516,9 +588,22 @@ module ModernTreasury
             ?description: String?,
             ?ledger_account_category_ids: ::Array[String],
             ?ledgerable_id: String,
-            ?ledgerable_type: ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::ledgerable_type,
+            ?ledgerable_type: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::ledgerable_type,
             ?metadata: ::Hash[Symbol, String]
           ) -> void
+
+          def to_hash: -> {
+            currency: String,
+            ledger_id: String,
+            name: String,
+            normal_balance: ModernTreasury::Models::transaction_direction,
+            currency_exponent: Integer?,
+            description: String?,
+            ledger_account_category_ids: ::Array[String],
+            ledgerable_id: String,
+            ledgerable_type: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::ledgerable_type,
+            metadata: ::Hash[Symbol, String]
+          }
 
           type ledgerable_type =
             :counterparty
@@ -534,7 +619,7 @@ module ModernTreasury
             INTERNAL_ACCOUNT: :internal_account
             VIRTUAL_ACCOUNT: :virtual_account
 
-            def self?.values: -> ::Array[ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::ledgerable_type]
+            def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::ledgerable_type]
           end
         end
 
@@ -569,6 +654,15 @@ module ModernTreasury
             ?postal_code: String?,
             ?region: String?
           ) -> void
+
+          def to_hash: -> {
+            country: String?,
+            :line1 => String?,
+            :line2 => String?,
+            locality: String?,
+            postal_code: String?,
+            region: String?
+          }
         end
 
         type party_type = :business | :individual
@@ -579,32 +673,38 @@ module ModernTreasury
           BUSINESS: :business
           INDIVIDUAL: :individual
 
-          def self?.values: -> ::Array[ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::party_type]
+          def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::party_type]
         end
 
         type routing_detail =
           {
             routing_number: String,
-            routing_number_type: ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::routing_number_type,
-            payment_type: ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::payment_type
+            routing_number_type: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::routing_number_type,
+            payment_type: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::payment_type
           }
 
         class RoutingDetail < ModernTreasury::Internal::Type::BaseModel
           attr_accessor routing_number: String
 
-          attr_accessor routing_number_type: ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::routing_number_type
+          attr_accessor routing_number_type: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::routing_number_type
 
-          attr_reader payment_type: ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::payment_type?
+          attr_reader payment_type: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::payment_type?
 
           def payment_type=: (
-            ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::payment_type
-          ) -> ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::payment_type
+            ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::payment_type
+          ) -> ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::payment_type
 
           def initialize: (
             routing_number: String,
-            routing_number_type: ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::routing_number_type,
-            ?payment_type: ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::payment_type
+            routing_number_type: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::routing_number_type,
+            ?payment_type: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::payment_type
           ) -> void
+
+          def to_hash: -> {
+            routing_number: String,
+            routing_number_type: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::routing_number_type,
+            payment_type: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::payment_type
+          }
 
           type routing_number_type =
             :aba
@@ -654,7 +754,7 @@ module ModernTreasury
             SWIFT: :swift
             ZA_NATIONAL_CLEARING_CODE: :za_national_clearing_code
 
-            def self?.values: -> ::Array[ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::routing_number_type]
+            def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::routing_number_type]
           end
 
           type payment_type =
@@ -723,7 +823,7 @@ module ModernTreasury
             WIRE: :wire
             ZENGIN: :zengin
 
-            def self?.values: -> ::Array[ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::payment_type]
+            def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::payment_type]
           end
         end
       end

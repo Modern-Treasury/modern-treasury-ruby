@@ -12,11 +12,11 @@ module ModernTreasury
       #
       # @param internal_account_id [String] The ID for the `InternalAccount` this quote is associated with.
       #
-      # @param target_currency [Symbol, ModernTreasury::Currency] Currency to convert the `base_currency` to, often called the "buy" currency.
+      # @param target_currency [Symbol, ModernTreasury::Models::Currency] Currency to convert the `base_currency` to, often called the "buy" currency.
       #
       # @param base_amount [Integer] Amount in the lowest denomination of the `base_currency` to convert, often calle
       #
-      # @param base_currency [Symbol, ModernTreasury::Currency] Currency to convert, often called the "sell" currency.
+      # @param base_currency [Symbol, ModernTreasury::Models::Currency] Currency to convert, often called the "sell" currency.
       #
       # @param effective_at [Time] The timestamp until when the quoted rate is valid.
       #
@@ -24,7 +24,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::ForeignExchangeQuote]
+      # @return [ModernTreasury::Models::ForeignExchangeQuote]
       #
       # @see ModernTreasury::Models::ForeignExchangeQuoteCreateParams
       def create(params)
@@ -46,7 +46,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::ForeignExchangeQuote]
+      # @return [ModernTreasury::Models::ForeignExchangeQuote]
       #
       # @see ModernTreasury::Models::ForeignExchangeQuoteRetrieveParams
       def retrieve(id, params = {})
@@ -85,7 +85,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::ForeignExchangeQuote>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::ForeignExchangeQuote>]
       #
       # @see ModernTreasury::Models::ForeignExchangeQuoteListParams
       def list(params = {})

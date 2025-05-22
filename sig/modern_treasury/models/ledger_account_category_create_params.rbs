@@ -48,6 +48,18 @@ module ModernTreasury
         ?metadata: ::Hash[Symbol, String],
         ?request_options: ModernTreasury::request_opts
       ) -> void
+
+      def to_hash: -> {
+        currency: String,
+        ledger_id: String,
+        name: String,
+        normal_balance: ModernTreasury::Models::transaction_direction,
+        currency_exponent: Integer?,
+        description: String?,
+        ledger_account_category_ids: ::Array[String],
+        metadata: ::Hash[Symbol, String],
+        request_options: ModernTreasury::RequestOptions
+      }
     end
   end
 end

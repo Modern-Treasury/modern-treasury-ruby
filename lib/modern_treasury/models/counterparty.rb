@@ -12,7 +12,7 @@ module ModernTreasury
       # @!attribute accounts
       #   The accounts for this counterparty.
       #
-      #   @return [Array<ModernTreasury::Counterparty::Account>]
+      #   @return [Array<ModernTreasury::Models::Counterparty::Account>]
       required :accounts,
                -> {
                  ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Counterparty::Account]
@@ -80,16 +80,16 @@ module ModernTreasury
       # @!attribute verification_status
       #   The verification status of the counterparty.
       #
-      #   @return [Symbol, ModernTreasury::Counterparty::VerificationStatus]
+      #   @return [Symbol, ModernTreasury::Models::Counterparty::VerificationStatus]
       required :verification_status, enum: -> { ModernTreasury::Counterparty::VerificationStatus }
 
       # @!method initialize(id:, accounts:, created_at:, discarded_at:, email:, legal_entity_id:, live_mode:, metadata:, name:, object:, send_remittance_advice:, updated_at:, verification_status:)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::Counterparty} for more details.
+      #   {ModernTreasury::Models::Counterparty} for more details.
       #
       #   @param id [String]
       #
-      #   @param accounts [Array<ModernTreasury::Counterparty::Account>] The accounts for this counterparty.
+      #   @param accounts [Array<ModernTreasury::Models::Counterparty::Account>] The accounts for this counterparty.
       #
       #   @param created_at [Time]
       #
@@ -111,7 +111,7 @@ module ModernTreasury
       #
       #   @param updated_at [Time]
       #
-      #   @param verification_status [Symbol, ModernTreasury::Counterparty::VerificationStatus] The verification status of the counterparty.
+      #   @param verification_status [Symbol, ModernTreasury::Models::Counterparty::VerificationStatus] The verification status of the counterparty.
 
       class Account < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
@@ -121,7 +121,7 @@ module ModernTreasury
 
         # @!attribute account_details
         #
-        #   @return [Array<ModernTreasury::AccountDetail>, nil]
+        #   @return [Array<ModernTreasury::Models::AccountDetail>, nil]
         optional :account_details,
                  -> {
                    ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail]
@@ -130,12 +130,12 @@ module ModernTreasury
         # @!attribute account_type
         #   Can be `checking`, `savings` or `other`.
         #
-        #   @return [Symbol, ModernTreasury::ExternalAccountType, nil]
+        #   @return [Symbol, ModernTreasury::Models::ExternalAccountType, nil]
         optional :account_type, enum: -> { ModernTreasury::ExternalAccountType }
 
         # @!attribute contact_details
         #
-        #   @return [Array<ModernTreasury::Counterparty::Account::ContactDetail>, nil]
+        #   @return [Array<ModernTreasury::Models::Counterparty::Account::ContactDetail>, nil]
         optional :contact_details,
                  -> {
                    ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Counterparty::Account::ContactDetail]
@@ -187,7 +187,7 @@ module ModernTreasury
         # @!attribute party_address
         #   The address associated with the owner or `null`.
         #
-        #   @return [ModernTreasury::Counterparty::Account::PartyAddress, nil]
+        #   @return [ModernTreasury::Models::Counterparty::Account::PartyAddress, nil]
         optional :party_address, -> { ModernTreasury::Counterparty::Account::PartyAddress }, nil?: true
 
         # @!attribute party_name
@@ -199,12 +199,12 @@ module ModernTreasury
         # @!attribute party_type
         #   Either `individual` or `business`.
         #
-        #   @return [Symbol, ModernTreasury::Counterparty::Account::PartyType, nil]
+        #   @return [Symbol, ModernTreasury::Models::Counterparty::Account::PartyType, nil]
         optional :party_type, enum: -> { ModernTreasury::Counterparty::Account::PartyType }, nil?: true
 
         # @!attribute routing_details
         #
-        #   @return [Array<ModernTreasury::RoutingDetail>, nil]
+        #   @return [Array<ModernTreasury::Models::RoutingDetail>, nil]
         optional :routing_details,
                  -> {
                    ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail]
@@ -217,27 +217,27 @@ module ModernTreasury
 
         # @!attribute verification_source
         #
-        #   @return [Symbol, ModernTreasury::Counterparty::Account::VerificationSource, nil]
+        #   @return [Symbol, ModernTreasury::Models::Counterparty::Account::VerificationSource, nil]
         optional :verification_source,
                  enum: -> { ModernTreasury::Counterparty::Account::VerificationSource },
                  nil?: true
 
         # @!attribute verification_status
         #
-        #   @return [Symbol, ModernTreasury::Counterparty::Account::VerificationStatus, nil]
+        #   @return [Symbol, ModernTreasury::Models::Counterparty::Account::VerificationStatus, nil]
         optional :verification_status, enum: -> { ModernTreasury::Counterparty::Account::VerificationStatus }
 
         # @!method initialize(id: nil, account_details: nil, account_type: nil, contact_details: nil, created_at: nil, discarded_at: nil, ledger_account_id: nil, live_mode: nil, metadata: nil, name: nil, object: nil, party_address: nil, party_name: nil, party_type: nil, routing_details: nil, updated_at: nil, verification_source: nil, verification_status: nil)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Counterparty::Account} for more details.
+        #   {ModernTreasury::Models::Counterparty::Account} for more details.
         #
         #   @param id [String]
         #
-        #   @param account_details [Array<ModernTreasury::AccountDetail>]
+        #   @param account_details [Array<ModernTreasury::Models::AccountDetail>]
         #
-        #   @param account_type [Symbol, ModernTreasury::ExternalAccountType] Can be `checking`, `savings` or `other`.
+        #   @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType] Can be `checking`, `savings` or `other`.
         #
-        #   @param contact_details [Array<ModernTreasury::Counterparty::Account::ContactDetail>]
+        #   @param contact_details [Array<ModernTreasury::Models::Counterparty::Account::ContactDetail>]
         #
         #   @param created_at [Time]
         #
@@ -253,19 +253,19 @@ module ModernTreasury
         #
         #   @param object [String]
         #
-        #   @param party_address [ModernTreasury::Counterparty::Account::PartyAddress, nil] The address associated with the owner or `null`.
+        #   @param party_address [ModernTreasury::Models::Counterparty::Account::PartyAddress, nil] The address associated with the owner or `null`.
         #
         #   @param party_name [String] The legal name of the entity which owns the account.
         #
-        #   @param party_type [Symbol, ModernTreasury::Counterparty::Account::PartyType, nil] Either `individual` or `business`.
+        #   @param party_type [Symbol, ModernTreasury::Models::Counterparty::Account::PartyType, nil] Either `individual` or `business`.
         #
-        #   @param routing_details [Array<ModernTreasury::RoutingDetail>]
+        #   @param routing_details [Array<ModernTreasury::Models::RoutingDetail>]
         #
         #   @param updated_at [Time]
         #
-        #   @param verification_source [Symbol, ModernTreasury::Counterparty::Account::VerificationSource, nil]
+        #   @param verification_source [Symbol, ModernTreasury::Models::Counterparty::Account::VerificationSource, nil]
         #
-        #   @param verification_status [Symbol, ModernTreasury::Counterparty::Account::VerificationStatus]
+        #   @param verification_status [Symbol, ModernTreasury::Models::Counterparty::Account::VerificationStatus]
 
         class ContactDetail < ModernTreasury::Internal::Type::BaseModel
           # @!attribute id
@@ -280,7 +280,7 @@ module ModernTreasury
 
           # @!attribute contact_identifier_type
           #
-          #   @return [Symbol, ModernTreasury::Counterparty::Account::ContactDetail::ContactIdentifierType]
+          #   @return [Symbol, ModernTreasury::Models::Counterparty::Account::ContactDetail::ContactIdentifierType]
           required :contact_identifier_type,
                    enum: -> { ModernTreasury::Counterparty::Account::ContactDetail::ContactIdentifierType }
 
@@ -313,13 +313,13 @@ module ModernTreasury
 
           # @!method initialize(id:, contact_identifier:, contact_identifier_type:, created_at:, discarded_at:, live_mode:, object:, updated_at:)
           #   Some parameter documentations has been truncated, see
-          #   {ModernTreasury::Counterparty::Account::ContactDetail} for more details.
+          #   {ModernTreasury::Models::Counterparty::Account::ContactDetail} for more details.
           #
           #   @param id [String]
           #
           #   @param contact_identifier [String]
           #
-          #   @param contact_identifier_type [Symbol, ModernTreasury::Counterparty::Account::ContactDetail::ContactIdentifierType]
+          #   @param contact_identifier_type [Symbol, ModernTreasury::Models::Counterparty::Account::ContactDetail::ContactIdentifierType]
           #
           #   @param created_at [Time]
           #
@@ -331,7 +331,7 @@ module ModernTreasury
           #
           #   @param updated_at [Time]
 
-          # @see ModernTreasury::Counterparty::Account::ContactDetail#contact_identifier_type
+          # @see ModernTreasury::Models::Counterparty::Account::ContactDetail#contact_identifier_type
           module ContactIdentifierType
             extend ModernTreasury::Internal::Type::Enum
 
@@ -344,7 +344,7 @@ module ModernTreasury
           end
         end
 
-        # @see ModernTreasury::Counterparty::Account#party_address
+        # @see ModernTreasury::Models::Counterparty::Account#party_address
         class PartyAddress < ModernTreasury::Internal::Type::BaseModel
           # @!attribute id
           #
@@ -409,7 +409,7 @@ module ModernTreasury
 
           # @!method initialize(id:, country:, created_at:, line1:, line2:, live_mode:, locality:, object:, postal_code:, region:, updated_at:)
           #   Some parameter documentations has been truncated, see
-          #   {ModernTreasury::Counterparty::Account::PartyAddress} for more details.
+          #   {ModernTreasury::Models::Counterparty::Account::PartyAddress} for more details.
           #
           #   The address associated with the owner or `null`.
           #
@@ -438,7 +438,7 @@ module ModernTreasury
 
         # Either `individual` or `business`.
         #
-        # @see ModernTreasury::Counterparty::Account#party_type
+        # @see ModernTreasury::Models::Counterparty::Account#party_type
         module PartyType
           extend ModernTreasury::Internal::Type::Enum
 
@@ -449,7 +449,7 @@ module ModernTreasury
           #   @return [Array<Symbol>]
         end
 
-        # @see ModernTreasury::Counterparty::Account#verification_source
+        # @see ModernTreasury::Models::Counterparty::Account#verification_source
         module VerificationSource
           extend ModernTreasury::Internal::Type::Enum
 
@@ -461,7 +461,7 @@ module ModernTreasury
           #   @return [Array<Symbol>]
         end
 
-        # @see ModernTreasury::Counterparty::Account#verification_status
+        # @see ModernTreasury::Models::Counterparty::Account#verification_status
         module VerificationStatus
           extend ModernTreasury::Internal::Type::Enum
 
@@ -476,7 +476,7 @@ module ModernTreasury
 
       # The verification status of the counterparty.
       #
-      # @see ModernTreasury::Counterparty#verification_status
+      # @see ModernTreasury::Models::Counterparty#verification_status
       module VerificationStatus
         extend ModernTreasury::Internal::Type::Enum
 

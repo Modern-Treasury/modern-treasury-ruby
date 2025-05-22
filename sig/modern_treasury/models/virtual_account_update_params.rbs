@@ -34,6 +34,14 @@ module ModernTreasury
         ?name: String?,
         ?request_options: ModernTreasury::request_opts
       ) -> void
+
+      def to_hash: -> {
+        counterparty_id: String,
+        ledger_account_id: String,
+        metadata: ::Hash[Symbol, String],
+        name: String?,
+        request_options: ModernTreasury::RequestOptions
+      }
     end
   end
 end

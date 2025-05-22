@@ -52,6 +52,17 @@ module ModernTreasury
         ?resource: String,
         ?request_options: ModernTreasury::request_opts
       ) -> void
+
+      def to_hash: -> {
+        after_cursor: String?,
+        entity_id: String,
+        event_name: String,
+        event_time_end: Time,
+        event_time_start: Time,
+        per_page: Integer,
+        resource: String,
+        request_options: ModernTreasury::RequestOptions
+      }
     end
   end
 end

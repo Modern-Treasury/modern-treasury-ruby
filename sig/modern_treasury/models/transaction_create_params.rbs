@@ -57,6 +57,20 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
+      def to_hash: -> {
+        amount: Integer,
+        as_of_date: Date?,
+        direction: String,
+        internal_account_id: String,
+        vendor_code: String?,
+        vendor_code_type: String?,
+        metadata: ::Hash[Symbol, String],
+        posted: bool,
+        type: ModernTreasury::Models::TransactionCreateParams::type_?,
+        vendor_description: String?,
+        request_options: ModernTreasury::RequestOptions
+      }
+
       type type_ =
         :ach
         | :au_becs

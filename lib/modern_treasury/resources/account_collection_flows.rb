@@ -11,11 +11,11 @@ module ModernTreasury
       #
       # @param payment_types [Array<String>]
       #
-      # @param receiving_countries [Array<Symbol, ModernTreasury::AccountCollectionFlowCreateParams::ReceivingCountry>]
+      # @param receiving_countries [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>]
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::AccountCollectionFlow]
+      # @return [ModernTreasury::Models::AccountCollectionFlow]
       #
       # @see ModernTreasury::Models::AccountCollectionFlowCreateParams
       def create(params)
@@ -37,7 +37,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::AccountCollectionFlow]
+      # @return [ModernTreasury::Models::AccountCollectionFlow]
       #
       # @see ModernTreasury::Models::AccountCollectionFlowRetrieveParams
       def retrieve(id, params = {})
@@ -58,11 +58,11 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param status [Symbol, ModernTreasury::AccountCollectionFlowUpdateParams::Status] Required. The updated status of the account collection flow. Can only be used to
+      # @param status [Symbol, ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status] Required. The updated status of the account collection flow. Can only be used to
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::AccountCollectionFlow]
+      # @return [ModernTreasury::Models::AccountCollectionFlow]
       #
       # @see ModernTreasury::Models::AccountCollectionFlowUpdateParams
       def update(id, params)
@@ -88,7 +88,7 @@ module ModernTreasury
       # @param status [String]
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::AccountCollectionFlow>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::AccountCollectionFlow>]
       #
       # @see ModernTreasury::Models::AccountCollectionFlowListParams
       def list(params = {})

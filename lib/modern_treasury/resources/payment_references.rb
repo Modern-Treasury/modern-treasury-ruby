@@ -11,7 +11,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::PaymentReference]
+      # @return [ModernTreasury::Models::PaymentReference]
       #
       # @see ModernTreasury::Models::PaymentReferenceRetrieveParams
       def retrieve(id, params = {})
@@ -38,11 +38,11 @@ module ModernTreasury
       #
       # @param referenceable_id [String] The id of the referenceable to search for. Must be accompanied by the referencea
       #
-      # @param referenceable_type [Symbol, ModernTreasury::PaymentReferenceListParams::ReferenceableType] One of the referenceable types. This must be accompanied by the id of the refere
+      # @param referenceable_type [Symbol, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType] One of the referenceable types. This must be accompanied by the id of the refere
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::PaymentReference>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::PaymentReference>]
       #
       # @see ModernTreasury::Models::PaymentReferenceListParams
       def list(params = {})

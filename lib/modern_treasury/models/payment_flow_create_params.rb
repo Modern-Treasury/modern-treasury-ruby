@@ -31,7 +31,7 @@ module ModernTreasury
       #   Required. Describes the direction money is flowing in the transaction. Can only
       #   be `debit`. A `debit` pulls money from someone else's account to your own.
       #
-      #   @return [Symbol, ModernTreasury::PaymentFlowCreateParams::Direction]
+      #   @return [Symbol, ModernTreasury::Models::PaymentFlowCreateParams::Direction]
       required :direction, enum: -> { ModernTreasury::PaymentFlowCreateParams::Direction }
 
       # @!attribute originating_account_id
@@ -58,7 +58,7 @@ module ModernTreasury
       #
       #   @param currency [String] Required. The currency of the payment.
       #
-      #   @param direction [Symbol, ModernTreasury::PaymentFlowCreateParams::Direction] Required. Describes the direction money is flowing in the transaction. Can only
+      #   @param direction [Symbol, ModernTreasury::Models::PaymentFlowCreateParams::Direction] Required. Describes the direction money is flowing in the transaction. Can only
       #
       #   @param originating_account_id [String] Required. The ID of one of your organization's internal accounts.
       #

@@ -19,7 +19,7 @@ module ModernTreasury
         #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::Transactions::TransactionLineItem]
+        # @return [ModernTreasury::Models::Transactions::TransactionLineItem]
         #
         # @see ModernTreasury::Models::Transactions::LineItemCreateParams
         def create(params)
@@ -41,7 +41,7 @@ module ModernTreasury
         #
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::Transactions::TransactionLineItem]
+        # @return [ModernTreasury::Models::Transactions::TransactionLineItem]
         #
         # @see ModernTreasury::Models::Transactions::LineItemRetrieveParams
         def retrieve(id, params = {})
@@ -61,10 +61,10 @@ module ModernTreasury
         # @param after_cursor [String, nil]
         # @param per_page [Integer]
         # @param transaction_id [String]
-        # @param type [Symbol, ModernTreasury::Transactions::LineItemListParams::Type, nil]
+        # @param type [Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type, nil]
         # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [ModernTreasury::Internal::Page<ModernTreasury::Transactions::TransactionLineItem>]
+        # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::Transactions::TransactionLineItem>]
         #
         # @see ModernTreasury::Models::Transactions::LineItemListParams
         def list(params = {})

@@ -9,7 +9,7 @@ module ModernTreasury
 
       # @!attribute itemizable_type
       #
-      #   @return [Symbol, ModernTreasury::LineItemRetrieveParams::ItemizableType]
+      #   @return [Symbol, ModernTreasury::Models::LineItemRetrieveParams::ItemizableType]
       required :itemizable_type, enum: -> { ModernTreasury::LineItemRetrieveParams::ItemizableType }
 
       # @!attribute itemizable_id
@@ -18,7 +18,7 @@ module ModernTreasury
       required :itemizable_id, String
 
       # @!method initialize(itemizable_type:, itemizable_id:, request_options: {})
-      #   @param itemizable_type [Symbol, ModernTreasury::LineItemRetrieveParams::ItemizableType]
+      #   @param itemizable_type [Symbol, ModernTreasury::Models::LineItemRetrieveParams::ItemizableType]
       #   @param itemizable_id [String]
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 

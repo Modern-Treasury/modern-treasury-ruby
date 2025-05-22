@@ -47,6 +47,19 @@ module ModernTreasury
         resource: String,
         updated_at: Time
       ) -> void
+
+      def to_hash: -> {
+        id: String,
+        created_at: Time,
+        data: ::Hash[Symbol, top],
+        entity_id: String,
+        event_name: String,
+        event_time: Time,
+        live_mode: bool,
+        object: String,
+        resource: String,
+        updated_at: Time
+      }
     end
   end
 end

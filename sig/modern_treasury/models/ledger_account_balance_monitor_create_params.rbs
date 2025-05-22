@@ -33,6 +33,14 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
+      def to_hash: -> {
+        alert_condition: ModernTreasury::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
+        ledger_account_id: String,
+        description: String,
+        metadata: ::Hash[Symbol, String],
+        request_options: ModernTreasury::RequestOptions
+      }
+
       type alert_condition = { field: String, operator: String, value: Integer }
 
       class AlertCondition < ModernTreasury::Internal::Type::BaseModel
@@ -47,6 +55,8 @@ module ModernTreasury
           operator: String,
           value: Integer
         ) -> void
+
+        def to_hash: -> { field: String, operator: String, value: Integer }
       end
     end
   end

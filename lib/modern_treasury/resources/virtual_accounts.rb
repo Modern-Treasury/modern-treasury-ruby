@@ -14,7 +14,7 @@ module ModernTreasury
       #
       # @param name [String] The name of the virtual account.
       #
-      # @param account_details [Array<ModernTreasury::VirtualAccountCreateParams::AccountDetail>] An array of account detail objects.
+      # @param account_details [Array<ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail>] An array of account detail objects.
       #
       # @param counterparty_id [String] The ID of the counterparty that the virtual account belongs to.
       #
@@ -24,15 +24,15 @@ module ModernTreasury
       #
       # @param description [String] An optional description for internal use.
       #
-      # @param ledger_account [ModernTreasury::VirtualAccountCreateParams::LedgerAccount] Specifies a ledger account object that will be created with the virtual account.
+      # @param ledger_account [ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount] Specifies a ledger account object that will be created with the virtual account.
       #
       # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #
-      # @param routing_details [Array<ModernTreasury::VirtualAccountCreateParams::RoutingDetail>] An array of routing detail objects.
+      # @param routing_details [Array<ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail>] An array of routing detail objects.
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::VirtualAccount]
+      # @return [ModernTreasury::Models::VirtualAccount]
       #
       # @see ModernTreasury::Models::VirtualAccountCreateParams
       def create(params)
@@ -54,7 +54,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::VirtualAccount]
+      # @return [ModernTreasury::Models::VirtualAccount]
       #
       # @see ModernTreasury::Models::VirtualAccountRetrieveParams
       def retrieve(id, params = {})
@@ -82,7 +82,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::VirtualAccount]
+      # @return [ModernTreasury::Models::VirtualAccount]
       #
       # @see ModernTreasury::Models::VirtualAccountUpdateParams
       def update(id, params = {})
@@ -115,7 +115,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::VirtualAccount>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::VirtualAccount>]
       #
       # @see ModernTreasury::Models::VirtualAccountListParams
       def list(params = {})
@@ -138,7 +138,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::VirtualAccount]
+      # @return [ModernTreasury::Models::VirtualAccount]
       #
       # @see ModernTreasury::Models::VirtualAccountDeleteParams
       def delete(id, params = {})

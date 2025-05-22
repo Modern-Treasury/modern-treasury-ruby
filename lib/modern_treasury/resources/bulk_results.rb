@@ -11,7 +11,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::BulkResult]
+      # @return [ModernTreasury::Models::BulkResult]
       #
       # @see ModernTreasury::Models::BulkResultRetrieveParams
       def retrieve(id, params = {})
@@ -34,19 +34,19 @@ module ModernTreasury
       #
       # @param entity_id [String] Unique identifier for the result entity object.
       #
-      # @param entity_type [Symbol, ModernTreasury::BulkResultListParams::EntityType] The type of the request that created this result. bulk_request is the only suppo
+      # @param entity_type [Symbol, ModernTreasury::Models::BulkResultListParams::EntityType] The type of the request that created this result. bulk_request is the only suppo
       #
       # @param per_page [Integer]
       #
       # @param request_id [String] Unique identifier for the request that created this bulk result. This is the ID
       #
-      # @param request_type [Symbol, ModernTreasury::BulkResultListParams::RequestType] The type of the request that created this result. bulk_request is the only suppo
+      # @param request_type [Symbol, ModernTreasury::Models::BulkResultListParams::RequestType] The type of the request that created this result. bulk_request is the only suppo
       #
-      # @param status [Symbol, ModernTreasury::BulkResultListParams::Status] One of successful or failed.
+      # @param status [Symbol, ModernTreasury::Models::BulkResultListParams::Status] One of successful or failed.
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::BulkResult>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::BulkResult>]
       #
       # @see ModernTreasury::Models::BulkResultListParams
       def list(params = {})

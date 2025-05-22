@@ -26,15 +26,15 @@ module ModernTreasury
         object: String,
         originating_account_id: String,
         payment_effective_date: Date?,
-        payment_method: ModernTreasury::Invoice::payment_method?,
+        payment_method: ModernTreasury::Models::Invoice::payment_method?,
         payment_orders: ::Array[ModernTreasury::PaymentOrder],
-        payment_type: ModernTreasury::Invoice::payment_type?,
+        payment_type: ModernTreasury::Models::Invoice::payment_type?,
         pdf_url: String?,
         receiving_account_id: String?,
         recipient_email: String?,
         recipient_name: String?,
         remind_after_overdue_days: ::Array[Integer]?,
-        status: ModernTreasury::Invoice::status,
+        status: ModernTreasury::Models::Invoice::status,
         total_amount: Integer,
         transaction_line_item_ids: ::Array[String],
         updated_at: Time,
@@ -90,11 +90,11 @@ module ModernTreasury
 
       attr_accessor payment_effective_date: Date?
 
-      attr_accessor payment_method: ModernTreasury::Invoice::payment_method?
+      attr_accessor payment_method: ModernTreasury::Models::Invoice::payment_method?
 
       attr_accessor payment_orders: ::Array[ModernTreasury::PaymentOrder]
 
-      attr_accessor payment_type: ModernTreasury::Invoice::payment_type?
+      attr_accessor payment_type: ModernTreasury::Models::Invoice::payment_type?
 
       attr_accessor pdf_url: String?
 
@@ -106,7 +106,7 @@ module ModernTreasury
 
       attr_accessor remind_after_overdue_days: ::Array[Integer]?
 
-      attr_accessor status: ModernTreasury::Invoice::status
+      attr_accessor status: ModernTreasury::Models::Invoice::status
 
       attr_accessor total_amount: Integer
 
@@ -141,26 +141,66 @@ module ModernTreasury
         object: String,
         originating_account_id: String,
         payment_effective_date: Date?,
-        payment_method: ModernTreasury::Invoice::payment_method?,
+        payment_method: ModernTreasury::Models::Invoice::payment_method?,
         payment_orders: ::Array[ModernTreasury::PaymentOrder],
-        payment_type: ModernTreasury::Invoice::payment_type?,
+        payment_type: ModernTreasury::Models::Invoice::payment_type?,
         pdf_url: String?,
         receiving_account_id: String?,
         recipient_email: String?,
         recipient_name: String?,
         remind_after_overdue_days: ::Array[Integer]?,
-        status: ModernTreasury::Invoice::status,
+        status: ModernTreasury::Models::Invoice::status,
         total_amount: Integer,
         transaction_line_item_ids: ::Array[String],
         updated_at: Time,
         virtual_account_id: String?
       ) -> void
 
+      def to_hash: -> {
+        id: String,
+        amount_paid: Integer,
+        amount_remaining: Integer,
+        contact_details: ::Array[ModernTreasury::Invoice::ContactDetail],
+        counterparty_billing_address: ModernTreasury::Invoice::CounterpartyBillingAddress?,
+        counterparty_id: String,
+        counterparty_shipping_address: ModernTreasury::Invoice::CounterpartyShippingAddress?,
+        created_at: Time,
+        currency: ModernTreasury::Models::currency,
+        description: String,
+        due_date: Time,
+        expected_payments: ::Array[ModernTreasury::ExpectedPayment],
+        fallback_payment_method: String?,
+        hosted_url: String,
+        invoicer_address: ModernTreasury::Invoice::InvoicerAddress?,
+        ledger_account_settlement_id: String?,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String]?,
+        notification_email_addresses: ::Array[String]?,
+        notifications_enabled: bool,
+        number: String,
+        object: String,
+        originating_account_id: String,
+        payment_effective_date: Date?,
+        payment_method: ModernTreasury::Models::Invoice::payment_method?,
+        payment_orders: ::Array[ModernTreasury::PaymentOrder],
+        payment_type: ModernTreasury::Models::Invoice::payment_type?,
+        pdf_url: String?,
+        receiving_account_id: String?,
+        recipient_email: String?,
+        recipient_name: String?,
+        remind_after_overdue_days: ::Array[Integer]?,
+        status: ModernTreasury::Models::Invoice::status,
+        total_amount: Integer,
+        transaction_line_item_ids: ::Array[String],
+        updated_at: Time,
+        virtual_account_id: String?
+      }
+
       type contact_detail =
         {
           id: String,
           contact_identifier: String,
-          contact_identifier_type: ModernTreasury::Invoice::ContactDetail::contact_identifier_type,
+          contact_identifier_type: ModernTreasury::Models::Invoice::ContactDetail::contact_identifier_type,
           created_at: Time,
           discarded_at: Time?,
           live_mode: bool,
@@ -173,7 +213,7 @@ module ModernTreasury
 
         attr_accessor contact_identifier: String
 
-        attr_accessor contact_identifier_type: ModernTreasury::Invoice::ContactDetail::contact_identifier_type
+        attr_accessor contact_identifier_type: ModernTreasury::Models::Invoice::ContactDetail::contact_identifier_type
 
         attr_accessor created_at: Time
 
@@ -188,13 +228,24 @@ module ModernTreasury
         def initialize: (
           id: String,
           contact_identifier: String,
-          contact_identifier_type: ModernTreasury::Invoice::ContactDetail::contact_identifier_type,
+          contact_identifier_type: ModernTreasury::Models::Invoice::ContactDetail::contact_identifier_type,
           created_at: Time,
           discarded_at: Time?,
           live_mode: bool,
           object: String,
           updated_at: Time
         ) -> void
+
+        def to_hash: -> {
+          id: String,
+          contact_identifier: String,
+          contact_identifier_type: ModernTreasury::Models::Invoice::ContactDetail::contact_identifier_type,
+          created_at: Time,
+          discarded_at: Time?,
+          live_mode: bool,
+          object: String,
+          updated_at: Time
+        }
 
         type contact_identifier_type = :email | :phone_number | :website
 
@@ -205,7 +256,7 @@ module ModernTreasury
           PHONE_NUMBER: :phone_number
           WEBSITE: :website
 
-          def self?.values: -> ::Array[ModernTreasury::Invoice::ContactDetail::contact_identifier_type]
+          def self?.values: -> ::Array[ModernTreasury::Models::Invoice::ContactDetail::contact_identifier_type]
         end
       end
 
@@ -242,6 +293,15 @@ module ModernTreasury
           region: String,
           ?line2: String
         ) -> void
+
+        def to_hash: -> {
+          country: String,
+          :line1 => String,
+          locality: String,
+          postal_code: String,
+          region: String,
+          :line2 => String
+        }
       end
 
       type counterparty_shipping_address =
@@ -277,6 +337,15 @@ module ModernTreasury
           region: String,
           ?line2: String
         ) -> void
+
+        def to_hash: -> {
+          country: String,
+          :line1 => String,
+          locality: String,
+          postal_code: String,
+          region: String,
+          :line2 => String
+        }
       end
 
       type invoicer_address =
@@ -312,6 +381,15 @@ module ModernTreasury
           region: String,
           ?line2: String
         ) -> void
+
+        def to_hash: -> {
+          country: String,
+          :line1 => String,
+          locality: String,
+          postal_code: String,
+          region: String,
+          :line2 => String
+        }
       end
 
       type payment_method = :ui | :manual | :automatic
@@ -323,7 +401,7 @@ module ModernTreasury
         MANUAL: :manual
         AUTOMATIC: :automatic
 
-        def self?.values: -> ::Array[ModernTreasury::Invoice::payment_method]
+        def self?.values: -> ::Array[ModernTreasury::Models::Invoice::payment_method]
       end
 
       type payment_type = :eft | :ach
@@ -334,7 +412,7 @@ module ModernTreasury
         EFT: :eft
         ACH: :ach
 
-        def self?.values: -> ::Array[ModernTreasury::Invoice::payment_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::Invoice::payment_type]
       end
 
       type status =
@@ -350,7 +428,7 @@ module ModernTreasury
         UNPAID: :unpaid
         VOIDED: :voided
 
-        def self?.values: -> ::Array[ModernTreasury::Invoice::status]
+        def self?.values: -> ::Array[ModernTreasury::Models::Invoice::status]
       end
     end
   end

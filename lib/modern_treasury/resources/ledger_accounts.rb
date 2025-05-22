@@ -16,7 +16,7 @@ module ModernTreasury
       #
       # @param name [String] The name of the ledger account.
       #
-      # @param normal_balance [Symbol, ModernTreasury::TransactionDirection] The normal balance of the ledger account.
+      # @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection] The normal balance of the ledger account.
       #
       # @param currency_exponent [Integer, nil] The currency exponent of the ledger account.
       #
@@ -26,13 +26,13 @@ module ModernTreasury
       #
       # @param ledgerable_id [String] If the ledger account links to another object in Modern Treasury, the id will be
       #
-      # @param ledgerable_type [Symbol, ModernTreasury::LedgerAccountCreateParams::LedgerableType] If the ledger account links to another object in Modern Treasury, the type will
+      # @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType] If the ledger account links to another object in Modern Treasury, the type will
       #
       # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::LedgerAccount]
+      # @return [ModernTreasury::Models::LedgerAccount]
       #
       # @see ModernTreasury::Models::LedgerAccountCreateParams
       def create(params)
@@ -55,11 +55,11 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param balances [ModernTreasury::LedgerAccountRetrieveParams::Balances] Use `balances[effective_at_lower_bound]` and `balances[effective_at_upper_bound]
+      # @param balances [ModernTreasury::Models::LedgerAccountRetrieveParams::Balances] Use `balances[effective_at_lower_bound]` and `balances[effective_at_upper_bound]
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::LedgerAccount]
+      # @return [ModernTreasury::Models::LedgerAccount]
       #
       # @see ModernTreasury::Models::LedgerAccountRetrieveParams
       def retrieve(id, params = {})
@@ -90,7 +90,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::LedgerAccount]
+      # @return [ModernTreasury::Models::LedgerAccount]
       #
       # @see ModernTreasury::Models::LedgerAccountUpdateParams
       def update(id, params = {})
@@ -115,9 +115,9 @@ module ModernTreasury
       #
       # @param after_cursor [String, nil]
       #
-      # @param available_balance_amount [ModernTreasury::LedgerAccountListParams::AvailableBalanceAmount] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to fi
+      # @param available_balance_amount [ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to fi
       #
-      # @param balances [ModernTreasury::LedgerAccountListParams::Balances] Use `balances[effective_at_lower_bound]` and `balances[effective_at_upper_bound]
+      # @param balances [ModernTreasury::Models::LedgerAccountListParams::Balances] Use `balances[effective_at_lower_bound]` and `balances[effective_at_upper_bound]
       #
       # @param created_at [Hash{Symbol=>Time}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the cre
       #
@@ -131,17 +131,17 @@ module ModernTreasury
       #
       # @param name [Array<String>] If you have specific names to retrieve in bulk, you can pass them as query param
       #
-      # @param pending_balance_amount [ModernTreasury::LedgerAccountListParams::PendingBalanceAmount] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to fi
+      # @param pending_balance_amount [ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to fi
       #
       # @param per_page [Integer]
       #
-      # @param posted_balance_amount [ModernTreasury::LedgerAccountListParams::PostedBalanceAmount] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to fi
+      # @param posted_balance_amount [ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to fi
       #
       # @param updated_at [Hash{Symbol=>Time}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the upd
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::LedgerAccount>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::LedgerAccount>]
       #
       # @see ModernTreasury::Models::LedgerAccountListParams
       def list(params = {})
@@ -164,7 +164,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::LedgerAccount]
+      # @return [ModernTreasury::Models::LedgerAccount]
       #
       # @see ModernTreasury::Models::LedgerAccountDeleteParams
       def delete(id, params = {})

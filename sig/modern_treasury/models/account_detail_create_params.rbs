@@ -29,6 +29,13 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
+      def to_hash: -> {
+        accounts_type: ModernTreasury::Models::AccountDetailCreateParams::accounts_type,
+        account_number: String,
+        account_number_type: ModernTreasury::Models::AccountDetailCreateParams::account_number_type,
+        request_options: ModernTreasury::RequestOptions
+      }
+
       type accounts_type = :external_accounts
 
       module AccountsType

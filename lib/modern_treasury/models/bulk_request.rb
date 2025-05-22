@@ -12,7 +12,7 @@ module ModernTreasury
       # @!attribute action_type
       #   One of create, or update.
       #
-      #   @return [Symbol, ModernTreasury::BulkRequest::ActionType]
+      #   @return [Symbol, ModernTreasury::Models::BulkRequest::ActionType]
       required :action_type, enum: -> { ModernTreasury::BulkRequest::ActionType }
 
       # @!attribute created_at
@@ -48,13 +48,13 @@ module ModernTreasury
       # @!attribute resource_type
       #   One of payment_order, expected_payment, or ledger_transaction.
       #
-      #   @return [Symbol, ModernTreasury::BulkRequest::ResourceType]
+      #   @return [Symbol, ModernTreasury::Models::BulkRequest::ResourceType]
       required :resource_type, enum: -> { ModernTreasury::BulkRequest::ResourceType }
 
       # @!attribute status
       #   One of pending, processing, or completed.
       #
-      #   @return [Symbol, ModernTreasury::BulkRequest::Status]
+      #   @return [Symbol, ModernTreasury::Models::BulkRequest::Status]
       required :status, enum: -> { ModernTreasury::BulkRequest::Status }
 
       # @!attribute success_result_count
@@ -78,11 +78,11 @@ module ModernTreasury
 
       # @!method initialize(id:, action_type:, created_at:, failed_result_count:, live_mode:, metadata:, object:, resource_type:, status:, success_result_count:, total_resource_count:, updated_at:)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::BulkRequest} for more details.
+      #   {ModernTreasury::Models::BulkRequest} for more details.
       #
       #   @param id [String]
       #
-      #   @param action_type [Symbol, ModernTreasury::BulkRequest::ActionType] One of create, or update.
+      #   @param action_type [Symbol, ModernTreasury::Models::BulkRequest::ActionType] One of create, or update.
       #
       #   @param created_at [Time]
       #
@@ -94,9 +94,9 @@ module ModernTreasury
       #
       #   @param object [String]
       #
-      #   @param resource_type [Symbol, ModernTreasury::BulkRequest::ResourceType] One of payment_order, expected_payment, or ledger_transaction.
+      #   @param resource_type [Symbol, ModernTreasury::Models::BulkRequest::ResourceType] One of payment_order, expected_payment, or ledger_transaction.
       #
-      #   @param status [Symbol, ModernTreasury::BulkRequest::Status] One of pending, processing, or completed.
+      #   @param status [Symbol, ModernTreasury::Models::BulkRequest::Status] One of pending, processing, or completed.
       #
       #   @param success_result_count [Integer] Total number of successful bulk results so far for this request
       #
@@ -106,7 +106,7 @@ module ModernTreasury
 
       # One of create, or update.
       #
-      # @see ModernTreasury::BulkRequest#action_type
+      # @see ModernTreasury::Models::BulkRequest#action_type
       module ActionType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -120,7 +120,7 @@ module ModernTreasury
 
       # One of payment_order, expected_payment, or ledger_transaction.
       #
-      # @see ModernTreasury::BulkRequest#resource_type
+      # @see ModernTreasury::Models::BulkRequest#resource_type
       module ResourceType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -137,7 +137,7 @@ module ModernTreasury
 
       # One of pending, processing, or completed.
       #
-      # @see ModernTreasury::BulkRequest#status
+      # @see ModernTreasury::Models::BulkRequest#status
       module Status
         extend ModernTreasury::Internal::Type::Enum
 

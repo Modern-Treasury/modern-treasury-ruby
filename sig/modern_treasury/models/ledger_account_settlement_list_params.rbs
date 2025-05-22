@@ -70,6 +70,20 @@ module ModernTreasury
         ?updated_at: ::Hash[Symbol, Time],
         ?request_options: ModernTreasury::request_opts
       ) -> void
+
+      def to_hash: -> {
+        id: ::Array[String],
+        after_cursor: String?,
+        created_at: ::Hash[Symbol, Time],
+        ledger_id: String,
+        ledger_transaction_id: String,
+        metadata: ::Hash[Symbol, String],
+        per_page: Integer,
+        settled_ledger_account_id: String,
+        settlement_entry_direction: String,
+        updated_at: ::Hash[Symbol, Time],
+        request_options: ModernTreasury::RequestOptions
+      }
     end
   end
 end

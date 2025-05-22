@@ -34,6 +34,14 @@ module ModernTreasury
         ?vendor_customer_id: String,
         ?request_options: ModernTreasury::request_opts
       ) -> void
+
+      def to_hash: -> {
+        after_cursor: String?,
+        entity: String,
+        per_page: Integer,
+        vendor_customer_id: String,
+        request_options: ModernTreasury::RequestOptions
+      }
     end
   end
 end

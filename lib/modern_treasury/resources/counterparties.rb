@@ -12,15 +12,15 @@ module ModernTreasury
       #
       # @param name [String, nil] A human friendly name for this counterparty.
       #
-      # @param accounting [ModernTreasury::CounterpartyCreateParams::Accounting]
+      # @param accounting [ModernTreasury::Models::CounterpartyCreateParams::Accounting]
       #
-      # @param accounts [Array<ModernTreasury::CounterpartyCreateParams::Account>] The accounts for this counterparty.
+      # @param accounts [Array<ModernTreasury::Models::CounterpartyCreateParams::Account>] The accounts for this counterparty.
       #
       # @param email [String, nil] The counterparty's email.
       #
-      # @param ledger_type [Symbol, ModernTreasury::CounterpartyCreateParams::LedgerType] An optional type to auto-sync the counterparty to your ledger. Either `customer`
+      # @param ledger_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LedgerType] An optional type to auto-sync the counterparty to your ledger. Either `customer`
       #
-      # @param legal_entity [ModernTreasury::CounterpartyCreateParams::LegalEntity]
+      # @param legal_entity [ModernTreasury::Models::CounterpartyCreateParams::LegalEntity]
       #
       # @param legal_entity_id [String, nil] The id of the legal entity.
       #
@@ -30,11 +30,11 @@ module ModernTreasury
       #
       # @param taxpayer_identifier [String] Either a valid SSN or EIN.
       #
-      # @param verification_status [Symbol, ModernTreasury::CounterpartyCreateParams::VerificationStatus] The verification status of the counterparty.
+      # @param verification_status [Symbol, ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus] The verification status of the counterparty.
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Counterparty]
+      # @return [ModernTreasury::Models::Counterparty]
       #
       # @see ModernTreasury::Models::CounterpartyCreateParams
       def create(params)
@@ -56,7 +56,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Counterparty]
+      # @return [ModernTreasury::Models::Counterparty]
       #
       # @see ModernTreasury::Models::CounterpartyRetrieveParams
       def retrieve(id, params = {})
@@ -91,7 +91,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Counterparty]
+      # @return [ModernTreasury::Models::Counterparty]
       #
       # @see ModernTreasury::Models::CounterpartyUpdateParams
       def update(id, params = {})
@@ -130,7 +130,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::Counterparty>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::Counterparty>]
       #
       # @see ModernTreasury::Models::CounterpartyListParams
       def list(params = {})
@@ -174,17 +174,17 @@ module ModernTreasury
       #
       # @param id [String] counterparty id
       #
-      # @param direction [Symbol, ModernTreasury::TransactionDirection] One of `credit` or `debit`. Use `credit` when you want to pay a counterparty. Us
+      # @param direction [Symbol, ModernTreasury::Models::TransactionDirection] One of `credit` or `debit`. Use `credit` when you want to pay a counterparty. Us
       #
       # @param custom_redirect [String] The URL you want your customer to visit upon filling out the form. By default, t
       #
-      # @param fields [Array<Symbol, ModernTreasury::CounterpartyCollectAccountParams::Field>] The list of fields you want on the form. This field is optional and if it is not
+      # @param fields [Array<Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field>] The list of fields you want on the form. This field is optional and if it is not
       #
       # @param send_email [Boolean] By default, Modern Treasury will send an email to your counterparty that include
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::CounterpartyCollectAccountResponse]
+      # @return [ModernTreasury::Models::CounterpartyCollectAccountResponse]
       #
       # @see ModernTreasury::Models::CounterpartyCollectAccountParams
       def collect_account(id, params)

@@ -172,7 +172,7 @@ module ModernTreasury
       end
 
       # @!method self.variants
-      #   @return [Array(ModernTreasury::ExternalAccount, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt)]
+      #   @return [Array(ModernTreasury::Models::ExternalAccount, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt)]
     end
   end
 end

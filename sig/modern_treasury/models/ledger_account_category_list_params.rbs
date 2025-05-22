@@ -73,6 +73,20 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
+      def to_hash: -> {
+        id: ::Array[String],
+        after_cursor: String?,
+        balances: ModernTreasury::LedgerAccountCategoryListParams::Balances,
+        currency: String,
+        ledger_account_id: String,
+        ledger_id: String,
+        metadata: ::Hash[Symbol, String],
+        name: String,
+        parent_ledger_account_category_id: String,
+        per_page: Integer,
+        request_options: ModernTreasury::RequestOptions
+      }
+
       type balances = { effective_at: Time }
 
       class Balances < ModernTreasury::Internal::Type::BaseModel
@@ -81,6 +95,8 @@ module ModernTreasury
         def effective_at=: (Time) -> Time
 
         def initialize: (?effective_at: Time) -> void
+
+        def to_hash: -> { effective_at: Time }
       end
     end
   end

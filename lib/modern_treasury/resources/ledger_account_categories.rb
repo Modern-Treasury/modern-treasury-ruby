@@ -16,7 +16,7 @@ module ModernTreasury
       #
       # @param name [String] The name of the ledger account category.
       #
-      # @param normal_balance [Symbol, ModernTreasury::TransactionDirection] The normal balance of the ledger account category.
+      # @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection] The normal balance of the ledger account category.
       #
       # @param currency_exponent [Integer, nil] The currency exponent of the ledger account category.
       #
@@ -28,7 +28,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::LedgerAccountCategory]
+      # @return [ModernTreasury::Models::LedgerAccountCategory]
       #
       # @see ModernTreasury::Models::LedgerAccountCategoryCreateParams
       def create(params)
@@ -51,11 +51,11 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param balances [ModernTreasury::LedgerAccountCategoryRetrieveParams::Balances] For example, if you want the balances as of a particular time (ISO8601), the enc
+      # @param balances [ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances] For example, if you want the balances as of a particular time (ISO8601), the enc
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::LedgerAccountCategory]
+      # @return [ModernTreasury::Models::LedgerAccountCategory]
       #
       # @see ModernTreasury::Models::LedgerAccountCategoryRetrieveParams
       def retrieve(id, params = {})
@@ -86,7 +86,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::LedgerAccountCategory]
+      # @return [ModernTreasury::Models::LedgerAccountCategory]
       #
       # @see ModernTreasury::Models::LedgerAccountCategoryUpdateParams
       def update(id, params = {})
@@ -111,7 +111,7 @@ module ModernTreasury
       #
       # @param after_cursor [String, nil]
       #
-      # @param balances [ModernTreasury::LedgerAccountCategoryListParams::Balances] For example, if you want the balances as of a particular time (ISO8601), the enc
+      # @param balances [ModernTreasury::Models::LedgerAccountCategoryListParams::Balances] For example, if you want the balances as of a particular time (ISO8601), the enc
       #
       # @param currency [String]
       #
@@ -129,7 +129,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::LedgerAccountCategory>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::LedgerAccountCategory>]
       #
       # @see ModernTreasury::Models::LedgerAccountCategoryListParams
       def list(params = {})
@@ -152,7 +152,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::LedgerAccountCategory]
+      # @return [ModernTreasury::Models::LedgerAccountCategory]
       #
       # @see ModernTreasury::Models::LedgerAccountCategoryDeleteParams
       def delete(id, params = {})

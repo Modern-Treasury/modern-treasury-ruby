@@ -16,7 +16,7 @@ module ModernTreasury
       #
       # @param currency [String] Required. The currency of the payment.
       #
-      # @param direction [Symbol, ModernTreasury::PaymentFlowCreateParams::Direction] Required. Describes the direction money is flowing in the transaction. Can only
+      # @param direction [Symbol, ModernTreasury::Models::PaymentFlowCreateParams::Direction] Required. Describes the direction money is flowing in the transaction. Can only
       #
       # @param originating_account_id [String] Required. The ID of one of your organization's internal accounts.
       #
@@ -24,7 +24,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::PaymentFlow]
+      # @return [ModernTreasury::Models::PaymentFlow]
       #
       # @see ModernTreasury::Models::PaymentFlowCreateParams
       def create(params)
@@ -46,7 +46,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::PaymentFlow]
+      # @return [ModernTreasury::Models::PaymentFlow]
       #
       # @see ModernTreasury::Models::PaymentFlowRetrieveParams
       def retrieve(id, params = {})
@@ -67,11 +67,11 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param status [Symbol, ModernTreasury::PaymentFlowUpdateParams::Status] Required. The updated status of the payment flow. Can only be used to mark a flo
+      # @param status [Symbol, ModernTreasury::Models::PaymentFlowUpdateParams::Status] Required. The updated status of the payment flow. Can only be used to mark a flo
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::PaymentFlow]
+      # @return [ModernTreasury::Models::PaymentFlow]
       #
       # @see ModernTreasury::Models::PaymentFlowUpdateParams
       def update(id, params)
@@ -99,7 +99,7 @@ module ModernTreasury
       # @param status [String]
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::PaymentFlow>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::PaymentFlow>]
       #
       # @see ModernTreasury::Models::PaymentFlowListParams
       def list(params = {})

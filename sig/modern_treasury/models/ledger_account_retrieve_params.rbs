@@ -19,6 +19,11 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
+      def to_hash: -> {
+        balances: ModernTreasury::LedgerAccountRetrieveParams::Balances,
+        request_options: ModernTreasury::RequestOptions
+      }
+
       type balances =
         {
           as_of_date: Date,
@@ -56,6 +61,14 @@ module ModernTreasury
           ?effective_at_lower_bound: Time,
           ?effective_at_upper_bound: Time
         ) -> void
+
+        def to_hash: -> {
+          as_of_date: Date,
+          as_of_lock_version: Integer,
+          effective_at: Time,
+          effective_at_lower_bound: Time,
+          effective_at_upper_bound: Time
+        }
       end
     end
   end

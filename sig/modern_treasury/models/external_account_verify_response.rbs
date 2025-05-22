@@ -55,6 +55,19 @@ module ModernTreasury
           updated_at: Time
         ) -> void
 
+        def to_hash: -> {
+          id: String,
+          created_at: Time,
+          external_account_id: String,
+          live_mode: bool,
+          object: String,
+          originating_account_id: String,
+          payment_type: ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::payment_type,
+          priority: ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::priority?,
+          status: ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::status,
+          updated_at: Time
+        }
+
         type payment_type =
           :ach
           | :au_becs

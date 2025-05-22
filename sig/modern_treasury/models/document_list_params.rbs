@@ -37,6 +37,14 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
+      def to_hash: -> {
+        after_cursor: String?,
+        documentable_id: String,
+        documentable_type: ModernTreasury::Models::DocumentListParams::documentable_type,
+        per_page: Integer,
+        request_options: ModernTreasury::RequestOptions
+      }
+
       type documentable_type =
         :cases
         | :counterparties

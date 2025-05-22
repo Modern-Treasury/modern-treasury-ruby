@@ -11,7 +11,7 @@ module ModernTreasury
 
       # @!attribute accounting
       #
-      #   @return [ModernTreasury::LineItem::Accounting]
+      #   @return [ModernTreasury::Models::LineItem::Accounting]
       required :accounting, -> { ModernTreasury::LineItem::Accounting }
 
       # @!attribute accounting_category_id
@@ -56,7 +56,7 @@ module ModernTreasury
       # @!attribute itemizable_type
       #   One of `payment_orders` or `expected_payments`.
       #
-      #   @return [Symbol, ModernTreasury::LineItem::ItemizableType]
+      #   @return [Symbol, ModernTreasury::Models::LineItem::ItemizableType]
       required :itemizable_type, enum: -> { ModernTreasury::LineItem::ItemizableType }
 
       # @!attribute live_mode
@@ -84,12 +84,12 @@ module ModernTreasury
       required :updated_at, Time
 
       # @!method initialize(id:, accounting:, accounting_category_id:, accounting_ledger_class_id:, amount:, created_at:, description:, itemizable_id:, itemizable_type:, live_mode:, metadata:, object:, updated_at:)
-      #   Some parameter documentations has been truncated, see {ModernTreasury::LineItem}
-      #   for more details.
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::LineItem} for more details.
       #
       #   @param id [String]
       #
-      #   @param accounting [ModernTreasury::LineItem::Accounting]
+      #   @param accounting [ModernTreasury::Models::LineItem::Accounting]
       #
       #   @param accounting_category_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
       #
@@ -103,7 +103,7 @@ module ModernTreasury
       #
       #   @param itemizable_id [String] The ID of the payment order or expected payment.
       #
-      #   @param itemizable_type [Symbol, ModernTreasury::LineItem::ItemizableType] One of `payment_orders` or `expected_payments`.
+      #   @param itemizable_type [Symbol, ModernTreasury::Models::LineItem::ItemizableType] One of `payment_orders` or `expected_payments`.
       #
       #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
       #
@@ -113,7 +113,7 @@ module ModernTreasury
       #
       #   @param updated_at [Time]
 
-      # @see ModernTreasury::LineItem#accounting
+      # @see ModernTreasury::Models::LineItem#accounting
       class Accounting < ModernTreasury::Internal::Type::BaseModel
         # @!attribute account_id
         #   The ID of one of your accounting categories. Note that these will only be
@@ -132,7 +132,7 @@ module ModernTreasury
 
         # @!method initialize(account_id: nil, class_id: nil)
         #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::LineItem::Accounting} for more details.
+        #   {ModernTreasury::Models::LineItem::Accounting} for more details.
         #
         #   @param account_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
         #
@@ -141,7 +141,7 @@ module ModernTreasury
 
       # One of `payment_orders` or `expected_payments`.
       #
-      # @see ModernTreasury::LineItem#itemizable_type
+      # @see ModernTreasury::Models::LineItem#itemizable_type
       module ItemizableType
         extend ModernTreasury::Internal::Type::Enum
 

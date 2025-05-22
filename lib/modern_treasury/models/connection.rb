@@ -56,7 +56,7 @@ module ModernTreasury
 
       # @!method initialize(id:, created_at:, discarded_at:, live_mode:, object:, updated_at:, vendor_customer_id:, vendor_id:, vendor_name:)
       #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::Connection} for more details.
+      #   {ModernTreasury::Models::Connection} for more details.
       #
       #   @param id [String]
       #

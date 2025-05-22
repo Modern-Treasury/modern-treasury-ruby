@@ -67,6 +67,19 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
+      def to_hash: -> {
+        ledger_entries: ::Array[ModernTreasury::LedgerTransactionCreateParams::LedgerEntry],
+        description: String?,
+        effective_at: Time,
+        effective_date: Date,
+        external_id: String,
+        ledgerable_id: String,
+        ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateParams::ledgerable_type,
+        metadata: ::Hash[Symbol, String],
+        status: ModernTreasury::Models::LedgerTransactionCreateParams::status,
+        request_options: ModernTreasury::RequestOptions
+      }
+
       type ledger_entry =
         {
           amount: Integer,
@@ -112,6 +125,18 @@ module ModernTreasury
           ?posted_balance_amount: ::Hash[Symbol, Integer]?,
           ?show_resulting_ledger_account_balances: bool?
         ) -> void
+
+        def to_hash: -> {
+          amount: Integer,
+          direction: ModernTreasury::Models::transaction_direction,
+          ledger_account_id: String,
+          available_balance_amount: ::Hash[Symbol, Integer]?,
+          lock_version: Integer?,
+          metadata: ::Hash[Symbol, String],
+          pending_balance_amount: ::Hash[Symbol, Integer]?,
+          posted_balance_amount: ::Hash[Symbol, Integer]?,
+          show_resulting_ledger_account_balances: bool?
+        }
       end
 
       type ledgerable_type =

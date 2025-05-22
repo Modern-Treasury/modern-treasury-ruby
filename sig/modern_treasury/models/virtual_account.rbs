@@ -71,6 +71,25 @@ module ModernTreasury
         routing_details: ::Array[ModernTreasury::RoutingDetail],
         updated_at: Time
       ) -> void
+
+      def to_hash: -> {
+        id: String,
+        account_details: ::Array[ModernTreasury::AccountDetail],
+        counterparty_id: String?,
+        created_at: Time,
+        credit_ledger_account_id: String?,
+        debit_ledger_account_id: String?,
+        description: String?,
+        discarded_at: Time?,
+        internal_account_id: String,
+        ledger_account_id: String?,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String],
+        name: String,
+        object: String,
+        routing_details: ::Array[ModernTreasury::RoutingDetail],
+        updated_at: Time
+      }
     end
   end
 end
