@@ -309,6 +309,14 @@ module ModernTreasury
 
   class PaperItemRetrieveParams = ModernTreasury::Models::PaperItemRetrieveParams
 
+  class PaymentActionCreateParams = ModernTreasury::Models::PaymentActionCreateParams
+
+  class PaymentActionListParams = ModernTreasury::Models::PaymentActionListParams
+
+  class PaymentActionRetrieveParams = ModernTreasury::Models::PaymentActionRetrieveParams
+
+  class PaymentActionUpdateParams = ModernTreasury::Models::PaymentActionUpdateParams
+
   class PaymentFlow = ModernTreasury::Models::PaymentFlow
 
   class PaymentFlowCreateParams = ModernTreasury::Models::PaymentFlowCreateParams

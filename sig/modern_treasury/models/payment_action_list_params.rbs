@@ -1,0 +1,149 @@
+module ModernTreasury
+  module Models
+    type payment_action_list_params =
+      {
+        actionable_id: String,
+        actionable_type: String,
+        after_cursor: String?,
+        created_at: ModernTreasury::PaymentActionListParams::CreatedAt,
+        internal_account_id: String,
+        metadata: ::Hash[Symbol, String],
+        per_page: Integer,
+        status: ModernTreasury::Models::PaymentActionListParams::status,
+        type: ModernTreasury::Models::PaymentActionListParams::type_
+      }
+      & ModernTreasury::Internal::Type::request_parameters
+
+    class PaymentActionListParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
+
+      attr_reader actionable_id: String?
+
+      def actionable_id=: (String) -> String
+
+      attr_reader actionable_type: String?
+
+      def actionable_type=: (String) -> String
+
+      attr_accessor after_cursor: String?
+
+      attr_reader created_at: ModernTreasury::PaymentActionListParams::CreatedAt?
+
+      def created_at=: (
+        ModernTreasury::PaymentActionListParams::CreatedAt
+      ) -> ModernTreasury::PaymentActionListParams::CreatedAt
+
+      attr_reader internal_account_id: String?
+
+      def internal_account_id=: (String) -> String
+
+      attr_reader metadata: ::Hash[Symbol, String]?
+
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
+
+      attr_reader per_page: Integer?
+
+      def per_page=: (Integer) -> Integer
+
+      attr_reader status: ModernTreasury::Models::PaymentActionListParams::status?
+
+      def status=: (
+        ModernTreasury::Models::PaymentActionListParams::status
+      ) -> ModernTreasury::Models::PaymentActionListParams::status
+
+      attr_reader type: ModernTreasury::Models::PaymentActionListParams::type_?
+
+      def type=: (
+        ModernTreasury::Models::PaymentActionListParams::type_
+      ) -> ModernTreasury::Models::PaymentActionListParams::type_
+
+      def initialize: (
+        ?actionable_id: String,
+        ?actionable_type: String,
+        ?after_cursor: String?,
+        ?created_at: ModernTreasury::PaymentActionListParams::CreatedAt,
+        ?internal_account_id: String,
+        ?metadata: ::Hash[Symbol, String],
+        ?per_page: Integer,
+        ?status: ModernTreasury::Models::PaymentActionListParams::status,
+        ?type: ModernTreasury::Models::PaymentActionListParams::type_,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        actionable_id: String,
+        actionable_type: String,
+        after_cursor: String?,
+        created_at: ModernTreasury::PaymentActionListParams::CreatedAt,
+        internal_account_id: String,
+        metadata: ::Hash[Symbol, String],
+        per_page: Integer,
+        status: ModernTreasury::Models::PaymentActionListParams::status,
+        type: ModernTreasury::Models::PaymentActionListParams::type_,
+        request_options: ModernTreasury::RequestOptions
+      }
+
+      type created_at = { eq: Time, gt: Time, gte: Time, lt: Time, lte: Time }
+
+      class CreatedAt < ModernTreasury::Internal::Type::BaseModel
+        attr_reader eq: Time?
+
+        def eq=: (Time) -> Time
+
+        attr_reader gt: Time?
+
+        def gt=: (Time) -> Time
+
+        attr_reader gte: Time?
+
+        def gte=: (Time) -> Time
+
+        attr_reader lt: Time?
+
+        def lt=: (Time) -> Time
+
+        attr_reader lte: Time?
+
+        def lte=: (Time) -> Time
+
+        def initialize: (
+          ?eq: Time,
+          ?gt: Time,
+          ?gte: Time,
+          ?lt: Time,
+          ?lte: Time
+        ) -> void
+
+        def to_hash: -> { eq: Time, gt: Time, gte: Time, lt: Time, lte: Time }
+      end
+
+      type status =
+        :pending | :processable | :processing | :sent | :failed | :cancelled
+
+      module Status
+        extend ModernTreasury::Internal::Type::Enum
+
+        PENDING: :pending
+        PROCESSABLE: :processable
+        PROCESSING: :processing
+        SENT: :sent
+        FAILED: :failed
+        CANCELLED: :cancelled
+
+        def self?.values: -> ::Array[ModernTreasury::Models::PaymentActionListParams::status]
+      end
+
+      type type_ = :stop | :issue
+
+      module Type
+        extend ModernTreasury::Internal::Type::Enum
+
+        STOP: :stop
+        ISSUE: :issue
+
+        def self?.values: -> ::Array[ModernTreasury::Models::PaymentActionListParams::type_]
+      end
+    end
+  end
+end

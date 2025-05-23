@@ -1,0 +1,40 @@
+module ModernTreasury
+  module Models
+    type payment_action_update_params =
+      { status: ModernTreasury::Models::PaymentActionUpdateParams::status }
+      & ModernTreasury::Internal::Type::request_parameters
+
+    class PaymentActionUpdateParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
+
+      attr_accessor status: ModernTreasury::Models::PaymentActionUpdateParams::status
+
+      def initialize: (
+        status: ModernTreasury::Models::PaymentActionUpdateParams::status,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        status: ModernTreasury::Models::PaymentActionUpdateParams::status,
+        request_options: ModernTreasury::RequestOptions
+      }
+
+      type status =
+        :pending | :processable | :processing | :sent | :failed | :cancelled
+
+      module Status
+        extend ModernTreasury::Internal::Type::Enum
+
+        PENDING: :pending
+        PROCESSABLE: :processable
+        PROCESSING: :processing
+        SENT: :sent
+        FAILED: :failed
+        CANCELLED: :cancelled
+
+        def self?.values: -> ::Array[ModernTreasury::Models::PaymentActionUpdateParams::status]
+      end
+    end
+  end
+end
