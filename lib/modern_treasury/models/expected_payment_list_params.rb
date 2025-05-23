@@ -68,7 +68,19 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type, nil]
       optional :type, enum: -> { ModernTreasury::ExpectedPaymentListParams::Type }
 
-      # @!method initialize(after_cursor: nil, counterparty_id: nil, created_at_lower_bound: nil, created_at_upper_bound: nil, direction: nil, internal_account_id: nil, metadata: nil, per_page: nil, status: nil, type: nil, request_options: {})
+      # @!attribute updated_at_lower_bound
+      #   Used to return expected payments updated after some datetime
+      #
+      #   @return [Time, nil]
+      optional :updated_at_lower_bound, Time
+
+      # @!attribute updated_at_upper_bound
+      #   Used to return expected payments updated before some datetime
+      #
+      #   @return [Time, nil]
+      optional :updated_at_upper_bound, Time
+
+      # @!method initialize(after_cursor: nil, counterparty_id: nil, created_at_lower_bound: nil, created_at_upper_bound: nil, direction: nil, internal_account_id: nil, metadata: nil, per_page: nil, status: nil, type: nil, updated_at_lower_bound: nil, updated_at_upper_bound: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::ExpectedPaymentListParams} for more details.
       #
@@ -91,6 +103,10 @@ module ModernTreasury
       #   @param status [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Status] One of unreconciled, reconciled, or archived.
       #
       #   @param type [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type] One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen, sep
+      #
+      #   @param updated_at_lower_bound [Time] Used to return expected payments updated after some datetime
+      #
+      #   @param updated_at_upper_bound [Time] Used to return expected payments updated before some datetime
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
@@ -115,6 +131,7 @@ module ModernTreasury
         ACH = :ach
         AU_BECS = :au_becs
         BACS = :bacs
+        BASE = :base
         BOOK = :book
         CARD = :card
         CHATS = :chats
@@ -122,6 +139,7 @@ module ModernTreasury
         CROSS_BORDER = :cross_border
         DK_NETS = :dk_nets
         EFT = :eft
+        ETHEREUM = :ethereum
         HU_ICS = :hu_ics
         INTERAC = :interac
         MASAV = :masav
@@ -130,6 +148,7 @@ module ModernTreasury
         NICS = :nics
         NZ_BECS = :nz_becs
         PL_ELIXIR = :pl_elixir
+        POLYGON = :polygon
         PROVXCHANGE = :provxchange
         RO_SENT = :ro_sent
         RTP = :rtp
@@ -140,6 +159,7 @@ module ModernTreasury
         SIC = :sic
         SIGNET = :signet
         SKNBI = :sknbi
+        SOLANA = :solana
         WIRE = :wire
         ZENGIN = :zengin
 

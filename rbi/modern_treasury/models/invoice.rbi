@@ -68,7 +68,7 @@ module ModernTreasury
       sig { returns(ModernTreasury::Currency::TaggedSymbol) }
       attr_accessor :currency
 
-      # A free-form description of the invoice.
+      # An optional free-form description of the invoice.
       sig { returns(String) }
       attr_accessor :description
 
@@ -274,7 +274,7 @@ module ModernTreasury
         created_at:,
         # Currency that the invoice is denominated in. Defaults to `USD` if not provided.
         currency:,
-        # A free-form description of the invoice.
+        # An optional free-form description of the invoice.
         description:,
         # A future date by when the invoice needs to be paid.
         due_date:,

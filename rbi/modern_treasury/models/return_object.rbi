@@ -44,6 +44,9 @@ module ModernTreasury
       sig { returns(T.nilable(Date)) }
       attr_accessor :date_of_death
 
+      sig { returns(T.nilable(Time)) }
+      attr_accessor :discarded_at
+
       # If an originating return failed to be processed by the bank, a description of
       # the failure reason will be available.
       sig { returns(T.nilable(String)) }
@@ -128,6 +131,7 @@ module ModernTreasury
           currency: ModernTreasury::Currency::OrSymbol,
           current_return: T.nilable(ModernTreasury::ReturnObject),
           date_of_death: T.nilable(Date),
+          discarded_at: T.nilable(Time),
           failure_reason: T.nilable(String),
           internal_account_id: T.nilable(String),
           ledger_transaction_id: T.nilable(String),
@@ -165,6 +169,7 @@ module ModernTreasury
         # If the return code is `R14` or `R15` this is the date the deceased counterparty
         # passed away.
         date_of_death:,
+        discarded_at:,
         # If an originating return failed to be processed by the bank, a description of
         # the failure reason will be available.
         failure_reason:,
@@ -215,6 +220,7 @@ module ModernTreasury
             currency: ModernTreasury::Currency::TaggedSymbol,
             current_return: T.nilable(ModernTreasury::ReturnObject),
             date_of_death: T.nilable(Date),
+            discarded_at: T.nilable(Time),
             failure_reason: T.nilable(String),
             internal_account_id: T.nilable(String),
             ledger_transaction_id: T.nilable(String),
@@ -296,24 +302,64 @@ module ModernTreasury
         R10 = T.let(:R10, ModernTreasury::ReturnObject::Code::TaggedSymbol)
         R11 = T.let(:R11, ModernTreasury::ReturnObject::Code::TaggedSymbol)
         R12 = T.let(:R12, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R13 = T.let(:R13, ModernTreasury::ReturnObject::Code::TaggedSymbol)
         R14 = T.let(:R14, ModernTreasury::ReturnObject::Code::TaggedSymbol)
         R15 = T.let(:R15, ModernTreasury::ReturnObject::Code::TaggedSymbol)
         R16 = T.let(:R16, ModernTreasury::ReturnObject::Code::TaggedSymbol)
         R17 = T.let(:R17, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R18 = T.let(:R18, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R19 = T.let(:R19, ModernTreasury::ReturnObject::Code::TaggedSymbol)
         R20 = T.let(:R20, ModernTreasury::ReturnObject::Code::TaggedSymbol)
         R21 = T.let(:R21, ModernTreasury::ReturnObject::Code::TaggedSymbol)
         R22 = T.let(:R22, ModernTreasury::ReturnObject::Code::TaggedSymbol)
         R23 = T.let(:R23, ModernTreasury::ReturnObject::Code::TaggedSymbol)
         R24 = T.let(:R24, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R25 = T.let(:R25, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R26 = T.let(:R26, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R27 = T.let(:R27, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R28 = T.let(:R28, ModernTreasury::ReturnObject::Code::TaggedSymbol)
         R29 = T.let(:R29, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R30 = T.let(:R30, ModernTreasury::ReturnObject::Code::TaggedSymbol)
         R31 = T.let(:R31, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R32 = T.let(:R32, ModernTreasury::ReturnObject::Code::TaggedSymbol)
         R33 = T.let(:R33, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R34 = T.let(:R34, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R35 = T.let(:R35, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R36 = T.let(:R36, ModernTreasury::ReturnObject::Code::TaggedSymbol)
         R37 = T.let(:R37, ModernTreasury::ReturnObject::Code::TaggedSymbol)
         R38 = T.let(:R38, ModernTreasury::ReturnObject::Code::TaggedSymbol)
         R39 = T.let(:R39, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R40 = T.let(:R40, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R41 = T.let(:R41, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R42 = T.let(:R42, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R43 = T.let(:R43, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R44 = T.let(:R44, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R45 = T.let(:R45, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R46 = T.let(:R46, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R47 = T.let(:R47, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R50 = T.let(:R50, ModernTreasury::ReturnObject::Code::TaggedSymbol)
         R51 = T.let(:R51, ModernTreasury::ReturnObject::Code::TaggedSymbol)
         R52 = T.let(:R52, ModernTreasury::ReturnObject::Code::TaggedSymbol)
         R53 = T.let(:R53, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R61 = T.let(:R61, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R62 = T.let(:R62, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R67 = T.let(:R67, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R68 = T.let(:R68, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R69 = T.let(:R69, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R70 = T.let(:R70, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R71 = T.let(:R71, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R72 = T.let(:R72, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R73 = T.let(:R73, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R74 = T.let(:R74, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R75 = T.let(:R75, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R76 = T.let(:R76, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R77 = T.let(:R77, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R80 = T.let(:R80, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R81 = T.let(:R81, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R82 = T.let(:R82, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R83 = T.let(:R83, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R84 = T.let(:R84, ModernTreasury::ReturnObject::Code::TaggedSymbol)
+        R85 = T.let(:R85, ModernTreasury::ReturnObject::Code::TaggedSymbol)
         CURRENCYCLOUD =
           T.let(
             :currencycloud,
@@ -462,6 +508,26 @@ module ModernTreasury
           BOFA_TRANSACTION_ID =
             T.let(
               :bofa_transaction_id,
+              ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
+          BRALE_TRANSFER_ID =
+            T.let(
+              :brale_transfer_id,
+              ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
+          BRIDGE_DESTINATION_TRANSACTION_HASH =
+            T.let(
+              :bridge_destination_transaction_hash,
+              ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
+          BRIDGE_SOURCE_TRANSACTION_HASH =
+            T.let(
+              :bridge_source_transaction_hash,
+              ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
+          BRIDGE_TRANSFER_ID =
+            T.let(
+              :bridge_transfer_id,
               ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           CHECK_NUMBER =

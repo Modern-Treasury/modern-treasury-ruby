@@ -174,6 +174,8 @@ module ModernTreasury
           )
         BACS =
           T.let(:bacs, ModernTreasury::ReconciliationRule::Type::TaggedSymbol)
+        BASE =
+          T.let(:base, ModernTreasury::ReconciliationRule::Type::TaggedSymbol)
         BOOK =
           T.let(:book, ModernTreasury::ReconciliationRule::Type::TaggedSymbol)
         CARD =
@@ -194,6 +196,11 @@ module ModernTreasury
           )
         EFT =
           T.let(:eft, ModernTreasury::ReconciliationRule::Type::TaggedSymbol)
+        ETHEREUM =
+          T.let(
+            :ethereum,
+            ModernTreasury::ReconciliationRule::Type::TaggedSymbol
+          )
         HU_ICS =
           T.let(:hu_ics, ModernTreasury::ReconciliationRule::Type::TaggedSymbol)
         INTERAC =
@@ -220,6 +227,11 @@ module ModernTreasury
         PL_ELIXIR =
           T.let(
             :pl_elixir,
+            ModernTreasury::ReconciliationRule::Type::TaggedSymbol
+          )
+        POLYGON =
+          T.let(
+            :polygon,
             ModernTreasury::ReconciliationRule::Type::TaggedSymbol
           )
         PROVXCHANGE =
@@ -254,6 +266,8 @@ module ModernTreasury
           T.let(:signet, ModernTreasury::ReconciliationRule::Type::TaggedSymbol)
         SKNBI =
           T.let(:sknbi, ModernTreasury::ReconciliationRule::Type::TaggedSymbol)
+        SOLANA =
+          T.let(:solana, ModernTreasury::ReconciliationRule::Type::TaggedSymbol)
         WIRE =
           T.let(:wire, ModernTreasury::ReconciliationRule::Type::TaggedSymbol)
         ZENGIN =

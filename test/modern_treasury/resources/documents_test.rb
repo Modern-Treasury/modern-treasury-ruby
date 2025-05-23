@@ -9,7 +9,7 @@ class ModernTreasury::Test::Resources::DocumentsTest < ModernTreasury::Test::Res
     response =
       @modern_treasury.documents.create(
         documentable_id: "documentable_id",
-        documentable_type: :cases,
+        documentable_type: :counterparties,
         file: Pathname(__FILE__)
       )
 

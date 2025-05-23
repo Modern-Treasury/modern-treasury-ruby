@@ -183,6 +183,11 @@ module ModernTreasury
             :transaction,
             ModernTreasury::BulkRequest::ResourceType::TaggedSymbol
           )
+        TRANSACTION_LINE_ITEM =
+          T.let(
+            :transaction_line_item,
+            ModernTreasury::BulkRequest::ResourceType::TaggedSymbol
+          )
         ENTITY_LINK =
           T.let(
             :entity_link,

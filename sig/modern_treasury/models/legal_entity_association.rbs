@@ -329,8 +329,10 @@ module ModernTreasury
             id: String,
             created_at: Time,
             discarded_at: Time?,
+            expiration_date: Date?,
             id_type: ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::id_type,
             issuing_country: String?,
+            issuing_region: String?,
             live_mode: bool,
             object: String,
             updated_at: Time
@@ -343,9 +345,13 @@ module ModernTreasury
 
           attr_accessor discarded_at: Time?
 
+          attr_accessor expiration_date: Date?
+
           attr_accessor id_type: ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::id_type
 
           attr_accessor issuing_country: String?
+
+          attr_accessor issuing_region: String?
 
           attr_accessor live_mode: bool
 
@@ -357,8 +363,10 @@ module ModernTreasury
             id: String,
             created_at: Time,
             discarded_at: Time?,
+            expiration_date: Date?,
             id_type: ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::id_type,
             issuing_country: String?,
+            issuing_region: String?,
             live_mode: bool,
             object: String,
             updated_at: Time
@@ -368,8 +376,10 @@ module ModernTreasury
             id: String,
             created_at: Time,
             discarded_at: Time?,
+            expiration_date: Date?,
             id_type: ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::id_type,
             issuing_country: String?,
+            issuing_region: String?,
             live_mode: bool,
             object: String,
             updated_at: Time
@@ -384,6 +394,7 @@ module ModernTreasury
             | :cl_rut
             | :co_cedulas
             | :co_nit
+            | :drivers_license
             | :hn_id
             | :hn_rtn
             | :in_lei
@@ -409,6 +420,7 @@ module ModernTreasury
             CL_RUT: :cl_rut
             CO_CEDULAS: :co_cedulas
             CO_NIT: :co_nit
+            DRIVERS_LICENSE: :drivers_license
             HN_ID: :hn_id
             HN_RTN: :hn_rtn
             IN_LEI: :in_lei

@@ -274,14 +274,18 @@ module ModernTreasury
             extend ModernTreasury::Internal::Type::Enum
 
             AU_NUMBER = :au_number
+            BASE_ADDRESS = :base_address
             CLABE = :clabe
+            ETHEREUM_ADDRESS = :ethereum_address
             HK_NUMBER = :hk_number
             IBAN = :iban
             ID_NUMBER = :id_number
             NZ_NUMBER = :nz_number
             OTHER = :other
             PAN = :pan
+            POLYGON_ADDRESS = :polygon_address
             SG_NUMBER = :sg_number
+            SOLANA_ADDRESS = :solana_address
             WALLET_ADDRESS = :wallet_address
 
             # @!method self.values
@@ -566,6 +570,7 @@ module ModernTreasury
             ACH = :ach
             AU_BECS = :au_becs
             BACS = :bacs
+            BASE = :base
             BOOK = :book
             CARD = :card
             CHATS = :chats
@@ -573,6 +578,7 @@ module ModernTreasury
             CROSS_BORDER = :cross_border
             DK_NETS = :dk_nets
             EFT = :eft
+            ETHEREUM = :ethereum
             HU_ICS = :hu_ics
             INTERAC = :interac
             MASAV = :masav
@@ -581,6 +587,7 @@ module ModernTreasury
             NICS = :nics
             NZ_BECS = :nz_becs
             PL_ELIXIR = :pl_elixir
+            POLYGON = :polygon
             PROVXCHANGE = :provxchange
             RO_SENT = :ro_sent
             RTP = :rtp
@@ -591,6 +598,7 @@ module ModernTreasury
             SIC = :sic
             SIGNET = :signet
             SKNBI = :sknbi
+            SOLANA = :solana
             WIRE = :wire
             ZENGIN = :zengin
 
@@ -945,6 +953,13 @@ module ModernTreasury
           required :id_type,
                    enum: -> { ModernTreasury::CounterpartyCreateParams::LegalEntity::Identification::IDType }
 
+          # @!attribute expiration_date
+          #   The date when the Identification is no longer considered valid by the issuing
+          #   authority.
+          #
+          #   @return [Date, nil]
+          optional :expiration_date, Date, nil?: true
+
           # @!attribute issuing_country
           #   The ISO 3166-1 alpha-2 country code of the country that issued the
           #   identification
@@ -952,7 +967,13 @@ module ModernTreasury
           #   @return [String, nil]
           optional :issuing_country, String, nil?: true
 
-          # @!method initialize(id_number:, id_type:, issuing_country: nil)
+          # @!attribute issuing_region
+          #   The region in which the identifcation was issued.
+          #
+          #   @return [String, nil]
+          optional :issuing_region, String, nil?: true
+
+          # @!method initialize(id_number:, id_type:, expiration_date: nil, issuing_country: nil, issuing_region: nil)
           #   Some parameter documentations has been truncated, see
           #   {ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification}
           #   for more details.
@@ -961,7 +982,11 @@ module ModernTreasury
           #
           #   @param id_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification::IDType] The type of ID number.
           #
+          #   @param expiration_date [Date, nil] The date when the Identification is no longer considered valid by the issuing au
+          #
           #   @param issuing_country [String, nil] The ISO 3166-1 alpha-2 country code of the country that issued the identificatio
+          #
+          #   @param issuing_region [String, nil] The region in which the identifcation was issued.
 
           # The type of ID number.
           #
@@ -977,6 +1002,7 @@ module ModernTreasury
             CL_RUT = :cl_rut
             CO_CEDULAS = :co_cedulas
             CO_NIT = :co_nit
+            DRIVERS_LICENSE = :drivers_license
             HN_ID = :hn_id
             HN_RTN = :hn_rtn
             IN_LEI = :in_lei
@@ -1381,6 +1407,13 @@ module ModernTreasury
                          ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::IDType
                        }
 
+              # @!attribute expiration_date
+              #   The date when the Identification is no longer considered valid by the issuing
+              #   authority.
+              #
+              #   @return [Date, nil]
+              optional :expiration_date, Date, nil?: true
+
               # @!attribute issuing_country
               #   The ISO 3166-1 alpha-2 country code of the country that issued the
               #   identification
@@ -1388,7 +1421,13 @@ module ModernTreasury
               #   @return [String, nil]
               optional :issuing_country, String, nil?: true
 
-              # @!method initialize(id_number:, id_type:, issuing_country: nil)
+              # @!attribute issuing_region
+              #   The region in which the identifcation was issued.
+              #
+              #   @return [String, nil]
+              optional :issuing_region, String, nil?: true
+
+              # @!method initialize(id_number:, id_type:, expiration_date: nil, issuing_country: nil, issuing_region: nil)
               #   Some parameter documentations has been truncated, see
               #   {ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification}
               #   for more details.
@@ -1397,7 +1436,11 @@ module ModernTreasury
               #
               #   @param id_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::IDType] The type of ID number.
               #
+              #   @param expiration_date [Date, nil] The date when the Identification is no longer considered valid by the issuing au
+              #
               #   @param issuing_country [String, nil] The ISO 3166-1 alpha-2 country code of the country that issued the identificatio
+              #
+              #   @param issuing_region [String, nil] The region in which the identifcation was issued.
 
               # The type of ID number.
               #
@@ -1413,6 +1456,7 @@ module ModernTreasury
                 CL_RUT = :cl_rut
                 CO_CEDULAS = :co_cedulas
                 CO_NIT = :co_nit
+                DRIVERS_LICENSE = :drivers_license
                 HN_ID = :hn_id
                 HN_RTN = :hn_rtn
                 IN_LEI = :in_lei

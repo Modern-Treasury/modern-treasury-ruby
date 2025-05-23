@@ -164,6 +164,11 @@ module ModernTreasury
             :bacs,
             ModernTreasury::InternalAccountListParams::PaymentType::TaggedSymbol
           )
+        BASE =
+          T.let(
+            :base,
+            ModernTreasury::InternalAccountListParams::PaymentType::TaggedSymbol
+          )
         BOOK =
           T.let(
             :book,
@@ -197,6 +202,11 @@ module ModernTreasury
         EFT =
           T.let(
             :eft,
+            ModernTreasury::InternalAccountListParams::PaymentType::TaggedSymbol
+          )
+        ETHEREUM =
+          T.let(
+            :ethereum,
             ModernTreasury::InternalAccountListParams::PaymentType::TaggedSymbol
           )
         HU_ICS =
@@ -237,6 +247,11 @@ module ModernTreasury
         PL_ELIXIR =
           T.let(
             :pl_elixir,
+            ModernTreasury::InternalAccountListParams::PaymentType::TaggedSymbol
+          )
+        POLYGON =
+          T.let(
+            :polygon,
             ModernTreasury::InternalAccountListParams::PaymentType::TaggedSymbol
           )
         PROVXCHANGE =
@@ -287,6 +302,11 @@ module ModernTreasury
         SKNBI =
           T.let(
             :sknbi,
+            ModernTreasury::InternalAccountListParams::PaymentType::TaggedSymbol
+          )
+        SOLANA =
+          T.let(
+            :solana,
             ModernTreasury::InternalAccountListParams::PaymentType::TaggedSymbol
           )
         WIRE =

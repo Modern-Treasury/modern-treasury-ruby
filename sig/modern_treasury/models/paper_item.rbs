@@ -13,6 +13,7 @@ module ModernTreasury
         live_mode: bool,
         lockbox_number: String,
         memo_field: String?,
+        metadata: top,
         object: String,
         remitter_name: String?,
         routing_number: String?,
@@ -45,6 +46,8 @@ module ModernTreasury
 
       attr_accessor memo_field: String?
 
+      attr_accessor metadata: top
+
       attr_accessor object: String
 
       attr_accessor remitter_name: String?
@@ -71,6 +74,7 @@ module ModernTreasury
         live_mode: bool,
         lockbox_number: String,
         memo_field: String?,
+        metadata: top,
         object: String,
         remitter_name: String?,
         routing_number: String?,
@@ -92,6 +96,7 @@ module ModernTreasury
         live_mode: bool,
         lockbox_number: String,
         memo_field: String?,
+        metadata: top,
         object: String,
         remitter_name: String?,
         routing_number: String?,

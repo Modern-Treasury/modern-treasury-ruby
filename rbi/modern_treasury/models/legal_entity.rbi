@@ -516,6 +516,11 @@ module ModernTreasury
         sig { returns(T.nilable(Time)) }
         attr_accessor :discarded_at
 
+        # The date when the Identification is no longer considered valid by the issuing
+        # authority.
+        sig { returns(T.nilable(Date)) }
+        attr_accessor :expiration_date
+
         # The type of ID number.
         sig do
           returns(
@@ -528,6 +533,10 @@ module ModernTreasury
         # identification
         sig { returns(T.nilable(String)) }
         attr_accessor :issuing_country
+
+        # The region in which the identifcation was issued.
+        sig { returns(T.nilable(String)) }
+        attr_accessor :issuing_region
 
         # This field will be true if this object exists in the live environment or false
         # if it exists in the test environment.
@@ -545,9 +554,11 @@ module ModernTreasury
             id: String,
             created_at: Time,
             discarded_at: T.nilable(Time),
+            expiration_date: T.nilable(Date),
             id_type:
               ModernTreasury::LegalEntity::Identification::IDType::OrSymbol,
             issuing_country: T.nilable(String),
+            issuing_region: T.nilable(String),
             live_mode: T::Boolean,
             object: String,
             updated_at: Time
@@ -557,11 +568,16 @@ module ModernTreasury
           id:,
           created_at:,
           discarded_at:,
+          # The date when the Identification is no longer considered valid by the issuing
+          # authority.
+          expiration_date:,
           # The type of ID number.
           id_type:,
           # The ISO 3166-1 alpha-2 country code of the country that issued the
           # identification
           issuing_country:,
+          # The region in which the identifcation was issued.
+          issuing_region:,
           # This field will be true if this object exists in the live environment or false
           # if it exists in the test environment.
           live_mode:,
@@ -576,9 +592,11 @@ module ModernTreasury
               id: String,
               created_at: Time,
               discarded_at: T.nilable(Time),
+              expiration_date: T.nilable(Date),
               id_type:
                 ModernTreasury::LegalEntity::Identification::IDType::TaggedSymbol,
               issuing_country: T.nilable(String),
+              issuing_region: T.nilable(String),
               live_mode: T::Boolean,
               object: String,
               updated_at: Time
@@ -636,6 +654,11 @@ module ModernTreasury
           CO_NIT =
             T.let(
               :co_nit,
+              ModernTreasury::LegalEntity::Identification::IDType::TaggedSymbol
+            )
+          DRIVERS_LICENSE =
+            T.let(
+              :drivers_license,
               ModernTreasury::LegalEntity::Identification::IDType::TaggedSymbol
             )
           HN_ID =

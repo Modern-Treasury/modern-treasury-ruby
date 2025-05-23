@@ -100,6 +100,20 @@ module ModernTreasury
       end
       attr_writer :type
 
+      # Used to return expected payments updated after some datetime
+      sig { returns(T.nilable(Time)) }
+      attr_reader :updated_at_lower_bound
+
+      sig { params(updated_at_lower_bound: Time).void }
+      attr_writer :updated_at_lower_bound
+
+      # Used to return expected payments updated before some datetime
+      sig { returns(T.nilable(Time)) }
+      attr_reader :updated_at_upper_bound
+
+      sig { params(updated_at_upper_bound: Time).void }
+      attr_writer :updated_at_upper_bound
+
       sig do
         params(
           after_cursor: T.nilable(String),
@@ -112,6 +126,8 @@ module ModernTreasury
           per_page: Integer,
           status: ModernTreasury::ExpectedPaymentListParams::Status::OrSymbol,
           type: ModernTreasury::ExpectedPaymentListParams::Type::OrSymbol,
+          updated_at_lower_bound: Time,
+          updated_at_upper_bound: Time,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
@@ -137,6 +153,10 @@ module ModernTreasury
         # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
         # sepa, signet, wire
         type: nil,
+        # Used to return expected payments updated after some datetime
+        updated_at_lower_bound: nil,
+        # Used to return expected payments updated before some datetime
+        updated_at_upper_bound: nil,
         request_options: {}
       )
       end
@@ -154,6 +174,8 @@ module ModernTreasury
             per_page: Integer,
             status: ModernTreasury::ExpectedPaymentListParams::Status::OrSymbol,
             type: ModernTreasury::ExpectedPaymentListParams::Type::OrSymbol,
+            updated_at_lower_bound: Time,
+            updated_at_upper_bound: Time,
             request_options: ModernTreasury::RequestOptions
           }
         )
@@ -229,6 +251,11 @@ module ModernTreasury
             :bacs,
             ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
           )
+        BASE =
+          T.let(
+            :base,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
         BOOK =
           T.let(
             :book,
@@ -262,6 +289,11 @@ module ModernTreasury
         EFT =
           T.let(
             :eft,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        ETHEREUM =
+          T.let(
+            :ethereum,
             ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
           )
         HU_ICS =
@@ -302,6 +334,11 @@ module ModernTreasury
         PL_ELIXIR =
           T.let(
             :pl_elixir,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        POLYGON =
+          T.let(
+            :polygon,
             ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
           )
         PROVXCHANGE =
@@ -352,6 +389,11 @@ module ModernTreasury
         SKNBI =
           T.let(
             :sknbi,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        SOLANA =
+          T.let(
+            :solana,
             ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
           )
         WIRE =

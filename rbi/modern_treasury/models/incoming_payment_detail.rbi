@@ -291,9 +291,19 @@ module ModernTreasury
             :au_number,
             ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
           )
+        BASE_ADDRESS =
+          T.let(
+            :base_address,
+            ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
+          )
         CLABE =
           T.let(
             :clabe,
+            ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
+          )
+        ETHEREUM_ADDRESS =
+          T.let(
+            :ethereum_address,
             ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
           )
         HK_NUMBER =
@@ -326,9 +336,19 @@ module ModernTreasury
             :pan,
             ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
           )
+        POLYGON_ADDRESS =
+          T.let(
+            :polygon_address,
+            ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
+          )
         SG_NUMBER =
           T.let(
             :sg_number,
+            ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
+          )
+        SOLANA_ADDRESS =
+          T.let(
+            :solana_address,
             ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
           )
         WALLET_ADDRESS =

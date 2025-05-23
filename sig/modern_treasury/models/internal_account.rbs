@@ -107,26 +107,36 @@ module ModernTreasury
       }
 
       type account_type =
-        :cash
+        :base_wallet
+        | :cash
         | :checking
+        | :crypto_wallet
+        | :ethereum_wallet
         | :general_ledger
         | :loan
         | :non_resident
         | :other
         | :overdraft
+        | :polygon_wallet
         | :savings
+        | :solana_wallet
 
       module AccountType
         extend ModernTreasury::Internal::Type::Enum
 
+        BASE_WALLET: :base_wallet
         CASH: :cash
         CHECKING: :checking
+        CRYPTO_WALLET: :crypto_wallet
+        ETHEREUM_WALLET: :ethereum_wallet
         GENERAL_LEDGER: :general_ledger
         LOAN: :loan
         NON_RESIDENT: :non_resident
         OTHER: :other
         OVERDRAFT: :overdraft
+        POLYGON_WALLET: :polygon_wallet
         SAVINGS: :savings
+        SOLANA_WALLET: :solana_wallet
 
         def self?.values: -> ::Array[ModernTreasury::Models::InternalAccount::account_type]
       end

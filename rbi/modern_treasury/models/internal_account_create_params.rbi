@@ -33,6 +33,25 @@ module ModernTreasury
       sig { returns(String) }
       attr_accessor :party_name
 
+      # The account type, used to provision the appropriate account at the financial
+      # institution.
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::InternalAccountCreateParams::AccountType::OrSymbol
+          )
+        )
+      end
+      attr_reader :account_type
+
+      sig do
+        params(
+          account_type:
+            ModernTreasury::InternalAccountCreateParams::AccountType::OrSymbol
+        ).void
+      end
+      attr_writer :account_type
+
       # The Counterparty associated to this account.
       sig { returns(T.nilable(String)) }
       attr_reader :counterparty_id
@@ -85,6 +104,8 @@ module ModernTreasury
             ModernTreasury::InternalAccountCreateParams::Currency::OrSymbol,
           name: String,
           party_name: String,
+          account_type:
+            ModernTreasury::InternalAccountCreateParams::AccountType::OrSymbol,
           counterparty_id: String,
           legal_entity_id: String,
           parent_account_id: String,
@@ -104,6 +125,9 @@ module ModernTreasury
         name:,
         # The legal name of the entity which owns the account.
         party_name:,
+        # The account type, used to provision the appropriate account at the financial
+        # institution.
+        account_type: nil,
         # The Counterparty associated to this account.
         counterparty_id: nil,
         # The LegalEntity associated to this account.
@@ -127,6 +151,8 @@ module ModernTreasury
               ModernTreasury::InternalAccountCreateParams::Currency::OrSymbol,
             name: String,
             party_name: String,
+            account_type:
+              ModernTreasury::InternalAccountCreateParams::AccountType::OrSymbol,
             counterparty_id: String,
             legal_entity_id: String,
             parent_account_id: String,
@@ -166,6 +192,97 @@ module ModernTreasury
           override.returns(
             T::Array[
               ModernTreasury::InternalAccountCreateParams::Currency::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
+      end
+
+      # The account type, used to provision the appropriate account at the financial
+      # institution.
+      module AccountType
+        extend ModernTreasury::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::InternalAccountCreateParams::AccountType
+            )
+          end
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        BASE_WALLET =
+          T.let(
+            :base_wallet,
+            ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
+          )
+        CASH =
+          T.let(
+            :cash,
+            ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
+          )
+        CHECKING =
+          T.let(
+            :checking,
+            ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
+          )
+        CRYPTO_WALLET =
+          T.let(
+            :crypto_wallet,
+            ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
+          )
+        ETHEREUM_WALLET =
+          T.let(
+            :ethereum_wallet,
+            ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
+          )
+        GENERAL_LEDGER =
+          T.let(
+            :general_ledger,
+            ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
+          )
+        LOAN =
+          T.let(
+            :loan,
+            ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
+          )
+        NON_RESIDENT =
+          T.let(
+            :non_resident,
+            ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
+          )
+        OTHER =
+          T.let(
+            :other,
+            ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
+          )
+        OVERDRAFT =
+          T.let(
+            :overdraft,
+            ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
+          )
+        POLYGON_WALLET =
+          T.let(
+            :polygon_wallet,
+            ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
+          )
+        SAVINGS =
+          T.let(
+            :savings,
+            ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
+          )
+        SOLANA_WALLET =
+          T.let(
+            :solana_wallet,
+            ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
+          )
+
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
             ]
           )
         end

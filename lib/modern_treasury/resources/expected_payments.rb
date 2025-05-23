@@ -148,7 +148,7 @@ module ModernTreasury
       #
       # list expected_payments
       #
-      # @overload list(after_cursor: nil, counterparty_id: nil, created_at_lower_bound: nil, created_at_upper_bound: nil, direction: nil, internal_account_id: nil, metadata: nil, per_page: nil, status: nil, type: nil, request_options: {})
+      # @overload list(after_cursor: nil, counterparty_id: nil, created_at_lower_bound: nil, created_at_upper_bound: nil, direction: nil, internal_account_id: nil, metadata: nil, per_page: nil, status: nil, type: nil, updated_at_lower_bound: nil, updated_at_upper_bound: nil, request_options: {})
       #
       # @param after_cursor [String, nil]
       #
@@ -169,6 +169,10 @@ module ModernTreasury
       # @param status [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Status] One of unreconciled, reconciled, or archived.
       #
       # @param type [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type] One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen, sep
+      #
+      # @param updated_at_lower_bound [Time] Used to return expected payments updated after some datetime
+      #
+      # @param updated_at_upper_bound [Time] Used to return expected payments updated before some datetime
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
