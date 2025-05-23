@@ -402,6 +402,13 @@ module ModernTreasury
         #   @return [Time, nil]
         required :discarded_at, Time, nil?: true
 
+        # @!attribute expiration_date
+        #   The date when the Identification is no longer considered valid by the issuing
+        #   authority.
+        #
+        #   @return [Date, nil]
+        required :expiration_date, Date, nil?: true
+
         # @!attribute id_type
         #   The type of ID number.
         #
@@ -414,6 +421,12 @@ module ModernTreasury
         #
         #   @return [String, nil]
         required :issuing_country, String, nil?: true
+
+        # @!attribute issuing_region
+        #   The region in which the identifcation was issued.
+        #
+        #   @return [String, nil]
+        required :issuing_region, String, nil?: true
 
         # @!attribute live_mode
         #   This field will be true if this object exists in the live environment or false
@@ -432,7 +445,7 @@ module ModernTreasury
         #   @return [Time]
         required :updated_at, Time
 
-        # @!method initialize(id:, created_at:, discarded_at:, id_type:, issuing_country:, live_mode:, object:, updated_at:)
+        # @!method initialize(id:, created_at:, discarded_at:, expiration_date:, id_type:, issuing_country:, issuing_region:, live_mode:, object:, updated_at:)
         #   Some parameter documentations has been truncated, see
         #   {ModernTreasury::Models::LegalEntity::Identification} for more details.
         #
@@ -442,9 +455,13 @@ module ModernTreasury
         #
         #   @param discarded_at [Time, nil]
         #
+        #   @param expiration_date [Date, nil] The date when the Identification is no longer considered valid by the issuing au
+        #
         #   @param id_type [Symbol, ModernTreasury::Models::LegalEntity::Identification::IDType] The type of ID number.
         #
         #   @param issuing_country [String, nil] The ISO 3166-1 alpha-2 country code of the country that issued the identificatio
+        #
+        #   @param issuing_region [String, nil] The region in which the identifcation was issued.
         #
         #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
         #
@@ -466,6 +483,7 @@ module ModernTreasury
           CL_RUT = :cl_rut
           CO_CEDULAS = :co_cedulas
           CO_NIT = :co_nit
+          DRIVERS_LICENSE = :drivers_license
           HN_ID = :hn_id
           HN_RTN = :hn_rtn
           IN_LEI = :in_lei

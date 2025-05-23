@@ -64,7 +64,7 @@ module ModernTreasury
       required :currency, enum: -> { ModernTreasury::Currency }
 
       # @!attribute description
-      #   A free-form description of the invoice.
+      #   An optional free-form description of the invoice.
       #
       #   @return [String]
       required :description, String
@@ -266,7 +266,7 @@ module ModernTreasury
       #
       #   @param currency [Symbol, ModernTreasury::Models::Currency] Currency that the invoice is denominated in. Defaults to `USD` if not provided.
       #
-      #   @param description [String] A free-form description of the invoice.
+      #   @param description [String] An optional free-form description of the invoice.
       #
       #   @param due_date [Time] A future date by when the invoice needs to be paid.
       #

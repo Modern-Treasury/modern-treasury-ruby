@@ -591,17 +591,28 @@ module ModernTreasury
         end
         attr_accessor :id_type
 
+        # The date when the Identification is no longer considered valid by the issuing
+        # authority.
+        sig { returns(T.nilable(Date)) }
+        attr_accessor :expiration_date
+
         # The ISO 3166-1 alpha-2 country code of the country that issued the
         # identification
         sig { returns(T.nilable(String)) }
         attr_accessor :issuing_country
+
+        # The region in which the identifcation was issued.
+        sig { returns(T.nilable(String)) }
+        attr_accessor :issuing_region
 
         sig do
           params(
             id_number: String,
             id_type:
               ModernTreasury::LegalEntityCreateParams::Identification::IDType::OrSymbol,
-            issuing_country: T.nilable(String)
+            expiration_date: T.nilable(Date),
+            issuing_country: T.nilable(String),
+            issuing_region: T.nilable(String)
           ).returns(T.attached_class)
         end
         def self.new(
@@ -609,9 +620,14 @@ module ModernTreasury
           id_number:,
           # The type of ID number.
           id_type:,
+          # The date when the Identification is no longer considered valid by the issuing
+          # authority.
+          expiration_date: nil,
           # The ISO 3166-1 alpha-2 country code of the country that issued the
           # identification
-          issuing_country: nil
+          issuing_country: nil,
+          # The region in which the identifcation was issued.
+          issuing_region: nil
         )
         end
 
@@ -621,7 +637,9 @@ module ModernTreasury
               id_number: String,
               id_type:
                 ModernTreasury::LegalEntityCreateParams::Identification::IDType::OrSymbol,
-              issuing_country: T.nilable(String)
+              expiration_date: T.nilable(Date),
+              issuing_country: T.nilable(String),
+              issuing_region: T.nilable(String)
             }
           )
         end
@@ -679,6 +697,11 @@ module ModernTreasury
           CO_NIT =
             T.let(
               :co_nit,
+              ModernTreasury::LegalEntityCreateParams::Identification::IDType::TaggedSymbol
+            )
+          DRIVERS_LICENSE =
+            T.let(
+              :drivers_license,
               ModernTreasury::LegalEntityCreateParams::Identification::IDType::TaggedSymbol
             )
           HN_ID =
@@ -1448,17 +1471,28 @@ module ModernTreasury
             end
             attr_accessor :id_type
 
+            # The date when the Identification is no longer considered valid by the issuing
+            # authority.
+            sig { returns(T.nilable(Date)) }
+            attr_accessor :expiration_date
+
             # The ISO 3166-1 alpha-2 country code of the country that issued the
             # identification
             sig { returns(T.nilable(String)) }
             attr_accessor :issuing_country
+
+            # The region in which the identifcation was issued.
+            sig { returns(T.nilable(String)) }
+            attr_accessor :issuing_region
 
             sig do
               params(
                 id_number: String,
                 id_type:
                   ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol,
-                issuing_country: T.nilable(String)
+                expiration_date: T.nilable(Date),
+                issuing_country: T.nilable(String),
+                issuing_region: T.nilable(String)
               ).returns(T.attached_class)
             end
             def self.new(
@@ -1466,9 +1500,14 @@ module ModernTreasury
               id_number:,
               # The type of ID number.
               id_type:,
+              # The date when the Identification is no longer considered valid by the issuing
+              # authority.
+              expiration_date: nil,
               # The ISO 3166-1 alpha-2 country code of the country that issued the
               # identification
-              issuing_country: nil
+              issuing_country: nil,
+              # The region in which the identifcation was issued.
+              issuing_region: nil
             )
             end
 
@@ -1478,7 +1517,9 @@ module ModernTreasury
                   id_number: String,
                   id_type:
                     ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol,
-                  issuing_country: T.nilable(String)
+                  expiration_date: T.nilable(Date),
+                  issuing_country: T.nilable(String),
+                  issuing_region: T.nilable(String)
                 }
               )
             end
@@ -1536,6 +1577,11 @@ module ModernTreasury
               CO_NIT =
                 T.let(
                   :co_nit,
+                  ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
+                )
+              DRIVERS_LICENSE =
+                T.let(
+                  :drivers_license,
                   ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
                 )
               HN_ID =

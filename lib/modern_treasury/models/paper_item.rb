@@ -69,6 +69,13 @@ module ModernTreasury
       #   @return [String, nil]
       required :memo_field, String, nil?: true
 
+      # @!attribute metadata
+      #   Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
+      #
+      #   @return [Object]
+      required :metadata, ModernTreasury::Internal::Type::Unknown
+
       # @!attribute object
       #
       #   @return [String]
@@ -110,7 +117,7 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!method initialize(id:, account_number:, account_number_safe:, amount:, check_number:, created_at:, currency:, deposit_date:, live_mode:, lockbox_number:, memo_field:, object:, remitter_name:, routing_number:, status:, transaction_id:, transaction_line_item_id:, updated_at:)
+      # @!method initialize(id:, account_number:, account_number_safe:, amount:, check_number:, created_at:, currency:, deposit_date:, live_mode:, lockbox_number:, memo_field:, metadata:, object:, remitter_name:, routing_number:, status:, transaction_id:, transaction_line_item_id:, updated_at:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::PaperItem} for more details.
       #
@@ -135,6 +142,8 @@ module ModernTreasury
       #   @param lockbox_number [String] The identifier for the lockbox assigned by the bank.
       #
       #   @param memo_field [String, nil] The memo field on the paper item.
+      #
+      #   @param metadata [Object] Additional data represented as key-value pairs. Both the key and value must be s
       #
       #   @param object [String]
       #

@@ -56,6 +56,7 @@ module ModernTreasury
       ERN = :ERN
       ETB = :ETB
       EUR = :EUR
+      EURC = :EURC
       FJD = :FJD
       FKP = :FKP
       GBP = :GBP
@@ -131,12 +132,14 @@ module ModernTreasury
       PKR = :PKR
       PLN = :PLN
       PYG = :PYG
+      PYUSD = :PYUSD
       QAR = :QAR
       RON = :RON
       RSD = :RSD
       RUB = :RUB
       RWF = :RWF
       SAR = :SAR
+      SBC = :SBC
       SBD = :SBD
       SCR = :SCR
       SDG = :SDG
@@ -165,6 +168,10 @@ module ModernTreasury
       UAH = :UAH
       UGX = :UGX
       USD = :USD
+      USDB = :USDB
+      USDC = :USDC
+      USDP = :USDP
+      USDT = :USDT
       UYU = :UYU
       UZS = :UZS
       VEF = :VEF

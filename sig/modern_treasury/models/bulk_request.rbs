@@ -89,6 +89,7 @@ module ModernTreasury
         | :ledger_transaction
         | :expected_payment
         | :transaction
+        | :transaction_line_item
         | :entity_link
 
       module ResourceType
@@ -99,6 +100,7 @@ module ModernTreasury
         LEDGER_TRANSACTION: :ledger_transaction
         EXPECTED_PAYMENT: :expected_payment
         TRANSACTION: :transaction
+        TRANSACTION_LINE_ITEM: :transaction_line_item
         ENTITY_LINK: :entity_link
 
         def self?.values: -> ::Array[ModernTreasury::Models::BulkRequest::resource_type]

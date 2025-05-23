@@ -36,6 +36,12 @@ module ModernTreasury
         #   @return [String]
         required :direction, String
 
+        # @!attribute invoice_id
+        #   The ID of the invoice for this line item.
+        #
+        #   @return [String]
+        required :invoice_id, String
+
         # @!attribute live_mode
         #   This field will be true if this object exists in the live environment or false
         #   if it exists in the test environment.
@@ -88,7 +94,7 @@ module ModernTreasury
         #   @return [Time]
         required :updated_at, Time
 
-        # @!method initialize(id:, amount:, created_at:, description:, direction:, live_mode:, metadata:, name:, object:, quantity:, unit_amount:, unit_amount_decimal:, updated_at:)
+        # @!method initialize(id:, amount:, created_at:, description:, direction:, invoice_id:, live_mode:, metadata:, name:, object:, quantity:, unit_amount:, unit_amount_decimal:, updated_at:)
         #   Some parameter documentations has been truncated, see
         #   {ModernTreasury::Models::Invoices::InvoiceLineItem} for more details.
         #
@@ -101,6 +107,8 @@ module ModernTreasury
         #   @param description [String] An optional free-form description of the line item.
         #
         #   @param direction [String] Either `debit` or `credit`. `debit` indicates that a client owes the business mo
+        #
+        #   @param invoice_id [String] The ID of the invoice for this line item.
         #
         #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
         #

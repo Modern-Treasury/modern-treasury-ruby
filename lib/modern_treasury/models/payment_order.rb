@@ -47,15 +47,6 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::PaymentOrder::ChargeBearer, nil]
       required :charge_bearer, enum: -> { ModernTreasury::PaymentOrder::ChargeBearer }, nil?: true
 
-      # @!attribute compliance_rule_metadata
-      #   Custom key-value pair for usage in compliance rules. Please contact support
-      #   before making changes to this field.
-      #
-      #   @return [Hash{Symbol=>Object}, nil]
-      required :compliance_rule_metadata,
-               ModernTreasury::Internal::Type::HashOf[ModernTreasury::Internal::Type::Unknown],
-               nil?: true
-
       # @!attribute counterparty_id
       #   If the payment order is tied to a specific Counterparty, their id will appear,
       #   otherwise `null`.
@@ -80,13 +71,6 @@ module ModernTreasury
       #
       #   @return [ModernTreasury::Models::ReturnObject, nil]
       required :current_return, -> { ModernTreasury::ReturnObject }, nil?: true
-
-      # @!attribute decision_id
-      #   The ID of the compliance decision for the payment order, if transaction
-      #   monitoring is enabled.
-      #
-      #   @return [String, nil]
-      required :decision_id, String, nil?: true
 
       # @!attribute description
       #   An optional description for internal use.
@@ -280,13 +264,6 @@ module ModernTreasury
       #   @return [Array<String>]
       required :transaction_ids, ModernTreasury::Internal::Type::ArrayOf[String]
 
-      # @!attribute transaction_monitoring_enabled
-      #   A flag that determines whether a payment order should go through transaction
-      #   monitoring.
-      #
-      #   @return [Boolean]
-      required :transaction_monitoring_enabled, ModernTreasury::Internal::Type::Boolean
-
       # @!attribute type
       #   One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
       #   `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
@@ -359,7 +336,7 @@ module ModernTreasury
       #   @return [String, nil]
       required :vendor_failure_reason, String, nil?: true
 
-      # @!method initialize(id:, accounting:, accounting_category_id:, accounting_ledger_class_id:, amount:, charge_bearer:, compliance_rule_metadata:, counterparty_id:, created_at:, currency:, current_return:, decision_id:, description:, direction:, effective_date:, expires_at:, foreign_exchange_contract:, foreign_exchange_indicator:, foreign_exchange_rate:, ledger_transaction_id:, live_mode:, metadata:, nsf_protected:, object:, originating_account_id:, originating_party_name:, priority:, process_after:, purpose:, receiving_account_id:, receiving_account_type:, reference_numbers:, remittance_information:, send_remittance_advice:, statement_descriptor:, status:, subtype:, transaction_ids:, transaction_monitoring_enabled:, type:, ultimate_originating_account:, ultimate_originating_account_id:, ultimate_originating_account_type:, ultimate_originating_party_identifier:, ultimate_originating_party_name:, ultimate_receiving_party_identifier:, ultimate_receiving_party_name:, updated_at:, vendor_attributes:, vendor_failure_reason:)
+      # @!method initialize(id:, accounting:, accounting_category_id:, accounting_ledger_class_id:, amount:, charge_bearer:, counterparty_id:, created_at:, currency:, current_return:, description:, direction:, effective_date:, expires_at:, foreign_exchange_contract:, foreign_exchange_indicator:, foreign_exchange_rate:, ledger_transaction_id:, live_mode:, metadata:, nsf_protected:, object:, originating_account_id:, originating_party_name:, priority:, process_after:, purpose:, receiving_account_id:, receiving_account_type:, reference_numbers:, remittance_information:, send_remittance_advice:, statement_descriptor:, status:, subtype:, transaction_ids:, type:, ultimate_originating_account:, ultimate_originating_account_id:, ultimate_originating_account_type:, ultimate_originating_party_identifier:, ultimate_originating_party_name:, ultimate_receiving_party_identifier:, ultimate_receiving_party_name:, updated_at:, vendor_attributes:, vendor_failure_reason:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::PaymentOrder} for more details.
       #
@@ -375,8 +352,6 @@ module ModernTreasury
       #
       #   @param charge_bearer [Symbol, ModernTreasury::Models::PaymentOrder::ChargeBearer, nil] The party that will pay the fees for the payment order. Only applies to wire pay
       #
-      #   @param compliance_rule_metadata [Hash{Symbol=>Object}, nil] Custom key-value pair for usage in compliance rules. Please contact support befo
-      #
       #   @param counterparty_id [String, nil] If the payment order is tied to a specific Counterparty, their id will appear, o
       #
       #   @param created_at [Time]
@@ -384,8 +359,6 @@ module ModernTreasury
       #   @param currency [Symbol, ModernTreasury::Models::Currency] Defaults to the currency of the originating account.
       #
       #   @param current_return [ModernTreasury::Models::ReturnObject, nil] If the payment order's status is `returned`, this will include the return object
-      #
-      #   @param decision_id [String, nil] The ID of the compliance decision for the payment order, if transaction monitori
       #
       #   @param description [String, nil] An optional description for internal use.
       #
@@ -438,8 +411,6 @@ module ModernTreasury
       #   @param subtype [Symbol, ModernTreasury::Models::PaymentOrderSubtype, nil] An additional layer of classification for the type of payment order you are doin
       #
       #   @param transaction_ids [Array<String>] The IDs of all the transactions associated to this payment order. Usually, you w
-      #
-      #   @param transaction_monitoring_enabled [Boolean] A flag that determines whether a payment order should go through transaction mon
       #
       #   @param type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
       #
@@ -704,6 +675,10 @@ module ModernTreasury
           BNK_DEV_TRANSFER_ID = :bnk_dev_transfer_id
           BOFA_END_TO_END_ID = :bofa_end_to_end_id
           BOFA_TRANSACTION_ID = :bofa_transaction_id
+          BRALE_TRANSFER_ID = :brale_transfer_id
+          BRIDGE_DESTINATION_TRANSACTION_HASH = :bridge_destination_transaction_hash
+          BRIDGE_SOURCE_TRANSACTION_HASH = :bridge_source_transaction_hash
+          BRIDGE_TRANSFER_ID = :bridge_transfer_id
           CHECK_NUMBER = :check_number
           CITIBANK_REFERENCE_NUMBER = :citibank_reference_number
           CITIBANK_WORLDLINK_CLEARING_SYSTEM_REFERENCE_NUMBER =

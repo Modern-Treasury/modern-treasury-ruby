@@ -149,14 +149,18 @@ module ModernTreasury
           extend ModernTreasury::Internal::Type::Enum
 
           AU_NUMBER = :au_number
+          BASE_ADDRESS = :base_address
           CLABE = :clabe
+          ETHEREUM_ADDRESS = :ethereum_address
           HK_NUMBER = :hk_number
           IBAN = :iban
           ID_NUMBER = :id_number
           NZ_NUMBER = :nz_number
           OTHER = :other
           PAN = :pan
+          POLYGON_ADDRESS = :polygon_address
           SG_NUMBER = :sg_number
+          SOLANA_ADDRESS = :solana_address
           WALLET_ADDRESS = :wallet_address
 
           # @!method self.values
@@ -433,6 +437,7 @@ module ModernTreasury
           ACH = :ach
           AU_BECS = :au_becs
           BACS = :bacs
+          BASE = :base
           BOOK = :book
           CARD = :card
           CHATS = :chats
@@ -440,6 +445,7 @@ module ModernTreasury
           CROSS_BORDER = :cross_border
           DK_NETS = :dk_nets
           EFT = :eft
+          ETHEREUM = :ethereum
           HU_ICS = :hu_ics
           INTERAC = :interac
           MASAV = :masav
@@ -448,6 +454,7 @@ module ModernTreasury
           NICS = :nics
           NZ_BECS = :nz_becs
           PL_ELIXIR = :pl_elixir
+          POLYGON = :polygon
           PROVXCHANGE = :provxchange
           RO_SENT = :ro_sent
           RTP = :rtp
@@ -458,6 +465,7 @@ module ModernTreasury
           SIC = :sic
           SIGNET = :signet
           SKNBI = :sknbi
+          SOLANA = :solana
           WIRE = :wire
           ZENGIN = :zengin
 

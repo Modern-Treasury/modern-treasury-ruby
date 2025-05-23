@@ -248,7 +248,9 @@ module ModernTreasury
         {
           id_number: String,
           id_type: ModernTreasury::Models::LegalEntityCreateParams::Identification::id_type,
-          issuing_country: String?
+          expiration_date: Date?,
+          issuing_country: String?,
+          issuing_region: String?
         }
 
       class Identification < ModernTreasury::Internal::Type::BaseModel
@@ -256,18 +258,26 @@ module ModernTreasury
 
         attr_accessor id_type: ModernTreasury::Models::LegalEntityCreateParams::Identification::id_type
 
+        attr_accessor expiration_date: Date?
+
         attr_accessor issuing_country: String?
+
+        attr_accessor issuing_region: String?
 
         def initialize: (
           id_number: String,
           id_type: ModernTreasury::Models::LegalEntityCreateParams::Identification::id_type,
-          ?issuing_country: String?
+          ?expiration_date: Date?,
+          ?issuing_country: String?,
+          ?issuing_region: String?
         ) -> void
 
         def to_hash: -> {
           id_number: String,
           id_type: ModernTreasury::Models::LegalEntityCreateParams::Identification::id_type,
-          issuing_country: String?
+          expiration_date: Date?,
+          issuing_country: String?,
+          issuing_region: String?
         }
 
         type id_type =
@@ -279,6 +289,7 @@ module ModernTreasury
           | :cl_rut
           | :co_cedulas
           | :co_nit
+          | :drivers_license
           | :hn_id
           | :hn_rtn
           | :in_lei
@@ -304,6 +315,7 @@ module ModernTreasury
           CL_RUT: :cl_rut
           CO_CEDULAS: :co_cedulas
           CO_NIT: :co_nit
+          DRIVERS_LICENSE: :drivers_license
           HN_ID: :hn_id
           HN_RTN: :hn_rtn
           IN_LEI: :in_lei
@@ -605,7 +617,9 @@ module ModernTreasury
             {
               id_number: String,
               id_type: ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::id_type,
-              issuing_country: String?
+              expiration_date: Date?,
+              issuing_country: String?,
+              issuing_region: String?
             }
 
           class Identification < ModernTreasury::Internal::Type::BaseModel
@@ -613,18 +627,26 @@ module ModernTreasury
 
             attr_accessor id_type: ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::id_type
 
+            attr_accessor expiration_date: Date?
+
             attr_accessor issuing_country: String?
+
+            attr_accessor issuing_region: String?
 
             def initialize: (
               id_number: String,
               id_type: ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::id_type,
-              ?issuing_country: String?
+              ?expiration_date: Date?,
+              ?issuing_country: String?,
+              ?issuing_region: String?
             ) -> void
 
             def to_hash: -> {
               id_number: String,
               id_type: ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::id_type,
-              issuing_country: String?
+              expiration_date: Date?,
+              issuing_country: String?,
+              issuing_region: String?
             }
 
             type id_type =
@@ -636,6 +658,7 @@ module ModernTreasury
               | :cl_rut
               | :co_cedulas
               | :co_nit
+              | :drivers_license
               | :hn_id
               | :hn_rtn
               | :in_lei
@@ -661,6 +684,7 @@ module ModernTreasury
               CL_RUT: :cl_rut
               CO_CEDULAS: :co_cedulas
               CO_NIT: :co_nit
+              DRIVERS_LICENSE: :drivers_license
               HN_ID: :hn_id
               HN_RTN: :hn_rtn
               IN_LEI: :in_lei

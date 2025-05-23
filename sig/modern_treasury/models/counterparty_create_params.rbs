@@ -260,28 +260,36 @@ module ModernTreasury
 
           type account_number_type =
             :au_number
+            | :base_address
             | :clabe
+            | :ethereum_address
             | :hk_number
             | :iban
             | :id_number
             | :nz_number
             | :other
             | :pan
+            | :polygon_address
             | :sg_number
+            | :solana_address
             | :wallet_address
 
           module AccountNumberType
             extend ModernTreasury::Internal::Type::Enum
 
             AU_NUMBER: :au_number
+            BASE_ADDRESS: :base_address
             CLABE: :clabe
+            ETHEREUM_ADDRESS: :ethereum_address
             HK_NUMBER: :hk_number
             IBAN: :iban
             ID_NUMBER: :id_number
             NZ_NUMBER: :nz_number
             OTHER: :other
             PAN: :pan
+            POLYGON_ADDRESS: :polygon_address
             SG_NUMBER: :sg_number
+            SOLANA_ADDRESS: :solana_address
             WALLET_ADDRESS: :wallet_address
 
             def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail::account_number_type]
@@ -555,6 +563,7 @@ module ModernTreasury
             :ach
             | :au_becs
             | :bacs
+            | :base
             | :book
             | :card
             | :chats
@@ -562,6 +571,7 @@ module ModernTreasury
             | :cross_border
             | :dk_nets
             | :eft
+            | :ethereum
             | :hu_ics
             | :interac
             | :masav
@@ -570,6 +580,7 @@ module ModernTreasury
             | :nics
             | :nz_becs
             | :pl_elixir
+            | :polygon
             | :provxchange
             | :ro_sent
             | :rtp
@@ -580,6 +591,7 @@ module ModernTreasury
             | :sic
             | :signet
             | :sknbi
+            | :solana
             | :wire
             | :zengin
 
@@ -589,6 +601,7 @@ module ModernTreasury
             ACH: :ach
             AU_BECS: :au_becs
             BACS: :bacs
+            BASE: :base
             BOOK: :book
             CARD: :card
             CHATS: :chats
@@ -596,6 +609,7 @@ module ModernTreasury
             CROSS_BORDER: :cross_border
             DK_NETS: :dk_nets
             EFT: :eft
+            ETHEREUM: :ethereum
             HU_ICS: :hu_ics
             INTERAC: :interac
             MASAV: :masav
@@ -604,6 +618,7 @@ module ModernTreasury
             NICS: :nics
             NZ_BECS: :nz_becs
             PL_ELIXIR: :pl_elixir
+            POLYGON: :polygon
             PROVXCHANGE: :provxchange
             RO_SENT: :ro_sent
             RTP: :rtp
@@ -614,6 +629,7 @@ module ModernTreasury
             SIC: :sic
             SIGNET: :signet
             SKNBI: :sknbi
+            SOLANA: :solana
             WIRE: :wire
             ZENGIN: :zengin
 
@@ -875,7 +891,9 @@ module ModernTreasury
           {
             id_number: String,
             id_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification::id_type,
-            issuing_country: String?
+            expiration_date: Date?,
+            issuing_country: String?,
+            issuing_region: String?
           }
 
         class Identification < ModernTreasury::Internal::Type::BaseModel
@@ -883,18 +901,26 @@ module ModernTreasury
 
           attr_accessor id_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification::id_type
 
+          attr_accessor expiration_date: Date?
+
           attr_accessor issuing_country: String?
+
+          attr_accessor issuing_region: String?
 
           def initialize: (
             id_number: String,
             id_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification::id_type,
-            ?issuing_country: String?
+            ?expiration_date: Date?,
+            ?issuing_country: String?,
+            ?issuing_region: String?
           ) -> void
 
           def to_hash: -> {
             id_number: String,
             id_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification::id_type,
-            issuing_country: String?
+            expiration_date: Date?,
+            issuing_country: String?,
+            issuing_region: String?
           }
 
           type id_type =
@@ -906,6 +932,7 @@ module ModernTreasury
             | :cl_rut
             | :co_cedulas
             | :co_nit
+            | :drivers_license
             | :hn_id
             | :hn_rtn
             | :in_lei
@@ -931,6 +958,7 @@ module ModernTreasury
             CL_RUT: :cl_rut
             CO_CEDULAS: :co_cedulas
             CO_NIT: :co_nit
+            DRIVERS_LICENSE: :drivers_license
             HN_ID: :hn_id
             HN_RTN: :hn_rtn
             IN_LEI: :in_lei
@@ -1232,7 +1260,9 @@ module ModernTreasury
               {
                 id_number: String,
                 id_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::id_type,
-                issuing_country: String?
+                expiration_date: Date?,
+                issuing_country: String?,
+                issuing_region: String?
               }
 
             class Identification < ModernTreasury::Internal::Type::BaseModel
@@ -1240,18 +1270,26 @@ module ModernTreasury
 
               attr_accessor id_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::id_type
 
+              attr_accessor expiration_date: Date?
+
               attr_accessor issuing_country: String?
+
+              attr_accessor issuing_region: String?
 
               def initialize: (
                 id_number: String,
                 id_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::id_type,
-                ?issuing_country: String?
+                ?expiration_date: Date?,
+                ?issuing_country: String?,
+                ?issuing_region: String?
               ) -> void
 
               def to_hash: -> {
                 id_number: String,
                 id_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::id_type,
-                issuing_country: String?
+                expiration_date: Date?,
+                issuing_country: String?,
+                issuing_region: String?
               }
 
               type id_type =
@@ -1263,6 +1301,7 @@ module ModernTreasury
                 | :cl_rut
                 | :co_cedulas
                 | :co_nit
+                | :drivers_license
                 | :hn_id
                 | :hn_rtn
                 | :in_lei
@@ -1288,6 +1327,7 @@ module ModernTreasury
                 CL_RUT: :cl_rut
                 CO_CEDULAS: :co_cedulas
                 CO_NIT: :co_nit
+                DRIVERS_LICENSE: :drivers_license
                 HN_ID: :hn_id
                 HN_RTN: :hn_rtn
                 IN_LEI: :in_lei

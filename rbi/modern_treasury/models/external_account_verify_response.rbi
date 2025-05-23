@@ -170,6 +170,11 @@ module ModernTreasury
               :bacs,
               ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::TaggedSymbol
             )
+          BASE =
+            T.let(
+              :base,
+              ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::TaggedSymbol
+            )
           BOOK =
             T.let(
               :book,
@@ -203,6 +208,11 @@ module ModernTreasury
           EFT =
             T.let(
               :eft,
+              ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::TaggedSymbol
+            )
+          ETHEREUM =
+            T.let(
+              :ethereum,
               ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::TaggedSymbol
             )
           HU_ICS =
@@ -243,6 +253,11 @@ module ModernTreasury
           PL_ELIXIR =
             T.let(
               :pl_elixir,
+              ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::TaggedSymbol
+            )
+          POLYGON =
+            T.let(
+              :polygon,
               ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::TaggedSymbol
             )
           PROVXCHANGE =
@@ -293,6 +308,11 @@ module ModernTreasury
           SKNBI =
             T.let(
               :sknbi,
+              ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::TaggedSymbol
+            )
+          SOLANA =
+            T.let(
+              :solana,
               ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::TaggedSymbol
             )
           WIRE =

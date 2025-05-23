@@ -100,11 +100,6 @@ module ModernTreasury
           end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        CASES =
-          T.let(
-            :cases,
-            ModernTreasury::DocumentListParams::DocumentableType::TaggedSymbol
-          )
         COUNTERPARTIES =
           T.let(
             :counterparties,
@@ -118,6 +113,11 @@ module ModernTreasury
         EXTERNAL_ACCOUNTS =
           T.let(
             :external_accounts,
+            ModernTreasury::DocumentListParams::DocumentableType::TaggedSymbol
+          )
+        IDENTIFICATIONS =
+          T.let(
+            :identifications,
             ModernTreasury::DocumentListParams::DocumentableType::TaggedSymbol
           )
         INCOMING_PAYMENT_DETAILS =
@@ -150,14 +150,14 @@ module ModernTreasury
             :transactions,
             ModernTreasury::DocumentListParams::DocumentableType::TaggedSymbol
           )
-        DECISIONS =
-          T.let(
-            :decisions,
-            ModernTreasury::DocumentListParams::DocumentableType::TaggedSymbol
-          )
         CONNECTIONS =
           T.let(
             :connections,
+            ModernTreasury::DocumentListParams::DocumentableType::TaggedSymbol
+          )
+        CONVERSATIONS =
+          T.let(
+            :conversations,
             ModernTreasury::DocumentListParams::DocumentableType::TaggedSymbol
           )
 

@@ -60,28 +60,36 @@ module ModernTreasury
 
       type account_number_type =
         :au_number
+        | :base_address
         | :clabe
+        | :ethereum_address
         | :hk_number
         | :iban
         | :id_number
         | :nz_number
         | :other
         | :pan
+        | :polygon_address
         | :sg_number
+        | :solana_address
         | :wallet_address
 
       module AccountNumberType
         extend ModernTreasury::Internal::Type::Enum
 
         AU_NUMBER: :au_number
+        BASE_ADDRESS: :base_address
         CLABE: :clabe
+        ETHEREUM_ADDRESS: :ethereum_address
         HK_NUMBER: :hk_number
         IBAN: :iban
         ID_NUMBER: :id_number
         NZ_NUMBER: :nz_number
         OTHER: :other
         PAN: :pan
+        POLYGON_ADDRESS: :polygon_address
         SG_NUMBER: :sg_number
+        SOLANA_ADDRESS: :solana_address
         WALLET_ADDRESS: :wallet_address
 
         def self?.values: -> ::Array[ModernTreasury::Models::AccountDetail::account_number_type]

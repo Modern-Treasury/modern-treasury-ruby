@@ -46,11 +46,6 @@ module ModernTreasury
       end
       attr_accessor :charge_bearer
 
-      # Custom key-value pair for usage in compliance rules. Please contact support
-      # before making changes to this field.
-      sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
-      attr_accessor :compliance_rule_metadata
-
       # If the payment order is tied to a specific Counterparty, their id will appear,
       # otherwise `null`.
       sig { returns(T.nilable(String)) }
@@ -74,11 +69,6 @@ module ModernTreasury
         ).void
       end
       attr_writer :current_return
-
-      # The ID of the compliance decision for the payment order, if transaction
-      # monitoring is enabled.
-      sig { returns(T.nilable(String)) }
-      attr_accessor :decision_id
 
       # An optional description for internal use.
       sig { returns(T.nilable(String)) }
@@ -239,11 +229,6 @@ module ModernTreasury
       sig { returns(T::Array[String]) }
       attr_accessor :transaction_ids
 
-      # A flag that determines whether a payment order should go through transaction
-      # monitoring.
-      sig { returns(T::Boolean) }
-      attr_accessor :transaction_monitoring_enabled
-
       # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
       # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
       # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
@@ -311,12 +296,10 @@ module ModernTreasury
           amount: Integer,
           charge_bearer:
             T.nilable(ModernTreasury::PaymentOrder::ChargeBearer::OrSymbol),
-          compliance_rule_metadata: T.nilable(T::Hash[Symbol, T.anything]),
           counterparty_id: T.nilable(String),
           created_at: Time,
           currency: ModernTreasury::Currency::OrSymbol,
           current_return: T.nilable(ModernTreasury::ReturnObject::OrHash),
-          decision_id: T.nilable(String),
           description: T.nilable(String),
           direction: ModernTreasury::PaymentOrder::Direction::OrSymbol,
           effective_date: Date,
@@ -351,7 +334,6 @@ module ModernTreasury
           status: ModernTreasury::PaymentOrder::Status::OrSymbol,
           subtype: T.nilable(ModernTreasury::PaymentOrderSubtype::OrSymbol),
           transaction_ids: T::Array[String],
-          transaction_monitoring_enabled: T::Boolean,
           type: ModernTreasury::PaymentOrderType::OrSymbol,
           ultimate_originating_account:
             T.nilable(
@@ -390,9 +372,6 @@ module ModernTreasury
         # payment orders. Can be one of shared, sender, or receiver, which correspond
         # respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
         charge_bearer:,
-        # Custom key-value pair for usage in compliance rules. Please contact support
-        # before making changes to this field.
-        compliance_rule_metadata:,
         # If the payment order is tied to a specific Counterparty, their id will appear,
         # otherwise `null`.
         counterparty_id:,
@@ -402,9 +381,6 @@ module ModernTreasury
         # If the payment order's status is `returned`, this will include the return
         # object's data.
         current_return:,
-        # The ID of the compliance decision for the payment order, if transaction
-        # monitoring is enabled.
-        decision_id:,
         # An optional description for internal use.
         description:,
         # One of `credit`, `debit`. Describes the direction money is flowing in the
@@ -490,9 +466,6 @@ module ModernTreasury
         # results in a Return, but gets redrafted and is later successfully completed, it
         # can have many transactions.
         transaction_ids:,
-        # A flag that determines whether a payment order should go through transaction
-        # monitoring.
-        transaction_monitoring_enabled:,
         # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
         # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
         # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
@@ -532,12 +505,10 @@ module ModernTreasury
               T.nilable(
                 ModernTreasury::PaymentOrder::ChargeBearer::TaggedSymbol
               ),
-            compliance_rule_metadata: T.nilable(T::Hash[Symbol, T.anything]),
             counterparty_id: T.nilable(String),
             created_at: Time,
             currency: ModernTreasury::Currency::TaggedSymbol,
             current_return: T.nilable(ModernTreasury::ReturnObject),
-            decision_id: T.nilable(String),
             description: T.nilable(String),
             direction: ModernTreasury::PaymentOrder::Direction::TaggedSymbol,
             effective_date: Date,
@@ -571,7 +542,6 @@ module ModernTreasury
             subtype:
               T.nilable(ModernTreasury::PaymentOrderSubtype::TaggedSymbol),
             transaction_ids: T::Array[String],
-            transaction_monitoring_enabled: T::Boolean,
             type: ModernTreasury::PaymentOrderType::TaggedSymbol,
             ultimate_originating_account:
               T.nilable(
@@ -1022,6 +992,26 @@ module ModernTreasury
           BOFA_TRANSACTION_ID =
             T.let(
               :bofa_transaction_id,
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
+          BRALE_TRANSFER_ID =
+            T.let(
+              :brale_transfer_id,
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
+          BRIDGE_DESTINATION_TRANSACTION_HASH =
+            T.let(
+              :bridge_destination_transaction_hash,
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
+          BRIDGE_SOURCE_TRANSACTION_HASH =
+            T.let(
+              :bridge_source_transaction_hash,
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
+          BRIDGE_TRANSFER_ID =
+            T.let(
+              :bridge_transfer_id,
               ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           CHECK_NUMBER =

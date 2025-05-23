@@ -170,6 +170,11 @@ module ModernTreasury
             :bacs,
             ModernTreasury::TransactionCreateParams::Type::TaggedSymbol
           )
+        BASE =
+          T.let(
+            :base,
+            ModernTreasury::TransactionCreateParams::Type::TaggedSymbol
+          )
         BOOK =
           T.let(
             :book,
@@ -203,6 +208,11 @@ module ModernTreasury
         EFT =
           T.let(
             :eft,
+            ModernTreasury::TransactionCreateParams::Type::TaggedSymbol
+          )
+        ETHEREUM =
+          T.let(
+            :ethereum,
             ModernTreasury::TransactionCreateParams::Type::TaggedSymbol
           )
         HU_ICS =
@@ -243,6 +253,11 @@ module ModernTreasury
         PL_ELIXIR =
           T.let(
             :pl_elixir,
+            ModernTreasury::TransactionCreateParams::Type::TaggedSymbol
+          )
+        POLYGON =
+          T.let(
+            :polygon,
             ModernTreasury::TransactionCreateParams::Type::TaggedSymbol
           )
         PROVXCHANGE =
@@ -293,6 +308,11 @@ module ModernTreasury
         SKNBI =
           T.let(
             :sknbi,
+            ModernTreasury::TransactionCreateParams::Type::TaggedSymbol
+          )
+        SOLANA =
+          T.let(
+            :solana,
             ModernTreasury::TransactionCreateParams::Type::TaggedSymbol
           )
         WIRE =

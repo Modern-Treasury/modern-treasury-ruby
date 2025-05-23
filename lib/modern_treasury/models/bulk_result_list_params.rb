@@ -81,6 +81,7 @@ module ModernTreasury
         EXPECTED_PAYMENT = :expected_payment
         TRANSACTION = :transaction
         ENTITY_LINK = :entity_link
+        TRANSACTION_LINE_ITEM = :transaction_line_item
         BULK_ERROR = :bulk_error
 
         # @!method self.values

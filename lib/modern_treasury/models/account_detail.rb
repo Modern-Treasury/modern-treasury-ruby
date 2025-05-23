@@ -85,14 +85,18 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         AU_NUMBER = :au_number
+        BASE_ADDRESS = :base_address
         CLABE = :clabe
+        ETHEREUM_ADDRESS = :ethereum_address
         HK_NUMBER = :hk_number
         IBAN = :iban
         ID_NUMBER = :id_number
         NZ_NUMBER = :nz_number
         OTHER = :other
         PAN = :pan
+        POLYGON_ADDRESS = :polygon_address
         SG_NUMBER = :sg_number
+        SOLANA_ADDRESS = :solana_address
         WALLET_ADDRESS = :wallet_address
 
         # @!method self.values

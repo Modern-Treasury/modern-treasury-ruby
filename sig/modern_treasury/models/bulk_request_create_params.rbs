@@ -57,6 +57,7 @@ module ModernTreasury
         | :ledger_transaction
         | :expected_payment
         | :transaction
+        | :transaction_line_item
         | :entity_link
 
       module ResourceType
@@ -67,6 +68,7 @@ module ModernTreasury
         LEDGER_TRANSACTION: :ledger_transaction
         EXPECTED_PAYMENT: :expected_payment
         TRANSACTION: :transaction
+        TRANSACTION_LINE_ITEM: :transaction_line_item
         ENTITY_LINK: :entity_link
 
         def self?.values: -> ::Array[ModernTreasury::Models::BulkRequestCreateParams::resource_type]
@@ -711,28 +713,36 @@ module ModernTreasury
 
               type account_number_type =
                 :au_number
+                | :base_address
                 | :clabe
+                | :ethereum_address
                 | :hk_number
                 | :iban
                 | :id_number
                 | :nz_number
                 | :other
                 | :pan
+                | :polygon_address
                 | :sg_number
+                | :solana_address
                 | :wallet_address
 
               module AccountNumberType
                 extend ModernTreasury::Internal::Type::Enum
 
                 AU_NUMBER: :au_number
+                BASE_ADDRESS: :base_address
                 CLABE: :clabe
+                ETHEREUM_ADDRESS: :ethereum_address
                 HK_NUMBER: :hk_number
                 IBAN: :iban
                 ID_NUMBER: :id_number
                 NZ_NUMBER: :nz_number
                 OTHER: :other
                 PAN: :pan
+                POLYGON_ADDRESS: :polygon_address
                 SG_NUMBER: :sg_number
+                SOLANA_ADDRESS: :solana_address
                 WALLET_ADDRESS: :wallet_address
 
                 def self?.values: -> ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::account_number_type]
@@ -1008,6 +1018,7 @@ module ModernTreasury
                 :ach
                 | :au_becs
                 | :bacs
+                | :base
                 | :book
                 | :card
                 | :chats
@@ -1015,6 +1026,7 @@ module ModernTreasury
                 | :cross_border
                 | :dk_nets
                 | :eft
+                | :ethereum
                 | :hu_ics
                 | :interac
                 | :masav
@@ -1023,6 +1035,7 @@ module ModernTreasury
                 | :nics
                 | :nz_becs
                 | :pl_elixir
+                | :polygon
                 | :provxchange
                 | :ro_sent
                 | :rtp
@@ -1033,6 +1046,7 @@ module ModernTreasury
                 | :sic
                 | :signet
                 | :sknbi
+                | :solana
                 | :wire
                 | :zengin
 
@@ -1042,6 +1056,7 @@ module ModernTreasury
                 ACH: :ach
                 AU_BECS: :au_becs
                 BACS: :bacs
+                BASE: :base
                 BOOK: :book
                 CARD: :card
                 CHATS: :chats
@@ -1049,6 +1064,7 @@ module ModernTreasury
                 CROSS_BORDER: :cross_border
                 DK_NETS: :dk_nets
                 EFT: :eft
+                ETHEREUM: :ethereum
                 HU_ICS: :hu_ics
                 INTERAC: :interac
                 MASAV: :masav
@@ -1057,6 +1073,7 @@ module ModernTreasury
                 NICS: :nics
                 NZ_BECS: :nz_becs
                 PL_ELIXIR: :pl_elixir
+                POLYGON: :polygon
                 PROVXCHANGE: :provxchange
                 RO_SENT: :ro_sent
                 RTP: :rtp
@@ -1067,6 +1084,7 @@ module ModernTreasury
                 SIC: :sic
                 SIGNET: :signet
                 SKNBI: :sknbi
+                SOLANA: :solana
                 WIRE: :wire
                 ZENGIN: :zengin
 
@@ -1643,6 +1661,7 @@ module ModernTreasury
             :ach
             | :au_becs
             | :bacs
+            | :base
             | :book
             | :card
             | :chats
@@ -1650,6 +1669,7 @@ module ModernTreasury
             | :cross_border
             | :dk_nets
             | :eft
+            | :ethereum
             | :hu_ics
             | :interac
             | :masav
@@ -1658,6 +1678,7 @@ module ModernTreasury
             | :nics
             | :nz_becs
             | :pl_elixir
+            | :polygon
             | :provxchange
             | :ro_sent
             | :rtp
@@ -1668,6 +1689,7 @@ module ModernTreasury
             | :sic
             | :signet
             | :sknbi
+            | :solana
             | :wire
             | :zengin
             | :other
@@ -1678,6 +1700,7 @@ module ModernTreasury
             ACH: :ach
             AU_BECS: :au_becs
             BACS: :bacs
+            BASE: :base
             BOOK: :book
             CARD: :card
             CHATS: :chats
@@ -1685,6 +1708,7 @@ module ModernTreasury
             CROSS_BORDER: :cross_border
             DK_NETS: :dk_nets
             EFT: :eft
+            ETHEREUM: :ethereum
             HU_ICS: :hu_ics
             INTERAC: :interac
             MASAV: :masav
@@ -1693,6 +1717,7 @@ module ModernTreasury
             NICS: :nics
             NZ_BECS: :nz_becs
             PL_ELIXIR: :pl_elixir
+            POLYGON: :polygon
             PROVXCHANGE: :provxchange
             RO_SENT: :ro_sent
             RTP: :rtp
@@ -1703,6 +1728,7 @@ module ModernTreasury
             SIC: :sic
             SIGNET: :signet
             SKNBI: :sknbi
+            SOLANA: :solana
             WIRE: :wire
             ZENGIN: :zengin
             OTHER: :other
@@ -2191,28 +2217,36 @@ module ModernTreasury
 
               type account_number_type =
                 :au_number
+                | :base_address
                 | :clabe
+                | :ethereum_address
                 | :hk_number
                 | :iban
                 | :id_number
                 | :nz_number
                 | :other
                 | :pan
+                | :polygon_address
                 | :sg_number
+                | :solana_address
                 | :wallet_address
 
               module AccountNumberType
                 extend ModernTreasury::Internal::Type::Enum
 
                 AU_NUMBER: :au_number
+                BASE_ADDRESS: :base_address
                 CLABE: :clabe
+                ETHEREUM_ADDRESS: :ethereum_address
                 HK_NUMBER: :hk_number
                 IBAN: :iban
                 ID_NUMBER: :id_number
                 NZ_NUMBER: :nz_number
                 OTHER: :other
                 PAN: :pan
+                POLYGON_ADDRESS: :polygon_address
                 SG_NUMBER: :sg_number
+                SOLANA_ADDRESS: :solana_address
                 WALLET_ADDRESS: :wallet_address
 
                 def self?.values: -> ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::account_number_type]
@@ -2488,6 +2522,7 @@ module ModernTreasury
                 :ach
                 | :au_becs
                 | :bacs
+                | :base
                 | :book
                 | :card
                 | :chats
@@ -2495,6 +2530,7 @@ module ModernTreasury
                 | :cross_border
                 | :dk_nets
                 | :eft
+                | :ethereum
                 | :hu_ics
                 | :interac
                 | :masav
@@ -2503,6 +2539,7 @@ module ModernTreasury
                 | :nics
                 | :nz_becs
                 | :pl_elixir
+                | :polygon
                 | :provxchange
                 | :ro_sent
                 | :rtp
@@ -2513,6 +2550,7 @@ module ModernTreasury
                 | :sic
                 | :signet
                 | :sknbi
+                | :solana
                 | :wire
                 | :zengin
 
@@ -2522,6 +2560,7 @@ module ModernTreasury
                 ACH: :ach
                 AU_BECS: :au_becs
                 BACS: :bacs
+                BASE: :base
                 BOOK: :book
                 CARD: :card
                 CHATS: :chats
@@ -2529,6 +2568,7 @@ module ModernTreasury
                 CROSS_BORDER: :cross_border
                 DK_NETS: :dk_nets
                 EFT: :eft
+                ETHEREUM: :ethereum
                 HU_ICS: :hu_ics
                 INTERAC: :interac
                 MASAV: :masav
@@ -2537,6 +2577,7 @@ module ModernTreasury
                 NICS: :nics
                 NZ_BECS: :nz_becs
                 PL_ELIXIR: :pl_elixir
+                POLYGON: :polygon
                 PROVXCHANGE: :provxchange
                 RO_SENT: :ro_sent
                 RTP: :rtp
@@ -2547,6 +2588,7 @@ module ModernTreasury
                 SIC: :sic
                 SIGNET: :signet
                 SKNBI: :sknbi
+                SOLANA: :solana
                 WIRE: :wire
                 ZENGIN: :zengin
 

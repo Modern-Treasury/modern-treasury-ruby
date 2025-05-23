@@ -46,34 +46,34 @@ module ModernTreasury
       }
 
       type documentable_type =
-        :cases
-        | :counterparties
+        :counterparties
         | :expected_payments
         | :external_accounts
+        | :identifications
         | :incoming_payment_details
         | :internal_accounts
         | :organizations
         | :paper_items
         | :payment_orders
         | :transactions
-        | :decisions
         | :connections
+        | :conversations
 
       module DocumentableType
         extend ModernTreasury::Internal::Type::Enum
 
-        CASES: :cases
         COUNTERPARTIES: :counterparties
         EXPECTED_PAYMENTS: :expected_payments
         EXTERNAL_ACCOUNTS: :external_accounts
+        IDENTIFICATIONS: :identifications
         INCOMING_PAYMENT_DETAILS: :incoming_payment_details
         INTERNAL_ACCOUNTS: :internal_accounts
         ORGANIZATIONS: :organizations
         PAPER_ITEMS: :paper_items
         PAYMENT_ORDERS: :payment_orders
         TRANSACTIONS: :transactions
-        DECISIONS: :decisions
         CONNECTIONS: :connections
+        CONVERSATIONS: :conversations
 
         def self?.values: -> ::Array[ModernTreasury::Models::DocumentListParams::documentable_type]
       end

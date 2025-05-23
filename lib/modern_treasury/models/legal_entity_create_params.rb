@@ -332,6 +332,13 @@ module ModernTreasury
         #   @return [Symbol, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType]
         required :id_type, enum: -> { ModernTreasury::LegalEntityCreateParams::Identification::IDType }
 
+        # @!attribute expiration_date
+        #   The date when the Identification is no longer considered valid by the issuing
+        #   authority.
+        #
+        #   @return [Date, nil]
+        optional :expiration_date, Date, nil?: true
+
         # @!attribute issuing_country
         #   The ISO 3166-1 alpha-2 country code of the country that issued the
         #   identification
@@ -339,7 +346,13 @@ module ModernTreasury
         #   @return [String, nil]
         optional :issuing_country, String, nil?: true
 
-        # @!method initialize(id_number:, id_type:, issuing_country: nil)
+        # @!attribute issuing_region
+        #   The region in which the identifcation was issued.
+        #
+        #   @return [String, nil]
+        optional :issuing_region, String, nil?: true
+
+        # @!method initialize(id_number:, id_type:, expiration_date: nil, issuing_country: nil, issuing_region: nil)
         #   Some parameter documentations has been truncated, see
         #   {ModernTreasury::Models::LegalEntityCreateParams::Identification} for more
         #   details.
@@ -348,7 +361,11 @@ module ModernTreasury
         #
         #   @param id_type [Symbol, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType] The type of ID number.
         #
+        #   @param expiration_date [Date, nil] The date when the Identification is no longer considered valid by the issuing au
+        #
         #   @param issuing_country [String, nil] The ISO 3166-1 alpha-2 country code of the country that issued the identificatio
+        #
+        #   @param issuing_region [String, nil] The region in which the identifcation was issued.
 
         # The type of ID number.
         #
@@ -364,6 +381,7 @@ module ModernTreasury
           CL_RUT = :cl_rut
           CO_CEDULAS = :co_cedulas
           CO_NIT = :co_nit
+          DRIVERS_LICENSE = :drivers_license
           HN_ID = :hn_id
           HN_RTN = :hn_rtn
           IN_LEI = :in_lei
@@ -762,6 +780,13 @@ module ModernTreasury
                        ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType
                      }
 
+            # @!attribute expiration_date
+            #   The date when the Identification is no longer considered valid by the issuing
+            #   authority.
+            #
+            #   @return [Date, nil]
+            optional :expiration_date, Date, nil?: true
+
             # @!attribute issuing_country
             #   The ISO 3166-1 alpha-2 country code of the country that issued the
             #   identification
@@ -769,7 +794,13 @@ module ModernTreasury
             #   @return [String, nil]
             optional :issuing_country, String, nil?: true
 
-            # @!method initialize(id_number:, id_type:, issuing_country: nil)
+            # @!attribute issuing_region
+            #   The region in which the identifcation was issued.
+            #
+            #   @return [String, nil]
+            optional :issuing_region, String, nil?: true
+
+            # @!method initialize(id_number:, id_type:, expiration_date: nil, issuing_country: nil, issuing_region: nil)
             #   Some parameter documentations has been truncated, see
             #   {ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification}
             #   for more details.
@@ -778,7 +809,11 @@ module ModernTreasury
             #
             #   @param id_type [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType] The type of ID number.
             #
+            #   @param expiration_date [Date, nil] The date when the Identification is no longer considered valid by the issuing au
+            #
             #   @param issuing_country [String, nil] The ISO 3166-1 alpha-2 country code of the country that issued the identificatio
+            #
+            #   @param issuing_region [String, nil] The region in which the identifcation was issued.
 
             # The type of ID number.
             #
@@ -794,6 +829,7 @@ module ModernTreasury
               CL_RUT = :cl_rut
               CO_CEDULAS = :co_cedulas
               CO_NIT = :co_nit
+              DRIVERS_LICENSE = :drivers_license
               HN_ID = :hn_id
               HN_RTN = :hn_rtn
               IN_LEI = :in_lei

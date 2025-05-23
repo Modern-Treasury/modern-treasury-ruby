@@ -51,6 +51,11 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :memo_field
 
+      # Additional data represented as key-value pairs. Both the key and value must be
+      # strings.
+      sig { returns(T.anything) }
+      attr_accessor :metadata
+
       sig { returns(String) }
       attr_accessor :object
 
@@ -91,6 +96,7 @@ module ModernTreasury
           live_mode: T::Boolean,
           lockbox_number: String,
           memo_field: T.nilable(String),
+          metadata: T.anything,
           object: String,
           remitter_name: T.nilable(String),
           routing_number: T.nilable(String),
@@ -122,6 +128,9 @@ module ModernTreasury
         lockbox_number:,
         # The memo field on the paper item.
         memo_field:,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        # strings.
+        metadata:,
         object:,
         # The name of the remitter on the paper item.
         remitter_name:,
@@ -152,6 +161,7 @@ module ModernTreasury
             live_mode: T::Boolean,
             lockbox_number: String,
             memo_field: T.nilable(String),
+            metadata: T.anything,
             object: String,
             remitter_name: T.nilable(String),
             routing_number: T.nilable(String),

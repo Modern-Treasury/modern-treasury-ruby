@@ -16,6 +16,8 @@ module ModernTreasury
             ModernTreasury::InternalAccountCreateParams::Currency::OrSymbol,
           name: String,
           party_name: String,
+          account_type:
+            ModernTreasury::InternalAccountCreateParams::AccountType::OrSymbol,
           counterparty_id: String,
           legal_entity_id: String,
           parent_account_id: String,
@@ -35,6 +37,9 @@ module ModernTreasury
         name:,
         # The legal name of the entity which owns the account.
         party_name:,
+        # The account type, used to provision the appropriate account at the financial
+        # institution.
+        account_type: nil,
         # The Counterparty associated to this account.
         counterparty_id: nil,
         # The LegalEntity associated to this account.

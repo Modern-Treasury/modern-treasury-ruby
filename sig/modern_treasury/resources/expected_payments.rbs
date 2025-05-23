@@ -62,6 +62,8 @@ module ModernTreasury
         ?per_page: Integer,
         ?status: ModernTreasury::Models::ExpectedPaymentListParams::status,
         ?type: ModernTreasury::Models::ExpectedPaymentListParams::type_,
+        ?updated_at_lower_bound: Time,
+        ?updated_at_upper_bound: Time,
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::Internal::Page[ModernTreasury::ExpectedPayment]
 
