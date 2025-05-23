@@ -1,5 +1,36 @@
 # Changelog
 
+## 0.1.0-alpha.20 (2025-05-23)
+
+Full Changelog: [v0.1.0-alpha.19...v0.1.0-alpha.20](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.19...v0.1.0-alpha.20)
+
+### Features
+
+* **api:** api update ([51f2558](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/51f2558e2bc2a89aa925e1e3f1dc64d5e3c5c162))
+* **api:** manual updates ([452bb1c](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/452bb1cbf073c0763b7b5e542042a320ab88c817))
+* bump default connection pool size limit to minimum of 99 ([f9b80ac](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/f9b80ace0577c91d113b36f8c02906cd2df41495))
+
+
+### Bug Fixes
+
+* correctly instantiate sorbet type aliases for enums and unions ([c2c4dba](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/c2c4dba8a02c3c7bf84fed51cc8d9d06dd94d7a6))
+* prevent rubocop from mangling `===` to `is_a?` check ([18009bb](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/18009bbd0286587025edead104ea029abaa71278))
+
+
+### Chores
+
+* **docs:** grammar improvements ([e533b50](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/e533b5028d204cc9537f17a88167b8c2f40e9d6c))
+* force utf-8 locale via `RUBYOPT` when formatting ([cf86688](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/cf866885c2f426bc3f129f12e7320c62d9a9e2c0))
+* refine Yard and Sorbet types and ensure linting is turned on for examples ([601bc22](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/601bc22d020b65bc19362566685aabc295d0598d))
+* use fully qualified names for yard annotations and rbs aliases ([621ed43](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/621ed43f77f526d2623989a48f3f1e9149ff800a))
+* use sorbet union aliases where available ([6701427](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/6701427854edd85ae958c7c53c8177af7fa68ec5))
+* whitespaces ([45f3cea](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/45f3cea94c88bb71356d502cce7f4fceb033f613))
+
+
+### Documentation
+
+* rewrite much of README.md for readability ([e426334](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/e426334cca1f4df82faa6675a909601f3480c186))
+
 ## 0.1.0-alpha.19 (2025-05-13)
 
 Full Changelog: [v0.1.0-alpha.18...v0.1.0-alpha.19](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.18...v0.1.0-alpha.19)
