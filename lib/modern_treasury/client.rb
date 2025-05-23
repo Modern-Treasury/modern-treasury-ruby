@@ -132,6 +132,9 @@ module ModernTreasury
     # @return [ModernTreasury::Resources::LegalEntityAssociations]
     attr_reader :legal_entity_associations
 
+    # @return [ModernTreasury::Resources::PaymentActions]
+    attr_reader :payment_actions
+
     # A test endpoint often used to confirm credentials and headers are being passed
     # in correctly.
     #
@@ -248,6 +251,7 @@ module ModernTreasury
       @connection_legal_entities = ModernTreasury::Resources::ConnectionLegalEntities.new(client: self)
       @legal_entities = ModernTreasury::Resources::LegalEntities.new(client: self)
       @legal_entity_associations = ModernTreasury::Resources::LegalEntityAssociations.new(client: self)
+      @payment_actions = ModernTreasury::Resources::PaymentActions.new(client: self)
     end
   end
 end

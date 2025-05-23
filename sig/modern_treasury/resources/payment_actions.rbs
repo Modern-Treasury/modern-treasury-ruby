@@ -1,0 +1,40 @@
+module ModernTreasury
+  module Resources
+    class PaymentActions
+      def create: (
+        type: String,
+        ?actionable_id: String,
+        ?actionable_type: String,
+        ?details: top,
+        ?internal_account_id: String,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::PaymentActionCreateResponse
+
+      def retrieve: (
+        String id,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::PaymentActionRetrieveResponse
+
+      def update: (
+        String id,
+        status: ModernTreasury::Models::PaymentActionUpdateParams::status,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::PaymentActionUpdateResponse
+
+      def list: (
+        ?actionable_id: String,
+        ?actionable_type: String,
+        ?after_cursor: String?,
+        ?created_at: ModernTreasury::PaymentActionListParams::CreatedAt,
+        ?internal_account_id: String,
+        ?metadata: ::Hash[Symbol, String],
+        ?per_page: Integer,
+        ?status: ModernTreasury::Models::PaymentActionListParams::status,
+        ?type: ModernTreasury::Models::PaymentActionListParams::type_,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::PaymentActionListResponse]
+
+      def initialize: (client: ModernTreasury::Client) -> void
+    end
+  end
+end
