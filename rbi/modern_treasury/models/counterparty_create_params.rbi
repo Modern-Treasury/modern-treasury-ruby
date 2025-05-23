@@ -625,9 +625,19 @@ module ModernTreasury
                 :au_number,
                 ModernTreasury::CounterpartyCreateParams::Account::AccountDetail::AccountNumberType::TaggedSymbol
               )
+            BASE_ADDRESS =
+              T.let(
+                :base_address,
+                ModernTreasury::CounterpartyCreateParams::Account::AccountDetail::AccountNumberType::TaggedSymbol
+              )
             CLABE =
               T.let(
                 :clabe,
+                ModernTreasury::CounterpartyCreateParams::Account::AccountDetail::AccountNumberType::TaggedSymbol
+              )
+            ETHEREUM_ADDRESS =
+              T.let(
+                :ethereum_address,
                 ModernTreasury::CounterpartyCreateParams::Account::AccountDetail::AccountNumberType::TaggedSymbol
               )
             HK_NUMBER =
@@ -660,9 +670,19 @@ module ModernTreasury
                 :pan,
                 ModernTreasury::CounterpartyCreateParams::Account::AccountDetail::AccountNumberType::TaggedSymbol
               )
+            POLYGON_ADDRESS =
+              T.let(
+                :polygon_address,
+                ModernTreasury::CounterpartyCreateParams::Account::AccountDetail::AccountNumberType::TaggedSymbol
+              )
             SG_NUMBER =
               T.let(
                 :sg_number,
+                ModernTreasury::CounterpartyCreateParams::Account::AccountDetail::AccountNumberType::TaggedSymbol
+              )
+            SOLANA_ADDRESS =
+              T.let(
+                :solana_address,
                 ModernTreasury::CounterpartyCreateParams::Account::AccountDetail::AccountNumberType::TaggedSymbol
               )
             WALLET_ADDRESS =
@@ -1296,6 +1316,11 @@ module ModernTreasury
                 :bacs,
                 ModernTreasury::CounterpartyCreateParams::Account::RoutingDetail::PaymentType::TaggedSymbol
               )
+            BASE =
+              T.let(
+                :base,
+                ModernTreasury::CounterpartyCreateParams::Account::RoutingDetail::PaymentType::TaggedSymbol
+              )
             BOOK =
               T.let(
                 :book,
@@ -1329,6 +1354,11 @@ module ModernTreasury
             EFT =
               T.let(
                 :eft,
+                ModernTreasury::CounterpartyCreateParams::Account::RoutingDetail::PaymentType::TaggedSymbol
+              )
+            ETHEREUM =
+              T.let(
+                :ethereum,
                 ModernTreasury::CounterpartyCreateParams::Account::RoutingDetail::PaymentType::TaggedSymbol
               )
             HU_ICS =
@@ -1369,6 +1399,11 @@ module ModernTreasury
             PL_ELIXIR =
               T.let(
                 :pl_elixir,
+                ModernTreasury::CounterpartyCreateParams::Account::RoutingDetail::PaymentType::TaggedSymbol
+              )
+            POLYGON =
+              T.let(
+                :polygon,
                 ModernTreasury::CounterpartyCreateParams::Account::RoutingDetail::PaymentType::TaggedSymbol
               )
             PROVXCHANGE =
@@ -1419,6 +1454,11 @@ module ModernTreasury
             SKNBI =
               T.let(
                 :sknbi,
+                ModernTreasury::CounterpartyCreateParams::Account::RoutingDetail::PaymentType::TaggedSymbol
+              )
+            SOLANA =
+              T.let(
+                :solana,
                 ModernTreasury::CounterpartyCreateParams::Account::RoutingDetail::PaymentType::TaggedSymbol
               )
             WIRE =
@@ -2085,17 +2125,28 @@ module ModernTreasury
           end
           attr_accessor :id_type
 
+          # The date when the Identification is no longer considered valid by the issuing
+          # authority.
+          sig { returns(T.nilable(Date)) }
+          attr_accessor :expiration_date
+
           # The ISO 3166-1 alpha-2 country code of the country that issued the
           # identification
           sig { returns(T.nilable(String)) }
           attr_accessor :issuing_country
+
+          # The region in which the identifcation was issued.
+          sig { returns(T.nilable(String)) }
+          attr_accessor :issuing_region
 
           sig do
             params(
               id_number: String,
               id_type:
                 ModernTreasury::CounterpartyCreateParams::LegalEntity::Identification::IDType::OrSymbol,
-              issuing_country: T.nilable(String)
+              expiration_date: T.nilable(Date),
+              issuing_country: T.nilable(String),
+              issuing_region: T.nilable(String)
             ).returns(T.attached_class)
           end
           def self.new(
@@ -2103,9 +2154,14 @@ module ModernTreasury
             id_number:,
             # The type of ID number.
             id_type:,
+            # The date when the Identification is no longer considered valid by the issuing
+            # authority.
+            expiration_date: nil,
             # The ISO 3166-1 alpha-2 country code of the country that issued the
             # identification
-            issuing_country: nil
+            issuing_country: nil,
+            # The region in which the identifcation was issued.
+            issuing_region: nil
           )
           end
 
@@ -2115,7 +2171,9 @@ module ModernTreasury
                 id_number: String,
                 id_type:
                   ModernTreasury::CounterpartyCreateParams::LegalEntity::Identification::IDType::OrSymbol,
-                issuing_country: T.nilable(String)
+                expiration_date: T.nilable(Date),
+                issuing_country: T.nilable(String),
+                issuing_region: T.nilable(String)
               }
             )
           end
@@ -2173,6 +2231,11 @@ module ModernTreasury
             CO_NIT =
               T.let(
                 :co_nit,
+                ModernTreasury::CounterpartyCreateParams::LegalEntity::Identification::IDType::TaggedSymbol
+              )
+            DRIVERS_LICENSE =
+              T.let(
+                :drivers_license,
                 ModernTreasury::CounterpartyCreateParams::LegalEntity::Identification::IDType::TaggedSymbol
               )
             HN_ID =
@@ -2946,17 +3009,28 @@ module ModernTreasury
               end
               attr_accessor :id_type
 
+              # The date when the Identification is no longer considered valid by the issuing
+              # authority.
+              sig { returns(T.nilable(Date)) }
+              attr_accessor :expiration_date
+
               # The ISO 3166-1 alpha-2 country code of the country that issued the
               # identification
               sig { returns(T.nilable(String)) }
               attr_accessor :issuing_country
+
+              # The region in which the identifcation was issued.
+              sig { returns(T.nilable(String)) }
+              attr_accessor :issuing_region
 
               sig do
                 params(
                   id_number: String,
                   id_type:
                     ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol,
-                  issuing_country: T.nilable(String)
+                  expiration_date: T.nilable(Date),
+                  issuing_country: T.nilable(String),
+                  issuing_region: T.nilable(String)
                 ).returns(T.attached_class)
               end
               def self.new(
@@ -2964,9 +3038,14 @@ module ModernTreasury
                 id_number:,
                 # The type of ID number.
                 id_type:,
+                # The date when the Identification is no longer considered valid by the issuing
+                # authority.
+                expiration_date: nil,
                 # The ISO 3166-1 alpha-2 country code of the country that issued the
                 # identification
-                issuing_country: nil
+                issuing_country: nil,
+                # The region in which the identifcation was issued.
+                issuing_region: nil
               )
               end
 
@@ -2976,7 +3055,9 @@ module ModernTreasury
                     id_number: String,
                     id_type:
                       ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol,
-                    issuing_country: T.nilable(String)
+                    expiration_date: T.nilable(Date),
+                    issuing_country: T.nilable(String),
+                    issuing_region: T.nilable(String)
                   }
                 )
               end
@@ -3034,6 +3115,11 @@ module ModernTreasury
                 CO_NIT =
                   T.let(
                     :co_nit,
+                    ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
+                  )
+                DRIVERS_LICENSE =
+                  T.let(
+                    :drivers_license,
                     ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
                   )
                 HN_ID =

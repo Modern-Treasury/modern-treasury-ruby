@@ -280,9 +280,19 @@ module ModernTreasury
               :au_number,
               ModernTreasury::VirtualAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
             )
+          BASE_ADDRESS =
+            T.let(
+              :base_address,
+              ModernTreasury::VirtualAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
+            )
           CLABE =
             T.let(
               :clabe,
+              ModernTreasury::VirtualAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
+            )
+          ETHEREUM_ADDRESS =
+            T.let(
+              :ethereum_address,
               ModernTreasury::VirtualAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
             )
           HK_NUMBER =
@@ -315,9 +325,19 @@ module ModernTreasury
               :pan,
               ModernTreasury::VirtualAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
             )
+          POLYGON_ADDRESS =
+            T.let(
+              :polygon_address,
+              ModernTreasury::VirtualAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
+            )
           SG_NUMBER =
             T.let(
               :sg_number,
+              ModernTreasury::VirtualAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
+            )
+          SOLANA_ADDRESS =
+            T.let(
+              :solana_address,
               ModernTreasury::VirtualAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
             )
           WALLET_ADDRESS =
@@ -765,6 +785,11 @@ module ModernTreasury
               :bacs,
               ModernTreasury::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
             )
+          BASE =
+            T.let(
+              :base,
+              ModernTreasury::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
+            )
           BOOK =
             T.let(
               :book,
@@ -798,6 +823,11 @@ module ModernTreasury
           EFT =
             T.let(
               :eft,
+              ModernTreasury::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
+            )
+          ETHEREUM =
+            T.let(
+              :ethereum,
               ModernTreasury::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
             )
           HU_ICS =
@@ -838,6 +868,11 @@ module ModernTreasury
           PL_ELIXIR =
             T.let(
               :pl_elixir,
+              ModernTreasury::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
+            )
+          POLYGON =
+            T.let(
+              :polygon,
               ModernTreasury::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
             )
           PROVXCHANGE =
@@ -888,6 +923,11 @@ module ModernTreasury
           SKNBI =
             T.let(
               :sknbi,
+              ModernTreasury::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
+            )
+          SOLANA =
+            T.let(
+              :solana,
               ModernTreasury::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
             )
           WIRE =

@@ -158,6 +158,7 @@ module ModernTreasury
         | :expected_payment
         | :transaction
         | :entity_link
+        | :transaction_line_item
         | :bulk_error
 
       module EntityType
@@ -169,6 +170,7 @@ module ModernTreasury
         EXPECTED_PAYMENT: :expected_payment
         TRANSACTION: :transaction
         ENTITY_LINK: :entity_link
+        TRANSACTION_LINE_ITEM: :transaction_line_item
         BULK_ERROR: :bulk_error
 
         def self?.values: -> ::Array[ModernTreasury::Models::BulkResult::entity_type]

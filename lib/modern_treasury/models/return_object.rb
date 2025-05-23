@@ -47,6 +47,11 @@ module ModernTreasury
       #   @return [Date, nil]
       required :date_of_death, Date, nil?: true
 
+      # @!attribute discarded_at
+      #
+      #   @return [Time, nil]
+      required :discarded_at, Time, nil?: true
+
       # @!attribute failure_reason
       #   If an originating return failed to be processed by the bank, a description of
       #   the failure reason will be available.
@@ -153,7 +158,7 @@ module ModernTreasury
       #   @return [Object, nil]
       optional :data, ModernTreasury::Internal::Type::Unknown, nil?: true
 
-      # @!method initialize(id:, amount:, code:, created_at:, currency:, current_return:, date_of_death:, failure_reason:, internal_account_id:, ledger_transaction_id:, live_mode:, object:, reason:, reference_numbers:, returnable_id:, returnable_type:, role:, status:, transaction_id:, transaction_line_item_id:, type:, updated_at:, additional_information: nil, data: nil)
+      # @!method initialize(id:, amount:, code:, created_at:, currency:, current_return:, date_of_death:, discarded_at:, failure_reason:, internal_account_id:, ledger_transaction_id:, live_mode:, object:, reason:, reference_numbers:, returnable_id:, returnable_type:, role:, status:, transaction_id:, transaction_line_item_id:, type:, updated_at:, additional_information: nil, data: nil)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::ReturnObject} for more details.
       #
@@ -170,6 +175,8 @@ module ModernTreasury
       #   @param current_return [ModernTreasury::Models::ReturnObject, nil] If the return's status is `returned`, this will include the return object's data
       #
       #   @param date_of_death [Date, nil] If the return code is `R14` or `R15` this is the date the deceased counterparty
+      #
+      #   @param discarded_at [Time, nil]
       #
       #   @param failure_reason [String, nil] If an originating return failed to be processed by the bank, a description of th
       #
@@ -245,24 +252,64 @@ module ModernTreasury
         R10 = :R10
         R11 = :R11
         R12 = :R12
+        R13 = :R13
         R14 = :R14
         R15 = :R15
         R16 = :R16
         R17 = :R17
+        R18 = :R18
+        R19 = :R19
         R20 = :R20
         R21 = :R21
         R22 = :R22
         R23 = :R23
         R24 = :R24
+        R25 = :R25
+        R26 = :R26
+        R27 = :R27
+        R28 = :R28
         R29 = :R29
+        R30 = :R30
         R31 = :R31
+        R32 = :R32
         R33 = :R33
+        R34 = :R34
+        R35 = :R35
+        R36 = :R36
         R37 = :R37
         R38 = :R38
         R39 = :R39
+        R40 = :R40
+        R41 = :R41
+        R42 = :R42
+        R43 = :R43
+        R44 = :R44
+        R45 = :R45
+        R46 = :R46
+        R47 = :R47
+        R50 = :R50
         R51 = :R51
         R52 = :R52
         R53 = :R53
+        R61 = :R61
+        R62 = :R62
+        R67 = :R67
+        R68 = :R68
+        R69 = :R69
+        R70 = :R70
+        R71 = :R71
+        R72 = :R72
+        R73 = :R73
+        R74 = :R74
+        R75 = :R75
+        R76 = :R76
+        R77 = :R77
+        R80 = :R80
+        R81 = :R81
+        R82 = :R82
+        R83 = :R83
+        R84 = :R84
+        R85 = :R85
         CURRENCYCLOUD = :currencycloud
 
         # @!method self.values
@@ -342,6 +389,10 @@ module ModernTreasury
           BNK_DEV_TRANSFER_ID = :bnk_dev_transfer_id
           BOFA_END_TO_END_ID = :bofa_end_to_end_id
           BOFA_TRANSACTION_ID = :bofa_transaction_id
+          BRALE_TRANSFER_ID = :brale_transfer_id
+          BRIDGE_DESTINATION_TRANSACTION_HASH = :bridge_destination_transaction_hash
+          BRIDGE_SOURCE_TRANSACTION_HASH = :bridge_source_transaction_hash
+          BRIDGE_TRANSFER_ID = :bridge_transfer_id
           CHECK_NUMBER = :check_number
           CITIBANK_REFERENCE_NUMBER = :citibank_reference_number
           CITIBANK_WORLDLINK_CLEARING_SYSTEM_REFERENCE_NUMBER =

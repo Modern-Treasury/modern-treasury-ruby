@@ -210,6 +210,8 @@ module ModernTreasury
           T.let(:R11, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
         R12 =
           T.let(:R12, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R13 =
+          T.let(:R13, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
         R14 =
           T.let(:R14, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
         R15 =
@@ -218,6 +220,10 @@ module ModernTreasury
           T.let(:R16, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
         R17 =
           T.let(:R17, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R18 =
+          T.let(:R18, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R19 =
+          T.let(:R19, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
         R20 =
           T.let(:R20, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
         R21 =
@@ -228,24 +234,98 @@ module ModernTreasury
           T.let(:R23, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
         R24 =
           T.let(:R24, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R25 =
+          T.let(:R25, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R26 =
+          T.let(:R26, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R27 =
+          T.let(:R27, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R28 =
+          T.let(:R28, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
         R29 =
           T.let(:R29, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R30 =
+          T.let(:R30, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
         R31 =
           T.let(:R31, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R32 =
+          T.let(:R32, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
         R33 =
           T.let(:R33, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R34 =
+          T.let(:R34, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R35 =
+          T.let(:R35, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R36 =
+          T.let(:R36, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
         R37 =
           T.let(:R37, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
         R38 =
           T.let(:R38, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
         R39 =
           T.let(:R39, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R40 =
+          T.let(:R40, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R41 =
+          T.let(:R41, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R42 =
+          T.let(:R42, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R43 =
+          T.let(:R43, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R44 =
+          T.let(:R44, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R45 =
+          T.let(:R45, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R46 =
+          T.let(:R46, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R47 =
+          T.let(:R47, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R50 =
+          T.let(:R50, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
         R51 =
           T.let(:R51, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
         R52 =
           T.let(:R52, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
         R53 =
           T.let(:R53, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R61 =
+          T.let(:R61, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R62 =
+          T.let(:R62, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R67 =
+          T.let(:R67, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R68 =
+          T.let(:R68, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R69 =
+          T.let(:R69, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R70 =
+          T.let(:R70, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R71 =
+          T.let(:R71, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R72 =
+          T.let(:R72, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R73 =
+          T.let(:R73, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R74 =
+          T.let(:R74, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R75 =
+          T.let(:R75, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R76 =
+          T.let(:R76, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R77 =
+          T.let(:R77, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R80 =
+          T.let(:R80, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R81 =
+          T.let(:R81, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R82 =
+          T.let(:R82, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R83 =
+          T.let(:R83, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R84 =
+          T.let(:R84, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
+        R85 =
+          T.let(:R85, ModernTreasury::ReturnCreateParams::Code::TaggedSymbol)
         CURRENCYCLOUD =
           T.let(
             :currencycloud,

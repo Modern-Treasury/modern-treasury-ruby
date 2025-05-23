@@ -204,6 +204,8 @@ module ModernTreasury
           per_page: Integer,
           status: ModernTreasury::ExpectedPaymentListParams::Status::OrSymbol,
           type: ModernTreasury::ExpectedPaymentListParams::Type::OrSymbol,
+          updated_at_lower_bound: Time,
+          updated_at_upper_bound: Time,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(
           ModernTreasury::Internal::Page[ModernTreasury::ExpectedPayment]
@@ -231,6 +233,10 @@ module ModernTreasury
         # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
         # sepa, signet, wire
         type: nil,
+        # Used to return expected payments updated after some datetime
+        updated_at_lower_bound: nil,
+        # Used to return expected payments updated before some datetime
+        updated_at_upper_bound: nil,
         request_options: {}
       )
       end

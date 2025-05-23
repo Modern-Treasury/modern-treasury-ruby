@@ -195,6 +195,11 @@ module ModernTreasury
             :transaction,
             ModernTreasury::BulkRequestCreateParams::ResourceType::TaggedSymbol
           )
+        TRANSACTION_LINE_ITEM =
+          T.let(
+            :transaction_line_item,
+            ModernTreasury::BulkRequestCreateParams::ResourceType::TaggedSymbol
+          )
         ENTITY_LINK =
           T.let(
             :entity_link,
@@ -1842,9 +1847,19 @@ module ModernTreasury
                     :au_number,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
                   )
+                BASE_ADDRESS =
+                  T.let(
+                    :base_address,
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
+                  )
                 CLABE =
                   T.let(
                     :clabe,
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
+                  )
+                ETHEREUM_ADDRESS =
+                  T.let(
+                    :ethereum_address,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
                   )
                 HK_NUMBER =
@@ -1877,9 +1892,19 @@ module ModernTreasury
                     :pan,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
                   )
+                POLYGON_ADDRESS =
+                  T.let(
+                    :polygon_address,
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
+                  )
                 SG_NUMBER =
                   T.let(
                     :sg_number,
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
+                  )
+                SOLANA_ADDRESS =
+                  T.let(
+                    :solana_address,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
                   )
                 WALLET_ADDRESS =
@@ -2522,6 +2547,11 @@ module ModernTreasury
                     :bacs,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
                   )
+                BASE =
+                  T.let(
+                    :base,
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                  )
                 BOOK =
                   T.let(
                     :book,
@@ -2555,6 +2585,11 @@ module ModernTreasury
                 EFT =
                   T.let(
                     :eft,
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                  )
+                ETHEREUM =
+                  T.let(
+                    :ethereum,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
                   )
                 HU_ICS =
@@ -2595,6 +2630,11 @@ module ModernTreasury
                 PL_ELIXIR =
                   T.let(
                     :pl_elixir,
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                  )
+                POLYGON =
+                  T.let(
+                    :polygon,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
                   )
                 PROVXCHANGE =
@@ -2645,6 +2685,11 @@ module ModernTreasury
                 SKNBI =
                   T.let(
                     :sknbi,
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                  )
+                SOLANA =
+                  T.let(
+                    :solana,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
                   )
                 WIRE =
@@ -4032,6 +4077,11 @@ module ModernTreasury
                 :bacs,
                 ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
               )
+            BASE =
+              T.let(
+                :base,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
             BOOK =
               T.let(
                 :book,
@@ -4065,6 +4115,11 @@ module ModernTreasury
             EFT =
               T.let(
                 :eft,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            ETHEREUM =
+              T.let(
+                :ethereum,
                 ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
               )
             HU_ICS =
@@ -4105,6 +4160,11 @@ module ModernTreasury
             PL_ELIXIR =
               T.let(
                 :pl_elixir,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            POLYGON =
+              T.let(
+                :polygon,
                 ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
               )
             PROVXCHANGE =
@@ -4155,6 +4215,11 @@ module ModernTreasury
             SKNBI =
               T.let(
                 :sknbi,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            SOLANA =
+              T.let(
+                :solana,
                 ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
               )
             WIRE =
@@ -5431,9 +5496,19 @@ module ModernTreasury
                     :au_number,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
                   )
+                BASE_ADDRESS =
+                  T.let(
+                    :base_address,
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
+                  )
                 CLABE =
                   T.let(
                     :clabe,
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
+                  )
+                ETHEREUM_ADDRESS =
+                  T.let(
+                    :ethereum_address,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
                   )
                 HK_NUMBER =
@@ -5466,9 +5541,19 @@ module ModernTreasury
                     :pan,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
                   )
+                POLYGON_ADDRESS =
+                  T.let(
+                    :polygon_address,
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
+                  )
                 SG_NUMBER =
                   T.let(
                     :sg_number,
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
+                  )
+                SOLANA_ADDRESS =
+                  T.let(
+                    :solana_address,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
                   )
                 WALLET_ADDRESS =
@@ -6111,6 +6196,11 @@ module ModernTreasury
                     :bacs,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
                   )
+                BASE =
+                  T.let(
+                    :base,
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                  )
                 BOOK =
                   T.let(
                     :book,
@@ -6144,6 +6234,11 @@ module ModernTreasury
                 EFT =
                   T.let(
                     :eft,
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                  )
+                ETHEREUM =
+                  T.let(
+                    :ethereum,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
                   )
                 HU_ICS =
@@ -6184,6 +6279,11 @@ module ModernTreasury
                 PL_ELIXIR =
                   T.let(
                     :pl_elixir,
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                  )
+                POLYGON =
+                  T.let(
+                    :polygon,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
                   )
                 PROVXCHANGE =
@@ -6234,6 +6334,11 @@ module ModernTreasury
                 SKNBI =
                   T.let(
                     :sknbi,
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                  )
+                SOLANA =
+                  T.let(
+                    :solana,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
                   )
                 WIRE =

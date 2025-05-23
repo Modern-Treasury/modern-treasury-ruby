@@ -217,6 +217,11 @@ module ModernTreasury
           end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
+        BASE_WALLET =
+          T.let(
+            :base_wallet,
+            ModernTreasury::InternalAccount::AccountType::TaggedSymbol
+          )
         CASH =
           T.let(
             :cash,
@@ -225,6 +230,16 @@ module ModernTreasury
         CHECKING =
           T.let(
             :checking,
+            ModernTreasury::InternalAccount::AccountType::TaggedSymbol
+          )
+        CRYPTO_WALLET =
+          T.let(
+            :crypto_wallet,
+            ModernTreasury::InternalAccount::AccountType::TaggedSymbol
+          )
+        ETHEREUM_WALLET =
+          T.let(
+            :ethereum_wallet,
             ModernTreasury::InternalAccount::AccountType::TaggedSymbol
           )
         GENERAL_LEDGER =
@@ -252,9 +267,19 @@ module ModernTreasury
             :overdraft,
             ModernTreasury::InternalAccount::AccountType::TaggedSymbol
           )
+        POLYGON_WALLET =
+          T.let(
+            :polygon_wallet,
+            ModernTreasury::InternalAccount::AccountType::TaggedSymbol
+          )
         SAVINGS =
           T.let(
             :savings,
+            ModernTreasury::InternalAccount::AccountType::TaggedSymbol
+          )
+        SOLANA_WALLET =
+          T.let(
+            :solana_wallet,
             ModernTreasury::InternalAccount::AccountType::TaggedSymbol
           )
 

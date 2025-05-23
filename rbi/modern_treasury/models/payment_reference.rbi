@@ -160,6 +160,26 @@ module ModernTreasury
             :bofa_transaction_id,
             ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
           )
+        BRALE_TRANSFER_ID =
+          T.let(
+            :brale_transfer_id,
+            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
+          )
+        BRIDGE_DESTINATION_TRANSACTION_HASH =
+          T.let(
+            :bridge_destination_transaction_hash,
+            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
+          )
+        BRIDGE_SOURCE_TRANSACTION_HASH =
+          T.let(
+            :bridge_source_transaction_hash,
+            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
+          )
+        BRIDGE_TRANSFER_ID =
+          T.let(
+            :bridge_transfer_id,
+            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
+          )
         CHECK_NUMBER =
           T.let(
             :check_number,

@@ -32,6 +32,13 @@ module ModernTreasury
       #   @return [String]
       required :party_name, String
 
+      # @!attribute account_type
+      #   The account type, used to provision the appropriate account at the financial
+      #   institution.
+      #
+      #   @return [Symbol, ModernTreasury::Models::InternalAccountCreateParams::AccountType, nil]
+      optional :account_type, enum: -> { ModernTreasury::InternalAccountCreateParams::AccountType }
+
       # @!attribute counterparty_id
       #   The Counterparty associated to this account.
       #
@@ -63,7 +70,7 @@ module ModernTreasury
       #   @return [Hash{Symbol=>String}, nil]
       optional :vendor_attributes, ModernTreasury::Internal::Type::HashOf[String]
 
-      # @!method initialize(connection_id:, currency:, name:, party_name:, counterparty_id: nil, legal_entity_id: nil, parent_account_id: nil, party_address: nil, vendor_attributes: nil, request_options: {})
+      # @!method initialize(connection_id:, currency:, name:, party_name:, account_type: nil, counterparty_id: nil, legal_entity_id: nil, parent_account_id: nil, party_address: nil, vendor_attributes: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::InternalAccountCreateParams} for more details.
       #
@@ -74,6 +81,8 @@ module ModernTreasury
       #   @param name [String] The nickname of the account.
       #
       #   @param party_name [String] The legal name of the entity which owns the account.
+      #
+      #   @param account_type [Symbol, ModernTreasury::Models::InternalAccountCreateParams::AccountType] The account type, used to provision the appropriate account at the financial ins
       #
       #   @param counterparty_id [String] The Counterparty associated to this account.
       #
@@ -94,6 +103,29 @@ module ModernTreasury
 
         USD = :USD
         CAD = :CAD
+
+        # @!method self.values
+        #   @return [Array<Symbol>]
+      end
+
+      # The account type, used to provision the appropriate account at the financial
+      # institution.
+      module AccountType
+        extend ModernTreasury::Internal::Type::Enum
+
+        BASE_WALLET = :base_wallet
+        CASH = :cash
+        CHECKING = :checking
+        CRYPTO_WALLET = :crypto_wallet
+        ETHEREUM_WALLET = :ethereum_wallet
+        GENERAL_LEDGER = :general_ledger
+        LOAN = :loan
+        NON_RESIDENT = :non_resident
+        OTHER = :other
+        OVERDRAFT = :overdraft
+        POLYGON_WALLET = :polygon_wallet
+        SAVINGS = :savings
+        SOLANA_WALLET = :solana_wallet
 
         # @!method self.values
         #   @return [Array<Symbol>]

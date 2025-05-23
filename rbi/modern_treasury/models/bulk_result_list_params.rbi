@@ -181,6 +181,11 @@ module ModernTreasury
             :entity_link,
             ModernTreasury::BulkResultListParams::EntityType::TaggedSymbol
           )
+        TRANSACTION_LINE_ITEM =
+          T.let(
+            :transaction_line_item,
+            ModernTreasury::BulkResultListParams::EntityType::TaggedSymbol
+          )
         BULK_ERROR =
           T.let(
             :bulk_error,

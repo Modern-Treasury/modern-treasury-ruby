@@ -35,6 +35,10 @@ module ModernTreasury
         sig { returns(String) }
         attr_accessor :direction
 
+        # The ID of the invoice for this line item.
+        sig { returns(String) }
+        attr_accessor :invoice_id
+
         # This field will be true if this object exists in the live environment or false
         # if it exists in the test environment.
         sig { returns(T::Boolean) }
@@ -78,6 +82,7 @@ module ModernTreasury
             created_at: Time,
             description: String,
             direction: String,
+            invoice_id: String,
             live_mode: T::Boolean,
             metadata: T::Hash[Symbol, String],
             name: String,
@@ -100,6 +105,8 @@ module ModernTreasury
           # money and increases the invoice's `total_amount` due. `credit` has the opposite
           # intention and effect.
           direction:,
+          # The ID of the invoice for this line item.
+          invoice_id:,
           # This field will be true if this object exists in the live environment or false
           # if it exists in the test environment.
           live_mode:,
@@ -131,6 +138,7 @@ module ModernTreasury
               created_at: Time,
               description: String,
               direction: String,
+              invoice_id: String,
               live_mode: T::Boolean,
               metadata: T::Hash[Symbol, String],
               name: String,

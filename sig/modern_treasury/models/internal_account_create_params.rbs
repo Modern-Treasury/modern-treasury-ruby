@@ -6,6 +6,7 @@ module ModernTreasury
         currency: ModernTreasury::Models::InternalAccountCreateParams::currency,
         name: String,
         party_name: String,
+        account_type: ModernTreasury::Models::InternalAccountCreateParams::account_type,
         counterparty_id: String,
         legal_entity_id: String,
         parent_account_id: String,
@@ -25,6 +26,12 @@ module ModernTreasury
       attr_accessor name: String
 
       attr_accessor party_name: String
+
+      attr_reader account_type: ModernTreasury::Models::InternalAccountCreateParams::account_type?
+
+      def account_type=: (
+        ModernTreasury::Models::InternalAccountCreateParams::account_type
+      ) -> ModernTreasury::Models::InternalAccountCreateParams::account_type
 
       attr_reader counterparty_id: String?
 
@@ -53,6 +60,7 @@ module ModernTreasury
         currency: ModernTreasury::Models::InternalAccountCreateParams::currency,
         name: String,
         party_name: String,
+        ?account_type: ModernTreasury::Models::InternalAccountCreateParams::account_type,
         ?counterparty_id: String,
         ?legal_entity_id: String,
         ?parent_account_id: String,
@@ -66,6 +74,7 @@ module ModernTreasury
         currency: ModernTreasury::Models::InternalAccountCreateParams::currency,
         name: String,
         party_name: String,
+        account_type: ModernTreasury::Models::InternalAccountCreateParams::account_type,
         counterparty_id: String,
         legal_entity_id: String,
         parent_account_id: String,
@@ -83,6 +92,41 @@ module ModernTreasury
         CAD: :CAD
 
         def self?.values: -> ::Array[ModernTreasury::Models::InternalAccountCreateParams::currency]
+      end
+
+      type account_type =
+        :base_wallet
+        | :cash
+        | :checking
+        | :crypto_wallet
+        | :ethereum_wallet
+        | :general_ledger
+        | :loan
+        | :non_resident
+        | :other
+        | :overdraft
+        | :polygon_wallet
+        | :savings
+        | :solana_wallet
+
+      module AccountType
+        extend ModernTreasury::Internal::Type::Enum
+
+        BASE_WALLET: :base_wallet
+        CASH: :cash
+        CHECKING: :checking
+        CRYPTO_WALLET: :crypto_wallet
+        ETHEREUM_WALLET: :ethereum_wallet
+        GENERAL_LEDGER: :general_ledger
+        LOAN: :loan
+        NON_RESIDENT: :non_resident
+        OTHER: :other
+        OVERDRAFT: :overdraft
+        POLYGON_WALLET: :polygon_wallet
+        SAVINGS: :savings
+        SOLANA_WALLET: :solana_wallet
+
+        def self?.values: -> ::Array[ModernTreasury::Models::InternalAccountCreateParams::account_type]
       end
 
       type party_address =
