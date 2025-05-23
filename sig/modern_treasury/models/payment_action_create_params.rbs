@@ -1,0 +1,54 @@
+module ModernTreasury
+  module Models
+    type payment_action_create_params =
+      {
+        type: String,
+        actionable_id: String,
+        actionable_type: String,
+        details: top,
+        internal_account_id: String
+      }
+      & ModernTreasury::Internal::Type::request_parameters
+
+    class PaymentActionCreateParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
+
+      attr_accessor type: String
+
+      attr_reader actionable_id: String?
+
+      def actionable_id=: (String) -> String
+
+      attr_reader actionable_type: String?
+
+      def actionable_type=: (String) -> String
+
+      attr_reader details: top?
+
+      def details=: (top) -> top
+
+      attr_reader internal_account_id: String?
+
+      def internal_account_id=: (String) -> String
+
+      def initialize: (
+        type: String,
+        ?actionable_id: String,
+        ?actionable_type: String,
+        ?details: top,
+        ?internal_account_id: String,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        type: String,
+        actionable_id: String,
+        actionable_type: String,
+        details: top,
+        internal_account_id: String,
+        request_options: ModernTreasury::RequestOptions
+      }
+    end
+  end
+end

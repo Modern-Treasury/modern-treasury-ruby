@@ -86,6 +86,8 @@ module ModernTreasury
 
     attr_reader legal_entity_associations: ModernTreasury::Resources::LegalEntityAssociations
 
+    attr_reader payment_actions: ModernTreasury::Resources::PaymentActions
+
     def ping: (
       ?request_options: ModernTreasury::request_opts
     ) -> ModernTreasury::PingResponse
