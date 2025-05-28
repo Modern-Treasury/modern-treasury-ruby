@@ -15,7 +15,7 @@ To use this gem, install via Bundler by adding the following to your application
 <!-- x-release-please-start-version -->
 
 ```ruby
-gem "modern_treasury", "~> 0.1.0.pre.alpha.20"
+gem "modern_treasury", "~> 0.1.0.pre.alpha.21"
 ```
 
 <!-- x-release-please-end -->
@@ -27,8 +27,8 @@ require "bundler/setup"
 require "modern_treasury"
 
 modern_treasury = ModernTreasury::Client.new(
-  organization_id: ENV["MODERN_TREASURY_ORGANIZATION_ID"], # This is the default and can be omitted
-  api_key: ENV["MODERN_TREASURY_API_KEY"] # This is the default and can be omitted
+  api_key: ENV["MODERN_TREASURY_API_KEY"], # This is the default and can be omitted
+  organization_id: ENV["MODERN_TREASURY_ORGANIZATION_ID"] # This is the default and can be omitted
 )
 
 counterparty = modern_treasury.counterparties.create(name: "my first counterparty")
