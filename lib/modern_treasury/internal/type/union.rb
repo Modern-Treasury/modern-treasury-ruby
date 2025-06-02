@@ -212,11 +212,16 @@ module ModernTreasury
         #
         # @return [Object]
         def to_sorbet_type
-          case (v = variants)
+          types = variants.map do
+            ModernTreasury::Internal::Util::SorbetRuntimeSupport.to_sorbet_type(_1)
+          end.uniq
+          case types
           in []
             T.noreturn
+          in [type]
+            type
           else
-            T.any(*v.map { ModernTreasury::Internal::Util::SorbetRuntimeSupport.to_sorbet_type(_1) })
+            T.any(*types)
           end
         end
 
