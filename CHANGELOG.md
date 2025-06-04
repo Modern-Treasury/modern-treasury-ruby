@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.1.0-alpha.21 (2025-06-04)
+
+Full Changelog: [v0.1.0-alpha.20...v0.1.0-alpha.21](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.20...v0.1.0-alpha.21)
+
+### Bug Fixes
+
+* `to_sorbet_type` should not return branded types ([64e22b2](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/64e22b2126f3da851a7b9dbe66b35ddf75f8720e))
+* default content-type for text in multi-part formdata uploads should be text/plain ([1ccbced](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/1ccbcedbc67024e305f42562b0e450dfa3c96580))
+* sorbet types for enums, and make tapioca detection ignore `tapioca dsl` ([8db30b1](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/8db30b16ce159a33ad0580b613f7c4d4f7064394))
+
+
+### Chores
+
+* **docs:** reorder client arguments ([f7efa80](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/f7efa807c5978616f167451d4968285bcb502555))
+
 ## 0.1.0-alpha.20 (2025-05-23)
 
 Full Changelog: [v0.1.0-alpha.19...v0.1.0-alpha.20](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.19...v0.1.0-alpha.20)
