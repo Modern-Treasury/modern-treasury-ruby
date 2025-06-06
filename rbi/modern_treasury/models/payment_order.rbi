@@ -1044,6 +1044,11 @@ module ModernTreasury
               :column_transfer_id,
               ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
+          CROSS_RIVER_FED_BATCH_ID =
+            T.let(
+              :cross_river_fed_batch_id,
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
           CROSS_RIVER_PAYMENT_ID =
             T.let(
               :cross_river_payment_id,
@@ -1072,11 +1077,6 @@ module ModernTreasury
           DC_BANK_TRANSACTION_ID =
             T.let(
               :dc_bank_transaction_id,
-              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
-            )
-          DWOLLA_TRANSACTION_ID =
-            T.let(
-              :dwolla_transaction_id,
               ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           EFT_TRACE_NUMBER =
@@ -1389,6 +1389,8 @@ module ModernTreasury
         REVERSED =
           T.let(:reversed, ModernTreasury::PaymentOrder::Status::TaggedSymbol)
         SENT = T.let(:sent, ModernTreasury::PaymentOrder::Status::TaggedSymbol)
+        STOPPED =
+          T.let(:stopped, ModernTreasury::PaymentOrder::Status::TaggedSymbol)
 
         sig do
           override.returns(

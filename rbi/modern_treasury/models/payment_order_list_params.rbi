@@ -337,6 +337,11 @@ module ModernTreasury
             :sent,
             ModernTreasury::PaymentOrderListParams::Status::TaggedSymbol
           )
+        STOPPED =
+          T.let(
+            :stopped,
+            ModernTreasury::PaymentOrderListParams::Status::TaggedSymbol
+          )
 
         sig do
           override.returns(

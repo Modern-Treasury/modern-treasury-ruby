@@ -46,7 +46,7 @@ module ModernTreasury
         #
         # @overload retrieve(id, internal_account_id:, request_options: {})
         #
-        # @param id [String] Either the unique identifier of the balance report or latest for the latest bala
+        # @param id [String, Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams::ID] Either the unique identifier of the balance report or 'latest' for the latest ba
         #
         # @param internal_account_id [String]
         #
@@ -112,7 +112,7 @@ module ModernTreasury
         #
         # @overload delete(id, internal_account_id:, request_options: {})
         #
-        # @param id [String] Either the unique identifier of the balance report or latest for the latest bala
+        # @param id [String] Either the unique identifier of the balance report or 'latest' for the latest ba
         #
         # @param internal_account_id [String]
         #
