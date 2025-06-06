@@ -7,6 +7,7 @@ module ModernTreasury
         created_at: Time,
         description: String?,
         discarded_at: Time?,
+        external_id: String?,
         ledger_id: String,
         live_mode: bool,
         metadata: ::Hash[Symbol, String],
@@ -26,6 +27,8 @@ module ModernTreasury
       attr_accessor description: String?
 
       attr_accessor discarded_at: Time?
+
+      attr_accessor external_id: String?
 
       attr_accessor ledger_id: String
 
@@ -47,6 +50,7 @@ module ModernTreasury
         created_at: Time,
         description: String?,
         discarded_at: Time?,
+        external_id: String?,
         ledger_id: String,
         live_mode: bool,
         metadata: ::Hash[Symbol, String],
@@ -62,6 +66,7 @@ module ModernTreasury
         created_at: Time,
         description: String?,
         discarded_at: Time?,
+        external_id: String?,
         ledger_id: String,
         live_mode: bool,
         metadata: ::Hash[Symbol, String],

@@ -16,6 +16,29 @@ module ModernTreasury
         # @!method initialize(internal_account_id:, request_options: {})
         #   @param internal_account_id [String]
         #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
+
+        module ID
+          extend ModernTreasury::Internal::Type::Union
+
+          variant String
+
+          variant const: -> { ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams::ID::LATEST }
+
+          # @!method self.variants
+          #   @return [Array(String, Symbol)]
+
+          define_sorbet_constant!(:Variants) do
+            T.type_alias do
+              T.any(String, ModernTreasury::InternalAccounts::BalanceReportRetrieveParams::ID::TaggedSymbol)
+            end
+          end
+
+          # @!group
+
+          LATEST = :latest
+
+          # @!endgroup
+        end
       end
     end
   end

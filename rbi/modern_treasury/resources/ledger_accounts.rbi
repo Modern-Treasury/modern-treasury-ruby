@@ -107,6 +107,7 @@ module ModernTreasury
           balances: ModernTreasury::LedgerAccountListParams::Balances::OrHash,
           created_at: T::Hash[Symbol, Time],
           currency: String,
+          external_id: String,
           ledger_account_category_id: String,
           ledger_id: String,
           metadata: T::Hash[Symbol, String],
@@ -139,6 +140,7 @@ module ModernTreasury
         # created_at%5Bgt%5D=2000-01-01T12:00:00Z.
         created_at: nil,
         currency: nil,
+        external_id: nil,
         ledger_account_category_id: nil,
         ledger_id: nil,
         # For example, if you want to query for records with metadata key `Type` and value

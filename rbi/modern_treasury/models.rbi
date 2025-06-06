@@ -200,14 +200,6 @@ module ModernTreasury
 
   Ledger = ModernTreasury::Models::Ledger
 
-  LedgerableEvent = ModernTreasury::Models::LedgerableEvent
-
-  LedgerableEventCreateParams =
-    ModernTreasury::Models::LedgerableEventCreateParams
-
-  LedgerableEventRetrieveParams =
-    ModernTreasury::Models::LedgerableEventRetrieveParams
-
   LedgerAccount = ModernTreasury::Models::LedgerAccount
 
   LedgerAccountBalanceMonitor =
@@ -301,23 +293,6 @@ module ModernTreasury
   LedgerEntryRetrieveParams = ModernTreasury::Models::LedgerEntryRetrieveParams
 
   LedgerEntryUpdateParams = ModernTreasury::Models::LedgerEntryUpdateParams
-
-  LedgerEventHandler = ModernTreasury::Models::LedgerEventHandler
-
-  LedgerEventHandlerCreateParams =
-    ModernTreasury::Models::LedgerEventHandlerCreateParams
-
-  LedgerEventHandlerDeleteParams =
-    ModernTreasury::Models::LedgerEventHandlerDeleteParams
-
-  LedgerEventHandlerListParams =
-    ModernTreasury::Models::LedgerEventHandlerListParams
-
-  LedgerEventHandlerRetrieveParams =
-    ModernTreasury::Models::LedgerEventHandlerRetrieveParams
-
-  LedgerEventHandlerVariable =
-    ModernTreasury::Models::LedgerEventHandlerVariable
 
   LedgerListParams = ModernTreasury::Models::LedgerListParams
 

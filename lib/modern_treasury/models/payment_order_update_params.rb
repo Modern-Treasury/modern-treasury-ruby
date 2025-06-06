@@ -982,6 +982,7 @@ module ModernTreasury
         RETURNED = :returned
         REVERSED = :reversed
         SENT = :sent
+        STOPPED = :stopped
 
         # @!method self.values
         #   @return [Array<Symbol>]

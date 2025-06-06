@@ -105,7 +105,7 @@ module ModernTreasury
       #
       # Get a list of ledger account categories.
       #
-      # @overload list(id: nil, after_cursor: nil, balances: nil, currency: nil, ledger_account_id: nil, ledger_id: nil, metadata: nil, name: nil, parent_ledger_account_category_id: nil, per_page: nil, request_options: {})
+      # @overload list(id: nil, after_cursor: nil, balances: nil, currency: nil, external_id: nil, ledger_account_id: nil, ledger_id: nil, metadata: nil, name: nil, parent_ledger_account_category_id: nil, per_page: nil, request_options: {})
       #
       # @param id [Array<String>] If you have specific IDs to retrieve in bulk, you can pass them as query paramet
       #
@@ -114,6 +114,8 @@ module ModernTreasury
       # @param balances [ModernTreasury::Models::LedgerAccountCategoryListParams::Balances] For example, if you want the balances as of a particular time (ISO8601), the enc
       #
       # @param currency [String]
+      #
+      # @param external_id [String]
       #
       # @param ledger_account_id [String] Query categories which contain a ledger account directly or through child catego
       #
