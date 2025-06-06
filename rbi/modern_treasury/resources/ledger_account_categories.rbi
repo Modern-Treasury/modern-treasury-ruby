@@ -92,6 +92,7 @@ module ModernTreasury
           balances:
             ModernTreasury::LedgerAccountCategoryListParams::Balances::OrHash,
           currency: String,
+          external_id: String,
           ledger_account_id: String,
           ledger_id: String,
           metadata: T::Hash[Symbol, String],
@@ -113,6 +114,7 @@ module ModernTreasury
         # The balances as of a time are inclusive of entries with that exact time.
         balances: nil,
         currency: nil,
+        external_id: nil,
         # Query categories which contain a ledger account directly or through child
         # categories.
         ledger_account_id: nil,

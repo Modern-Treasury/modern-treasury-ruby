@@ -70,6 +70,7 @@ module ModernTreasury
               ModernTreasury::PaymentOrder::OrHash,
               ModernTreasury::ExpectedPayment::OrHash,
               ModernTreasury::LedgerTransaction::OrHash,
+              ModernTreasury::LedgerAccount::OrHash,
               ModernTreasury::Transaction::OrHash,
               ModernTreasury::BulkResult::Entity::BulkError::OrHash
             ),
@@ -150,6 +151,7 @@ module ModernTreasury
               ModernTreasury::PaymentOrder,
               ModernTreasury::ExpectedPayment,
               ModernTreasury::LedgerTransaction,
+              ModernTreasury::LedgerAccount,
               ModernTreasury::Transaction,
               ModernTreasury::BulkResult::Entity::BulkError
             )

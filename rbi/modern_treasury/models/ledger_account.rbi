@@ -37,6 +37,10 @@ module ModernTreasury
       sig { returns(T.nilable(Time)) }
       attr_accessor :discarded_at
 
+      # An optional user-defined 180 character unique identifier.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :external_id
+
       # The id of the ledger that this account belongs to.
       sig { returns(String) }
       attr_accessor :ledger_id
@@ -91,6 +95,7 @@ module ModernTreasury
           created_at: Time,
           description: T.nilable(String),
           discarded_at: T.nilable(Time),
+          external_id: T.nilable(String),
           ledger_id: String,
           ledgerable_id: T.nilable(String),
           ledgerable_type:
@@ -116,6 +121,8 @@ module ModernTreasury
         # The description of the ledger account.
         description:,
         discarded_at:,
+        # An optional user-defined 180 character unique identifier.
+        external_id:,
         # The id of the ledger that this account belongs to.
         ledger_id:,
         # If the ledger account links to another object in Modern Treasury, the id will be
@@ -150,6 +157,7 @@ module ModernTreasury
             created_at: Time,
             description: T.nilable(String),
             discarded_at: T.nilable(Time),
+            external_id: T.nilable(String),
             ledger_id: String,
             ledgerable_id: T.nilable(String),
             ledgerable_type:

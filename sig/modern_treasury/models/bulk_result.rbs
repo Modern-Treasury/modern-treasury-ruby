@@ -75,6 +75,7 @@ module ModernTreasury
         ModernTreasury::PaymentOrder
         | ModernTreasury::ExpectedPayment
         | ModernTreasury::LedgerTransaction
+        | ModernTreasury::LedgerAccount
         | ModernTreasury::Transaction
         | ModernTreasury::BulkResult::Entity::BulkError
 

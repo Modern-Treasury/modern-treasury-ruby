@@ -52,6 +52,11 @@ module ModernTreasury
       #   @return [String, nil]
       optional :currency, String
 
+      # @!attribute external_id
+      #
+      #   @return [String, nil]
+      optional :external_id, String
+
       # @!attribute ledger_account_category_id
       #
       #   @return [String, nil]
@@ -104,7 +109,7 @@ module ModernTreasury
       #   @return [Hash{Symbol=>Time}, nil]
       optional :updated_at, ModernTreasury::Internal::Type::HashOf[Time]
 
-      # @!method initialize(id: nil, after_cursor: nil, available_balance_amount: nil, balances: nil, created_at: nil, currency: nil, ledger_account_category_id: nil, ledger_id: nil, metadata: nil, name: nil, pending_balance_amount: nil, per_page: nil, posted_balance_amount: nil, updated_at: nil, request_options: {})
+      # @!method initialize(id: nil, after_cursor: nil, available_balance_amount: nil, balances: nil, created_at: nil, currency: nil, external_id: nil, ledger_account_category_id: nil, ledger_id: nil, metadata: nil, name: nil, pending_balance_amount: nil, per_page: nil, posted_balance_amount: nil, updated_at: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LedgerAccountListParams} for more details.
       #
@@ -119,6 +124,8 @@ module ModernTreasury
       #   @param created_at [Hash{Symbol=>Time}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the cre
       #
       #   @param currency [String]
+      #
+      #   @param external_id [String]
       #
       #   @param ledger_account_category_id [String]
       #

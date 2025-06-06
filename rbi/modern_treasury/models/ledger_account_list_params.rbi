@@ -77,6 +77,12 @@ module ModernTreasury
       attr_writer :currency
 
       sig { returns(T.nilable(String)) }
+      attr_reader :external_id
+
+      sig { params(external_id: String).void }
+      attr_writer :external_id
+
+      sig { returns(T.nilable(String)) }
       attr_reader :ledger_account_category_id
 
       sig { params(ledger_account_category_id: String).void }
@@ -167,6 +173,7 @@ module ModernTreasury
           balances: ModernTreasury::LedgerAccountListParams::Balances::OrHash,
           created_at: T::Hash[Symbol, Time],
           currency: String,
+          external_id: String,
           ledger_account_category_id: String,
           ledger_id: String,
           metadata: T::Hash[Symbol, String],
@@ -199,6 +206,7 @@ module ModernTreasury
         # created_at%5Bgt%5D=2000-01-01T12:00:00Z.
         created_at: nil,
         currency: nil,
+        external_id: nil,
         ledger_account_category_id: nil,
         ledger_id: nil,
         # For example, if you want to query for records with metadata key `Type` and value
@@ -233,6 +241,7 @@ module ModernTreasury
             balances: ModernTreasury::LedgerAccountListParams::Balances,
             created_at: T::Hash[Symbol, Time],
             currency: String,
+            external_id: String,
             ledger_account_category_id: String,
             ledger_id: String,
             metadata: T::Hash[Symbol, String],
