@@ -20,6 +20,16 @@ module ModernTreasury
           internal_account_id: String,
           request_options: ModernTreasury::RequestOptions
         }
+
+        type id = String | :latest
+
+        module ID
+          extend ModernTreasury::Internal::Type::Union
+
+          def self?.variants: -> ::Array[ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams::id]
+
+          LATEST: :latest
+        end
       end
     end
   end

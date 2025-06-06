@@ -210,6 +210,11 @@ module ModernTreasury
             :column_transfer_id,
             ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
           )
+        CROSS_RIVER_FED_BATCH_ID =
+          T.let(
+            :cross_river_fed_batch_id,
+            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
+          )
         CROSS_RIVER_PAYMENT_ID =
           T.let(
             :cross_river_payment_id,
@@ -238,11 +243,6 @@ module ModernTreasury
         DC_BANK_TRANSACTION_ID =
           T.let(
             :dc_bank_transaction_id,
-            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
-          )
-        DWOLLA_TRANSACTION_ID =
-          T.let(
-            :dwolla_transaction_id,
             ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
           )
         EFT_TRACE_NUMBER =

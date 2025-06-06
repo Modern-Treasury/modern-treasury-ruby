@@ -37,13 +37,17 @@ module ModernTreasury
         # Get a single balance report for a given internal account.
         sig do
           params(
-            id: String,
+            id:
+              T.any(
+                String,
+                ModernTreasury::InternalAccounts::BalanceReportRetrieveParams::ID::OrSymbol
+              ),
             internal_account_id: String,
             request_options: ModernTreasury::RequestOptions::OrHash
           ).returns(ModernTreasury::InternalAccounts::BalanceReport)
         end
         def retrieve(
-          # Either the unique identifier of the balance report or latest for the latest
+          # Either the unique identifier of the balance report or 'latest' for the latest
           # balance report.
           id,
           internal_account_id:,
@@ -89,7 +93,7 @@ module ModernTreasury
           ).void
         end
         def delete(
-          # Either the unique identifier of the balance report or latest for the latest
+          # Either the unique identifier of the balance report or 'latest' for the latest
           # balance report.
           id,
           internal_account_id:,

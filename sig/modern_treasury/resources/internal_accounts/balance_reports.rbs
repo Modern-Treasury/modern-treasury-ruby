@@ -12,7 +12,7 @@ module ModernTreasury
         ) -> ModernTreasury::InternalAccounts::BalanceReport
 
         def retrieve: (
-          String id,
+          ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams::id id,
           internal_account_id: String,
           ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::InternalAccounts::BalanceReport

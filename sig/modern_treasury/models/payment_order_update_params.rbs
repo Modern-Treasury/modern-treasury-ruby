@@ -856,6 +856,7 @@ module ModernTreasury
         | :returned
         | :reversed
         | :sent
+        | :stopped
 
       module Status
         extend ModernTreasury::Internal::Type::Enum
@@ -871,6 +872,7 @@ module ModernTreasury
         RETURNED: :returned
         REVERSED: :reversed
         SENT: :sent
+        STOPPED: :stopped
 
         def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderUpdateParams::status]
       end
