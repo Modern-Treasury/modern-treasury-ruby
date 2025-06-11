@@ -37,6 +37,43 @@ module ModernTreasury
         end
         def to_hash
         end
+
+        module ID
+          extend ModernTreasury::Internal::Type::Union
+
+          Variants =
+            T.type_alias do
+              T.any(
+                String,
+                ModernTreasury::InternalAccounts::BalanceReportRetrieveParams::ID::TaggedSymbol
+              )
+            end
+
+          sig do
+            override.returns(
+              T::Array[
+                ModernTreasury::InternalAccounts::BalanceReportRetrieveParams::ID::Variants
+              ]
+            )
+          end
+          def self.variants
+          end
+
+          TaggedSymbol =
+            T.type_alias do
+              T.all(
+                Symbol,
+                ModernTreasury::InternalAccounts::BalanceReportRetrieveParams::ID
+              )
+            end
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          LATEST =
+            T.let(
+              :latest,
+              ModernTreasury::InternalAccounts::BalanceReportRetrieveParams::ID::TaggedSymbol
+            )
+        end
       end
     end
   end

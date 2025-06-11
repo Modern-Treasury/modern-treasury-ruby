@@ -35,6 +35,12 @@ module ModernTreasury
       #   @return [Time, nil]
       required :discarded_at, Time, nil?: true
 
+      # @!attribute external_id
+      #   An optional user-defined 180 character unique identifier.
+      #
+      #   @return [String, nil]
+      required :external_id, String, nil?: true
+
       # @!attribute ledger_id
       #   The id of the ledger that this account belongs to.
       #
@@ -98,7 +104,7 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!method initialize(id:, balances:, created_at:, description:, discarded_at:, ledger_id:, ledgerable_id:, ledgerable_type:, live_mode:, lock_version:, metadata:, name:, normal_balance:, object:, updated_at:)
+      # @!method initialize(id:, balances:, created_at:, description:, discarded_at:, external_id:, ledger_id:, ledgerable_id:, ledgerable_type:, live_mode:, lock_version:, metadata:, name:, normal_balance:, object:, updated_at:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LedgerAccount} for more details.
       #
@@ -111,6 +117,8 @@ module ModernTreasury
       #   @param description [String, nil] The description of the ledger account.
       #
       #   @param discarded_at [Time, nil]
+      #
+      #   @param external_id [String, nil] An optional user-defined 180 character unique identifier.
       #
       #   @param ledger_id [String] The id of the ledger that this account belongs to.
       #

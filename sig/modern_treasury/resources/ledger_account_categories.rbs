@@ -32,6 +32,7 @@ module ModernTreasury
         ?after_cursor: String?,
         ?balances: ModernTreasury::LedgerAccountCategoryListParams::Balances,
         ?currency: String,
+        ?external_id: String,
         ?ledger_account_id: String,
         ?ledger_id: String,
         ?metadata: ::Hash[Symbol, String],

@@ -68,6 +68,12 @@ module ModernTreasury
         #   @return [Boolean]
         required :reconcilable, ModernTreasury::Internal::Type::Boolean
 
+        # @!attribute reconciliation_group_id
+        #   The ID of the reconciliation group this line item belongs to, otherwise `null`.
+        #
+        #   @return [String, nil]
+        required :reconciliation_group_id, String, nil?: true
+
         # @!attribute transactable_id
         #   If a matching object exists in Modern Treasury, the ID will be populated here,
         #   otherwise `null`.
@@ -102,7 +108,7 @@ module ModernTreasury
         #   @return [Time]
         required :updated_at, Time
 
-        # @!method initialize(id:, amount:, counterparty_id:, created_at:, description:, discarded_at:, expected_payment_id:, live_mode:, object:, reconcilable:, transactable_id:, transactable_type:, transaction_id:, type:, updated_at:)
+        # @!method initialize(id:, amount:, counterparty_id:, created_at:, description:, discarded_at:, expected_payment_id:, live_mode:, object:, reconcilable:, reconciliation_group_id:, transactable_id:, transactable_type:, transaction_id:, type:, updated_at:)
         #   Some parameter documentations has been truncated, see
         #   {ModernTreasury::Models::Transactions::TransactionLineItem} for more details.
         #
@@ -125,6 +131,8 @@ module ModernTreasury
         #   @param object [String]
         #
         #   @param reconcilable [Boolean] Describes whether this line item should be counted towards the corresponding tra
+        #
+        #   @param reconciliation_group_id [String, nil] The ID of the reconciliation group this line item belongs to, otherwise `null`.
         #
         #   @param transactable_id [String, nil] If a matching object exists in Modern Treasury, the ID will be populated here, o
         #

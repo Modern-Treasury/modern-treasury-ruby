@@ -49,6 +49,12 @@ module ModernTreasury
       sig { params(currency: String).void }
       attr_writer :currency
 
+      sig { returns(T.nilable(String)) }
+      attr_reader :external_id
+
+      sig { params(external_id: String).void }
+      attr_writer :external_id
+
       # Query categories which contain a ledger account directly or through child
       # categories.
       sig { returns(T.nilable(String)) }
@@ -98,6 +104,7 @@ module ModernTreasury
           balances:
             ModernTreasury::LedgerAccountCategoryListParams::Balances::OrHash,
           currency: String,
+          external_id: String,
           ledger_account_id: String,
           ledger_id: String,
           metadata: T::Hash[Symbol, String],
@@ -117,6 +124,7 @@ module ModernTreasury
         # The balances as of a time are inclusive of entries with that exact time.
         balances: nil,
         currency: nil,
+        external_id: nil,
         # Query categories which contain a ledger account directly or through child
         # categories.
         ledger_account_id: nil,
@@ -140,6 +148,7 @@ module ModernTreasury
             after_cursor: T.nilable(String),
             balances: ModernTreasury::LedgerAccountCategoryListParams::Balances,
             currency: String,
+            external_id: String,
             ledger_account_id: String,
             ledger_id: String,
             metadata: T::Hash[Symbol, String],

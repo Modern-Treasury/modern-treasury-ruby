@@ -6,6 +6,7 @@ module ModernTreasury
         after_cursor: String?,
         balances: ModernTreasury::LedgerAccountCategoryListParams::Balances,
         currency: String,
+        external_id: String,
         ledger_account_id: String,
         ledger_id: String,
         metadata: ::Hash[Symbol, String],
@@ -34,6 +35,10 @@ module ModernTreasury
       attr_reader currency: String?
 
       def currency=: (String) -> String
+
+      attr_reader external_id: String?
+
+      def external_id=: (String) -> String
 
       attr_reader ledger_account_id: String?
 
@@ -64,6 +69,7 @@ module ModernTreasury
         ?after_cursor: String?,
         ?balances: ModernTreasury::LedgerAccountCategoryListParams::Balances,
         ?currency: String,
+        ?external_id: String,
         ?ledger_account_id: String,
         ?ledger_id: String,
         ?metadata: ::Hash[Symbol, String],
@@ -78,6 +84,7 @@ module ModernTreasury
         after_cursor: String?,
         balances: ModernTreasury::LedgerAccountCategoryListParams::Balances,
         currency: String,
+        external_id: String,
         ledger_account_id: String,
         ledger_id: String,
         metadata: ::Hash[Symbol, String],

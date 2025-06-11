@@ -32,6 +32,11 @@ module ModernTreasury
       #   @return [String, nil]
       optional :currency, String
 
+      # @!attribute external_id
+      #
+      #   @return [String, nil]
+      optional :external_id, String
+
       # @!attribute ledger_account_id
       #   Query categories which contain a ledger account directly or through child
       #   categories.
@@ -68,7 +73,7 @@ module ModernTreasury
       #   @return [Integer, nil]
       optional :per_page, Integer
 
-      # @!method initialize(id: nil, after_cursor: nil, balances: nil, currency: nil, ledger_account_id: nil, ledger_id: nil, metadata: nil, name: nil, parent_ledger_account_category_id: nil, per_page: nil, request_options: {})
+      # @!method initialize(id: nil, after_cursor: nil, balances: nil, currency: nil, external_id: nil, ledger_account_id: nil, ledger_id: nil, metadata: nil, name: nil, parent_ledger_account_category_id: nil, per_page: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LedgerAccountCategoryListParams} for more details.
       #
@@ -79,6 +84,8 @@ module ModernTreasury
       #   @param balances [ModernTreasury::Models::LedgerAccountCategoryListParams::Balances] For example, if you want the balances as of a particular time (ISO8601), the enc
       #
       #   @param currency [String]
+      #
+      #   @param external_id [String]
       #
       #   @param ledger_account_id [String] Query categories which contain a ledger account directly or through child catego
       #
