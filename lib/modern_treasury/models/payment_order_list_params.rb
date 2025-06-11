@@ -46,6 +46,11 @@ module ModernTreasury
       #   @return [Date, nil]
       optional :effective_date_start, Date
 
+      # @!attribute external_id
+      #
+      #   @return [String, nil]
+      optional :external_id, String
+
       # @!attribute metadata
       #   For example, if you want to query for records with metadata key `Type` and value
       #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
@@ -106,7 +111,7 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::PaymentOrderListParams::Type, nil]
       optional :type, enum: -> { ModernTreasury::PaymentOrderListParams::Type }
 
-      # @!method initialize(after_cursor: nil, counterparty_id: nil, created_at_end: nil, created_at_start: nil, direction: nil, effective_date_end: nil, effective_date_start: nil, metadata: nil, originating_account_id: nil, per_page: nil, priority: nil, process_after_end: nil, process_after_start: nil, reference_number: nil, status: nil, transaction_id: nil, type: nil, request_options: {})
+      # @!method initialize(after_cursor: nil, counterparty_id: nil, created_at_end: nil, created_at_start: nil, direction: nil, effective_date_end: nil, effective_date_start: nil, external_id: nil, metadata: nil, originating_account_id: nil, per_page: nil, priority: nil, process_after_end: nil, process_after_start: nil, reference_number: nil, status: nil, transaction_id: nil, type: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::PaymentOrderListParams} for more details.
       #
@@ -123,6 +128,8 @@ module ModernTreasury
       #   @param effective_date_end [Date] An inclusive upper bound for searching effective_date
       #
       #   @param effective_date_start [Date] An inclusive lower bound for searching effective_date
+      #
+      #   @param external_id [String]
       #
       #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
       #

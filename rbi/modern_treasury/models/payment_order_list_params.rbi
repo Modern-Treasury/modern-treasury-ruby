@@ -59,6 +59,12 @@ module ModernTreasury
       sig { params(effective_date_start: Date).void }
       attr_writer :effective_date_start
 
+      sig { returns(T.nilable(String)) }
+      attr_reader :external_id
+
+      sig { params(external_id: String).void }
+      attr_writer :external_id
+
       # For example, if you want to query for records with metadata key `Type` and value
       # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       # parameters.
@@ -162,6 +168,7 @@ module ModernTreasury
           direction: ModernTreasury::TransactionDirection::OrSymbol,
           effective_date_end: Date,
           effective_date_start: Date,
+          external_id: String,
           metadata: T::Hash[Symbol, String],
           originating_account_id: String,
           per_page: Integer,
@@ -187,6 +194,7 @@ module ModernTreasury
         effective_date_end: nil,
         # An inclusive lower bound for searching effective_date
         effective_date_start: nil,
+        external_id: nil,
         # For example, if you want to query for records with metadata key `Type` and value
         # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
         # parameters.
@@ -221,6 +229,7 @@ module ModernTreasury
             direction: ModernTreasury::TransactionDirection::OrSymbol,
             effective_date_end: Date,
             effective_date_start: Date,
+            external_id: String,
             metadata: T::Hash[Symbol, String],
             originating_account_id: String,
             per_page: Integer,
