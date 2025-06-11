@@ -75,6 +75,7 @@ module ModernTreasury
         | :column_fx_quote_id
         | :column_reversal_pair_transfer_id
         | :column_transfer_id
+        | :cross_river_core_transaction_id
         | :cross_river_fed_batch_id
         | :cross_river_payment_id
         | :cross_river_service_message
@@ -157,6 +158,7 @@ module ModernTreasury
         COLUMN_FX_QUOTE_ID: :column_fx_quote_id
         COLUMN_REVERSAL_PAIR_TRANSFER_ID: :column_reversal_pair_transfer_id
         COLUMN_TRANSFER_ID: :column_transfer_id
+        CROSS_RIVER_CORE_TRANSACTION_ID: :cross_river_core_transaction_id
         CROSS_RIVER_FED_BATCH_ID: :cross_river_fed_batch_id
         CROSS_RIVER_PAYMENT_ID: :cross_river_payment_id
         CROSS_RIVER_SERVICE_MESSAGE: :cross_river_service_message

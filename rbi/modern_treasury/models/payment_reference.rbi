@@ -210,6 +210,11 @@ module ModernTreasury
             :column_transfer_id,
             ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
           )
+        CROSS_RIVER_CORE_TRANSACTION_ID =
+          T.let(
+            :cross_river_core_transaction_id,
+            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
+          )
         CROSS_RIVER_FED_BATCH_ID =
           T.let(
             :cross_river_fed_batch_id,
