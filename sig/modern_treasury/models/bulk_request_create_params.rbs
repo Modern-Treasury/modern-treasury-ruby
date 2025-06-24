@@ -976,6 +976,7 @@ module ModernTreasury
                 | :hk_interbank_clearing_code
                 | :hu_interbank_clearing_code
                 | :id_sknbi_code
+                | :il_bank_code
                 | :in_ifsc
                 | :jp_zengin_code
                 | :my_branch_code
@@ -1001,6 +1002,7 @@ module ModernTreasury
                 HK_INTERBANK_CLEARING_CODE: :hk_interbank_clearing_code
                 HU_INTERBANK_CLEARING_CODE: :hu_interbank_clearing_code
                 ID_SKNBI_CODE: :id_sknbi_code
+                IL_BANK_CODE: :il_bank_code
                 IN_IFSC: :in_ifsc
                 JP_ZENGIN_CODE: :jp_zengin_code
                 MY_BRANCH_CODE: :my_branch_code
@@ -1693,6 +1695,7 @@ module ModernTreasury
             metadata: ::Hash[Symbol, String],
             posted: bool,
             type: ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest::type_?,
+            vendor_customer_id: String?,
             vendor_description: String?
           }
 
@@ -1719,6 +1722,8 @@ module ModernTreasury
 
           attr_accessor type: ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest::type_?
 
+          attr_accessor vendor_customer_id: String?
+
           attr_accessor vendor_description: String?
 
           def initialize: (
@@ -1731,6 +1736,7 @@ module ModernTreasury
             ?metadata: ::Hash[Symbol, String],
             ?posted: bool,
             ?type: ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest::type_?,
+            ?vendor_customer_id: String?,
             ?vendor_description: String?
           ) -> void
 
@@ -1744,6 +1750,7 @@ module ModernTreasury
             metadata: ::Hash[Symbol, String],
             posted: bool,
             type: ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest::type_?,
+            vendor_customer_id: String?,
             vendor_description: String?
           }
 
@@ -2569,6 +2576,7 @@ module ModernTreasury
                 | :hk_interbank_clearing_code
                 | :hu_interbank_clearing_code
                 | :id_sknbi_code
+                | :il_bank_code
                 | :in_ifsc
                 | :jp_zengin_code
                 | :my_branch_code
@@ -2594,6 +2602,7 @@ module ModernTreasury
                 HK_INTERBANK_CLEARING_CODE: :hk_interbank_clearing_code
                 HU_INTERBANK_CLEARING_CODE: :hu_interbank_clearing_code
                 ID_SKNBI_CODE: :id_sknbi_code
+                IL_BANK_CODE: :il_bank_code
                 IN_IFSC: :in_ifsc
                 JP_ZENGIN_CODE: :jp_zengin_code
                 MY_BRANCH_CODE: :my_branch_code

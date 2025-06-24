@@ -40,9 +40,9 @@ module ModernTreasury
       required :amount, Integer
 
       # @!attribute charge_bearer
-      #   The party that will pay the fees for the payment order. Only applies to wire
-      #   payment orders. Can be one of shared, sender, or receiver, which correspond
-      #   respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+      #   The party that will pay the fees for the payment order. See
+      #   https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
+      #   differences between the options.
       #
       #   @return [Symbol, ModernTreasury::Models::PaymentOrder::ChargeBearer, nil]
       required :charge_bearer, enum: -> { ModernTreasury::PaymentOrder::ChargeBearer }, nil?: true
@@ -356,7 +356,7 @@ module ModernTreasury
       #
       #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
       #
-      #   @param charge_bearer [Symbol, ModernTreasury::Models::PaymentOrder::ChargeBearer, nil] The party that will pay the fees for the payment order. Only applies to wire pay
+      #   @param charge_bearer [Symbol, ModernTreasury::Models::PaymentOrder::ChargeBearer, nil] The party that will pay the fees for the payment order. See https://docs.modernt
       #
       #   @param counterparty_id [String, nil] If the payment order is tied to a specific Counterparty, their id will appear, o
       #
@@ -468,9 +468,9 @@ module ModernTreasury
         #   @param class_id [String, nil] The ID of one of the class objects in your accounting system. Class objects trac
       end
 
-      # The party that will pay the fees for the payment order. Only applies to wire
-      # payment orders. Can be one of shared, sender, or receiver, which correspond
-      # respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+      # The party that will pay the fees for the payment order. See
+      # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
+      # differences between the options.
       #
       # @see ModernTreasury::Models::PaymentOrder#charge_bearer
       module ChargeBearer

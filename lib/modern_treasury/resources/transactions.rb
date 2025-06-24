@@ -11,7 +11,7 @@ module ModernTreasury
       #
       # create transaction
       #
-      # @overload create(amount:, as_of_date:, direction:, internal_account_id:, vendor_code:, vendor_code_type:, metadata: nil, posted: nil, type: nil, vendor_description: nil, request_options: {})
+      # @overload create(amount:, as_of_date:, direction:, internal_account_id:, vendor_code:, vendor_code_type:, metadata: nil, posted: nil, type: nil, vendor_customer_id: nil, vendor_description: nil, request_options: {})
       #
       # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
       #
@@ -30,6 +30,8 @@ module ModernTreasury
       # @param posted [Boolean] This field will be `true` if the transaction has posted to the account.
       #
       # @param type [Symbol, ModernTreasury::Models::TransactionCreateParams::Type, nil] The type of the transaction. Examples could be `card, `ach`, `wire`, `check`, `r
+      #
+      # @param vendor_customer_id [String, nil] An identifier given to this transaction by the bank, often `null`.
       #
       # @param vendor_description [String, nil] The transaction detail text that often appears in on your bank statement and in
       #

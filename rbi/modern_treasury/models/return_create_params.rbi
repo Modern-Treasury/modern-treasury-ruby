@@ -36,6 +36,22 @@ module ModernTreasury
       end
       attr_accessor :code
 
+      # Only relevant for ACH NOC returns. This is an object containing all of the new
+      # and corrected information provided by the bank that was previously incorrect on
+      # the original outgoing payment.
+      sig do
+        returns(T.nilable(ModernTreasury::ReturnCreateParams::Corrections))
+      end
+      attr_reader :corrections
+
+      sig do
+        params(
+          corrections:
+            T.nilable(ModernTreasury::ReturnCreateParams::Corrections::OrHash)
+        ).void
+      end
+      attr_writer :corrections
+
       # The raw data from the return file that we get from the bank.
       sig { returns(T.nilable(T.anything)) }
       attr_accessor :data
@@ -57,6 +73,8 @@ module ModernTreasury
             ModernTreasury::ReturnCreateParams::ReturnableType::OrSymbol,
           additional_information: T.nilable(String),
           code: T.nilable(ModernTreasury::ReturnCreateParams::Code::OrSymbol),
+          corrections:
+            T.nilable(ModernTreasury::ReturnCreateParams::Corrections::OrHash),
           data: T.nilable(T.anything),
           date_of_death: T.nilable(Date),
           reason: T.nilable(String),
@@ -74,6 +92,10 @@ module ModernTreasury
         additional_information: nil,
         # The return code. For ACH returns, this is the required ACH return code.
         code: nil,
+        # Only relevant for ACH NOC returns. This is an object containing all of the new
+        # and corrected information provided by the bank that was previously incorrect on
+        # the original outgoing payment.
+        corrections: nil,
         # The raw data from the return file that we get from the bank.
         data: nil,
         # If the return code is `R14` or `R15` this is the date the deceased counterparty
@@ -94,6 +116,8 @@ module ModernTreasury
               ModernTreasury::ReturnCreateParams::ReturnableType::OrSymbol,
             additional_information: T.nilable(String),
             code: T.nilable(ModernTreasury::ReturnCreateParams::Code::OrSymbol),
+            corrections:
+              T.nilable(ModernTreasury::ReturnCreateParams::Corrections),
             data: T.nilable(T.anything),
             date_of_death: T.nilable(Date),
             reason: T.nilable(String),
@@ -338,6 +362,96 @@ module ModernTreasury
           )
         end
         def self.values
+        end
+      end
+
+      class Corrections < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              ModernTreasury::ReturnCreateParams::Corrections,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
+
+        # The updated account number that should replace the one originally used on the
+        # outgoing payment.
+        sig { returns(T.nilable(String)) }
+        attr_accessor :account_number
+
+        # The updated company ID that should replace the one originally used on the
+        # outgoing payment.
+        sig { returns(T.nilable(String)) }
+        attr_accessor :company_id
+
+        # The updated company name that should replace the one originally used on the
+        # outgoing payment.
+        sig { returns(T.nilable(String)) }
+        attr_accessor :company_name
+
+        # The updated individual identification number that should replace the one
+        # originally used on the outgoing payment.
+        sig { returns(T.nilable(String)) }
+        attr_accessor :individual_identification_number
+
+        # The updated routing number that should replace the one originally used on the
+        # outgoing payment.
+        sig { returns(T.nilable(String)) }
+        attr_accessor :routing_number
+
+        # The updated account type code that should replace the one originally used on the
+        # outgoing payment.
+        sig { returns(T.nilable(String)) }
+        attr_accessor :transaction_code
+
+        # Only relevant for ACH NOC returns. This is an object containing all of the new
+        # and corrected information provided by the bank that was previously incorrect on
+        # the original outgoing payment.
+        sig do
+          params(
+            account_number: T.nilable(String),
+            company_id: T.nilable(String),
+            company_name: T.nilable(String),
+            individual_identification_number: T.nilable(String),
+            routing_number: T.nilable(String),
+            transaction_code: T.nilable(String)
+          ).returns(T.attached_class)
+        end
+        def self.new(
+          # The updated account number that should replace the one originally used on the
+          # outgoing payment.
+          account_number: nil,
+          # The updated company ID that should replace the one originally used on the
+          # outgoing payment.
+          company_id: nil,
+          # The updated company name that should replace the one originally used on the
+          # outgoing payment.
+          company_name: nil,
+          # The updated individual identification number that should replace the one
+          # originally used on the outgoing payment.
+          individual_identification_number: nil,
+          # The updated routing number that should replace the one originally used on the
+          # outgoing payment.
+          routing_number: nil,
+          # The updated account type code that should replace the one originally used on the
+          # outgoing payment.
+          transaction_code: nil
+        )
+        end
+
+        sig do
+          override.returns(
+            {
+              account_number: T.nilable(String),
+              company_id: T.nilable(String),
+              company_name: T.nilable(String),
+              individual_identification_number: T.nilable(String),
+              routing_number: T.nilable(String),
+              transaction_code: T.nilable(String)
+            }
+          )
+        end
+        def to_hash
         end
       end
     end

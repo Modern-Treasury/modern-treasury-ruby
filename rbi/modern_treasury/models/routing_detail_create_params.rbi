@@ -193,6 +193,11 @@ module ModernTreasury
             :id_sknbi_code,
             ModernTreasury::RoutingDetailCreateParams::RoutingNumberType::TaggedSymbol
           )
+        IL_BANK_CODE =
+          T.let(
+            :il_bank_code,
+            ModernTreasury::RoutingDetailCreateParams::RoutingNumberType::TaggedSymbol
+          )
         IN_IFSC =
           T.let(
             :in_ifsc,

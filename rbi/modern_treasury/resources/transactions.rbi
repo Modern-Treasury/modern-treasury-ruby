@@ -19,6 +19,7 @@ module ModernTreasury
           posted: T::Boolean,
           type:
             T.nilable(ModernTreasury::TransactionCreateParams::Type::OrSymbol),
+          vendor_customer_id: T.nilable(String),
           vendor_description: T.nilable(String),
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::Transaction)
@@ -49,6 +50,8 @@ module ModernTreasury
         # The type of the transaction. Examples could be
         # `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
         type: nil,
+        # An identifier given to this transaction by the bank, often `null`.
+        vendor_customer_id: nil,
         # The transaction detail text that often appears in on your bank statement and in
         # your banking portal.
         vendor_description: nil,

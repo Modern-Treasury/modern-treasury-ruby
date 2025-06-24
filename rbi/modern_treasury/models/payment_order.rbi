@@ -36,9 +36,9 @@ module ModernTreasury
       sig { returns(Integer) }
       attr_accessor :amount
 
-      # The party that will pay the fees for the payment order. Only applies to wire
-      # payment orders. Can be one of shared, sender, or receiver, which correspond
-      # respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+      # The party that will pay the fees for the payment order. See
+      # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
+      # differences between the options.
       sig do
         returns(
           T.nilable(ModernTreasury::PaymentOrder::ChargeBearer::TaggedSymbol)
@@ -373,9 +373,9 @@ module ModernTreasury
         # Value in specified currency's smallest unit. e.g. $10 would be represented as
         # 1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
         amount:,
-        # The party that will pay the fees for the payment order. Only applies to wire
-        # payment orders. Can be one of shared, sender, or receiver, which correspond
-        # respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+        # The party that will pay the fees for the payment order. See
+        # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
+        # differences between the options.
         charge_bearer:,
         # If the payment order is tied to a specific Counterparty, their id will appear,
         # otherwise `null`.
@@ -619,9 +619,9 @@ module ModernTreasury
         end
       end
 
-      # The party that will pay the fees for the payment order. Only applies to wire
-      # payment orders. Can be one of shared, sender, or receiver, which correspond
-      # respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+      # The party that will pay the fees for the payment order. See
+      # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
+      # differences between the options.
       module ChargeBearer
         extend ModernTreasury::Internal::Type::Enum
 

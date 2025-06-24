@@ -162,9 +162,9 @@ module ModernTreasury
           optional :accounting_ledger_class_id, String, nil?: true
 
           # @!attribute charge_bearer
-          #   The party that will pay the fees for the payment order. Only applies to wire
-          #   payment orders. Can be one of shared, sender, or receiver, which correspond
-          #   respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+          #   The party that will pay the fees for the payment order. See
+          #   https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
+          #   differences between the options.
           #
           #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ChargeBearer, nil]
           optional :charge_bearer,
@@ -415,7 +415,7 @@ module ModernTreasury
           #
           #   @param accounting_ledger_class_id [String, nil] The ID of one of your accounting ledger classes. Note that these will only be ac
           #
-          #   @param charge_bearer [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ChargeBearer, nil] The party that will pay the fees for the payment order. Only applies to wire pay
+          #   @param charge_bearer [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ChargeBearer, nil] The party that will pay the fees for the payment order. See https://docs.modernt
           #
           #   @param currency [Symbol, ModernTreasury::Models::Currency] Defaults to the currency of the originating account.
           #
@@ -514,9 +514,9 @@ module ModernTreasury
             #   @param class_id [String, nil] The ID of one of the class objects in your accounting system. Class objects trac
           end
 
-          # The party that will pay the fees for the payment order. Only applies to wire
-          # payment orders. Can be one of shared, sender, or receiver, which correspond
-          # respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+          # The party that will pay the fees for the payment order. See
+          # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
+          # differences between the options.
           #
           # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#charge_bearer
           module ChargeBearer
@@ -1284,6 +1284,7 @@ module ModernTreasury
                 HK_INTERBANK_CLEARING_CODE = :hk_interbank_clearing_code
                 HU_INTERBANK_CLEARING_CODE = :hu_interbank_clearing_code
                 ID_SKNBI_CODE = :id_sknbi_code
+                IL_BANK_CODE = :il_bank_code
                 IN_IFSC = :in_ifsc
                 JP_ZENGIN_CODE = :jp_zengin_code
                 MY_BRANCH_CODE = :my_branch_code
@@ -2225,6 +2226,12 @@ module ModernTreasury
                    },
                    nil?: true
 
+          # @!attribute vendor_customer_id
+          #   An identifier given to this transaction by the bank, often `null`.
+          #
+          #   @return [String, nil]
+          optional :vendor_customer_id, String, nil?: true
+
           # @!attribute vendor_description
           #   The transaction detail text that often appears in on your bank statement and in
           #   your banking portal.
@@ -2232,7 +2239,7 @@ module ModernTreasury
           #   @return [String, nil]
           optional :vendor_description, String, nil?: true
 
-          # @!method initialize(amount:, as_of_date:, direction:, internal_account_id:, vendor_code:, vendor_code_type:, metadata: nil, posted: nil, type: nil, vendor_description: nil)
+          # @!method initialize(amount:, as_of_date:, direction:, internal_account_id:, vendor_code:, vendor_code_type:, metadata: nil, posted: nil, type: nil, vendor_customer_id: nil, vendor_description: nil)
           #   Some parameter documentations has been truncated, see
           #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest}
           #   for more details.
@@ -2254,6 +2261,8 @@ module ModernTreasury
           #   @param posted [Boolean] This field will be `true` if the transaction has posted to the account.
           #
           #   @param type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type, nil] The type of the transaction. Examples could be `card, `ach`, `wire`, `check`, `r
+          #
+          #   @param vendor_customer_id [String, nil] An identifier given to this transaction by the bank, often `null`.
           #
           #   @param vendor_description [String, nil] The transaction detail text that often appears in on your bank statement and in
 
@@ -2355,9 +2364,9 @@ module ModernTreasury
           optional :amount, Integer
 
           # @!attribute charge_bearer
-          #   The party that will pay the fees for the payment order. Only applies to wire
-          #   payment orders. Can be one of shared, sender, or receiver, which correspond
-          #   respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+          #   The party that will pay the fees for the payment order. See
+          #   https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
+          #   differences between the options.
           #
           #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ChargeBearer, nil]
           optional :charge_bearer,
@@ -2627,7 +2636,7 @@ module ModernTreasury
           #
           #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
           #
-          #   @param charge_bearer [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ChargeBearer, nil] The party that will pay the fees for the payment order. Only applies to wire pay
+          #   @param charge_bearer [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ChargeBearer, nil] The party that will pay the fees for the payment order. See https://docs.modernt
           #
           #   @param counterparty_id [String, nil] Required when receiving_account_id is passed the ID of an external account.
           #
@@ -2714,9 +2723,9 @@ module ModernTreasury
             #   @param class_id [String, nil] The ID of one of the class objects in your accounting system. Class objects trac
           end
 
-          # The party that will pay the fees for the payment order. Only applies to wire
-          # payment orders. Can be one of shared, sender, or receiver, which correspond
-          # respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+          # The party that will pay the fees for the payment order. See
+          # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
+          # differences between the options.
           #
           # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#charge_bearer
           module ChargeBearer
@@ -3266,6 +3275,7 @@ module ModernTreasury
                 HK_INTERBANK_CLEARING_CODE = :hk_interbank_clearing_code
                 HU_INTERBANK_CLEARING_CODE = :hu_interbank_clearing_code
                 ID_SKNBI_CODE = :id_sknbi_code
+                IL_BANK_CODE = :il_bank_code
                 IN_IFSC = :in_ifsc
                 JP_ZENGIN_CODE = :jp_zengin_code
                 MY_BRANCH_CODE = :my_branch_code

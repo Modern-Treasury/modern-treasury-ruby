@@ -88,9 +88,9 @@ module ModernTreasury
         # The ID of one of your accounting ledger classes. Note that these will only be
         # accessible if your accounting system has been connected.
         accounting_ledger_class_id: nil,
-        # The party that will pay the fees for the payment order. Only applies to wire
-        # payment orders. Can be one of shared, sender, or receiver, which correspond
-        # respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+        # The party that will pay the fees for the payment order. See
+        # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
+        # differences between the options.
         charge_bearer: nil,
         # Defaults to the currency of the originating account.
         currency: nil,
@@ -272,9 +272,9 @@ module ModernTreasury
         # Value in specified currency's smallest unit. e.g. $10 would be represented as
         # 1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
         amount: nil,
-        # The party that will pay the fees for the payment order. Only applies to wire
-        # payment orders. Can be one of shared, sender, or receiver, which correspond
-        # respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+        # The party that will pay the fees for the payment order. See
+        # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
+        # differences between the options.
         charge_bearer: nil,
         # Required when receiving_account_id is passed the ID of an external account.
         counterparty_id: nil,
@@ -527,9 +527,9 @@ module ModernTreasury
         # The ID of one of your accounting ledger classes. Note that these will only be
         # accessible if your accounting system has been connected.
         accounting_ledger_class_id: nil,
-        # The party that will pay the fees for the payment order. Only applies to wire
-        # payment orders. Can be one of shared, sender, or receiver, which correspond
-        # respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+        # The party that will pay the fees for the payment order. See
+        # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
+        # differences between the options.
         charge_bearer: nil,
         # Defaults to the currency of the originating account.
         currency: nil,
