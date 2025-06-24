@@ -33,6 +33,14 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::ReturnCreateParams::Code, nil]
       optional :code, enum: -> { ModernTreasury::ReturnCreateParams::Code }, nil?: true
 
+      # @!attribute corrections
+      #   Only relevant for ACH NOC returns. This is an object containing all of the new
+      #   and corrected information provided by the bank that was previously incorrect on
+      #   the original outgoing payment.
+      #
+      #   @return [ModernTreasury::Models::ReturnCreateParams::Corrections, nil]
+      optional :corrections, -> { ModernTreasury::ReturnCreateParams::Corrections }, nil?: true
+
       # @!attribute data
       #   The raw data from the return file that we get from the bank.
       #
@@ -53,7 +61,7 @@ module ModernTreasury
       #   @return [String, nil]
       optional :reason, String, nil?: true
 
-      # @!method initialize(returnable_id:, returnable_type:, additional_information: nil, code: nil, data: nil, date_of_death: nil, reason: nil, request_options: {})
+      # @!method initialize(returnable_id:, returnable_type:, additional_information: nil, code: nil, corrections: nil, data: nil, date_of_death: nil, reason: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::ReturnCreateParams} for more details.
       #
@@ -64,6 +72,8 @@ module ModernTreasury
       #   @param additional_information [String, nil] Some returns may include additional information from the bank. In these cases, t
       #
       #   @param code [Symbol, ModernTreasury::Models::ReturnCreateParams::Code, nil] The return code. For ACH returns, this is the required ACH return code.
+      #
+      #   @param corrections [ModernTreasury::Models::ReturnCreateParams::Corrections, nil] Only relevant for ACH NOC returns. This is an object containing all of the new a
       #
       #   @param data [Object, nil] The raw data from the return file that we get from the bank.
       #
@@ -184,6 +194,70 @@ module ModernTreasury
 
         # @!method self.values
         #   @return [Array<Symbol>]
+      end
+
+      class Corrections < ModernTreasury::Internal::Type::BaseModel
+        # @!attribute account_number
+        #   The updated account number that should replace the one originally used on the
+        #   outgoing payment.
+        #
+        #   @return [String, nil]
+        optional :account_number, String, nil?: true
+
+        # @!attribute company_id
+        #   The updated company ID that should replace the one originally used on the
+        #   outgoing payment.
+        #
+        #   @return [String, nil]
+        optional :company_id, String, nil?: true
+
+        # @!attribute company_name
+        #   The updated company name that should replace the one originally used on the
+        #   outgoing payment.
+        #
+        #   @return [String, nil]
+        optional :company_name, String, nil?: true
+
+        # @!attribute individual_identification_number
+        #   The updated individual identification number that should replace the one
+        #   originally used on the outgoing payment.
+        #
+        #   @return [String, nil]
+        optional :individual_identification_number, String, nil?: true
+
+        # @!attribute routing_number
+        #   The updated routing number that should replace the one originally used on the
+        #   outgoing payment.
+        #
+        #   @return [String, nil]
+        optional :routing_number, String, nil?: true
+
+        # @!attribute transaction_code
+        #   The updated account type code that should replace the one originally used on the
+        #   outgoing payment.
+        #
+        #   @return [String, nil]
+        optional :transaction_code, String, nil?: true
+
+        # @!method initialize(account_number: nil, company_id: nil, company_name: nil, individual_identification_number: nil, routing_number: nil, transaction_code: nil)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::ReturnCreateParams::Corrections} for more details.
+        #
+        #   Only relevant for ACH NOC returns. This is an object containing all of the new
+        #   and corrected information provided by the bank that was previously incorrect on
+        #   the original outgoing payment.
+        #
+        #   @param account_number [String, nil] The updated account number that should replace the one originally used on the ou
+        #
+        #   @param company_id [String, nil] The updated company ID that should replace the one originally used on the outgoi
+        #
+        #   @param company_name [String, nil] The updated company name that should replace the one originally used on the outg
+        #
+        #   @param individual_identification_number [String, nil] The updated individual identification number that should replace the one origina
+        #
+        #   @param routing_number [String, nil] The updated routing number that should replace the one originally used on the ou
+        #
+        #   @param transaction_code [String, nil] The updated account type code that should replace the one originally used on the
       end
     end
   end

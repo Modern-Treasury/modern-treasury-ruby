@@ -11,6 +11,8 @@ module ModernTreasury
             ModernTreasury::ReturnCreateParams::ReturnableType::OrSymbol,
           additional_information: T.nilable(String),
           code: T.nilable(ModernTreasury::ReturnCreateParams::Code::OrSymbol),
+          corrections:
+            T.nilable(ModernTreasury::ReturnCreateParams::Corrections::OrHash),
           data: T.nilable(T.anything),
           date_of_death: T.nilable(Date),
           reason: T.nilable(String),
@@ -28,6 +30,10 @@ module ModernTreasury
         additional_information: nil,
         # The return code. For ACH returns, this is the required ACH return code.
         code: nil,
+        # Only relevant for ACH NOC returns. This is an object containing all of the new
+        # and corrected information provided by the bank that was previously incorrect on
+        # the original outgoing payment.
+        corrections: nil,
         # The raw data from the return file that we get from the bank.
         data: nil,
         # If the return code is `R14` or `R15` this is the date the deceased counterparty

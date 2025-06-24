@@ -8,7 +8,7 @@ module ModernTreasury
       #
       # Create a return.
       #
-      # @overload create(returnable_id:, returnable_type:, additional_information: nil, code: nil, data: nil, date_of_death: nil, reason: nil, request_options: {})
+      # @overload create(returnable_id:, returnable_type:, additional_information: nil, code: nil, corrections: nil, data: nil, date_of_death: nil, reason: nil, request_options: {})
       #
       # @param returnable_id [String, nil] The ID of the object being returned or `null`.
       #
@@ -17,6 +17,8 @@ module ModernTreasury
       # @param additional_information [String, nil] Some returns may include additional information from the bank. In these cases, t
       #
       # @param code [Symbol, ModernTreasury::Models::ReturnCreateParams::Code, nil] The return code. For ACH returns, this is the required ACH return code.
+      #
+      # @param corrections [ModernTreasury::Models::ReturnCreateParams::Corrections, nil] Only relevant for ACH NOC returns. This is an object containing all of the new a
       #
       # @param data [Object, nil] The raw data from the return file that we get from the bank.
       #

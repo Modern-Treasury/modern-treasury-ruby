@@ -61,9 +61,9 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :accounting_ledger_class_id
 
-      # The party that will pay the fees for the payment order. Only applies to wire
-      # payment orders. Can be one of shared, sender, or receiver, which correspond
-      # respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+      # The party that will pay the fees for the payment order. See
+      # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
+      # differences between the options.
       sig do
         returns(
           T.nilable(
@@ -415,9 +415,9 @@ module ModernTreasury
         # The ID of one of your accounting ledger classes. Note that these will only be
         # accessible if your accounting system has been connected.
         accounting_ledger_class_id: nil,
-        # The party that will pay the fees for the payment order. Only applies to wire
-        # payment orders. Can be one of shared, sender, or receiver, which correspond
-        # respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+        # The party that will pay the fees for the payment order. See
+        # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
+        # differences between the options.
         charge_bearer: nil,
         # Defaults to the currency of the originating account.
         currency: nil,
@@ -662,9 +662,9 @@ module ModernTreasury
         end
       end
 
-      # The party that will pay the fees for the payment order. Only applies to wire
-      # payment orders. Can be one of shared, sender, or receiver, which correspond
-      # respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+      # The party that will pay the fees for the payment order. See
+      # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
+      # differences between the options.
       module ChargeBearer
         extend ModernTreasury::Internal::Type::Enum
 
@@ -2367,6 +2367,11 @@ module ModernTreasury
             ID_SKNBI_CODE =
               T.let(
                 :id_sknbi_code,
+                ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+              )
+            IL_BANK_CODE =
+              T.let(
+                :il_bank_code,
                 ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             IN_IFSC =

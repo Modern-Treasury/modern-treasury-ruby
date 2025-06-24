@@ -101,6 +101,11 @@ module ModernTreasury
       end
       attr_writer :invoicer_address
 
+      # The name of the issuer for the invoice. Defaults to the name of the
+      # Organization.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :invoicer_name
+
       # The ledger account settlement object linked to the invoice.
       sig { returns(T.nilable(String)) }
       attr_accessor :ledger_account_settlement_id
@@ -229,6 +234,7 @@ module ModernTreasury
           hosted_url: String,
           invoicer_address:
             T.nilable(ModernTreasury::Invoice::InvoicerAddress::OrHash),
+          invoicer_name: T.nilable(String),
           ledger_account_settlement_id: T.nilable(String),
           live_mode: T::Boolean,
           metadata: T.nilable(T::Hash[Symbol, String]),
@@ -287,6 +293,9 @@ module ModernTreasury
         hosted_url:,
         # The invoice issuer's business address.
         invoicer_address:,
+        # The name of the issuer for the invoice. Defaults to the name of the
+        # Organization.
+        invoicer_name:,
         # The ledger account settlement object linked to the invoice.
         ledger_account_settlement_id:,
         # This field will be true if this object exists in the live environment or false
@@ -366,6 +375,7 @@ module ModernTreasury
             hosted_url: String,
             invoicer_address:
               T.nilable(ModernTreasury::Invoice::InvoicerAddress),
+            invoicer_name: T.nilable(String),
             ledger_account_settlement_id: T.nilable(String),
             live_mode: T::Boolean,
             metadata: T.nilable(T::Hash[Symbol, String]),

@@ -16,6 +16,10 @@ module ModernTreasury
             ModernTreasury::InternalAccountCreateParams::Currency::OrSymbol,
           name: String,
           party_name: String,
+          account_capabilities:
+            T::Array[
+              ModernTreasury::InternalAccountCreateParams::AccountCapability::OrHash
+            ],
           account_type:
             ModernTreasury::InternalAccountCreateParams::AccountType::OrSymbol,
           counterparty_id: String,
@@ -37,6 +41,9 @@ module ModernTreasury
         name:,
         # The legal name of the entity which owns the account.
         party_name:,
+        # An array of AccountCapability objects that list the originating abilities of the
+        # internal account and any relevant information for them.
+        account_capabilities: nil,
         # The account type, used to provision the appropriate account at the financial
         # institution.
         account_type: nil,

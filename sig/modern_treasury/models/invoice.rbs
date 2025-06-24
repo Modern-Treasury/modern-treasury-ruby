@@ -17,6 +17,7 @@ module ModernTreasury
         fallback_payment_method: String?,
         hosted_url: String,
         invoicer_address: ModernTreasury::Invoice::InvoicerAddress?,
+        invoicer_name: String?,
         ledger_account_settlement_id: String?,
         live_mode: bool,
         metadata: ::Hash[Symbol, String]?,
@@ -71,6 +72,8 @@ module ModernTreasury
       attr_accessor hosted_url: String
 
       attr_accessor invoicer_address: ModernTreasury::Invoice::InvoicerAddress?
+
+      attr_accessor invoicer_name: String?
 
       attr_accessor ledger_account_settlement_id: String?
 
@@ -132,6 +135,7 @@ module ModernTreasury
         fallback_payment_method: String?,
         hosted_url: String,
         invoicer_address: ModernTreasury::Invoice::InvoicerAddress?,
+        invoicer_name: String?,
         ledger_account_settlement_id: String?,
         live_mode: bool,
         metadata: ::Hash[Symbol, String]?,
@@ -172,6 +176,7 @@ module ModernTreasury
         fallback_payment_method: String?,
         hosted_url: String,
         invoicer_address: ModernTreasury::Invoice::InvoicerAddress?,
+        invoicer_name: String?,
         ledger_account_settlement_id: String?,
         live_mode: bool,
         metadata: ::Hash[Symbol, String]?,
