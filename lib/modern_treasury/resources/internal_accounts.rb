@@ -11,7 +11,7 @@ module ModernTreasury
       #
       # create internal account
       #
-      # @overload create(connection_id:, currency:, name:, party_name:, account_type: nil, counterparty_id: nil, legal_entity_id: nil, parent_account_id: nil, party_address: nil, vendor_attributes: nil, request_options: {})
+      # @overload create(connection_id:, currency:, name:, party_name:, account_capabilities: nil, account_type: nil, counterparty_id: nil, legal_entity_id: nil, parent_account_id: nil, party_address: nil, vendor_attributes: nil, request_options: {})
       #
       # @param connection_id [String] The identifier of the financial institution the account belongs to.
       #
@@ -20,6 +20,8 @@ module ModernTreasury
       # @param name [String] The nickname of the account.
       #
       # @param party_name [String] The legal name of the entity which owns the account.
+      #
+      # @param account_capabilities [Array<ModernTreasury::Models::InternalAccountCreateParams::AccountCapability>] An array of AccountCapability objects that list the originating abilities of the
       #
       # @param account_type [Symbol, ModernTreasury::Models::InternalAccountCreateParams::AccountType] The account type, used to provision the appropriate account at the financial ins
       #

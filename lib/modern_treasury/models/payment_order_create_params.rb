@@ -61,9 +61,9 @@ module ModernTreasury
       optional :accounting_ledger_class_id, String, nil?: true
 
       # @!attribute charge_bearer
-      #   The party that will pay the fees for the payment order. Only applies to wire
-      #   payment orders. Can be one of shared, sender, or receiver, which correspond
-      #   respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+      #   The party that will pay the fees for the payment order. See
+      #   https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
+      #   differences between the options.
       #
       #   @return [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::ChargeBearer, nil]
       optional :charge_bearer, enum: -> { ModernTreasury::PaymentOrderCreateParams::ChargeBearer }, nil?: true
@@ -305,7 +305,7 @@ module ModernTreasury
       #
       #   @param accounting_ledger_class_id [String, nil] The ID of one of your accounting ledger classes. Note that these will only be ac
       #
-      #   @param charge_bearer [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::ChargeBearer, nil] The party that will pay the fees for the payment order. Only applies to wire pay
+      #   @param charge_bearer [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::ChargeBearer, nil] The party that will pay the fees for the payment order. See https://docs.modernt
       #
       #   @param currency [Symbol, ModernTreasury::Models::Currency] Defaults to the currency of the originating account.
       #
@@ -404,9 +404,9 @@ module ModernTreasury
         #   @param class_id [String, nil] The ID of one of the class objects in your accounting system. Class objects trac
       end
 
-      # The party that will pay the fees for the payment order. Only applies to wire
-      # payment orders. Can be one of shared, sender, or receiver, which correspond
-      # respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+      # The party that will pay the fees for the payment order. See
+      # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
+      # differences between the options.
       module ChargeBearer
         extend ModernTreasury::Internal::Type::Enum
 
@@ -1203,6 +1203,7 @@ module ModernTreasury
             HK_INTERBANK_CLEARING_CODE = :hk_interbank_clearing_code
             HU_INTERBANK_CLEARING_CODE = :hu_interbank_clearing_code
             ID_SKNBI_CODE = :id_sknbi_code
+            IL_BANK_CODE = :il_bank_code
             IN_IFSC = :in_ifsc
             JP_ZENGIN_CODE = :jp_zengin_code
             MY_BRANCH_CODE = :my_branch_code

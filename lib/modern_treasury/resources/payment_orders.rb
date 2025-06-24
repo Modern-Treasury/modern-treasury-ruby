@@ -27,7 +27,7 @@ module ModernTreasury
       #
       # @param accounting_ledger_class_id [String, nil] The ID of one of your accounting ledger classes. Note that these will only be ac
       #
-      # @param charge_bearer [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::ChargeBearer, nil] The party that will pay the fees for the payment order. Only applies to wire pay
+      # @param charge_bearer [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::ChargeBearer, nil] The party that will pay the fees for the payment order. See https://docs.modernt
       #
       # @param currency [Symbol, ModernTreasury::Models::Currency] Defaults to the currency of the originating account.
       #
@@ -137,7 +137,7 @@ module ModernTreasury
       #
       # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
       #
-      # @param charge_bearer [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ChargeBearer, nil] The party that will pay the fees for the payment order. Only applies to wire pay
+      # @param charge_bearer [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ChargeBearer, nil] The party that will pay the fees for the payment order. See https://docs.modernt
       #
       # @param counterparty_id [String, nil] Required when receiving_account_id is passed the ID of an external account.
       #
@@ -294,7 +294,7 @@ module ModernTreasury
       #
       # @param accounting_ledger_class_id [String, nil] The ID of one of your accounting ledger classes. Note that these will only be ac
       #
-      # @param charge_bearer [Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::ChargeBearer, nil] The party that will pay the fees for the payment order. Only applies to wire pay
+      # @param charge_bearer [Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::ChargeBearer, nil] The party that will pay the fees for the payment order. See https://docs.modernt
       #
       # @param currency [Symbol, ModernTreasury::Models::Currency] Defaults to the currency of the originating account.
       #

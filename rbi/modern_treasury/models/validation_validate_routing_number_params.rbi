@@ -133,6 +133,11 @@ module ModernTreasury
             :id_sknbi_code,
             ModernTreasury::ValidationValidateRoutingNumberParams::RoutingNumberType::TaggedSymbol
           )
+        IL_BANK_CODE =
+          T.let(
+            :il_bank_code,
+            ModernTreasury::ValidationValidateRoutingNumberParams::RoutingNumberType::TaggedSymbol
+          )
         IN_IFSC =
           T.let(
             :in_ifsc,

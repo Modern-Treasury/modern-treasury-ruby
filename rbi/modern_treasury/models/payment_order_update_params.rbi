@@ -45,9 +45,9 @@ module ModernTreasury
       sig { params(amount: Integer).void }
       attr_writer :amount
 
-      # The party that will pay the fees for the payment order. Only applies to wire
-      # payment orders. Can be one of shared, sender, or receiver, which correspond
-      # respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+      # The party that will pay the fees for the payment order. See
+      # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
+      # differences between the options.
       sig do
         returns(
           T.nilable(
@@ -392,9 +392,9 @@ module ModernTreasury
         # Value in specified currency's smallest unit. e.g. $10 would be represented as
         # 1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
         amount: nil,
-        # The party that will pay the fees for the payment order. Only applies to wire
-        # payment orders. Can be one of shared, sender, or receiver, which correspond
-        # respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+        # The party that will pay the fees for the payment order. See
+        # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
+        # differences between the options.
         charge_bearer: nil,
         # Required when receiving_account_id is passed the ID of an external account.
         counterparty_id: nil,
@@ -609,9 +609,9 @@ module ModernTreasury
         end
       end
 
-      # The party that will pay the fees for the payment order. Only applies to wire
-      # payment orders. Can be one of shared, sender, or receiver, which correspond
-      # respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+      # The party that will pay the fees for the payment order. See
+      # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
+      # differences between the options.
       module ChargeBearer
         extend ModernTreasury::Internal::Type::Enum
 
@@ -1793,6 +1793,11 @@ module ModernTreasury
             ID_SKNBI_CODE =
               T.let(
                 :id_sknbi_code,
+                ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+              )
+            IL_BANK_CODE =
+              T.let(
+                :il_bank_code,
                 ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             IN_IFSC =

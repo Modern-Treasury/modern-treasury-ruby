@@ -301,9 +301,9 @@ module ModernTreasury
           sig { returns(T.nilable(String)) }
           attr_accessor :accounting_ledger_class_id
 
-          # The party that will pay the fees for the payment order. Only applies to wire
-          # payment orders. Can be one of shared, sender, or receiver, which correspond
-          # respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+          # The party that will pay the fees for the payment order. See
+          # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
+          # differences between the options.
           sig do
             returns(
               T.nilable(
@@ -642,9 +642,9 @@ module ModernTreasury
             # The ID of one of your accounting ledger classes. Note that these will only be
             # accessible if your accounting system has been connected.
             accounting_ledger_class_id: nil,
-            # The party that will pay the fees for the payment order. Only applies to wire
-            # payment orders. Can be one of shared, sender, or receiver, which correspond
-            # respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+            # The party that will pay the fees for the payment order. See
+            # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
+            # differences between the options.
             charge_bearer: nil,
             # Defaults to the currency of the originating account.
             currency: nil,
@@ -889,9 +889,9 @@ module ModernTreasury
             end
           end
 
-          # The party that will pay the fees for the payment order. Only applies to wire
-          # payment orders. Can be one of shared, sender, or receiver, which correspond
-          # respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+          # The party that will pay the fees for the payment order. See
+          # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
+          # differences between the options.
           module ChargeBearer
             extend ModernTreasury::Internal::Type::Enum
 
@@ -2460,6 +2460,11 @@ module ModernTreasury
                 ID_SKNBI_CODE =
                   T.let(
                     :id_sknbi_code,
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+                  )
+                IL_BANK_CODE =
+                  T.let(
+                    :il_bank_code,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
                   )
                 IN_IFSC =
@@ -4165,6 +4170,10 @@ module ModernTreasury
           end
           attr_accessor :type
 
+          # An identifier given to this transaction by the bank, often `null`.
+          sig { returns(T.nilable(String)) }
+          attr_accessor :vendor_customer_id
+
           # The transaction detail text that often appears in on your bank statement and in
           # your banking portal.
           sig { returns(T.nilable(String)) }
@@ -4184,6 +4193,7 @@ module ModernTreasury
                 T.nilable(
                   ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::OrSymbol
                 ),
+              vendor_customer_id: T.nilable(String),
               vendor_description: T.nilable(String)
             ).returns(T.attached_class)
           end
@@ -4213,6 +4223,8 @@ module ModernTreasury
             # The type of the transaction. Examples could be
             # `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
             type: nil,
+            # An identifier given to this transaction by the bank, often `null`.
+            vendor_customer_id: nil,
             # The transaction detail text that often appears in on your bank statement and in
             # your banking portal.
             vendor_description: nil
@@ -4234,6 +4246,7 @@ module ModernTreasury
                   T.nilable(
                     ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::OrSymbol
                   ),
+                vendor_customer_id: T.nilable(String),
                 vendor_description: T.nilable(String)
               }
             )
@@ -4517,9 +4530,9 @@ module ModernTreasury
           sig { params(amount: Integer).void }
           attr_writer :amount
 
-          # The party that will pay the fees for the payment order. Only applies to wire
-          # payment orders. Can be one of shared, sender, or receiver, which correspond
-          # respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+          # The party that will pay the fees for the payment order. See
+          # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
+          # differences between the options.
           sig do
             returns(
               T.nilable(
@@ -4878,9 +4891,9 @@ module ModernTreasury
             # Value in specified currency's smallest unit. e.g. $10 would be represented as
             # 1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
             amount: nil,
-            # The party that will pay the fees for the payment order. Only applies to wire
-            # payment orders. Can be one of shared, sender, or receiver, which correspond
-            # respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+            # The party that will pay the fees for the payment order. See
+            # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
+            # differences between the options.
             charge_bearer: nil,
             # Required when receiving_account_id is passed the ID of an external account.
             counterparty_id: nil,
@@ -5099,9 +5112,9 @@ module ModernTreasury
             end
           end
 
-          # The party that will pay the fees for the payment order. Only applies to wire
-          # payment orders. Can be one of shared, sender, or receiver, which correspond
-          # respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+          # The party that will pay the fees for the payment order. See
+          # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
+          # differences between the options.
           module ChargeBearer
             extend ModernTreasury::Internal::Type::Enum
 
@@ -6298,6 +6311,11 @@ module ModernTreasury
                 ID_SKNBI_CODE =
                   T.let(
                     :id_sknbi_code,
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+                  )
+                IL_BANK_CODE =
+                  T.let(
+                    :il_bank_code,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
                   )
                 IN_IFSC =

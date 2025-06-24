@@ -101,6 +101,13 @@ module ModernTreasury
       #   @return [ModernTreasury::Models::Invoice::InvoicerAddress, nil]
       required :invoicer_address, -> { ModernTreasury::Invoice::InvoicerAddress }, nil?: true
 
+      # @!attribute invoicer_name
+      #   The name of the issuer for the invoice. Defaults to the name of the
+      #   Organization.
+      #
+      #   @return [String, nil]
+      required :invoicer_name, String, nil?: true
+
       # @!attribute ledger_account_settlement_id
       #   The ledger account settlement object linked to the invoice.
       #
@@ -244,7 +251,7 @@ module ModernTreasury
       #   @return [String, nil]
       required :virtual_account_id, String, nil?: true
 
-      # @!method initialize(id:, amount_paid:, amount_remaining:, contact_details:, counterparty_billing_address:, counterparty_id:, counterparty_shipping_address:, created_at:, currency:, description:, due_date:, expected_payments:, fallback_payment_method:, hosted_url:, invoicer_address:, ledger_account_settlement_id:, live_mode:, metadata:, notification_email_addresses:, notifications_enabled:, number:, object:, originating_account_id:, payment_effective_date:, payment_method:, payment_orders:, payment_type:, pdf_url:, receiving_account_id:, recipient_email:, recipient_name:, remind_after_overdue_days:, status:, total_amount:, transaction_line_item_ids:, updated_at:, virtual_account_id:)
+      # @!method initialize(id:, amount_paid:, amount_remaining:, contact_details:, counterparty_billing_address:, counterparty_id:, counterparty_shipping_address:, created_at:, currency:, description:, due_date:, expected_payments:, fallback_payment_method:, hosted_url:, invoicer_address:, invoicer_name:, ledger_account_settlement_id:, live_mode:, metadata:, notification_email_addresses:, notifications_enabled:, number:, object:, originating_account_id:, payment_effective_date:, payment_method:, payment_orders:, payment_type:, pdf_url:, receiving_account_id:, recipient_email:, recipient_name:, remind_after_overdue_days:, status:, total_amount:, transaction_line_item_ids:, updated_at:, virtual_account_id:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::Invoice} for more details.
       #
@@ -277,6 +284,8 @@ module ModernTreasury
       #   @param hosted_url [String] The URL of the hosted web UI where the invoice can be viewed.
       #
       #   @param invoicer_address [ModernTreasury::Models::Invoice::InvoicerAddress, nil] The invoice issuer's business address.
+      #
+      #   @param invoicer_name [String, nil] The name of the issuer for the invoice. Defaults to the name of the Organization
       #
       #   @param ledger_account_settlement_id [String, nil] The ledger account settlement object linked to the invoice.
       #
