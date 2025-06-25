@@ -1142,6 +1142,16 @@ module ModernTreasury
               :goldman_sachs_unique_payment_id,
               ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
+          HIFI_OFFRAMP_ID =
+            T.let(
+              :hifi_offramp_id,
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
+          HIFI_TRANSFER_ID =
+            T.let(
+              :hifi_transfer_id,
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
           INTERAC_MESSAGE_ID =
             T.let(
               :interac_message_id,
