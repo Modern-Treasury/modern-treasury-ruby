@@ -62,7 +62,7 @@ module ModernTreasury
       required :ledger_account_id, String, nil?: true
 
       # @!attribute legal_entity_id
-      #   The Legal Entity associated to this account
+      #   The Legal Entity associated to this account.
       #
       #   @return [String, nil]
       required :legal_entity_id, String, nil?: true
@@ -127,7 +127,13 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!method initialize(id:, account_capabilities:, account_details:, account_type:, connection:, counterparty_id:, created_at:, currency:, ledger_account_id:, legal_entity_id:, live_mode:, metadata:, name:, object:, parent_account_id:, party_address:, party_name:, party_type:, routing_details:, updated_at:)
+      # @!attribute vendor_id
+      #   The vendor ID associated with this account.
+      #
+      #   @return [String, nil]
+      required :vendor_id, String, nil?: true
+
+      # @!method initialize(id:, account_capabilities:, account_details:, account_type:, connection:, counterparty_id:, created_at:, currency:, ledger_account_id:, legal_entity_id:, live_mode:, metadata:, name:, object:, parent_account_id:, party_address:, party_name:, party_type:, routing_details:, updated_at:, vendor_id:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::InternalAccount} for more details.
       #
@@ -149,7 +155,7 @@ module ModernTreasury
       #
       #   @param ledger_account_id [String, nil] If the internal account links to a ledger account in Modern Treasury, the id of
       #
-      #   @param legal_entity_id [String, nil] The Legal Entity associated to this account
+      #   @param legal_entity_id [String, nil] The Legal Entity associated to this account.
       #
       #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
       #
@@ -170,6 +176,8 @@ module ModernTreasury
       #   @param routing_details [Array<ModernTreasury::Models::RoutingDetail>] An array of routing detail objects.
       #
       #   @param updated_at [Time]
+      #
+      #   @param vendor_id [String, nil] The vendor ID associated with this account.
 
       class AccountCapability < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id

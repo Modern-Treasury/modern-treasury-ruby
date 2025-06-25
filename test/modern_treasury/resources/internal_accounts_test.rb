@@ -37,7 +37,8 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
         party_name: String,
         party_type: ModernTreasury::InternalAccount::PartyType | nil,
         routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail]),
-        updated_at: Time
+        updated_at: Time,
+        vendor_id: String | nil
       }
     end
   end
@@ -70,7 +71,8 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
         party_name: String,
         party_type: ModernTreasury::InternalAccount::PartyType | nil,
         routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail]),
-        updated_at: Time
+        updated_at: Time,
+        vendor_id: String | nil
       }
     end
   end
@@ -103,7 +105,8 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
         party_name: String,
         party_type: ModernTreasury::InternalAccount::PartyType | nil,
         routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail]),
-        updated_at: Time
+        updated_at: Time,
+        vendor_id: String | nil
       }
     end
   end
@@ -143,7 +146,8 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
         party_name: String,
         party_type: ModernTreasury::InternalAccount::PartyType | nil,
         routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail]),
-        updated_at: Time
+        updated_at: Time,
+        vendor_id: String | nil
       }
     end
   end
