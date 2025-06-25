@@ -122,6 +122,8 @@ module ModernTreasury
         GOLDMAN_SACHS_PAYMENT_REQUEST_ID = :goldman_sachs_payment_request_id
         GOLDMAN_SACHS_REQUEST_ID = :goldman_sachs_request_id
         GOLDMAN_SACHS_UNIQUE_PAYMENT_ID = :goldman_sachs_unique_payment_id
+        HIFI_OFFRAMP_ID = :hifi_offramp_id
+        HIFI_TRANSFER_ID = :hifi_transfer_id
         INTERAC_MESSAGE_ID = :interac_message_id
         JPMC_CCN = :jpmc_ccn
         JPMC_CLEARING_SYSTEM_REFERENCE = :jpmc_clearing_system_reference

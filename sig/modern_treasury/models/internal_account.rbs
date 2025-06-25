@@ -21,7 +21,8 @@ module ModernTreasury
         party_name: String,
         party_type: ModernTreasury::Models::InternalAccount::party_type?,
         routing_details: ::Array[ModernTreasury::RoutingDetail],
-        updated_at: Time
+        updated_at: Time,
+        vendor_id: String?
       }
 
     class InternalAccount < ModernTreasury::Internal::Type::BaseModel
@@ -65,6 +66,8 @@ module ModernTreasury
 
       attr_accessor updated_at: Time
 
+      attr_accessor vendor_id: String?
+
       def initialize: (
         id: String,
         account_capabilities: ::Array[ModernTreasury::InternalAccount::AccountCapability],
@@ -85,7 +88,8 @@ module ModernTreasury
         party_name: String,
         party_type: ModernTreasury::Models::InternalAccount::party_type?,
         routing_details: ::Array[ModernTreasury::RoutingDetail],
-        updated_at: Time
+        updated_at: Time,
+        vendor_id: String?
       ) -> void
 
       def to_hash: -> {
@@ -108,7 +112,8 @@ module ModernTreasury
         party_name: String,
         party_type: ModernTreasury::Models::InternalAccount::party_type?,
         routing_details: ::Array[ModernTreasury::RoutingDetail],
-        updated_at: Time
+        updated_at: Time,
+        vendor_id: String?
       }
 
       type account_capability =

@@ -56,7 +56,7 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :ledger_account_id
 
-      # The Legal Entity associated to this account
+      # The Legal Entity associated to this account.
       sig { returns(T.nilable(String)) }
       attr_accessor :legal_entity_id
 
@@ -112,6 +112,10 @@ module ModernTreasury
       sig { returns(Time) }
       attr_accessor :updated_at
 
+      # The vendor ID associated with this account.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :vendor_id
+
       sig do
         params(
           id: String,
@@ -139,7 +143,8 @@ module ModernTreasury
           party_type:
             T.nilable(ModernTreasury::InternalAccount::PartyType::OrSymbol),
           routing_details: T::Array[ModernTreasury::RoutingDetail::OrHash],
-          updated_at: Time
+          updated_at: Time,
+          vendor_id: T.nilable(String)
         ).returns(T.attached_class)
       end
       def self.new(
@@ -161,7 +166,7 @@ module ModernTreasury
         # If the internal account links to a ledger account in Modern Treasury, the id of
         # the ledger account will be populated here.
         ledger_account_id:,
-        # The Legal Entity associated to this account
+        # The Legal Entity associated to this account.
         legal_entity_id:,
         # This field will be true if this object exists in the live environment or false
         # if it exists in the test environment.
@@ -182,7 +187,9 @@ module ModernTreasury
         party_type:,
         # An array of routing detail objects.
         routing_details:,
-        updated_at:
+        updated_at:,
+        # The vendor ID associated with this account.
+        vendor_id:
       )
       end
 
@@ -216,7 +223,8 @@ module ModernTreasury
                 ModernTreasury::InternalAccount::PartyType::TaggedSymbol
               ),
             routing_details: T::Array[ModernTreasury::RoutingDetail],
-            updated_at: Time
+            updated_at: Time,
+            vendor_id: T.nilable(String)
           }
         )
       end
