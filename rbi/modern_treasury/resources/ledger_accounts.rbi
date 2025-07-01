@@ -112,6 +112,7 @@ module ModernTreasury
           ledger_id: String,
           metadata: T::Hash[Symbol, String],
           name: T::Array[String],
+          normal_balance: ModernTreasury::TransactionDirection::OrSymbol,
           pending_balance_amount:
             ModernTreasury::LedgerAccountListParams::PendingBalanceAmount::OrHash,
           per_page: Integer,
@@ -150,6 +151,7 @@ module ModernTreasury
         # If you have specific names to retrieve in bulk, you can pass them as query
         # parameters delimited with `name[]=`, for example `?name[]=123&name[]=abc`.
         name: nil,
+        normal_balance: nil,
         # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
         # filter by balance amount.
         pending_balance_amount: nil,
