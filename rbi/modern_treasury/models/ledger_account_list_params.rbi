@@ -111,6 +111,16 @@ module ModernTreasury
       sig { params(name: T::Array[String]).void }
       attr_writer :name
 
+      sig { returns(T.nilable(ModernTreasury::TransactionDirection::OrSymbol)) }
+      attr_reader :normal_balance
+
+      sig do
+        params(
+          normal_balance: ModernTreasury::TransactionDirection::OrSymbol
+        ).void
+      end
+      attr_writer :normal_balance
+
       # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
       # filter by balance amount.
       sig do
@@ -178,6 +188,7 @@ module ModernTreasury
           ledger_id: String,
           metadata: T::Hash[Symbol, String],
           name: T::Array[String],
+          normal_balance: ModernTreasury::TransactionDirection::OrSymbol,
           pending_balance_amount:
             ModernTreasury::LedgerAccountListParams::PendingBalanceAmount::OrHash,
           per_page: Integer,
@@ -216,6 +227,7 @@ module ModernTreasury
         # If you have specific names to retrieve in bulk, you can pass them as query
         # parameters delimited with `name[]=`, for example `?name[]=123&name[]=abc`.
         name: nil,
+        normal_balance: nil,
         # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
         # filter by balance amount.
         pending_balance_amount: nil,
@@ -246,6 +258,7 @@ module ModernTreasury
             ledger_id: String,
             metadata: T::Hash[Symbol, String],
             name: T::Array[String],
+            normal_balance: ModernTreasury::TransactionDirection::OrSymbol,
             pending_balance_amount:
               ModernTreasury::LedgerAccountListParams::PendingBalanceAmount,
             per_page: Integer,

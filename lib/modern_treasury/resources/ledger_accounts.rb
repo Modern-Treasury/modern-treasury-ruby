@@ -109,7 +109,7 @@ module ModernTreasury
       #
       # Get a list of ledger accounts.
       #
-      # @overload list(id: nil, after_cursor: nil, available_balance_amount: nil, balances: nil, created_at: nil, currency: nil, external_id: nil, ledger_account_category_id: nil, ledger_id: nil, metadata: nil, name: nil, pending_balance_amount: nil, per_page: nil, posted_balance_amount: nil, updated_at: nil, request_options: {})
+      # @overload list(id: nil, after_cursor: nil, available_balance_amount: nil, balances: nil, created_at: nil, currency: nil, external_id: nil, ledger_account_category_id: nil, ledger_id: nil, metadata: nil, name: nil, normal_balance: nil, pending_balance_amount: nil, per_page: nil, posted_balance_amount: nil, updated_at: nil, request_options: {})
       #
       # @param id [Array<String>] If you have specific IDs to retrieve in bulk, you can pass them as query paramet
       #
@@ -132,6 +132,8 @@ module ModernTreasury
       # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
       #
       # @param name [Array<String>] If you have specific names to retrieve in bulk, you can pass them as query param
+      #
+      # @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection]
       #
       # @param pending_balance_amount [ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to fi
       #

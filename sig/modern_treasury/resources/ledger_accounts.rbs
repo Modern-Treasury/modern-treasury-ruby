@@ -41,6 +41,7 @@ module ModernTreasury
         ?ledger_id: String,
         ?metadata: ::Hash[Symbol, String],
         ?name: ::Array[String],
+        ?normal_balance: ModernTreasury::Models::transaction_direction,
         ?pending_balance_amount: ModernTreasury::LedgerAccountListParams::PendingBalanceAmount,
         ?per_page: Integer,
         ?posted_balance_amount: ModernTreasury::LedgerAccountListParams::PostedBalanceAmount,
