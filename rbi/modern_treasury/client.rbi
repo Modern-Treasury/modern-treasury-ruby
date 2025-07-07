@@ -70,9 +70,6 @@ module ModernTreasury
     sig { returns(ModernTreasury::Resources::LedgerEntries) }
     attr_reader :ledger_entries
 
-    sig { returns(ModernTreasury::Resources::LedgerEventHandlers) }
-    attr_reader :ledger_event_handlers
-
     sig { returns(ModernTreasury::Resources::LedgerTransactions) }
     attr_reader :ledger_transactions
 
