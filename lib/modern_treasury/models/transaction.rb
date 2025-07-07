@@ -362,6 +362,7 @@ module ModernTreasury
         DWOLLA = :dwolla
         EVOLVE = :evolve
         GOLDMAN_SACHS = :goldman_sachs
+        HIFI = :hifi
         ISO20022 = :iso20022
         JPMC = :jpmc
         MX = :mx
