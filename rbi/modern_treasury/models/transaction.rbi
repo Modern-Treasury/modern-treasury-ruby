@@ -520,6 +520,11 @@ module ModernTreasury
             :goldman_sachs,
             ModernTreasury::Transaction::VendorCodeType::TaggedSymbol
           )
+        HIFI =
+          T.let(
+            :hifi,
+            ModernTreasury::Transaction::VendorCodeType::TaggedSymbol
+          )
         ISO20022 =
           T.let(
             :iso20022,
