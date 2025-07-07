@@ -13,10 +13,7 @@ module ModernTreasury
           due_date: Time,
           originating_account_id: String,
           auto_advance: T.nilable(T::Boolean),
-          contact_details:
-            T::Array[
-              ModernTreasury::InvoiceCreateParams::ContactDetail::OrHash
-            ],
+          contact_details: T::Array[ModernTreasury::ContactDetail::OrHash],
           counterparty_billing_address:
             T.nilable(
               ModernTreasury::InvoiceCreateParams::CounterpartyBillingAddress::OrHash
@@ -151,10 +148,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          contact_details:
-            T::Array[
-              ModernTreasury::InvoiceUpdateParams::ContactDetail::OrHash
-            ],
+          contact_details: T::Array[ModernTreasury::ContactDetail::OrHash],
           counterparty_billing_address:
             T.nilable(
               ModernTreasury::InvoiceUpdateParams::CounterpartyBillingAddress::OrHash

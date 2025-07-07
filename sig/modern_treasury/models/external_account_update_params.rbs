@@ -6,7 +6,7 @@ module ModernTreasury
         counterparty_id: String?,
         metadata: ::Hash[Symbol, String],
         name: String?,
-        party_address: ModernTreasury::ExternalAccountUpdateParams::PartyAddress,
+        party_address: ModernTreasury::AddressRequest,
         party_name: String,
         party_type: ModernTreasury::Models::ExternalAccountUpdateParams::party_type?
       }
@@ -30,11 +30,11 @@ module ModernTreasury
 
       attr_accessor name: String?
 
-      attr_reader party_address: ModernTreasury::ExternalAccountUpdateParams::PartyAddress?
+      attr_reader party_address: ModernTreasury::AddressRequest?
 
       def party_address=: (
-        ModernTreasury::ExternalAccountUpdateParams::PartyAddress
-      ) -> ModernTreasury::ExternalAccountUpdateParams::PartyAddress
+        ModernTreasury::AddressRequest
+      ) -> ModernTreasury::AddressRequest
 
       attr_reader party_name: String?
 
@@ -47,7 +47,7 @@ module ModernTreasury
         ?counterparty_id: String?,
         ?metadata: ::Hash[Symbol, String],
         ?name: String?,
-        ?party_address: ModernTreasury::ExternalAccountUpdateParams::PartyAddress,
+        ?party_address: ModernTreasury::AddressRequest,
         ?party_name: String,
         ?party_type: ModernTreasury::Models::ExternalAccountUpdateParams::party_type?,
         ?request_options: ModernTreasury::request_opts
@@ -58,53 +58,11 @@ module ModernTreasury
         counterparty_id: String?,
         metadata: ::Hash[Symbol, String],
         name: String?,
-        party_address: ModernTreasury::ExternalAccountUpdateParams::PartyAddress,
+        party_address: ModernTreasury::AddressRequest,
         party_name: String,
         party_type: ModernTreasury::Models::ExternalAccountUpdateParams::party_type?,
         request_options: ModernTreasury::RequestOptions
       }
-
-      type party_address =
-        {
-          country: String?,
-          :line1 => String?,
-          :line2 => String?,
-          locality: String?,
-          postal_code: String?,
-          region: String?
-        }
-
-      class PartyAddress < ModernTreasury::Internal::Type::BaseModel
-        attr_accessor country: String?
-
-        attr_accessor line1: String?
-
-        attr_accessor line2: String?
-
-        attr_accessor locality: String?
-
-        attr_accessor postal_code: String?
-
-        attr_accessor region: String?
-
-        def initialize: (
-          ?country: String?,
-          ?line1: String?,
-          ?line2: String?,
-          ?locality: String?,
-          ?postal_code: String?,
-          ?region: String?
-        ) -> void
-
-        def to_hash: -> {
-          country: String?,
-          :line1 => String?,
-          :line2 => String?,
-          locality: String?,
-          postal_code: String?,
-          region: String?
-        }
-      end
 
       type party_type = :business | :individual
 

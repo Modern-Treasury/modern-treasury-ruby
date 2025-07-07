@@ -16,8 +16,7 @@ module ModernTreasury
           credit_ledger_account_id: String,
           debit_ledger_account_id: String,
           description: String,
-          ledger_account:
-            ModernTreasury::VirtualAccountCreateParams::LedgerAccount::OrHash,
+          ledger_account: ModernTreasury::LedgerAccountCreateRequest::OrHash,
           metadata: T::Hash[Symbol, String],
           routing_details:
             T::Array[

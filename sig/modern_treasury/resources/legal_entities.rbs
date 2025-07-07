@@ -3,7 +3,7 @@ module ModernTreasury
     class LegalEntities
       def create: (
         legal_entity_type: ModernTreasury::Models::LegalEntityCreateParams::legal_entity_type,
-        ?addresses: ::Array[ModernTreasury::LegalEntityCreateParams::Address],
+        ?addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
         ?bank_settings: ModernTreasury::BankSettings?,
         ?business_name: String?,
         ?citizenship_country: String?,
@@ -13,7 +13,7 @@ module ModernTreasury
         ?doing_business_as_names: ::Array[String],
         ?email: String?,
         ?first_name: String?,
-        ?identifications: ::Array[ModernTreasury::LegalEntityCreateParams::Identification],
+        ?identifications: ::Array[ModernTreasury::IdentificationCreateRequest],
         ?industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification],
         ?last_name: String?,
         ?legal_entity_associations: ::Array[ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation]?,
@@ -38,7 +38,7 @@ module ModernTreasury
 
       def update: (
         String id,
-        ?addresses: ::Array[ModernTreasury::LegalEntityUpdateParams::Address],
+        ?addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
         ?bank_settings: ModernTreasury::BankSettings?,
         ?business_name: String?,
         ?citizenship_country: String?,
@@ -48,7 +48,7 @@ module ModernTreasury
         ?doing_business_as_names: ::Array[String],
         ?email: String?,
         ?first_name: String?,
-        ?identifications: ::Array[ModernTreasury::LegalEntityUpdateParams::Identification],
+        ?identifications: ::Array[ModernTreasury::IdentificationCreateRequest],
         ?industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification],
         ?last_name: String?,
         ?legal_structure: ModernTreasury::Models::LegalEntityUpdateParams::legal_structure?,

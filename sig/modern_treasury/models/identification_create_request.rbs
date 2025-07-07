@@ -1,0 +1,93 @@
+module ModernTreasury
+  module Models
+    type identification_create_request =
+      {
+        id_number: String,
+        id_type: ModernTreasury::Models::IdentificationCreateRequest::id_type,
+        expiration_date: Date?,
+        issuing_country: String?,
+        issuing_region: String?
+      }
+
+    class IdentificationCreateRequest < ModernTreasury::Internal::Type::BaseModel
+      attr_accessor id_number: String
+
+      attr_accessor id_type: ModernTreasury::Models::IdentificationCreateRequest::id_type
+
+      attr_accessor expiration_date: Date?
+
+      attr_accessor issuing_country: String?
+
+      attr_accessor issuing_region: String?
+
+      def initialize: (
+        id_number: String,
+        id_type: ModernTreasury::Models::IdentificationCreateRequest::id_type,
+        ?expiration_date: Date?,
+        ?issuing_country: String?,
+        ?issuing_region: String?
+      ) -> void
+
+      def to_hash: -> {
+        id_number: String,
+        id_type: ModernTreasury::Models::IdentificationCreateRequest::id_type,
+        expiration_date: Date?,
+        issuing_country: String?,
+        issuing_region: String?
+      }
+
+      type id_type =
+        :ar_cuil
+        | :ar_cuit
+        | :br_cnpj
+        | :br_cpf
+        | :cl_run
+        | :cl_rut
+        | :co_cedulas
+        | :co_nit
+        | :drivers_license
+        | :hn_id
+        | :hn_rtn
+        | :in_lei
+        | :kr_brn
+        | :kr_crn
+        | :kr_rrn
+        | :passport
+        | :sa_tin
+        | :sa_vat
+        | :us_ein
+        | :us_itin
+        | :us_ssn
+        | :vn_tin
+
+      module IDType
+        extend ModernTreasury::Internal::Type::Enum
+
+        AR_CUIL: :ar_cuil
+        AR_CUIT: :ar_cuit
+        BR_CNPJ: :br_cnpj
+        BR_CPF: :br_cpf
+        CL_RUN: :cl_run
+        CL_RUT: :cl_rut
+        CO_CEDULAS: :co_cedulas
+        CO_NIT: :co_nit
+        DRIVERS_LICENSE: :drivers_license
+        HN_ID: :hn_id
+        HN_RTN: :hn_rtn
+        IN_LEI: :in_lei
+        KR_BRN: :kr_brn
+        KR_CRN: :kr_crn
+        KR_RRN: :kr_rrn
+        PASSPORT: :passport
+        SA_TIN: :sa_tin
+        SA_VAT: :sa_vat
+        US_EIN: :us_ein
+        US_ITIN: :us_itin
+        US_SSN: :us_ssn
+        VN_TIN: :vn_tin
+
+        def self?.values: -> ::Array[ModernTreasury::Models::IdentificationCreateRequest::id_type]
+      end
+    end
+  end
+end

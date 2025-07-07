@@ -17,7 +17,7 @@ module ModernTreasury
       # A list of addresses for the entity.
       sig do
         returns(
-          T.nilable(T::Array[ModernTreasury::LegalEntityUpdateParams::Address])
+          T.nilable(T::Array[ModernTreasury::LegalEntityAddressCreateRequest])
         )
       end
       attr_reader :addresses
@@ -25,7 +25,7 @@ module ModernTreasury
       sig do
         params(
           addresses:
-            T::Array[ModernTreasury::LegalEntityUpdateParams::Address::OrHash]
+            T::Array[ModernTreasury::LegalEntityAddressCreateRequest::OrHash]
         ).void
       end
       attr_writer :addresses
@@ -84,9 +84,7 @@ module ModernTreasury
       # A list of identifications for the legal entity.
       sig do
         returns(
-          T.nilable(
-            T::Array[ModernTreasury::LegalEntityUpdateParams::Identification]
-          )
+          T.nilable(T::Array[ModernTreasury::IdentificationCreateRequest])
         )
       end
       attr_reader :identifications
@@ -94,9 +92,7 @@ module ModernTreasury
       sig do
         params(
           identifications:
-            T::Array[
-              ModernTreasury::LegalEntityUpdateParams::Identification::OrHash
-            ]
+            T::Array[ModernTreasury::IdentificationCreateRequest::OrHash]
         ).void
       end
       attr_writer :identifications
@@ -206,7 +202,7 @@ module ModernTreasury
       sig do
         params(
           addresses:
-            T::Array[ModernTreasury::LegalEntityUpdateParams::Address::OrHash],
+            T::Array[ModernTreasury::LegalEntityAddressCreateRequest::OrHash],
           bank_settings: T.nilable(ModernTreasury::BankSettings::OrHash),
           business_name: T.nilable(String),
           citizenship_country: T.nilable(String),
@@ -218,9 +214,7 @@ module ModernTreasury
           email: T.nilable(String),
           first_name: T.nilable(String),
           identifications:
-            T::Array[
-              ModernTreasury::LegalEntityUpdateParams::Identification::OrHash
-            ],
+            T::Array[ModernTreasury::IdentificationCreateRequest::OrHash],
           industry_classifications:
             T::Array[ModernTreasury::LegalEntityIndustryClassification::OrHash],
           last_name: T.nilable(String),
@@ -301,7 +295,7 @@ module ModernTreasury
         override.returns(
           {
             addresses:
-              T::Array[ModernTreasury::LegalEntityUpdateParams::Address],
+              T::Array[ModernTreasury::LegalEntityAddressCreateRequest],
             bank_settings: T.nilable(ModernTreasury::BankSettings),
             business_name: T.nilable(String),
             citizenship_country: T.nilable(String),
@@ -313,7 +307,7 @@ module ModernTreasury
             email: T.nilable(String),
             first_name: T.nilable(String),
             identifications:
-              T::Array[ModernTreasury::LegalEntityUpdateParams::Identification],
+              T::Array[ModernTreasury::IdentificationCreateRequest],
             industry_classifications:
               T::Array[ModernTreasury::LegalEntityIndustryClassification],
             last_name: T.nilable(String),
@@ -341,370 +335,6 @@ module ModernTreasury
         )
       end
       def to_hash
-      end
-
-      class Address < ModernTreasury::Internal::Type::BaseModel
-        OrHash =
-          T.type_alias do
-            T.any(
-              ModernTreasury::LegalEntityUpdateParams::Address,
-              ModernTreasury::Internal::AnyHash
-            )
-          end
-
-        # Country code conforms to [ISO 3166-1 alpha-2]
-        sig { returns(T.nilable(String)) }
-        attr_accessor :country
-
-        sig { returns(T.nilable(String)) }
-        attr_accessor :line1
-
-        # Locality or City.
-        sig { returns(T.nilable(String)) }
-        attr_accessor :locality
-
-        # The postal code of the address.
-        sig { returns(T.nilable(String)) }
-        attr_accessor :postal_code
-
-        # Region or State.
-        sig { returns(T.nilable(String)) }
-        attr_accessor :region
-
-        # The types of this address.
-        sig do
-          returns(
-            T.nilable(
-              T::Array[
-                ModernTreasury::LegalEntityUpdateParams::Address::AddressType::OrSymbol
-              ]
-            )
-          )
-        end
-        attr_reader :address_types
-
-        sig do
-          params(
-            address_types:
-              T::Array[
-                ModernTreasury::LegalEntityUpdateParams::Address::AddressType::OrSymbol
-              ]
-          ).void
-        end
-        attr_writer :address_types
-
-        sig { returns(T.nilable(String)) }
-        attr_accessor :line2
-
-        sig do
-          params(
-            country: T.nilable(String),
-            line1: T.nilable(String),
-            locality: T.nilable(String),
-            postal_code: T.nilable(String),
-            region: T.nilable(String),
-            address_types:
-              T::Array[
-                ModernTreasury::LegalEntityUpdateParams::Address::AddressType::OrSymbol
-              ],
-            line2: T.nilable(String)
-          ).returns(T.attached_class)
-        end
-        def self.new(
-          # Country code conforms to [ISO 3166-1 alpha-2]
-          country:,
-          line1:,
-          # Locality or City.
-          locality:,
-          # The postal code of the address.
-          postal_code:,
-          # Region or State.
-          region:,
-          # The types of this address.
-          address_types: nil,
-          line2: nil
-        )
-        end
-
-        sig do
-          override.returns(
-            {
-              country: T.nilable(String),
-              line1: T.nilable(String),
-              locality: T.nilable(String),
-              postal_code: T.nilable(String),
-              region: T.nilable(String),
-              address_types:
-                T::Array[
-                  ModernTreasury::LegalEntityUpdateParams::Address::AddressType::OrSymbol
-                ],
-              line2: T.nilable(String)
-            }
-          )
-        end
-        def to_hash
-        end
-
-        module AddressType
-          extend ModernTreasury::Internal::Type::Enum
-
-          TaggedSymbol =
-            T.type_alias do
-              T.all(
-                Symbol,
-                ModernTreasury::LegalEntityUpdateParams::Address::AddressType
-              )
-            end
-          OrSymbol = T.type_alias { T.any(Symbol, String) }
-
-          BUSINESS =
-            T.let(
-              :business,
-              ModernTreasury::LegalEntityUpdateParams::Address::AddressType::TaggedSymbol
-            )
-          MAILING =
-            T.let(
-              :mailing,
-              ModernTreasury::LegalEntityUpdateParams::Address::AddressType::TaggedSymbol
-            )
-          OTHER =
-            T.let(
-              :other,
-              ModernTreasury::LegalEntityUpdateParams::Address::AddressType::TaggedSymbol
-            )
-          PO_BOX =
-            T.let(
-              :po_box,
-              ModernTreasury::LegalEntityUpdateParams::Address::AddressType::TaggedSymbol
-            )
-          RESIDENTIAL =
-            T.let(
-              :residential,
-              ModernTreasury::LegalEntityUpdateParams::Address::AddressType::TaggedSymbol
-            )
-
-          sig do
-            override.returns(
-              T::Array[
-                ModernTreasury::LegalEntityUpdateParams::Address::AddressType::TaggedSymbol
-              ]
-            )
-          end
-          def self.values
-          end
-        end
-      end
-
-      class Identification < ModernTreasury::Internal::Type::BaseModel
-        OrHash =
-          T.type_alias do
-            T.any(
-              ModernTreasury::LegalEntityUpdateParams::Identification,
-              ModernTreasury::Internal::AnyHash
-            )
-          end
-
-        # The ID number of identification document.
-        sig { returns(String) }
-        attr_accessor :id_number
-
-        # The type of ID number.
-        sig do
-          returns(
-            ModernTreasury::LegalEntityUpdateParams::Identification::IDType::OrSymbol
-          )
-        end
-        attr_accessor :id_type
-
-        # The date when the Identification is no longer considered valid by the issuing
-        # authority.
-        sig { returns(T.nilable(Date)) }
-        attr_accessor :expiration_date
-
-        # The ISO 3166-1 alpha-2 country code of the country that issued the
-        # identification
-        sig { returns(T.nilable(String)) }
-        attr_accessor :issuing_country
-
-        # The region in which the identifcation was issued.
-        sig { returns(T.nilable(String)) }
-        attr_accessor :issuing_region
-
-        sig do
-          params(
-            id_number: String,
-            id_type:
-              ModernTreasury::LegalEntityUpdateParams::Identification::IDType::OrSymbol,
-            expiration_date: T.nilable(Date),
-            issuing_country: T.nilable(String),
-            issuing_region: T.nilable(String)
-          ).returns(T.attached_class)
-        end
-        def self.new(
-          # The ID number of identification document.
-          id_number:,
-          # The type of ID number.
-          id_type:,
-          # The date when the Identification is no longer considered valid by the issuing
-          # authority.
-          expiration_date: nil,
-          # The ISO 3166-1 alpha-2 country code of the country that issued the
-          # identification
-          issuing_country: nil,
-          # The region in which the identifcation was issued.
-          issuing_region: nil
-        )
-        end
-
-        sig do
-          override.returns(
-            {
-              id_number: String,
-              id_type:
-                ModernTreasury::LegalEntityUpdateParams::Identification::IDType::OrSymbol,
-              expiration_date: T.nilable(Date),
-              issuing_country: T.nilable(String),
-              issuing_region: T.nilable(String)
-            }
-          )
-        end
-        def to_hash
-        end
-
-        # The type of ID number.
-        module IDType
-          extend ModernTreasury::Internal::Type::Enum
-
-          TaggedSymbol =
-            T.type_alias do
-              T.all(
-                Symbol,
-                ModernTreasury::LegalEntityUpdateParams::Identification::IDType
-              )
-            end
-          OrSymbol = T.type_alias { T.any(Symbol, String) }
-
-          AR_CUIL =
-            T.let(
-              :ar_cuil,
-              ModernTreasury::LegalEntityUpdateParams::Identification::IDType::TaggedSymbol
-            )
-          AR_CUIT =
-            T.let(
-              :ar_cuit,
-              ModernTreasury::LegalEntityUpdateParams::Identification::IDType::TaggedSymbol
-            )
-          BR_CNPJ =
-            T.let(
-              :br_cnpj,
-              ModernTreasury::LegalEntityUpdateParams::Identification::IDType::TaggedSymbol
-            )
-          BR_CPF =
-            T.let(
-              :br_cpf,
-              ModernTreasury::LegalEntityUpdateParams::Identification::IDType::TaggedSymbol
-            )
-          CL_RUN =
-            T.let(
-              :cl_run,
-              ModernTreasury::LegalEntityUpdateParams::Identification::IDType::TaggedSymbol
-            )
-          CL_RUT =
-            T.let(
-              :cl_rut,
-              ModernTreasury::LegalEntityUpdateParams::Identification::IDType::TaggedSymbol
-            )
-          CO_CEDULAS =
-            T.let(
-              :co_cedulas,
-              ModernTreasury::LegalEntityUpdateParams::Identification::IDType::TaggedSymbol
-            )
-          CO_NIT =
-            T.let(
-              :co_nit,
-              ModernTreasury::LegalEntityUpdateParams::Identification::IDType::TaggedSymbol
-            )
-          DRIVERS_LICENSE =
-            T.let(
-              :drivers_license,
-              ModernTreasury::LegalEntityUpdateParams::Identification::IDType::TaggedSymbol
-            )
-          HN_ID =
-            T.let(
-              :hn_id,
-              ModernTreasury::LegalEntityUpdateParams::Identification::IDType::TaggedSymbol
-            )
-          HN_RTN =
-            T.let(
-              :hn_rtn,
-              ModernTreasury::LegalEntityUpdateParams::Identification::IDType::TaggedSymbol
-            )
-          IN_LEI =
-            T.let(
-              :in_lei,
-              ModernTreasury::LegalEntityUpdateParams::Identification::IDType::TaggedSymbol
-            )
-          KR_BRN =
-            T.let(
-              :kr_brn,
-              ModernTreasury::LegalEntityUpdateParams::Identification::IDType::TaggedSymbol
-            )
-          KR_CRN =
-            T.let(
-              :kr_crn,
-              ModernTreasury::LegalEntityUpdateParams::Identification::IDType::TaggedSymbol
-            )
-          KR_RRN =
-            T.let(
-              :kr_rrn,
-              ModernTreasury::LegalEntityUpdateParams::Identification::IDType::TaggedSymbol
-            )
-          PASSPORT =
-            T.let(
-              :passport,
-              ModernTreasury::LegalEntityUpdateParams::Identification::IDType::TaggedSymbol
-            )
-          SA_TIN =
-            T.let(
-              :sa_tin,
-              ModernTreasury::LegalEntityUpdateParams::Identification::IDType::TaggedSymbol
-            )
-          SA_VAT =
-            T.let(
-              :sa_vat,
-              ModernTreasury::LegalEntityUpdateParams::Identification::IDType::TaggedSymbol
-            )
-          US_EIN =
-            T.let(
-              :us_ein,
-              ModernTreasury::LegalEntityUpdateParams::Identification::IDType::TaggedSymbol
-            )
-          US_ITIN =
-            T.let(
-              :us_itin,
-              ModernTreasury::LegalEntityUpdateParams::Identification::IDType::TaggedSymbol
-            )
-          US_SSN =
-            T.let(
-              :us_ssn,
-              ModernTreasury::LegalEntityUpdateParams::Identification::IDType::TaggedSymbol
-            )
-          VN_TIN =
-            T.let(
-              :vn_tin,
-              ModernTreasury::LegalEntityUpdateParams::Identification::IDType::TaggedSymbol
-            )
-
-          sig do
-            override.returns(
-              T::Array[
-                ModernTreasury::LegalEntityUpdateParams::Identification::IDType::TaggedSymbol
-              ]
-            )
-          end
-          def self.values
-          end
-        end
       end
 
       # The business's legal structure.

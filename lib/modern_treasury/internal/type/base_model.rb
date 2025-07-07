@@ -446,10 +446,10 @@ module ModernTreasury
         # @return [Hash{Symbol=>Object}]
         #
         # @example
-        #   # `async_response` is a `ModernTreasury::AsyncResponse`
-        #   async_response => {
-        #     id: id,
-        #     object: object
+        #   # `accounting` is a `ModernTreasury::Accounting`
+        #   accounting => {
+        #     account_id: account_id,
+        #     class_id: class_id
         #   }
         def deconstruct_keys(keys)
           (keys || self.class.known_fields.keys)

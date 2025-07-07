@@ -61,8 +61,8 @@ module ModernTreasury
       #   The resulting ledger account is linked to the virtual account for auto-ledgering
       #   IPDs.
       #
-      #   @return [ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount, nil]
-      optional :ledger_account, -> { ModernTreasury::VirtualAccountCreateParams::LedgerAccount }
+      #   @return [ModernTreasury::Models::LedgerAccountCreateRequest, nil]
+      optional :ledger_account, -> { ModernTreasury::LedgerAccountCreateRequest }
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
@@ -98,7 +98,7 @@ module ModernTreasury
       #
       #   @param description [String] An optional description for internal use.
       #
-      #   @param ledger_account [ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount] Specifies a ledger account object that will be created with the virtual account.
+      #   @param ledger_account [ModernTreasury::Models::LedgerAccountCreateRequest] Specifies a ledger account object that will be created with the virtual account.
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #
@@ -151,120 +151,6 @@ module ModernTreasury
           SG_NUMBER = :sg_number
           SOLANA_ADDRESS = :solana_address
           WALLET_ADDRESS = :wallet_address
-
-          # @!method self.values
-          #   @return [Array<Symbol>]
-        end
-      end
-
-      class LedgerAccount < ModernTreasury::Internal::Type::BaseModel
-        # @!attribute currency
-        #   The currency of the ledger account.
-        #
-        #   @return [String]
-        required :currency, String
-
-        # @!attribute ledger_id
-        #   The id of the ledger that this account belongs to.
-        #
-        #   @return [String]
-        required :ledger_id, String
-
-        # @!attribute name
-        #   The name of the ledger account.
-        #
-        #   @return [String]
-        required :name, String
-
-        # @!attribute normal_balance
-        #   The normal balance of the ledger account.
-        #
-        #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
-        required :normal_balance, enum: -> { ModernTreasury::TransactionDirection }
-
-        # @!attribute currency_exponent
-        #   The currency exponent of the ledger account.
-        #
-        #   @return [Integer, nil]
-        optional :currency_exponent, Integer, nil?: true
-
-        # @!attribute description
-        #   The description of the ledger account.
-        #
-        #   @return [String, nil]
-        optional :description, String, nil?: true
-
-        # @!attribute ledger_account_category_ids
-        #   The array of ledger account category ids that this ledger account should be a
-        #   child of.
-        #
-        #   @return [Array<String>, nil]
-        optional :ledger_account_category_ids, ModernTreasury::Internal::Type::ArrayOf[String]
-
-        # @!attribute ledgerable_id
-        #   If the ledger account links to another object in Modern Treasury, the id will be
-        #   populated here, otherwise null.
-        #
-        #   @return [String, nil]
-        optional :ledgerable_id, String
-
-        # @!attribute ledgerable_type
-        #   If the ledger account links to another object in Modern Treasury, the type will
-        #   be populated here, otherwise null. The value is one of internal_account or
-        #   external_account.
-        #
-        #   @return [Symbol, ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType, nil]
-        optional :ledgerable_type,
-                 enum: -> { ModernTreasury::VirtualAccountCreateParams::LedgerAccount::LedgerableType }
-
-        # @!attribute metadata
-        #   Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
-        #
-        #   @return [Hash{Symbol=>String}, nil]
-        optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
-
-        # @!method initialize(currency:, ledger_id:, name:, normal_balance:, currency_exponent: nil, description: nil, ledger_account_category_ids: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil)
-        #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount} for more
-        #   details.
-        #
-        #   Specifies a ledger account object that will be created with the virtual account.
-        #   The resulting ledger account is linked to the virtual account for auto-ledgering
-        #   IPDs.
-        #
-        #   @param currency [String] The currency of the ledger account.
-        #
-        #   @param ledger_id [String] The id of the ledger that this account belongs to.
-        #
-        #   @param name [String] The name of the ledger account.
-        #
-        #   @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection] The normal balance of the ledger account.
-        #
-        #   @param currency_exponent [Integer, nil] The currency exponent of the ledger account.
-        #
-        #   @param description [String, nil] The description of the ledger account.
-        #
-        #   @param ledger_account_category_ids [Array<String>] The array of ledger account category ids that this ledger account should be a ch
-        #
-        #   @param ledgerable_id [String] If the ledger account links to another object in Modern Treasury, the id will be
-        #
-        #   @param ledgerable_type [Symbol, ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType] If the ledger account links to another object in Modern Treasury, the type will
-        #
-        #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-
-        # If the ledger account links to another object in Modern Treasury, the type will
-        # be populated here, otherwise null. The value is one of internal_account or
-        # external_account.
-        #
-        # @see ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount#ledgerable_type
-        module LedgerableType
-          extend ModernTreasury::Internal::Type::Enum
-
-          COUNTERPARTY = :counterparty
-          EXTERNAL_ACCOUNT = :external_account
-          INTERNAL_ACCOUNT = :internal_account
-          VIRTUAL_ACCOUNT = :virtual_account
 
           # @!method self.values
           #   @return [Array<Symbol>]

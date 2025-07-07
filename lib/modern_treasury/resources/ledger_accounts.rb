@@ -26,7 +26,7 @@ module ModernTreasury
       #
       # @param ledgerable_id [String] If the ledger account links to another object in Modern Treasury, the id will be
       #
-      # @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType] If the ledger account links to another object in Modern Treasury, the type will
+      # @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerAccountCreateRequest::LedgerableType] If the ledger account links to another object in Modern Treasury, the type will
       #
       # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #

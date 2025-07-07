@@ -19,7 +19,7 @@ class ModernTreasury::Test::Resources::RoutingDetailsTest < ModernTreasury::Test
     assert_pattern do
       response => {
         id: String,
-        bank_address: ModernTreasury::RoutingDetail::BankAddress | nil,
+        bank_address: ModernTreasury::Address | nil,
         bank_name: String,
         created_at: Time,
         discarded_at: Time | nil,
@@ -48,7 +48,7 @@ class ModernTreasury::Test::Resources::RoutingDetailsTest < ModernTreasury::Test
     assert_pattern do
       response => {
         id: String,
-        bank_address: ModernTreasury::RoutingDetail::BankAddress | nil,
+        bank_address: ModernTreasury::Address | nil,
         bank_name: String,
         created_at: Time,
         discarded_at: Time | nil,
@@ -79,7 +79,7 @@ class ModernTreasury::Test::Resources::RoutingDetailsTest < ModernTreasury::Test
     assert_pattern do
       row => {
         id: String,
-        bank_address: ModernTreasury::RoutingDetail::BankAddress | nil,
+        bank_address: ModernTreasury::Address | nil,
         bank_name: String,
         created_at: Time,
         discarded_at: Time | nil,

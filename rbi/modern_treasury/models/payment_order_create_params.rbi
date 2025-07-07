@@ -38,17 +38,10 @@ module ModernTreasury
       sig { returns(ModernTreasury::PaymentOrderType::OrSymbol) }
       attr_accessor :type
 
-      sig do
-        returns(T.nilable(ModernTreasury::PaymentOrderCreateParams::Accounting))
-      end
+      sig { returns(T.nilable(ModernTreasury::Accounting)) }
       attr_reader :accounting
 
-      sig do
-        params(
-          accounting:
-            ModernTreasury::PaymentOrderCreateParams::Accounting::OrHash
-        ).void
-      end
+      sig { params(accounting: ModernTreasury::Accounting::OrHash).void }
       attr_writer :accounting
 
       # The ID of one of your accounting categories. Note that these will only be
@@ -157,17 +150,13 @@ module ModernTreasury
       # order. If the ledger transaction cannot be created, then the payment order
       # creation will fail. The resulting ledger transaction will mirror the status of
       # the payment order.
-      sig do
-        returns(
-          T.nilable(ModernTreasury::PaymentOrderCreateParams::LedgerTransaction)
-        )
-      end
+      sig { returns(T.nilable(ModernTreasury::LedgerTransactionCreateRequest)) }
       attr_reader :ledger_transaction
 
       sig do
         params(
           ledger_transaction:
-            ModernTreasury::PaymentOrderCreateParams::LedgerTransaction::OrHash
+            ModernTreasury::LedgerTransactionCreateRequest::OrHash
         ).void
       end
       attr_writer :ledger_transaction
@@ -341,8 +330,7 @@ module ModernTreasury
             ModernTreasury::PaymentOrderCreateParams::Direction::OrSymbol,
           originating_account_id: String,
           type: ModernTreasury::PaymentOrderType::OrSymbol,
-          accounting:
-            ModernTreasury::PaymentOrderCreateParams::Accounting::OrHash,
+          accounting: ModernTreasury::Accounting::OrHash,
           accounting_category_id: T.nilable(String),
           accounting_ledger_class_id: T.nilable(String),
           charge_bearer:
@@ -365,7 +353,7 @@ module ModernTreasury
               ModernTreasury::PaymentOrderCreateParams::ForeignExchangeIndicator::OrSymbol
             ),
           ledger_transaction:
-            ModernTreasury::PaymentOrderCreateParams::LedgerTransaction::OrHash,
+            ModernTreasury::LedgerTransactionCreateRequest::OrHash,
           ledger_transaction_id: String,
           line_items:
             T::Array[
@@ -530,7 +518,7 @@ module ModernTreasury
               ModernTreasury::PaymentOrderCreateParams::Direction::OrSymbol,
             originating_account_id: String,
             type: ModernTreasury::PaymentOrderType::OrSymbol,
-            accounting: ModernTreasury::PaymentOrderCreateParams::Accounting,
+            accounting: ModernTreasury::Accounting,
             accounting_category_id: T.nilable(String),
             accounting_ledger_class_id: T.nilable(String),
             charge_bearer:
@@ -550,8 +538,7 @@ module ModernTreasury
               T.nilable(
                 ModernTreasury::PaymentOrderCreateParams::ForeignExchangeIndicator::OrSymbol
               ),
-            ledger_transaction:
-              ModernTreasury::PaymentOrderCreateParams::LedgerTransaction,
+            ledger_transaction: ModernTreasury::LedgerTransactionCreateRequest,
             ledger_transaction_id: String,
             line_items:
               T::Array[ModernTreasury::PaymentOrderCreateParams::LineItem],
@@ -613,52 +600,6 @@ module ModernTreasury
           )
         end
         def self.values
-        end
-      end
-
-      class Accounting < ModernTreasury::Internal::Type::BaseModel
-        OrHash =
-          T.type_alias do
-            T.any(
-              ModernTreasury::PaymentOrderCreateParams::Accounting,
-              ModernTreasury::Internal::AnyHash
-            )
-          end
-
-        # The ID of one of your accounting categories. Note that these will only be
-        # accessible if your accounting system has been connected.
-        sig { returns(T.nilable(String)) }
-        attr_accessor :account_id
-
-        # The ID of one of the class objects in your accounting system. Class objects
-        # track segments of your business independent of client or project. Note that
-        # these will only be accessible if your accounting system has been connected.
-        sig { returns(T.nilable(String)) }
-        attr_accessor :class_id
-
-        sig do
-          params(
-            account_id: T.nilable(String),
-            class_id: T.nilable(String)
-          ).returns(T.attached_class)
-        end
-        def self.new(
-          # The ID of one of your accounting categories. Note that these will only be
-          # accessible if your accounting system has been connected.
-          account_id: nil,
-          # The ID of one of the class objects in your accounting system. Class objects
-          # track segments of your business independent of client or project. Note that
-          # these will only be accessible if your accounting system has been connected.
-          class_id: nil
-        )
-        end
-
-        sig do
-          override.returns(
-            { account_id: T.nilable(String), class_id: T.nilable(String) }
-          )
-        end
-        def to_hash
         end
       end
 
@@ -921,414 +862,6 @@ module ModernTreasury
         end
       end
 
-      class LedgerTransaction < ModernTreasury::Internal::Type::BaseModel
-        OrHash =
-          T.type_alias do
-            T.any(
-              ModernTreasury::PaymentOrderCreateParams::LedgerTransaction,
-              ModernTreasury::Internal::AnyHash
-            )
-          end
-
-        # An array of ledger entry objects.
-        sig do
-          returns(
-            T::Array[
-              ModernTreasury::PaymentOrderCreateParams::LedgerTransaction::LedgerEntry
-            ]
-          )
-        end
-        attr_accessor :ledger_entries
-
-        # An optional description for internal use.
-        sig { returns(T.nilable(String)) }
-        attr_accessor :description
-
-        # The timestamp (ISO8601 format) at which the ledger transaction happened for
-        # reporting purposes.
-        sig { returns(T.nilable(Time)) }
-        attr_reader :effective_at
-
-        sig { params(effective_at: Time).void }
-        attr_writer :effective_at
-
-        # The date (YYYY-MM-DD) on which the ledger transaction happened for reporting
-        # purposes.
-        sig { returns(T.nilable(Date)) }
-        attr_reader :effective_date
-
-        sig { params(effective_date: Date).void }
-        attr_writer :effective_date
-
-        # A unique string to represent the ledger transaction. Only one pending or posted
-        # ledger transaction may have this ID in the ledger.
-        sig { returns(T.nilable(String)) }
-        attr_reader :external_id
-
-        sig { params(external_id: String).void }
-        attr_writer :external_id
-
-        # If the ledger transaction can be reconciled to another object in Modern
-        # Treasury, the id will be populated here, otherwise null.
-        sig { returns(T.nilable(String)) }
-        attr_reader :ledgerable_id
-
-        sig { params(ledgerable_id: String).void }
-        attr_writer :ledgerable_id
-
-        # If the ledger transaction can be reconciled to another object in Modern
-        # Treasury, the type will be populated here, otherwise null. This can be one of
-        # payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
-        # reversal.
-        sig do
-          returns(
-            T.nilable(
-              ModernTreasury::PaymentOrderCreateParams::LedgerTransaction::LedgerableType::OrSymbol
-            )
-          )
-        end
-        attr_reader :ledgerable_type
-
-        sig do
-          params(
-            ledgerable_type:
-              ModernTreasury::PaymentOrderCreateParams::LedgerTransaction::LedgerableType::OrSymbol
-          ).void
-        end
-        attr_writer :ledgerable_type
-
-        # Additional data represented as key-value pairs. Both the key and value must be
-        # strings.
-        sig { returns(T.nilable(T::Hash[Symbol, String])) }
-        attr_reader :metadata
-
-        sig { params(metadata: T::Hash[Symbol, String]).void }
-        attr_writer :metadata
-
-        # To post a ledger transaction at creation, use `posted`.
-        sig do
-          returns(
-            T.nilable(
-              ModernTreasury::PaymentOrderCreateParams::LedgerTransaction::Status::OrSymbol
-            )
-          )
-        end
-        attr_reader :status
-
-        sig do
-          params(
-            status:
-              ModernTreasury::PaymentOrderCreateParams::LedgerTransaction::Status::OrSymbol
-          ).void
-        end
-        attr_writer :status
-
-        # Specifies a ledger transaction object that will be created with the payment
-        # order. If the ledger transaction cannot be created, then the payment order
-        # creation will fail. The resulting ledger transaction will mirror the status of
-        # the payment order.
-        sig do
-          params(
-            ledger_entries:
-              T::Array[
-                ModernTreasury::PaymentOrderCreateParams::LedgerTransaction::LedgerEntry::OrHash
-              ],
-            description: T.nilable(String),
-            effective_at: Time,
-            effective_date: Date,
-            external_id: String,
-            ledgerable_id: String,
-            ledgerable_type:
-              ModernTreasury::PaymentOrderCreateParams::LedgerTransaction::LedgerableType::OrSymbol,
-            metadata: T::Hash[Symbol, String],
-            status:
-              ModernTreasury::PaymentOrderCreateParams::LedgerTransaction::Status::OrSymbol
-          ).returns(T.attached_class)
-        end
-        def self.new(
-          # An array of ledger entry objects.
-          ledger_entries:,
-          # An optional description for internal use.
-          description: nil,
-          # The timestamp (ISO8601 format) at which the ledger transaction happened for
-          # reporting purposes.
-          effective_at: nil,
-          # The date (YYYY-MM-DD) on which the ledger transaction happened for reporting
-          # purposes.
-          effective_date: nil,
-          # A unique string to represent the ledger transaction. Only one pending or posted
-          # ledger transaction may have this ID in the ledger.
-          external_id: nil,
-          # If the ledger transaction can be reconciled to another object in Modern
-          # Treasury, the id will be populated here, otherwise null.
-          ledgerable_id: nil,
-          # If the ledger transaction can be reconciled to another object in Modern
-          # Treasury, the type will be populated here, otherwise null. This can be one of
-          # payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
-          # reversal.
-          ledgerable_type: nil,
-          # Additional data represented as key-value pairs. Both the key and value must be
-          # strings.
-          metadata: nil,
-          # To post a ledger transaction at creation, use `posted`.
-          status: nil
-        )
-        end
-
-        sig do
-          override.returns(
-            {
-              ledger_entries:
-                T::Array[
-                  ModernTreasury::PaymentOrderCreateParams::LedgerTransaction::LedgerEntry
-                ],
-              description: T.nilable(String),
-              effective_at: Time,
-              effective_date: Date,
-              external_id: String,
-              ledgerable_id: String,
-              ledgerable_type:
-                ModernTreasury::PaymentOrderCreateParams::LedgerTransaction::LedgerableType::OrSymbol,
-              metadata: T::Hash[Symbol, String],
-              status:
-                ModernTreasury::PaymentOrderCreateParams::LedgerTransaction::Status::OrSymbol
-            }
-          )
-        end
-        def to_hash
-        end
-
-        class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
-          OrHash =
-            T.type_alias do
-              T.any(
-                ModernTreasury::PaymentOrderCreateParams::LedgerTransaction::LedgerEntry,
-                ModernTreasury::Internal::AnyHash
-              )
-            end
-
-          # Value in specified currency's smallest unit. e.g. $10 would be represented
-          # as 1000. Can be any integer up to 36 digits.
-          sig { returns(Integer) }
-          attr_accessor :amount
-
-          # One of `credit`, `debit`. Describes the direction money is flowing in the
-          # transaction. A `credit` moves money from your account to someone else's. A
-          # `debit` pulls money from someone else's account to your own. Note that wire,
-          # rtp, and check payments will always be `credit`.
-          sig { returns(ModernTreasury::TransactionDirection::OrSymbol) }
-          attr_accessor :direction
-
-          # The ledger account that this ledger entry is associated with.
-          sig { returns(String) }
-          attr_accessor :ledger_account_id
-
-          # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
-          # account’s available balance. If any of these conditions would be false after the
-          # transaction is created, the entire call will fail with error code 422.
-          sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
-          attr_accessor :available_balance_amount
-
-          # Lock version of the ledger account. This can be passed when creating a ledger
-          # transaction to only succeed if no ledger transactions have posted since the
-          # given version. See our post about Designing the Ledgers API with Optimistic
-          # Locking for more details.
-          sig { returns(T.nilable(Integer)) }
-          attr_accessor :lock_version
-
-          # Additional data represented as key-value pairs. Both the key and value must be
-          # strings.
-          sig { returns(T.nilable(T::Hash[Symbol, String])) }
-          attr_reader :metadata
-
-          sig { params(metadata: T::Hash[Symbol, String]).void }
-          attr_writer :metadata
-
-          # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
-          # account’s pending balance. If any of these conditions would be false after the
-          # transaction is created, the entire call will fail with error code 422.
-          sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
-          attr_accessor :pending_balance_amount
-
-          # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
-          # account’s posted balance. If any of these conditions would be false after the
-          # transaction is created, the entire call will fail with error code 422.
-          sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
-          attr_accessor :posted_balance_amount
-
-          # If true, response will include the balance of the associated ledger account for
-          # the entry.
-          sig { returns(T.nilable(T::Boolean)) }
-          attr_accessor :show_resulting_ledger_account_balances
-
-          sig do
-            params(
-              amount: Integer,
-              direction: ModernTreasury::TransactionDirection::OrSymbol,
-              ledger_account_id: String,
-              available_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
-              lock_version: T.nilable(Integer),
-              metadata: T::Hash[Symbol, String],
-              pending_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
-              posted_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
-              show_resulting_ledger_account_balances: T.nilable(T::Boolean)
-            ).returns(T.attached_class)
-          end
-          def self.new(
-            # Value in specified currency's smallest unit. e.g. $10 would be represented
-            # as 1000. Can be any integer up to 36 digits.
-            amount:,
-            # One of `credit`, `debit`. Describes the direction money is flowing in the
-            # transaction. A `credit` moves money from your account to someone else's. A
-            # `debit` pulls money from someone else's account to your own. Note that wire,
-            # rtp, and check payments will always be `credit`.
-            direction:,
-            # The ledger account that this ledger entry is associated with.
-            ledger_account_id:,
-            # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
-            # account’s available balance. If any of these conditions would be false after the
-            # transaction is created, the entire call will fail with error code 422.
-            available_balance_amount: nil,
-            # Lock version of the ledger account. This can be passed when creating a ledger
-            # transaction to only succeed if no ledger transactions have posted since the
-            # given version. See our post about Designing the Ledgers API with Optimistic
-            # Locking for more details.
-            lock_version: nil,
-            # Additional data represented as key-value pairs. Both the key and value must be
-            # strings.
-            metadata: nil,
-            # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
-            # account’s pending balance. If any of these conditions would be false after the
-            # transaction is created, the entire call will fail with error code 422.
-            pending_balance_amount: nil,
-            # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
-            # account’s posted balance. If any of these conditions would be false after the
-            # transaction is created, the entire call will fail with error code 422.
-            posted_balance_amount: nil,
-            # If true, response will include the balance of the associated ledger account for
-            # the entry.
-            show_resulting_ledger_account_balances: nil
-          )
-          end
-
-          sig do
-            override.returns(
-              {
-                amount: Integer,
-                direction: ModernTreasury::TransactionDirection::OrSymbol,
-                ledger_account_id: String,
-                available_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
-                lock_version: T.nilable(Integer),
-                metadata: T::Hash[Symbol, String],
-                pending_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
-                posted_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
-                show_resulting_ledger_account_balances: T.nilable(T::Boolean)
-              }
-            )
-          end
-          def to_hash
-          end
-        end
-
-        # If the ledger transaction can be reconciled to another object in Modern
-        # Treasury, the type will be populated here, otherwise null. This can be one of
-        # payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
-        # reversal.
-        module LedgerableType
-          extend ModernTreasury::Internal::Type::Enum
-
-          TaggedSymbol =
-            T.type_alias do
-              T.all(
-                Symbol,
-                ModernTreasury::PaymentOrderCreateParams::LedgerTransaction::LedgerableType
-              )
-            end
-          OrSymbol = T.type_alias { T.any(Symbol, String) }
-
-          EXPECTED_PAYMENT =
-            T.let(
-              :expected_payment,
-              ModernTreasury::PaymentOrderCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
-            )
-          INCOMING_PAYMENT_DETAIL =
-            T.let(
-              :incoming_payment_detail,
-              ModernTreasury::PaymentOrderCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
-            )
-          PAPER_ITEM =
-            T.let(
-              :paper_item,
-              ModernTreasury::PaymentOrderCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
-            )
-          PAYMENT_ORDER =
-            T.let(
-              :payment_order,
-              ModernTreasury::PaymentOrderCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
-            )
-          RETURN =
-            T.let(
-              :return,
-              ModernTreasury::PaymentOrderCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
-            )
-          REVERSAL =
-            T.let(
-              :reversal,
-              ModernTreasury::PaymentOrderCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
-            )
-
-          sig do
-            override.returns(
-              T::Array[
-                ModernTreasury::PaymentOrderCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
-              ]
-            )
-          end
-          def self.values
-          end
-        end
-
-        # To post a ledger transaction at creation, use `posted`.
-        module Status
-          extend ModernTreasury::Internal::Type::Enum
-
-          TaggedSymbol =
-            T.type_alias do
-              T.all(
-                Symbol,
-                ModernTreasury::PaymentOrderCreateParams::LedgerTransaction::Status
-              )
-            end
-          OrSymbol = T.type_alias { T.any(Symbol, String) }
-
-          ARCHIVED =
-            T.let(
-              :archived,
-              ModernTreasury::PaymentOrderCreateParams::LedgerTransaction::Status::TaggedSymbol
-            )
-          PENDING =
-            T.let(
-              :pending,
-              ModernTreasury::PaymentOrderCreateParams::LedgerTransaction::Status::TaggedSymbol
-            )
-          POSTED =
-            T.let(
-              :posted,
-              ModernTreasury::PaymentOrderCreateParams::LedgerTransaction::Status::TaggedSymbol
-            )
-
-          sig do
-            override.returns(
-              T::Array[
-                ModernTreasury::PaymentOrderCreateParams::LedgerTransaction::Status::TaggedSymbol
-              ]
-            )
-          end
-          def self.values
-          end
-        end
-      end
-
       class LineItem < ModernTreasury::Internal::Type::BaseModel
         OrHash =
           T.type_alias do
@@ -1476,11 +1009,7 @@ module ModernTreasury
 
         sig do
           returns(
-            T.nilable(
-              T::Array[
-                ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::ContactDetail
-              ]
-            )
+            T.nilable(T::Array[ModernTreasury::ContactDetailCreateRequest])
           )
         end
         attr_reader :contact_details
@@ -1488,9 +1017,7 @@ module ModernTreasury
         sig do
           params(
             contact_details:
-              T::Array[
-                ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::ContactDetail::OrHash
-              ]
+              T::Array[ModernTreasury::ContactDetailCreateRequest::OrHash]
           ).void
         end
         attr_writer :contact_details
@@ -1500,19 +1027,12 @@ module ModernTreasury
         # auto-ledgering Payment objects. See
         # https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
         # for more details.
-        sig do
-          returns(
-            T.nilable(
-              ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount
-            )
-          )
-        end
+        sig { returns(T.nilable(ModernTreasury::LedgerAccountCreateRequest)) }
         attr_reader :ledger_account
 
         sig do
           params(
-            ledger_account:
-              ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount::OrHash
+            ledger_account: ModernTreasury::LedgerAccountCreateRequest::OrHash
           ).void
         end
         attr_writer :ledger_account
@@ -1531,20 +1051,11 @@ module ModernTreasury
         attr_accessor :name
 
         # Required if receiving wire payments.
-        sig do
-          returns(
-            T.nilable(
-              ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::PartyAddress
-            )
-          )
-        end
+        sig { returns(T.nilable(ModernTreasury::AddressRequest)) }
         attr_reader :party_address
 
         sig do
-          params(
-            party_address:
-              ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::PartyAddress::OrHash
-          ).void
+          params(party_address: ModernTreasury::AddressRequest::OrHash).void
         end
         attr_writer :party_address
 
@@ -1611,15 +1122,11 @@ module ModernTreasury
               ],
             account_type: ModernTreasury::ExternalAccountType::OrSymbol,
             contact_details:
-              T::Array[
-                ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::ContactDetail::OrHash
-              ],
-            ledger_account:
-              ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount::OrHash,
+              T::Array[ModernTreasury::ContactDetailCreateRequest::OrHash],
+            ledger_account: ModernTreasury::LedgerAccountCreateRequest::OrHash,
             metadata: T::Hash[Symbol, String],
             name: T.nilable(String),
-            party_address:
-              ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::PartyAddress::OrHash,
+            party_address: ModernTreasury::AddressRequest::OrHash,
             party_identifier: String,
             party_name: String,
             party_type:
@@ -1673,15 +1180,11 @@ module ModernTreasury
                 ],
               account_type: ModernTreasury::ExternalAccountType::OrSymbol,
               contact_details:
-                T::Array[
-                  ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::ContactDetail
-                ],
-              ledger_account:
-                ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount,
+                T::Array[ModernTreasury::ContactDetailCreateRequest],
+              ledger_account: ModernTreasury::LedgerAccountCreateRequest,
               metadata: T::Hash[Symbol, String],
               name: T.nilable(String),
-              party_address:
-                ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::PartyAddress,
+              party_address: ModernTreasury::AddressRequest,
               party_identifier: String,
               party_name: String,
               party_type:
@@ -1842,366 +1345,6 @@ module ModernTreasury
             end
             def self.values
             end
-          end
-        end
-
-        class ContactDetail < ModernTreasury::Internal::Type::BaseModel
-          OrHash =
-            T.type_alias do
-              T.any(
-                ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::ContactDetail,
-                ModernTreasury::Internal::AnyHash
-              )
-            end
-
-          sig { returns(T.nilable(String)) }
-          attr_reader :contact_identifier
-
-          sig { params(contact_identifier: String).void }
-          attr_writer :contact_identifier
-
-          sig do
-            returns(
-              T.nilable(
-                ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::ContactDetail::ContactIdentifierType::OrSymbol
-              )
-            )
-          end
-          attr_reader :contact_identifier_type
-
-          sig do
-            params(
-              contact_identifier_type:
-                ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::ContactDetail::ContactIdentifierType::OrSymbol
-            ).void
-          end
-          attr_writer :contact_identifier_type
-
-          sig do
-            params(
-              contact_identifier: String,
-              contact_identifier_type:
-                ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::ContactDetail::ContactIdentifierType::OrSymbol
-            ).returns(T.attached_class)
-          end
-          def self.new(contact_identifier: nil, contact_identifier_type: nil)
-          end
-
-          sig do
-            override.returns(
-              {
-                contact_identifier: String,
-                contact_identifier_type:
-                  ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::ContactDetail::ContactIdentifierType::OrSymbol
-              }
-            )
-          end
-          def to_hash
-          end
-
-          module ContactIdentifierType
-            extend ModernTreasury::Internal::Type::Enum
-
-            TaggedSymbol =
-              T.type_alias do
-                T.all(
-                  Symbol,
-                  ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::ContactDetail::ContactIdentifierType
-                )
-              end
-            OrSymbol = T.type_alias { T.any(Symbol, String) }
-
-            EMAIL =
-              T.let(
-                :email,
-                ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
-              )
-            PHONE_NUMBER =
-              T.let(
-                :phone_number,
-                ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
-              )
-            WEBSITE =
-              T.let(
-                :website,
-                ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
-              )
-
-            sig do
-              override.returns(
-                T::Array[
-                  ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
-                ]
-              )
-            end
-            def self.values
-            end
-          end
-        end
-
-        class LedgerAccount < ModernTreasury::Internal::Type::BaseModel
-          OrHash =
-            T.type_alias do
-              T.any(
-                ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount,
-                ModernTreasury::Internal::AnyHash
-              )
-            end
-
-          # The currency of the ledger account.
-          sig { returns(String) }
-          attr_accessor :currency
-
-          # The id of the ledger that this account belongs to.
-          sig { returns(String) }
-          attr_accessor :ledger_id
-
-          # The name of the ledger account.
-          sig { returns(String) }
-          attr_accessor :name
-
-          # The normal balance of the ledger account.
-          sig { returns(ModernTreasury::TransactionDirection::OrSymbol) }
-          attr_accessor :normal_balance
-
-          # The currency exponent of the ledger account.
-          sig { returns(T.nilable(Integer)) }
-          attr_accessor :currency_exponent
-
-          # The description of the ledger account.
-          sig { returns(T.nilable(String)) }
-          attr_accessor :description
-
-          # The array of ledger account category ids that this ledger account should be a
-          # child of.
-          sig { returns(T.nilable(T::Array[String])) }
-          attr_reader :ledger_account_category_ids
-
-          sig { params(ledger_account_category_ids: T::Array[String]).void }
-          attr_writer :ledger_account_category_ids
-
-          # If the ledger account links to another object in Modern Treasury, the id will be
-          # populated here, otherwise null.
-          sig { returns(T.nilable(String)) }
-          attr_reader :ledgerable_id
-
-          sig { params(ledgerable_id: String).void }
-          attr_writer :ledgerable_id
-
-          # If the ledger account links to another object in Modern Treasury, the type will
-          # be populated here, otherwise null. The value is one of internal_account or
-          # external_account.
-          sig do
-            returns(
-              T.nilable(
-                ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount::LedgerableType::OrSymbol
-              )
-            )
-          end
-          attr_reader :ledgerable_type
-
-          sig do
-            params(
-              ledgerable_type:
-                ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount::LedgerableType::OrSymbol
-            ).void
-          end
-          attr_writer :ledgerable_type
-
-          # Additional data represented as key-value pairs. Both the key and value must be
-          # strings.
-          sig { returns(T.nilable(T::Hash[Symbol, String])) }
-          attr_reader :metadata
-
-          sig { params(metadata: T::Hash[Symbol, String]).void }
-          attr_writer :metadata
-
-          # Specifies a ledger account object that will be created with the external
-          # account. The resulting ledger account is linked to the external account for
-          # auto-ledgering Payment objects. See
-          # https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
-          # for more details.
-          sig do
-            params(
-              currency: String,
-              ledger_id: String,
-              name: String,
-              normal_balance: ModernTreasury::TransactionDirection::OrSymbol,
-              currency_exponent: T.nilable(Integer),
-              description: T.nilable(String),
-              ledger_account_category_ids: T::Array[String],
-              ledgerable_id: String,
-              ledgerable_type:
-                ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount::LedgerableType::OrSymbol,
-              metadata: T::Hash[Symbol, String]
-            ).returns(T.attached_class)
-          end
-          def self.new(
-            # The currency of the ledger account.
-            currency:,
-            # The id of the ledger that this account belongs to.
-            ledger_id:,
-            # The name of the ledger account.
-            name:,
-            # The normal balance of the ledger account.
-            normal_balance:,
-            # The currency exponent of the ledger account.
-            currency_exponent: nil,
-            # The description of the ledger account.
-            description: nil,
-            # The array of ledger account category ids that this ledger account should be a
-            # child of.
-            ledger_account_category_ids: nil,
-            # If the ledger account links to another object in Modern Treasury, the id will be
-            # populated here, otherwise null.
-            ledgerable_id: nil,
-            # If the ledger account links to another object in Modern Treasury, the type will
-            # be populated here, otherwise null. The value is one of internal_account or
-            # external_account.
-            ledgerable_type: nil,
-            # Additional data represented as key-value pairs. Both the key and value must be
-            # strings.
-            metadata: nil
-          )
-          end
-
-          sig do
-            override.returns(
-              {
-                currency: String,
-                ledger_id: String,
-                name: String,
-                normal_balance: ModernTreasury::TransactionDirection::OrSymbol,
-                currency_exponent: T.nilable(Integer),
-                description: T.nilable(String),
-                ledger_account_category_ids: T::Array[String],
-                ledgerable_id: String,
-                ledgerable_type:
-                  ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount::LedgerableType::OrSymbol,
-                metadata: T::Hash[Symbol, String]
-              }
-            )
-          end
-          def to_hash
-          end
-
-          # If the ledger account links to another object in Modern Treasury, the type will
-          # be populated here, otherwise null. The value is one of internal_account or
-          # external_account.
-          module LedgerableType
-            extend ModernTreasury::Internal::Type::Enum
-
-            TaggedSymbol =
-              T.type_alias do
-                T.all(
-                  Symbol,
-                  ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount::LedgerableType
-                )
-              end
-            OrSymbol = T.type_alias { T.any(Symbol, String) }
-
-            COUNTERPARTY =
-              T.let(
-                :counterparty,
-                ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount::LedgerableType::TaggedSymbol
-              )
-            EXTERNAL_ACCOUNT =
-              T.let(
-                :external_account,
-                ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount::LedgerableType::TaggedSymbol
-              )
-            INTERNAL_ACCOUNT =
-              T.let(
-                :internal_account,
-                ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount::LedgerableType::TaggedSymbol
-              )
-            VIRTUAL_ACCOUNT =
-              T.let(
-                :virtual_account,
-                ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount::LedgerableType::TaggedSymbol
-              )
-
-            sig do
-              override.returns(
-                T::Array[
-                  ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount::LedgerableType::TaggedSymbol
-                ]
-              )
-            end
-            def self.values
-            end
-          end
-        end
-
-        class PartyAddress < ModernTreasury::Internal::Type::BaseModel
-          OrHash =
-            T.type_alias do
-              T.any(
-                ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::PartyAddress,
-                ModernTreasury::Internal::AnyHash
-              )
-            end
-
-          # Country code conforms to [ISO 3166-1 alpha-2]
-          sig { returns(T.nilable(String)) }
-          attr_accessor :country
-
-          sig { returns(T.nilable(String)) }
-          attr_accessor :line1
-
-          sig { returns(T.nilable(String)) }
-          attr_accessor :line2
-
-          # Locality or City.
-          sig { returns(T.nilable(String)) }
-          attr_accessor :locality
-
-          # The postal code of the address.
-          sig { returns(T.nilable(String)) }
-          attr_accessor :postal_code
-
-          # Region or State.
-          sig { returns(T.nilable(String)) }
-          attr_accessor :region
-
-          # Required if receiving wire payments.
-          sig do
-            params(
-              country: T.nilable(String),
-              line1: T.nilable(String),
-              line2: T.nilable(String),
-              locality: T.nilable(String),
-              postal_code: T.nilable(String),
-              region: T.nilable(String)
-            ).returns(T.attached_class)
-          end
-          def self.new(
-            # Country code conforms to [ISO 3166-1 alpha-2]
-            country: nil,
-            line1: nil,
-            line2: nil,
-            # Locality or City.
-            locality: nil,
-            # The postal code of the address.
-            postal_code: nil,
-            # Region or State.
-            region: nil
-          )
-          end
-
-          sig do
-            override.returns(
-              {
-                country: T.nilable(String),
-                line1: T.nilable(String),
-                line2: T.nilable(String),
-                locality: T.nilable(String),
-                postal_code: T.nilable(String),
-                region: T.nilable(String)
-              }
-            )
-          end
-          def to_hash
           end
         end
 

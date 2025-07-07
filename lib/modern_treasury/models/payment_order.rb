@@ -11,8 +11,8 @@ module ModernTreasury
 
       # @!attribute accounting
       #
-      #   @return [ModernTreasury::Models::PaymentOrder::Accounting]
-      required :accounting, -> { ModernTreasury::PaymentOrder::Accounting }
+      #   @return [ModernTreasury::Models::Accounting]
+      required :accounting, -> { ModernTreasury::Accounting }
 
       # @!attribute accounting_category_id
       #   @deprecated
@@ -127,8 +127,8 @@ module ModernTreasury
       # @!attribute foreign_exchange_rate
       #   Associated serialized foreign exchange rate information.
       #
-      #   @return [ModernTreasury::Models::PaymentOrder::ForeignExchangeRate, nil]
-      required :foreign_exchange_rate, -> { ModernTreasury::PaymentOrder::ForeignExchangeRate }, nil?: true
+      #   @return [ModernTreasury::Models::ForeignExchangeRate, nil]
+      required :foreign_exchange_rate, -> { ModernTreasury::ForeignExchangeRate }, nil?: true
 
       # @!attribute ledger_transaction_id
       #   The ID of the ledger transaction linked to the payment order.
@@ -348,7 +348,7 @@ module ModernTreasury
       #
       #   @param id [String]
       #
-      #   @param accounting [ModernTreasury::Models::PaymentOrder::Accounting]
+      #   @param accounting [ModernTreasury::Models::Accounting]
       #
       #   @param accounting_category_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
       #
@@ -380,7 +380,7 @@ module ModernTreasury
       #
       #   @param foreign_exchange_indicator [Symbol, ModernTreasury::Models::PaymentOrder::ForeignExchangeIndicator, nil] Indicates the type of FX transfer to initiate, can be either `variable_to_fixed`
       #
-      #   @param foreign_exchange_rate [ModernTreasury::Models::PaymentOrder::ForeignExchangeRate, nil] Associated serialized foreign exchange rate information.
+      #   @param foreign_exchange_rate [ModernTreasury::Models::ForeignExchangeRate, nil] Associated serialized foreign exchange rate information.
       #
       #   @param ledger_transaction_id [String, nil] The ID of the ledger transaction linked to the payment order.
       #
@@ -442,32 +442,6 @@ module ModernTreasury
       #
       #   @param vendor_failure_reason [String, nil] This field will be populated if a vendor failure occurs. Logic shouldn't be buil
 
-      # @see ModernTreasury::Models::PaymentOrder#accounting
-      class Accounting < ModernTreasury::Internal::Type::BaseModel
-        # @!attribute account_id
-        #   The ID of one of your accounting categories. Note that these will only be
-        #   accessible if your accounting system has been connected.
-        #
-        #   @return [String, nil]
-        optional :account_id, String, nil?: true
-
-        # @!attribute class_id
-        #   The ID of one of the class objects in your accounting system. Class objects
-        #   track segments of your business independent of client or project. Note that
-        #   these will only be accessible if your accounting system has been connected.
-        #
-        #   @return [String, nil]
-        optional :class_id, String, nil?: true
-
-        # @!method initialize(account_id: nil, class_id: nil)
-        #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Models::PaymentOrder::Accounting} for more details.
-        #
-        #   @param account_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
-        #
-        #   @param class_id [String, nil] The ID of one of the class objects in your accounting system. Class objects trac
-      end
-
       # The party that will pay the fees for the payment order. See
       # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
       # differences between the options.
@@ -513,75 +487,6 @@ module ModernTreasury
 
         # @!method self.values
         #   @return [Array<Symbol>]
-      end
-
-      # @see ModernTreasury::Models::PaymentOrder#foreign_exchange_rate
-      class ForeignExchangeRate < ModernTreasury::Internal::Type::BaseModel
-        # @!attribute base_amount
-        #   Amount in the lowest denomination of the `base_currency` to convert, often
-        #   called the "sell" amount.
-        #
-        #   @return [Integer]
-        required :base_amount, Integer
-
-        # @!attribute base_currency
-        #   Currency to convert, often called the "sell" currency.
-        #
-        #   @return [Symbol, ModernTreasury::Models::Currency]
-        required :base_currency, enum: -> { ModernTreasury::Currency }
-
-        # @!attribute exponent
-        #   The exponent component of the rate. The decimal is calculated as `value` / (10 ^
-        #   `exponent`).
-        #
-        #   @return [Integer]
-        required :exponent, Integer
-
-        # @!attribute rate_string
-        #   A string representation of the rate.
-        #
-        #   @return [String]
-        required :rate_string, String
-
-        # @!attribute target_amount
-        #   Amount in the lowest denomination of the `target_currency`, often called the
-        #   "buy" amount.
-        #
-        #   @return [Integer]
-        required :target_amount, Integer
-
-        # @!attribute target_currency
-        #   Currency to convert the `base_currency` to, often called the "buy" currency.
-        #
-        #   @return [Symbol, ModernTreasury::Models::Currency]
-        required :target_currency, enum: -> { ModernTreasury::Currency }
-
-        # @!attribute value
-        #   The whole number component of the rate. The decimal is calculated as `value` /
-        #   (10 ^ `exponent`).
-        #
-        #   @return [Integer]
-        required :value, Integer
-
-        # @!method initialize(base_amount:, base_currency:, exponent:, rate_string:, target_amount:, target_currency:, value:)
-        #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Models::PaymentOrder::ForeignExchangeRate} for more details.
-        #
-        #   Associated serialized foreign exchange rate information.
-        #
-        #   @param base_amount [Integer] Amount in the lowest denomination of the `base_currency` to convert, often calle
-        #
-        #   @param base_currency [Symbol, ModernTreasury::Models::Currency] Currency to convert, often called the "sell" currency.
-        #
-        #   @param exponent [Integer] The exponent component of the rate. The decimal is calculated as `value` / (10 ^
-        #
-        #   @param rate_string [String] A string representation of the rate.
-        #
-        #   @param target_amount [Integer] Amount in the lowest denomination of the `target_currency`, often called the "bu
-        #
-        #   @param target_currency [Symbol, ModernTreasury::Models::Currency] Currency to convert the `base_currency` to, often called the "buy" currency.
-        #
-        #   @param value [Integer] The whole number component of the rate. The decimal is calculated as `value` / (
       end
 
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a

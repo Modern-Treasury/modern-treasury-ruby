@@ -24,7 +24,7 @@ class ModernTreasury::Test::Resources::LedgerAccountStatementsTest < ModernTreas
         description: String | nil,
         effective_at_lower_bound: Time,
         effective_at_upper_bound: Time,
-        ending_balance: ModernTreasury::Models::LedgerAccountStatementCreateResponse::EndingBalance,
+        ending_balance: ModernTreasury::LedgerBalances,
         ledger_account_id: String,
         ledger_account_lock_version: Integer,
         ledger_account_normal_balance: ModernTreasury::TransactionDirection,
@@ -32,7 +32,7 @@ class ModernTreasury::Test::Resources::LedgerAccountStatementsTest < ModernTreas
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
-        starting_balance: ModernTreasury::Models::LedgerAccountStatementCreateResponse::StartingBalance,
+        starting_balance: ModernTreasury::LedgerBalances,
         updated_at: Time
       }
     end
@@ -52,7 +52,7 @@ class ModernTreasury::Test::Resources::LedgerAccountStatementsTest < ModernTreas
         description: String | nil,
         effective_at_lower_bound: Time,
         effective_at_upper_bound: Time,
-        ending_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance,
+        ending_balance: ModernTreasury::LedgerBalances,
         ledger_account_id: String,
         ledger_account_lock_version: Integer,
         ledger_account_normal_balance: ModernTreasury::TransactionDirection,
@@ -60,7 +60,7 @@ class ModernTreasury::Test::Resources::LedgerAccountStatementsTest < ModernTreas
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
-        starting_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance,
+        starting_balance: ModernTreasury::LedgerBalances,
         updated_at: Time
       }
     end

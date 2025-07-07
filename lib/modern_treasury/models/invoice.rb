@@ -26,9 +26,8 @@ module ModernTreasury
       # @!attribute contact_details
       #   The invoicer's contact details displayed at the top of the invoice.
       #
-      #   @return [Array<ModernTreasury::Models::Invoice::ContactDetail>]
-      required :contact_details,
-               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Invoice::ContactDetail] }
+      #   @return [Array<ModernTreasury::Models::ContactDetail>]
+      required :contact_details, -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ContactDetail] }
 
       # @!attribute counterparty_billing_address
       #   The counterparty's billing address.
@@ -261,7 +260,7 @@ module ModernTreasury
       #
       #   @param amount_remaining [Integer] Amount remaining due on the invoice in specified currency's smallest unit, e.g.,
       #
-      #   @param contact_details [Array<ModernTreasury::Models::Invoice::ContactDetail>] The invoicer's contact details displayed at the top of the invoice.
+      #   @param contact_details [Array<ModernTreasury::Models::ContactDetail>] The invoicer's contact details displayed at the top of the invoice.
       #
       #   @param counterparty_billing_address [ModernTreasury::Models::Invoice::CounterpartyBillingAddress, nil] The counterparty's billing address.
       #
@@ -330,83 +329,6 @@ module ModernTreasury
       #   @param updated_at [Time]
       #
       #   @param virtual_account_id [String, nil] The ID of the virtual account the invoice should be paid to.
-
-      class ContactDetail < ModernTreasury::Internal::Type::BaseModel
-        # @!attribute id
-        #
-        #   @return [String]
-        required :id, String
-
-        # @!attribute contact_identifier
-        #
-        #   @return [String]
-        required :contact_identifier, String
-
-        # @!attribute contact_identifier_type
-        #
-        #   @return [Symbol, ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType]
-        required :contact_identifier_type,
-                 enum: -> { ModernTreasury::Invoice::ContactDetail::ContactIdentifierType }
-
-        # @!attribute created_at
-        #
-        #   @return [Time]
-        required :created_at, Time
-
-        # @!attribute discarded_at
-        #
-        #   @return [Time, nil]
-        required :discarded_at, Time, nil?: true
-
-        # @!attribute live_mode
-        #   This field will be true if this object exists in the live environment or false
-        #   if it exists in the test environment.
-        #
-        #   @return [Boolean]
-        required :live_mode, ModernTreasury::Internal::Type::Boolean
-
-        # @!attribute object
-        #
-        #   @return [String]
-        required :object, String
-
-        # @!attribute updated_at
-        #
-        #   @return [Time]
-        required :updated_at, Time
-
-        # @!method initialize(id:, contact_identifier:, contact_identifier_type:, created_at:, discarded_at:, live_mode:, object:, updated_at:)
-        #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Models::Invoice::ContactDetail} for more details.
-        #
-        #   @param id [String]
-        #
-        #   @param contact_identifier [String]
-        #
-        #   @param contact_identifier_type [Symbol, ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType]
-        #
-        #   @param created_at [Time]
-        #
-        #   @param discarded_at [Time, nil]
-        #
-        #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
-        #
-        #   @param object [String]
-        #
-        #   @param updated_at [Time]
-
-        # @see ModernTreasury::Models::Invoice::ContactDetail#contact_identifier_type
-        module ContactIdentifierType
-          extend ModernTreasury::Internal::Type::Enum
-
-          EMAIL = :email
-          PHONE_NUMBER = :phone_number
-          WEBSITE = :website
-
-          # @!method self.values
-          #   @return [Array<Symbol>]
-        end
-      end
 
       # @see ModernTreasury::Models::Invoice#counterparty_billing_address
       class CounterpartyBillingAddress < ModernTreasury::Internal::Type::BaseModel

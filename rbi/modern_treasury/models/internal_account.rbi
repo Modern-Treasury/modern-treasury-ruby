@@ -82,14 +82,11 @@ module ModernTreasury
       attr_accessor :parent_account_id
 
       # The address associated with the owner or null.
-      sig { returns(T.nilable(ModernTreasury::InternalAccount::PartyAddress)) }
+      sig { returns(T.nilable(ModernTreasury::Address)) }
       attr_reader :party_address
 
       sig do
-        params(
-          party_address:
-            T.nilable(ModernTreasury::InternalAccount::PartyAddress::OrHash)
-        ).void
+        params(party_address: T.nilable(ModernTreasury::Address::OrHash)).void
       end
       attr_writer :party_address
 
@@ -137,8 +134,7 @@ module ModernTreasury
           name: T.nilable(String),
           object: String,
           parent_account_id: T.nilable(String),
-          party_address:
-            T.nilable(ModernTreasury::InternalAccount::PartyAddress::OrHash),
+          party_address: T.nilable(ModernTreasury::Address::OrHash),
           party_name: String,
           party_type:
             T.nilable(ModernTreasury::InternalAccount::PartyType::OrSymbol),
@@ -215,8 +211,7 @@ module ModernTreasury
             name: T.nilable(String),
             object: String,
             parent_account_id: T.nilable(String),
-            party_address:
-              T.nilable(ModernTreasury::InternalAccount::PartyAddress),
+            party_address: T.nilable(ModernTreasury::Address),
             party_name: String,
             party_type:
               T.nilable(
@@ -612,112 +607,6 @@ module ModernTreasury
           )
         end
         def self.values
-        end
-      end
-
-      class PartyAddress < ModernTreasury::Internal::Type::BaseModel
-        OrHash =
-          T.type_alias do
-            T.any(
-              ModernTreasury::InternalAccount::PartyAddress,
-              ModernTreasury::Internal::AnyHash
-            )
-          end
-
-        sig { returns(String) }
-        attr_accessor :id
-
-        # Country code conforms to [ISO 3166-1 alpha-2]
-        sig { returns(T.nilable(String)) }
-        attr_accessor :country
-
-        sig { returns(Time) }
-        attr_accessor :created_at
-
-        sig { returns(T.nilable(String)) }
-        attr_accessor :line1
-
-        sig { returns(T.nilable(String)) }
-        attr_accessor :line2
-
-        # This field will be true if this object exists in the live environment or false
-        # if it exists in the test environment.
-        sig { returns(T::Boolean) }
-        attr_accessor :live_mode
-
-        # Locality or City.
-        sig { returns(T.nilable(String)) }
-        attr_accessor :locality
-
-        sig { returns(String) }
-        attr_accessor :object
-
-        # The postal code of the address.
-        sig { returns(T.nilable(String)) }
-        attr_accessor :postal_code
-
-        # Region or State.
-        sig { returns(T.nilable(String)) }
-        attr_accessor :region
-
-        sig { returns(Time) }
-        attr_accessor :updated_at
-
-        # The address associated with the owner or null.
-        sig do
-          params(
-            id: String,
-            country: T.nilable(String),
-            created_at: Time,
-            line1: T.nilable(String),
-            line2: T.nilable(String),
-            live_mode: T::Boolean,
-            locality: T.nilable(String),
-            object: String,
-            postal_code: T.nilable(String),
-            region: T.nilable(String),
-            updated_at: Time
-          ).returns(T.attached_class)
-        end
-        def self.new(
-          id:,
-          # Country code conforms to [ISO 3166-1 alpha-2]
-          country:,
-          created_at:,
-          line1:,
-          line2:,
-          # This field will be true if this object exists in the live environment or false
-          # if it exists in the test environment.
-          live_mode:,
-          # Locality or City.
-          locality:,
-          object:,
-          # The postal code of the address.
-          postal_code:,
-          # Region or State.
-          region:,
-          updated_at:
-        )
-        end
-
-        sig do
-          override.returns(
-            {
-              id: String,
-              country: T.nilable(String),
-              created_at: Time,
-              line1: T.nilable(String),
-              line2: T.nilable(String),
-              live_mode: T::Boolean,
-              locality: T.nilable(String),
-              object: String,
-              postal_code: T.nilable(String),
-              region: T.nilable(String),
-              updated_at: Time
-            }
-          )
-        end
-        def to_hash
         end
       end
 

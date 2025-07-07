@@ -19,7 +19,7 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < ModernTreasury::Test:
     assert_pattern do
       response => {
         id: String,
-        accounting: ModernTreasury::PaymentOrder::Accounting,
+        accounting: ModernTreasury::Accounting,
         accounting_category_id: String | nil,
         accounting_ledger_class_id: String | nil,
         amount: Integer,
@@ -35,7 +35,7 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < ModernTreasury::Test:
         external_id: String | nil,
         foreign_exchange_contract: String | nil,
         foreign_exchange_indicator: ModernTreasury::PaymentOrder::ForeignExchangeIndicator | nil,
-        foreign_exchange_rate: ModernTreasury::PaymentOrder::ForeignExchangeRate | nil,
+        foreign_exchange_rate: ModernTreasury::ForeignExchangeRate | nil,
         ledger_transaction_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
@@ -80,7 +80,7 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < ModernTreasury::Test:
     assert_pattern do
       response => {
         id: String,
-        accounting: ModernTreasury::PaymentOrder::Accounting,
+        accounting: ModernTreasury::Accounting,
         accounting_category_id: String | nil,
         accounting_ledger_class_id: String | nil,
         amount: Integer,
@@ -96,7 +96,7 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < ModernTreasury::Test:
         external_id: String | nil,
         foreign_exchange_contract: String | nil,
         foreign_exchange_indicator: ModernTreasury::PaymentOrder::ForeignExchangeIndicator | nil,
-        foreign_exchange_rate: ModernTreasury::PaymentOrder::ForeignExchangeRate | nil,
+        foreign_exchange_rate: ModernTreasury::ForeignExchangeRate | nil,
         ledger_transaction_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
@@ -141,7 +141,7 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < ModernTreasury::Test:
     assert_pattern do
       response => {
         id: String,
-        accounting: ModernTreasury::PaymentOrder::Accounting,
+        accounting: ModernTreasury::Accounting,
         accounting_category_id: String | nil,
         accounting_ledger_class_id: String | nil,
         amount: Integer,
@@ -157,7 +157,7 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < ModernTreasury::Test:
         external_id: String | nil,
         foreign_exchange_contract: String | nil,
         foreign_exchange_indicator: ModernTreasury::PaymentOrder::ForeignExchangeIndicator | nil,
-        foreign_exchange_rate: ModernTreasury::PaymentOrder::ForeignExchangeRate | nil,
+        foreign_exchange_rate: ModernTreasury::ForeignExchangeRate | nil,
         ledger_transaction_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
@@ -209,7 +209,7 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < ModernTreasury::Test:
     assert_pattern do
       row => {
         id: String,
-        accounting: ModernTreasury::PaymentOrder::Accounting,
+        accounting: ModernTreasury::Accounting,
         accounting_category_id: String | nil,
         accounting_ledger_class_id: String | nil,
         amount: Integer,
@@ -225,7 +225,7 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < ModernTreasury::Test:
         external_id: String | nil,
         foreign_exchange_contract: String | nil,
         foreign_exchange_indicator: ModernTreasury::PaymentOrder::ForeignExchangeIndicator | nil,
-        foreign_exchange_rate: ModernTreasury::PaymentOrder::ForeignExchangeRate | nil,
+        foreign_exchange_rate: ModernTreasury::ForeignExchangeRate | nil,
         ledger_transaction_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),

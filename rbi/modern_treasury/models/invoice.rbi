@@ -22,7 +22,7 @@ module ModernTreasury
       attr_accessor :amount_remaining
 
       # The invoicer's contact details displayed at the top of the invoice.
-      sig { returns(T::Array[ModernTreasury::Invoice::ContactDetail]) }
+      sig { returns(T::Array[ModernTreasury::ContactDetail]) }
       attr_accessor :contact_details
 
       # The counterparty's billing address.
@@ -214,8 +214,7 @@ module ModernTreasury
           id: String,
           amount_paid: Integer,
           amount_remaining: Integer,
-          contact_details:
-            T::Array[ModernTreasury::Invoice::ContactDetail::OrHash],
+          contact_details: T::Array[ModernTreasury::ContactDetail::OrHash],
           counterparty_billing_address:
             T.nilable(
               ModernTreasury::Invoice::CounterpartyBillingAddress::OrHash
@@ -360,7 +359,7 @@ module ModernTreasury
             id: String,
             amount_paid: Integer,
             amount_remaining: Integer,
-            contact_details: T::Array[ModernTreasury::Invoice::ContactDetail],
+            contact_details: T::Array[ModernTreasury::ContactDetail],
             counterparty_billing_address:
               T.nilable(ModernTreasury::Invoice::CounterpartyBillingAddress),
             counterparty_id: String,
@@ -404,130 +403,6 @@ module ModernTreasury
         )
       end
       def to_hash
-      end
-
-      class ContactDetail < ModernTreasury::Internal::Type::BaseModel
-        OrHash =
-          T.type_alias do
-            T.any(
-              ModernTreasury::Invoice::ContactDetail,
-              ModernTreasury::Internal::AnyHash
-            )
-          end
-
-        sig { returns(String) }
-        attr_accessor :id
-
-        sig { returns(String) }
-        attr_accessor :contact_identifier
-
-        sig do
-          returns(
-            ModernTreasury::Invoice::ContactDetail::ContactIdentifierType::TaggedSymbol
-          )
-        end
-        attr_accessor :contact_identifier_type
-
-        sig { returns(Time) }
-        attr_accessor :created_at
-
-        sig { returns(T.nilable(Time)) }
-        attr_accessor :discarded_at
-
-        # This field will be true if this object exists in the live environment or false
-        # if it exists in the test environment.
-        sig { returns(T::Boolean) }
-        attr_accessor :live_mode
-
-        sig { returns(String) }
-        attr_accessor :object
-
-        sig { returns(Time) }
-        attr_accessor :updated_at
-
-        sig do
-          params(
-            id: String,
-            contact_identifier: String,
-            contact_identifier_type:
-              ModernTreasury::Invoice::ContactDetail::ContactIdentifierType::OrSymbol,
-            created_at: Time,
-            discarded_at: T.nilable(Time),
-            live_mode: T::Boolean,
-            object: String,
-            updated_at: Time
-          ).returns(T.attached_class)
-        end
-        def self.new(
-          id:,
-          contact_identifier:,
-          contact_identifier_type:,
-          created_at:,
-          discarded_at:,
-          # This field will be true if this object exists in the live environment or false
-          # if it exists in the test environment.
-          live_mode:,
-          object:,
-          updated_at:
-        )
-        end
-
-        sig do
-          override.returns(
-            {
-              id: String,
-              contact_identifier: String,
-              contact_identifier_type:
-                ModernTreasury::Invoice::ContactDetail::ContactIdentifierType::TaggedSymbol,
-              created_at: Time,
-              discarded_at: T.nilable(Time),
-              live_mode: T::Boolean,
-              object: String,
-              updated_at: Time
-            }
-          )
-        end
-        def to_hash
-        end
-
-        module ContactIdentifierType
-          extend ModernTreasury::Internal::Type::Enum
-
-          TaggedSymbol =
-            T.type_alias do
-              T.all(
-                Symbol,
-                ModernTreasury::Invoice::ContactDetail::ContactIdentifierType
-              )
-            end
-          OrSymbol = T.type_alias { T.any(Symbol, String) }
-
-          EMAIL =
-            T.let(
-              :email,
-              ModernTreasury::Invoice::ContactDetail::ContactIdentifierType::TaggedSymbol
-            )
-          PHONE_NUMBER =
-            T.let(
-              :phone_number,
-              ModernTreasury::Invoice::ContactDetail::ContactIdentifierType::TaggedSymbol
-            )
-          WEBSITE =
-            T.let(
-              :website,
-              ModernTreasury::Invoice::ContactDetail::ContactIdentifierType::TaggedSymbol
-            )
-
-          sig do
-            override.returns(
-              T::Array[
-                ModernTreasury::Invoice::ContactDetail::ContactIdentifierType::TaggedSymbol
-              ]
-            )
-          end
-          def self.values
-          end
-        end
       end
 
       class CounterpartyBillingAddress < ModernTreasury::Internal::Type::BaseModel

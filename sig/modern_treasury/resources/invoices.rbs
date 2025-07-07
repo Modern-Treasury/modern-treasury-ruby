@@ -8,7 +8,7 @@ module ModernTreasury
         due_date: Time,
         originating_account_id: String,
         ?auto_advance: bool?,
-        ?contact_details: ::Array[ModernTreasury::InvoiceCreateParams::ContactDetail],
+        ?contact_details: ::Array[ModernTreasury::ContactDetail],
         ?counterparty_billing_address: ModernTreasury::InvoiceCreateParams::CounterpartyBillingAddress?,
         ?counterparty_shipping_address: ModernTreasury::InvoiceCreateParams::CounterpartyShippingAddress?,
         ?currency: ModernTreasury::Models::currency,
@@ -39,7 +39,7 @@ module ModernTreasury
 
       def update: (
         String id,
-        ?contact_details: ::Array[ModernTreasury::InvoiceUpdateParams::ContactDetail],
+        ?contact_details: ::Array[ModernTreasury::ContactDetail],
         ?counterparty_billing_address: ModernTreasury::InvoiceUpdateParams::CounterpartyBillingAddress?,
         ?counterparty_id: String,
         ?counterparty_shipping_address: ModernTreasury::InvoiceUpdateParams::CounterpartyShippingAddress?,

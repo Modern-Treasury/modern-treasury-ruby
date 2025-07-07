@@ -81,7 +81,7 @@ module ModernTreasury
           id: String,
           account_details: ::Array[ModernTreasury::AccountDetail],
           account_type: ModernTreasury::Models::external_account_type,
-          contact_details: ::Array[ModernTreasury::Counterparty::Account::ContactDetail],
+          contact_details: ::Array[ModernTreasury::ContactDetail],
           created_at: Time,
           discarded_at: Time?,
           ledger_account_id: String?,
@@ -89,7 +89,7 @@ module ModernTreasury
           metadata: ::Hash[Symbol, String],
           name: String?,
           object: String,
-          party_address: ModernTreasury::Counterparty::Account::PartyAddress?,
+          party_address: ModernTreasury::Address?,
           party_name: String,
           party_type: ModernTreasury::Models::Counterparty::Account::party_type?,
           routing_details: ::Array[ModernTreasury::RoutingDetail],
@@ -115,11 +115,11 @@ module ModernTreasury
           ModernTreasury::Models::external_account_type
         ) -> ModernTreasury::Models::external_account_type
 
-        attr_reader contact_details: ::Array[ModernTreasury::Counterparty::Account::ContactDetail]?
+        attr_reader contact_details: ::Array[ModernTreasury::ContactDetail]?
 
         def contact_details=: (
-          ::Array[ModernTreasury::Counterparty::Account::ContactDetail]
-        ) -> ::Array[ModernTreasury::Counterparty::Account::ContactDetail]
+          ::Array[ModernTreasury::ContactDetail]
+        ) -> ::Array[ModernTreasury::ContactDetail]
 
         attr_reader created_at: Time?
 
@@ -143,7 +143,7 @@ module ModernTreasury
 
         def object=: (String) -> String
 
-        attr_accessor party_address: ModernTreasury::Counterparty::Account::PartyAddress?
+        attr_accessor party_address: ModernTreasury::Address?
 
         attr_reader party_name: String?
 
@@ -173,7 +173,7 @@ module ModernTreasury
           ?id: String,
           ?account_details: ::Array[ModernTreasury::AccountDetail],
           ?account_type: ModernTreasury::Models::external_account_type,
-          ?contact_details: ::Array[ModernTreasury::Counterparty::Account::ContactDetail],
+          ?contact_details: ::Array[ModernTreasury::ContactDetail],
           ?created_at: Time,
           ?discarded_at: Time?,
           ?ledger_account_id: String?,
@@ -181,7 +181,7 @@ module ModernTreasury
           ?metadata: ::Hash[Symbol, String],
           ?name: String?,
           ?object: String,
-          ?party_address: ModernTreasury::Counterparty::Account::PartyAddress?,
+          ?party_address: ModernTreasury::Address?,
           ?party_name: String,
           ?party_type: ModernTreasury::Models::Counterparty::Account::party_type?,
           ?routing_details: ::Array[ModernTreasury::RoutingDetail],
@@ -194,7 +194,7 @@ module ModernTreasury
           id: String,
           account_details: ::Array[ModernTreasury::AccountDetail],
           account_type: ModernTreasury::Models::external_account_type,
-          contact_details: ::Array[ModernTreasury::Counterparty::Account::ContactDetail],
+          contact_details: ::Array[ModernTreasury::ContactDetail],
           created_at: Time,
           discarded_at: Time?,
           ledger_account_id: String?,
@@ -202,7 +202,7 @@ module ModernTreasury
           metadata: ::Hash[Symbol, String],
           name: String?,
           object: String,
-          party_address: ModernTreasury::Counterparty::Account::PartyAddress?,
+          party_address: ModernTreasury::Address?,
           party_name: String,
           party_type: ModernTreasury::Models::Counterparty::Account::party_type?,
           routing_details: ::Array[ModernTreasury::RoutingDetail],
@@ -210,137 +210,6 @@ module ModernTreasury
           verification_source: ModernTreasury::Models::Counterparty::Account::verification_source?,
           verification_status: ModernTreasury::Models::Counterparty::Account::verification_status
         }
-
-        type contact_detail =
-          {
-            id: String,
-            contact_identifier: String,
-            contact_identifier_type: ModernTreasury::Models::Counterparty::Account::ContactDetail::contact_identifier_type,
-            created_at: Time,
-            discarded_at: Time?,
-            live_mode: bool,
-            object: String,
-            updated_at: Time
-          }
-
-        class ContactDetail < ModernTreasury::Internal::Type::BaseModel
-          attr_accessor id: String
-
-          attr_accessor contact_identifier: String
-
-          attr_accessor contact_identifier_type: ModernTreasury::Models::Counterparty::Account::ContactDetail::contact_identifier_type
-
-          attr_accessor created_at: Time
-
-          attr_accessor discarded_at: Time?
-
-          attr_accessor live_mode: bool
-
-          attr_accessor object: String
-
-          attr_accessor updated_at: Time
-
-          def initialize: (
-            id: String,
-            contact_identifier: String,
-            contact_identifier_type: ModernTreasury::Models::Counterparty::Account::ContactDetail::contact_identifier_type,
-            created_at: Time,
-            discarded_at: Time?,
-            live_mode: bool,
-            object: String,
-            updated_at: Time
-          ) -> void
-
-          def to_hash: -> {
-            id: String,
-            contact_identifier: String,
-            contact_identifier_type: ModernTreasury::Models::Counterparty::Account::ContactDetail::contact_identifier_type,
-            created_at: Time,
-            discarded_at: Time?,
-            live_mode: bool,
-            object: String,
-            updated_at: Time
-          }
-
-          type contact_identifier_type = :email | :phone_number | :website
-
-          module ContactIdentifierType
-            extend ModernTreasury::Internal::Type::Enum
-
-            EMAIL: :email
-            PHONE_NUMBER: :phone_number
-            WEBSITE: :website
-
-            def self?.values: -> ::Array[ModernTreasury::Models::Counterparty::Account::ContactDetail::contact_identifier_type]
-          end
-        end
-
-        type party_address =
-          {
-            id: String,
-            country: String?,
-            created_at: Time,
-            :line1 => String?,
-            :line2 => String?,
-            live_mode: bool,
-            locality: String?,
-            object: String,
-            postal_code: String?,
-            region: String?,
-            updated_at: Time
-          }
-
-        class PartyAddress < ModernTreasury::Internal::Type::BaseModel
-          attr_accessor id: String
-
-          attr_accessor country: String?
-
-          attr_accessor created_at: Time
-
-          attr_accessor line1: String?
-
-          attr_accessor line2: String?
-
-          attr_accessor live_mode: bool
-
-          attr_accessor locality: String?
-
-          attr_accessor object: String
-
-          attr_accessor postal_code: String?
-
-          attr_accessor region: String?
-
-          attr_accessor updated_at: Time
-
-          def initialize: (
-            id: String,
-            country: String?,
-            created_at: Time,
-            line1: String?,
-            line2: String?,
-            live_mode: bool,
-            locality: String?,
-            object: String,
-            postal_code: String?,
-            region: String?,
-            updated_at: Time
-          ) -> void
-
-          def to_hash: -> {
-            id: String,
-            country: String?,
-            created_at: Time,
-            :line1 => String?,
-            :line2 => String?,
-            live_mode: bool,
-            locality: String?,
-            object: String,
-            postal_code: String?,
-            region: String?,
-            updated_at: Time
-          }
-        end
 
         type party_type = :business | :individual
 

@@ -12,7 +12,7 @@ module ModernTreasury
       #
       # @param legal_entity_type [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityType] The type of legal entity.
       #
-      # @param addresses [Array<ModernTreasury::Models::LegalEntityCreateParams::Address>] A list of addresses for the entity.
+      # @param addresses [Array<ModernTreasury::Models::LegalEntityAddressCreateRequest>] A list of addresses for the entity.
       #
       # @param bank_settings [ModernTreasury::Models::BankSettings, nil]
       #
@@ -32,7 +32,7 @@ module ModernTreasury
       #
       # @param first_name [String, nil] An individual's first name.
       #
-      # @param identifications [Array<ModernTreasury::Models::LegalEntityCreateParams::Identification>] A list of identifications for the legal entity.
+      # @param identifications [Array<ModernTreasury::Models::IdentificationCreateRequest>] A list of identifications for the legal entity.
       #
       # @param industry_classifications [Array<ModernTreasury::Models::LegalEntityIndustryClassification>] A list of industry classifications for the legal entity.
       #
@@ -107,7 +107,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param addresses [Array<ModernTreasury::Models::LegalEntityUpdateParams::Address>] A list of addresses for the entity.
+      # @param addresses [Array<ModernTreasury::Models::LegalEntityAddressCreateRequest>] A list of addresses for the entity.
       #
       # @param bank_settings [ModernTreasury::Models::BankSettings, nil]
       #
@@ -127,7 +127,7 @@ module ModernTreasury
       #
       # @param first_name [String, nil] An individual's first name.
       #
-      # @param identifications [Array<ModernTreasury::Models::LegalEntityUpdateParams::Identification>] A list of identifications for the legal entity.
+      # @param identifications [Array<ModernTreasury::Models::IdentificationCreateRequest>] A list of identifications for the legal entity.
       #
       # @param industry_classifications [Array<ModernTreasury::Models::LegalEntityIndustryClassification>] A list of industry classifications for the legal entity.
       #
