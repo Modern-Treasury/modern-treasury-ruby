@@ -11,7 +11,7 @@ module ModernTreasury
             reason:
               ModernTreasury::PaymentOrders::ReversalCreateParams::Reason::OrSymbol,
             ledger_transaction:
-              ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction::OrHash,
+              ModernTreasury::LedgerTransactionCreateRequest::OrHash,
             metadata: T::Hash[Symbol, String],
             request_options: ModernTreasury::RequestOptions::OrHash
           ).returns(ModernTreasury::PaymentOrders::Reversal)

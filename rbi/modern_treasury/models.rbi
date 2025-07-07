@@ -26,7 +26,13 @@ module ModernTreasury
   AccountDetailRetrieveParams =
     ModernTreasury::Models::AccountDetailRetrieveParams
 
+  Accounting = ModernTreasury::Models::Accounting
+
   AccountsType = ModernTreasury::Models::AccountsType
+
+  Address = ModernTreasury::Models::Address
+
+  AddressRequest = ModernTreasury::Models::AddressRequest
 
   AsyncResponse = ModernTreasury::Models::AsyncResponse
 
@@ -45,6 +51,8 @@ module ModernTreasury
   BulkResultListParams = ModernTreasury::Models::BulkResultListParams
 
   BulkResultRetrieveParams = ModernTreasury::Models::BulkResultRetrieveParams
+
+  ChildLegalEntityCreate = ModernTreasury::Models::ChildLegalEntityCreate
 
   ClientPingParams = ModernTreasury::Models::ClientPingParams
 
@@ -65,6 +73,11 @@ module ModernTreasury
     ModernTreasury::Models::ConnectionLegalEntityUpdateParams
 
   ConnectionListParams = ModernTreasury::Models::ConnectionListParams
+
+  ContactDetail = ModernTreasury::Models::ContactDetail
+
+  ContactDetailCreateRequest =
+    ModernTreasury::Models::ContactDetailCreateRequest
 
   Counterparty = ModernTreasury::Models::Counterparty
 
@@ -153,6 +166,11 @@ module ModernTreasury
 
   ForeignExchangeQuoteRetrieveParams =
     ModernTreasury::Models::ForeignExchangeQuoteRetrieveParams
+
+  ForeignExchangeRate = ModernTreasury::Models::ForeignExchangeRate
+
+  IdentificationCreateRequest =
+    ModernTreasury::Models::IdentificationCreateRequest
 
   IncomingPaymentDetail = ModernTreasury::Models::IncomingPaymentDetail
 
@@ -254,6 +272,9 @@ module ModernTreasury
 
   LedgerAccountCreateParams = ModernTreasury::Models::LedgerAccountCreateParams
 
+  LedgerAccountCreateRequest =
+    ModernTreasury::Models::LedgerAccountCreateRequest
+
   LedgerAccountDeleteParams = ModernTreasury::Models::LedgerAccountDeleteParams
 
   LedgerAccountListParams = ModernTreasury::Models::LedgerAccountListParams
@@ -285,11 +306,17 @@ module ModernTreasury
 
   LedgerAccountUpdateParams = ModernTreasury::Models::LedgerAccountUpdateParams
 
+  LedgerBalance = ModernTreasury::Models::LedgerBalance
+
+  LedgerBalances = ModernTreasury::Models::LedgerBalances
+
   LedgerCreateParams = ModernTreasury::Models::LedgerCreateParams
 
   LedgerDeleteParams = ModernTreasury::Models::LedgerDeleteParams
 
   LedgerEntry = ModernTreasury::Models::LedgerEntry
+
+  LedgerEntryCreateRequest = ModernTreasury::Models::LedgerEntryCreateRequest
 
   LedgerEntryListParams = ModernTreasury::Models::LedgerEntryListParams
 
@@ -309,6 +336,9 @@ module ModernTreasury
   LedgerTransactionCreatePartialPostParams =
     ModernTreasury::Models::LedgerTransactionCreatePartialPostParams
 
+  LedgerTransactionCreateRequest =
+    ModernTreasury::Models::LedgerTransactionCreateRequest
+
   LedgerTransactionCreateReversalParams =
     ModernTreasury::Models::LedgerTransactionCreateReversalParams
 
@@ -326,6 +356,9 @@ module ModernTreasury
   LedgerUpdateParams = ModernTreasury::Models::LedgerUpdateParams
 
   LegalEntity = ModernTreasury::Models::LegalEntity
+
+  LegalEntityAddressCreateRequest =
+    ModernTreasury::Models::LegalEntityAddressCreateRequest
 
   LegalEntityAssociation = ModernTreasury::Models::LegalEntityAssociation
 

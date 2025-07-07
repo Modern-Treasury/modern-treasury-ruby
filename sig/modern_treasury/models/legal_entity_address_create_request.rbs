@@ -1,0 +1,68 @@
+module ModernTreasury
+  module Models
+    type legal_entity_address_create_request =
+      {
+        country: String?,
+        :line1 => String?,
+        locality: String?,
+        postal_code: String?,
+        region: String?,
+        address_types: ::Array[ModernTreasury::Models::LegalEntityAddressCreateRequest::address_type],
+        :line2 => String?
+      }
+
+    class LegalEntityAddressCreateRequest < ModernTreasury::Internal::Type::BaseModel
+      attr_accessor country: String?
+
+      attr_accessor line1: String?
+
+      attr_accessor locality: String?
+
+      attr_accessor postal_code: String?
+
+      attr_accessor region: String?
+
+      attr_reader address_types: ::Array[ModernTreasury::Models::LegalEntityAddressCreateRequest::address_type]?
+
+      def address_types=: (
+        ::Array[ModernTreasury::Models::LegalEntityAddressCreateRequest::address_type]
+      ) -> ::Array[ModernTreasury::Models::LegalEntityAddressCreateRequest::address_type]
+
+      attr_accessor line2: String?
+
+      def initialize: (
+        country: String?,
+        line1: String?,
+        locality: String?,
+        postal_code: String?,
+        region: String?,
+        ?address_types: ::Array[ModernTreasury::Models::LegalEntityAddressCreateRequest::address_type],
+        ?line2: String?
+      ) -> void
+
+      def to_hash: -> {
+        country: String?,
+        :line1 => String?,
+        locality: String?,
+        postal_code: String?,
+        region: String?,
+        address_types: ::Array[ModernTreasury::Models::LegalEntityAddressCreateRequest::address_type],
+        :line2 => String?
+      }
+
+      type address_type = :business | :mailing | :other | :po_box | :residential
+
+      module AddressType
+        extend ModernTreasury::Internal::Type::Enum
+
+        BUSINESS: :business
+        MAILING: :mailing
+        OTHER: :other
+        PO_BOX: :po_box
+        RESIDENTIAL: :residential
+
+        def self?.values: -> ::Array[ModernTreasury::Models::LegalEntityAddressCreateRequest::address_type]
+      end
+    end
+  end
+end

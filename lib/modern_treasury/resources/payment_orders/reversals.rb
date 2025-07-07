@@ -15,7 +15,7 @@ module ModernTreasury
         #
         # @param reason [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason] The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`, `in
         #
-        # @param ledger_transaction [ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction] Specifies a ledger transaction object that will be created with the reversal. If
+        # @param ledger_transaction [ModernTreasury::Models::LedgerTransactionCreateRequest] Specifies a ledger transaction object that will be created with the reversal. If
         #
         # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
         #

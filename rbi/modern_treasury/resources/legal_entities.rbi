@@ -9,7 +9,7 @@ module ModernTreasury
           legal_entity_type:
             ModernTreasury::LegalEntityCreateParams::LegalEntityType::OrSymbol,
           addresses:
-            T::Array[ModernTreasury::LegalEntityCreateParams::Address::OrHash],
+            T::Array[ModernTreasury::LegalEntityAddressCreateRequest::OrHash],
           bank_settings: T.nilable(ModernTreasury::BankSettings::OrHash),
           business_name: T.nilable(String),
           citizenship_country: T.nilable(String),
@@ -21,9 +21,7 @@ module ModernTreasury
           email: T.nilable(String),
           first_name: T.nilable(String),
           identifications:
-            T::Array[
-              ModernTreasury::LegalEntityCreateParams::Identification::OrHash
-            ],
+            T::Array[ModernTreasury::IdentificationCreateRequest::OrHash],
           industry_classifications:
             T::Array[ModernTreasury::LegalEntityIndustryClassification::OrHash],
           last_name: T.nilable(String),
@@ -129,7 +127,7 @@ module ModernTreasury
         params(
           id: String,
           addresses:
-            T::Array[ModernTreasury::LegalEntityUpdateParams::Address::OrHash],
+            T::Array[ModernTreasury::LegalEntityAddressCreateRequest::OrHash],
           bank_settings: T.nilable(ModernTreasury::BankSettings::OrHash),
           business_name: T.nilable(String),
           citizenship_country: T.nilable(String),
@@ -141,9 +139,7 @@ module ModernTreasury
           email: T.nilable(String),
           first_name: T.nilable(String),
           identifications:
-            T::Array[
-              ModernTreasury::LegalEntityUpdateParams::Identification::OrHash
-            ],
+            T::Array[ModernTreasury::IdentificationCreateRequest::OrHash],
           industry_classifications:
             T::Array[ModernTreasury::LegalEntityIndustryClassification::OrHash],
           last_name: T.nilable(String),

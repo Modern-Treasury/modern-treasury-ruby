@@ -13,15 +13,11 @@ module ModernTreasury
             ],
           account_type: ModernTreasury::ExternalAccountType::OrSymbol,
           contact_details:
-            T::Array[
-              ModernTreasury::ExternalAccountCreateParams::ContactDetail::OrHash
-            ],
-          ledger_account:
-            ModernTreasury::ExternalAccountCreateParams::LedgerAccount::OrHash,
+            T::Array[ModernTreasury::ContactDetailCreateRequest::OrHash],
+          ledger_account: ModernTreasury::LedgerAccountCreateRequest::OrHash,
           metadata: T::Hash[Symbol, String],
           name: T.nilable(String),
-          party_address:
-            ModernTreasury::ExternalAccountCreateParams::PartyAddress::OrHash,
+          party_address: ModernTreasury::AddressRequest::OrHash,
           party_identifier: String,
           party_name: String,
           party_type:
@@ -91,8 +87,7 @@ module ModernTreasury
           counterparty_id: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           name: T.nilable(String),
-          party_address:
-            ModernTreasury::ExternalAccountUpdateParams::PartyAddress::OrHash,
+          party_address: ModernTreasury::AddressRequest::OrHash,
           party_name: String,
           party_type:
             T.nilable(

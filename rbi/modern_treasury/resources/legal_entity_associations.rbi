@@ -11,8 +11,7 @@ module ModernTreasury
             T::Array[
               ModernTreasury::LegalEntityAssociationCreateParams::RelationshipType::OrSymbol
             ],
-          child_legal_entity:
-            ModernTreasury::LegalEntityAssociationCreateParams::ChildLegalEntity::OrHash,
+          child_legal_entity: ModernTreasury::ChildLegalEntityCreate::OrHash,
           child_legal_entity_id: String,
           ownership_percentage: T.nilable(Integer),
           title: T.nilable(String),

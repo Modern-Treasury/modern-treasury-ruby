@@ -11,14 +11,10 @@ module ModernTreasury
       sig { returns(String) }
       attr_accessor :id
 
-      sig { returns(ModernTreasury::PaymentOrder::Accounting) }
+      sig { returns(ModernTreasury::Accounting) }
       attr_reader :accounting
 
-      sig do
-        params(
-          accounting: ModernTreasury::PaymentOrder::Accounting::OrHash
-        ).void
-      end
+      sig { params(accounting: ModernTreasury::Accounting::OrHash).void }
       attr_writer :accounting
 
       # The ID of one of your accounting categories. Note that these will only be
@@ -113,15 +109,13 @@ module ModernTreasury
       attr_accessor :foreign_exchange_indicator
 
       # Associated serialized foreign exchange rate information.
-      sig do
-        returns(T.nilable(ModernTreasury::PaymentOrder::ForeignExchangeRate))
-      end
+      sig { returns(T.nilable(ModernTreasury::ForeignExchangeRate)) }
       attr_reader :foreign_exchange_rate
 
       sig do
         params(
           foreign_exchange_rate:
-            T.nilable(ModernTreasury::PaymentOrder::ForeignExchangeRate::OrHash)
+            T.nilable(ModernTreasury::ForeignExchangeRate::OrHash)
         ).void
       end
       attr_writer :foreign_exchange_rate
@@ -294,7 +288,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          accounting: ModernTreasury::PaymentOrder::Accounting::OrHash,
+          accounting: ModernTreasury::Accounting::OrHash,
           accounting_category_id: T.nilable(String),
           accounting_ledger_class_id: T.nilable(String),
           amount: Integer,
@@ -315,9 +309,7 @@ module ModernTreasury
               ModernTreasury::PaymentOrder::ForeignExchangeIndicator::OrSymbol
             ),
           foreign_exchange_rate:
-            T.nilable(
-              ModernTreasury::PaymentOrder::ForeignExchangeRate::OrHash
-            ),
+            T.nilable(ModernTreasury::ForeignExchangeRate::OrHash),
           ledger_transaction_id: T.nilable(String),
           live_mode: T::Boolean,
           metadata: T::Hash[Symbol, String],
@@ -504,7 +496,7 @@ module ModernTreasury
         override.returns(
           {
             id: String,
-            accounting: ModernTreasury::PaymentOrder::Accounting,
+            accounting: ModernTreasury::Accounting,
             accounting_category_id: T.nilable(String),
             accounting_ledger_class_id: T.nilable(String),
             amount: Integer,
@@ -527,7 +519,7 @@ module ModernTreasury
                 ModernTreasury::PaymentOrder::ForeignExchangeIndicator::TaggedSymbol
               ),
             foreign_exchange_rate:
-              T.nilable(ModernTreasury::PaymentOrder::ForeignExchangeRate),
+              T.nilable(ModernTreasury::ForeignExchangeRate),
             ledger_transaction_id: T.nilable(String),
             live_mode: T::Boolean,
             metadata: T::Hash[Symbol, String],
@@ -571,52 +563,6 @@ module ModernTreasury
         )
       end
       def to_hash
-      end
-
-      class Accounting < ModernTreasury::Internal::Type::BaseModel
-        OrHash =
-          T.type_alias do
-            T.any(
-              ModernTreasury::PaymentOrder::Accounting,
-              ModernTreasury::Internal::AnyHash
-            )
-          end
-
-        # The ID of one of your accounting categories. Note that these will only be
-        # accessible if your accounting system has been connected.
-        sig { returns(T.nilable(String)) }
-        attr_accessor :account_id
-
-        # The ID of one of the class objects in your accounting system. Class objects
-        # track segments of your business independent of client or project. Note that
-        # these will only be accessible if your accounting system has been connected.
-        sig { returns(T.nilable(String)) }
-        attr_accessor :class_id
-
-        sig do
-          params(
-            account_id: T.nilable(String),
-            class_id: T.nilable(String)
-          ).returns(T.attached_class)
-        end
-        def self.new(
-          # The ID of one of your accounting categories. Note that these will only be
-          # accessible if your accounting system has been connected.
-          account_id: nil,
-          # The ID of one of the class objects in your accounting system. Class objects
-          # track segments of your business independent of client or project. Note that
-          # these will only be accessible if your accounting system has been connected.
-          class_id: nil
-        )
-        end
-
-        sig do
-          override.returns(
-            { account_id: T.nilable(String), class_id: T.nilable(String) }
-          )
-        end
-        def to_hash
-        end
       end
 
       # The party that will pay the fees for the payment order. See
@@ -717,98 +663,6 @@ module ModernTreasury
           )
         end
         def self.values
-        end
-      end
-
-      class ForeignExchangeRate < ModernTreasury::Internal::Type::BaseModel
-        OrHash =
-          T.type_alias do
-            T.any(
-              ModernTreasury::PaymentOrder::ForeignExchangeRate,
-              ModernTreasury::Internal::AnyHash
-            )
-          end
-
-        # Amount in the lowest denomination of the `base_currency` to convert, often
-        # called the "sell" amount.
-        sig { returns(Integer) }
-        attr_accessor :base_amount
-
-        # Currency to convert, often called the "sell" currency.
-        sig { returns(ModernTreasury::Currency::TaggedSymbol) }
-        attr_accessor :base_currency
-
-        # The exponent component of the rate. The decimal is calculated as `value` / (10 ^
-        # `exponent`).
-        sig { returns(Integer) }
-        attr_accessor :exponent
-
-        # A string representation of the rate.
-        sig { returns(String) }
-        attr_accessor :rate_string
-
-        # Amount in the lowest denomination of the `target_currency`, often called the
-        # "buy" amount.
-        sig { returns(Integer) }
-        attr_accessor :target_amount
-
-        # Currency to convert the `base_currency` to, often called the "buy" currency.
-        sig { returns(ModernTreasury::Currency::TaggedSymbol) }
-        attr_accessor :target_currency
-
-        # The whole number component of the rate. The decimal is calculated as `value` /
-        # (10 ^ `exponent`).
-        sig { returns(Integer) }
-        attr_accessor :value
-
-        # Associated serialized foreign exchange rate information.
-        sig do
-          params(
-            base_amount: Integer,
-            base_currency: ModernTreasury::Currency::OrSymbol,
-            exponent: Integer,
-            rate_string: String,
-            target_amount: Integer,
-            target_currency: ModernTreasury::Currency::OrSymbol,
-            value: Integer
-          ).returns(T.attached_class)
-        end
-        def self.new(
-          # Amount in the lowest denomination of the `base_currency` to convert, often
-          # called the "sell" amount.
-          base_amount:,
-          # Currency to convert, often called the "sell" currency.
-          base_currency:,
-          # The exponent component of the rate. The decimal is calculated as `value` / (10 ^
-          # `exponent`).
-          exponent:,
-          # A string representation of the rate.
-          rate_string:,
-          # Amount in the lowest denomination of the `target_currency`, often called the
-          # "buy" amount.
-          target_amount:,
-          # Currency to convert the `base_currency` to, often called the "buy" currency.
-          target_currency:,
-          # The whole number component of the rate. The decimal is calculated as `value` /
-          # (10 ^ `exponent`).
-          value:
-        )
-        end
-
-        sig do
-          override.returns(
-            {
-              base_amount: Integer,
-              base_currency: ModernTreasury::Currency::TaggedSymbol,
-              exponent: Integer,
-              rate_string: String,
-              target_amount: Integer,
-              target_currency: ModernTreasury::Currency::TaggedSymbol,
-              value: Integer
-            }
-          )
-        end
-        def to_hash
         end
       end
 

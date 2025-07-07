@@ -1,0 +1,220 @@
+module ModernTreasury
+  module Models
+    type child_legal_entity_create =
+      {
+        addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
+        bank_settings: ModernTreasury::BankSettings?,
+        business_name: String?,
+        citizenship_country: String?,
+        compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
+        date_formed: Date?,
+        date_of_birth: Date?,
+        doing_business_as_names: ::Array[String],
+        email: String?,
+        first_name: String?,
+        identifications: ::Array[ModernTreasury::IdentificationCreateRequest],
+        industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification],
+        last_name: String?,
+        legal_entity_type: ModernTreasury::Models::ChildLegalEntityCreate::legal_entity_type,
+        legal_structure: ModernTreasury::Models::ChildLegalEntityCreate::legal_structure?,
+        metadata: ::Hash[Symbol, String],
+        middle_name: String?,
+        phone_numbers: ::Array[ModernTreasury::ChildLegalEntityCreate::PhoneNumber],
+        politically_exposed_person: bool?,
+        preferred_name: String?,
+        prefix: String?,
+        risk_rating: ModernTreasury::Models::ChildLegalEntityCreate::risk_rating?,
+        suffix: String?,
+        wealth_and_employment_details: ModernTreasury::WealthAndEmploymentDetails?,
+        website: String?
+      }
+
+    class ChildLegalEntityCreate < ModernTreasury::Internal::Type::BaseModel
+      attr_reader addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest]?
+
+      def addresses=: (
+        ::Array[ModernTreasury::LegalEntityAddressCreateRequest]
+      ) -> ::Array[ModernTreasury::LegalEntityAddressCreateRequest]
+
+      attr_accessor bank_settings: ModernTreasury::BankSettings?
+
+      attr_accessor business_name: String?
+
+      attr_accessor citizenship_country: String?
+
+      attr_accessor compliance_details: ModernTreasury::LegalEntityComplianceDetail?
+
+      attr_accessor date_formed: Date?
+
+      attr_accessor date_of_birth: Date?
+
+      attr_reader doing_business_as_names: ::Array[String]?
+
+      def doing_business_as_names=: (::Array[String]) -> ::Array[String]
+
+      attr_accessor email: String?
+
+      attr_accessor first_name: String?
+
+      attr_reader identifications: ::Array[ModernTreasury::IdentificationCreateRequest]?
+
+      def identifications=: (
+        ::Array[ModernTreasury::IdentificationCreateRequest]
+      ) -> ::Array[ModernTreasury::IdentificationCreateRequest]
+
+      attr_reader industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification]?
+
+      def industry_classifications=: (
+        ::Array[ModernTreasury::LegalEntityIndustryClassification]
+      ) -> ::Array[ModernTreasury::LegalEntityIndustryClassification]
+
+      attr_accessor last_name: String?
+
+      attr_reader legal_entity_type: ModernTreasury::Models::ChildLegalEntityCreate::legal_entity_type?
+
+      def legal_entity_type=: (
+        ModernTreasury::Models::ChildLegalEntityCreate::legal_entity_type
+      ) -> ModernTreasury::Models::ChildLegalEntityCreate::legal_entity_type
+
+      attr_accessor legal_structure: ModernTreasury::Models::ChildLegalEntityCreate::legal_structure?
+
+      attr_reader metadata: ::Hash[Symbol, String]?
+
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
+
+      attr_accessor middle_name: String?
+
+      attr_reader phone_numbers: ::Array[ModernTreasury::ChildLegalEntityCreate::PhoneNumber]?
+
+      def phone_numbers=: (
+        ::Array[ModernTreasury::ChildLegalEntityCreate::PhoneNumber]
+      ) -> ::Array[ModernTreasury::ChildLegalEntityCreate::PhoneNumber]
+
+      attr_accessor politically_exposed_person: bool?
+
+      attr_accessor preferred_name: String?
+
+      attr_accessor prefix: String?
+
+      attr_accessor risk_rating: ModernTreasury::Models::ChildLegalEntityCreate::risk_rating?
+
+      attr_accessor suffix: String?
+
+      attr_accessor wealth_and_employment_details: ModernTreasury::WealthAndEmploymentDetails?
+
+      attr_accessor website: String?
+
+      def initialize: (
+        ?addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
+        ?bank_settings: ModernTreasury::BankSettings?,
+        ?business_name: String?,
+        ?citizenship_country: String?,
+        ?compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
+        ?date_formed: Date?,
+        ?date_of_birth: Date?,
+        ?doing_business_as_names: ::Array[String],
+        ?email: String?,
+        ?first_name: String?,
+        ?identifications: ::Array[ModernTreasury::IdentificationCreateRequest],
+        ?industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification],
+        ?last_name: String?,
+        ?legal_entity_type: ModernTreasury::Models::ChildLegalEntityCreate::legal_entity_type,
+        ?legal_structure: ModernTreasury::Models::ChildLegalEntityCreate::legal_structure?,
+        ?metadata: ::Hash[Symbol, String],
+        ?middle_name: String?,
+        ?phone_numbers: ::Array[ModernTreasury::ChildLegalEntityCreate::PhoneNumber],
+        ?politically_exposed_person: bool?,
+        ?preferred_name: String?,
+        ?prefix: String?,
+        ?risk_rating: ModernTreasury::Models::ChildLegalEntityCreate::risk_rating?,
+        ?suffix: String?,
+        ?wealth_and_employment_details: ModernTreasury::WealthAndEmploymentDetails?,
+        ?website: String?
+      ) -> void
+
+      def to_hash: -> {
+        addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
+        bank_settings: ModernTreasury::BankSettings?,
+        business_name: String?,
+        citizenship_country: String?,
+        compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
+        date_formed: Date?,
+        date_of_birth: Date?,
+        doing_business_as_names: ::Array[String],
+        email: String?,
+        first_name: String?,
+        identifications: ::Array[ModernTreasury::IdentificationCreateRequest],
+        industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification],
+        last_name: String?,
+        legal_entity_type: ModernTreasury::Models::ChildLegalEntityCreate::legal_entity_type,
+        legal_structure: ModernTreasury::Models::ChildLegalEntityCreate::legal_structure?,
+        metadata: ::Hash[Symbol, String],
+        middle_name: String?,
+        phone_numbers: ::Array[ModernTreasury::ChildLegalEntityCreate::PhoneNumber],
+        politically_exposed_person: bool?,
+        preferred_name: String?,
+        prefix: String?,
+        risk_rating: ModernTreasury::Models::ChildLegalEntityCreate::risk_rating?,
+        suffix: String?,
+        wealth_and_employment_details: ModernTreasury::WealthAndEmploymentDetails?,
+        website: String?
+      }
+
+      type legal_entity_type = :business | :individual
+
+      module LegalEntityType
+        extend ModernTreasury::Internal::Type::Enum
+
+        BUSINESS: :business
+        INDIVIDUAL: :individual
+
+        def self?.values: -> ::Array[ModernTreasury::Models::ChildLegalEntityCreate::legal_entity_type]
+      end
+
+      type legal_structure =
+        :corporation
+        | :llc
+        | :non_profit
+        | :partnership
+        | :sole_proprietorship
+        | :trust
+
+      module LegalStructure
+        extend ModernTreasury::Internal::Type::Enum
+
+        CORPORATION: :corporation
+        LLC: :llc
+        NON_PROFIT: :non_profit
+        PARTNERSHIP: :partnership
+        SOLE_PROPRIETORSHIP: :sole_proprietorship
+        TRUST: :trust
+
+        def self?.values: -> ::Array[ModernTreasury::Models::ChildLegalEntityCreate::legal_structure]
+      end
+
+      type phone_number = { phone_number: String }
+
+      class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
+        attr_reader phone_number: String?
+
+        def phone_number=: (String) -> String
+
+        def initialize: (?phone_number: String) -> void
+
+        def to_hash: -> { phone_number: String }
+      end
+
+      type risk_rating = :low | :medium | :high
+
+      module RiskRating
+        extend ModernTreasury::Internal::Type::Enum
+
+        LOW: :low
+        MEDIUM: :medium
+        HIGH: :high
+
+        def self?.values: -> ::Array[ModernTreasury::Models::ChildLegalEntityCreate::risk_rating]
+      end
+    end
+  end
+end

@@ -16,7 +16,7 @@ class ModernTreasury::Test::Resources::ValidationsTest < ModernTreasury::Test::R
 
     assert_pattern do
       response => {
-        bank_address: ModernTreasury::RoutingNumberLookupRequest::BankAddress | nil,
+        bank_address: ModernTreasury::AddressRequest | nil,
         bank_name: String | nil,
         routing_number: String | nil,
         routing_number_type: ModernTreasury::RoutingNumberLookupRequest::RoutingNumberType | nil,

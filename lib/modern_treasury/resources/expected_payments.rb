@@ -28,7 +28,7 @@ module ModernTreasury
       #
       # @param internal_account_id [String, nil] The ID of the Internal Account for the expected payment.
       #
-      # @param ledger_transaction [ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction] Specifies a ledger transaction object that will be created with the expected pay
+      # @param ledger_transaction [ModernTreasury::Models::LedgerTransactionCreateRequest] Specifies a ledger transaction object that will be created with the expected pay
       #
       # @param ledger_transaction_id [String] Either ledger_transaction or ledger_transaction_id can be provided. Only a pendi
       #

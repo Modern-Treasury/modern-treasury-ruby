@@ -13,7 +13,7 @@ module ModernTreasury
       #
       # @overload create(ledger_entries:, description: nil, effective_at: nil, effective_date: nil, external_id: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, status: nil, request_options: {})
       #
-      # @param ledger_entries [Array<ModernTreasury::Models::LedgerTransactionCreateParams::LedgerEntry>] An array of ledger entry objects.
+      # @param ledger_entries [Array<ModernTreasury::Models::LedgerEntryCreateRequest>] An array of ledger entry objects.
       #
       # @param description [String, nil] An optional description for internal use.
       #
@@ -25,11 +25,11 @@ module ModernTreasury
       #
       # @param ledgerable_id [String] If the ledger transaction can be reconciled to another object in Modern Treasury
       #
-      # @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerTransactionCreateParams::LedgerableType] If the ledger transaction can be reconciled to another object in Modern Treasury
+      # @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerTransactionCreateRequest::LedgerableType] If the ledger transaction can be reconciled to another object in Modern Treasury
       #
       # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #
-      # @param status [Symbol, ModernTreasury::Models::LedgerTransactionCreateParams::Status] To post a ledger transaction at creation, use `posted`.
+      # @param status [Symbol, ModernTreasury::Models::LedgerTransactionCreateRequest::Status] To post a ledger transaction at creation, use `posted`.
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -80,7 +80,7 @@ module ModernTreasury
       #
       # @param effective_at [Time] The timestamp (ISO8601 format) at which the ledger transaction happened for repo
       #
-      # @param ledger_entries [Array<ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry>] An array of ledger entry objects.
+      # @param ledger_entries [Array<ModernTreasury::Models::LedgerEntryCreateRequest>] An array of ledger entry objects.
       #
       # @param ledgerable_id [String] If the ledger transaction can be reconciled to another object in Modern Treasury
       #

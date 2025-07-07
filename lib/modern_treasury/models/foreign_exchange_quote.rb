@@ -37,8 +37,8 @@ module ModernTreasury
       # @!attribute foreign_exchange_rate
       #   The serialized rate information represented by this quote.
       #
-      #   @return [ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate]
-      required :foreign_exchange_rate, -> { ModernTreasury::ForeignExchangeQuote::ForeignExchangeRate }
+      #   @return [ModernTreasury::Models::ForeignExchangeRate]
+      required :foreign_exchange_rate, -> { ModernTreasury::ForeignExchangeRate }
 
       # @!attribute internal_account_id
       #   The ID for the `InternalAccount` this quote is associated with.
@@ -90,7 +90,7 @@ module ModernTreasury
       #
       #   @param foreign_exchange_indicator [String] Either `fixed_to_variable` if the `base_amount` was specified, or `variable_to_f
       #
-      #   @param foreign_exchange_rate [ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate] The serialized rate information represented by this quote.
+      #   @param foreign_exchange_rate [ModernTreasury::Models::ForeignExchangeRate] The serialized rate information represented by this quote.
       #
       #   @param internal_account_id [String] The ID for the `InternalAccount` this quote is associated with.
       #
@@ -103,76 +103,6 @@ module ModernTreasury
       #   @param updated_at [Time]
       #
       #   @param vendor_id [String] This vendor assigned ID for this quote.
-
-      # @see ModernTreasury::Models::ForeignExchangeQuote#foreign_exchange_rate
-      class ForeignExchangeRate < ModernTreasury::Internal::Type::BaseModel
-        # @!attribute base_amount
-        #   Amount in the lowest denomination of the `base_currency` to convert, often
-        #   called the "sell" amount.
-        #
-        #   @return [Integer]
-        required :base_amount, Integer
-
-        # @!attribute base_currency
-        #   Currency to convert, often called the "sell" currency.
-        #
-        #   @return [Symbol, ModernTreasury::Models::Currency]
-        required :base_currency, enum: -> { ModernTreasury::Currency }
-
-        # @!attribute exponent
-        #   The exponent component of the rate. The decimal is calculated as `value` / (10 ^
-        #   `exponent`).
-        #
-        #   @return [Integer]
-        required :exponent, Integer
-
-        # @!attribute rate_string
-        #   A string representation of the rate.
-        #
-        #   @return [String]
-        required :rate_string, String
-
-        # @!attribute target_amount
-        #   Amount in the lowest denomination of the `target_currency`, often called the
-        #   "buy" amount.
-        #
-        #   @return [Integer]
-        required :target_amount, Integer
-
-        # @!attribute target_currency
-        #   Currency to convert the `base_currency` to, often called the "buy" currency.
-        #
-        #   @return [Symbol, ModernTreasury::Models::Currency]
-        required :target_currency, enum: -> { ModernTreasury::Currency }
-
-        # @!attribute value
-        #   The whole number component of the rate. The decimal is calculated as `value` /
-        #   (10 ^ `exponent`).
-        #
-        #   @return [Integer]
-        required :value, Integer
-
-        # @!method initialize(base_amount:, base_currency:, exponent:, rate_string:, target_amount:, target_currency:, value:)
-        #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate} for more
-        #   details.
-        #
-        #   The serialized rate information represented by this quote.
-        #
-        #   @param base_amount [Integer] Amount in the lowest denomination of the `base_currency` to convert, often calle
-        #
-        #   @param base_currency [Symbol, ModernTreasury::Models::Currency] Currency to convert, often called the "sell" currency.
-        #
-        #   @param exponent [Integer] The exponent component of the rate. The decimal is calculated as `value` / (10 ^
-        #
-        #   @param rate_string [String] A string representation of the rate.
-        #
-        #   @param target_amount [Integer] Amount in the lowest denomination of the `target_currency`, often called the "bu
-        #
-        #   @param target_currency [Symbol, ModernTreasury::Models::Currency] Currency to convert the `base_currency` to, often called the "buy" currency.
-        #
-        #   @param value [Integer] The whole number component of the rate. The decimal is calculated as `value` / (
-      end
     end
   end
 end

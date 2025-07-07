@@ -19,7 +19,7 @@ module ModernTreasury
             ),
           internal_account_id: T.nilable(String),
           ledger_transaction:
-            ModernTreasury::ExpectedPaymentCreateParams::LedgerTransaction::OrHash,
+            ModernTreasury::LedgerTransactionCreateRequest::OrHash,
           ledger_transaction_id: String,
           line_items:
             T::Array[

@@ -4,15 +4,15 @@ module ModernTreasury
       attr_reader versions: ModernTreasury::Resources::LedgerTransactions::Versions
 
       def create: (
-        ledger_entries: ::Array[ModernTreasury::LedgerTransactionCreateParams::LedgerEntry],
+        ledger_entries: ::Array[ModernTreasury::LedgerEntryCreateRequest],
         ?description: String?,
         ?effective_at: Time,
         ?effective_date: Date,
         ?external_id: String,
         ?ledgerable_id: String,
-        ?ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateParams::ledgerable_type,
+        ?ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateRequest::ledgerable_type,
         ?metadata: ::Hash[Symbol, String],
-        ?status: ModernTreasury::Models::LedgerTransactionCreateParams::status,
+        ?status: ModernTreasury::Models::LedgerTransactionCreateRequest::status,
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::LedgerTransaction
 
@@ -25,7 +25,7 @@ module ModernTreasury
         String id,
         ?description: String?,
         ?effective_at: Time,
-        ?ledger_entries: ::Array[ModernTreasury::LedgerTransactionUpdateParams::LedgerEntry],
+        ?ledger_entries: ::Array[ModernTreasury::LedgerEntryCreateRequest],
         ?ledgerable_id: String,
         ?ledgerable_type: ModernTreasury::Models::LedgerTransactionUpdateParams::ledgerable_type,
         ?metadata: ::Hash[Symbol, String],

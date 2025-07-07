@@ -1,0 +1,67 @@
+module ModernTreasury
+  module Models
+    type contact_detail =
+      {
+        id: String,
+        contact_identifier: String,
+        contact_identifier_type: ModernTreasury::Models::ContactDetail::contact_identifier_type,
+        created_at: Time,
+        discarded_at: Time?,
+        live_mode: bool,
+        object: String,
+        updated_at: Time
+      }
+
+    class ContactDetail < ModernTreasury::Internal::Type::BaseModel
+      attr_accessor id: String
+
+      attr_accessor contact_identifier: String
+
+      attr_accessor contact_identifier_type: ModernTreasury::Models::ContactDetail::contact_identifier_type
+
+      attr_accessor created_at: Time
+
+      attr_accessor discarded_at: Time?
+
+      attr_accessor live_mode: bool
+
+      attr_accessor object: String
+
+      attr_accessor updated_at: Time
+
+      def initialize: (
+        id: String,
+        contact_identifier: String,
+        contact_identifier_type: ModernTreasury::Models::ContactDetail::contact_identifier_type,
+        created_at: Time,
+        discarded_at: Time?,
+        live_mode: bool,
+        object: String,
+        updated_at: Time
+      ) -> void
+
+      def to_hash: -> {
+        id: String,
+        contact_identifier: String,
+        contact_identifier_type: ModernTreasury::Models::ContactDetail::contact_identifier_type,
+        created_at: Time,
+        discarded_at: Time?,
+        live_mode: bool,
+        object: String,
+        updated_at: Time
+      }
+
+      type contact_identifier_type = :email | :phone_number | :website
+
+      module ContactIdentifierType
+        extend ModernTreasury::Internal::Type::Enum
+
+        EMAIL: :email
+        PHONE_NUMBER: :phone_number
+        WEBSITE: :website
+
+        def self?.values: -> ::Array[ModernTreasury::Models::ContactDetail::contact_identifier_type]
+      end
+    end
+  end
+end

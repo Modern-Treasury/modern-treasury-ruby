@@ -10,19 +10,17 @@ module ModernTreasury
       sig do
         params(
           ledger_entries:
-            T::Array[
-              ModernTreasury::LedgerTransactionCreateParams::LedgerEntry::OrHash
-            ],
+            T::Array[ModernTreasury::LedgerEntryCreateRequest::OrHash],
           description: T.nilable(String),
           effective_at: Time,
           effective_date: Date,
           external_id: String,
           ledgerable_id: String,
           ledgerable_type:
-            ModernTreasury::LedgerTransactionCreateParams::LedgerableType::OrSymbol,
+            ModernTreasury::LedgerTransactionCreateRequest::LedgerableType::OrSymbol,
           metadata: T::Hash[Symbol, String],
           status:
-            ModernTreasury::LedgerTransactionCreateParams::Status::OrSymbol,
+            ModernTreasury::LedgerTransactionCreateRequest::Status::OrSymbol,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::LedgerTransaction)
       end
@@ -78,9 +76,7 @@ module ModernTreasury
           description: T.nilable(String),
           effective_at: Time,
           ledger_entries:
-            T::Array[
-              ModernTreasury::LedgerTransactionUpdateParams::LedgerEntry::OrHash
-            ],
+            T::Array[ModernTreasury::LedgerEntryCreateRequest::OrHash],
           ledgerable_id: String,
           ledgerable_type:
             ModernTreasury::LedgerTransactionUpdateParams::LedgerableType::OrSymbol,

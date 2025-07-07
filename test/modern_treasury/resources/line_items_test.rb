@@ -18,7 +18,7 @@ class ModernTreasury::Test::Resources::LineItemsTest < ModernTreasury::Test::Res
     assert_pattern do
       response => {
         id: String,
-        accounting: ModernTreasury::LineItem::Accounting,
+        accounting: ModernTreasury::Accounting,
         accounting_category_id: String | nil,
         accounting_ledger_class_id: String | nil,
         amount: Integer,
@@ -49,7 +49,7 @@ class ModernTreasury::Test::Resources::LineItemsTest < ModernTreasury::Test::Res
     assert_pattern do
       response => {
         id: String,
-        accounting: ModernTreasury::LineItem::Accounting,
+        accounting: ModernTreasury::Accounting,
         accounting_category_id: String | nil,
         accounting_ledger_class_id: String | nil,
         amount: Integer,
@@ -84,7 +84,7 @@ class ModernTreasury::Test::Resources::LineItemsTest < ModernTreasury::Test::Res
     assert_pattern do
       row => {
         id: String,
-        accounting: ModernTreasury::LineItem::Accounting,
+        accounting: ModernTreasury::Accounting,
         accounting_category_id: String | nil,
         accounting_ledger_class_id: String | nil,
         amount: Integer,

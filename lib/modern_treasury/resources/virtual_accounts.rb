@@ -24,7 +24,7 @@ module ModernTreasury
       #
       # @param description [String] An optional description for internal use.
       #
-      # @param ledger_account [ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount] Specifies a ledger account object that will be created with the virtual account.
+      # @param ledger_account [ModernTreasury::Models::LedgerAccountCreateRequest] Specifies a ledger account object that will be created with the virtual account.
       #
       # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #

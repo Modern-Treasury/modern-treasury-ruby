@@ -14,8 +14,7 @@ module ModernTreasury
             ModernTreasury::PaymentOrderCreateParams::Direction::OrSymbol,
           originating_account_id: String,
           type: ModernTreasury::PaymentOrderType::OrSymbol,
-          accounting:
-            ModernTreasury::PaymentOrderCreateParams::Accounting::OrHash,
+          accounting: ModernTreasury::Accounting::OrHash,
           accounting_category_id: T.nilable(String),
           accounting_ledger_class_id: T.nilable(String),
           charge_bearer:
@@ -38,7 +37,7 @@ module ModernTreasury
               ModernTreasury::PaymentOrderCreateParams::ForeignExchangeIndicator::OrSymbol
             ),
           ledger_transaction:
-            ModernTreasury::PaymentOrderCreateParams::LedgerTransaction::OrHash,
+            ModernTreasury::LedgerTransactionCreateRequest::OrHash,
           ledger_transaction_id: String,
           line_items:
             T::Array[
@@ -209,8 +208,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          accounting:
-            ModernTreasury::PaymentOrderUpdateParams::Accounting::OrHash,
+          accounting: ModernTreasury::Accounting::OrHash,
           accounting_category_id: T.nilable(String),
           accounting_ledger_class_id: T.nilable(String),
           amount: Integer,
@@ -457,8 +455,7 @@ module ModernTreasury
             ModernTreasury::PaymentOrderCreateAsyncParams::Direction::OrSymbol,
           originating_account_id: String,
           type: ModernTreasury::PaymentOrderType::OrSymbol,
-          accounting:
-            ModernTreasury::PaymentOrderCreateAsyncParams::Accounting::OrHash,
+          accounting: ModernTreasury::Accounting::OrHash,
           accounting_category_id: T.nilable(String),
           accounting_ledger_class_id: T.nilable(String),
           charge_bearer:
@@ -477,7 +474,7 @@ module ModernTreasury
               ModernTreasury::PaymentOrderCreateAsyncParams::ForeignExchangeIndicator::OrSymbol
             ),
           ledger_transaction:
-            ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::OrHash,
+            ModernTreasury::LedgerTransactionCreateRequest::OrHash,
           ledger_transaction_id: String,
           line_items:
             T::Array[
