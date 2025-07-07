@@ -48,8 +48,6 @@ module ModernTreasury
 
     attr_reader ledger_entries: ModernTreasury::Resources::LedgerEntries
 
-    attr_reader ledger_event_handlers: ModernTreasury::Resources::LedgerEventHandlers
-
     attr_reader ledger_transactions: ModernTreasury::Resources::LedgerTransactions
 
     attr_reader line_items: ModernTreasury::Resources::LineItems
