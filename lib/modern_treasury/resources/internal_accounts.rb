@@ -146,6 +146,40 @@ module ModernTreasury
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {ModernTreasury::Models::InternalAccountUpdateAccountCapabilityParams} for more
+      # details.
+      #
+      # update account_capability
+      #
+      # @overload update_account_capability(id, internal_account_id:, identifier:, request_options: {})
+      #
+      # @param id [String] Path param: Unique identifier for the account capability.
+      #
+      # @param internal_account_id [String] Path param: Unique identifier for the internal account.
+      #
+      # @param identifier [String] Body param: A unique reference assigned by your bank for tracking and recognizin
+      #
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [ModernTreasury::Models::InternalAccountUpdateAccountCapabilityResponse]
+      #
+      # @see ModernTreasury::Models::InternalAccountUpdateAccountCapabilityParams
+      def update_account_capability(id, params)
+        parsed, options = ModernTreasury::InternalAccountUpdateAccountCapabilityParams.dump_request(params)
+        internal_account_id =
+          parsed.delete(:internal_account_id) do
+            raise ArgumentError.new("missing required path argument #{_1}")
+          end
+        @client.request(
+          method: :patch,
+          path: ["api/internal_accounts/%1$s/account_capabilities/%2$s", internal_account_id, id],
+          body: parsed,
+          model: ModernTreasury::Models::InternalAccountUpdateAccountCapabilityResponse,
+          options: options
+        )
+      end
+
       # @api private
       #
       # @param client [ModernTreasury::Client]

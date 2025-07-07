@@ -45,6 +45,13 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::Internal::Page[ModernTreasury::InternalAccount]
 
+      def update_account_capability: (
+        String id,
+        internal_account_id: String,
+        identifier: String,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::InternalAccountUpdateAccountCapabilityResponse
+
       def initialize: (client: ModernTreasury::Client) -> void
     end
   end

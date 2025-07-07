@@ -151,4 +151,31 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
       }
     end
   end
+
+  def test_update_account_capability_required_params
+    response =
+      @modern_treasury.internal_accounts.update_account_capability(
+        "id",
+        internal_account_id: "internal_account_id",
+        identifier: "identifier"
+      )
+
+    assert_pattern do
+      response => ModernTreasury::Models::InternalAccountUpdateAccountCapabilityResponse
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        created_at: Time,
+        direction: ModernTreasury::TransactionDirection,
+        discarded_at: Time | nil,
+        identifier: String | nil,
+        live_mode: ModernTreasury::Internal::Type::Boolean,
+        object: String,
+        payment_type: ModernTreasury::Models::InternalAccountUpdateAccountCapabilityResponse::PaymentType,
+        updated_at: Time
+      }
+    end
+  end
 end
