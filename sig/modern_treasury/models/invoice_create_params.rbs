@@ -6,7 +6,7 @@ module ModernTreasury
         due_date: Time,
         originating_account_id: String,
         auto_advance: bool?,
-        contact_details: ::Array[ModernTreasury::InvoiceCreateParams::ContactDetail],
+        contact_details: ::Array[ModernTreasury::ContactDetail],
         counterparty_billing_address: ModernTreasury::InvoiceCreateParams::CounterpartyBillingAddress?,
         counterparty_shipping_address: ModernTreasury::InvoiceCreateParams::CounterpartyShippingAddress?,
         currency: ModernTreasury::Models::currency,
@@ -42,11 +42,11 @@ module ModernTreasury
 
       attr_accessor auto_advance: bool?
 
-      attr_reader contact_details: ::Array[ModernTreasury::InvoiceCreateParams::ContactDetail]?
+      attr_reader contact_details: ::Array[ModernTreasury::ContactDetail]?
 
       def contact_details=: (
-        ::Array[ModernTreasury::InvoiceCreateParams::ContactDetail]
-      ) -> ::Array[ModernTreasury::InvoiceCreateParams::ContactDetail]
+        ::Array[ModernTreasury::ContactDetail]
+      ) -> ::Array[ModernTreasury::ContactDetail]
 
       attr_accessor counterparty_billing_address: ModernTreasury::InvoiceCreateParams::CounterpartyBillingAddress?
 
@@ -113,7 +113,7 @@ module ModernTreasury
         due_date: Time,
         originating_account_id: String,
         ?auto_advance: bool?,
-        ?contact_details: ::Array[ModernTreasury::InvoiceCreateParams::ContactDetail],
+        ?contact_details: ::Array[ModernTreasury::ContactDetail],
         ?counterparty_billing_address: ModernTreasury::InvoiceCreateParams::CounterpartyBillingAddress?,
         ?counterparty_shipping_address: ModernTreasury::InvoiceCreateParams::CounterpartyShippingAddress?,
         ?currency: ModernTreasury::Models::currency,
@@ -142,7 +142,7 @@ module ModernTreasury
         due_date: Time,
         originating_account_id: String,
         auto_advance: bool?,
-        contact_details: ::Array[ModernTreasury::InvoiceCreateParams::ContactDetail],
+        contact_details: ::Array[ModernTreasury::ContactDetail],
         counterparty_billing_address: ModernTreasury::InvoiceCreateParams::CounterpartyBillingAddress?,
         counterparty_shipping_address: ModernTreasury::InvoiceCreateParams::CounterpartyShippingAddress?,
         currency: ModernTreasury::Models::currency,
@@ -165,70 +165,6 @@ module ModernTreasury
         virtual_account_id: String?,
         request_options: ModernTreasury::RequestOptions
       }
-
-      type contact_detail =
-        {
-          id: String,
-          contact_identifier: String,
-          contact_identifier_type: ModernTreasury::Models::InvoiceCreateParams::ContactDetail::contact_identifier_type,
-          created_at: Time,
-          discarded_at: Time?,
-          live_mode: bool,
-          object: String,
-          updated_at: Time
-        }
-
-      class ContactDetail < ModernTreasury::Internal::Type::BaseModel
-        attr_accessor id: String
-
-        attr_accessor contact_identifier: String
-
-        attr_accessor contact_identifier_type: ModernTreasury::Models::InvoiceCreateParams::ContactDetail::contact_identifier_type
-
-        attr_accessor created_at: Time
-
-        attr_accessor discarded_at: Time?
-
-        attr_accessor live_mode: bool
-
-        attr_accessor object: String
-
-        attr_accessor updated_at: Time
-
-        def initialize: (
-          id: String,
-          contact_identifier: String,
-          contact_identifier_type: ModernTreasury::Models::InvoiceCreateParams::ContactDetail::contact_identifier_type,
-          created_at: Time,
-          discarded_at: Time?,
-          live_mode: bool,
-          object: String,
-          updated_at: Time
-        ) -> void
-
-        def to_hash: -> {
-          id: String,
-          contact_identifier: String,
-          contact_identifier_type: ModernTreasury::Models::InvoiceCreateParams::ContactDetail::contact_identifier_type,
-          created_at: Time,
-          discarded_at: Time?,
-          live_mode: bool,
-          object: String,
-          updated_at: Time
-        }
-
-        type contact_identifier_type = :email | :phone_number | :website
-
-        module ContactIdentifierType
-          extend ModernTreasury::Internal::Type::Enum
-
-          EMAIL: :email
-          PHONE_NUMBER: :phone_number
-          WEBSITE: :website
-
-          def self?.values: -> ::Array[ModernTreasury::Models::InvoiceCreateParams::ContactDetail::contact_identifier_type]
-        end
-      end
 
       type counterparty_billing_address =
         {

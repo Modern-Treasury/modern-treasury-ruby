@@ -15,7 +15,7 @@ module ModernTreasury
           ledger_account_category_ids: T::Array[String],
           ledgerable_id: String,
           ledgerable_type:
-            ModernTreasury::LedgerAccountCreateParams::LedgerableType::OrSymbol,
+            ModernTreasury::LedgerAccountCreateRequest::LedgerableType::OrSymbol,
           metadata: T::Hash[Symbol, String],
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::LedgerAccount)

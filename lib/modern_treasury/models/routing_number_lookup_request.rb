@@ -7,8 +7,8 @@ module ModernTreasury
       # @!attribute bank_address
       #   The address of the bank.
       #
-      #   @return [ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress, nil]
-      optional :bank_address, -> { ModernTreasury::RoutingNumberLookupRequest::BankAddress }
+      #   @return [ModernTreasury::Models::AddressRequest, nil]
+      optional :bank_address, -> { ModernTreasury::AddressRequest }
 
       # @!attribute bank_name
       #   The name of the bank.
@@ -56,7 +56,7 @@ module ModernTreasury
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::RoutingNumberLookupRequest} for more details.
       #
-      #   @param bank_address [ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress] The address of the bank.
+      #   @param bank_address [ModernTreasury::Models::AddressRequest] The address of the bank.
       #
       #   @param bank_name [String] The name of the bank.
       #
@@ -67,58 +67,6 @@ module ModernTreasury
       #   @param sanctions [Hash{Symbol=>Object}] An object containing key-value pairs, each with a sanctions list as the key and
       #
       #   @param supported_payment_types [Array<Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType>] An array of payment types that are supported for this routing number. This can i
-
-      # @see ModernTreasury::Models::RoutingNumberLookupRequest#bank_address
-      class BankAddress < ModernTreasury::Internal::Type::BaseModel
-        # @!attribute country
-        #   Country code conforms to [ISO 3166-1 alpha-2]
-        #
-        #   @return [String, nil]
-        optional :country, String, nil?: true
-
-        # @!attribute line1
-        #
-        #   @return [String, nil]
-        optional :line1, String, nil?: true
-
-        # @!attribute line2
-        #
-        #   @return [String, nil]
-        optional :line2, String, nil?: true
-
-        # @!attribute locality
-        #   Locality or City.
-        #
-        #   @return [String, nil]
-        optional :locality, String, nil?: true
-
-        # @!attribute postal_code
-        #   The postal code of the address.
-        #
-        #   @return [String, nil]
-        optional :postal_code, String, nil?: true
-
-        # @!attribute region
-        #   Region or State.
-        #
-        #   @return [String, nil]
-        optional :region, String, nil?: true
-
-        # @!method initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
-        #   The address of the bank.
-        #
-        #   @param country [String, nil] Country code conforms to [ISO 3166-1 alpha-2]
-        #
-        #   @param line1 [String, nil]
-        #
-        #   @param line2 [String, nil]
-        #
-        #   @param locality [String, nil] Locality or City.
-        #
-        #   @param postal_code [String, nil] The postal code of the address.
-        #
-        #   @param region [String, nil] Region or State.
-      end
 
       # The type of routing number. See
       # https://docs.moderntreasury.com/platform/reference/routing-detail-object for

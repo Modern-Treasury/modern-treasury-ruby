@@ -3,7 +3,7 @@ module ModernTreasury
     type routing_detail =
       {
         id: String,
-        bank_address: ModernTreasury::RoutingDetail::BankAddress?,
+        bank_address: ModernTreasury::Address?,
         bank_name: String,
         created_at: Time,
         discarded_at: Time?,
@@ -18,7 +18,7 @@ module ModernTreasury
     class RoutingDetail < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
-      attr_accessor bank_address: ModernTreasury::RoutingDetail::BankAddress?
+      attr_accessor bank_address: ModernTreasury::Address?
 
       attr_accessor bank_name: String
 
@@ -40,7 +40,7 @@ module ModernTreasury
 
       def initialize: (
         id: String,
-        bank_address: ModernTreasury::RoutingDetail::BankAddress?,
+        bank_address: ModernTreasury::Address?,
         bank_name: String,
         created_at: Time,
         discarded_at: Time?,
@@ -54,7 +54,7 @@ module ModernTreasury
 
       def to_hash: -> {
         id: String,
-        bank_address: ModernTreasury::RoutingDetail::BankAddress?,
+        bank_address: ModernTreasury::Address?,
         bank_name: String,
         created_at: Time,
         discarded_at: Time?,
@@ -65,73 +65,6 @@ module ModernTreasury
         routing_number_type: ModernTreasury::Models::RoutingDetail::routing_number_type,
         updated_at: Time
       }
-
-      type bank_address =
-        {
-          id: String,
-          country: String?,
-          created_at: Time,
-          :line1 => String?,
-          :line2 => String?,
-          live_mode: bool,
-          locality: String?,
-          object: String,
-          postal_code: String?,
-          region: String?,
-          updated_at: Time
-        }
-
-      class BankAddress < ModernTreasury::Internal::Type::BaseModel
-        attr_accessor id: String
-
-        attr_accessor country: String?
-
-        attr_accessor created_at: Time
-
-        attr_accessor line1: String?
-
-        attr_accessor line2: String?
-
-        attr_accessor live_mode: bool
-
-        attr_accessor locality: String?
-
-        attr_accessor object: String
-
-        attr_accessor postal_code: String?
-
-        attr_accessor region: String?
-
-        attr_accessor updated_at: Time
-
-        def initialize: (
-          id: String,
-          country: String?,
-          created_at: Time,
-          line1: String?,
-          line2: String?,
-          live_mode: bool,
-          locality: String?,
-          object: String,
-          postal_code: String?,
-          region: String?,
-          updated_at: Time
-        ) -> void
-
-        def to_hash: -> {
-          id: String,
-          country: String?,
-          created_at: Time,
-          :line1 => String?,
-          :line2 => String?,
-          live_mode: bool,
-          locality: String?,
-          object: String,
-          postal_code: String?,
-          region: String?,
-          updated_at: Time
-        }
-      end
 
       type payment_type =
         :ach

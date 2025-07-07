@@ -5,7 +5,7 @@ module ModernTreasury
         def create: (
           String payment_order_id,
           reason: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::reason,
-          ?ledger_transaction: ModernTreasury::PaymentOrders::ReversalCreateParams::LedgerTransaction,
+          ?ledger_transaction: ModernTreasury::LedgerTransactionCreateRequest,
           ?metadata: ::Hash[Symbol, String],
           ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::PaymentOrders::Reversal

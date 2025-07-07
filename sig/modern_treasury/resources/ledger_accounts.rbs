@@ -10,7 +10,7 @@ module ModernTreasury
         ?description: String?,
         ?ledger_account_category_ids: ::Array[String],
         ?ledgerable_id: String,
-        ?ledgerable_type: ModernTreasury::Models::LedgerAccountCreateParams::ledgerable_type,
+        ?ledgerable_type: ModernTreasury::Models::LedgerAccountCreateRequest::ledgerable_type,
         ?metadata: ::Hash[Symbol, String],
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::LedgerAccount

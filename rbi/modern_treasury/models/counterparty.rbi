@@ -167,21 +167,12 @@ module ModernTreasury
         end
         attr_writer :account_type
 
-        sig do
-          returns(
-            T.nilable(
-              T::Array[ModernTreasury::Counterparty::Account::ContactDetail]
-            )
-          )
-        end
+        sig { returns(T.nilable(T::Array[ModernTreasury::ContactDetail])) }
         attr_reader :contact_details
 
         sig do
           params(
-            contact_details:
-              T::Array[
-                ModernTreasury::Counterparty::Account::ContactDetail::OrHash
-              ]
+            contact_details: T::Array[ModernTreasury::ContactDetail::OrHash]
           ).void
         end
         attr_writer :contact_details
@@ -228,20 +219,11 @@ module ModernTreasury
         attr_writer :object
 
         # The address associated with the owner or `null`.
-        sig do
-          returns(
-            T.nilable(ModernTreasury::Counterparty::Account::PartyAddress)
-          )
-        end
+        sig { returns(T.nilable(ModernTreasury::Address)) }
         attr_reader :party_address
 
         sig do
-          params(
-            party_address:
-              T.nilable(
-                ModernTreasury::Counterparty::Account::PartyAddress::OrHash
-              )
-          ).void
+          params(party_address: T.nilable(ModernTreasury::Address::OrHash)).void
         end
         attr_writer :party_address
 
@@ -309,10 +291,7 @@ module ModernTreasury
             id: String,
             account_details: T::Array[ModernTreasury::AccountDetail::OrHash],
             account_type: ModernTreasury::ExternalAccountType::OrSymbol,
-            contact_details:
-              T::Array[
-                ModernTreasury::Counterparty::Account::ContactDetail::OrHash
-              ],
+            contact_details: T::Array[ModernTreasury::ContactDetail::OrHash],
             created_at: Time,
             discarded_at: T.nilable(Time),
             ledger_account_id: T.nilable(String),
@@ -320,10 +299,7 @@ module ModernTreasury
             metadata: T::Hash[Symbol, String],
             name: T.nilable(String),
             object: String,
-            party_address:
-              T.nilable(
-                ModernTreasury::Counterparty::Account::PartyAddress::OrHash
-              ),
+            party_address: T.nilable(ModernTreasury::Address::OrHash),
             party_name: String,
             party_type:
               T.nilable(
@@ -379,8 +355,7 @@ module ModernTreasury
               id: String,
               account_details: T::Array[ModernTreasury::AccountDetail],
               account_type: ModernTreasury::ExternalAccountType::TaggedSymbol,
-              contact_details:
-                T::Array[ModernTreasury::Counterparty::Account::ContactDetail],
+              contact_details: T::Array[ModernTreasury::ContactDetail],
               created_at: Time,
               discarded_at: T.nilable(Time),
               ledger_account_id: T.nilable(String),
@@ -388,8 +363,7 @@ module ModernTreasury
               metadata: T::Hash[Symbol, String],
               name: T.nilable(String),
               object: String,
-              party_address:
-                T.nilable(ModernTreasury::Counterparty::Account::PartyAddress),
+              party_address: T.nilable(ModernTreasury::Address),
               party_name: String,
               party_type:
                 T.nilable(
@@ -407,236 +381,6 @@ module ModernTreasury
           )
         end
         def to_hash
-        end
-
-        class ContactDetail < ModernTreasury::Internal::Type::BaseModel
-          OrHash =
-            T.type_alias do
-              T.any(
-                ModernTreasury::Counterparty::Account::ContactDetail,
-                ModernTreasury::Internal::AnyHash
-              )
-            end
-
-          sig { returns(String) }
-          attr_accessor :id
-
-          sig { returns(String) }
-          attr_accessor :contact_identifier
-
-          sig do
-            returns(
-              ModernTreasury::Counterparty::Account::ContactDetail::ContactIdentifierType::TaggedSymbol
-            )
-          end
-          attr_accessor :contact_identifier_type
-
-          sig { returns(Time) }
-          attr_accessor :created_at
-
-          sig { returns(T.nilable(Time)) }
-          attr_accessor :discarded_at
-
-          # This field will be true if this object exists in the live environment or false
-          # if it exists in the test environment.
-          sig { returns(T::Boolean) }
-          attr_accessor :live_mode
-
-          sig { returns(String) }
-          attr_accessor :object
-
-          sig { returns(Time) }
-          attr_accessor :updated_at
-
-          sig do
-            params(
-              id: String,
-              contact_identifier: String,
-              contact_identifier_type:
-                ModernTreasury::Counterparty::Account::ContactDetail::ContactIdentifierType::OrSymbol,
-              created_at: Time,
-              discarded_at: T.nilable(Time),
-              live_mode: T::Boolean,
-              object: String,
-              updated_at: Time
-            ).returns(T.attached_class)
-          end
-          def self.new(
-            id:,
-            contact_identifier:,
-            contact_identifier_type:,
-            created_at:,
-            discarded_at:,
-            # This field will be true if this object exists in the live environment or false
-            # if it exists in the test environment.
-            live_mode:,
-            object:,
-            updated_at:
-          )
-          end
-
-          sig do
-            override.returns(
-              {
-                id: String,
-                contact_identifier: String,
-                contact_identifier_type:
-                  ModernTreasury::Counterparty::Account::ContactDetail::ContactIdentifierType::TaggedSymbol,
-                created_at: Time,
-                discarded_at: T.nilable(Time),
-                live_mode: T::Boolean,
-                object: String,
-                updated_at: Time
-              }
-            )
-          end
-          def to_hash
-          end
-
-          module ContactIdentifierType
-            extend ModernTreasury::Internal::Type::Enum
-
-            TaggedSymbol =
-              T.type_alias do
-                T.all(
-                  Symbol,
-                  ModernTreasury::Counterparty::Account::ContactDetail::ContactIdentifierType
-                )
-              end
-            OrSymbol = T.type_alias { T.any(Symbol, String) }
-
-            EMAIL =
-              T.let(
-                :email,
-                ModernTreasury::Counterparty::Account::ContactDetail::ContactIdentifierType::TaggedSymbol
-              )
-            PHONE_NUMBER =
-              T.let(
-                :phone_number,
-                ModernTreasury::Counterparty::Account::ContactDetail::ContactIdentifierType::TaggedSymbol
-              )
-            WEBSITE =
-              T.let(
-                :website,
-                ModernTreasury::Counterparty::Account::ContactDetail::ContactIdentifierType::TaggedSymbol
-              )
-
-            sig do
-              override.returns(
-                T::Array[
-                  ModernTreasury::Counterparty::Account::ContactDetail::ContactIdentifierType::TaggedSymbol
-                ]
-              )
-            end
-            def self.values
-            end
-          end
-        end
-
-        class PartyAddress < ModernTreasury::Internal::Type::BaseModel
-          OrHash =
-            T.type_alias do
-              T.any(
-                ModernTreasury::Counterparty::Account::PartyAddress,
-                ModernTreasury::Internal::AnyHash
-              )
-            end
-
-          sig { returns(String) }
-          attr_accessor :id
-
-          # Country code conforms to [ISO 3166-1 alpha-2]
-          sig { returns(T.nilable(String)) }
-          attr_accessor :country
-
-          sig { returns(Time) }
-          attr_accessor :created_at
-
-          sig { returns(T.nilable(String)) }
-          attr_accessor :line1
-
-          sig { returns(T.nilable(String)) }
-          attr_accessor :line2
-
-          # This field will be true if this object exists in the live environment or false
-          # if it exists in the test environment.
-          sig { returns(T::Boolean) }
-          attr_accessor :live_mode
-
-          # Locality or City.
-          sig { returns(T.nilable(String)) }
-          attr_accessor :locality
-
-          sig { returns(String) }
-          attr_accessor :object
-
-          # The postal code of the address.
-          sig { returns(T.nilable(String)) }
-          attr_accessor :postal_code
-
-          # Region or State.
-          sig { returns(T.nilable(String)) }
-          attr_accessor :region
-
-          sig { returns(Time) }
-          attr_accessor :updated_at
-
-          # The address associated with the owner or `null`.
-          sig do
-            params(
-              id: String,
-              country: T.nilable(String),
-              created_at: Time,
-              line1: T.nilable(String),
-              line2: T.nilable(String),
-              live_mode: T::Boolean,
-              locality: T.nilable(String),
-              object: String,
-              postal_code: T.nilable(String),
-              region: T.nilable(String),
-              updated_at: Time
-            ).returns(T.attached_class)
-          end
-          def self.new(
-            id:,
-            # Country code conforms to [ISO 3166-1 alpha-2]
-            country:,
-            created_at:,
-            line1:,
-            line2:,
-            # This field will be true if this object exists in the live environment or false
-            # if it exists in the test environment.
-            live_mode:,
-            # Locality or City.
-            locality:,
-            object:,
-            # The postal code of the address.
-            postal_code:,
-            # Region or State.
-            region:,
-            updated_at:
-          )
-          end
-
-          sig do
-            override.returns(
-              {
-                id: String,
-                country: T.nilable(String),
-                created_at: Time,
-                line1: T.nilable(String),
-                line2: T.nilable(String),
-                live_mode: T::Boolean,
-                locality: T.nilable(String),
-                object: String,
-                postal_code: T.nilable(String),
-                region: T.nilable(String),
-                updated_at: Time
-              }
-            )
-          end
-          def to_hash
-          end
         end
 
         # Either `individual` or `business`.

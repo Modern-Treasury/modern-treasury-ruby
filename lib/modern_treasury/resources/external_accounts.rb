@@ -16,15 +16,15 @@ module ModernTreasury
       #
       # @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType] Can be `checking`, `savings` or `other`.
       #
-      # @param contact_details [Array<ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail>]
+      # @param contact_details [Array<ModernTreasury::Models::ContactDetailCreateRequest>]
       #
-      # @param ledger_account [ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount] Specifies a ledger account object that will be created with the external account
+      # @param ledger_account [ModernTreasury::Models::LedgerAccountCreateRequest] Specifies a ledger account object that will be created with the external account
       #
       # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #
       # @param name [String, nil] A nickname for the external account. This is only for internal usage and won't a
       #
-      # @param party_address [ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress] Required if receiving wire payments.
+      # @param party_address [ModernTreasury::Models::AddressRequest] Required if receiving wire payments.
       #
       # @param party_identifier [String]
       #
@@ -89,7 +89,7 @@ module ModernTreasury
       #
       # @param name [String, nil] A nickname for the external account. This is only for internal usage and won't a
       #
-      # @param party_address [ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress]
+      # @param party_address [ModernTreasury::Models::AddressRequest]
       #
       # @param party_name [String] If this value isn't provided, it will be inherited from the counterparty's name.
       #

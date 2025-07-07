@@ -12,7 +12,7 @@ module ModernTreasury
         custom_identifiers: ::Hash[Symbol, String],
         direction: String,
         discarded_at: Time?,
-        foreign_exchange_rate: ModernTreasury::Transaction::ForeignExchangeRate?,
+        foreign_exchange_rate: ModernTreasury::ForeignExchangeRate?,
         internal_account_id: String,
         live_mode: bool,
         metadata: ::Hash[Symbol, String],
@@ -50,7 +50,7 @@ module ModernTreasury
 
       attr_accessor discarded_at: Time?
 
-      attr_accessor foreign_exchange_rate: ModernTreasury::Transaction::ForeignExchangeRate?
+      attr_accessor foreign_exchange_rate: ModernTreasury::ForeignExchangeRate?
 
       attr_accessor internal_account_id: String
 
@@ -93,7 +93,7 @@ module ModernTreasury
         custom_identifiers: ::Hash[Symbol, String],
         direction: String,
         discarded_at: Time?,
-        foreign_exchange_rate: ModernTreasury::Transaction::ForeignExchangeRate?,
+        foreign_exchange_rate: ModernTreasury::ForeignExchangeRate?,
         internal_account_id: String,
         live_mode: bool,
         metadata: ::Hash[Symbol, String],
@@ -121,7 +121,7 @@ module ModernTreasury
         custom_identifiers: ::Hash[Symbol, String],
         direction: String,
         discarded_at: Time?,
-        foreign_exchange_rate: ModernTreasury::Transaction::ForeignExchangeRate?,
+        foreign_exchange_rate: ModernTreasury::ForeignExchangeRate?,
         internal_account_id: String,
         live_mode: bool,
         metadata: ::Hash[Symbol, String],
@@ -137,53 +137,6 @@ module ModernTreasury
         details: ::Hash[Symbol, String],
         vendor_description: String?
       }
-
-      type foreign_exchange_rate =
-        {
-          base_amount: Integer,
-          base_currency: ModernTreasury::Models::currency,
-          exponent: Integer,
-          rate_string: String,
-          target_amount: Integer,
-          target_currency: ModernTreasury::Models::currency,
-          value: Integer
-        }
-
-      class ForeignExchangeRate < ModernTreasury::Internal::Type::BaseModel
-        attr_accessor base_amount: Integer
-
-        attr_accessor base_currency: ModernTreasury::Models::currency
-
-        attr_accessor exponent: Integer
-
-        attr_accessor rate_string: String
-
-        attr_accessor target_amount: Integer
-
-        attr_accessor target_currency: ModernTreasury::Models::currency
-
-        attr_accessor value: Integer
-
-        def initialize: (
-          base_amount: Integer,
-          base_currency: ModernTreasury::Models::currency,
-          exponent: Integer,
-          rate_string: String,
-          target_amount: Integer,
-          target_currency: ModernTreasury::Models::currency,
-          value: Integer
-        ) -> void
-
-        def to_hash: -> {
-          base_amount: Integer,
-          base_currency: ModernTreasury::Models::currency,
-          exponent: Integer,
-          rate_string: String,
-          target_amount: Integer,
-          target_currency: ModernTreasury::Models::currency,
-          value: Integer
-        }
-      end
 
       type type_ =
         :ach

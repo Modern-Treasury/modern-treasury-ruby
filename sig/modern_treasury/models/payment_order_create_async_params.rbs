@@ -6,7 +6,7 @@ module ModernTreasury
         direction: ModernTreasury::Models::PaymentOrderCreateAsyncParams::direction,
         originating_account_id: String,
         type: ModernTreasury::Models::payment_order_type,
-        accounting: ModernTreasury::PaymentOrderCreateAsyncParams::Accounting,
+        accounting: ModernTreasury::Accounting,
         accounting_category_id: String?,
         accounting_ledger_class_id: String?,
         charge_bearer: ModernTreasury::Models::PaymentOrderCreateAsyncParams::charge_bearer?,
@@ -17,7 +17,7 @@ module ModernTreasury
         fallback_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::fallback_type,
         foreign_exchange_contract: String?,
         foreign_exchange_indicator: ModernTreasury::Models::PaymentOrderCreateAsyncParams::foreign_exchange_indicator?,
-        ledger_transaction: ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction,
+        ledger_transaction: ModernTreasury::LedgerTransactionCreateRequest,
         ledger_transaction_id: String,
         line_items: ::Array[ModernTreasury::PaymentOrderCreateAsyncParams::LineItem],
         metadata: ::Hash[Symbol, String],
@@ -52,11 +52,11 @@ module ModernTreasury
 
       attr_accessor type: ModernTreasury::Models::payment_order_type
 
-      attr_reader accounting: ModernTreasury::PaymentOrderCreateAsyncParams::Accounting?
+      attr_reader accounting: ModernTreasury::Accounting?
 
       def accounting=: (
-        ModernTreasury::PaymentOrderCreateAsyncParams::Accounting
-      ) -> ModernTreasury::PaymentOrderCreateAsyncParams::Accounting
+        ModernTreasury::Accounting
+      ) -> ModernTreasury::Accounting
 
       attr_accessor accounting_category_id: String?
 
@@ -88,11 +88,11 @@ module ModernTreasury
 
       attr_accessor foreign_exchange_indicator: ModernTreasury::Models::PaymentOrderCreateAsyncParams::foreign_exchange_indicator?
 
-      attr_reader ledger_transaction: ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction?
+      attr_reader ledger_transaction: ModernTreasury::LedgerTransactionCreateRequest?
 
       def ledger_transaction=: (
-        ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction
-      ) -> ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction
+        ModernTreasury::LedgerTransactionCreateRequest
+      ) -> ModernTreasury::LedgerTransactionCreateRequest
 
       attr_reader ledger_transaction_id: String?
 
@@ -159,7 +159,7 @@ module ModernTreasury
         direction: ModernTreasury::Models::PaymentOrderCreateAsyncParams::direction,
         originating_account_id: String,
         type: ModernTreasury::Models::payment_order_type,
-        ?accounting: ModernTreasury::PaymentOrderCreateAsyncParams::Accounting,
+        ?accounting: ModernTreasury::Accounting,
         ?accounting_category_id: String?,
         ?accounting_ledger_class_id: String?,
         ?charge_bearer: ModernTreasury::Models::PaymentOrderCreateAsyncParams::charge_bearer?,
@@ -170,7 +170,7 @@ module ModernTreasury
         ?fallback_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::fallback_type,
         ?foreign_exchange_contract: String?,
         ?foreign_exchange_indicator: ModernTreasury::Models::PaymentOrderCreateAsyncParams::foreign_exchange_indicator?,
-        ?ledger_transaction: ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction,
+        ?ledger_transaction: ModernTreasury::LedgerTransactionCreateRequest,
         ?ledger_transaction_id: String,
         ?line_items: ::Array[ModernTreasury::PaymentOrderCreateAsyncParams::LineItem],
         ?metadata: ::Hash[Symbol, String],
@@ -198,7 +198,7 @@ module ModernTreasury
         direction: ModernTreasury::Models::PaymentOrderCreateAsyncParams::direction,
         originating_account_id: String,
         type: ModernTreasury::Models::payment_order_type,
-        accounting: ModernTreasury::PaymentOrderCreateAsyncParams::Accounting,
+        accounting: ModernTreasury::Accounting,
         accounting_category_id: String?,
         accounting_ledger_class_id: String?,
         charge_bearer: ModernTreasury::Models::PaymentOrderCreateAsyncParams::charge_bearer?,
@@ -209,7 +209,7 @@ module ModernTreasury
         fallback_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::fallback_type,
         foreign_exchange_contract: String?,
         foreign_exchange_indicator: ModernTreasury::Models::PaymentOrderCreateAsyncParams::foreign_exchange_indicator?,
-        ledger_transaction: ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction,
+        ledger_transaction: ModernTreasury::LedgerTransactionCreateRequest,
         ledger_transaction_id: String,
         line_items: ::Array[ModernTreasury::PaymentOrderCreateAsyncParams::LineItem],
         metadata: ::Hash[Symbol, String],
@@ -243,18 +243,6 @@ module ModernTreasury
         def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::direction]
       end
 
-      type accounting = { account_id: String?, class_id: String? }
-
-      class Accounting < ModernTreasury::Internal::Type::BaseModel
-        attr_accessor account_id: String?
-
-        attr_accessor class_id: String?
-
-        def initialize: (?account_id: String?, ?class_id: String?) -> void
-
-        def to_hash: -> { account_id: String?, class_id: String? }
-      end
-
       type charge_bearer = :shared | :sender | :receiver
 
       module ChargeBearer
@@ -286,173 +274,6 @@ module ModernTreasury
         VARIABLE_TO_FIXED: :variable_to_fixed
 
         def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::foreign_exchange_indicator]
-      end
-
-      type ledger_transaction =
-        {
-          ledger_entries: ::Array[ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerEntry],
-          description: String?,
-          effective_at: Time,
-          effective_date: Date,
-          external_id: String,
-          ledgerable_id: String,
-          ledgerable_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::ledgerable_type,
-          metadata: ::Hash[Symbol, String],
-          status: ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::status
-        }
-
-      class LedgerTransaction < ModernTreasury::Internal::Type::BaseModel
-        attr_accessor ledger_entries: ::Array[ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerEntry]
-
-        attr_accessor description: String?
-
-        attr_reader effective_at: Time?
-
-        def effective_at=: (Time) -> Time
-
-        attr_reader effective_date: Date?
-
-        def effective_date=: (Date) -> Date
-
-        attr_reader external_id: String?
-
-        def external_id=: (String) -> String
-
-        attr_reader ledgerable_id: String?
-
-        def ledgerable_id=: (String) -> String
-
-        attr_reader ledgerable_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::ledgerable_type?
-
-        def ledgerable_type=: (
-          ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::ledgerable_type
-        ) -> ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::ledgerable_type
-
-        attr_reader metadata: ::Hash[Symbol, String]?
-
-        def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
-
-        attr_reader status: ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::status?
-
-        def status=: (
-          ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::status
-        ) -> ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::status
-
-        def initialize: (
-          ledger_entries: ::Array[ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerEntry],
-          ?description: String?,
-          ?effective_at: Time,
-          ?effective_date: Date,
-          ?external_id: String,
-          ?ledgerable_id: String,
-          ?ledgerable_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::ledgerable_type,
-          ?metadata: ::Hash[Symbol, String],
-          ?status: ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::status
-        ) -> void
-
-        def to_hash: -> {
-          ledger_entries: ::Array[ModernTreasury::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerEntry],
-          description: String?,
-          effective_at: Time,
-          effective_date: Date,
-          external_id: String,
-          ledgerable_id: String,
-          ledgerable_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::ledgerable_type,
-          metadata: ::Hash[Symbol, String],
-          status: ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::status
-        }
-
-        type ledger_entry =
-          {
-            amount: Integer,
-            direction: ModernTreasury::Models::transaction_direction,
-            ledger_account_id: String,
-            available_balance_amount: ::Hash[Symbol, Integer]?,
-            lock_version: Integer?,
-            metadata: ::Hash[Symbol, String],
-            pending_balance_amount: ::Hash[Symbol, Integer]?,
-            posted_balance_amount: ::Hash[Symbol, Integer]?,
-            show_resulting_ledger_account_balances: bool?
-          }
-
-        class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
-          attr_accessor amount: Integer
-
-          attr_accessor direction: ModernTreasury::Models::transaction_direction
-
-          attr_accessor ledger_account_id: String
-
-          attr_accessor available_balance_amount: ::Hash[Symbol, Integer]?
-
-          attr_accessor lock_version: Integer?
-
-          attr_reader metadata: ::Hash[Symbol, String]?
-
-          def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
-
-          attr_accessor pending_balance_amount: ::Hash[Symbol, Integer]?
-
-          attr_accessor posted_balance_amount: ::Hash[Symbol, Integer]?
-
-          attr_accessor show_resulting_ledger_account_balances: bool?
-
-          def initialize: (
-            amount: Integer,
-            direction: ModernTreasury::Models::transaction_direction,
-            ledger_account_id: String,
-            ?available_balance_amount: ::Hash[Symbol, Integer]?,
-            ?lock_version: Integer?,
-            ?metadata: ::Hash[Symbol, String],
-            ?pending_balance_amount: ::Hash[Symbol, Integer]?,
-            ?posted_balance_amount: ::Hash[Symbol, Integer]?,
-            ?show_resulting_ledger_account_balances: bool?
-          ) -> void
-
-          def to_hash: -> {
-            amount: Integer,
-            direction: ModernTreasury::Models::transaction_direction,
-            ledger_account_id: String,
-            available_balance_amount: ::Hash[Symbol, Integer]?,
-            lock_version: Integer?,
-            metadata: ::Hash[Symbol, String],
-            pending_balance_amount: ::Hash[Symbol, Integer]?,
-            posted_balance_amount: ::Hash[Symbol, Integer]?,
-            show_resulting_ledger_account_balances: bool?
-          }
-        end
-
-        type ledgerable_type =
-          :expected_payment
-          | :incoming_payment_detail
-          | :paper_item
-          | :payment_order
-          | :return
-          | :reversal
-
-        module LedgerableType
-          extend ModernTreasury::Internal::Type::Enum
-
-          EXPECTED_PAYMENT: :expected_payment
-          INCOMING_PAYMENT_DETAIL: :incoming_payment_detail
-          PAPER_ITEM: :paper_item
-          PAYMENT_ORDER: :payment_order
-          RETURN: :return
-          REVERSAL: :reversal
-
-          def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::ledgerable_type]
-        end
-
-        type status = :archived | :pending | :posted
-
-        module Status
-          extend ModernTreasury::Internal::Type::Enum
-
-          ARCHIVED: :archived
-          PENDING: :pending
-          POSTED: :posted
-
-          def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::status]
-        end
       end
 
       type line_item =
@@ -504,11 +325,11 @@ module ModernTreasury
         {
           account_details: ::Array[ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail],
           account_type: ModernTreasury::Models::external_account_type,
-          contact_details: ::Array[ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail],
-          ledger_account: ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount,
+          contact_details: ::Array[ModernTreasury::ContactDetailCreateRequest],
+          ledger_account: ModernTreasury::LedgerAccountCreateRequest,
           metadata: ::Hash[Symbol, String],
           name: String?,
-          party_address: ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyAddress,
+          party_address: ModernTreasury::AddressRequest,
           party_identifier: String,
           party_name: String,
           party_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::party_type?,
@@ -529,17 +350,17 @@ module ModernTreasury
           ModernTreasury::Models::external_account_type
         ) -> ModernTreasury::Models::external_account_type
 
-        attr_reader contact_details: ::Array[ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail]?
+        attr_reader contact_details: ::Array[ModernTreasury::ContactDetailCreateRequest]?
 
         def contact_details=: (
-          ::Array[ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail]
-        ) -> ::Array[ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail]
+          ::Array[ModernTreasury::ContactDetailCreateRequest]
+        ) -> ::Array[ModernTreasury::ContactDetailCreateRequest]
 
-        attr_reader ledger_account: ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount?
+        attr_reader ledger_account: ModernTreasury::LedgerAccountCreateRequest?
 
         def ledger_account=: (
-          ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount
-        ) -> ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount
+          ModernTreasury::LedgerAccountCreateRequest
+        ) -> ModernTreasury::LedgerAccountCreateRequest
 
         attr_reader metadata: ::Hash[Symbol, String]?
 
@@ -547,11 +368,11 @@ module ModernTreasury
 
         attr_accessor name: String?
 
-        attr_reader party_address: ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyAddress?
+        attr_reader party_address: ModernTreasury::AddressRequest?
 
         def party_address=: (
-          ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyAddress
-        ) -> ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyAddress
+          ModernTreasury::AddressRequest
+        ) -> ModernTreasury::AddressRequest
 
         attr_reader party_identifier: String?
 
@@ -576,11 +397,11 @@ module ModernTreasury
         def initialize: (
           ?account_details: ::Array[ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail],
           ?account_type: ModernTreasury::Models::external_account_type,
-          ?contact_details: ::Array[ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail],
-          ?ledger_account: ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount,
+          ?contact_details: ::Array[ModernTreasury::ContactDetailCreateRequest],
+          ?ledger_account: ModernTreasury::LedgerAccountCreateRequest,
           ?metadata: ::Hash[Symbol, String],
           ?name: String?,
-          ?party_address: ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyAddress,
+          ?party_address: ModernTreasury::AddressRequest,
           ?party_identifier: String,
           ?party_name: String,
           ?party_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::party_type?,
@@ -591,11 +412,11 @@ module ModernTreasury
         def to_hash: -> {
           account_details: ::Array[ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail],
           account_type: ModernTreasury::Models::external_account_type,
-          contact_details: ::Array[ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail],
-          ledger_account: ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount,
+          contact_details: ::Array[ModernTreasury::ContactDetailCreateRequest],
+          ledger_account: ModernTreasury::LedgerAccountCreateRequest,
           metadata: ::Hash[Symbol, String],
           name: String?,
-          party_address: ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyAddress,
+          party_address: ModernTreasury::AddressRequest,
           party_identifier: String,
           party_name: String,
           party_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::party_type?,
@@ -664,177 +485,6 @@ module ModernTreasury
 
             def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::account_number_type]
           end
-        end
-
-        type contact_detail =
-          {
-            contact_identifier: String,
-            contact_identifier_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::contact_identifier_type
-          }
-
-        class ContactDetail < ModernTreasury::Internal::Type::BaseModel
-          attr_reader contact_identifier: String?
-
-          def contact_identifier=: (String) -> String
-
-          attr_reader contact_identifier_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::contact_identifier_type?
-
-          def contact_identifier_type=: (
-            ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::contact_identifier_type
-          ) -> ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::contact_identifier_type
-
-          def initialize: (
-            ?contact_identifier: String,
-            ?contact_identifier_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::contact_identifier_type
-          ) -> void
-
-          def to_hash: -> {
-            contact_identifier: String,
-            contact_identifier_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::contact_identifier_type
-          }
-
-          type contact_identifier_type = :email | :phone_number | :website
-
-          module ContactIdentifierType
-            extend ModernTreasury::Internal::Type::Enum
-
-            EMAIL: :email
-            PHONE_NUMBER: :phone_number
-            WEBSITE: :website
-
-            def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::contact_identifier_type]
-          end
-        end
-
-        type ledger_account =
-          {
-            currency: String,
-            ledger_id: String,
-            name: String,
-            normal_balance: ModernTreasury::Models::transaction_direction,
-            currency_exponent: Integer?,
-            description: String?,
-            ledger_account_category_ids: ::Array[String],
-            ledgerable_id: String,
-            ledgerable_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount::ledgerable_type,
-            metadata: ::Hash[Symbol, String]
-          }
-
-        class LedgerAccount < ModernTreasury::Internal::Type::BaseModel
-          attr_accessor currency: String
-
-          attr_accessor ledger_id: String
-
-          attr_accessor name: String
-
-          attr_accessor normal_balance: ModernTreasury::Models::transaction_direction
-
-          attr_accessor currency_exponent: Integer?
-
-          attr_accessor description: String?
-
-          attr_reader ledger_account_category_ids: ::Array[String]?
-
-          def ledger_account_category_ids=: (::Array[String]) -> ::Array[String]
-
-          attr_reader ledgerable_id: String?
-
-          def ledgerable_id=: (String) -> String
-
-          attr_reader ledgerable_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount::ledgerable_type?
-
-          def ledgerable_type=: (
-            ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount::ledgerable_type
-          ) -> ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount::ledgerable_type
-
-          attr_reader metadata: ::Hash[Symbol, String]?
-
-          def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
-
-          def initialize: (
-            currency: String,
-            ledger_id: String,
-            name: String,
-            normal_balance: ModernTreasury::Models::transaction_direction,
-            ?currency_exponent: Integer?,
-            ?description: String?,
-            ?ledger_account_category_ids: ::Array[String],
-            ?ledgerable_id: String,
-            ?ledgerable_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount::ledgerable_type,
-            ?metadata: ::Hash[Symbol, String]
-          ) -> void
-
-          def to_hash: -> {
-            currency: String,
-            ledger_id: String,
-            name: String,
-            normal_balance: ModernTreasury::Models::transaction_direction,
-            currency_exponent: Integer?,
-            description: String?,
-            ledger_account_category_ids: ::Array[String],
-            ledgerable_id: String,
-            ledgerable_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount::ledgerable_type,
-            metadata: ::Hash[Symbol, String]
-          }
-
-          type ledgerable_type =
-            :counterparty
-            | :external_account
-            | :internal_account
-            | :virtual_account
-
-          module LedgerableType
-            extend ModernTreasury::Internal::Type::Enum
-
-            COUNTERPARTY: :counterparty
-            EXTERNAL_ACCOUNT: :external_account
-            INTERNAL_ACCOUNT: :internal_account
-            VIRTUAL_ACCOUNT: :virtual_account
-
-            def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount::ledgerable_type]
-          end
-        end
-
-        type party_address =
-          {
-            country: String?,
-            :line1 => String?,
-            :line2 => String?,
-            locality: String?,
-            postal_code: String?,
-            region: String?
-          }
-
-        class PartyAddress < ModernTreasury::Internal::Type::BaseModel
-          attr_accessor country: String?
-
-          attr_accessor line1: String?
-
-          attr_accessor line2: String?
-
-          attr_accessor locality: String?
-
-          attr_accessor postal_code: String?
-
-          attr_accessor region: String?
-
-          def initialize: (
-            ?country: String?,
-            ?line1: String?,
-            ?line2: String?,
-            ?locality: String?,
-            ?postal_code: String?,
-            ?region: String?
-          ) -> void
-
-          def to_hash: -> {
-            country: String?,
-            :line1 => String?,
-            :line2 => String?,
-            locality: String?,
-            postal_code: String?,
-            region: String?
-          }
         end
 
         type party_type = :business | :individual

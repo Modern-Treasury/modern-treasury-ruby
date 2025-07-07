@@ -21,7 +21,7 @@ module ModernTreasury
       #
       # @param type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
       #
-      # @param accounting [ModernTreasury::Models::PaymentOrderCreateParams::Accounting]
+      # @param accounting [ModernTreasury::Models::Accounting]
       #
       # @param accounting_category_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
       #
@@ -45,7 +45,7 @@ module ModernTreasury
       #
       # @param foreign_exchange_indicator [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::ForeignExchangeIndicator, nil] Indicates the type of FX transfer to initiate, can be either `variable_to_fixed`
       #
-      # @param ledger_transaction [ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction] Specifies a ledger transaction object that will be created with the payment orde
+      # @param ledger_transaction [ModernTreasury::Models::LedgerTransactionCreateRequest] Specifies a ledger transaction object that will be created with the payment orde
       #
       # @param ledger_transaction_id [String] Either ledger_transaction or ledger_transaction_id can be provided. Only a pendi
       #
@@ -129,7 +129,7 @@ module ModernTreasury
       #
       # @param id [String]
       #
-      # @param accounting [ModernTreasury::Models::PaymentOrderUpdateParams::Accounting]
+      # @param accounting [ModernTreasury::Models::Accounting]
       #
       # @param accounting_category_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
       #
@@ -288,7 +288,7 @@ module ModernTreasury
       #
       # @param type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
       #
-      # @param accounting [ModernTreasury::Models::PaymentOrderCreateAsyncParams::Accounting]
+      # @param accounting [ModernTreasury::Models::Accounting]
       #
       # @param accounting_category_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
       #
@@ -310,7 +310,7 @@ module ModernTreasury
       #
       # @param foreign_exchange_indicator [Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::ForeignExchangeIndicator, nil] Indicates the type of FX transfer to initiate, can be either `variable_to_fixed`
       #
-      # @param ledger_transaction [ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction] Specifies a ledger transaction object that will be created with the payment orde
+      # @param ledger_transaction [ModernTreasury::Models::LedgerTransactionCreateRequest] Specifies a ledger transaction object that will be created with the payment orde
       #
       # @param ledger_transaction_id [String] Either ledger_transaction or ledger_transaction_id can be provided. Only a pendi
       #

@@ -21,7 +21,7 @@ module ModernTreasury
       #
       # @param auto_advance [Boolean, nil] When true, the invoice will progress to unpaid automatically and cannot be edite
       #
-      # @param contact_details [Array<ModernTreasury::Models::InvoiceCreateParams::ContactDetail>] The invoicer's contact details displayed at the top of the invoice.
+      # @param contact_details [Array<ModernTreasury::Models::ContactDetail>] The invoicer's contact details displayed at the top of the invoice.
       #
       # @param counterparty_billing_address [ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress, nil] The counterparty's billing address.
       #
@@ -108,7 +108,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param contact_details [Array<ModernTreasury::Models::InvoiceUpdateParams::ContactDetail>] The invoicer's contact details displayed at the top of the invoice.
+      # @param contact_details [Array<ModernTreasury::Models::ContactDetail>] The invoicer's contact details displayed at the top of the invoice.
       #
       # @param counterparty_billing_address [ModernTreasury::Models::InvoiceUpdateParams::CounterpartyBillingAddress, nil] The counterparty's billing address.
       #

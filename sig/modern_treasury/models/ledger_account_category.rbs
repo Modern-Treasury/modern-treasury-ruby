@@ -3,7 +3,7 @@ module ModernTreasury
     type ledger_account_category =
       {
         id: String,
-        balances: ModernTreasury::LedgerAccountCategory::Balances,
+        balances: ModernTreasury::LedgerBalances,
         created_at: Time,
         description: String?,
         discarded_at: Time?,
@@ -20,7 +20,7 @@ module ModernTreasury
     class LedgerAccountCategory < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
-      attr_accessor balances: ModernTreasury::LedgerAccountCategory::Balances
+      attr_accessor balances: ModernTreasury::LedgerBalances
 
       attr_accessor created_at: Time
 
@@ -46,7 +46,7 @@ module ModernTreasury
 
       def initialize: (
         id: String,
-        balances: ModernTreasury::LedgerAccountCategory::Balances,
+        balances: ModernTreasury::LedgerBalances,
         created_at: Time,
         description: String?,
         discarded_at: Time?,
@@ -62,7 +62,7 @@ module ModernTreasury
 
       def to_hash: -> {
         id: String,
-        balances: ModernTreasury::LedgerAccountCategory::Balances,
+        balances: ModernTreasury::LedgerBalances,
         created_at: Time,
         description: String?,
         discarded_at: Time?,
@@ -75,144 +75,6 @@ module ModernTreasury
         object: String,
         updated_at: Time
       }
-
-      type balances =
-        {
-          available_balance: ModernTreasury::LedgerAccountCategory::Balances::AvailableBalance,
-          pending_balance: ModernTreasury::LedgerAccountCategory::Balances::PendingBalance,
-          posted_balance: ModernTreasury::LedgerAccountCategory::Balances::PostedBalance
-        }
-
-      class Balances < ModernTreasury::Internal::Type::BaseModel
-        attr_accessor available_balance: ModernTreasury::LedgerAccountCategory::Balances::AvailableBalance
-
-        attr_accessor pending_balance: ModernTreasury::LedgerAccountCategory::Balances::PendingBalance
-
-        attr_accessor posted_balance: ModernTreasury::LedgerAccountCategory::Balances::PostedBalance
-
-        def initialize: (
-          available_balance: ModernTreasury::LedgerAccountCategory::Balances::AvailableBalance,
-          pending_balance: ModernTreasury::LedgerAccountCategory::Balances::PendingBalance,
-          posted_balance: ModernTreasury::LedgerAccountCategory::Balances::PostedBalance
-        ) -> void
-
-        def to_hash: -> {
-          available_balance: ModernTreasury::LedgerAccountCategory::Balances::AvailableBalance,
-          pending_balance: ModernTreasury::LedgerAccountCategory::Balances::PendingBalance,
-          posted_balance: ModernTreasury::LedgerAccountCategory::Balances::PostedBalance
-        }
-
-        type available_balance =
-          {
-            amount: Integer,
-            credits: Integer,
-            currency: String,
-            currency_exponent: Integer,
-            debits: Integer
-          }
-
-        class AvailableBalance < ModernTreasury::Internal::Type::BaseModel
-          attr_accessor amount: Integer
-
-          attr_accessor credits: Integer
-
-          attr_accessor currency: String
-
-          attr_accessor currency_exponent: Integer
-
-          attr_accessor debits: Integer
-
-          def initialize: (
-            amount: Integer,
-            credits: Integer,
-            currency: String,
-            currency_exponent: Integer,
-            debits: Integer
-          ) -> void
-
-          def to_hash: -> {
-            amount: Integer,
-            credits: Integer,
-            currency: String,
-            currency_exponent: Integer,
-            debits: Integer
-          }
-        end
-
-        type pending_balance =
-          {
-            amount: Integer,
-            credits: Integer,
-            currency: String,
-            currency_exponent: Integer,
-            debits: Integer
-          }
-
-        class PendingBalance < ModernTreasury::Internal::Type::BaseModel
-          attr_accessor amount: Integer
-
-          attr_accessor credits: Integer
-
-          attr_accessor currency: String
-
-          attr_accessor currency_exponent: Integer
-
-          attr_accessor debits: Integer
-
-          def initialize: (
-            amount: Integer,
-            credits: Integer,
-            currency: String,
-            currency_exponent: Integer,
-            debits: Integer
-          ) -> void
-
-          def to_hash: -> {
-            amount: Integer,
-            credits: Integer,
-            currency: String,
-            currency_exponent: Integer,
-            debits: Integer
-          }
-        end
-
-        type posted_balance =
-          {
-            amount: Integer,
-            credits: Integer,
-            currency: String,
-            currency_exponent: Integer,
-            debits: Integer
-          }
-
-        class PostedBalance < ModernTreasury::Internal::Type::BaseModel
-          attr_accessor amount: Integer
-
-          attr_accessor credits: Integer
-
-          attr_accessor currency: String
-
-          attr_accessor currency_exponent: Integer
-
-          attr_accessor debits: Integer
-
-          def initialize: (
-            amount: Integer,
-            credits: Integer,
-            currency: String,
-            currency_exponent: Integer,
-            debits: Integer
-          ) -> void
-
-          def to_hash: -> {
-            amount: Integer,
-            credits: Integer,
-            currency: String,
-            currency_exponent: Integer,
-            debits: Integer
-          }
-        end
-      end
     end
   end
 end

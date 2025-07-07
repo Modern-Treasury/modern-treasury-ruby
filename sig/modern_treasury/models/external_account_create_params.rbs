@@ -5,11 +5,11 @@ module ModernTreasury
         counterparty_id: String?,
         account_details: ::Array[ModernTreasury::ExternalAccountCreateParams::AccountDetail],
         account_type: ModernTreasury::Models::external_account_type,
-        contact_details: ::Array[ModernTreasury::ExternalAccountCreateParams::ContactDetail],
-        ledger_account: ModernTreasury::ExternalAccountCreateParams::LedgerAccount,
+        contact_details: ::Array[ModernTreasury::ContactDetailCreateRequest],
+        ledger_account: ModernTreasury::LedgerAccountCreateRequest,
         metadata: ::Hash[Symbol, String],
         name: String?,
-        party_address: ModernTreasury::ExternalAccountCreateParams::PartyAddress,
+        party_address: ModernTreasury::AddressRequest,
         party_identifier: String,
         party_name: String,
         party_type: ModernTreasury::Models::ExternalAccountCreateParams::party_type?,
@@ -36,17 +36,17 @@ module ModernTreasury
         ModernTreasury::Models::external_account_type
       ) -> ModernTreasury::Models::external_account_type
 
-      attr_reader contact_details: ::Array[ModernTreasury::ExternalAccountCreateParams::ContactDetail]?
+      attr_reader contact_details: ::Array[ModernTreasury::ContactDetailCreateRequest]?
 
       def contact_details=: (
-        ::Array[ModernTreasury::ExternalAccountCreateParams::ContactDetail]
-      ) -> ::Array[ModernTreasury::ExternalAccountCreateParams::ContactDetail]
+        ::Array[ModernTreasury::ContactDetailCreateRequest]
+      ) -> ::Array[ModernTreasury::ContactDetailCreateRequest]
 
-      attr_reader ledger_account: ModernTreasury::ExternalAccountCreateParams::LedgerAccount?
+      attr_reader ledger_account: ModernTreasury::LedgerAccountCreateRequest?
 
       def ledger_account=: (
-        ModernTreasury::ExternalAccountCreateParams::LedgerAccount
-      ) -> ModernTreasury::ExternalAccountCreateParams::LedgerAccount
+        ModernTreasury::LedgerAccountCreateRequest
+      ) -> ModernTreasury::LedgerAccountCreateRequest
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
@@ -54,11 +54,11 @@ module ModernTreasury
 
       attr_accessor name: String?
 
-      attr_reader party_address: ModernTreasury::ExternalAccountCreateParams::PartyAddress?
+      attr_reader party_address: ModernTreasury::AddressRequest?
 
       def party_address=: (
-        ModernTreasury::ExternalAccountCreateParams::PartyAddress
-      ) -> ModernTreasury::ExternalAccountCreateParams::PartyAddress
+        ModernTreasury::AddressRequest
+      ) -> ModernTreasury::AddressRequest
 
       attr_reader party_identifier: String?
 
@@ -84,11 +84,11 @@ module ModernTreasury
         counterparty_id: String?,
         ?account_details: ::Array[ModernTreasury::ExternalAccountCreateParams::AccountDetail],
         ?account_type: ModernTreasury::Models::external_account_type,
-        ?contact_details: ::Array[ModernTreasury::ExternalAccountCreateParams::ContactDetail],
-        ?ledger_account: ModernTreasury::ExternalAccountCreateParams::LedgerAccount,
+        ?contact_details: ::Array[ModernTreasury::ContactDetailCreateRequest],
+        ?ledger_account: ModernTreasury::LedgerAccountCreateRequest,
         ?metadata: ::Hash[Symbol, String],
         ?name: String?,
-        ?party_address: ModernTreasury::ExternalAccountCreateParams::PartyAddress,
+        ?party_address: ModernTreasury::AddressRequest,
         ?party_identifier: String,
         ?party_name: String,
         ?party_type: ModernTreasury::Models::ExternalAccountCreateParams::party_type?,
@@ -101,11 +101,11 @@ module ModernTreasury
         counterparty_id: String?,
         account_details: ::Array[ModernTreasury::ExternalAccountCreateParams::AccountDetail],
         account_type: ModernTreasury::Models::external_account_type,
-        contact_details: ::Array[ModernTreasury::ExternalAccountCreateParams::ContactDetail],
-        ledger_account: ModernTreasury::ExternalAccountCreateParams::LedgerAccount,
+        contact_details: ::Array[ModernTreasury::ContactDetailCreateRequest],
+        ledger_account: ModernTreasury::LedgerAccountCreateRequest,
         metadata: ::Hash[Symbol, String],
         name: String?,
-        party_address: ModernTreasury::ExternalAccountCreateParams::PartyAddress,
+        party_address: ModernTreasury::AddressRequest,
         party_identifier: String,
         party_name: String,
         party_type: ModernTreasury::Models::ExternalAccountCreateParams::party_type?,
@@ -175,177 +175,6 @@ module ModernTreasury
 
           def self?.values: -> ::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::account_number_type]
         end
-      end
-
-      type contact_detail =
-        {
-          contact_identifier: String,
-          contact_identifier_type: ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::contact_identifier_type
-        }
-
-      class ContactDetail < ModernTreasury::Internal::Type::BaseModel
-        attr_reader contact_identifier: String?
-
-        def contact_identifier=: (String) -> String
-
-        attr_reader contact_identifier_type: ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::contact_identifier_type?
-
-        def contact_identifier_type=: (
-          ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::contact_identifier_type
-        ) -> ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::contact_identifier_type
-
-        def initialize: (
-          ?contact_identifier: String,
-          ?contact_identifier_type: ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::contact_identifier_type
-        ) -> void
-
-        def to_hash: -> {
-          contact_identifier: String,
-          contact_identifier_type: ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::contact_identifier_type
-        }
-
-        type contact_identifier_type = :email | :phone_number | :website
-
-        module ContactIdentifierType
-          extend ModernTreasury::Internal::Type::Enum
-
-          EMAIL: :email
-          PHONE_NUMBER: :phone_number
-          WEBSITE: :website
-
-          def self?.values: -> ::Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::contact_identifier_type]
-        end
-      end
-
-      type ledger_account =
-        {
-          currency: String,
-          ledger_id: String,
-          name: String,
-          normal_balance: ModernTreasury::Models::transaction_direction,
-          currency_exponent: Integer?,
-          description: String?,
-          ledger_account_category_ids: ::Array[String],
-          ledgerable_id: String,
-          ledgerable_type: ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::ledgerable_type,
-          metadata: ::Hash[Symbol, String]
-        }
-
-      class LedgerAccount < ModernTreasury::Internal::Type::BaseModel
-        attr_accessor currency: String
-
-        attr_accessor ledger_id: String
-
-        attr_accessor name: String
-
-        attr_accessor normal_balance: ModernTreasury::Models::transaction_direction
-
-        attr_accessor currency_exponent: Integer?
-
-        attr_accessor description: String?
-
-        attr_reader ledger_account_category_ids: ::Array[String]?
-
-        def ledger_account_category_ids=: (::Array[String]) -> ::Array[String]
-
-        attr_reader ledgerable_id: String?
-
-        def ledgerable_id=: (String) -> String
-
-        attr_reader ledgerable_type: ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::ledgerable_type?
-
-        def ledgerable_type=: (
-          ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::ledgerable_type
-        ) -> ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::ledgerable_type
-
-        attr_reader metadata: ::Hash[Symbol, String]?
-
-        def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
-
-        def initialize: (
-          currency: String,
-          ledger_id: String,
-          name: String,
-          normal_balance: ModernTreasury::Models::transaction_direction,
-          ?currency_exponent: Integer?,
-          ?description: String?,
-          ?ledger_account_category_ids: ::Array[String],
-          ?ledgerable_id: String,
-          ?ledgerable_type: ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::ledgerable_type,
-          ?metadata: ::Hash[Symbol, String]
-        ) -> void
-
-        def to_hash: -> {
-          currency: String,
-          ledger_id: String,
-          name: String,
-          normal_balance: ModernTreasury::Models::transaction_direction,
-          currency_exponent: Integer?,
-          description: String?,
-          ledger_account_category_ids: ::Array[String],
-          ledgerable_id: String,
-          ledgerable_type: ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::ledgerable_type,
-          metadata: ::Hash[Symbol, String]
-        }
-
-        type ledgerable_type =
-          :counterparty
-          | :external_account
-          | :internal_account
-          | :virtual_account
-
-        module LedgerableType
-          extend ModernTreasury::Internal::Type::Enum
-
-          COUNTERPARTY: :counterparty
-          EXTERNAL_ACCOUNT: :external_account
-          INTERNAL_ACCOUNT: :internal_account
-          VIRTUAL_ACCOUNT: :virtual_account
-
-          def self?.values: -> ::Array[ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::ledgerable_type]
-        end
-      end
-
-      type party_address =
-        {
-          country: String?,
-          :line1 => String?,
-          :line2 => String?,
-          locality: String?,
-          postal_code: String?,
-          region: String?
-        }
-
-      class PartyAddress < ModernTreasury::Internal::Type::BaseModel
-        attr_accessor country: String?
-
-        attr_accessor line1: String?
-
-        attr_accessor line2: String?
-
-        attr_accessor locality: String?
-
-        attr_accessor postal_code: String?
-
-        attr_accessor region: String?
-
-        def initialize: (
-          ?country: String?,
-          ?line1: String?,
-          ?line2: String?,
-          ?locality: String?,
-          ?postal_code: String?,
-          ?region: String?
-        ) -> void
-
-        def to_hash: -> {
-          country: String?,
-          :line1 => String?,
-          :line2 => String?,
-          locality: String?,
-          postal_code: String?,
-          region: String?
-        }
       end
 
       type party_type = :business | :individual

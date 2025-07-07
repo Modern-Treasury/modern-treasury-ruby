@@ -14,7 +14,7 @@ module ModernTreasury
       #
       # @param relationship_types [Array<Symbol, ModernTreasury::Models::LegalEntityAssociationCreateParams::RelationshipType>]
       #
-      # @param child_legal_entity [ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity] The child legal entity.
+      # @param child_legal_entity [ModernTreasury::Models::ChildLegalEntityCreate] The child legal entity.
       #
       # @param child_legal_entity_id [String] The ID of the child legal entity.
       #

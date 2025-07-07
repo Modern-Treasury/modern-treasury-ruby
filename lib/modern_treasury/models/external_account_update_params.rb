@@ -34,8 +34,8 @@ module ModernTreasury
 
       # @!attribute party_address
       #
-      #   @return [ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress, nil]
-      optional :party_address, -> { ModernTreasury::ExternalAccountUpdateParams::PartyAddress }
+      #   @return [ModernTreasury::Models::AddressRequest, nil]
+      optional :party_address, -> { ModernTreasury::AddressRequest }
 
       # @!attribute party_name
       #   If this value isn't provided, it will be inherited from the counterparty's name.
@@ -61,62 +61,13 @@ module ModernTreasury
       #
       #   @param name [String, nil] A nickname for the external account. This is only for internal usage and won't a
       #
-      #   @param party_address [ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress]
+      #   @param party_address [ModernTreasury::Models::AddressRequest]
       #
       #   @param party_name [String] If this value isn't provided, it will be inherited from the counterparty's name.
       #
       #   @param party_type [Symbol, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType, nil] Either `individual` or `business`.
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-
-      class PartyAddress < ModernTreasury::Internal::Type::BaseModel
-        # @!attribute country
-        #   Country code conforms to [ISO 3166-1 alpha-2]
-        #
-        #   @return [String, nil]
-        optional :country, String, nil?: true
-
-        # @!attribute line1
-        #
-        #   @return [String, nil]
-        optional :line1, String, nil?: true
-
-        # @!attribute line2
-        #
-        #   @return [String, nil]
-        optional :line2, String, nil?: true
-
-        # @!attribute locality
-        #   Locality or City.
-        #
-        #   @return [String, nil]
-        optional :locality, String, nil?: true
-
-        # @!attribute postal_code
-        #   The postal code of the address.
-        #
-        #   @return [String, nil]
-        optional :postal_code, String, nil?: true
-
-        # @!attribute region
-        #   Region or State.
-        #
-        #   @return [String, nil]
-        optional :region, String, nil?: true
-
-        # @!method initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
-        #   @param country [String, nil] Country code conforms to [ISO 3166-1 alpha-2]
-        #
-        #   @param line1 [String, nil]
-        #
-        #   @param line2 [String, nil]
-        #
-        #   @param locality [String, nil] Locality or City.
-        #
-        #   @param postal_code [String, nil] The postal code of the address.
-        #
-        #   @param region [String, nil] Region or State.
-      end
 
       # Either `individual` or `business`.
       module PartyType

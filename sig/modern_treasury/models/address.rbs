@@ -1,0 +1,70 @@
+module ModernTreasury
+  module Models
+    type address =
+      {
+        id: String,
+        country: String?,
+        created_at: Time,
+        :line1 => String?,
+        :line2 => String?,
+        live_mode: bool,
+        locality: String?,
+        object: String,
+        postal_code: String?,
+        region: String?,
+        updated_at: Time
+      }
+
+    class Address < ModernTreasury::Internal::Type::BaseModel
+      attr_accessor id: String
+
+      attr_accessor country: String?
+
+      attr_accessor created_at: Time
+
+      attr_accessor line1: String?
+
+      attr_accessor line2: String?
+
+      attr_accessor live_mode: bool
+
+      attr_accessor locality: String?
+
+      attr_accessor object: String
+
+      attr_accessor postal_code: String?
+
+      attr_accessor region: String?
+
+      attr_accessor updated_at: Time
+
+      def initialize: (
+        id: String,
+        country: String?,
+        created_at: Time,
+        line1: String?,
+        line2: String?,
+        live_mode: bool,
+        locality: String?,
+        object: String,
+        postal_code: String?,
+        region: String?,
+        updated_at: Time
+      ) -> void
+
+      def to_hash: -> {
+        id: String,
+        country: String?,
+        created_at: Time,
+        :line1 => String?,
+        :line2 => String?,
+        live_mode: bool,
+        locality: String?,
+        object: String,
+        postal_code: String?,
+        region: String?,
+        updated_at: Time
+      }
+    end
+  end
+end

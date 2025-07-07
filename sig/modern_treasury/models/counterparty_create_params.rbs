@@ -134,11 +134,11 @@ module ModernTreasury
         {
           account_details: ::Array[ModernTreasury::CounterpartyCreateParams::Account::AccountDetail],
           account_type: ModernTreasury::Models::external_account_type,
-          contact_details: ::Array[ModernTreasury::CounterpartyCreateParams::Account::ContactDetail],
-          ledger_account: ModernTreasury::CounterpartyCreateParams::Account::LedgerAccount,
+          contact_details: ::Array[ModernTreasury::ContactDetailCreateRequest],
+          ledger_account: ModernTreasury::LedgerAccountCreateRequest,
           metadata: ::Hash[Symbol, String],
           name: String?,
-          party_address: ModernTreasury::CounterpartyCreateParams::Account::PartyAddress,
+          party_address: ModernTreasury::AddressRequest,
           party_identifier: String,
           party_name: String,
           party_type: ModernTreasury::Models::CounterpartyCreateParams::Account::party_type?,
@@ -159,17 +159,17 @@ module ModernTreasury
           ModernTreasury::Models::external_account_type
         ) -> ModernTreasury::Models::external_account_type
 
-        attr_reader contact_details: ::Array[ModernTreasury::CounterpartyCreateParams::Account::ContactDetail]?
+        attr_reader contact_details: ::Array[ModernTreasury::ContactDetailCreateRequest]?
 
         def contact_details=: (
-          ::Array[ModernTreasury::CounterpartyCreateParams::Account::ContactDetail]
-        ) -> ::Array[ModernTreasury::CounterpartyCreateParams::Account::ContactDetail]
+          ::Array[ModernTreasury::ContactDetailCreateRequest]
+        ) -> ::Array[ModernTreasury::ContactDetailCreateRequest]
 
-        attr_reader ledger_account: ModernTreasury::CounterpartyCreateParams::Account::LedgerAccount?
+        attr_reader ledger_account: ModernTreasury::LedgerAccountCreateRequest?
 
         def ledger_account=: (
-          ModernTreasury::CounterpartyCreateParams::Account::LedgerAccount
-        ) -> ModernTreasury::CounterpartyCreateParams::Account::LedgerAccount
+          ModernTreasury::LedgerAccountCreateRequest
+        ) -> ModernTreasury::LedgerAccountCreateRequest
 
         attr_reader metadata: ::Hash[Symbol, String]?
 
@@ -177,11 +177,11 @@ module ModernTreasury
 
         attr_accessor name: String?
 
-        attr_reader party_address: ModernTreasury::CounterpartyCreateParams::Account::PartyAddress?
+        attr_reader party_address: ModernTreasury::AddressRequest?
 
         def party_address=: (
-          ModernTreasury::CounterpartyCreateParams::Account::PartyAddress
-        ) -> ModernTreasury::CounterpartyCreateParams::Account::PartyAddress
+          ModernTreasury::AddressRequest
+        ) -> ModernTreasury::AddressRequest
 
         attr_reader party_identifier: String?
 
@@ -206,11 +206,11 @@ module ModernTreasury
         def initialize: (
           ?account_details: ::Array[ModernTreasury::CounterpartyCreateParams::Account::AccountDetail],
           ?account_type: ModernTreasury::Models::external_account_type,
-          ?contact_details: ::Array[ModernTreasury::CounterpartyCreateParams::Account::ContactDetail],
-          ?ledger_account: ModernTreasury::CounterpartyCreateParams::Account::LedgerAccount,
+          ?contact_details: ::Array[ModernTreasury::ContactDetailCreateRequest],
+          ?ledger_account: ModernTreasury::LedgerAccountCreateRequest,
           ?metadata: ::Hash[Symbol, String],
           ?name: String?,
-          ?party_address: ModernTreasury::CounterpartyCreateParams::Account::PartyAddress,
+          ?party_address: ModernTreasury::AddressRequest,
           ?party_identifier: String,
           ?party_name: String,
           ?party_type: ModernTreasury::Models::CounterpartyCreateParams::Account::party_type?,
@@ -221,11 +221,11 @@ module ModernTreasury
         def to_hash: -> {
           account_details: ::Array[ModernTreasury::CounterpartyCreateParams::Account::AccountDetail],
           account_type: ModernTreasury::Models::external_account_type,
-          contact_details: ::Array[ModernTreasury::CounterpartyCreateParams::Account::ContactDetail],
-          ledger_account: ModernTreasury::CounterpartyCreateParams::Account::LedgerAccount,
+          contact_details: ::Array[ModernTreasury::ContactDetailCreateRequest],
+          ledger_account: ModernTreasury::LedgerAccountCreateRequest,
           metadata: ::Hash[Symbol, String],
           name: String?,
-          party_address: ModernTreasury::CounterpartyCreateParams::Account::PartyAddress,
+          party_address: ModernTreasury::AddressRequest,
           party_identifier: String,
           party_name: String,
           party_type: ModernTreasury::Models::CounterpartyCreateParams::Account::party_type?,
@@ -294,177 +294,6 @@ module ModernTreasury
 
             def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail::account_number_type]
           end
-        end
-
-        type contact_detail =
-          {
-            contact_identifier: String,
-            contact_identifier_type: ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail::contact_identifier_type
-          }
-
-        class ContactDetail < ModernTreasury::Internal::Type::BaseModel
-          attr_reader contact_identifier: String?
-
-          def contact_identifier=: (String) -> String
-
-          attr_reader contact_identifier_type: ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail::contact_identifier_type?
-
-          def contact_identifier_type=: (
-            ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail::contact_identifier_type
-          ) -> ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail::contact_identifier_type
-
-          def initialize: (
-            ?contact_identifier: String,
-            ?contact_identifier_type: ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail::contact_identifier_type
-          ) -> void
-
-          def to_hash: -> {
-            contact_identifier: String,
-            contact_identifier_type: ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail::contact_identifier_type
-          }
-
-          type contact_identifier_type = :email | :phone_number | :website
-
-          module ContactIdentifierType
-            extend ModernTreasury::Internal::Type::Enum
-
-            EMAIL: :email
-            PHONE_NUMBER: :phone_number
-            WEBSITE: :website
-
-            def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail::contact_identifier_type]
-          end
-        end
-
-        type ledger_account =
-          {
-            currency: String,
-            ledger_id: String,
-            name: String,
-            normal_balance: ModernTreasury::Models::transaction_direction,
-            currency_exponent: Integer?,
-            description: String?,
-            ledger_account_category_ids: ::Array[String],
-            ledgerable_id: String,
-            ledgerable_type: ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount::ledgerable_type,
-            metadata: ::Hash[Symbol, String]
-          }
-
-        class LedgerAccount < ModernTreasury::Internal::Type::BaseModel
-          attr_accessor currency: String
-
-          attr_accessor ledger_id: String
-
-          attr_accessor name: String
-
-          attr_accessor normal_balance: ModernTreasury::Models::transaction_direction
-
-          attr_accessor currency_exponent: Integer?
-
-          attr_accessor description: String?
-
-          attr_reader ledger_account_category_ids: ::Array[String]?
-
-          def ledger_account_category_ids=: (::Array[String]) -> ::Array[String]
-
-          attr_reader ledgerable_id: String?
-
-          def ledgerable_id=: (String) -> String
-
-          attr_reader ledgerable_type: ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount::ledgerable_type?
-
-          def ledgerable_type=: (
-            ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount::ledgerable_type
-          ) -> ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount::ledgerable_type
-
-          attr_reader metadata: ::Hash[Symbol, String]?
-
-          def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
-
-          def initialize: (
-            currency: String,
-            ledger_id: String,
-            name: String,
-            normal_balance: ModernTreasury::Models::transaction_direction,
-            ?currency_exponent: Integer?,
-            ?description: String?,
-            ?ledger_account_category_ids: ::Array[String],
-            ?ledgerable_id: String,
-            ?ledgerable_type: ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount::ledgerable_type,
-            ?metadata: ::Hash[Symbol, String]
-          ) -> void
-
-          def to_hash: -> {
-            currency: String,
-            ledger_id: String,
-            name: String,
-            normal_balance: ModernTreasury::Models::transaction_direction,
-            currency_exponent: Integer?,
-            description: String?,
-            ledger_account_category_ids: ::Array[String],
-            ledgerable_id: String,
-            ledgerable_type: ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount::ledgerable_type,
-            metadata: ::Hash[Symbol, String]
-          }
-
-          type ledgerable_type =
-            :counterparty
-            | :external_account
-            | :internal_account
-            | :virtual_account
-
-          module LedgerableType
-            extend ModernTreasury::Internal::Type::Enum
-
-            COUNTERPARTY: :counterparty
-            EXTERNAL_ACCOUNT: :external_account
-            INTERNAL_ACCOUNT: :internal_account
-            VIRTUAL_ACCOUNT: :virtual_account
-
-            def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount::ledgerable_type]
-          end
-        end
-
-        type party_address =
-          {
-            country: String?,
-            :line1 => String?,
-            :line2 => String?,
-            locality: String?,
-            postal_code: String?,
-            region: String?
-          }
-
-        class PartyAddress < ModernTreasury::Internal::Type::BaseModel
-          attr_accessor country: String?
-
-          attr_accessor line1: String?
-
-          attr_accessor line2: String?
-
-          attr_accessor locality: String?
-
-          attr_accessor postal_code: String?
-
-          attr_accessor region: String?
-
-          def initialize: (
-            ?country: String?,
-            ?line1: String?,
-            ?line2: String?,
-            ?locality: String?,
-            ?postal_code: String?,
-            ?region: String?
-          ) -> void
-
-          def to_hash: -> {
-            country: String?,
-            :line1 => String?,
-            :line2 => String?,
-            locality: String?,
-            postal_code: String?,
-            region: String?
-          }
         end
 
         type party_type = :business | :individual
@@ -654,7 +483,7 @@ module ModernTreasury
       type legal_entity =
         {
           legal_entity_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::legal_entity_type,
-          addresses: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::Address],
+          addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
           bank_settings: ModernTreasury::BankSettings?,
           business_name: String?,
           citizenship_country: String?,
@@ -664,7 +493,7 @@ module ModernTreasury
           doing_business_as_names: ::Array[String],
           email: String?,
           first_name: String?,
-          identifications: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::Identification],
+          identifications: ::Array[ModernTreasury::IdentificationCreateRequest],
           industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification],
           last_name: String?,
           legal_entity_associations: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation]?,
@@ -684,11 +513,11 @@ module ModernTreasury
       class LegalEntity < ModernTreasury::Internal::Type::BaseModel
         attr_accessor legal_entity_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::legal_entity_type
 
-        attr_reader addresses: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::Address]?
+        attr_reader addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest]?
 
         def addresses=: (
-          ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::Address]
-        ) -> ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::Address]
+          ::Array[ModernTreasury::LegalEntityAddressCreateRequest]
+        ) -> ::Array[ModernTreasury::LegalEntityAddressCreateRequest]
 
         attr_accessor bank_settings: ModernTreasury::BankSettings?
 
@@ -710,11 +539,11 @@ module ModernTreasury
 
         attr_accessor first_name: String?
 
-        attr_reader identifications: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::Identification]?
+        attr_reader identifications: ::Array[ModernTreasury::IdentificationCreateRequest]?
 
         def identifications=: (
-          ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::Identification]
-        ) -> ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::Identification]
+          ::Array[ModernTreasury::IdentificationCreateRequest]
+        ) -> ::Array[ModernTreasury::IdentificationCreateRequest]
 
         attr_reader industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification]?
 
@@ -756,7 +585,7 @@ module ModernTreasury
 
         def initialize: (
           legal_entity_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::legal_entity_type,
-          ?addresses: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::Address],
+          ?addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
           ?bank_settings: ModernTreasury::BankSettings?,
           ?business_name: String?,
           ?citizenship_country: String?,
@@ -766,7 +595,7 @@ module ModernTreasury
           ?doing_business_as_names: ::Array[String],
           ?email: String?,
           ?first_name: String?,
-          ?identifications: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::Identification],
+          ?identifications: ::Array[ModernTreasury::IdentificationCreateRequest],
           ?industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification],
           ?last_name: String?,
           ?legal_entity_associations: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation]?,
@@ -785,7 +614,7 @@ module ModernTreasury
 
         def to_hash: -> {
           legal_entity_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::legal_entity_type,
-          addresses: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::Address],
+          addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
           bank_settings: ModernTreasury::BankSettings?,
           business_name: String?,
           citizenship_country: String?,
@@ -795,7 +624,7 @@ module ModernTreasury
           doing_business_as_names: ::Array[String],
           email: String?,
           first_name: String?,
-          identifications: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::Identification],
+          identifications: ::Array[ModernTreasury::IdentificationCreateRequest],
           industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification],
           last_name: String?,
           legal_entity_associations: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation]?,
@@ -823,166 +652,10 @@ module ModernTreasury
           def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::legal_entity_type]
         end
 
-        type address =
-          {
-            country: String?,
-            :line1 => String?,
-            locality: String?,
-            postal_code: String?,
-            region: String?,
-            address_types: ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::address_type],
-            :line2 => String?
-          }
-
-        class Address < ModernTreasury::Internal::Type::BaseModel
-          attr_accessor country: String?
-
-          attr_accessor line1: String?
-
-          attr_accessor locality: String?
-
-          attr_accessor postal_code: String?
-
-          attr_accessor region: String?
-
-          attr_reader address_types: ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::address_type]?
-
-          def address_types=: (
-            ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::address_type]
-          ) -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::address_type]
-
-          attr_accessor line2: String?
-
-          def initialize: (
-            country: String?,
-            line1: String?,
-            locality: String?,
-            postal_code: String?,
-            region: String?,
-            ?address_types: ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::address_type],
-            ?line2: String?
-          ) -> void
-
-          def to_hash: -> {
-            country: String?,
-            :line1 => String?,
-            locality: String?,
-            postal_code: String?,
-            region: String?,
-            address_types: ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::address_type],
-            :line2 => String?
-          }
-
-          type address_type =
-            :business | :mailing | :other | :po_box | :residential
-
-          module AddressType
-            extend ModernTreasury::Internal::Type::Enum
-
-            BUSINESS: :business
-            MAILING: :mailing
-            OTHER: :other
-            PO_BOX: :po_box
-            RESIDENTIAL: :residential
-
-            def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::address_type]
-          end
-        end
-
-        type identification =
-          {
-            id_number: String,
-            id_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification::id_type,
-            expiration_date: Date?,
-            issuing_country: String?,
-            issuing_region: String?
-          }
-
-        class Identification < ModernTreasury::Internal::Type::BaseModel
-          attr_accessor id_number: String
-
-          attr_accessor id_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification::id_type
-
-          attr_accessor expiration_date: Date?
-
-          attr_accessor issuing_country: String?
-
-          attr_accessor issuing_region: String?
-
-          def initialize: (
-            id_number: String,
-            id_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification::id_type,
-            ?expiration_date: Date?,
-            ?issuing_country: String?,
-            ?issuing_region: String?
-          ) -> void
-
-          def to_hash: -> {
-            id_number: String,
-            id_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification::id_type,
-            expiration_date: Date?,
-            issuing_country: String?,
-            issuing_region: String?
-          }
-
-          type id_type =
-            :ar_cuil
-            | :ar_cuit
-            | :br_cnpj
-            | :br_cpf
-            | :cl_run
-            | :cl_rut
-            | :co_cedulas
-            | :co_nit
-            | :drivers_license
-            | :hn_id
-            | :hn_rtn
-            | :in_lei
-            | :kr_brn
-            | :kr_crn
-            | :kr_rrn
-            | :passport
-            | :sa_tin
-            | :sa_vat
-            | :us_ein
-            | :us_itin
-            | :us_ssn
-            | :vn_tin
-
-          module IDType
-            extend ModernTreasury::Internal::Type::Enum
-
-            AR_CUIL: :ar_cuil
-            AR_CUIT: :ar_cuit
-            BR_CNPJ: :br_cnpj
-            BR_CPF: :br_cpf
-            CL_RUN: :cl_run
-            CL_RUT: :cl_rut
-            CO_CEDULAS: :co_cedulas
-            CO_NIT: :co_nit
-            DRIVERS_LICENSE: :drivers_license
-            HN_ID: :hn_id
-            HN_RTN: :hn_rtn
-            IN_LEI: :in_lei
-            KR_BRN: :kr_brn
-            KR_CRN: :kr_crn
-            KR_RRN: :kr_rrn
-            PASSPORT: :passport
-            SA_TIN: :sa_tin
-            SA_VAT: :sa_vat
-            US_EIN: :us_ein
-            US_ITIN: :us_itin
-            US_SSN: :us_ssn
-            VN_TIN: :vn_tin
-
-            def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification::id_type]
-          end
-        end
-
         type legal_entity_association =
           {
             relationship_types: ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::relationship_type],
-            child_legal_entity: ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity,
+            child_legal_entity: ModernTreasury::ChildLegalEntityCreate,
             child_legal_entity_id: String,
             ownership_percentage: Integer?,
             title: String?
@@ -991,11 +664,11 @@ module ModernTreasury
         class LegalEntityAssociation < ModernTreasury::Internal::Type::BaseModel
           attr_accessor relationship_types: ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::relationship_type]
 
-          attr_reader child_legal_entity: ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity?
+          attr_reader child_legal_entity: ModernTreasury::ChildLegalEntityCreate?
 
           def child_legal_entity=: (
-            ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity
-          ) -> ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity
+            ModernTreasury::ChildLegalEntityCreate
+          ) -> ModernTreasury::ChildLegalEntityCreate
 
           attr_reader child_legal_entity_id: String?
 
@@ -1007,7 +680,7 @@ module ModernTreasury
 
           def initialize: (
             relationship_types: ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::relationship_type],
-            ?child_legal_entity: ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity,
+            ?child_legal_entity: ModernTreasury::ChildLegalEntityCreate,
             ?child_legal_entity_id: String,
             ?ownership_percentage: Integer?,
             ?title: String?
@@ -1015,7 +688,7 @@ module ModernTreasury
 
           def to_hash: -> {
             relationship_types: ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::relationship_type],
-            child_legal_entity: ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity,
+            child_legal_entity: ModernTreasury::ChildLegalEntityCreate,
             child_legal_entity_id: String,
             ownership_percentage: Integer?,
             title: String?
@@ -1030,379 +703,6 @@ module ModernTreasury
             CONTROL_PERSON: :control_person
 
             def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::relationship_type]
-          end
-
-          type child_legal_entity =
-            {
-              addresses: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address],
-              bank_settings: ModernTreasury::BankSettings?,
-              business_name: String?,
-              citizenship_country: String?,
-              compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
-              date_formed: Date?,
-              date_of_birth: Date?,
-              doing_business_as_names: ::Array[String],
-              email: String?,
-              first_name: String?,
-              identifications: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification],
-              industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification],
-              last_name: String?,
-              legal_entity_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::legal_entity_type,
-              legal_structure: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::legal_structure?,
-              metadata: ::Hash[Symbol, String],
-              middle_name: String?,
-              phone_numbers: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber],
-              politically_exposed_person: bool?,
-              preferred_name: String?,
-              prefix: String?,
-              risk_rating: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::risk_rating?,
-              suffix: String?,
-              wealth_and_employment_details: ModernTreasury::WealthAndEmploymentDetails?,
-              website: String?
-            }
-
-          class ChildLegalEntity < ModernTreasury::Internal::Type::BaseModel
-            attr_reader addresses: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address]?
-
-            def addresses=: (
-              ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address]
-            ) -> ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address]
-
-            attr_accessor bank_settings: ModernTreasury::BankSettings?
-
-            attr_accessor business_name: String?
-
-            attr_accessor citizenship_country: String?
-
-            attr_accessor compliance_details: ModernTreasury::LegalEntityComplianceDetail?
-
-            attr_accessor date_formed: Date?
-
-            attr_accessor date_of_birth: Date?
-
-            attr_reader doing_business_as_names: ::Array[String]?
-
-            def doing_business_as_names=: (::Array[String]) -> ::Array[String]
-
-            attr_accessor email: String?
-
-            attr_accessor first_name: String?
-
-            attr_reader identifications: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification]?
-
-            def identifications=: (
-              ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification]
-            ) -> ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification]
-
-            attr_reader industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification]?
-
-            def industry_classifications=: (
-              ::Array[ModernTreasury::LegalEntityIndustryClassification]
-            ) -> ::Array[ModernTreasury::LegalEntityIndustryClassification]
-
-            attr_accessor last_name: String?
-
-            attr_reader legal_entity_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::legal_entity_type?
-
-            def legal_entity_type=: (
-              ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::legal_entity_type
-            ) -> ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::legal_entity_type
-
-            attr_accessor legal_structure: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::legal_structure?
-
-            attr_reader metadata: ::Hash[Symbol, String]?
-
-            def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
-
-            attr_accessor middle_name: String?
-
-            attr_reader phone_numbers: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber]?
-
-            def phone_numbers=: (
-              ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber]
-            ) -> ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber]
-
-            attr_accessor politically_exposed_person: bool?
-
-            attr_accessor preferred_name: String?
-
-            attr_accessor prefix: String?
-
-            attr_accessor risk_rating: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::risk_rating?
-
-            attr_accessor suffix: String?
-
-            attr_accessor wealth_and_employment_details: ModernTreasury::WealthAndEmploymentDetails?
-
-            attr_accessor website: String?
-
-            def initialize: (
-              ?addresses: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address],
-              ?bank_settings: ModernTreasury::BankSettings?,
-              ?business_name: String?,
-              ?citizenship_country: String?,
-              ?compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
-              ?date_formed: Date?,
-              ?date_of_birth: Date?,
-              ?doing_business_as_names: ::Array[String],
-              ?email: String?,
-              ?first_name: String?,
-              ?identifications: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification],
-              ?industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification],
-              ?last_name: String?,
-              ?legal_entity_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::legal_entity_type,
-              ?legal_structure: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::legal_structure?,
-              ?metadata: ::Hash[Symbol, String],
-              ?middle_name: String?,
-              ?phone_numbers: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber],
-              ?politically_exposed_person: bool?,
-              ?preferred_name: String?,
-              ?prefix: String?,
-              ?risk_rating: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::risk_rating?,
-              ?suffix: String?,
-              ?wealth_and_employment_details: ModernTreasury::WealthAndEmploymentDetails?,
-              ?website: String?
-            ) -> void
-
-            def to_hash: -> {
-              addresses: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address],
-              bank_settings: ModernTreasury::BankSettings?,
-              business_name: String?,
-              citizenship_country: String?,
-              compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
-              date_formed: Date?,
-              date_of_birth: Date?,
-              doing_business_as_names: ::Array[String],
-              email: String?,
-              first_name: String?,
-              identifications: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification],
-              industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification],
-              last_name: String?,
-              legal_entity_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::legal_entity_type,
-              legal_structure: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::legal_structure?,
-              metadata: ::Hash[Symbol, String],
-              middle_name: String?,
-              phone_numbers: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber],
-              politically_exposed_person: bool?,
-              preferred_name: String?,
-              prefix: String?,
-              risk_rating: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::risk_rating?,
-              suffix: String?,
-              wealth_and_employment_details: ModernTreasury::WealthAndEmploymentDetails?,
-              website: String?
-            }
-
-            type address =
-              {
-                country: String?,
-                :line1 => String?,
-                locality: String?,
-                postal_code: String?,
-                region: String?,
-                address_types: ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::address_type],
-                :line2 => String?
-              }
-
-            class Address < ModernTreasury::Internal::Type::BaseModel
-              attr_accessor country: String?
-
-              attr_accessor line1: String?
-
-              attr_accessor locality: String?
-
-              attr_accessor postal_code: String?
-
-              attr_accessor region: String?
-
-              attr_reader address_types: ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::address_type]?
-
-              def address_types=: (
-                ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::address_type]
-              ) -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::address_type]
-
-              attr_accessor line2: String?
-
-              def initialize: (
-                country: String?,
-                line1: String?,
-                locality: String?,
-                postal_code: String?,
-                region: String?,
-                ?address_types: ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::address_type],
-                ?line2: String?
-              ) -> void
-
-              def to_hash: -> {
-                country: String?,
-                :line1 => String?,
-                locality: String?,
-                postal_code: String?,
-                region: String?,
-                address_types: ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::address_type],
-                :line2 => String?
-              }
-
-              type address_type =
-                :business | :mailing | :other | :po_box | :residential
-
-              module AddressType
-                extend ModernTreasury::Internal::Type::Enum
-
-                BUSINESS: :business
-                MAILING: :mailing
-                OTHER: :other
-                PO_BOX: :po_box
-                RESIDENTIAL: :residential
-
-                def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::address_type]
-              end
-            end
-
-            type identification =
-              {
-                id_number: String,
-                id_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::id_type,
-                expiration_date: Date?,
-                issuing_country: String?,
-                issuing_region: String?
-              }
-
-            class Identification < ModernTreasury::Internal::Type::BaseModel
-              attr_accessor id_number: String
-
-              attr_accessor id_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::id_type
-
-              attr_accessor expiration_date: Date?
-
-              attr_accessor issuing_country: String?
-
-              attr_accessor issuing_region: String?
-
-              def initialize: (
-                id_number: String,
-                id_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::id_type,
-                ?expiration_date: Date?,
-                ?issuing_country: String?,
-                ?issuing_region: String?
-              ) -> void
-
-              def to_hash: -> {
-                id_number: String,
-                id_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::id_type,
-                expiration_date: Date?,
-                issuing_country: String?,
-                issuing_region: String?
-              }
-
-              type id_type =
-                :ar_cuil
-                | :ar_cuit
-                | :br_cnpj
-                | :br_cpf
-                | :cl_run
-                | :cl_rut
-                | :co_cedulas
-                | :co_nit
-                | :drivers_license
-                | :hn_id
-                | :hn_rtn
-                | :in_lei
-                | :kr_brn
-                | :kr_crn
-                | :kr_rrn
-                | :passport
-                | :sa_tin
-                | :sa_vat
-                | :us_ein
-                | :us_itin
-                | :us_ssn
-                | :vn_tin
-
-              module IDType
-                extend ModernTreasury::Internal::Type::Enum
-
-                AR_CUIL: :ar_cuil
-                AR_CUIT: :ar_cuit
-                BR_CNPJ: :br_cnpj
-                BR_CPF: :br_cpf
-                CL_RUN: :cl_run
-                CL_RUT: :cl_rut
-                CO_CEDULAS: :co_cedulas
-                CO_NIT: :co_nit
-                DRIVERS_LICENSE: :drivers_license
-                HN_ID: :hn_id
-                HN_RTN: :hn_rtn
-                IN_LEI: :in_lei
-                KR_BRN: :kr_brn
-                KR_CRN: :kr_crn
-                KR_RRN: :kr_rrn
-                PASSPORT: :passport
-                SA_TIN: :sa_tin
-                SA_VAT: :sa_vat
-                US_EIN: :us_ein
-                US_ITIN: :us_itin
-                US_SSN: :us_ssn
-                VN_TIN: :vn_tin
-
-                def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::id_type]
-              end
-            end
-
-            type legal_entity_type = :business | :individual
-
-            module LegalEntityType
-              extend ModernTreasury::Internal::Type::Enum
-
-              BUSINESS: :business
-              INDIVIDUAL: :individual
-
-              def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::legal_entity_type]
-            end
-
-            type legal_structure =
-              :corporation
-              | :llc
-              | :non_profit
-              | :partnership
-              | :sole_proprietorship
-              | :trust
-
-            module LegalStructure
-              extend ModernTreasury::Internal::Type::Enum
-
-              CORPORATION: :corporation
-              LLC: :llc
-              NON_PROFIT: :non_profit
-              PARTNERSHIP: :partnership
-              SOLE_PROPRIETORSHIP: :sole_proprietorship
-              TRUST: :trust
-
-              def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::legal_structure]
-            end
-
-            type phone_number = { phone_number: String }
-
-            class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
-              attr_reader phone_number: String?
-
-              def phone_number=: (String) -> String
-
-              def initialize: (?phone_number: String) -> void
-
-              def to_hash: -> { phone_number: String }
-            end
-
-            type risk_rating = :low | :medium | :high
-
-            module RiskRating
-              extend ModernTreasury::Internal::Type::Enum
-
-              LOW: :low
-              MEDIUM: :medium
-              HIGH: :high
-
-              def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::risk_rating]
-            end
           end
         end
 

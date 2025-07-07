@@ -50,15 +50,13 @@ module ModernTreasury
       attr_accessor :discarded_at
 
       # Associated serialized foreign exchange rate information.
-      sig do
-        returns(T.nilable(ModernTreasury::Transaction::ForeignExchangeRate))
-      end
+      sig { returns(T.nilable(ModernTreasury::ForeignExchangeRate)) }
       attr_reader :foreign_exchange_rate
 
       sig do
         params(
           foreign_exchange_rate:
-            T.nilable(ModernTreasury::Transaction::ForeignExchangeRate::OrHash)
+            T.nilable(ModernTreasury::ForeignExchangeRate::OrHash)
         ).void
       end
       attr_writer :foreign_exchange_rate
@@ -153,7 +151,7 @@ module ModernTreasury
           direction: String,
           discarded_at: T.nilable(Time),
           foreign_exchange_rate:
-            T.nilable(ModernTreasury::Transaction::ForeignExchangeRate::OrHash),
+            T.nilable(ModernTreasury::ForeignExchangeRate::OrHash),
           internal_account_id: String,
           live_mode: T::Boolean,
           metadata: T::Hash[Symbol, String],
@@ -254,7 +252,7 @@ module ModernTreasury
             direction: String,
             discarded_at: T.nilable(Time),
             foreign_exchange_rate:
-              T.nilable(ModernTreasury::Transaction::ForeignExchangeRate),
+              T.nilable(ModernTreasury::ForeignExchangeRate),
             internal_account_id: String,
             live_mode: T::Boolean,
             metadata: T::Hash[Symbol, String],
@@ -276,98 +274,6 @@ module ModernTreasury
         )
       end
       def to_hash
-      end
-
-      class ForeignExchangeRate < ModernTreasury::Internal::Type::BaseModel
-        OrHash =
-          T.type_alias do
-            T.any(
-              ModernTreasury::Transaction::ForeignExchangeRate,
-              ModernTreasury::Internal::AnyHash
-            )
-          end
-
-        # Amount in the lowest denomination of the `base_currency` to convert, often
-        # called the "sell" amount.
-        sig { returns(Integer) }
-        attr_accessor :base_amount
-
-        # Currency to convert, often called the "sell" currency.
-        sig { returns(ModernTreasury::Currency::TaggedSymbol) }
-        attr_accessor :base_currency
-
-        # The exponent component of the rate. The decimal is calculated as `value` / (10 ^
-        # `exponent`).
-        sig { returns(Integer) }
-        attr_accessor :exponent
-
-        # A string representation of the rate.
-        sig { returns(String) }
-        attr_accessor :rate_string
-
-        # Amount in the lowest denomination of the `target_currency`, often called the
-        # "buy" amount.
-        sig { returns(Integer) }
-        attr_accessor :target_amount
-
-        # Currency to convert the `base_currency` to, often called the "buy" currency.
-        sig { returns(ModernTreasury::Currency::TaggedSymbol) }
-        attr_accessor :target_currency
-
-        # The whole number component of the rate. The decimal is calculated as `value` /
-        # (10 ^ `exponent`).
-        sig { returns(Integer) }
-        attr_accessor :value
-
-        # Associated serialized foreign exchange rate information.
-        sig do
-          params(
-            base_amount: Integer,
-            base_currency: ModernTreasury::Currency::OrSymbol,
-            exponent: Integer,
-            rate_string: String,
-            target_amount: Integer,
-            target_currency: ModernTreasury::Currency::OrSymbol,
-            value: Integer
-          ).returns(T.attached_class)
-        end
-        def self.new(
-          # Amount in the lowest denomination of the `base_currency` to convert, often
-          # called the "sell" amount.
-          base_amount:,
-          # Currency to convert, often called the "sell" currency.
-          base_currency:,
-          # The exponent component of the rate. The decimal is calculated as `value` / (10 ^
-          # `exponent`).
-          exponent:,
-          # A string representation of the rate.
-          rate_string:,
-          # Amount in the lowest denomination of the `target_currency`, often called the
-          # "buy" amount.
-          target_amount:,
-          # Currency to convert the `base_currency` to, often called the "buy" currency.
-          target_currency:,
-          # The whole number component of the rate. The decimal is calculated as `value` /
-          # (10 ^ `exponent`).
-          value:
-        )
-        end
-
-        sig do
-          override.returns(
-            {
-              base_amount: Integer,
-              base_currency: ModernTreasury::Currency::TaggedSymbol,
-              exponent: Integer,
-              rate_string: String,
-              target_amount: Integer,
-              target_currency: ModernTreasury::Currency::TaggedSymbol,
-              value: Integer
-            }
-          )
-        end
-        def to_hash
-        end
       end
 
       # The type of the transaction. Examples could be

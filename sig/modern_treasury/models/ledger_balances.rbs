@@ -1,0 +1,30 @@
+module ModernTreasury
+  module Models
+    type ledger_balances =
+      {
+        available_balance: ModernTreasury::LedgerBalance,
+        pending_balance: ModernTreasury::LedgerBalance,
+        posted_balance: ModernTreasury::LedgerBalance
+      }
+
+    class LedgerBalances < ModernTreasury::Internal::Type::BaseModel
+      attr_accessor available_balance: ModernTreasury::LedgerBalance
+
+      attr_accessor pending_balance: ModernTreasury::LedgerBalance
+
+      attr_accessor posted_balance: ModernTreasury::LedgerBalance
+
+      def initialize: (
+        available_balance: ModernTreasury::LedgerBalance,
+        pending_balance: ModernTreasury::LedgerBalance,
+        posted_balance: ModernTreasury::LedgerBalance
+      ) -> void
+
+      def to_hash: -> {
+        available_balance: ModernTreasury::LedgerBalance,
+        pending_balance: ModernTreasury::LedgerBalance,
+        posted_balance: ModernTreasury::LedgerBalance
+      }
+    end
+  end
+end

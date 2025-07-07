@@ -1,0 +1,40 @@
+module ModernTreasury
+  module Models
+    type ledger_balance =
+      {
+        amount: Integer,
+        credits: Integer,
+        currency: String,
+        currency_exponent: Integer,
+        debits: Integer
+      }
+
+    class LedgerBalance < ModernTreasury::Internal::Type::BaseModel
+      attr_accessor amount: Integer
+
+      attr_accessor credits: Integer
+
+      attr_accessor currency: String
+
+      attr_accessor currency_exponent: Integer
+
+      attr_accessor debits: Integer
+
+      def initialize: (
+        amount: Integer,
+        credits: Integer,
+        currency: String,
+        currency_exponent: Integer,
+        debits: Integer
+      ) -> void
+
+      def to_hash: -> {
+        amount: Integer,
+        credits: Integer,
+        currency: String,
+        currency_exponent: Integer,
+        debits: Integer
+      }
+    end
+  end
+end

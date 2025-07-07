@@ -19,7 +19,7 @@ class ModernTreasury::Test::Resources::LedgerAccountCategoriesTest < ModernTreas
     assert_pattern do
       response => {
         id: String,
-        balances: ModernTreasury::LedgerAccountCategory::Balances,
+        balances: ModernTreasury::LedgerBalances,
         created_at: Time,
         description: String | nil,
         discarded_at: Time | nil,
@@ -45,7 +45,7 @@ class ModernTreasury::Test::Resources::LedgerAccountCategoriesTest < ModernTreas
     assert_pattern do
       response => {
         id: String,
-        balances: ModernTreasury::LedgerAccountCategory::Balances,
+        balances: ModernTreasury::LedgerBalances,
         created_at: Time,
         description: String | nil,
         discarded_at: Time | nil,
@@ -71,7 +71,7 @@ class ModernTreasury::Test::Resources::LedgerAccountCategoriesTest < ModernTreas
     assert_pattern do
       response => {
         id: String,
-        balances: ModernTreasury::LedgerAccountCategory::Balances,
+        balances: ModernTreasury::LedgerBalances,
         created_at: Time,
         description: String | nil,
         discarded_at: Time | nil,
@@ -104,7 +104,7 @@ class ModernTreasury::Test::Resources::LedgerAccountCategoriesTest < ModernTreas
     assert_pattern do
       row => {
         id: String,
-        balances: ModernTreasury::LedgerAccountCategory::Balances,
+        balances: ModernTreasury::LedgerBalances,
         created_at: Time,
         description: String | nil,
         discarded_at: Time | nil,
@@ -130,7 +130,7 @@ class ModernTreasury::Test::Resources::LedgerAccountCategoriesTest < ModernTreas
     assert_pattern do
       response => {
         id: String,
-        balances: ModernTreasury::LedgerAccountCategory::Balances,
+        balances: ModernTreasury::LedgerBalances,
         created_at: Time,
         description: String | nil,
         discarded_at: Time | nil,
