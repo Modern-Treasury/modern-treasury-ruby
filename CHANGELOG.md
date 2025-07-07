@@ -1,5 +1,32 @@
 # Changelog
 
+## 0.1.0-alpha.22 (2025-07-07)
+
+Full Changelog: [v0.1.0-alpha.21...v0.1.0-alpha.22](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.21...v0.1.0-alpha.22)
+
+### Features
+
+* **api:** api update ([f9b7650](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/f9b765072627604455f57237b76a32e07a03e30a))
+* **api:** api update ([9a357cc](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/9a357cc723fd191f542d6975b4f84cb5acc555e1))
+* **api:** api update ([0ea5708](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/0ea5708a1c1057643b10481fe3f28599c238b387))
+* **api:** api update ([a9e4c9b](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/a9e4c9b8984b08a8887e3897f44e45b32222af0e))
+* **api:** api update ([7e4655b](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/7e4655b211def4398f04e5f190c264eb82b92487))
+* **api:** api update ([b387235](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/b387235b089476f0ed63ac717eb2308f1fbbb6f8))
+
+
+### Bug Fixes
+
+* **ci:** release-doctor — report correct token name ([e04ac73](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/e04ac73389f3bcec56f7403dea71e818a03022cf))
+* issue where we cannot mutate arrays on base model derivatives ([e387253](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/e387253acf1d48294e42fee99ce023668308aedf))
+
+
+### Chores
+
+* **ci:** enable for pull requests ([00b3946](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/00b394631003a1c1e8f961e838b25bb1b5391805))
+* **ci:** link to correct github repo ([c7048da](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/c7048dad5371a6b9e7c5467bd0aefa0df97df3b4))
+* **ci:** only run for pushes and fork pull requests ([1d387c6](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/1d387c65cbf539ef9b5a188a2201c1af732b60e7))
+* **internal:** allow streams to also be unwrapped on a per-row basis ([658a566](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/658a566873f97d28b0734af37806a4e0a16e3740))
+
 ## 0.1.0-alpha.21 (2025-06-04)
 
 Full Changelog: [v0.1.0-alpha.20...v0.1.0-alpha.21](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.20...v0.1.0-alpha.21)
