@@ -147,6 +147,8 @@ module ModernTreasury
 
   module InternalAccounts = ModernTreasury::Models::InternalAccounts
 
+  class InternalAccountUpdateAccountCapabilityParams = ModernTreasury::Models::InternalAccountUpdateAccountCapabilityParams
+
   class InternalAccountUpdateParams = ModernTreasury::Models::InternalAccountUpdateParams
 
   class Invoice = ModernTreasury::Models::Invoice

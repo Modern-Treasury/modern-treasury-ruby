@@ -130,6 +130,8 @@ require_relative "modern_treasury/models/internal_accounts/balance_report_create
 require_relative "modern_treasury/models/internal_accounts/balance_report_delete_params"
 require_relative "modern_treasury/models/internal_accounts/balance_report_list_params"
 require_relative "modern_treasury/models/internal_accounts/balance_report_retrieve_params"
+require_relative "modern_treasury/models/internal_account_update_account_capability_params"
+require_relative "modern_treasury/models/internal_account_update_account_capability_response"
 require_relative "modern_treasury/models/internal_account_update_params"
 require_relative "modern_treasury/models/invoice"
 require_relative "modern_treasury/models/invoice_add_payment_order_params"
