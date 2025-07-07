@@ -144,6 +144,30 @@ module ModernTreasury
       )
       end
 
+      # update account_capability
+      sig do
+        params(
+          id: String,
+          internal_account_id: String,
+          identifier: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(
+          ModernTreasury::Models::InternalAccountUpdateAccountCapabilityResponse
+        )
+      end
+      def update_account_capability(
+        # Path param: Unique identifier for the account capability.
+        id,
+        # Path param: Unique identifier for the internal account.
+        internal_account_id:,
+        # Body param: A unique reference assigned by your bank for tracking and
+        # recognizing payment files. It is important this is formatted exactly how the
+        # bank assigned it.
+        identifier:,
+        request_options: {}
+      )
+      end
+
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
       def self.new(client:)
