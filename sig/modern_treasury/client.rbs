@@ -38,8 +38,6 @@ module ModernTreasury
 
     attr_reader ledgers: ModernTreasury::Resources::Ledgers
 
-    attr_reader ledgerable_events: ModernTreasury::Resources::LedgerableEvents
-
     attr_reader ledger_account_categories: ModernTreasury::Resources::LedgerAccountCategories
 
     attr_reader ledger_accounts: ModernTreasury::Resources::LedgerAccounts

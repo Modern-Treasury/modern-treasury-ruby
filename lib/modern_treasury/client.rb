@@ -60,9 +60,6 @@ module ModernTreasury
     # @return [ModernTreasury::Resources::Ledgers]
     attr_reader :ledgers
 
-    # @return [ModernTreasury::Resources::LedgerableEvents]
-    attr_reader :ledgerable_events
-
     # @return [ModernTreasury::Resources::LedgerAccountCategories]
     attr_reader :ledger_account_categories
 
@@ -226,7 +223,6 @@ module ModernTreasury
       @routing_details = ModernTreasury::Resources::RoutingDetails.new(client: self)
       @internal_accounts = ModernTreasury::Resources::InternalAccounts.new(client: self)
       @ledgers = ModernTreasury::Resources::Ledgers.new(client: self)
-      @ledgerable_events = ModernTreasury::Resources::LedgerableEvents.new(client: self)
       @ledger_account_categories = ModernTreasury::Resources::LedgerAccountCategories.new(client: self)
       @ledger_accounts = ModernTreasury::Resources::LedgerAccounts.new(client: self)
       @ledger_account_balance_monitors =
