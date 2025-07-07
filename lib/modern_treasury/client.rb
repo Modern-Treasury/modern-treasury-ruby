@@ -75,9 +75,6 @@ module ModernTreasury
     # @return [ModernTreasury::Resources::LedgerEntries]
     attr_reader :ledger_entries
 
-    # @return [ModernTreasury::Resources::LedgerEventHandlers]
-    attr_reader :ledger_event_handlers
-
     # @return [ModernTreasury::Resources::LedgerTransactions]
     attr_reader :ledger_transactions
 
@@ -229,7 +226,6 @@ module ModernTreasury
         ModernTreasury::Resources::LedgerAccountBalanceMonitors.new(client: self)
       @ledger_account_statements = ModernTreasury::Resources::LedgerAccountStatements.new(client: self)
       @ledger_entries = ModernTreasury::Resources::LedgerEntries.new(client: self)
-      @ledger_event_handlers = ModernTreasury::Resources::LedgerEventHandlers.new(client: self)
       @ledger_transactions = ModernTreasury::Resources::LedgerTransactions.new(client: self)
       @line_items = ModernTreasury::Resources::LineItems.new(client: self)
       @payment_flows = ModernTreasury::Resources::PaymentFlows.new(client: self)
