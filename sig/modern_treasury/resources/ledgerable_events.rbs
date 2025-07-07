@@ -1,7 +1,0 @@
-module ModernTreasury
-  module Resources
-    class LedgerableEvents
-      def initialize: (client: ModernTreasury::Client) -> void
-    end
-  end
-end
