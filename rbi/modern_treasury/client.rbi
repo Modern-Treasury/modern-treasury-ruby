@@ -55,9 +55,6 @@ module ModernTreasury
     sig { returns(ModernTreasury::Resources::Ledgers) }
     attr_reader :ledgers
 
-    sig { returns(ModernTreasury::Resources::LedgerableEvents) }
-    attr_reader :ledgerable_events
-
     sig { returns(ModernTreasury::Resources::LedgerAccountCategories) }
     attr_reader :ledger_account_categories
 
