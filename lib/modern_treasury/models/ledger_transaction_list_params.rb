@@ -111,8 +111,8 @@ module ModernTreasury
 
       # @!attribute status
       #
-      #   @return [Symbol, ModernTreasury::Models::LedgerTransactionListParams::Status, nil]
-      optional :status, enum: -> { ModernTreasury::LedgerTransactionListParams::Status }
+      #   @return [Symbol, Array<Symbol, ModernTreasury::Models::LedgerTransactionListParams::Status::UnionMember1>, ModernTreasury::Models::LedgerTransactionListParams::Status, nil]
+      optional :status, union: -> { ModernTreasury::LedgerTransactionListParams::Status }
 
       # @!attribute updated_at
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
@@ -160,7 +160,7 @@ module ModernTreasury
       #
       #   @param reverses_ledger_transaction_id [String]
       #
-      #   @param status [Symbol, ModernTreasury::Models::LedgerTransactionListParams::Status]
+      #   @param status [Symbol, Array<Symbol, ModernTreasury::Models::LedgerTransactionListParams::Status::UnionMember1>, ModernTreasury::Models::LedgerTransactionListParams::Status]
       #
       #   @param updated_at [Hash{Symbol=>Time}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the pos
       #
@@ -223,14 +223,52 @@ module ModernTreasury
       end
 
       module Status
-        extend ModernTreasury::Internal::Type::Enum
+        extend ModernTreasury::Internal::Type::Union
+
+        variant const: -> { ModernTreasury::Models::LedgerTransactionListParams::Status::PENDING }
+
+        variant const: -> { ModernTreasury::Models::LedgerTransactionListParams::Status::POSTED }
+
+        variant const: -> { ModernTreasury::Models::LedgerTransactionListParams::Status::ARCHIVED }
+
+        variant -> { ModernTreasury::Models::LedgerTransactionListParams::Status::UnionMember1Array }
+
+        module UnionMember1
+          extend ModernTreasury::Internal::Type::Enum
+
+          PENDING = :pending
+          POSTED = :posted
+          ARCHIVED = :archived
+
+          # @!method self.values
+          #   @return [Array<Symbol>]
+        end
+
+        # @!method self.variants
+        #   @return [Array(Symbol, Array<Symbol, ModernTreasury::Models::LedgerTransactionListParams::Status::UnionMember1>)]
+
+        define_sorbet_constant!(:Variants) do
+          T.type_alias do
+            T.any(
+              ModernTreasury::LedgerTransactionListParams::Status::TaggedSymbol,
+              T::Array[ModernTreasury::LedgerTransactionListParams::Status::UnionMember1::TaggedSymbol]
+            )
+          end
+        end
+
+        # @!group
 
         PENDING = :pending
         POSTED = :posted
         ARCHIVED = :archived
 
-        # @!method self.values
-        #   @return [Array<Symbol>]
+        # @!endgroup
+
+        # @type [ModernTreasury::Internal::Type::Converter]
+        UnionMember1Array =
+          ModernTreasury::Internal::Type::ArrayOf[enum: -> {
+            ModernTreasury::LedgerTransactionListParams::Status::UnionMember1
+          }]
       end
     end
   end

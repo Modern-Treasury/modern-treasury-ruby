@@ -135,7 +135,13 @@ module ModernTreasury
           per_page: Integer,
           posted_at: T::Hash[Symbol, Time],
           reverses_ledger_transaction_id: String,
-          status: ModernTreasury::LedgerTransactionListParams::Status::OrSymbol,
+          status:
+            T.any(
+              ModernTreasury::LedgerTransactionListParams::Status::OrSymbol,
+              T::Array[
+                ModernTreasury::LedgerTransactionListParams::Status::UnionMember1::OrSymbol
+              ]
+            ),
           updated_at: T::Hash[Symbol, Time],
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(

@@ -150,7 +150,12 @@ module ModernTreasury
       sig do
         returns(
           T.nilable(
-            ModernTreasury::LedgerTransactionListParams::Status::OrSymbol
+            T.any(
+              ModernTreasury::LedgerTransactionListParams::Status::OrSymbol,
+              T::Array[
+                ModernTreasury::LedgerTransactionListParams::Status::UnionMember1::OrSymbol
+              ]
+            )
           )
         )
       end
@@ -158,7 +163,13 @@ module ModernTreasury
 
       sig do
         params(
-          status: ModernTreasury::LedgerTransactionListParams::Status::OrSymbol
+          status:
+            T.any(
+              ModernTreasury::LedgerTransactionListParams::Status::OrSymbol,
+              T::Array[
+                ModernTreasury::LedgerTransactionListParams::Status::UnionMember1::OrSymbol
+              ]
+            )
         ).void
       end
       attr_writer :status
@@ -193,7 +204,13 @@ module ModernTreasury
           per_page: Integer,
           posted_at: T::Hash[Symbol, Time],
           reverses_ledger_transaction_id: String,
-          status: ModernTreasury::LedgerTransactionListParams::Status::OrSymbol,
+          status:
+            T.any(
+              ModernTreasury::LedgerTransactionListParams::Status::OrSymbol,
+              T::Array[
+                ModernTreasury::LedgerTransactionListParams::Status::UnionMember1::OrSymbol
+              ]
+            ),
           updated_at: T::Hash[Symbol, Time],
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
@@ -264,7 +281,12 @@ module ModernTreasury
             posted_at: T::Hash[Symbol, Time],
             reverses_ledger_transaction_id: String,
             status:
-              ModernTreasury::LedgerTransactionListParams::Status::OrSymbol,
+              T.any(
+                ModernTreasury::LedgerTransactionListParams::Status::OrSymbol,
+                T::Array[
+                  ModernTreasury::LedgerTransactionListParams::Status::UnionMember1::OrSymbol
+                ]
+              ),
             updated_at: T::Hash[Symbol, Time],
             request_options: ModernTreasury::RequestOptions
           }
@@ -467,7 +489,66 @@ module ModernTreasury
       end
 
       module Status
-        extend ModernTreasury::Internal::Type::Enum
+        extend ModernTreasury::Internal::Type::Union
+
+        Variants =
+          T.type_alias do
+            T.any(
+              ModernTreasury::LedgerTransactionListParams::Status::TaggedSymbol,
+              T::Array[
+                ModernTreasury::LedgerTransactionListParams::Status::UnionMember1::TaggedSymbol
+              ]
+            )
+          end
+
+        module UnionMember1
+          extend ModernTreasury::Internal::Type::Enum
+
+          TaggedSymbol =
+            T.type_alias do
+              T.all(
+                Symbol,
+                ModernTreasury::LedgerTransactionListParams::Status::UnionMember1
+              )
+            end
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          PENDING =
+            T.let(
+              :pending,
+              ModernTreasury::LedgerTransactionListParams::Status::UnionMember1::TaggedSymbol
+            )
+          POSTED =
+            T.let(
+              :posted,
+              ModernTreasury::LedgerTransactionListParams::Status::UnionMember1::TaggedSymbol
+            )
+          ARCHIVED =
+            T.let(
+              :archived,
+              ModernTreasury::LedgerTransactionListParams::Status::UnionMember1::TaggedSymbol
+            )
+
+          sig do
+            override.returns(
+              T::Array[
+                ModernTreasury::LedgerTransactionListParams::Status::UnionMember1::TaggedSymbol
+              ]
+            )
+          end
+          def self.values
+          end
+        end
+
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::LedgerTransactionListParams::Status::Variants
+            ]
+          )
+        end
+        def self.variants
+        end
 
         TaggedSymbol =
           T.type_alias do
@@ -491,15 +572,14 @@ module ModernTreasury
             ModernTreasury::LedgerTransactionListParams::Status::TaggedSymbol
           )
 
-        sig do
-          override.returns(
-            T::Array[
-              ModernTreasury::LedgerTransactionListParams::Status::TaggedSymbol
-            ]
+        UnionMember1Array =
+          T.let(
+            ModernTreasury::Internal::Type::ArrayOf[
+              enum:
+                ModernTreasury::LedgerTransactionListParams::Status::UnionMember1
+            ],
+            ModernTreasury::Internal::Type::Converter
           )
-        end
-        def self.values
-        end
       end
     end
   end
