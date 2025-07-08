@@ -10,7 +10,8 @@ module ModernTreasury
       # @!attribute balances
       #   For example, if you want the balances as of a particular time (ISO8601), the
       #   encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
-      #   The balances as of a time are inclusive of entries with that exact time.
+      #   The balances as of a time are inclusive of entries with that exact time, but
+      #   with respect to the ledger accounts that are currently present in the category.
       #
       #   @return [ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances, nil]
       optional :balances, -> { ModernTreasury::LedgerAccountCategoryRetrieveParams::Balances }
@@ -37,7 +38,8 @@ module ModernTreasury
         # @!method initialize(as_of_date: nil, effective_at: nil)
         #   For example, if you want the balances as of a particular time (ISO8601), the
         #   encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
-        #   The balances as of a time are inclusive of entries with that exact time.
+        #   The balances as of a time are inclusive of entries with that exact time, but
+        #   with respect to the ledger accounts that are currently present in the category.
         #
         #   @param as_of_date [Date]
         #   @param effective_at [Time]
