@@ -27,7 +27,8 @@ module ModernTreasury
 
       # For example, if you want the balances as of a particular time (ISO8601), the
       # encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
-      # The balances as of a time are inclusive of entries with that exact time.
+      # The balances as of a time are inclusive of entries with that exact time, but
+      # with respect to the ledger accounts that are currently present in the category.
       sig do
         returns(
           T.nilable(ModernTreasury::LedgerAccountCategoryListParams::Balances)
@@ -121,7 +122,8 @@ module ModernTreasury
         after_cursor: nil,
         # For example, if you want the balances as of a particular time (ISO8601), the
         # encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
-        # The balances as of a time are inclusive of entries with that exact time.
+        # The balances as of a time are inclusive of entries with that exact time, but
+        # with respect to the ledger accounts that are currently present in the category.
         balances: nil,
         currency: nil,
         external_id: nil,
@@ -179,7 +181,8 @@ module ModernTreasury
 
         # For example, if you want the balances as of a particular time (ISO8601), the
         # encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
-        # The balances as of a time are inclusive of entries with that exact time.
+        # The balances as of a time are inclusive of entries with that exact time, but
+        # with respect to the ledger accounts that are currently present in the category.
         sig { params(effective_at: Time).returns(T.attached_class) }
         def self.new(effective_at: nil)
         end
