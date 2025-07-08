@@ -215,16 +215,34 @@ module ModernTreasury
         end
       end
 
-      type status = :pending | :posted | :archived
+      type status =
+        :pending
+        | :posted
+        | :archived
+        | ::Array[ModernTreasury::Models::LedgerEntryListParams::Status::union_member1]
 
       module Status
-        extend ModernTreasury::Internal::Type::Enum
+        extend ModernTreasury::Internal::Type::Union
+
+        type union_member1 = :pending | :posted | :archived
+
+        module UnionMember1
+          extend ModernTreasury::Internal::Type::Enum
+
+          PENDING: :pending
+          POSTED: :posted
+          ARCHIVED: :archived
+
+          def self?.values: -> ::Array[ModernTreasury::Models::LedgerEntryListParams::Status::union_member1]
+        end
+
+        def self?.variants: -> ::Array[ModernTreasury::Models::LedgerEntryListParams::status]
 
         PENDING: :pending
         POSTED: :posted
         ARCHIVED: :archived
 
-        def self?.values: -> ::Array[ModernTreasury::Models::LedgerEntryListParams::status]
+        UnionMember1Array: ModernTreasury::Internal::Type::Converter
       end
     end
   end

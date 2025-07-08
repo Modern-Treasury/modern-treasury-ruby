@@ -60,7 +60,13 @@ module ModernTreasury
           per_page: Integer,
           show_balances: T::Boolean,
           show_deleted: T::Boolean,
-          status: ModernTreasury::LedgerEntryListParams::Status::OrSymbol,
+          status:
+            T.any(
+              ModernTreasury::LedgerEntryListParams::Status::OrSymbol,
+              T::Array[
+                ModernTreasury::LedgerEntryListParams::Status::UnionMember1::OrSymbol
+              ]
+            ),
           updated_at: T::Hash[Symbol, Time],
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::Internal::Page[ModernTreasury::LedgerEntry])
@@ -114,7 +120,8 @@ module ModernTreasury
         # deleted.
         show_deleted: nil,
         # Get all ledger entries that match the status specified. One of `pending`,
-        # `posted`, or `archived`.
+        # `posted`, or `archived`. For multiple statuses, use
+        # `status[]=pending&status[]=posted`.
         status: nil,
         # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
         # posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use

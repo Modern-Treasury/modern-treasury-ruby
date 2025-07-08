@@ -147,7 +147,7 @@ module ModernTreasury
       #
       # @param reverses_ledger_transaction_id [String]
       #
-      # @param status [Symbol, ModernTreasury::Models::LedgerTransactionListParams::Status]
+      # @param status [Symbol, Array<Symbol, ModernTreasury::Models::LedgerTransactionListParams::Status::UnionMember1>, ModernTreasury::Models::LedgerTransactionListParams::Status]
       #
       # @param updated_at [Hash{Symbol=>Time}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the pos
       #
