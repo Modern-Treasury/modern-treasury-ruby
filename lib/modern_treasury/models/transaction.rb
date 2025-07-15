@@ -292,6 +292,7 @@ module ModernTreasury
         DC_BANK = :dc_bank
         DWOLLA = :dwolla
         EVOLVE = :evolve
+        FAKE_VENDOR = :fake_vendor
         GOLDMAN_SACHS = :goldman_sachs
         HIFI = :hifi
         ISO20022 = :iso20022
@@ -300,12 +301,12 @@ module ModernTreasury
         PAYPAL = :paypal
         PLAID = :plaid
         PNC = :pnc
-        RSPEC_VENDOR = :rspec_vendor
         SIGNET = :signet
         SILVERGATE = :silvergate
         SWIFT = :swift
         US_BANK = :us_bank
         USER = :user
+        WESTERN_ALLIANCE = :western_alliance
 
         # @!method self.values
         #   @return [Array<Symbol>]
