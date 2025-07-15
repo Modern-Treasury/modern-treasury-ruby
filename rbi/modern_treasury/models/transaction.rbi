@@ -421,6 +421,11 @@ module ModernTreasury
             :evolve,
             ModernTreasury::Transaction::VendorCodeType::TaggedSymbol
           )
+        FAKE_VENDOR =
+          T.let(
+            :fake_vendor,
+            ModernTreasury::Transaction::VendorCodeType::TaggedSymbol
+          )
         GOLDMAN_SACHS =
           T.let(
             :goldman_sachs,
@@ -455,11 +460,6 @@ module ModernTreasury
           )
         PNC =
           T.let(:pnc, ModernTreasury::Transaction::VendorCodeType::TaggedSymbol)
-        RSPEC_VENDOR =
-          T.let(
-            :rspec_vendor,
-            ModernTreasury::Transaction::VendorCodeType::TaggedSymbol
-          )
         SIGNET =
           T.let(
             :signet,
@@ -483,6 +483,11 @@ module ModernTreasury
         USER =
           T.let(
             :user,
+            ModernTreasury::Transaction::VendorCodeType::TaggedSymbol
+          )
+        WESTERN_ALLIANCE =
+          T.let(
+            :western_alliance,
             ModernTreasury::Transaction::VendorCodeType::TaggedSymbol
           )
 

@@ -255,9 +255,29 @@ module ModernTreasury
             :eft_trace_number,
             ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
           )
+        EVOLVE_CORE_BATCH =
+          T.let(
+            :evolve_core_batch,
+            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
+          )
+        EVOLVE_CORE_FILE_KEY =
+          T.let(
+            :evolve_core_file_key,
+            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
+          )
+        EVOLVE_CORE_SEQ =
+          T.let(
+            :evolve_core_seq,
+            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
+          )
         EVOLVE_TRANSACTION_ID =
           T.let(
             :evolve_transaction_id,
+            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
+          )
+        FAKE_VENDOR_PAYMENT_ID =
+          T.let(
+            :fake_vendor_payment_id,
             ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
           )
         FEDWIRE_IMAD =
@@ -420,11 +440,6 @@ module ModernTreasury
             :rbc_wire_reference_id,
             ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
           )
-        RSPEC_VENDOR_PAYMENT_ID =
-          T.let(
-            :rspec_vendor_payment_id,
-            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
-          )
         RTP_INSTRUCTION_ID =
           T.let(
             :rtp_instruction_id,
@@ -523,6 +538,21 @@ module ModernTreasury
         WELLS_FARGO_UETR =
           T.let(
             :wells_fargo_uetr,
+            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
+          )
+        WESTERN_ALLIANCE_PAYMENT_ID =
+          T.let(
+            :western_alliance_payment_id,
+            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
+          )
+        WESTERN_ALLIANCE_TRANSACTION_ID =
+          T.let(
+            :western_alliance_transaction_id,
+            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
+          )
+        WESTERN_ALLIANCE_WIRE_CONFIRMATION_NUMBER =
+          T.let(
+            :western_alliance_wire_confirmation_number,
             ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
           )
 

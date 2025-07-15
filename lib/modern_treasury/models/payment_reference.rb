@@ -113,7 +113,11 @@ module ModernTreasury
         CURRENCYCLOUD_PAYMENT_ID = :currencycloud_payment_id
         DC_BANK_TRANSACTION_ID = :dc_bank_transaction_id
         EFT_TRACE_NUMBER = :eft_trace_number
+        EVOLVE_CORE_BATCH = :evolve_core_batch
+        EVOLVE_CORE_FILE_KEY = :evolve_core_file_key
+        EVOLVE_CORE_SEQ = :evolve_core_seq
         EVOLVE_TRANSACTION_ID = :evolve_transaction_id
+        FAKE_VENDOR_PAYMENT_ID = :fake_vendor_payment_id
         FEDWIRE_IMAD = :fedwire_imad
         FEDWIRE_OMAD = :fedwire_omad
         FIRST_REPUBLIC_INTERNAL_ID = :first_republic_internal_id
@@ -146,7 +150,6 @@ module ModernTreasury
         PNC_REQUEST_FOR_PAYMENT_ID = :pnc_request_for_payment_id
         PNC_TRANSACTION_REFERENCE_NUMBER = :pnc_transaction_reference_number
         RBC_WIRE_REFERENCE_ID = :rbc_wire_reference_id
-        RSPEC_VENDOR_PAYMENT_ID = :rspec_vendor_payment_id
         RTP_INSTRUCTION_ID = :rtp_instruction_id
         SIGNET_API_REFERENCE_ID = :signet_api_reference_id
         SIGNET_CONFIRMATION_ID = :signet_confirmation_id
@@ -167,6 +170,9 @@ module ModernTreasury
         WELLS_FARGO_PAYMENT_ID = :wells_fargo_payment_id
         WELLS_FARGO_TRACE_NUMBER = :wells_fargo_trace_number
         WELLS_FARGO_UETR = :wells_fargo_uetr
+        WESTERN_ALLIANCE_PAYMENT_ID = :western_alliance_payment_id
+        WESTERN_ALLIANCE_TRANSACTION_ID = :western_alliance_transaction_id
+        WESTERN_ALLIANCE_WIRE_CONFIRMATION_NUMBER = :western_alliance_wire_confirmation_number
 
         # @!method self.values
         #   @return [Array<Symbol>]
