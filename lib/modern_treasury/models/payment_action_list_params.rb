@@ -146,6 +146,7 @@ module ModernTreasury
       module Type
         extend ModernTreasury::Internal::Type::Enum
 
+        EVOLVE_NON_PROCESSING_TRANSACTION = :evolve_non_processing_transaction
         STOP = :stop
         ISSUE = :issue
 
