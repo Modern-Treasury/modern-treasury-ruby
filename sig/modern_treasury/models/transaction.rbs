@@ -231,6 +231,7 @@ module ModernTreasury
         | :dc_bank
         | :dwolla
         | :evolve
+        | :fake_vendor
         | :goldman_sachs
         | :hifi
         | :iso20022
@@ -239,12 +240,12 @@ module ModernTreasury
         | :paypal
         | :plaid
         | :pnc
-        | :rspec_vendor
         | :signet
         | :silvergate
         | :swift
         | :us_bank
         | :user
+        | :western_alliance
 
       module VendorCodeType
         extend ModernTreasury::Internal::Type::Enum
@@ -262,6 +263,7 @@ module ModernTreasury
         DC_BANK: :dc_bank
         DWOLLA: :dwolla
         EVOLVE: :evolve
+        FAKE_VENDOR: :fake_vendor
         GOLDMAN_SACHS: :goldman_sachs
         HIFI: :hifi
         ISO20022: :iso20022
@@ -270,12 +272,12 @@ module ModernTreasury
         PAYPAL: :paypal
         PLAID: :plaid
         PNC: :pnc
-        RSPEC_VENDOR: :rspec_vendor
         SIGNET: :signet
         SILVERGATE: :silvergate
         SWIFT: :swift
         US_BANK: :us_bank
         USER: :user
+        WESTERN_ALLIANCE: :western_alliance
 
         def self?.values: -> ::Array[ModernTreasury::Models::Transaction::vendor_code_type]
       end
