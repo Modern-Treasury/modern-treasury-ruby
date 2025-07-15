@@ -280,6 +280,11 @@ module ModernTreasury
           end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
+        EVOLVE_NON_PROCESSING_TRANSACTION =
+          T.let(
+            :evolve_non_processing_transaction,
+            ModernTreasury::PaymentActionListParams::Type::TaggedSymbol
+          )
         STOP =
           T.let(
             :stop,
