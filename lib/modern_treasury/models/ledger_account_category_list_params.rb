@@ -59,9 +59,11 @@ module ModernTreasury
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!attribute name
+      #   If you have specific names to retrieve in bulk, you can pass them as query
+      #   parameters delimited with `name[]=`, for example `?name[]=123&name[]=abc`.
       #
-      #   @return [String, nil]
-      optional :name, String
+      #   @return [Array<String>, nil]
+      optional :name, ModernTreasury::Internal::Type::ArrayOf[String]
 
       # @!attribute parent_ledger_account_category_id
       #   Query categories that are nested underneath a parent category
@@ -94,7 +96,7 @@ module ModernTreasury
       #
       #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
       #
-      #   @param name [String]
+      #   @param name [Array<String>] If you have specific names to retrieve in bulk, you can pass them as query param
       #
       #   @param parent_ledger_account_category_id [String] Query categories that are nested underneath a parent category
       #

@@ -123,7 +123,7 @@ module ModernTreasury
       #
       # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
       #
-      # @param name [String]
+      # @param name [Array<String>] If you have specific names to retrieve in bulk, you can pass them as query param
       #
       # @param parent_ledger_account_category_id [String] Query categories that are nested underneath a parent category
       #

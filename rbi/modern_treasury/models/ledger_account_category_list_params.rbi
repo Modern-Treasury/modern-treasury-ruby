@@ -79,10 +79,12 @@ module ModernTreasury
       sig { params(metadata: T::Hash[Symbol, String]).void }
       attr_writer :metadata
 
-      sig { returns(T.nilable(String)) }
+      # If you have specific names to retrieve in bulk, you can pass them as query
+      # parameters delimited with `name[]=`, for example `?name[]=123&name[]=abc`.
+      sig { returns(T.nilable(T::Array[String])) }
       attr_reader :name
 
-      sig { params(name: String).void }
+      sig { params(name: T::Array[String]).void }
       attr_writer :name
 
       # Query categories that are nested underneath a parent category
@@ -109,7 +111,7 @@ module ModernTreasury
           ledger_account_id: String,
           ledger_id: String,
           metadata: T::Hash[Symbol, String],
-          name: String,
+          name: T::Array[String],
           parent_ledger_account_category_id: String,
           per_page: Integer,
           request_options: ModernTreasury::RequestOptions::OrHash
@@ -135,6 +137,8 @@ module ModernTreasury
         # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
         # parameters.
         metadata: nil,
+        # If you have specific names to retrieve in bulk, you can pass them as query
+        # parameters delimited with `name[]=`, for example `?name[]=123&name[]=abc`.
         name: nil,
         # Query categories that are nested underneath a parent category
         parent_ledger_account_category_id: nil,
@@ -154,7 +158,7 @@ module ModernTreasury
             ledger_account_id: String,
             ledger_id: String,
             metadata: T::Hash[Symbol, String],
-            name: String,
+            name: T::Array[String],
             parent_ledger_account_category_id: String,
             per_page: Integer,
             request_options: ModernTreasury::RequestOptions

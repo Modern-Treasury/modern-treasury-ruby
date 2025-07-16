@@ -36,7 +36,7 @@ module ModernTreasury
         ?ledger_account_id: String,
         ?ledger_id: String,
         ?metadata: ::Hash[Symbol, String],
-        ?name: String,
+        ?name: ::Array[String],
         ?parent_ledger_account_category_id: String,
         ?per_page: Integer,
         ?request_options: ModernTreasury::request_opts
