@@ -10,7 +10,7 @@ module ModernTreasury
         ledger_account_id: String,
         ledger_id: String,
         metadata: ::Hash[Symbol, String],
-        name: String,
+        name: ::Array[String],
         parent_ledger_account_category_id: String,
         per_page: Integer
       }
@@ -52,9 +52,9 @@ module ModernTreasury
 
       def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
-      attr_reader name: String?
+      attr_reader name: ::Array[String]?
 
-      def name=: (String) -> String
+      def name=: (::Array[String]) -> ::Array[String]
 
       attr_reader parent_ledger_account_category_id: String?
 
@@ -73,7 +73,7 @@ module ModernTreasury
         ?ledger_account_id: String,
         ?ledger_id: String,
         ?metadata: ::Hash[Symbol, String],
-        ?name: String,
+        ?name: ::Array[String],
         ?parent_ledger_account_category_id: String,
         ?per_page: Integer,
         ?request_options: ModernTreasury::request_opts
@@ -88,7 +88,7 @@ module ModernTreasury
         ledger_account_id: String,
         ledger_id: String,
         metadata: ::Hash[Symbol, String],
-        name: String,
+        name: ::Array[String],
         parent_ledger_account_category_id: String,
         per_page: Integer,
         request_options: ModernTreasury::RequestOptions
