@@ -497,11 +497,13 @@ module ModernTreasury
         end
       end
 
-      type relationship_type = :beneficial_owner | :control_person
+      type relationship_type =
+        :authorized_signer | :beneficial_owner | :control_person
 
       module RelationshipType
         extend ModernTreasury::Internal::Type::Enum
 
+        AUTHORIZED_SIGNER: :authorized_signer
         BENEFICIAL_OWNER: :beneficial_owner
         CONTROL_PERSON: :control_person
 
