@@ -709,6 +709,7 @@ module ModernTreasury
           module RelationshipType
             extend ModernTreasury::Internal::Type::Enum
 
+            AUTHORIZED_SIGNER = :authorized_signer
             BENEFICIAL_OWNER = :beneficial_owner
             CONTROL_PERSON = :control_person
 

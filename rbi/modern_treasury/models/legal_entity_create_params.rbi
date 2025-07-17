@@ -511,6 +511,11 @@ module ModernTreasury
             end
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
+          AUTHORIZED_SIGNER =
+            T.let(
+              :authorized_signer,
+              ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::RelationshipType::TaggedSymbol
+            )
           BENEFICIAL_OWNER =
             T.let(
               :beneficial_owner,
