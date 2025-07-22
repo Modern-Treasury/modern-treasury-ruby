@@ -755,6 +755,7 @@ module ModernTreasury
             date_upper_bound: Date?,
             description: String?,
             direction: ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::direction?,
+            external_id: String?,
             internal_account_id: String?,
             ledger_transaction: ModernTreasury::LedgerTransactionCreateRequest,
             ledger_transaction_id: String,
@@ -784,6 +785,8 @@ module ModernTreasury
           attr_accessor description: String?
 
           attr_accessor direction: ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::direction?
+
+          attr_accessor external_id: String?
 
           attr_accessor internal_account_id: String?
 
@@ -828,6 +831,7 @@ module ModernTreasury
             ?date_upper_bound: Date?,
             ?description: String?,
             ?direction: ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::direction?,
+            ?external_id: String?,
             ?internal_account_id: String?,
             ?ledger_transaction: ModernTreasury::LedgerTransactionCreateRequest,
             ?ledger_transaction_id: String,
@@ -850,6 +854,7 @@ module ModernTreasury
             date_upper_bound: Date?,
             description: String?,
             direction: ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::direction?,
+            external_id: String?,
             internal_account_id: String?,
             ledger_transaction: ModernTreasury::LedgerTransactionCreateRequest,
             ledger_transaction_id: String,
@@ -1781,6 +1786,7 @@ module ModernTreasury
             date_upper_bound: Date?,
             description: String?,
             direction: ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::direction?,
+            external_id: String?,
             internal_account_id: String?,
             metadata: ::Hash[Symbol, String],
             reconciliation_filters: top?,
@@ -1813,6 +1819,8 @@ module ModernTreasury
 
           attr_accessor direction: ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::direction?
 
+          attr_accessor external_id: String?
+
           attr_accessor internal_account_id: String?
 
           attr_reader metadata: ::Hash[Symbol, String]?
@@ -1843,6 +1851,7 @@ module ModernTreasury
             ?date_upper_bound: Date?,
             ?description: String?,
             ?direction: ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::direction?,
+            ?external_id: String?,
             ?internal_account_id: String?,
             ?metadata: ::Hash[Symbol, String],
             ?reconciliation_filters: top?,
@@ -1864,6 +1873,7 @@ module ModernTreasury
             date_upper_bound: Date?,
             description: String?,
             direction: ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::direction?,
+            external_id: String?,
             internal_account_id: String?,
             metadata: ::Hash[Symbol, String],
             reconciliation_filters: top?,

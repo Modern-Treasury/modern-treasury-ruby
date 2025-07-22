@@ -55,6 +55,10 @@ module ModernTreasury
       end
       attr_accessor :direction
 
+      # An optional user-defined 180 character unique identifier.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :external_id
+
       # The ID of the Internal Account for the expected payment.
       sig { returns(T.nilable(String)) }
       attr_accessor :internal_account_id
@@ -121,6 +125,7 @@ module ModernTreasury
             T.nilable(
               ModernTreasury::ExpectedPaymentUpdateParams::Direction::OrSymbol
             ),
+          external_id: T.nilable(String),
           internal_account_id: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           reconciliation_filters: T.nilable(T.anything),
@@ -157,6 +162,8 @@ module ModernTreasury
         # One of credit or debit. When you are receiving money, use credit. When you are
         # being charged, use debit.
         direction: nil,
+        # An optional user-defined 180 character unique identifier.
+        external_id: nil,
         # The ID of the Internal Account for the expected payment.
         internal_account_id: nil,
         # Additional data represented as key-value pairs. Both the key and value must be
@@ -201,6 +208,7 @@ module ModernTreasury
               T.nilable(
                 ModernTreasury::ExpectedPaymentUpdateParams::Direction::OrSymbol
               ),
+            external_id: T.nilable(String),
             internal_account_id: T.nilable(String),
             metadata: T::Hash[Symbol, String],
             reconciliation_filters: T.nilable(T.anything),

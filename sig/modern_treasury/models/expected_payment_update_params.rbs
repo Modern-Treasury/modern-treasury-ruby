@@ -10,6 +10,7 @@ module ModernTreasury
         date_upper_bound: Date?,
         description: String?,
         direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::direction?,
+        external_id: String?,
         internal_account_id: String?,
         metadata: ::Hash[Symbol, String],
         reconciliation_filters: top?,
@@ -42,6 +43,8 @@ module ModernTreasury
 
       attr_accessor direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::direction?
 
+      attr_accessor external_id: String?
+
       attr_accessor internal_account_id: String?
 
       attr_reader metadata: ::Hash[Symbol, String]?
@@ -71,6 +74,7 @@ module ModernTreasury
         ?date_upper_bound: Date?,
         ?description: String?,
         ?direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::direction?,
+        ?external_id: String?,
         ?internal_account_id: String?,
         ?metadata: ::Hash[Symbol, String],
         ?reconciliation_filters: top?,
@@ -92,6 +96,7 @@ module ModernTreasury
         date_upper_bound: Date?,
         description: String?,
         direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::direction?,
+        external_id: String?,
         internal_account_id: String?,
         metadata: ::Hash[Symbol, String],
         reconciliation_filters: top?,

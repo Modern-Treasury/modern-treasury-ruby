@@ -925,6 +925,12 @@ module ModernTreasury
                    },
                    nil?: true
 
+          # @!attribute external_id
+          #   An optional user-defined 180 character unique identifier.
+          #
+          #   @return [String, nil]
+          optional :external_id, String, nil?: true
+
           # @!attribute internal_account_id
           #   The ID of the Internal Account for the expected payment.
           #
@@ -1008,7 +1014,7 @@ module ModernTreasury
           #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil]
           optional :type, enum: -> { ModernTreasury::ExpectedPaymentType }, nil?: true
 
-          # @!method initialize(amount_lower_bound: nil, amount_upper_bound: nil, counterparty_id: nil, currency: nil, date_lower_bound: nil, date_upper_bound: nil, description: nil, direction: nil, internal_account_id: nil, ledger_transaction: nil, ledger_transaction_id: nil, line_items: nil, metadata: nil, reconciliation_filters: nil, reconciliation_groups: nil, reconciliation_rule_variables: nil, remittance_information: nil, statement_descriptor: nil, type: nil)
+          # @!method initialize(amount_lower_bound: nil, amount_upper_bound: nil, counterparty_id: nil, currency: nil, date_lower_bound: nil, date_upper_bound: nil, description: nil, direction: nil, external_id: nil, internal_account_id: nil, ledger_transaction: nil, ledger_transaction_id: nil, line_items: nil, metadata: nil, reconciliation_filters: nil, reconciliation_groups: nil, reconciliation_rule_variables: nil, remittance_information: nil, statement_descriptor: nil, type: nil)
           #   Some parameter documentations has been truncated, see
           #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest}
           #   for more details.
@@ -1028,6 +1034,8 @@ module ModernTreasury
           #   @param description [String, nil] An optional description for internal use.
           #
           #   @param direction [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Direction, nil] One of credit or debit. When you are receiving money, use credit. When you are b
+          #
+          #   @param external_id [String, nil] An optional user-defined 180 character unique identifier.
           #
           #   @param internal_account_id [String, nil] The ID of the Internal Account for the expected payment.
           #
@@ -2131,6 +2139,12 @@ module ModernTreasury
                    },
                    nil?: true
 
+          # @!attribute external_id
+          #   An optional user-defined 180 character unique identifier.
+          #
+          #   @return [String, nil]
+          optional :external_id, String, nil?: true
+
           # @!attribute internal_account_id
           #   The ID of the Internal Account for the expected payment.
           #
@@ -2199,7 +2213,7 @@ module ModernTreasury
           #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil]
           optional :type, enum: -> { ModernTreasury::ExpectedPaymentType }, nil?: true
 
-          # @!method initialize(id: nil, amount_lower_bound: nil, amount_upper_bound: nil, counterparty_id: nil, currency: nil, date_lower_bound: nil, date_upper_bound: nil, description: nil, direction: nil, internal_account_id: nil, metadata: nil, reconciliation_filters: nil, reconciliation_groups: nil, reconciliation_rule_variables: nil, remittance_information: nil, statement_descriptor: nil, status: nil, type: nil)
+          # @!method initialize(id: nil, amount_lower_bound: nil, amount_upper_bound: nil, counterparty_id: nil, currency: nil, date_lower_bound: nil, date_upper_bound: nil, description: nil, direction: nil, external_id: nil, internal_account_id: nil, metadata: nil, reconciliation_filters: nil, reconciliation_groups: nil, reconciliation_rule_variables: nil, remittance_information: nil, statement_descriptor: nil, status: nil, type: nil)
           #   Some parameter documentations has been truncated, see
           #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID}
           #   for more details.
@@ -2221,6 +2235,8 @@ module ModernTreasury
           #   @param description [String, nil] An optional description for internal use.
           #
           #   @param direction [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Direction, nil] One of credit or debit. When you are receiving money, use credit. When you are b
+          #
+          #   @param external_id [String, nil] An optional user-defined 180 character unique identifier.
           #
           #   @param internal_account_id [String, nil] The ID of the Internal Account for the expected payment.
           #
