@@ -10,7 +10,10 @@ module ModernTreasury
             ModernTreasury::LegalEntityCreateParams::LegalEntityType::OrSymbol,
           addresses:
             T::Array[ModernTreasury::LegalEntityAddressCreateRequest::OrHash],
-          bank_settings: T.nilable(ModernTreasury::BankSettings::OrHash),
+          bank_settings:
+            T.nilable(
+              ModernTreasury::LegalEntityCreateParams::BankSettings::OrHash
+            ),
           business_name: T.nilable(String),
           citizenship_country: T.nilable(String),
           compliance_details:
@@ -50,7 +53,9 @@ module ModernTreasury
             ),
           suffix: T.nilable(String),
           wealth_and_employment_details:
-            T.nilable(ModernTreasury::WealthAndEmploymentDetails::OrHash),
+            T.nilable(
+              ModernTreasury::LegalEntityCreateParams::WealthAndEmploymentDetails::OrHash
+            ),
           website: T.nilable(String),
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::LegalEntity)
@@ -128,7 +133,10 @@ module ModernTreasury
           id: String,
           addresses:
             T::Array[ModernTreasury::LegalEntityAddressCreateRequest::OrHash],
-          bank_settings: T.nilable(ModernTreasury::BankSettings::OrHash),
+          bank_settings:
+            T.nilable(
+              ModernTreasury::LegalEntityUpdateParams::BankSettings::OrHash
+            ),
           business_name: T.nilable(String),
           citizenship_country: T.nilable(String),
           compliance_details:
@@ -162,7 +170,9 @@ module ModernTreasury
             ),
           suffix: T.nilable(String),
           wealth_and_employment_details:
-            T.nilable(ModernTreasury::WealthAndEmploymentDetails::OrHash),
+            T.nilable(
+              ModernTreasury::LegalEntityUpdateParams::WealthAndEmploymentDetails::OrHash
+            ),
           website: T.nilable(String),
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::LegalEntity)

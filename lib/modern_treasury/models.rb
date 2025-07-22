@@ -72,8 +72,6 @@ module ModernTreasury
 
   AsyncResponse = ModernTreasury::Models::AsyncResponse
 
-  BankSettings = ModernTreasury::Models::BankSettings
-
   BulkRequest = ModernTreasury::Models::BulkRequest
 
   BulkRequestCreateParams = ModernTreasury::Models::BulkRequestCreateParams
@@ -469,6 +467,4 @@ module ModernTreasury
   VirtualAccountRetrieveParams = ModernTreasury::Models::VirtualAccountRetrieveParams
 
   VirtualAccountUpdateParams = ModernTreasury::Models::VirtualAccountUpdateParams
-
-  WealthAndEmploymentDetails = ModernTreasury::Models::WealthAndEmploymentDetails
 end

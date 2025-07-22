@@ -152,12 +152,21 @@ module ModernTreasury
         end
         attr_accessor :addresses
 
-        sig { returns(T.nilable(ModernTreasury::BankSettings)) }
+        sig do
+          returns(
+            T.nilable(
+              ModernTreasury::LegalEntityAssociation::ChildLegalEntity::UnnamedTypeWithobjectParent8
+            )
+          )
+        end
         attr_reader :bank_settings
 
         sig do
           params(
-            bank_settings: T.nilable(ModernTreasury::BankSettings::OrHash)
+            bank_settings:
+              T.nilable(
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::UnnamedTypeWithobjectParent8::OrHash
+              )
           ).void
         end
         attr_writer :bank_settings
@@ -299,13 +308,21 @@ module ModernTreasury
         sig { returns(Time) }
         attr_accessor :updated_at
 
-        sig { returns(T.nilable(ModernTreasury::WealthAndEmploymentDetails)) }
+        sig do
+          returns(
+            T.nilable(
+              ModernTreasury::LegalEntityAssociation::ChildLegalEntity::UnnamedTypeWithobjectParent9
+            )
+          )
+        end
         attr_reader :wealth_and_employment_details
 
         sig do
           params(
             wealth_and_employment_details:
-              T.nilable(ModernTreasury::WealthAndEmploymentDetails::OrHash)
+              T.nilable(
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::UnnamedTypeWithobjectParent9::OrHash
+              )
           ).void
         end
         attr_writer :wealth_and_employment_details
@@ -322,7 +339,10 @@ module ModernTreasury
               T::Array[
                 ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Address::OrHash
               ],
-            bank_settings: T.nilable(ModernTreasury::BankSettings::OrHash),
+            bank_settings:
+              T.nilable(
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::UnnamedTypeWithobjectParent8::OrHash
+              ),
             business_name: T.nilable(String),
             citizenship_country: T.nilable(String),
             compliance_details:
@@ -367,7 +387,9 @@ module ModernTreasury
             suffix: T.nilable(String),
             updated_at: Time,
             wealth_and_employment_details:
-              T.nilable(ModernTreasury::WealthAndEmploymentDetails::OrHash),
+              T.nilable(
+                ModernTreasury::LegalEntityAssociation::ChildLegalEntity::UnnamedTypeWithobjectParent9::OrHash
+              ),
             website: T.nilable(String)
           ).returns(T.attached_class)
         end
@@ -437,7 +459,10 @@ module ModernTreasury
                 T::Array[
                   ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Address
                 ],
-              bank_settings: T.nilable(ModernTreasury::BankSettings),
+              bank_settings:
+                T.nilable(
+                  ModernTreasury::LegalEntityAssociation::ChildLegalEntity::UnnamedTypeWithobjectParent8
+                ),
               business_name: T.nilable(String),
               citizenship_country: T.nilable(String),
               compliance_details:
@@ -480,7 +505,9 @@ module ModernTreasury
               suffix: T.nilable(String),
               updated_at: Time,
               wealth_and_employment_details:
-                T.nilable(ModernTreasury::WealthAndEmploymentDetails),
+                T.nilable(
+                  ModernTreasury::LegalEntityAssociation::ChildLegalEntity::UnnamedTypeWithobjectParent9
+                ),
               website: T.nilable(String)
             }
           )
