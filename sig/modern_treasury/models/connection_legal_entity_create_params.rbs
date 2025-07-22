@@ -41,7 +41,7 @@ module ModernTreasury
       type legal_entity =
         {
           addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
-          bank_settings: ModernTreasury::BankSettings?,
+          bank_settings: ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::UnnamedTypeWithobjectParent2?,
           business_name: String?,
           citizenship_country: String?,
           compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
@@ -64,7 +64,7 @@ module ModernTreasury
           prefix: String?,
           risk_rating: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::risk_rating?,
           suffix: String?,
-          wealth_and_employment_details: ModernTreasury::WealthAndEmploymentDetails?,
+          wealth_and_employment_details: ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::UnnamedTypeWithobjectParent3?,
           website: String?
         }
 
@@ -75,7 +75,7 @@ module ModernTreasury
           ::Array[ModernTreasury::LegalEntityAddressCreateRequest]
         ) -> ::Array[ModernTreasury::LegalEntityAddressCreateRequest]
 
-        attr_accessor bank_settings: ModernTreasury::BankSettings?
+        attr_accessor bank_settings: ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::UnnamedTypeWithobjectParent2?
 
         attr_accessor business_name: String?
 
@@ -141,13 +141,13 @@ module ModernTreasury
 
         attr_accessor suffix: String?
 
-        attr_accessor wealth_and_employment_details: ModernTreasury::WealthAndEmploymentDetails?
+        attr_accessor wealth_and_employment_details: ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::UnnamedTypeWithobjectParent3?
 
         attr_accessor website: String?
 
         def initialize: (
           ?addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
-          ?bank_settings: ModernTreasury::BankSettings?,
+          ?bank_settings: ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::UnnamedTypeWithobjectParent2?,
           ?business_name: String?,
           ?citizenship_country: String?,
           ?compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
@@ -170,13 +170,13 @@ module ModernTreasury
           ?prefix: String?,
           ?risk_rating: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::risk_rating?,
           ?suffix: String?,
-          ?wealth_and_employment_details: ModernTreasury::WealthAndEmploymentDetails?,
+          ?wealth_and_employment_details: ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::UnnamedTypeWithobjectParent3?,
           ?website: String?
         ) -> void
 
         def to_hash: -> {
           addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
-          bank_settings: ModernTreasury::BankSettings?,
+          bank_settings: ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::UnnamedTypeWithobjectParent2?,
           business_name: String?,
           citizenship_country: String?,
           compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
@@ -199,7 +199,7 @@ module ModernTreasury
           prefix: String?,
           risk_rating: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::risk_rating?,
           suffix: String?,
-          wealth_and_employment_details: ModernTreasury::WealthAndEmploymentDetails?,
+          wealth_and_employment_details: ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::UnnamedTypeWithobjectParent3?,
           website: String?
         }
 
