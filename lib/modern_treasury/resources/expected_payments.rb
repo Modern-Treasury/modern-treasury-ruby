@@ -8,7 +8,7 @@ module ModernTreasury
       #
       # create expected payment
       #
-      # @overload create(amount_lower_bound: nil, amount_upper_bound: nil, counterparty_id: nil, currency: nil, date_lower_bound: nil, date_upper_bound: nil, description: nil, direction: nil, internal_account_id: nil, ledger_transaction: nil, ledger_transaction_id: nil, line_items: nil, metadata: nil, reconciliation_filters: nil, reconciliation_groups: nil, reconciliation_rule_variables: nil, remittance_information: nil, statement_descriptor: nil, type: nil, request_options: {})
+      # @overload create(amount_lower_bound: nil, amount_upper_bound: nil, counterparty_id: nil, currency: nil, date_lower_bound: nil, date_upper_bound: nil, description: nil, direction: nil, external_id: nil, internal_account_id: nil, ledger_transaction: nil, ledger_transaction_id: nil, line_items: nil, metadata: nil, reconciliation_filters: nil, reconciliation_groups: nil, reconciliation_rule_variables: nil, remittance_information: nil, statement_descriptor: nil, type: nil, request_options: {})
       #
       # @param amount_lower_bound [Integer, nil] The lowest amount this expected payment may be equal to. Value in specified curr
       #
@@ -25,6 +25,8 @@ module ModernTreasury
       # @param description [String, nil] An optional description for internal use.
       #
       # @param direction [Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::Direction, nil] One of credit or debit. When you are receiving money, use credit. When you are b
+      #
+      # @param external_id [String, nil] An optional user-defined 180 character unique identifier.
       #
       # @param internal_account_id [String, nil] The ID of the Internal Account for the expected payment.
       #
@@ -89,7 +91,7 @@ module ModernTreasury
       #
       # update expected payment
       #
-      # @overload update(id, amount_lower_bound: nil, amount_upper_bound: nil, counterparty_id: nil, currency: nil, date_lower_bound: nil, date_upper_bound: nil, description: nil, direction: nil, internal_account_id: nil, metadata: nil, reconciliation_filters: nil, reconciliation_groups: nil, reconciliation_rule_variables: nil, remittance_information: nil, statement_descriptor: nil, status: nil, type: nil, request_options: {})
+      # @overload update(id, amount_lower_bound: nil, amount_upper_bound: nil, counterparty_id: nil, currency: nil, date_lower_bound: nil, date_upper_bound: nil, description: nil, direction: nil, external_id: nil, internal_account_id: nil, metadata: nil, reconciliation_filters: nil, reconciliation_groups: nil, reconciliation_rule_variables: nil, remittance_information: nil, statement_descriptor: nil, status: nil, type: nil, request_options: {})
       #
       # @param id [String] id
       #
@@ -108,6 +110,8 @@ module ModernTreasury
       # @param description [String, nil] An optional description for internal use.
       #
       # @param direction [Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction, nil] One of credit or debit. When you are receiving money, use credit. When you are b
+      #
+      # @param external_id [String, nil] An optional user-defined 180 character unique identifier.
       #
       # @param internal_account_id [String, nil] The ID of the Internal Account for the expected payment.
       #
@@ -148,7 +152,7 @@ module ModernTreasury
       #
       # list expected_payments
       #
-      # @overload list(after_cursor: nil, counterparty_id: nil, created_at_lower_bound: nil, created_at_upper_bound: nil, direction: nil, internal_account_id: nil, metadata: nil, per_page: nil, status: nil, type: nil, updated_at_lower_bound: nil, updated_at_upper_bound: nil, request_options: {})
+      # @overload list(after_cursor: nil, counterparty_id: nil, created_at_lower_bound: nil, created_at_upper_bound: nil, direction: nil, external_id: nil, internal_account_id: nil, metadata: nil, per_page: nil, status: nil, type: nil, updated_at_lower_bound: nil, updated_at_upper_bound: nil, request_options: {})
       #
       # @param after_cursor [String, nil]
       #
@@ -159,6 +163,8 @@ module ModernTreasury
       # @param created_at_upper_bound [Time] Used to return expected payments created before some datetime
       #
       # @param direction [Symbol, ModernTreasury::Models::TransactionDirection] One of credit, debit
+      #
+      # @param external_id [String]
       #
       # @param internal_account_id [String] Specify internal_account_id to see expected_payments for a specific account.
       #
