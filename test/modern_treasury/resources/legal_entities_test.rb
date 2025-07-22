@@ -14,7 +14,7 @@ class ModernTreasury::Test::Resources::LegalEntitiesTest < ModernTreasury::Test:
       response => {
         id: String,
         addresses: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntity::Address]),
-        bank_settings: ModernTreasury::BankSettings | nil,
+        bank_settings: ModernTreasury::LegalEntity::UnnamedTypeWithobjectParent6 | nil,
         business_name: String | nil,
         citizenship_country: String | nil,
         compliance_details: ModernTreasury::LegalEntityComplianceDetail | nil,
@@ -42,7 +42,7 @@ class ModernTreasury::Test::Resources::LegalEntitiesTest < ModernTreasury::Test:
         risk_rating: ModernTreasury::LegalEntity::RiskRating | nil,
         suffix: String | nil,
         updated_at: Time,
-        wealth_and_employment_details: ModernTreasury::WealthAndEmploymentDetails | nil,
+        wealth_and_employment_details: ModernTreasury::LegalEntity::UnnamedTypeWithobjectParent7 | nil,
         website: String | nil
       }
     end
@@ -59,7 +59,7 @@ class ModernTreasury::Test::Resources::LegalEntitiesTest < ModernTreasury::Test:
       response => {
         id: String,
         addresses: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntity::Address]),
-        bank_settings: ModernTreasury::BankSettings | nil,
+        bank_settings: ModernTreasury::LegalEntity::UnnamedTypeWithobjectParent6 | nil,
         business_name: String | nil,
         citizenship_country: String | nil,
         compliance_details: ModernTreasury::LegalEntityComplianceDetail | nil,
@@ -87,7 +87,7 @@ class ModernTreasury::Test::Resources::LegalEntitiesTest < ModernTreasury::Test:
         risk_rating: ModernTreasury::LegalEntity::RiskRating | nil,
         suffix: String | nil,
         updated_at: Time,
-        wealth_and_employment_details: ModernTreasury::WealthAndEmploymentDetails | nil,
+        wealth_and_employment_details: ModernTreasury::LegalEntity::UnnamedTypeWithobjectParent7 | nil,
         website: String | nil
       }
     end
@@ -104,7 +104,7 @@ class ModernTreasury::Test::Resources::LegalEntitiesTest < ModernTreasury::Test:
       response => {
         id: String,
         addresses: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntity::Address]),
-        bank_settings: ModernTreasury::BankSettings | nil,
+        bank_settings: ModernTreasury::LegalEntity::UnnamedTypeWithobjectParent6 | nil,
         business_name: String | nil,
         citizenship_country: String | nil,
         compliance_details: ModernTreasury::LegalEntityComplianceDetail | nil,
@@ -132,7 +132,7 @@ class ModernTreasury::Test::Resources::LegalEntitiesTest < ModernTreasury::Test:
         risk_rating: ModernTreasury::LegalEntity::RiskRating | nil,
         suffix: String | nil,
         updated_at: Time,
-        wealth_and_employment_details: ModernTreasury::WealthAndEmploymentDetails | nil,
+        wealth_and_employment_details: ModernTreasury::LegalEntity::UnnamedTypeWithobjectParent7 | nil,
         website: String | nil
       }
     end
@@ -156,7 +156,7 @@ class ModernTreasury::Test::Resources::LegalEntitiesTest < ModernTreasury::Test:
       row => {
         id: String,
         addresses: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntity::Address]),
-        bank_settings: ModernTreasury::BankSettings | nil,
+        bank_settings: ModernTreasury::LegalEntity::UnnamedTypeWithobjectParent6 | nil,
         business_name: String | nil,
         citizenship_country: String | nil,
         compliance_details: ModernTreasury::LegalEntityComplianceDetail | nil,
@@ -184,7 +184,7 @@ class ModernTreasury::Test::Resources::LegalEntitiesTest < ModernTreasury::Test:
         risk_rating: ModernTreasury::LegalEntity::RiskRating | nil,
         suffix: String | nil,
         updated_at: Time,
-        wealth_and_employment_details: ModernTreasury::WealthAndEmploymentDetails | nil,
+        wealth_and_employment_details: ModernTreasury::LegalEntity::UnnamedTypeWithobjectParent7 | nil,
         website: String | nil
       }
     end
