@@ -17,6 +17,7 @@ module ModernTreasury
             T.nilable(
               ModernTreasury::ExpectedPaymentCreateParams::Direction::OrSymbol
             ),
+          external_id: T.nilable(String),
           internal_account_id: T.nilable(String),
           ledger_transaction:
             ModernTreasury::LedgerTransactionCreateRequest::OrHash,
@@ -56,6 +57,8 @@ module ModernTreasury
         # One of credit or debit. When you are receiving money, use credit. When you are
         # being charged, use debit.
         direction: nil,
+        # An optional user-defined 180 character unique identifier.
+        external_id: nil,
         # The ID of the Internal Account for the expected payment.
         internal_account_id: nil,
         # Specifies a ledger transaction object that will be created with the expected
@@ -123,6 +126,7 @@ module ModernTreasury
             T.nilable(
               ModernTreasury::ExpectedPaymentUpdateParams::Direction::OrSymbol
             ),
+          external_id: T.nilable(String),
           internal_account_id: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           reconciliation_filters: T.nilable(T.anything),
@@ -161,6 +165,8 @@ module ModernTreasury
         # One of credit or debit. When you are receiving money, use credit. When you are
         # being charged, use debit.
         direction: nil,
+        # An optional user-defined 180 character unique identifier.
+        external_id: nil,
         # The ID of the Internal Account for the expected payment.
         internal_account_id: nil,
         # Additional data represented as key-value pairs. Both the key and value must be
@@ -199,6 +205,7 @@ module ModernTreasury
           created_at_lower_bound: Time,
           created_at_upper_bound: Time,
           direction: ModernTreasury::TransactionDirection::OrSymbol,
+          external_id: String,
           internal_account_id: String,
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
@@ -221,6 +228,7 @@ module ModernTreasury
         created_at_upper_bound: nil,
         # One of credit, debit
         direction: nil,
+        external_id: nil,
         # Specify internal_account_id to see expected_payments for a specific account.
         internal_account_id: nil,
         # For example, if you want to query for records with metadata key `Type` and value

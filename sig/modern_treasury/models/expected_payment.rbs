@@ -12,6 +12,7 @@ module ModernTreasury
         date_upper_bound: Date?,
         description: String?,
         direction: ModernTreasury::Models::ExpectedPayment::direction?,
+        external_id: String?,
         internal_account_id: String?,
         ledger_transaction_id: String?,
         live_mode: bool,
@@ -50,6 +51,8 @@ module ModernTreasury
       attr_accessor description: String?
 
       attr_accessor direction: ModernTreasury::Models::ExpectedPayment::direction?
+
+      attr_accessor external_id: String?
 
       attr_accessor internal_account_id: String?
 
@@ -94,6 +97,7 @@ module ModernTreasury
         date_upper_bound: Date?,
         description: String?,
         direction: ModernTreasury::Models::ExpectedPayment::direction?,
+        external_id: String?,
         internal_account_id: String?,
         ledger_transaction_id: String?,
         live_mode: bool,
@@ -123,6 +127,7 @@ module ModernTreasury
         date_upper_bound: Date?,
         description: String?,
         direction: ModernTreasury::Models::ExpectedPayment::direction?,
+        external_id: String?,
         internal_account_id: String?,
         ledger_transaction_id: String?,
         live_mode: bool,

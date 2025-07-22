@@ -36,6 +36,11 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::TransactionDirection, nil]
       optional :direction, enum: -> { ModernTreasury::TransactionDirection }
 
+      # @!attribute external_id
+      #
+      #   @return [String, nil]
+      optional :external_id, String
+
       # @!attribute internal_account_id
       #   Specify internal_account_id to see expected_payments for a specific account.
       #
@@ -80,7 +85,7 @@ module ModernTreasury
       #   @return [Time, nil]
       optional :updated_at_upper_bound, Time
 
-      # @!method initialize(after_cursor: nil, counterparty_id: nil, created_at_lower_bound: nil, created_at_upper_bound: nil, direction: nil, internal_account_id: nil, metadata: nil, per_page: nil, status: nil, type: nil, updated_at_lower_bound: nil, updated_at_upper_bound: nil, request_options: {})
+      # @!method initialize(after_cursor: nil, counterparty_id: nil, created_at_lower_bound: nil, created_at_upper_bound: nil, direction: nil, external_id: nil, internal_account_id: nil, metadata: nil, per_page: nil, status: nil, type: nil, updated_at_lower_bound: nil, updated_at_upper_bound: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::ExpectedPaymentListParams} for more details.
       #
@@ -93,6 +98,8 @@ module ModernTreasury
       #   @param created_at_upper_bound [Time] Used to return expected payments created before some datetime
       #
       #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection] One of credit, debit
+      #
+      #   @param external_id [String]
       #
       #   @param internal_account_id [String] Specify internal_account_id to see expected_payments for a specific account.
       #

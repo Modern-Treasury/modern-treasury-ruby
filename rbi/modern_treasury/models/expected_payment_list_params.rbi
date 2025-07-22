@@ -47,6 +47,12 @@ module ModernTreasury
       end
       attr_writer :direction
 
+      sig { returns(T.nilable(String)) }
+      attr_reader :external_id
+
+      sig { params(external_id: String).void }
+      attr_writer :external_id
+
       # Specify internal_account_id to see expected_payments for a specific account.
       sig { returns(T.nilable(String)) }
       attr_reader :internal_account_id
@@ -121,6 +127,7 @@ module ModernTreasury
           created_at_lower_bound: Time,
           created_at_upper_bound: Time,
           direction: ModernTreasury::TransactionDirection::OrSymbol,
+          external_id: String,
           internal_account_id: String,
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
@@ -141,6 +148,7 @@ module ModernTreasury
         created_at_upper_bound: nil,
         # One of credit, debit
         direction: nil,
+        external_id: nil,
         # Specify internal_account_id to see expected_payments for a specific account.
         internal_account_id: nil,
         # For example, if you want to query for records with metadata key `Type` and value
@@ -169,6 +177,7 @@ module ModernTreasury
             created_at_lower_bound: Time,
             created_at_upper_bound: Time,
             direction: ModernTreasury::TransactionDirection::OrSymbol,
+            external_id: String,
             internal_account_id: String,
             metadata: T::Hash[Symbol, String],
             per_page: Integer,

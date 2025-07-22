@@ -65,6 +65,12 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::ExpectedPayment::Direction, nil]
       required :direction, enum: -> { ModernTreasury::ExpectedPayment::Direction }, nil?: true
 
+      # @!attribute external_id
+      #   An optional user-defined 180 character unique identifier.
+      #
+      #   @return [String, nil]
+      required :external_id, String, nil?: true
+
       # @!attribute internal_account_id
       #   The ID of the Internal Account for the expected payment.
       #
@@ -173,7 +179,7 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!method initialize(id:, amount_lower_bound:, amount_upper_bound:, counterparty_id:, created_at:, currency:, date_lower_bound:, date_upper_bound:, description:, direction:, internal_account_id:, ledger_transaction_id:, live_mode:, metadata:, object:, reconciliation_filters:, reconciliation_groups:, reconciliation_method:, reconciliation_rule_variables:, remittance_information:, statement_descriptor:, status:, transaction_id:, transaction_line_item_id:, type:, updated_at:)
+      # @!method initialize(id:, amount_lower_bound:, amount_upper_bound:, counterparty_id:, created_at:, currency:, date_lower_bound:, date_upper_bound:, description:, direction:, external_id:, internal_account_id:, ledger_transaction_id:, live_mode:, metadata:, object:, reconciliation_filters:, reconciliation_groups:, reconciliation_method:, reconciliation_rule_variables:, remittance_information:, statement_descriptor:, status:, transaction_id:, transaction_line_item_id:, type:, updated_at:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::ExpectedPayment} for more details.
       #
@@ -196,6 +202,8 @@ module ModernTreasury
       #   @param description [String, nil] An optional description for internal use.
       #
       #   @param direction [Symbol, ModernTreasury::Models::ExpectedPayment::Direction, nil] One of credit or debit. When you are receiving money, use credit. When you are b
+      #
+      #   @param external_id [String, nil] An optional user-defined 180 character unique identifier.
       #
       #   @param internal_account_id [String, nil] The ID of the Internal Account for the expected payment.
       #
