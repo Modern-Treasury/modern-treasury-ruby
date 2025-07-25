@@ -33,6 +33,10 @@ module ModernTreasury
       sig { returns(T.nilable(Time)) }
       attr_accessor :discarded_at
 
+      # An optional user-defined 180 character unique identifier.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :external_id
+
       # If the external account links to a ledger account in Modern Treasury, the id of
       # the ledger account will be populated here.
       sig { returns(T.nilable(String)) }
@@ -108,6 +112,7 @@ module ModernTreasury
           counterparty_id: T.nilable(String),
           created_at: Time,
           discarded_at: T.nilable(Time),
+          external_id: T.nilable(String),
           ledger_account_id: T.nilable(String),
           live_mode: T::Boolean,
           metadata: T::Hash[Symbol, String],
@@ -136,6 +141,8 @@ module ModernTreasury
         counterparty_id:,
         created_at:,
         discarded_at:,
+        # An optional user-defined 180 character unique identifier.
+        external_id:,
         # If the external account links to a ledger account in Modern Treasury, the id of
         # the ledger account will be populated here.
         ledger_account_id:,
@@ -172,6 +179,7 @@ module ModernTreasury
             counterparty_id: T.nilable(String),
             created_at: Time,
             discarded_at: T.nilable(Time),
+            external_id: T.nilable(String),
             ledger_account_id: T.nilable(String),
             live_mode: T::Boolean,
             metadata: T::Hash[Symbol, String],

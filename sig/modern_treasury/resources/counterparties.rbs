@@ -3,6 +3,7 @@ module ModernTreasury
     class Counterparties
       def create: (
         name: String?,
+        ?body_external_id: String?,
         ?accounting: ModernTreasury::CounterpartyCreateParams::Accounting,
         ?accounts: ::Array[ModernTreasury::CounterpartyCreateParams::Account],
         ?email: String?,
@@ -37,6 +38,7 @@ module ModernTreasury
         ?created_at_lower_bound: Time,
         ?created_at_upper_bound: Time,
         ?email: String,
+        ?external_id: String,
         ?legal_entity_id: String,
         ?metadata: ::Hash[Symbol, String],
         ?name: String,

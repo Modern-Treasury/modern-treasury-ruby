@@ -3,6 +3,7 @@ module ModernTreasury
     class ExternalAccounts
       def create: (
         counterparty_id: String?,
+        ?body_external_id: String?,
         ?account_details: ::Array[ModernTreasury::ExternalAccountCreateParams::AccountDetail],
         ?account_type: ModernTreasury::Models::external_account_type,
         ?contact_details: ::Array[ModernTreasury::ContactDetailCreateRequest],
@@ -38,6 +39,7 @@ module ModernTreasury
       def list: (
         ?after_cursor: String?,
         ?counterparty_id: String,
+        ?external_id: String,
         ?metadata: ::Hash[Symbol, String],
         ?party_name: String,
         ?per_page: Integer,

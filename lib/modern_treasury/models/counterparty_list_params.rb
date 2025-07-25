@@ -31,6 +31,12 @@ module ModernTreasury
       #   @return [String, nil]
       optional :email, String
 
+      # @!attribute external_id
+      #   An optional user-defined 180 character unique identifier.
+      #
+      #   @return [String, nil]
+      optional :external_id, String
+
       # @!attribute legal_entity_id
       #   Filters for counterparties with the given legal entity ID.
       #
@@ -57,7 +63,7 @@ module ModernTreasury
       #   @return [Integer, nil]
       optional :per_page, Integer
 
-      # @!method initialize(after_cursor: nil, created_at_lower_bound: nil, created_at_upper_bound: nil, email: nil, legal_entity_id: nil, metadata: nil, name: nil, per_page: nil, request_options: {})
+      # @!method initialize(after_cursor: nil, created_at_lower_bound: nil, created_at_upper_bound: nil, email: nil, external_id: nil, legal_entity_id: nil, metadata: nil, name: nil, per_page: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::CounterpartyListParams} for more details.
       #
@@ -68,6 +74,8 @@ module ModernTreasury
       #   @param created_at_upper_bound [Time] Used to return counterparties created before some datetime.
       #
       #   @param email [String] Performs a partial string match of the email field. This is also case insensitiv
+      #
+      #   @param external_id [String] An optional user-defined 180 character unique identifier.
       #
       #   @param legal_entity_id [String] Filters for counterparties with the given legal entity ID.
       #

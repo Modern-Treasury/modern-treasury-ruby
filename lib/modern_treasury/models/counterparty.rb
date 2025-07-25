@@ -34,6 +34,12 @@ module ModernTreasury
       #   @return [String, nil]
       required :email, String, nil?: true
 
+      # @!attribute external_id
+      #   An optional user-defined 180 character unique identifier.
+      #
+      #   @return [String, nil]
+      required :external_id, String, nil?: true
+
       # @!attribute legal_entity_id
       #   The id of the legal entity.
       #
@@ -83,7 +89,7 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::Counterparty::VerificationStatus]
       required :verification_status, enum: -> { ModernTreasury::Counterparty::VerificationStatus }
 
-      # @!method initialize(id:, accounts:, created_at:, discarded_at:, email:, legal_entity_id:, live_mode:, metadata:, name:, object:, send_remittance_advice:, updated_at:, verification_status:)
+      # @!method initialize(id:, accounts:, created_at:, discarded_at:, email:, external_id:, legal_entity_id:, live_mode:, metadata:, name:, object:, send_remittance_advice:, updated_at:, verification_status:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::Counterparty} for more details.
       #
@@ -96,6 +102,8 @@ module ModernTreasury
       #   @param discarded_at [Time, nil]
       #
       #   @param email [String, nil] The counterparty's email.
+      #
+      #   @param external_id [String, nil] An optional user-defined 180 character unique identifier.
       #
       #   @param legal_entity_id [String, nil] The id of the legal entity.
       #
@@ -150,6 +158,12 @@ module ModernTreasury
         #
         #   @return [Time, nil]
         optional :discarded_at, Time, nil?: true
+
+        # @!attribute external_id
+        #   An optional user-defined 180 character unique identifier.
+        #
+        #   @return [String, nil]
+        optional :external_id, String, nil?: true
 
         # @!attribute ledger_account_id
         #   If the external account links to a ledger account in Modern Treasury, the id of
@@ -227,7 +241,7 @@ module ModernTreasury
         #   @return [Symbol, ModernTreasury::Models::Counterparty::Account::VerificationStatus, nil]
         optional :verification_status, enum: -> { ModernTreasury::Counterparty::Account::VerificationStatus }
 
-        # @!method initialize(id: nil, account_details: nil, account_type: nil, contact_details: nil, created_at: nil, discarded_at: nil, ledger_account_id: nil, live_mode: nil, metadata: nil, name: nil, object: nil, party_address: nil, party_name: nil, party_type: nil, routing_details: nil, updated_at: nil, verification_source: nil, verification_status: nil)
+        # @!method initialize(id: nil, account_details: nil, account_type: nil, contact_details: nil, created_at: nil, discarded_at: nil, external_id: nil, ledger_account_id: nil, live_mode: nil, metadata: nil, name: nil, object: nil, party_address: nil, party_name: nil, party_type: nil, routing_details: nil, updated_at: nil, verification_source: nil, verification_status: nil)
         #   Some parameter documentations has been truncated, see
         #   {ModernTreasury::Models::Counterparty::Account} for more details.
         #
@@ -242,6 +256,8 @@ module ModernTreasury
         #   @param created_at [Time]
         #
         #   @param discarded_at [Time, nil]
+        #
+        #   @param external_id [String, nil] An optional user-defined 180 character unique identifier.
         #
         #   @param ledger_account_id [String, nil] If the external account links to a ledger account in Modern Treasury, the id of
         #

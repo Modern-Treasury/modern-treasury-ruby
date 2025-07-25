@@ -6,6 +6,7 @@ module ModernTreasury
         created_at_lower_bound: Time,
         created_at_upper_bound: Time,
         email: String,
+        external_id: String,
         legal_entity_id: String,
         metadata: ::Hash[Symbol, String],
         name: String,
@@ -31,6 +32,10 @@ module ModernTreasury
 
       def email=: (String) -> String
 
+      attr_reader external_id: String?
+
+      def external_id=: (String) -> String
+
       attr_reader legal_entity_id: String?
 
       def legal_entity_id=: (String) -> String
@@ -52,6 +57,7 @@ module ModernTreasury
         ?created_at_lower_bound: Time,
         ?created_at_upper_bound: Time,
         ?email: String,
+        ?external_id: String,
         ?legal_entity_id: String,
         ?metadata: ::Hash[Symbol, String],
         ?name: String,
@@ -64,6 +70,7 @@ module ModernTreasury
         created_at_lower_bound: Time,
         created_at_upper_bound: Time,
         email: String,
+        external_id: String,
         legal_entity_id: String,
         metadata: ::Hash[Symbol, String],
         name: String,

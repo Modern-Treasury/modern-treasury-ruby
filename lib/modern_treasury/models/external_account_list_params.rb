@@ -17,6 +17,12 @@ module ModernTreasury
       #   @return [String, nil]
       optional :counterparty_id, String
 
+      # @!attribute external_id
+      #   An optional user-defined 180 character unique identifier.
+      #
+      #   @return [String, nil]
+      optional :external_id, String
+
       # @!attribute metadata
       #   For example, if you want to query for records with metadata key `Type` and value
       #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
@@ -36,13 +42,15 @@ module ModernTreasury
       #   @return [Integer, nil]
       optional :per_page, Integer
 
-      # @!method initialize(after_cursor: nil, counterparty_id: nil, metadata: nil, party_name: nil, per_page: nil, request_options: {})
+      # @!method initialize(after_cursor: nil, counterparty_id: nil, external_id: nil, metadata: nil, party_name: nil, per_page: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::ExternalAccountListParams} for more details.
       #
       #   @param after_cursor [String, nil]
       #
       #   @param counterparty_id [String]
+      #
+      #   @param external_id [String] An optional user-defined 180 character unique identifier.
       #
       #   @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
       #
