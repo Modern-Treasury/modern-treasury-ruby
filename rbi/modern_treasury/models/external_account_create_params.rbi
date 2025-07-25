@@ -17,6 +17,10 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :counterparty_id
 
+      # An optional user-defined 180 character unique identifier.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :body_external_id
+
       sig do
         returns(
           T.nilable(
@@ -146,6 +150,7 @@ module ModernTreasury
       sig do
         params(
           counterparty_id: T.nilable(String),
+          body_external_id: T.nilable(String),
           account_details:
             T::Array[
               ModernTreasury::ExternalAccountCreateParams::AccountDetail::OrHash
@@ -173,6 +178,8 @@ module ModernTreasury
       end
       def self.new(
         counterparty_id:,
+        # An optional user-defined 180 character unique identifier.
+        body_external_id: nil,
         account_details: nil,
         # Can be `checking`, `savings` or `other`.
         account_type: nil,
@@ -208,6 +215,7 @@ module ModernTreasury
         override.returns(
           {
             counterparty_id: T.nilable(String),
+            body_external_id: T.nilable(String),
             account_details:
               T::Array[
                 ModernTreasury::ExternalAccountCreateParams::AccountDetail

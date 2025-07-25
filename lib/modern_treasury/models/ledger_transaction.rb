@@ -9,6 +9,14 @@ module ModernTreasury
       #   @return [String]
       required :id, String
 
+      # @!attribute archived_reason
+      #   Reason for why a ledger transaction was automatically archived, typically due to
+      #   a balance lock failure. This is a system-generated field and is only populated
+      #   when applicable.
+      #
+      #   @return [String, nil]
+      required :archived_reason, String, nil?: true
+
       # @!attribute created_at
       #
       #   @return [Time]
@@ -124,11 +132,13 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!method initialize(id:, created_at:, description:, effective_at:, effective_date:, external_id:, ledger_entries:, ledger_id:, ledgerable_id:, ledgerable_type:, live_mode:, metadata:, object:, partially_posts_ledger_transaction_id:, posted_at:, reversed_by_ledger_transaction_id:, reverses_ledger_transaction_id:, status:, updated_at:)
+      # @!method initialize(id:, archived_reason:, created_at:, description:, effective_at:, effective_date:, external_id:, ledger_entries:, ledger_id:, ledgerable_id:, ledgerable_type:, live_mode:, metadata:, object:, partially_posts_ledger_transaction_id:, posted_at:, reversed_by_ledger_transaction_id:, reverses_ledger_transaction_id:, status:, updated_at:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LedgerTransaction} for more details.
       #
       #   @param id [String]
+      #
+      #   @param archived_reason [String, nil] Reason for why a ledger transaction was automatically archived, typically due to
       #
       #   @param created_at [Time]
       #

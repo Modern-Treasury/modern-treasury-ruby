@@ -4,6 +4,7 @@ module ModernTreasury
       {
         after_cursor: String?,
         counterparty_id: String,
+        external_id: String,
         metadata: ::Hash[Symbol, String],
         party_name: String,
         per_page: Integer
@@ -20,6 +21,10 @@ module ModernTreasury
 
       def counterparty_id=: (String) -> String
 
+      attr_reader external_id: String?
+
+      def external_id=: (String) -> String
+
       attr_reader metadata: ::Hash[Symbol, String]?
 
       def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
@@ -35,6 +40,7 @@ module ModernTreasury
       def initialize: (
         ?after_cursor: String?,
         ?counterparty_id: String,
+        ?external_id: String,
         ?metadata: ::Hash[Symbol, String],
         ?party_name: String,
         ?per_page: Integer,
@@ -44,6 +50,7 @@ module ModernTreasury
       def to_hash: -> {
         after_cursor: String?,
         counterparty_id: String,
+        external_id: String,
         metadata: ::Hash[Symbol, String],
         party_name: String,
         per_page: Integer,

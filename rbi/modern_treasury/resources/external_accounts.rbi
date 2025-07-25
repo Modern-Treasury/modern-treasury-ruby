@@ -7,6 +7,7 @@ module ModernTreasury
       sig do
         params(
           counterparty_id: T.nilable(String),
+          body_external_id: T.nilable(String),
           account_details:
             T::Array[
               ModernTreasury::ExternalAccountCreateParams::AccountDetail::OrHash
@@ -33,33 +34,41 @@ module ModernTreasury
         ).returns(ModernTreasury::ExternalAccount)
       end
       def create(
+        # Body param:
         counterparty_id:,
+        # Body param: An optional user-defined 180 character unique identifier.
+        body_external_id: nil,
+        # Body param:
         account_details: nil,
-        # Can be `checking`, `savings` or `other`.
+        # Body param: Can be `checking`, `savings` or `other`.
         account_type: nil,
+        # Body param:
         contact_details: nil,
-        # Specifies a ledger account object that will be created with the external
-        # account. The resulting ledger account is linked to the external account for
-        # auto-ledgering Payment objects. See
+        # Body param: Specifies a ledger account object that will be created with the
+        # external account. The resulting ledger account is linked to the external account
+        # for auto-ledgering Payment objects. See
         # https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
         # for more details.
         ledger_account: nil,
-        # Additional data represented as key-value pairs. Both the key and value must be
-        # strings.
+        # Body param: Additional data represented as key-value pairs. Both the key and
+        # value must be strings.
         metadata: nil,
-        # A nickname for the external account. This is only for internal usage and won't
-        # affect any payments
+        # Body param: A nickname for the external account. This is only for internal usage
+        # and won't affect any payments
         name: nil,
-        # Required if receiving wire payments.
+        # Body param: Required if receiving wire payments.
         party_address: nil,
+        # Body param:
         party_identifier: nil,
-        # If this value isn't provided, it will be inherited from the counterparty's name.
+        # Body param: If this value isn't provided, it will be inherited from the
+        # counterparty's name.
         party_name: nil,
-        # Either `individual` or `business`.
+        # Body param: Either `individual` or `business`.
         party_type: nil,
-        # If you've enabled the Modern Treasury + Plaid integration in your Plaid account,
-        # you can pass the processor token in this field.
+        # Body param: If you've enabled the Modern Treasury + Plaid integration in your
+        # Plaid account, you can pass the processor token in this field.
         plaid_processor_token: nil,
+        # Body param:
         routing_details: nil,
         request_options: {}
       )
@@ -122,6 +131,7 @@ module ModernTreasury
         params(
           after_cursor: T.nilable(String),
           counterparty_id: String,
+          external_id: String,
           metadata: T::Hash[Symbol, String],
           party_name: String,
           per_page: Integer,
@@ -133,6 +143,8 @@ module ModernTreasury
       def list(
         after_cursor: nil,
         counterparty_id: nil,
+        # An optional user-defined 180 character unique identifier.
+        external_id: nil,
         # For example, if you want to query for records with metadata key `Type` and value
         # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
         # parameters.

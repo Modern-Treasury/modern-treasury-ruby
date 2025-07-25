@@ -8,33 +8,35 @@ module ModernTreasury
       #
       # create external account
       #
-      # @overload create(counterparty_id:, account_details: nil, account_type: nil, contact_details: nil, ledger_account: nil, metadata: nil, name: nil, party_address: nil, party_identifier: nil, party_name: nil, party_type: nil, plaid_processor_token: nil, routing_details: nil, request_options: {})
+      # @overload create(counterparty_id:, body_external_id: nil, account_details: nil, account_type: nil, contact_details: nil, ledger_account: nil, metadata: nil, name: nil, party_address: nil, party_identifier: nil, party_name: nil, party_type: nil, plaid_processor_token: nil, routing_details: nil, request_options: {})
       #
-      # @param counterparty_id [String, nil]
+      # @param counterparty_id [String, nil] Body param:
       #
-      # @param account_details [Array<ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail>]
+      # @param body_external_id [String, nil] Body param: An optional user-defined 180 character unique identifier.
       #
-      # @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType] Can be `checking`, `savings` or `other`.
+      # @param account_details [Array<ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail>] Body param:
       #
-      # @param contact_details [Array<ModernTreasury::Models::ContactDetailCreateRequest>]
+      # @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType] Body param: Can be `checking`, `savings` or `other`.
       #
-      # @param ledger_account [ModernTreasury::Models::LedgerAccountCreateRequest] Specifies a ledger account object that will be created with the external account
+      # @param contact_details [Array<ModernTreasury::Models::ContactDetailCreateRequest>] Body param:
       #
-      # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      # @param ledger_account [ModernTreasury::Models::LedgerAccountCreateRequest] Body param: Specifies a ledger account object that will be created with the exte
       #
-      # @param name [String, nil] A nickname for the external account. This is only for internal usage and won't a
+      # @param metadata [Hash{Symbol=>String}] Body param: Additional data represented as key-value pairs. Both the key and val
       #
-      # @param party_address [ModernTreasury::Models::AddressRequest] Required if receiving wire payments.
+      # @param name [String, nil] Body param: A nickname for the external account. This is only for internal usage
       #
-      # @param party_identifier [String]
+      # @param party_address [ModernTreasury::Models::AddressRequest] Body param: Required if receiving wire payments.
       #
-      # @param party_name [String] If this value isn't provided, it will be inherited from the counterparty's name.
+      # @param party_identifier [String] Body param:
       #
-      # @param party_type [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::PartyType, nil] Either `individual` or `business`.
+      # @param party_name [String] Body param: If this value isn't provided, it will be inherited from the counterp
       #
-      # @param plaid_processor_token [String] If you've enabled the Modern Treasury + Plaid integration in your Plaid account,
+      # @param party_type [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::PartyType, nil] Body param: Either `individual` or `business`.
       #
-      # @param routing_details [Array<ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail>]
+      # @param plaid_processor_token [String] Body param: If you've enabled the Modern Treasury + Plaid integration in your Pl
+      #
+      # @param routing_details [Array<ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail>] Body param:
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -43,10 +45,12 @@ module ModernTreasury
       # @see ModernTreasury::Models::ExternalAccountCreateParams
       def create(params)
         parsed, options = ModernTreasury::ExternalAccountCreateParams.dump_request(params)
+        query_params = [:query_external_id]
         @client.request(
           method: :post,
           path: "api/external_accounts",
-          body: parsed,
+          query: parsed.slice(*query_params).transform_keys(query_external_id: "external_id"),
+          body: parsed.except(*query_params),
           model: ModernTreasury::ExternalAccount,
           options: options
         )
@@ -116,11 +120,13 @@ module ModernTreasury
       #
       # list external accounts
       #
-      # @overload list(after_cursor: nil, counterparty_id: nil, metadata: nil, party_name: nil, per_page: nil, request_options: {})
+      # @overload list(after_cursor: nil, counterparty_id: nil, external_id: nil, metadata: nil, party_name: nil, per_page: nil, request_options: {})
       #
       # @param after_cursor [String, nil]
       #
       # @param counterparty_id [String]
+      #
+      # @param external_id [String] An optional user-defined 180 character unique identifier.
       #
       # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
       #

@@ -3,6 +3,7 @@ module ModernTreasury
     type ledger_transaction =
       {
         id: String,
+        archived_reason: String?,
         created_at: Time,
         description: String?,
         effective_at: Time,
@@ -25,6 +26,8 @@ module ModernTreasury
 
     class LedgerTransaction < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
+
+      attr_accessor archived_reason: String?
 
       attr_accessor created_at: Time
 
@@ -64,6 +67,7 @@ module ModernTreasury
 
       def initialize: (
         id: String,
+        archived_reason: String?,
         created_at: Time,
         description: String?,
         effective_at: Time,
@@ -86,6 +90,7 @@ module ModernTreasury
 
       def to_hash: -> {
         id: String,
+        archived_reason: String?,
         created_at: Time,
         description: String?,
         effective_at: Time,

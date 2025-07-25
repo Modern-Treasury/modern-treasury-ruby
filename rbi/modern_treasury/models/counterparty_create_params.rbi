@@ -18,6 +18,10 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :name
 
+      # An optional user-defined 180 character unique identifier.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :body_external_id
+
       sig do
         returns(T.nilable(ModernTreasury::CounterpartyCreateParams::Accounting))
       end
@@ -133,6 +137,7 @@ module ModernTreasury
       sig do
         params(
           name: T.nilable(String),
+          body_external_id: T.nilable(String),
           accounting:
             ModernTreasury::CounterpartyCreateParams::Accounting::OrHash,
           accounts:
@@ -154,6 +159,8 @@ module ModernTreasury
       def self.new(
         # A human friendly name for this counterparty.
         name:,
+        # An optional user-defined 180 character unique identifier.
+        body_external_id: nil,
         accounting: nil,
         # The accounts for this counterparty.
         accounts: nil,
@@ -183,6 +190,7 @@ module ModernTreasury
         override.returns(
           {
             name: T.nilable(String),
+            body_external_id: T.nilable(String),
             accounting: ModernTreasury::CounterpartyCreateParams::Accounting,
             accounts:
               T::Array[ModernTreasury::CounterpartyCreateParams::Account],
@@ -350,6 +358,10 @@ module ModernTreasury
         end
         attr_writer :contact_details
 
+        # An optional user-defined 180 character unique identifier.
+        sig { returns(T.nilable(String)) }
+        attr_accessor :external_id
+
         # Specifies a ledger account object that will be created with the external
         # account. The resulting ledger account is linked to the external account for
         # auto-ledgering Payment objects. See
@@ -448,6 +460,7 @@ module ModernTreasury
             account_type: ModernTreasury::ExternalAccountType::OrSymbol,
             contact_details:
               T::Array[ModernTreasury::ContactDetailCreateRequest::OrHash],
+            external_id: T.nilable(String),
             ledger_account: ModernTreasury::LedgerAccountCreateRequest::OrHash,
             metadata: T::Hash[Symbol, String],
             name: T.nilable(String),
@@ -470,6 +483,8 @@ module ModernTreasury
           # Can be `checking`, `savings` or `other`.
           account_type: nil,
           contact_details: nil,
+          # An optional user-defined 180 character unique identifier.
+          external_id: nil,
           # Specifies a ledger account object that will be created with the external
           # account. The resulting ledger account is linked to the external account for
           # auto-ledgering Payment objects. See
@@ -506,6 +521,7 @@ module ModernTreasury
               account_type: ModernTreasury::ExternalAccountType::OrSymbol,
               contact_details:
                 T::Array[ModernTreasury::ContactDetailCreateRequest],
+              external_id: T.nilable(String),
               ledger_account: ModernTreasury::LedgerAccountCreateRequest,
               metadata: T::Hash[Symbol, String],
               name: T.nilable(String),
