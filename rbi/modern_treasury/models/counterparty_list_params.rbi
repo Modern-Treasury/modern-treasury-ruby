@@ -39,6 +39,13 @@ module ModernTreasury
       sig { params(email: String).void }
       attr_writer :email
 
+      # An optional user-defined 180 character unique identifier.
+      sig { returns(T.nilable(String)) }
+      attr_reader :external_id
+
+      sig { params(external_id: String).void }
+      attr_writer :external_id
+
       # Filters for counterparties with the given legal entity ID.
       sig { returns(T.nilable(String)) }
       attr_reader :legal_entity_id
@@ -75,6 +82,7 @@ module ModernTreasury
           created_at_lower_bound: Time,
           created_at_upper_bound: Time,
           email: String,
+          external_id: String,
           legal_entity_id: String,
           metadata: T::Hash[Symbol, String],
           name: String,
@@ -91,6 +99,8 @@ module ModernTreasury
         # Performs a partial string match of the email field. This is also case
         # insensitive.
         email: nil,
+        # An optional user-defined 180 character unique identifier.
+        external_id: nil,
         # Filters for counterparties with the given legal entity ID.
         legal_entity_id: nil,
         # For example, if you want to query for records with metadata key `Type` and value
@@ -112,6 +122,7 @@ module ModernTreasury
             created_at_lower_bound: Time,
             created_at_upper_bound: Time,
             email: String,
+            external_id: String,
             legal_entity_id: String,
             metadata: T::Hash[Symbol, String],
             name: String,

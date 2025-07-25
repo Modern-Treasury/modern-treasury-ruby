@@ -7,6 +7,7 @@ module ModernTreasury
       sig do
         params(
           name: T.nilable(String),
+          body_external_id: T.nilable(String),
           accounting:
             ModernTreasury::CounterpartyCreateParams::Accounting::OrHash,
           accounts:
@@ -26,28 +27,32 @@ module ModernTreasury
         ).returns(ModernTreasury::Counterparty)
       end
       def create(
-        # A human friendly name for this counterparty.
+        # Body param: A human friendly name for this counterparty.
         name:,
+        # Body param: An optional user-defined 180 character unique identifier.
+        body_external_id: nil,
+        # Body param:
         accounting: nil,
-        # The accounts for this counterparty.
+        # Body param: The accounts for this counterparty.
         accounts: nil,
-        # The counterparty's email.
+        # Body param: The counterparty's email.
         email: nil,
-        # An optional type to auto-sync the counterparty to your ledger. Either `customer`
-        # or `vendor`.
+        # Body param: An optional type to auto-sync the counterparty to your ledger.
+        # Either `customer` or `vendor`.
         ledger_type: nil,
+        # Body param:
         legal_entity: nil,
-        # The id of the legal entity.
+        # Body param: The id of the legal entity.
         legal_entity_id: nil,
-        # Additional data represented as key-value pairs. Both the key and value must be
-        # strings.
+        # Body param: Additional data represented as key-value pairs. Both the key and
+        # value must be strings.
         metadata: nil,
-        # Send an email to the counterparty whenever an associated payment order is sent
-        # to the bank.
+        # Body param: Send an email to the counterparty whenever an associated payment
+        # order is sent to the bank.
         send_remittance_advice: nil,
-        # Either a valid SSN or EIN.
+        # Body param: Either a valid SSN or EIN.
         taxpayer_identifier: nil,
-        # The verification status of the counterparty.
+        # Body param: The verification status of the counterparty.
         verification_status: nil,
         request_options: {}
       )
@@ -108,6 +113,7 @@ module ModernTreasury
           created_at_lower_bound: Time,
           created_at_upper_bound: Time,
           email: String,
+          external_id: String,
           legal_entity_id: String,
           metadata: T::Hash[Symbol, String],
           name: String,
@@ -124,6 +130,8 @@ module ModernTreasury
         # Performs a partial string match of the email field. This is also case
         # insensitive.
         email: nil,
+        # An optional user-defined 180 character unique identifier.
+        external_id: nil,
         # Filters for counterparties with the given legal entity ID.
         legal_entity_id: nil,
         # For example, if you want to query for records with metadata key `Type` and value

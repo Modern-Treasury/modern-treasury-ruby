@@ -22,6 +22,7 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < ModernTreasury::
     assert_pattern do
       response => {
         id: String,
+        archived_reason: String | nil,
         created_at: Time,
         description: String | nil,
         effective_at: Time,
@@ -54,6 +55,7 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < ModernTreasury::
     assert_pattern do
       response => {
         id: String,
+        archived_reason: String | nil,
         created_at: Time,
         description: String | nil,
         effective_at: Time,
@@ -86,6 +88,7 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < ModernTreasury::
     assert_pattern do
       response => {
         id: String,
+        archived_reason: String | nil,
         created_at: Time,
         description: String | nil,
         effective_at: Time,
@@ -125,6 +128,7 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < ModernTreasury::
     assert_pattern do
       row => {
         id: String,
+        archived_reason: String | nil,
         created_at: Time,
         description: String | nil,
         effective_at: Time,
@@ -167,6 +171,7 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < ModernTreasury::
     assert_pattern do
       response => {
         id: String,
+        archived_reason: String | nil,
         created_at: Time,
         description: String | nil,
         effective_at: Time,
@@ -199,6 +204,7 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < ModernTreasury::
     assert_pattern do
       response => {
         id: String,
+        archived_reason: String | nil,
         created_at: Time,
         description: String | nil,
         effective_at: Time,

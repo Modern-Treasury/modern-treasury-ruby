@@ -25,6 +25,10 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :email
 
+      # An optional user-defined 180 character unique identifier.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :external_id
+
       # The id of the legal entity.
       sig { returns(T.nilable(String)) }
       attr_accessor :legal_entity_id
@@ -67,6 +71,7 @@ module ModernTreasury
           created_at: Time,
           discarded_at: T.nilable(Time),
           email: T.nilable(String),
+          external_id: T.nilable(String),
           legal_entity_id: T.nilable(String),
           live_mode: T::Boolean,
           metadata: T::Hash[Symbol, String],
@@ -86,6 +91,8 @@ module ModernTreasury
         discarded_at:,
         # The counterparty's email.
         email:,
+        # An optional user-defined 180 character unique identifier.
+        external_id:,
         # The id of the legal entity.
         legal_entity_id:,
         # This field will be true if this object exists in the live environment or false
@@ -114,6 +121,7 @@ module ModernTreasury
             created_at: Time,
             discarded_at: T.nilable(Time),
             email: T.nilable(String),
+            external_id: T.nilable(String),
             legal_entity_id: T.nilable(String),
             live_mode: T::Boolean,
             metadata: T::Hash[Symbol, String],
@@ -185,6 +193,10 @@ module ModernTreasury
 
         sig { returns(T.nilable(Time)) }
         attr_accessor :discarded_at
+
+        # An optional user-defined 180 character unique identifier.
+        sig { returns(T.nilable(String)) }
+        attr_accessor :external_id
 
         # If the external account links to a ledger account in Modern Treasury, the id of
         # the ledger account will be populated here.
@@ -294,6 +306,7 @@ module ModernTreasury
             contact_details: T::Array[ModernTreasury::ContactDetail::OrHash],
             created_at: Time,
             discarded_at: T.nilable(Time),
+            external_id: T.nilable(String),
             ledger_account_id: T.nilable(String),
             live_mode: T::Boolean,
             metadata: T::Hash[Symbol, String],
@@ -323,6 +336,8 @@ module ModernTreasury
           contact_details: nil,
           created_at: nil,
           discarded_at: nil,
+          # An optional user-defined 180 character unique identifier.
+          external_id: nil,
           # If the external account links to a ledger account in Modern Treasury, the id of
           # the ledger account will be populated here.
           ledger_account_id: nil,
@@ -358,6 +373,7 @@ module ModernTreasury
               contact_details: T::Array[ModernTreasury::ContactDetail],
               created_at: Time,
               discarded_at: T.nilable(Time),
+              external_id: T.nilable(String),
               ledger_account_id: T.nilable(String),
               live_mode: T::Boolean,
               metadata: T::Hash[Symbol, String],

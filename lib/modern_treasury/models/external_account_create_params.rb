@@ -12,6 +12,12 @@ module ModernTreasury
       #   @return [String, nil]
       required :counterparty_id, String, nil?: true
 
+      # @!attribute body_external_id
+      #   An optional user-defined 180 character unique identifier.
+      #
+      #   @return [String, nil]
+      optional :body_external_id, String, api_name: :external_id, nil?: true
+
       # @!attribute account_details
       #
       #   @return [Array<ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail>, nil]
@@ -94,11 +100,13 @@ module ModernTreasury
                  ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ExternalAccountCreateParams::RoutingDetail]
                }
 
-      # @!method initialize(counterparty_id:, account_details: nil, account_type: nil, contact_details: nil, ledger_account: nil, metadata: nil, name: nil, party_address: nil, party_identifier: nil, party_name: nil, party_type: nil, plaid_processor_token: nil, routing_details: nil, request_options: {})
+      # @!method initialize(counterparty_id:, body_external_id: nil, account_details: nil, account_type: nil, contact_details: nil, ledger_account: nil, metadata: nil, name: nil, party_address: nil, party_identifier: nil, party_name: nil, party_type: nil, plaid_processor_token: nil, routing_details: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::ExternalAccountCreateParams} for more details.
       #
       #   @param counterparty_id [String, nil]
+      #
+      #   @param body_external_id [String, nil] An optional user-defined 180 character unique identifier.
       #
       #   @param account_details [Array<ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail>]
       #
