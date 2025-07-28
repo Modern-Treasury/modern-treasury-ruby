@@ -775,11 +775,6 @@ module ModernTreasury
               :connections,
               ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::TaggedSymbol
             )
-          CONVERSATIONS =
-            T.let(
-              :conversations,
-              ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::TaggedSymbol
-            )
 
           sig do
             override.returns(

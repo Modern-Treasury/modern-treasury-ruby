@@ -17,6 +17,13 @@ module ModernTreasury
         sig { returns(String) }
         attr_accessor :id
 
+        # System-set reason why the ledger transaction was archived; currently only
+        # 'balance_lock_failure' for transactions that violated balance constraints. Only
+        # populated when archive_on_balance_lock_failure is true and a balance lock
+        # violation occurs, otherwise null.
+        sig { returns(T.nilable(String)) }
+        attr_accessor :archived_reason
+
         sig { returns(Time) }
         attr_accessor :created_at
 
@@ -120,6 +127,7 @@ module ModernTreasury
         sig do
           params(
             id: String,
+            archived_reason: T.nilable(String),
             created_at: Time,
             description: T.nilable(String),
             effective_at: Time,
@@ -150,6 +158,11 @@ module ModernTreasury
         end
         def self.new(
           id:,
+          # System-set reason why the ledger transaction was archived; currently only
+          # 'balance_lock_failure' for transactions that violated balance constraints. Only
+          # populated when archive_on_balance_lock_failure is true and a balance lock
+          # violation occurs, otherwise null.
+          archived_reason:,
           created_at:,
           # An optional description for internal use.
           description:,
@@ -203,6 +216,7 @@ module ModernTreasury
           override.returns(
             {
               id: String,
+              archived_reason: T.nilable(String),
               created_at: Time,
               description: T.nilable(String),
               effective_at: Time,
