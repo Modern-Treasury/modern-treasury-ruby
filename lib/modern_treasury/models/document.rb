@@ -184,7 +184,6 @@ module ModernTreasury
         PAYMENT_ORDER = :payment_order
         TRANSACTION = :transaction
         CONNECTION = :connection
-        CONVERSATION = :conversation
 
         # @!method self.values
         #   @return [Array<Symbol>]

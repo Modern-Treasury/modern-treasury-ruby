@@ -20,6 +20,7 @@ class ModernTreasury::Test::Resources::LedgerTransactions::VersionsTest < Modern
     assert_pattern do
       row => {
         id: String,
+        archived_reason: String | nil,
         created_at: Time,
         description: String | nil,
         effective_at: Time,

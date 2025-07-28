@@ -10,6 +10,15 @@ module ModernTreasury
         #   @return [String]
         required :id, String
 
+        # @!attribute archived_reason
+        #   System-set reason why the ledger transaction was archived; currently only
+        #   'balance_lock_failure' for transactions that violated balance constraints. Only
+        #   populated when archive_on_balance_lock_failure is true and a balance lock
+        #   violation occurs, otherwise null.
+        #
+        #   @return [String, nil]
+        required :archived_reason, String, nil?: true
+
         # @!attribute created_at
         #
         #   @return [Time]
@@ -137,12 +146,14 @@ module ModernTreasury
         #   @return [Integer]
         required :version, Integer
 
-        # @!method initialize(id:, created_at:, description:, effective_at:, effective_date:, external_id:, ledger_entries:, ledger_id:, ledger_transaction_id:, ledgerable_id:, ledgerable_type:, live_mode:, metadata:, object:, partially_posts_ledger_transaction_id:, posted_at:, reversed_by_ledger_transaction_id:, reverses_ledger_transaction_id:, status:, version:)
+        # @!method initialize(id:, archived_reason:, created_at:, description:, effective_at:, effective_date:, external_id:, ledger_entries:, ledger_id:, ledger_transaction_id:, ledgerable_id:, ledgerable_type:, live_mode:, metadata:, object:, partially_posts_ledger_transaction_id:, posted_at:, reversed_by_ledger_transaction_id:, reverses_ledger_transaction_id:, status:, version:)
         #   Some parameter documentations has been truncated, see
         #   {ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion} for more
         #   details.
         #
         #   @param id [String]
+        #
+        #   @param archived_reason [String, nil] System-set reason why the ledger transaction was archived; currently only 'balan
         #
         #   @param created_at [Time]
         #
