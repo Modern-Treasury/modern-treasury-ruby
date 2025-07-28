@@ -155,11 +155,6 @@ module ModernTreasury
             :connections,
             ModernTreasury::DocumentListParams::DocumentableType::TaggedSymbol
           )
-        CONVERSATIONS =
-          T.let(
-            :conversations,
-            ModernTreasury::DocumentListParams::DocumentableType::TaggedSymbol
-          )
 
         sig do
           override.returns(

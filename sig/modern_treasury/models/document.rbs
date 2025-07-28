@@ -135,7 +135,6 @@ module ModernTreasury
         | :payment_order
         | :transaction
         | :connection
-        | :conversation
 
       module DocumentableType
         extend ModernTreasury::Internal::Type::Enum
@@ -151,7 +150,6 @@ module ModernTreasury
         PAYMENT_ORDER: :payment_order
         TRANSACTION: :transaction
         CONNECTION: :connection
-        CONVERSATION: :conversation
 
         def self?.values: -> ::Array[ModernTreasury::Models::Document::documentable_type]
       end

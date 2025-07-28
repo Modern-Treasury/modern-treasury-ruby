@@ -62,7 +62,6 @@ module ModernTreasury
         PAYMENT_ORDERS = :payment_orders
         TRANSACTIONS = :transactions
         CONNECTIONS = :connections
-        CONVERSATIONS = :conversations
 
         # @!method self.values
         #   @return [Array<Symbol>]
