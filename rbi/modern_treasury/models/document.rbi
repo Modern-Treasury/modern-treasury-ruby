@@ -29,8 +29,8 @@ module ModernTreasury
       attr_accessor :documentable_id
 
       # The type of the associated object. Currently can be one of `payment_order`,
-      # `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
-      # `case`, `internal_account`, `decision`, or `external_account`.
+      # `transaction`, `expected_payment`, `counterparty`, `organization`, `case`,
+      # `internal_account`, `decision`, or `external_account`.
       sig { returns(ModernTreasury::Document::DocumentableType::TaggedSymbol) }
       attr_accessor :documentable_type
 
@@ -83,8 +83,8 @@ module ModernTreasury
         # The unique identifier for the associated object.
         documentable_id:,
         # The type of the associated object. Currently can be one of `payment_order`,
-        # `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
-        # `case`, `internal_account`, `decision`, or `external_account`.
+        # `transaction`, `expected_payment`, `counterparty`, `organization`, `case`,
+        # `internal_account`, `decision`, or `external_account`.
         documentable_type:,
         file:,
         # This field will be true if this object exists in the live environment or false
@@ -200,8 +200,8 @@ module ModernTreasury
       end
 
       # The type of the associated object. Currently can be one of `payment_order`,
-      # `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
-      # `case`, `internal_account`, `decision`, or `external_account`.
+      # `transaction`, `expected_payment`, `counterparty`, `organization`, `case`,
+      # `internal_account`, `decision`, or `external_account`.
       module DocumentableType
         extend ModernTreasury::Internal::Type::Enum
 
