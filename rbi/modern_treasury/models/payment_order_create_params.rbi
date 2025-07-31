@@ -755,11 +755,6 @@ module ModernTreasury
               :organizations,
               ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::TaggedSymbol
             )
-          PAPER_ITEMS =
-            T.let(
-              :paper_items,
-              ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::TaggedSymbol
-            )
           PAYMENT_ORDERS =
             T.let(
               :payment_orders,

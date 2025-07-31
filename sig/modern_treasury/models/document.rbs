@@ -131,7 +131,6 @@ module ModernTreasury
         | :incoming_payment_detail
         | :internal_account
         | :organization
-        | :paper_item
         | :payment_order
         | :transaction
         | :connection
@@ -146,7 +145,6 @@ module ModernTreasury
         INCOMING_PAYMENT_DETAIL: :incoming_payment_detail
         INTERNAL_ACCOUNT: :internal_account
         ORGANIZATION: :organization
-        PAPER_ITEM: :paper_item
         PAYMENT_ORDER: :payment_order
         TRANSACTION: :transaction
         CONNECTION: :connection

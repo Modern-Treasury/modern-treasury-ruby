@@ -1044,11 +1044,6 @@ module ModernTreasury
             :incoming_payment_detail,
             ModernTreasury::ReturnObject::ReturnableType::TaggedSymbol
           )
-        PAPER_ITEM =
-          T.let(
-            :paper_item,
-            ModernTreasury::ReturnObject::ReturnableType::TaggedSymbol
-          )
         PAYMENT_ORDER =
           T.let(
             :payment_order,
@@ -1149,8 +1144,6 @@ module ModernTreasury
           T.let(:interac, ModernTreasury::ReturnObject::Type::TaggedSymbol)
         MANUAL =
           T.let(:manual, ModernTreasury::ReturnObject::Type::TaggedSymbol)
-        PAPER_ITEM =
-          T.let(:paper_item, ModernTreasury::ReturnObject::Type::TaggedSymbol)
         SEPA = T.let(:sepa, ModernTreasury::ReturnObject::Type::TaggedSymbol)
         WIRE = T.let(:wire, ModernTreasury::ReturnObject::Type::TaggedSymbol)
 

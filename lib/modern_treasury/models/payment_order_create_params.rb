@@ -437,7 +437,6 @@ module ModernTreasury
           INCOMING_PAYMENT_DETAILS = :incoming_payment_details
           INTERNAL_ACCOUNTS = :internal_accounts
           ORGANIZATIONS = :organizations
-          PAPER_ITEMS = :paper_items
           PAYMENT_ORDERS = :payment_orders
           TRANSACTIONS = :transactions
           CONNECTIONS = :connections
