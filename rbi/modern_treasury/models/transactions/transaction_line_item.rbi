@@ -206,11 +206,6 @@ module ModernTreasury
               :incoming_payment_detail,
               ModernTreasury::Transactions::TransactionLineItem::TransactableType::TaggedSymbol
             )
-          PAPER_ITEM =
-            T.let(
-              :paper_item,
-              ModernTreasury::Transactions::TransactionLineItem::TransactableType::TaggedSymbol
-            )
           PAYMENT_ORDER =
             T.let(
               :payment_order,

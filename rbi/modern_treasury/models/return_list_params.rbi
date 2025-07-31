@@ -126,11 +126,6 @@ module ModernTreasury
             :incoming_payment_detail,
             ModernTreasury::ReturnListParams::ReturnableType::TaggedSymbol
           )
-        PAPER_ITEM =
-          T.let(
-            :paper_item,
-            ModernTreasury::ReturnListParams::ReturnableType::TaggedSymbol
-          )
         PAYMENT_ORDER =
           T.let(
             :payment_order,
