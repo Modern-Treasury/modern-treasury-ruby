@@ -79,7 +79,7 @@ module ModernTreasury
       #
       # @param returnable_id [String] The ID of a valid returnable. Must be accompanied by `returnable_type`.
       #
-      # @param returnable_type [Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType] One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
+      # @param returnable_type [Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType] One of `payment_order`, `reversal`, or `incoming_payment_detail`. Must be accomp
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #

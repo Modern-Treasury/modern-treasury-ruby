@@ -38,8 +38,8 @@ module ModernTreasury
       optional :returnable_id, String
 
       # @!attribute returnable_type
-      #   One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
-      #   Must be accompanied by `returnable_id`.
+      #   One of `payment_order`, `reversal`, or `incoming_payment_detail`. Must be
+      #   accompanied by `returnable_id`.
       #
       #   @return [Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType, nil]
       optional :returnable_type, enum: -> { ModernTreasury::ReturnListParams::ReturnableType }
@@ -58,12 +58,12 @@ module ModernTreasury
       #
       #   @param returnable_id [String] The ID of a valid returnable. Must be accompanied by `returnable_type`.
       #
-      #   @param returnable_type [Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType] One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
+      #   @param returnable_type [Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType] One of `payment_order`, `reversal`, or `incoming_payment_detail`. Must be accomp
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
-      # One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
-      # Must be accompanied by `returnable_id`.
+      # One of `payment_order`, `reversal`, or `incoming_payment_detail`. Must be
+      # accompanied by `returnable_id`.
       module ReturnableType
         extend ModernTreasury::Internal::Type::Enum
 
