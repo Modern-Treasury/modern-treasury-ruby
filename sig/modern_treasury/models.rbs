@@ -313,12 +313,6 @@ module ModernTreasury
 
   class LineItemUpdateParams = ModernTreasury::Models::LineItemUpdateParams
 
-  class PaperItem = ModernTreasury::Models::PaperItem
-
-  class PaperItemListParams = ModernTreasury::Models::PaperItemListParams
-
-  class PaperItemRetrieveParams = ModernTreasury::Models::PaperItemRetrieveParams
-
   class PaymentActionCreateParams = ModernTreasury::Models::PaymentActionCreateParams
 
   class PaymentActionListParams = ModernTreasury::Models::PaymentActionListParams

@@ -85,7 +85,6 @@ module ModernTreasury
 
         EXPECTED_PAYMENT = :expected_payment
         INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
-        PAPER_ITEM = :paper_item
         PAYMENT_ORDER = :payment_order
         RETURN = :return
         REVERSAL = :reversal

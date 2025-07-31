@@ -1,20 +1,6 @@
 module ModernTreasury
   module Resources
     class PaperItems
-      def retrieve: (
-        String id,
-        ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::PaperItem
-
-      def list: (
-        ?after_cursor: String?,
-        ?deposit_date_end: Date,
-        ?deposit_date_start: Date,
-        ?lockbox_number: String,
-        ?per_page: Integer,
-        ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Internal::Page[ModernTreasury::PaperItem]
-
       def initialize: (client: ModernTreasury::Client) -> void
     end
   end

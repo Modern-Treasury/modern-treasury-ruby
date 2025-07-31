@@ -152,7 +152,6 @@ module ModernTreasury
           extend ModernTreasury::Internal::Type::Enum
 
           INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
-          PAPER_ITEM = :paper_item
           PAYMENT_ORDER = :payment_order
           PAYMENT_ORDER_ATTEMPT = :payment_order_attempt
           RETURN = :return

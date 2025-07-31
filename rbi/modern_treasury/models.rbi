@@ -385,12 +385,6 @@ module ModernTreasury
 
   LineItemUpdateParams = ModernTreasury::Models::LineItemUpdateParams
 
-  PaperItem = ModernTreasury::Models::PaperItem
-
-  PaperItemListParams = ModernTreasury::Models::PaperItemListParams
-
-  PaperItemRetrieveParams = ModernTreasury::Models::PaperItemRetrieveParams
-
   PaymentActionCreateParams = ModernTreasury::Models::PaymentActionCreateParams
 
   PaymentActionListParams = ModernTreasury::Models::PaymentActionListParams
