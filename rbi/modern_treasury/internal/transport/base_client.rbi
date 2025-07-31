@@ -223,7 +223,7 @@ module ModernTreasury
             send_retry_header: T::Boolean
           ).returns([Integer, Net::HTTPResponse, T::Enumerable[String]])
         end
-        private def send_request(
+        def send_request(
           request,
           redirect_count:,
           retry_count:,
