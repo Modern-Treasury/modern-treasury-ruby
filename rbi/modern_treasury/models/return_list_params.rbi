@@ -46,8 +46,8 @@ module ModernTreasury
       sig { params(returnable_id: String).void }
       attr_writer :returnable_id
 
-      # One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
-      # Must be accompanied by `returnable_id`.
+      # One of `payment_order`, `reversal`, or `incoming_payment_detail`. Must be
+      # accompanied by `returnable_id`.
       sig do
         returns(
           T.nilable(ModernTreasury::ReturnListParams::ReturnableType::OrSymbol)
@@ -86,8 +86,8 @@ module ModernTreasury
         per_page: nil,
         # The ID of a valid returnable. Must be accompanied by `returnable_type`.
         returnable_id: nil,
-        # One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
-        # Must be accompanied by `returnable_id`.
+        # One of `payment_order`, `reversal`, or `incoming_payment_detail`. Must be
+        # accompanied by `returnable_id`.
         returnable_type: nil,
         request_options: {}
       )
@@ -110,8 +110,8 @@ module ModernTreasury
       def to_hash
       end
 
-      # One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
-      # Must be accompanied by `returnable_id`.
+      # One of `payment_order`, `reversal`, or `incoming_payment_detail`. Must be
+      # accompanied by `returnable_id`.
       module ReturnableType
         extend ModernTreasury::Internal::Type::Enum
 
