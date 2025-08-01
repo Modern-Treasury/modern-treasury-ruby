@@ -94,9 +94,6 @@ module ModernTreasury
     sig { returns(ModernTreasury::Resources::Validations) }
     attr_reader :validations
 
-    sig { returns(ModernTreasury::Resources::PaperItems) }
-    attr_reader :paper_items
-
     sig { returns(ModernTreasury::Resources::VirtualAccounts) }
     attr_reader :virtual_accounts
 
