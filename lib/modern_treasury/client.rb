@@ -99,9 +99,6 @@ module ModernTreasury
     # @return [ModernTreasury::Resources::Validations]
     attr_reader :validations
 
-    # @return [ModernTreasury::Resources::PaperItems]
-    attr_reader :paper_items
-
     # @return [ModernTreasury::Resources::VirtualAccounts]
     attr_reader :virtual_accounts
 
@@ -234,7 +231,6 @@ module ModernTreasury
       @returns = ModernTreasury::Resources::Returns.new(client: self)
       @transactions = ModernTreasury::Resources::Transactions.new(client: self)
       @validations = ModernTreasury::Resources::Validations.new(client: self)
-      @paper_items = ModernTreasury::Resources::PaperItems.new(client: self)
       @virtual_accounts = ModernTreasury::Resources::VirtualAccounts.new(client: self)
       @bulk_requests = ModernTreasury::Resources::BulkRequests.new(client: self)
       @bulk_results = ModernTreasury::Resources::BulkResults.new(client: self)
