@@ -64,8 +64,6 @@ module ModernTreasury
 
     attr_reader validations: ModernTreasury::Resources::Validations
 
-    attr_reader paper_items: ModernTreasury::Resources::PaperItems
-
     attr_reader virtual_accounts: ModernTreasury::Resources::VirtualAccounts
 
     attr_reader bulk_requests: ModernTreasury::Resources::BulkRequests
