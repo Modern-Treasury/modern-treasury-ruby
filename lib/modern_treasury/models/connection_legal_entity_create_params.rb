@@ -46,12 +46,8 @@ module ModernTreasury
 
         # @!attribute bank_settings
         #
-        #   @return [ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::UnnamedTypeWithobjectParent2, nil]
-        optional :bank_settings,
-                 -> {
-                   ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::UnnamedTypeWithobjectParent2
-                 },
-                 nil?: true
+        #   @return [ModernTreasury::Models::LegalEntityBankSettings, nil]
+        optional :bank_settings, -> { ModernTreasury::LegalEntityBankSettings }, nil?: true
 
         # @!attribute business_name
         #   The business's legal business name.
@@ -201,11 +197,9 @@ module ModernTreasury
 
         # @!attribute wealth_and_employment_details
         #
-        #   @return [ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::UnnamedTypeWithobjectParent3, nil]
+        #   @return [ModernTreasury::Models::LegalEntityWealthEmploymentDetail, nil]
         optional :wealth_and_employment_details,
-                 -> {
-                   ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::UnnamedTypeWithobjectParent3
-                 },
+                 -> { ModernTreasury::LegalEntityWealthEmploymentDetail },
                  nil?: true
 
         # @!attribute website
@@ -223,7 +217,7 @@ module ModernTreasury
         #
         #   @param addresses [Array<ModernTreasury::Models::LegalEntityAddressCreateRequest>] A list of addresses for the entity.
         #
-        #   @param bank_settings [ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::UnnamedTypeWithobjectParent2, nil]
+        #   @param bank_settings [ModernTreasury::Models::LegalEntityBankSettings, nil]
         #
         #   @param business_name [String, nil] The business's legal business name.
         #
@@ -269,7 +263,7 @@ module ModernTreasury
         #
         #   @param suffix [String, nil] An individual's suffix.
         #
-        #   @param wealth_and_employment_details [ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::UnnamedTypeWithobjectParent3, nil]
+        #   @param wealth_and_employment_details [ModernTreasury::Models::LegalEntityWealthEmploymentDetail, nil]
         #
         #   @param website [String, nil] The entity's primary website URL.
 

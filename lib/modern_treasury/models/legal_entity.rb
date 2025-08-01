@@ -20,8 +20,8 @@ module ModernTreasury
 
       # @!attribute bank_settings
       #
-      #   @return [ModernTreasury::Models::LegalEntity::UnnamedTypeWithobjectParent6, nil]
-      required :bank_settings, -> { ModernTreasury::LegalEntity::UnnamedTypeWithobjectParent6 }, nil?: true
+      #   @return [ModernTreasury::Models::LegalEntityBankSettings, nil]
+      required :bank_settings, -> { ModernTreasury::LegalEntityBankSettings }, nil?: true
 
       # @!attribute business_name
       #   The business's legal business name.
@@ -189,9 +189,9 @@ module ModernTreasury
 
       # @!attribute wealth_and_employment_details
       #
-      #   @return [ModernTreasury::Models::LegalEntity::UnnamedTypeWithobjectParent7, nil]
+      #   @return [ModernTreasury::Models::LegalEntityWealthEmploymentDetail, nil]
       required :wealth_and_employment_details,
-               -> { ModernTreasury::LegalEntity::UnnamedTypeWithobjectParent7 },
+               -> { ModernTreasury::LegalEntityWealthEmploymentDetail },
                nil?: true
 
       # @!attribute website
@@ -208,7 +208,7 @@ module ModernTreasury
       #
       #   @param addresses [Array<ModernTreasury::Models::LegalEntity::Address>] A list of addresses for the entity.
       #
-      #   @param bank_settings [ModernTreasury::Models::LegalEntity::UnnamedTypeWithobjectParent6, nil]
+      #   @param bank_settings [ModernTreasury::Models::LegalEntityBankSettings, nil]
       #
       #   @param business_name [String, nil] The business's legal business name.
       #
@@ -264,7 +264,7 @@ module ModernTreasury
       #
       #   @param updated_at [Time]
       #
-      #   @param wealth_and_employment_details [ModernTreasury::Models::LegalEntity::UnnamedTypeWithobjectParent7, nil]
+      #   @param wealth_and_employment_details [ModernTreasury::Models::LegalEntityWealthEmploymentDetail, nil]
       #
       #   @param website [String, nil] The entity's primary website URL.
 
