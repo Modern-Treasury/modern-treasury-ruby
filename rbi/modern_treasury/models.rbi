@@ -36,6 +36,8 @@ module ModernTreasury
 
   AsyncResponse = ModernTreasury::Models::AsyncResponse
 
+  BankSettings = ModernTreasury::Models::BankSettings
+
   BulkRequest = ModernTreasury::Models::BulkRequest
 
   BulkRequestCreateParams = ModernTreasury::Models::BulkRequestCreateParams
@@ -363,6 +365,8 @@ module ModernTreasury
   LegalEntityAssociationCreateParams =
     ModernTreasury::Models::LegalEntityAssociationCreateParams
 
+  LegalEntityBankSettings = ModernTreasury::Models::LegalEntityBankSettings
+
   LegalEntityComplianceDetail =
     ModernTreasury::Models::LegalEntityComplianceDetail
 
@@ -376,6 +380,9 @@ module ModernTreasury
   LegalEntityRetrieveParams = ModernTreasury::Models::LegalEntityRetrieveParams
 
   LegalEntityUpdateParams = ModernTreasury::Models::LegalEntityUpdateParams
+
+  LegalEntityWealthEmploymentDetail =
+    ModernTreasury::Models::LegalEntityWealthEmploymentDetail
 
   LineItem = ModernTreasury::Models::LineItem
 
@@ -495,4 +502,7 @@ module ModernTreasury
 
   VirtualAccountUpdateParams =
     ModernTreasury::Models::VirtualAccountUpdateParams
+
+  WealthAndEmploymentDetails =
+    ModernTreasury::Models::WealthAndEmploymentDetails
 end
