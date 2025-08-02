@@ -1,5 +1,43 @@
 # Changelog
 
+## 0.1.0 (2025-08-02)
+
+Full Changelog: [v0.1.0-alpha.22...v0.1.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.22...v0.1.0)
+
+### Features
+
+* **api:** api update ([bc8de9c](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/bc8de9c156d8b75282e5ba888d497deff4b25948))
+* **api:** api update ([95b4873](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/95b48736c2249d8ccc4fe706b3fa526b2f468dc2))
+* **api:** api update ([a62983f](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/a62983f37beadf31634a2a9a9b05837b6b095f63))
+* **api:** api update ([b70a332](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/b70a332777ce561b2fe2f93954aae68cb17b5cf2))
+* **api:** api update ([21fda11](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/21fda11f539d2ea327078312237e2a444b958bfe))
+* **api:** api update ([7d169fa](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/7d169fa6917ce333c76f12628fdd7756aed457ce))
+* **api:** api update ([52d87f6](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/52d87f65e23cc16e10e52fde4ccc81e16a5555ed))
+* **api:** api update ([d466528](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/d46652814f67800f534a702724f406845fd1d416))
+* **api:** api update ([e909ebb](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/e909ebb243d92bc2bd4d23253286e2bdde19eac7))
+* **api:** api update ([f258c75](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/f258c75ae2ae55f46b3318a6d668b670b68eabd2))
+* **api:** api update ([0e4f36d](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/0e4f36dfe47b52ae6eb0738028f4461ef7549051))
+* **api:** manual updates ([12a73dd](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/12a73dd911d167d15d43eb33804f4cda8f3cdd97))
+* **api:** manual updates ([fd4e901](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/fd4e9014ddc3073041f9e5d9b57414f38100f741))
+* **api:** manual updates ([8f250b4](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/8f250b4874e7be94b4823d695bb2a1a93df4afed))
+* **api:** manual updates ([d172b95](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/d172b955661a9a12bc3b59479d8a24a05961c992))
+* **api:** manual updates ([27b506d](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/27b506d96912a07b4753d1686556bf45cc96f269))
+* **api:** manual updates ([b28aa54](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/b28aa54fb130b017a9047236cbfdf4350cb7c72b))
+* **api:** manual updates ([7cfaf73](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/7cfaf730ca33e1405eda1a7472f2e0fa76c7e126))
+
+
+### Bug Fixes
+
+* **api:** make Legal Entity change backwards compatibile ([d4be112](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/d4be112f8ca0f26e72f47cf12738a336b2d591c2))
+* **client:** unique model names ([b35f861](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/b35f86118ac5ca888f11ac7a03c3fc46eeb96540))
+* **internal:** ensure sorbet test always runs serially ([245ad18](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/245ad18fda1d808d934cd93019f1463c9e22132d))
+
+
+### Chores
+
+* **internal:** increase visibility of internal helper method ([5ab5275](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/5ab5275f39dd4309e6fa034071004c2370ea4d4d))
+* update contribute.md ([503a762](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/503a762153cde391cc8b30c87255517e313e7524))
+
 ## 0.1.0-alpha.22 (2025-07-07)
 
 Full Changelog: [v0.1.0-alpha.21...v0.1.0-alpha.22](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.21...v0.1.0-alpha.22)
