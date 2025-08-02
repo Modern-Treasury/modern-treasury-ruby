@@ -70,7 +70,7 @@ module ModernTreasury
         {
           id: String,
           addresses: ::Array[ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Address],
-          bank_settings: ModernTreasury::LegalEntityBankSettings?,
+          bank_settings: ModernTreasury::BankSettings?,
           business_name: String?,
           citizenship_country: String?,
           compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
@@ -97,7 +97,7 @@ module ModernTreasury
           risk_rating: ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::risk_rating?,
           suffix: String?,
           updated_at: Time,
-          wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,
+          wealth_and_employment_details: ModernTreasury::WealthAndEmploymentDetails?,
           website: String?
         }
 
@@ -106,7 +106,7 @@ module ModernTreasury
 
         attr_accessor addresses: ::Array[ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Address]
 
-        attr_accessor bank_settings: ModernTreasury::LegalEntityBankSettings?
+        attr_accessor bank_settings: ModernTreasury::BankSettings?
 
         attr_accessor business_name: String?
 
@@ -160,14 +160,14 @@ module ModernTreasury
 
         attr_accessor updated_at: Time
 
-        attr_accessor wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?
+        attr_accessor wealth_and_employment_details: ModernTreasury::WealthAndEmploymentDetails?
 
         attr_accessor website: String?
 
         def initialize: (
           id: String,
           addresses: ::Array[ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Address],
-          bank_settings: ModernTreasury::LegalEntityBankSettings?,
+          bank_settings: ModernTreasury::BankSettings?,
           business_name: String?,
           citizenship_country: String?,
           compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
@@ -194,14 +194,14 @@ module ModernTreasury
           risk_rating: ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::risk_rating?,
           suffix: String?,
           updated_at: Time,
-          wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,
+          wealth_and_employment_details: ModernTreasury::WealthAndEmploymentDetails?,
           website: String?
         ) -> void
 
         def to_hash: -> {
           id: String,
           addresses: ::Array[ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Address],
-          bank_settings: ModernTreasury::LegalEntityBankSettings?,
+          bank_settings: ModernTreasury::BankSettings?,
           business_name: String?,
           citizenship_country: String?,
           compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
@@ -228,7 +228,7 @@ module ModernTreasury
           risk_rating: ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::risk_rating?,
           suffix: String?,
           updated_at: Time,
-          wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,
+          wealth_and_employment_details: ModernTreasury::WealthAndEmploymentDetails?,
           website: String?
         }
 

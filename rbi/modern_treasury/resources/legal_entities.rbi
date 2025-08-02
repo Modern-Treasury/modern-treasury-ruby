@@ -10,8 +10,7 @@ module ModernTreasury
             ModernTreasury::LegalEntityCreateParams::LegalEntityType::OrSymbol,
           addresses:
             T::Array[ModernTreasury::LegalEntityAddressCreateRequest::OrHash],
-          bank_settings:
-            T.nilable(ModernTreasury::LegalEntityBankSettings::OrHash),
+          bank_settings: T.nilable(ModernTreasury::BankSettings::OrHash),
           business_name: T.nilable(String),
           citizenship_country: T.nilable(String),
           compliance_details:
@@ -51,9 +50,7 @@ module ModernTreasury
             ),
           suffix: T.nilable(String),
           wealth_and_employment_details:
-            T.nilable(
-              ModernTreasury::LegalEntityWealthEmploymentDetail::OrHash
-            ),
+            T.nilable(ModernTreasury::WealthAndEmploymentDetails::OrHash),
           website: T.nilable(String),
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::LegalEntity)
@@ -131,8 +128,7 @@ module ModernTreasury
           id: String,
           addresses:
             T::Array[ModernTreasury::LegalEntityAddressCreateRequest::OrHash],
-          bank_settings:
-            T.nilable(ModernTreasury::LegalEntityBankSettings::OrHash),
+          bank_settings: T.nilable(ModernTreasury::BankSettings::OrHash),
           business_name: T.nilable(String),
           citizenship_country: T.nilable(String),
           compliance_details:
@@ -166,9 +162,7 @@ module ModernTreasury
             ),
           suffix: T.nilable(String),
           wealth_and_employment_details:
-            T.nilable(
-              ModernTreasury::LegalEntityWealthEmploymentDetail::OrHash
-            ),
+            T.nilable(ModernTreasury::WealthAndEmploymentDetails::OrHash),
           website: T.nilable(String),
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::LegalEntity)
