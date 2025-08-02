@@ -14,7 +14,7 @@ module ModernTreasury
       #
       # @param addresses [Array<ModernTreasury::Models::LegalEntityAddressCreateRequest>] A list of addresses for the entity.
       #
-      # @param bank_settings [ModernTreasury::Models::LegalEntityBankSettings, nil]
+      # @param bank_settings [ModernTreasury::Models::BankSettings, nil]
       #
       # @param business_name [String, nil] The business's legal business name.
       #
@@ -58,7 +58,7 @@ module ModernTreasury
       #
       # @param suffix [String, nil] An individual's suffix.
       #
-      # @param wealth_and_employment_details [ModernTreasury::Models::LegalEntityWealthEmploymentDetail, nil]
+      # @param wealth_and_employment_details [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
       #
       # @param website [String, nil] The entity's primary website URL.
       #
@@ -109,7 +109,7 @@ module ModernTreasury
       #
       # @param addresses [Array<ModernTreasury::Models::LegalEntityAddressCreateRequest>] A list of addresses for the entity.
       #
-      # @param bank_settings [ModernTreasury::Models::LegalEntityBankSettings, nil]
+      # @param bank_settings [ModernTreasury::Models::BankSettings, nil]
       #
       # @param business_name [String, nil] The business's legal business name.
       #
@@ -151,7 +151,7 @@ module ModernTreasury
       #
       # @param suffix [String, nil] An individual's suffix.
       #
-      # @param wealth_and_employment_details [ModernTreasury::Models::LegalEntityWealthEmploymentDetail, nil]
+      # @param wealth_and_employment_details [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
       #
       # @param website [String, nil] The entity's primary website URL.
       #

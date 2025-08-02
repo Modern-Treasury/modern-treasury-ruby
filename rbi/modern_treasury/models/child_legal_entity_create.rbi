@@ -27,13 +27,12 @@ module ModernTreasury
       end
       attr_writer :addresses
 
-      sig { returns(T.nilable(ModernTreasury::LegalEntityBankSettings)) }
+      sig { returns(T.nilable(ModernTreasury::BankSettings)) }
       attr_reader :bank_settings
 
       sig do
         params(
-          bank_settings:
-            T.nilable(ModernTreasury::LegalEntityBankSettings::OrHash)
+          bank_settings: T.nilable(ModernTreasury::BankSettings::OrHash)
         ).void
       end
       attr_writer :bank_settings
@@ -200,15 +199,13 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :suffix
 
-      sig do
-        returns(T.nilable(ModernTreasury::LegalEntityWealthEmploymentDetail))
-      end
+      sig { returns(T.nilable(ModernTreasury::WealthAndEmploymentDetails)) }
       attr_reader :wealth_and_employment_details
 
       sig do
         params(
           wealth_and_employment_details:
-            T.nilable(ModernTreasury::LegalEntityWealthEmploymentDetail::OrHash)
+            T.nilable(ModernTreasury::WealthAndEmploymentDetails::OrHash)
         ).void
       end
       attr_writer :wealth_and_employment_details
@@ -221,8 +218,7 @@ module ModernTreasury
         params(
           addresses:
             T::Array[ModernTreasury::LegalEntityAddressCreateRequest::OrHash],
-          bank_settings:
-            T.nilable(ModernTreasury::LegalEntityBankSettings::OrHash),
+          bank_settings: T.nilable(ModernTreasury::BankSettings::OrHash),
           business_name: T.nilable(String),
           citizenship_country: T.nilable(String),
           compliance_details:
@@ -258,9 +254,7 @@ module ModernTreasury
             ),
           suffix: T.nilable(String),
           wealth_and_employment_details:
-            T.nilable(
-              ModernTreasury::LegalEntityWealthEmploymentDetail::OrHash
-            ),
+            T.nilable(ModernTreasury::WealthAndEmploymentDetails::OrHash),
           website: T.nilable(String)
         ).returns(T.attached_class)
       end
@@ -319,7 +313,7 @@ module ModernTreasury
           {
             addresses:
               T::Array[ModernTreasury::LegalEntityAddressCreateRequest],
-            bank_settings: T.nilable(ModernTreasury::LegalEntityBankSettings),
+            bank_settings: T.nilable(ModernTreasury::BankSettings),
             business_name: T.nilable(String),
             citizenship_country: T.nilable(String),
             compliance_details:
@@ -353,7 +347,7 @@ module ModernTreasury
               ),
             suffix: T.nilable(String),
             wealth_and_employment_details:
-              T.nilable(ModernTreasury::LegalEntityWealthEmploymentDetail),
+              T.nilable(ModernTreasury::WealthAndEmploymentDetails),
             website: T.nilable(String)
           }
         )
