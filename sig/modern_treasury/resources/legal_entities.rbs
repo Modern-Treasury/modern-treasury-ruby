@@ -4,7 +4,7 @@ module ModernTreasury
       def create: (
         legal_entity_type: ModernTreasury::Models::LegalEntityCreateParams::legal_entity_type,
         ?addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
-        ?bank_settings: ModernTreasury::LegalEntityBankSettings?,
+        ?bank_settings: ModernTreasury::BankSettings?,
         ?business_name: String?,
         ?citizenship_country: String?,
         ?compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
@@ -26,7 +26,7 @@ module ModernTreasury
         ?prefix: String?,
         ?risk_rating: ModernTreasury::Models::LegalEntityCreateParams::risk_rating?,
         ?suffix: String?,
-        ?wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,
+        ?wealth_and_employment_details: ModernTreasury::WealthAndEmploymentDetails?,
         ?website: String?,
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::LegalEntity
@@ -39,7 +39,7 @@ module ModernTreasury
       def update: (
         String id,
         ?addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
-        ?bank_settings: ModernTreasury::LegalEntityBankSettings?,
+        ?bank_settings: ModernTreasury::BankSettings?,
         ?business_name: String?,
         ?citizenship_country: String?,
         ?compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
@@ -60,7 +60,7 @@ module ModernTreasury
         ?prefix: String?,
         ?risk_rating: ModernTreasury::Models::LegalEntityUpdateParams::risk_rating?,
         ?suffix: String?,
-        ?wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,
+        ?wealth_and_employment_details: ModernTreasury::WealthAndEmploymentDetails?,
         ?website: String?,
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::LegalEntity
