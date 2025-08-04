@@ -20,7 +20,7 @@ module ModernTreasury
         per_page: Integer,
         show_balances: bool,
         show_deleted: bool,
-        status: ModernTreasury::Models::LedgerEntryListParams::status,
+        status: ::Array[ModernTreasury::Models::LedgerEntryListParams::status],
         updated_at: ::Hash[Symbol, Time]
       }
       & ModernTreasury::Internal::Type::request_parameters
@@ -105,11 +105,11 @@ module ModernTreasury
 
       def show_deleted=: (bool) -> bool
 
-      attr_reader status: ModernTreasury::Models::LedgerEntryListParams::status?
+      attr_reader status: ::Array[ModernTreasury::Models::LedgerEntryListParams::status]?
 
       def status=: (
-        ModernTreasury::Models::LedgerEntryListParams::status
-      ) -> ModernTreasury::Models::LedgerEntryListParams::status
+        ::Array[ModernTreasury::Models::LedgerEntryListParams::status]
+      ) -> ::Array[ModernTreasury::Models::LedgerEntryListParams::status]
 
       attr_reader updated_at: ::Hash[Symbol, Time]?
 
@@ -134,7 +134,7 @@ module ModernTreasury
         ?per_page: Integer,
         ?show_balances: bool,
         ?show_deleted: bool,
-        ?status: ModernTreasury::Models::LedgerEntryListParams::status,
+        ?status: ::Array[ModernTreasury::Models::LedgerEntryListParams::status],
         ?updated_at: ::Hash[Symbol, Time],
         ?request_options: ModernTreasury::request_opts
       ) -> void
@@ -158,7 +158,7 @@ module ModernTreasury
         per_page: Integer,
         show_balances: bool,
         show_deleted: bool,
-        status: ModernTreasury::Models::LedgerEntryListParams::status,
+        status: ::Array[ModernTreasury::Models::LedgerEntryListParams::status],
         updated_at: ::Hash[Symbol, Time],
         request_options: ModernTreasury::RequestOptions
       }
@@ -215,34 +215,16 @@ module ModernTreasury
         end
       end
 
-      type status =
-        :pending
-        | :posted
-        | :archived
-        | ::Array[ModernTreasury::Models::LedgerEntryListParams::Status::union_member1]
+      type status = :pending | :posted | :archived
 
       module Status
-        extend ModernTreasury::Internal::Type::Union
-
-        type union_member1 = :pending | :posted | :archived
-
-        module UnionMember1
-          extend ModernTreasury::Internal::Type::Enum
-
-          PENDING: :pending
-          POSTED: :posted
-          ARCHIVED: :archived
-
-          def self?.values: -> ::Array[ModernTreasury::Models::LedgerEntryListParams::Status::union_member1]
-        end
-
-        def self?.variants: -> ::Array[ModernTreasury::Models::LedgerEntryListParams::status]
+        extend ModernTreasury::Internal::Type::Enum
 
         PENDING: :pending
         POSTED: :posted
         ARCHIVED: :archived
 
-        UnionMember1Array: ModernTreasury::Internal::Type::Converter
+        def self?.values: -> ::Array[ModernTreasury::Models::LedgerEntryListParams::status]
       end
     end
   end
