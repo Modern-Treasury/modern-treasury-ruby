@@ -32,7 +32,7 @@ module ModernTreasury
         ?per_page: Integer,
         ?show_balances: bool,
         ?show_deleted: bool,
-        ?status: ModernTreasury::Models::LedgerEntryListParams::status,
+        ?status: ::Array[ModernTreasury::Models::LedgerEntryListParams::status],
         ?updated_at: ::Hash[Symbol, Time],
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::Internal::Page[ModernTreasury::LedgerEntry]

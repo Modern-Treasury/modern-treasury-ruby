@@ -60,9 +60,8 @@ module ModernTreasury
 
         # @!attribute transaction_ids
         #
-        #   @return [Array<Object, nil>]
-        required :transaction_ids,
-                 ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Internal::Type::Unknown, nil?: true]
+        #   @return [Array<String, nil>]
+        required :transaction_ids, ModernTreasury::Internal::Type::ArrayOf[String, nil?: true]
 
         # @!attribute updated_at
         #
@@ -91,7 +90,7 @@ module ModernTreasury
         #
         #   @param status [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Status] The current status of the reversal.
         #
-        #   @param transaction_ids [Array<Object, nil>]
+        #   @param transaction_ids [Array<String, nil>]
         #
         #   @param updated_at [Time]
 

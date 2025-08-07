@@ -51,7 +51,7 @@ module ModernTreasury
         end
         attr_accessor :status
 
-        sig { returns(T::Array[T.nilable(T.anything)]) }
+        sig { returns(T::Array[T.nilable(String)]) }
         attr_accessor :transaction_ids
 
         sig { returns(Time) }
@@ -68,7 +68,7 @@ module ModernTreasury
             payment_order_id: T.nilable(String),
             reason: ModernTreasury::PaymentOrders::Reversal::Reason::OrSymbol,
             status: ModernTreasury::PaymentOrders::Reversal::Status::OrSymbol,
-            transaction_ids: T::Array[T.nilable(T.anything)],
+            transaction_ids: T::Array[T.nilable(String)],
             updated_at: Time
           ).returns(T.attached_class)
         end
@@ -109,7 +109,7 @@ module ModernTreasury
                 ModernTreasury::PaymentOrders::Reversal::Reason::TaggedSymbol,
               status:
                 ModernTreasury::PaymentOrders::Reversal::Status::TaggedSymbol,
-              transaction_ids: T::Array[T.nilable(T.anything)],
+              transaction_ids: T::Array[T.nilable(String)],
               updated_at: Time
             }
           )

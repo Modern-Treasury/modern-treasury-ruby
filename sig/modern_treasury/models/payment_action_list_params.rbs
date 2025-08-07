@@ -134,12 +134,14 @@ module ModernTreasury
         def self?.values: -> ::Array[ModernTreasury::Models::PaymentActionListParams::status]
       end
 
-      type type_ = :evolve_non_processing_transaction | :stop | :issue
+      type type_ =
+        :evolve_non_processing_transaction | :control_file | :stop | :issue
 
       module Type
         extend ModernTreasury::Internal::Type::Enum
 
         EVOLVE_NON_PROCESSING_TRANSACTION: :evolve_non_processing_transaction
+        CONTROL_FILE: :control_file
         STOP: :stop
         ISSUE: :issue
 
