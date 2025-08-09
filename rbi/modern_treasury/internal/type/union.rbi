@@ -16,7 +16,10 @@ module ModernTreasury
             T::Array[
               [
                 T.nilable(Symbol),
-                T.proc.returns(ModernTreasury::Internal::Type::Converter::Input)
+                T.proc.returns(
+                  ModernTreasury::Internal::Type::Converter::Input
+                ),
+                ModernTreasury::Internal::AnyHash
               ]
             ]
           )
@@ -25,7 +28,13 @@ module ModernTreasury
         end
 
         # @api private
-        sig { returns(T::Array[[T.nilable(Symbol), T.anything]]) }
+        sig do
+          returns(
+            T::Array[
+              [T.nilable(Symbol), T.anything, ModernTreasury::Internal::AnyHash]
+            ]
+          )
+        end
         protected def derefed_variants
         end
 
