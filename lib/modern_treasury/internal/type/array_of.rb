@@ -148,6 +148,7 @@ module ModernTreasury
         #   @option spec [Boolean] :"nil?"
         def initialize(type_info, spec = {})
           @item_type_fn = ModernTreasury::Internal::Type::Converter.type_info(type_info || spec)
+          @meta = ModernTreasury::Internal::Type::Converter.meta_info(type_info, spec)
           @nilable = spec.fetch(:nil?, false)
         end
 
