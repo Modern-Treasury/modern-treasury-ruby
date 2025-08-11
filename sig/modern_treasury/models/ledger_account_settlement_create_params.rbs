@@ -59,13 +59,14 @@ module ModernTreasury
         request_options: ModernTreasury::RequestOptions
       }
 
-      type status = :pending | :posted
+      type status = :pending | :posted | :drafting
 
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
         PENDING: :pending
         POSTED: :posted
+        DRAFTING: :drafting
 
         def self?.values: -> ::Array[ModernTreasury::Models::LedgerAccountSettlementCreateParams::status]
       end
