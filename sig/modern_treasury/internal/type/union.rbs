@@ -5,9 +5,9 @@ module ModernTreasury
         include ModernTreasury::Internal::Type::Converter
         include ModernTreasury::Internal::Util::SorbetRuntimeSupport
 
-        private def self.known_variants: -> ::Array[[Symbol?, (^-> ModernTreasury::Internal::Type::Converter::input)]]
+        private def self.known_variants: -> ::Array[[Symbol?, (^-> ModernTreasury::Internal::Type::Converter::input), ::Hash[Symbol, top]]]
 
-        def self.derefed_variants: -> ::Array[[Symbol?, top]]
+        def self.derefed_variants: -> ::Array[[Symbol?, top, ::Hash[Symbol, top]]]
 
         def self.variants: -> ::Array[top]
 

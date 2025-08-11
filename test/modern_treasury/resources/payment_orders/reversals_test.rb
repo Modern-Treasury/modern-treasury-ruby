@@ -21,8 +21,7 @@ class ModernTreasury::Test::Resources::PaymentOrders::ReversalsTest < ModernTrea
         payment_order_id: String | nil,
         reason: ModernTreasury::PaymentOrders::Reversal::Reason,
         status: ModernTreasury::PaymentOrders::Reversal::Status,
-        transaction_ids: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Internal::Type::Unknown,
-                                                                   nil?: true]),
+        transaction_ids: ^(ModernTreasury::Internal::Type::ArrayOf[String, nil?: true]),
         updated_at: Time
       }
     end
@@ -47,8 +46,7 @@ class ModernTreasury::Test::Resources::PaymentOrders::ReversalsTest < ModernTrea
         payment_order_id: String | nil,
         reason: ModernTreasury::PaymentOrders::Reversal::Reason,
         status: ModernTreasury::PaymentOrders::Reversal::Status,
-        transaction_ids: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Internal::Type::Unknown,
-                                                                   nil?: true]),
+        transaction_ids: ^(ModernTreasury::Internal::Type::ArrayOf[String, nil?: true]),
         updated_at: Time
       }
     end
@@ -79,8 +77,7 @@ class ModernTreasury::Test::Resources::PaymentOrders::ReversalsTest < ModernTrea
         payment_order_id: String | nil,
         reason: ModernTreasury::PaymentOrders::Reversal::Reason,
         status: ModernTreasury::PaymentOrders::Reversal::Status,
-        transaction_ids: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Internal::Type::Unknown,
-                                                                   nil?: true]),
+        transaction_ids: ^(ModernTreasury::Internal::Type::ArrayOf[String, nil?: true]),
         updated_at: Time
       }
     end

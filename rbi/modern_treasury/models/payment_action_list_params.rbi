@@ -285,6 +285,11 @@ module ModernTreasury
             :evolve_non_processing_transaction,
             ModernTreasury::PaymentActionListParams::Type::TaggedSymbol
           )
+        CONTROL_FILE =
+          T.let(
+            :control_file,
+            ModernTreasury::PaymentActionListParams::Type::TaggedSymbol
+          )
         STOP =
           T.let(
             :stop,
