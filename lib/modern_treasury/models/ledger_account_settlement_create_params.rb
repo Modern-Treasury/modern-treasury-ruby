@@ -93,6 +93,7 @@ module ModernTreasury
 
         PENDING = :pending
         POSTED = :posted
+        DRAFTING = :drafting
 
         # @!method self.values
         #   @return [Array<Symbol>]

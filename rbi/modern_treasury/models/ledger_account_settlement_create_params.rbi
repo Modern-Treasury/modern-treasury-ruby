@@ -155,6 +155,11 @@ module ModernTreasury
             :posted,
             ModernTreasury::LedgerAccountSettlementCreateParams::Status::TaggedSymbol
           )
+        DRAFTING =
+          T.let(
+            :drafting,
+            ModernTreasury::LedgerAccountSettlementCreateParams::Status::TaggedSymbol
+          )
 
         sig do
           override.returns(
