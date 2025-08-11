@@ -11,7 +11,7 @@ GIT
 PATH
   remote: .
   specs:
-    modern_treasury (0.2.0)
+    modern_treasury (0.3.0)
       connection_pool
 
 GEM
