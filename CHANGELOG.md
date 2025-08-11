@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.2.0 (2025-08-11)
+
+Full Changelog: [v0.1.0...v0.2.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0...v0.2.0)
+
+### Features
+
+* **api:** api update ([9a09dee](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/9a09deeb1763c088711a64846f2fee443af808f1))
+* **api:** api update ([17800f0](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/17800f09cd4eebd8470ef05905750db6dd7774f1))
+
+
+### Chores
+
+* collect metadata from type DSL ([adcbf72](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/adcbf723cee88f404d90dbcb3224477ff3a51fdb))
+* **internal:** update comment in script ([c6df294](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/c6df2947b3350923c86f8a1db5e8f007bef4700b))
+* update @stainless-api/prism-cli to v5.15.0 ([88b3e17](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/88b3e17a56ff0b5b0a699cdbec364f43d7fd0e7b))
+
 ## 0.1.0 (2025-08-02)
 
 Full Changelog: [v0.1.0-alpha.22...v0.1.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.22...v0.1.0)
