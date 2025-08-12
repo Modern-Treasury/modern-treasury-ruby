@@ -44,6 +44,7 @@ module ModernTreasury
         params(
           id: T::Array[String],
           after_cursor: T.nilable(String),
+          amount: ModernTreasury::LedgerEntryListParams::Amount::OrHash,
           as_of_lock_version: Integer,
           direction: ModernTreasury::TransactionDirection::OrSymbol,
           effective_at: T::Hash[Symbol, Time],
@@ -71,6 +72,8 @@ module ModernTreasury
         # parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
         id: nil,
         after_cursor: nil,
+        # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by amount.
+        amount: nil,
         # Shows all ledger entries that were present on a ledger account at a particular
         # `lock_version`. You must also specify `ledger_account_id`.
         as_of_lock_version: nil,
