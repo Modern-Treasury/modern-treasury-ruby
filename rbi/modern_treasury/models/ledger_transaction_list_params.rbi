@@ -25,6 +25,19 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor
 
+      # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by amount.
+      sig do
+        returns(T.nilable(ModernTreasury::LedgerTransactionListParams::Amount))
+      end
+      attr_reader :amount
+
+      sig do
+        params(
+          amount: ModernTreasury::LedgerTransactionListParams::Amount::OrHash
+        ).void
+      end
+      attr_writer :amount
+
       # Use "gt" (>), "gte" (>=), "lt" (<), "lte" (<=), or "eq" (=) to filter by
       # effective at. For example, for all transactions after Jan 1 2000, use
       # effective_at%5Bgt%5D=2000-01-01T00:00:00:00.000Z.
@@ -187,6 +200,7 @@ module ModernTreasury
         params(
           id: T::Array[String],
           after_cursor: T.nilable(String),
+          amount: ModernTreasury::LedgerTransactionListParams::Amount::OrHash,
           effective_at: T::Hash[Symbol, Time],
           effective_date: T::Hash[Symbol, Time],
           external_id: String,
@@ -220,6 +234,8 @@ module ModernTreasury
         # parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
         id: nil,
         after_cursor: nil,
+        # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by amount.
+        amount: nil,
         # Use "gt" (>), "gte" (>=), "lt" (<), "lte" (<=), or "eq" (=) to filter by
         # effective at. For example, for all transactions after Jan 1 2000, use
         # effective_at%5Bgt%5D=2000-01-01T00:00:00:00.000Z.
@@ -264,6 +280,7 @@ module ModernTreasury
           {
             id: T::Array[String],
             after_cursor: T.nilable(String),
+            amount: ModernTreasury::LedgerTransactionListParams::Amount,
             effective_at: T::Hash[Symbol, Time],
             effective_date: T::Hash[Symbol, Time],
             external_id: String,
@@ -293,6 +310,73 @@ module ModernTreasury
         )
       end
       def to_hash
+      end
+
+      class Amount < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              ModernTreasury::LedgerTransactionListParams::Amount,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
+
+        sig { returns(T.nilable(Integer)) }
+        attr_reader :eq
+
+        sig { params(eq: Integer).void }
+        attr_writer :eq
+
+        sig { returns(T.nilable(Integer)) }
+        attr_reader :gt
+
+        sig { params(gt: Integer).void }
+        attr_writer :gt
+
+        sig { returns(T.nilable(Integer)) }
+        attr_reader :gte
+
+        sig { params(gte: Integer).void }
+        attr_writer :gte
+
+        sig { returns(T.nilable(Integer)) }
+        attr_reader :lt
+
+        sig { params(lt: Integer).void }
+        attr_writer :lt
+
+        sig { returns(T.nilable(Integer)) }
+        attr_reader :lte
+
+        sig { params(lte: Integer).void }
+        attr_writer :lte
+
+        # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by amount.
+        sig do
+          params(
+            eq: Integer,
+            gt: Integer,
+            gte: Integer,
+            lt: Integer,
+            lte: Integer
+          ).returns(T.attached_class)
+        end
+        def self.new(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil)
+        end
+
+        sig do
+          override.returns(
+            {
+              eq: Integer,
+              gt: Integer,
+              gte: Integer,
+              lt: Integer,
+              lte: Integer
+            }
+          )
+        end
+        def to_hash
+        end
       end
 
       module LedgerableType
