@@ -16,6 +16,7 @@ module ModernTreasury
       def list: (
         ?id: ::Array[String],
         ?after_cursor: String?,
+        ?amount: ModernTreasury::LedgerEntryListParams::Amount,
         ?as_of_lock_version: Integer,
         ?direction: ModernTreasury::Models::transaction_direction,
         ?effective_at: ::Hash[Symbol, Time],

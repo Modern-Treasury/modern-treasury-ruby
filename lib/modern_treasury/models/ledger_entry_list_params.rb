@@ -19,6 +19,12 @@ module ModernTreasury
       #   @return [String, nil]
       optional :after_cursor, String, nil?: true
 
+      # @!attribute amount
+      #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by amount.
+      #
+      #   @return [ModernTreasury::Models::LedgerEntryListParams::Amount, nil]
+      optional :amount, -> { ModernTreasury::LedgerEntryListParams::Amount }
+
       # @!attribute as_of_lock_version
       #   Shows all ledger entries that were present on a ledger account at a particular
       #   `lock_version`. You must also specify `ledger_account_id`.
@@ -145,13 +151,15 @@ module ModernTreasury
       #   @return [Hash{Symbol=>Time}, nil]
       optional :updated_at, ModernTreasury::Internal::Type::HashOf[Time]
 
-      # @!method initialize(id: nil, after_cursor: nil, as_of_lock_version: nil, direction: nil, effective_at: nil, effective_date: nil, ledger_account_category_id: nil, ledger_account_id: nil, ledger_account_lock_version: nil, ledger_account_payout_id: nil, ledger_account_settlement_id: nil, ledger_account_statement_id: nil, ledger_transaction_id: nil, metadata: nil, order_by: nil, per_page: nil, show_balances: nil, show_deleted: nil, status: nil, updated_at: nil, request_options: {})
+      # @!method initialize(id: nil, after_cursor: nil, amount: nil, as_of_lock_version: nil, direction: nil, effective_at: nil, effective_date: nil, ledger_account_category_id: nil, ledger_account_id: nil, ledger_account_lock_version: nil, ledger_account_payout_id: nil, ledger_account_settlement_id: nil, ledger_account_statement_id: nil, ledger_transaction_id: nil, metadata: nil, order_by: nil, per_page: nil, show_balances: nil, show_deleted: nil, status: nil, updated_at: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LedgerEntryListParams} for more details.
       #
       #   @param id [Array<String>] If you have specific IDs to retrieve in bulk, you can pass them as query paramet
       #
       #   @param after_cursor [String, nil]
+      #
+      #   @param amount [ModernTreasury::Models::LedgerEntryListParams::Amount] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by amount.
       #
       #   @param as_of_lock_version [Integer] Shows all ledger entries that were present on a ledger account at a particular `
       #
@@ -190,6 +198,42 @@ module ModernTreasury
       #   @param updated_at [Hash{Symbol=>Time}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the pos
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
+
+      class Amount < ModernTreasury::Internal::Type::BaseModel
+        # @!attribute eq
+        #
+        #   @return [Integer, nil]
+        optional :eq, Integer
+
+        # @!attribute gt
+        #
+        #   @return [Integer, nil]
+        optional :gt, Integer
+
+        # @!attribute gte
+        #
+        #   @return [Integer, nil]
+        optional :gte, Integer
+
+        # @!attribute lt
+        #
+        #   @return [Integer, nil]
+        optional :lt, Integer
+
+        # @!attribute lte
+        #
+        #   @return [Integer, nil]
+        optional :lte, Integer
+
+        # @!method initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil)
+        #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by amount.
+        #
+        #   @param eq [Integer]
+        #   @param gt [Integer]
+        #   @param gte [Integer]
+        #   @param lt [Integer]
+        #   @param lte [Integer]
+      end
 
       class OrderBy < ModernTreasury::Internal::Type::BaseModel
         # @!attribute created_at

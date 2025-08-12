@@ -25,6 +25,17 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor
 
+      # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by amount.
+      sig { returns(T.nilable(ModernTreasury::LedgerEntryListParams::Amount)) }
+      attr_reader :amount
+
+      sig do
+        params(
+          amount: ModernTreasury::LedgerEntryListParams::Amount::OrHash
+        ).void
+      end
+      attr_writer :amount
+
       # Shows all ledger entries that were present on a ledger account at a particular
       # `lock_version`. You must also specify `ledger_account_id`.
       sig { returns(T.nilable(Integer)) }
@@ -187,6 +198,7 @@ module ModernTreasury
         params(
           id: T::Array[String],
           after_cursor: T.nilable(String),
+          amount: ModernTreasury::LedgerEntryListParams::Amount::OrHash,
           as_of_lock_version: Integer,
           direction: ModernTreasury::TransactionDirection::OrSymbol,
           effective_at: T::Hash[Symbol, Time],
@@ -214,6 +226,8 @@ module ModernTreasury
         # parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
         id: nil,
         after_cursor: nil,
+        # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by amount.
+        amount: nil,
         # Shows all ledger entries that were present on a ledger account at a particular
         # `lock_version`. You must also specify `ledger_account_id`.
         as_of_lock_version: nil,
@@ -274,6 +288,7 @@ module ModernTreasury
           {
             id: T::Array[String],
             after_cursor: T.nilable(String),
+            amount: ModernTreasury::LedgerEntryListParams::Amount,
             as_of_lock_version: Integer,
             direction: ModernTreasury::TransactionDirection::OrSymbol,
             effective_at: T::Hash[Symbol, Time],
@@ -298,6 +313,73 @@ module ModernTreasury
         )
       end
       def to_hash
+      end
+
+      class Amount < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              ModernTreasury::LedgerEntryListParams::Amount,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
+
+        sig { returns(T.nilable(Integer)) }
+        attr_reader :eq
+
+        sig { params(eq: Integer).void }
+        attr_writer :eq
+
+        sig { returns(T.nilable(Integer)) }
+        attr_reader :gt
+
+        sig { params(gt: Integer).void }
+        attr_writer :gt
+
+        sig { returns(T.nilable(Integer)) }
+        attr_reader :gte
+
+        sig { params(gte: Integer).void }
+        attr_writer :gte
+
+        sig { returns(T.nilable(Integer)) }
+        attr_reader :lt
+
+        sig { params(lt: Integer).void }
+        attr_writer :lt
+
+        sig { returns(T.nilable(Integer)) }
+        attr_reader :lte
+
+        sig { params(lte: Integer).void }
+        attr_writer :lte
+
+        # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by amount.
+        sig do
+          params(
+            eq: Integer,
+            gt: Integer,
+            gte: Integer,
+            lt: Integer,
+            lte: Integer
+          ).returns(T.attached_class)
+        end
+        def self.new(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil)
+        end
+
+        sig do
+          override.returns(
+            {
+              eq: Integer,
+              gt: Integer,
+              gte: Integer,
+              lt: Integer,
+              lte: Integer
+            }
+          )
+        end
+        def to_hash
+        end
       end
 
       class OrderBy < ModernTreasury::Internal::Type::BaseModel
