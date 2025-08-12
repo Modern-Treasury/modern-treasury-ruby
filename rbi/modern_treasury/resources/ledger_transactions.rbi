@@ -116,6 +116,7 @@ module ModernTreasury
         params(
           id: T::Array[String],
           after_cursor: T.nilable(String),
+          amount: ModernTreasury::LedgerTransactionListParams::Amount::OrHash,
           effective_at: T::Hash[Symbol, Time],
           effective_date: T::Hash[Symbol, Time],
           external_id: String,
@@ -151,6 +152,8 @@ module ModernTreasury
         # parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
         id: nil,
         after_cursor: nil,
+        # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by amount.
+        amount: nil,
         # Use "gt" (>), "gte" (>=), "lt" (<), "lte" (<=), or "eq" (=) to filter by
         # effective at. For example, for all transactions after Jan 1 2000, use
         # effective_at%5Bgt%5D=2000-01-01T00:00:00:00.000Z.
