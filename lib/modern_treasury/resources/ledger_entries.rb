@@ -62,11 +62,13 @@ module ModernTreasury
       #
       # Get a list of all ledger entries.
       #
-      # @overload list(id: nil, after_cursor: nil, as_of_lock_version: nil, direction: nil, effective_at: nil, effective_date: nil, ledger_account_category_id: nil, ledger_account_id: nil, ledger_account_lock_version: nil, ledger_account_payout_id: nil, ledger_account_settlement_id: nil, ledger_account_statement_id: nil, ledger_transaction_id: nil, metadata: nil, order_by: nil, per_page: nil, show_balances: nil, show_deleted: nil, status: nil, updated_at: nil, request_options: {})
+      # @overload list(id: nil, after_cursor: nil, amount: nil, as_of_lock_version: nil, direction: nil, effective_at: nil, effective_date: nil, ledger_account_category_id: nil, ledger_account_id: nil, ledger_account_lock_version: nil, ledger_account_payout_id: nil, ledger_account_settlement_id: nil, ledger_account_statement_id: nil, ledger_transaction_id: nil, metadata: nil, order_by: nil, per_page: nil, show_balances: nil, show_deleted: nil, status: nil, updated_at: nil, request_options: {})
       #
       # @param id [Array<String>] If you have specific IDs to retrieve in bulk, you can pass them as query paramet
       #
       # @param after_cursor [String, nil]
+      #
+      # @param amount [ModernTreasury::Models::LedgerEntryListParams::Amount] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by amount.
       #
       # @param as_of_lock_version [Integer] Shows all ledger entries that were present on a ledger account at a particular `
       #
