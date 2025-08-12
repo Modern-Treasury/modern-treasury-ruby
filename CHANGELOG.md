@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.0 (2025-08-12)
+
+Full Changelog: [v0.3.0...v0.4.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.3.0...v0.4.0)
+
+### Features
+
+* **api:** api update ([9338696](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/9338696991502c9587ac12e99bf438f318ed5dcd))
+* **api:** manual updates ([51fe69c](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/51fe69cc3f20b854ae8c9e10488784eea87811d5))
+
 ## 0.3.0 (2025-08-11)
 
 Full Changelog: [v0.2.0...v0.3.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.2.0...v0.3.0)
