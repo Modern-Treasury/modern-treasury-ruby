@@ -36,6 +36,7 @@ module ModernTreasury
       def list: (
         ?id: ::Array[String],
         ?after_cursor: String?,
+        ?amount: ModernTreasury::LedgerTransactionListParams::Amount,
         ?effective_at: ::Hash[Symbol, Time],
         ?effective_date: ::Hash[Symbol, Time],
         ?external_id: String,

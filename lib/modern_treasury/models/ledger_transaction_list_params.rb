@@ -19,6 +19,12 @@ module ModernTreasury
       #   @return [String, nil]
       optional :after_cursor, String, nil?: true
 
+      # @!attribute amount
+      #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by amount.
+      #
+      #   @return [ModernTreasury::Models::LedgerTransactionListParams::Amount, nil]
+      optional :amount, -> { ModernTreasury::LedgerTransactionListParams::Amount }
+
       # @!attribute effective_at
       #   Use "gt" (>), "gte" (>=), "lt" (<), "lte" (<=), or "eq" (=) to filter by
       #   effective at. For example, for all transactions after Jan 1 2000, use
@@ -122,13 +128,15 @@ module ModernTreasury
       #   @return [Hash{Symbol=>Time}, nil]
       optional :updated_at, ModernTreasury::Internal::Type::HashOf[Time]
 
-      # @!method initialize(id: nil, after_cursor: nil, effective_at: nil, effective_date: nil, external_id: nil, ledger_account_category_id: nil, ledger_account_id: nil, ledger_account_settlement_id: nil, ledger_id: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, order_by: nil, partially_posts_ledger_transaction_id: nil, per_page: nil, posted_at: nil, reverses_ledger_transaction_id: nil, status: nil, updated_at: nil, request_options: {})
+      # @!method initialize(id: nil, after_cursor: nil, amount: nil, effective_at: nil, effective_date: nil, external_id: nil, ledger_account_category_id: nil, ledger_account_id: nil, ledger_account_settlement_id: nil, ledger_id: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, order_by: nil, partially_posts_ledger_transaction_id: nil, per_page: nil, posted_at: nil, reverses_ledger_transaction_id: nil, status: nil, updated_at: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LedgerTransactionListParams} for more details.
       #
       #   @param id [Array<String>] If you have specific IDs to retrieve in bulk, you can pass them as query paramet
       #
       #   @param after_cursor [String, nil]
+      #
+      #   @param amount [ModernTreasury::Models::LedgerTransactionListParams::Amount] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by amount.
       #
       #   @param effective_at [Hash{Symbol=>Time}] Use "gt" (>), "gte" (>=), "lt" (<), "lte" (<=), or "eq" (=) to filter by effecti
       #
@@ -165,6 +173,42 @@ module ModernTreasury
       #   @param updated_at [Hash{Symbol=>Time}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the pos
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
+
+      class Amount < ModernTreasury::Internal::Type::BaseModel
+        # @!attribute eq
+        #
+        #   @return [Integer, nil]
+        optional :eq, Integer
+
+        # @!attribute gt
+        #
+        #   @return [Integer, nil]
+        optional :gt, Integer
+
+        # @!attribute gte
+        #
+        #   @return [Integer, nil]
+        optional :gte, Integer
+
+        # @!attribute lt
+        #
+        #   @return [Integer, nil]
+        optional :lt, Integer
+
+        # @!attribute lte
+        #
+        #   @return [Integer, nil]
+        optional :lte, Integer
+
+        # @!method initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil)
+        #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by amount.
+        #
+        #   @param eq [Integer]
+        #   @param gt [Integer]
+        #   @param gte [Integer]
+        #   @param lt [Integer]
+        #   @param lte [Integer]
+      end
 
       module LedgerableType
         extend ModernTreasury::Internal::Type::Enum
