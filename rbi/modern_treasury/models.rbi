@@ -365,6 +365,8 @@ module ModernTreasury
   LegalEntityAssociationCreateParams =
     ModernTreasury::Models::LegalEntityAssociationCreateParams
 
+  LegalEntityBankSettings = ModernTreasury::Models::LegalEntityBankSettings
+
   LegalEntityComplianceDetail =
     ModernTreasury::Models::LegalEntityComplianceDetail
 
@@ -378,6 +380,9 @@ module ModernTreasury
   LegalEntityRetrieveParams = ModernTreasury::Models::LegalEntityRetrieveParams
 
   LegalEntityUpdateParams = ModernTreasury::Models::LegalEntityUpdateParams
+
+  LegalEntityWealthEmploymentDetail =
+    ModernTreasury::Models::LegalEntityWealthEmploymentDetail
 
   LineItem = ModernTreasury::Models::LineItem
 
