@@ -32,9 +32,7 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field>, nil]
       optional :fields,
-               -> {
-                 ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::CounterpartyCollectAccountParams::Field]
-               }
+               -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::CounterpartyCollectAccountParams::Field] }
 
       # @!attribute send_email
       #   By default, Modern Treasury will send an email to your counterparty that

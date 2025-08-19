@@ -28,9 +28,7 @@ module ModernTreasury
           #   @return [Array(String, Symbol)]
 
           define_sorbet_constant!(:Variants) do
-            T.type_alias do
-              T.any(String, ModernTreasury::InternalAccounts::BalanceReportRetrieveParams::ID::TaggedSymbol)
-            end
+            T.type_alias { T.any(String, ModernTreasury::InternalAccounts::BalanceReportRetrieveParams::ID::TaggedSymbol) }
           end
 
           # @!group

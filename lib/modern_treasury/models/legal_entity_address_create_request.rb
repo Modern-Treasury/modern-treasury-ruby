@@ -37,9 +37,7 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::LegalEntityAddressCreateRequest::AddressType>, nil]
       optional :address_types,
-               -> {
-                 ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::LegalEntityAddressCreateRequest::AddressType]
-               }
+               -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::LegalEntityAddressCreateRequest::AddressType] }
 
       # @!attribute line2
       #

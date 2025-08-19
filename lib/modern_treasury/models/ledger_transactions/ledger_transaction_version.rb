@@ -56,9 +56,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry>]
         required :ledger_entries,
-                 -> {
-                   ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LedgerTransactions::LedgerTransactionVersion::LedgerEntry]
-                 }
+                 -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LedgerTransactions::LedgerTransactionVersion::LedgerEntry] }
 
         # @!attribute ledger_id
         #   The ID of the ledger this ledger transaction belongs to.
@@ -290,9 +288,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::Status]
           required :status,
-                   enum: -> {
-                     ModernTreasury::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::Status
-                   }
+                   enum: -> { ModernTreasury::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::Status }
 
           # @!method initialize(id:, amount:, created_at:, direction:, ledger_account_currency:, ledger_account_currency_exponent:, ledger_account_id:, ledger_account_lock_version:, ledger_transaction_id:, live_mode:, metadata:, object:, resulting_ledger_account_balances:, status:)
           #   Some parameter documentations has been truncated, see

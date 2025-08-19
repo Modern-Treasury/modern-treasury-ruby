@@ -24,10 +24,7 @@ module ModernTreasury
       #   filter by balance amount.
       #
       #   @return [ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount, nil]
-      optional :available_balance_amount,
-               -> {
-                 ModernTreasury::LedgerAccountListParams::AvailableBalanceAmount
-               }
+      optional :available_balance_amount, -> { ModernTreasury::LedgerAccountListParams::AvailableBalanceAmount }
 
       # @!attribute balances
       #   Use `balances[effective_at_lower_bound]` and

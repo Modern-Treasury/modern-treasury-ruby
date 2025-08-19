@@ -18,9 +18,7 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::LegalEntityAssociationCreateParams::RelationshipType>]
       required :relationship_types,
-               -> {
-                 ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::LegalEntityAssociationCreateParams::RelationshipType]
-               }
+               -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::LegalEntityAssociationCreateParams::RelationshipType] }
 
       # @!attribute child_legal_entity
       #   The child legal entity.
