@@ -11,10 +11,7 @@ module ModernTreasury
       #   Describes the condition that must be satisfied for the monitor to be triggered.
       #
       #   @return [ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition]
-      required :alert_condition,
-               -> {
-                 ModernTreasury::LedgerAccountBalanceMonitorCreateParams::AlertCondition
-               }
+      required :alert_condition, -> { ModernTreasury::LedgerAccountBalanceMonitorCreateParams::AlertCondition }
 
       # @!attribute ledger_account_id
       #   The ledger account associated with this balance monitor.

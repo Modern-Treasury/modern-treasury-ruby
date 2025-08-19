@@ -139,9 +139,7 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::LedgerEntryListParams::Status>, nil]
       optional :status,
-               -> {
-                 ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::LedgerEntryListParams::Status]
-               }
+               -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::LedgerEntryListParams::Status] }
 
       # @!attribute updated_at
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the

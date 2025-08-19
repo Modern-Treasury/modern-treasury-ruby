@@ -38,9 +38,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::InternalAccountCreateParams::AccountCapability>, nil]
       optional :account_capabilities,
-               -> {
-                 ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccountCreateParams::AccountCapability]
-               }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccountCreateParams::AccountCapability] }
 
       # @!attribute account_type
       #   The account type, used to provision the appropriate account at the financial
