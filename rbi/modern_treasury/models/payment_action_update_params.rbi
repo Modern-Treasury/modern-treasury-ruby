@@ -80,6 +80,11 @@ module ModernTreasury
             :sent,
             ModernTreasury::PaymentActionUpdateParams::Status::TaggedSymbol
           )
+        ACKNOWLEDGED =
+          T.let(
+            :acknowledged,
+            ModernTreasury::PaymentActionUpdateParams::Status::TaggedSymbol
+          )
         FAILED =
           T.let(
             :failed,
