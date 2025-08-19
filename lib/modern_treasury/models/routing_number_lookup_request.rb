@@ -29,10 +29,7 @@ module ModernTreasury
       #   routing numbers '123456789' and 'GRINUST0XXX' respectively.
       #
       #   @return [Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType, nil]
-      optional :routing_number_type,
-               enum: -> {
-                 ModernTreasury::RoutingNumberLookupRequest::RoutingNumberType
-               }
+      optional :routing_number_type, enum: -> { ModernTreasury::RoutingNumberLookupRequest::RoutingNumberType }
 
       # @!attribute sanctions
       #   An object containing key-value pairs, each with a sanctions list as the key and
@@ -48,9 +45,7 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType>, nil]
       optional :supported_payment_types,
-               -> {
-                 ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::RoutingNumberLookupRequest::SupportedPaymentType]
-               }
+               -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::RoutingNumberLookupRequest::SupportedPaymentType] }
 
       # @!method initialize(bank_address: nil, bank_name: nil, routing_number: nil, routing_number_type: nil, sanctions: nil, supported_payment_types: nil)
       #   Some parameter documentations has been truncated, see

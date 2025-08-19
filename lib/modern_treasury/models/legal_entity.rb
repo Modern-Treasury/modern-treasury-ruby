@@ -13,10 +13,7 @@ module ModernTreasury
       #   A list of addresses for the entity.
       #
       #   @return [Array<ModernTreasury::Models::LegalEntity::Address>]
-      required :addresses,
-               -> {
-                 ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntity::Address]
-               }
+      required :addresses, -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntity::Address] }
 
       # @!attribute bank_settings
       #
@@ -91,9 +88,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::LegalEntityIndustryClassification>]
       required :industry_classifications,
-               -> {
-                 ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityIndustryClassification]
-               }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityIndustryClassification] }
 
       # @!attribute last_name
       #   An individual's last name.
@@ -279,9 +274,7 @@ module ModernTreasury
         #
         #   @return [Array<Symbol, ModernTreasury::Models::LegalEntity::Address::AddressType>]
         required :address_types,
-                 -> {
-                   ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::LegalEntity::Address::AddressType]
-                 }
+                 -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::LegalEntity::Address::AddressType] }
 
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]

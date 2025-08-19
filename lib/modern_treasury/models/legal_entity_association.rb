@@ -54,9 +54,7 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::LegalEntityAssociation::RelationshipType>]
       required :relationship_types,
-               -> {
-                 ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::LegalEntityAssociation::RelationshipType]
-               }
+               -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::LegalEntityAssociation::RelationshipType] }
 
       # @!attribute title
       #   The job title of the child entity at the parent entity.
@@ -107,9 +105,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address>]
         required :addresses,
-                 -> {
-                   ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Address]
-                 }
+                 -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Address] }
 
         # @!attribute bank_settings
         #
@@ -177,18 +173,14 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification>]
         required :identifications,
-                 -> {
-                   ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification]
-                 }
+                 -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification] }
 
         # @!attribute industry_classifications
         #   A list of industry classifications for the legal entity.
         #
         #   @return [Array<ModernTreasury::Models::LegalEntityIndustryClassification>]
         required :industry_classifications,
-                 -> {
-                   ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityIndustryClassification]
-                 }
+                 -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityIndustryClassification] }
 
         # @!attribute last_name
         #   An individual's last name.
@@ -240,9 +232,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::PhoneNumber>]
         required :phone_numbers,
-                 -> {
-                   ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityAssociation::ChildLegalEntity::PhoneNumber]
-                 }
+                 -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityAssociation::ChildLegalEntity::PhoneNumber] }
 
         # @!attribute politically_exposed_person
         #   Whether the individual is a politically exposed person.
@@ -374,9 +364,7 @@ module ModernTreasury
           #
           #   @return [Array<Symbol, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address::AddressType>]
           required :address_types,
-                   -> {
-                     ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Address::AddressType]
-                   }
+                   -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Address::AddressType] }
 
           # @!attribute country
           #   Country code conforms to [ISO 3166-1 alpha-2]
@@ -512,9 +500,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType]
           required :id_type,
-                   enum: -> {
-                     ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification::IDType
-                   }
+                   enum: -> { ModernTreasury::LegalEntityAssociation::ChildLegalEntity::Identification::IDType }
 
           # @!attribute issuing_country
           #   The ISO 3166-1 alpha-2 country code of the country that issued the

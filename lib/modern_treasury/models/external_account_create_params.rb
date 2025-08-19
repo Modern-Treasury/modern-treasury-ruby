@@ -22,9 +22,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail>, nil]
       optional :account_details,
-               -> {
-                 ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ExternalAccountCreateParams::AccountDetail]
-               }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ExternalAccountCreateParams::AccountDetail] }
 
       # @!attribute account_type
       #   Can be `checking`, `savings` or `other`.
@@ -96,9 +94,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail>, nil]
       optional :routing_details,
-               -> {
-                 ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ExternalAccountCreateParams::RoutingDetail]
-               }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ExternalAccountCreateParams::RoutingDetail] }
 
       # @!method initialize(counterparty_id:, body_external_id: nil, account_details: nil, account_type: nil, contact_details: nil, ledger_account: nil, metadata: nil, name: nil, party_address: nil, party_identifier: nil, party_name: nil, party_type: nil, plaid_processor_token: nil, routing_details: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
