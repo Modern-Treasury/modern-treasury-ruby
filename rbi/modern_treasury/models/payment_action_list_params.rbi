@@ -248,6 +248,11 @@ module ModernTreasury
             :sent,
             ModernTreasury::PaymentActionListParams::Status::TaggedSymbol
           )
+        ACKNOWLEDGED =
+          T.let(
+            :acknowledged,
+            ModernTreasury::PaymentActionListParams::Status::TaggedSymbol
+          )
         FAILED =
           T.let(
             :failed,
@@ -280,16 +285,6 @@ module ModernTreasury
           end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        EVOLVE_NON_PROCESSING_TRANSACTION =
-          T.let(
-            :evolve_non_processing_transaction,
-            ModernTreasury::PaymentActionListParams::Type::TaggedSymbol
-          )
-        CONTROL_FILE =
-          T.let(
-            :control_file,
-            ModernTreasury::PaymentActionListParams::Type::TaggedSymbol
-          )
         STOP =
           T.let(
             :stop,
