@@ -9,7 +9,7 @@ module ModernTreasury
         currency: String,
         currency_exponent: Integer?,
         description: String?,
-        effective_at_upper_bound: Time,
+        effective_at_upper_bound: Time?,
         ledger_id: String,
         ledger_transaction_id: String?,
         live_mode: bool,
@@ -36,7 +36,7 @@ module ModernTreasury
 
       attr_accessor description: String?
 
-      attr_accessor effective_at_upper_bound: Time
+      attr_accessor effective_at_upper_bound: Time?
 
       attr_accessor ledger_id: String
 
@@ -64,7 +64,7 @@ module ModernTreasury
         currency: String,
         currency_exponent: Integer?,
         description: String?,
-        effective_at_upper_bound: Time,
+        effective_at_upper_bound: Time?,
         ledger_id: String,
         ledger_transaction_id: String?,
         live_mode: bool,
@@ -84,7 +84,7 @@ module ModernTreasury
         currency: String,
         currency_exponent: Integer?,
         description: String?,
-        effective_at_upper_bound: Time,
+        effective_at_upper_bound: Time?,
         ledger_id: String,
         ledger_transaction_id: String?,
         live_mode: bool,
