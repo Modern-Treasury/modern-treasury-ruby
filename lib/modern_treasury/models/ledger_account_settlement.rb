@@ -50,8 +50,8 @@ module ModernTreasury
       #   be included in the ledger account settlement. The default value is the
       #   created_at timestamp of the ledger account settlement.
       #
-      #   @return [Time]
-      required :effective_at_upper_bound, Time
+      #   @return [Time, nil]
+      required :effective_at_upper_bound, Time, nil?: true
 
       # @!attribute ledger_id
       #   The id of the ledger that this ledger account settlement belongs to.
@@ -127,7 +127,7 @@ module ModernTreasury
       #
       #   @param description [String, nil] The description of the ledger account settlement.
       #
-      #   @param effective_at_upper_bound [Time] The exclusive upper bound of the effective_at timestamp of the ledger entries to
+      #   @param effective_at_upper_bound [Time, nil] The exclusive upper bound of the effective_at timestamp of the ledger entries to
       #
       #   @param ledger_id [String] The id of the ledger that this ledger account settlement belongs to.
       #
