@@ -24,9 +24,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail>, nil]
       optional :account_details,
-               -> {
-                 ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::VirtualAccountCreateParams::AccountDetail]
-               }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::VirtualAccountCreateParams::AccountDetail] }
 
       # @!attribute counterparty_id
       #   The ID of the counterparty that the virtual account belongs to.
@@ -76,9 +74,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail>, nil]
       optional :routing_details,
-               -> {
-                 ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::VirtualAccountCreateParams::RoutingDetail]
-               }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::VirtualAccountCreateParams::RoutingDetail] }
 
       # @!method initialize(internal_account_id:, name:, account_details: nil, counterparty_id: nil, credit_ledger_account_id: nil, debit_ledger_account_id: nil, description: nil, ledger_account: nil, metadata: nil, routing_details: nil, request_options: {})
       #   Some parameter documentations has been truncated, see

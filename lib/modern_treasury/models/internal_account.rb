@@ -15,9 +15,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::InternalAccount::AccountCapability>]
       required :account_capabilities,
-               -> {
-                 ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccount::AccountCapability]
-               }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccount::AccountCapability] }
 
       # @!attribute account_details
       #   An array of account detail objects.

@@ -111,11 +111,13 @@ module ModernTreasury
       #
       # Get a list of ledger transactions.
       #
-      # @overload list(id: nil, after_cursor: nil, effective_at: nil, effective_date: nil, external_id: nil, ledger_account_category_id: nil, ledger_account_id: nil, ledger_account_settlement_id: nil, ledger_id: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, order_by: nil, partially_posts_ledger_transaction_id: nil, per_page: nil, posted_at: nil, reverses_ledger_transaction_id: nil, status: nil, updated_at: nil, request_options: {})
+      # @overload list(id: nil, after_cursor: nil, amount: nil, effective_at: nil, effective_date: nil, external_id: nil, ledger_account_category_id: nil, ledger_account_id: nil, ledger_account_settlement_id: nil, ledger_id: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, order_by: nil, partially_posts_ledger_transaction_id: nil, per_page: nil, posted_at: nil, reverses_ledger_transaction_id: nil, status: nil, updated_at: nil, request_options: {})
       #
       # @param id [Array<String>] If you have specific IDs to retrieve in bulk, you can pass them as query paramet
       #
       # @param after_cursor [String, nil]
+      #
+      # @param amount [ModernTreasury::Models::LedgerTransactionListParams::Amount] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by amount.
       #
       # @param effective_at [Hash{Symbol=>Time}] Use "gt" (>), "gte" (>=), "lt" (<), "lte" (<=), or "eq" (=) to filter by effecti
       #

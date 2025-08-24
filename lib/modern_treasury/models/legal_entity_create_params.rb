@@ -83,9 +83,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::LegalEntityIndustryClassification>, nil]
       optional :industry_classifications,
-               -> {
-                 ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityIndustryClassification]
-               }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityIndustryClassification] }
 
       # @!attribute last_name
       #   An individual's last name.
@@ -128,9 +126,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::LegalEntityCreateParams::PhoneNumber>, nil]
       optional :phone_numbers,
-               -> {
-                 ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityCreateParams::PhoneNumber]
-               }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityCreateParams::PhoneNumber] }
 
       # @!attribute politically_exposed_person
       #   Whether the individual is a politically exposed person.
@@ -249,9 +245,7 @@ module ModernTreasury
         #
         #   @return [Array<Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::RelationshipType>]
         required :relationship_types,
-                 -> {
-                   ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::RelationshipType]
-                 }
+                 -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::LegalEntityCreateParams::LegalEntityAssociation::RelationshipType] }
 
         # @!attribute child_legal_entity
         #   The child legal entity.

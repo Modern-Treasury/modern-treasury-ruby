@@ -33,9 +33,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance>]
         required :balances,
-                 -> {
-                   ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance]
-                 }
+                 -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance] }
 
         # @!method initialize(as_of_date:, as_of_time:, balance_report_type:, balances:, request_options: {})
         #   Some parameter documentations has been truncated, see
@@ -81,9 +79,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType]
           required :balance_type,
-                   enum: -> {
-                     ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType
-                   }
+                   enum: -> { ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType }
 
           # @!attribute vendor_code
           #   The code used by the bank when reporting this specific balance.

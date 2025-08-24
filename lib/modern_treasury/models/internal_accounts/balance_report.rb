@@ -35,9 +35,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::InternalAccounts::BalanceReport::Balance>]
         required :balances,
-                 -> {
-                   ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccounts::BalanceReport::Balance]
-                 }
+                 -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccounts::BalanceReport::Balance] }
 
         # @!attribute created_at
         #
@@ -138,10 +136,7 @@ module ModernTreasury
           #   'previously_closed_book', or `other`.
           #
           #   @return [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::BalanceType]
-          required :balance_type,
-                   enum: -> {
-                     ModernTreasury::InternalAccounts::BalanceReport::Balance::BalanceType
-                   }
+          required :balance_type, enum: -> { ModernTreasury::InternalAccounts::BalanceReport::Balance::BalanceType }
 
           # @!attribute created_at
           #

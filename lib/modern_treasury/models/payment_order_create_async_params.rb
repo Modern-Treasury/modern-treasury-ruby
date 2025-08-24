@@ -144,9 +144,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem>, nil]
       optional :line_items,
-               -> {
-                 ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::PaymentOrderCreateAsyncParams::LineItem]
-               }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::PaymentOrderCreateAsyncParams::LineItem] }
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
@@ -468,9 +466,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail>, nil]
         optional :account_details,
-                 -> {
-                   ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail]
-                 }
+                 -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail] }
 
         # @!attribute account_type
         #   Can be `checking`, `savings` or `other`.
@@ -550,9 +546,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail>, nil]
         optional :routing_details,
-                 -> {
-                   ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail]
-                 }
+                 -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail] }
 
         # @!method initialize(account_details: nil, account_type: nil, contact_details: nil, external_id: nil, ledger_account: nil, metadata: nil, name: nil, party_address: nil, party_identifier: nil, party_name: nil, party_type: nil, plaid_processor_token: nil, routing_details: nil)
         #   Some parameter documentations has been truncated, see
@@ -599,9 +593,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType, nil]
           optional :account_number_type,
-                   enum: -> {
-                     ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType
-                   }
+                   enum: -> { ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType }
 
           # @!method initialize(account_number:, account_number_type: nil)
           #   @param account_number [String]
@@ -654,17 +646,13 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType]
           required :routing_number_type,
-                   enum: -> {
-                     ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType
-                   }
+                   enum: -> { ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType }
 
           # @!attribute payment_type
           #
           #   @return [Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType, nil]
           optional :payment_type,
-                   enum: -> {
-                     ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType
-                   }
+                   enum: -> { ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType }
 
           # @!method initialize(routing_number:, routing_number_type:, payment_type: nil)
           #   @param routing_number [String]

@@ -43,7 +43,7 @@ module ModernTreasury
       attr_accessor :object
 
       # The current status of the payment action. One of `pending`, `processing`,
-      # `sent`, `cancelled`, or `failed`.
+      # `sent`, `acknowledged`, `cancelled`, or `failed`.
       sig { returns(String) }
       attr_accessor :status
 
@@ -86,7 +86,7 @@ module ModernTreasury
         live_mode:,
         object:,
         # The current status of the payment action. One of `pending`, `processing`,
-        # `sent`, `cancelled`, or `failed`.
+        # `sent`, `acknowledged`, `cancelled`, or `failed`.
         status:,
         # The type of the payment action. Determines the action to be taken.
         type:,

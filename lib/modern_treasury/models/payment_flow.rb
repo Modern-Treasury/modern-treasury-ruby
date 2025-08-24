@@ -78,10 +78,7 @@ module ModernTreasury
       #   when completing the flow.
       #
       #   @return [Symbol, ModernTreasury::Models::PaymentFlow::ExternalAccountCollection, nil]
-      optional :external_account_collection,
-               enum: -> {
-                 ModernTreasury::PaymentFlow::ExternalAccountCollection
-               }
+      optional :external_account_collection, enum: -> { ModernTreasury::PaymentFlow::ExternalAccountCollection }
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false

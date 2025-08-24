@@ -156,9 +156,7 @@ module ModernTreasury
           #
           #   @return [Array<ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError>]
           required :request_errors,
-                   -> {
-                     ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::BulkResult::Entity::BulkError::RequestError]
-                   }
+                   -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::BulkResult::Entity::BulkError::RequestError] }
 
           # @!attribute updated_at
           #
