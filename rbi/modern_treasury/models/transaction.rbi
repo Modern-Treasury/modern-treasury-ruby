@@ -301,6 +301,7 @@ module ModernTreasury
         EFT = T.let(:eft, ModernTreasury::Transaction::Type::TaggedSymbol)
         ETHEREUM =
           T.let(:ethereum, ModernTreasury::Transaction::Type::TaggedSymbol)
+        GB_FPS = T.let(:gb_fps, ModernTreasury::Transaction::Type::TaggedSymbol)
         HU_ICS = T.let(:hu_ics, ModernTreasury::Transaction::Type::TaggedSymbol)
         INTERAC =
           T.let(:interac, ModernTreasury::Transaction::Type::TaggedSymbol)

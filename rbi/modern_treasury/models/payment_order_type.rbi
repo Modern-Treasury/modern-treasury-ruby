@@ -26,6 +26,7 @@ module ModernTreasury
       EFT = T.let(:eft, ModernTreasury::PaymentOrderType::TaggedSymbol)
       ETHEREUM =
         T.let(:ethereum, ModernTreasury::PaymentOrderType::TaggedSymbol)
+      GB_FPS = T.let(:gb_fps, ModernTreasury::PaymentOrderType::TaggedSymbol)
       HU_ICS = T.let(:hu_ics, ModernTreasury::PaymentOrderType::TaggedSymbol)
       INTERAC = T.let(:interac, ModernTreasury::PaymentOrderType::TaggedSymbol)
       MASAV = T.let(:masav, ModernTreasury::PaymentOrderType::TaggedSymbol)

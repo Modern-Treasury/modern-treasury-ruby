@@ -402,6 +402,11 @@ module ModernTreasury
               :ethereum,
               ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
             )
+          GB_FPS =
+            T.let(
+              :gb_fps,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
           HU_ICS =
             T.let(
               :hu_ics,
