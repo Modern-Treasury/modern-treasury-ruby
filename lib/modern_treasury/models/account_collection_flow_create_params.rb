@@ -22,9 +22,7 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>, nil]
       optional :receiving_countries,
-               -> {
-                 ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::AccountCollectionFlowCreateParams::ReceivingCountry]
-               }
+               -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::AccountCollectionFlowCreateParams::ReceivingCountry] }
 
       # @!method initialize(counterparty_id:, payment_types:, receiving_countries: nil, request_options: {})
       #   @param counterparty_id [String] Required.

@@ -15,9 +15,7 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::PaymentType>]
       required :payment_types,
-               -> {
-                 ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::AccountCollectionFlow::PaymentType]
-               }
+               -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::AccountCollectionFlow::PaymentType] }
 
       # @!attribute id
       #
@@ -58,9 +56,7 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry>, nil]
       optional :receiving_countries,
-               -> {
-                 ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::AccountCollectionFlow::ReceivingCountry]
-               }
+               -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::AccountCollectionFlow::ReceivingCountry] }
 
       # @!attribute status
       #   The current status of the account collection flow. One of `pending`,

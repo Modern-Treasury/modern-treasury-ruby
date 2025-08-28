@@ -41,7 +41,7 @@ module ModernTreasury
       # The exclusive upper bound of the effective_at timestamp of the ledger entries to
       # be included in the ledger account settlement. The default value is the
       # created_at timestamp of the ledger account settlement.
-      sig { returns(Time) }
+      sig { returns(T.nilable(Time)) }
       attr_accessor :effective_at_upper_bound
 
       # The id of the ledger that this ledger account settlement belongs to.
@@ -93,7 +93,7 @@ module ModernTreasury
           currency: String,
           currency_exponent: T.nilable(Integer),
           description: T.nilable(String),
-          effective_at_upper_bound: Time,
+          effective_at_upper_bound: T.nilable(Time),
           ledger_id: String,
           ledger_transaction_id: T.nilable(String),
           live_mode: T::Boolean,
@@ -156,7 +156,7 @@ module ModernTreasury
             currency: String,
             currency_exponent: T.nilable(Integer),
             description: T.nilable(String),
-            effective_at_upper_bound: Time,
+            effective_at_upper_bound: T.nilable(Time),
             ledger_id: String,
             ledger_transaction_id: T.nilable(String),
             live_mode: T::Boolean,

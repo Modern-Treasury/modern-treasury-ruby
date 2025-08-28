@@ -63,6 +63,7 @@ module ModernTreasury
         | :bankprov_payment_id
         | :bnk_dev_prenotification_id
         | :bnk_dev_transfer_id
+        | :bny_mellon_transaction_reference_number
         | :bofa_end_to_end_id
         | :bofa_transaction_id
         | :brale_transfer_id
@@ -154,6 +155,7 @@ module ModernTreasury
         BANKPROV_PAYMENT_ID: :bankprov_payment_id
         BNK_DEV_PRENOTIFICATION_ID: :bnk_dev_prenotification_id
         BNK_DEV_TRANSFER_ID: :bnk_dev_transfer_id
+        BNY_MELLON_TRANSACTION_REFERENCE_NUMBER: :bny_mellon_transaction_reference_number
         BOFA_END_TO_END_ID: :bofa_end_to_end_id
         BOFA_TRANSACTION_ID: :bofa_transaction_id
         BRALE_TRANSFER_ID: :brale_transfer_id

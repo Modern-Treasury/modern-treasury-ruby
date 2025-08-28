@@ -53,7 +53,7 @@ module ModernTreasury
 
       # @!attribute status
       #   The current status of the payment action. One of `pending`, `processing`,
-      #   `sent`, `cancelled`, or `failed`.
+      #   `sent`, `acknowledged`, `cancelled`, or `failed`.
       #
       #   @return [String]
       required :status, String

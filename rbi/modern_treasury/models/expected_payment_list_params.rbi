@@ -305,6 +305,11 @@ module ModernTreasury
             :ethereum,
             ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
           )
+        GB_FPS =
+          T.let(
+            :gb_fps,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
         HU_ICS =
           T.let(
             :hu_ics,

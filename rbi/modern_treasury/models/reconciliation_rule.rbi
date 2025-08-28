@@ -201,6 +201,8 @@ module ModernTreasury
             :ethereum,
             ModernTreasury::ReconciliationRule::Type::TaggedSymbol
           )
+        GB_FPS =
+          T.let(:gb_fps, ModernTreasury::ReconciliationRule::Type::TaggedSymbol)
         HU_ICS =
           T.let(:hu_ics, ModernTreasury::ReconciliationRule::Type::TaggedSymbol)
         INTERAC =

@@ -19,6 +19,7 @@ module ModernTreasury
       DK_NETS = :dk_nets
       EFT = :eft
       ETHEREUM = :ethereum
+      GB_FPS = :gb_fps
       HU_ICS = :hu_ics
       INTERAC = :interac
       MASAV = :masav

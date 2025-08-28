@@ -223,6 +223,11 @@ module ModernTreasury
             :ethereum,
             ModernTreasury::TransactionCreateParams::Type::TaggedSymbol
           )
+        GB_FPS =
+          T.let(
+            :gb_fps,
+            ModernTreasury::TransactionCreateParams::Type::TaggedSymbol
+          )
         HU_ICS =
           T.let(
             :hu_ics,

@@ -694,6 +694,11 @@ module ModernTreasury
               :ethereum,
               ModernTreasury::ExternalAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
             )
+          GB_FPS =
+            T.let(
+              :gb_fps,
+              ModernTreasury::ExternalAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
+            )
           HU_ICS =
             T.let(
               :hu_ics,

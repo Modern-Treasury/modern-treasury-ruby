@@ -119,7 +119,13 @@ module ModernTreasury
       end
 
       type status =
-        :pending | :processable | :processing | :sent | :failed | :cancelled
+        :pending
+        | :processable
+        | :processing
+        | :sent
+        | :acknowledged
+        | :failed
+        | :cancelled
 
       module Status
         extend ModernTreasury::Internal::Type::Enum
@@ -128,20 +134,18 @@ module ModernTreasury
         PROCESSABLE: :processable
         PROCESSING: :processing
         SENT: :sent
+        ACKNOWLEDGED: :acknowledged
         FAILED: :failed
         CANCELLED: :cancelled
 
         def self?.values: -> ::Array[ModernTreasury::Models::PaymentActionListParams::status]
       end
 
-      type type_ =
-        :evolve_non_processing_transaction | :control_file | :stop | :issue
+      type type_ = :stop | :issue
 
       module Type
         extend ModernTreasury::Internal::Type::Enum
 
-        EVOLVE_NON_PROCESSING_TRANSACTION: :evolve_non_processing_transaction
-        CONTROL_FILE: :control_file
         STOP: :stop
         ISSUE: :issue
 

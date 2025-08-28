@@ -33,6 +33,7 @@ module ModernTreasury
         PROCESSABLE = :processable
         PROCESSING = :processing
         SENT = :sent
+        ACKNOWLEDGED = :acknowledged
         FAILED = :failed
         CANCELLED = :cancelled
 

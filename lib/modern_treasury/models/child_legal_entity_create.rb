@@ -73,9 +73,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::LegalEntityIndustryClassification>, nil]
       optional :industry_classifications,
-               -> {
-                 ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityIndustryClassification]
-               }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityIndustryClassification] }
 
       # @!attribute last_name
       #   An individual's last name.
@@ -116,9 +114,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::ChildLegalEntityCreate::PhoneNumber>, nil]
       optional :phone_numbers,
-               -> {
-                 ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ChildLegalEntityCreate::PhoneNumber]
-               }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ChildLegalEntityCreate::PhoneNumber] }
 
       # @!attribute politically_exposed_person
       #   Whether the individual is a politically exposed person.

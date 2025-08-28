@@ -92,9 +92,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem>, nil]
       optional :line_items,
-               -> {
-                 ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ExpectedPaymentCreateParams::LineItem]
-               }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ExpectedPaymentCreateParams::LineItem] }
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be

@@ -21,7 +21,13 @@ module ModernTreasury
       }
 
       type status =
-        :pending | :processable | :processing | :sent | :failed | :cancelled
+        :pending
+        | :processable
+        | :processing
+        | :sent
+        | :acknowledged
+        | :failed
+        | :cancelled
 
       module Status
         extend ModernTreasury::Internal::Type::Enum
@@ -30,6 +36,7 @@ module ModernTreasury
         PROCESSABLE: :processable
         PROCESSING: :processing
         SENT: :sent
+        ACKNOWLEDGED: :acknowledged
         FAILED: :failed
         CANCELLED: :cancelled
 
