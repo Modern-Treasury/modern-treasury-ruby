@@ -150,6 +150,11 @@ module ModernTreasury
             :bnk_dev_transfer_id,
             ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
           )
+        BNY_MELLON_TRANSACTION_REFERENCE_NUMBER =
+          T.let(
+            :bny_mellon_transaction_reference_number,
+            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
+          )
         BOFA_END_TO_END_ID =
           T.let(
             :bofa_end_to_end_id,
