@@ -196,6 +196,11 @@ module ModernTreasury
             :ethereum,
             ModernTreasury::ExternalAccountVerifyParams::PaymentType::TaggedSymbol
           )
+        GB_FPS =
+          T.let(
+            :gb_fps,
+            ModernTreasury::ExternalAccountVerifyParams::PaymentType::TaggedSymbol
+          )
         HU_ICS =
           T.let(
             :hu_ics,

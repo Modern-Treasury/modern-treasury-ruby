@@ -1745,6 +1745,11 @@ module ModernTreasury
                     :ethereum,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
                   )
+                GB_FPS =
+                  T.let(
+                    :gb_fps,
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                  )
                 HU_ICS =
                   T.let(
                     :hu_ics,
@@ -2471,6 +2476,11 @@ module ModernTreasury
             ETHEREUM =
               T.let(
                 :ethereum,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            GB_FPS =
+              T.let(
+                :gb_fps,
                 ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
               )
             HU_ICS =
@@ -4153,6 +4163,11 @@ module ModernTreasury
                 ETHEREUM =
                   T.let(
                     :ethereum,
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                  )
+                GB_FPS =
+                  T.let(
+                    :gb_fps,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
                   )
                 HU_ICS =
