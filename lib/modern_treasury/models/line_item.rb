@@ -9,25 +9,12 @@ module ModernTreasury
       #   @return [String]
       required :id, String
 
-      # @!attribute accounting
-      #
-      #   @return [ModernTreasury::Models::Accounting]
-      required :accounting, -> { ModernTreasury::Accounting }
-
       # @!attribute accounting_category_id
       #   The ID of one of your accounting categories. Note that these will only be
       #   accessible if your accounting system has been connected.
       #
       #   @return [String, nil]
       required :accounting_category_id, String, nil?: true
-
-      # @!attribute accounting_ledger_class_id
-      #   The ID of one of the class objects in your accounting system. Class objects
-      #   track segments of your business independent of client or project. Note that
-      #   these will only be accessible if your accounting system has been connected.
-      #
-      #   @return [String, nil]
-      required :accounting_ledger_class_id, String, nil?: true
 
       # @!attribute amount
       #   Value in specified currency's smallest unit. e.g. $10 would be represented
@@ -83,17 +70,13 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!method initialize(id:, accounting:, accounting_category_id:, accounting_ledger_class_id:, amount:, created_at:, description:, itemizable_id:, itemizable_type:, live_mode:, metadata:, object:, updated_at:)
+      # @!method initialize(id:, accounting_category_id:, amount:, created_at:, description:, itemizable_id:, itemizable_type:, live_mode:, metadata:, object:, updated_at:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LineItem} for more details.
       #
       #   @param id [String]
       #
-      #   @param accounting [ModernTreasury::Models::Accounting]
-      #
       #   @param accounting_category_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
-      #
-      #   @param accounting_ledger_class_id [String, nil] The ID of one of the class objects in your accounting system. Class objects trac
       #
       #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
       #

@@ -3,9 +3,7 @@ module ModernTreasury
     type payment_order =
       {
         id: String,
-        accounting: ModernTreasury::Accounting,
         accounting_category_id: String?,
-        accounting_ledger_class_id: String?,
         amount: Integer,
         charge_bearer: ModernTreasury::Models::PaymentOrder::charge_bearer?,
         counterparty_id: String?,
@@ -55,11 +53,7 @@ module ModernTreasury
     class PaymentOrder < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
-      attr_accessor accounting: ModernTreasury::Accounting
-
       attr_accessor accounting_category_id: String?
-
-      attr_accessor accounting_ledger_class_id: String?
 
       attr_accessor amount: Integer
 
@@ -151,9 +145,7 @@ module ModernTreasury
 
       def initialize: (
         id: String,
-        accounting: ModernTreasury::Accounting,
         accounting_category_id: String?,
-        accounting_ledger_class_id: String?,
         amount: Integer,
         charge_bearer: ModernTreasury::Models::PaymentOrder::charge_bearer?,
         counterparty_id: String?,
@@ -202,9 +194,7 @@ module ModernTreasury
 
       def to_hash: -> {
         id: String,
-        accounting: ModernTreasury::Accounting,
         accounting_category_id: String?,
-        accounting_ledger_class_id: String?,
         amount: Integer,
         charge_bearer: ModernTreasury::Models::PaymentOrder::charge_bearer?,
         counterparty_id: String?,
