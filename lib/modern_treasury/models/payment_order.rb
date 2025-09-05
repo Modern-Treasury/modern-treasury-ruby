@@ -9,11 +9,6 @@ module ModernTreasury
       #   @return [String]
       required :id, String
 
-      # @!attribute accounting
-      #
-      #   @return [ModernTreasury::Models::Accounting]
-      required :accounting, -> { ModernTreasury::Accounting }
-
       # @!attribute accounting_category_id
       #   @deprecated
       #
@@ -22,15 +17,6 @@ module ModernTreasury
       #
       #   @return [String, nil]
       required :accounting_category_id, String, nil?: true
-
-      # @!attribute accounting_ledger_class_id
-      #   @deprecated
-      #
-      #   The ID of one of your accounting ledger classes. Note that these will only be
-      #   accessible if your accounting system has been connected.
-      #
-      #   @return [String, nil]
-      required :accounting_ledger_class_id, String, nil?: true
 
       # @!attribute amount
       #   Value in specified currency's smallest unit. e.g. $10 would be represented as
@@ -342,17 +328,13 @@ module ModernTreasury
       #   @return [String, nil]
       required :vendor_failure_reason, String, nil?: true
 
-      # @!method initialize(id:, accounting:, accounting_category_id:, accounting_ledger_class_id:, amount:, charge_bearer:, counterparty_id:, created_at:, currency:, current_return:, description:, direction:, effective_date:, expires_at:, external_id:, foreign_exchange_contract:, foreign_exchange_indicator:, foreign_exchange_rate:, ledger_transaction_id:, live_mode:, metadata:, nsf_protected:, object:, originating_account_id:, originating_party_name:, priority:, process_after:, purpose:, receiving_account_id:, receiving_account_type:, reference_numbers:, remittance_information:, send_remittance_advice:, statement_descriptor:, status:, subtype:, transaction_ids:, type:, ultimate_originating_account:, ultimate_originating_account_id:, ultimate_originating_account_type:, ultimate_originating_party_identifier:, ultimate_originating_party_name:, ultimate_receiving_party_identifier:, ultimate_receiving_party_name:, updated_at:, vendor_attributes:, vendor_failure_reason:)
+      # @!method initialize(id:, accounting_category_id:, amount:, charge_bearer:, counterparty_id:, created_at:, currency:, current_return:, description:, direction:, effective_date:, expires_at:, external_id:, foreign_exchange_contract:, foreign_exchange_indicator:, foreign_exchange_rate:, ledger_transaction_id:, live_mode:, metadata:, nsf_protected:, object:, originating_account_id:, originating_party_name:, priority:, process_after:, purpose:, receiving_account_id:, receiving_account_type:, reference_numbers:, remittance_information:, send_remittance_advice:, statement_descriptor:, status:, subtype:, transaction_ids:, type:, ultimate_originating_account:, ultimate_originating_account_id:, ultimate_originating_account_type:, ultimate_originating_party_identifier:, ultimate_originating_party_name:, ultimate_receiving_party_identifier:, ultimate_receiving_party_name:, updated_at:, vendor_attributes:, vendor_failure_reason:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::PaymentOrder} for more details.
       #
       #   @param id [String]
       #
-      #   @param accounting [ModernTreasury::Models::Accounting]
-      #
       #   @param accounting_category_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
-      #
-      #   @param accounting_ledger_class_id [String, nil] The ID of one of your accounting ledger classes. Note that these will only be ac
       #
       #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
       #

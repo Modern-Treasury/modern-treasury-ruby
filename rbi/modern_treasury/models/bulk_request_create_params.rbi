@@ -274,21 +274,10 @@ module ModernTreasury
           sig { returns(ModernTreasury::PaymentOrderType::OrSymbol) }
           attr_accessor :type
 
-          sig { returns(T.nilable(ModernTreasury::Accounting)) }
-          attr_reader :accounting
-
-          sig { params(accounting: ModernTreasury::Accounting::OrHash).void }
-          attr_writer :accounting
-
           # The ID of one of your accounting categories. Note that these will only be
           # accessible if your accounting system has been connected.
           sig { returns(T.nilable(String)) }
           attr_accessor :accounting_category_id
-
-          # The ID of one of your accounting ledger classes. Note that these will only be
-          # accessible if your accounting system has been connected.
-          sig { returns(T.nilable(String)) }
-          attr_accessor :accounting_ledger_class_id
 
           # The party that will pay the fees for the payment order. See
           # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
@@ -558,9 +547,7 @@ module ModernTreasury
                 ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Direction::OrSymbol,
               originating_account_id: String,
               type: ModernTreasury::PaymentOrderType::OrSymbol,
-              accounting: ModernTreasury::Accounting::OrHash,
               accounting_category_id: T.nilable(String),
-              accounting_ledger_class_id: T.nilable(String),
               charge_bearer:
                 T.nilable(
                   ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ChargeBearer::OrSymbol
@@ -619,13 +606,9 @@ module ModernTreasury
             # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
             # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
             type:,
-            accounting: nil,
             # The ID of one of your accounting categories. Note that these will only be
             # accessible if your accounting system has been connected.
             accounting_category_id: nil,
-            # The ID of one of your accounting ledger classes. Note that these will only be
-            # accessible if your accounting system has been connected.
-            accounting_ledger_class_id: nil,
             # The party that will pay the fees for the payment order. See
             # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
             # differences between the options.
@@ -737,9 +720,7 @@ module ModernTreasury
                   ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Direction::OrSymbol,
                 originating_account_id: String,
                 type: ModernTreasury::PaymentOrderType::OrSymbol,
-                accounting: ModernTreasury::Accounting,
                 accounting_category_id: T.nilable(String),
-                accounting_ledger_class_id: T.nilable(String),
                 charge_bearer:
                   T.nilable(
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ChargeBearer::OrSymbol
@@ -2650,21 +2631,10 @@ module ModernTreasury
           sig { params(id: String).void }
           attr_writer :id
 
-          sig { returns(T.nilable(ModernTreasury::Accounting)) }
-          attr_reader :accounting
-
-          sig { params(accounting: ModernTreasury::Accounting::OrHash).void }
-          attr_writer :accounting
-
           # The ID of one of your accounting categories. Note that these will only be
           # accessible if your accounting system has been connected.
           sig { returns(T.nilable(String)) }
           attr_accessor :accounting_category_id
-
-          # The ID of one of your accounting ledger classes. Note that these will only be
-          # accessible if your accounting system has been connected.
-          sig { returns(T.nilable(String)) }
-          attr_accessor :accounting_ledger_class_id
 
           # Value in specified currency's smallest unit. e.g. $10 would be represented as
           # 1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
@@ -2972,9 +2942,7 @@ module ModernTreasury
           sig do
             params(
               id: String,
-              accounting: ModernTreasury::Accounting::OrHash,
               accounting_category_id: T.nilable(String),
-              accounting_ledger_class_id: T.nilable(String),
               amount: Integer,
               charge_bearer:
                 T.nilable(
@@ -3024,13 +2992,9 @@ module ModernTreasury
           end
           def self.new(
             id: nil,
-            accounting: nil,
             # The ID of one of your accounting categories. Note that these will only be
             # accessible if your accounting system has been connected.
             accounting_category_id: nil,
-            # The ID of one of your accounting ledger classes. Note that these will only be
-            # accessible if your accounting system has been connected.
-            accounting_ledger_class_id: nil,
             # Value in specified currency's smallest unit. e.g. $10 would be represented as
             # 1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
             amount: nil,
@@ -3153,9 +3117,7 @@ module ModernTreasury
             override.returns(
               {
                 id: String,
-                accounting: ModernTreasury::Accounting,
                 accounting_category_id: T.nilable(String),
-                accounting_ledger_class_id: T.nilable(String),
                 amount: Integer,
                 charge_bearer:
                   T.nilable(

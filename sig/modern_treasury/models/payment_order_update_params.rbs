@@ -2,9 +2,7 @@ module ModernTreasury
   module Models
     type payment_order_update_params =
       {
-        accounting: ModernTreasury::Accounting,
         accounting_category_id: String?,
-        accounting_ledger_class_id: String?,
         amount: Integer,
         charge_bearer: ModernTreasury::Models::PaymentOrderUpdateParams::charge_bearer?,
         counterparty_id: String?,
@@ -43,15 +41,7 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
-      attr_reader accounting: ModernTreasury::Accounting?
-
-      def accounting=: (
-        ModernTreasury::Accounting
-      ) -> ModernTreasury::Accounting
-
       attr_accessor accounting_category_id: String?
-
-      attr_accessor accounting_ledger_class_id: String?
 
       attr_reader amount: Integer?
 
@@ -160,9 +150,7 @@ module ModernTreasury
       attr_accessor ultimate_receiving_party_name: String?
 
       def initialize: (
-        ?accounting: ModernTreasury::Accounting,
         ?accounting_category_id: String?,
-        ?accounting_ledger_class_id: String?,
         ?amount: Integer,
         ?charge_bearer: ModernTreasury::Models::PaymentOrderUpdateParams::charge_bearer?,
         ?counterparty_id: String?,
@@ -198,9 +186,7 @@ module ModernTreasury
       ) -> void
 
       def to_hash: -> {
-        accounting: ModernTreasury::Accounting,
         accounting_category_id: String?,
-        accounting_ledger_class_id: String?,
         amount: Integer,
         charge_bearer: ModernTreasury::Models::PaymentOrderUpdateParams::charge_bearer?,
         counterparty_id: String?,
