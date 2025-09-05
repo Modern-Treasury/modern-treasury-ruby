@@ -62,8 +62,6 @@ module ModernTreasury
 
   AccountDetailRetrieveParams = ModernTreasury::Models::AccountDetailRetrieveParams
 
-  Accounting = ModernTreasury::Models::Accounting
-
   AccountsType = ModernTreasury::Models::AccountsType
 
   Address = ModernTreasury::Models::Address

@@ -11,21 +11,10 @@ module ModernTreasury
       sig { returns(String) }
       attr_accessor :id
 
-      sig { returns(ModernTreasury::Accounting) }
-      attr_reader :accounting
-
-      sig { params(accounting: ModernTreasury::Accounting::OrHash).void }
-      attr_writer :accounting
-
       # The ID of one of your accounting categories. Note that these will only be
       # accessible if your accounting system has been connected.
       sig { returns(T.nilable(String)) }
       attr_accessor :accounting_category_id
-
-      # The ID of one of your accounting ledger classes. Note that these will only be
-      # accessible if your accounting system has been connected.
-      sig { returns(T.nilable(String)) }
-      attr_accessor :accounting_ledger_class_id
 
       # Value in specified currency's smallest unit. e.g. $10 would be represented as
       # 1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
@@ -288,9 +277,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          accounting: ModernTreasury::Accounting::OrHash,
           accounting_category_id: T.nilable(String),
-          accounting_ledger_class_id: T.nilable(String),
           amount: Integer,
           charge_bearer:
             T.nilable(ModernTreasury::PaymentOrder::ChargeBearer::OrSymbol),
@@ -355,13 +342,9 @@ module ModernTreasury
       end
       def self.new(
         id:,
-        accounting:,
         # The ID of one of your accounting categories. Note that these will only be
         # accessible if your accounting system has been connected.
         accounting_category_id:,
-        # The ID of one of your accounting ledger classes. Note that these will only be
-        # accessible if your accounting system has been connected.
-        accounting_ledger_class_id:,
         # Value in specified currency's smallest unit. e.g. $10 would be represented as
         # 1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
         amount:,
@@ -496,9 +479,7 @@ module ModernTreasury
         override.returns(
           {
             id: String,
-            accounting: ModernTreasury::Accounting,
             accounting_category_id: T.nilable(String),
-            accounting_ledger_class_id: T.nilable(String),
             amount: Integer,
             charge_bearer:
               T.nilable(

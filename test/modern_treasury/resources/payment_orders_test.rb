@@ -19,9 +19,7 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < ModernTreasury::Test:
     assert_pattern do
       response => {
         id: String,
-        accounting: ModernTreasury::Accounting,
         accounting_category_id: String | nil,
-        accounting_ledger_class_id: String | nil,
         amount: Integer,
         charge_bearer: ModernTreasury::PaymentOrder::ChargeBearer | nil,
         counterparty_id: String | nil,
@@ -80,9 +78,7 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < ModernTreasury::Test:
     assert_pattern do
       response => {
         id: String,
-        accounting: ModernTreasury::Accounting,
         accounting_category_id: String | nil,
-        accounting_ledger_class_id: String | nil,
         amount: Integer,
         charge_bearer: ModernTreasury::PaymentOrder::ChargeBearer | nil,
         counterparty_id: String | nil,
@@ -141,9 +137,7 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < ModernTreasury::Test:
     assert_pattern do
       response => {
         id: String,
-        accounting: ModernTreasury::Accounting,
         accounting_category_id: String | nil,
-        accounting_ledger_class_id: String | nil,
         amount: Integer,
         charge_bearer: ModernTreasury::PaymentOrder::ChargeBearer | nil,
         counterparty_id: String | nil,
@@ -209,9 +203,7 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < ModernTreasury::Test:
     assert_pattern do
       row => {
         id: String,
-        accounting: ModernTreasury::Accounting,
         accounting_category_id: String | nil,
-        accounting_ledger_class_id: String | nil,
         amount: Integer,
         charge_bearer: ModernTreasury::PaymentOrder::ChargeBearer | nil,
         counterparty_id: String | nil,

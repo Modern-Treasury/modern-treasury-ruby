@@ -441,10 +441,11 @@ module ModernTreasury
         # @return [Hash{Symbol=>Object}]
         #
         # @example
-        #   # `accounting` is a `ModernTreasury::Accounting`
-        #   accounting => {
-        #     account_id: account_id,
-        #     class_id: class_id
+        #   # `address` is a `ModernTreasury::Address`
+        #   address => {
+        #     id: id,
+        #     country: country,
+        #     created_at: created_at
         #   }
         def deconstruct_keys(keys)
           (keys || self.class.known_fields.keys)
