@@ -40,10 +40,30 @@ module ModernTreasury
       sig { returns(ModernTreasury::PaymentOrderType::OrSymbol) }
       attr_accessor :type
 
+      sig do
+        returns(
+          T.nilable(ModernTreasury::PaymentOrderCreateAsyncParams::Accounting)
+        )
+      end
+      attr_reader :accounting
+
+      sig do
+        params(
+          accounting:
+            ModernTreasury::PaymentOrderCreateAsyncParams::Accounting::OrHash
+        ).void
+      end
+      attr_writer :accounting
+
       # The ID of one of your accounting categories. Note that these will only be
       # accessible if your accounting system has been connected.
       sig { returns(T.nilable(String)) }
       attr_accessor :accounting_category_id
+
+      # The ID of one of your accounting ledger classes. Note that these will only be
+      # accessible if your accounting system has been connected.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :accounting_ledger_class_id
 
       # The party that will pay the fees for the payment order. See
       # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
@@ -307,7 +327,10 @@ module ModernTreasury
             ModernTreasury::PaymentOrderCreateAsyncParams::Direction::OrSymbol,
           originating_account_id: String,
           type: ModernTreasury::PaymentOrderType::OrSymbol,
+          accounting:
+            ModernTreasury::PaymentOrderCreateAsyncParams::Accounting::OrHash,
           accounting_category_id: T.nilable(String),
+          accounting_ledger_class_id: T.nilable(String),
           charge_bearer:
             T.nilable(
               ModernTreasury::PaymentOrderCreateAsyncParams::ChargeBearer::OrSymbol
@@ -367,9 +390,13 @@ module ModernTreasury
         # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
         # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
         type:,
+        accounting: nil,
         # The ID of one of your accounting categories. Note that these will only be
         # accessible if your accounting system has been connected.
         accounting_category_id: nil,
+        # The ID of one of your accounting ledger classes. Note that these will only be
+        # accessible if your accounting system has been connected.
+        accounting_ledger_class_id: nil,
         # The party that will pay the fees for the payment order. See
         # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
         # differences between the options.
@@ -482,7 +509,10 @@ module ModernTreasury
               ModernTreasury::PaymentOrderCreateAsyncParams::Direction::OrSymbol,
             originating_account_id: String,
             type: ModernTreasury::PaymentOrderType::OrSymbol,
+            accounting:
+              ModernTreasury::PaymentOrderCreateAsyncParams::Accounting,
             accounting_category_id: T.nilable(String),
+            accounting_ledger_class_id: T.nilable(String),
             charge_bearer:
               T.nilable(
                 ModernTreasury::PaymentOrderCreateAsyncParams::ChargeBearer::OrSymbol
@@ -563,6 +593,52 @@ module ModernTreasury
           )
         end
         def self.values
+        end
+      end
+
+      class Accounting < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              ModernTreasury::PaymentOrderCreateAsyncParams::Accounting,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
+
+        # The ID of one of your accounting categories. Note that these will only be
+        # accessible if your accounting system has been connected.
+        sig { returns(T.nilable(String)) }
+        attr_accessor :account_id
+
+        # The ID of one of the class objects in your accounting system. Class objects
+        # track segments of your business independent of client or project. Note that
+        # these will only be accessible if your accounting system has been connected.
+        sig { returns(T.nilable(String)) }
+        attr_accessor :class_id
+
+        sig do
+          params(
+            account_id: T.nilable(String),
+            class_id: T.nilable(String)
+          ).returns(T.attached_class)
+        end
+        def self.new(
+          # The ID of one of your accounting categories. Note that these will only be
+          # accessible if your accounting system has been connected.
+          account_id: nil,
+          # The ID of one of the class objects in your accounting system. Class objects
+          # track segments of your business independent of client or project. Note that
+          # these will only be accessible if your accounting system has been connected.
+          class_id: nil
+        )
+        end
+
+        sig do
+          override.returns(
+            { account_id: T.nilable(String), class_id: T.nilable(String) }
+          )
+        end
+        def to_hash
         end
       end
 

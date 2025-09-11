@@ -9,12 +9,30 @@ module ModernTreasury
       #   @return [String]
       required :id, String
 
+      # @!attribute accounting
+      #   @deprecated
+      #
+      #   @return [ModernTreasury::Models::LineItem::Accounting]
+      required :accounting, -> { ModernTreasury::LineItem::Accounting }
+
       # @!attribute accounting_category_id
+      #   @deprecated
+      #
       #   The ID of one of your accounting categories. Note that these will only be
       #   accessible if your accounting system has been connected.
       #
       #   @return [String, nil]
       required :accounting_category_id, String, nil?: true
+
+      # @!attribute accounting_ledger_class_id
+      #   @deprecated
+      #
+      #   The ID of one of the class objects in your accounting system. Class objects
+      #   track segments of your business independent of client or project. Note that
+      #   these will only be accessible if your accounting system has been connected.
+      #
+      #   @return [String, nil]
+      required :accounting_ledger_class_id, String, nil?: true
 
       # @!attribute amount
       #   Value in specified currency's smallest unit. e.g. $10 would be represented
@@ -70,13 +88,17 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!method initialize(id:, accounting_category_id:, amount:, created_at:, description:, itemizable_id:, itemizable_type:, live_mode:, metadata:, object:, updated_at:)
+      # @!method initialize(id:, accounting:, accounting_category_id:, accounting_ledger_class_id:, amount:, created_at:, description:, itemizable_id:, itemizable_type:, live_mode:, metadata:, object:, updated_at:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LineItem} for more details.
       #
       #   @param id [String]
       #
+      #   @param accounting [ModernTreasury::Models::LineItem::Accounting]
+      #
       #   @param accounting_category_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
+      #
+      #   @param accounting_ledger_class_id [String, nil] The ID of one of the class objects in your accounting system. Class objects trac
       #
       #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
       #
@@ -95,6 +117,38 @@ module ModernTreasury
       #   @param object [String]
       #
       #   @param updated_at [Time]
+
+      # @deprecated
+      #
+      # @see ModernTreasury::Models::LineItem#accounting
+      class Accounting < ModernTreasury::Internal::Type::BaseModel
+        # @!attribute account_id
+        #   @deprecated
+        #
+        #   The ID of one of your accounting categories. Note that these will only be
+        #   accessible if your accounting system has been connected.
+        #
+        #   @return [String, nil]
+        optional :account_id, String, nil?: true
+
+        # @!attribute class_id
+        #   @deprecated
+        #
+        #   The ID of one of the class objects in your accounting system. Class objects
+        #   track segments of your business independent of client or project. Note that
+        #   these will only be accessible if your accounting system has been connected.
+        #
+        #   @return [String, nil]
+        optional :class_id, String, nil?: true
+
+        # @!method initialize(account_id: nil, class_id: nil)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::LineItem::Accounting} for more details.
+        #
+        #   @param account_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
+        #
+        #   @param class_id [String, nil] The ID of one of the class objects in your accounting system. Class objects trac
+      end
 
       # One of `payment_orders` or `expected_payments`.
       #

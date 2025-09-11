@@ -14,7 +14,10 @@ module ModernTreasury
             ModernTreasury::PaymentOrderCreateParams::Direction::OrSymbol,
           originating_account_id: String,
           type: ModernTreasury::PaymentOrderType::OrSymbol,
+          accounting:
+            ModernTreasury::PaymentOrderCreateParams::Accounting::OrHash,
           accounting_category_id: T.nilable(String),
+          accounting_ledger_class_id: T.nilable(String),
           charge_bearer:
             T.nilable(
               ModernTreasury::PaymentOrderCreateParams::ChargeBearer::OrSymbol
@@ -78,9 +81,13 @@ module ModernTreasury
         # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
         # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
         type:,
+        accounting: nil,
         # The ID of one of your accounting categories. Note that these will only be
         # accessible if your accounting system has been connected.
         accounting_category_id: nil,
+        # The ID of one of your accounting ledger classes. Note that these will only be
+        # accessible if your accounting system has been connected.
+        accounting_ledger_class_id: nil,
         # The party that will pay the fees for the payment order. See
         # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
         # differences between the options.
@@ -202,7 +209,10 @@ module ModernTreasury
       sig do
         params(
           id: String,
+          accounting:
+            ModernTreasury::PaymentOrderUpdateParams::Accounting::OrHash,
           accounting_category_id: T.nilable(String),
+          accounting_ledger_class_id: T.nilable(String),
           amount: Integer,
           charge_bearer:
             T.nilable(
@@ -252,9 +262,13 @@ module ModernTreasury
       end
       def update(
         id,
+        accounting: nil,
         # The ID of one of your accounting categories. Note that these will only be
         # accessible if your accounting system has been connected.
         accounting_category_id: nil,
+        # The ID of one of your accounting ledger classes. Note that these will only be
+        # accessible if your accounting system has been connected.
+        accounting_ledger_class_id: nil,
         # Value in specified currency's smallest unit. e.g. $10 would be represented as
         # 1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
         amount: nil,
@@ -443,7 +457,10 @@ module ModernTreasury
             ModernTreasury::PaymentOrderCreateAsyncParams::Direction::OrSymbol,
           originating_account_id: String,
           type: ModernTreasury::PaymentOrderType::OrSymbol,
+          accounting:
+            ModernTreasury::PaymentOrderCreateAsyncParams::Accounting::OrHash,
           accounting_category_id: T.nilable(String),
+          accounting_ledger_class_id: T.nilable(String),
           charge_bearer:
             T.nilable(
               ModernTreasury::PaymentOrderCreateAsyncParams::ChargeBearer::OrSymbol
@@ -503,9 +520,13 @@ module ModernTreasury
         # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
         # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
         type:,
+        accounting: nil,
         # The ID of one of your accounting categories. Note that these will only be
         # accessible if your accounting system has been connected.
         accounting_category_id: nil,
+        # The ID of one of your accounting ledger classes. Note that these will only be
+        # accessible if your accounting system has been connected.
+        accounting_ledger_class_id: nil,
         # The party that will pay the fees for the payment order. See
         # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
         # differences between the options.
