@@ -2,7 +2,9 @@ module ModernTreasury
   module Models
     type payment_order_update_params =
       {
+        accounting: ModernTreasury::PaymentOrderUpdateParams::Accounting,
         accounting_category_id: String?,
+        accounting_ledger_class_id: String?,
         amount: Integer,
         charge_bearer: ModernTreasury::Models::PaymentOrderUpdateParams::charge_bearer?,
         counterparty_id: String?,
@@ -41,7 +43,15 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      attr_reader accounting: ModernTreasury::PaymentOrderUpdateParams::Accounting?
+
+      def accounting=: (
+        ModernTreasury::PaymentOrderUpdateParams::Accounting
+      ) -> ModernTreasury::PaymentOrderUpdateParams::Accounting
+
       attr_accessor accounting_category_id: String?
+
+      attr_accessor accounting_ledger_class_id: String?
 
       attr_reader amount: Integer?
 
@@ -150,7 +160,9 @@ module ModernTreasury
       attr_accessor ultimate_receiving_party_name: String?
 
       def initialize: (
+        ?accounting: ModernTreasury::PaymentOrderUpdateParams::Accounting,
         ?accounting_category_id: String?,
+        ?accounting_ledger_class_id: String?,
         ?amount: Integer,
         ?charge_bearer: ModernTreasury::Models::PaymentOrderUpdateParams::charge_bearer?,
         ?counterparty_id: String?,
@@ -186,7 +198,9 @@ module ModernTreasury
       ) -> void
 
       def to_hash: -> {
+        accounting: ModernTreasury::PaymentOrderUpdateParams::Accounting,
         accounting_category_id: String?,
+        accounting_ledger_class_id: String?,
         amount: Integer,
         charge_bearer: ModernTreasury::Models::PaymentOrderUpdateParams::charge_bearer?,
         counterparty_id: String?,
@@ -220,6 +234,18 @@ module ModernTreasury
         ultimate_receiving_party_name: String?,
         request_options: ModernTreasury::RequestOptions
       }
+
+      type accounting = { account_id: String?, class_id: String? }
+
+      class Accounting < ModernTreasury::Internal::Type::BaseModel
+        attr_accessor account_id: String?
+
+        attr_accessor class_id: String?
+
+        def initialize: (?account_id: String?, ?class_id: String?) -> void
+
+        def to_hash: -> { account_id: String?, class_id: String? }
+      end
 
       type charge_bearer = :shared | :sender | :receiver
 
