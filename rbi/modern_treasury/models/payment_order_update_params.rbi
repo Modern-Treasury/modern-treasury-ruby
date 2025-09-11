@@ -14,10 +14,28 @@ module ModernTreasury
           )
         end
 
+      sig do
+        returns(T.nilable(ModernTreasury::PaymentOrderUpdateParams::Accounting))
+      end
+      attr_reader :accounting
+
+      sig do
+        params(
+          accounting:
+            ModernTreasury::PaymentOrderUpdateParams::Accounting::OrHash
+        ).void
+      end
+      attr_writer :accounting
+
       # The ID of one of your accounting categories. Note that these will only be
       # accessible if your accounting system has been connected.
       sig { returns(T.nilable(String)) }
       attr_accessor :accounting_category_id
+
+      # The ID of one of your accounting ledger classes. Note that these will only be
+      # accessible if your accounting system has been connected.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :accounting_ledger_class_id
 
       # Value in specified currency's smallest unit. e.g. $10 would be represented as
       # 1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
@@ -312,7 +330,10 @@ module ModernTreasury
 
       sig do
         params(
+          accounting:
+            ModernTreasury::PaymentOrderUpdateParams::Accounting::OrHash,
           accounting_category_id: T.nilable(String),
+          accounting_ledger_class_id: T.nilable(String),
           amount: Integer,
           charge_bearer:
             T.nilable(
@@ -361,9 +382,13 @@ module ModernTreasury
         ).returns(T.attached_class)
       end
       def self.new(
+        accounting: nil,
         # The ID of one of your accounting categories. Note that these will only be
         # accessible if your accounting system has been connected.
         accounting_category_id: nil,
+        # The ID of one of your accounting ledger classes. Note that these will only be
+        # accessible if your accounting system has been connected.
+        accounting_ledger_class_id: nil,
         # Value in specified currency's smallest unit. e.g. $10 would be represented as
         # 1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
         amount: nil,
@@ -486,7 +511,9 @@ module ModernTreasury
       sig do
         override.returns(
           {
+            accounting: ModernTreasury::PaymentOrderUpdateParams::Accounting,
             accounting_category_id: T.nilable(String),
+            accounting_ledger_class_id: T.nilable(String),
             amount: Integer,
             charge_bearer:
               T.nilable(
@@ -534,6 +561,52 @@ module ModernTreasury
         )
       end
       def to_hash
+      end
+
+      class Accounting < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              ModernTreasury::PaymentOrderUpdateParams::Accounting,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
+
+        # The ID of one of your accounting categories. Note that these will only be
+        # accessible if your accounting system has been connected.
+        sig { returns(T.nilable(String)) }
+        attr_accessor :account_id
+
+        # The ID of one of the class objects in your accounting system. Class objects
+        # track segments of your business independent of client or project. Note that
+        # these will only be accessible if your accounting system has been connected.
+        sig { returns(T.nilable(String)) }
+        attr_accessor :class_id
+
+        sig do
+          params(
+            account_id: T.nilable(String),
+            class_id: T.nilable(String)
+          ).returns(T.attached_class)
+        end
+        def self.new(
+          # The ID of one of your accounting categories. Note that these will only be
+          # accessible if your accounting system has been connected.
+          account_id: nil,
+          # The ID of one of the class objects in your accounting system. Class objects
+          # track segments of your business independent of client or project. Note that
+          # these will only be accessible if your accounting system has been connected.
+          class_id: nil
+        )
+        end
+
+        sig do
+          override.returns(
+            { account_id: T.nilable(String), class_id: T.nilable(String) }
+          )
+        end
+        def to_hash
+        end
       end
 
       # The party that will pay the fees for the payment order. See

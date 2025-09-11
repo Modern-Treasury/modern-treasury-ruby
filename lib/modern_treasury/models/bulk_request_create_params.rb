@@ -131,6 +131,13 @@ module ModernTreasury
           #   @return [Symbol, ModernTreasury::Models::PaymentOrderType]
           required :type, enum: -> { ModernTreasury::PaymentOrderType }
 
+          # @!attribute accounting
+          #   @deprecated
+          #
+          #   @return [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Accounting, nil]
+          optional :accounting,
+                   -> { ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Accounting }
+
           # @!attribute accounting_category_id
           #   @deprecated
           #
@@ -139,6 +146,15 @@ module ModernTreasury
           #
           #   @return [String, nil]
           optional :accounting_category_id, String, nil?: true
+
+          # @!attribute accounting_ledger_class_id
+          #   @deprecated
+          #
+          #   The ID of one of your accounting ledger classes. Note that these will only be
+          #   accessible if your accounting system has been connected.
+          #
+          #   @return [String, nil]
+          optional :accounting_ledger_class_id, String, nil?: true
 
           # @!attribute charge_bearer
           #   The party that will pay the fees for the payment order. See
@@ -364,7 +380,7 @@ module ModernTreasury
           #   @return [String, nil]
           optional :ultimate_receiving_party_name, String, nil?: true
 
-          # @!method initialize(amount:, direction:, originating_account_id:, type:, accounting_category_id: nil, charge_bearer: nil, currency: nil, description: nil, effective_date: nil, expires_at: nil, fallback_type: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, ledger_transaction: nil, ledger_transaction_id: nil, line_items: nil, metadata: nil, nsf_protected: nil, originating_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account: nil, receiving_account_id: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, subtype: nil, transaction_monitoring_enabled: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil)
+          # @!method initialize(amount:, direction:, originating_account_id:, type:, accounting: nil, accounting_category_id: nil, accounting_ledger_class_id: nil, charge_bearer: nil, currency: nil, description: nil, effective_date: nil, expires_at: nil, fallback_type: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, ledger_transaction: nil, ledger_transaction_id: nil, line_items: nil, metadata: nil, nsf_protected: nil, originating_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account: nil, receiving_account_id: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, subtype: nil, transaction_monitoring_enabled: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil)
           #   Some parameter documentations has been truncated, see
           #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest}
           #   for more details.
@@ -377,7 +393,11 @@ module ModernTreasury
           #
           #   @param type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
           #
+          #   @param accounting [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Accounting]
+          #
           #   @param accounting_category_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
+          #
+          #   @param accounting_ledger_class_id [String, nil] The ID of one of your accounting ledger classes. Note that these will only be ac
           #
           #   @param charge_bearer [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ChargeBearer, nil] The party that will pay the fees for the payment order. See https://docs.modernt
           #
@@ -449,6 +469,39 @@ module ModernTreasury
 
             # @!method self.values
             #   @return [Array<Symbol>]
+          end
+
+          # @deprecated
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#accounting
+          class Accounting < ModernTreasury::Internal::Type::BaseModel
+            # @!attribute account_id
+            #   @deprecated
+            #
+            #   The ID of one of your accounting categories. Note that these will only be
+            #   accessible if your accounting system has been connected.
+            #
+            #   @return [String, nil]
+            optional :account_id, String, nil?: true
+
+            # @!attribute class_id
+            #   @deprecated
+            #
+            #   The ID of one of the class objects in your accounting system. Class objects
+            #   track segments of your business independent of client or project. Note that
+            #   these will only be accessible if your accounting system has been connected.
+            #
+            #   @return [String, nil]
+            optional :class_id, String, nil?: true
+
+            # @!method initialize(account_id: nil, class_id: nil)
+            #   Some parameter documentations has been truncated, see
+            #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Accounting}
+            #   for more details.
+            #
+            #   @param account_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
+            #
+            #   @param class_id [String, nil] The ID of one of the class objects in your accounting system. Class objects trac
           end
 
           # The party that will pay the fees for the payment order. See
@@ -1256,6 +1309,13 @@ module ModernTreasury
           #   @return [String, nil]
           optional :id, String
 
+          # @!attribute accounting
+          #   @deprecated
+          #
+          #   @return [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Accounting, nil]
+          optional :accounting,
+                   -> { ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Accounting }
+
           # @!attribute accounting_category_id
           #   @deprecated
           #
@@ -1264,6 +1324,15 @@ module ModernTreasury
           #
           #   @return [String, nil]
           optional :accounting_category_id, String, nil?: true
+
+          # @!attribute accounting_ledger_class_id
+          #   @deprecated
+          #
+          #   The ID of one of your accounting ledger classes. Note that these will only be
+          #   accessible if your accounting system has been connected.
+          #
+          #   @return [String, nil]
+          optional :accounting_ledger_class_id, String, nil?: true
 
           # @!attribute amount
           #   Value in specified currency's smallest unit. e.g. $10 would be represented as
@@ -1518,14 +1587,18 @@ module ModernTreasury
           #   @return [String, nil]
           optional :ultimate_receiving_party_name, String, nil?: true
 
-          # @!method initialize(id: nil, accounting_category_id: nil, amount: nil, charge_bearer: nil, counterparty_id: nil, currency: nil, description: nil, direction: nil, effective_date: nil, expires_at: nil, fallback_type: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, line_items: nil, metadata: nil, nsf_protected: nil, originating_account_id: nil, originating_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account: nil, receiving_account_id: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, status: nil, subtype: nil, type: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil)
+          # @!method initialize(id: nil, accounting: nil, accounting_category_id: nil, accounting_ledger_class_id: nil, amount: nil, charge_bearer: nil, counterparty_id: nil, currency: nil, description: nil, direction: nil, effective_date: nil, expires_at: nil, fallback_type: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, line_items: nil, metadata: nil, nsf_protected: nil, originating_account_id: nil, originating_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account: nil, receiving_account_id: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, status: nil, subtype: nil, type: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil)
           #   Some parameter documentations has been truncated, see
           #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID}
           #   for more details.
           #
           #   @param id [String]
           #
+          #   @param accounting [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Accounting]
+          #
           #   @param accounting_category_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
+          #
+          #   @param accounting_ledger_class_id [String, nil] The ID of one of your accounting ledger classes. Note that these will only be ac
           #
           #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
           #
@@ -1588,6 +1661,39 @@ module ModernTreasury
           #   @param ultimate_receiving_party_identifier [String, nil] This represents the name of the merchant that the payment is being sent to when
           #
           #   @param ultimate_receiving_party_name [String, nil] This represents the identifier by which the merchant is known to the person init
+
+          # @deprecated
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#accounting
+          class Accounting < ModernTreasury::Internal::Type::BaseModel
+            # @!attribute account_id
+            #   @deprecated
+            #
+            #   The ID of one of your accounting categories. Note that these will only be
+            #   accessible if your accounting system has been connected.
+            #
+            #   @return [String, nil]
+            optional :account_id, String, nil?: true
+
+            # @!attribute class_id
+            #   @deprecated
+            #
+            #   The ID of one of the class objects in your accounting system. Class objects
+            #   track segments of your business independent of client or project. Note that
+            #   these will only be accessible if your accounting system has been connected.
+            #
+            #   @return [String, nil]
+            optional :class_id, String, nil?: true
+
+            # @!method initialize(account_id: nil, class_id: nil)
+            #   Some parameter documentations has been truncated, see
+            #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Accounting}
+            #   for more details.
+            #
+            #   @param account_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
+            #
+            #   @param class_id [String, nil] The ID of one of the class objects in your accounting system. Class objects trac
+          end
 
           # The party that will pay the fees for the payment order. See
           # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the

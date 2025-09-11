@@ -20,6 +20,7 @@ module ModernTreasury
       optional :body_external_id, String, api_name: :external_id, nil?: true
 
       # @!attribute accounting
+      #   @deprecated
       #
       #   @return [ModernTreasury::Models::CounterpartyCreateParams::Accounting, nil]
       optional :accounting, -> { ModernTreasury::CounterpartyCreateParams::Accounting }
@@ -113,6 +114,7 @@ module ModernTreasury
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
+      # @deprecated
       class Accounting < ModernTreasury::Internal::Type::BaseModel
         # @!attribute type
         #   An optional type to auto-sync the counterparty to your ledger. Either `customer`
