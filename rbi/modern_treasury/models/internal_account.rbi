@@ -106,6 +106,10 @@ module ModernTreasury
       sig { returns(T::Array[ModernTreasury::RoutingDetail]) }
       attr_accessor :routing_details
 
+      # The internal account status.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :status
+
       sig { returns(Time) }
       attr_accessor :updated_at
 
@@ -139,6 +143,7 @@ module ModernTreasury
           party_type:
             T.nilable(ModernTreasury::InternalAccount::PartyType::OrSymbol),
           routing_details: T::Array[ModernTreasury::RoutingDetail::OrHash],
+          status: T.nilable(String),
           updated_at: Time,
           vendor_id: T.nilable(String)
         ).returns(T.attached_class)
@@ -183,6 +188,8 @@ module ModernTreasury
         party_type:,
         # An array of routing detail objects.
         routing_details:,
+        # The internal account status.
+        status:,
         updated_at:,
         # The vendor ID associated with this account.
         vendor_id:
@@ -218,6 +225,7 @@ module ModernTreasury
                 ModernTreasury::InternalAccount::PartyType::TaggedSymbol
               ),
             routing_details: T::Array[ModernTreasury::RoutingDetail],
+            status: T.nilable(String),
             updated_at: Time,
             vendor_id: T.nilable(String)
           }

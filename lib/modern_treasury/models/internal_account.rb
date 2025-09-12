@@ -120,6 +120,12 @@ module ModernTreasury
       #   @return [Array<ModernTreasury::Models::RoutingDetail>]
       required :routing_details, -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail] }
 
+      # @!attribute status
+      #   The internal account status.
+      #
+      #   @return [String, nil]
+      required :status, String, nil?: true
+
       # @!attribute updated_at
       #
       #   @return [Time]
@@ -131,7 +137,7 @@ module ModernTreasury
       #   @return [String, nil]
       required :vendor_id, String, nil?: true
 
-      # @!method initialize(id:, account_capabilities:, account_details:, account_type:, connection:, counterparty_id:, created_at:, currency:, ledger_account_id:, legal_entity_id:, live_mode:, metadata:, name:, object:, parent_account_id:, party_address:, party_name:, party_type:, routing_details:, updated_at:, vendor_id:)
+      # @!method initialize(id:, account_capabilities:, account_details:, account_type:, connection:, counterparty_id:, created_at:, currency:, ledger_account_id:, legal_entity_id:, live_mode:, metadata:, name:, object:, parent_account_id:, party_address:, party_name:, party_type:, routing_details:, status:, updated_at:, vendor_id:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::InternalAccount} for more details.
       #
@@ -172,6 +178,8 @@ module ModernTreasury
       #   @param party_type [Symbol, ModernTreasury::Models::InternalAccount::PartyType, nil] Either individual or business.
       #
       #   @param routing_details [Array<ModernTreasury::Models::RoutingDetail>] An array of routing detail objects.
+      #
+      #   @param status [String, nil] The internal account status.
       #
       #   @param updated_at [Time]
       #
