@@ -400,6 +400,11 @@ module ModernTreasury
             :lob_check_id,
             ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
           )
+        MT_FOF_TRANSFER_ID =
+          T.let(
+            :mt_fof_transfer_id,
+            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
+          )
         OTHER =
           T.let(
             :other,
