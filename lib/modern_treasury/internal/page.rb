@@ -60,7 +60,7 @@ module ModernTreasury
       #
       # @param client [ModernTreasury::Internal::Transport::BaseClient]
       # @param req [Hash{Symbol=>Object}]
-      # @param headers [Hash{String=>String}, Net::HTTPHeader]
+      # @param headers [Hash{String=>String}]
       # @param page_data [Hash{Symbol=>Object}]
       def initialize(client:, req:, headers:, page_data:)
         super
@@ -71,8 +71,8 @@ module ModernTreasury
         else
         end
 
-        @per_page = ModernTreasury::Internal::Util.coerce_integer(headers["X-Per-Page"])
-        @after_cursor = headers["X-After-Cursor"]&.to_s
+        @per_page = ModernTreasury::Internal::Util.coerce_integer(headers["x-per-page"])
+        @after_cursor = headers["x-after-cursor"]&.to_s
       end
 
       # @api private
