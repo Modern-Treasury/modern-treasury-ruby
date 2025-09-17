@@ -31,7 +31,7 @@ module ModernTreasury
             client: ModernTreasury::Internal::Transport::BaseClient,
             req:
               ModernTreasury::Internal::Transport::BaseClient::RequestComponents,
-            headers: T.any(T::Hash[String, String], Net::HTTPHeader),
+            headers: T::Hash[String, String],
             page_data: T.anything
           ).void
         end
