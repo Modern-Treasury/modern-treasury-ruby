@@ -447,6 +447,11 @@ module ModernTreasury
             :jpmc,
             ModernTreasury::Transaction::VendorCodeType::TaggedSymbol
           )
+        MT_FOF =
+          T.let(
+            :mt_fof,
+            ModernTreasury::Transaction::VendorCodeType::TaggedSymbol
+          )
         MX =
           T.let(:mx, ModernTreasury::Transaction::VendorCodeType::TaggedSymbol)
         PAYPAL =
