@@ -4452,6 +4452,11 @@ module ModernTreasury
                 :failed,
                 ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Status::TaggedSymbol
               )
+            HELD =
+              T.let(
+                :held,
+                ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Status::TaggedSymbol
+              )
             NEEDS_APPROVAL =
               T.let(
                 :needs_approval,

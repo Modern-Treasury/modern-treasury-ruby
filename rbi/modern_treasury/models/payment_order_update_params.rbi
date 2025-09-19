@@ -1718,6 +1718,11 @@ module ModernTreasury
             :failed,
             ModernTreasury::PaymentOrderUpdateParams::Status::TaggedSymbol
           )
+        HELD =
+          T.let(
+            :held,
+            ModernTreasury::PaymentOrderUpdateParams::Status::TaggedSymbol
+          )
         NEEDS_APPROVAL =
           T.let(
             :needs_approval,

@@ -1342,6 +1342,7 @@ module ModernTreasury
           T.let(:denied, ModernTreasury::PaymentOrder::Status::TaggedSymbol)
         FAILED =
           T.let(:failed, ModernTreasury::PaymentOrder::Status::TaggedSymbol)
+        HELD = T.let(:held, ModernTreasury::PaymentOrder::Status::TaggedSymbol)
         NEEDS_APPROVAL =
           T.let(
             :needs_approval,
