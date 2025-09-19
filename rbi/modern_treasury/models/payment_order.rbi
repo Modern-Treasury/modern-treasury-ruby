@@ -1146,6 +1146,11 @@ module ModernTreasury
               :lob_check_id,
               ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
+          MT_FOF_TRANSFER_ID =
+            T.let(
+              :mt_fof_transfer_id,
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
           OTHER =
             T.let(
               :other,
@@ -1337,6 +1342,7 @@ module ModernTreasury
           T.let(:denied, ModernTreasury::PaymentOrder::Status::TaggedSymbol)
         FAILED =
           T.let(:failed, ModernTreasury::PaymentOrder::Status::TaggedSymbol)
+        HELD = T.let(:held, ModernTreasury::PaymentOrder::Status::TaggedSymbol)
         NEEDS_APPROVAL =
           T.let(
             :needs_approval,

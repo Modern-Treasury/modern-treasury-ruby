@@ -2112,6 +2112,7 @@ module ModernTreasury
             COMPLETED = :completed
             DENIED = :denied
             FAILED = :failed
+            HELD = :held
             NEEDS_APPROVAL = :needs_approval
             PENDING = :pending
             PROCESSING = :processing
