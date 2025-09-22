@@ -59,9 +59,7 @@ module ModernTreasury
       attr_accessor :updated_at
 
       # The verification status of the counterparty.
-      sig do
-        returns(ModernTreasury::Counterparty::VerificationStatus::TaggedSymbol)
-      end
+      sig { returns(T.nilable(String)) }
       attr_accessor :verification_status
 
       sig do
@@ -79,8 +77,7 @@ module ModernTreasury
           object: String,
           send_remittance_advice: T::Boolean,
           updated_at: Time,
-          verification_status:
-            ModernTreasury::Counterparty::VerificationStatus::OrSymbol
+          verification_status: T.nilable(String)
         ).returns(T.attached_class)
       end
       def self.new(
@@ -129,8 +126,7 @@ module ModernTreasury
             object: String,
             send_remittance_advice: T::Boolean,
             updated_at: Time,
-            verification_status:
-              ModernTreasury::Counterparty::VerificationStatus::TaggedSymbol
+            verification_status: T.nilable(String)
           }
         )
       end
@@ -507,48 +503,6 @@ module ModernTreasury
           end
           def self.values
           end
-        end
-      end
-
-      # The verification status of the counterparty.
-      module VerificationStatus
-        extend ModernTreasury::Internal::Type::Enum
-
-        TaggedSymbol =
-          T.type_alias do
-            T.all(Symbol, ModernTreasury::Counterparty::VerificationStatus)
-          end
-        OrSymbol = T.type_alias { T.any(Symbol, String) }
-
-        DENIED =
-          T.let(
-            :denied,
-            ModernTreasury::Counterparty::VerificationStatus::TaggedSymbol
-          )
-        NEEDS_APPROVAL =
-          T.let(
-            :needs_approval,
-            ModernTreasury::Counterparty::VerificationStatus::TaggedSymbol
-          )
-        UNVERIFIED =
-          T.let(
-            :unverified,
-            ModernTreasury::Counterparty::VerificationStatus::TaggedSymbol
-          )
-        VERIFIED =
-          T.let(
-            :verified,
-            ModernTreasury::Counterparty::VerificationStatus::TaggedSymbol
-          )
-
-        sig do
-          override.returns(
-            T::Array[
-              ModernTreasury::Counterparty::VerificationStatus::TaggedSymbol
-            ]
-          )
-        end
-        def self.values
         end
       end
     end

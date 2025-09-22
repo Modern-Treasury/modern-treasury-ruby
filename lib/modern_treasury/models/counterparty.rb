@@ -81,10 +81,12 @@ module ModernTreasury
       required :updated_at, Time
 
       # @!attribute verification_status
+      #   @deprecated
+      #
       #   The verification status of the counterparty.
       #
-      #   @return [Symbol, ModernTreasury::Models::Counterparty::VerificationStatus]
-      required :verification_status, enum: -> { ModernTreasury::Counterparty::VerificationStatus }
+      #   @return [String, nil]
+      required :verification_status, String, nil?: true
 
       # @!method initialize(id:, accounts:, created_at:, discarded_at:, email:, external_id:, legal_entity_id:, live_mode:, metadata:, name:, object:, send_remittance_advice:, updated_at:, verification_status:)
       #   Some parameter documentations has been truncated, see
@@ -116,7 +118,7 @@ module ModernTreasury
       #
       #   @param updated_at [Time]
       #
-      #   @param verification_status [Symbol, ModernTreasury::Models::Counterparty::VerificationStatus] The verification status of the counterparty.
+      #   @param verification_status [String, nil] The verification status of the counterparty.
 
       class Account < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
@@ -307,21 +309,6 @@ module ModernTreasury
           # @!method self.values
           #   @return [Array<Symbol>]
         end
-      end
-
-      # The verification status of the counterparty.
-      #
-      # @see ModernTreasury::Models::Counterparty#verification_status
-      module VerificationStatus
-        extend ModernTreasury::Internal::Type::Enum
-
-        DENIED = :denied
-        NEEDS_APPROVAL = :needs_approval
-        UNVERIFIED = :unverified
-        VERIFIED = :verified
-
-        # @!method self.values
-        #   @return [Array<Symbol>]
       end
     end
   end

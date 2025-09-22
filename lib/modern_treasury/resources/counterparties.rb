@@ -32,7 +32,7 @@ module ModernTreasury
       #
       # @param taxpayer_identifier [String] Body param: Either a valid SSN or EIN.
       #
-      # @param verification_status [Symbol, ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus] Body param: The verification status of the counterparty.
+      # @param verification_status [String, nil] Body param: The verification status of the counterparty.
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
