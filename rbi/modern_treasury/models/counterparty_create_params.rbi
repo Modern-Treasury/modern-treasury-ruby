@@ -117,22 +117,8 @@ module ModernTreasury
       attr_writer :taxpayer_identifier
 
       # The verification status of the counterparty.
-      sig do
-        returns(
-          T.nilable(
-            ModernTreasury::CounterpartyCreateParams::VerificationStatus::OrSymbol
-          )
-        )
-      end
-      attr_reader :verification_status
-
-      sig do
-        params(
-          verification_status:
-            ModernTreasury::CounterpartyCreateParams::VerificationStatus::OrSymbol
-        ).void
-      end
-      attr_writer :verification_status
+      sig { returns(T.nilable(String)) }
+      attr_accessor :verification_status
 
       sig do
         params(
@@ -151,8 +137,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           send_remittance_advice: T::Boolean,
           taxpayer_identifier: String,
-          verification_status:
-            ModernTreasury::CounterpartyCreateParams::VerificationStatus::OrSymbol,
+          verification_status: T.nilable(String),
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
@@ -202,8 +187,7 @@ module ModernTreasury
             metadata: T::Hash[Symbol, String],
             send_remittance_advice: T::Boolean,
             taxpayer_identifier: String,
-            verification_status:
-              ModernTreasury::CounterpartyCreateParams::VerificationStatus::OrSymbol,
+            verification_status: T.nilable(String),
             request_options: ModernTreasury::RequestOptions
           }
         )
@@ -1822,51 +1806,6 @@ module ModernTreasury
           end
           def self.values
           end
-        end
-      end
-
-      # The verification status of the counterparty.
-      module VerificationStatus
-        extend ModernTreasury::Internal::Type::Enum
-
-        TaggedSymbol =
-          T.type_alias do
-            T.all(
-              Symbol,
-              ModernTreasury::CounterpartyCreateParams::VerificationStatus
-            )
-          end
-        OrSymbol = T.type_alias { T.any(Symbol, String) }
-
-        DENIED =
-          T.let(
-            :denied,
-            ModernTreasury::CounterpartyCreateParams::VerificationStatus::TaggedSymbol
-          )
-        NEEDS_APPROVAL =
-          T.let(
-            :needs_approval,
-            ModernTreasury::CounterpartyCreateParams::VerificationStatus::TaggedSymbol
-          )
-        UNVERIFIED =
-          T.let(
-            :unverified,
-            ModernTreasury::CounterpartyCreateParams::VerificationStatus::TaggedSymbol
-          )
-        VERIFIED =
-          T.let(
-            :verified,
-            ModernTreasury::CounterpartyCreateParams::VerificationStatus::TaggedSymbol
-          )
-
-        sig do
-          override.returns(
-            T::Array[
-              ModernTreasury::CounterpartyCreateParams::VerificationStatus::TaggedSymbol
-            ]
-          )
-        end
-        def self.values
         end
       end
     end

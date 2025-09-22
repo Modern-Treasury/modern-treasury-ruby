@@ -79,10 +79,12 @@ module ModernTreasury
       optional :taxpayer_identifier, String
 
       # @!attribute verification_status
+      #   @deprecated
+      #
       #   The verification status of the counterparty.
       #
-      #   @return [Symbol, ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus, nil]
-      optional :verification_status, enum: -> { ModernTreasury::CounterpartyCreateParams::VerificationStatus }
+      #   @return [String, nil]
+      optional :verification_status, String, nil?: true
 
       # @!method initialize(name:, body_external_id: nil, accounting: nil, accounts: nil, email: nil, ledger_type: nil, legal_entity: nil, legal_entity_id: nil, metadata: nil, send_remittance_advice: nil, taxpayer_identifier: nil, verification_status: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
@@ -110,7 +112,7 @@ module ModernTreasury
       #
       #   @param taxpayer_identifier [String] Either a valid SSN or EIN.
       #
-      #   @param verification_status [Symbol, ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus] The verification status of the counterparty.
+      #   @param verification_status [String, nil] The verification status of the counterparty.
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
@@ -763,19 +765,6 @@ module ModernTreasury
           # @!method self.values
           #   @return [Array<Symbol>]
         end
-      end
-
-      # The verification status of the counterparty.
-      module VerificationStatus
-        extend ModernTreasury::Internal::Type::Enum
-
-        DENIED = :denied
-        NEEDS_APPROVAL = :needs_approval
-        UNVERIFIED = :unverified
-        VERIFIED = :verified
-
-        # @!method self.values
-        #   @return [Array<Symbol>]
       end
     end
   end

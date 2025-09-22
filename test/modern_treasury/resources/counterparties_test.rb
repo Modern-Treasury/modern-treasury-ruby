@@ -25,7 +25,7 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < ModernTreasury::Test
         object: String,
         send_remittance_advice: ModernTreasury::Internal::Type::Boolean,
         updated_at: Time,
-        verification_status: ModernTreasury::Counterparty::VerificationStatus
+        verification_status: String | nil
       }
     end
   end
@@ -52,7 +52,7 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < ModernTreasury::Test
         object: String,
         send_remittance_advice: ModernTreasury::Internal::Type::Boolean,
         updated_at: Time,
-        verification_status: ModernTreasury::Counterparty::VerificationStatus
+        verification_status: String | nil
       }
     end
   end
@@ -79,7 +79,7 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < ModernTreasury::Test
         object: String,
         send_remittance_advice: ModernTreasury::Internal::Type::Boolean,
         updated_at: Time,
-        verification_status: ModernTreasury::Counterparty::VerificationStatus
+        verification_status: String | nil
       }
     end
   end
@@ -113,7 +113,7 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < ModernTreasury::Test
         object: String,
         send_remittance_advice: ModernTreasury::Internal::Type::Boolean,
         updated_at: Time,
-        verification_status: ModernTreasury::Counterparty::VerificationStatus
+        verification_status: String | nil
       }
     end
   end

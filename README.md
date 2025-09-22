@@ -258,25 +258,25 @@ modern_treasury.counterparties.create(**params)
 Since this library does not depend on `sorbet-runtime`, it cannot provide [`T::Enum`](https://sorbet.org/docs/tenum) instances. Instead, we provide "tagged symbols" instead, which is always a primitive at runtime:
 
 ```ruby
-# :denied
-puts(ModernTreasury::CounterpartyCreateParams::VerificationStatus::DENIED)
+# :credit
+puts(ModernTreasury::TransactionDirection::CREDIT)
 
-# Revealed type: `T.all(ModernTreasury::CounterpartyCreateParams::VerificationStatus, Symbol)`
-T.reveal_type(ModernTreasury::CounterpartyCreateParams::VerificationStatus::DENIED)
+# Revealed type: `T.all(ModernTreasury::TransactionDirection, Symbol)`
+T.reveal_type(ModernTreasury::TransactionDirection::CREDIT)
 ```
 
 Enum parameters have a "relaxed" type, so you can either pass in enum constants or their literal value:
 
 ```ruby
 # Using the enum constants preserves the tagged type information:
-modern_treasury.counterparties.create(
-  verification_status: ModernTreasury::CounterpartyCreateParams::VerificationStatus::DENIED,
+modern_treasury.counterparties.collect_account(
+  direction: ModernTreasury::TransactionDirection::CREDIT,
   # …
 )
 
 # Literal values are also permissible:
-modern_treasury.counterparties.create(
-  verification_status: :denied,
+modern_treasury.counterparties.collect_account(
+  direction: :credit,
   # …
 )
 ```
