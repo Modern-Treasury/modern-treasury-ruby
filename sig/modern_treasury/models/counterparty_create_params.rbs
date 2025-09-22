@@ -13,7 +13,7 @@ module ModernTreasury
         metadata: ::Hash[Symbol, String],
         send_remittance_advice: bool,
         taxpayer_identifier: String,
-        verification_status: String?
+        verification_status: String
       }
       & ModernTreasury::Internal::Type::request_parameters
 
@@ -65,7 +65,9 @@ module ModernTreasury
 
       def taxpayer_identifier=: (String) -> String
 
-      attr_accessor verification_status: String?
+      attr_reader verification_status: String?
+
+      def verification_status=: (String) -> String
 
       def initialize: (
         name: String?,
@@ -79,7 +81,7 @@ module ModernTreasury
         ?metadata: ::Hash[Symbol, String],
         ?send_remittance_advice: bool,
         ?taxpayer_identifier: String,
-        ?verification_status: String?,
+        ?verification_status: String,
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
@@ -95,7 +97,7 @@ module ModernTreasury
         metadata: ::Hash[Symbol, String],
         send_remittance_advice: bool,
         taxpayer_identifier: String,
-        verification_status: String?,
+        verification_status: String,
         request_options: ModernTreasury::RequestOptions
       }
 

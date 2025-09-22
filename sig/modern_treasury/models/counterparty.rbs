@@ -15,7 +15,7 @@ module ModernTreasury
         object: String,
         send_remittance_advice: bool,
         updated_at: Time,
-        verification_status: String?
+        verification_status: String
       }
 
     class Counterparty < ModernTreasury::Internal::Type::BaseModel
@@ -45,7 +45,7 @@ module ModernTreasury
 
       attr_accessor updated_at: Time
 
-      attr_accessor verification_status: String?
+      attr_accessor verification_status: String
 
       def initialize: (
         id: String,
@@ -61,7 +61,7 @@ module ModernTreasury
         object: String,
         send_remittance_advice: bool,
         updated_at: Time,
-        verification_status: String?
+        verification_status: String
       ) -> void
 
       def to_hash: -> {
@@ -78,7 +78,7 @@ module ModernTreasury
         object: String,
         send_remittance_advice: bool,
         updated_at: Time,
-        verification_status: String?
+        verification_status: String
       }
 
       type account =
