@@ -13,7 +13,7 @@ module ModernTreasury
         metadata: ::Hash[Symbol, String],
         send_remittance_advice: bool,
         taxpayer_identifier: String,
-        verification_status: ModernTreasury::Models::CounterpartyCreateParams::verification_status
+        verification_status: String?
       }
       & ModernTreasury::Internal::Type::request_parameters
 
@@ -65,11 +65,7 @@ module ModernTreasury
 
       def taxpayer_identifier=: (String) -> String
 
-      attr_reader verification_status: ModernTreasury::Models::CounterpartyCreateParams::verification_status?
-
-      def verification_status=: (
-        ModernTreasury::Models::CounterpartyCreateParams::verification_status
-      ) -> ModernTreasury::Models::CounterpartyCreateParams::verification_status
+      attr_accessor verification_status: String?
 
       def initialize: (
         name: String?,
@@ -83,7 +79,7 @@ module ModernTreasury
         ?metadata: ::Hash[Symbol, String],
         ?send_remittance_advice: bool,
         ?taxpayer_identifier: String,
-        ?verification_status: ModernTreasury::Models::CounterpartyCreateParams::verification_status,
+        ?verification_status: String?,
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
@@ -99,7 +95,7 @@ module ModernTreasury
         metadata: ::Hash[Symbol, String],
         send_remittance_advice: bool,
         taxpayer_identifier: String,
-        verification_status: ModernTreasury::Models::CounterpartyCreateParams::verification_status,
+        verification_status: String?,
         request_options: ModernTreasury::RequestOptions
       }
 
@@ -764,20 +760,6 @@ module ModernTreasury
 
           def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::risk_rating]
         end
-      end
-
-      type verification_status =
-        :denied | :needs_approval | :unverified | :verified
-
-      module VerificationStatus
-        extend ModernTreasury::Internal::Type::Enum
-
-        DENIED: :denied
-        NEEDS_APPROVAL: :needs_approval
-        UNVERIFIED: :unverified
-        VERIFIED: :verified
-
-        def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::verification_status]
       end
     end
   end
