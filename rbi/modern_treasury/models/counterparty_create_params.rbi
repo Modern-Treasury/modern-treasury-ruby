@@ -118,7 +118,10 @@ module ModernTreasury
 
       # The verification status of the counterparty.
       sig { returns(T.nilable(String)) }
-      attr_accessor :verification_status
+      attr_reader :verification_status
+
+      sig { params(verification_status: String).void }
+      attr_writer :verification_status
 
       sig do
         params(
@@ -137,7 +140,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           send_remittance_advice: T::Boolean,
           taxpayer_identifier: String,
-          verification_status: T.nilable(String),
+          verification_status: String,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
@@ -187,7 +190,7 @@ module ModernTreasury
             metadata: T::Hash[Symbol, String],
             send_remittance_advice: T::Boolean,
             taxpayer_identifier: String,
-            verification_status: T.nilable(String),
+            verification_status: String,
             request_options: ModernTreasury::RequestOptions
           }
         )

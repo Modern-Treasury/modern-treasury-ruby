@@ -13,7 +13,7 @@ module ModernTreasury
         ?metadata: ::Hash[Symbol, String],
         ?send_remittance_advice: bool,
         ?taxpayer_identifier: String,
-        ?verification_status: String?,
+        ?verification_status: String,
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::Counterparty
 

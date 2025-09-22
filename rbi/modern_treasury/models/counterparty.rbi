@@ -59,7 +59,7 @@ module ModernTreasury
       attr_accessor :updated_at
 
       # The verification status of the counterparty.
-      sig { returns(T.nilable(String)) }
+      sig { returns(String) }
       attr_accessor :verification_status
 
       sig do
@@ -77,7 +77,7 @@ module ModernTreasury
           object: String,
           send_remittance_advice: T::Boolean,
           updated_at: Time,
-          verification_status: T.nilable(String)
+          verification_status: String
         ).returns(T.attached_class)
       end
       def self.new(
@@ -126,7 +126,7 @@ module ModernTreasury
             object: String,
             send_remittance_advice: T::Boolean,
             updated_at: Time,
-            verification_status: T.nilable(String)
+            verification_status: String
           }
         )
       end

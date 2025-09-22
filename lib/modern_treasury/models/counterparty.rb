@@ -85,8 +85,8 @@ module ModernTreasury
       #
       #   The verification status of the counterparty.
       #
-      #   @return [String, nil]
-      required :verification_status, String, nil?: true
+      #   @return [String]
+      required :verification_status, String
 
       # @!method initialize(id:, accounts:, created_at:, discarded_at:, email:, external_id:, legal_entity_id:, live_mode:, metadata:, name:, object:, send_remittance_advice:, updated_at:, verification_status:)
       #   Some parameter documentations has been truncated, see
@@ -118,7 +118,7 @@ module ModernTreasury
       #
       #   @param updated_at [Time]
       #
-      #   @param verification_status [String, nil] The verification status of the counterparty.
+      #   @param verification_status [String] The verification status of the counterparty.
 
       class Account < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
