@@ -84,7 +84,7 @@ module ModernTreasury
       #   The verification status of the counterparty.
       #
       #   @return [String, nil]
-      optional :verification_status, String, nil?: true
+      optional :verification_status, String
 
       # @!method initialize(name:, body_external_id: nil, accounting: nil, accounts: nil, email: nil, ledger_type: nil, legal_entity: nil, legal_entity_id: nil, metadata: nil, send_remittance_advice: nil, taxpayer_identifier: nil, verification_status: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
@@ -112,7 +112,7 @@ module ModernTreasury
       #
       #   @param taxpayer_identifier [String] Either a valid SSN or EIN.
       #
-      #   @param verification_status [String, nil] The verification status of the counterparty.
+      #   @param verification_status [String] The verification status of the counterparty.
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 

@@ -21,7 +21,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           send_remittance_advice: T::Boolean,
           taxpayer_identifier: String,
-          verification_status: T.nilable(String),
+          verification_status: String,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::Counterparty)
       end
