@@ -23,6 +23,20 @@ module ModernTreasury
       sig { params(counterparty_id: String).void }
       attr_writer :counterparty_id
 
+      # An inclusive upper bound for searching created_at
+      sig { returns(T.nilable(Time)) }
+      attr_reader :created_at_end
+
+      sig { params(created_at_end: Time).void }
+      attr_writer :created_at_end
+
+      # An inclusive lower bound for searching created_at
+      sig { returns(T.nilable(Time)) }
+      attr_reader :created_at_start
+
+      sig { params(created_at_start: Time).void }
+      attr_writer :created_at_start
+
       # An inclusive upper bound for searching due_date
       sig { returns(T.nilable(Date)) }
       attr_reader :due_date_end
@@ -91,6 +105,8 @@ module ModernTreasury
         params(
           after_cursor: T.nilable(String),
           counterparty_id: String,
+          created_at_end: Time,
+          created_at_start: Time,
           due_date_end: Date,
           due_date_start: Date,
           expected_payment_id: String,
@@ -106,6 +122,10 @@ module ModernTreasury
       def self.new(
         after_cursor: nil,
         counterparty_id: nil,
+        # An inclusive upper bound for searching created_at
+        created_at_end: nil,
+        # An inclusive lower bound for searching created_at
+        created_at_start: nil,
         # An inclusive upper bound for searching due_date
         due_date_end: nil,
         # An inclusive lower bound for searching due_date
@@ -130,6 +150,8 @@ module ModernTreasury
           {
             after_cursor: T.nilable(String),
             counterparty_id: String,
+            created_at_end: Time,
+            created_at_start: Time,
             due_date_end: Date,
             due_date_start: Date,
             expected_payment_id: String,

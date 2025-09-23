@@ -4,6 +4,8 @@ module ModernTreasury
       {
         after_cursor: String?,
         counterparty_id: String,
+        created_at_end: Time,
+        created_at_start: Time,
         due_date_end: Date,
         due_date_start: Date,
         expected_payment_id: String,
@@ -25,6 +27,14 @@ module ModernTreasury
       attr_reader counterparty_id: String?
 
       def counterparty_id=: (String) -> String
+
+      attr_reader created_at_end: Time?
+
+      def created_at_end=: (Time) -> Time
+
+      attr_reader created_at_start: Time?
+
+      def created_at_start=: (Time) -> Time
 
       attr_reader due_date_end: Date?
 
@@ -67,6 +77,8 @@ module ModernTreasury
       def initialize: (
         ?after_cursor: String?,
         ?counterparty_id: String,
+        ?created_at_end: Time,
+        ?created_at_start: Time,
         ?due_date_end: Date,
         ?due_date_start: Date,
         ?expected_payment_id: String,
@@ -82,6 +94,8 @@ module ModernTreasury
       def to_hash: -> {
         after_cursor: String?,
         counterparty_id: String,
+        created_at_end: Time,
+        created_at_start: Time,
         due_date_end: Date,
         due_date_start: Date,
         expected_payment_id: String,
