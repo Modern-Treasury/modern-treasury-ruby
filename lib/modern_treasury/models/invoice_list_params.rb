@@ -17,6 +17,18 @@ module ModernTreasury
       #   @return [String, nil]
       optional :counterparty_id, String
 
+      # @!attribute created_at_end
+      #   An inclusive upper bound for searching created_at
+      #
+      #   @return [Time, nil]
+      optional :created_at_end, Time
+
+      # @!attribute created_at_start
+      #   An inclusive lower bound for searching created_at
+      #
+      #   @return [Time, nil]
+      optional :created_at_start, Time
+
       # @!attribute due_date_end
       #   An inclusive upper bound for searching due_date
       #
@@ -68,13 +80,17 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::InvoiceListParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::InvoiceListParams::Status }
 
-      # @!method initialize(after_cursor: nil, counterparty_id: nil, due_date_end: nil, due_date_start: nil, expected_payment_id: nil, metadata: nil, number: nil, originating_account_id: nil, payment_order_id: nil, per_page: nil, status: nil, request_options: {})
+      # @!method initialize(after_cursor: nil, counterparty_id: nil, created_at_end: nil, created_at_start: nil, due_date_end: nil, due_date_start: nil, expected_payment_id: nil, metadata: nil, number: nil, originating_account_id: nil, payment_order_id: nil, per_page: nil, status: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::InvoiceListParams} for more details.
       #
       #   @param after_cursor [String, nil]
       #
       #   @param counterparty_id [String]
+      #
+      #   @param created_at_end [Time] An inclusive upper bound for searching created_at
+      #
+      #   @param created_at_start [Time] An inclusive lower bound for searching created_at
       #
       #   @param due_date_end [Date] An inclusive upper bound for searching due_date
       #
