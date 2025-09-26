@@ -612,6 +612,7 @@ module ModernTreasury
         CHECK = :check
         CROSS_BORDER = :cross_border
         EFT = :eft
+        GB_FPS = :gb_fps
         INTERAC = :interac
         MANUAL = :manual
         SEPA = :sepa
