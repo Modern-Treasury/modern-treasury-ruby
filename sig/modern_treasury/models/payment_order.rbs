@@ -11,6 +11,7 @@ module ModernTreasury
         counterparty_id: String?,
         created_at: Time,
         currency: ModernTreasury::Models::currency,
+        current_hold: ModernTreasury::PaymentOrder::CurrentHold?,
         current_return: ModernTreasury::ReturnObject?,
         description: String?,
         direction: ModernTreasury::Models::PaymentOrder::direction,
@@ -70,6 +71,8 @@ module ModernTreasury
       attr_accessor created_at: Time
 
       attr_accessor currency: ModernTreasury::Models::currency
+
+      attr_accessor current_hold: ModernTreasury::PaymentOrder::CurrentHold?
 
       attr_accessor current_return: ModernTreasury::ReturnObject?
 
@@ -159,6 +162,7 @@ module ModernTreasury
         counterparty_id: String?,
         created_at: Time,
         currency: ModernTreasury::Models::currency,
+        current_hold: ModernTreasury::PaymentOrder::CurrentHold?,
         current_return: ModernTreasury::ReturnObject?,
         description: String?,
         direction: ModernTreasury::Models::PaymentOrder::direction,
@@ -210,6 +214,7 @@ module ModernTreasury
         counterparty_id: String?,
         created_at: Time,
         currency: ModernTreasury::Models::currency,
+        current_hold: ModernTreasury::PaymentOrder::CurrentHold?,
         current_return: ModernTreasury::ReturnObject?,
         description: String?,
         direction: ModernTreasury::Models::PaymentOrder::direction,
@@ -273,6 +278,111 @@ module ModernTreasury
         RECEIVER: :receiver
 
         def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrder::charge_bearer]
+      end
+
+      type current_hold =
+        {
+          id: String,
+          created_at: Time,
+          object: ModernTreasury::Models::PaymentOrder::CurrentHold::object,
+          status: ModernTreasury::Models::PaymentOrder::CurrentHold::status,
+          target_id: String,
+          target_type: ModernTreasury::Models::PaymentOrder::CurrentHold::target_type,
+          updated_at: Time,
+          live_mode: bool,
+          metadata: ::Hash[Symbol, String]?,
+          reason: String?,
+          resolution: String?,
+          resolved_at: Time?
+        }
+
+      class CurrentHold < ModernTreasury::Internal::Type::BaseModel
+        attr_accessor id: String
+
+        attr_accessor created_at: Time
+
+        attr_accessor object: ModernTreasury::Models::PaymentOrder::CurrentHold::object
+
+        attr_accessor status: ModernTreasury::Models::PaymentOrder::CurrentHold::status
+
+        attr_accessor target_id: String
+
+        attr_accessor target_type: ModernTreasury::Models::PaymentOrder::CurrentHold::target_type
+
+        attr_accessor updated_at: Time
+
+        attr_reader live_mode: bool?
+
+        def live_mode=: (bool) -> bool
+
+        attr_accessor metadata: ::Hash[Symbol, String]?
+
+        attr_accessor reason: String?
+
+        attr_accessor resolution: String?
+
+        attr_accessor resolved_at: Time?
+
+        def initialize: (
+          id: String,
+          created_at: Time,
+          object: ModernTreasury::Models::PaymentOrder::CurrentHold::object,
+          status: ModernTreasury::Models::PaymentOrder::CurrentHold::status,
+          target_id: String,
+          target_type: ModernTreasury::Models::PaymentOrder::CurrentHold::target_type,
+          updated_at: Time,
+          ?live_mode: bool,
+          ?metadata: ::Hash[Symbol, String]?,
+          ?reason: String?,
+          ?resolution: String?,
+          ?resolved_at: Time?
+        ) -> void
+
+        def to_hash: -> {
+          id: String,
+          created_at: Time,
+          object: ModernTreasury::Models::PaymentOrder::CurrentHold::object,
+          status: ModernTreasury::Models::PaymentOrder::CurrentHold::status,
+          target_id: String,
+          target_type: ModernTreasury::Models::PaymentOrder::CurrentHold::target_type,
+          updated_at: Time,
+          live_mode: bool,
+          metadata: ::Hash[Symbol, String]?,
+          reason: String?,
+          resolution: String?,
+          resolved_at: Time?
+        }
+
+        type object = :hold
+
+        module Object
+          extend ModernTreasury::Internal::Type::Enum
+
+          HOLD: :hold
+
+          def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrder::CurrentHold::object]
+        end
+
+        type status = :active | :resolved
+
+        module Status
+          extend ModernTreasury::Internal::Type::Enum
+
+          ACTIVE: :active
+          RESOLVED: :resolved
+
+          def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrder::CurrentHold::status]
+        end
+
+        type target_type = :payment_order
+
+        module TargetType
+          extend ModernTreasury::Internal::Type::Enum
+
+          PAYMENT_ORDER: :payment_order
+
+          def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrder::CurrentHold::target_type]
+        end
       end
 
       type direction = :credit | :debit

@@ -1150,6 +1150,8 @@ module ModernTreasury
         CROSS_BORDER =
           T.let(:cross_border, ModernTreasury::ReturnObject::Type::TaggedSymbol)
         EFT = T.let(:eft, ModernTreasury::ReturnObject::Type::TaggedSymbol)
+        GB_FPS =
+          T.let(:gb_fps, ModernTreasury::ReturnObject::Type::TaggedSymbol)
         INTERAC =
           T.let(:interac, ModernTreasury::ReturnObject::Type::TaggedSymbol)
         MANUAL =
