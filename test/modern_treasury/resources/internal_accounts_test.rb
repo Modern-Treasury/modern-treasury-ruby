@@ -37,7 +37,7 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
         party_name: String,
         party_type: ModernTreasury::InternalAccount::PartyType | nil,
         routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail]),
-        status: String | nil,
+        status: ModernTreasury::InternalAccount::Status | nil,
         updated_at: Time,
         vendor_id: String | nil
       }
@@ -72,7 +72,7 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
         party_name: String,
         party_type: ModernTreasury::InternalAccount::PartyType | nil,
         routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail]),
-        status: String | nil,
+        status: ModernTreasury::InternalAccount::Status | nil,
         updated_at: Time,
         vendor_id: String | nil
       }
@@ -107,7 +107,7 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
         party_name: String,
         party_type: ModernTreasury::InternalAccount::PartyType | nil,
         routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail]),
-        status: String | nil,
+        status: ModernTreasury::InternalAccount::Status | nil,
         updated_at: Time,
         vendor_id: String | nil
       }
@@ -149,7 +149,7 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
         party_name: String,
         party_type: ModernTreasury::InternalAccount::PartyType | nil,
         routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail]),
-        status: String | nil,
+        status: ModernTreasury::InternalAccount::Status | nil,
         updated_at: Time,
         vendor_id: String | nil
       }
