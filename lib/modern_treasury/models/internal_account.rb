@@ -123,8 +123,8 @@ module ModernTreasury
       # @!attribute status
       #   The internal account status.
       #
-      #   @return [String, nil]
-      required :status, String, nil?: true
+      #   @return [Symbol, ModernTreasury::Models::InternalAccount::Status, nil]
+      required :status, enum: -> { ModernTreasury::InternalAccount::Status }, nil?: true
 
       # @!attribute updated_at
       #
@@ -179,7 +179,7 @@ module ModernTreasury
       #
       #   @param routing_details [Array<ModernTreasury::Models::RoutingDetail>] An array of routing detail objects.
       #
-      #   @param status [String, nil] The internal account status.
+      #   @param status [Symbol, ModernTreasury::Models::InternalAccount::Status, nil] The internal account status.
       #
       #   @param updated_at [Time]
       #
@@ -341,6 +341,22 @@ module ModernTreasury
 
         BUSINESS = :business
         INDIVIDUAL = :individual
+
+        # @!method self.values
+        #   @return [Array<Symbol>]
+      end
+
+      # The internal account status.
+      #
+      # @see ModernTreasury::Models::InternalAccount#status
+      module Status
+        extend ModernTreasury::Internal::Type::Enum
+
+        ACTIVE = :active
+        CLOSED = :closed
+        PENDING_ACTIVATION = :pending_activation
+        PENDING_CLOSURE = :pending_closure
+        SUSPENDED = :suspended
 
         # @!method self.values
         #   @return [Array<Symbol>]

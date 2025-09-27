@@ -55,7 +55,13 @@ module ModernTreasury
       #   @return [Integer, nil]
       optional :per_page, Integer
 
-      # @!method initialize(after_cursor: nil, counterparty_id: nil, currency: nil, legal_entity_id: nil, metadata: nil, payment_direction: nil, payment_type: nil, per_page: nil, request_options: {})
+      # @!attribute status
+      #   Only return internal accounts with this status.
+      #
+      #   @return [Symbol, ModernTreasury::Models::InternalAccountListParams::Status, nil]
+      optional :status, enum: -> { ModernTreasury::InternalAccountListParams::Status }
+
+      # @!method initialize(after_cursor: nil, counterparty_id: nil, currency: nil, legal_entity_id: nil, metadata: nil, payment_direction: nil, payment_type: nil, per_page: nil, status: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::InternalAccountListParams} for more details.
       #
@@ -74,6 +80,8 @@ module ModernTreasury
       #   @param payment_type [Symbol, ModernTreasury::Models::InternalAccountListParams::PaymentType] Only return internal accounts that can make this type of payment.
       #
       #   @param per_page [Integer]
+      #
+      #   @param status [Symbol, ModernTreasury::Models::InternalAccountListParams::Status] Only return internal accounts with this status.
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
@@ -116,6 +124,20 @@ module ModernTreasury
         SOLANA = :solana
         WIRE = :wire
         ZENGIN = :zengin
+
+        # @!method self.values
+        #   @return [Array<Symbol>]
+      end
+
+      # Only return internal accounts with this status.
+      module Status
+        extend ModernTreasury::Internal::Type::Enum
+
+        ACTIVE = :active
+        PENDING_ACTIVATION = :pending_activation
+        SUSPENDED = :suspended
+        PENDING_CLOSURE = :pending_closure
+        CLOSED = :closed
 
         # @!method self.values
         #   @return [Array<Symbol>]
