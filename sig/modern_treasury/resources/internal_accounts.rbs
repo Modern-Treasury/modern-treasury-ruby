@@ -42,6 +42,7 @@ module ModernTreasury
         ?payment_direction: ModernTreasury::Models::transaction_direction,
         ?payment_type: ModernTreasury::Models::InternalAccountListParams::payment_type,
         ?per_page: Integer,
+        ?status: ModernTreasury::Models::InternalAccountListParams::status,
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::Internal::Page[ModernTreasury::InternalAccount]
 

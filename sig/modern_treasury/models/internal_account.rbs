@@ -21,7 +21,7 @@ module ModernTreasury
         party_name: String,
         party_type: ModernTreasury::Models::InternalAccount::party_type?,
         routing_details: ::Array[ModernTreasury::RoutingDetail],
-        status: String?,
+        status: ModernTreasury::Models::InternalAccount::status?,
         updated_at: Time,
         vendor_id: String?
       }
@@ -65,7 +65,7 @@ module ModernTreasury
 
       attr_accessor routing_details: ::Array[ModernTreasury::RoutingDetail]
 
-      attr_accessor status: String?
+      attr_accessor status: ModernTreasury::Models::InternalAccount::status?
 
       attr_accessor updated_at: Time
 
@@ -91,7 +91,7 @@ module ModernTreasury
         party_name: String,
         party_type: ModernTreasury::Models::InternalAccount::party_type?,
         routing_details: ::Array[ModernTreasury::RoutingDetail],
-        status: String?,
+        status: ModernTreasury::Models::InternalAccount::status?,
         updated_at: Time,
         vendor_id: String?
       ) -> void
@@ -116,7 +116,7 @@ module ModernTreasury
         party_name: String,
         party_type: ModernTreasury::Models::InternalAccount::party_type?,
         routing_details: ::Array[ModernTreasury::RoutingDetail],
-        status: String?,
+        status: ModernTreasury::Models::InternalAccount::status?,
         updated_at: Time,
         vendor_id: String?
       }
@@ -301,6 +301,21 @@ module ModernTreasury
         INDIVIDUAL: :individual
 
         def self?.values: -> ::Array[ModernTreasury::Models::InternalAccount::party_type]
+      end
+
+      type status =
+        :active | :closed | :pending_activation | :pending_closure | :suspended
+
+      module Status
+        extend ModernTreasury::Internal::Type::Enum
+
+        ACTIVE: :active
+        CLOSED: :closed
+        PENDING_ACTIVATION: :pending_activation
+        PENDING_CLOSURE: :pending_closure
+        SUSPENDED: :suspended
+
+        def self?.values: -> ::Array[ModernTreasury::Models::InternalAccount::status]
       end
     end
   end

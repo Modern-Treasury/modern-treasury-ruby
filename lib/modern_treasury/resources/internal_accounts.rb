@@ -111,7 +111,7 @@ module ModernTreasury
       #
       # list internal accounts
       #
-      # @overload list(after_cursor: nil, counterparty_id: nil, currency: nil, legal_entity_id: nil, metadata: nil, payment_direction: nil, payment_type: nil, per_page: nil, request_options: {})
+      # @overload list(after_cursor: nil, counterparty_id: nil, currency: nil, legal_entity_id: nil, metadata: nil, payment_direction: nil, payment_type: nil, per_page: nil, status: nil, request_options: {})
       #
       # @param after_cursor [String, nil]
       #
@@ -128,6 +128,8 @@ module ModernTreasury
       # @param payment_type [Symbol, ModernTreasury::Models::InternalAccountListParams::PaymentType] Only return internal accounts that can make this type of payment.
       #
       # @param per_page [Integer]
+      #
+      # @param status [Symbol, ModernTreasury::Models::InternalAccountListParams::Status] Only return internal accounts with this status.
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
