@@ -276,6 +276,8 @@ module ModernTreasury
         params(
           after_cursor: T.nilable(String),
           counterparty_id: String,
+          created_at_end: Time,
+          created_at_start: Time,
           due_date_end: Date,
           due_date_start: Date,
           expected_payment_id: String,
@@ -291,6 +293,10 @@ module ModernTreasury
       def list(
         after_cursor: nil,
         counterparty_id: nil,
+        # An inclusive upper bound for searching created_at
+        created_at_end: nil,
+        # An inclusive lower bound for searching created_at
+        created_at_start: nil,
         # An inclusive upper bound for searching due_date
         due_date_end: nil,
         # An inclusive lower bound for searching due_date
