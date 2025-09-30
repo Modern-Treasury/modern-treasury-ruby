@@ -513,6 +513,7 @@ module ModernTreasury
           JPMC_PAYMENT_RETURNED_DATETIME = :jpmc_payment_returned_datetime
           JPMC_TRANSACTION_REFERENCE_NUMBER = :jpmc_transaction_reference_number
           LOB_CHECK_ID = :lob_check_id
+          MT_FOF_TRANSFER_ID = :mt_fof_transfer_id
           OTHER = :other
           PARTIAL_SWIFT_MIR = :partial_swift_mir
           PNC_CLEARING_REFERENCE = :pnc_clearing_reference
@@ -611,6 +612,7 @@ module ModernTreasury
         CHECK = :check
         CROSS_BORDER = :cross_border
         EFT = :eft
+        GB_FPS = :gb_fps
         INTERAC = :interac
         MANUAL = :manual
         SEPA = :sepa

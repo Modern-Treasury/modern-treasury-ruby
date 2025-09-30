@@ -213,22 +213,41 @@ class ModernTreasury::Test::UtilFormDataEncodingTest < Minitest::Test
     end
   end
 
+  def test_encoding_length
+    headers, = ModernTreasury::Internal::Util.encode_content(
+      {"content-type" => "multipart/form-data"},
+      Pathname(__FILE__)
+    )
+    assert_pattern do
+      headers.fetch("content-type") => /boundary=(.+)$/
+    end
+    field, = Regexp.last_match.captures
+    assert(field.length < 70 - 6)
+  end
+
   def test_file_encode
     file = Pathname(__FILE__)
+    fileinput = ModernTreasury::Internal::Type::Converter.dump(
+      ModernTreasury::Internal::Type::FileInput,
+      "abc"
+    )
     headers = {"content-type" => "multipart/form-data"}
     cases = {
-      "abc" => "abc",
-      StringIO.new("abc") => "abc",
-      ModernTreasury::FilePart.new("abc") => "abc",
-      ModernTreasury::FilePart.new(StringIO.new("abc")) => "abc",
-      file => /^class ModernTreasury/,
-      ModernTreasury::FilePart.new(file) => /^class ModernTreasury/
+      "abc" => ["", "abc"],
+      StringIO.new("abc") => ["", "abc"],
+      fileinput => %w[upload abc],
+      ModernTreasury::FilePart.new(StringIO.new("abc")) => ["", "abc"],
+      file => [file.basename.to_path, /^class ModernTreasury/],
+      ModernTreasury::FilePart.new(file, filename: "d o g") => ["d%20o%20g", /^class ModernTreasury/]
     }
-    cases.each do |body, val|
+    cases.each do |body, testcase|
+      filename, val = testcase
       encoded = ModernTreasury::Internal::Util.encode_content(headers, body)
       cgi = FakeCGI.new(*encoded)
+      io = cgi[""]
       assert_pattern do
-        cgi[""].read => ^val
+        io.original_filename => ^filename
+        io.read => ^val
       end
     end
   end
@@ -249,7 +268,14 @@ class ModernTreasury::Test::UtilFormDataEncodingTest < Minitest::Test
       cgi = FakeCGI.new(*encoded)
       testcase.each do |key, val|
         assert_pattern do
-          cgi[key] => ^val
+          parsed =
+            case (p = cgi[key])
+            in StringIO
+              p.read
+            else
+              p
+            end
+          parsed => ^val
         end
       end
     end
@@ -287,6 +313,31 @@ class ModernTreasury::Test::UtilIOAdapterTest < Minitest::Test
 end
 
 class ModernTreasury::Test::UtilFusedEnumTest < Minitest::Test
+  def test_rewind_closing
+    touched = false
+    once = 0
+    steps = 0
+    enum = Enumerator.new do |y|
+      next if touched
+
+      10.times do
+        steps = _1
+        y << _1
+      end
+    ensure
+      once = once.succ
+    end
+
+    fused = ModernTreasury::Internal::Util.fused_enum(enum, external: true) do
+      touched = true
+      loop { enum.next }
+    end
+    ModernTreasury::Internal::Util.close_fused!(fused)
+
+    assert_equal(1, once)
+    assert_equal(0, steps)
+  end
+
   def test_closing
     arr = [1, 2, 3]
     once = 0

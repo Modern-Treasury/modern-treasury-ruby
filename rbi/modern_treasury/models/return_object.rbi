@@ -861,6 +861,11 @@ module ModernTreasury
               :lob_check_id,
               ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
+          MT_FOF_TRANSFER_ID =
+            T.let(
+              :mt_fof_transfer_id,
+              ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
           OTHER =
             T.let(
               :other,
@@ -1145,6 +1150,8 @@ module ModernTreasury
         CROSS_BORDER =
           T.let(:cross_border, ModernTreasury::ReturnObject::Type::TaggedSymbol)
         EFT = T.let(:eft, ModernTreasury::ReturnObject::Type::TaggedSymbol)
+        GB_FPS =
+          T.let(:gb_fps, ModernTreasury::ReturnObject::Type::TaggedSymbol)
         INTERAC =
           T.let(:interac, ModernTreasury::ReturnObject::Type::TaggedSymbol)
         MANUAL =

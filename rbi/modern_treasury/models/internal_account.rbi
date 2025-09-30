@@ -106,6 +106,14 @@ module ModernTreasury
       sig { returns(T::Array[ModernTreasury::RoutingDetail]) }
       attr_accessor :routing_details
 
+      # The internal account status.
+      sig do
+        returns(
+          T.nilable(ModernTreasury::InternalAccount::Status::TaggedSymbol)
+        )
+      end
+      attr_accessor :status
+
       sig { returns(Time) }
       attr_accessor :updated_at
 
@@ -139,6 +147,7 @@ module ModernTreasury
           party_type:
             T.nilable(ModernTreasury::InternalAccount::PartyType::OrSymbol),
           routing_details: T::Array[ModernTreasury::RoutingDetail::OrHash],
+          status: T.nilable(ModernTreasury::InternalAccount::Status::OrSymbol),
           updated_at: Time,
           vendor_id: T.nilable(String)
         ).returns(T.attached_class)
@@ -183,6 +192,8 @@ module ModernTreasury
         party_type:,
         # An array of routing detail objects.
         routing_details:,
+        # The internal account status.
+        status:,
         updated_at:,
         # The vendor ID associated with this account.
         vendor_id:
@@ -218,6 +229,8 @@ module ModernTreasury
                 ModernTreasury::InternalAccount::PartyType::TaggedSymbol
               ),
             routing_details: T::Array[ModernTreasury::RoutingDetail],
+            status:
+              T.nilable(ModernTreasury::InternalAccount::Status::TaggedSymbol),
             updated_at: Time,
             vendor_id: T.nilable(String)
           }
@@ -639,6 +652,45 @@ module ModernTreasury
         sig do
           override.returns(
             T::Array[ModernTreasury::InternalAccount::PartyType::TaggedSymbol]
+          )
+        end
+        def self.values
+        end
+      end
+
+      # The internal account status.
+      module Status
+        extend ModernTreasury::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::InternalAccount::Status)
+          end
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        ACTIVE =
+          T.let(:active, ModernTreasury::InternalAccount::Status::TaggedSymbol)
+        CLOSED =
+          T.let(:closed, ModernTreasury::InternalAccount::Status::TaggedSymbol)
+        PENDING_ACTIVATION =
+          T.let(
+            :pending_activation,
+            ModernTreasury::InternalAccount::Status::TaggedSymbol
+          )
+        PENDING_CLOSURE =
+          T.let(
+            :pending_closure,
+            ModernTreasury::InternalAccount::Status::TaggedSymbol
+          )
+        SUSPENDED =
+          T.let(
+            :suspended,
+            ModernTreasury::InternalAccount::Status::TaggedSymbol
+          )
+
+        sig do
+          override.returns(
+            T::Array[ModernTreasury::InternalAccount::Status::TaggedSymbol]
           )
         end
         def self.values
