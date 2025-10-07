@@ -107,6 +107,12 @@ module ModernTreasury
                enum: -> { ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType },
                nil?: true
 
+      # @!attribute reconciled
+      #   True if the object is reconciled, false otherwise.
+      #
+      #   @return [Boolean]
+      required :reconciled, ModernTreasury::Internal::Type::Boolean
+
       # @!attribute status
       #   The current status of the incoming payment order. One of `pending`, `completed`,
       #   or `returned`.
@@ -164,7 +170,7 @@ module ModernTreasury
       #   @return [String, nil]
       optional :originating_account_number, String, nil?: true
 
-      # @!method initialize(id:, amount:, as_of_date:, created_at:, currency:, data:, direction:, internal_account_id:, ledger_transaction_id:, live_mode:, metadata:, object:, originating_account_number_safe:, originating_account_number_type:, originating_routing_number:, originating_routing_number_type:, status:, transaction_id:, transaction_line_item_id:, type:, updated_at:, vendor_id:, virtual_account:, virtual_account_id:, originating_account_number: nil)
+      # @!method initialize(id:, amount:, as_of_date:, created_at:, currency:, data:, direction:, internal_account_id:, ledger_transaction_id:, live_mode:, metadata:, object:, originating_account_number_safe:, originating_account_number_type:, originating_routing_number:, originating_routing_number_type:, reconciled:, status:, transaction_id:, transaction_line_item_id:, type:, updated_at:, vendor_id:, virtual_account:, virtual_account_id:, originating_account_number: nil)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::IncomingPaymentDetail} for more details.
       #
@@ -199,6 +205,8 @@ module ModernTreasury
       #   @param originating_routing_number [String, nil] The routing number of the originating account for the incoming payment detail.
       #
       #   @param originating_routing_number_type [Symbol, ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType, nil] The type of the originating routing number for the incoming payment detail.
+      #
+      #   @param reconciled [Boolean] True if the object is reconciled, false otherwise.
       #
       #   @param status [Symbol, ModernTreasury::Models::IncomingPaymentDetail::Status] The current status of the incoming payment order. One of `pending`, `completed`,
       #

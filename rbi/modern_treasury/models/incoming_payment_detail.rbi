@@ -90,6 +90,10 @@ module ModernTreasury
       end
       attr_accessor :originating_routing_number_type
 
+      # True if the object is reconciled, false otherwise.
+      sig { returns(T::Boolean) }
+      attr_accessor :reconciled
+
       # The current status of the incoming payment order. One of `pending`, `completed`,
       # or `returned`.
       sig do
@@ -162,6 +166,7 @@ module ModernTreasury
             T.nilable(
               ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::OrSymbol
             ),
+          reconciled: T::Boolean,
           status: ModernTreasury::IncomingPaymentDetail::Status::OrSymbol,
           transaction_id: T.nilable(String),
           transaction_line_item_id: T.nilable(String),
@@ -209,6 +214,8 @@ module ModernTreasury
         originating_routing_number:,
         # The type of the originating routing number for the incoming payment detail.
         originating_routing_number_type:,
+        # True if the object is reconciled, false otherwise.
+        reconciled:,
         # The current status of the incoming payment order. One of `pending`, `completed`,
         # or `returned`.
         status:,
@@ -258,6 +265,7 @@ module ModernTreasury
               T.nilable(
                 ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
               ),
+            reconciled: T::Boolean,
             status: ModernTreasury::IncomingPaymentDetail::Status::TaggedSymbol,
             transaction_id: T.nilable(String),
             transaction_line_item_id: T.nilable(String),

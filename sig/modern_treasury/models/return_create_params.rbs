@@ -9,7 +9,8 @@ module ModernTreasury
         corrections: ModernTreasury::ReturnCreateParams::Corrections?,
         data: top?,
         date_of_death: Date?,
-        reason: String?
+        reason: String?,
+        reconciled: bool
       }
       & ModernTreasury::Internal::Type::request_parameters
 
@@ -33,6 +34,10 @@ module ModernTreasury
 
       attr_accessor reason: String?
 
+      attr_reader reconciled: bool?
+
+      def reconciled=: (bool) -> bool
+
       def initialize: (
         returnable_id: String?,
         returnable_type: ModernTreasury::Models::ReturnCreateParams::returnable_type,
@@ -42,6 +47,7 @@ module ModernTreasury
         ?data: top?,
         ?date_of_death: Date?,
         ?reason: String?,
+        ?reconciled: bool,
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
@@ -54,6 +60,7 @@ module ModernTreasury
         data: top?,
         date_of_death: Date?,
         reason: String?,
+        reconciled: bool,
         request_options: ModernTreasury::RequestOptions
       }
 

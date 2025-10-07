@@ -52,6 +52,12 @@ module ModernTreasury
         #   @return [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Reason]
         required :reason, enum: -> { ModernTreasury::PaymentOrders::Reversal::Reason }
 
+        # @!attribute reconciled
+        #   True if the object is reconciled, false otherwise.
+        #
+        #   @return [Boolean]
+        required :reconciled, ModernTreasury::Internal::Type::Boolean
+
         # @!attribute status
         #   The current status of the reversal.
         #
@@ -68,7 +74,7 @@ module ModernTreasury
         #   @return [Time]
         required :updated_at, Time
 
-        # @!method initialize(id:, created_at:, ledger_transaction_id:, live_mode:, metadata:, object:, payment_order_id:, reason:, status:, transaction_ids:, updated_at:)
+        # @!method initialize(id:, created_at:, ledger_transaction_id:, live_mode:, metadata:, object:, payment_order_id:, reason:, reconciled:, status:, transaction_ids:, updated_at:)
         #   Some parameter documentations has been truncated, see
         #   {ModernTreasury::Models::PaymentOrders::Reversal} for more details.
         #
@@ -87,6 +93,8 @@ module ModernTreasury
         #   @param payment_order_id [String, nil] The ID of the relevant Payment Order.
         #
         #   @param reason [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Reason] The reason for the reversal.
+        #
+        #   @param reconciled [Boolean] True if the object is reconciled, false otherwise.
         #
         #   @param status [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Status] The current status of the reversal.
         #

@@ -17,6 +17,7 @@ module ModernTreasury
         live_mode: bool,
         object: String,
         reason: String?,
+        reconciled: bool,
         reference_numbers: ::Array[ModernTreasury::ReturnObject::ReferenceNumber],
         returnable_id: String?,
         returnable_type: ModernTreasury::Models::ReturnObject::returnable_type?,
@@ -61,6 +62,8 @@ module ModernTreasury
 
       attr_accessor reason: String?
 
+      attr_accessor reconciled: bool
+
       attr_accessor reference_numbers: ::Array[ModernTreasury::ReturnObject::ReferenceNumber]
 
       attr_accessor returnable_id: String?
@@ -99,6 +102,7 @@ module ModernTreasury
         live_mode: bool,
         object: String,
         reason: String?,
+        reconciled: bool,
         reference_numbers: ::Array[ModernTreasury::ReturnObject::ReferenceNumber],
         returnable_id: String?,
         returnable_type: ModernTreasury::Models::ReturnObject::returnable_type?,
@@ -128,6 +132,7 @@ module ModernTreasury
         live_mode: bool,
         object: String,
         reason: String?,
+        reconciled: bool,
         reference_numbers: ::Array[ModernTreasury::ReturnObject::ReferenceNumber],
         returnable_id: String?,
         returnable_type: ModernTreasury::Models::ReturnObject::returnable_type?,
