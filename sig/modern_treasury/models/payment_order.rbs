@@ -33,6 +33,7 @@ module ModernTreasury
         purpose: String?,
         receiving_account_id: String,
         receiving_account_type: ModernTreasury::Models::PaymentOrder::receiving_account_type,
+        reconciled: bool,
         reference_numbers: ::Array[ModernTreasury::PaymentOrder::ReferenceNumber],
         remittance_information: String?,
         send_remittance_advice: bool?,
@@ -116,6 +117,8 @@ module ModernTreasury
 
       attr_accessor receiving_account_type: ModernTreasury::Models::PaymentOrder::receiving_account_type
 
+      attr_accessor reconciled: bool
+
       attr_accessor reference_numbers: ::Array[ModernTreasury::PaymentOrder::ReferenceNumber]
 
       attr_accessor remittance_information: String?
@@ -184,6 +187,7 @@ module ModernTreasury
         purpose: String?,
         receiving_account_id: String,
         receiving_account_type: ModernTreasury::Models::PaymentOrder::receiving_account_type,
+        reconciled: bool,
         reference_numbers: ::Array[ModernTreasury::PaymentOrder::ReferenceNumber],
         remittance_information: String?,
         send_remittance_advice: bool?,
@@ -236,6 +240,7 @@ module ModernTreasury
         purpose: String?,
         receiving_account_id: String,
         receiving_account_type: ModernTreasury::Models::PaymentOrder::receiving_account_type,
+        reconciled: bool,
         reference_numbers: ::Array[ModernTreasury::PaymentOrder::ReferenceNumber],
         remittance_information: String?,
         send_remittance_advice: bool?,

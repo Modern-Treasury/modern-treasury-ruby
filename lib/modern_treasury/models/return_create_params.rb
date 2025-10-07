@@ -61,7 +61,13 @@ module ModernTreasury
       #   @return [String, nil]
       optional :reason, String, nil?: true
 
-      # @!method initialize(returnable_id:, returnable_type:, additional_information: nil, code: nil, corrections: nil, data: nil, date_of_death: nil, reason: nil, request_options: {})
+      # @!attribute reconciled
+      #   True if the object is reconciled, false otherwise.
+      #
+      #   @return [Boolean, nil]
+      optional :reconciled, ModernTreasury::Internal::Type::Boolean
+
+      # @!method initialize(returnable_id:, returnable_type:, additional_information: nil, code: nil, corrections: nil, data: nil, date_of_death: nil, reason: nil, reconciled: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::ReturnCreateParams} for more details.
       #
@@ -80,6 +86,8 @@ module ModernTreasury
       #   @param date_of_death [Date, nil] If the return code is `R14` or `R15` this is the date the deceased counterparty
       #
       #   @param reason [String, nil] An optional description of the reason for the return. This is for internal usage
+      #
+      #   @param reconciled [Boolean] True if the object is reconciled, false otherwise.
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 

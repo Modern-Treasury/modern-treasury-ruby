@@ -18,6 +18,7 @@ module ModernTreasury
         originating_account_number_type: ModernTreasury::Models::IncomingPaymentDetail::originating_account_number_type?,
         originating_routing_number: String?,
         originating_routing_number_type: ModernTreasury::Models::IncomingPaymentDetail::originating_routing_number_type?,
+        reconciled: bool,
         status: ModernTreasury::Models::IncomingPaymentDetail::status,
         transaction_id: String?,
         transaction_line_item_id: String?,
@@ -62,6 +63,8 @@ module ModernTreasury
 
       attr_accessor originating_routing_number_type: ModernTreasury::Models::IncomingPaymentDetail::originating_routing_number_type?
 
+      attr_accessor reconciled: bool
+
       attr_accessor status: ModernTreasury::Models::IncomingPaymentDetail::status
 
       attr_accessor transaction_id: String?
@@ -97,6 +100,7 @@ module ModernTreasury
         originating_account_number_type: ModernTreasury::Models::IncomingPaymentDetail::originating_account_number_type?,
         originating_routing_number: String?,
         originating_routing_number_type: ModernTreasury::Models::IncomingPaymentDetail::originating_routing_number_type?,
+        reconciled: bool,
         status: ModernTreasury::Models::IncomingPaymentDetail::status,
         transaction_id: String?,
         transaction_line_item_id: String?,
@@ -125,6 +129,7 @@ module ModernTreasury
         originating_account_number_type: ModernTreasury::Models::IncomingPaymentDetail::originating_account_number_type?,
         originating_routing_number: String?,
         originating_routing_number_type: ModernTreasury::Models::IncomingPaymentDetail::originating_routing_number_type?,
+        reconciled: bool,
         status: ModernTreasury::Models::IncomingPaymentDetail::status,
         transaction_id: String?,
         transaction_line_item_id: String?,

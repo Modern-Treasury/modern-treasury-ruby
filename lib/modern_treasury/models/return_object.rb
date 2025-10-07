@@ -98,6 +98,12 @@ module ModernTreasury
       #   @return [String, nil]
       required :reason, String, nil?: true
 
+      # @!attribute reconciled
+      #   True if the object is reconciled, false otherwise.
+      #
+      #   @return [Boolean]
+      required :reconciled, ModernTreasury::Internal::Type::Boolean
+
       # @!attribute reference_numbers
       #   An array of Payment Reference objects.
       #
@@ -166,7 +172,7 @@ module ModernTreasury
       #   @return [Object, nil]
       optional :data, ModernTreasury::Internal::Type::Unknown, nil?: true
 
-      # @!method initialize(id:, amount:, code:, corrections:, created_at:, currency:, current_return:, date_of_death:, discarded_at:, failure_reason:, internal_account_id:, ledger_transaction_id:, live_mode:, object:, reason:, reference_numbers:, returnable_id:, returnable_type:, role:, status:, transaction_id:, transaction_line_item_id:, type:, updated_at:, additional_information: nil, data: nil)
+      # @!method initialize(id:, amount:, code:, corrections:, created_at:, currency:, current_return:, date_of_death:, discarded_at:, failure_reason:, internal_account_id:, ledger_transaction_id:, live_mode:, object:, reason:, reconciled:, reference_numbers:, returnable_id:, returnable_type:, role:, status:, transaction_id:, transaction_line_item_id:, type:, updated_at:, additional_information: nil, data: nil)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::ReturnObject} for more details.
       #
@@ -199,6 +205,8 @@ module ModernTreasury
       #   @param object [String]
       #
       #   @param reason [String, nil] Often the bank will provide an explanation for the return, which is a short huma
+      #
+      #   @param reconciled [Boolean] True if the object is reconciled, false otherwise.
       #
       #   @param reference_numbers [Array<ModernTreasury::Models::ReturnObject::ReferenceNumber>] An array of Payment Reference objects.
       #

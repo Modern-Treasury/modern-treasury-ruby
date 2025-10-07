@@ -29,6 +29,7 @@ module ModernTreasury
         purpose: String?,
         receiving_account: ModernTreasury::PaymentOrderCreateParams::ReceivingAccount,
         receiving_account_id: String,
+        reconciled: bool,
         remittance_information: String?,
         send_remittance_advice: bool?,
         statement_descriptor: String?,
@@ -141,6 +142,10 @@ module ModernTreasury
 
       def receiving_account_id=: (String) -> String
 
+      attr_reader reconciled: bool?
+
+      def reconciled=: (bool) -> bool
+
       attr_accessor remittance_information: String?
 
       attr_accessor send_remittance_advice: bool?
@@ -189,6 +194,7 @@ module ModernTreasury
         ?purpose: String?,
         ?receiving_account: ModernTreasury::PaymentOrderCreateParams::ReceivingAccount,
         ?receiving_account_id: String,
+        ?reconciled: bool,
         ?remittance_information: String?,
         ?send_remittance_advice: bool?,
         ?statement_descriptor: String?,
@@ -229,6 +235,7 @@ module ModernTreasury
         purpose: String?,
         receiving_account: ModernTreasury::PaymentOrderCreateParams::ReceivingAccount,
         receiving_account_id: String,
+        reconciled: bool,
         remittance_information: String?,
         send_remittance_advice: bool?,
         statement_descriptor: String?,

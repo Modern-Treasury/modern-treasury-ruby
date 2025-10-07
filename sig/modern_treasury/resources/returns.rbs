@@ -10,6 +10,7 @@ module ModernTreasury
         ?data: top?,
         ?date_of_death: Date?,
         ?reason: String?,
+        ?reconciled: bool,
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::ReturnObject
 
