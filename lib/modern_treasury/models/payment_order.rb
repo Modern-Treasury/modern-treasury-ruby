@@ -222,6 +222,12 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::PaymentOrder::ReceivingAccountType]
       required :receiving_account_type, enum: -> { ModernTreasury::PaymentOrder::ReceivingAccountType }
 
+      # @!attribute reconciled
+      #   True if the object is reconciled, false otherwise.
+      #
+      #   @return [Boolean]
+      required :reconciled, ModernTreasury::Internal::Type::Boolean
+
       # @!attribute reference_numbers
       #
       #   @return [Array<ModernTreasury::Models::PaymentOrder::ReferenceNumber>]
@@ -350,7 +356,7 @@ module ModernTreasury
       #   @return [String, nil]
       required :vendor_failure_reason, String, nil?: true
 
-      # @!method initialize(id:, accounting:, accounting_category_id:, accounting_ledger_class_id:, amount:, charge_bearer:, counterparty_id:, created_at:, currency:, current_hold:, current_return:, description:, direction:, effective_date:, expires_at:, external_id:, foreign_exchange_contract:, foreign_exchange_indicator:, foreign_exchange_rate:, ledger_transaction_id:, live_mode:, metadata:, nsf_protected:, object:, originating_account_id:, originating_party_name:, priority:, process_after:, purpose:, receiving_account_id:, receiving_account_type:, reference_numbers:, remittance_information:, send_remittance_advice:, statement_descriptor:, status:, subtype:, transaction_ids:, type:, ultimate_originating_account:, ultimate_originating_account_id:, ultimate_originating_account_type:, ultimate_originating_party_identifier:, ultimate_originating_party_name:, ultimate_receiving_party_identifier:, ultimate_receiving_party_name:, updated_at:, vendor_attributes:, vendor_failure_reason:)
+      # @!method initialize(id:, accounting:, accounting_category_id:, accounting_ledger_class_id:, amount:, charge_bearer:, counterparty_id:, created_at:, currency:, current_hold:, current_return:, description:, direction:, effective_date:, expires_at:, external_id:, foreign_exchange_contract:, foreign_exchange_indicator:, foreign_exchange_rate:, ledger_transaction_id:, live_mode:, metadata:, nsf_protected:, object:, originating_account_id:, originating_party_name:, priority:, process_after:, purpose:, receiving_account_id:, receiving_account_type:, reconciled:, reference_numbers:, remittance_information:, send_remittance_advice:, statement_descriptor:, status:, subtype:, transaction_ids:, type:, ultimate_originating_account:, ultimate_originating_account_id:, ultimate_originating_account_type:, ultimate_originating_party_identifier:, ultimate_originating_party_name:, ultimate_receiving_party_identifier:, ultimate_receiving_party_name:, updated_at:, vendor_attributes:, vendor_failure_reason:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::PaymentOrder} for more details.
       #
@@ -415,6 +421,8 @@ module ModernTreasury
       #   @param receiving_account_id [String] The receiving account ID. Can be an `external_account` or `internal_account`.
       #
       #   @param receiving_account_type [Symbol, ModernTreasury::Models::PaymentOrder::ReceivingAccountType]
+      #
+      #   @param reconciled [Boolean] True if the object is reconciled, false otherwise.
       #
       #   @param reference_numbers [Array<ModernTreasury::Models::PaymentOrder::ReferenceNumber>]
       #

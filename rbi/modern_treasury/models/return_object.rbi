@@ -87,6 +87,10 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :reason
 
+      # True if the object is reconciled, false otherwise.
+      sig { returns(T::Boolean) }
+      attr_accessor :reconciled
+
       # An array of Payment Reference objects.
       sig { returns(T::Array[ModernTreasury::ReturnObject::ReferenceNumber]) }
       attr_accessor :reference_numbers
@@ -154,6 +158,7 @@ module ModernTreasury
           live_mode: T::Boolean,
           object: String,
           reason: T.nilable(String),
+          reconciled: T::Boolean,
           reference_numbers:
             T::Array[ModernTreasury::ReturnObject::ReferenceNumber::OrHash],
           returnable_id: T.nilable(String),
@@ -204,6 +209,8 @@ module ModernTreasury
         # Often the bank will provide an explanation for the return, which is a short
         # human readable string.
         reason:,
+        # True if the object is reconciled, false otherwise.
+        reconciled:,
         # An array of Payment Reference objects.
         reference_numbers:,
         # The ID of the object being returned or `null`.
@@ -248,6 +255,7 @@ module ModernTreasury
             live_mode: T::Boolean,
             object: String,
             reason: T.nilable(String),
+            reconciled: T::Boolean,
             reference_numbers:
               T::Array[ModernTreasury::ReturnObject::ReferenceNumber],
             returnable_id: T.nilable(String),

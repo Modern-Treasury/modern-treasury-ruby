@@ -201,6 +201,10 @@ module ModernTreasury
       end
       attr_accessor :receiving_account_type
 
+      # True if the object is reconciled, false otherwise.
+      sig { returns(T::Boolean) }
+      attr_accessor :reconciled
+
       sig { returns(T::Array[ModernTreasury::PaymentOrder::ReferenceNumber]) }
       attr_accessor :reference_numbers
 
@@ -342,6 +346,7 @@ module ModernTreasury
           receiving_account_id: String,
           receiving_account_type:
             ModernTreasury::PaymentOrder::ReceivingAccountType::OrSymbol,
+          reconciled: T::Boolean,
           reference_numbers:
             T::Array[ModernTreasury::PaymentOrder::ReferenceNumber::OrHash],
           remittance_information: T.nilable(String),
@@ -460,6 +465,8 @@ module ModernTreasury
         # The receiving account ID. Can be an `external_account` or `internal_account`.
         receiving_account_id:,
         receiving_account_type:,
+        # True if the object is reconciled, false otherwise.
+        reconciled:,
         reference_numbers:,
         # For `ach`, this field will be passed through on an addenda record. For `wire`
         # payments the field will be passed through as the "Originator to Beneficiary
@@ -556,6 +563,7 @@ module ModernTreasury
             receiving_account_id: String,
             receiving_account_type:
               ModernTreasury::PaymentOrder::ReceivingAccountType::TaggedSymbol,
+            reconciled: T::Boolean,
             reference_numbers:
               T::Array[ModernTreasury::PaymentOrder::ReferenceNumber],
             remittance_information: T.nilable(String),

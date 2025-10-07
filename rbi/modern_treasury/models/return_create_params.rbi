@@ -66,6 +66,13 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :reason
 
+      # True if the object is reconciled, false otherwise.
+      sig { returns(T.nilable(T::Boolean)) }
+      attr_reader :reconciled
+
+      sig { params(reconciled: T::Boolean).void }
+      attr_writer :reconciled
+
       sig do
         params(
           returnable_id: T.nilable(String),
@@ -78,6 +85,7 @@ module ModernTreasury
           data: T.nilable(T.anything),
           date_of_death: T.nilable(Date),
           reason: T.nilable(String),
+          reconciled: T::Boolean,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
@@ -104,6 +112,8 @@ module ModernTreasury
         # An optional description of the reason for the return. This is for internal usage
         # and will not be transmitted to the bank.”
         reason: nil,
+        # True if the object is reconciled, false otherwise.
+        reconciled: nil,
         request_options: {}
       )
       end
@@ -121,6 +131,7 @@ module ModernTreasury
             data: T.nilable(T.anything),
             date_of_death: T.nilable(Date),
             reason: T.nilable(String),
+            reconciled: T::Boolean,
             request_options: ModernTreasury::RequestOptions
           }
         )

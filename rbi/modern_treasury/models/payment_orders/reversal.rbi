@@ -45,6 +45,10 @@ module ModernTreasury
         end
         attr_accessor :reason
 
+        # True if the object is reconciled, false otherwise.
+        sig { returns(T::Boolean) }
+        attr_accessor :reconciled
+
         # The current status of the reversal.
         sig do
           returns(ModernTreasury::PaymentOrders::Reversal::Status::TaggedSymbol)
@@ -67,6 +71,7 @@ module ModernTreasury
             object: String,
             payment_order_id: T.nilable(String),
             reason: ModernTreasury::PaymentOrders::Reversal::Reason::OrSymbol,
+            reconciled: T::Boolean,
             status: ModernTreasury::PaymentOrders::Reversal::Status::OrSymbol,
             transaction_ids: T::Array[T.nilable(String)],
             updated_at: Time
@@ -88,6 +93,8 @@ module ModernTreasury
           payment_order_id:,
           # The reason for the reversal.
           reason:,
+          # True if the object is reconciled, false otherwise.
+          reconciled:,
           # The current status of the reversal.
           status:,
           transaction_ids:,
@@ -107,6 +114,7 @@ module ModernTreasury
               payment_order_id: T.nilable(String),
               reason:
                 ModernTreasury::PaymentOrders::Reversal::Reason::TaggedSymbol,
+              reconciled: T::Boolean,
               status:
                 ModernTreasury::PaymentOrders::Reversal::Status::TaggedSymbol,
               transaction_ids: T::Array[T.nilable(String)],

@@ -11,6 +11,7 @@ module ModernTreasury
           object: String,
           payment_order_id: String?,
           reason: ModernTreasury::Models::PaymentOrders::Reversal::reason,
+          reconciled: bool,
           status: ModernTreasury::Models::PaymentOrders::Reversal::status,
           transaction_ids: ::Array[String?],
           updated_at: Time
@@ -33,6 +34,8 @@ module ModernTreasury
 
         attr_accessor reason: ModernTreasury::Models::PaymentOrders::Reversal::reason
 
+        attr_accessor reconciled: bool
+
         attr_accessor status: ModernTreasury::Models::PaymentOrders::Reversal::status
 
         attr_accessor transaction_ids: ::Array[String?]
@@ -48,6 +51,7 @@ module ModernTreasury
           object: String,
           payment_order_id: String?,
           reason: ModernTreasury::Models::PaymentOrders::Reversal::reason,
+          reconciled: bool,
           status: ModernTreasury::Models::PaymentOrders::Reversal::status,
           transaction_ids: ::Array[String?],
           updated_at: Time
@@ -62,6 +66,7 @@ module ModernTreasury
           object: String,
           payment_order_id: String?,
           reason: ModernTreasury::Models::PaymentOrders::Reversal::reason,
+          reconciled: bool,
           status: ModernTreasury::Models::PaymentOrders::Reversal::status,
           transaction_ids: ::Array[String?],
           updated_at: Time
