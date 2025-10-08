@@ -10,7 +10,7 @@ module ModernTreasury
         data: top?,
         date_of_death: Date?,
         reason: String?,
-        reconciled: bool
+        reconciliation_status: ModernTreasury::Models::ReturnCreateParams::reconciliation_status
       }
       & ModernTreasury::Internal::Type::request_parameters
 
@@ -34,9 +34,11 @@ module ModernTreasury
 
       attr_accessor reason: String?
 
-      attr_reader reconciled: bool?
+      attr_reader reconciliation_status: ModernTreasury::Models::ReturnCreateParams::reconciliation_status?
 
-      def reconciled=: (bool) -> bool
+      def reconciliation_status=: (
+        ModernTreasury::Models::ReturnCreateParams::reconciliation_status
+      ) -> ModernTreasury::Models::ReturnCreateParams::reconciliation_status
 
       def initialize: (
         returnable_id: String?,
@@ -47,7 +49,7 @@ module ModernTreasury
         ?data: top?,
         ?date_of_death: Date?,
         ?reason: String?,
-        ?reconciled: bool,
+        ?reconciliation_status: ModernTreasury::Models::ReturnCreateParams::reconciliation_status,
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
@@ -60,7 +62,7 @@ module ModernTreasury
         data: top?,
         date_of_death: Date?,
         reason: String?,
-        reconciled: bool,
+        reconciliation_status: ModernTreasury::Models::ReturnCreateParams::reconciliation_status,
         request_options: ModernTreasury::RequestOptions
       }
 
@@ -309,6 +311,19 @@ module ModernTreasury
           routing_number: String?,
           transaction_code: String?
         }
+      end
+
+      type reconciliation_status =
+        :reconciled | :unreconciled | :tentatively_reconciled
+
+      module ReconciliationStatus
+        extend ModernTreasury::Internal::Type::Enum
+
+        RECONCILED: :reconciled
+        UNRECONCILED: :unreconciled
+        TENTATIVELY_RECONCILED: :tentatively_reconciled
+
+        def self?.values: -> ::Array[ModernTreasury::Models::ReturnCreateParams::reconciliation_status]
       end
     end
   end

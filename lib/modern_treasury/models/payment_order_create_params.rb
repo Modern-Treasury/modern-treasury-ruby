@@ -218,11 +218,12 @@ module ModernTreasury
       #   @return [String, nil]
       optional :receiving_account_id, String
 
-      # @!attribute reconciled
-      #   True if the object is reconciled, false otherwise.
+      # @!attribute reconciliation_status
+      #   One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
       #
-      #   @return [Boolean, nil]
-      optional :reconciled, ModernTreasury::Internal::Type::Boolean
+      #   @return [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::ReconciliationStatus, nil]
+      optional :reconciliation_status,
+               enum: -> { ModernTreasury::PaymentOrderCreateParams::ReconciliationStatus }
 
       # @!attribute remittance_information
       #   For `ach`, this field will be passed through on an addenda record. For `wire`
@@ -290,7 +291,7 @@ module ModernTreasury
       #   @return [String, nil]
       optional :ultimate_receiving_party_name, String, nil?: true
 
-      # @!method initialize(amount:, direction:, originating_account_id:, type:, accounting: nil, accounting_category_id: nil, accounting_ledger_class_id: nil, charge_bearer: nil, currency: nil, description: nil, documents: nil, effective_date: nil, expires_at: nil, fallback_type: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, ledger_transaction: nil, ledger_transaction_id: nil, line_items: nil, metadata: nil, nsf_protected: nil, originating_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account: nil, receiving_account_id: nil, reconciled: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, subtype: nil, transaction_monitoring_enabled: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil, request_options: {})
+      # @!method initialize(amount:, direction:, originating_account_id:, type:, accounting: nil, accounting_category_id: nil, accounting_ledger_class_id: nil, charge_bearer: nil, currency: nil, description: nil, documents: nil, effective_date: nil, expires_at: nil, fallback_type: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, ledger_transaction: nil, ledger_transaction_id: nil, line_items: nil, metadata: nil, nsf_protected: nil, originating_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account: nil, receiving_account_id: nil, reconciliation_status: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, subtype: nil, transaction_monitoring_enabled: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::PaymentOrderCreateParams} for more details.
       #
@@ -348,7 +349,7 @@ module ModernTreasury
       #
       #   @param receiving_account_id [String] Either `receiving_account` or `receiving_account_id` must be present. When using
       #
-      #   @param reconciled [Boolean] True if the object is reconciled, false otherwise.
+      #   @param reconciliation_status [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::ReconciliationStatus] One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
       #
       #   @param remittance_information [String, nil] For `ach`, this field will be passed through on an addenda record. For `wire` pa
       #
@@ -833,6 +834,18 @@ module ModernTreasury
             #   @return [Array<Symbol>]
           end
         end
+      end
+
+      # One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+      module ReconciliationStatus
+        extend ModernTreasury::Internal::Type::Enum
+
+        RECONCILED = :reconciled
+        UNRECONCILED = :unreconciled
+        TENTATIVELY_RECONCILED = :tentatively_reconciled
+
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

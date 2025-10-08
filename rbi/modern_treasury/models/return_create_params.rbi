@@ -66,12 +66,23 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :reason
 
-      # True if the object is reconciled, false otherwise.
-      sig { returns(T.nilable(T::Boolean)) }
-      attr_reader :reconciled
+      # One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::ReturnCreateParams::ReconciliationStatus::OrSymbol
+          )
+        )
+      end
+      attr_reader :reconciliation_status
 
-      sig { params(reconciled: T::Boolean).void }
-      attr_writer :reconciled
+      sig do
+        params(
+          reconciliation_status:
+            ModernTreasury::ReturnCreateParams::ReconciliationStatus::OrSymbol
+        ).void
+      end
+      attr_writer :reconciliation_status
 
       sig do
         params(
@@ -85,7 +96,8 @@ module ModernTreasury
           data: T.nilable(T.anything),
           date_of_death: T.nilable(Date),
           reason: T.nilable(String),
-          reconciled: T::Boolean,
+          reconciliation_status:
+            ModernTreasury::ReturnCreateParams::ReconciliationStatus::OrSymbol,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
@@ -112,8 +124,8 @@ module ModernTreasury
         # An optional description of the reason for the return. This is for internal usage
         # and will not be transmitted to the bank.”
         reason: nil,
-        # True if the object is reconciled, false otherwise.
-        reconciled: nil,
+        # One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+        reconciliation_status: nil,
         request_options: {}
       )
       end
@@ -131,7 +143,8 @@ module ModernTreasury
             data: T.nilable(T.anything),
             date_of_death: T.nilable(Date),
             reason: T.nilable(String),
-            reconciled: T::Boolean,
+            reconciliation_status:
+              ModernTreasury::ReturnCreateParams::ReconciliationStatus::OrSymbol,
             request_options: ModernTreasury::RequestOptions
           }
         )
@@ -463,6 +476,46 @@ module ModernTreasury
           )
         end
         def to_hash
+        end
+      end
+
+      # One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+      module ReconciliationStatus
+        extend ModernTreasury::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::ReturnCreateParams::ReconciliationStatus
+            )
+          end
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        RECONCILED =
+          T.let(
+            :reconciled,
+            ModernTreasury::ReturnCreateParams::ReconciliationStatus::TaggedSymbol
+          )
+        UNRECONCILED =
+          T.let(
+            :unreconciled,
+            ModernTreasury::ReturnCreateParams::ReconciliationStatus::TaggedSymbol
+          )
+        TENTATIVELY_RECONCILED =
+          T.let(
+            :tentatively_reconciled,
+            ModernTreasury::ReturnCreateParams::ReconciliationStatus::TaggedSymbol
+          )
+
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::ReturnCreateParams::ReconciliationStatus::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
         end
       end
     end

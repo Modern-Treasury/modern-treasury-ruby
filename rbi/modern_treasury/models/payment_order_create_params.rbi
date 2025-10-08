@@ -279,12 +279,23 @@ module ModernTreasury
       sig { params(receiving_account_id: String).void }
       attr_writer :receiving_account_id
 
-      # True if the object is reconciled, false otherwise.
-      sig { returns(T.nilable(T::Boolean)) }
-      attr_reader :reconciled
+      # One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::PaymentOrderCreateParams::ReconciliationStatus::OrSymbol
+          )
+        )
+      end
+      attr_reader :reconciliation_status
 
-      sig { params(reconciled: T::Boolean).void }
-      attr_writer :reconciled
+      sig do
+        params(
+          reconciliation_status:
+            ModernTreasury::PaymentOrderCreateParams::ReconciliationStatus::OrSymbol
+        ).void
+      end
+      attr_writer :reconciliation_status
 
       # For `ach`, this field will be passed through on an addenda record. For `wire`
       # payments the field will be passed through as the "Originator to Beneficiary
@@ -384,7 +395,8 @@ module ModernTreasury
           receiving_account:
             ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::OrHash,
           receiving_account_id: String,
-          reconciled: T::Boolean,
+          reconciliation_status:
+            ModernTreasury::PaymentOrderCreateParams::ReconciliationStatus::OrSymbol,
           remittance_information: T.nilable(String),
           send_remittance_advice: T.nilable(T::Boolean),
           statement_descriptor: T.nilable(String),
@@ -492,8 +504,8 @@ module ModernTreasury
         # `receiving_account_id`, you may pass the id of an external account or an
         # internal account.
         receiving_account_id: nil,
-        # True if the object is reconciled, false otherwise.
-        reconciled: nil,
+        # One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+        reconciliation_status: nil,
         # For `ach`, this field will be passed through on an addenda record. For `wire`
         # payments the field will be passed through as the "Originator to Beneficiary
         # Information", also known as OBI or Fedwire tag 6000.
@@ -570,7 +582,8 @@ module ModernTreasury
             receiving_account:
               ModernTreasury::PaymentOrderCreateParams::ReceivingAccount,
             receiving_account_id: String,
-            reconciled: T::Boolean,
+            reconciliation_status:
+              ModernTreasury::PaymentOrderCreateParams::ReconciliationStatus::OrSymbol,
             remittance_information: T.nilable(String),
             send_remittance_advice: T.nilable(T::Boolean),
             statement_descriptor: T.nilable(String),
@@ -1840,6 +1853,46 @@ module ModernTreasury
             def self.values
             end
           end
+        end
+      end
+
+      # One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+      module ReconciliationStatus
+        extend ModernTreasury::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::PaymentOrderCreateParams::ReconciliationStatus
+            )
+          end
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        RECONCILED =
+          T.let(
+            :reconciled,
+            ModernTreasury::PaymentOrderCreateParams::ReconciliationStatus::TaggedSymbol
+          )
+        UNRECONCILED =
+          T.let(
+            :unreconciled,
+            ModernTreasury::PaymentOrderCreateParams::ReconciliationStatus::TaggedSymbol
+          )
+        TENTATIVELY_RECONCILED =
+          T.let(
+            :tentatively_reconciled,
+            ModernTreasury::PaymentOrderCreateParams::ReconciliationStatus::TaggedSymbol
+          )
+
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::PaymentOrderCreateParams::ReconciliationStatus::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
         end
       end
     end

@@ -20,7 +20,7 @@ class ModernTreasury::Test::Resources::PaymentOrders::ReversalsTest < ModernTrea
         object: String,
         payment_order_id: String | nil,
         reason: ModernTreasury::PaymentOrders::Reversal::Reason,
-        reconciled: ModernTreasury::Internal::Type::Boolean,
+        reconciliation_status: ModernTreasury::PaymentOrders::Reversal::ReconciliationStatus,
         status: ModernTreasury::PaymentOrders::Reversal::Status,
         transaction_ids: ^(ModernTreasury::Internal::Type::ArrayOf[String, nil?: true]),
         updated_at: Time
@@ -46,7 +46,7 @@ class ModernTreasury::Test::Resources::PaymentOrders::ReversalsTest < ModernTrea
         object: String,
         payment_order_id: String | nil,
         reason: ModernTreasury::PaymentOrders::Reversal::Reason,
-        reconciled: ModernTreasury::Internal::Type::Boolean,
+        reconciliation_status: ModernTreasury::PaymentOrders::Reversal::ReconciliationStatus,
         status: ModernTreasury::PaymentOrders::Reversal::Status,
         transaction_ids: ^(ModernTreasury::Internal::Type::ArrayOf[String, nil?: true]),
         updated_at: Time
@@ -78,7 +78,7 @@ class ModernTreasury::Test::Resources::PaymentOrders::ReversalsTest < ModernTrea
         object: String,
         payment_order_id: String | nil,
         reason: ModernTreasury::PaymentOrders::Reversal::Reason,
-        reconciled: ModernTreasury::Internal::Type::Boolean,
+        reconciliation_status: ModernTreasury::PaymentOrders::Reversal::ReconciliationStatus,
         status: ModernTreasury::PaymentOrders::Reversal::Status,
         transaction_ids: ^(ModernTreasury::Internal::Type::ArrayOf[String, nil?: true]),
         updated_at: Time

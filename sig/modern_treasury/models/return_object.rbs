@@ -17,7 +17,7 @@ module ModernTreasury
         live_mode: bool,
         object: String,
         reason: String?,
-        reconciled: bool,
+        reconciliation_status: ModernTreasury::Models::ReturnObject::reconciliation_status,
         reference_numbers: ::Array[ModernTreasury::ReturnObject::ReferenceNumber],
         returnable_id: String?,
         returnable_type: ModernTreasury::Models::ReturnObject::returnable_type?,
@@ -62,7 +62,7 @@ module ModernTreasury
 
       attr_accessor reason: String?
 
-      attr_accessor reconciled: bool
+      attr_accessor reconciliation_status: ModernTreasury::Models::ReturnObject::reconciliation_status
 
       attr_accessor reference_numbers: ::Array[ModernTreasury::ReturnObject::ReferenceNumber]
 
@@ -102,7 +102,7 @@ module ModernTreasury
         live_mode: bool,
         object: String,
         reason: String?,
-        reconciled: bool,
+        reconciliation_status: ModernTreasury::Models::ReturnObject::reconciliation_status,
         reference_numbers: ::Array[ModernTreasury::ReturnObject::ReferenceNumber],
         returnable_id: String?,
         returnable_type: ModernTreasury::Models::ReturnObject::returnable_type?,
@@ -132,7 +132,7 @@ module ModernTreasury
         live_mode: bool,
         object: String,
         reason: String?,
-        reconciled: bool,
+        reconciliation_status: ModernTreasury::Models::ReturnObject::reconciliation_status,
         reference_numbers: ::Array[ModernTreasury::ReturnObject::ReferenceNumber],
         returnable_id: String?,
         returnable_type: ModernTreasury::Models::ReturnObject::returnable_type?,
@@ -381,6 +381,19 @@ module ModernTreasury
           routing_number: String?,
           transaction_code: String?
         }
+      end
+
+      type reconciliation_status =
+        :reconciled | :unreconciled | :tentatively_reconciled
+
+      module ReconciliationStatus
+        extend ModernTreasury::Internal::Type::Enum
+
+        RECONCILED: :reconciled
+        UNRECONCILED: :unreconciled
+        TENTATIVELY_RECONCILED: :tentatively_reconciled
+
+        def self?.values: -> ::Array[ModernTreasury::Models::ReturnObject::reconciliation_status]
       end
 
       type reference_number =

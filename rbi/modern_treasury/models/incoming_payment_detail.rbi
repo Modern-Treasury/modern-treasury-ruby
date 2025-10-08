@@ -90,9 +90,13 @@ module ModernTreasury
       end
       attr_accessor :originating_routing_number_type
 
-      # True if the object is reconciled, false otherwise.
-      sig { returns(T::Boolean) }
-      attr_accessor :reconciled
+      # One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+      sig do
+        returns(
+          ModernTreasury::IncomingPaymentDetail::ReconciliationStatus::TaggedSymbol
+        )
+      end
+      attr_accessor :reconciliation_status
 
       # The current status of the incoming payment order. One of `pending`, `completed`,
       # or `returned`.
@@ -166,7 +170,8 @@ module ModernTreasury
             T.nilable(
               ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::OrSymbol
             ),
-          reconciled: T::Boolean,
+          reconciliation_status:
+            ModernTreasury::IncomingPaymentDetail::ReconciliationStatus::OrSymbol,
           status: ModernTreasury::IncomingPaymentDetail::Status::OrSymbol,
           transaction_id: T.nilable(String),
           transaction_line_item_id: T.nilable(String),
@@ -214,8 +219,8 @@ module ModernTreasury
         originating_routing_number:,
         # The type of the originating routing number for the incoming payment detail.
         originating_routing_number_type:,
-        # True if the object is reconciled, false otherwise.
-        reconciled:,
+        # One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+        reconciliation_status:,
         # The current status of the incoming payment order. One of `pending`, `completed`,
         # or `returned`.
         status:,
@@ -265,7 +270,8 @@ module ModernTreasury
               T.nilable(
                 ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
               ),
-            reconciled: T::Boolean,
+            reconciliation_status:
+              ModernTreasury::IncomingPaymentDetail::ReconciliationStatus::TaggedSymbol,
             status: ModernTreasury::IncomingPaymentDetail::Status::TaggedSymbol,
             transaction_id: T.nilable(String),
             transaction_line_item_id: T.nilable(String),
@@ -504,6 +510,46 @@ module ModernTreasury
           override.returns(
             T::Array[
               ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
+      end
+
+      # One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+      module ReconciliationStatus
+        extend ModernTreasury::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::IncomingPaymentDetail::ReconciliationStatus
+            )
+          end
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        RECONCILED =
+          T.let(
+            :reconciled,
+            ModernTreasury::IncomingPaymentDetail::ReconciliationStatus::TaggedSymbol
+          )
+        UNRECONCILED =
+          T.let(
+            :unreconciled,
+            ModernTreasury::IncomingPaymentDetail::ReconciliationStatus::TaggedSymbol
+          )
+        TENTATIVELY_RECONCILED =
+          T.let(
+            :tentatively_reconciled,
+            ModernTreasury::IncomingPaymentDetail::ReconciliationStatus::TaggedSymbol
+          )
+
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::IncomingPaymentDetail::ReconciliationStatus::TaggedSymbol
             ]
           )
         end

@@ -26,7 +26,7 @@ module ModernTreasury
         purpose: String?,
         receiving_account: ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount,
         receiving_account_id: String,
-        reconciled: bool,
+        reconciliation_status: ModernTreasury::Models::PaymentOrderUpdateParams::reconciliation_status,
         remittance_information: String?,
         send_remittance_advice: bool?,
         statement_descriptor: String?,
@@ -132,9 +132,11 @@ module ModernTreasury
 
       def receiving_account_id=: (String) -> String
 
-      attr_reader reconciled: bool?
+      attr_reader reconciliation_status: ModernTreasury::Models::PaymentOrderUpdateParams::reconciliation_status?
 
-      def reconciled=: (bool) -> bool
+      def reconciliation_status=: (
+        ModernTreasury::Models::PaymentOrderUpdateParams::reconciliation_status
+      ) -> ModernTreasury::Models::PaymentOrderUpdateParams::reconciliation_status
 
       attr_accessor remittance_information: String?
 
@@ -189,7 +191,7 @@ module ModernTreasury
         ?purpose: String?,
         ?receiving_account: ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount,
         ?receiving_account_id: String,
-        ?reconciled: bool,
+        ?reconciliation_status: ModernTreasury::Models::PaymentOrderUpdateParams::reconciliation_status,
         ?remittance_information: String?,
         ?send_remittance_advice: bool?,
         ?statement_descriptor: String?,
@@ -228,7 +230,7 @@ module ModernTreasury
         purpose: String?,
         receiving_account: ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount,
         receiving_account_id: String,
-        reconciled: bool,
+        reconciliation_status: ModernTreasury::Models::PaymentOrderUpdateParams::reconciliation_status,
         remittance_information: String?,
         send_remittance_advice: bool?,
         statement_descriptor: String?,
@@ -687,6 +689,19 @@ module ModernTreasury
             def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::payment_type]
           end
         end
+      end
+
+      type reconciliation_status =
+        :reconciled | :unreconciled | :tentatively_reconciled
+
+      module ReconciliationStatus
+        extend ModernTreasury::Internal::Type::Enum
+
+        RECONCILED: :reconciled
+        UNRECONCILED: :unreconciled
+        TENTATIVELY_RECONCILED: :tentatively_reconciled
+
+        def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderUpdateParams::reconciliation_status]
       end
 
       type status =

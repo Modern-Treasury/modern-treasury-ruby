@@ -222,11 +222,11 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::PaymentOrder::ReceivingAccountType]
       required :receiving_account_type, enum: -> { ModernTreasury::PaymentOrder::ReceivingAccountType }
 
-      # @!attribute reconciled
-      #   True if the object is reconciled, false otherwise.
+      # @!attribute reconciliation_status
+      #   One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
       #
-      #   @return [Boolean]
-      required :reconciled, ModernTreasury::Internal::Type::Boolean
+      #   @return [Symbol, ModernTreasury::Models::PaymentOrder::ReconciliationStatus]
+      required :reconciliation_status, enum: -> { ModernTreasury::PaymentOrder::ReconciliationStatus }
 
       # @!attribute reference_numbers
       #
@@ -356,7 +356,7 @@ module ModernTreasury
       #   @return [String, nil]
       required :vendor_failure_reason, String, nil?: true
 
-      # @!method initialize(id:, accounting:, accounting_category_id:, accounting_ledger_class_id:, amount:, charge_bearer:, counterparty_id:, created_at:, currency:, current_hold:, current_return:, description:, direction:, effective_date:, expires_at:, external_id:, foreign_exchange_contract:, foreign_exchange_indicator:, foreign_exchange_rate:, ledger_transaction_id:, live_mode:, metadata:, nsf_protected:, object:, originating_account_id:, originating_party_name:, priority:, process_after:, purpose:, receiving_account_id:, receiving_account_type:, reconciled:, reference_numbers:, remittance_information:, send_remittance_advice:, statement_descriptor:, status:, subtype:, transaction_ids:, type:, ultimate_originating_account:, ultimate_originating_account_id:, ultimate_originating_account_type:, ultimate_originating_party_identifier:, ultimate_originating_party_name:, ultimate_receiving_party_identifier:, ultimate_receiving_party_name:, updated_at:, vendor_attributes:, vendor_failure_reason:)
+      # @!method initialize(id:, accounting:, accounting_category_id:, accounting_ledger_class_id:, amount:, charge_bearer:, counterparty_id:, created_at:, currency:, current_hold:, current_return:, description:, direction:, effective_date:, expires_at:, external_id:, foreign_exchange_contract:, foreign_exchange_indicator:, foreign_exchange_rate:, ledger_transaction_id:, live_mode:, metadata:, nsf_protected:, object:, originating_account_id:, originating_party_name:, priority:, process_after:, purpose:, receiving_account_id:, receiving_account_type:, reconciliation_status:, reference_numbers:, remittance_information:, send_remittance_advice:, statement_descriptor:, status:, subtype:, transaction_ids:, type:, ultimate_originating_account:, ultimate_originating_account_id:, ultimate_originating_account_type:, ultimate_originating_party_identifier:, ultimate_originating_party_name:, ultimate_receiving_party_identifier:, ultimate_receiving_party_name:, updated_at:, vendor_attributes:, vendor_failure_reason:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::PaymentOrder} for more details.
       #
@@ -422,7 +422,7 @@ module ModernTreasury
       #
       #   @param receiving_account_type [Symbol, ModernTreasury::Models::PaymentOrder::ReceivingAccountType]
       #
-      #   @param reconciled [Boolean] True if the object is reconciled, false otherwise.
+      #   @param reconciliation_status [Symbol, ModernTreasury::Models::PaymentOrder::ReconciliationStatus] One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
       #
       #   @param reference_numbers [Array<ModernTreasury::Models::PaymentOrder::ReferenceNumber>]
       #
@@ -701,6 +701,20 @@ module ModernTreasury
 
         INTERNAL_ACCOUNT = :internal_account
         EXTERNAL_ACCOUNT = :external_account
+
+        # @!method self.values
+        #   @return [Array<Symbol>]
+      end
+
+      # One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+      #
+      # @see ModernTreasury::Models::PaymentOrder#reconciliation_status
+      module ReconciliationStatus
+        extend ModernTreasury::Internal::Type::Enum
+
+        RECONCILED = :reconciled
+        UNRECONCILED = :unreconciled
+        TENTATIVELY_RECONCILED = :tentatively_reconciled
 
         # @!method self.values
         #   @return [Array<Symbol>]
