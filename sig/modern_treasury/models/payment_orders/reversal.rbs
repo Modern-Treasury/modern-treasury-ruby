@@ -11,7 +11,7 @@ module ModernTreasury
           object: String,
           payment_order_id: String?,
           reason: ModernTreasury::Models::PaymentOrders::Reversal::reason,
-          reconciled: bool,
+          reconciliation_status: ModernTreasury::Models::PaymentOrders::Reversal::reconciliation_status,
           status: ModernTreasury::Models::PaymentOrders::Reversal::status,
           transaction_ids: ::Array[String?],
           updated_at: Time
@@ -34,7 +34,7 @@ module ModernTreasury
 
         attr_accessor reason: ModernTreasury::Models::PaymentOrders::Reversal::reason
 
-        attr_accessor reconciled: bool
+        attr_accessor reconciliation_status: ModernTreasury::Models::PaymentOrders::Reversal::reconciliation_status
 
         attr_accessor status: ModernTreasury::Models::PaymentOrders::Reversal::status
 
@@ -51,7 +51,7 @@ module ModernTreasury
           object: String,
           payment_order_id: String?,
           reason: ModernTreasury::Models::PaymentOrders::Reversal::reason,
-          reconciled: bool,
+          reconciliation_status: ModernTreasury::Models::PaymentOrders::Reversal::reconciliation_status,
           status: ModernTreasury::Models::PaymentOrders::Reversal::status,
           transaction_ids: ::Array[String?],
           updated_at: Time
@@ -66,7 +66,7 @@ module ModernTreasury
           object: String,
           payment_order_id: String?,
           reason: ModernTreasury::Models::PaymentOrders::Reversal::reason,
-          reconciled: bool,
+          reconciliation_status: ModernTreasury::Models::PaymentOrders::Reversal::reconciliation_status,
           status: ModernTreasury::Models::PaymentOrders::Reversal::status,
           transaction_ids: ::Array[String?],
           updated_at: Time
@@ -89,6 +89,19 @@ module ModernTreasury
           DATE_LATER_THAN_INTENDED: :date_later_than_intended
 
           def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrders::Reversal::reason]
+        end
+
+        type reconciliation_status =
+          :reconciled | :unreconciled | :tentatively_reconciled
+
+        module ReconciliationStatus
+          extend ModernTreasury::Internal::Type::Enum
+
+          RECONCILED: :reconciled
+          UNRECONCILED: :unreconciled
+          TENTATIVELY_RECONCILED: :tentatively_reconciled
+
+          def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrders::Reversal::reconciliation_status]
         end
 
         type status =

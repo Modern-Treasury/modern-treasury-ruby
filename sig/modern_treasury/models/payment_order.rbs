@@ -33,7 +33,7 @@ module ModernTreasury
         purpose: String?,
         receiving_account_id: String,
         receiving_account_type: ModernTreasury::Models::PaymentOrder::receiving_account_type,
-        reconciled: bool,
+        reconciliation_status: ModernTreasury::Models::PaymentOrder::reconciliation_status,
         reference_numbers: ::Array[ModernTreasury::PaymentOrder::ReferenceNumber],
         remittance_information: String?,
         send_remittance_advice: bool?,
@@ -117,7 +117,7 @@ module ModernTreasury
 
       attr_accessor receiving_account_type: ModernTreasury::Models::PaymentOrder::receiving_account_type
 
-      attr_accessor reconciled: bool
+      attr_accessor reconciliation_status: ModernTreasury::Models::PaymentOrder::reconciliation_status
 
       attr_accessor reference_numbers: ::Array[ModernTreasury::PaymentOrder::ReferenceNumber]
 
@@ -187,7 +187,7 @@ module ModernTreasury
         purpose: String?,
         receiving_account_id: String,
         receiving_account_type: ModernTreasury::Models::PaymentOrder::receiving_account_type,
-        reconciled: bool,
+        reconciliation_status: ModernTreasury::Models::PaymentOrder::reconciliation_status,
         reference_numbers: ::Array[ModernTreasury::PaymentOrder::ReferenceNumber],
         remittance_information: String?,
         send_remittance_advice: bool?,
@@ -240,7 +240,7 @@ module ModernTreasury
         purpose: String?,
         receiving_account_id: String,
         receiving_account_type: ModernTreasury::Models::PaymentOrder::receiving_account_type,
-        reconciled: bool,
+        reconciliation_status: ModernTreasury::Models::PaymentOrder::reconciliation_status,
         reference_numbers: ::Array[ModernTreasury::PaymentOrder::ReferenceNumber],
         remittance_information: String?,
         send_remittance_advice: bool?,
@@ -432,6 +432,19 @@ module ModernTreasury
         EXTERNAL_ACCOUNT: :external_account
 
         def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrder::receiving_account_type]
+      end
+
+      type reconciliation_status =
+        :reconciled | :unreconciled | :tentatively_reconciled
+
+      module ReconciliationStatus
+        extend ModernTreasury::Internal::Type::Enum
+
+        RECONCILED: :reconciled
+        UNRECONCILED: :unreconciled
+        TENTATIVELY_RECONCILED: :tentatively_reconciled
+
+        def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrder::reconciliation_status]
       end
 
       type reference_number =

@@ -61,13 +61,13 @@ module ModernTreasury
       #   @return [String, nil]
       optional :reason, String, nil?: true
 
-      # @!attribute reconciled
-      #   True if the object is reconciled, false otherwise.
+      # @!attribute reconciliation_status
+      #   One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
       #
-      #   @return [Boolean, nil]
-      optional :reconciled, ModernTreasury::Internal::Type::Boolean
+      #   @return [Symbol, ModernTreasury::Models::ReturnCreateParams::ReconciliationStatus, nil]
+      optional :reconciliation_status, enum: -> { ModernTreasury::ReturnCreateParams::ReconciliationStatus }
 
-      # @!method initialize(returnable_id:, returnable_type:, additional_information: nil, code: nil, corrections: nil, data: nil, date_of_death: nil, reason: nil, reconciled: nil, request_options: {})
+      # @!method initialize(returnable_id:, returnable_type:, additional_information: nil, code: nil, corrections: nil, data: nil, date_of_death: nil, reason: nil, reconciliation_status: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::ReturnCreateParams} for more details.
       #
@@ -87,7 +87,7 @@ module ModernTreasury
       #
       #   @param reason [String, nil] An optional description of the reason for the return. This is for internal usage
       #
-      #   @param reconciled [Boolean] True if the object is reconciled, false otherwise.
+      #   @param reconciliation_status [Symbol, ModernTreasury::Models::ReturnCreateParams::ReconciliationStatus] One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
@@ -266,6 +266,18 @@ module ModernTreasury
         #   @param routing_number [String, nil] The updated routing number that should replace the one originally used on the ou
         #
         #   @param transaction_code [String, nil] The updated account type code that should replace the one originally used on the
+      end
+
+      # One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+      module ReconciliationStatus
+        extend ModernTreasury::Internal::Type::Enum
+
+        RECONCILED = :reconciled
+        UNRECONCILED = :unreconciled
+        TENTATIVELY_RECONCILED = :tentatively_reconciled
+
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

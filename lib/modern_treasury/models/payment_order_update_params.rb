@@ -190,11 +190,12 @@ module ModernTreasury
       #   @return [String, nil]
       optional :receiving_account_id, String
 
-      # @!attribute reconciled
-      #   True if the object is reconciled, false otherwise.
+      # @!attribute reconciliation_status
+      #   One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
       #
-      #   @return [Boolean, nil]
-      optional :reconciled, ModernTreasury::Internal::Type::Boolean
+      #   @return [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReconciliationStatus, nil]
+      optional :reconciliation_status,
+               enum: -> { ModernTreasury::PaymentOrderUpdateParams::ReconciliationStatus }
 
       # @!attribute remittance_information
       #   For `ach`, this field will be passed through on an addenda record. For `wire`
@@ -279,7 +280,7 @@ module ModernTreasury
       #   @return [String, nil]
       optional :ultimate_receiving_party_name, String, nil?: true
 
-      # @!method initialize(accounting: nil, accounting_category_id: nil, accounting_ledger_class_id: nil, amount: nil, charge_bearer: nil, counterparty_id: nil, currency: nil, description: nil, direction: nil, effective_date: nil, expires_at: nil, fallback_type: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, line_items: nil, metadata: nil, nsf_protected: nil, originating_account_id: nil, originating_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account: nil, receiving_account_id: nil, reconciled: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, status: nil, subtype: nil, type: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil, request_options: {})
+      # @!method initialize(accounting: nil, accounting_category_id: nil, accounting_ledger_class_id: nil, amount: nil, charge_bearer: nil, counterparty_id: nil, currency: nil, description: nil, direction: nil, effective_date: nil, expires_at: nil, fallback_type: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, line_items: nil, metadata: nil, nsf_protected: nil, originating_account_id: nil, originating_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account: nil, receiving_account_id: nil, reconciliation_status: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, status: nil, subtype: nil, type: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::PaymentOrderUpdateParams} for more details.
       #
@@ -331,7 +332,7 @@ module ModernTreasury
       #
       #   @param receiving_account_id [String] Either `receiving_account` or `receiving_account_id` must be present. When using
       #
-      #   @param reconciled [Boolean] True if the object is reconciled, false otherwise.
+      #   @param reconciliation_status [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReconciliationStatus] One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
       #
       #   @param remittance_information [String, nil] For `ach`, this field will be passed through on an addenda record. For `wire` pa
       #
@@ -765,6 +766,18 @@ module ModernTreasury
             #   @return [Array<Symbol>]
           end
         end
+      end
+
+      # One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+      module ReconciliationStatus
+        extend ModernTreasury::Internal::Type::Enum
+
+        RECONCILED = :reconciled
+        UNRECONCILED = :unreconciled
+        TENTATIVELY_RECONCILED = :tentatively_reconciled
+
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       # To cancel a payment order, use `cancelled`. To redraft a returned payment order,
