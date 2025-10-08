@@ -52,11 +52,12 @@ module ModernTreasury
         #   @return [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Reason]
         required :reason, enum: -> { ModernTreasury::PaymentOrders::Reversal::Reason }
 
-        # @!attribute reconciled
-        #   True if the object is reconciled, false otherwise.
+        # @!attribute reconciliation_status
+        #   One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
         #
-        #   @return [Boolean]
-        required :reconciled, ModernTreasury::Internal::Type::Boolean
+        #   @return [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::ReconciliationStatus]
+        required :reconciliation_status,
+                 enum: -> { ModernTreasury::PaymentOrders::Reversal::ReconciliationStatus }
 
         # @!attribute status
         #   The current status of the reversal.
@@ -74,7 +75,7 @@ module ModernTreasury
         #   @return [Time]
         required :updated_at, Time
 
-        # @!method initialize(id:, created_at:, ledger_transaction_id:, live_mode:, metadata:, object:, payment_order_id:, reason:, reconciled:, status:, transaction_ids:, updated_at:)
+        # @!method initialize(id:, created_at:, ledger_transaction_id:, live_mode:, metadata:, object:, payment_order_id:, reason:, reconciliation_status:, status:, transaction_ids:, updated_at:)
         #   Some parameter documentations has been truncated, see
         #   {ModernTreasury::Models::PaymentOrders::Reversal} for more details.
         #
@@ -94,7 +95,7 @@ module ModernTreasury
         #
         #   @param reason [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Reason] The reason for the reversal.
         #
-        #   @param reconciled [Boolean] True if the object is reconciled, false otherwise.
+        #   @param reconciliation_status [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::ReconciliationStatus] One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
         #
         #   @param status [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Status] The current status of the reversal.
         #
@@ -113,6 +114,20 @@ module ModernTreasury
           INCORRECT_RECEIVING_ACCOUNT = :incorrect_receiving_account
           DATE_EARLIER_THAN_INTENDED = :date_earlier_than_intended
           DATE_LATER_THAN_INTENDED = :date_later_than_intended
+
+          # @!method self.values
+          #   @return [Array<Symbol>]
+        end
+
+        # One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+        #
+        # @see ModernTreasury::Models::PaymentOrders::Reversal#reconciliation_status
+        module ReconciliationStatus
+          extend ModernTreasury::Internal::Type::Enum
+
+          RECONCILED = :reconciled
+          UNRECONCILED = :unreconciled
+          TENTATIVELY_RECONCILED = :tentatively_reconciled
 
           # @!method self.values
           #   @return [Array<Symbol>]

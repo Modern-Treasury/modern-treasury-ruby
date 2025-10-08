@@ -54,7 +54,8 @@ module ModernTreasury
           receiving_account:
             ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::OrHash,
           receiving_account_id: String,
-          reconciled: T::Boolean,
+          reconciliation_status:
+            ModernTreasury::PaymentOrderCreateParams::ReconciliationStatus::OrSymbol,
           remittance_information: T.nilable(String),
           send_remittance_advice: T.nilable(T::Boolean),
           statement_descriptor: T.nilable(String),
@@ -162,8 +163,8 @@ module ModernTreasury
         # `receiving_account_id`, you may pass the id of an external account or an
         # internal account.
         receiving_account_id: nil,
-        # True if the object is reconciled, false otherwise.
-        reconciled: nil,
+        # One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+        reconciliation_status: nil,
         # For `ach`, this field will be passed through on an addenda record. For `wire`
         # payments the field will be passed through as the "Originator to Beneficiary
         # Information", also known as OBI or Fedwire tag 6000.
@@ -250,7 +251,8 @@ module ModernTreasury
           receiving_account:
             ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::OrHash,
           receiving_account_id: String,
-          reconciled: T::Boolean,
+          reconciliation_status:
+            ModernTreasury::PaymentOrderUpdateParams::ReconciliationStatus::OrSymbol,
           remittance_information: T.nilable(String),
           send_remittance_advice: T.nilable(T::Boolean),
           statement_descriptor: T.nilable(String),
@@ -345,8 +347,8 @@ module ModernTreasury
         # `receiving_account_id`, you may pass the id of an external account or an
         # internal account.
         receiving_account_id: nil,
-        # True if the object is reconciled, false otherwise.
-        reconciled: nil,
+        # One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+        reconciliation_status: nil,
         # For `ach`, this field will be passed through on an addenda record. For `wire`
         # payments the field will be passed through as the "Originator to Beneficiary
         # Information", also known as OBI or Fedwire tag 6000.
@@ -499,7 +501,8 @@ module ModernTreasury
           receiving_account:
             ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::OrHash,
           receiving_account_id: String,
-          reconciled: T::Boolean,
+          reconciliation_status:
+            ModernTreasury::PaymentOrderCreateAsyncParams::ReconciliationStatus::OrSymbol,
           remittance_information: T.nilable(String),
           send_remittance_advice: T.nilable(T::Boolean),
           statement_descriptor: T.nilable(String),
@@ -604,8 +607,8 @@ module ModernTreasury
         # `receiving_account_id`, you may pass the id of an external account or an
         # internal account.
         receiving_account_id: nil,
-        # True if the object is reconciled, false otherwise.
-        reconciled: nil,
+        # One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+        reconciliation_status: nil,
         # For `ach`, this field will be passed through on an addenda record. For `wire`
         # payments the field will be passed through as the "Originator to Beneficiary
         # Information", also known as OBI or Fedwire tag 6000.
