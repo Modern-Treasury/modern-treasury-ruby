@@ -9,7 +9,8 @@ module ModernTreasury
         corrections: ModernTreasury::ReturnCreateParams::Corrections?,
         data: top?,
         date_of_death: Date?,
-        reason: String?
+        reason: String?,
+        reconciliation_status: ModernTreasury::Models::ReturnCreateParams::reconciliation_status
       }
       & ModernTreasury::Internal::Type::request_parameters
 
@@ -33,6 +34,12 @@ module ModernTreasury
 
       attr_accessor reason: String?
 
+      attr_reader reconciliation_status: ModernTreasury::Models::ReturnCreateParams::reconciliation_status?
+
+      def reconciliation_status=: (
+        ModernTreasury::Models::ReturnCreateParams::reconciliation_status
+      ) -> ModernTreasury::Models::ReturnCreateParams::reconciliation_status
+
       def initialize: (
         returnable_id: String?,
         returnable_type: ModernTreasury::Models::ReturnCreateParams::returnable_type,
@@ -42,6 +49,7 @@ module ModernTreasury
         ?data: top?,
         ?date_of_death: Date?,
         ?reason: String?,
+        ?reconciliation_status: ModernTreasury::Models::ReturnCreateParams::reconciliation_status,
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
@@ -54,6 +62,7 @@ module ModernTreasury
         data: top?,
         date_of_death: Date?,
         reason: String?,
+        reconciliation_status: ModernTreasury::Models::ReturnCreateParams::reconciliation_status,
         request_options: ModernTreasury::RequestOptions
       }
 
@@ -302,6 +311,19 @@ module ModernTreasury
           routing_number: String?,
           transaction_code: String?
         }
+      end
+
+      type reconciliation_status =
+        :unreconciled | :tentatively_reconciled | :reconciled
+
+      module ReconciliationStatus
+        extend ModernTreasury::Internal::Type::Enum
+
+        UNRECONCILED: :unreconciled
+        TENTATIVELY_RECONCILED: :tentatively_reconciled
+        RECONCILED: :reconciled
+
+        def self?.values: -> ::Array[ModernTreasury::Models::ReturnCreateParams::reconciliation_status]
       end
     end
   end

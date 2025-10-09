@@ -179,11 +179,15 @@ module ModernTreasury
       #
       # list invoices
       #
-      # @overload list(after_cursor: nil, counterparty_id: nil, due_date_end: nil, due_date_start: nil, expected_payment_id: nil, metadata: nil, number: nil, originating_account_id: nil, payment_order_id: nil, per_page: nil, status: nil, request_options: {})
+      # @overload list(after_cursor: nil, counterparty_id: nil, created_at_end: nil, created_at_start: nil, due_date_end: nil, due_date_start: nil, expected_payment_id: nil, metadata: nil, number: nil, originating_account_id: nil, payment_order_id: nil, per_page: nil, status: nil, request_options: {})
       #
       # @param after_cursor [String, nil]
       #
       # @param counterparty_id [String]
+      #
+      # @param created_at_end [Time] An inclusive upper bound for searching created_at
+      #
+      # @param created_at_start [Time] An inclusive lower bound for searching created_at
       #
       # @param due_date_end [Date] An inclusive upper bound for searching due_date
       #

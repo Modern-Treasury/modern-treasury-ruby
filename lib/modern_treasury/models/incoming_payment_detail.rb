@@ -107,6 +107,12 @@ module ModernTreasury
                enum: -> { ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType },
                nil?: true
 
+      # @!attribute reconciliation_status
+      #   One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+      #
+      #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetail::ReconciliationStatus]
+      required :reconciliation_status, enum: -> { ModernTreasury::IncomingPaymentDetail::ReconciliationStatus }
+
       # @!attribute status
       #   The current status of the incoming payment order. One of `pending`, `completed`,
       #   or `returned`.
@@ -164,7 +170,7 @@ module ModernTreasury
       #   @return [String, nil]
       optional :originating_account_number, String, nil?: true
 
-      # @!method initialize(id:, amount:, as_of_date:, created_at:, currency:, data:, direction:, internal_account_id:, ledger_transaction_id:, live_mode:, metadata:, object:, originating_account_number_safe:, originating_account_number_type:, originating_routing_number:, originating_routing_number_type:, status:, transaction_id:, transaction_line_item_id:, type:, updated_at:, vendor_id:, virtual_account:, virtual_account_id:, originating_account_number: nil)
+      # @!method initialize(id:, amount:, as_of_date:, created_at:, currency:, data:, direction:, internal_account_id:, ledger_transaction_id:, live_mode:, metadata:, object:, originating_account_number_safe:, originating_account_number_type:, originating_routing_number:, originating_routing_number_type:, reconciliation_status:, status:, transaction_id:, transaction_line_item_id:, type:, updated_at:, vendor_id:, virtual_account:, virtual_account_id:, originating_account_number: nil)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::IncomingPaymentDetail} for more details.
       #
@@ -199,6 +205,8 @@ module ModernTreasury
       #   @param originating_routing_number [String, nil] The routing number of the originating account for the incoming payment detail.
       #
       #   @param originating_routing_number_type [Symbol, ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType, nil] The type of the originating routing number for the incoming payment detail.
+      #
+      #   @param reconciliation_status [Symbol, ModernTreasury::Models::IncomingPaymentDetail::ReconciliationStatus] One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
       #
       #   @param status [Symbol, ModernTreasury::Models::IncomingPaymentDetail::Status] The current status of the incoming payment order. One of `pending`, `completed`,
       #
@@ -271,6 +279,20 @@ module ModernTreasury
         SG_INTERBANK_CLEARING_CODE = :sg_interbank_clearing_code
         SWIFT = :swift
         ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
+
+        # @!method self.values
+        #   @return [Array<Symbol>]
+      end
+
+      # One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+      #
+      # @see ModernTreasury::Models::IncomingPaymentDetail#reconciliation_status
+      module ReconciliationStatus
+        extend ModernTreasury::Internal::Type::Enum
+
+        UNRECONCILED = :unreconciled
+        TENTATIVELY_RECONCILED = :tentatively_reconciled
+        RECONCILED = :reconciled
 
         # @!method self.values
         #   @return [Array<Symbol>]

@@ -82,6 +82,21 @@ module ModernTreasury
       sig { params(per_page: Integer).void }
       attr_writer :per_page
 
+      # Only return internal accounts with this status.
+      sig do
+        returns(
+          T.nilable(ModernTreasury::InternalAccountListParams::Status::OrSymbol)
+        )
+      end
+      attr_reader :status
+
+      sig do
+        params(
+          status: ModernTreasury::InternalAccountListParams::Status::OrSymbol
+        ).void
+      end
+      attr_writer :status
+
       sig do
         params(
           after_cursor: T.nilable(String),
@@ -93,6 +108,7 @@ module ModernTreasury
           payment_type:
             ModernTreasury::InternalAccountListParams::PaymentType::OrSymbol,
           per_page: Integer,
+          status: ModernTreasury::InternalAccountListParams::Status::OrSymbol,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
@@ -113,6 +129,8 @@ module ModernTreasury
         # Only return internal accounts that can make this type of payment.
         payment_type: nil,
         per_page: nil,
+        # Only return internal accounts with this status.
+        status: nil,
         request_options: {}
       )
       end
@@ -129,6 +147,7 @@ module ModernTreasury
             payment_type:
               ModernTreasury::InternalAccountListParams::PaymentType::OrSymbol,
             per_page: Integer,
+            status: ModernTreasury::InternalAccountListParams::Status::OrSymbol,
             request_options: ModernTreasury::RequestOptions
           }
         )
@@ -329,6 +348,53 @@ module ModernTreasury
           override.returns(
             T::Array[
               ModernTreasury::InternalAccountListParams::PaymentType::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
+      end
+
+      # Only return internal accounts with this status.
+      module Status
+        extend ModernTreasury::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::InternalAccountListParams::Status)
+          end
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        ACTIVE =
+          T.let(
+            :active,
+            ModernTreasury::InternalAccountListParams::Status::TaggedSymbol
+          )
+        PENDING_ACTIVATION =
+          T.let(
+            :pending_activation,
+            ModernTreasury::InternalAccountListParams::Status::TaggedSymbol
+          )
+        SUSPENDED =
+          T.let(
+            :suspended,
+            ModernTreasury::InternalAccountListParams::Status::TaggedSymbol
+          )
+        PENDING_CLOSURE =
+          T.let(
+            :pending_closure,
+            ModernTreasury::InternalAccountListParams::Status::TaggedSymbol
+          )
+        CLOSED =
+          T.let(
+            :closed,
+            ModernTreasury::InternalAccountListParams::Status::TaggedSymbol
+          )
+
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::InternalAccountListParams::Status::TaggedSymbol
             ]
           )
         end

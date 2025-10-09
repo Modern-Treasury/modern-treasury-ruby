@@ -16,6 +16,8 @@ module ModernTreasury
           data: T.nilable(T.anything),
           date_of_death: T.nilable(Date),
           reason: T.nilable(String),
+          reconciliation_status:
+            ModernTreasury::ReturnCreateParams::ReconciliationStatus::OrSymbol,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::ReturnObject)
       end
@@ -42,6 +44,8 @@ module ModernTreasury
         # An optional description of the reason for the return. This is for internal usage
         # and will not be transmitted to the bank.”
         reason: nil,
+        # One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+        reconciliation_status: nil,
         request_options: {}
       )
       end

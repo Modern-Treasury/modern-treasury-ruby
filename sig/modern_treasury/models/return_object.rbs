@@ -17,6 +17,7 @@ module ModernTreasury
         live_mode: bool,
         object: String,
         reason: String?,
+        reconciliation_status: ModernTreasury::Models::ReturnObject::reconciliation_status,
         reference_numbers: ::Array[ModernTreasury::ReturnObject::ReferenceNumber],
         returnable_id: String?,
         returnable_type: ModernTreasury::Models::ReturnObject::returnable_type?,
@@ -61,6 +62,8 @@ module ModernTreasury
 
       attr_accessor reason: String?
 
+      attr_accessor reconciliation_status: ModernTreasury::Models::ReturnObject::reconciliation_status
+
       attr_accessor reference_numbers: ::Array[ModernTreasury::ReturnObject::ReferenceNumber]
 
       attr_accessor returnable_id: String?
@@ -99,6 +102,7 @@ module ModernTreasury
         live_mode: bool,
         object: String,
         reason: String?,
+        reconciliation_status: ModernTreasury::Models::ReturnObject::reconciliation_status,
         reference_numbers: ::Array[ModernTreasury::ReturnObject::ReferenceNumber],
         returnable_id: String?,
         returnable_type: ModernTreasury::Models::ReturnObject::returnable_type?,
@@ -128,6 +132,7 @@ module ModernTreasury
         live_mode: bool,
         object: String,
         reason: String?,
+        reconciliation_status: ModernTreasury::Models::ReturnObject::reconciliation_status,
         reference_numbers: ::Array[ModernTreasury::ReturnObject::ReferenceNumber],
         returnable_id: String?,
         returnable_type: ModernTreasury::Models::ReturnObject::returnable_type?,
@@ -378,6 +383,19 @@ module ModernTreasury
         }
       end
 
+      type reconciliation_status =
+        :unreconciled | :tentatively_reconciled | :reconciled
+
+      module ReconciliationStatus
+        extend ModernTreasury::Internal::Type::Enum
+
+        UNRECONCILED: :unreconciled
+        TENTATIVELY_RECONCILED: :tentatively_reconciled
+        RECONCILED: :reconciled
+
+        def self?.values: -> ::Array[ModernTreasury::Models::ReturnObject::reconciliation_status]
+      end
+
       type reference_number =
         {
           id: String,
@@ -481,6 +499,7 @@ module ModernTreasury
           | :jpmc_payment_returned_datetime
           | :jpmc_transaction_reference_number
           | :lob_check_id
+          | :mt_fof_transfer_id
           | :other
           | :partial_swift_mir
           | :pnc_clearing_reference
@@ -573,6 +592,7 @@ module ModernTreasury
           JPMC_PAYMENT_RETURNED_DATETIME: :jpmc_payment_returned_datetime
           JPMC_TRANSACTION_REFERENCE_NUMBER: :jpmc_transaction_reference_number
           LOB_CHECK_ID: :lob_check_id
+          MT_FOF_TRANSFER_ID: :mt_fof_transfer_id
           OTHER: :other
           PARTIAL_SWIFT_MIR: :partial_swift_mir
           PNC_CLEARING_REFERENCE: :pnc_clearing_reference
@@ -660,6 +680,7 @@ module ModernTreasury
         | :check
         | :cross_border
         | :eft
+        | :gb_fps
         | :interac
         | :manual
         | :sepa
@@ -676,6 +697,7 @@ module ModernTreasury
         CHECK: :check
         CROSS_BORDER: :cross_border
         EFT: :eft
+        GB_FPS: :gb_fps
         INTERAC: :interac
         MANUAL: :manual
         SEPA: :sepa

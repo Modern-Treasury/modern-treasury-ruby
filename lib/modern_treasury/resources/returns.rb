@@ -8,7 +8,7 @@ module ModernTreasury
       #
       # Create a return.
       #
-      # @overload create(returnable_id:, returnable_type:, additional_information: nil, code: nil, corrections: nil, data: nil, date_of_death: nil, reason: nil, request_options: {})
+      # @overload create(returnable_id:, returnable_type:, additional_information: nil, code: nil, corrections: nil, data: nil, date_of_death: nil, reason: nil, reconciliation_status: nil, request_options: {})
       #
       # @param returnable_id [String, nil] The ID of the object being returned or `null`.
       #
@@ -25,6 +25,8 @@ module ModernTreasury
       # @param date_of_death [Date, nil] If the return code is `R14` or `R15` this is the date the deceased counterparty
       #
       # @param reason [String, nil] An optional description of the reason for the return. This is for internal usage
+      #
+      # @param reconciliation_status [Symbol, ModernTreasury::Models::ReturnCreateParams::ReconciliationStatus] One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #

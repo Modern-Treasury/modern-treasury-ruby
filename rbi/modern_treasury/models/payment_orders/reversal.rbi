@@ -45,6 +45,14 @@ module ModernTreasury
         end
         attr_accessor :reason
 
+        # One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+        sig do
+          returns(
+            ModernTreasury::PaymentOrders::Reversal::ReconciliationStatus::TaggedSymbol
+          )
+        end
+        attr_accessor :reconciliation_status
+
         # The current status of the reversal.
         sig do
           returns(ModernTreasury::PaymentOrders::Reversal::Status::TaggedSymbol)
@@ -67,6 +75,8 @@ module ModernTreasury
             object: String,
             payment_order_id: T.nilable(String),
             reason: ModernTreasury::PaymentOrders::Reversal::Reason::OrSymbol,
+            reconciliation_status:
+              ModernTreasury::PaymentOrders::Reversal::ReconciliationStatus::OrSymbol,
             status: ModernTreasury::PaymentOrders::Reversal::Status::OrSymbol,
             transaction_ids: T::Array[T.nilable(String)],
             updated_at: Time
@@ -88,6 +98,8 @@ module ModernTreasury
           payment_order_id:,
           # The reason for the reversal.
           reason:,
+          # One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+          reconciliation_status:,
           # The current status of the reversal.
           status:,
           transaction_ids:,
@@ -107,6 +119,8 @@ module ModernTreasury
               payment_order_id: T.nilable(String),
               reason:
                 ModernTreasury::PaymentOrders::Reversal::Reason::TaggedSymbol,
+              reconciliation_status:
+                ModernTreasury::PaymentOrders::Reversal::ReconciliationStatus::TaggedSymbol,
               status:
                 ModernTreasury::PaymentOrders::Reversal::Status::TaggedSymbol,
               transaction_ids: T::Array[T.nilable(String)],
@@ -157,6 +171,46 @@ module ModernTreasury
             override.returns(
               T::Array[
                 ModernTreasury::PaymentOrders::Reversal::Reason::TaggedSymbol
+              ]
+            )
+          end
+          def self.values
+          end
+        end
+
+        # One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+        module ReconciliationStatus
+          extend ModernTreasury::Internal::Type::Enum
+
+          TaggedSymbol =
+            T.type_alias do
+              T.all(
+                Symbol,
+                ModernTreasury::PaymentOrders::Reversal::ReconciliationStatus
+              )
+            end
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          UNRECONCILED =
+            T.let(
+              :unreconciled,
+              ModernTreasury::PaymentOrders::Reversal::ReconciliationStatus::TaggedSymbol
+            )
+          TENTATIVELY_RECONCILED =
+            T.let(
+              :tentatively_reconciled,
+              ModernTreasury::PaymentOrders::Reversal::ReconciliationStatus::TaggedSymbol
+            )
+          RECONCILED =
+            T.let(
+              :reconciled,
+              ModernTreasury::PaymentOrders::Reversal::ReconciliationStatus::TaggedSymbol
+            )
+
+          sig do
+            override.returns(
+              T::Array[
+                ModernTreasury::PaymentOrders::Reversal::ReconciliationStatus::TaggedSymbol
               ]
             )
           end

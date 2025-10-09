@@ -70,6 +70,8 @@ module ModernTreasury
       def list: (
         ?after_cursor: String?,
         ?counterparty_id: String,
+        ?created_at_end: Time,
+        ?created_at_start: Time,
         ?due_date_end: Date,
         ?due_date_start: Date,
         ?expected_payment_id: String,

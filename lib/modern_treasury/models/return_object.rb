@@ -98,6 +98,12 @@ module ModernTreasury
       #   @return [String, nil]
       required :reason, String, nil?: true
 
+      # @!attribute reconciliation_status
+      #   One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+      #
+      #   @return [Symbol, ModernTreasury::Models::ReturnObject::ReconciliationStatus]
+      required :reconciliation_status, enum: -> { ModernTreasury::ReturnObject::ReconciliationStatus }
+
       # @!attribute reference_numbers
       #   An array of Payment Reference objects.
       #
@@ -166,7 +172,7 @@ module ModernTreasury
       #   @return [Object, nil]
       optional :data, ModernTreasury::Internal::Type::Unknown, nil?: true
 
-      # @!method initialize(id:, amount:, code:, corrections:, created_at:, currency:, current_return:, date_of_death:, discarded_at:, failure_reason:, internal_account_id:, ledger_transaction_id:, live_mode:, object:, reason:, reference_numbers:, returnable_id:, returnable_type:, role:, status:, transaction_id:, transaction_line_item_id:, type:, updated_at:, additional_information: nil, data: nil)
+      # @!method initialize(id:, amount:, code:, corrections:, created_at:, currency:, current_return:, date_of_death:, discarded_at:, failure_reason:, internal_account_id:, ledger_transaction_id:, live_mode:, object:, reason:, reconciliation_status:, reference_numbers:, returnable_id:, returnable_type:, role:, status:, transaction_id:, transaction_line_item_id:, type:, updated_at:, additional_information: nil, data: nil)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::ReturnObject} for more details.
       #
@@ -199,6 +205,8 @@ module ModernTreasury
       #   @param object [String]
       #
       #   @param reason [String, nil] Often the bank will provide an explanation for the return, which is a short huma
+      #
+      #   @param reconciliation_status [Symbol, ModernTreasury::Models::ReturnObject::ReconciliationStatus] One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
       #
       #   @param reference_numbers [Array<ModernTreasury::Models::ReturnObject::ReferenceNumber>] An array of Payment Reference objects.
       #
@@ -391,6 +399,20 @@ module ModernTreasury
         #   @param transaction_code [String, nil] The updated account type code that should replace the one originally used on the
       end
 
+      # One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+      #
+      # @see ModernTreasury::Models::ReturnObject#reconciliation_status
+      module ReconciliationStatus
+        extend ModernTreasury::Internal::Type::Enum
+
+        UNRECONCILED = :unreconciled
+        TENTATIVELY_RECONCILED = :tentatively_reconciled
+        RECONCILED = :reconciled
+
+        # @!method self.values
+        #   @return [Array<Symbol>]
+      end
+
       class ReferenceNumber < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
         #
@@ -513,6 +535,7 @@ module ModernTreasury
           JPMC_PAYMENT_RETURNED_DATETIME = :jpmc_payment_returned_datetime
           JPMC_TRANSACTION_REFERENCE_NUMBER = :jpmc_transaction_reference_number
           LOB_CHECK_ID = :lob_check_id
+          MT_FOF_TRANSFER_ID = :mt_fof_transfer_id
           OTHER = :other
           PARTIAL_SWIFT_MIR = :partial_swift_mir
           PNC_CLEARING_REFERENCE = :pnc_clearing_reference
@@ -611,6 +634,7 @@ module ModernTreasury
         CHECK = :check
         CROSS_BORDER = :cross_border
         EFT = :eft
+        GB_FPS = :gb_fps
         INTERAC = :interac
         MANUAL = :manual
         SEPA = :sepa

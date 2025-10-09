@@ -118,6 +118,7 @@ module ModernTreasury
           payment_type:
             ModernTreasury::InternalAccountListParams::PaymentType::OrSymbol,
           per_page: Integer,
+          status: ModernTreasury::InternalAccountListParams::Status::OrSymbol,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(
           ModernTreasury::Internal::Page[ModernTreasury::InternalAccount]
@@ -140,6 +141,8 @@ module ModernTreasury
         # Only return internal accounts that can make this type of payment.
         payment_type: nil,
         per_page: nil,
+        # Only return internal accounts with this status.
+        status: nil,
         request_options: {}
       )
       end

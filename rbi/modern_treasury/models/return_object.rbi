@@ -87,6 +87,14 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :reason
 
+      # One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+      sig do
+        returns(
+          ModernTreasury::ReturnObject::ReconciliationStatus::TaggedSymbol
+        )
+      end
+      attr_accessor :reconciliation_status
+
       # An array of Payment Reference objects.
       sig { returns(T::Array[ModernTreasury::ReturnObject::ReferenceNumber]) }
       attr_accessor :reference_numbers
@@ -154,6 +162,8 @@ module ModernTreasury
           live_mode: T::Boolean,
           object: String,
           reason: T.nilable(String),
+          reconciliation_status:
+            ModernTreasury::ReturnObject::ReconciliationStatus::OrSymbol,
           reference_numbers:
             T::Array[ModernTreasury::ReturnObject::ReferenceNumber::OrHash],
           returnable_id: T.nilable(String),
@@ -204,6 +214,8 @@ module ModernTreasury
         # Often the bank will provide an explanation for the return, which is a short
         # human readable string.
         reason:,
+        # One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+        reconciliation_status:,
         # An array of Payment Reference objects.
         reference_numbers:,
         # The ID of the object being returned or `null`.
@@ -248,6 +260,8 @@ module ModernTreasury
             live_mode: T::Boolean,
             object: String,
             reason: T.nilable(String),
+            reconciliation_status:
+              ModernTreasury::ReturnObject::ReconciliationStatus::TaggedSymbol,
             reference_numbers:
               T::Array[ModernTreasury::ReturnObject::ReferenceNumber],
             returnable_id: T.nilable(String),
@@ -483,6 +497,43 @@ module ModernTreasury
           )
         end
         def to_hash
+        end
+      end
+
+      # One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+      module ReconciliationStatus
+        extend ModernTreasury::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::ReturnObject::ReconciliationStatus)
+          end
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        UNRECONCILED =
+          T.let(
+            :unreconciled,
+            ModernTreasury::ReturnObject::ReconciliationStatus::TaggedSymbol
+          )
+        TENTATIVELY_RECONCILED =
+          T.let(
+            :tentatively_reconciled,
+            ModernTreasury::ReturnObject::ReconciliationStatus::TaggedSymbol
+          )
+        RECONCILED =
+          T.let(
+            :reconciled,
+            ModernTreasury::ReturnObject::ReconciliationStatus::TaggedSymbol
+          )
+
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::ReturnObject::ReconciliationStatus::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
         end
       end
 
@@ -861,6 +912,11 @@ module ModernTreasury
               :lob_check_id,
               ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
+          MT_FOF_TRANSFER_ID =
+            T.let(
+              :mt_fof_transfer_id,
+              ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
           OTHER =
             T.let(
               :other,
@@ -1145,6 +1201,8 @@ module ModernTreasury
         CROSS_BORDER =
           T.let(:cross_border, ModernTreasury::ReturnObject::Type::TaggedSymbol)
         EFT = T.let(:eft, ModernTreasury::ReturnObject::Type::TaggedSymbol)
+        GB_FPS =
+          T.let(:gb_fps, ModernTreasury::ReturnObject::Type::TaggedSymbol)
         INTERAC =
           T.let(:interac, ModernTreasury::ReturnObject::Type::TaggedSymbol)
         MANUAL =
