@@ -907,9 +907,9 @@ module ModernTreasury
           module ReconciliationStatus
             extend ModernTreasury::Internal::Type::Enum
 
-            RECONCILED = :reconciled
             UNRECONCILED = :unreconciled
             TENTATIVELY_RECONCILED = :tentatively_reconciled
+            RECONCILED = :reconciled
 
             # @!method self.values
             #   @return [Array<Symbol>]
@@ -2137,9 +2137,9 @@ module ModernTreasury
           module ReconciliationStatus
             extend ModernTreasury::Internal::Type::Enum
 
-            RECONCILED = :reconciled
             UNRECONCILED = :unreconciled
             TENTATIVELY_RECONCILED = :tentatively_reconciled
+            RECONCILED = :reconciled
 
             # @!method self.values
             #   @return [Array<Symbol>]
