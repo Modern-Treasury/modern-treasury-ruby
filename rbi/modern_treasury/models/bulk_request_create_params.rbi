@@ -1970,11 +1970,6 @@ module ModernTreasury
               end
             OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-            RECONCILED =
-              T.let(
-                :reconciled,
-                ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReconciliationStatus::TaggedSymbol
-              )
             UNRECONCILED =
               T.let(
                 :unreconciled,
@@ -1983,6 +1978,11 @@ module ModernTreasury
             TENTATIVELY_RECONCILED =
               T.let(
                 :tentatively_reconciled,
+                ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReconciliationStatus::TaggedSymbol
+              )
+            RECONCILED =
+              T.let(
+                :reconciled,
                 ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReconciliationStatus::TaggedSymbol
               )
 
@@ -4513,11 +4513,6 @@ module ModernTreasury
               end
             OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-            RECONCILED =
-              T.let(
-                :reconciled,
-                ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReconciliationStatus::TaggedSymbol
-              )
             UNRECONCILED =
               T.let(
                 :unreconciled,
@@ -4526,6 +4521,11 @@ module ModernTreasury
             TENTATIVELY_RECONCILED =
               T.let(
                 :tentatively_reconciled,
+                ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReconciliationStatus::TaggedSymbol
+              )
+            RECONCILED =
+              T.let(
+                :reconciled,
                 ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReconciliationStatus::TaggedSymbol
               )
 

@@ -692,14 +692,14 @@ module ModernTreasury
       end
 
       type reconciliation_status =
-        :reconciled | :unreconciled | :tentatively_reconciled
+        :unreconciled | :tentatively_reconciled | :reconciled
 
       module ReconciliationStatus
         extend ModernTreasury::Internal::Type::Enum
 
-        RECONCILED: :reconciled
         UNRECONCILED: :unreconciled
         TENTATIVELY_RECONCILED: :tentatively_reconciled
+        RECONCILED: :reconciled
 
         def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderUpdateParams::reconciliation_status]
       end
