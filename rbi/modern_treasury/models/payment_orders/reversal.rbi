@@ -191,11 +191,6 @@ module ModernTreasury
             end
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-          RECONCILED =
-            T.let(
-              :reconciled,
-              ModernTreasury::PaymentOrders::Reversal::ReconciliationStatus::TaggedSymbol
-            )
           UNRECONCILED =
             T.let(
               :unreconciled,
@@ -204,6 +199,11 @@ module ModernTreasury
           TENTATIVELY_RECONCILED =
             T.let(
               :tentatively_reconciled,
+              ModernTreasury::PaymentOrders::Reversal::ReconciliationStatus::TaggedSymbol
+            )
+          RECONCILED =
+            T.let(
+              :reconciled,
               ModernTreasury::PaymentOrders::Reversal::ReconciliationStatus::TaggedSymbol
             )
 
