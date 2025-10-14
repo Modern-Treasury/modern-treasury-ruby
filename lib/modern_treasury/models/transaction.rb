@@ -285,7 +285,6 @@ module ModernTreasury
         BANKPROV = :bankprov
         BNK_DEV = :bnk_dev
         BRALE = :brale
-        BRIDGE = :bridge
         CLEARTOUCH = :cleartouch
         COLUMN = :column
         CROSS_RIVER = :cross_river
