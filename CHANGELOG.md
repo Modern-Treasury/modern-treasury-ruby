@@ -1,5 +1,46 @@
 # Changelog
 
+## 0.7.0 (2025-10-14)
+
+Full Changelog: [v0.6.0...v0.7.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.6.0...v0.7.0)
+
+### Features
+
+* **api:** api update ([f37bdd2](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/f37bdd2eab9164cf67cc01d7ff91eb8b43ff5156))
+* **api:** api update ([0de7b36](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/0de7b367b1ba0798455460af4a1f6f902ced1fe3))
+* **api:** api update ([8be10ad](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/8be10ad6a312243a6f498eae30371e573fbaa153))
+* **api:** api update ([40350f0](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/40350f05ed2bf464e98b2dc71a66d20dc67c510f))
+* **api:** api update ([6254376](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/6254376cd385f807e07f962f8d017a6aba11687c))
+* **api:** api update ([65f533f](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/65f533f6bba9b9a26773181a7a4bc2640b8cd49b))
+* **api:** api update ([84ea477](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/84ea47740ec4a929a2e396909cd300207f176023))
+* **api:** api update ([53c103b](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/53c103b611ac9642c5490172097fd58e49a5415c))
+* **api:** api update ([19f4fc1](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/19f4fc1d0fa8b478d9e1f416994eb3f4d1bf76ec))
+* **api:** api update ([071a9fc](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/071a9fc6611d175138c211b387763ee6a5a88b5d))
+* **api:** api update ([ffc7d79](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/ffc7d79a60947c41ee9d6377045b76e1f4a18c3e))
+* **api:** api update ([14591db](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/14591dba3e463de9bd135c4cfb439e7bfa21b124))
+* expose response headers for both streams and errors ([b2e9b9e](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/b2e9b9e7dda9b5c8e06118465be0711b65d4b209))
+
+
+### Bug Fixes
+
+* always send `filename=...` for multipart requests where a file is expected ([71bddaf](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/71bddaf2e91e843cc24450f3fc41da459dc963a0))
+* coroutine leaks from connection pool ([d75fe60](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/d75fe608595aa1cb6493809e1466af4bb3c235d4))
+* **internal:** use null byte as file separator in the fast formatting script ([cfc916d](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/cfc916de6390536ef027ccc7bae25a247f6602bc))
+* shorten multipart boundary sep to less than RFC specificed max length ([ac1bc6a](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/ac1bc6aecbc03f55fd8e879b7585c1fe0a3a7f48))
+* should not reuse buffers for `IO.copy_stream` interop ([8d4bd02](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/8d4bd02e4771eb7762f2e4ef678b0206f309eded))
+
+
+### Performance Improvements
+
+* faster code formatting ([8cfac52](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/8cfac52d0b5fd4e38d1d0e35c2e6791a160f7ad7))
+
+
+### Chores
+
+* allow fast-format to use bsd sed as well ([02dfec0](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/02dfec098434161efb839a0b9c4e209ff2c718b2))
+* do not install brew dependencies in ./scripts/bootstrap by default ([d743aac](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/d743aac958c1613a4e44aeb09612b9dd42d60452))
+* ignore linter error for tests having large collections ([8d6b26b](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/8d6b26b092354a38b43270e1418d98840e1d2a1f))
+
 ## 0.6.0 (2025-09-11)
 
 Full Changelog: [v0.5.0...v0.6.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.5.0...v0.6.0)
