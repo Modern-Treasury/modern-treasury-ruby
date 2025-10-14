@@ -382,11 +382,6 @@ module ModernTreasury
             :brale,
             ModernTreasury::Transaction::VendorCodeType::TaggedSymbol
           )
-        BRIDGE =
-          T.let(
-            :bridge,
-            ModernTreasury::Transaction::VendorCodeType::TaggedSymbol
-          )
         CLEARTOUCH =
           T.let(
             :cleartouch,

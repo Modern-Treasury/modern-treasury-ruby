@@ -453,9 +453,6 @@ module ModernTreasury
           | :bofa_end_to_end_id
           | :bofa_transaction_id
           | :brale_transfer_id
-          | :bridge_destination_transaction_hash
-          | :bridge_source_transaction_hash
-          | :bridge_transfer_id
           | :check_number
           | :citibank_reference_number
           | :citibank_worldlink_clearing_system_reference_number
@@ -546,9 +543,6 @@ module ModernTreasury
           BOFA_END_TO_END_ID: :bofa_end_to_end_id
           BOFA_TRANSACTION_ID: :bofa_transaction_id
           BRALE_TRANSFER_ID: :brale_transfer_id
-          BRIDGE_DESTINATION_TRANSACTION_HASH: :bridge_destination_transaction_hash
-          BRIDGE_SOURCE_TRANSACTION_HASH: :bridge_source_transaction_hash
-          BRIDGE_TRANSFER_ID: :bridge_transfer_id
           CHECK_NUMBER: :check_number
           CITIBANK_REFERENCE_NUMBER: :citibank_reference_number
           CITIBANK_WORLDLINK_CLEARING_SYSTEM_REFERENCE_NUMBER: :citibank_worldlink_clearing_system_reference_number
