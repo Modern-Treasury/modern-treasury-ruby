@@ -454,11 +454,6 @@ module ModernTreasury
             :paypal,
             ModernTreasury::Transaction::VendorCodeType::TaggedSymbol
           )
-        PLAID =
-          T.let(
-            :plaid,
-            ModernTreasury::Transaction::VendorCodeType::TaggedSymbol
-          )
         PNC =
           T.let(:pnc, ModernTreasury::Transaction::VendorCodeType::TaggedSymbol)
         SIGNET =
