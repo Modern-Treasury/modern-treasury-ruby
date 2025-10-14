@@ -300,7 +300,6 @@ module ModernTreasury
         MT_FOF = :mt_fof
         MX = :mx
         PAYPAL = :paypal
-        PLAID = :plaid
         PNC = :pnc
         SIGNET = :signet
         SILVERGATE = :silvergate
