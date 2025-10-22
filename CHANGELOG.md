@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.8.0 (2025-10-22)
+
+Full Changelog: [v0.7.0...v0.8.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.7.0...v0.8.0)
+
+### Features
+
+* **api:** api update ([3c38801](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/3c3880109e7eb9dd7da618df92d4f36baaec5ae4))
+* **api:** api update ([eb7521c](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/eb7521c34b77ca715290d83cd8b2a27766408d4c))
+* **api:** manual updates ([7c6fc3a](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/7c6fc3a601e8228e173fb0e66b22d5a1fe84a6e5))
+
+
+### Bug Fixes
+
+* absolutely qualified uris should always override the default ([80d0f5d](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/80d0f5dc070e5f622a02c9e43ed6a0b1aec70661))
+
 ## 0.7.0 (2025-10-14)
 
 Full Changelog: [v0.6.0...v0.7.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.6.0...v0.7.0)
