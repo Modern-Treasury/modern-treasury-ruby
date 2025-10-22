@@ -24,7 +24,7 @@ module ModernTreasury
 
       # @return [Boolean]
       def next_page?
-        !empty? && !after_cursor.to_s.empty?
+        !after_cursor.to_s.empty?
       end
 
       # @raise [ModernTreasury::HTTP::Error]
