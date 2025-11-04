@@ -23,6 +23,7 @@ module ModernTreasury
       CIE = T.let(:CIE, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       CTX = T.let(:CTX, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       IAT = T.let(:IAT, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
+      POS = T.let(:POS, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       PPD = T.let(:PPD, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       TEL = T.let(:TEL, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       WEB = T.let(:WEB, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
