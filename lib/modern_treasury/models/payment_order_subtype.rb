@@ -16,6 +16,7 @@ module ModernTreasury
       CIE = :CIE
       CTX = :CTX
       IAT = :IAT
+      POS = :POS
       PPD = :PPD
       TEL = :TEL
       WEB = :WEB
