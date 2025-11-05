@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.10.0 (2025-11-05)
+
+Full Changelog: [v0.9.0...v0.10.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.9.0...v0.10.0)
+
+### Features
+
+* **api:** api update ([7fb1734](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/7fb17347c1b30ac236a1a4df294f5b49adc6647b))
+* **api:** api update ([f5d639f](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/f5d639f577bbe973d2a299282bee8815f9311aa3))
+
+
+### Bug Fixes
+
+* better thread safety via early initializing SSL store during HTTP client creation ([a56afe6](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/a56afe6e3ad81b5baabd7e1f225341a68752a0cc))
+
+
+### Chores
+
+* **client:** send user-agent header ([3301d2f](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/3301d2f2b166f302c29ab5038708aed0f9ca325e))
+* **internal:** codegen related update ([7f3208e](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/7f3208e35064166fe4e49217c0701d5325e9f057))
+
 ## 0.9.0 (2025-10-23)
 
 Full Changelog: [v0.8.0...v0.9.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.8.0...v0.9.0)
