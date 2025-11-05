@@ -18,10 +18,6 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :name
 
-      # An optional user-defined 180 character unique identifier.
-      sig { returns(T.nilable(String)) }
-      attr_accessor :body_external_id
-
       sig do
         returns(T.nilable(ModernTreasury::CounterpartyCreateParams::Accounting))
       end
@@ -54,6 +50,10 @@ module ModernTreasury
       # The counterparty's email.
       sig { returns(T.nilable(String)) }
       attr_accessor :email
+
+      # An optional user-defined 180 character unique identifier.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :external_id
 
       # An optional type to auto-sync the counterparty to your ledger. Either `customer`
       # or `vendor`.
@@ -126,12 +126,12 @@ module ModernTreasury
       sig do
         params(
           name: T.nilable(String),
-          body_external_id: T.nilable(String),
           accounting:
             ModernTreasury::CounterpartyCreateParams::Accounting::OrHash,
           accounts:
             T::Array[ModernTreasury::CounterpartyCreateParams::Account::OrHash],
           email: T.nilable(String),
+          external_id: T.nilable(String),
           ledger_type:
             ModernTreasury::CounterpartyCreateParams::LedgerType::OrSymbol,
           legal_entity:
@@ -147,13 +147,13 @@ module ModernTreasury
       def self.new(
         # A human friendly name for this counterparty.
         name:,
-        # An optional user-defined 180 character unique identifier.
-        body_external_id: nil,
         accounting: nil,
         # The accounts for this counterparty.
         accounts: nil,
         # The counterparty's email.
         email: nil,
+        # An optional user-defined 180 character unique identifier.
+        external_id: nil,
         # An optional type to auto-sync the counterparty to your ledger. Either `customer`
         # or `vendor`.
         ledger_type: nil,
@@ -178,11 +178,11 @@ module ModernTreasury
         override.returns(
           {
             name: T.nilable(String),
-            body_external_id: T.nilable(String),
             accounting: ModernTreasury::CounterpartyCreateParams::Accounting,
             accounts:
               T::Array[ModernTreasury::CounterpartyCreateParams::Account],
             email: T.nilable(String),
+            external_id: T.nilable(String),
             ledger_type:
               ModernTreasury::CounterpartyCreateParams::LedgerType::OrSymbol,
             legal_entity: ModernTreasury::CounterpartyCreateParams::LegalEntity,

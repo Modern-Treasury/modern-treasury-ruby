@@ -3,10 +3,10 @@ module ModernTreasury
     class Counterparties
       def create: (
         name: String?,
-        ?body_external_id: String?,
         ?accounting: ModernTreasury::CounterpartyCreateParams::Accounting,
         ?accounts: ::Array[ModernTreasury::CounterpartyCreateParams::Account],
         ?email: String?,
+        ?external_id: String?,
         ?ledger_type: ModernTreasury::Models::CounterpartyCreateParams::ledger_type,
         ?legal_entity: ModernTreasury::CounterpartyCreateParams::LegalEntity,
         ?legal_entity_id: String?,
