@@ -8,31 +8,31 @@ module ModernTreasury
       #
       # Create a new counterparty.
       #
-      # @overload create(name:, body_external_id: nil, accounting: nil, accounts: nil, email: nil, ledger_type: nil, legal_entity: nil, legal_entity_id: nil, metadata: nil, send_remittance_advice: nil, taxpayer_identifier: nil, verification_status: nil, request_options: {})
+      # @overload create(name:, accounting: nil, accounts: nil, email: nil, external_id: nil, ledger_type: nil, legal_entity: nil, legal_entity_id: nil, metadata: nil, send_remittance_advice: nil, taxpayer_identifier: nil, verification_status: nil, request_options: {})
       #
-      # @param name [String, nil] Body param: A human friendly name for this counterparty.
+      # @param name [String, nil] A human friendly name for this counterparty.
       #
-      # @param body_external_id [String, nil] Body param: An optional user-defined 180 character unique identifier.
+      # @param accounting [ModernTreasury::Models::CounterpartyCreateParams::Accounting]
       #
-      # @param accounting [ModernTreasury::Models::CounterpartyCreateParams::Accounting] Body param:
+      # @param accounts [Array<ModernTreasury::Models::CounterpartyCreateParams::Account>] The accounts for this counterparty.
       #
-      # @param accounts [Array<ModernTreasury::Models::CounterpartyCreateParams::Account>] Body param: The accounts for this counterparty.
+      # @param email [String, nil] The counterparty's email.
       #
-      # @param email [String, nil] Body param: The counterparty's email.
+      # @param external_id [String, nil] An optional user-defined 180 character unique identifier.
       #
-      # @param ledger_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LedgerType] Body param: An optional type to auto-sync the counterparty to your ledger. Eithe
+      # @param ledger_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LedgerType] An optional type to auto-sync the counterparty to your ledger. Either `customer`
       #
-      # @param legal_entity [ModernTreasury::Models::CounterpartyCreateParams::LegalEntity] Body param:
+      # @param legal_entity [ModernTreasury::Models::CounterpartyCreateParams::LegalEntity]
       #
-      # @param legal_entity_id [String, nil] Body param: The id of the legal entity.
+      # @param legal_entity_id [String, nil] The id of the legal entity.
       #
-      # @param metadata [Hash{Symbol=>String}] Body param: Additional data represented as key-value pairs. Both the key and val
+      # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #
-      # @param send_remittance_advice [Boolean] Body param: Send an email to the counterparty whenever an associated payment ord
+      # @param send_remittance_advice [Boolean] Send an email to the counterparty whenever an associated payment order is sent t
       #
-      # @param taxpayer_identifier [String] Body param: Either a valid SSN or EIN.
+      # @param taxpayer_identifier [String] Either a valid SSN or EIN.
       #
-      # @param verification_status [String] Body param: The verification status of the counterparty.
+      # @param verification_status [String] The verification status of the counterparty.
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -41,12 +41,10 @@ module ModernTreasury
       # @see ModernTreasury::Models::CounterpartyCreateParams
       def create(params)
         parsed, options = ModernTreasury::CounterpartyCreateParams.dump_request(params)
-        query_params = [:query_external_id]
         @client.request(
           method: :post,
           path: "api/counterparties",
-          query: parsed.slice(*query_params).transform_keys(query_external_id: "external_id"),
-          body: parsed.except(*query_params),
+          body: parsed,
           model: ModernTreasury::Counterparty,
           options: options
         )

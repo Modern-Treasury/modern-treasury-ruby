@@ -7,12 +7,12 @@ module ModernTreasury
       sig do
         params(
           name: T.nilable(String),
-          body_external_id: T.nilable(String),
           accounting:
             ModernTreasury::CounterpartyCreateParams::Accounting::OrHash,
           accounts:
             T::Array[ModernTreasury::CounterpartyCreateParams::Account::OrHash],
           email: T.nilable(String),
+          external_id: T.nilable(String),
           ledger_type:
             ModernTreasury::CounterpartyCreateParams::LedgerType::OrSymbol,
           legal_entity:
@@ -26,32 +26,30 @@ module ModernTreasury
         ).returns(ModernTreasury::Counterparty)
       end
       def create(
-        # Body param: A human friendly name for this counterparty.
+        # A human friendly name for this counterparty.
         name:,
-        # Body param: An optional user-defined 180 character unique identifier.
-        body_external_id: nil,
-        # Body param:
         accounting: nil,
-        # Body param: The accounts for this counterparty.
+        # The accounts for this counterparty.
         accounts: nil,
-        # Body param: The counterparty's email.
+        # The counterparty's email.
         email: nil,
-        # Body param: An optional type to auto-sync the counterparty to your ledger.
-        # Either `customer` or `vendor`.
+        # An optional user-defined 180 character unique identifier.
+        external_id: nil,
+        # An optional type to auto-sync the counterparty to your ledger. Either `customer`
+        # or `vendor`.
         ledger_type: nil,
-        # Body param:
         legal_entity: nil,
-        # Body param: The id of the legal entity.
+        # The id of the legal entity.
         legal_entity_id: nil,
-        # Body param: Additional data represented as key-value pairs. Both the key and
-        # value must be strings.
+        # Additional data represented as key-value pairs. Both the key and value must be
+        # strings.
         metadata: nil,
-        # Body param: Send an email to the counterparty whenever an associated payment
-        # order is sent to the bank.
+        # Send an email to the counterparty whenever an associated payment order is sent
+        # to the bank.
         send_remittance_advice: nil,
-        # Body param: Either a valid SSN or EIN.
+        # Either a valid SSN or EIN.
         taxpayer_identifier: nil,
-        # Body param: The verification status of the counterparty.
+        # The verification status of the counterparty.
         verification_status: nil,
         request_options: {}
       )

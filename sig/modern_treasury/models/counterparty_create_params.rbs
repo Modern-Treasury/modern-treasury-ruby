@@ -3,10 +3,10 @@ module ModernTreasury
     type counterparty_create_params =
       {
         name: String?,
-        body_external_id: String?,
         accounting: ModernTreasury::CounterpartyCreateParams::Accounting,
         accounts: ::Array[ModernTreasury::CounterpartyCreateParams::Account],
         email: String?,
+        external_id: String?,
         ledger_type: ModernTreasury::Models::CounterpartyCreateParams::ledger_type,
         legal_entity: ModernTreasury::CounterpartyCreateParams::LegalEntity,
         legal_entity_id: String?,
@@ -23,8 +23,6 @@ module ModernTreasury
 
       attr_accessor name: String?
 
-      attr_accessor body_external_id: String?
-
       attr_reader accounting: ModernTreasury::CounterpartyCreateParams::Accounting?
 
       def accounting=: (
@@ -38,6 +36,8 @@ module ModernTreasury
       ) -> ::Array[ModernTreasury::CounterpartyCreateParams::Account]
 
       attr_accessor email: String?
+
+      attr_accessor external_id: String?
 
       attr_reader ledger_type: ModernTreasury::Models::CounterpartyCreateParams::ledger_type?
 
@@ -71,10 +71,10 @@ module ModernTreasury
 
       def initialize: (
         name: String?,
-        ?body_external_id: String?,
         ?accounting: ModernTreasury::CounterpartyCreateParams::Accounting,
         ?accounts: ::Array[ModernTreasury::CounterpartyCreateParams::Account],
         ?email: String?,
+        ?external_id: String?,
         ?ledger_type: ModernTreasury::Models::CounterpartyCreateParams::ledger_type,
         ?legal_entity: ModernTreasury::CounterpartyCreateParams::LegalEntity,
         ?legal_entity_id: String?,
@@ -87,10 +87,10 @@ module ModernTreasury
 
       def to_hash: -> {
         name: String?,
-        body_external_id: String?,
         accounting: ModernTreasury::CounterpartyCreateParams::Accounting,
         accounts: ::Array[ModernTreasury::CounterpartyCreateParams::Account],
         email: String?,
+        external_id: String?,
         ledger_type: ModernTreasury::Models::CounterpartyCreateParams::ledger_type,
         legal_entity: ModernTreasury::CounterpartyCreateParams::LegalEntity,
         legal_entity_id: String?,
