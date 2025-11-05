@@ -1,0 +1,17 @@
+module ModernTreasury
+  module Resources
+    class JournalEntries
+      def retrieve: (
+        String id,
+        ?request_options: ModernTreasury::request_opts
+      ) -> nil
+
+      def list: (
+        journal_report_id: String,
+        ?request_options: ModernTreasury::request_opts
+      ) -> nil
+
+      def initialize: (client: ModernTreasury::Client) -> void
+    end
+  end
+end

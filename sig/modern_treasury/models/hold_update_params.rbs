@@ -1,0 +1,41 @@
+module ModernTreasury
+  module Models
+    type hold_update_params =
+      {
+        status: ModernTreasury::Models::HoldUpdateParams::status,
+        resolution: String?
+      }
+      & ModernTreasury::Internal::Type::request_parameters
+
+    class HoldUpdateParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
+
+      attr_accessor status: ModernTreasury::Models::HoldUpdateParams::status
+
+      attr_accessor resolution: String?
+
+      def initialize: (
+        status: ModernTreasury::Models::HoldUpdateParams::status,
+        ?resolution: String?,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        status: ModernTreasury::Models::HoldUpdateParams::status,
+        resolution: String?,
+        request_options: ModernTreasury::RequestOptions
+      }
+
+      type status = :resolved
+
+      module Status
+        extend ModernTreasury::Internal::Type::Enum
+
+        RESOLVED: :resolved
+
+        def self?.values: -> ::Array[ModernTreasury::Models::HoldUpdateParams::status]
+      end
+    end
+  end
+end

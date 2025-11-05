@@ -46,6 +46,11 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::Internal::Page[ModernTreasury::InternalAccount]
 
+      def request_closure: (
+        String id,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::InternalAccount
+
       def update_account_capability: (
         String id,
         internal_account_id: String,

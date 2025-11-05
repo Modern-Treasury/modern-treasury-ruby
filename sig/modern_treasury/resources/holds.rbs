@@ -1,0 +1,38 @@
+module ModernTreasury
+  module Resources
+    class Holds
+      def create: (
+        status: ModernTreasury::Models::HoldCreateParams::status,
+        target_id: String,
+        target_type: ModernTreasury::Models::HoldCreateParams::target_type,
+        ?metadata: ::Hash[Symbol, String]?,
+        ?reason: String?,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::HoldCreateResponse
+
+      def retrieve: (
+        String id,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::HoldRetrieveResponse
+
+      def update: (
+        String id,
+        status: ModernTreasury::Models::HoldUpdateParams::status,
+        ?resolution: String?,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::HoldUpdateResponse
+
+      def list: (
+        ?after_cursor: String?,
+        ?metadata: ::Hash[Symbol, String],
+        ?per_page: Integer,
+        ?status: ModernTreasury::Models::HoldListParams::status?,
+        ?target_id: String?,
+        ?target_type: ModernTreasury::Models::HoldListParams::target_type?,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::HoldListResponse]
+
+      def initialize: (client: ModernTreasury::Client) -> void
+    end
+  end
+end

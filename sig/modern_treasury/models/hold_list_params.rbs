@@ -1,0 +1,76 @@
+module ModernTreasury
+  module Models
+    type hold_list_params =
+      {
+        after_cursor: String?,
+        metadata: ::Hash[Symbol, String],
+        per_page: Integer,
+        status: ModernTreasury::Models::HoldListParams::status?,
+        target_id: String?,
+        target_type: ModernTreasury::Models::HoldListParams::target_type?
+      }
+      & ModernTreasury::Internal::Type::request_parameters
+
+    class HoldListParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
+
+      attr_accessor after_cursor: String?
+
+      attr_reader metadata: ::Hash[Symbol, String]?
+
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
+
+      attr_reader per_page: Integer?
+
+      def per_page=: (Integer) -> Integer
+
+      attr_accessor status: ModernTreasury::Models::HoldListParams::status?
+
+      attr_accessor target_id: String?
+
+      attr_accessor target_type: ModernTreasury::Models::HoldListParams::target_type?
+
+      def initialize: (
+        ?after_cursor: String?,
+        ?metadata: ::Hash[Symbol, String],
+        ?per_page: Integer,
+        ?status: ModernTreasury::Models::HoldListParams::status?,
+        ?target_id: String?,
+        ?target_type: ModernTreasury::Models::HoldListParams::target_type?,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        after_cursor: String?,
+        metadata: ::Hash[Symbol, String],
+        per_page: Integer,
+        status: ModernTreasury::Models::HoldListParams::status?,
+        target_id: String?,
+        target_type: ModernTreasury::Models::HoldListParams::target_type?,
+        request_options: ModernTreasury::RequestOptions
+      }
+
+      type status = :active | :resolved
+
+      module Status
+        extend ModernTreasury::Internal::Type::Enum
+
+        ACTIVE: :active
+        RESOLVED: :resolved
+
+        def self?.values: -> ::Array[ModernTreasury::Models::HoldListParams::status]
+      end
+
+      type target_type = :payment_order
+
+      module TargetType
+        extend ModernTreasury::Internal::Type::Enum
+
+        PAYMENT_ORDER: :payment_order
+
+        def self?.values: -> ::Array[ModernTreasury::Models::HoldListParams::target_type]
+      end
+    end
+  end
+end

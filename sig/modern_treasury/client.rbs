@@ -82,6 +82,12 @@ module ModernTreasury
 
     attr_reader payment_actions: ModernTreasury::Resources::PaymentActions
 
+    attr_reader journal_entries: ModernTreasury::Resources::JournalEntries
+
+    attr_reader journal_reports: ModernTreasury::Resources::JournalReports
+
+    attr_reader holds: ModernTreasury::Resources::Holds
+
     def ping: (
       ?request_options: ModernTreasury::request_opts
     ) -> ModernTreasury::PingResponse

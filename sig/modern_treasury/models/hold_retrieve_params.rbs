@@ -1,0 +1,15 @@
+module ModernTreasury
+  module Models
+    type hold_retrieve_params =
+      {  } & ModernTreasury::Internal::Type::request_parameters
+
+    class HoldRetrieveParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
+
+      def initialize: (?request_options: ModernTreasury::request_opts) -> void
+
+      def to_hash: -> { request_options: ModernTreasury::RequestOptions }
+    end
+  end
+end
