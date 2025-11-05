@@ -1,0 +1,24 @@
+module ModernTreasury
+  module Models
+    type journal_entry_list_params =
+      { journal_report_id: String }
+      & ModernTreasury::Internal::Type::request_parameters
+
+    class JournalEntryListParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
+
+      attr_accessor journal_report_id: String
+
+      def initialize: (
+        journal_report_id: String,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        journal_report_id: String,
+        request_options: ModernTreasury::RequestOptions
+      }
+    end
+  end
+end

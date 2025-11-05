@@ -121,6 +121,15 @@ module ModernTreasury
     sig { returns(ModernTreasury::Resources::PaymentActions) }
     attr_reader :payment_actions
 
+    sig { returns(ModernTreasury::Resources::JournalEntries) }
+    attr_reader :journal_entries
+
+    sig { returns(ModernTreasury::Resources::JournalReports) }
+    attr_reader :journal_reports
+
+    sig { returns(ModernTreasury::Resources::Holds) }
+    attr_reader :holds
+
     # A test endpoint often used to confirm credentials and headers are being passed
     # in correctly.
     sig do

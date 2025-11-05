@@ -139,6 +139,14 @@ module ModernTreasury
 
   class ForeignExchangeRate = ModernTreasury::Models::ForeignExchangeRate
 
+  class HoldCreateParams = ModernTreasury::Models::HoldCreateParams
+
+  class HoldListParams = ModernTreasury::Models::HoldListParams
+
+  class HoldRetrieveParams = ModernTreasury::Models::HoldRetrieveParams
+
+  class HoldUpdateParams = ModernTreasury::Models::HoldUpdateParams
+
   class IdentificationCreateRequest = ModernTreasury::Models::IdentificationCreateRequest
 
   class IncomingPaymentDetail = ModernTreasury::Models::IncomingPaymentDetail
@@ -156,6 +164,8 @@ module ModernTreasury
   class InternalAccountCreateParams = ModernTreasury::Models::InternalAccountCreateParams
 
   class InternalAccountListParams = ModernTreasury::Models::InternalAccountListParams
+
+  class InternalAccountRequestClosureParams = ModernTreasury::Models::InternalAccountRequestClosureParams
 
   class InternalAccountRetrieveParams = ModernTreasury::Models::InternalAccountRetrieveParams
 
@@ -178,6 +188,16 @@ module ModernTreasury
   module Invoices = ModernTreasury::Models::Invoices
 
   class InvoiceUpdateParams = ModernTreasury::Models::InvoiceUpdateParams
+
+  class JournalEntryListParams = ModernTreasury::Models::JournalEntryListParams
+
+  class JournalEntryRetrieveParams = ModernTreasury::Models::JournalEntryRetrieveParams
+
+  class JournalReportListParams = ModernTreasury::Models::JournalReportListParams
+
+  class JournalReportRetrieveParams = ModernTreasury::Models::JournalReportRetrieveParams
+
+  class JournalReportUpdateParams = ModernTreasury::Models::JournalReportUpdateParams
 
   class Ledger = ModernTreasury::Models::Ledger
 

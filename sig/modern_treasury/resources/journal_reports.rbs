@@ -1,0 +1,21 @@
+module ModernTreasury
+  module Resources
+    class JournalReports
+      def retrieve: (
+        String id,
+        ?request_options: ModernTreasury::request_opts
+      ) -> nil
+
+      def update: (
+        String id,
+        ?metadata: top,
+        ?status: String,
+        ?request_options: ModernTreasury::request_opts
+      ) -> nil
+
+      def list: (?request_options: ModernTreasury::request_opts) -> nil
+
+      def initialize: (client: ModernTreasury::Client) -> void
+    end
+  end
+end

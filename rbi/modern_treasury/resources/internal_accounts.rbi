@@ -147,6 +147,20 @@ module ModernTreasury
       )
       end
 
+      # request closure of internal account
+      sig do
+        params(
+          id: String,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::InternalAccount)
+      end
+      def request_closure(
+        # Unique identifier for the account.
+        id,
+        request_options: {}
+      )
+      end
+
       # update account_capability
       sig do
         params(
