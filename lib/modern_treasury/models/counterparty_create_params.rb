@@ -13,12 +13,6 @@ module ModernTreasury
       #   @return [String, nil]
       required :name, String, nil?: true
 
-      # @!attribute body_external_id
-      #   An optional user-defined 180 character unique identifier.
-      #
-      #   @return [String, nil]
-      optional :body_external_id, String, api_name: :external_id, nil?: true
-
       # @!attribute accounting
       #   @deprecated
       #
@@ -37,6 +31,12 @@ module ModernTreasury
       #
       #   @return [String, nil]
       optional :email, String, nil?: true
+
+      # @!attribute external_id
+      #   An optional user-defined 180 character unique identifier.
+      #
+      #   @return [String, nil]
+      optional :external_id, String, nil?: true
 
       # @!attribute ledger_type
       #   @deprecated
@@ -86,19 +86,19 @@ module ModernTreasury
       #   @return [String, nil]
       optional :verification_status, String
 
-      # @!method initialize(name:, body_external_id: nil, accounting: nil, accounts: nil, email: nil, ledger_type: nil, legal_entity: nil, legal_entity_id: nil, metadata: nil, send_remittance_advice: nil, taxpayer_identifier: nil, verification_status: nil, request_options: {})
+      # @!method initialize(name:, accounting: nil, accounts: nil, email: nil, external_id: nil, ledger_type: nil, legal_entity: nil, legal_entity_id: nil, metadata: nil, send_remittance_advice: nil, taxpayer_identifier: nil, verification_status: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::CounterpartyCreateParams} for more details.
       #
       #   @param name [String, nil] A human friendly name for this counterparty.
-      #
-      #   @param body_external_id [String, nil] An optional user-defined 180 character unique identifier.
       #
       #   @param accounting [ModernTreasury::Models::CounterpartyCreateParams::Accounting]
       #
       #   @param accounts [Array<ModernTreasury::Models::CounterpartyCreateParams::Account>] The accounts for this counterparty.
       #
       #   @param email [String, nil] The counterparty's email.
+      #
+      #   @param external_id [String, nil] An optional user-defined 180 character unique identifier.
       #
       #   @param ledger_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LedgerType] An optional type to auto-sync the counterparty to your ledger. Either `customer`
       #

@@ -3,10 +3,10 @@ module ModernTreasury
     type external_account_create_params =
       {
         counterparty_id: String?,
-        body_external_id: String?,
         account_details: ::Array[ModernTreasury::ExternalAccountCreateParams::AccountDetail],
         account_type: ModernTreasury::Models::external_account_type,
         contact_details: ::Array[ModernTreasury::ContactDetailCreateRequest],
+        external_id: String?,
         ledger_account: ModernTreasury::LedgerAccountCreateRequest,
         metadata: ::Hash[Symbol, String],
         name: String?,
@@ -25,8 +25,6 @@ module ModernTreasury
 
       attr_accessor counterparty_id: String?
 
-      attr_accessor body_external_id: String?
-
       attr_reader account_details: ::Array[ModernTreasury::ExternalAccountCreateParams::AccountDetail]?
 
       def account_details=: (
@@ -44,6 +42,8 @@ module ModernTreasury
       def contact_details=: (
         ::Array[ModernTreasury::ContactDetailCreateRequest]
       ) -> ::Array[ModernTreasury::ContactDetailCreateRequest]
+
+      attr_accessor external_id: String?
 
       attr_reader ledger_account: ModernTreasury::LedgerAccountCreateRequest?
 
@@ -85,10 +85,10 @@ module ModernTreasury
 
       def initialize: (
         counterparty_id: String?,
-        ?body_external_id: String?,
         ?account_details: ::Array[ModernTreasury::ExternalAccountCreateParams::AccountDetail],
         ?account_type: ModernTreasury::Models::external_account_type,
         ?contact_details: ::Array[ModernTreasury::ContactDetailCreateRequest],
+        ?external_id: String?,
         ?ledger_account: ModernTreasury::LedgerAccountCreateRequest,
         ?metadata: ::Hash[Symbol, String],
         ?name: String?,
@@ -103,10 +103,10 @@ module ModernTreasury
 
       def to_hash: -> {
         counterparty_id: String?,
-        body_external_id: String?,
         account_details: ::Array[ModernTreasury::ExternalAccountCreateParams::AccountDetail],
         account_type: ModernTreasury::Models::external_account_type,
         contact_details: ::Array[ModernTreasury::ContactDetailCreateRequest],
+        external_id: String?,
         ledger_account: ModernTreasury::LedgerAccountCreateRequest,
         metadata: ::Hash[Symbol, String],
         name: String?,
