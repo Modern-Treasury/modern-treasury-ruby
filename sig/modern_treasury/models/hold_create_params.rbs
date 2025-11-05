@@ -1,0 +1,66 @@
+module ModernTreasury
+  module Models
+    type hold_create_params =
+      {
+        status: ModernTreasury::Models::HoldCreateParams::status,
+        target_id: String,
+        target_type: ModernTreasury::Models::HoldCreateParams::target_type,
+        metadata: ::Hash[Symbol, String]?,
+        reason: String?
+      }
+      & ModernTreasury::Internal::Type::request_parameters
+
+    class HoldCreateParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
+
+      attr_accessor status: ModernTreasury::Models::HoldCreateParams::status
+
+      attr_accessor target_id: String
+
+      attr_accessor target_type: ModernTreasury::Models::HoldCreateParams::target_type
+
+      attr_accessor metadata: ::Hash[Symbol, String]?
+
+      attr_accessor reason: String?
+
+      def initialize: (
+        status: ModernTreasury::Models::HoldCreateParams::status,
+        target_id: String,
+        target_type: ModernTreasury::Models::HoldCreateParams::target_type,
+        ?metadata: ::Hash[Symbol, String]?,
+        ?reason: String?,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        status: ModernTreasury::Models::HoldCreateParams::status,
+        target_id: String,
+        target_type: ModernTreasury::Models::HoldCreateParams::target_type,
+        metadata: ::Hash[Symbol, String]?,
+        reason: String?,
+        request_options: ModernTreasury::RequestOptions
+      }
+
+      type status = :active
+
+      module Status
+        extend ModernTreasury::Internal::Type::Enum
+
+        ACTIVE: :active
+
+        def self?.values: -> ::Array[ModernTreasury::Models::HoldCreateParams::status]
+      end
+
+      type target_type = :payment_order
+
+      module TargetType
+        extend ModernTreasury::Internal::Type::Enum
+
+        PAYMENT_ORDER: :payment_order
+
+        def self?.values: -> ::Array[ModernTreasury::Models::HoldCreateParams::target_type]
+      end
+    end
+  end
+end

@@ -1,0 +1,32 @@
+module ModernTreasury
+  module Models
+    type journal_report_update_params =
+      { metadata: top, status: String }
+      & ModernTreasury::Internal::Type::request_parameters
+
+    class JournalReportUpdateParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
+
+      attr_reader metadata: top?
+
+      def metadata=: (top) -> top
+
+      attr_reader status: String?
+
+      def status=: (String) -> String
+
+      def initialize: (
+        ?metadata: top,
+        ?status: String,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        metadata: top,
+        status: String,
+        request_options: ModernTreasury::RequestOptions
+      }
+    end
+  end
+end

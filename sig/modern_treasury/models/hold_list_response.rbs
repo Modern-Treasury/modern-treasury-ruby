@@ -1,0 +1,108 @@
+module ModernTreasury
+  module Models
+    type hold_list_response =
+      {
+        id: String,
+        created_at: Time,
+        object: ModernTreasury::Models::HoldListResponse::object,
+        status: ModernTreasury::Models::HoldListResponse::status,
+        target_id: String,
+        target_type: ModernTreasury::Models::HoldListResponse::target_type,
+        updated_at: Time,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String]?,
+        reason: String?,
+        resolution: String?,
+        resolved_at: Time?
+      }
+
+    class HoldListResponse < ModernTreasury::Internal::Type::BaseModel
+      attr_accessor id: String
+
+      attr_accessor created_at: Time
+
+      attr_accessor object: ModernTreasury::Models::HoldListResponse::object
+
+      attr_accessor status: ModernTreasury::Models::HoldListResponse::status
+
+      attr_accessor target_id: String
+
+      attr_accessor target_type: ModernTreasury::Models::HoldListResponse::target_type
+
+      attr_accessor updated_at: Time
+
+      attr_reader live_mode: bool?
+
+      def live_mode=: (bool) -> bool
+
+      attr_accessor metadata: ::Hash[Symbol, String]?
+
+      attr_accessor reason: String?
+
+      attr_accessor resolution: String?
+
+      attr_accessor resolved_at: Time?
+
+      def initialize: (
+        id: String,
+        created_at: Time,
+        object: ModernTreasury::Models::HoldListResponse::object,
+        status: ModernTreasury::Models::HoldListResponse::status,
+        target_id: String,
+        target_type: ModernTreasury::Models::HoldListResponse::target_type,
+        updated_at: Time,
+        ?live_mode: bool,
+        ?metadata: ::Hash[Symbol, String]?,
+        ?reason: String?,
+        ?resolution: String?,
+        ?resolved_at: Time?
+      ) -> void
+
+      def to_hash: -> {
+        id: String,
+        created_at: Time,
+        object: ModernTreasury::Models::HoldListResponse::object,
+        status: ModernTreasury::Models::HoldListResponse::status,
+        target_id: String,
+        target_type: ModernTreasury::Models::HoldListResponse::target_type,
+        updated_at: Time,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String]?,
+        reason: String?,
+        resolution: String?,
+        resolved_at: Time?
+      }
+
+      type object = :hold
+
+      module Object
+        extend ModernTreasury::Internal::Type::Enum
+
+        HOLD: :hold
+
+        def self?.values: -> ::Array[ModernTreasury::Models::HoldListResponse::object]
+      end
+
+      type status = :active | :resolved
+
+      module Status
+        extend ModernTreasury::Internal::Type::Enum
+
+        ACTIVE: :active
+        RESOLVED: :resolved
+
+        def self?.values: -> ::Array[ModernTreasury::Models::HoldListResponse::status]
+      end
+
+      type target_type = :payment_order
+
+      module TargetType
+        extend ModernTreasury::Internal::Type::Enum
+
+        PAYMENT_ORDER: :payment_order
+
+        def self?.values: -> ::Array[ModernTreasury::Models::HoldListResponse::target_type]
+      end
+    end
+  end
+end
