@@ -25,9 +25,13 @@ module ModernTreasury
 
       # Retrieve a list of journal entries
       #
-      # @overload list(journal_report_id:, request_options: {})
+      # @overload list(journal_report_id:, page: nil, per_page: nil, request_options: {})
       #
       # @param journal_report_id [String] The ID of the journal report
+      #
+      # @param page [Integer] Page number for pagination
+      #
+      # @param per_page [Integer] Number of items per page
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #

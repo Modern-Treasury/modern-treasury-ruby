@@ -8,6 +8,8 @@ module ModernTreasury
 
       def list: (
         journal_report_id: String,
+        ?page: Integer,
+        ?per_page: Integer,
         ?request_options: ModernTreasury::request_opts
       ) -> nil
 

@@ -897,9 +897,9 @@ module ModernTreasury
               :lob_check_id,
               ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
-          MT_FOF_TRANSFER_ID =
+          MT_FLOW_TRANSFER_ID =
             T.let(
-              :mt_fof_transfer_id,
+              :mt_flow_transfer_id,
               ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           OTHER =

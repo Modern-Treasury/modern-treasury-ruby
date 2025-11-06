@@ -21,12 +21,18 @@ module ModernTreasury
       sig do
         params(
           journal_report_id: String,
+          page: Integer,
+          per_page: Integer,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).void
       end
       def list(
         # The ID of the journal report
         journal_report_id:,
+        # Page number for pagination
+        page: nil,
+        # Number of items per page
+        per_page: nil,
         request_options: {}
       )
       end

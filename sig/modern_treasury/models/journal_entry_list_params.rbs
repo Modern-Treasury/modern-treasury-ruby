@@ -1,7 +1,7 @@
 module ModernTreasury
   module Models
     type journal_entry_list_params =
-      { journal_report_id: String }
+      { journal_report_id: String, page: Integer, per_page: Integer }
       & ModernTreasury::Internal::Type::request_parameters
 
     class JournalEntryListParams < ModernTreasury::Internal::Type::BaseModel
@@ -10,13 +10,25 @@ module ModernTreasury
 
       attr_accessor journal_report_id: String
 
+      attr_reader page: Integer?
+
+      def page=: (Integer) -> Integer
+
+      attr_reader per_page: Integer?
+
+      def per_page=: (Integer) -> Integer
+
       def initialize: (
         journal_report_id: String,
+        ?page: Integer,
+        ?per_page: Integer,
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
       def to_hash: -> {
         journal_report_id: String,
+        page: Integer,
+        per_page: Integer,
         request_options: ModernTreasury::RequestOptions
       }
     end
