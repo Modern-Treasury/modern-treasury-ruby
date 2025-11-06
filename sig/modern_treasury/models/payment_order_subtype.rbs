@@ -8,7 +8,6 @@ module ModernTreasury
       | :CIE
       | :CTX
       | :IAT
-      | :POS
       | :PPD
       | :TEL
       | :WEB
@@ -42,7 +41,6 @@ module ModernTreasury
       CIE: :CIE
       CTX: :CTX
       IAT: :IAT
-      POS: :POS
       PPD: :PPD
       TEL: :TEL
       WEB: :WEB

@@ -13,8 +13,24 @@ module ModernTreasury
       #   @return [String]
       required :journal_report_id, String
 
-      # @!method initialize(journal_report_id:, request_options: {})
+      # @!attribute page
+      #   Page number for pagination
+      #
+      #   @return [Integer, nil]
+      optional :page, Integer
+
+      # @!attribute per_page
+      #   Number of items per page
+      #
+      #   @return [Integer, nil]
+      optional :per_page, Integer
+
+      # @!method initialize(journal_report_id:, page: nil, per_page: nil, request_options: {})
       #   @param journal_report_id [String] The ID of the journal report
+      #
+      #   @param page [Integer] Page number for pagination
+      #
+      #   @param per_page [Integer] Number of items per page
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
