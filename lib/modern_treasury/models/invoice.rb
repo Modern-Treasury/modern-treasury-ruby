@@ -108,6 +108,8 @@ module ModernTreasury
       required :invoicer_name, String, nil?: true
 
       # @!attribute ledger_account_settlement_id
+      #   @deprecated
+      #
       #   The ledger account settlement object linked to the invoice.
       #
       #   @return [String, nil]
