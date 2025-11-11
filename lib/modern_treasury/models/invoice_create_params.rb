@@ -74,14 +74,6 @@ module ModernTreasury
       #   @return [String, nil]
       optional :fallback_payment_method, String, nil?: true
 
-      # @!attribute ingest_ledger_entries
-      #   Whether to ingest the ledger_entries to populate the invoice line items. If this
-      #   is false, then a line item must be provided. If this is true, line_items must be
-      #   empty. Ignored if ledger_account_settlement_id is empty.
-      #
-      #   @return [Boolean, nil]
-      optional :ingest_ledger_entries, ModernTreasury::Internal::Type::Boolean, nil?: true
-
       # @!attribute invoice_line_items
       #   An array of invoice line items. The API supports a maximum of 50 invoice line
       #   items per invoice. If a greater number of invoice line items is required, please
@@ -99,12 +91,6 @@ module ModernTreasury
       #
       #   @return [ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress, nil]
       optional :invoicer_address, -> { ModernTreasury::InvoiceCreateParams::InvoicerAddress }, nil?: true
-
-      # @!attribute ledger_account_settlement_id
-      #   The ID of the virtual account the invoice should be paid to.
-      #
-      #   @return [String, nil]
-      optional :ledger_account_settlement_id, String, nil?: true
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
@@ -188,7 +174,7 @@ module ModernTreasury
       #   @return [String, nil]
       optional :virtual_account_id, String, nil?: true
 
-      # @!method initialize(counterparty_id:, due_date:, originating_account_id:, auto_advance: nil, contact_details: nil, counterparty_billing_address: nil, counterparty_shipping_address: nil, currency: nil, description: nil, fallback_payment_method: nil, ingest_ledger_entries: nil, invoice_line_items: nil, invoicer_address: nil, ledger_account_settlement_id: nil, metadata: nil, notification_email_addresses: nil, notifications_enabled: nil, payment_effective_date: nil, payment_method: nil, payment_type: nil, receiving_account_id: nil, recipient_email: nil, recipient_name: nil, remind_after_overdue_days: nil, virtual_account_id: nil, request_options: {})
+      # @!method initialize(counterparty_id:, due_date:, originating_account_id:, auto_advance: nil, contact_details: nil, counterparty_billing_address: nil, counterparty_shipping_address: nil, currency: nil, description: nil, fallback_payment_method: nil, invoice_line_items: nil, invoicer_address: nil, metadata: nil, notification_email_addresses: nil, notifications_enabled: nil, payment_effective_date: nil, payment_method: nil, payment_type: nil, receiving_account_id: nil, recipient_email: nil, recipient_name: nil, remind_after_overdue_days: nil, virtual_account_id: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::InvoiceCreateParams} for more details.
       #
@@ -212,13 +198,9 @@ module ModernTreasury
       #
       #   @param fallback_payment_method [String, nil] When payment_method is automatic, the fallback payment method to use when an aut
       #
-      #   @param ingest_ledger_entries [Boolean, nil] Whether to ingest the ledger_entries to populate the invoice line items. If this
-      #
       #   @param invoice_line_items [Array<ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem>, nil] An array of invoice line items. The API supports a maximum of 50 invoice line it
       #
       #   @param invoicer_address [ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress, nil] The invoice issuer's business address.
-      #
-      #   @param ledger_account_settlement_id [String, nil] The ID of the virtual account the invoice should be paid to.
       #
       #   @param metadata [Hash{Symbol=>String}, nil] Additional data represented as key-value pairs. Both the key and value must be s
       #
