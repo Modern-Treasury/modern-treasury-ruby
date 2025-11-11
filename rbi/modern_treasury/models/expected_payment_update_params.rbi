@@ -19,6 +19,38 @@ module ModernTreasury
       sig { returns(T.nilable(Integer)) }
       attr_accessor :amount_lower_bound
 
+      # The amount reconciled for this expected payment. Value in specified currency's
+      # smallest unit. e.g. $10 would be represented as 1000.
+      sig { returns(T.nilable(Integer)) }
+      attr_accessor :amount_reconciled
+
+      # One of credit or debit. Indicates whether amount_reconciled is a credit or debit
+      # amount.
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::ExpectedPaymentUpdateParams::AmountReconciledDirection::OrSymbol
+          )
+        )
+      end
+      attr_accessor :amount_reconciled_direction
+
+      # The amount that remains unreconciled for this expected payment. Value in
+      # specified currency's smallest unit. e.g. $10 would be represented as 1000.
+      sig { returns(T.nilable(Integer)) }
+      attr_accessor :amount_unreconciled
+
+      # One of credit or debit. Indicates whether amount_unreconciled is a credit or
+      # debit amount.
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::ExpectedPaymentUpdateParams::AmountUnreconciledDirection::OrSymbol
+          )
+        )
+      end
+      attr_accessor :amount_unreconciled_direction
+
       # The highest amount this expected payment may be equal to. Value in specified
       # currency's smallest unit. e.g. $10 would be represented as 1000.
       sig { returns(T.nilable(Integer)) }
@@ -115,6 +147,16 @@ module ModernTreasury
       sig do
         params(
           amount_lower_bound: T.nilable(Integer),
+          amount_reconciled: T.nilable(Integer),
+          amount_reconciled_direction:
+            T.nilable(
+              ModernTreasury::ExpectedPaymentUpdateParams::AmountReconciledDirection::OrSymbol
+            ),
+          amount_unreconciled: T.nilable(Integer),
+          amount_unreconciled_direction:
+            T.nilable(
+              ModernTreasury::ExpectedPaymentUpdateParams::AmountUnreconciledDirection::OrSymbol
+            ),
           amount_upper_bound: T.nilable(Integer),
           counterparty_id: T.nilable(String),
           currency: T.nilable(ModernTreasury::Currency::OrSymbol),
@@ -146,6 +188,18 @@ module ModernTreasury
         # The lowest amount this expected payment may be equal to. Value in specified
         # currency's smallest unit. e.g. $10 would be represented as 1000.
         amount_lower_bound: nil,
+        # The amount reconciled for this expected payment. Value in specified currency's
+        # smallest unit. e.g. $10 would be represented as 1000.
+        amount_reconciled: nil,
+        # One of credit or debit. Indicates whether amount_reconciled is a credit or debit
+        # amount.
+        amount_reconciled_direction: nil,
+        # The amount that remains unreconciled for this expected payment. Value in
+        # specified currency's smallest unit. e.g. $10 would be represented as 1000.
+        amount_unreconciled: nil,
+        # One of credit or debit. Indicates whether amount_unreconciled is a credit or
+        # debit amount.
+        amount_unreconciled_direction: nil,
         # The highest amount this expected payment may be equal to. Value in specified
         # currency's smallest unit. e.g. $10 would be represented as 1000.
         amount_upper_bound: nil,
@@ -198,6 +252,16 @@ module ModernTreasury
         override.returns(
           {
             amount_lower_bound: T.nilable(Integer),
+            amount_reconciled: T.nilable(Integer),
+            amount_reconciled_direction:
+              T.nilable(
+                ModernTreasury::ExpectedPaymentUpdateParams::AmountReconciledDirection::OrSymbol
+              ),
+            amount_unreconciled: T.nilable(Integer),
+            amount_unreconciled_direction:
+              T.nilable(
+                ModernTreasury::ExpectedPaymentUpdateParams::AmountUnreconciledDirection::OrSymbol
+              ),
             amount_upper_bound: T.nilable(Integer),
             counterparty_id: T.nilable(String),
             currency: T.nilable(ModernTreasury::Currency::OrSymbol),
@@ -227,6 +291,78 @@ module ModernTreasury
         )
       end
       def to_hash
+      end
+
+      # One of credit or debit. Indicates whether amount_reconciled is a credit or debit
+      # amount.
+      module AmountReconciledDirection
+        extend ModernTreasury::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::ExpectedPaymentUpdateParams::AmountReconciledDirection
+            )
+          end
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        CREDIT =
+          T.let(
+            :credit,
+            ModernTreasury::ExpectedPaymentUpdateParams::AmountReconciledDirection::TaggedSymbol
+          )
+        DEBIT =
+          T.let(
+            :debit,
+            ModernTreasury::ExpectedPaymentUpdateParams::AmountReconciledDirection::TaggedSymbol
+          )
+
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::ExpectedPaymentUpdateParams::AmountReconciledDirection::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
+      end
+
+      # One of credit or debit. Indicates whether amount_unreconciled is a credit or
+      # debit amount.
+      module AmountUnreconciledDirection
+        extend ModernTreasury::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::ExpectedPaymentUpdateParams::AmountUnreconciledDirection
+            )
+          end
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        CREDIT =
+          T.let(
+            :credit,
+            ModernTreasury::ExpectedPaymentUpdateParams::AmountUnreconciledDirection::TaggedSymbol
+          )
+        DEBIT =
+          T.let(
+            :debit,
+            ModernTreasury::ExpectedPaymentUpdateParams::AmountUnreconciledDirection::TaggedSymbol
+          )
+
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::ExpectedPaymentUpdateParams::AmountUnreconciledDirection::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
 
       # One of credit or debit. When you are receiving money, use credit. When you are

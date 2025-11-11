@@ -3,6 +3,10 @@ module ModernTreasury
     class ExpectedPayments
       def create: (
         ?amount_lower_bound: Integer?,
+        ?amount_reconciled: Integer?,
+        ?amount_reconciled_direction: ModernTreasury::Models::ExpectedPaymentCreateParams::amount_reconciled_direction?,
+        ?amount_unreconciled: Integer?,
+        ?amount_unreconciled_direction: ModernTreasury::Models::ExpectedPaymentCreateParams::amount_unreconciled_direction?,
         ?amount_upper_bound: Integer?,
         ?counterparty_id: String?,
         ?currency: ModernTreasury::Models::currency?,
@@ -33,6 +37,10 @@ module ModernTreasury
       def update: (
         String id,
         ?amount_lower_bound: Integer?,
+        ?amount_reconciled: Integer?,
+        ?amount_reconciled_direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::amount_reconciled_direction?,
+        ?amount_unreconciled: Integer?,
+        ?amount_unreconciled_direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::amount_unreconciled_direction?,
         ?amount_upper_bound: Integer?,
         ?counterparty_id: String?,
         ?currency: ModernTreasury::Models::currency?,
