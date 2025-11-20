@@ -25,7 +25,6 @@ module ModernTreasury
           currency: ModernTreasury::Currency::OrSymbol,
           description: String,
           fallback_payment_method: T.nilable(String),
-          ingest_ledger_entries: T.nilable(T::Boolean),
           invoice_line_items:
             T.nilable(
               T::Array[
@@ -36,7 +35,6 @@ module ModernTreasury
             T.nilable(
               ModernTreasury::InvoiceCreateParams::InvoicerAddress::OrHash
             ),
-          ledger_account_settlement_id: T.nilable(String),
           metadata: T.nilable(T::Hash[Symbol, String]),
           notification_email_addresses: T.nilable(T::Array[String]),
           notifications_enabled: T::Boolean,
@@ -76,18 +74,12 @@ module ModernTreasury
         # When payment_method is automatic, the fallback payment method to use when an
         # automatic payment fails. One of `manual` or `ui`.
         fallback_payment_method: nil,
-        # Whether to ingest the ledger_entries to populate the invoice line items. If this
-        # is false, then a line item must be provided. If this is true, line_items must be
-        # empty. Ignored if ledger_account_settlement_id is empty.
-        ingest_ledger_entries: nil,
         # An array of invoice line items. The API supports a maximum of 50 invoice line
         # items per invoice. If a greater number of invoice line items is required, please
         # contact support.
         invoice_line_items: nil,
         # The invoice issuer's business address.
         invoicer_address: nil,
-        # The ID of the virtual account the invoice should be paid to.
-        ledger_account_settlement_id: nil,
         # Additional data represented as key-value pairs. Both the key and value must be
         # strings.
         metadata: nil,
@@ -162,7 +154,6 @@ module ModernTreasury
           description: String,
           due_date: Time,
           fallback_payment_method: T.nilable(String),
-          ingest_ledger_entries: T.nilable(T::Boolean),
           invoice_line_items:
             T.nilable(
               T::Array[
@@ -173,7 +164,6 @@ module ModernTreasury
             T.nilable(
               ModernTreasury::InvoiceUpdateParams::InvoicerAddress::OrHash
             ),
-          ledger_account_settlement_id: T.nilable(String),
           metadata: T.nilable(T::Hash[Symbol, String]),
           notification_email_addresses: T.nilable(T::Array[String]),
           notifications_enabled: T::Boolean,
@@ -211,18 +201,12 @@ module ModernTreasury
         # When payment_method is automatic, the fallback payment method to use when an
         # automatic payment fails. One of `manual` or `ui`.
         fallback_payment_method: nil,
-        # Whether to ingest the ledger_entries to populate the invoice line items. If this
-        # is false, then a line item must be provided. If this is true, line_items must be
-        # empty. Ignored if ledger_account_settlement_id is empty.
-        ingest_ledger_entries: nil,
         # An array of invoice line items. The API supports a maximum of 50 invoice line
         # items per invoice. If a greater number of invoice line items is required, please
         # contact support.
         invoice_line_items: nil,
         # The invoice issuer's business address.
         invoicer_address: nil,
-        # The ID of the virtual account the invoice should be paid to.
-        ledger_account_settlement_id: nil,
         # Additional data represented as key-value pairs. Both the key and value must be
         # strings.
         metadata: nil,

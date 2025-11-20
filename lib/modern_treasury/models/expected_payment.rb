@@ -16,6 +16,38 @@ module ModernTreasury
       #   @return [Integer, nil]
       required :amount_lower_bound, Integer, nil?: true
 
+      # @!attribute amount_reconciled
+      #   The amount reconciled for this expected payment. Value in specified currency's
+      #   smallest unit. e.g. $10 would be represented as 1000.
+      #
+      #   @return [Integer, nil]
+      required :amount_reconciled, Integer, nil?: true
+
+      # @!attribute amount_reconciled_direction
+      #   One of credit or debit. Indicates whether amount_reconciled is a credit or debit
+      #   amount.
+      #
+      #   @return [Symbol, ModernTreasury::Models::ExpectedPayment::AmountReconciledDirection, nil]
+      required :amount_reconciled_direction,
+               enum: -> { ModernTreasury::ExpectedPayment::AmountReconciledDirection },
+               nil?: true
+
+      # @!attribute amount_unreconciled
+      #   The amount that remains unreconciled for this expected payment. Value in
+      #   specified currency's smallest unit. e.g. $10 would be represented as 1000.
+      #
+      #   @return [Integer, nil]
+      required :amount_unreconciled, Integer, nil?: true
+
+      # @!attribute amount_unreconciled_direction
+      #   One of credit or debit. Indicates whether amount_unreconciled is a credit or
+      #   debit amount.
+      #
+      #   @return [Symbol, ModernTreasury::Models::ExpectedPayment::AmountUnreconciledDirection, nil]
+      required :amount_unreconciled_direction,
+               enum: -> { ModernTreasury::ExpectedPayment::AmountUnreconciledDirection },
+               nil?: true
+
       # @!attribute amount_upper_bound
       #   The highest amount this expected payment may be equal to. Value in specified
       #   currency's smallest unit. e.g. $10 would be represented as 1000.
@@ -179,13 +211,21 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!method initialize(id:, amount_lower_bound:, amount_upper_bound:, counterparty_id:, created_at:, currency:, date_lower_bound:, date_upper_bound:, description:, direction:, external_id:, internal_account_id:, ledger_transaction_id:, live_mode:, metadata:, object:, reconciliation_filters:, reconciliation_groups:, reconciliation_method:, reconciliation_rule_variables:, remittance_information:, statement_descriptor:, status:, transaction_id:, transaction_line_item_id:, type:, updated_at:)
+      # @!method initialize(id:, amount_lower_bound:, amount_reconciled:, amount_reconciled_direction:, amount_unreconciled:, amount_unreconciled_direction:, amount_upper_bound:, counterparty_id:, created_at:, currency:, date_lower_bound:, date_upper_bound:, description:, direction:, external_id:, internal_account_id:, ledger_transaction_id:, live_mode:, metadata:, object:, reconciliation_filters:, reconciliation_groups:, reconciliation_method:, reconciliation_rule_variables:, remittance_information:, statement_descriptor:, status:, transaction_id:, transaction_line_item_id:, type:, updated_at:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::ExpectedPayment} for more details.
       #
       #   @param id [String]
       #
       #   @param amount_lower_bound [Integer, nil] The lowest amount this expected payment may be equal to. Value in specified curr
+      #
+      #   @param amount_reconciled [Integer, nil] The amount reconciled for this expected payment. Value in specified currency's s
+      #
+      #   @param amount_reconciled_direction [Symbol, ModernTreasury::Models::ExpectedPayment::AmountReconciledDirection, nil] One of credit or debit. Indicates whether amount_reconciled is a credit or debit
+      #
+      #   @param amount_unreconciled [Integer, nil] The amount that remains unreconciled for this expected payment. Value in specifi
+      #
+      #   @param amount_unreconciled_direction [Symbol, ModernTreasury::Models::ExpectedPayment::AmountUnreconciledDirection, nil] One of credit or debit. Indicates whether amount_unreconciled is a credit or deb
       #
       #   @param amount_upper_bound [Integer, nil] The highest amount this expected payment may be equal to. Value in specified cur
       #
@@ -236,6 +276,34 @@ module ModernTreasury
       #   @param type [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil] One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen, se
       #
       #   @param updated_at [Time]
+
+      # One of credit or debit. Indicates whether amount_reconciled is a credit or debit
+      # amount.
+      #
+      # @see ModernTreasury::Models::ExpectedPayment#amount_reconciled_direction
+      module AmountReconciledDirection
+        extend ModernTreasury::Internal::Type::Enum
+
+        CREDIT = :credit
+        DEBIT = :debit
+
+        # @!method self.values
+        #   @return [Array<Symbol>]
+      end
+
+      # One of credit or debit. Indicates whether amount_unreconciled is a credit or
+      # debit amount.
+      #
+      # @see ModernTreasury::Models::ExpectedPayment#amount_unreconciled_direction
+      module AmountUnreconciledDirection
+        extend ModernTreasury::Internal::Type::Enum
+
+        CREDIT = :credit
+        DEBIT = :debit
+
+        # @!method self.values
+        #   @return [Array<Symbol>]
+      end
 
       # One of credit or debit. When you are receiving money, use credit. When you are
       # being charged, use debit.

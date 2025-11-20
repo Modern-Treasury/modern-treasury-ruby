@@ -3,6 +3,10 @@ module ModernTreasury
     type expected_payment_update_params =
       {
         amount_lower_bound: Integer?,
+        amount_reconciled: Integer?,
+        amount_reconciled_direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::amount_reconciled_direction?,
+        amount_unreconciled: Integer?,
+        amount_unreconciled_direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::amount_unreconciled_direction?,
         amount_upper_bound: Integer?,
         counterparty_id: String?,
         currency: ModernTreasury::Models::currency?,
@@ -28,6 +32,14 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor amount_lower_bound: Integer?
+
+      attr_accessor amount_reconciled: Integer?
+
+      attr_accessor amount_reconciled_direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::amount_reconciled_direction?
+
+      attr_accessor amount_unreconciled: Integer?
+
+      attr_accessor amount_unreconciled_direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::amount_unreconciled_direction?
 
       attr_accessor amount_upper_bound: Integer?
 
@@ -67,6 +79,10 @@ module ModernTreasury
 
       def initialize: (
         ?amount_lower_bound: Integer?,
+        ?amount_reconciled: Integer?,
+        ?amount_reconciled_direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::amount_reconciled_direction?,
+        ?amount_unreconciled: Integer?,
+        ?amount_unreconciled_direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::amount_unreconciled_direction?,
         ?amount_upper_bound: Integer?,
         ?counterparty_id: String?,
         ?currency: ModernTreasury::Models::currency?,
@@ -89,6 +105,10 @@ module ModernTreasury
 
       def to_hash: -> {
         amount_lower_bound: Integer?,
+        amount_reconciled: Integer?,
+        amount_reconciled_direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::amount_reconciled_direction?,
+        amount_unreconciled: Integer?,
+        amount_unreconciled_direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::amount_unreconciled_direction?,
         amount_upper_bound: Integer?,
         counterparty_id: String?,
         currency: ModernTreasury::Models::currency?,
@@ -108,6 +128,28 @@ module ModernTreasury
         type: ModernTreasury::Models::expected_payment_type?,
         request_options: ModernTreasury::RequestOptions
       }
+
+      type amount_reconciled_direction = :credit | :debit
+
+      module AmountReconciledDirection
+        extend ModernTreasury::Internal::Type::Enum
+
+        CREDIT: :credit
+        DEBIT: :debit
+
+        def self?.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentUpdateParams::amount_reconciled_direction]
+      end
+
+      type amount_unreconciled_direction = :credit | :debit
+
+      module AmountUnreconciledDirection
+        extend ModernTreasury::Internal::Type::Enum
+
+        CREDIT: :credit
+        DEBIT: :debit
+
+        def self?.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentUpdateParams::amount_unreconciled_direction]
+      end
 
       type direction = :credit | :debit
 

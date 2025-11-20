@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.12.0 (2025-11-20)
+
+Full Changelog: [v0.11.0...v0.12.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.11.0...v0.12.0)
+
+### Features
+
+* **api:** api update ([d217b47](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/d217b47b21f131cce9f90bd6ab204e7ccf10ac8f))
+
+
+### Chores
+
+* explicitly require "base64" gem ([85e8321](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/85e83214e464a90c4a68c52a0e6904021551a639))
+
 ## 0.11.0 (2025-11-06)
 
 Full Changelog: [v0.10.0...v0.11.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.10.0...v0.11.0)

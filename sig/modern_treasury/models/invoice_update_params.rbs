@@ -10,10 +10,8 @@ module ModernTreasury
         description: String,
         due_date: Time,
         fallback_payment_method: String?,
-        ingest_ledger_entries: bool?,
         invoice_line_items: ::Array[ModernTreasury::InvoiceUpdateParams::InvoiceLineItem]?,
         invoicer_address: ModernTreasury::InvoiceUpdateParams::InvoicerAddress?,
-        ledger_account_settlement_id: String?,
         metadata: ::Hash[Symbol, String]?,
         notification_email_addresses: ::Array[String]?,
         notifications_enabled: bool,
@@ -64,13 +62,9 @@ module ModernTreasury
 
       attr_accessor fallback_payment_method: String?
 
-      attr_accessor ingest_ledger_entries: bool?
-
       attr_accessor invoice_line_items: ::Array[ModernTreasury::InvoiceUpdateParams::InvoiceLineItem]?
 
       attr_accessor invoicer_address: ModernTreasury::InvoiceUpdateParams::InvoicerAddress?
-
-      attr_accessor ledger_account_settlement_id: String?
 
       attr_accessor metadata: ::Hash[Symbol, String]?
 
@@ -125,10 +119,8 @@ module ModernTreasury
         ?description: String,
         ?due_date: Time,
         ?fallback_payment_method: String?,
-        ?ingest_ledger_entries: bool?,
         ?invoice_line_items: ::Array[ModernTreasury::InvoiceUpdateParams::InvoiceLineItem]?,
         ?invoicer_address: ModernTreasury::InvoiceUpdateParams::InvoicerAddress?,
-        ?ledger_account_settlement_id: String?,
         ?metadata: ::Hash[Symbol, String]?,
         ?notification_email_addresses: ::Array[String]?,
         ?notifications_enabled: bool,
@@ -154,10 +146,8 @@ module ModernTreasury
         description: String,
         due_date: Time,
         fallback_payment_method: String?,
-        ingest_ledger_entries: bool?,
         invoice_line_items: ::Array[ModernTreasury::InvoiceUpdateParams::InvoiceLineItem]?,
         invoicer_address: ModernTreasury::InvoiceUpdateParams::InvoicerAddress?,
-        ledger_account_settlement_id: String?,
         metadata: ::Hash[Symbol, String]?,
         notification_email_addresses: ::Array[String]?,
         notifications_enabled: bool,
