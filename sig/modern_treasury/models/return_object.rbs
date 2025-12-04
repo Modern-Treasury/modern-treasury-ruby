@@ -496,9 +496,11 @@ module ModernTreasury
           | :jpmc_payment_returned_datetime
           | :jpmc_transaction_reference_number
           | :lob_check_id
+          | :mt_flow_ach_noc_id
           | :mt_flow_transfer_id
           | :other
           | :partial_swift_mir
+          | :paxos_transfer_id
           | :pnc_clearing_reference
           | :pnc_instruction_id
           | :pnc_multipayment_id
@@ -586,9 +588,11 @@ module ModernTreasury
           JPMC_PAYMENT_RETURNED_DATETIME: :jpmc_payment_returned_datetime
           JPMC_TRANSACTION_REFERENCE_NUMBER: :jpmc_transaction_reference_number
           LOB_CHECK_ID: :lob_check_id
+          MT_FLOW_ACH_NOC_ID: :mt_flow_ach_noc_id
           MT_FLOW_TRANSFER_ID: :mt_flow_transfer_id
           OTHER: :other
           PARTIAL_SWIFT_MIR: :partial_swift_mir
+          PAXOS_TRANSFER_ID: :paxos_transfer_id
           PNC_CLEARING_REFERENCE: :pnc_clearing_reference
           PNC_INSTRUCTION_ID: :pnc_instruction_id
           PNC_MULTIPAYMENT_ID: :pnc_multipayment_id
@@ -679,6 +683,7 @@ module ModernTreasury
         | :manual
         | :sepa
         | :wire
+        | :zengin
 
       module Type
         extend ModernTreasury::Internal::Type::Enum
@@ -696,6 +701,7 @@ module ModernTreasury
         MANUAL: :manual
         SEPA: :sepa
         WIRE: :wire
+        ZENGIN: :zengin
 
         def self?.values: -> ::Array[ModernTreasury::Models::ReturnObject::type_]
       end

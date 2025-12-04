@@ -449,6 +449,11 @@ module ModernTreasury
           )
         MX =
           T.let(:mx, ModernTreasury::Transaction::VendorCodeType::TaggedSymbol)
+        PAXOS =
+          T.let(
+            :paxos,
+            ModernTreasury::Transaction::VendorCodeType::TaggedSymbol
+          )
         PAYPAL =
           T.let(
             :paypal,

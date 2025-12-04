@@ -52,15 +52,18 @@ module ModernTreasury
         request_options: ModernTreasury::RequestOptions
       }
 
-      type status = :completed | :denied | :failed | :processing
+      type status =
+        :closed | :completed | :denied | :failed | :processing | :suspended
 
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
+        CLOSED: :closed
         COMPLETED: :completed
         DENIED: :denied
         FAILED: :failed
         PROCESSING: :processing
+        SUSPENDED: :suspended
 
         def self?.values: -> ::Array[ModernTreasury::Models::ConnectionLegalEntityListParams::status]
       end

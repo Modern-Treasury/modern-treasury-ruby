@@ -897,6 +897,11 @@ module ModernTreasury
               :lob_check_id,
               ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
+          MT_FLOW_ACH_NOC_ID =
+            T.let(
+              :mt_flow_ach_noc_id,
+              ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
           MT_FLOW_TRANSFER_ID =
             T.let(
               :mt_flow_transfer_id,
@@ -910,6 +915,11 @@ module ModernTreasury
           PARTIAL_SWIFT_MIR =
             T.let(
               :partial_swift_mir,
+              ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
+          PAXOS_TRANSFER_ID =
+            T.let(
+              :paxos_transfer_id,
               ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           PNC_CLEARING_REFERENCE =
@@ -1194,6 +1204,8 @@ module ModernTreasury
           T.let(:manual, ModernTreasury::ReturnObject::Type::TaggedSymbol)
         SEPA = T.let(:sepa, ModernTreasury::ReturnObject::Type::TaggedSymbol)
         WIRE = T.let(:wire, ModernTreasury::ReturnObject::Type::TaggedSymbol)
+        ZENGIN =
+          T.let(:zengin, ModernTreasury::ReturnObject::Type::TaggedSymbol)
 
         sig do
           override.returns(

@@ -60,7 +60,7 @@ module ModernTreasury
         ).returns(ModernTreasury::LedgerAccount)
       end
       def retrieve(
-        # id
+        # The ledger account id (UUID) or external_id
         id,
         # Use `balances[effective_at_lower_bound]` and
         # `balances[effective_at_upper_bound]` to get the balances change between the two
@@ -84,7 +84,7 @@ module ModernTreasury
         ).returns(ModernTreasury::LedgerAccount)
       end
       def update(
-        # id
+        # The ledger account id (UUID)
         id,
         # The description of the ledger account.
         description: nil,
@@ -175,7 +175,7 @@ module ModernTreasury
         ).returns(ModernTreasury::LedgerAccount)
       end
       def delete(
-        # id
+        # The ledger account id (UUID)
         id,
         request_options: {}
       )

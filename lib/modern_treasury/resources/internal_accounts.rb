@@ -76,9 +76,11 @@ module ModernTreasury
       #
       # update internal account
       #
-      # @overload update(id, counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, request_options: {})
+      # @overload update(id, contra_ledger_account_id: nil, counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, request_options: {})
       #
       # @param id [String] Unique identifier for the account.
+      #
+      # @param contra_ledger_account_id [String] The Contra Ledger Account associated to this account.
       #
       # @param counterparty_id [String] The Counterparty associated to this account.
       #

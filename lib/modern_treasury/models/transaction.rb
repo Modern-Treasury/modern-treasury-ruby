@@ -299,6 +299,7 @@ module ModernTreasury
         JPMC = :jpmc
         MT_FLOW = :mt_flow
         MX = :mx
+        PAXOS = :paxos
         PAYPAL = :paypal
         PNC = :pnc
         SIGNET = :signet
