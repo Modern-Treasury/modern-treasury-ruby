@@ -14,6 +14,13 @@ module ModernTreasury
           )
         end
 
+      # The Contra Ledger Account associated to this account.
+      sig { returns(T.nilable(String)) }
+      attr_reader :contra_ledger_account_id
+
+      sig { params(contra_ledger_account_id: String).void }
+      attr_writer :contra_ledger_account_id
+
       # The Counterparty associated to this account.
       sig { returns(T.nilable(String)) }
       attr_reader :counterparty_id
@@ -52,6 +59,7 @@ module ModernTreasury
 
       sig do
         params(
+          contra_ledger_account_id: String,
           counterparty_id: String,
           ledger_account_id: String,
           metadata: T::Hash[Symbol, String],
@@ -61,6 +69,8 @@ module ModernTreasury
         ).returns(T.attached_class)
       end
       def self.new(
+        # The Contra Ledger Account associated to this account.
+        contra_ledger_account_id: nil,
         # The Counterparty associated to this account.
         counterparty_id: nil,
         # The Ledger Account associated to this account.
@@ -79,6 +89,7 @@ module ModernTreasury
       sig do
         override.returns(
           {
+            contra_ledger_account_id: String,
             counterparty_id: String,
             ledger_account_id: String,
             metadata: T::Hash[Symbol, String],

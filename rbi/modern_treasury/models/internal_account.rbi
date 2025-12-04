@@ -40,6 +40,11 @@ module ModernTreasury
       sig { params(connection: ModernTreasury::Connection::OrHash).void }
       attr_writer :connection
 
+      # If the internal account links to a contra ledger account in Modern Treasury, the
+      # id of the contra ledger account will be populated here.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :contra_ledger_account_id
+
       # The Counterparty associated to this account.
       sig { returns(T.nilable(String)) }
       attr_accessor :counterparty_id
@@ -132,6 +137,7 @@ module ModernTreasury
           account_type:
             T.nilable(ModernTreasury::InternalAccount::AccountType::OrSymbol),
           connection: ModernTreasury::Connection::OrHash,
+          contra_ledger_account_id: T.nilable(String),
           counterparty_id: T.nilable(String),
           created_at: Time,
           currency: ModernTreasury::Currency::OrSymbol,
@@ -163,6 +169,9 @@ module ModernTreasury
         account_type:,
         # Specifies which financial institution the accounts belong to.
         connection:,
+        # If the internal account links to a contra ledger account in Modern Treasury, the
+        # id of the contra ledger account will be populated here.
+        contra_ledger_account_id:,
         # The Counterparty associated to this account.
         counterparty_id:,
         created_at:,
@@ -212,6 +221,7 @@ module ModernTreasury
                 ModernTreasury::InternalAccount::AccountType::TaggedSymbol
               ),
             connection: ModernTreasury::Connection,
+            contra_ledger_account_id: T.nilable(String),
             counterparty_id: T.nilable(String),
             created_at: Time,
             currency: ModernTreasury::Currency::TaggedSymbol,

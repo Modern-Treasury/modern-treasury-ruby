@@ -61,15 +61,18 @@ module ModernTreasury
         vendor_id: String
       }
 
-      type status = :completed | :denied | :failed | :processing
+      type status =
+        :closed | :completed | :denied | :failed | :processing | :suspended
 
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
+        CLOSED: :closed
         COMPLETED: :completed
         DENIED: :denied
         FAILED: :failed
         PROCESSING: :processing
+        SUSPENDED: :suspended
 
         def self?.values: -> ::Array[ModernTreasury::Models::ConnectionLegalEntity::status]
       end

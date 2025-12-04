@@ -7,6 +7,12 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      # @!attribute contra_ledger_account_id
+      #   The Contra Ledger Account associated to this account.
+      #
+      #   @return [String, nil]
+      optional :contra_ledger_account_id, String
+
       # @!attribute counterparty_id
       #   The Counterparty associated to this account.
       #
@@ -38,9 +44,11 @@ module ModernTreasury
       #   @return [String, nil]
       optional :parent_account_id, String
 
-      # @!method initialize(counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, request_options: {})
+      # @!method initialize(contra_ledger_account_id: nil, counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::InternalAccountUpdateParams} for more details.
+      #
+      #   @param contra_ledger_account_id [String] The Contra Ledger Account associated to this account.
       #
       #   @param counterparty_id [String] The Counterparty associated to this account.
       #

@@ -7,6 +7,7 @@ module ModernTreasury
         account_details: ::Array[ModernTreasury::AccountDetail],
         account_type: ModernTreasury::Models::InternalAccount::account_type?,
         connection: ModernTreasury::Connection,
+        contra_ledger_account_id: String?,
         counterparty_id: String?,
         created_at: Time,
         currency: ModernTreasury::Models::currency,
@@ -36,6 +37,8 @@ module ModernTreasury
       attr_accessor account_type: ModernTreasury::Models::InternalAccount::account_type?
 
       attr_accessor connection: ModernTreasury::Connection
+
+      attr_accessor contra_ledger_account_id: String?
 
       attr_accessor counterparty_id: String?
 
@@ -77,6 +80,7 @@ module ModernTreasury
         account_details: ::Array[ModernTreasury::AccountDetail],
         account_type: ModernTreasury::Models::InternalAccount::account_type?,
         connection: ModernTreasury::Connection,
+        contra_ledger_account_id: String?,
         counterparty_id: String?,
         created_at: Time,
         currency: ModernTreasury::Models::currency,
@@ -102,6 +106,7 @@ module ModernTreasury
         account_details: ::Array[ModernTreasury::AccountDetail],
         account_type: ModernTreasury::Models::InternalAccount::account_type?,
         connection: ModernTreasury::Connection,
+        contra_ledger_account_id: String?,
         counterparty_id: String?,
         created_at: Time,
         currency: ModernTreasury::Models::currency,

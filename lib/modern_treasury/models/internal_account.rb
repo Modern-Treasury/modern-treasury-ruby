@@ -35,6 +35,13 @@ module ModernTreasury
       #   @return [ModernTreasury::Models::Connection]
       required :connection, -> { ModernTreasury::Connection }
 
+      # @!attribute contra_ledger_account_id
+      #   If the internal account links to a contra ledger account in Modern Treasury, the
+      #   id of the contra ledger account will be populated here.
+      #
+      #   @return [String, nil]
+      required :contra_ledger_account_id, String, nil?: true
+
       # @!attribute counterparty_id
       #   The Counterparty associated to this account.
       #
@@ -137,7 +144,7 @@ module ModernTreasury
       #   @return [String, nil]
       required :vendor_id, String, nil?: true
 
-      # @!method initialize(id:, account_capabilities:, account_details:, account_type:, connection:, counterparty_id:, created_at:, currency:, ledger_account_id:, legal_entity_id:, live_mode:, metadata:, name:, object:, parent_account_id:, party_address:, party_name:, party_type:, routing_details:, status:, updated_at:, vendor_id:)
+      # @!method initialize(id:, account_capabilities:, account_details:, account_type:, connection:, contra_ledger_account_id:, counterparty_id:, created_at:, currency:, ledger_account_id:, legal_entity_id:, live_mode:, metadata:, name:, object:, parent_account_id:, party_address:, party_name:, party_type:, routing_details:, status:, updated_at:, vendor_id:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::InternalAccount} for more details.
       #
@@ -150,6 +157,8 @@ module ModernTreasury
       #   @param account_type [Symbol, ModernTreasury::Models::InternalAccount::AccountType, nil] Can be checking, savings or other.
       #
       #   @param connection [ModernTreasury::Models::Connection] Specifies which financial institution the accounts belong to.
+      #
+      #   @param contra_ledger_account_id [String, nil] If the internal account links to a contra ledger account in Modern Treasury, the
       #
       #   @param counterparty_id [String, nil] The Counterparty associated to this account.
       #

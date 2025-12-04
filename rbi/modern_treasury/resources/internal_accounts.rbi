@@ -80,6 +80,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
+          contra_ledger_account_id: String,
           counterparty_id: String,
           ledger_account_id: String,
           metadata: T::Hash[Symbol, String],
@@ -91,6 +92,8 @@ module ModernTreasury
       def update(
         # Unique identifier for the account.
         id,
+        # The Contra Ledger Account associated to this account.
+        contra_ledger_account_id: nil,
         # The Counterparty associated to this account.
         counterparty_id: nil,
         # The Ledger Account associated to this account.
