@@ -25,6 +25,7 @@ module ModernTreasury
 
       def update: (
         String id,
+        ?contra_ledger_account_id: String,
         ?counterparty_id: String,
         ?ledger_account_id: String,
         ?metadata: ::Hash[Symbol, String],

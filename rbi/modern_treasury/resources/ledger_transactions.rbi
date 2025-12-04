@@ -62,7 +62,8 @@ module ModernTreasury
         ).returns(ModernTreasury::LedgerTransaction)
       end
       def retrieve(
-        # id
+        # The ledger transaction id (UUID) or external_id. If using external_id, only
+        # non-archived Ledger Transactions will be returned.
         id,
         request_options: {}
       )
@@ -86,7 +87,7 @@ module ModernTreasury
         ).returns(ModernTreasury::LedgerTransaction)
       end
       def update(
-        # id
+        # The ledger transaction id (UUID)
         id,
         # An optional description for internal use.
         description: nil,

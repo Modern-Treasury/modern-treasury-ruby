@@ -239,6 +239,7 @@ module ModernTreasury
         | :jpmc
         | :mt_flow
         | :mx
+        | :paxos
         | :paypal
         | :pnc
         | :signet
@@ -270,6 +271,7 @@ module ModernTreasury
         JPMC: :jpmc
         MT_FLOW: :mt_flow
         MX: :mx
+        PAXOS: :paxos
         PAYPAL: :paypal
         PNC: :pnc
         SIGNET: :signet

@@ -139,9 +139,11 @@ module ModernTreasury
         JPMC_PAYMENT_RETURNED_DATETIME = :jpmc_payment_returned_datetime
         JPMC_TRANSACTION_REFERENCE_NUMBER = :jpmc_transaction_reference_number
         LOB_CHECK_ID = :lob_check_id
+        MT_FLOW_ACH_NOC_ID = :mt_flow_ach_noc_id
         MT_FLOW_TRANSFER_ID = :mt_flow_transfer_id
         OTHER = :other
         PARTIAL_SWIFT_MIR = :partial_swift_mir
+        PAXOS_TRANSFER_ID = :paxos_transfer_id
         PNC_CLEARING_REFERENCE = :pnc_clearing_reference
         PNC_INSTRUCTION_ID = :pnc_instruction_id
         PNC_MULTIPAYMENT_ID = :pnc_multipayment_id

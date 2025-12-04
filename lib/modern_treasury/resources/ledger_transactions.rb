@@ -47,11 +47,14 @@ module ModernTreasury
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {ModernTreasury::Models::LedgerTransactionRetrieveParams} for more details.
+      #
       # Get details on a single ledger transaction.
       #
       # @overload retrieve(id, request_options: {})
       #
-      # @param id [String] id
+      # @param id [String] The ledger transaction id (UUID) or external_id. If using external_id, only non-
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -74,7 +77,7 @@ module ModernTreasury
       #
       # @overload update(id, description: nil, effective_at: nil, ledger_entries: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, status: nil, request_options: {})
       #
-      # @param id [String] id
+      # @param id [String] The ledger transaction id (UUID)
       #
       # @param description [String, nil] An optional description for internal use.
       #

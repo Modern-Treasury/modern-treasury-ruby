@@ -53,7 +53,7 @@ module ModernTreasury
       #
       # @overload retrieve(id, balances: nil, request_options: {})
       #
-      # @param id [String] id
+      # @param id [String] The ledger account id (UUID) or external_id
       #
       # @param balances [ModernTreasury::Models::LedgerAccountRetrieveParams::Balances] Use `balances[effective_at_lower_bound]` and `balances[effective_at_upper_bound]
       #
@@ -80,7 +80,7 @@ module ModernTreasury
       #
       # @overload update(id, description: nil, metadata: nil, name: nil, request_options: {})
       #
-      # @param id [String] id
+      # @param id [String] The ledger account id (UUID)
       #
       # @param description [String, nil] The description of the ledger account.
       #
@@ -164,7 +164,7 @@ module ModernTreasury
       #
       # @overload delete(id, request_options: {})
       #
-      # @param id [String] id
+      # @param id [String] The ledger account id (UUID)
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #

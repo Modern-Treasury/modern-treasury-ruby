@@ -112,6 +112,11 @@ module ModernTreasury
           end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
+        CLOSED =
+          T.let(
+            :closed,
+            ModernTreasury::ConnectionLegalEntity::Status::TaggedSymbol
+          )
         COMPLETED =
           T.let(
             :completed,
@@ -130,6 +135,11 @@ module ModernTreasury
         PROCESSING =
           T.let(
             :processing,
+            ModernTreasury::ConnectionLegalEntity::Status::TaggedSymbol
+          )
+        SUSPENDED =
+          T.let(
+            :suspended,
             ModernTreasury::ConnectionLegalEntity::Status::TaggedSymbol
           )
 
