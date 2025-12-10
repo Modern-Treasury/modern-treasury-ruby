@@ -111,16 +111,21 @@ module ModernTreasury
         ACH = :ach
         AU_BECS = :au_becs
         BACS = :bacs
+        BASE = :base
         BOOK = :book
         CHECK = :check
         EFT = :eft
+        ETHEREUM = :ethereum
         INTERAC = :interac
         NEFT = :neft
         NZ_BECS = :nz_becs
+        POLYGON = :polygon
         RTP = :rtp
         SEPA = :sepa
         SIGNET = :signet
+        SOLANA = :solana
         WIRE = :wire
+        ZENGIN = :zengin
 
         # @!method self.values
         #   @return [Array<Symbol>]

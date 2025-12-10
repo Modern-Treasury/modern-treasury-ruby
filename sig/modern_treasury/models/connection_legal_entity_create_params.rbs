@@ -42,26 +42,32 @@ module ModernTreasury
         {
           addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
           bank_settings: ModernTreasury::LegalEntityBankSettings?,
+          business_description: String?,
           business_name: String?,
           citizenship_country: String?,
           compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
+          country_of_incorporation: String?,
           date_formed: Date?,
           date_of_birth: Date?,
           doing_business_as_names: ::Array[String],
           email: String?,
+          expected_activity_volume: Integer?,
           first_name: String?,
           identifications: ::Array[ModernTreasury::IdentificationCreateRequest],
           industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification],
+          intended_use: String?,
           last_name: String?,
           legal_entity_associations: ::Array[ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation]?,
           legal_entity_type: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::legal_entity_type,
           legal_structure: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::legal_structure?,
           metadata: ::Hash[Symbol, String],
           middle_name: String?,
+          operating_jurisdictions: ::Array[String],
           phone_numbers: ::Array[ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::PhoneNumber],
           politically_exposed_person: bool?,
           preferred_name: String?,
           prefix: String?,
+          primary_social_media_sites: ::Array[String],
           risk_rating: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::risk_rating?,
           suffix: String?,
           wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,
@@ -77,11 +83,15 @@ module ModernTreasury
 
         attr_accessor bank_settings: ModernTreasury::LegalEntityBankSettings?
 
+        attr_accessor business_description: String?
+
         attr_accessor business_name: String?
 
         attr_accessor citizenship_country: String?
 
         attr_accessor compliance_details: ModernTreasury::LegalEntityComplianceDetail?
+
+        attr_accessor country_of_incorporation: String?
 
         attr_accessor date_formed: Date?
 
@@ -92,6 +102,8 @@ module ModernTreasury
         def doing_business_as_names=: (::Array[String]) -> ::Array[String]
 
         attr_accessor email: String?
+
+        attr_accessor expected_activity_volume: Integer?
 
         attr_accessor first_name: String?
 
@@ -106,6 +118,8 @@ module ModernTreasury
         def industry_classifications=: (
           ::Array[ModernTreasury::LegalEntityIndustryClassification]
         ) -> ::Array[ModernTreasury::LegalEntityIndustryClassification]
+
+        attr_accessor intended_use: String?
 
         attr_accessor last_name: String?
 
@@ -125,6 +139,10 @@ module ModernTreasury
 
         attr_accessor middle_name: String?
 
+        attr_reader operating_jurisdictions: ::Array[String]?
+
+        def operating_jurisdictions=: (::Array[String]) -> ::Array[String]
+
         attr_reader phone_numbers: ::Array[ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::PhoneNumber]?
 
         def phone_numbers=: (
@@ -137,6 +155,10 @@ module ModernTreasury
 
         attr_accessor prefix: String?
 
+        attr_reader primary_social_media_sites: ::Array[String]?
+
+        def primary_social_media_sites=: (::Array[String]) -> ::Array[String]
+
         attr_accessor risk_rating: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::risk_rating?
 
         attr_accessor suffix: String?
@@ -148,26 +170,32 @@ module ModernTreasury
         def initialize: (
           ?addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
           ?bank_settings: ModernTreasury::LegalEntityBankSettings?,
+          ?business_description: String?,
           ?business_name: String?,
           ?citizenship_country: String?,
           ?compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
+          ?country_of_incorporation: String?,
           ?date_formed: Date?,
           ?date_of_birth: Date?,
           ?doing_business_as_names: ::Array[String],
           ?email: String?,
+          ?expected_activity_volume: Integer?,
           ?first_name: String?,
           ?identifications: ::Array[ModernTreasury::IdentificationCreateRequest],
           ?industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification],
+          ?intended_use: String?,
           ?last_name: String?,
           ?legal_entity_associations: ::Array[ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation]?,
           ?legal_entity_type: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::legal_entity_type,
           ?legal_structure: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::legal_structure?,
           ?metadata: ::Hash[Symbol, String],
           ?middle_name: String?,
+          ?operating_jurisdictions: ::Array[String],
           ?phone_numbers: ::Array[ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::PhoneNumber],
           ?politically_exposed_person: bool?,
           ?preferred_name: String?,
           ?prefix: String?,
+          ?primary_social_media_sites: ::Array[String],
           ?risk_rating: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::risk_rating?,
           ?suffix: String?,
           ?wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,
@@ -177,26 +205,32 @@ module ModernTreasury
         def to_hash: -> {
           addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
           bank_settings: ModernTreasury::LegalEntityBankSettings?,
+          business_description: String?,
           business_name: String?,
           citizenship_country: String?,
           compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
+          country_of_incorporation: String?,
           date_formed: Date?,
           date_of_birth: Date?,
           doing_business_as_names: ::Array[String],
           email: String?,
+          expected_activity_volume: Integer?,
           first_name: String?,
           identifications: ::Array[ModernTreasury::IdentificationCreateRequest],
           industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification],
+          intended_use: String?,
           last_name: String?,
           legal_entity_associations: ::Array[ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation]?,
           legal_entity_type: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::legal_entity_type,
           legal_structure: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::legal_structure?,
           metadata: ::Hash[Symbol, String],
           middle_name: String?,
+          operating_jurisdictions: ::Array[String],
           phone_numbers: ::Array[ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::PhoneNumber],
           politically_exposed_person: bool?,
           preferred_name: String?,
           prefix: String?,
+          primary_social_media_sites: ::Array[String],
           risk_rating: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::risk_rating?,
           suffix: String?,
           wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,

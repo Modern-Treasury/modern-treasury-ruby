@@ -41,6 +41,10 @@ module ModernTreasury
       end
       attr_writer :bank_settings
 
+      # A description of the business.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :business_description
+
       # The business's legal business name.
       sig { returns(T.nilable(String)) }
       attr_accessor :business_name
@@ -60,6 +64,11 @@ module ModernTreasury
       end
       attr_writer :compliance_details
 
+      # The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
+      # alpha-3 formats.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :country_of_incorporation
+
       # A business's formation date (YYYY-MM-DD).
       sig { returns(T.nilable(Date)) }
       attr_accessor :date_formed
@@ -77,6 +86,10 @@ module ModernTreasury
       # The entity's primary email.
       sig { returns(T.nilable(String)) }
       attr_accessor :email
+
+      # Monthly expected transaction volume in entity's local currency.
+      sig { returns(T.nilable(Integer)) }
+      attr_accessor :expected_activity_volume
 
       # An individual's first name.
       sig { returns(T.nilable(String)) }
@@ -114,6 +127,10 @@ module ModernTreasury
       end
       attr_writer :industry_classifications
 
+      # A description of the intended use of the legal entity.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :intended_use
+
       # An individual's last name.
       sig { returns(T.nilable(String)) }
       attr_accessor :last_name
@@ -139,6 +156,14 @@ module ModernTreasury
       # An individual's middle name.
       sig { returns(T.nilable(String)) }
       attr_accessor :middle_name
+
+      # A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3
+      # codes).
+      sig { returns(T.nilable(T::Array[String])) }
+      attr_reader :operating_jurisdictions
+
+      sig { params(operating_jurisdictions: T::Array[String]).void }
+      attr_writer :operating_jurisdictions
 
       sig do
         returns(
@@ -170,6 +195,13 @@ module ModernTreasury
       # An individual's prefix.
       sig { returns(T.nilable(String)) }
       attr_accessor :prefix
+
+      # A list of primary social media URLs for the business.
+      sig { returns(T.nilable(T::Array[String])) }
+      attr_reader :primary_social_media_sites
+
+      sig { params(primary_social_media_sites: T::Array[String]).void }
+      attr_writer :primary_social_media_sites
 
       # The risk rating of the legal entity. One of low, medium, high.
       sig do
@@ -208,19 +240,23 @@ module ModernTreasury
             T::Array[ModernTreasury::LegalEntityAddressCreateRequest::OrHash],
           bank_settings:
             T.nilable(ModernTreasury::LegalEntityBankSettings::OrHash),
+          business_description: T.nilable(String),
           business_name: T.nilable(String),
           citizenship_country: T.nilable(String),
           compliance_details:
             T.nilable(ModernTreasury::LegalEntityComplianceDetail::OrHash),
+          country_of_incorporation: T.nilable(String),
           date_formed: T.nilable(Date),
           date_of_birth: T.nilable(Date),
           doing_business_as_names: T::Array[String],
           email: T.nilable(String),
+          expected_activity_volume: T.nilable(Integer),
           first_name: T.nilable(String),
           identifications:
             T::Array[ModernTreasury::IdentificationCreateRequest::OrHash],
           industry_classifications:
             T::Array[ModernTreasury::LegalEntityIndustryClassification::OrHash],
+          intended_use: T.nilable(String),
           last_name: T.nilable(String),
           legal_structure:
             T.nilable(
@@ -228,6 +264,7 @@ module ModernTreasury
             ),
           metadata: T::Hash[Symbol, String],
           middle_name: T.nilable(String),
+          operating_jurisdictions: T::Array[String],
           phone_numbers:
             T::Array[
               ModernTreasury::LegalEntityUpdateParams::PhoneNumber::OrHash
@@ -235,6 +272,7 @@ module ModernTreasury
           politically_exposed_person: T.nilable(T::Boolean),
           preferred_name: T.nilable(String),
           prefix: T.nilable(String),
+          primary_social_media_sites: T::Array[String],
           risk_rating:
             T.nilable(
               ModernTreasury::LegalEntityUpdateParams::RiskRating::OrSymbol
@@ -252,11 +290,16 @@ module ModernTreasury
         # A list of addresses for the entity.
         addresses: nil,
         bank_settings: nil,
+        # A description of the business.
+        business_description: nil,
         # The business's legal business name.
         business_name: nil,
         # The country of citizenship for an individual.
         citizenship_country: nil,
         compliance_details: nil,
+        # The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
+        # alpha-3 formats.
+        country_of_incorporation: nil,
         # A business's formation date (YYYY-MM-DD).
         date_formed: nil,
         # An individual's date of birth (YYYY-MM-DD).
@@ -264,12 +307,16 @@ module ModernTreasury
         doing_business_as_names: nil,
         # The entity's primary email.
         email: nil,
+        # Monthly expected transaction volume in entity's local currency.
+        expected_activity_volume: nil,
         # An individual's first name.
         first_name: nil,
         # A list of identifications for the legal entity.
         identifications: nil,
         # A list of industry classifications for the legal entity.
         industry_classifications: nil,
+        # A description of the intended use of the legal entity.
+        intended_use: nil,
         # An individual's last name.
         last_name: nil,
         # The business's legal structure.
@@ -279,6 +326,9 @@ module ModernTreasury
         metadata: nil,
         # An individual's middle name.
         middle_name: nil,
+        # A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3
+        # codes).
+        operating_jurisdictions: nil,
         phone_numbers: nil,
         # Whether the individual is a politically exposed person.
         politically_exposed_person: nil,
@@ -286,6 +336,8 @@ module ModernTreasury
         preferred_name: nil,
         # An individual's prefix.
         prefix: nil,
+        # A list of primary social media URLs for the business.
+        primary_social_media_sites: nil,
         # The risk rating of the legal entity. One of low, medium, high.
         risk_rating: nil,
         # An individual's suffix.
@@ -303,19 +355,23 @@ module ModernTreasury
             addresses:
               T::Array[ModernTreasury::LegalEntityAddressCreateRequest],
             bank_settings: T.nilable(ModernTreasury::LegalEntityBankSettings),
+            business_description: T.nilable(String),
             business_name: T.nilable(String),
             citizenship_country: T.nilable(String),
             compliance_details:
               T.nilable(ModernTreasury::LegalEntityComplianceDetail),
+            country_of_incorporation: T.nilable(String),
             date_formed: T.nilable(Date),
             date_of_birth: T.nilable(Date),
             doing_business_as_names: T::Array[String],
             email: T.nilable(String),
+            expected_activity_volume: T.nilable(Integer),
             first_name: T.nilable(String),
             identifications:
               T::Array[ModernTreasury::IdentificationCreateRequest],
             industry_classifications:
               T::Array[ModernTreasury::LegalEntityIndustryClassification],
+            intended_use: T.nilable(String),
             last_name: T.nilable(String),
             legal_structure:
               T.nilable(
@@ -323,11 +379,13 @@ module ModernTreasury
               ),
             metadata: T::Hash[Symbol, String],
             middle_name: T.nilable(String),
+            operating_jurisdictions: T::Array[String],
             phone_numbers:
               T::Array[ModernTreasury::LegalEntityUpdateParams::PhoneNumber],
             politically_exposed_person: T.nilable(T::Boolean),
             preferred_name: T.nilable(String),
             prefix: T.nilable(String),
+            primary_social_media_sites: T::Array[String],
             risk_rating:
               T.nilable(
                 ModernTreasury::LegalEntityUpdateParams::RiskRating::OrSymbol

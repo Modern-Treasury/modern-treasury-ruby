@@ -618,6 +618,11 @@ module ModernTreasury
             :bacs,
             ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol
           )
+        BASE =
+          T.let(
+            :base,
+            ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol
+          )
         BOOK =
           T.let(
             :book,
@@ -630,6 +635,11 @@ module ModernTreasury
           )
         EFT =
           T.let(:eft, ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol)
+        ETHEREUM =
+          T.let(
+            :ethereum,
+            ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol
+          )
         INTERAC =
           T.let(
             :interac,
@@ -645,6 +655,11 @@ module ModernTreasury
             :nz_becs,
             ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol
           )
+        POLYGON =
+          T.let(
+            :polygon,
+            ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol
+          )
         RTP =
           T.let(:rtp, ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol)
         SEPA =
@@ -657,9 +672,19 @@ module ModernTreasury
             :signet,
             ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol
           )
+        SOLANA =
+          T.let(
+            :solana,
+            ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol
+          )
         WIRE =
           T.let(
             :wire,
+            ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol
+          )
+        ZENGIN =
+          T.let(
+            :zengin,
             ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol
           )
 
