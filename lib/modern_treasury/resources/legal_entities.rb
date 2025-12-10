@@ -8,7 +8,7 @@ module ModernTreasury
       #
       # create legal_entity
       #
-      # @overload create(legal_entity_type:, addresses: nil, bank_settings: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, first_name: nil, identifications: nil, industry_classifications: nil, last_name: nil, legal_entity_associations: nil, legal_structure: nil, metadata: nil, middle_name: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, risk_rating: nil, suffix: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
+      # @overload create(legal_entity_type:, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_entity_associations: nil, legal_structure: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, risk_rating: nil, suffix: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
       #
       # @param legal_entity_type [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityType] The type of legal entity.
       #
@@ -16,11 +16,15 @@ module ModernTreasury
       #
       # @param bank_settings [ModernTreasury::Models::LegalEntityBankSettings, nil]
       #
+      # @param business_description [String, nil] A description of the business.
+      #
       # @param business_name [String, nil] The business's legal business name.
       #
       # @param citizenship_country [String, nil] The country of citizenship for an individual.
       #
       # @param compliance_details [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
+      #
+      # @param country_of_incorporation [String, nil] The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
       #
       # @param date_formed [Date, nil] A business's formation date (YYYY-MM-DD).
       #
@@ -30,11 +34,15 @@ module ModernTreasury
       #
       # @param email [String, nil] The entity's primary email.
       #
+      # @param expected_activity_volume [Integer, nil] Monthly expected transaction volume in entity's local currency.
+      #
       # @param first_name [String, nil] An individual's first name.
       #
       # @param identifications [Array<ModernTreasury::Models::IdentificationCreateRequest>] A list of identifications for the legal entity.
       #
       # @param industry_classifications [Array<ModernTreasury::Models::LegalEntityIndustryClassification>] A list of industry classifications for the legal entity.
+      #
+      # @param intended_use [String, nil] A description of the intended use of the legal entity.
       #
       # @param last_name [String, nil] An individual's last name.
       #
@@ -46,6 +54,8 @@ module ModernTreasury
       #
       # @param middle_name [String, nil] An individual's middle name.
       #
+      # @param operating_jurisdictions [Array<String>] A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3 c
+      #
       # @param phone_numbers [Array<ModernTreasury::Models::LegalEntityCreateParams::PhoneNumber>]
       #
       # @param politically_exposed_person [Boolean, nil] Whether the individual is a politically exposed person.
@@ -53,6 +63,8 @@ module ModernTreasury
       # @param preferred_name [String, nil] An individual's preferred name.
       #
       # @param prefix [String, nil] An individual's prefix.
+      #
+      # @param primary_social_media_sites [Array<String>] A list of primary social media URLs for the business.
       #
       # @param risk_rating [Symbol, ModernTreasury::Models::LegalEntityCreateParams::RiskRating, nil] The risk rating of the legal entity. One of low, medium, high.
       #
@@ -103,7 +115,7 @@ module ModernTreasury
       #
       # Update a legal entity.
       #
-      # @overload update(id, addresses: nil, bank_settings: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, first_name: nil, identifications: nil, industry_classifications: nil, last_name: nil, legal_structure: nil, metadata: nil, middle_name: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, risk_rating: nil, suffix: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
+      # @overload update(id, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_structure: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, risk_rating: nil, suffix: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
       #
       # @param id [String] id
       #
@@ -111,11 +123,15 @@ module ModernTreasury
       #
       # @param bank_settings [ModernTreasury::Models::LegalEntityBankSettings, nil]
       #
+      # @param business_description [String, nil] A description of the business.
+      #
       # @param business_name [String, nil] The business's legal business name.
       #
       # @param citizenship_country [String, nil] The country of citizenship for an individual.
       #
       # @param compliance_details [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
+      #
+      # @param country_of_incorporation [String, nil] The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
       #
       # @param date_formed [Date, nil] A business's formation date (YYYY-MM-DD).
       #
@@ -125,11 +141,15 @@ module ModernTreasury
       #
       # @param email [String, nil] The entity's primary email.
       #
+      # @param expected_activity_volume [Integer, nil] Monthly expected transaction volume in entity's local currency.
+      #
       # @param first_name [String, nil] An individual's first name.
       #
       # @param identifications [Array<ModernTreasury::Models::IdentificationCreateRequest>] A list of identifications for the legal entity.
       #
       # @param industry_classifications [Array<ModernTreasury::Models::LegalEntityIndustryClassification>] A list of industry classifications for the legal entity.
+      #
+      # @param intended_use [String, nil] A description of the intended use of the legal entity.
       #
       # @param last_name [String, nil] An individual's last name.
       #
@@ -139,6 +159,8 @@ module ModernTreasury
       #
       # @param middle_name [String, nil] An individual's middle name.
       #
+      # @param operating_jurisdictions [Array<String>] A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3 c
+      #
       # @param phone_numbers [Array<ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber>]
       #
       # @param politically_exposed_person [Boolean, nil] Whether the individual is a politically exposed person.
@@ -146,6 +168,8 @@ module ModernTreasury
       # @param preferred_name [String, nil] An individual's preferred name.
       #
       # @param prefix [String, nil] An individual's prefix.
+      #
+      # @param primary_social_media_sites [Array<String>] A list of primary social media URLs for the business.
       #
       # @param risk_rating [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::RiskRating, nil] The risk rating of the legal entity. One of low, medium, high.
       #

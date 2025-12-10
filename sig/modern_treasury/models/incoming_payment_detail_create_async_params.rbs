@@ -89,16 +89,21 @@ module ModernTreasury
         :ach
         | :au_becs
         | :bacs
+        | :base
         | :book
         | :check
         | :eft
+        | :ethereum
         | :interac
         | :neft
         | :nz_becs
+        | :polygon
         | :rtp
         | :sepa
         | :signet
+        | :solana
         | :wire
+        | :zengin
 
       module Type
         extend ModernTreasury::Internal::Type::Enum
@@ -106,16 +111,21 @@ module ModernTreasury
         ACH: :ach
         AU_BECS: :au_becs
         BACS: :bacs
+        BASE: :base
         BOOK: :book
         CHECK: :check
         EFT: :eft
+        ETHEREUM: :ethereum
         INTERAC: :interac
         NEFT: :neft
         NZ_BECS: :nz_becs
+        POLYGON: :polygon
         RTP: :rtp
         SEPA: :sepa
         SIGNET: :signet
+        SOLANA: :solana
         WIRE: :wire
+        ZENGIN: :zengin
 
         def self?.values: -> ::Array[ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::type_]
       end

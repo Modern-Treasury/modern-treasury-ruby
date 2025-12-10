@@ -17,7 +17,7 @@ class ModernTreasury::Test::Resources::LegalEntityAssociationsTest < ModernTreas
     assert_pattern do
       response => {
         id: String,
-        child_legal_entity: ModernTreasury::LegalEntityAssociation::ChildLegalEntity,
+        child_legal_entity: ModernTreasury::Internal::Type::Unknown,
         created_at: Time,
         discarded_at: Time | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,

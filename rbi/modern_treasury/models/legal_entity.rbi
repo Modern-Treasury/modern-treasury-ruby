@@ -26,6 +26,10 @@ module ModernTreasury
       end
       attr_writer :bank_settings
 
+      # A description of the business.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :business_description
+
       # The business's legal business name.
       sig { returns(T.nilable(String)) }
       attr_accessor :business_name
@@ -44,6 +48,11 @@ module ModernTreasury
         ).void
       end
       attr_writer :compliance_details
+
+      # The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
+      # alpha-3 formats.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :country_of_incorporation
 
       sig { returns(Time) }
       attr_accessor :created_at
@@ -66,6 +75,10 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :email
 
+      # Monthly expected transaction volume in entity's local currency.
+      sig { returns(T.nilable(Integer)) }
+      attr_accessor :expected_activity_volume
+
       # An individual's first name.
       sig { returns(T.nilable(String)) }
       attr_accessor :first_name
@@ -80,15 +93,13 @@ module ModernTreasury
       end
       attr_accessor :industry_classifications
 
+      # A description of the intended use of the legal entity.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :intended_use
+
       # An individual's last name.
       sig { returns(T.nilable(String)) }
       attr_accessor :last_name
-
-      # The legal entity associations and its child legal entities.
-      sig do
-        returns(T.nilable(T::Array[ModernTreasury::LegalEntityAssociation]))
-      end
-      attr_accessor :legal_entity_associations
 
       # The type of legal entity.
       sig do
@@ -121,6 +132,11 @@ module ModernTreasury
       sig { returns(String) }
       attr_accessor :object
 
+      # A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3
+      # codes).
+      sig { returns(T::Array[String]) }
+      attr_accessor :operating_jurisdictions
+
       sig { returns(T::Array[ModernTreasury::LegalEntity::PhoneNumber]) }
       attr_accessor :phone_numbers
 
@@ -135,6 +151,10 @@ module ModernTreasury
       # An individual's prefix.
       sig { returns(T.nilable(String)) }
       attr_accessor :prefix
+
+      # A list of primary social media URLs for the business.
+      sig { returns(T::Array[String]) }
+      attr_accessor :primary_social_media_sites
 
       # The risk rating of the legal entity. One of low, medium, high.
       sig do
@@ -168,30 +188,38 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :website
 
+      # The legal entity associations and its child legal entities.
+      sig do
+        returns(T.nilable(T::Array[ModernTreasury::LegalEntityAssociation]))
+      end
+      attr_accessor :legal_entity_associations
+
       sig do
         params(
           id: String,
           addresses: T::Array[ModernTreasury::LegalEntity::Address::OrHash],
           bank_settings:
             T.nilable(ModernTreasury::LegalEntityBankSettings::OrHash),
+          business_description: T.nilable(String),
           business_name: T.nilable(String),
           citizenship_country: T.nilable(String),
           compliance_details:
             T.nilable(ModernTreasury::LegalEntityComplianceDetail::OrHash),
+          country_of_incorporation: T.nilable(String),
           created_at: Time,
           date_formed: T.nilable(Date),
           date_of_birth: T.nilable(Date),
           discarded_at: T.nilable(Time),
           doing_business_as_names: T::Array[String],
           email: T.nilable(String),
+          expected_activity_volume: T.nilable(Integer),
           first_name: T.nilable(String),
           identifications:
             T::Array[ModernTreasury::LegalEntity::Identification::OrHash],
           industry_classifications:
             T::Array[ModernTreasury::LegalEntityIndustryClassification::OrHash],
+          intended_use: T.nilable(String),
           last_name: T.nilable(String),
-          legal_entity_associations:
-            T.nilable(T::Array[ModernTreasury::LegalEntityAssociation::OrHash]),
           legal_entity_type:
             ModernTreasury::LegalEntity::LegalEntityType::OrSymbol,
           legal_structure:
@@ -200,11 +228,13 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           middle_name: T.nilable(String),
           object: String,
+          operating_jurisdictions: T::Array[String],
           phone_numbers:
             T::Array[ModernTreasury::LegalEntity::PhoneNumber::OrHash],
           politically_exposed_person: T.nilable(T::Boolean),
           preferred_name: T.nilable(String),
           prefix: T.nilable(String),
+          primary_social_media_sites: T::Array[String],
           risk_rating:
             T.nilable(ModernTreasury::LegalEntity::RiskRating::OrSymbol),
           suffix: T.nilable(String),
@@ -213,7 +243,9 @@ module ModernTreasury
             T.nilable(
               ModernTreasury::LegalEntityWealthEmploymentDetail::OrHash
             ),
-          website: T.nilable(String)
+          website: T.nilable(String),
+          legal_entity_associations:
+            T.nilable(T::Array[ModernTreasury::LegalEntityAssociation::OrHash])
         ).returns(T.attached_class)
       end
       def self.new(
@@ -221,11 +253,16 @@ module ModernTreasury
         # A list of addresses for the entity.
         addresses:,
         bank_settings:,
+        # A description of the business.
+        business_description:,
         # The business's legal business name.
         business_name:,
         # The country of citizenship for an individual.
         citizenship_country:,
         compliance_details:,
+        # The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
+        # alpha-3 formats.
+        country_of_incorporation:,
         created_at:,
         # A business's formation date (YYYY-MM-DD).
         date_formed:,
@@ -235,16 +272,18 @@ module ModernTreasury
         doing_business_as_names:,
         # The entity's primary email.
         email:,
+        # Monthly expected transaction volume in entity's local currency.
+        expected_activity_volume:,
         # An individual's first name.
         first_name:,
         # A list of identifications for the legal entity.
         identifications:,
         # A list of industry classifications for the legal entity.
         industry_classifications:,
+        # A description of the intended use of the legal entity.
+        intended_use:,
         # An individual's last name.
         last_name:,
-        # The legal entity associations and its child legal entities.
-        legal_entity_associations:,
         # The type of legal entity.
         legal_entity_type:,
         # The business's legal structure.
@@ -258,6 +297,9 @@ module ModernTreasury
         # An individual's middle name.
         middle_name:,
         object:,
+        # A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3
+        # codes).
+        operating_jurisdictions:,
         phone_numbers:,
         # Whether the individual is a politically exposed person.
         politically_exposed_person:,
@@ -265,6 +307,8 @@ module ModernTreasury
         preferred_name:,
         # An individual's prefix.
         prefix:,
+        # A list of primary social media URLs for the business.
+        primary_social_media_sites:,
         # The risk rating of the legal entity. One of low, medium, high.
         risk_rating:,
         # An individual's suffix.
@@ -272,7 +316,9 @@ module ModernTreasury
         updated_at:,
         wealth_and_employment_details:,
         # The entity's primary website URL.
-        website:
+        website:,
+        # The legal entity associations and its child legal entities.
+        legal_entity_associations: nil
       )
       end
 
@@ -282,24 +328,26 @@ module ModernTreasury
             id: String,
             addresses: T::Array[ModernTreasury::LegalEntity::Address],
             bank_settings: T.nilable(ModernTreasury::LegalEntityBankSettings),
+            business_description: T.nilable(String),
             business_name: T.nilable(String),
             citizenship_country: T.nilable(String),
             compliance_details:
               T.nilable(ModernTreasury::LegalEntityComplianceDetail),
+            country_of_incorporation: T.nilable(String),
             created_at: Time,
             date_formed: T.nilable(Date),
             date_of_birth: T.nilable(Date),
             discarded_at: T.nilable(Time),
             doing_business_as_names: T::Array[String],
             email: T.nilable(String),
+            expected_activity_volume: T.nilable(Integer),
             first_name: T.nilable(String),
             identifications:
               T::Array[ModernTreasury::LegalEntity::Identification],
             industry_classifications:
               T::Array[ModernTreasury::LegalEntityIndustryClassification],
+            intended_use: T.nilable(String),
             last_name: T.nilable(String),
-            legal_entity_associations:
-              T.nilable(T::Array[ModernTreasury::LegalEntityAssociation]),
             legal_entity_type:
               ModernTreasury::LegalEntity::LegalEntityType::TaggedSymbol,
             legal_structure:
@@ -310,17 +358,21 @@ module ModernTreasury
             metadata: T::Hash[Symbol, String],
             middle_name: T.nilable(String),
             object: String,
+            operating_jurisdictions: T::Array[String],
             phone_numbers: T::Array[ModernTreasury::LegalEntity::PhoneNumber],
             politically_exposed_person: T.nilable(T::Boolean),
             preferred_name: T.nilable(String),
             prefix: T.nilable(String),
+            primary_social_media_sites: T::Array[String],
             risk_rating:
               T.nilable(ModernTreasury::LegalEntity::RiskRating::TaggedSymbol),
             suffix: T.nilable(String),
             updated_at: Time,
             wealth_and_employment_details:
               T.nilable(ModernTreasury::LegalEntityWealthEmploymentDetail),
-            website: T.nilable(String)
+            website: T.nilable(String),
+            legal_entity_associations:
+              T.nilable(T::Array[ModernTreasury::LegalEntityAssociation])
           }
         )
       end
