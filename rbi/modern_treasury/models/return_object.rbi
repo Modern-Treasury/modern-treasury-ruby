@@ -652,6 +652,11 @@ module ModernTreasury
               :bankprov_payment_id,
               ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
+          BLOCKCHAIN_TRANSACTION_HASH =
+            T.let(
+              :blockchain_transaction_hash,
+              ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
           BNK_DEV_PRENOTIFICATION_ID =
             T.let(
               :bnk_dev_prenotification_id,

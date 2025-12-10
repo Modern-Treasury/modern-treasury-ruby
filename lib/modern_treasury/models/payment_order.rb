@@ -789,6 +789,7 @@ module ModernTreasury
           ACH_TRACE_NUMBER = :ach_trace_number
           BANKPROV_PAYMENT_ACTIVITY_DATE = :bankprov_payment_activity_date
           BANKPROV_PAYMENT_ID = :bankprov_payment_id
+          BLOCKCHAIN_TRANSACTION_HASH = :blockchain_transaction_hash
           BNK_DEV_PRENOTIFICATION_ID = :bnk_dev_prenotification_id
           BNK_DEV_TRANSFER_ID = :bnk_dev_transfer_id
           BNY_MELLON_TRANSACTION_REFERENCE_NUMBER = :bny_mellon_transaction_reference_number

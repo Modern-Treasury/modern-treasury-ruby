@@ -213,6 +213,11 @@ module ModernTreasury
             :bacs,
             ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol
           )
+        BASE =
+          T.let(
+            :base,
+            ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol
+          )
         BOOK =
           T.let(
             :book,
@@ -226,6 +231,11 @@ module ModernTreasury
         EFT =
           T.let(
             :eft,
+            ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol
+          )
+        ETHEREUM =
+          T.let(
+            :ethereum,
             ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol
           )
         INTERAC =
@@ -243,6 +253,11 @@ module ModernTreasury
             :nz_becs,
             ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol
           )
+        POLYGON =
+          T.let(
+            :polygon,
+            ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol
+          )
         RTP =
           T.let(
             :rtp,
@@ -258,9 +273,19 @@ module ModernTreasury
             :signet,
             ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol
           )
+        SOLANA =
+          T.let(
+            :solana,
+            ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol
+          )
         WIRE =
           T.let(
             :wire,
+            ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol
+          )
+        ZENGIN =
+          T.let(
+            :zengin,
             ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol
           )
 

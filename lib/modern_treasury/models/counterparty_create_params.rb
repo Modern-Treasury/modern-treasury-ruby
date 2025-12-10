@@ -450,6 +450,12 @@ module ModernTreasury
         #   @return [ModernTreasury::Models::LegalEntityBankSettings, nil]
         optional :bank_settings, -> { ModernTreasury::LegalEntityBankSettings }, nil?: true
 
+        # @!attribute business_description
+        #   A description of the business.
+        #
+        #   @return [String, nil]
+        optional :business_description, String, nil?: true
+
         # @!attribute business_name
         #   The business's legal business name.
         #
@@ -466,6 +472,13 @@ module ModernTreasury
         #
         #   @return [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
         optional :compliance_details, -> { ModernTreasury::LegalEntityComplianceDetail }, nil?: true
+
+        # @!attribute country_of_incorporation
+        #   The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
+        #   alpha-3 formats.
+        #
+        #   @return [String, nil]
+        optional :country_of_incorporation, String, nil?: true
 
         # @!attribute date_formed
         #   A business's formation date (YYYY-MM-DD).
@@ -490,6 +503,12 @@ module ModernTreasury
         #   @return [String, nil]
         optional :email, String, nil?: true
 
+        # @!attribute expected_activity_volume
+        #   Monthly expected transaction volume in entity's local currency.
+        #
+        #   @return [Integer, nil]
+        optional :expected_activity_volume, Integer, nil?: true
+
         # @!attribute first_name
         #   An individual's first name.
         #
@@ -509,6 +528,12 @@ module ModernTreasury
         #   @return [Array<ModernTreasury::Models::LegalEntityIndustryClassification>, nil]
         optional :industry_classifications,
                  -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityIndustryClassification] }
+
+        # @!attribute intended_use
+        #   A description of the intended use of the legal entity.
+        #
+        #   @return [String, nil]
+        optional :intended_use, String, nil?: true
 
         # @!attribute last_name
         #   An individual's last name.
@@ -547,6 +572,13 @@ module ModernTreasury
         #   @return [String, nil]
         optional :middle_name, String, nil?: true
 
+        # @!attribute operating_jurisdictions
+        #   A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3
+        #   codes).
+        #
+        #   @return [Array<String>, nil]
+        optional :operating_jurisdictions, ModernTreasury::Internal::Type::ArrayOf[String]
+
         # @!attribute phone_numbers
         #
         #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber>, nil]
@@ -570,6 +602,12 @@ module ModernTreasury
         #
         #   @return [String, nil]
         optional :prefix, String, nil?: true
+
+        # @!attribute primary_social_media_sites
+        #   A list of primary social media URLs for the business.
+        #
+        #   @return [Array<String>, nil]
+        optional :primary_social_media_sites, ModernTreasury::Internal::Type::ArrayOf[String]
 
         # @!attribute risk_rating
         #   The risk rating of the legal entity. One of low, medium, high.
@@ -598,7 +636,7 @@ module ModernTreasury
         #   @return [String, nil]
         optional :website, String, nil?: true
 
-        # @!method initialize(legal_entity_type:, addresses: nil, bank_settings: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, first_name: nil, identifications: nil, industry_classifications: nil, last_name: nil, legal_entity_associations: nil, legal_structure: nil, metadata: nil, middle_name: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, risk_rating: nil, suffix: nil, wealth_and_employment_details: nil, website: nil)
+        # @!method initialize(legal_entity_type:, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_entity_associations: nil, legal_structure: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, risk_rating: nil, suffix: nil, wealth_and_employment_details: nil, website: nil)
         #   Some parameter documentations has been truncated, see
         #   {ModernTreasury::Models::CounterpartyCreateParams::LegalEntity} for more
         #   details.
@@ -609,11 +647,15 @@ module ModernTreasury
         #
         #   @param bank_settings [ModernTreasury::Models::LegalEntityBankSettings, nil]
         #
+        #   @param business_description [String, nil] A description of the business.
+        #
         #   @param business_name [String, nil] The business's legal business name.
         #
         #   @param citizenship_country [String, nil] The country of citizenship for an individual.
         #
         #   @param compliance_details [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
+        #
+        #   @param country_of_incorporation [String, nil] The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
         #
         #   @param date_formed [Date, nil] A business's formation date (YYYY-MM-DD).
         #
@@ -623,11 +665,15 @@ module ModernTreasury
         #
         #   @param email [String, nil] The entity's primary email.
         #
+        #   @param expected_activity_volume [Integer, nil] Monthly expected transaction volume in entity's local currency.
+        #
         #   @param first_name [String, nil] An individual's first name.
         #
         #   @param identifications [Array<ModernTreasury::Models::IdentificationCreateRequest>] A list of identifications for the legal entity.
         #
         #   @param industry_classifications [Array<ModernTreasury::Models::LegalEntityIndustryClassification>] A list of industry classifications for the legal entity.
+        #
+        #   @param intended_use [String, nil] A description of the intended use of the legal entity.
         #
         #   @param last_name [String, nil] An individual's last name.
         #
@@ -639,6 +685,8 @@ module ModernTreasury
         #
         #   @param middle_name [String, nil] An individual's middle name.
         #
+        #   @param operating_jurisdictions [Array<String>] A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3 c
+        #
         #   @param phone_numbers [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber>]
         #
         #   @param politically_exposed_person [Boolean, nil] Whether the individual is a politically exposed person.
@@ -646,6 +694,8 @@ module ModernTreasury
         #   @param preferred_name [String, nil] An individual's preferred name.
         #
         #   @param prefix [String, nil] An individual's prefix.
+        #
+        #   @param primary_social_media_sites [Array<String>] A list of primary social media URLs for the business.
         #
         #   @param risk_rating [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::RiskRating, nil] The risk rating of the legal entity. One of low, medium, high.
         #
