@@ -35,6 +35,13 @@ module ModernTreasury
       #   @return [Time, nil]
       required :discarded_at, Time, nil?: true
 
+      # @!attribute effective_at
+      #   The timestamp (ISO8601 format) at which the ledger transaction happened for
+      #   reporting purposes.
+      #
+      #   @return [Time]
+      required :effective_at, Time
+
       # @!attribute ledger_account_currency
       #   The currency of the ledger account.
       #
@@ -111,7 +118,7 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!method initialize(id:, amount:, created_at:, direction:, discarded_at:, ledger_account_currency:, ledger_account_currency_exponent:, ledger_account_id:, ledger_account_lock_version:, ledger_transaction_id:, live_mode:, metadata:, object:, resulting_ledger_account_balances:, status:, updated_at:)
+      # @!method initialize(id:, amount:, created_at:, direction:, discarded_at:, effective_at:, ledger_account_currency:, ledger_account_currency_exponent:, ledger_account_id:, ledger_account_lock_version:, ledger_transaction_id:, live_mode:, metadata:, object:, resulting_ledger_account_balances:, status:, updated_at:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LedgerEntry} for more details.
       #
@@ -124,6 +131,8 @@ module ModernTreasury
       #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection] One of `credit`, `debit`. Describes the direction money is flowing in the transa
       #
       #   @param discarded_at [Time, nil]
+      #
+      #   @param effective_at [Time] The timestamp (ISO8601 format) at which the ledger transaction happened for repo
       #
       #   @param ledger_account_currency [String] The currency of the ledger account.
       #

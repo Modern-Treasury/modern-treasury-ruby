@@ -33,6 +33,13 @@ module ModernTreasury
       #   @return [Hash{Symbol=>Integer}, nil]
       optional :available_balance_amount, ModernTreasury::Internal::Type::HashOf[Integer], nil?: true
 
+      # @!attribute effective_at
+      #   The timestamp (ISO8601 format) at which the ledger transaction happened for
+      #   reporting purposes.
+      #
+      #   @return [Time, nil]
+      optional :effective_at, Time
+
       # @!attribute lock_version
       #   Lock version of the ledger account. This can be passed when creating a ledger
       #   transaction to only succeed if no ledger transactions have posted since the
@@ -72,7 +79,7 @@ module ModernTreasury
       #   @return [Boolean, nil]
       optional :show_resulting_ledger_account_balances, ModernTreasury::Internal::Type::Boolean, nil?: true
 
-      # @!method initialize(amount:, direction:, ledger_account_id:, available_balance_amount: nil, lock_version: nil, metadata: nil, pending_balance_amount: nil, posted_balance_amount: nil, show_resulting_ledger_account_balances: nil)
+      # @!method initialize(amount:, direction:, ledger_account_id:, available_balance_amount: nil, effective_at: nil, lock_version: nil, metadata: nil, pending_balance_amount: nil, posted_balance_amount: nil, show_resulting_ledger_account_balances: nil)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LedgerEntryCreateRequest} for more details.
       #
@@ -83,6 +90,8 @@ module ModernTreasury
       #   @param ledger_account_id [String] The ledger account that this ledger entry is associated with.
       #
       #   @param available_balance_amount [Hash{Symbol=>Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the accou
+      #
+      #   @param effective_at [Time] The timestamp (ISO8601 format) at which the ledger transaction happened for repo
       #
       #   @param lock_version [Integer, nil] Lock version of the ledger account. This can be passed when creating a ledger tr
       #

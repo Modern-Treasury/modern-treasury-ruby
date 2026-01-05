@@ -29,6 +29,11 @@ module ModernTreasury
       sig { returns(T.nilable(Time)) }
       attr_accessor :discarded_at
 
+      # The timestamp (ISO8601 format) at which the ledger transaction happened for
+      # reporting purposes.
+      sig { returns(Time) }
+      attr_accessor :effective_at
+
       # The currency of the ledger account.
       sig { returns(String) }
       attr_accessor :ledger_account_currency
@@ -98,6 +103,7 @@ module ModernTreasury
           created_at: Time,
           direction: ModernTreasury::TransactionDirection::OrSymbol,
           discarded_at: T.nilable(Time),
+          effective_at: Time,
           ledger_account_currency: String,
           ledger_account_currency_exponent: Integer,
           ledger_account_id: String,
@@ -124,6 +130,9 @@ module ModernTreasury
         # rtp, and check payments will always be `credit`.
         direction:,
         discarded_at:,
+        # The timestamp (ISO8601 format) at which the ledger transaction happened for
+        # reporting purposes.
+        effective_at:,
         # The currency of the ledger account.
         ledger_account_currency:,
         # The currency exponent of the ledger account.
@@ -167,6 +176,7 @@ module ModernTreasury
             created_at: Time,
             direction: ModernTreasury::TransactionDirection::TaggedSymbol,
             discarded_at: T.nilable(Time),
+            effective_at: Time,
             ledger_account_currency: String,
             ledger_account_currency_exponent: Integer,
             ledger_account_id: String,

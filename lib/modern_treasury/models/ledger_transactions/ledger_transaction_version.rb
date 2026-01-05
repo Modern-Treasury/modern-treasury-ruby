@@ -218,6 +218,13 @@ module ModernTreasury
           #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
           required :direction, enum: -> { ModernTreasury::TransactionDirection }
 
+          # @!attribute effective_at
+          #   The timestamp (ISO8601 format) at which the ledger transaction happened for
+          #   reporting purposes.
+          #
+          #   @return [Time]
+          required :effective_at, Time
+
           # @!attribute ledger_account_currency
           #   The currency of the ledger account.
           #
@@ -290,7 +297,7 @@ module ModernTreasury
           required :status,
                    enum: -> { ModernTreasury::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::Status }
 
-          # @!method initialize(id:, amount:, created_at:, direction:, ledger_account_currency:, ledger_account_currency_exponent:, ledger_account_id:, ledger_account_lock_version:, ledger_transaction_id:, live_mode:, metadata:, object:, resulting_ledger_account_balances:, status:)
+          # @!method initialize(id:, amount:, created_at:, direction:, effective_at:, ledger_account_currency:, ledger_account_currency_exponent:, ledger_account_id:, ledger_account_lock_version:, ledger_transaction_id:, live_mode:, metadata:, object:, resulting_ledger_account_balances:, status:)
           #   Some parameter documentations has been truncated, see
           #   {ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry}
           #   for more details.
@@ -302,6 +309,8 @@ module ModernTreasury
           #   @param created_at [Time]
           #
           #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection] One of `credit`, `debit`. Describes the direction money is flowing in the transa
+          #
+          #   @param effective_at [Time] The timestamp (ISO8601 format) at which the ledger transaction happened for repo
           #
           #   @param ledger_account_currency [String] The currency of the ledger account.
           #
