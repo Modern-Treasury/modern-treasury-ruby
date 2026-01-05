@@ -7,6 +7,7 @@ module ModernTreasury
         created_at: Time,
         direction: ModernTreasury::Models::transaction_direction,
         discarded_at: Time?,
+        effective_at: Time,
         ledger_account_currency: String,
         ledger_account_currency_exponent: Integer,
         ledger_account_id: String,
@@ -30,6 +31,8 @@ module ModernTreasury
       attr_accessor direction: ModernTreasury::Models::transaction_direction
 
       attr_accessor discarded_at: Time?
+
+      attr_accessor effective_at: Time
 
       attr_accessor ledger_account_currency: String
 
@@ -59,6 +62,7 @@ module ModernTreasury
         created_at: Time,
         direction: ModernTreasury::Models::transaction_direction,
         discarded_at: Time?,
+        effective_at: Time,
         ledger_account_currency: String,
         ledger_account_currency_exponent: Integer,
         ledger_account_id: String,
@@ -78,6 +82,7 @@ module ModernTreasury
         created_at: Time,
         direction: ModernTreasury::Models::transaction_direction,
         discarded_at: Time?,
+        effective_at: Time,
         ledger_account_currency: String,
         ledger_account_currency_exponent: Integer,
         ledger_account_id: String,

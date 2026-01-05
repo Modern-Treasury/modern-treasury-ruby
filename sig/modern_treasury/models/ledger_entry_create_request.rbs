@@ -6,6 +6,7 @@ module ModernTreasury
         direction: ModernTreasury::Models::transaction_direction,
         ledger_account_id: String,
         available_balance_amount: ::Hash[Symbol, Integer]?,
+        effective_at: Time,
         lock_version: Integer?,
         metadata: ::Hash[Symbol, String],
         pending_balance_amount: ::Hash[Symbol, Integer]?,
@@ -21,6 +22,10 @@ module ModernTreasury
       attr_accessor ledger_account_id: String
 
       attr_accessor available_balance_amount: ::Hash[Symbol, Integer]?
+
+      attr_reader effective_at: Time?
+
+      def effective_at=: (Time) -> Time
 
       attr_accessor lock_version: Integer?
 
@@ -39,6 +44,7 @@ module ModernTreasury
         direction: ModernTreasury::Models::transaction_direction,
         ledger_account_id: String,
         ?available_balance_amount: ::Hash[Symbol, Integer]?,
+        ?effective_at: Time,
         ?lock_version: Integer?,
         ?metadata: ::Hash[Symbol, String],
         ?pending_balance_amount: ::Hash[Symbol, Integer]?,
@@ -51,6 +57,7 @@ module ModernTreasury
         direction: ModernTreasury::Models::transaction_direction,
         ledger_account_id: String,
         available_balance_amount: ::Hash[Symbol, Integer]?,
+        effective_at: Time,
         lock_version: Integer?,
         metadata: ::Hash[Symbol, String],
         pending_balance_amount: ::Hash[Symbol, Integer]?,
