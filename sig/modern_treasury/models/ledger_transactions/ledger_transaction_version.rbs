@@ -125,6 +125,7 @@ module ModernTreasury
             amount: Integer,
             created_at: Time,
             direction: ModernTreasury::Models::transaction_direction,
+            effective_at: Time,
             ledger_account_currency: String,
             ledger_account_currency_exponent: Integer,
             ledger_account_id: String,
@@ -145,6 +146,8 @@ module ModernTreasury
           attr_accessor created_at: Time
 
           attr_accessor direction: ModernTreasury::Models::transaction_direction
+
+          attr_accessor effective_at: Time
 
           attr_accessor ledger_account_currency: String
 
@@ -171,6 +174,7 @@ module ModernTreasury
             amount: Integer,
             created_at: Time,
             direction: ModernTreasury::Models::transaction_direction,
+            effective_at: Time,
             ledger_account_currency: String,
             ledger_account_currency_exponent: Integer,
             ledger_account_id: String,
@@ -188,6 +192,7 @@ module ModernTreasury
             amount: Integer,
             created_at: Time,
             direction: ModernTreasury::Models::transaction_direction,
+            effective_at: Time,
             ledger_account_currency: String,
             ledger_account_currency_exponent: Integer,
             ledger_account_id: String,

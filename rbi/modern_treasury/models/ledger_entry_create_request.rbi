@@ -33,6 +33,14 @@ module ModernTreasury
       sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
       attr_accessor :available_balance_amount
 
+      # The timestamp (ISO8601 format) at which the ledger transaction happened for
+      # reporting purposes.
+      sig { returns(T.nilable(Time)) }
+      attr_reader :effective_at
+
+      sig { params(effective_at: Time).void }
+      attr_writer :effective_at
+
       # Lock version of the ledger account. This can be passed when creating a ledger
       # transaction to only succeed if no ledger transactions have posted since the
       # given version. See our post about Designing the Ledgers API with Optimistic
@@ -71,6 +79,7 @@ module ModernTreasury
           direction: ModernTreasury::TransactionDirection::OrSymbol,
           ledger_account_id: String,
           available_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
+          effective_at: Time,
           lock_version: T.nilable(Integer),
           metadata: T::Hash[Symbol, String],
           pending_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
@@ -93,6 +102,9 @@ module ModernTreasury
         # account’s available balance. If any of these conditions would be false after the
         # transaction is created, the entire call will fail with error code 422.
         available_balance_amount: nil,
+        # The timestamp (ISO8601 format) at which the ledger transaction happened for
+        # reporting purposes.
+        effective_at: nil,
         # Lock version of the ledger account. This can be passed when creating a ledger
         # transaction to only succeed if no ledger transactions have posted since the
         # given version. See our post about Designing the Ledgers API with Optimistic
@@ -122,6 +134,7 @@ module ModernTreasury
             direction: ModernTreasury::TransactionDirection::OrSymbol,
             ledger_account_id: String,
             available_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
+            effective_at: Time,
             lock_version: T.nilable(Integer),
             metadata: T::Hash[Symbol, String],
             pending_balance_amount: T.nilable(T::Hash[Symbol, Integer]),

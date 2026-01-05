@@ -1455,6 +1455,11 @@ module ModernTreasury
               :partial_swift_mir,
               ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
+          PAXOS_ORCHESTRATION_ID =
+            T.let(
+              :paxos_orchestration_id,
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
           PAXOS_TRANSFER_ID =
             T.let(
               :paxos_transfer_id,
