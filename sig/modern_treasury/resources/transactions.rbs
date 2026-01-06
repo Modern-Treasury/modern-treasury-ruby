@@ -12,7 +12,7 @@ module ModernTreasury
         vendor_code_type: String?,
         ?metadata: ::Hash[Symbol, String],
         ?posted: bool,
-        ?type: ModernTreasury::Models::TransactionCreateParams::type_?,
+        ?type: ModernTreasury::Models::TransactionCreate::type_?,
         ?vendor_customer_id: String?,
         ?vendor_description: String?,
         ?request_options: ModernTreasury::request_opts

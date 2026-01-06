@@ -8,19 +8,19 @@ module ModernTreasury
         ?metadata: ::Hash[Symbol, String]?,
         ?reason: String?,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::HoldCreateResponse
+      ) -> ModernTreasury::Hold
 
       def retrieve: (
         String id,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::HoldRetrieveResponse
+      ) -> ModernTreasury::Hold
 
       def update: (
         String id,
         status: ModernTreasury::Models::HoldUpdateParams::status,
         ?resolution: String?,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::HoldUpdateResponse
+      ) -> ModernTreasury::Hold
 
       def list: (
         ?after_cursor: String?,
@@ -30,7 +30,7 @@ module ModernTreasury
         ?target_id: String?,
         ?target_type: ModernTreasury::Models::HoldListParams::target_type?,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::HoldListResponse]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Hold]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

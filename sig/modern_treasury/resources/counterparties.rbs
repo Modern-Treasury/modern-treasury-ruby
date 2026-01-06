@@ -8,7 +8,7 @@ module ModernTreasury
         ?email: String?,
         ?external_id: String?,
         ?ledger_type: ModernTreasury::Models::CounterpartyCreateParams::ledger_type,
-        ?legal_entity: ModernTreasury::CounterpartyCreateParams::LegalEntity,
+        ?legal_entity: ModernTreasury::LegalEntityCreate,
         ?legal_entity_id: String?,
         ?metadata: ::Hash[Symbol, String],
         ?send_remittance_advice: bool,

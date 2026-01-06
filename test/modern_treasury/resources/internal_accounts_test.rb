@@ -19,7 +19,7 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
     assert_pattern do
       response => {
         id: String,
-        account_capabilities: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccount::AccountCapability]),
+        account_capabilities: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountCapability]),
         account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail]),
         account_type: ModernTreasury::InternalAccount::AccountType | nil,
         connection: ModernTreasury::Connection,
@@ -55,7 +55,7 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
     assert_pattern do
       response => {
         id: String,
-        account_capabilities: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccount::AccountCapability]),
+        account_capabilities: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountCapability]),
         account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail]),
         account_type: ModernTreasury::InternalAccount::AccountType | nil,
         connection: ModernTreasury::Connection,
@@ -91,7 +91,7 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
     assert_pattern do
       response => {
         id: String,
-        account_capabilities: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccount::AccountCapability]),
+        account_capabilities: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountCapability]),
         account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail]),
         account_type: ModernTreasury::InternalAccount::AccountType | nil,
         connection: ModernTreasury::Connection,
@@ -134,7 +134,7 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
     assert_pattern do
       row => {
         id: String,
-        account_capabilities: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccount::AccountCapability]),
+        account_capabilities: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountCapability]),
         account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail]),
         account_type: ModernTreasury::InternalAccount::AccountType | nil,
         connection: ModernTreasury::Connection,
@@ -170,7 +170,7 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
     assert_pattern do
       response => {
         id: String,
-        account_capabilities: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccount::AccountCapability]),
+        account_capabilities: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountCapability]),
         account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail]),
         account_type: ModernTreasury::InternalAccount::AccountType | nil,
         connection: ModernTreasury::Connection,

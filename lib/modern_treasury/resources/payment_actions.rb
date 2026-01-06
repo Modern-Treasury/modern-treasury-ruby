@@ -22,7 +22,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::PaymentActionCreateResponse]
+      # @return [ModernTreasury::Models::PaymentAction]
       #
       # @see ModernTreasury::Models::PaymentActionCreateParams
       def create(params)
@@ -31,7 +31,7 @@ module ModernTreasury
           method: :post,
           path: "api/payment_actions",
           body: parsed,
-          model: ModernTreasury::Models::PaymentActionCreateResponse,
+          model: ModernTreasury::PaymentAction,
           options: options
         )
       end
@@ -44,14 +44,14 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::PaymentActionRetrieveResponse]
+      # @return [ModernTreasury::Models::PaymentAction]
       #
       # @see ModernTreasury::Models::PaymentActionRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
           path: ["api/payment_actions/%1$s", id],
-          model: ModernTreasury::Models::PaymentActionRetrieveResponse,
+          model: ModernTreasury::PaymentAction,
           options: params[:request_options]
         )
       end
@@ -69,7 +69,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::PaymentActionUpdateResponse]
+      # @return [ModernTreasury::Models::PaymentAction]
       #
       # @see ModernTreasury::Models::PaymentActionUpdateParams
       def update(id, params)
@@ -78,7 +78,7 @@ module ModernTreasury
           method: :patch,
           path: ["api/payment_actions/%1$s", id],
           body: parsed,
-          model: ModernTreasury::Models::PaymentActionUpdateResponse,
+          model: ModernTreasury::PaymentAction,
           options: options
         )
       end
@@ -111,7 +111,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::PaymentActionListResponse>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::PaymentAction>]
       #
       # @see ModernTreasury::Models::PaymentActionListParams
       def list(params = {})
@@ -121,7 +121,7 @@ module ModernTreasury
           path: "api/payment_actions",
           query: parsed,
           page: ModernTreasury::Internal::Page,
-          model: ModernTreasury::Models::PaymentActionListResponse,
+          model: ModernTreasury::PaymentAction,
           options: options
         )
       end

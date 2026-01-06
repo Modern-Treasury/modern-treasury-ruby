@@ -29,7 +29,7 @@ module ModernTreasury
       #
       # @param posted [Boolean] This field will be `true` if the transaction has posted to the account.
       #
-      # @param type [Symbol, ModernTreasury::Models::TransactionCreateParams::Type, nil] The type of the transaction. Examples could be `card, `ach`, `wire`, `check`, `r
+      # @param type [Symbol, ModernTreasury::Models::TransactionCreate::Type, nil] The type of the transaction. Examples could be `card, `ach`, `wire`, `check`, `r
       #
       # @param vendor_customer_id [String, nil] An identifier given to this transaction by the bank, often `null`.
       #

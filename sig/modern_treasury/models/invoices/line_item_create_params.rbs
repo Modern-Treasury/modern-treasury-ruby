@@ -2,66 +2,15 @@ module ModernTreasury
   module Models
     module Invoices
       type line_item_create_params =
-        {
-          name: String,
-          unit_amount: Integer,
-          description: String,
-          direction: String,
-          metadata: ::Hash[Symbol, String],
-          quantity: Integer,
-          unit_amount_decimal: String
-        }
-        & ModernTreasury::Internal::Type::request_parameters
+        {  } & ModernTreasury::Internal::Type::request_parameters
 
-      class LineItemCreateParams < ModernTreasury::Internal::Type::BaseModel
+      class LineItemCreateParams < ModernTreasury::Models::Invoices::InvoiceLineItemCreate
         extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 
-        attr_accessor name: String
+        def initialize: (?request_options: ModernTreasury::request_opts) -> void
 
-        attr_accessor unit_amount: Integer
-
-        attr_reader description: String?
-
-        def description=: (String) -> String
-
-        attr_reader direction: String?
-
-        def direction=: (String) -> String
-
-        attr_reader metadata: ::Hash[Symbol, String]?
-
-        def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
-
-        attr_reader quantity: Integer?
-
-        def quantity=: (Integer) -> Integer
-
-        attr_reader unit_amount_decimal: String?
-
-        def unit_amount_decimal=: (String) -> String
-
-        def initialize: (
-          name: String,
-          unit_amount: Integer,
-          ?description: String,
-          ?direction: String,
-          ?metadata: ::Hash[Symbol, String],
-          ?quantity: Integer,
-          ?unit_amount_decimal: String,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-
-        def to_hash: -> {
-          name: String,
-          unit_amount: Integer,
-          description: String,
-          direction: String,
-          metadata: ::Hash[Symbol, String],
-          quantity: Integer,
-          unit_amount_decimal: String,
-          request_options: ModernTreasury::RequestOptions
-        }
+        def to_hash: -> { request_options: ModernTreasury::RequestOptions }
       end
     end
   end

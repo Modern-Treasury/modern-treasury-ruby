@@ -5,7 +5,7 @@ module ModernTreasury
         String account_id,
         accounts_type: ModernTreasury::Models::AccountDetailCreateParams::accounts_type,
         account_number: String,
-        ?account_number_type: ModernTreasury::Models::AccountDetailCreateParams::account_number_type,
+        ?account_number_type: ModernTreasury::Models::AccountDetailCreate::account_number_type,
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::AccountDetail
 

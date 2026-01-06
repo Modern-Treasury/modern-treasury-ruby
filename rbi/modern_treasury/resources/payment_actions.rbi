@@ -12,7 +12,7 @@ module ModernTreasury
           details: T.anything,
           internal_account_id: String,
           request_options: ModernTreasury::RequestOptions::OrHash
-        ).returns(ModernTreasury::Models::PaymentActionCreateResponse)
+        ).returns(ModernTreasury::PaymentAction)
       end
       def create(
         # Required. The type of the payment action. Determines the action to be taken.
@@ -36,7 +36,7 @@ module ModernTreasury
         params(
           id: String,
           request_options: ModernTreasury::RequestOptions::OrHash
-        ).returns(ModernTreasury::Models::PaymentActionRetrieveResponse)
+        ).returns(ModernTreasury::PaymentAction)
       end
       def retrieve(
         # id
@@ -51,7 +51,7 @@ module ModernTreasury
           id: String,
           status: ModernTreasury::PaymentActionUpdateParams::Status::OrSymbol,
           request_options: ModernTreasury::RequestOptions::OrHash
-        ).returns(ModernTreasury::Models::PaymentActionUpdateResponse)
+        ).returns(ModernTreasury::PaymentAction)
       end
       def update(
         # id
@@ -78,11 +78,7 @@ module ModernTreasury
           status: ModernTreasury::PaymentActionListParams::Status::OrSymbol,
           type: ModernTreasury::PaymentActionListParams::Type::OrSymbol,
           request_options: ModernTreasury::RequestOptions::OrHash
-        ).returns(
-          ModernTreasury::Internal::Page[
-            ModernTreasury::Models::PaymentActionListResponse
-          ]
-        )
+        ).returns(ModernTreasury::Internal::Page[ModernTreasury::PaymentAction])
       end
       def list(
         # The ID of the associated actionable object.

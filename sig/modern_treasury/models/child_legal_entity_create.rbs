@@ -19,7 +19,7 @@ module ModernTreasury
         industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification],
         intended_use: String?,
         last_name: String?,
-        legal_entity_associations: ::Array[top]?,
+        legal_entity_associations: ::Array[ModernTreasury::LegalEntityAssociationInlineCreate]?,
         legal_entity_type: ModernTreasury::Models::ChildLegalEntityCreate::legal_entity_type,
         legal_structure: ModernTreasury::Models::ChildLegalEntityCreate::legal_structure?,
         metadata: ::Hash[Symbol, String],
@@ -85,7 +85,7 @@ module ModernTreasury
 
       attr_accessor last_name: String?
 
-      attr_accessor legal_entity_associations: ::Array[top]?
+      attr_accessor legal_entity_associations: ::Array[ModernTreasury::LegalEntityAssociationInlineCreate]?
 
       attr_reader legal_entity_type: ModernTreasury::Models::ChildLegalEntityCreate::legal_entity_type?
 
@@ -147,7 +147,7 @@ module ModernTreasury
         ?industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification],
         ?intended_use: String?,
         ?last_name: String?,
-        ?legal_entity_associations: ::Array[top]?,
+        ?legal_entity_associations: ::Array[ModernTreasury::LegalEntityAssociationInlineCreate]?,
         ?legal_entity_type: ModernTreasury::Models::ChildLegalEntityCreate::legal_entity_type,
         ?legal_structure: ModernTreasury::Models::ChildLegalEntityCreate::legal_structure?,
         ?metadata: ::Hash[Symbol, String],
@@ -182,7 +182,7 @@ module ModernTreasury
         industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification],
         intended_use: String?,
         last_name: String?,
-        legal_entity_associations: ::Array[top]?,
+        legal_entity_associations: ::Array[ModernTreasury::LegalEntityAssociationInlineCreate]?,
         legal_entity_type: ModernTreasury::Models::ChildLegalEntityCreate::legal_entity_type,
         legal_structure: ModernTreasury::Models::ChildLegalEntityCreate::legal_structure?,
         metadata: ::Hash[Symbol, String],

@@ -1,0 +1,59 @@
+module ModernTreasury
+  module Models
+    type legal_entity_association_inline_create =
+      {
+        relationship_types: ::Array[ModernTreasury::Models::LegalEntityAssociationInlineCreate::relationship_type],
+        child_legal_entity: ModernTreasury::ChildLegalEntityCreate,
+        child_legal_entity_id: String,
+        ownership_percentage: Integer?,
+        title: String?
+      }
+
+    class LegalEntityAssociationInlineCreate < ModernTreasury::Internal::Type::BaseModel
+      attr_accessor relationship_types: ::Array[ModernTreasury::Models::LegalEntityAssociationInlineCreate::relationship_type]
+
+      attr_reader child_legal_entity: ModernTreasury::ChildLegalEntityCreate?
+
+      def child_legal_entity=: (
+        ModernTreasury::ChildLegalEntityCreate
+      ) -> ModernTreasury::ChildLegalEntityCreate
+
+      attr_reader child_legal_entity_id: String?
+
+      def child_legal_entity_id=: (String) -> String
+
+      attr_accessor ownership_percentage: Integer?
+
+      attr_accessor title: String?
+
+      def initialize: (
+        relationship_types: ::Array[ModernTreasury::Models::LegalEntityAssociationInlineCreate::relationship_type],
+        ?child_legal_entity: ModernTreasury::ChildLegalEntityCreate,
+        ?child_legal_entity_id: String,
+        ?ownership_percentage: Integer?,
+        ?title: String?
+      ) -> void
+
+      def to_hash: -> {
+        relationship_types: ::Array[ModernTreasury::Models::LegalEntityAssociationInlineCreate::relationship_type],
+        child_legal_entity: ModernTreasury::ChildLegalEntityCreate,
+        child_legal_entity_id: String,
+        ownership_percentage: Integer?,
+        title: String?
+      }
+
+      type relationship_type =
+        :authorized_signer | :beneficial_owner | :control_person
+
+      module RelationshipType
+        extend ModernTreasury::Internal::Type::Enum
+
+        AUTHORIZED_SIGNER: :authorized_signer
+        BENEFICIAL_OWNER: :beneficial_owner
+        CONTROL_PERSON: :control_person
+
+        def self?.values: -> ::Array[ModernTreasury::Models::LegalEntityAssociationInlineCreate::relationship_type]
+      end
+    end
+  end
+end

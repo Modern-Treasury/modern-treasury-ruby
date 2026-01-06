@@ -38,17 +38,10 @@ module ModernTreasury
       sig { returns(ModernTreasury::PaymentOrderType::OrSymbol) }
       attr_accessor :type
 
-      sig do
-        returns(T.nilable(ModernTreasury::PaymentOrderCreateParams::Accounting))
-      end
+      sig { returns(T.nilable(ModernTreasury::Accounting)) }
       attr_reader :accounting
 
-      sig do
-        params(
-          accounting:
-            ModernTreasury::PaymentOrderCreateParams::Accounting::OrHash
-        ).void
-      end
+      sig { params(accounting: ModernTreasury::Accounting::OrHash).void }
       attr_writer :accounting
 
       # The ID of one of your accounting categories. Note that these will only be
@@ -86,20 +79,11 @@ module ModernTreasury
 
       # An array of documents to be attached to the payment order. Note that if you
       # attach documents, the request's content type must be `multipart/form-data`.
-      sig do
-        returns(
-          T.nilable(
-            T::Array[ModernTreasury::PaymentOrderCreateParams::Document]
-          )
-        )
-      end
+      sig { returns(T.nilable(T::Array[ModernTreasury::DocumentCreate])) }
       attr_reader :documents
 
       sig do
-        params(
-          documents:
-            T::Array[ModernTreasury::PaymentOrderCreateParams::Document::OrHash]
-        ).void
+        params(documents: T::Array[ModernTreasury::DocumentCreate::OrHash]).void
       end
       attr_writer :documents
 
@@ -179,20 +163,11 @@ module ModernTreasury
       attr_writer :ledger_transaction_id
 
       # An array of line items that must sum up to the amount of the payment order.
-      sig do
-        returns(
-          T.nilable(
-            T::Array[ModernTreasury::PaymentOrderCreateParams::LineItem]
-          )
-        )
-      end
+      sig { returns(T.nilable(T::Array[ModernTreasury::LineItem])) }
       attr_reader :line_items
 
       sig do
-        params(
-          line_items:
-            T::Array[ModernTreasury::PaymentOrderCreateParams::LineItem::OrHash]
-        ).void
+        params(line_items: T::Array[ModernTreasury::LineItem::OrHash]).void
       end
       attr_writer :line_items
 
@@ -355,8 +330,7 @@ module ModernTreasury
             ModernTreasury::PaymentOrderCreateParams::Direction::OrSymbol,
           originating_account_id: String,
           type: ModernTreasury::PaymentOrderType::OrSymbol,
-          accounting:
-            ModernTreasury::PaymentOrderCreateParams::Accounting::OrHash,
+          accounting: ModernTreasury::Accounting::OrHash,
           accounting_category_id: T.nilable(String),
           accounting_ledger_class_id: T.nilable(String),
           charge_bearer:
@@ -365,10 +339,7 @@ module ModernTreasury
             ),
           currency: ModernTreasury::Currency::OrSymbol,
           description: T.nilable(String),
-          documents:
-            T::Array[
-              ModernTreasury::PaymentOrderCreateParams::Document::OrHash
-            ],
+          documents: T::Array[ModernTreasury::DocumentCreate::OrHash],
           effective_date: Date,
           expires_at: T.nilable(Time),
           fallback_type:
@@ -381,10 +352,7 @@ module ModernTreasury
           ledger_transaction:
             ModernTreasury::LedgerTransactionCreateRequest::OrHash,
           ledger_transaction_id: String,
-          line_items:
-            T::Array[
-              ModernTreasury::PaymentOrderCreateParams::LineItem::OrHash
-            ],
+          line_items: T::Array[ModernTreasury::LineItem::OrHash],
           metadata: T::Hash[Symbol, String],
           nsf_protected: T::Boolean,
           originating_party_name: T.nilable(String),
@@ -548,7 +516,7 @@ module ModernTreasury
               ModernTreasury::PaymentOrderCreateParams::Direction::OrSymbol,
             originating_account_id: String,
             type: ModernTreasury::PaymentOrderType::OrSymbol,
-            accounting: ModernTreasury::PaymentOrderCreateParams::Accounting,
+            accounting: ModernTreasury::Accounting,
             accounting_category_id: T.nilable(String),
             accounting_ledger_class_id: T.nilable(String),
             charge_bearer:
@@ -557,8 +525,7 @@ module ModernTreasury
               ),
             currency: ModernTreasury::Currency::OrSymbol,
             description: T.nilable(String),
-            documents:
-              T::Array[ModernTreasury::PaymentOrderCreateParams::Document],
+            documents: T::Array[ModernTreasury::DocumentCreate],
             effective_date: Date,
             expires_at: T.nilable(Time),
             fallback_type:
@@ -570,8 +537,7 @@ module ModernTreasury
               ),
             ledger_transaction: ModernTreasury::LedgerTransactionCreateRequest,
             ledger_transaction_id: String,
-            line_items:
-              T::Array[ModernTreasury::PaymentOrderCreateParams::LineItem],
+            line_items: T::Array[ModernTreasury::LineItem],
             metadata: T::Hash[Symbol, String],
             nsf_protected: T::Boolean,
             originating_party_name: T.nilable(String),
@@ -635,52 +601,6 @@ module ModernTreasury
         end
       end
 
-      class Accounting < ModernTreasury::Internal::Type::BaseModel
-        OrHash =
-          T.type_alias do
-            T.any(
-              ModernTreasury::PaymentOrderCreateParams::Accounting,
-              ModernTreasury::Internal::AnyHash
-            )
-          end
-
-        # The ID of one of your accounting categories. Note that these will only be
-        # accessible if your accounting system has been connected.
-        sig { returns(T.nilable(String)) }
-        attr_accessor :account_id
-
-        # The ID of one of the class objects in your accounting system. Class objects
-        # track segments of your business independent of client or project. Note that
-        # these will only be accessible if your accounting system has been connected.
-        sig { returns(T.nilable(String)) }
-        attr_accessor :class_id
-
-        sig do
-          params(
-            account_id: T.nilable(String),
-            class_id: T.nilable(String)
-          ).returns(T.attached_class)
-        end
-        def self.new(
-          # The ID of one of your accounting categories. Note that these will only be
-          # accessible if your accounting system has been connected.
-          account_id: nil,
-          # The ID of one of the class objects in your accounting system. Class objects
-          # track segments of your business independent of client or project. Note that
-          # these will only be accessible if your accounting system has been connected.
-          class_id: nil
-        )
-        end
-
-        sig do
-          override.returns(
-            { account_id: T.nilable(String), class_id: T.nilable(String) }
-          )
-        end
-        def to_hash
-        end
-      end
-
       # The party that will pay the fees for the payment order. See
       # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
       # differences between the options.
@@ -720,144 +640,6 @@ module ModernTreasury
           )
         end
         def self.values
-        end
-      end
-
-      class Document < ModernTreasury::Internal::Type::BaseModel
-        OrHash =
-          T.type_alias do
-            T.any(
-              ModernTreasury::PaymentOrderCreateParams::Document,
-              ModernTreasury::Internal::AnyHash
-            )
-          end
-
-        # The unique identifier for the associated object.
-        sig { returns(String) }
-        attr_accessor :documentable_id
-
-        sig do
-          returns(
-            ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::OrSymbol
-          )
-        end
-        attr_accessor :documentable_type
-
-        sig { returns(ModernTreasury::Internal::FileInput) }
-        attr_accessor :file
-
-        # A category given to the document, can be `null`.
-        sig { returns(T.nilable(String)) }
-        attr_reader :document_type
-
-        sig { params(document_type: String).void }
-        attr_writer :document_type
-
-        sig do
-          params(
-            documentable_id: String,
-            documentable_type:
-              ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::OrSymbol,
-            file: ModernTreasury::Internal::FileInput,
-            document_type: String
-          ).returns(T.attached_class)
-        end
-        def self.new(
-          # The unique identifier for the associated object.
-          documentable_id:,
-          documentable_type:,
-          file:,
-          # A category given to the document, can be `null`.
-          document_type: nil
-        )
-        end
-
-        sig do
-          override.returns(
-            {
-              documentable_id: String,
-              documentable_type:
-                ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::OrSymbol,
-              file: ModernTreasury::Internal::FileInput,
-              document_type: String
-            }
-          )
-        end
-        def to_hash
-        end
-
-        module DocumentableType
-          extend ModernTreasury::Internal::Type::Enum
-
-          TaggedSymbol =
-            T.type_alias do
-              T.all(
-                Symbol,
-                ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType
-              )
-            end
-          OrSymbol = T.type_alias { T.any(Symbol, String) }
-
-          COUNTERPARTIES =
-            T.let(
-              :counterparties,
-              ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::TaggedSymbol
-            )
-          EXPECTED_PAYMENTS =
-            T.let(
-              :expected_payments,
-              ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::TaggedSymbol
-            )
-          EXTERNAL_ACCOUNTS =
-            T.let(
-              :external_accounts,
-              ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::TaggedSymbol
-            )
-          IDENTIFICATIONS =
-            T.let(
-              :identifications,
-              ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::TaggedSymbol
-            )
-          INCOMING_PAYMENT_DETAILS =
-            T.let(
-              :incoming_payment_details,
-              ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::TaggedSymbol
-            )
-          INTERNAL_ACCOUNTS =
-            T.let(
-              :internal_accounts,
-              ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::TaggedSymbol
-            )
-          ORGANIZATIONS =
-            T.let(
-              :organizations,
-              ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::TaggedSymbol
-            )
-          PAYMENT_ORDERS =
-            T.let(
-              :payment_orders,
-              ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::TaggedSymbol
-            )
-          TRANSACTIONS =
-            T.let(
-              :transactions,
-              ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::TaggedSymbol
-            )
-          CONNECTIONS =
-            T.let(
-              :connections,
-              ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::TaggedSymbol
-            )
-
-          sig do
-            override.returns(
-              T::Array[
-                ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::TaggedSymbol
-              ]
-            )
-          end
-          def self.values
-          end
         end
       end
 
@@ -927,74 +709,6 @@ module ModernTreasury
           )
         end
         def self.values
-        end
-      end
-
-      class LineItem < ModernTreasury::Internal::Type::BaseModel
-        OrHash =
-          T.type_alias do
-            T.any(
-              ModernTreasury::PaymentOrderCreateParams::LineItem,
-              ModernTreasury::Internal::AnyHash
-            )
-          end
-
-        # Value in specified currency's smallest unit. e.g. $10 would be represented
-        # as 1000.
-        sig { returns(Integer) }
-        attr_accessor :amount
-
-        # The ID of one of your accounting categories. Note that these will only be
-        # accessible if your accounting system has been connected.
-        sig { returns(T.nilable(String)) }
-        attr_accessor :accounting_category_id
-
-        # A free-form description of the line item.
-        sig { returns(T.nilable(String)) }
-        attr_accessor :description
-
-        # Additional data represented as key-value pairs. Both the key and value must be
-        # strings.
-        sig { returns(T.nilable(T::Hash[Symbol, String])) }
-        attr_reader :metadata
-
-        sig { params(metadata: T::Hash[Symbol, String]).void }
-        attr_writer :metadata
-
-        sig do
-          params(
-            amount: Integer,
-            accounting_category_id: T.nilable(String),
-            description: T.nilable(String),
-            metadata: T::Hash[Symbol, String]
-          ).returns(T.attached_class)
-        end
-        def self.new(
-          # Value in specified currency's smallest unit. e.g. $10 would be represented
-          # as 1000.
-          amount:,
-          # The ID of one of your accounting categories. Note that these will only be
-          # accessible if your accounting system has been connected.
-          accounting_category_id: nil,
-          # A free-form description of the line item.
-          description: nil,
-          # Additional data represented as key-value pairs. Both the key and value must be
-          # strings.
-          metadata: nil
-        )
-        end
-
-        sig do
-          override.returns(
-            {
-              amount: Integer,
-              accounting_category_id: T.nilable(String),
-              description: T.nilable(String),
-              metadata: T::Hash[Symbol, String]
-            }
-          )
-        end
-        def to_hash
         end
       end
 

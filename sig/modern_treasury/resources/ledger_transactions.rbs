@@ -27,9 +27,9 @@ module ModernTreasury
         ?effective_at: Time,
         ?ledger_entries: ::Array[ModernTreasury::LedgerEntryCreateRequest],
         ?ledgerable_id: String,
-        ?ledgerable_type: ModernTreasury::Models::LedgerTransactionUpdateParams::ledgerable_type,
+        ?ledgerable_type: ModernTreasury::Models::LedgerTransactionUpdate::ledgerable_type,
         ?metadata: ::Hash[Symbol, String],
-        ?status: ModernTreasury::Models::LedgerTransactionUpdateParams::status,
+        ?status: ModernTreasury::Models::LedgerTransactionUpdate::status,
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::LedgerTransaction
 

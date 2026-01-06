@@ -15,8 +15,11 @@ module ModernTreasury
       attr_accessor :id
 
       # The child legal entity.
-      sig { returns(T.anything) }
-      attr_accessor :child_legal_entity
+      sig { returns(ModernTreasury::ChildLegalEntity) }
+      attr_reader :child_legal_entity
+
+      sig { params(child_legal_entity: ModernTreasury::ChildLegalEntity).void }
+      attr_writer :child_legal_entity
 
       sig { returns(Time) }
       attr_accessor :created_at
@@ -60,7 +63,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          child_legal_entity: T.anything,
+          child_legal_entity: ModernTreasury::ChildLegalEntity,
           created_at: Time,
           discarded_at: T.nilable(Time),
           live_mode: T::Boolean,
@@ -101,7 +104,7 @@ module ModernTreasury
         override.returns(
           {
             id: String,
-            child_legal_entity: T.anything,
+            child_legal_entity: ModernTreasury::ChildLegalEntity,
             created_at: Time,
             discarded_at: T.nilable(Time),
             live_mode: T::Boolean,

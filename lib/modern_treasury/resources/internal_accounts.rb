@@ -21,7 +21,7 @@ module ModernTreasury
       #
       # @param party_name [String] The legal name of the entity which owns the account.
       #
-      # @param account_capabilities [Array<ModernTreasury::Models::InternalAccountCreateParams::AccountCapability>] An array of AccountCapability objects that list the originating abilities of the
+      # @param account_capabilities [Array<ModernTreasury::Models::AccountCapability>] An array of AccountCapability objects that list the originating abilities of the
       #
       # @param account_type [Symbol, ModernTreasury::Models::InternalAccountCreateParams::AccountType] The account type, used to provision the appropriate account at the financial ins
       #

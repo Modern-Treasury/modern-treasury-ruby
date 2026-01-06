@@ -1,0 +1,155 @@
+module ModernTreasury
+  module Models
+    type transaction_create =
+      {
+        amount: Integer,
+        as_of_date: Date?,
+        direction: String,
+        internal_account_id: String,
+        vendor_code: String?,
+        vendor_code_type: String?,
+        metadata: ::Hash[Symbol, String],
+        posted: bool,
+        type: ModernTreasury::Models::TransactionCreate::type_?,
+        vendor_customer_id: String?,
+        vendor_description: String?
+      }
+
+    class TransactionCreate < ModernTreasury::Internal::Type::BaseModel
+      attr_accessor amount: Integer
+
+      attr_accessor as_of_date: Date?
+
+      attr_accessor direction: String
+
+      attr_accessor internal_account_id: String
+
+      attr_accessor vendor_code: String?
+
+      attr_accessor vendor_code_type: String?
+
+      attr_reader metadata: ::Hash[Symbol, String]?
+
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
+
+      attr_reader posted: bool?
+
+      def posted=: (bool) -> bool
+
+      attr_accessor type: ModernTreasury::Models::TransactionCreate::type_?
+
+      attr_accessor vendor_customer_id: String?
+
+      attr_accessor vendor_description: String?
+
+      def initialize: (
+        amount: Integer,
+        as_of_date: Date?,
+        direction: String,
+        internal_account_id: String,
+        vendor_code: String?,
+        vendor_code_type: String?,
+        ?metadata: ::Hash[Symbol, String],
+        ?posted: bool,
+        ?type: ModernTreasury::Models::TransactionCreate::type_?,
+        ?vendor_customer_id: String?,
+        ?vendor_description: String?
+      ) -> void
+
+      def to_hash: -> {
+        amount: Integer,
+        as_of_date: Date?,
+        direction: String,
+        internal_account_id: String,
+        vendor_code: String?,
+        vendor_code_type: String?,
+        metadata: ::Hash[Symbol, String],
+        posted: bool,
+        type: ModernTreasury::Models::TransactionCreate::type_?,
+        vendor_customer_id: String?,
+        vendor_description: String?
+      }
+
+      type type_ =
+        :ach
+        | :au_becs
+        | :bacs
+        | :base
+        | :book
+        | :card
+        | :chats
+        | :check
+        | :cross_border
+        | :dk_nets
+        | :eft
+        | :ethereum
+        | :gb_fps
+        | :hu_ics
+        | :interac
+        | :masav
+        | :mx_ccen
+        | :neft
+        | :nics
+        | :nz_becs
+        | :pl_elixir
+        | :polygon
+        | :provxchange
+        | :ro_sent
+        | :rtp
+        | :se_bankgirot
+        | :sen
+        | :sepa
+        | :sg_giro
+        | :sic
+        | :signet
+        | :sknbi
+        | :solana
+        | :wire
+        | :zengin
+        | :other
+
+      module Type
+        extend ModernTreasury::Internal::Type::Enum
+
+        ACH: :ach
+        AU_BECS: :au_becs
+        BACS: :bacs
+        BASE: :base
+        BOOK: :book
+        CARD: :card
+        CHATS: :chats
+        CHECK: :check
+        CROSS_BORDER: :cross_border
+        DK_NETS: :dk_nets
+        EFT: :eft
+        ETHEREUM: :ethereum
+        GB_FPS: :gb_fps
+        HU_ICS: :hu_ics
+        INTERAC: :interac
+        MASAV: :masav
+        MX_CCEN: :mx_ccen
+        NEFT: :neft
+        NICS: :nics
+        NZ_BECS: :nz_becs
+        PL_ELIXIR: :pl_elixir
+        POLYGON: :polygon
+        PROVXCHANGE: :provxchange
+        RO_SENT: :ro_sent
+        RTP: :rtp
+        SE_BANKGIROT: :se_bankgirot
+        SEN: :sen
+        SEPA: :sepa
+        SG_GIRO: :sg_giro
+        SIC: :sic
+        SIGNET: :signet
+        SKNBI: :sknbi
+        SOLANA: :solana
+        WIRE: :wire
+        ZENGIN: :zengin
+        OTHER: :other
+
+        def self?.values: -> ::Array[ModernTreasury::Models::TransactionCreate::type_]
+      end
+    end
+  end
+end

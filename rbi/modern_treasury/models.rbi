@@ -1,6 +1,8 @@
 # typed: strong
 
 module ModernTreasury
+  AccountCapability = ModernTreasury::Models::AccountCapability
+
   AccountCollectionFlow = ModernTreasury::Models::AccountCollectionFlow
 
   AccountCollectionFlowCreateParams =
@@ -17,6 +19,8 @@ module ModernTreasury
 
   AccountDetail = ModernTreasury::Models::AccountDetail
 
+  AccountDetailCreate = ModernTreasury::Models::AccountDetailCreate
+
   AccountDetailCreateParams = ModernTreasury::Models::AccountDetailCreateParams
 
   AccountDetailDeleteParams = ModernTreasury::Models::AccountDetailDeleteParams
@@ -25,6 +29,8 @@ module ModernTreasury
 
   AccountDetailRetrieveParams =
     ModernTreasury::Models::AccountDetailRetrieveParams
+
+  Accounting = ModernTreasury::Models::Accounting
 
   AccountsType = ModernTreasury::Models::AccountsType
 
@@ -49,6 +55,8 @@ module ModernTreasury
   BulkResultListParams = ModernTreasury::Models::BulkResultListParams
 
   BulkResultRetrieveParams = ModernTreasury::Models::BulkResultRetrieveParams
+
+  ChildLegalEntity = ModernTreasury::Models::ChildLegalEntity
 
   ChildLegalEntityCreate = ModernTreasury::Models::ChildLegalEntityCreate
 
@@ -100,6 +108,8 @@ module ModernTreasury
 
   Document = ModernTreasury::Models::Document
 
+  DocumentCreate = ModernTreasury::Models::DocumentCreate
+
   DocumentCreateParams = ModernTreasury::Models::DocumentCreateParams
 
   DocumentListParams = ModernTreasury::Models::DocumentListParams
@@ -114,6 +124,8 @@ module ModernTreasury
 
   ExpectedPayment = ModernTreasury::Models::ExpectedPayment
 
+  ExpectedPaymentCreate = ModernTreasury::Models::ExpectedPaymentCreate
+
   ExpectedPaymentCreateParams =
     ModernTreasury::Models::ExpectedPaymentCreateParams
 
@@ -126,6 +138,8 @@ module ModernTreasury
     ModernTreasury::Models::ExpectedPaymentRetrieveParams
 
   ExpectedPaymentType = ModernTreasury::Models::ExpectedPaymentType
+
+  ExpectedPaymentUpdate = ModernTreasury::Models::ExpectedPaymentUpdate
 
   ExpectedPaymentUpdateParams =
     ModernTreasury::Models::ExpectedPaymentUpdateParams
@@ -166,6 +180,8 @@ module ModernTreasury
     ModernTreasury::Models::ForeignExchangeQuoteRetrieveParams
 
   ForeignExchangeRate = ModernTreasury::Models::ForeignExchangeRate
+
+  Hold = ModernTreasury::Models::Hold
 
   HoldCreateParams = ModernTreasury::Models::HoldCreateParams
 
@@ -319,6 +335,8 @@ module ModernTreasury
   LedgerAccountSettlementUpdateParams =
     ModernTreasury::Models::LedgerAccountSettlementUpdateParams
 
+  LedgerAccountStatement = ModernTreasury::Models::LedgerAccountStatement
+
   LedgerAccountStatementCreateParams =
     ModernTreasury::Models::LedgerAccountStatementCreateParams
 
@@ -371,6 +389,8 @@ module ModernTreasury
 
   LedgerTransactions = ModernTreasury::Models::LedgerTransactions
 
+  LedgerTransactionUpdate = ModernTreasury::Models::LedgerTransactionUpdate
+
   LedgerTransactionUpdateParams =
     ModernTreasury::Models::LedgerTransactionUpdateParams
 
@@ -386,10 +406,17 @@ module ModernTreasury
   LegalEntityAssociationCreateParams =
     ModernTreasury::Models::LegalEntityAssociationCreateParams
 
+  LegalEntityAssociationInlineCreate =
+    ModernTreasury::Models::LegalEntityAssociationInlineCreate
+
+  LegalEntityBankSetting = ModernTreasury::Models::LegalEntityBankSetting
+
   LegalEntityBankSettings = ModernTreasury::Models::LegalEntityBankSettings
 
   LegalEntityComplianceDetail =
     ModernTreasury::Models::LegalEntityComplianceDetail
+
+  LegalEntityCreate = ModernTreasury::Models::LegalEntityCreate
 
   LegalEntityCreateParams = ModernTreasury::Models::LegalEntityCreateParams
 
@@ -413,6 +440,8 @@ module ModernTreasury
 
   LineItemUpdateParams = ModernTreasury::Models::LineItemUpdateParams
 
+  PaymentAction = ModernTreasury::Models::PaymentAction
+
   PaymentActionCreateParams = ModernTreasury::Models::PaymentActionCreateParams
 
   PaymentActionListParams = ModernTreasury::Models::PaymentActionListParams
@@ -434,6 +463,8 @@ module ModernTreasury
 
   PaymentOrder = ModernTreasury::Models::PaymentOrder
 
+  PaymentOrderAsyncCreate = ModernTreasury::Models::PaymentOrderAsyncCreate
+
   PaymentOrderCreateAsyncParams =
     ModernTreasury::Models::PaymentOrderCreateAsyncParams
 
@@ -449,6 +480,8 @@ module ModernTreasury
   PaymentOrderSubtype = ModernTreasury::Models::PaymentOrderSubtype
 
   PaymentOrderType = ModernTreasury::Models::PaymentOrderType
+
+  PaymentOrderUpdate = ModernTreasury::Models::PaymentOrderUpdate
 
   PaymentOrderUpdateParams = ModernTreasury::Models::PaymentOrderUpdateParams
 
@@ -477,6 +510,8 @@ module ModernTreasury
 
   RoutingDetail = ModernTreasury::Models::RoutingDetail
 
+  RoutingDetailCreate = ModernTreasury::Models::RoutingDetailCreate
+
   RoutingDetailCreateParams = ModernTreasury::Models::RoutingDetailCreateParams
 
   RoutingDetailDeleteParams = ModernTreasury::Models::RoutingDetailDeleteParams
@@ -491,6 +526,8 @@ module ModernTreasury
 
   Transaction = ModernTreasury::Models::Transaction
 
+  TransactionCreate = ModernTreasury::Models::TransactionCreate
+
   TransactionCreateParams = ModernTreasury::Models::TransactionCreateParams
 
   TransactionDeleteParams = ModernTreasury::Models::TransactionDeleteParams
@@ -502,6 +539,8 @@ module ModernTreasury
   TransactionRetrieveParams = ModernTreasury::Models::TransactionRetrieveParams
 
   Transactions = ModernTreasury::Models::Transactions
+
+  TransactionUpdate = ModernTreasury::Models::TransactionUpdate
 
   TransactionUpdateParams = ModernTreasury::Models::TransactionUpdateParams
 

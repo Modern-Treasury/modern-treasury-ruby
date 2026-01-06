@@ -15,7 +15,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::LineItem]
+      # @return [ModernTreasury::Models::LineItemRetrieveResponse]
       #
       # @see ModernTreasury::Models::LineItemRetrieveParams
       def retrieve(id, params)
@@ -31,7 +31,7 @@ module ModernTreasury
         @client.request(
           method: :get,
           path: ["api/%1$s/%2$s/line_items/%3$s", itemizable_type, itemizable_id, id],
-          model: ModernTreasury::LineItem,
+          model: ModernTreasury::Models::LineItemRetrieveResponse,
           options: options
         )
       end
@@ -53,7 +53,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::LineItem]
+      # @return [ModernTreasury::Models::LineItemUpdateResponse]
       #
       # @see ModernTreasury::Models::LineItemUpdateParams
       def update(id, params)
@@ -70,7 +70,7 @@ module ModernTreasury
           method: :patch,
           path: ["api/%1$s/%2$s/line_items/%3$s", itemizable_type, itemizable_id, id],
           body: parsed,
-          model: ModernTreasury::LineItem,
+          model: ModernTreasury::Models::LineItemUpdateResponse,
           options: options
         )
       end
@@ -89,7 +89,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::LineItem>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::LineItemListResponse>]
       #
       # @see ModernTreasury::Models::LineItemListParams
       def list(itemizable_id, params)
@@ -103,7 +103,7 @@ module ModernTreasury
           path: ["api/%1$s/%2$s/line_items", itemizable_type, itemizable_id],
           query: parsed,
           page: ModernTreasury::Internal::Page,
-          model: ModernTreasury::LineItem,
+          model: ModernTreasury::Models::LineItemListResponse,
           options: options
         )
       end

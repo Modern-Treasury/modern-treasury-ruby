@@ -1,26 +1,15 @@
 module ModernTreasury
   module Models
     type transaction_update_params =
-      { metadata: ::Hash[Symbol, String] }
-      & ModernTreasury::Internal::Type::request_parameters
+      {  } & ModernTreasury::Internal::Type::request_parameters
 
-    class TransactionUpdateParams < ModernTreasury::Internal::Type::BaseModel
+    class TransactionUpdateParams < ModernTreasury::Models::TransactionUpdate
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
-      attr_reader metadata: ::Hash[Symbol, String]?
+      def initialize: (?request_options: ModernTreasury::request_opts) -> void
 
-      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
-
-      def initialize: (
-        ?metadata: ::Hash[Symbol, String],
-        ?request_options: ModernTreasury::request_opts
-      ) -> void
-
-      def to_hash: -> {
-        metadata: ::Hash[Symbol, String],
-        request_options: ModernTreasury::RequestOptions
-      }
+      def to_hash: -> { request_options: ModernTreasury::RequestOptions }
     end
   end
 end

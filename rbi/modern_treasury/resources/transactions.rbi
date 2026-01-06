@@ -17,8 +17,7 @@ module ModernTreasury
           vendor_code_type: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           posted: T::Boolean,
-          type:
-            T.nilable(ModernTreasury::TransactionCreateParams::Type::OrSymbol),
+          type: T.nilable(ModernTreasury::TransactionCreate::Type::OrSymbol),
           vendor_customer_id: T.nilable(String),
           vendor_description: T.nilable(String),
           request_options: ModernTreasury::RequestOptions::OrHash
