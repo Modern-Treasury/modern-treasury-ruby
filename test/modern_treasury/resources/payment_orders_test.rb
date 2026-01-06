@@ -19,7 +19,7 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < ModernTreasury::Test:
     assert_pattern do
       response => {
         id: String,
-        accounting: ModernTreasury::PaymentOrder::Accounting,
+        accounting: ModernTreasury::Accounting,
         accounting_category_id: String | nil,
         accounting_ledger_class_id: String | nil,
         amount: Integer,
@@ -27,7 +27,7 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < ModernTreasury::Test:
         counterparty_id: String | nil,
         created_at: Time,
         currency: ModernTreasury::Currency,
-        current_hold: ModernTreasury::PaymentOrder::CurrentHold | nil,
+        current_hold: ModernTreasury::Hold | nil,
         current_return: ModernTreasury::ReturnObject | nil,
         description: String | nil,
         direction: ModernTreasury::PaymentOrder::Direction,
@@ -82,7 +82,7 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < ModernTreasury::Test:
     assert_pattern do
       response => {
         id: String,
-        accounting: ModernTreasury::PaymentOrder::Accounting,
+        accounting: ModernTreasury::Accounting,
         accounting_category_id: String | nil,
         accounting_ledger_class_id: String | nil,
         amount: Integer,
@@ -90,7 +90,7 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < ModernTreasury::Test:
         counterparty_id: String | nil,
         created_at: Time,
         currency: ModernTreasury::Currency,
-        current_hold: ModernTreasury::PaymentOrder::CurrentHold | nil,
+        current_hold: ModernTreasury::Hold | nil,
         current_return: ModernTreasury::ReturnObject | nil,
         description: String | nil,
         direction: ModernTreasury::PaymentOrder::Direction,
@@ -145,7 +145,7 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < ModernTreasury::Test:
     assert_pattern do
       response => {
         id: String,
-        accounting: ModernTreasury::PaymentOrder::Accounting,
+        accounting: ModernTreasury::Accounting,
         accounting_category_id: String | nil,
         accounting_ledger_class_id: String | nil,
         amount: Integer,
@@ -153,7 +153,7 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < ModernTreasury::Test:
         counterparty_id: String | nil,
         created_at: Time,
         currency: ModernTreasury::Currency,
-        current_hold: ModernTreasury::PaymentOrder::CurrentHold | nil,
+        current_hold: ModernTreasury::Hold | nil,
         current_return: ModernTreasury::ReturnObject | nil,
         description: String | nil,
         direction: ModernTreasury::PaymentOrder::Direction,
@@ -215,7 +215,7 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < ModernTreasury::Test:
     assert_pattern do
       row => {
         id: String,
-        accounting: ModernTreasury::PaymentOrder::Accounting,
+        accounting: ModernTreasury::Accounting,
         accounting_category_id: String | nil,
         accounting_ledger_class_id: String | nil,
         amount: Integer,
@@ -223,7 +223,7 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < ModernTreasury::Test:
         counterparty_id: String | nil,
         created_at: Time,
         currency: ModernTreasury::Currency,
-        current_hold: ModernTreasury::PaymentOrder::CurrentHold | nil,
+        current_hold: ModernTreasury::Hold | nil,
         current_return: ModernTreasury::ReturnObject | nil,
         description: String | nil,
         direction: ModernTreasury::PaymentOrder::Direction,

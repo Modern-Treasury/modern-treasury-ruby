@@ -133,7 +133,13 @@ module ModernTreasury
       attr_accessor :last_name
 
       # The legal entity associations and its child legal entities.
-      sig { returns(T.nilable(T::Array[T.anything])) }
+      sig do
+        returns(
+          T.nilable(
+            T::Array[ModernTreasury::LegalEntityAssociationInlineCreate]
+          )
+        )
+      end
       attr_accessor :legal_entity_associations
 
       # The type of legal entity.
@@ -277,7 +283,10 @@ module ModernTreasury
             T::Array[ModernTreasury::LegalEntityIndustryClassification::OrHash],
           intended_use: T.nilable(String),
           last_name: T.nilable(String),
-          legal_entity_associations: T.nilable(T::Array[T.anything]),
+          legal_entity_associations:
+            T.nilable(
+              T::Array[ModernTreasury::LegalEntityAssociationInlineCreate]
+            ),
           legal_entity_type:
             ModernTreasury::ChildLegalEntityCreate::LegalEntityType::OrSymbol,
           legal_structure:
@@ -397,7 +406,10 @@ module ModernTreasury
               T::Array[ModernTreasury::LegalEntityIndustryClassification],
             intended_use: T.nilable(String),
             last_name: T.nilable(String),
-            legal_entity_associations: T.nilable(T::Array[T.anything]),
+            legal_entity_associations:
+              T.nilable(
+                T::Array[ModernTreasury::LegalEntityAssociationInlineCreate]
+              ),
             legal_entity_type:
               ModernTreasury::ChildLegalEntityCreate::LegalEntityType::OrSymbol,
             legal_structure:

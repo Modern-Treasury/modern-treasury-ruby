@@ -14,7 +14,7 @@ module ModernTreasury
       #
       # @param name [String] The name of the virtual account.
       #
-      # @param account_details [Array<ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail>] An array of account detail objects.
+      # @param account_details [Array<ModernTreasury::Models::AccountDetailCreate>] An array of account detail objects.
       #
       # @param counterparty_id [String] The ID of the counterparty that the virtual account belongs to.
       #
@@ -28,7 +28,7 @@ module ModernTreasury
       #
       # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #
-      # @param routing_details [Array<ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail>] An array of routing detail objects.
+      # @param routing_details [Array<ModernTreasury::Models::RoutingDetailCreate>] An array of routing detail objects.
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #

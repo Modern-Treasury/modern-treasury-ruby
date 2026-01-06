@@ -1,0 +1,91 @@
+module ModernTreasury
+  module Models
+    type line_item_list_response =
+      {
+        id: String,
+        accounting: ModernTreasury::Accounting,
+        accounting_category_id: String?,
+        accounting_ledger_class_id: String?,
+        amount: Integer,
+        created_at: Time,
+        description: String?,
+        itemizable_id: String,
+        itemizable_type: ModernTreasury::Models::LineItemListResponse::itemizable_type,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String],
+        object: String,
+        updated_at: Time
+      }
+
+    class LineItemListResponse < ModernTreasury::Internal::Type::BaseModel
+      attr_accessor id: String
+
+      attr_accessor accounting: ModernTreasury::Accounting
+
+      attr_accessor accounting_category_id: String?
+
+      attr_accessor accounting_ledger_class_id: String?
+
+      attr_accessor amount: Integer
+
+      attr_accessor created_at: Time
+
+      attr_accessor description: String?
+
+      attr_accessor itemizable_id: String
+
+      attr_accessor itemizable_type: ModernTreasury::Models::LineItemListResponse::itemizable_type
+
+      attr_accessor live_mode: bool
+
+      attr_accessor metadata: ::Hash[Symbol, String]
+
+      attr_accessor object: String
+
+      attr_accessor updated_at: Time
+
+      def initialize: (
+        id: String,
+        accounting: ModernTreasury::Accounting,
+        accounting_category_id: String?,
+        accounting_ledger_class_id: String?,
+        amount: Integer,
+        created_at: Time,
+        description: String?,
+        itemizable_id: String,
+        itemizable_type: ModernTreasury::Models::LineItemListResponse::itemizable_type,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String],
+        object: String,
+        updated_at: Time
+      ) -> void
+
+      def to_hash: -> {
+        id: String,
+        accounting: ModernTreasury::Accounting,
+        accounting_category_id: String?,
+        accounting_ledger_class_id: String?,
+        amount: Integer,
+        created_at: Time,
+        description: String?,
+        itemizable_id: String,
+        itemizable_type: ModernTreasury::Models::LineItemListResponse::itemizable_type,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String],
+        object: String,
+        updated_at: Time
+      }
+
+      type itemizable_type = :ExpectedPayment | :PaymentOrder
+
+      module ItemizableType
+        extend ModernTreasury::Internal::Type::Enum
+
+        EXPECTED_PAYMENT: :ExpectedPayment
+        PAYMENT_ORDER: :PaymentOrder
+
+        def self?.values: -> ::Array[ModernTreasury::Models::LineItemListResponse::itemizable_type]
+      end
+    end
+  end
+end

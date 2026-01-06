@@ -10,7 +10,7 @@ module ModernTreasury
       #
       # @overload create(legal_entity_type:, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_entity_associations: nil, legal_structure: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, risk_rating: nil, suffix: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
       #
-      # @param legal_entity_type [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityType] The type of legal entity.
+      # @param legal_entity_type [Symbol, ModernTreasury::Models::LegalEntityCreate::LegalEntityType] The type of legal entity.
       #
       # @param addresses [Array<ModernTreasury::Models::LegalEntityAddressCreateRequest>] A list of addresses for the entity.
       #
@@ -46,9 +46,9 @@ module ModernTreasury
       #
       # @param last_name [String, nil] An individual's last name.
       #
-      # @param legal_entity_associations [Array<ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation>, nil] The legal entity associations and its child legal entities.
+      # @param legal_entity_associations [Array<ModernTreasury::Models::LegalEntityAssociationInlineCreate>, nil] The legal entity associations and its child legal entities.
       #
-      # @param legal_structure [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalStructure, nil] The business's legal structure.
+      # @param legal_structure [Symbol, ModernTreasury::Models::LegalEntityCreate::LegalStructure, nil] The business's legal structure.
       #
       # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #
@@ -56,7 +56,7 @@ module ModernTreasury
       #
       # @param operating_jurisdictions [Array<String>] A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3 c
       #
-      # @param phone_numbers [Array<ModernTreasury::Models::LegalEntityCreateParams::PhoneNumber>]
+      # @param phone_numbers [Array<ModernTreasury::Models::LegalEntityCreate::PhoneNumber>]
       #
       # @param politically_exposed_person [Boolean, nil] Whether the individual is a politically exposed person.
       #
@@ -66,7 +66,7 @@ module ModernTreasury
       #
       # @param primary_social_media_sites [Array<String>] A list of primary social media URLs for the business.
       #
-      # @param risk_rating [Symbol, ModernTreasury::Models::LegalEntityCreateParams::RiskRating, nil] The risk rating of the legal entity. One of low, medium, high.
+      # @param risk_rating [Symbol, ModernTreasury::Models::LegalEntityCreate::RiskRating, nil] The risk rating of the legal entity. One of low, medium, high.
       #
       # @param suffix [String, nil] An individual's suffix.
       #

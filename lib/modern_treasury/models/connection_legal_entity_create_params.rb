@@ -141,10 +141,10 @@ module ModernTreasury
         # @!attribute legal_entity_associations
         #   The legal entity associations and its child legal entities.
         #
-        #   @return [Array<ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation>, nil]
+        #   @return [Array<ModernTreasury::Models::LegalEntityAssociationInlineCreate>, nil]
         optional :legal_entity_associations,
                  -> {
-                   ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation]
+                   ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityAssociationInlineCreate]
                  },
                  nil?: true
 
@@ -281,7 +281,7 @@ module ModernTreasury
         #
         #   @param last_name [String, nil] An individual's last name.
         #
-        #   @param legal_entity_associations [Array<ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation>, nil] The legal entity associations and its child legal entities.
+        #   @param legal_entity_associations [Array<ModernTreasury::Models::LegalEntityAssociationInlineCreate>, nil] The legal entity associations and its child legal entities.
         #
         #   @param legal_entity_type [Symbol, ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityType] The type of legal entity.
         #
@@ -310,65 +310,6 @@ module ModernTreasury
         #   @param wealth_and_employment_details [ModernTreasury::Models::LegalEntityWealthEmploymentDetail, nil]
         #
         #   @param website [String, nil] The entity's primary website URL.
-
-        class LegalEntityAssociation < ModernTreasury::Internal::Type::BaseModel
-          # @!attribute relationship_types
-          #
-          #   @return [Array<Symbol, ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType>]
-          required :relationship_types,
-                   -> do
-                     ModernTreasury::Internal::Type::ArrayOf[
-                       enum: ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType
-                     ]
-                   end
-
-          # @!attribute child_legal_entity
-          #   The child legal entity.
-          #
-          #   @return [ModernTreasury::Models::ChildLegalEntityCreate, nil]
-          optional :child_legal_entity, -> { ModernTreasury::ChildLegalEntityCreate }
-
-          # @!attribute child_legal_entity_id
-          #   The ID of the child legal entity.
-          #
-          #   @return [String, nil]
-          optional :child_legal_entity_id, String
-
-          # @!attribute ownership_percentage
-          #   The child entity's ownership percentage iff they are a beneficial owner.
-          #
-          #   @return [Integer, nil]
-          optional :ownership_percentage, Integer, nil?: true
-
-          # @!attribute title
-          #   The job title of the child entity at the parent entity.
-          #
-          #   @return [String, nil]
-          optional :title, String, nil?: true
-
-          # @!method initialize(relationship_types:, child_legal_entity: nil, child_legal_entity_id: nil, ownership_percentage: nil, title: nil)
-          #   @param relationship_types [Array<Symbol, ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType>]
-          #
-          #   @param child_legal_entity [ModernTreasury::Models::ChildLegalEntityCreate] The child legal entity.
-          #
-          #   @param child_legal_entity_id [String] The ID of the child legal entity.
-          #
-          #   @param ownership_percentage [Integer, nil] The child entity's ownership percentage iff they are a beneficial owner.
-          #
-          #   @param title [String, nil] The job title of the child entity at the parent entity.
-
-          # A list of relationship types for how the child entity relates to parent entity.
-          module RelationshipType
-            extend ModernTreasury::Internal::Type::Enum
-
-            AUTHORIZED_SIGNER = :authorized_signer
-            BENEFICIAL_OWNER = :beneficial_owner
-            CONTROL_PERSON = :control_person
-
-            # @!method self.values
-            #   @return [Array<Symbol>]
-          end
-        end
 
         # The type of legal entity.
         #
