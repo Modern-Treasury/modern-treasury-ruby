@@ -11,10 +11,10 @@ module ModernTreasury
             ModernTreasury::RoutingDetailCreateParams::AccountsType::OrSymbol,
           routing_number: String,
           routing_number_type:
-            ModernTreasury::RoutingDetailCreateParams::RoutingNumberType::OrSymbol,
+            ModernTreasury::RoutingDetailCreate::RoutingNumberType::OrSymbol,
           payment_type:
             T.nilable(
-              ModernTreasury::RoutingDetailCreateParams::PaymentType::OrSymbol
+              ModernTreasury::RoutingDetailCreate::PaymentType::OrSymbol
             ),
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::RoutingDetail)

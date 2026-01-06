@@ -15,8 +15,7 @@ module ModernTreasury
           external_id: T.nilable(String),
           ledger_type:
             ModernTreasury::CounterpartyCreateParams::LedgerType::OrSymbol,
-          legal_entity:
-            ModernTreasury::CounterpartyCreateParams::LegalEntity::OrHash,
+          legal_entity: ModernTreasury::LegalEntityCreate::OrHash,
           legal_entity_id: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           send_remittance_advice: T::Boolean,

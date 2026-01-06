@@ -12,8 +12,8 @@ module ModernTreasury
       # @!attribute child_legal_entity
       #   The child legal entity.
       #
-      #   @return [Object]
-      required :child_legal_entity, ModernTreasury::Internal::Type::Unknown
+      #   @return [ModernTreasury::Models::ChildLegalEntity]
+      required :child_legal_entity, -> { ModernTreasury::ChildLegalEntity }
 
       # @!attribute created_at
       #
@@ -73,7 +73,7 @@ module ModernTreasury
       #
       #   @param id [String]
       #
-      #   @param child_legal_entity [Object] The child legal entity.
+      #   @param child_legal_entity [ModernTreasury::Models::ChildLegalEntity] The child legal entity.
       #
       #   @param created_at [Time]
       #

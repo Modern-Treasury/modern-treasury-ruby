@@ -16,7 +16,7 @@ module ModernTreasury
       #
       # @param account_number [String] Body param: The account number for the bank account.
       #
-      # @param account_number_type [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType] Body param: One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if
+      # @param account_number_type [Symbol, ModernTreasury::Models::AccountDetailCreate::AccountNumberType] Body param: One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #

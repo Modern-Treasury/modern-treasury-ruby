@@ -1,72 +1,15 @@
 module ModernTreasury
   module Models
     type document_create_params =
-      {
-        documentable_id: String,
-        documentable_type: ModernTreasury::Models::DocumentCreateParams::documentable_type,
-        file: ModernTreasury::Internal::file_input,
-        document_type: String
-      }
-      & ModernTreasury::Internal::Type::request_parameters
+      {  } & ModernTreasury::Internal::Type::request_parameters
 
-    class DocumentCreateParams < ModernTreasury::Internal::Type::BaseModel
+    class DocumentCreateParams < ModernTreasury::Models::DocumentCreate
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
-      attr_accessor documentable_id: String
+      def initialize: (?request_options: ModernTreasury::request_opts) -> void
 
-      attr_accessor documentable_type: ModernTreasury::Models::DocumentCreateParams::documentable_type
-
-      attr_accessor file: ModernTreasury::Internal::file_input
-
-      attr_reader document_type: String?
-
-      def document_type=: (String) -> String
-
-      def initialize: (
-        documentable_id: String,
-        documentable_type: ModernTreasury::Models::DocumentCreateParams::documentable_type,
-        file: ModernTreasury::Internal::file_input,
-        ?document_type: String,
-        ?request_options: ModernTreasury::request_opts
-      ) -> void
-
-      def to_hash: -> {
-        documentable_id: String,
-        documentable_type: ModernTreasury::Models::DocumentCreateParams::documentable_type,
-        file: ModernTreasury::Internal::file_input,
-        document_type: String,
-        request_options: ModernTreasury::RequestOptions
-      }
-
-      type documentable_type =
-        :counterparties
-        | :expected_payments
-        | :external_accounts
-        | :identifications
-        | :incoming_payment_details
-        | :internal_accounts
-        | :organizations
-        | :payment_orders
-        | :transactions
-        | :connections
-
-      module DocumentableType
-        extend ModernTreasury::Internal::Type::Enum
-
-        COUNTERPARTIES: :counterparties
-        EXPECTED_PAYMENTS: :expected_payments
-        EXTERNAL_ACCOUNTS: :external_accounts
-        IDENTIFICATIONS: :identifications
-        INCOMING_PAYMENT_DETAILS: :incoming_payment_details
-        INTERNAL_ACCOUNTS: :internal_accounts
-        ORGANIZATIONS: :organizations
-        PAYMENT_ORDERS: :payment_orders
-        TRANSACTIONS: :transactions
-        CONNECTIONS: :connections
-
-        def self?.values: -> ::Array[ModernTreasury::Models::DocumentCreateParams::documentable_type]
-      end
+      def to_hash: -> { request_options: ModernTreasury::RequestOptions }
     end
   end
 end

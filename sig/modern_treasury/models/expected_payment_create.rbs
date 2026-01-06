@@ -1,0 +1,180 @@
+module ModernTreasury
+  module Models
+    type expected_payment_create =
+      {
+        amount_lower_bound: Integer?,
+        amount_reconciled: Integer?,
+        amount_reconciled_direction: ModernTreasury::Models::ExpectedPaymentCreate::amount_reconciled_direction?,
+        amount_unreconciled: Integer?,
+        amount_unreconciled_direction: ModernTreasury::Models::ExpectedPaymentCreate::amount_unreconciled_direction?,
+        amount_upper_bound: Integer?,
+        counterparty_id: String?,
+        currency: ModernTreasury::Models::currency?,
+        date_lower_bound: Date?,
+        date_upper_bound: Date?,
+        description: String?,
+        direction: ModernTreasury::Models::ExpectedPaymentCreate::direction?,
+        external_id: String?,
+        internal_account_id: String?,
+        ledger_transaction: ModernTreasury::LedgerTransactionCreateRequest,
+        ledger_transaction_id: String,
+        line_items: ::Array[ModernTreasury::LineItem],
+        metadata: ::Hash[Symbol, String],
+        reconciliation_filters: top?,
+        reconciliation_groups: top?,
+        reconciliation_rule_variables: ::Array[ModernTreasury::ReconciliationRule]?,
+        remittance_information: String?,
+        statement_descriptor: String?,
+        type: ModernTreasury::Models::expected_payment_type?
+      }
+
+    class ExpectedPaymentCreate < ModernTreasury::Internal::Type::BaseModel
+      attr_accessor amount_lower_bound: Integer?
+
+      attr_accessor amount_reconciled: Integer?
+
+      attr_accessor amount_reconciled_direction: ModernTreasury::Models::ExpectedPaymentCreate::amount_reconciled_direction?
+
+      attr_accessor amount_unreconciled: Integer?
+
+      attr_accessor amount_unreconciled_direction: ModernTreasury::Models::ExpectedPaymentCreate::amount_unreconciled_direction?
+
+      attr_accessor amount_upper_bound: Integer?
+
+      attr_accessor counterparty_id: String?
+
+      attr_accessor currency: ModernTreasury::Models::currency?
+
+      attr_accessor date_lower_bound: Date?
+
+      attr_accessor date_upper_bound: Date?
+
+      attr_accessor description: String?
+
+      attr_accessor direction: ModernTreasury::Models::ExpectedPaymentCreate::direction?
+
+      attr_accessor external_id: String?
+
+      attr_accessor internal_account_id: String?
+
+      attr_reader ledger_transaction: ModernTreasury::LedgerTransactionCreateRequest?
+
+      def ledger_transaction=: (
+        ModernTreasury::LedgerTransactionCreateRequest
+      ) -> ModernTreasury::LedgerTransactionCreateRequest
+
+      attr_reader ledger_transaction_id: String?
+
+      def ledger_transaction_id=: (String) -> String
+
+      attr_reader line_items: ::Array[ModernTreasury::LineItem]?
+
+      def line_items=: (
+        ::Array[ModernTreasury::LineItem]
+      ) -> ::Array[ModernTreasury::LineItem]
+
+      attr_reader metadata: ::Hash[Symbol, String]?
+
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
+
+      attr_accessor reconciliation_filters: top?
+
+      attr_accessor reconciliation_groups: top?
+
+      attr_accessor reconciliation_rule_variables: ::Array[ModernTreasury::ReconciliationRule]?
+
+      attr_accessor remittance_information: String?
+
+      attr_accessor statement_descriptor: String?
+
+      attr_accessor type: ModernTreasury::Models::expected_payment_type?
+
+      def initialize: (
+        ?amount_lower_bound: Integer?,
+        ?amount_reconciled: Integer?,
+        ?amount_reconciled_direction: ModernTreasury::Models::ExpectedPaymentCreate::amount_reconciled_direction?,
+        ?amount_unreconciled: Integer?,
+        ?amount_unreconciled_direction: ModernTreasury::Models::ExpectedPaymentCreate::amount_unreconciled_direction?,
+        ?amount_upper_bound: Integer?,
+        ?counterparty_id: String?,
+        ?currency: ModernTreasury::Models::currency?,
+        ?date_lower_bound: Date?,
+        ?date_upper_bound: Date?,
+        ?description: String?,
+        ?direction: ModernTreasury::Models::ExpectedPaymentCreate::direction?,
+        ?external_id: String?,
+        ?internal_account_id: String?,
+        ?ledger_transaction: ModernTreasury::LedgerTransactionCreateRequest,
+        ?ledger_transaction_id: String,
+        ?line_items: ::Array[ModernTreasury::LineItem],
+        ?metadata: ::Hash[Symbol, String],
+        ?reconciliation_filters: top?,
+        ?reconciliation_groups: top?,
+        ?reconciliation_rule_variables: ::Array[ModernTreasury::ReconciliationRule]?,
+        ?remittance_information: String?,
+        ?statement_descriptor: String?,
+        ?type: ModernTreasury::Models::expected_payment_type?
+      ) -> void
+
+      def to_hash: -> {
+        amount_lower_bound: Integer?,
+        amount_reconciled: Integer?,
+        amount_reconciled_direction: ModernTreasury::Models::ExpectedPaymentCreate::amount_reconciled_direction?,
+        amount_unreconciled: Integer?,
+        amount_unreconciled_direction: ModernTreasury::Models::ExpectedPaymentCreate::amount_unreconciled_direction?,
+        amount_upper_bound: Integer?,
+        counterparty_id: String?,
+        currency: ModernTreasury::Models::currency?,
+        date_lower_bound: Date?,
+        date_upper_bound: Date?,
+        description: String?,
+        direction: ModernTreasury::Models::ExpectedPaymentCreate::direction?,
+        external_id: String?,
+        internal_account_id: String?,
+        ledger_transaction: ModernTreasury::LedgerTransactionCreateRequest,
+        ledger_transaction_id: String,
+        line_items: ::Array[ModernTreasury::LineItem],
+        metadata: ::Hash[Symbol, String],
+        reconciliation_filters: top?,
+        reconciliation_groups: top?,
+        reconciliation_rule_variables: ::Array[ModernTreasury::ReconciliationRule]?,
+        remittance_information: String?,
+        statement_descriptor: String?,
+        type: ModernTreasury::Models::expected_payment_type?
+      }
+
+      type amount_reconciled_direction = :credit | :debit
+
+      module AmountReconciledDirection
+        extend ModernTreasury::Internal::Type::Enum
+
+        CREDIT: :credit
+        DEBIT: :debit
+
+        def self?.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentCreate::amount_reconciled_direction]
+      end
+
+      type amount_unreconciled_direction = :credit | :debit
+
+      module AmountUnreconciledDirection
+        extend ModernTreasury::Internal::Type::Enum
+
+        CREDIT: :credit
+        DEBIT: :debit
+
+        def self?.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentCreate::amount_unreconciled_direction]
+      end
+
+      type direction = :credit | :debit
+
+      module Direction
+        extend ModernTreasury::Internal::Type::Enum
+
+        CREDIT: :credit
+        DEBIT: :debit
+
+        def self?.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentCreate::direction]
+      end
+    end
+  end
+end

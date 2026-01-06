@@ -109,9 +109,11 @@ module ModernTreasury
       # @!attribute legal_entity_associations
       #   The legal entity associations and its child legal entities.
       #
-      #   @return [Array<Object>, nil]
+      #   @return [Array<ModernTreasury::Models::LegalEntityAssociationInlineCreate>, nil]
       optional :legal_entity_associations,
-               ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Internal::Type::Unknown],
+               -> {
+                 ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityAssociationInlineCreate]
+               },
                nil?: true
 
       # @!attribute legal_entity_type
@@ -243,7 +245,7 @@ module ModernTreasury
       #
       #   @param last_name [String, nil] An individual's last name.
       #
-      #   @param legal_entity_associations [Array<Object>, nil] The legal entity associations and its child legal entities.
+      #   @param legal_entity_associations [Array<ModernTreasury::Models::LegalEntityAssociationInlineCreate>, nil] The legal entity associations and its child legal entities.
       #
       #   @param legal_entity_type [Symbol, ModernTreasury::Models::ChildLegalEntityCreate::LegalEntityType] The type of legal entity.
       #

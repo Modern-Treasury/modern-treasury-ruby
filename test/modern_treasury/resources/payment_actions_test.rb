@@ -7,7 +7,7 @@ class ModernTreasury::Test::Resources::PaymentActionsTest < ModernTreasury::Test
     response = @modern_treasury.payment_actions.create(type: "type")
 
     assert_pattern do
-      response => ModernTreasury::Models::PaymentActionCreateResponse
+      response => ModernTreasury::PaymentAction
     end
 
     assert_pattern do
@@ -31,7 +31,7 @@ class ModernTreasury::Test::Resources::PaymentActionsTest < ModernTreasury::Test
     response = @modern_treasury.payment_actions.retrieve("id")
 
     assert_pattern do
-      response => ModernTreasury::Models::PaymentActionRetrieveResponse
+      response => ModernTreasury::PaymentAction
     end
 
     assert_pattern do
@@ -55,7 +55,7 @@ class ModernTreasury::Test::Resources::PaymentActionsTest < ModernTreasury::Test
     response = @modern_treasury.payment_actions.update("id", status: :pending)
 
     assert_pattern do
-      response => ModernTreasury::Models::PaymentActionUpdateResponse
+      response => ModernTreasury::PaymentAction
     end
 
     assert_pattern do
@@ -86,7 +86,7 @@ class ModernTreasury::Test::Resources::PaymentActionsTest < ModernTreasury::Test
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Models::PaymentActionListResponse
+      row => ModernTreasury::PaymentAction
     end
 
     assert_pattern do

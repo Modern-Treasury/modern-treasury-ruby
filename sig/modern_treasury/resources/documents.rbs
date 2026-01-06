@@ -3,7 +3,7 @@ module ModernTreasury
     class Documents
       def create: (
         documentable_id: String,
-        documentable_type: ModernTreasury::Models::DocumentCreateParams::documentable_type,
+        documentable_type: ModernTreasury::Models::DocumentCreate::documentable_type,
         file: ModernTreasury::Internal::file_input,
         ?document_type: String,
         ?request_options: ModernTreasury::request_opts

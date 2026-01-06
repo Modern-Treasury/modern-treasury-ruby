@@ -11,7 +11,7 @@ module ModernTreasury
             ModernTreasury::AccountDetailCreateParams::AccountsType::OrSymbol,
           account_number: String,
           account_number_type:
-            ModernTreasury::AccountDetailCreateParams::AccountNumberType::OrSymbol,
+            ModernTreasury::AccountDetailCreate::AccountNumberType::OrSymbol,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::AccountDetail)
       end

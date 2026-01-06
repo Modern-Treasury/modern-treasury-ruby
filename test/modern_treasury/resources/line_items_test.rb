@@ -12,20 +12,20 @@ class ModernTreasury::Test::Resources::LineItemsTest < ModernTreasury::Test::Res
       )
 
     assert_pattern do
-      response => ModernTreasury::LineItem
+      response => ModernTreasury::Models::LineItemRetrieveResponse
     end
 
     assert_pattern do
       response => {
         id: String,
-        accounting: ModernTreasury::LineItem::Accounting,
+        accounting: ModernTreasury::Accounting,
         accounting_category_id: String | nil,
         accounting_ledger_class_id: String | nil,
         amount: Integer,
         created_at: Time,
         description: String | nil,
         itemizable_id: String,
-        itemizable_type: ModernTreasury::LineItem::ItemizableType,
+        itemizable_type: ModernTreasury::Models::LineItemRetrieveResponse::ItemizableType,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
@@ -43,20 +43,20 @@ class ModernTreasury::Test::Resources::LineItemsTest < ModernTreasury::Test::Res
       )
 
     assert_pattern do
-      response => ModernTreasury::LineItem
+      response => ModernTreasury::Models::LineItemUpdateResponse
     end
 
     assert_pattern do
       response => {
         id: String,
-        accounting: ModernTreasury::LineItem::Accounting,
+        accounting: ModernTreasury::Accounting,
         accounting_category_id: String | nil,
         accounting_ledger_class_id: String | nil,
         amount: Integer,
         created_at: Time,
         description: String | nil,
         itemizable_id: String,
-        itemizable_type: ModernTreasury::LineItem::ItemizableType,
+        itemizable_type: ModernTreasury::Models::LineItemUpdateResponse::ItemizableType,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
@@ -78,20 +78,20 @@ class ModernTreasury::Test::Resources::LineItemsTest < ModernTreasury::Test::Res
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::LineItem
+      row => ModernTreasury::Models::LineItemListResponse
     end
 
     assert_pattern do
       row => {
         id: String,
-        accounting: ModernTreasury::LineItem::Accounting,
+        accounting: ModernTreasury::Accounting,
         accounting_category_id: String | nil,
         accounting_ledger_class_id: String | nil,
         amount: Integer,
         created_at: Time,
         description: String | nil,
         itemizable_id: String,
-        itemizable_type: ModernTreasury::LineItem::ItemizableType,
+        itemizable_type: ModernTreasury::Models::LineItemListResponse::ItemizableType,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,

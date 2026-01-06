@@ -12,7 +12,7 @@ module ModernTreasury
           metadata: T.nilable(T::Hash[Symbol, String]),
           reason: T.nilable(String),
           request_options: ModernTreasury::RequestOptions::OrHash
-        ).returns(ModernTreasury::Models::HoldCreateResponse)
+        ).returns(ModernTreasury::Hold)
       end
       def create(
         # The status of the hold
@@ -34,7 +34,7 @@ module ModernTreasury
         params(
           id: String,
           request_options: ModernTreasury::RequestOptions::OrHash
-        ).returns(ModernTreasury::Models::HoldRetrieveResponse)
+        ).returns(ModernTreasury::Hold)
       end
       def retrieve(
         # hold id
@@ -50,7 +50,7 @@ module ModernTreasury
           status: ModernTreasury::HoldUpdateParams::Status::OrSymbol,
           resolution: T.nilable(String),
           request_options: ModernTreasury::RequestOptions::OrHash
-        ).returns(ModernTreasury::Models::HoldUpdateResponse)
+        ).returns(ModernTreasury::Hold)
       end
       def update(
         # hold id
@@ -74,11 +74,7 @@ module ModernTreasury
           target_type:
             T.nilable(ModernTreasury::HoldListParams::TargetType::OrSymbol),
           request_options: ModernTreasury::RequestOptions::OrHash
-        ).returns(
-          ModernTreasury::Internal::Page[
-            ModernTreasury::Models::HoldListResponse
-          ]
-        )
+        ).returns(ModernTreasury::Internal::Page[ModernTreasury::Hold])
       end
       def list(
         after_cursor: nil,

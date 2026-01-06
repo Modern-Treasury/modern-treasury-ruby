@@ -4,14 +4,14 @@ module ModernTreasury
       def create: (
         internal_account_id: String,
         name: String,
-        ?account_details: ::Array[ModernTreasury::VirtualAccountCreateParams::AccountDetail],
+        ?account_details: ::Array[ModernTreasury::AccountDetailCreate],
         ?counterparty_id: String,
         ?credit_ledger_account_id: String,
         ?debit_ledger_account_id: String,
         ?description: String,
         ?ledger_account: ModernTreasury::LedgerAccountCreateRequest,
         ?metadata: ::Hash[Symbol, String],
-        ?routing_details: ::Array[ModernTreasury::VirtualAccountCreateParams::RoutingDetail],
+        ?routing_details: ::Array[ModernTreasury::RoutingDetailCreate],
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::VirtualAccount
 
