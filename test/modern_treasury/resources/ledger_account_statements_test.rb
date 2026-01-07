@@ -14,7 +14,7 @@ class ModernTreasury::Test::Resources::LedgerAccountStatementsTest < ModernTreas
       )
 
     assert_pattern do
-      response => ModernTreasury::LedgerAccountStatement
+      response => ModernTreasury::Models::LedgerAccountStatementCreateResponse
     end
 
     assert_pattern do
@@ -42,7 +42,7 @@ class ModernTreasury::Test::Resources::LedgerAccountStatementsTest < ModernTreas
     response = @modern_treasury.ledger_account_statements.retrieve("id")
 
     assert_pattern do
-      response => ModernTreasury::LedgerAccountStatement
+      response => ModernTreasury::Models::LedgerAccountStatementRetrieveResponse
     end
 
     assert_pattern do

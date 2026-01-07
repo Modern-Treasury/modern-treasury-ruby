@@ -14,11 +14,11 @@ module ModernTreasury
       #
       # @param amount_reconciled [Integer, nil] The amount reconciled for this expected payment. Value in specified currency's s
       #
-      # @param amount_reconciled_direction [Symbol, ModernTreasury::Models::ExpectedPaymentCreate::AmountReconciledDirection, nil] One of credit or debit. Indicates whether amount_reconciled is a credit or debit
+      # @param amount_reconciled_direction [Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::AmountReconciledDirection, nil] One of credit or debit. Indicates whether amount_reconciled is a credit or debit
       #
       # @param amount_unreconciled [Integer, nil] The amount that remains unreconciled for this expected payment. Value in specifi
       #
-      # @param amount_unreconciled_direction [Symbol, ModernTreasury::Models::ExpectedPaymentCreate::AmountUnreconciledDirection, nil] One of credit or debit. Indicates whether amount_unreconciled is a credit or deb
+      # @param amount_unreconciled_direction [Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::AmountUnreconciledDirection, nil] One of credit or debit. Indicates whether amount_unreconciled is a credit or deb
       #
       # @param amount_upper_bound [Integer, nil] The highest amount this expected payment may be equal to. Value in specified cur
       #
@@ -32,7 +32,7 @@ module ModernTreasury
       #
       # @param description [String, nil] An optional description for internal use.
       #
-      # @param direction [Symbol, ModernTreasury::Models::ExpectedPaymentCreate::Direction, nil] One of credit or debit. When you are receiving money, use credit. When you are b
+      # @param direction [Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::Direction, nil] One of credit or debit. When you are receiving money, use credit. When you are b
       #
       # @param external_id [String, nil] An optional user-defined 180 character unique identifier.
       #
@@ -42,7 +42,7 @@ module ModernTreasury
       #
       # @param ledger_transaction_id [String] Either ledger_transaction or ledger_transaction_id can be provided. Only a pendi
       #
-      # @param line_items [Array<ModernTreasury::Models::LineItem>]
+      # @param line_items [Array<ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem>]
       #
       # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #
@@ -107,11 +107,11 @@ module ModernTreasury
       #
       # @param amount_reconciled [Integer, nil] The amount reconciled for this expected payment. Value in specified currency's s
       #
-      # @param amount_reconciled_direction [Symbol, ModernTreasury::Models::ExpectedPaymentUpdate::AmountReconciledDirection, nil] One of credit or debit. Indicates whether amount_reconciled is a credit or debit
+      # @param amount_reconciled_direction [Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::AmountReconciledDirection, nil] One of credit or debit. Indicates whether amount_reconciled is a credit or debit
       #
       # @param amount_unreconciled [Integer, nil] The amount that remains unreconciled for this expected payment. Value in specifi
       #
-      # @param amount_unreconciled_direction [Symbol, ModernTreasury::Models::ExpectedPaymentUpdate::AmountUnreconciledDirection, nil] One of credit or debit. Indicates whether amount_unreconciled is a credit or deb
+      # @param amount_unreconciled_direction [Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::AmountUnreconciledDirection, nil] One of credit or debit. Indicates whether amount_unreconciled is a credit or deb
       #
       # @param amount_upper_bound [Integer, nil] The highest amount this expected payment may be equal to. Value in specified cur
       #
@@ -125,7 +125,7 @@ module ModernTreasury
       #
       # @param description [String, nil] An optional description for internal use.
       #
-      # @param direction [Symbol, ModernTreasury::Models::ExpectedPaymentUpdate::Direction, nil] One of credit or debit. When you are receiving money, use credit. When you are b
+      # @param direction [Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction, nil] One of credit or debit. When you are receiving money, use credit. When you are b
       #
       # @param external_id [String, nil] An optional user-defined 180 character unique identifier.
       #
@@ -143,7 +143,7 @@ module ModernTreasury
       #
       # @param statement_descriptor [String, nil] The statement description you expect to see on the transaction. For ACH payments
       #
-      # @param status [Symbol, ModernTreasury::Models::ExpectedPaymentUpdate::Status, nil] The Expected Payment's status can be updated from partially_reconciled to reconc
+      # @param status [Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Status, nil] The Expected Payment's status can be updated from partially_reconciled to reconc
       #
       # @param type [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil] One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen, se
       #

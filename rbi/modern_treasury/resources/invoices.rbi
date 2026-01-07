@@ -27,7 +27,9 @@ module ModernTreasury
           fallback_payment_method: T.nilable(String),
           invoice_line_items:
             T.nilable(
-              T::Array[ModernTreasury::Invoices::InvoiceLineItemCreate::OrHash]
+              T::Array[
+                ModernTreasury::InvoiceCreateParams::InvoiceLineItem::OrHash
+              ]
             ),
           invoicer_address:
             T.nilable(
@@ -154,7 +156,9 @@ module ModernTreasury
           fallback_payment_method: T.nilable(String),
           invoice_line_items:
             T.nilable(
-              T::Array[ModernTreasury::Invoices::InvoiceLineItemCreate::OrHash]
+              T::Array[
+                ModernTreasury::InvoiceUpdateParams::InvoiceLineItem::OrHash
+              ]
             ),
           invoicer_address:
             T.nilable(

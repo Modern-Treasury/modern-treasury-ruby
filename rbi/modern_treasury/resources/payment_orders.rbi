@@ -14,7 +14,8 @@ module ModernTreasury
             ModernTreasury::PaymentOrderCreateParams::Direction::OrSymbol,
           originating_account_id: String,
           type: ModernTreasury::PaymentOrderType::OrSymbol,
-          accounting: ModernTreasury::Accounting::OrHash,
+          accounting:
+            ModernTreasury::PaymentOrderCreateParams::Accounting::OrHash,
           accounting_category_id: T.nilable(String),
           accounting_ledger_class_id: T.nilable(String),
           charge_bearer:
@@ -23,7 +24,10 @@ module ModernTreasury
             ),
           currency: ModernTreasury::Currency::OrSymbol,
           description: T.nilable(String),
-          documents: T::Array[ModernTreasury::DocumentCreate::OrHash],
+          documents:
+            T::Array[
+              ModernTreasury::PaymentOrderCreateParams::Document::OrHash
+            ],
           effective_date: Date,
           expires_at: T.nilable(Time),
           fallback_type:
@@ -36,7 +40,10 @@ module ModernTreasury
           ledger_transaction:
             ModernTreasury::LedgerTransactionCreateRequest::OrHash,
           ledger_transaction_id: String,
-          line_items: T::Array[ModernTreasury::LineItem::OrHash],
+          line_items:
+            T::Array[
+              ModernTreasury::PaymentOrderCreateParams::LineItem::OrHash
+            ],
           metadata: T::Hash[Symbol, String],
           nsf_protected: T::Boolean,
           originating_party_name: T.nilable(String),
@@ -206,44 +213,50 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          accounting: ModernTreasury::Accounting::OrHash,
+          accounting:
+            ModernTreasury::PaymentOrderUpdateParams::Accounting::OrHash,
           accounting_category_id: T.nilable(String),
           accounting_ledger_class_id: T.nilable(String),
           amount: Integer,
           charge_bearer:
             T.nilable(
-              ModernTreasury::PaymentOrderUpdate::ChargeBearer::OrSymbol
+              ModernTreasury::PaymentOrderUpdateParams::ChargeBearer::OrSymbol
             ),
           counterparty_id: T.nilable(String),
           currency: ModernTreasury::Currency::OrSymbol,
           description: T.nilable(String),
-          direction: ModernTreasury::PaymentOrderUpdate::Direction::OrSymbol,
+          direction:
+            ModernTreasury::PaymentOrderUpdateParams::Direction::OrSymbol,
           effective_date: Date,
           expires_at: T.nilable(Time),
           fallback_type:
-            ModernTreasury::PaymentOrderUpdate::FallbackType::OrSymbol,
+            ModernTreasury::PaymentOrderUpdateParams::FallbackType::OrSymbol,
           foreign_exchange_contract: T.nilable(String),
           foreign_exchange_indicator:
             T.nilable(
-              ModernTreasury::PaymentOrderUpdate::ForeignExchangeIndicator::OrSymbol
+              ModernTreasury::PaymentOrderUpdateParams::ForeignExchangeIndicator::OrSymbol
             ),
-          line_items: T::Array[ModernTreasury::LineItem::OrHash],
+          line_items:
+            T::Array[
+              ModernTreasury::PaymentOrderUpdateParams::LineItem::OrHash
+            ],
           metadata: T::Hash[Symbol, String],
           nsf_protected: T::Boolean,
           originating_account_id: String,
           originating_party_name: T.nilable(String),
-          priority: ModernTreasury::PaymentOrderUpdate::Priority::OrSymbol,
+          priority:
+            ModernTreasury::PaymentOrderUpdateParams::Priority::OrSymbol,
           process_after: T.nilable(Time),
           purpose: T.nilable(String),
           receiving_account:
-            ModernTreasury::PaymentOrderUpdate::ReceivingAccount::OrHash,
+            ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::OrHash,
           receiving_account_id: String,
           reconciliation_status:
-            ModernTreasury::PaymentOrderUpdate::ReconciliationStatus::OrSymbol,
+            ModernTreasury::PaymentOrderUpdateParams::ReconciliationStatus::OrSymbol,
           remittance_information: T.nilable(String),
           send_remittance_advice: T.nilable(T::Boolean),
           statement_descriptor: T.nilable(String),
-          status: ModernTreasury::PaymentOrderUpdate::Status::OrSymbol,
+          status: ModernTreasury::PaymentOrderUpdateParams::Status::OrSymbol,
           subtype: T.nilable(ModernTreasury::PaymentOrderSubtype::OrSymbol),
           type: ModernTreasury::PaymentOrderType::OrSymbol,
           ultimate_originating_party_identifier: T.nilable(String),
@@ -449,42 +462,47 @@ module ModernTreasury
         params(
           amount: Integer,
           direction:
-            ModernTreasury::PaymentOrderAsyncCreate::Direction::OrSymbol,
+            ModernTreasury::PaymentOrderCreateAsyncParams::Direction::OrSymbol,
           originating_account_id: String,
           type: ModernTreasury::PaymentOrderType::OrSymbol,
-          accounting: ModernTreasury::Accounting::OrHash,
+          accounting:
+            ModernTreasury::PaymentOrderCreateAsyncParams::Accounting::OrHash,
           accounting_category_id: T.nilable(String),
           accounting_ledger_class_id: T.nilable(String),
           charge_bearer:
             T.nilable(
-              ModernTreasury::PaymentOrderAsyncCreate::ChargeBearer::OrSymbol
+              ModernTreasury::PaymentOrderCreateAsyncParams::ChargeBearer::OrSymbol
             ),
           currency: ModernTreasury::Currency::OrSymbol,
           description: T.nilable(String),
           effective_date: Date,
           expires_at: T.nilable(Time),
           fallback_type:
-            ModernTreasury::PaymentOrderAsyncCreate::FallbackType::OrSymbol,
+            ModernTreasury::PaymentOrderCreateAsyncParams::FallbackType::OrSymbol,
           foreign_exchange_contract: T.nilable(String),
           foreign_exchange_indicator:
             T.nilable(
-              ModernTreasury::PaymentOrderAsyncCreate::ForeignExchangeIndicator::OrSymbol
+              ModernTreasury::PaymentOrderCreateAsyncParams::ForeignExchangeIndicator::OrSymbol
             ),
           ledger_transaction:
             ModernTreasury::LedgerTransactionCreateRequest::OrHash,
           ledger_transaction_id: String,
-          line_items: T::Array[ModernTreasury::LineItem::OrHash],
+          line_items:
+            T::Array[
+              ModernTreasury::PaymentOrderCreateAsyncParams::LineItem::OrHash
+            ],
           metadata: T::Hash[Symbol, String],
           nsf_protected: T::Boolean,
           originating_party_name: T.nilable(String),
-          priority: ModernTreasury::PaymentOrderAsyncCreate::Priority::OrSymbol,
+          priority:
+            ModernTreasury::PaymentOrderCreateAsyncParams::Priority::OrSymbol,
           process_after: T.nilable(Time),
           purpose: T.nilable(String),
           receiving_account:
-            ModernTreasury::PaymentOrderAsyncCreate::ReceivingAccount::OrHash,
+            ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::OrHash,
           receiving_account_id: String,
           reconciliation_status:
-            ModernTreasury::PaymentOrderAsyncCreate::ReconciliationStatus::OrSymbol,
+            ModernTreasury::PaymentOrderCreateAsyncParams::ReconciliationStatus::OrSymbol,
           remittance_information: T.nilable(String),
           send_remittance_advice: T.nilable(T::Boolean),
           statement_descriptor: T.nilable(String),

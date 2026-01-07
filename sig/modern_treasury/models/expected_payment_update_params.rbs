@@ -1,15 +1,176 @@
 module ModernTreasury
   module Models
     type expected_payment_update_params =
-      {  } & ModernTreasury::Internal::Type::request_parameters
+      {
+        amount_lower_bound: Integer?,
+        amount_reconciled: Integer?,
+        amount_reconciled_direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::amount_reconciled_direction?,
+        amount_unreconciled: Integer?,
+        amount_unreconciled_direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::amount_unreconciled_direction?,
+        amount_upper_bound: Integer?,
+        counterparty_id: String?,
+        currency: ModernTreasury::Models::currency?,
+        date_lower_bound: Date?,
+        date_upper_bound: Date?,
+        description: String?,
+        direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::direction?,
+        external_id: String?,
+        internal_account_id: String?,
+        metadata: ::Hash[Symbol, String],
+        reconciliation_filters: top?,
+        reconciliation_groups: top?,
+        reconciliation_rule_variables: ::Array[ModernTreasury::ReconciliationRule]?,
+        remittance_information: String?,
+        statement_descriptor: String?,
+        status: ModernTreasury::Models::ExpectedPaymentUpdateParams::status?,
+        type: ModernTreasury::Models::expected_payment_type?
+      }
+      & ModernTreasury::Internal::Type::request_parameters
 
-    class ExpectedPaymentUpdateParams < ModernTreasury::Models::ExpectedPaymentUpdate
+    class ExpectedPaymentUpdateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
-      def initialize: (?request_options: ModernTreasury::request_opts) -> void
+      attr_accessor amount_lower_bound: Integer?
 
-      def to_hash: -> { request_options: ModernTreasury::RequestOptions }
+      attr_accessor amount_reconciled: Integer?
+
+      attr_accessor amount_reconciled_direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::amount_reconciled_direction?
+
+      attr_accessor amount_unreconciled: Integer?
+
+      attr_accessor amount_unreconciled_direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::amount_unreconciled_direction?
+
+      attr_accessor amount_upper_bound: Integer?
+
+      attr_accessor counterparty_id: String?
+
+      attr_accessor currency: ModernTreasury::Models::currency?
+
+      attr_accessor date_lower_bound: Date?
+
+      attr_accessor date_upper_bound: Date?
+
+      attr_accessor description: String?
+
+      attr_accessor direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::direction?
+
+      attr_accessor external_id: String?
+
+      attr_accessor internal_account_id: String?
+
+      attr_reader metadata: ::Hash[Symbol, String]?
+
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
+
+      attr_accessor reconciliation_filters: top?
+
+      attr_accessor reconciliation_groups: top?
+
+      attr_accessor reconciliation_rule_variables: ::Array[ModernTreasury::ReconciliationRule]?
+
+      attr_accessor remittance_information: String?
+
+      attr_accessor statement_descriptor: String?
+
+      attr_accessor status: ModernTreasury::Models::ExpectedPaymentUpdateParams::status?
+
+      attr_accessor type: ModernTreasury::Models::expected_payment_type?
+
+      def initialize: (
+        ?amount_lower_bound: Integer?,
+        ?amount_reconciled: Integer?,
+        ?amount_reconciled_direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::amount_reconciled_direction?,
+        ?amount_unreconciled: Integer?,
+        ?amount_unreconciled_direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::amount_unreconciled_direction?,
+        ?amount_upper_bound: Integer?,
+        ?counterparty_id: String?,
+        ?currency: ModernTreasury::Models::currency?,
+        ?date_lower_bound: Date?,
+        ?date_upper_bound: Date?,
+        ?description: String?,
+        ?direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::direction?,
+        ?external_id: String?,
+        ?internal_account_id: String?,
+        ?metadata: ::Hash[Symbol, String],
+        ?reconciliation_filters: top?,
+        ?reconciliation_groups: top?,
+        ?reconciliation_rule_variables: ::Array[ModernTreasury::ReconciliationRule]?,
+        ?remittance_information: String?,
+        ?statement_descriptor: String?,
+        ?status: ModernTreasury::Models::ExpectedPaymentUpdateParams::status?,
+        ?type: ModernTreasury::Models::expected_payment_type?,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        amount_lower_bound: Integer?,
+        amount_reconciled: Integer?,
+        amount_reconciled_direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::amount_reconciled_direction?,
+        amount_unreconciled: Integer?,
+        amount_unreconciled_direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::amount_unreconciled_direction?,
+        amount_upper_bound: Integer?,
+        counterparty_id: String?,
+        currency: ModernTreasury::Models::currency?,
+        date_lower_bound: Date?,
+        date_upper_bound: Date?,
+        description: String?,
+        direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::direction?,
+        external_id: String?,
+        internal_account_id: String?,
+        metadata: ::Hash[Symbol, String],
+        reconciliation_filters: top?,
+        reconciliation_groups: top?,
+        reconciliation_rule_variables: ::Array[ModernTreasury::ReconciliationRule]?,
+        remittance_information: String?,
+        statement_descriptor: String?,
+        status: ModernTreasury::Models::ExpectedPaymentUpdateParams::status?,
+        type: ModernTreasury::Models::expected_payment_type?,
+        request_options: ModernTreasury::RequestOptions
+      }
+
+      type amount_reconciled_direction = :credit | :debit
+
+      module AmountReconciledDirection
+        extend ModernTreasury::Internal::Type::Enum
+
+        CREDIT: :credit
+        DEBIT: :debit
+
+        def self?.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentUpdateParams::amount_reconciled_direction]
+      end
+
+      type amount_unreconciled_direction = :credit | :debit
+
+      module AmountUnreconciledDirection
+        extend ModernTreasury::Internal::Type::Enum
+
+        CREDIT: :credit
+        DEBIT: :debit
+
+        def self?.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentUpdateParams::amount_unreconciled_direction]
+      end
+
+      type direction = :credit | :debit
+
+      module Direction
+        extend ModernTreasury::Internal::Type::Enum
+
+        CREDIT: :credit
+        DEBIT: :debit
+
+        def self?.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentUpdateParams::direction]
+      end
+
+      type status = :reconciled
+
+      module Status
+        extend ModernTreasury::Internal::Type::Enum
+
+        RECONCILED: :reconciled
+
+        def self?.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentUpdateParams::status]
+      end
     end
   end
 end

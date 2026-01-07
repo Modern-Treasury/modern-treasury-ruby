@@ -9,7 +9,7 @@ module ModernTreasury
       #
       # @param documentable_id [String] The unique identifier for the associated object.
       #
-      # @param documentable_type [Symbol, ModernTreasury::Models::DocumentCreate::DocumentableType]
+      # @param documentable_type [Symbol, ModernTreasury::Models::DocumentCreateParams::DocumentableType]
       #
       # @param file [Pathname, StringIO, IO, String, ModernTreasury::FilePart]
       #

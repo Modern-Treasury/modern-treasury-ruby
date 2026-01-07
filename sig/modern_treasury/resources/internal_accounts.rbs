@@ -8,7 +8,7 @@ module ModernTreasury
         currency: ModernTreasury::Models::InternalAccountCreateParams::currency,
         name: String,
         party_name: String,
-        ?account_capabilities: ::Array[ModernTreasury::AccountCapability],
+        ?account_capabilities: ::Array[ModernTreasury::InternalAccountCreateParams::AccountCapability],
         ?account_type: ModernTreasury::Models::InternalAccountCreateParams::account_type,
         ?counterparty_id: String,
         ?legal_entity_id: String,

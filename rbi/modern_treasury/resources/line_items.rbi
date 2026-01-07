@@ -11,7 +11,7 @@ module ModernTreasury
             ModernTreasury::LineItemRetrieveParams::ItemizableType::OrSymbol,
           itemizable_id: String,
           request_options: ModernTreasury::RequestOptions::OrHash
-        ).returns(ModernTreasury::Models::LineItemRetrieveResponse)
+        ).returns(ModernTreasury::LineItem)
       end
       def retrieve(
         # The ID of the line item.
@@ -33,7 +33,7 @@ module ModernTreasury
           itemizable_id: String,
           metadata: T::Hash[Symbol, String],
           request_options: ModernTreasury::RequestOptions::OrHash
-        ).returns(ModernTreasury::Models::LineItemUpdateResponse)
+        ).returns(ModernTreasury::LineItem)
       end
       def update(
         # Path param: The ID of the line item.
@@ -58,11 +58,7 @@ module ModernTreasury
           after_cursor: T.nilable(String),
           per_page: Integer,
           request_options: ModernTreasury::RequestOptions::OrHash
-        ).returns(
-          ModernTreasury::Internal::Page[
-            ModernTreasury::Models::LineItemListResponse
-          ]
-        )
+        ).returns(ModernTreasury::Internal::Page[ModernTreasury::LineItem])
       end
       def list(
         # Path param: The ID of the payment order or expected payment.

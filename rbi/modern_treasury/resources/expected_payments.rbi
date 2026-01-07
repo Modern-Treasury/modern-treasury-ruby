@@ -10,12 +10,12 @@ module ModernTreasury
           amount_reconciled: T.nilable(Integer),
           amount_reconciled_direction:
             T.nilable(
-              ModernTreasury::ExpectedPaymentCreate::AmountReconciledDirection::OrSymbol
+              ModernTreasury::ExpectedPaymentCreateParams::AmountReconciledDirection::OrSymbol
             ),
           amount_unreconciled: T.nilable(Integer),
           amount_unreconciled_direction:
             T.nilable(
-              ModernTreasury::ExpectedPaymentCreate::AmountUnreconciledDirection::OrSymbol
+              ModernTreasury::ExpectedPaymentCreateParams::AmountUnreconciledDirection::OrSymbol
             ),
           amount_upper_bound: T.nilable(Integer),
           counterparty_id: T.nilable(String),
@@ -25,14 +25,17 @@ module ModernTreasury
           description: T.nilable(String),
           direction:
             T.nilable(
-              ModernTreasury::ExpectedPaymentCreate::Direction::OrSymbol
+              ModernTreasury::ExpectedPaymentCreateParams::Direction::OrSymbol
             ),
           external_id: T.nilable(String),
           internal_account_id: T.nilable(String),
           ledger_transaction:
             ModernTreasury::LedgerTransactionCreateRequest::OrHash,
           ledger_transaction_id: String,
-          line_items: T::Array[ModernTreasury::LineItem::OrHash],
+          line_items:
+            T::Array[
+              ModernTreasury::ExpectedPaymentCreateParams::LineItem::OrHash
+            ],
           metadata: T::Hash[Symbol, String],
           reconciliation_filters: T.nilable(T.anything),
           reconciliation_groups: T.nilable(T.anything),
@@ -138,12 +141,12 @@ module ModernTreasury
           amount_reconciled: T.nilable(Integer),
           amount_reconciled_direction:
             T.nilable(
-              ModernTreasury::ExpectedPaymentUpdate::AmountReconciledDirection::OrSymbol
+              ModernTreasury::ExpectedPaymentUpdateParams::AmountReconciledDirection::OrSymbol
             ),
           amount_unreconciled: T.nilable(Integer),
           amount_unreconciled_direction:
             T.nilable(
-              ModernTreasury::ExpectedPaymentUpdate::AmountUnreconciledDirection::OrSymbol
+              ModernTreasury::ExpectedPaymentUpdateParams::AmountUnreconciledDirection::OrSymbol
             ),
           amount_upper_bound: T.nilable(Integer),
           counterparty_id: T.nilable(String),
@@ -153,7 +156,7 @@ module ModernTreasury
           description: T.nilable(String),
           direction:
             T.nilable(
-              ModernTreasury::ExpectedPaymentUpdate::Direction::OrSymbol
+              ModernTreasury::ExpectedPaymentUpdateParams::Direction::OrSymbol
             ),
           external_id: T.nilable(String),
           internal_account_id: T.nilable(String),
@@ -165,7 +168,9 @@ module ModernTreasury
           remittance_information: T.nilable(String),
           statement_descriptor: T.nilable(String),
           status:
-            T.nilable(ModernTreasury::ExpectedPaymentUpdate::Status::OrSymbol),
+            T.nilable(
+              ModernTreasury::ExpectedPaymentUpdateParams::Status::OrSymbol
+            ),
           type: T.nilable(ModernTreasury::ExpectedPaymentType::OrSymbol),
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::ExpectedPayment)

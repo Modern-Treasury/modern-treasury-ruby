@@ -16,9 +16,9 @@ module ModernTreasury
       #
       # @param routing_number [String] Body param: The routing number of the bank.
       #
-      # @param routing_number_type [Symbol, ModernTreasury::Models::RoutingDetailCreate::RoutingNumberType] Body param: The type of routing number. See https://docs.moderntreasury.com/plat
+      # @param routing_number_type [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType] Body param: The type of routing number. See https://docs.moderntreasury.com/plat
       #
-      # @param payment_type [Symbol, ModernTreasury::Models::RoutingDetailCreate::PaymentType, nil] Body param: If the routing detail is to be used for a specific payment type this
+      # @param payment_type [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::PaymentType, nil] Body param: If the routing detail is to be used for a specific payment type this
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #

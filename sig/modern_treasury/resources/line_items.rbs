@@ -6,7 +6,7 @@ module ModernTreasury
         itemizable_type: ModernTreasury::Models::LineItemRetrieveParams::itemizable_type,
         itemizable_id: String,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::LineItemRetrieveResponse
+      ) -> ModernTreasury::LineItem
 
       def update: (
         String id,
@@ -14,7 +14,7 @@ module ModernTreasury
         itemizable_id: String,
         ?metadata: ::Hash[Symbol, String],
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::LineItemUpdateResponse
+      ) -> ModernTreasury::LineItem
 
       def list: (
         String itemizable_id,
@@ -22,7 +22,7 @@ module ModernTreasury
         ?after_cursor: String?,
         ?per_page: Integer,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::LineItemListResponse]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::LineItem]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

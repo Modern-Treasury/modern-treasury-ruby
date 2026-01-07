@@ -16,7 +16,9 @@ module ModernTreasury
 
       # An array of AccountCapability objects that list the originating abilities of the
       # internal account and any relevant information for them.
-      sig { returns(T::Array[ModernTreasury::AccountCapability]) }
+      sig do
+        returns(T::Array[ModernTreasury::InternalAccount::AccountCapability])
+      end
       attr_accessor :account_capabilities
 
       # An array of account detail objects.
@@ -128,7 +130,9 @@ module ModernTreasury
         params(
           id: String,
           account_capabilities:
-            T::Array[ModernTreasury::AccountCapability::OrHash],
+            T::Array[
+              ModernTreasury::InternalAccount::AccountCapability::OrHash
+            ],
           account_details: T::Array[ModernTreasury::AccountDetail::OrHash],
           account_type:
             T.nilable(ModernTreasury::InternalAccount::AccountType::OrSymbol),
@@ -209,7 +213,8 @@ module ModernTreasury
         override.returns(
           {
             id: String,
-            account_capabilities: T::Array[ModernTreasury::AccountCapability],
+            account_capabilities:
+              T::Array[ModernTreasury::InternalAccount::AccountCapability],
             account_details: T::Array[ModernTreasury::AccountDetail],
             account_type:
               T.nilable(
@@ -242,6 +247,310 @@ module ModernTreasury
         )
       end
       def to_hash
+      end
+
+      class AccountCapability < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              ModernTreasury::InternalAccount::AccountCapability,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
+
+        sig { returns(String) }
+        attr_accessor :id
+
+        sig { returns(Time) }
+        attr_accessor :created_at
+
+        # One of `debit` or `credit`. Indicates the direction of money movement this
+        # capability is responsible for.
+        sig { returns(ModernTreasury::TransactionDirection::TaggedSymbol) }
+        attr_accessor :direction
+
+        sig { returns(T.nilable(Time)) }
+        attr_accessor :discarded_at
+
+        # A unique reference assigned by your bank for tracking and recognizing payment
+        # files. It is important this is formatted exactly how the bank assigned it.
+        sig { returns(T.nilable(String)) }
+        attr_accessor :identifier
+
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
+        sig { returns(T::Boolean) }
+        attr_accessor :live_mode
+
+        sig { returns(String) }
+        attr_accessor :object
+
+        # Indicates the the type of payment this capability is responsible for
+        # originating.
+        sig do
+          returns(
+            ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+          )
+        end
+        attr_accessor :payment_type
+
+        sig { returns(Time) }
+        attr_accessor :updated_at
+
+        sig do
+          params(
+            id: String,
+            created_at: Time,
+            direction: ModernTreasury::TransactionDirection::OrSymbol,
+            discarded_at: T.nilable(Time),
+            identifier: T.nilable(String),
+            live_mode: T::Boolean,
+            object: String,
+            payment_type:
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::OrSymbol,
+            updated_at: Time
+          ).returns(T.attached_class)
+        end
+        def self.new(
+          id:,
+          created_at:,
+          # One of `debit` or `credit`. Indicates the direction of money movement this
+          # capability is responsible for.
+          direction:,
+          discarded_at:,
+          # A unique reference assigned by your bank for tracking and recognizing payment
+          # files. It is important this is formatted exactly how the bank assigned it.
+          identifier:,
+          # This field will be true if this object exists in the live environment or false
+          # if it exists in the test environment.
+          live_mode:,
+          object:,
+          # Indicates the the type of payment this capability is responsible for
+          # originating.
+          payment_type:,
+          updated_at:
+        )
+        end
+
+        sig do
+          override.returns(
+            {
+              id: String,
+              created_at: Time,
+              direction: ModernTreasury::TransactionDirection::TaggedSymbol,
+              discarded_at: T.nilable(Time),
+              identifier: T.nilable(String),
+              live_mode: T::Boolean,
+              object: String,
+              payment_type:
+                ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol,
+              updated_at: Time
+            }
+          )
+        end
+        def to_hash
+        end
+
+        # Indicates the the type of payment this capability is responsible for
+        # originating.
+        module PaymentType
+          extend ModernTreasury::Internal::Type::Enum
+
+          TaggedSymbol =
+            T.type_alias do
+              T.all(
+                Symbol,
+                ModernTreasury::InternalAccount::AccountCapability::PaymentType
+              )
+            end
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          ACH =
+            T.let(
+              :ach,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          AU_BECS =
+            T.let(
+              :au_becs,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          BACS =
+            T.let(
+              :bacs,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          BASE =
+            T.let(
+              :base,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          BOOK =
+            T.let(
+              :book,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          CARD =
+            T.let(
+              :card,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          CHATS =
+            T.let(
+              :chats,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          CHECK =
+            T.let(
+              :check,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          CROSS_BORDER =
+            T.let(
+              :cross_border,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          DK_NETS =
+            T.let(
+              :dk_nets,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          EFT =
+            T.let(
+              :eft,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          ETHEREUM =
+            T.let(
+              :ethereum,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          GB_FPS =
+            T.let(
+              :gb_fps,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          HU_ICS =
+            T.let(
+              :hu_ics,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          INTERAC =
+            T.let(
+              :interac,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          MASAV =
+            T.let(
+              :masav,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          MX_CCEN =
+            T.let(
+              :mx_ccen,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          NEFT =
+            T.let(
+              :neft,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          NICS =
+            T.let(
+              :nics,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          NZ_BECS =
+            T.let(
+              :nz_becs,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          PL_ELIXIR =
+            T.let(
+              :pl_elixir,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          POLYGON =
+            T.let(
+              :polygon,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          PROVXCHANGE =
+            T.let(
+              :provxchange,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          RO_SENT =
+            T.let(
+              :ro_sent,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          RTP =
+            T.let(
+              :rtp,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          SE_BANKGIROT =
+            T.let(
+              :se_bankgirot,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          SEN =
+            T.let(
+              :sen,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          SEPA =
+            T.let(
+              :sepa,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          SG_GIRO =
+            T.let(
+              :sg_giro,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          SIC =
+            T.let(
+              :sic,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          SIGNET =
+            T.let(
+              :signet,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          SKNBI =
+            T.let(
+              :sknbi,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          SOLANA =
+            T.let(
+              :solana,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          WIRE =
+            T.let(
+              :wire,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+          ZENGIN =
+            T.let(
+              :zengin,
+              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+            )
+
+          sig do
+            override.returns(
+              T::Array[
+                ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
+              ]
+            )
+          end
+          def self.values
+          end
+        end
       end
 
       # Can be checking, savings or other.
