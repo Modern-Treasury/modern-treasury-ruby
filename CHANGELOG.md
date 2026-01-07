@@ -1,5 +1,36 @@
 # Changelog
 
+## 0.12.0 (2026-01-07)
+
+Full Changelog: [v0.11.0...v0.12.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.11.0...v0.12.0)
+
+### Features
+
+* **api:** api update ([5d8f688](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/5d8f688ebb09543210e85c8b64eeb1e3ecb890e1))
+* **api:** api update ([b681160](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/b68116084fb76c8c40312436222f862ee9df7fb2))
+* **api:** api update ([a7eefae](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/a7eefae4495c1a097d1a2a839bf7841d0313e0b8))
+* **api:** api update ([d217b47](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/d217b47b21f131cce9f90bd6ab204e7ccf10ac8f))
+* **api:** manual updates ([7a97002](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/7a970020f9f30692d2716ddf928c1ff8a2d342f5))
+* **api:** manual updates ([d5d5d13](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/d5d5d1327c2a336c7f270065918411dc4626bde1))
+
+
+### Bug Fixes
+
+* calling `break` out of streams should be instantaneous ([8777505](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/8777505f08cb59f5a79fdef15d439d1d8172ee76))
+* issue where json.parse errors when receiving HTTP 204 with nobody ([a060164](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/a060164cc48b6ea185caaf6a113b3bc4c7bd0dae))
+
+
+### Chores
+
+* explicitly require "base64" gem ([85e8321](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/85e83214e464a90c4a68c52a0e6904021551a639))
+* **internal:** codegen related update ([2e9760f](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/2e9760f7c08e1b59a82e6a53ccff57cbd863891b))
+* **internal:** use different example values for some enums ([7731b2d](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/7731b2d093c26878a8c34713c7090332a2e0a51b))
+
+
+### Documentation
+
+* prominently feature MCP server setup in root SDK readmes ([e5f57ee](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/e5f57ee9c0905e066caf59fecf1acf3cddca4b4c))
+
 ## 0.11.0 (2025-11-06)
 
 Full Changelog: [v0.10.0...v0.11.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.10.0...v0.11.0)
