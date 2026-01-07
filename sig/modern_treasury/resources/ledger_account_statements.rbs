@@ -8,12 +8,12 @@ module ModernTreasury
         ?description: String?,
         ?metadata: ::Hash[Symbol, String],
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::LedgerAccountStatement
+      ) -> ModernTreasury::Models::LedgerAccountStatementCreateResponse
 
       def retrieve: (
         String id,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::LedgerAccountStatement
+      ) -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

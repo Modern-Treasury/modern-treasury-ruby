@@ -8,18 +8,18 @@ module ModernTreasury
         ?details: top,
         ?internal_account_id: String,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::PaymentAction
+      ) -> ModernTreasury::Models::PaymentActionCreateResponse
 
       def retrieve: (
         String id,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::PaymentAction
+      ) -> ModernTreasury::Models::PaymentActionRetrieveResponse
 
       def update: (
         String id,
         status: ModernTreasury::Models::PaymentActionUpdateParams::status,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::PaymentAction
+      ) -> ModernTreasury::Models::PaymentActionUpdateResponse
 
       def list: (
         ?actionable_id: String,
@@ -32,7 +32,7 @@ module ModernTreasury
         ?status: ModernTreasury::Models::PaymentActionListParams::status,
         ?type: ModernTreasury::Models::PaymentActionListParams::type_,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Internal::Page[ModernTreasury::PaymentAction]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::PaymentActionListResponse]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

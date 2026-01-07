@@ -6,7 +6,7 @@ module ModernTreasury
         currency: ModernTreasury::Models::InternalAccountCreateParams::currency,
         name: String,
         party_name: String,
-        account_capabilities: ::Array[ModernTreasury::AccountCapability],
+        account_capabilities: ::Array[ModernTreasury::InternalAccountCreateParams::AccountCapability],
         account_type: ModernTreasury::Models::InternalAccountCreateParams::account_type,
         counterparty_id: String,
         legal_entity_id: String,
@@ -28,11 +28,11 @@ module ModernTreasury
 
       attr_accessor party_name: String
 
-      attr_reader account_capabilities: ::Array[ModernTreasury::AccountCapability]?
+      attr_reader account_capabilities: ::Array[ModernTreasury::InternalAccountCreateParams::AccountCapability]?
 
       def account_capabilities=: (
-        ::Array[ModernTreasury::AccountCapability]
-      ) -> ::Array[ModernTreasury::AccountCapability]
+        ::Array[ModernTreasury::InternalAccountCreateParams::AccountCapability]
+      ) -> ::Array[ModernTreasury::InternalAccountCreateParams::AccountCapability]
 
       attr_reader account_type: ModernTreasury::Models::InternalAccountCreateParams::account_type?
 
@@ -67,7 +67,7 @@ module ModernTreasury
         currency: ModernTreasury::Models::InternalAccountCreateParams::currency,
         name: String,
         party_name: String,
-        ?account_capabilities: ::Array[ModernTreasury::AccountCapability],
+        ?account_capabilities: ::Array[ModernTreasury::InternalAccountCreateParams::AccountCapability],
         ?account_type: ModernTreasury::Models::InternalAccountCreateParams::account_type,
         ?counterparty_id: String,
         ?legal_entity_id: String,
@@ -82,7 +82,7 @@ module ModernTreasury
         currency: ModernTreasury::Models::InternalAccountCreateParams::currency,
         name: String,
         party_name: String,
-        account_capabilities: ::Array[ModernTreasury::AccountCapability],
+        account_capabilities: ::Array[ModernTreasury::InternalAccountCreateParams::AccountCapability],
         account_type: ModernTreasury::Models::InternalAccountCreateParams::account_type,
         counterparty_id: String,
         legal_entity_id: String,
@@ -101,6 +101,142 @@ module ModernTreasury
         CAD: :CAD
 
         def self?.values: -> ::Array[ModernTreasury::Models::InternalAccountCreateParams::currency]
+      end
+
+      type account_capability =
+        {
+          id: String,
+          created_at: Time,
+          direction: ModernTreasury::Models::transaction_direction,
+          discarded_at: Time?,
+          identifier: String?,
+          live_mode: bool,
+          object: String,
+          payment_type: ModernTreasury::Models::InternalAccountCreateParams::AccountCapability::payment_type,
+          updated_at: Time
+        }
+
+      class AccountCapability < ModernTreasury::Internal::Type::BaseModel
+        attr_accessor id: String
+
+        attr_accessor created_at: Time
+
+        attr_accessor direction: ModernTreasury::Models::transaction_direction
+
+        attr_accessor discarded_at: Time?
+
+        attr_accessor identifier: String?
+
+        attr_accessor live_mode: bool
+
+        attr_accessor object: String
+
+        attr_accessor payment_type: ModernTreasury::Models::InternalAccountCreateParams::AccountCapability::payment_type
+
+        attr_accessor updated_at: Time
+
+        def initialize: (
+          id: String,
+          created_at: Time,
+          direction: ModernTreasury::Models::transaction_direction,
+          discarded_at: Time?,
+          identifier: String?,
+          live_mode: bool,
+          object: String,
+          payment_type: ModernTreasury::Models::InternalAccountCreateParams::AccountCapability::payment_type,
+          updated_at: Time
+        ) -> void
+
+        def to_hash: -> {
+          id: String,
+          created_at: Time,
+          direction: ModernTreasury::Models::transaction_direction,
+          discarded_at: Time?,
+          identifier: String?,
+          live_mode: bool,
+          object: String,
+          payment_type: ModernTreasury::Models::InternalAccountCreateParams::AccountCapability::payment_type,
+          updated_at: Time
+        }
+
+        type payment_type =
+          :ach
+          | :au_becs
+          | :bacs
+          | :base
+          | :book
+          | :card
+          | :chats
+          | :check
+          | :cross_border
+          | :dk_nets
+          | :eft
+          | :ethereum
+          | :gb_fps
+          | :hu_ics
+          | :interac
+          | :masav
+          | :mx_ccen
+          | :neft
+          | :nics
+          | :nz_becs
+          | :pl_elixir
+          | :polygon
+          | :provxchange
+          | :ro_sent
+          | :rtp
+          | :se_bankgirot
+          | :sen
+          | :sepa
+          | :sg_giro
+          | :sic
+          | :signet
+          | :sknbi
+          | :solana
+          | :wire
+          | :zengin
+
+        module PaymentType
+          extend ModernTreasury::Internal::Type::Enum
+
+          ACH: :ach
+          AU_BECS: :au_becs
+          BACS: :bacs
+          BASE: :base
+          BOOK: :book
+          CARD: :card
+          CHATS: :chats
+          CHECK: :check
+          CROSS_BORDER: :cross_border
+          DK_NETS: :dk_nets
+          EFT: :eft
+          ETHEREUM: :ethereum
+          GB_FPS: :gb_fps
+          HU_ICS: :hu_ics
+          INTERAC: :interac
+          MASAV: :masav
+          MX_CCEN: :mx_ccen
+          NEFT: :neft
+          NICS: :nics
+          NZ_BECS: :nz_becs
+          PL_ELIXIR: :pl_elixir
+          POLYGON: :polygon
+          PROVXCHANGE: :provxchange
+          RO_SENT: :ro_sent
+          RTP: :rtp
+          SE_BANKGIROT: :se_bankgirot
+          SEN: :sen
+          SEPA: :sepa
+          SG_GIRO: :sg_giro
+          SIC: :sic
+          SIGNET: :signet
+          SKNBI: :sknbi
+          SOLANA: :solana
+          WIRE: :wire
+          ZENGIN: :zengin
+
+          def self?.values: -> ::Array[ModernTreasury::Models::InternalAccountCreateParams::AccountCapability::payment_type]
+        end
       end
 
       type account_type =

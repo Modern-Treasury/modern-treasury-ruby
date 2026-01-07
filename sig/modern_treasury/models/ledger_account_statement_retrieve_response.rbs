@@ -1,0 +1,90 @@
+module ModernTreasury
+  module Models
+    type ledger_account_statement_retrieve_response =
+      {
+        id: String,
+        created_at: Time,
+        description: String?,
+        effective_at_lower_bound: Time,
+        effective_at_upper_bound: Time,
+        ending_balance: ModernTreasury::LedgerBalances,
+        ledger_account_id: String,
+        ledger_account_lock_version: Integer,
+        ledger_account_normal_balance: ModernTreasury::Models::transaction_direction,
+        ledger_id: String,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String],
+        object: String,
+        starting_balance: ModernTreasury::LedgerBalances,
+        updated_at: Time
+      }
+
+    class LedgerAccountStatementRetrieveResponse < ModernTreasury::Internal::Type::BaseModel
+      attr_accessor id: String
+
+      attr_accessor created_at: Time
+
+      attr_accessor description: String?
+
+      attr_accessor effective_at_lower_bound: Time
+
+      attr_accessor effective_at_upper_bound: Time
+
+      attr_accessor ending_balance: ModernTreasury::LedgerBalances
+
+      attr_accessor ledger_account_id: String
+
+      attr_accessor ledger_account_lock_version: Integer
+
+      attr_accessor ledger_account_normal_balance: ModernTreasury::Models::transaction_direction
+
+      attr_accessor ledger_id: String
+
+      attr_accessor live_mode: bool
+
+      attr_accessor metadata: ::Hash[Symbol, String]
+
+      attr_accessor object: String
+
+      attr_accessor starting_balance: ModernTreasury::LedgerBalances
+
+      attr_accessor updated_at: Time
+
+      def initialize: (
+        id: String,
+        created_at: Time,
+        description: String?,
+        effective_at_lower_bound: Time,
+        effective_at_upper_bound: Time,
+        ending_balance: ModernTreasury::LedgerBalances,
+        ledger_account_id: String,
+        ledger_account_lock_version: Integer,
+        ledger_account_normal_balance: ModernTreasury::Models::transaction_direction,
+        ledger_id: String,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String],
+        object: String,
+        starting_balance: ModernTreasury::LedgerBalances,
+        updated_at: Time
+      ) -> void
+
+      def to_hash: -> {
+        id: String,
+        created_at: Time,
+        description: String?,
+        effective_at_lower_bound: Time,
+        effective_at_upper_bound: Time,
+        ending_balance: ModernTreasury::LedgerBalances,
+        ledger_account_id: String,
+        ledger_account_lock_version: Integer,
+        ledger_account_normal_balance: ModernTreasury::Models::transaction_direction,
+        ledger_id: String,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String],
+        object: String,
+        starting_balance: ModernTreasury::LedgerBalances,
+        updated_at: Time
+      }
+    end
+  end
+end

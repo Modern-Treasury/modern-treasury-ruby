@@ -10,7 +10,7 @@ module ModernTreasury
         description: String,
         due_date: Time,
         fallback_payment_method: String?,
-        invoice_line_items: ::Array[ModernTreasury::Invoices::InvoiceLineItemCreate]?,
+        invoice_line_items: ::Array[ModernTreasury::InvoiceUpdateParams::InvoiceLineItem]?,
         invoicer_address: ModernTreasury::InvoiceUpdateParams::InvoicerAddress?,
         metadata: ::Hash[Symbol, String]?,
         notification_email_addresses: ::Array[String]?,
@@ -62,7 +62,7 @@ module ModernTreasury
 
       attr_accessor fallback_payment_method: String?
 
-      attr_accessor invoice_line_items: ::Array[ModernTreasury::Invoices::InvoiceLineItemCreate]?
+      attr_accessor invoice_line_items: ::Array[ModernTreasury::InvoiceUpdateParams::InvoiceLineItem]?
 
       attr_accessor invoicer_address: ModernTreasury::InvoiceUpdateParams::InvoicerAddress?
 
@@ -119,7 +119,7 @@ module ModernTreasury
         ?description: String,
         ?due_date: Time,
         ?fallback_payment_method: String?,
-        ?invoice_line_items: ::Array[ModernTreasury::Invoices::InvoiceLineItemCreate]?,
+        ?invoice_line_items: ::Array[ModernTreasury::InvoiceUpdateParams::InvoiceLineItem]?,
         ?invoicer_address: ModernTreasury::InvoiceUpdateParams::InvoicerAddress?,
         ?metadata: ::Hash[Symbol, String]?,
         ?notification_email_addresses: ::Array[String]?,
@@ -146,7 +146,7 @@ module ModernTreasury
         description: String,
         due_date: Time,
         fallback_payment_method: String?,
-        invoice_line_items: ::Array[ModernTreasury::Invoices::InvoiceLineItemCreate]?,
+        invoice_line_items: ::Array[ModernTreasury::InvoiceUpdateParams::InvoiceLineItem]?,
         invoicer_address: ModernTreasury::InvoiceUpdateParams::InvoicerAddress?,
         metadata: ::Hash[Symbol, String]?,
         notification_email_addresses: ::Array[String]?,
@@ -249,6 +249,63 @@ module ModernTreasury
           postal_code: String,
           region: String,
           :line2 => String
+        }
+      end
+
+      type invoice_line_item =
+        {
+          name: String,
+          unit_amount: Integer,
+          description: String,
+          direction: String,
+          metadata: ::Hash[Symbol, String],
+          quantity: Integer,
+          unit_amount_decimal: String
+        }
+
+      class InvoiceLineItem < ModernTreasury::Internal::Type::BaseModel
+        attr_accessor name: String
+
+        attr_accessor unit_amount: Integer
+
+        attr_reader description: String?
+
+        def description=: (String) -> String
+
+        attr_reader direction: String?
+
+        def direction=: (String) -> String
+
+        attr_reader metadata: ::Hash[Symbol, String]?
+
+        def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
+
+        attr_reader quantity: Integer?
+
+        def quantity=: (Integer) -> Integer
+
+        attr_reader unit_amount_decimal: String?
+
+        def unit_amount_decimal=: (String) -> String
+
+        def initialize: (
+          name: String,
+          unit_amount: Integer,
+          ?description: String,
+          ?direction: String,
+          ?metadata: ::Hash[Symbol, String],
+          ?quantity: Integer,
+          ?unit_amount_decimal: String
+        ) -> void
+
+        def to_hash: -> {
+          name: String,
+          unit_amount: Integer,
+          description: String,
+          direction: String,
+          metadata: ::Hash[Symbol, String],
+          quantity: Integer,
+          unit_amount_decimal: String
         }
       end
 

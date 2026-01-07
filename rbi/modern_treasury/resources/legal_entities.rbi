@@ -7,7 +7,7 @@ module ModernTreasury
       sig do
         params(
           legal_entity_type:
-            ModernTreasury::LegalEntityCreate::LegalEntityType::OrSymbol,
+            ModernTreasury::LegalEntityCreateParams::LegalEntityType::OrSymbol,
           addresses:
             T::Array[ModernTreasury::LegalEntityAddressCreateRequest::OrHash],
           bank_settings:
@@ -38,19 +38,23 @@ module ModernTreasury
             ),
           legal_structure:
             T.nilable(
-              ModernTreasury::LegalEntityCreate::LegalStructure::OrSymbol
+              ModernTreasury::LegalEntityCreateParams::LegalStructure::OrSymbol
             ),
           metadata: T::Hash[Symbol, String],
           middle_name: T.nilable(String),
           operating_jurisdictions: T::Array[String],
           phone_numbers:
-            T::Array[ModernTreasury::LegalEntityCreate::PhoneNumber::OrHash],
+            T::Array[
+              ModernTreasury::LegalEntityCreateParams::PhoneNumber::OrHash
+            ],
           politically_exposed_person: T.nilable(T::Boolean),
           preferred_name: T.nilable(String),
           prefix: T.nilable(String),
           primary_social_media_sites: T::Array[String],
           risk_rating:
-            T.nilable(ModernTreasury::LegalEntityCreate::RiskRating::OrSymbol),
+            T.nilable(
+              ModernTreasury::LegalEntityCreateParams::RiskRating::OrSymbol
+            ),
           suffix: T.nilable(String),
           wealth_and_employment_details:
             T.nilable(

@@ -12,17 +12,17 @@ class ModernTreasury::Test::Resources::HoldsTest < ModernTreasury::Test::Resourc
       )
 
     assert_pattern do
-      response => ModernTreasury::Hold
+      response => ModernTreasury::Models::HoldCreateResponse
     end
 
     assert_pattern do
       response => {
         id: String,
         created_at: Time,
-        object: ModernTreasury::Hold::Object,
-        status: ModernTreasury::Hold::Status,
+        object: ModernTreasury::Models::HoldCreateResponse::Object,
+        status: ModernTreasury::Models::HoldCreateResponse::Status,
         target_id: String,
-        target_type: ModernTreasury::Hold::TargetType,
+        target_type: ModernTreasury::Models::HoldCreateResponse::TargetType,
         updated_at: Time,
         live_mode: ModernTreasury::Internal::Type::Boolean | nil,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]) | nil,
@@ -37,17 +37,17 @@ class ModernTreasury::Test::Resources::HoldsTest < ModernTreasury::Test::Resourc
     response = @modern_treasury.holds.retrieve("id")
 
     assert_pattern do
-      response => ModernTreasury::Hold
+      response => ModernTreasury::Models::HoldRetrieveResponse
     end
 
     assert_pattern do
       response => {
         id: String,
         created_at: Time,
-        object: ModernTreasury::Hold::Object,
-        status: ModernTreasury::Hold::Status,
+        object: ModernTreasury::Models::HoldRetrieveResponse::Object,
+        status: ModernTreasury::Models::HoldRetrieveResponse::Status,
         target_id: String,
-        target_type: ModernTreasury::Hold::TargetType,
+        target_type: ModernTreasury::Models::HoldRetrieveResponse::TargetType,
         updated_at: Time,
         live_mode: ModernTreasury::Internal::Type::Boolean | nil,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]) | nil,
@@ -62,17 +62,17 @@ class ModernTreasury::Test::Resources::HoldsTest < ModernTreasury::Test::Resourc
     response = @modern_treasury.holds.update("id", status: :resolved)
 
     assert_pattern do
-      response => ModernTreasury::Hold
+      response => ModernTreasury::Models::HoldUpdateResponse
     end
 
     assert_pattern do
       response => {
         id: String,
         created_at: Time,
-        object: ModernTreasury::Hold::Object,
-        status: ModernTreasury::Hold::Status,
+        object: ModernTreasury::Models::HoldUpdateResponse::Object,
+        status: ModernTreasury::Models::HoldUpdateResponse::Status,
         target_id: String,
-        target_type: ModernTreasury::Hold::TargetType,
+        target_type: ModernTreasury::Models::HoldUpdateResponse::TargetType,
         updated_at: Time,
         live_mode: ModernTreasury::Internal::Type::Boolean | nil,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]) | nil,
@@ -94,17 +94,17 @@ class ModernTreasury::Test::Resources::HoldsTest < ModernTreasury::Test::Resourc
     return if row.nil?
 
     assert_pattern do
-      row => ModernTreasury::Hold
+      row => ModernTreasury::Models::HoldListResponse
     end
 
     assert_pattern do
       row => {
         id: String,
         created_at: Time,
-        object: ModernTreasury::Hold::Object,
-        status: ModernTreasury::Hold::Status,
+        object: ModernTreasury::Models::HoldListResponse::Object,
+        status: ModernTreasury::Models::HoldListResponse::Status,
         target_id: String,
-        target_type: ModernTreasury::Hold::TargetType,
+        target_type: ModernTreasury::Models::HoldListResponse::TargetType,
         updated_at: Time,
         live_mode: ModernTreasury::Internal::Type::Boolean | nil,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]) | nil,

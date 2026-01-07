@@ -9,7 +9,9 @@ module ModernTreasury
           internal_account_id: String,
           name: String,
           account_details:
-            T::Array[ModernTreasury::AccountDetailCreate::OrHash],
+            T::Array[
+              ModernTreasury::VirtualAccountCreateParams::AccountDetail::OrHash
+            ],
           counterparty_id: String,
           credit_ledger_account_id: String,
           debit_ledger_account_id: String,
@@ -17,7 +19,9 @@ module ModernTreasury
           ledger_account: ModernTreasury::LedgerAccountCreateRequest::OrHash,
           metadata: T::Hash[Symbol, String],
           routing_details:
-            T::Array[ModernTreasury::RoutingDetailCreate::OrHash],
+            T::Array[
+              ModernTreasury::VirtualAccountCreateParams::RoutingDetail::OrHash
+            ],
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::VirtualAccount)
       end

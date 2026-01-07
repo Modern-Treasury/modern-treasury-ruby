@@ -2,7 +2,7 @@ module ModernTreasury
   module Resources
     class LegalEntities
       def create: (
-        legal_entity_type: ModernTreasury::Models::LegalEntityCreate::legal_entity_type,
+        legal_entity_type: ModernTreasury::Models::LegalEntityCreateParams::legal_entity_type,
         ?addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
         ?bank_settings: ModernTreasury::LegalEntityBankSettings?,
         ?business_description: String?,
@@ -21,16 +21,16 @@ module ModernTreasury
         ?intended_use: String?,
         ?last_name: String?,
         ?legal_entity_associations: ::Array[ModernTreasury::LegalEntityAssociationInlineCreate]?,
-        ?legal_structure: ModernTreasury::Models::LegalEntityCreate::legal_structure?,
+        ?legal_structure: ModernTreasury::Models::LegalEntityCreateParams::legal_structure?,
         ?metadata: ::Hash[Symbol, String],
         ?middle_name: String?,
         ?operating_jurisdictions: ::Array[String],
-        ?phone_numbers: ::Array[ModernTreasury::LegalEntityCreate::PhoneNumber],
+        ?phone_numbers: ::Array[ModernTreasury::LegalEntityCreateParams::PhoneNumber],
         ?politically_exposed_person: bool?,
         ?preferred_name: String?,
         ?prefix: String?,
         ?primary_social_media_sites: ::Array[String],
-        ?risk_rating: ModernTreasury::Models::LegalEntityCreate::risk_rating?,
+        ?risk_rating: ModernTreasury::Models::LegalEntityCreateParams::risk_rating?,
         ?suffix: String?,
         ?wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,
         ?website: String?,
