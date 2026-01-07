@@ -33,7 +33,7 @@ module ModernTreasury
       #
       # @param fallback_payment_method [String, nil] When payment_method is automatic, the fallback payment method to use when an aut
       #
-      # @param invoice_line_items [Array<ModernTreasury::Models::Invoices::InvoiceLineItemCreate>, nil] An array of invoice line items. The API supports a maximum of 50 invoice line it
+      # @param invoice_line_items [Array<ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem>, nil] An array of invoice line items. The API supports a maximum of 50 invoice line it
       #
       # @param invoicer_address [ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress, nil] The invoice issuer's business address.
       #
@@ -120,7 +120,7 @@ module ModernTreasury
       #
       # @param fallback_payment_method [String, nil] When payment_method is automatic, the fallback payment method to use when an aut
       #
-      # @param invoice_line_items [Array<ModernTreasury::Models::Invoices::InvoiceLineItemCreate>, nil] An array of invoice line items. The API supports a maximum of 50 invoice line it
+      # @param invoice_line_items [Array<ModernTreasury::Models::InvoiceUpdateParams::InvoiceLineItem>, nil] An array of invoice line items. The API supports a maximum of 50 invoice line it
       #
       # @param invoicer_address [ModernTreasury::Models::InvoiceUpdateParams::InvoicerAddress, nil] The invoice issuer's business address.
       #

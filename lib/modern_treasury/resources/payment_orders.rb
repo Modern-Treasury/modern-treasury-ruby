@@ -21,7 +21,7 @@ module ModernTreasury
       #
       # @param type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
       #
-      # @param accounting [ModernTreasury::Models::Accounting]
+      # @param accounting [ModernTreasury::Models::PaymentOrderCreateParams::Accounting]
       #
       # @param accounting_category_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
       #
@@ -33,7 +33,7 @@ module ModernTreasury
       #
       # @param description [String, nil] An optional description for internal use.
       #
-      # @param documents [Array<ModernTreasury::Models::DocumentCreate>] An array of documents to be attached to the payment order. Note that if you atta
+      # @param documents [Array<ModernTreasury::Models::PaymentOrderCreateParams::Document>] An array of documents to be attached to the payment order. Note that if you atta
       #
       # @param effective_date [Date] Date transactions are to be posted to the participants' account. Defaults to the
       #
@@ -49,7 +49,7 @@ module ModernTreasury
       #
       # @param ledger_transaction_id [String] Either ledger_transaction or ledger_transaction_id can be provided. Only a pendi
       #
-      # @param line_items [Array<ModernTreasury::Models::LineItem>] An array of line items that must sum up to the amount of the payment order.
+      # @param line_items [Array<ModernTreasury::Models::PaymentOrderCreateParams::LineItem>] An array of line items that must sum up to the amount of the payment order.
       #
       # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #
@@ -131,7 +131,7 @@ module ModernTreasury
       #
       # @param id [String]
       #
-      # @param accounting [ModernTreasury::Models::Accounting]
+      # @param accounting [ModernTreasury::Models::PaymentOrderUpdateParams::Accounting]
       #
       # @param accounting_category_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
       #
@@ -139,7 +139,7 @@ module ModernTreasury
       #
       # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
       #
-      # @param charge_bearer [Symbol, ModernTreasury::Models::PaymentOrderUpdate::ChargeBearer, nil] The party that will pay the fees for the payment order. See https://docs.modernt
+      # @param charge_bearer [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ChargeBearer, nil] The party that will pay the fees for the payment order. See https://docs.modernt
       #
       # @param counterparty_id [String, nil] Required when receiving_account_id is passed the ID of an external account.
       #
@@ -147,19 +147,19 @@ module ModernTreasury
       #
       # @param description [String, nil] An optional description for internal use.
       #
-      # @param direction [Symbol, ModernTreasury::Models::PaymentOrderUpdate::Direction] One of `credit`, `debit`. Describes the direction money is flowing in the transa
+      # @param direction [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Direction] One of `credit`, `debit`. Describes the direction money is flowing in the transa
       #
       # @param effective_date [Date] Date transactions are to be posted to the participants' account. Defaults to the
       #
       # @param expires_at [Time, nil] RFP payments require an expires_at. This value must be past the effective_date.
       #
-      # @param fallback_type [Symbol, ModernTreasury::Models::PaymentOrderUpdate::FallbackType] A payment type to fallback to if the original type is not valid for the receivin
+      # @param fallback_type [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::FallbackType] A payment type to fallback to if the original type is not valid for the receivin
       #
       # @param foreign_exchange_contract [String, nil] If present, indicates a specific foreign exchange contract number that has been
       #
-      # @param foreign_exchange_indicator [Symbol, ModernTreasury::Models::PaymentOrderUpdate::ForeignExchangeIndicator, nil] Indicates the type of FX transfer to initiate, can be either `variable_to_fixed`
+      # @param foreign_exchange_indicator [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ForeignExchangeIndicator, nil] Indicates the type of FX transfer to initiate, can be either `variable_to_fixed`
       #
-      # @param line_items [Array<ModernTreasury::Models::LineItem>] An array of line items that must sum up to the amount of the payment order.
+      # @param line_items [Array<ModernTreasury::Models::PaymentOrderUpdateParams::LineItem>] An array of line items that must sum up to the amount of the payment order.
       #
       # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #
@@ -169,17 +169,17 @@ module ModernTreasury
       #
       # @param originating_party_name [String, nil] If present, this will replace your default company name on receiver's bank state
       #
-      # @param priority [Symbol, ModernTreasury::Models::PaymentOrderUpdate::Priority] Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-da
+      # @param priority [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Priority] Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-da
       #
       # @param process_after [Time, nil] If present, Modern Treasury will not process the payment until after this time.
       #
       # @param purpose [String, nil] For `wire`, this is usually the purpose which is transmitted via the "InstrForDb
       #
-      # @param receiving_account [ModernTreasury::Models::PaymentOrderUpdate::ReceivingAccount] Either `receiving_account` or `receiving_account_id` must be present. When using
+      # @param receiving_account [ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount] Either `receiving_account` or `receiving_account_id` must be present. When using
       #
       # @param receiving_account_id [String] Either `receiving_account` or `receiving_account_id` must be present. When using
       #
-      # @param reconciliation_status [Symbol, ModernTreasury::Models::PaymentOrderUpdate::ReconciliationStatus] One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+      # @param reconciliation_status [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReconciliationStatus] One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
       #
       # @param remittance_information [String, nil] For `ach`, this field will be passed through on an addenda record. For `wire` pa
       #
@@ -187,7 +187,7 @@ module ModernTreasury
       #
       # @param statement_descriptor [String, nil] An optional descriptor which will appear in the receiver's statement. For `check
       #
-      # @param status [Symbol, ModernTreasury::Models::PaymentOrderUpdate::Status] To cancel a payment order, use `cancelled`. To redraft a returned payment order,
+      # @param status [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Status] To cancel a payment order, use `cancelled`. To redraft a returned payment order,
       #
       # @param subtype [Symbol, ModernTreasury::Models::PaymentOrderSubtype, nil] An additional layer of classification for the type of payment order you are doin
       #
@@ -286,19 +286,19 @@ module ModernTreasury
       #
       # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
       #
-      # @param direction [Symbol, ModernTreasury::Models::PaymentOrderAsyncCreate::Direction] One of `credit`, `debit`. Describes the direction money is flowing in the transa
+      # @param direction [Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::Direction] One of `credit`, `debit`. Describes the direction money is flowing in the transa
       #
       # @param originating_account_id [String] The ID of one of your organization's internal accounts.
       #
       # @param type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
       #
-      # @param accounting [ModernTreasury::Models::Accounting]
+      # @param accounting [ModernTreasury::Models::PaymentOrderCreateAsyncParams::Accounting]
       #
       # @param accounting_category_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
       #
       # @param accounting_ledger_class_id [String, nil] The ID of one of your accounting ledger classes. Note that these will only be ac
       #
-      # @param charge_bearer [Symbol, ModernTreasury::Models::PaymentOrderAsyncCreate::ChargeBearer, nil] The party that will pay the fees for the payment order. See https://docs.modernt
+      # @param charge_bearer [Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::ChargeBearer, nil] The party that will pay the fees for the payment order. See https://docs.modernt
       #
       # @param currency [Symbol, ModernTreasury::Models::Currency] Defaults to the currency of the originating account.
       #
@@ -308,17 +308,17 @@ module ModernTreasury
       #
       # @param expires_at [Time, nil] RFP payments require an expires_at. This value must be past the effective_date.
       #
-      # @param fallback_type [Symbol, ModernTreasury::Models::PaymentOrderAsyncCreate::FallbackType] A payment type to fallback to if the original type is not valid for the receivin
+      # @param fallback_type [Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::FallbackType] A payment type to fallback to if the original type is not valid for the receivin
       #
       # @param foreign_exchange_contract [String, nil] If present, indicates a specific foreign exchange contract number that has been
       #
-      # @param foreign_exchange_indicator [Symbol, ModernTreasury::Models::PaymentOrderAsyncCreate::ForeignExchangeIndicator, nil] Indicates the type of FX transfer to initiate, can be either `variable_to_fixed`
+      # @param foreign_exchange_indicator [Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::ForeignExchangeIndicator, nil] Indicates the type of FX transfer to initiate, can be either `variable_to_fixed`
       #
       # @param ledger_transaction [ModernTreasury::Models::LedgerTransactionCreateRequest] Specifies a ledger transaction object that will be created with the payment orde
       #
       # @param ledger_transaction_id [String] Either ledger_transaction or ledger_transaction_id can be provided. Only a pendi
       #
-      # @param line_items [Array<ModernTreasury::Models::LineItem>] An array of line items that must sum up to the amount of the payment order.
+      # @param line_items [Array<ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem>] An array of line items that must sum up to the amount of the payment order.
       #
       # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #
@@ -326,17 +326,17 @@ module ModernTreasury
       #
       # @param originating_party_name [String, nil] If present, this will replace your default company name on receiver's bank state
       #
-      # @param priority [Symbol, ModernTreasury::Models::PaymentOrderAsyncCreate::Priority] Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-da
+      # @param priority [Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::Priority] Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-da
       #
       # @param process_after [Time, nil] If present, Modern Treasury will not process the payment until after this time.
       #
       # @param purpose [String, nil] For `wire`, this is usually the purpose which is transmitted via the "InstrForDb
       #
-      # @param receiving_account [ModernTreasury::Models::PaymentOrderAsyncCreate::ReceivingAccount] Either `receiving_account` or `receiving_account_id` must be present. When using
+      # @param receiving_account [ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount] Either `receiving_account` or `receiving_account_id` must be present. When using
       #
       # @param receiving_account_id [String] Either `receiving_account` or `receiving_account_id` must be present. When using
       #
-      # @param reconciliation_status [Symbol, ModernTreasury::Models::PaymentOrderAsyncCreate::ReconciliationStatus] One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
+      # @param reconciliation_status [Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReconciliationStatus] One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
       #
       # @param remittance_information [String, nil] For `ach`, this field will be passed through on an addenda record. For `wire` pa
       #

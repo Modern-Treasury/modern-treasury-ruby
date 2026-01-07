@@ -13,11 +13,11 @@ module ModernTreasury
           resources:
             T::Array[
               T.any(
-                ModernTreasury::PaymentOrderAsyncCreate::OrHash,
-                ModernTreasury::ExpectedPaymentCreate::OrHash,
+                ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::OrHash,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::OrHash,
                 ModernTreasury::LedgerTransactionCreateRequest::OrHash,
                 ModernTreasury::LedgerAccountCreateRequest::OrHash,
-                ModernTreasury::TransactionCreate::OrHash,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::OrHash,
                 ModernTreasury::BulkRequestCreateParams::Resource::ID::OrHash,
                 ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::OrHash,
                 ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::OrHash,

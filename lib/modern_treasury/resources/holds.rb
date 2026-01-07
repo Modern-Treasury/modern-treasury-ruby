@@ -19,7 +19,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::Hold]
+      # @return [ModernTreasury::Models::HoldCreateResponse]
       #
       # @see ModernTreasury::Models::HoldCreateParams
       def create(params)
@@ -28,7 +28,7 @@ module ModernTreasury
           method: :post,
           path: "api/holds",
           body: parsed,
-          model: ModernTreasury::Hold,
+          model: ModernTreasury::Models::HoldCreateResponse,
           options: options
         )
       end
@@ -41,14 +41,14 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::Hold]
+      # @return [ModernTreasury::Models::HoldRetrieveResponse]
       #
       # @see ModernTreasury::Models::HoldRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
           path: ["api/holds/%1$s", id],
-          model: ModernTreasury::Hold,
+          model: ModernTreasury::Models::HoldRetrieveResponse,
           options: params[:request_options]
         )
       end
@@ -65,7 +65,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::Hold]
+      # @return [ModernTreasury::Models::HoldUpdateResponse]
       #
       # @see ModernTreasury::Models::HoldUpdateParams
       def update(id, params)
@@ -74,7 +74,7 @@ module ModernTreasury
           method: :patch,
           path: ["api/holds/%1$s", id],
           body: parsed,
-          model: ModernTreasury::Hold,
+          model: ModernTreasury::Models::HoldUpdateResponse,
           options: options
         )
       end
@@ -100,7 +100,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::Hold>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::HoldListResponse>]
       #
       # @see ModernTreasury::Models::HoldListParams
       def list(params = {})
@@ -110,7 +110,7 @@ module ModernTreasury
           path: "api/holds",
           query: parsed,
           page: ModernTreasury::Internal::Page,
-          model: ModernTreasury::Hold,
+          model: ModernTreasury::Models::HoldListResponse,
           options: options
         )
       end

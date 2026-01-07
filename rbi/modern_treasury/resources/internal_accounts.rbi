@@ -17,7 +17,9 @@ module ModernTreasury
           name: String,
           party_name: String,
           account_capabilities:
-            T::Array[ModernTreasury::AccountCapability::OrHash],
+            T::Array[
+              ModernTreasury::InternalAccountCreateParams::AccountCapability::OrHash
+            ],
           account_type:
             ModernTreasury::InternalAccountCreateParams::AccountType::OrSymbol,
           counterparty_id: String,

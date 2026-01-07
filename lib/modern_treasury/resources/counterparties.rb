@@ -22,7 +22,7 @@ module ModernTreasury
       #
       # @param ledger_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LedgerType] An optional type to auto-sync the counterparty to your ledger. Either `customer`
       #
-      # @param legal_entity [ModernTreasury::Models::LegalEntityCreate]
+      # @param legal_entity [ModernTreasury::Models::CounterpartyCreateParams::LegalEntity]
       #
       # @param legal_entity_id [String, nil] The id of the legal entity.
       #

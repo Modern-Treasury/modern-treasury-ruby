@@ -1,15 +1,105 @@
 module ModernTreasury
   module Models
     type ledger_transaction_update_params =
-      {  } & ModernTreasury::Internal::Type::request_parameters
+      {
+        description: String?,
+        effective_at: Time,
+        ledger_entries: ::Array[ModernTreasury::LedgerEntryCreateRequest],
+        ledgerable_id: String,
+        ledgerable_type: ModernTreasury::Models::LedgerTransactionUpdateParams::ledgerable_type,
+        metadata: ::Hash[Symbol, String],
+        status: ModernTreasury::Models::LedgerTransactionUpdateParams::status
+      }
+      & ModernTreasury::Internal::Type::request_parameters
 
-    class LedgerTransactionUpdateParams < ModernTreasury::Models::LedgerTransactionUpdate
+    class LedgerTransactionUpdateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
-      def initialize: (?request_options: ModernTreasury::request_opts) -> void
+      attr_accessor description: String?
 
-      def to_hash: -> { request_options: ModernTreasury::RequestOptions }
+      attr_reader effective_at: Time?
+
+      def effective_at=: (Time) -> Time
+
+      attr_reader ledger_entries: ::Array[ModernTreasury::LedgerEntryCreateRequest]?
+
+      def ledger_entries=: (
+        ::Array[ModernTreasury::LedgerEntryCreateRequest]
+      ) -> ::Array[ModernTreasury::LedgerEntryCreateRequest]
+
+      attr_reader ledgerable_id: String?
+
+      def ledgerable_id=: (String) -> String
+
+      attr_reader ledgerable_type: ModernTreasury::Models::LedgerTransactionUpdateParams::ledgerable_type?
+
+      def ledgerable_type=: (
+        ModernTreasury::Models::LedgerTransactionUpdateParams::ledgerable_type
+      ) -> ModernTreasury::Models::LedgerTransactionUpdateParams::ledgerable_type
+
+      attr_reader metadata: ::Hash[Symbol, String]?
+
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
+
+      attr_reader status: ModernTreasury::Models::LedgerTransactionUpdateParams::status?
+
+      def status=: (
+        ModernTreasury::Models::LedgerTransactionUpdateParams::status
+      ) -> ModernTreasury::Models::LedgerTransactionUpdateParams::status
+
+      def initialize: (
+        ?description: String?,
+        ?effective_at: Time,
+        ?ledger_entries: ::Array[ModernTreasury::LedgerEntryCreateRequest],
+        ?ledgerable_id: String,
+        ?ledgerable_type: ModernTreasury::Models::LedgerTransactionUpdateParams::ledgerable_type,
+        ?metadata: ::Hash[Symbol, String],
+        ?status: ModernTreasury::Models::LedgerTransactionUpdateParams::status,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        description: String?,
+        effective_at: Time,
+        ledger_entries: ::Array[ModernTreasury::LedgerEntryCreateRequest],
+        ledgerable_id: String,
+        ledgerable_type: ModernTreasury::Models::LedgerTransactionUpdateParams::ledgerable_type,
+        metadata: ::Hash[Symbol, String],
+        status: ModernTreasury::Models::LedgerTransactionUpdateParams::status,
+        request_options: ModernTreasury::RequestOptions
+      }
+
+      type ledgerable_type =
+        :expected_payment
+        | :incoming_payment_detail
+        | :payment_order
+        | :return
+        | :reversal
+
+      module LedgerableType
+        extend ModernTreasury::Internal::Type::Enum
+
+        EXPECTED_PAYMENT: :expected_payment
+        INCOMING_PAYMENT_DETAIL: :incoming_payment_detail
+        PAYMENT_ORDER: :payment_order
+        RETURN: :return
+        REVERSAL: :reversal
+
+        def self?.values: -> ::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::ledgerable_type]
+      end
+
+      type status = :archived | :pending | :posted
+
+      module Status
+        extend ModernTreasury::Internal::Type::Enum
+
+        ARCHIVED: :archived
+        PENDING: :pending
+        POSTED: :posted
+
+        def self?.values: -> ::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::status]
+      end
     end
   end
 end

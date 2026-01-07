@@ -12,7 +12,7 @@ module ModernTreasury
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           request_options: ModernTreasury::RequestOptions::OrHash
-        ).returns(ModernTreasury::LedgerAccountStatement)
+        ).returns(ModernTreasury::Models::LedgerAccountStatementCreateResponse)
       end
       def create(
         # The inclusive lower bound of the effective_at timestamp of the ledger entries to
@@ -38,7 +38,9 @@ module ModernTreasury
         params(
           id: String,
           request_options: ModernTreasury::RequestOptions::OrHash
-        ).returns(ModernTreasury::LedgerAccountStatement)
+        ).returns(
+          ModernTreasury::Models::LedgerAccountStatementRetrieveResponse
+        )
       end
       def retrieve(
         # id
