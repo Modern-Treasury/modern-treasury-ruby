@@ -658,11 +658,18 @@ module ModernTreasury
       end
 
       type status =
-        :completed | :failed | :pending | :processing | :returned | :sent
+        :cancelled
+        | :completed
+        | :failed
+        | :pending
+        | :processing
+        | :returned
+        | :sent
 
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
+        CANCELLED: :cancelled
         COMPLETED: :completed
         FAILED: :failed
         PENDING: :pending

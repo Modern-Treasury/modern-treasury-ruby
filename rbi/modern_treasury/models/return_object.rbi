@@ -1165,6 +1165,8 @@ module ModernTreasury
           T.type_alias { T.all(Symbol, ModernTreasury::ReturnObject::Status) }
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
+        CANCELLED =
+          T.let(:cancelled, ModernTreasury::ReturnObject::Status::TaggedSymbol)
         COMPLETED =
           T.let(:completed, ModernTreasury::ReturnObject::Status::TaggedSymbol)
         FAILED =
