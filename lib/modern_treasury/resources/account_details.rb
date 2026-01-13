@@ -12,7 +12,7 @@ module ModernTreasury
       #
       # @param account_id [String] Path param: The ID of the account.
       #
-      # @param accounts_type [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountsType] Path param:
+      # @param accounts_type [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountsType] Path param
       #
       # @param account_number [String] Body param: The account number for the bank account.
       #
@@ -77,11 +77,11 @@ module ModernTreasury
       #
       # @param account_id [String] Path param: The ID of the account.
       #
-      # @param accounts_type [Symbol, ModernTreasury::Models::AccountsType] Path param:
+      # @param accounts_type [Symbol, ModernTreasury::Models::AccountsType] Path param
       #
-      # @param after_cursor [String, nil] Query param:
+      # @param after_cursor [String, nil] Query param
       #
-      # @param per_page [Integer] Query param:
+      # @param per_page [Integer] Query param
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
