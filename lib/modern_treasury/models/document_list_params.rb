@@ -51,16 +51,17 @@ module ModernTreasury
       module DocumentableType
         extend ModernTreasury::Internal::Type::Enum
 
+        CONNECTIONS = :connections
         COUNTERPARTIES = :counterparties
         EXPECTED_PAYMENTS = :expected_payments
         EXTERNAL_ACCOUNTS = :external_accounts
         IDENTIFICATIONS = :identifications
         INCOMING_PAYMENT_DETAILS = :incoming_payment_details
         INTERNAL_ACCOUNTS = :internal_accounts
+        LEGAL_ENTITIES = :legal_entities
         ORGANIZATIONS = :organizations
         PAYMENT_ORDERS = :payment_orders
         TRANSACTIONS = :transactions
-        CONNECTIONS = :connections
 
         # @!method self.values
         #   @return [Array<Symbol>]

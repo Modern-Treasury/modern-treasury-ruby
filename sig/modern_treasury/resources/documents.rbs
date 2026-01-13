@@ -2,10 +2,10 @@ module ModernTreasury
   module Resources
     class Documents
       def create: (
-        documentable_id: String,
-        documentable_type: ModernTreasury::Models::DocumentCreateParams::documentable_type,
         file: ModernTreasury::Internal::file_input,
         ?document_type: String,
+        ?documentable_id: String,
+        ?documentable_type: ModernTreasury::Models::DocumentCreateParams::documentable_type,
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::Document
 

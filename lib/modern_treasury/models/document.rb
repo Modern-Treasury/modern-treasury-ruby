@@ -34,16 +34,16 @@ module ModernTreasury
       # @!attribute documentable_id
       #   The unique identifier for the associated object.
       #
-      #   @return [String]
-      required :documentable_id, String
+      #   @return [String, nil]
+      required :documentable_id, String, nil?: true
 
       # @!attribute documentable_type
       #   The type of the associated object. Currently can be one of `payment_order`,
       #   `transaction`, `expected_payment`, `counterparty`, `organization`, `case`,
       #   `internal_account`, `decision`, or `external_account`.
       #
-      #   @return [Symbol, ModernTreasury::Models::Document::DocumentableType]
-      required :documentable_type, enum: -> { ModernTreasury::Document::DocumentableType }
+      #   @return [Symbol, ModernTreasury::Models::Document::DocumentableType, nil]
+      required :documentable_type, enum: -> { ModernTreasury::Document::DocumentableType }, nil?: true
 
       # @!attribute file
       #
@@ -87,9 +87,9 @@ module ModernTreasury
       #
       #   @param document_type [String, nil] A category given to the document, can be `null`.
       #
-      #   @param documentable_id [String] The unique identifier for the associated object.
+      #   @param documentable_id [String, nil] The unique identifier for the associated object.
       #
-      #   @param documentable_type [Symbol, ModernTreasury::Models::Document::DocumentableType] The type of the associated object. Currently can be one of `payment_order`, `tra
+      #   @param documentable_type [Symbol, ModernTreasury::Models::Document::DocumentableType, nil] The type of the associated object. Currently can be one of `payment_order`, `tra
       #
       #   @param file [ModernTreasury::Models::Document::File]
       #
@@ -173,16 +173,17 @@ module ModernTreasury
       module DocumentableType
         extend ModernTreasury::Internal::Type::Enum
 
+        CONNECTION = :connection
         COUNTERPARTY = :counterparty
         EXPECTED_PAYMENT = :expected_payment
         EXTERNAL_ACCOUNT = :external_account
         IDENTIFICATION = :identification
         INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
         INTERNAL_ACCOUNT = :internal_account
+        LEGAL_ENTITY = :legal_entity
         ORGANIZATION = :organization
         PAYMENT_ORDER = :payment_order
         TRANSACTION = :transaction
-        CONNECTION = :connection
 
         # @!method self.values
         #   @return [Array<Symbol>]

@@ -82,24 +82,24 @@ require "pathname"
 
 # Use `Pathname` to send the filename and/or avoid paging a large file into memory:
 document = modern_treasury.documents.create(
+  file: Pathname("my/file.txt"),
   documentable_id: "24c6b7a3-02...",
-  documentable_type: "counterparties",
-  file: Pathname("my/file.txt")
+  documentable_type: "counterparties"
 )
 
 # Alternatively, pass file contents or a `StringIO` directly:
 document = modern_treasury.documents.create(
+  file: File.read("my/file.txt"),
   documentable_id: "24c6b7a3-02...",
-  documentable_type: "counterparties",
-  file: File.read("my/file.txt")
+  documentable_type: "counterparties"
 )
 
 # Or, to control the filename and/or content type:
 file = ModernTreasury::FilePart.new(File.read("my/file.txt"), filename: "my/file.txt", content_type: "…")
 document = modern_treasury.documents.create(
+  file: file,
   documentable_id: "24c6b7a3-02...",
-  documentable_type: "counterparties",
-  file: file
+  documentable_type: "counterparties"
 )
 
 puts(document.id)

@@ -6,21 +6,21 @@ module ModernTreasury
       # Create a document.
       sig do
         params(
+          file: ModernTreasury::Internal::FileInput,
+          document_type: String,
           documentable_id: String,
           documentable_type:
             ModernTreasury::DocumentCreateParams::DocumentableType::OrSymbol,
-          file: ModernTreasury::Internal::FileInput,
-          document_type: String,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::Document)
       end
       def create(
-        # The unique identifier for the associated object.
-        documentable_id:,
-        documentable_type:,
         file:,
         # A category given to the document, can be `null`.
         document_type: nil,
+        # The unique identifier for the associated object.
+        documentable_id: nil,
+        documentable_type: nil,
         request_options: {}
       )
       end
