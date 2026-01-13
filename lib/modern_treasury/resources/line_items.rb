@@ -83,9 +83,9 @@ module ModernTreasury
       #
       # @param itemizable_type [Symbol, ModernTreasury::Models::LineItemListParams::ItemizableType] Path param: One of `payment_orders` or `expected_payments`.
       #
-      # @param after_cursor [String, nil] Query param:
+      # @param after_cursor [String, nil] Query param
       #
-      # @param per_page [Integer] Query param:
+      # @param per_page [Integer] Query param
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #

@@ -18,7 +18,7 @@ module ModernTreasury
       def create(
         # Path param: The ID of the account.
         account_id,
-        # Path param:
+        # Path param
         accounts_type:,
         # Body param: The account number for the bank account.
         account_number:,
@@ -61,11 +61,11 @@ module ModernTreasury
       def list(
         # Path param: The ID of the account.
         account_id,
-        # Path param:
+        # Path param
         accounts_type:,
-        # Query param:
+        # Query param
         after_cursor: nil,
-        # Query param:
+        # Query param
         per_page: nil,
         request_options: {}
       )
