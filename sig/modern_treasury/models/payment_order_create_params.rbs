@@ -287,62 +287,70 @@ module ModernTreasury
 
       type document =
         {
-          documentable_id: String,
-          documentable_type: ModernTreasury::Models::PaymentOrderCreateParams::Document::documentable_type,
           file: ModernTreasury::Internal::file_input,
-          document_type: String
+          document_type: String,
+          documentable_id: String,
+          documentable_type: ModernTreasury::Models::PaymentOrderCreateParams::Document::documentable_type
         }
 
       class Document < ModernTreasury::Internal::Type::BaseModel
-        attr_accessor documentable_id: String
-
-        attr_accessor documentable_type: ModernTreasury::Models::PaymentOrderCreateParams::Document::documentable_type
-
         attr_accessor file: ModernTreasury::Internal::file_input
 
         attr_reader document_type: String?
 
         def document_type=: (String) -> String
 
+        attr_reader documentable_id: String?
+
+        def documentable_id=: (String) -> String
+
+        attr_reader documentable_type: ModernTreasury::Models::PaymentOrderCreateParams::Document::documentable_type?
+
+        def documentable_type=: (
+          ModernTreasury::Models::PaymentOrderCreateParams::Document::documentable_type
+        ) -> ModernTreasury::Models::PaymentOrderCreateParams::Document::documentable_type
+
         def initialize: (
-          documentable_id: String,
-          documentable_type: ModernTreasury::Models::PaymentOrderCreateParams::Document::documentable_type,
           file: ModernTreasury::Internal::file_input,
-          ?document_type: String
+          ?document_type: String,
+          ?documentable_id: String,
+          ?documentable_type: ModernTreasury::Models::PaymentOrderCreateParams::Document::documentable_type
         ) -> void
 
         def to_hash: -> {
-          documentable_id: String,
-          documentable_type: ModernTreasury::Models::PaymentOrderCreateParams::Document::documentable_type,
           file: ModernTreasury::Internal::file_input,
-          document_type: String
+          document_type: String,
+          documentable_id: String,
+          documentable_type: ModernTreasury::Models::PaymentOrderCreateParams::Document::documentable_type
         }
 
         type documentable_type =
-          :counterparties
+          :connections
+          | :counterparties
           | :expected_payments
           | :external_accounts
           | :identifications
           | :incoming_payment_details
           | :internal_accounts
+          | :legal_entities
           | :organizations
           | :payment_orders
           | :transactions
-          | :connections
 
         module DocumentableType
           extend ModernTreasury::Internal::Type::Enum
 
+          CONNECTIONS: :connections
           COUNTERPARTIES: :counterparties
           EXPECTED_PAYMENTS: :expected_payments
           EXTERNAL_ACCOUNTS: :external_accounts
           IDENTIFICATIONS: :identifications
           INCOMING_PAYMENT_DETAILS: :incoming_payment_details
           INTERNAL_ACCOUNTS: :internal_accounts
+          LEGAL_ENTITIES: :legal_entities
           ORGANIZATIONS: :organizations
           PAYMENT_ORDERS: :payment_orders
           TRANSACTIONS: :transactions
-          CONNECTIONS: :connections
 
           def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::Document::documentable_type]
         end

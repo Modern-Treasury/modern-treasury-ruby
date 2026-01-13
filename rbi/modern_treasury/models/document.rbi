@@ -25,13 +25,17 @@ module ModernTreasury
       attr_accessor :document_type
 
       # The unique identifier for the associated object.
-      sig { returns(String) }
+      sig { returns(T.nilable(String)) }
       attr_accessor :documentable_id
 
       # The type of the associated object. Currently can be one of `payment_order`,
       # `transaction`, `expected_payment`, `counterparty`, `organization`, `case`,
       # `internal_account`, `decision`, or `external_account`.
-      sig { returns(ModernTreasury::Document::DocumentableType::TaggedSymbol) }
+      sig do
+        returns(
+          T.nilable(ModernTreasury::Document::DocumentableType::TaggedSymbol)
+        )
+      end
       attr_accessor :documentable_type
 
       sig { returns(ModernTreasury::Document::File) }
@@ -63,9 +67,9 @@ module ModernTreasury
           document_details:
             T::Array[ModernTreasury::Document::DocumentDetail::OrHash],
           document_type: T.nilable(String),
-          documentable_id: String,
+          documentable_id: T.nilable(String),
           documentable_type:
-            ModernTreasury::Document::DocumentableType::OrSymbol,
+            T.nilable(ModernTreasury::Document::DocumentableType::OrSymbol),
           file: ModernTreasury::Document::File::OrHash,
           live_mode: T::Boolean,
           object: String,
@@ -106,9 +110,11 @@ module ModernTreasury
             document_details:
               T::Array[ModernTreasury::Document::DocumentDetail],
             document_type: T.nilable(String),
-            documentable_id: String,
+            documentable_id: T.nilable(String),
             documentable_type:
-              ModernTreasury::Document::DocumentableType::TaggedSymbol,
+              T.nilable(
+                ModernTreasury::Document::DocumentableType::TaggedSymbol
+              ),
             file: ModernTreasury::Document::File,
             live_mode: T::Boolean,
             object: String,
@@ -211,6 +217,11 @@ module ModernTreasury
           end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
+        CONNECTION =
+          T.let(
+            :connection,
+            ModernTreasury::Document::DocumentableType::TaggedSymbol
+          )
         COUNTERPARTY =
           T.let(
             :counterparty,
@@ -241,6 +252,11 @@ module ModernTreasury
             :internal_account,
             ModernTreasury::Document::DocumentableType::TaggedSymbol
           )
+        LEGAL_ENTITY =
+          T.let(
+            :legal_entity,
+            ModernTreasury::Document::DocumentableType::TaggedSymbol
+          )
         ORGANIZATION =
           T.let(
             :organization,
@@ -254,11 +270,6 @@ module ModernTreasury
         TRANSACTION =
           T.let(
             :transaction,
-            ModernTreasury::Document::DocumentableType::TaggedSymbol
-          )
-        CONNECTION =
-          T.let(
-            :connection,
             ModernTreasury::Document::DocumentableType::TaggedSymbol
           )
 

@@ -6,12 +6,7 @@ class ModernTreasury::Test::Resources::DocumentsTest < ModernTreasury::Test::Res
   def test_create_required_params
     skip("multipart/form-data not yet supported")
 
-    response =
-      @modern_treasury.documents.create(
-        documentable_id: "documentable_id",
-        documentable_type: :counterparties,
-        file: Pathname(__FILE__)
-      )
+    response = @modern_treasury.documents.create(file: Pathname(__FILE__))
 
     assert_pattern do
       response => ModernTreasury::Document
@@ -24,8 +19,8 @@ class ModernTreasury::Test::Resources::DocumentsTest < ModernTreasury::Test::Res
         discarded_at: Time | nil,
         document_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Document::DocumentDetail]),
         document_type: String | nil,
-        documentable_id: String,
-        documentable_type: ModernTreasury::Document::DocumentableType,
+        documentable_id: String | nil,
+        documentable_type: ModernTreasury::Document::DocumentableType | nil,
         file: ModernTreasury::Document::File,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
@@ -49,8 +44,8 @@ class ModernTreasury::Test::Resources::DocumentsTest < ModernTreasury::Test::Res
         discarded_at: Time | nil,
         document_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Document::DocumentDetail]),
         document_type: String | nil,
-        documentable_id: String,
-        documentable_type: ModernTreasury::Document::DocumentableType,
+        documentable_id: String | nil,
+        documentable_type: ModernTreasury::Document::DocumentableType | nil,
         file: ModernTreasury::Document::File,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
@@ -81,8 +76,8 @@ class ModernTreasury::Test::Resources::DocumentsTest < ModernTreasury::Test::Res
         discarded_at: Time | nil,
         document_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Document::DocumentDetail]),
         document_type: String | nil,
-        documentable_id: String,
-        documentable_type: ModernTreasury::Document::DocumentableType,
+        documentable_id: String | nil,
+        documentable_type: ModernTreasury::Document::DocumentableType | nil,
         file: ModernTreasury::Document::File,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
