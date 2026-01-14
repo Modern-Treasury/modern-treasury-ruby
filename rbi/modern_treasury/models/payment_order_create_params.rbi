@@ -732,17 +732,6 @@ module ModernTreasury
             )
           end
 
-        # The unique identifier for the associated object.
-        sig { returns(String) }
-        attr_accessor :documentable_id
-
-        sig do
-          returns(
-            ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::OrSymbol
-          )
-        end
-        attr_accessor :documentable_type
-
         sig { returns(ModernTreasury::Internal::FileInput) }
         attr_accessor :file
 
@@ -753,33 +742,57 @@ module ModernTreasury
         sig { params(document_type: String).void }
         attr_writer :document_type
 
+        # The unique identifier for the associated object.
+        sig { returns(T.nilable(String)) }
+        attr_reader :documentable_id
+
+        sig { params(documentable_id: String).void }
+        attr_writer :documentable_id
+
+        sig do
+          returns(
+            T.nilable(
+              ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::OrSymbol
+            )
+          )
+        end
+        attr_reader :documentable_type
+
         sig do
           params(
+            documentable_type:
+              ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::OrSymbol
+          ).void
+        end
+        attr_writer :documentable_type
+
+        sig do
+          params(
+            file: ModernTreasury::Internal::FileInput,
+            document_type: String,
             documentable_id: String,
             documentable_type:
-              ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::OrSymbol,
-            file: ModernTreasury::Internal::FileInput,
-            document_type: String
+              ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::OrSymbol
           ).returns(T.attached_class)
         end
         def self.new(
-          # The unique identifier for the associated object.
-          documentable_id:,
-          documentable_type:,
           file:,
           # A category given to the document, can be `null`.
-          document_type: nil
+          document_type: nil,
+          # The unique identifier for the associated object.
+          documentable_id: nil,
+          documentable_type: nil
         )
         end
 
         sig do
           override.returns(
             {
+              file: ModernTreasury::Internal::FileInput,
+              document_type: String,
               documentable_id: String,
               documentable_type:
-                ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::OrSymbol,
-              file: ModernTreasury::Internal::FileInput,
-              document_type: String
+                ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::OrSymbol
             }
           )
         end
@@ -798,6 +811,11 @@ module ModernTreasury
             end
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
+          CONNECTIONS =
+            T.let(
+              :connections,
+              ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::TaggedSymbol
+            )
           COUNTERPARTIES =
             T.let(
               :counterparties,
@@ -828,6 +846,11 @@ module ModernTreasury
               :internal_accounts,
               ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::TaggedSymbol
             )
+          LEGAL_ENTITIES =
+            T.let(
+              :legal_entities,
+              ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::TaggedSymbol
+            )
           ORGANIZATIONS =
             T.let(
               :organizations,
@@ -841,11 +864,6 @@ module ModernTreasury
           TRANSACTIONS =
             T.let(
               :transactions,
-              ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::TaggedSymbol
-            )
-          CONNECTIONS =
-            T.let(
-              :connections,
               ModernTreasury::PaymentOrderCreateParams::Document::DocumentableType::TaggedSymbol
             )
 

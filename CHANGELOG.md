@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.13.0 (2026-01-13)
+
+Full Changelog: [v0.12.0...v0.13.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.12.0...v0.13.0)
+
+### Features
+
+* **api:** api update ([890a2c0](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/890a2c0dc9e13239c715248cdb9879de929f3a09))
+* **api:** api update ([09809bd](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/09809bd5b85d46cbb6628dc89b511bd64c86e13f))
+* **api:** api update ([72e1a41](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/72e1a4120713c8ccf8c939f44dfe464f72f07421))
+* **api:** manual updates ([880384c](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/880384c078001955b7a212428b778e268e3951eb))
+* **api:** manual updates ([4ad7e5e](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/4ad7e5e51421daab7f22213c7db308a66a5ec237))
+* **api:** manual updates ([2f1b2b4](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/2f1b2b459967c9d6ae3ebfc98ca74f700ee55f09))
+
+
+### Chores
+
+* **internal:** codegen related update ([a56b7f7](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/a56b7f7a83e76478ac7f7c63215ea67a5cd3a8e0))
+* move `cgi` into dependencies for ruby 4 ([be7d7af](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/be7d7afbdce631face87e0b5c27a0d65539f32e6))
+
 ## 0.12.0 (2026-01-07)
 
 Full Changelog: [v0.11.0...v0.12.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.11.0...v0.12.0)

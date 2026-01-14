@@ -5,15 +5,15 @@ module ModernTreasury
     class Documents
       # Create a document.
       #
-      # @overload create(documentable_id:, documentable_type:, file:, document_type: nil, request_options: {})
-      #
-      # @param documentable_id [String] The unique identifier for the associated object.
-      #
-      # @param documentable_type [Symbol, ModernTreasury::Models::DocumentCreateParams::DocumentableType]
+      # @overload create(file:, document_type: nil, documentable_id: nil, documentable_type: nil, request_options: {})
       #
       # @param file [Pathname, StringIO, IO, String, ModernTreasury::FilePart]
       #
       # @param document_type [String] A category given to the document, can be `null`.
+      #
+      # @param documentable_id [String] The unique identifier for the associated object.
+      #
+      # @param documentable_type [Symbol, ModernTreasury::Models::DocumentCreateParams::DocumentableType]
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #

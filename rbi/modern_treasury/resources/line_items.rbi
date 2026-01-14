@@ -65,9 +65,9 @@ module ModernTreasury
         itemizable_id,
         # Path param: One of `payment_orders` or `expected_payments`.
         itemizable_type:,
-        # Query param:
+        # Query param
         after_cursor: nil,
-        # Query param:
+        # Query param
         per_page: nil,
         request_options: {}
       )

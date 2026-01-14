@@ -609,6 +609,7 @@ module ModernTreasury
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
+        CANCELLED = :cancelled
         COMPLETED = :completed
         FAILED = :failed
         PENDING = :pending
