@@ -70,6 +70,16 @@ module ModernTreasury
         #   @return [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
         optional :compliance_details, -> { ModernTreasury::LegalEntityComplianceDetail }, nil?: true
 
+        # @!attribute connection_id
+        #   The connection ID for the connection the legal entity is associated with.
+        #   Defaults to the id of the connection designated with an is_default value of true
+        #   or the id of an existing operational connection if only one is available. Pass
+        #   in a value of null to prevent the connection from being associated with the
+        #   legal entity.
+        #
+        #   @return [String, nil]
+        optional :connection_id, String, nil?: true
+
         # @!attribute country_of_incorporation
         #   The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
         #   alpha-3 formats.
@@ -101,7 +111,7 @@ module ModernTreasury
         optional :email, String, nil?: true
 
         # @!attribute expected_activity_volume
-        #   Monthly expected transaction volume in entity's local currency.
+        #   Monthly expected transaction volume in USD.
         #
         #   @return [Integer, nil]
         optional :expected_activity_volume, Integer, nil?: true
@@ -240,7 +250,7 @@ module ModernTreasury
         #   @return [String, nil]
         optional :website, String, nil?: true
 
-        # @!method initialize(addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_entity_associations: nil, legal_entity_type: nil, legal_structure: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, risk_rating: nil, suffix: nil, wealth_and_employment_details: nil, website: nil)
+        # @!method initialize(addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, connection_id: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_entity_associations: nil, legal_entity_type: nil, legal_structure: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, risk_rating: nil, suffix: nil, wealth_and_employment_details: nil, website: nil)
         #   Some parameter documentations has been truncated, see
         #   {ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity} for
         #   more details.
@@ -259,6 +269,8 @@ module ModernTreasury
         #
         #   @param compliance_details [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
         #
+        #   @param connection_id [String, nil] The connection ID for the connection the legal entity is associated with. Defaul
+        #
         #   @param country_of_incorporation [String, nil] The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
         #
         #   @param date_formed [Date, nil] A business's formation date (YYYY-MM-DD).
@@ -269,7 +281,7 @@ module ModernTreasury
         #
         #   @param email [String, nil] The entity's primary email.
         #
-        #   @param expected_activity_volume [Integer, nil] Monthly expected transaction volume in entity's local currency.
+        #   @param expected_activity_volume [Integer, nil] Monthly expected transaction volume in USD.
         #
         #   @param first_name [String, nil] An individual's first name.
         #

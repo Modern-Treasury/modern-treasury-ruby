@@ -1201,6 +1201,11 @@ module ModernTreasury
                 :base_address,
                 ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
               )
+            CARD_TOKEN =
+              T.let(
+                :card_token,
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
+              )
             CLABE =
               T.let(
                 :clabe,

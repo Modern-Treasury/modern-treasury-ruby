@@ -87,7 +87,7 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :email
 
-      # Monthly expected transaction volume in entity's local currency.
+      # Monthly expected transaction volume in USD.
       sig { returns(T.nilable(Integer)) }
       attr_accessor :expected_activity_volume
 
@@ -307,7 +307,7 @@ module ModernTreasury
         doing_business_as_names: nil,
         # The entity's primary email.
         email: nil,
-        # Monthly expected transaction volume in entity's local currency.
+        # Monthly expected transaction volume in USD.
         expected_activity_volume: nil,
         # An individual's first name.
         first_name: nil,

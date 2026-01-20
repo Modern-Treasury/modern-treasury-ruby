@@ -17,6 +17,7 @@ module ModernTreasury
           citizenship_country: T.nilable(String),
           compliance_details:
             T.nilable(ModernTreasury::LegalEntityComplianceDetail::OrHash),
+          connection_id: T.nilable(String),
           country_of_incorporation: T.nilable(String),
           date_formed: T.nilable(Date),
           date_of_birth: T.nilable(Date),
@@ -77,6 +78,12 @@ module ModernTreasury
         # The country of citizenship for an individual.
         citizenship_country: nil,
         compliance_details: nil,
+        # The connection ID for the connection the legal entity is associated with.
+        # Defaults to the id of the connection designated with an is_default value of true
+        # or the id of an existing operational connection if only one is available. Pass
+        # in a value of null to prevent the connection from being associated with the
+        # legal entity.
+        connection_id: nil,
         # The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
         # alpha-3 formats.
         country_of_incorporation: nil,
@@ -87,7 +94,7 @@ module ModernTreasury
         doing_business_as_names: nil,
         # The entity's primary email.
         email: nil,
-        # Monthly expected transaction volume in entity's local currency.
+        # Monthly expected transaction volume in USD.
         expected_activity_volume: nil,
         # An individual's first name.
         first_name: nil,
@@ -222,7 +229,7 @@ module ModernTreasury
         doing_business_as_names: nil,
         # The entity's primary email.
         email: nil,
-        # Monthly expected transaction volume in entity's local currency.
+        # Monthly expected transaction volume in USD.
         expected_activity_volume: nil,
         # An individual's first name.
         first_name: nil,

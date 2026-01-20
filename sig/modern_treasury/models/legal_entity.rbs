@@ -14,6 +14,7 @@ module ModernTreasury
         date_formed: Date?,
         date_of_birth: Date?,
         discarded_at: Time?,
+        documents: ::Array[ModernTreasury::Document],
         doing_business_as_names: ::Array[String],
         email: String?,
         expected_activity_volume: Integer?,
@@ -66,6 +67,8 @@ module ModernTreasury
       attr_accessor date_of_birth: Date?
 
       attr_accessor discarded_at: Time?
+
+      attr_accessor documents: ::Array[ModernTreasury::Document]
 
       attr_accessor doing_business_as_names: ::Array[String]
 
@@ -132,6 +135,7 @@ module ModernTreasury
         date_formed: Date?,
         date_of_birth: Date?,
         discarded_at: Time?,
+        documents: ::Array[ModernTreasury::Document],
         doing_business_as_names: ::Array[String],
         email: String?,
         expected_activity_volume: Integer?,
@@ -173,6 +177,7 @@ module ModernTreasury
         date_formed: Date?,
         date_of_birth: Date?,
         discarded_at: Time?,
+        documents: ::Array[ModernTreasury::Document],
         doing_business_as_names: ::Array[String],
         email: String?,
         expected_activity_volume: Integer?,
@@ -298,6 +303,7 @@ module ModernTreasury
           id: String,
           created_at: Time,
           discarded_at: Time?,
+          documents: ::Array[ModernTreasury::Document],
           expiration_date: Date?,
           id_type: ModernTreasury::Models::LegalEntity::Identification::id_type,
           issuing_country: String?,
@@ -313,6 +319,8 @@ module ModernTreasury
         attr_accessor created_at: Time
 
         attr_accessor discarded_at: Time?
+
+        attr_accessor documents: ::Array[ModernTreasury::Document]
 
         attr_accessor expiration_date: Date?
 
@@ -332,6 +340,7 @@ module ModernTreasury
           id: String,
           created_at: Time,
           discarded_at: Time?,
+          documents: ::Array[ModernTreasury::Document],
           expiration_date: Date?,
           id_type: ModernTreasury::Models::LegalEntity::Identification::id_type,
           issuing_country: String?,
@@ -345,6 +354,7 @@ module ModernTreasury
           id: String,
           created_at: Time,
           discarded_at: Time?,
+          documents: ::Array[ModernTreasury::Document],
           expiration_date: Date?,
           id_type: ModernTreasury::Models::LegalEntity::Identification::id_type,
           issuing_country: String?,

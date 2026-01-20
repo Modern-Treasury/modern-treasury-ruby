@@ -71,6 +71,9 @@ module ModernTreasury
       sig { returns(T.nilable(Time)) }
       attr_accessor :discarded_at
 
+      sig { returns(T::Array[ModernTreasury::Document]) }
+      attr_accessor :documents
+
       sig { returns(T::Array[String]) }
       attr_accessor :doing_business_as_names
 
@@ -78,7 +81,7 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :email
 
-      # Monthly expected transaction volume in entity's local currency.
+      # Monthly expected transaction volume in USD.
       sig { returns(T.nilable(Integer)) }
       attr_accessor :expected_activity_volume
 
@@ -218,6 +221,7 @@ module ModernTreasury
           date_formed: T.nilable(Date),
           date_of_birth: T.nilable(Date),
           discarded_at: T.nilable(Time),
+          documents: T::Array[ModernTreasury::Document::OrHash],
           doing_business_as_names: T::Array[String],
           email: T.nilable(String),
           expected_activity_volume: T.nilable(Integer),
@@ -279,10 +283,11 @@ module ModernTreasury
         # An individual's date of birth (YYYY-MM-DD).
         date_of_birth:,
         discarded_at:,
+        documents:,
         doing_business_as_names:,
         # The entity's primary email.
         email:,
-        # Monthly expected transaction volume in entity's local currency.
+        # Monthly expected transaction volume in USD.
         expected_activity_volume:,
         # An individual's first name.
         first_name:,
@@ -348,6 +353,7 @@ module ModernTreasury
             date_formed: T.nilable(Date),
             date_of_birth: T.nilable(Date),
             discarded_at: T.nilable(Time),
+            documents: T::Array[ModernTreasury::Document],
             doing_business_as_names: T::Array[String],
             email: T.nilable(String),
             expected_activity_volume: T.nilable(Integer),
@@ -590,6 +596,9 @@ module ModernTreasury
         sig { returns(T.nilable(Time)) }
         attr_accessor :discarded_at
 
+        sig { returns(T::Array[ModernTreasury::Document]) }
+        attr_accessor :documents
+
         # The date when the Identification is no longer considered valid by the issuing
         # authority.
         sig { returns(T.nilable(Date)) }
@@ -628,6 +637,7 @@ module ModernTreasury
             id: String,
             created_at: Time,
             discarded_at: T.nilable(Time),
+            documents: T::Array[ModernTreasury::Document::OrHash],
             expiration_date: T.nilable(Date),
             id_type:
               ModernTreasury::ChildLegalEntity::Identification::IDType::OrSymbol,
@@ -642,6 +652,7 @@ module ModernTreasury
           id:,
           created_at:,
           discarded_at:,
+          documents:,
           # The date when the Identification is no longer considered valid by the issuing
           # authority.
           expiration_date:,
@@ -666,6 +677,7 @@ module ModernTreasury
               id: String,
               created_at: Time,
               discarded_at: T.nilable(Time),
+              documents: T::Array[ModernTreasury::Document],
               expiration_date: T.nilable(Date),
               id_type:
                 ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol,

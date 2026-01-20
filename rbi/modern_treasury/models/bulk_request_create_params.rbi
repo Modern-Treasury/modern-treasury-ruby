@@ -1448,6 +1448,11 @@ module ModernTreasury
                     :base_address,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
                   )
+                CARD_TOKEN =
+                  T.let(
+                    :card_token,
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
+                  )
                 CLABE =
                   T.let(
                     :clabe,
@@ -4125,6 +4130,11 @@ module ModernTreasury
                 BASE_ADDRESS =
                   T.let(
                     :base_address,
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
+                  )
+                CARD_TOKEN =
+                  T.let(
+                    :card_token,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
                   )
                 CLABE =
