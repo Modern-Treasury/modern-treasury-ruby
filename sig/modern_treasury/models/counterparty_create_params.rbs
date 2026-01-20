@@ -269,6 +269,7 @@ module ModernTreasury
           type account_number_type =
             :au_number
             | :base_address
+            | :card_token
             | :clabe
             | :ethereum_address
             | :hk_number
@@ -287,6 +288,7 @@ module ModernTreasury
 
             AU_NUMBER: :au_number
             BASE_ADDRESS: :base_address
+            CARD_TOKEN: :card_token
             CLABE: :clabe
             ETHEREUM_ADDRESS: :ethereum_address
             HK_NUMBER: :hk_number
@@ -499,6 +501,7 @@ module ModernTreasury
           business_name: String?,
           citizenship_country: String?,
           compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
+          connection_id: String?,
           country_of_incorporation: String?,
           date_formed: Date?,
           date_of_birth: Date?,
@@ -544,6 +547,8 @@ module ModernTreasury
         attr_accessor citizenship_country: String?
 
         attr_accessor compliance_details: ModernTreasury::LegalEntityComplianceDetail?
+
+        attr_accessor connection_id: String?
 
         attr_accessor country_of_incorporation: String?
 
@@ -623,6 +628,7 @@ module ModernTreasury
           ?business_name: String?,
           ?citizenship_country: String?,
           ?compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
+          ?connection_id: String?,
           ?country_of_incorporation: String?,
           ?date_formed: Date?,
           ?date_of_birth: Date?,
@@ -658,6 +664,7 @@ module ModernTreasury
           business_name: String?,
           citizenship_country: String?,
           compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
+          connection_id: String?,
           country_of_incorporation: String?,
           date_formed: Date?,
           date_of_birth: Date?,

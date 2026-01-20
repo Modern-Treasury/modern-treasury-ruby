@@ -9,7 +9,7 @@ module ModernTreasury
       required :id, String
 
       # @!attribute annual_income
-      #   The annual income of the individual.
+      #   The annual income of the individual in USD.
       #
       #   @return [Integer, nil]
       required :annual_income, Integer, nil?: true
@@ -123,7 +123,7 @@ module ModernTreasury
       #
       #   @param id [String]
       #
-      #   @param annual_income [Integer, nil] The annual income of the individual.
+      #   @param annual_income [Integer, nil] The annual income of the individual in USD.
       #
       #   @param created_at [Time]
       #

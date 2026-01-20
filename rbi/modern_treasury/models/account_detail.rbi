@@ -122,6 +122,11 @@ module ModernTreasury
             :base_address,
             ModernTreasury::AccountDetail::AccountNumberType::TaggedSymbol
           )
+        CARD_TOKEN =
+          T.let(
+            :card_token,
+            ModernTreasury::AccountDetail::AccountNumberType::TaggedSymbol
+          )
         CLABE =
           T.let(
             :clabe,

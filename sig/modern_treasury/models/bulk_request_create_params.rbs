@@ -562,6 +562,7 @@ module ModernTreasury
               type account_number_type =
                 :au_number
                 | :base_address
+                | :card_token
                 | :clabe
                 | :ethereum_address
                 | :hk_number
@@ -580,6 +581,7 @@ module ModernTreasury
 
                 AU_NUMBER: :au_number
                 BASE_ADDRESS: :base_address
+                CARD_TOKEN: :card_token
                 CLABE: :clabe
                 ETHEREUM_ADDRESS: :ethereum_address
                 HK_NUMBER: :hk_number
@@ -1644,6 +1646,7 @@ module ModernTreasury
               type account_number_type =
                 :au_number
                 | :base_address
+                | :card_token
                 | :clabe
                 | :ethereum_address
                 | :hk_number
@@ -1662,6 +1665,7 @@ module ModernTreasury
 
                 AU_NUMBER: :au_number
                 BASE_ADDRESS: :base_address
+                CARD_TOKEN: :card_token
                 CLABE: :clabe
                 ETHEREUM_ADDRESS: :ethereum_address
                 HK_NUMBER: :hk_number

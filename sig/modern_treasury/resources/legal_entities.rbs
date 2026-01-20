@@ -9,6 +9,7 @@ module ModernTreasury
         ?business_name: String?,
         ?citizenship_country: String?,
         ?compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
+        ?connection_id: String?,
         ?country_of_incorporation: String?,
         ?date_formed: Date?,
         ?date_of_birth: Date?,
