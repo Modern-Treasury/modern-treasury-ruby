@@ -310,6 +310,11 @@ module ModernTreasury
             :base_address,
             ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
           )
+        CARD_TOKEN =
+          T.let(
+            :card_token,
+            ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
+          )
         CLABE =
           T.let(
             :clabe,

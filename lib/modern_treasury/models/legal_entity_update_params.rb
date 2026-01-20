@@ -73,7 +73,7 @@ module ModernTreasury
       optional :email, String, nil?: true
 
       # @!attribute expected_activity_volume
-      #   Monthly expected transaction volume in entity's local currency.
+      #   Monthly expected transaction volume in USD.
       #
       #   @return [Integer, nil]
       optional :expected_activity_volume, Integer, nil?: true
@@ -219,7 +219,7 @@ module ModernTreasury
       #
       #   @param email [String, nil] The entity's primary email.
       #
-      #   @param expected_activity_volume [Integer, nil] Monthly expected transaction volume in entity's local currency.
+      #   @param expected_activity_volume [Integer, nil] Monthly expected transaction volume in USD.
       #
       #   @param first_name [String, nil] An individual's first name.
       #

@@ -72,6 +72,11 @@ module ModernTreasury
       #   @return [Time, nil]
       required :discarded_at, Time, nil?: true
 
+      # @!attribute documents
+      #
+      #   @return [Array<ModernTreasury::Models::Document>]
+      required :documents, -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Document] }
+
       # @!attribute doing_business_as_names
       #
       #   @return [Array<String>]
@@ -84,7 +89,7 @@ module ModernTreasury
       required :email, String, nil?: true
 
       # @!attribute expected_activity_volume
-      #   Monthly expected transaction volume in entity's local currency.
+      #   Monthly expected transaction volume in USD.
       #
       #   @return [Integer, nil]
       required :expected_activity_volume, Integer, nil?: true
@@ -233,7 +238,7 @@ module ModernTreasury
                -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityAssociation] },
                nil?: true
 
-      # @!method initialize(id:, addresses:, bank_settings:, business_description:, business_name:, citizenship_country:, compliance_details:, country_of_incorporation:, created_at:, date_formed:, date_of_birth:, discarded_at:, doing_business_as_names:, email:, expected_activity_volume:, first_name:, identifications:, industry_classifications:, intended_use:, last_name:, legal_entity_type:, legal_structure:, live_mode:, metadata:, middle_name:, object:, operating_jurisdictions:, phone_numbers:, politically_exposed_person:, preferred_name:, prefix:, primary_social_media_sites:, risk_rating:, suffix:, updated_at:, wealth_and_employment_details:, website:, legal_entity_associations: nil)
+      # @!method initialize(id:, addresses:, bank_settings:, business_description:, business_name:, citizenship_country:, compliance_details:, country_of_incorporation:, created_at:, date_formed:, date_of_birth:, discarded_at:, documents:, doing_business_as_names:, email:, expected_activity_volume:, first_name:, identifications:, industry_classifications:, intended_use:, last_name:, legal_entity_type:, legal_structure:, live_mode:, metadata:, middle_name:, object:, operating_jurisdictions:, phone_numbers:, politically_exposed_person:, preferred_name:, prefix:, primary_social_media_sites:, risk_rating:, suffix:, updated_at:, wealth_and_employment_details:, website:, legal_entity_associations: nil)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LegalEntity} for more details.
       #
@@ -261,11 +266,13 @@ module ModernTreasury
       #
       #   @param discarded_at [Time, nil]
       #
+      #   @param documents [Array<ModernTreasury::Models::Document>]
+      #
       #   @param doing_business_as_names [Array<String>]
       #
       #   @param email [String, nil] The entity's primary email.
       #
-      #   @param expected_activity_volume [Integer, nil] Monthly expected transaction volume in entity's local currency.
+      #   @param expected_activity_volume [Integer, nil] Monthly expected transaction volume in USD.
       #
       #   @param first_name [String, nil] An individual's first name.
       #
@@ -447,6 +454,11 @@ module ModernTreasury
         #   @return [Time, nil]
         required :discarded_at, Time, nil?: true
 
+        # @!attribute documents
+        #
+        #   @return [Array<ModernTreasury::Models::Document>]
+        required :documents, -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Document] }
+
         # @!attribute expiration_date
         #   The date when the Identification is no longer considered valid by the issuing
         #   authority.
@@ -490,7 +502,7 @@ module ModernTreasury
         #   @return [Time]
         required :updated_at, Time
 
-        # @!method initialize(id:, created_at:, discarded_at:, expiration_date:, id_type:, issuing_country:, issuing_region:, live_mode:, object:, updated_at:)
+        # @!method initialize(id:, created_at:, discarded_at:, documents:, expiration_date:, id_type:, issuing_country:, issuing_region:, live_mode:, object:, updated_at:)
         #   Some parameter documentations has been truncated, see
         #   {ModernTreasury::Models::LegalEntity::Identification} for more details.
         #
@@ -499,6 +511,8 @@ module ModernTreasury
         #   @param created_at [Time]
         #
         #   @param discarded_at [Time, nil]
+        #
+        #   @param documents [Array<ModernTreasury::Models::Document>]
         #
         #   @param expiration_date [Date, nil] The date when the Identification is no longer considered valid by the issuing au
         #

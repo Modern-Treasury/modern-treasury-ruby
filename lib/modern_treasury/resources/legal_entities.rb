@@ -8,7 +8,7 @@ module ModernTreasury
       #
       # create legal_entity
       #
-      # @overload create(legal_entity_type:, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_entity_associations: nil, legal_structure: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, risk_rating: nil, suffix: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
+      # @overload create(legal_entity_type:, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, connection_id: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_entity_associations: nil, legal_structure: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, risk_rating: nil, suffix: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
       #
       # @param legal_entity_type [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityType] The type of legal entity.
       #
@@ -24,6 +24,8 @@ module ModernTreasury
       #
       # @param compliance_details [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
       #
+      # @param connection_id [String, nil] The connection ID for the connection the legal entity is associated with. Defaul
+      #
       # @param country_of_incorporation [String, nil] The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
       #
       # @param date_formed [Date, nil] A business's formation date (YYYY-MM-DD).
@@ -34,7 +36,7 @@ module ModernTreasury
       #
       # @param email [String, nil] The entity's primary email.
       #
-      # @param expected_activity_volume [Integer, nil] Monthly expected transaction volume in entity's local currency.
+      # @param expected_activity_volume [Integer, nil] Monthly expected transaction volume in USD.
       #
       # @param first_name [String, nil] An individual's first name.
       #
@@ -141,7 +143,7 @@ module ModernTreasury
       #
       # @param email [String, nil] The entity's primary email.
       #
-      # @param expected_activity_volume [Integer, nil] Monthly expected transaction volume in entity's local currency.
+      # @param expected_activity_volume [Integer, nil] Monthly expected transaction volume in USD.
       #
       # @param first_name [String, nil] An individual's first name.
       #

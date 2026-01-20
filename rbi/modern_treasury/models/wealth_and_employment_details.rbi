@@ -14,7 +14,7 @@ module ModernTreasury
       sig { returns(String) }
       attr_accessor :id
 
-      # The annual income of the individual.
+      # The annual income of the individual in USD.
       sig { returns(T.nilable(Integer)) }
       attr_accessor :annual_income
 
@@ -157,7 +157,7 @@ module ModernTreasury
       end
       def self.new(
         id:,
-        # The annual income of the individual.
+        # The annual income of the individual in USD.
         annual_income:,
         created_at:,
         discarded_at:,
