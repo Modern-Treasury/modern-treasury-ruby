@@ -118,6 +118,10 @@ module ModernTreasury
       end
       attr_accessor :legal_structure
 
+      # ISO 10383 market identifier code.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :listed_exchange
+
       # This field will be true if this object exists in the live environment or false
       # if it exists in the test environment.
       sig { returns(T::Boolean) }
@@ -159,6 +163,12 @@ module ModernTreasury
       sig { returns(T::Array[String]) }
       attr_accessor :primary_social_media_sites
 
+      # Array of regulatory bodies overseeing this institution.
+      sig do
+        returns(T.nilable(T::Array[ModernTreasury::LegalEntity::Regulator]))
+      end
+      attr_accessor :regulators
+
       # The risk rating of the legal entity. One of low, medium, high.
       sig do
         returns(
@@ -170,6 +180,26 @@ module ModernTreasury
       # An individual's suffix.
       sig { returns(T.nilable(String)) }
       attr_accessor :suffix
+
+      # Information describing a third-party verification run by an external vendor.
+      sig do
+        returns(T.nilable(ModernTreasury::LegalEntity::ThirdPartyVerification))
+      end
+      attr_reader :third_party_verification
+
+      sig do
+        params(
+          third_party_verification:
+            T.nilable(
+              ModernTreasury::LegalEntity::ThirdPartyVerification::OrHash
+            )
+        ).void
+      end
+      attr_writer :third_party_verification
+
+      # Stock ticker symbol for publicly traded companies.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :ticker_symbol
 
       sig { returns(Time) }
       attr_accessor :updated_at
@@ -228,6 +258,7 @@ module ModernTreasury
             ModernTreasury::LegalEntity::LegalEntityType::OrSymbol,
           legal_structure:
             T.nilable(ModernTreasury::LegalEntity::LegalStructure::OrSymbol),
+          listed_exchange: T.nilable(String),
           live_mode: T::Boolean,
           metadata: T::Hash[Symbol, String],
           middle_name: T.nilable(String),
@@ -239,9 +270,16 @@ module ModernTreasury
           preferred_name: T.nilable(String),
           prefix: T.nilable(String),
           primary_social_media_sites: T::Array[String],
+          regulators:
+            T.nilable(T::Array[ModernTreasury::LegalEntity::Regulator::OrHash]),
           risk_rating:
             T.nilable(ModernTreasury::LegalEntity::RiskRating::OrSymbol),
           suffix: T.nilable(String),
+          third_party_verification:
+            T.nilable(
+              ModernTreasury::LegalEntity::ThirdPartyVerification::OrHash
+            ),
+          ticker_symbol: T.nilable(String),
           updated_at: Time,
           wealth_and_employment_details:
             T.nilable(
@@ -293,6 +331,8 @@ module ModernTreasury
         legal_entity_type:,
         # The business's legal structure.
         legal_structure:,
+        # ISO 10383 market identifier code.
+        listed_exchange:,
         # This field will be true if this object exists in the live environment or false
         # if it exists in the test environment.
         live_mode:,
@@ -314,10 +354,16 @@ module ModernTreasury
         prefix:,
         # A list of primary social media URLs for the business.
         primary_social_media_sites:,
+        # Array of regulatory bodies overseeing this institution.
+        regulators:,
         # The risk rating of the legal entity. One of low, medium, high.
         risk_rating:,
         # An individual's suffix.
         suffix:,
+        # Information describing a third-party verification run by an external vendor.
+        third_party_verification:,
+        # Stock ticker symbol for publicly traded companies.
+        ticker_symbol:,
         updated_at:,
         wealth_and_employment_details:,
         # The entity's primary website URL.
@@ -360,6 +406,7 @@ module ModernTreasury
               T.nilable(
                 ModernTreasury::LegalEntity::LegalStructure::TaggedSymbol
               ),
+            listed_exchange: T.nilable(String),
             live_mode: T::Boolean,
             metadata: T::Hash[Symbol, String],
             middle_name: T.nilable(String),
@@ -370,9 +417,14 @@ module ModernTreasury
             preferred_name: T.nilable(String),
             prefix: T.nilable(String),
             primary_social_media_sites: T::Array[String],
+            regulators:
+              T.nilable(T::Array[ModernTreasury::LegalEntity::Regulator]),
             risk_rating:
               T.nilable(ModernTreasury::LegalEntity::RiskRating::TaggedSymbol),
             suffix: T.nilable(String),
+            third_party_verification:
+              T.nilable(ModernTreasury::LegalEntity::ThirdPartyVerification),
+            ticker_symbol: T.nilable(String),
             updated_at: Time,
             wealth_and_employment_details:
               T.nilable(ModernTreasury::LegalEntityWealthEmploymentDetail),
@@ -916,6 +968,55 @@ module ModernTreasury
         end
       end
 
+      class Regulator < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              ModernTreasury::LegalEntity::Regulator,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
+
+        # The country code where the regulator operates in the ISO 3166-1 alpha-2 format
+        # (e.g., "US", "CA", "GB").
+        sig { returns(String) }
+        attr_accessor :jurisdiction
+
+        # Full name of the regulatory body.
+        sig { returns(String) }
+        attr_accessor :name
+
+        # Registration or identification number with the regulator.
+        sig { returns(String) }
+        attr_accessor :registration_number
+
+        sig do
+          params(
+            jurisdiction: String,
+            name: String,
+            registration_number: String
+          ).returns(T.attached_class)
+        end
+        def self.new(
+          # The country code where the regulator operates in the ISO 3166-1 alpha-2 format
+          # (e.g., "US", "CA", "GB").
+          jurisdiction:,
+          # Full name of the regulatory body.
+          name:,
+          # Registration or identification number with the regulator.
+          registration_number:
+        )
+        end
+
+        sig do
+          override.returns(
+            { jurisdiction: String, name: String, registration_number: String }
+          )
+        end
+        def to_hash
+        end
+      end
+
       # The risk rating of the legal entity. One of low, medium, high.
       module RiskRating
         extend ModernTreasury::Internal::Type::Enum
@@ -938,6 +1039,86 @@ module ModernTreasury
           )
         end
         def self.values
+        end
+      end
+
+      class ThirdPartyVerification < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              ModernTreasury::LegalEntity::ThirdPartyVerification,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
+
+        # The vendor that performed the verification, e.g. `persona`.
+        sig do
+          returns(
+            ModernTreasury::LegalEntity::ThirdPartyVerification::Vendor::TaggedSymbol
+          )
+        end
+        attr_accessor :vendor
+
+        # The identification of the third party verification in `vendor`'s system.
+        sig { returns(String) }
+        attr_accessor :vendor_verification_id
+
+        # Information describing a third-party verification run by an external vendor.
+        sig do
+          params(
+            vendor:
+              ModernTreasury::LegalEntity::ThirdPartyVerification::Vendor::OrSymbol,
+            vendor_verification_id: String
+          ).returns(T.attached_class)
+        end
+        def self.new(
+          # The vendor that performed the verification, e.g. `persona`.
+          vendor:,
+          # The identification of the third party verification in `vendor`'s system.
+          vendor_verification_id:
+        )
+        end
+
+        sig do
+          override.returns(
+            {
+              vendor:
+                ModernTreasury::LegalEntity::ThirdPartyVerification::Vendor::TaggedSymbol,
+              vendor_verification_id: String
+            }
+          )
+        end
+        def to_hash
+        end
+
+        # The vendor that performed the verification, e.g. `persona`.
+        module Vendor
+          extend ModernTreasury::Internal::Type::Enum
+
+          TaggedSymbol =
+            T.type_alias do
+              T.all(
+                Symbol,
+                ModernTreasury::LegalEntity::ThirdPartyVerification::Vendor
+              )
+            end
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          PERSONA =
+            T.let(
+              :persona,
+              ModernTreasury::LegalEntity::ThirdPartyVerification::Vendor::TaggedSymbol
+            )
+
+          sig do
+            override.returns(
+              T::Array[
+                ModernTreasury::LegalEntity::ThirdPartyVerification::Vendor::TaggedSymbol
+              ]
+            )
+          end
+          def self.values
+          end
         end
       end
     end

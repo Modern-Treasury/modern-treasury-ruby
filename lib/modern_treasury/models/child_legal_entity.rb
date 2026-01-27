@@ -146,6 +146,12 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::ChildLegalEntity::LegalStructure, nil]
       required :legal_structure, enum: -> { ModernTreasury::ChildLegalEntity::LegalStructure }, nil?: true
 
+      # @!attribute listed_exchange
+      #   ISO 10383 market identifier code.
+      #
+      #   @return [String, nil]
+      required :listed_exchange, String, nil?: true
+
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false
       #   if it exists in the test environment.
@@ -208,6 +214,14 @@ module ModernTreasury
       #   @return [Array<String>]
       required :primary_social_media_sites, ModernTreasury::Internal::Type::ArrayOf[String]
 
+      # @!attribute regulators
+      #   Array of regulatory bodies overseeing this institution.
+      #
+      #   @return [Array<ModernTreasury::Models::ChildLegalEntity::Regulator>, nil]
+      required :regulators,
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ChildLegalEntity::Regulator] },
+               nil?: true
+
       # @!attribute risk_rating
       #   The risk rating of the legal entity. One of low, medium, high.
       #
@@ -219,6 +233,20 @@ module ModernTreasury
       #
       #   @return [String, nil]
       required :suffix, String, nil?: true
+
+      # @!attribute third_party_verification
+      #   Information describing a third-party verification run by an external vendor.
+      #
+      #   @return [ModernTreasury::Models::ChildLegalEntity::ThirdPartyVerification, nil]
+      required :third_party_verification,
+               -> { ModernTreasury::ChildLegalEntity::ThirdPartyVerification },
+               nil?: true
+
+      # @!attribute ticker_symbol
+      #   Stock ticker symbol for publicly traded companies.
+      #
+      #   @return [String, nil]
+      required :ticker_symbol, String, nil?: true
 
       # @!attribute updated_at
       #
@@ -238,7 +266,7 @@ module ModernTreasury
       #   @return [String, nil]
       required :website, String, nil?: true
 
-      # @!method initialize(id:, addresses:, bank_settings:, business_description:, business_name:, citizenship_country:, compliance_details:, country_of_incorporation:, created_at:, date_formed:, date_of_birth:, discarded_at:, documents:, doing_business_as_names:, email:, expected_activity_volume:, first_name:, identifications:, industry_classifications:, intended_use:, last_name:, legal_entity_associations:, legal_entity_type:, legal_structure:, live_mode:, metadata:, middle_name:, object:, operating_jurisdictions:, phone_numbers:, politically_exposed_person:, preferred_name:, prefix:, primary_social_media_sites:, risk_rating:, suffix:, updated_at:, wealth_and_employment_details:, website:)
+      # @!method initialize(id:, addresses:, bank_settings:, business_description:, business_name:, citizenship_country:, compliance_details:, country_of_incorporation:, created_at:, date_formed:, date_of_birth:, discarded_at:, documents:, doing_business_as_names:, email:, expected_activity_volume:, first_name:, identifications:, industry_classifications:, intended_use:, last_name:, legal_entity_associations:, legal_entity_type:, legal_structure:, listed_exchange:, live_mode:, metadata:, middle_name:, object:, operating_jurisdictions:, phone_numbers:, politically_exposed_person:, preferred_name:, prefix:, primary_social_media_sites:, regulators:, risk_rating:, suffix:, third_party_verification:, ticker_symbol:, updated_at:, wealth_and_employment_details:, website:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::ChildLegalEntity} for more details.
       #
@@ -290,6 +318,8 @@ module ModernTreasury
       #
       #   @param legal_structure [Symbol, ModernTreasury::Models::ChildLegalEntity::LegalStructure, nil] The business's legal structure.
       #
+      #   @param listed_exchange [String, nil] ISO 10383 market identifier code.
+      #
       #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
@@ -310,9 +340,15 @@ module ModernTreasury
       #
       #   @param primary_social_media_sites [Array<String>] A list of primary social media URLs for the business.
       #
+      #   @param regulators [Array<ModernTreasury::Models::ChildLegalEntity::Regulator>, nil] Array of regulatory bodies overseeing this institution.
+      #
       #   @param risk_rating [Symbol, ModernTreasury::Models::ChildLegalEntity::RiskRating, nil] The risk rating of the legal entity. One of low, medium, high.
       #
       #   @param suffix [String, nil] An individual's suffix.
+      #
+      #   @param third_party_verification [ModernTreasury::Models::ChildLegalEntity::ThirdPartyVerification, nil] Information describing a third-party verification run by an external vendor.
+      #
+      #   @param ticker_symbol [String, nil] Stock ticker symbol for publicly traded companies.
       #
       #   @param updated_at [Time]
       #
@@ -605,6 +641,37 @@ module ModernTreasury
         #   @param phone_number [String]
       end
 
+      class Regulator < ModernTreasury::Internal::Type::BaseModel
+        # @!attribute jurisdiction
+        #   The country code where the regulator operates in the ISO 3166-1 alpha-2 format
+        #   (e.g., "US", "CA", "GB").
+        #
+        #   @return [String]
+        required :jurisdiction, String
+
+        # @!attribute name
+        #   Full name of the regulatory body.
+        #
+        #   @return [String]
+        required :name, String
+
+        # @!attribute registration_number
+        #   Registration or identification number with the regulator.
+        #
+        #   @return [String]
+        required :registration_number, String
+
+        # @!method initialize(jurisdiction:, name:, registration_number:)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::ChildLegalEntity::Regulator} for more details.
+        #
+        #   @param jurisdiction [String] The country code where the regulator operates in the ISO 3166-1 alpha-2 format (
+        #
+        #   @param name [String] Full name of the regulatory body.
+        #
+        #   @param registration_number [String] Registration or identification number with the regulator.
+      end
+
       # The risk rating of the legal entity. One of low, medium, high.
       #
       # @see ModernTreasury::Models::ChildLegalEntity#risk_rating
@@ -617,6 +684,40 @@ module ModernTreasury
 
         # @!method self.values
         #   @return [Array<Symbol>]
+      end
+
+      # @see ModernTreasury::Models::ChildLegalEntity#third_party_verification
+      class ThirdPartyVerification < ModernTreasury::Internal::Type::BaseModel
+        # @!attribute vendor
+        #   The vendor that performed the verification, e.g. `persona`.
+        #
+        #   @return [Symbol, ModernTreasury::Models::ChildLegalEntity::ThirdPartyVerification::Vendor]
+        required :vendor, enum: -> { ModernTreasury::ChildLegalEntity::ThirdPartyVerification::Vendor }
+
+        # @!attribute vendor_verification_id
+        #   The identification of the third party verification in `vendor`'s system.
+        #
+        #   @return [String]
+        required :vendor_verification_id, String
+
+        # @!method initialize(vendor:, vendor_verification_id:)
+        #   Information describing a third-party verification run by an external vendor.
+        #
+        #   @param vendor [Symbol, ModernTreasury::Models::ChildLegalEntity::ThirdPartyVerification::Vendor] The vendor that performed the verification, e.g. `persona`.
+        #
+        #   @param vendor_verification_id [String] The identification of the third party verification in `vendor`'s system.
+
+        # The vendor that performed the verification, e.g. `persona`.
+        #
+        # @see ModernTreasury::Models::ChildLegalEntity::ThirdPartyVerification#vendor
+        module Vendor
+          extend ModernTreasury::Internal::Type::Enum
+
+          PERSONA = :persona
+
+          # @!method self.values
+          #   @return [Array<Symbol>]
+        end
       end
     end
   end

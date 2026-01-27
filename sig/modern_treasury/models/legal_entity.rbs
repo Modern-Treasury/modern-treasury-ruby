@@ -25,6 +25,7 @@ module ModernTreasury
         last_name: String?,
         legal_entity_type: ModernTreasury::Models::LegalEntity::legal_entity_type,
         legal_structure: ModernTreasury::Models::LegalEntity::legal_structure?,
+        listed_exchange: String?,
         live_mode: bool,
         metadata: ::Hash[Symbol, String],
         middle_name: String?,
@@ -35,8 +36,11 @@ module ModernTreasury
         preferred_name: String?,
         prefix: String?,
         primary_social_media_sites: ::Array[String],
+        regulators: ::Array[ModernTreasury::LegalEntity::Regulator]?,
         risk_rating: ModernTreasury::Models::LegalEntity::risk_rating?,
         suffix: String?,
+        third_party_verification: ModernTreasury::LegalEntity::ThirdPartyVerification?,
+        ticker_symbol: String?,
         updated_at: Time,
         wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,
         website: String?,
@@ -90,6 +94,8 @@ module ModernTreasury
 
       attr_accessor legal_structure: ModernTreasury::Models::LegalEntity::legal_structure?
 
+      attr_accessor listed_exchange: String?
+
       attr_accessor live_mode: bool
 
       attr_accessor metadata: ::Hash[Symbol, String]
@@ -110,9 +116,15 @@ module ModernTreasury
 
       attr_accessor primary_social_media_sites: ::Array[String]
 
+      attr_accessor regulators: ::Array[ModernTreasury::LegalEntity::Regulator]?
+
       attr_accessor risk_rating: ModernTreasury::Models::LegalEntity::risk_rating?
 
       attr_accessor suffix: String?
+
+      attr_accessor third_party_verification: ModernTreasury::LegalEntity::ThirdPartyVerification?
+
+      attr_accessor ticker_symbol: String?
 
       attr_accessor updated_at: Time
 
@@ -146,6 +158,7 @@ module ModernTreasury
         last_name: String?,
         legal_entity_type: ModernTreasury::Models::LegalEntity::legal_entity_type,
         legal_structure: ModernTreasury::Models::LegalEntity::legal_structure?,
+        listed_exchange: String?,
         live_mode: bool,
         metadata: ::Hash[Symbol, String],
         middle_name: String?,
@@ -156,8 +169,11 @@ module ModernTreasury
         preferred_name: String?,
         prefix: String?,
         primary_social_media_sites: ::Array[String],
+        regulators: ::Array[ModernTreasury::LegalEntity::Regulator]?,
         risk_rating: ModernTreasury::Models::LegalEntity::risk_rating?,
         suffix: String?,
+        third_party_verification: ModernTreasury::LegalEntity::ThirdPartyVerification?,
+        ticker_symbol: String?,
         updated_at: Time,
         wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,
         website: String?,
@@ -188,6 +204,7 @@ module ModernTreasury
         last_name: String?,
         legal_entity_type: ModernTreasury::Models::LegalEntity::legal_entity_type,
         legal_structure: ModernTreasury::Models::LegalEntity::legal_structure?,
+        listed_exchange: String?,
         live_mode: bool,
         metadata: ::Hash[Symbol, String],
         middle_name: String?,
@@ -198,8 +215,11 @@ module ModernTreasury
         preferred_name: String?,
         prefix: String?,
         primary_social_media_sites: ::Array[String],
+        regulators: ::Array[ModernTreasury::LegalEntity::Regulator]?,
         risk_rating: ModernTreasury::Models::LegalEntity::risk_rating?,
         suffix: String?,
+        third_party_verification: ModernTreasury::LegalEntity::ThirdPartyVerification?,
+        ticker_symbol: String?,
         updated_at: Time,
         wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,
         website: String?,
@@ -463,6 +483,29 @@ module ModernTreasury
         def to_hash: -> { phone_number: String }
       end
 
+      type regulator =
+        { jurisdiction: String, name: String, registration_number: String }
+
+      class Regulator < ModernTreasury::Internal::Type::BaseModel
+        attr_accessor jurisdiction: String
+
+        attr_accessor name: String
+
+        attr_accessor registration_number: String
+
+        def initialize: (
+          jurisdiction: String,
+          name: String,
+          registration_number: String
+        ) -> void
+
+        def to_hash: -> {
+          jurisdiction: String,
+          name: String,
+          registration_number: String
+        }
+      end
+
       type risk_rating = :low | :medium | :high
 
       module RiskRating
@@ -473,6 +516,38 @@ module ModernTreasury
         HIGH: :high
 
         def self?.values: -> ::Array[ModernTreasury::Models::LegalEntity::risk_rating]
+      end
+
+      type third_party_verification =
+        {
+          vendor: ModernTreasury::Models::LegalEntity::ThirdPartyVerification::vendor,
+          vendor_verification_id: String
+        }
+
+      class ThirdPartyVerification < ModernTreasury::Internal::Type::BaseModel
+        attr_accessor vendor: ModernTreasury::Models::LegalEntity::ThirdPartyVerification::vendor
+
+        attr_accessor vendor_verification_id: String
+
+        def initialize: (
+          vendor: ModernTreasury::Models::LegalEntity::ThirdPartyVerification::vendor,
+          vendor_verification_id: String
+        ) -> void
+
+        def to_hash: -> {
+          vendor: ModernTreasury::Models::LegalEntity::ThirdPartyVerification::vendor,
+          vendor_verification_id: String
+        }
+
+        type vendor = :persona
+
+        module Vendor
+          extend ModernTreasury::Internal::Type::Enum
+
+          PERSONA: :persona
+
+          def self?.values: -> ::Array[ModernTreasury::Models::LegalEntity::ThirdPartyVerification::vendor]
+        end
       end
     end
   end
