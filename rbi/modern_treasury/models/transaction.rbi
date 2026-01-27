@@ -442,9 +442,9 @@ module ModernTreasury
             :jpmc,
             ModernTreasury::Transaction::VendorCodeType::TaggedSymbol
           )
-        MT_FLOW =
+        MODERN_TREASURY =
           T.let(
-            :mt_flow,
+            :modern_treasury,
             ModernTreasury::Transaction::VendorCodeType::TaggedSymbol
           )
         MX =

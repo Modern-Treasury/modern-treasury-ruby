@@ -8,7 +8,7 @@ module ModernTreasury
       #
       # create legal_entity
       #
-      # @overload create(legal_entity_type:, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, connection_id: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_entity_associations: nil, legal_structure: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, risk_rating: nil, suffix: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
+      # @overload create(legal_entity_type:, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, connection_id: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_entity_associations: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, suffix: nil, third_party_verification: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
       #
       # @param legal_entity_type [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityType] The type of legal entity.
       #
@@ -52,6 +52,8 @@ module ModernTreasury
       #
       # @param legal_structure [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalStructure, nil] The business's legal structure.
       #
+      # @param listed_exchange [String, nil] ISO 10383 market identifier code.
+      #
       # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #
       # @param middle_name [String, nil] An individual's middle name.
@@ -68,9 +70,15 @@ module ModernTreasury
       #
       # @param primary_social_media_sites [Array<String>] A list of primary social media URLs for the business.
       #
+      # @param regulators [Array<ModernTreasury::Models::LegalEntityCreateParams::Regulator>, nil] Array of regulatory bodies overseeing this institution.
+      #
       # @param risk_rating [Symbol, ModernTreasury::Models::LegalEntityCreateParams::RiskRating, nil] The risk rating of the legal entity. One of low, medium, high.
       #
       # @param suffix [String, nil] An individual's suffix.
+      #
+      # @param third_party_verification [ModernTreasury::Models::LegalEntityCreateParams::ThirdPartyVerification, nil] Information describing a third-party verification run by an external vendor.
+      #
+      # @param ticker_symbol [String, nil] Stock ticker symbol for publicly traded companies.
       #
       # @param wealth_and_employment_details [ModernTreasury::Models::LegalEntityWealthEmploymentDetail, nil]
       #
@@ -117,7 +125,7 @@ module ModernTreasury
       #
       # Update a legal entity.
       #
-      # @overload update(id, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_structure: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, risk_rating: nil, suffix: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
+      # @overload update(id, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, suffix: nil, third_party_verification: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
       #
       # @param id [String] id
       #
@@ -157,6 +165,8 @@ module ModernTreasury
       #
       # @param legal_structure [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::LegalStructure, nil] The business's legal structure.
       #
+      # @param listed_exchange [String, nil] ISO 10383 market identifier code.
+      #
       # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #
       # @param middle_name [String, nil] An individual's middle name.
@@ -173,9 +183,15 @@ module ModernTreasury
       #
       # @param primary_social_media_sites [Array<String>] A list of primary social media URLs for the business.
       #
+      # @param regulators [Array<ModernTreasury::Models::LegalEntityUpdateParams::Regulator>, nil] Array of regulatory bodies overseeing this institution.
+      #
       # @param risk_rating [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::RiskRating, nil] The risk rating of the legal entity. One of low, medium, high.
       #
       # @param suffix [String, nil] An individual's suffix.
+      #
+      # @param third_party_verification [ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification, nil] Information describing a third-party verification run by an external vendor.
+      #
+      # @param ticker_symbol [String, nil] Stock ticker symbol for publicly traded companies.
       #
       # @param wealth_and_employment_details [ModernTreasury::Models::LegalEntityWealthEmploymentDetail, nil]
       #
