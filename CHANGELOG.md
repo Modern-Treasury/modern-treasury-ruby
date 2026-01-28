@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.14.0 (2026-01-28)
+
+Full Changelog: [v0.13.0...v0.14.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.13.0...v0.14.0)
+
+### Features
+
+* **api:** api update ([9604b54](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/9604b549b5c55fcb9ab5c0925427ae1eb1c7d86f))
+* **api:** api update ([69ac7a6](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/69ac7a6fb6a052e4b4caf7fab8c36b8d9f0c3178))
+
+
+### Bug Fixes
+
+* **docs:** fix mcp installation instructions for remote servers ([23ff470](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/23ff470ba251005447adfd8bd5e172e237fa5527))
+
+
+### Chores
+
+* **client:** improve example values ([cf47df7](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/cf47df70215f66cbb664168701685df9503e6a1e))
+* **internal:** update `actions/checkout` version ([ef85ff8](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/ef85ff86aed1446023610663b9bc42fbaa3ccf2d))
+
 ## 0.13.0 (2026-01-13)
 
 Full Changelog: [v0.12.0...v0.13.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.12.0...v0.13.0)
