@@ -297,7 +297,7 @@ module ModernTreasury
         HIFI = :hifi
         ISO20022 = :iso20022
         JPMC = :jpmc
-        MT_FLOW = :mt_flow
+        MODERN_TREASURY = :modern_treasury
         MX = :mx
         PAXOS = :paxos
         PAYPAL = :paypal

@@ -61,6 +61,14 @@ module ModernTreasury
       end
       attr_writer :compliance_details
 
+      # The connection ID for the connection the legal entity is associated with.
+      # Defaults to the id of the connection designated with an is_default value of true
+      # or the id of an existing operational connection if only one is available. Pass
+      # in a value of null to prevent the connection from being associated with the
+      # legal entity.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :connection_id
+
       # The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
       # alpha-3 formats.
       sig { returns(T.nilable(String)) }
@@ -84,7 +92,7 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :email
 
-      # Monthly expected transaction volume in entity's local currency.
+      # Monthly expected transaction volume in USD.
       sig { returns(T.nilable(Integer)) }
       attr_accessor :expected_activity_volume
 
@@ -170,6 +178,10 @@ module ModernTreasury
       end
       attr_accessor :legal_structure
 
+      # ISO 10383 market identifier code.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :listed_exchange
+
       # Additional data represented as key-value pairs. Both the key and value must be
       # strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
@@ -228,6 +240,14 @@ module ModernTreasury
       sig { params(primary_social_media_sites: T::Array[String]).void }
       attr_writer :primary_social_media_sites
 
+      # Array of regulatory bodies overseeing this institution.
+      sig do
+        returns(
+          T.nilable(T::Array[ModernTreasury::ChildLegalEntityCreate::Regulator])
+        )
+      end
+      attr_accessor :regulators
+
       # The risk rating of the legal entity. One of low, medium, high.
       sig do
         returns(
@@ -241,6 +261,30 @@ module ModernTreasury
       # An individual's suffix.
       sig { returns(T.nilable(String)) }
       attr_accessor :suffix
+
+      # Information describing a third-party verification run by an external vendor.
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::ChildLegalEntityCreate::ThirdPartyVerification
+          )
+        )
+      end
+      attr_reader :third_party_verification
+
+      sig do
+        params(
+          third_party_verification:
+            T.nilable(
+              ModernTreasury::ChildLegalEntityCreate::ThirdPartyVerification::OrHash
+            )
+        ).void
+      end
+      attr_writer :third_party_verification
+
+      # Stock ticker symbol for publicly traded companies.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :ticker_symbol
 
       sig do
         returns(T.nilable(ModernTreasury::LegalEntityWealthEmploymentDetail))
@@ -270,6 +314,7 @@ module ModernTreasury
           citizenship_country: T.nilable(String),
           compliance_details:
             T.nilable(ModernTreasury::LegalEntityComplianceDetail::OrHash),
+          connection_id: T.nilable(String),
           country_of_incorporation: T.nilable(String),
           date_formed: T.nilable(Date),
           date_of_birth: T.nilable(Date),
@@ -293,6 +338,7 @@ module ModernTreasury
             T.nilable(
               ModernTreasury::ChildLegalEntityCreate::LegalStructure::OrSymbol
             ),
+          listed_exchange: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           middle_name: T.nilable(String),
           operating_jurisdictions: T::Array[String],
@@ -304,11 +350,22 @@ module ModernTreasury
           preferred_name: T.nilable(String),
           prefix: T.nilable(String),
           primary_social_media_sites: T::Array[String],
+          regulators:
+            T.nilable(
+              T::Array[
+                ModernTreasury::ChildLegalEntityCreate::Regulator::OrHash
+              ]
+            ),
           risk_rating:
             T.nilable(
               ModernTreasury::ChildLegalEntityCreate::RiskRating::OrSymbol
             ),
           suffix: T.nilable(String),
+          third_party_verification:
+            T.nilable(
+              ModernTreasury::ChildLegalEntityCreate::ThirdPartyVerification::OrHash
+            ),
+          ticker_symbol: T.nilable(String),
           wealth_and_employment_details:
             T.nilable(
               ModernTreasury::LegalEntityWealthEmploymentDetail::OrHash
@@ -327,6 +384,12 @@ module ModernTreasury
         # The country of citizenship for an individual.
         citizenship_country: nil,
         compliance_details: nil,
+        # The connection ID for the connection the legal entity is associated with.
+        # Defaults to the id of the connection designated with an is_default value of true
+        # or the id of an existing operational connection if only one is available. Pass
+        # in a value of null to prevent the connection from being associated with the
+        # legal entity.
+        connection_id: nil,
         # The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
         # alpha-3 formats.
         country_of_incorporation: nil,
@@ -337,7 +400,7 @@ module ModernTreasury
         doing_business_as_names: nil,
         # The entity's primary email.
         email: nil,
-        # Monthly expected transaction volume in entity's local currency.
+        # Monthly expected transaction volume in USD.
         expected_activity_volume: nil,
         # An individual's first name.
         first_name: nil,
@@ -355,6 +418,8 @@ module ModernTreasury
         legal_entity_type: nil,
         # The business's legal structure.
         legal_structure: nil,
+        # ISO 10383 market identifier code.
+        listed_exchange: nil,
         # Additional data represented as key-value pairs. Both the key and value must be
         # strings.
         metadata: nil,
@@ -372,10 +437,16 @@ module ModernTreasury
         prefix: nil,
         # A list of primary social media URLs for the business.
         primary_social_media_sites: nil,
+        # Array of regulatory bodies overseeing this institution.
+        regulators: nil,
         # The risk rating of the legal entity. One of low, medium, high.
         risk_rating: nil,
         # An individual's suffix.
         suffix: nil,
+        # Information describing a third-party verification run by an external vendor.
+        third_party_verification: nil,
+        # Stock ticker symbol for publicly traded companies.
+        ticker_symbol: nil,
         wealth_and_employment_details: nil,
         # The entity's primary website URL.
         website: nil
@@ -393,6 +464,7 @@ module ModernTreasury
             citizenship_country: T.nilable(String),
             compliance_details:
               T.nilable(ModernTreasury::LegalEntityComplianceDetail),
+            connection_id: T.nilable(String),
             country_of_incorporation: T.nilable(String),
             date_formed: T.nilable(Date),
             date_of_birth: T.nilable(Date),
@@ -416,6 +488,7 @@ module ModernTreasury
               T.nilable(
                 ModernTreasury::ChildLegalEntityCreate::LegalStructure::OrSymbol
               ),
+            listed_exchange: T.nilable(String),
             metadata: T::Hash[Symbol, String],
             middle_name: T.nilable(String),
             operating_jurisdictions: T::Array[String],
@@ -425,11 +498,20 @@ module ModernTreasury
             preferred_name: T.nilable(String),
             prefix: T.nilable(String),
             primary_social_media_sites: T::Array[String],
+            regulators:
+              T.nilable(
+                T::Array[ModernTreasury::ChildLegalEntityCreate::Regulator]
+              ),
             risk_rating:
               T.nilable(
                 ModernTreasury::ChildLegalEntityCreate::RiskRating::OrSymbol
               ),
             suffix: T.nilable(String),
+            third_party_verification:
+              T.nilable(
+                ModernTreasury::ChildLegalEntityCreate::ThirdPartyVerification
+              ),
+            ticker_symbol: T.nilable(String),
             wealth_and_employment_details:
               T.nilable(ModernTreasury::LegalEntityWealthEmploymentDetail),
             website: T.nilable(String)
@@ -554,6 +636,55 @@ module ModernTreasury
         end
       end
 
+      class Regulator < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              ModernTreasury::ChildLegalEntityCreate::Regulator,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
+
+        # The country code where the regulator operates in the ISO 3166-1 alpha-2 format
+        # (e.g., "US", "CA", "GB").
+        sig { returns(String) }
+        attr_accessor :jurisdiction
+
+        # Full name of the regulatory body.
+        sig { returns(String) }
+        attr_accessor :name
+
+        # Registration or identification number with the regulator.
+        sig { returns(String) }
+        attr_accessor :registration_number
+
+        sig do
+          params(
+            jurisdiction: String,
+            name: String,
+            registration_number: String
+          ).returns(T.attached_class)
+        end
+        def self.new(
+          # The country code where the regulator operates in the ISO 3166-1 alpha-2 format
+          # (e.g., "US", "CA", "GB").
+          jurisdiction:,
+          # Full name of the regulatory body.
+          name:,
+          # Registration or identification number with the regulator.
+          registration_number:
+        )
+        end
+
+        sig do
+          override.returns(
+            { jurisdiction: String, name: String, registration_number: String }
+          )
+        end
+        def to_hash
+        end
+      end
+
       # The risk rating of the legal entity. One of low, medium, high.
       module RiskRating
         extend ModernTreasury::Internal::Type::Enum
@@ -588,6 +719,86 @@ module ModernTreasury
           )
         end
         def self.values
+        end
+      end
+
+      class ThirdPartyVerification < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              ModernTreasury::ChildLegalEntityCreate::ThirdPartyVerification,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
+
+        # The vendor that performed the verification, e.g. `persona`.
+        sig do
+          returns(
+            ModernTreasury::ChildLegalEntityCreate::ThirdPartyVerification::Vendor::OrSymbol
+          )
+        end
+        attr_accessor :vendor
+
+        # The identification of the third party verification in `vendor`'s system.
+        sig { returns(String) }
+        attr_accessor :vendor_verification_id
+
+        # Information describing a third-party verification run by an external vendor.
+        sig do
+          params(
+            vendor:
+              ModernTreasury::ChildLegalEntityCreate::ThirdPartyVerification::Vendor::OrSymbol,
+            vendor_verification_id: String
+          ).returns(T.attached_class)
+        end
+        def self.new(
+          # The vendor that performed the verification, e.g. `persona`.
+          vendor:,
+          # The identification of the third party verification in `vendor`'s system.
+          vendor_verification_id:
+        )
+        end
+
+        sig do
+          override.returns(
+            {
+              vendor:
+                ModernTreasury::ChildLegalEntityCreate::ThirdPartyVerification::Vendor::OrSymbol,
+              vendor_verification_id: String
+            }
+          )
+        end
+        def to_hash
+        end
+
+        # The vendor that performed the verification, e.g. `persona`.
+        module Vendor
+          extend ModernTreasury::Internal::Type::Enum
+
+          TaggedSymbol =
+            T.type_alias do
+              T.all(
+                Symbol,
+                ModernTreasury::ChildLegalEntityCreate::ThirdPartyVerification::Vendor
+              )
+            end
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          PERSONA =
+            T.let(
+              :persona,
+              ModernTreasury::ChildLegalEntityCreate::ThirdPartyVerification::Vendor::TaggedSymbol
+            )
+
+          sig do
+            override.returns(
+              T::Array[
+                ModernTreasury::ChildLegalEntityCreate::ThirdPartyVerification::Vendor::TaggedSymbol
+              ]
+            )
+          end
+          def self.values
+          end
         end
       end
     end

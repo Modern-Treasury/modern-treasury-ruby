@@ -318,6 +318,11 @@ module ModernTreasury
               :base_address,
               ModernTreasury::ExternalAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
             )
+          CARD_TOKEN =
+            T.let(
+              :card_token,
+              ModernTreasury::ExternalAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
+            )
           CLABE =
             T.let(
               :clabe,

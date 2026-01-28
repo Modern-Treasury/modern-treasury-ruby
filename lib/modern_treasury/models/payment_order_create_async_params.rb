@@ -255,6 +255,8 @@ module ModernTreasury
       optional :subtype, enum: -> { ModernTreasury::PaymentOrderSubtype }, nil?: true
 
       # @!attribute transaction_monitoring_enabled
+      #   @deprecated
+      #
       #   A flag that determines whether a payment order should go through transaction
       #   monitoring.
       #
@@ -646,6 +648,7 @@ module ModernTreasury
 
             AU_NUMBER = :au_number
             BASE_ADDRESS = :base_address
+            CARD_TOKEN = :card_token
             CLABE = :clabe
             ETHEREUM_ADDRESS = :ethereum_address
             HK_NUMBER = :hk_number

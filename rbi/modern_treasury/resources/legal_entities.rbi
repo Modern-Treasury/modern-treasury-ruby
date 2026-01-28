@@ -17,6 +17,7 @@ module ModernTreasury
           citizenship_country: T.nilable(String),
           compliance_details:
             T.nilable(ModernTreasury::LegalEntityComplianceDetail::OrHash),
+          connection_id: T.nilable(String),
           country_of_incorporation: T.nilable(String),
           date_formed: T.nilable(Date),
           date_of_birth: T.nilable(Date),
@@ -40,6 +41,7 @@ module ModernTreasury
             T.nilable(
               ModernTreasury::LegalEntityCreateParams::LegalStructure::OrSymbol
             ),
+          listed_exchange: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           middle_name: T.nilable(String),
           operating_jurisdictions: T::Array[String],
@@ -51,11 +53,22 @@ module ModernTreasury
           preferred_name: T.nilable(String),
           prefix: T.nilable(String),
           primary_social_media_sites: T::Array[String],
+          regulators:
+            T.nilable(
+              T::Array[
+                ModernTreasury::LegalEntityCreateParams::Regulator::OrHash
+              ]
+            ),
           risk_rating:
             T.nilable(
               ModernTreasury::LegalEntityCreateParams::RiskRating::OrSymbol
             ),
           suffix: T.nilable(String),
+          third_party_verification:
+            T.nilable(
+              ModernTreasury::LegalEntityCreateParams::ThirdPartyVerification::OrHash
+            ),
+          ticker_symbol: T.nilable(String),
           wealth_and_employment_details:
             T.nilable(
               ModernTreasury::LegalEntityWealthEmploymentDetail::OrHash
@@ -77,6 +90,12 @@ module ModernTreasury
         # The country of citizenship for an individual.
         citizenship_country: nil,
         compliance_details: nil,
+        # The connection ID for the connection the legal entity is associated with.
+        # Defaults to the id of the connection designated with an is_default value of true
+        # or the id of an existing operational connection if only one is available. Pass
+        # in a value of null to prevent the connection from being associated with the
+        # legal entity.
+        connection_id: nil,
         # The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
         # alpha-3 formats.
         country_of_incorporation: nil,
@@ -87,7 +106,7 @@ module ModernTreasury
         doing_business_as_names: nil,
         # The entity's primary email.
         email: nil,
-        # Monthly expected transaction volume in entity's local currency.
+        # Monthly expected transaction volume in USD.
         expected_activity_volume: nil,
         # An individual's first name.
         first_name: nil,
@@ -103,6 +122,8 @@ module ModernTreasury
         legal_entity_associations: nil,
         # The business's legal structure.
         legal_structure: nil,
+        # ISO 10383 market identifier code.
+        listed_exchange: nil,
         # Additional data represented as key-value pairs. Both the key and value must be
         # strings.
         metadata: nil,
@@ -120,10 +141,16 @@ module ModernTreasury
         prefix: nil,
         # A list of primary social media URLs for the business.
         primary_social_media_sites: nil,
+        # Array of regulatory bodies overseeing this institution.
+        regulators: nil,
         # The risk rating of the legal entity. One of low, medium, high.
         risk_rating: nil,
         # An individual's suffix.
         suffix: nil,
+        # Information describing a third-party verification run by an external vendor.
+        third_party_verification: nil,
+        # Stock ticker symbol for publicly traded companies.
+        ticker_symbol: nil,
         wealth_and_employment_details: nil,
         # The entity's primary website URL.
         website: nil,
@@ -175,6 +202,7 @@ module ModernTreasury
             T.nilable(
               ModernTreasury::LegalEntityUpdateParams::LegalStructure::OrSymbol
             ),
+          listed_exchange: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           middle_name: T.nilable(String),
           operating_jurisdictions: T::Array[String],
@@ -186,11 +214,22 @@ module ModernTreasury
           preferred_name: T.nilable(String),
           prefix: T.nilable(String),
           primary_social_media_sites: T::Array[String],
+          regulators:
+            T.nilable(
+              T::Array[
+                ModernTreasury::LegalEntityUpdateParams::Regulator::OrHash
+              ]
+            ),
           risk_rating:
             T.nilable(
               ModernTreasury::LegalEntityUpdateParams::RiskRating::OrSymbol
             ),
           suffix: T.nilable(String),
+          third_party_verification:
+            T.nilable(
+              ModernTreasury::LegalEntityUpdateParams::ThirdPartyVerification::OrHash
+            ),
+          ticker_symbol: T.nilable(String),
           wealth_and_employment_details:
             T.nilable(
               ModernTreasury::LegalEntityWealthEmploymentDetail::OrHash
@@ -222,7 +261,7 @@ module ModernTreasury
         doing_business_as_names: nil,
         # The entity's primary email.
         email: nil,
-        # Monthly expected transaction volume in entity's local currency.
+        # Monthly expected transaction volume in USD.
         expected_activity_volume: nil,
         # An individual's first name.
         first_name: nil,
@@ -236,6 +275,8 @@ module ModernTreasury
         last_name: nil,
         # The business's legal structure.
         legal_structure: nil,
+        # ISO 10383 market identifier code.
+        listed_exchange: nil,
         # Additional data represented as key-value pairs. Both the key and value must be
         # strings.
         metadata: nil,
@@ -253,10 +294,16 @@ module ModernTreasury
         prefix: nil,
         # A list of primary social media URLs for the business.
         primary_social_media_sites: nil,
+        # Array of regulatory bodies overseeing this institution.
+        regulators: nil,
         # The risk rating of the legal entity. One of low, medium, high.
         risk_rating: nil,
         # An individual's suffix.
         suffix: nil,
+        # Information describing a third-party verification run by an external vendor.
+        third_party_verification: nil,
+        # Stock ticker symbol for publicly traded companies.
+        ticker_symbol: nil,
         wealth_and_employment_details: nil,
         # The entity's primary website URL.
         website: nil,

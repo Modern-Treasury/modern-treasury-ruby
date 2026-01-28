@@ -285,6 +285,7 @@ module ModernTreasury
 
             AU_NUMBER = :au_number
             BASE_ADDRESS = :base_address
+            CARD_TOKEN = :card_token
             CLABE = :clabe
             ETHEREUM_ADDRESS = :ethereum_address
             HK_NUMBER = :hk_number
@@ -473,6 +474,16 @@ module ModernTreasury
         #   @return [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
         optional :compliance_details, -> { ModernTreasury::LegalEntityComplianceDetail }, nil?: true
 
+        # @!attribute connection_id
+        #   The connection ID for the connection the legal entity is associated with.
+        #   Defaults to the id of the connection designated with an is_default value of true
+        #   or the id of an existing operational connection if only one is available. Pass
+        #   in a value of null to prevent the connection from being associated with the
+        #   legal entity.
+        #
+        #   @return [String, nil]
+        optional :connection_id, String, nil?: true
+
         # @!attribute country_of_incorporation
         #   The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
         #   alpha-3 formats.
@@ -504,7 +515,7 @@ module ModernTreasury
         optional :email, String, nil?: true
 
         # @!attribute expected_activity_volume
-        #   Monthly expected transaction volume in entity's local currency.
+        #   Monthly expected transaction volume in USD.
         #
         #   @return [Integer, nil]
         optional :expected_activity_volume, Integer, nil?: true
@@ -559,6 +570,12 @@ module ModernTreasury
                  enum: -> { ModernTreasury::CounterpartyCreateParams::LegalEntity::LegalStructure },
                  nil?: true
 
+        # @!attribute listed_exchange
+        #   ISO 10383 market identifier code.
+        #
+        #   @return [String, nil]
+        optional :listed_exchange, String, nil?: true
+
         # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be
         #   strings.
@@ -609,6 +626,16 @@ module ModernTreasury
         #   @return [Array<String>, nil]
         optional :primary_social_media_sites, ModernTreasury::Internal::Type::ArrayOf[String]
 
+        # @!attribute regulators
+        #   Array of regulatory bodies overseeing this institution.
+        #
+        #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Regulator>, nil]
+        optional :regulators,
+                 -> {
+                   ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::CounterpartyCreateParams::LegalEntity::Regulator]
+                 },
+                 nil?: true
+
         # @!attribute risk_rating
         #   The risk rating of the legal entity. One of low, medium, high.
         #
@@ -623,6 +650,20 @@ module ModernTreasury
         #   @return [String, nil]
         optional :suffix, String, nil?: true
 
+        # @!attribute third_party_verification
+        #   Information describing a third-party verification run by an external vendor.
+        #
+        #   @return [ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::ThirdPartyVerification, nil]
+        optional :third_party_verification,
+                 -> { ModernTreasury::CounterpartyCreateParams::LegalEntity::ThirdPartyVerification },
+                 nil?: true
+
+        # @!attribute ticker_symbol
+        #   Stock ticker symbol for publicly traded companies.
+        #
+        #   @return [String, nil]
+        optional :ticker_symbol, String, nil?: true
+
         # @!attribute wealth_and_employment_details
         #
         #   @return [ModernTreasury::Models::LegalEntityWealthEmploymentDetail, nil]
@@ -636,7 +677,7 @@ module ModernTreasury
         #   @return [String, nil]
         optional :website, String, nil?: true
 
-        # @!method initialize(legal_entity_type:, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_entity_associations: nil, legal_structure: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, risk_rating: nil, suffix: nil, wealth_and_employment_details: nil, website: nil)
+        # @!method initialize(legal_entity_type:, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, connection_id: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_entity_associations: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, suffix: nil, third_party_verification: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil)
         #   Some parameter documentations has been truncated, see
         #   {ModernTreasury::Models::CounterpartyCreateParams::LegalEntity} for more
         #   details.
@@ -655,6 +696,8 @@ module ModernTreasury
         #
         #   @param compliance_details [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
         #
+        #   @param connection_id [String, nil] The connection ID for the connection the legal entity is associated with. Defaul
+        #
         #   @param country_of_incorporation [String, nil] The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
         #
         #   @param date_formed [Date, nil] A business's formation date (YYYY-MM-DD).
@@ -665,7 +708,7 @@ module ModernTreasury
         #
         #   @param email [String, nil] The entity's primary email.
         #
-        #   @param expected_activity_volume [Integer, nil] Monthly expected transaction volume in entity's local currency.
+        #   @param expected_activity_volume [Integer, nil] Monthly expected transaction volume in USD.
         #
         #   @param first_name [String, nil] An individual's first name.
         #
@@ -680,6 +723,8 @@ module ModernTreasury
         #   @param legal_entity_associations [Array<ModernTreasury::Models::LegalEntityAssociationInlineCreate>, nil] The legal entity associations and its child legal entities.
         #
         #   @param legal_structure [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalStructure, nil] The business's legal structure.
+        #
+        #   @param listed_exchange [String, nil] ISO 10383 market identifier code.
         #
         #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
         #
@@ -697,9 +742,15 @@ module ModernTreasury
         #
         #   @param primary_social_media_sites [Array<String>] A list of primary social media URLs for the business.
         #
+        #   @param regulators [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Regulator>, nil] Array of regulatory bodies overseeing this institution.
+        #
         #   @param risk_rating [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::RiskRating, nil] The risk rating of the legal entity. One of low, medium, high.
         #
         #   @param suffix [String, nil] An individual's suffix.
+        #
+        #   @param third_party_verification [ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::ThirdPartyVerification, nil] Information describing a third-party verification run by an external vendor.
+        #
+        #   @param ticker_symbol [String, nil] Stock ticker symbol for publicly traded companies.
         #
         #   @param wealth_and_employment_details [ModernTreasury::Models::LegalEntityWealthEmploymentDetail, nil]
         #
@@ -747,6 +798,38 @@ module ModernTreasury
           #   @param phone_number [String]
         end
 
+        class Regulator < ModernTreasury::Internal::Type::BaseModel
+          # @!attribute jurisdiction
+          #   The country code where the regulator operates in the ISO 3166-1 alpha-2 format
+          #   (e.g., "US", "CA", "GB").
+          #
+          #   @return [String]
+          required :jurisdiction, String
+
+          # @!attribute name
+          #   Full name of the regulatory body.
+          #
+          #   @return [String]
+          required :name, String
+
+          # @!attribute registration_number
+          #   Registration or identification number with the regulator.
+          #
+          #   @return [String]
+          required :registration_number, String
+
+          # @!method initialize(jurisdiction:, name:, registration_number:)
+          #   Some parameter documentations has been truncated, see
+          #   {ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Regulator} for
+          #   more details.
+          #
+          #   @param jurisdiction [String] The country code where the regulator operates in the ISO 3166-1 alpha-2 format (
+          #
+          #   @param name [String] Full name of the regulatory body.
+          #
+          #   @param registration_number [String] Registration or identification number with the regulator.
+        end
+
         # The risk rating of the legal entity. One of low, medium, high.
         #
         # @see ModernTreasury::Models::CounterpartyCreateParams::LegalEntity#risk_rating
@@ -759,6 +842,41 @@ module ModernTreasury
 
           # @!method self.values
           #   @return [Array<Symbol>]
+        end
+
+        # @see ModernTreasury::Models::CounterpartyCreateParams::LegalEntity#third_party_verification
+        class ThirdPartyVerification < ModernTreasury::Internal::Type::BaseModel
+          # @!attribute vendor
+          #   The vendor that performed the verification, e.g. `persona`.
+          #
+          #   @return [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::ThirdPartyVerification::Vendor]
+          required :vendor,
+                   enum: -> { ModernTreasury::CounterpartyCreateParams::LegalEntity::ThirdPartyVerification::Vendor }
+
+          # @!attribute vendor_verification_id
+          #   The identification of the third party verification in `vendor`'s system.
+          #
+          #   @return [String]
+          required :vendor_verification_id, String
+
+          # @!method initialize(vendor:, vendor_verification_id:)
+          #   Information describing a third-party verification run by an external vendor.
+          #
+          #   @param vendor [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::ThirdPartyVerification::Vendor] The vendor that performed the verification, e.g. `persona`.
+          #
+          #   @param vendor_verification_id [String] The identification of the third party verification in `vendor`'s system.
+
+          # The vendor that performed the verification, e.g. `persona`.
+          #
+          # @see ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::ThirdPartyVerification#vendor
+          module Vendor
+            extend ModernTreasury::Internal::Type::Enum
+
+            PERSONA = :persona
+
+            # @!method self.values
+            #   @return [Array<Symbol>]
+          end
         end
       end
     end

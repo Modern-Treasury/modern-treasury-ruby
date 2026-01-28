@@ -269,6 +269,7 @@ module ModernTreasury
           type account_number_type =
             :au_number
             | :base_address
+            | :card_token
             | :clabe
             | :ethereum_address
             | :hk_number
@@ -287,6 +288,7 @@ module ModernTreasury
 
             AU_NUMBER: :au_number
             BASE_ADDRESS: :base_address
+            CARD_TOKEN: :card_token
             CLABE: :clabe
             ETHEREUM_ADDRESS: :ethereum_address
             HK_NUMBER: :hk_number
@@ -499,6 +501,7 @@ module ModernTreasury
           business_name: String?,
           citizenship_country: String?,
           compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
+          connection_id: String?,
           country_of_incorporation: String?,
           date_formed: Date?,
           date_of_birth: Date?,
@@ -512,6 +515,7 @@ module ModernTreasury
           last_name: String?,
           legal_entity_associations: ::Array[ModernTreasury::LegalEntityAssociationInlineCreate]?,
           legal_structure: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::legal_structure?,
+          listed_exchange: String?,
           metadata: ::Hash[Symbol, String],
           middle_name: String?,
           operating_jurisdictions: ::Array[String],
@@ -520,8 +524,11 @@ module ModernTreasury
           preferred_name: String?,
           prefix: String?,
           primary_social_media_sites: ::Array[String],
+          regulators: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::Regulator]?,
           risk_rating: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::risk_rating?,
           suffix: String?,
+          third_party_verification: ModernTreasury::CounterpartyCreateParams::LegalEntity::ThirdPartyVerification?,
+          ticker_symbol: String?,
           wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,
           website: String?
         }
@@ -544,6 +551,8 @@ module ModernTreasury
         attr_accessor citizenship_country: String?
 
         attr_accessor compliance_details: ModernTreasury::LegalEntityComplianceDetail?
+
+        attr_accessor connection_id: String?
 
         attr_accessor country_of_incorporation: String?
 
@@ -581,6 +590,8 @@ module ModernTreasury
 
         attr_accessor legal_structure: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::legal_structure?
 
+        attr_accessor listed_exchange: String?
+
         attr_reader metadata: ::Hash[Symbol, String]?
 
         def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
@@ -607,9 +618,15 @@ module ModernTreasury
 
         def primary_social_media_sites=: (::Array[String]) -> ::Array[String]
 
+        attr_accessor regulators: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::Regulator]?
+
         attr_accessor risk_rating: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::risk_rating?
 
         attr_accessor suffix: String?
+
+        attr_accessor third_party_verification: ModernTreasury::CounterpartyCreateParams::LegalEntity::ThirdPartyVerification?
+
+        attr_accessor ticker_symbol: String?
 
         attr_accessor wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?
 
@@ -623,6 +640,7 @@ module ModernTreasury
           ?business_name: String?,
           ?citizenship_country: String?,
           ?compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
+          ?connection_id: String?,
           ?country_of_incorporation: String?,
           ?date_formed: Date?,
           ?date_of_birth: Date?,
@@ -636,6 +654,7 @@ module ModernTreasury
           ?last_name: String?,
           ?legal_entity_associations: ::Array[ModernTreasury::LegalEntityAssociationInlineCreate]?,
           ?legal_structure: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::legal_structure?,
+          ?listed_exchange: String?,
           ?metadata: ::Hash[Symbol, String],
           ?middle_name: String?,
           ?operating_jurisdictions: ::Array[String],
@@ -644,8 +663,11 @@ module ModernTreasury
           ?preferred_name: String?,
           ?prefix: String?,
           ?primary_social_media_sites: ::Array[String],
+          ?regulators: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::Regulator]?,
           ?risk_rating: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::risk_rating?,
           ?suffix: String?,
+          ?third_party_verification: ModernTreasury::CounterpartyCreateParams::LegalEntity::ThirdPartyVerification?,
+          ?ticker_symbol: String?,
           ?wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,
           ?website: String?
         ) -> void
@@ -658,6 +680,7 @@ module ModernTreasury
           business_name: String?,
           citizenship_country: String?,
           compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
+          connection_id: String?,
           country_of_incorporation: String?,
           date_formed: Date?,
           date_of_birth: Date?,
@@ -671,6 +694,7 @@ module ModernTreasury
           last_name: String?,
           legal_entity_associations: ::Array[ModernTreasury::LegalEntityAssociationInlineCreate]?,
           legal_structure: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::legal_structure?,
+          listed_exchange: String?,
           metadata: ::Hash[Symbol, String],
           middle_name: String?,
           operating_jurisdictions: ::Array[String],
@@ -679,8 +703,11 @@ module ModernTreasury
           preferred_name: String?,
           prefix: String?,
           primary_social_media_sites: ::Array[String],
+          regulators: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::Regulator]?,
           risk_rating: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::risk_rating?,
           suffix: String?,
+          third_party_verification: ModernTreasury::CounterpartyCreateParams::LegalEntity::ThirdPartyVerification?,
+          ticker_symbol: String?,
           wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,
           website: String?
         }
@@ -729,6 +756,29 @@ module ModernTreasury
           def to_hash: -> { phone_number: String }
         end
 
+        type regulator =
+          { jurisdiction: String, name: String, registration_number: String }
+
+        class Regulator < ModernTreasury::Internal::Type::BaseModel
+          attr_accessor jurisdiction: String
+
+          attr_accessor name: String
+
+          attr_accessor registration_number: String
+
+          def initialize: (
+            jurisdiction: String,
+            name: String,
+            registration_number: String
+          ) -> void
+
+          def to_hash: -> {
+            jurisdiction: String,
+            name: String,
+            registration_number: String
+          }
+        end
+
         type risk_rating = :low | :medium | :high
 
         module RiskRating
@@ -739,6 +789,38 @@ module ModernTreasury
           HIGH: :high
 
           def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::risk_rating]
+        end
+
+        type third_party_verification =
+          {
+            vendor: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::ThirdPartyVerification::vendor,
+            vendor_verification_id: String
+          }
+
+        class ThirdPartyVerification < ModernTreasury::Internal::Type::BaseModel
+          attr_accessor vendor: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::ThirdPartyVerification::vendor
+
+          attr_accessor vendor_verification_id: String
+
+          def initialize: (
+            vendor: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::ThirdPartyVerification::vendor,
+            vendor_verification_id: String
+          ) -> void
+
+          def to_hash: -> {
+            vendor: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::ThirdPartyVerification::vendor,
+            vendor_verification_id: String
+          }
+
+          type vendor = :persona
+
+          module Vendor
+            extend ModernTreasury::Internal::Type::Enum
+
+            PERSONA: :persona
+
+            def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::ThirdPartyVerification::vendor]
+          end
         end
       end
     end
