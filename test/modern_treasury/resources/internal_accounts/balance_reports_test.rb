@@ -43,7 +43,7 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mo
   def test_retrieve_required_params
     response =
       @modern_treasury.internal_accounts.balance_reports.retrieve(
-        :string,
+        :latest,
         internal_account_id: "internal_account_id"
       )
 
