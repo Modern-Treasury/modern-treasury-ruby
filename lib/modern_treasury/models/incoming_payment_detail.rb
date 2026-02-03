@@ -170,7 +170,26 @@ module ModernTreasury
       #   @return [String, nil]
       optional :originating_account_number, String, nil?: true
 
-      # @!method initialize(id:, amount:, as_of_date:, created_at:, currency:, data:, direction:, internal_account_id:, ledger_transaction_id:, live_mode:, metadata:, object:, originating_account_number_safe:, originating_account_number_type:, originating_routing_number:, originating_routing_number_type:, reconciliation_status:, status:, transaction_id:, transaction_line_item_id:, type:, updated_at:, vendor_id:, virtual_account:, virtual_account_id:, originating_account_number: nil)
+      # @!attribute originating_party_address
+      #   The address of the originating party for the incoming payment detail, or `null`.
+      #
+      #   @return [ModernTreasury::Models::Address, nil]
+      optional :originating_party_address, -> { ModernTreasury::Address }, nil?: true
+
+      # @!attribute originating_party_name
+      #   The name of the originating party for the incoming payment detail.
+      #
+      #   @return [String, nil]
+      optional :originating_party_name, String, nil?: true
+
+      # @!attribute originating_party_vendor_identifier
+      #   The vendor-assigned identifier for the originating party of the incoming payment
+      #   detail, or `null`.
+      #
+      #   @return [String, nil]
+      optional :originating_party_vendor_identifier, String, nil?: true
+
+      # @!method initialize(id:, amount:, as_of_date:, created_at:, currency:, data:, direction:, internal_account_id:, ledger_transaction_id:, live_mode:, metadata:, object:, originating_account_number_safe:, originating_account_number_type:, originating_routing_number:, originating_routing_number_type:, reconciliation_status:, status:, transaction_id:, transaction_line_item_id:, type:, updated_at:, vendor_id:, virtual_account:, virtual_account_id:, originating_account_number: nil, originating_party_address: nil, originating_party_name: nil, originating_party_vendor_identifier: nil)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::IncomingPaymentDetail} for more details.
       #
@@ -225,6 +244,12 @@ module ModernTreasury
       #   @param virtual_account_id [String, nil] If the incoming payment detail is in a virtual account, the ID of the Virtual Ac
       #
       #   @param originating_account_number [String, nil] The account number of the originating account for the incoming payment detail.
+      #
+      #   @param originating_party_address [ModernTreasury::Models::Address, nil] The address of the originating party for the incoming payment detail, or `null`.
+      #
+      #   @param originating_party_name [String, nil] The name of the originating party for the incoming payment detail.
+      #
+      #   @param originating_party_vendor_identifier [String, nil] The vendor-assigned identifier for the originating party of the incoming payment
 
       # The type of the originating account number for the incoming payment detail.
       #

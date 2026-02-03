@@ -27,7 +27,10 @@ module ModernTreasury
         vendor_id: String?,
         virtual_account: ModernTreasury::VirtualAccount?,
         virtual_account_id: String?,
-        originating_account_number: String?
+        originating_account_number: String?,
+        originating_party_address: ModernTreasury::Address?,
+        originating_party_name: String?,
+        originating_party_vendor_identifier: String?
       }
 
     class IncomingPaymentDetail < ModernTreasury::Internal::Type::BaseModel
@@ -83,6 +86,12 @@ module ModernTreasury
 
       attr_accessor originating_account_number: String?
 
+      attr_accessor originating_party_address: ModernTreasury::Address?
+
+      attr_accessor originating_party_name: String?
+
+      attr_accessor originating_party_vendor_identifier: String?
+
       def initialize: (
         id: String,
         amount: Integer,
@@ -109,7 +118,10 @@ module ModernTreasury
         vendor_id: String?,
         virtual_account: ModernTreasury::VirtualAccount?,
         virtual_account_id: String?,
-        ?originating_account_number: String?
+        ?originating_account_number: String?,
+        ?originating_party_address: ModernTreasury::Address?,
+        ?originating_party_name: String?,
+        ?originating_party_vendor_identifier: String?
       ) -> void
 
       def to_hash: -> {
@@ -138,7 +150,10 @@ module ModernTreasury
         vendor_id: String?,
         virtual_account: ModernTreasury::VirtualAccount?,
         virtual_account_id: String?,
-        originating_account_number: String?
+        originating_account_number: String?,
+        originating_party_address: ModernTreasury::Address?,
+        originating_party_name: String?,
+        originating_party_vendor_identifier: String?
       }
 
       type originating_account_number_type =
