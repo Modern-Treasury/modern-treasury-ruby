@@ -37,7 +37,10 @@ class ModernTreasury::Test::Resources::IncomingPaymentDetailsTest < ModernTreasu
         vendor_id: String | nil,
         virtual_account: ModernTreasury::VirtualAccount | nil,
         virtual_account_id: String | nil,
-        originating_account_number: String | nil
+        originating_account_number: String | nil,
+        originating_party_address: ModernTreasury::Address | nil,
+        originating_party_name: String | nil,
+        originating_party_vendor_identifier: String | nil
       }
     end
   end
@@ -76,7 +79,10 @@ class ModernTreasury::Test::Resources::IncomingPaymentDetailsTest < ModernTreasu
         vendor_id: String | nil,
         virtual_account: ModernTreasury::VirtualAccount | nil,
         virtual_account_id: String | nil,
-        originating_account_number: String | nil
+        originating_account_number: String | nil,
+        originating_party_address: ModernTreasury::Address | nil,
+        originating_party_name: String | nil,
+        originating_party_vendor_identifier: String | nil
       }
     end
   end
@@ -122,7 +128,10 @@ class ModernTreasury::Test::Resources::IncomingPaymentDetailsTest < ModernTreasu
         vendor_id: String | nil,
         virtual_account: ModernTreasury::VirtualAccount | nil,
         virtual_account_id: String | nil,
-        originating_account_number: String | nil
+        originating_account_number: String | nil,
+        originating_party_address: ModernTreasury::Address | nil,
+        originating_party_name: String | nil,
+        originating_party_vendor_identifier: String | nil
       }
     end
   end

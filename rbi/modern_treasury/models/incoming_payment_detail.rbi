@@ -146,6 +146,26 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :originating_account_number
 
+      # The address of the originating party for the incoming payment detail, or `null`.
+      sig { returns(T.nilable(ModernTreasury::Address)) }
+      attr_reader :originating_party_address
+
+      sig do
+        params(
+          originating_party_address: T.nilable(ModernTreasury::Address::OrHash)
+        ).void
+      end
+      attr_writer :originating_party_address
+
+      # The name of the originating party for the incoming payment detail.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :originating_party_name
+
+      # The vendor-assigned identifier for the originating party of the incoming payment
+      # detail, or `null`.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :originating_party_vendor_identifier
+
       sig do
         params(
           id: String,
@@ -180,7 +200,10 @@ module ModernTreasury
           vendor_id: T.nilable(String),
           virtual_account: T.nilable(ModernTreasury::VirtualAccount::OrHash),
           virtual_account_id: T.nilable(String),
-          originating_account_number: T.nilable(String)
+          originating_account_number: T.nilable(String),
+          originating_party_address: T.nilable(ModernTreasury::Address::OrHash),
+          originating_party_name: T.nilable(String),
+          originating_party_vendor_identifier: T.nilable(String)
         ).returns(T.attached_class)
       end
       def self.new(
@@ -241,7 +264,14 @@ module ModernTreasury
         # Account.
         virtual_account_id:,
         # The account number of the originating account for the incoming payment detail.
-        originating_account_number: nil
+        originating_account_number: nil,
+        # The address of the originating party for the incoming payment detail, or `null`.
+        originating_party_address: nil,
+        # The name of the originating party for the incoming payment detail.
+        originating_party_name: nil,
+        # The vendor-assigned identifier for the originating party of the incoming payment
+        # detail, or `null`.
+        originating_party_vendor_identifier: nil
       )
       end
 
@@ -280,7 +310,10 @@ module ModernTreasury
             vendor_id: T.nilable(String),
             virtual_account: T.nilable(ModernTreasury::VirtualAccount),
             virtual_account_id: T.nilable(String),
-            originating_account_number: T.nilable(String)
+            originating_account_number: T.nilable(String),
+            originating_party_address: T.nilable(ModernTreasury::Address),
+            originating_party_name: T.nilable(String),
+            originating_party_vendor_identifier: T.nilable(String)
           }
         )
       end
