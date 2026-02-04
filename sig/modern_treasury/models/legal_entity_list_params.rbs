@@ -6,7 +6,8 @@ module ModernTreasury
         legal_entity_type: ModernTreasury::Models::LegalEntityListParams::legal_entity_type,
         metadata: ::Hash[Symbol, String],
         per_page: Integer,
-        show_deleted: String
+        show_deleted: String,
+        status: ModernTreasury::Models::LegalEntityListParams::status
       }
       & ModernTreasury::Internal::Type::request_parameters
 
@@ -34,12 +35,19 @@ module ModernTreasury
 
       def show_deleted=: (String) -> String
 
+      attr_reader status: ModernTreasury::Models::LegalEntityListParams::status?
+
+      def status=: (
+        ModernTreasury::Models::LegalEntityListParams::status
+      ) -> ModernTreasury::Models::LegalEntityListParams::status
+
       def initialize: (
         ?after_cursor: String?,
         ?legal_entity_type: ModernTreasury::Models::LegalEntityListParams::legal_entity_type,
         ?metadata: ::Hash[Symbol, String],
         ?per_page: Integer,
         ?show_deleted: String,
+        ?status: ModernTreasury::Models::LegalEntityListParams::status,
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
@@ -49,6 +57,7 @@ module ModernTreasury
         metadata: ::Hash[Symbol, String],
         per_page: Integer,
         show_deleted: String,
+        status: ModernTreasury::Models::LegalEntityListParams::status,
         request_options: ModernTreasury::RequestOptions
       }
 
@@ -61,6 +70,19 @@ module ModernTreasury
         INDIVIDUAL: :individual
 
         def self?.values: -> ::Array[ModernTreasury::Models::LegalEntityListParams::legal_entity_type]
+      end
+
+      type status = :pending | :active | :suspended | :closed
+
+      module Status
+        extend ModernTreasury::Internal::Type::Enum
+
+        PENDING: :pending
+        ACTIVE: :active
+        SUSPENDED: :suspended
+        CLOSED: :closed
+
+        def self?.values: -> ::Array[ModernTreasury::Models::LegalEntityListParams::status]
       end
     end
   end

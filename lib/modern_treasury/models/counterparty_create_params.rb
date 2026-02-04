@@ -644,6 +644,17 @@ module ModernTreasury
                  enum: -> { ModernTreasury::CounterpartyCreateParams::LegalEntity::RiskRating },
                  nil?: true
 
+        # @!attribute status
+        #   The activation status of the legal entity. One of pending, active, suspended, or
+        #   closed.
+        #
+        #   @return [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Status, nil]
+        optional :status,
+                 enum: -> {
+                   ModernTreasury::CounterpartyCreateParams::LegalEntity::Status
+                 },
+                 nil?: true
+
         # @!attribute suffix
         #   An individual's suffix.
         #
@@ -677,7 +688,7 @@ module ModernTreasury
         #   @return [String, nil]
         optional :website, String, nil?: true
 
-        # @!method initialize(legal_entity_type:, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, connection_id: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_entity_associations: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, suffix: nil, third_party_verification: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil)
+        # @!method initialize(legal_entity_type:, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, connection_id: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_entity_associations: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, status: nil, suffix: nil, third_party_verification: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil)
         #   Some parameter documentations has been truncated, see
         #   {ModernTreasury::Models::CounterpartyCreateParams::LegalEntity} for more
         #   details.
@@ -745,6 +756,8 @@ module ModernTreasury
         #   @param regulators [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Regulator>, nil] Array of regulatory bodies overseeing this institution.
         #
         #   @param risk_rating [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::RiskRating, nil] The risk rating of the legal entity. One of low, medium, high.
+        #
+        #   @param status [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Status, nil] The activation status of the legal entity. One of pending, active, suspended, or
         #
         #   @param suffix [String, nil] An individual's suffix.
         #
@@ -839,6 +852,22 @@ module ModernTreasury
           LOW = :low
           MEDIUM = :medium
           HIGH = :high
+
+          # @!method self.values
+          #   @return [Array<Symbol>]
+        end
+
+        # The activation status of the legal entity. One of pending, active, suspended, or
+        # closed.
+        #
+        # @see ModernTreasury::Models::CounterpartyCreateParams::LegalEntity#status
+        module Status
+          extend ModernTreasury::Internal::Type::Enum
+
+          ACTIVE = :active
+          CLOSED = :closed
+          PENDING = :pending
+          SUSPENDED = :suspended
 
           # @!method self.values
           #   @return [Array<Symbol>]

@@ -220,6 +220,13 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::LegalEntity::RiskRating, nil]
       required :risk_rating, enum: -> { ModernTreasury::LegalEntity::RiskRating }, nil?: true
 
+      # @!attribute status
+      #   The activation status of the legal entity. One of pending, active, suspended, or
+      #   closed.
+      #
+      #   @return [Symbol, ModernTreasury::Models::LegalEntity::Status, nil]
+      required :status, enum: -> { ModernTreasury::LegalEntity::Status }, nil?: true
+
       # @!attribute suffix
       #   An individual's suffix.
       #
@@ -268,7 +275,7 @@ module ModernTreasury
                -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityAssociation] },
                nil?: true
 
-      # @!method initialize(id:, addresses:, bank_settings:, business_description:, business_name:, citizenship_country:, compliance_details:, country_of_incorporation:, created_at:, date_formed:, date_of_birth:, discarded_at:, documents:, doing_business_as_names:, email:, expected_activity_volume:, first_name:, identifications:, industry_classifications:, intended_use:, last_name:, legal_entity_type:, legal_structure:, listed_exchange:, live_mode:, metadata:, middle_name:, object:, operating_jurisdictions:, phone_numbers:, politically_exposed_person:, preferred_name:, prefix:, primary_social_media_sites:, regulators:, risk_rating:, suffix:, third_party_verification:, ticker_symbol:, updated_at:, wealth_and_employment_details:, website:, legal_entity_associations: nil)
+      # @!method initialize(id:, addresses:, bank_settings:, business_description:, business_name:, citizenship_country:, compliance_details:, country_of_incorporation:, created_at:, date_formed:, date_of_birth:, discarded_at:, documents:, doing_business_as_names:, email:, expected_activity_volume:, first_name:, identifications:, industry_classifications:, intended_use:, last_name:, legal_entity_type:, legal_structure:, listed_exchange:, live_mode:, metadata:, middle_name:, object:, operating_jurisdictions:, phone_numbers:, politically_exposed_person:, preferred_name:, prefix:, primary_social_media_sites:, regulators:, risk_rating:, status:, suffix:, third_party_verification:, ticker_symbol:, updated_at:, wealth_and_employment_details:, website:, legal_entity_associations: nil)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LegalEntity} for more details.
       #
@@ -343,6 +350,8 @@ module ModernTreasury
       #   @param regulators [Array<ModernTreasury::Models::LegalEntity::Regulator>, nil] Array of regulatory bodies overseeing this institution.
       #
       #   @param risk_rating [Symbol, ModernTreasury::Models::LegalEntity::RiskRating, nil] The risk rating of the legal entity. One of low, medium, high.
+      #
+      #   @param status [Symbol, ModernTreasury::Models::LegalEntity::Status, nil] The activation status of the legal entity. One of pending, active, suspended, or
       #
       #   @param suffix [String, nil] An individual's suffix.
       #
@@ -683,6 +692,22 @@ module ModernTreasury
         LOW = :low
         MEDIUM = :medium
         HIGH = :high
+
+        # @!method self.values
+        #   @return [Array<Symbol>]
+      end
+
+      # The activation status of the legal entity. One of pending, active, suspended, or
+      # closed.
+      #
+      # @see ModernTreasury::Models::LegalEntity#status
+      module Status
+        extend ModernTreasury::Internal::Type::Enum
+
+        ACTIVE = :active
+        CLOSED = :closed
+        PENDING = :pending
+        SUSPENDED = :suspended
 
         # @!method self.values
         #   @return [Array<Symbol>]

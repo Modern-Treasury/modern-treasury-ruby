@@ -56,6 +56,20 @@ module ModernTreasury
       attr_writer :show_deleted
 
       sig do
+        returns(
+          T.nilable(ModernTreasury::LegalEntityListParams::Status::OrSymbol)
+        )
+      end
+      attr_reader :status
+
+      sig do
+        params(
+          status: ModernTreasury::LegalEntityListParams::Status::OrSymbol
+        ).void
+      end
+      attr_writer :status
+
+      sig do
         params(
           after_cursor: T.nilable(String),
           legal_entity_type:
@@ -63,6 +77,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
           show_deleted: String,
+          status: ModernTreasury::LegalEntityListParams::Status::OrSymbol,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
@@ -75,6 +90,7 @@ module ModernTreasury
         metadata: nil,
         per_page: nil,
         show_deleted: nil,
+        status: nil,
         request_options: {}
       )
       end
@@ -88,6 +104,7 @@ module ModernTreasury
             metadata: T::Hash[Symbol, String],
             per_page: Integer,
             show_deleted: String,
+            status: ModernTreasury::LegalEntityListParams::Status::OrSymbol,
             request_options: ModernTreasury::RequestOptions
           }
         )
@@ -122,6 +139,47 @@ module ModernTreasury
           override.returns(
             T::Array[
               ModernTreasury::LegalEntityListParams::LegalEntityType::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
+      end
+
+      module Status
+        extend ModernTreasury::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::LegalEntityListParams::Status)
+          end
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        PENDING =
+          T.let(
+            :pending,
+            ModernTreasury::LegalEntityListParams::Status::TaggedSymbol
+          )
+        ACTIVE =
+          T.let(
+            :active,
+            ModernTreasury::LegalEntityListParams::Status::TaggedSymbol
+          )
+        SUSPENDED =
+          T.let(
+            :suspended,
+            ModernTreasury::LegalEntityListParams::Status::TaggedSymbol
+          )
+        CLOSED =
+          T.let(
+            :closed,
+            ModernTreasury::LegalEntityListParams::Status::TaggedSymbol
+          )
+
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::LegalEntityListParams::Status::TaggedSymbol
             ]
           )
         end

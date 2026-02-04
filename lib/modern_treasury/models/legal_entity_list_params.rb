@@ -35,7 +35,12 @@ module ModernTreasury
       #   @return [String, nil]
       optional :show_deleted, String
 
-      # @!method initialize(after_cursor: nil, legal_entity_type: nil, metadata: nil, per_page: nil, show_deleted: nil, request_options: {})
+      # @!attribute status
+      #
+      #   @return [Symbol, ModernTreasury::Models::LegalEntityListParams::Status, nil]
+      optional :status, enum: -> { ModernTreasury::LegalEntityListParams::Status }
+
+      # @!method initialize(after_cursor: nil, legal_entity_type: nil, metadata: nil, per_page: nil, show_deleted: nil, status: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LegalEntityListParams} for more details.
       #
@@ -49,6 +54,8 @@ module ModernTreasury
       #
       #   @param show_deleted [String]
       #
+      #   @param status [Symbol, ModernTreasury::Models::LegalEntityListParams::Status]
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       module LegalEntityType
@@ -56,6 +63,18 @@ module ModernTreasury
 
         BUSINESS = :business
         INDIVIDUAL = :individual
+
+        # @!method self.values
+        #   @return [Array<Symbol>]
+      end
+
+      module Status
+        extend ModernTreasury::Internal::Type::Enum
+
+        PENDING = :pending
+        ACTIVE = :active
+        SUSPENDED = :suspended
+        CLOSED = :closed
 
         # @!method self.values
         #   @return [Array<Symbol>]

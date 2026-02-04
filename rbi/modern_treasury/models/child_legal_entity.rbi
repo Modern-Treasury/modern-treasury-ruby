@@ -192,6 +192,15 @@ module ModernTreasury
       end
       attr_accessor :risk_rating
 
+      # The activation status of the legal entity. One of pending, active, suspended, or
+      # closed.
+      sig do
+        returns(
+          T.nilable(ModernTreasury::ChildLegalEntity::Status::TaggedSymbol)
+        )
+      end
+      attr_accessor :status
+
       # An individual's suffix.
       sig { returns(T.nilable(String)) }
       attr_accessor :suffix
@@ -292,6 +301,7 @@ module ModernTreasury
             ),
           risk_rating:
             T.nilable(ModernTreasury::ChildLegalEntity::RiskRating::OrSymbol),
+          status: T.nilable(ModernTreasury::ChildLegalEntity::Status::OrSymbol),
           suffix: T.nilable(String),
           third_party_verification:
             T.nilable(
@@ -376,6 +386,9 @@ module ModernTreasury
         regulators:,
         # The risk rating of the legal entity. One of low, medium, high.
         risk_rating:,
+        # The activation status of the legal entity. One of pending, active, suspended, or
+        # closed.
+        status:,
         # An individual's suffix.
         suffix:,
         # Information describing a third-party verification run by an external vendor.
@@ -442,6 +455,8 @@ module ModernTreasury
               T.nilable(
                 ModernTreasury::ChildLegalEntity::RiskRating::TaggedSymbol
               ),
+            status:
+              T.nilable(ModernTreasury::ChildLegalEntity::Status::TaggedSymbol),
             suffix: T.nilable(String),
             third_party_verification:
               T.nilable(
@@ -1080,6 +1095,41 @@ module ModernTreasury
         sig do
           override.returns(
             T::Array[ModernTreasury::ChildLegalEntity::RiskRating::TaggedSymbol]
+          )
+        end
+        def self.values
+        end
+      end
+
+      # The activation status of the legal entity. One of pending, active, suspended, or
+      # closed.
+      module Status
+        extend ModernTreasury::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::ChildLegalEntity::Status)
+          end
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        ACTIVE =
+          T.let(:active, ModernTreasury::ChildLegalEntity::Status::TaggedSymbol)
+        CLOSED =
+          T.let(:closed, ModernTreasury::ChildLegalEntity::Status::TaggedSymbol)
+        PENDING =
+          T.let(
+            :pending,
+            ModernTreasury::ChildLegalEntity::Status::TaggedSymbol
+          )
+        SUSPENDED =
+          T.let(
+            :suspended,
+            ModernTreasury::ChildLegalEntity::Status::TaggedSymbol
+          )
+
+        sig do
+          override.returns(
+            T::Array[ModernTreasury::ChildLegalEntity::Status::TaggedSymbol]
           )
         end
         def self.values
