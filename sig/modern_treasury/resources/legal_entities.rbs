@@ -34,6 +34,7 @@ module ModernTreasury
         ?primary_social_media_sites: ::Array[String],
         ?regulators: ::Array[ModernTreasury::LegalEntityCreateParams::Regulator]?,
         ?risk_rating: ModernTreasury::Models::LegalEntityCreateParams::risk_rating?,
+        ?status: ModernTreasury::Models::LegalEntityCreateParams::status?,
         ?suffix: String?,
         ?third_party_verification: ModernTreasury::LegalEntityCreateParams::ThirdPartyVerification?,
         ?ticker_symbol: String?,
@@ -78,6 +79,7 @@ module ModernTreasury
         ?primary_social_media_sites: ::Array[String],
         ?regulators: ::Array[ModernTreasury::LegalEntityUpdateParams::Regulator]?,
         ?risk_rating: ModernTreasury::Models::LegalEntityUpdateParams::risk_rating?,
+        ?status: ModernTreasury::Models::LegalEntityUpdateParams::status?,
         ?suffix: String?,
         ?third_party_verification: ModernTreasury::LegalEntityUpdateParams::ThirdPartyVerification?,
         ?ticker_symbol: String?,
@@ -92,6 +94,7 @@ module ModernTreasury
         ?metadata: ::Hash[Symbol, String],
         ?per_page: Integer,
         ?show_deleted: String,
+        ?status: ModernTreasury::Models::LegalEntityListParams::status,
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::Internal::Page[ModernTreasury::LegalEntity]
 
