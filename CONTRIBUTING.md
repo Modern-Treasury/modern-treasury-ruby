@@ -43,13 +43,13 @@ If you’d like to use the repository from source, you can either install from g
 To install via git in your `Gemfile`:
 
 ```ruby
-gem "modern_treasury", git: "https://www.github.com/Modern-Treasury/modern-treasury-ruby"
+gem "modern_treasury", git: "https://github.com/Modern-Treasury/modern-treasury-ruby"
 ```
 
 Alternatively, reference local copy of the repo:
 
 ```bash
-$ git clone -- 'https://www.github.com/Modern-Treasury/modern-treasury-ruby' '<path-to-repo>'
+$ git clone -- 'https://github.com/Modern-Treasury/modern-treasury-ruby' '<path-to-repo>'
 ```
 
 ```ruby
