@@ -12,6 +12,7 @@ module ModernTreasury
           normal_balance: ModernTreasury::TransactionDirection::OrSymbol,
           currency_exponent: T.nilable(Integer),
           description: T.nilable(String),
+          external_id: T.nilable(String),
           ledger_account_category_ids: T::Array[String],
           ledgerable_id: String,
           ledgerable_type:
@@ -33,6 +34,8 @@ module ModernTreasury
         currency_exponent: nil,
         # The description of the ledger account.
         description: nil,
+        # An optional user-defined 180 character unique identifier.
+        external_id: nil,
         # The array of ledger account category ids that this ledger account should be a
         # child of.
         ledger_account_category_ids: nil,

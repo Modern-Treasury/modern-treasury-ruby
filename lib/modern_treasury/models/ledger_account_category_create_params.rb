@@ -43,6 +43,12 @@ module ModernTreasury
       #   @return [String, nil]
       optional :description, String, nil?: true
 
+      # @!attribute external_id
+      #   An optional user-defined 180 character unique identifier.
+      #
+      #   @return [String, nil]
+      optional :external_id, String, nil?: true
+
       # @!attribute ledger_account_category_ids
       #   The array of ledger account category ids that this ledger account category
       #   should be a child of.
@@ -57,7 +63,7 @@ module ModernTreasury
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
-      # @!method initialize(currency:, ledger_id:, name:, normal_balance:, currency_exponent: nil, description: nil, ledger_account_category_ids: nil, metadata: nil, request_options: {})
+      # @!method initialize(currency:, ledger_id:, name:, normal_balance:, currency_exponent: nil, description: nil, external_id: nil, ledger_account_category_ids: nil, metadata: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LedgerAccountCategoryCreateParams} for more details.
       #
@@ -72,6 +78,8 @@ module ModernTreasury
       #   @param currency_exponent [Integer, nil] The currency exponent of the ledger account category.
       #
       #   @param description [String, nil] The description of the ledger account category.
+      #
+      #   @param external_id [String, nil] An optional user-defined 180 character unique identifier.
       #
       #   @param ledger_account_category_ids [Array<String>] The array of ledger account category ids that this ledger account category shoul
       #

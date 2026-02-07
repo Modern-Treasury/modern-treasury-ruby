@@ -8,6 +8,7 @@ module ModernTreasury
         normal_balance: ModernTreasury::Models::transaction_direction,
         currency_exponent: Integer?,
         description: String?,
+        external_id: String?,
         ledger_account_category_ids: ::Array[String],
         ledgerable_id: String,
         ledgerable_type: ModernTreasury::Models::LedgerAccountCreateRequest::ledgerable_type,
@@ -26,6 +27,8 @@ module ModernTreasury
       attr_accessor currency_exponent: Integer?
 
       attr_accessor description: String?
+
+      attr_accessor external_id: String?
 
       attr_reader ledger_account_category_ids: ::Array[String]?
 
@@ -52,6 +55,7 @@ module ModernTreasury
         normal_balance: ModernTreasury::Models::transaction_direction,
         ?currency_exponent: Integer?,
         ?description: String?,
+        ?external_id: String?,
         ?ledger_account_category_ids: ::Array[String],
         ?ledgerable_id: String,
         ?ledgerable_type: ModernTreasury::Models::LedgerAccountCreateRequest::ledgerable_type,
@@ -65,6 +69,7 @@ module ModernTreasury
         normal_balance: ModernTreasury::Models::transaction_direction,
         currency_exponent: Integer?,
         description: String?,
+        external_id: String?,
         ledger_account_category_ids: ::Array[String],
         ledgerable_id: String,
         ledgerable_type: ModernTreasury::Models::LedgerAccountCreateRequest::ledgerable_type,

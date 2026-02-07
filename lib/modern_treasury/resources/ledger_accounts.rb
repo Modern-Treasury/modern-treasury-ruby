@@ -8,7 +8,7 @@ module ModernTreasury
       #
       # Create a ledger account.
       #
-      # @overload create(currency:, ledger_id:, name:, normal_balance:, currency_exponent: nil, description: nil, ledger_account_category_ids: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, request_options: {})
+      # @overload create(currency:, ledger_id:, name:, normal_balance:, currency_exponent: nil, description: nil, external_id: nil, ledger_account_category_ids: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, request_options: {})
       #
       # @param currency [String] The currency of the ledger account.
       #
@@ -21,6 +21,8 @@ module ModernTreasury
       # @param currency_exponent [Integer, nil] The currency exponent of the ledger account.
       #
       # @param description [String, nil] The description of the ledger account.
+      #
+      # @param external_id [String, nil] An optional user-defined 180 character unique identifier.
       #
       # @param ledger_account_category_ids [Array<String>] The array of ledger account category ids that this ledger account should be a ch
       #

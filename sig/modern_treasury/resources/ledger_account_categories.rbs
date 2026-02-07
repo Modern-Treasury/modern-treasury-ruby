@@ -8,6 +8,7 @@ module ModernTreasury
         normal_balance: ModernTreasury::Models::transaction_direction,
         ?currency_exponent: Integer?,
         ?description: String?,
+        ?external_id: String?,
         ?ledger_account_category_ids: ::Array[String],
         ?metadata: ::Hash[Symbol, String],
         ?request_options: ModernTreasury::request_opts
