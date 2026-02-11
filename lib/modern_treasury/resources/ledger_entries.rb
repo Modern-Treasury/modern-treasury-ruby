@@ -102,7 +102,7 @@ module ModernTreasury
       #
       # @param show_deleted [Boolean] If true, response will include ledger entries that were deleted. When you update
       #
-      # @param status [Array<Symbol, ModernTreasury::Models::LedgerEntryListParams::Status>] Get all ledger entries that match the status specified. One of `pending`, `poste
+      # @param status [Symbol, ModernTreasury::Models::LedgerEntryListParams::Status] Get all ledger entries that match the status specified. One of `pending`, `poste
       #
       # @param updated_at [Hash{Symbol=>Time}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the pos
       #
