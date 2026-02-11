@@ -170,17 +170,14 @@ module ModernTreasury
       # `status[]=pending&status[]=posted`.
       sig do
         returns(
-          T.nilable(
-            T::Array[ModernTreasury::LedgerEntryListParams::Status::OrSymbol]
-          )
+          T.nilable(ModernTreasury::LedgerEntryListParams::Status::OrSymbol)
         )
       end
       attr_reader :status
 
       sig do
         params(
-          status:
-            T::Array[ModernTreasury::LedgerEntryListParams::Status::OrSymbol]
+          status: ModernTreasury::LedgerEntryListParams::Status::OrSymbol
         ).void
       end
       attr_writer :status
@@ -215,8 +212,7 @@ module ModernTreasury
           per_page: Integer,
           show_balances: T::Boolean,
           show_deleted: T::Boolean,
-          status:
-            T::Array[ModernTreasury::LedgerEntryListParams::Status::OrSymbol],
+          status: ModernTreasury::LedgerEntryListParams::Status::OrSymbol,
           updated_at: T::Hash[Symbol, Time],
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
@@ -305,8 +301,7 @@ module ModernTreasury
             per_page: Integer,
             show_balances: T::Boolean,
             show_deleted: T::Boolean,
-            status:
-              T::Array[ModernTreasury::LedgerEntryListParams::Status::OrSymbol],
+            status: ModernTreasury::LedgerEntryListParams::Status::OrSymbol,
             updated_at: T::Hash[Symbol, Time],
             request_options: ModernTreasury::RequestOptions
           }
@@ -521,6 +516,9 @@ module ModernTreasury
         end
       end
 
+      # Get all ledger entries that match the status specified. One of `pending`,
+      # `posted`, or `archived`. For multiple statuses, use
+      # `status[]=pending&status[]=posted`.
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
