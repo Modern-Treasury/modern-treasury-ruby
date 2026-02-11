@@ -137,9 +137,8 @@ module ModernTreasury
       #   `posted`, or `archived`. For multiple statuses, use
       #   `status[]=pending&status[]=posted`.
       #
-      #   @return [Array<Symbol, ModernTreasury::Models::LedgerEntryListParams::Status>, nil]
-      optional :status,
-               -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::LedgerEntryListParams::Status] }
+      #   @return [Symbol, ModernTreasury::Models::LedgerEntryListParams::Status, nil]
+      optional :status, enum: -> { ModernTreasury::LedgerEntryListParams::Status }
 
       # @!attribute updated_at
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
@@ -191,7 +190,7 @@ module ModernTreasury
       #
       #   @param show_deleted [Boolean] If true, response will include ledger entries that were deleted. When you update
       #
-      #   @param status [Array<Symbol, ModernTreasury::Models::LedgerEntryListParams::Status>] Get all ledger entries that match the status specified. One of `pending`, `poste
+      #   @param status [Symbol, ModernTreasury::Models::LedgerEntryListParams::Status] Get all ledger entries that match the status specified. One of `pending`, `poste
       #
       #   @param updated_at [Hash{Symbol=>Time}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the pos
       #
@@ -275,6 +274,9 @@ module ModernTreasury
         end
       end
 
+      # Get all ledger entries that match the status specified. One of `pending`,
+      # `posted`, or `archived`. For multiple statuses, use
+      # `status[]=pending&status[]=posted`.
       module Status
         extend ModernTreasury::Internal::Type::Enum
 

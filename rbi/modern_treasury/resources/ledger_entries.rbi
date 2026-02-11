@@ -61,8 +61,7 @@ module ModernTreasury
           per_page: Integer,
           show_balances: T::Boolean,
           show_deleted: T::Boolean,
-          status:
-            T::Array[ModernTreasury::LedgerEntryListParams::Status::OrSymbol],
+          status: ModernTreasury::LedgerEntryListParams::Status::OrSymbol,
           updated_at: T::Hash[Symbol, Time],
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::Internal::Page[ModernTreasury::LedgerEntry])
