@@ -40,6 +40,13 @@ module ModernTreasury
       #   @return [Integer]
       required :amount, Integer
 
+      # @!attribute batch_id
+      #   The ID of the batch in which the payment order is included. Only populated after
+      #   the payment order begins processing.
+      #
+      #   @return [String, nil]
+      required :batch_id, String, nil?: true
+
       # @!attribute charge_bearer
       #   The party that will pay the fees for the payment order. See
       #   https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
@@ -356,7 +363,7 @@ module ModernTreasury
       #   @return [String, nil]
       required :vendor_failure_reason, String, nil?: true
 
-      # @!method initialize(id:, accounting:, accounting_category_id:, accounting_ledger_class_id:, amount:, charge_bearer:, counterparty_id:, created_at:, currency:, current_hold:, current_return:, description:, direction:, effective_date:, expires_at:, external_id:, foreign_exchange_contract:, foreign_exchange_indicator:, foreign_exchange_rate:, ledger_transaction_id:, live_mode:, metadata:, nsf_protected:, object:, originating_account_id:, originating_party_name:, priority:, process_after:, purpose:, receiving_account_id:, receiving_account_type:, reconciliation_status:, reference_numbers:, remittance_information:, send_remittance_advice:, statement_descriptor:, status:, subtype:, transaction_ids:, type:, ultimate_originating_account:, ultimate_originating_account_id:, ultimate_originating_account_type:, ultimate_originating_party_identifier:, ultimate_originating_party_name:, ultimate_receiving_party_identifier:, ultimate_receiving_party_name:, updated_at:, vendor_attributes:, vendor_failure_reason:)
+      # @!method initialize(id:, accounting:, accounting_category_id:, accounting_ledger_class_id:, amount:, batch_id:, charge_bearer:, counterparty_id:, created_at:, currency:, current_hold:, current_return:, description:, direction:, effective_date:, expires_at:, external_id:, foreign_exchange_contract:, foreign_exchange_indicator:, foreign_exchange_rate:, ledger_transaction_id:, live_mode:, metadata:, nsf_protected:, object:, originating_account_id:, originating_party_name:, priority:, process_after:, purpose:, receiving_account_id:, receiving_account_type:, reconciliation_status:, reference_numbers:, remittance_information:, send_remittance_advice:, statement_descriptor:, status:, subtype:, transaction_ids:, type:, ultimate_originating_account:, ultimate_originating_account_id:, ultimate_originating_account_type:, ultimate_originating_party_identifier:, ultimate_originating_party_name:, ultimate_receiving_party_identifier:, ultimate_receiving_party_name:, updated_at:, vendor_attributes:, vendor_failure_reason:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::PaymentOrder} for more details.
       #
@@ -369,6 +376,8 @@ module ModernTreasury
       #   @param accounting_ledger_class_id [String, nil] The ID of one of your accounting ledger classes. Note that these will only be ac
       #
       #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
+      #
+      #   @param batch_id [String, nil] The ID of the batch in which the payment order is included. Only populated after
       #
       #   @param charge_bearer [Symbol, ModernTreasury::Models::PaymentOrder::ChargeBearer, nil] The party that will pay the fees for the payment order. See https://docs.modernt
       #

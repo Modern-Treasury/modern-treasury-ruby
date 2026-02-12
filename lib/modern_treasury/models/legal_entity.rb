@@ -39,9 +39,10 @@ module ModernTreasury
       required :citizenship_country, String, nil?: true
 
       # @!attribute compliance_details
+      #   @deprecated
       #
-      #   @return [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
-      required :compliance_details, -> { ModernTreasury::LegalEntityComplianceDetail }, nil?: true
+      #   @return [Object, nil]
+      required :compliance_details, ModernTreasury::Internal::Type::Unknown, nil?: true
 
       # @!attribute country_of_incorporation
       #   The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
@@ -291,7 +292,7 @@ module ModernTreasury
       #
       #   @param citizenship_country [String, nil] The country of citizenship for an individual.
       #
-      #   @param compliance_details [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
+      #   @param compliance_details [Object, nil]
       #
       #   @param country_of_incorporation [String, nil] The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
       #

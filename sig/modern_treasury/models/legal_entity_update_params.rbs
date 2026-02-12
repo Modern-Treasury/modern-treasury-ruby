@@ -7,7 +7,6 @@ module ModernTreasury
         business_description: String?,
         business_name: String?,
         citizenship_country: String?,
-        compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
         country_of_incorporation: String?,
         date_formed: Date?,
         date_of_birth: Date?,
@@ -57,8 +56,6 @@ module ModernTreasury
       attr_accessor business_name: String?
 
       attr_accessor citizenship_country: String?
-
-      attr_accessor compliance_details: ModernTreasury::LegalEntityComplianceDetail?
 
       attr_accessor country_of_incorporation: String?
 
@@ -144,7 +141,6 @@ module ModernTreasury
         ?business_description: String?,
         ?business_name: String?,
         ?citizenship_country: String?,
-        ?compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
         ?country_of_incorporation: String?,
         ?date_formed: Date?,
         ?date_of_birth: Date?,
@@ -183,7 +179,6 @@ module ModernTreasury
         business_description: String?,
         business_name: String?,
         citizenship_country: String?,
-        compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
         country_of_incorporation: String?,
         date_formed: Date?,
         date_of_birth: Date?,
