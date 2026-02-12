@@ -319,8 +319,6 @@ module ModernTreasury
 
   class LegalEntityBankSettings = ModernTreasury::Models::LegalEntityBankSettings
 
-  class LegalEntityComplianceDetail = ModernTreasury::Models::LegalEntityComplianceDetail
-
   class LegalEntityCreateParams = ModernTreasury::Models::LegalEntityCreateParams
 
   class LegalEntityIndustryClassification = ModernTreasury::Models::LegalEntityIndustryClassification

@@ -500,7 +500,6 @@ module ModernTreasury
           business_description: String?,
           business_name: String?,
           citizenship_country: String?,
-          compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
           connection_id: String?,
           country_of_incorporation: String?,
           date_formed: Date?,
@@ -550,8 +549,6 @@ module ModernTreasury
         attr_accessor business_name: String?
 
         attr_accessor citizenship_country: String?
-
-        attr_accessor compliance_details: ModernTreasury::LegalEntityComplianceDetail?
 
         attr_accessor connection_id: String?
 
@@ -642,7 +639,6 @@ module ModernTreasury
           ?business_description: String?,
           ?business_name: String?,
           ?citizenship_country: String?,
-          ?compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
           ?connection_id: String?,
           ?country_of_incorporation: String?,
           ?date_formed: Date?,
@@ -683,7 +679,6 @@ module ModernTreasury
           business_description: String?,
           business_name: String?,
           citizenship_country: String?,
-          compliance_details: ModernTreasury::LegalEntityComplianceDetail?,
           connection_id: String?,
           country_of_incorporation: String?,
           date_formed: Date?,

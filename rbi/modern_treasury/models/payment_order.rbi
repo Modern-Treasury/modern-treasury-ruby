@@ -36,6 +36,11 @@ module ModernTreasury
       sig { returns(Integer) }
       attr_accessor :amount
 
+      # The ID of the batch in which the payment order is included. Only populated after
+      # the payment order begins processing.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :batch_id
+
       # The party that will pay the fees for the payment order. See
       # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
       # differences between the options.
@@ -317,6 +322,7 @@ module ModernTreasury
           accounting_category_id: T.nilable(String),
           accounting_ledger_class_id: T.nilable(String),
           amount: Integer,
+          batch_id: T.nilable(String),
           charge_bearer:
             T.nilable(ModernTreasury::PaymentOrder::ChargeBearer::OrSymbol),
           counterparty_id: T.nilable(String),
@@ -394,6 +400,9 @@ module ModernTreasury
         # Value in specified currency's smallest unit. e.g. $10 would be represented as
         # 1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
         amount:,
+        # The ID of the batch in which the payment order is included. Only populated after
+        # the payment order begins processing.
+        batch_id:,
         # The party that will pay the fees for the payment order. See
         # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
         # differences between the options.
@@ -534,6 +543,7 @@ module ModernTreasury
             accounting_category_id: T.nilable(String),
             accounting_ledger_class_id: T.nilable(String),
             amount: Integer,
+            batch_id: T.nilable(String),
             charge_bearer:
               T.nilable(
                 ModernTreasury::PaymentOrder::ChargeBearer::TaggedSymbol

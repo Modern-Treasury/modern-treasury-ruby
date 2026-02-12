@@ -37,11 +37,6 @@ module ModernTreasury
       #   @return [String, nil]
       optional :citizenship_country, String, nil?: true
 
-      # @!attribute compliance_details
-      #
-      #   @return [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
-      optional :compliance_details, -> { ModernTreasury::LegalEntityComplianceDetail }, nil?: true
-
       # @!attribute country_of_incorporation
       #   The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
       #   alpha-3 formats.
@@ -230,7 +225,7 @@ module ModernTreasury
       #   @return [String, nil]
       optional :website, String, nil?: true
 
-      # @!method initialize(addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, status: nil, suffix: nil, third_party_verification: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
+      # @!method initialize(addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, status: nil, suffix: nil, third_party_verification: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LegalEntityUpdateParams} for more details.
       #
@@ -243,8 +238,6 @@ module ModernTreasury
       #   @param business_name [String, nil] The business's legal business name.
       #
       #   @param citizenship_country [String, nil] The country of citizenship for an individual.
-      #
-      #   @param compliance_details [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
       #
       #   @param country_of_incorporation [String, nil] The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
       #

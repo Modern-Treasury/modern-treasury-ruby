@@ -7,6 +7,7 @@ module ModernTreasury
         accounting_category_id: String?,
         accounting_ledger_class_id: String?,
         amount: Integer,
+        batch_id: String?,
         charge_bearer: ModernTreasury::Models::PaymentOrder::charge_bearer?,
         counterparty_id: String?,
         created_at: Time,
@@ -64,6 +65,8 @@ module ModernTreasury
       attr_accessor accounting_ledger_class_id: String?
 
       attr_accessor amount: Integer
+
+      attr_accessor batch_id: String?
 
       attr_accessor charge_bearer: ModernTreasury::Models::PaymentOrder::charge_bearer?
 
@@ -161,6 +164,7 @@ module ModernTreasury
         accounting_category_id: String?,
         accounting_ledger_class_id: String?,
         amount: Integer,
+        batch_id: String?,
         charge_bearer: ModernTreasury::Models::PaymentOrder::charge_bearer?,
         counterparty_id: String?,
         created_at: Time,
@@ -214,6 +218,7 @@ module ModernTreasury
         accounting_category_id: String?,
         accounting_ledger_class_id: String?,
         amount: Integer,
+        batch_id: String?,
         charge_bearer: ModernTreasury::Models::PaymentOrder::charge_bearer?,
         counterparty_id: String?,
         created_at: Time,
