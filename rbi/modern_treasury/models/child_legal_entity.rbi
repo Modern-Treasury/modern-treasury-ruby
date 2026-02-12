@@ -41,16 +41,8 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :citizenship_country
 
-      sig { returns(T.nilable(ModernTreasury::LegalEntityComplianceDetail)) }
-      attr_reader :compliance_details
-
-      sig do
-        params(
-          compliance_details:
-            T.nilable(ModernTreasury::LegalEntityComplianceDetail::OrHash)
-        ).void
-      end
-      attr_writer :compliance_details
+      sig { returns(T.nilable(T.anything)) }
+      attr_accessor :compliance_details
 
       # The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
       # alpha-3 formats.
@@ -257,8 +249,7 @@ module ModernTreasury
           business_description: T.nilable(String),
           business_name: T.nilable(String),
           citizenship_country: T.nilable(String),
-          compliance_details:
-            T.nilable(ModernTreasury::LegalEntityComplianceDetail::OrHash),
+          compliance_details: T.nilable(T.anything),
           country_of_incorporation: T.nilable(String),
           created_at: Time,
           date_formed: T.nilable(Date),
@@ -411,8 +402,7 @@ module ModernTreasury
             business_description: T.nilable(String),
             business_name: T.nilable(String),
             citizenship_country: T.nilable(String),
-            compliance_details:
-              T.nilable(ModernTreasury::LegalEntityComplianceDetail),
+            compliance_details: T.nilable(T.anything),
             country_of_incorporation: T.nilable(String),
             created_at: Time,
             date_formed: T.nilable(Date),

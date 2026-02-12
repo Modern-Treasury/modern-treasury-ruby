@@ -370,8 +370,6 @@ module ModernTreasury
 
   LegalEntityBankSettings = ModernTreasury::Models::LegalEntityBankSettings
 
-  LegalEntityComplianceDetail = ModernTreasury::Models::LegalEntityComplianceDetail
-
   LegalEntityCreateParams = ModernTreasury::Models::LegalEntityCreateParams
 
   LegalEntityIndustryClassification = ModernTreasury::Models::LegalEntityIndustryClassification
