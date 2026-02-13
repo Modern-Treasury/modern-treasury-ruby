@@ -1002,16 +1002,6 @@ module ModernTreasury
               :svb_payment_id,
               ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
-          SVB_TRANSACTION_CLEARED_FOR_SANCTIONS_REVIEW =
-            T.let(
-              :svb_transaction_cleared_for_sanctions_review,
-              ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
-            )
-          SVB_TRANSACTION_HELD_FOR_SANCTIONS_REVIEW =
-            T.let(
-              :svb_transaction_held_for_sanctions_review,
-              ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
-            )
           SWIFT_MIR =
             T.let(
               :swift_mir,

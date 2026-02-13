@@ -553,8 +553,6 @@ module ModernTreasury
           SILVERGATE_PAYMENT_ID = :silvergate_payment_id
           SVB_END_TO_END_ID = :svb_end_to_end_id
           SVB_PAYMENT_ID = :svb_payment_id
-          SVB_TRANSACTION_CLEARED_FOR_SANCTIONS_REVIEW = :svb_transaction_cleared_for_sanctions_review
-          SVB_TRANSACTION_HELD_FOR_SANCTIONS_REVIEW = :svb_transaction_held_for_sanctions_review
           SWIFT_MIR = :swift_mir
           SWIFT_UETR = :swift_uetr
           UMB_PRODUCT_PARTNER_ACCOUNT_NUMBER = :umb_product_partner_account_number
