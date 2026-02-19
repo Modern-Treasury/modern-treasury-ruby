@@ -1,5 +1,35 @@
 # Changelog
 
+## 0.14.0 (2026-02-19)
+
+Full Changelog: [v0.13.0...v0.14.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.13.0...v0.14.0)
+
+### Features
+
+* **api:** api update ([25cfdb7](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/25cfdb7f8b29f93e8887ec4ebf6c0cbeb1b588b5))
+* **api:** api update ([98df02a](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/98df02ad95dd177a7ca84ecc7378b8b54116dd24))
+* **api:** api update ([a8c4bae](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/a8c4bae4be8f924c67c232408da95246d39edc77))
+* **api:** api update ([ab4fda0](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/ab4fda0baced94179ad10a7676b0ede9e79304a9))
+* **api:** api update ([87e1464](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/87e146478fcfad1ec2b3489ee97537e9bc904153))
+* **api:** api update ([9604b54](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/9604b549b5c55fcb9ab5c0925427ae1eb1c7d86f))
+* **api:** api update ([69ac7a6](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/69ac7a6fb6a052e4b4caf7fab8c36b8d9f0c3178))
+
+
+### Bug Fixes
+
+* **client:** always add content-length to post body, even when empty ([bef91d0](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/bef91d0350ee38d5189f72d82fc3a836b32d6705))
+* **client:** loosen json header parsing ([be7e770](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/be7e7708e10c91f23474fd805f9ae3d869b03d0b))
+* **docs:** fix mcp installation instructions for remote servers ([23ff470](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/23ff470ba251005447adfd8bd5e172e237fa5527))
+
+
+### Chores
+
+* **client:** improve example values ([cf47df7](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/cf47df70215f66cbb664168701685df9503e6a1e))
+* **docs:** remove www prefix ([6dc299f](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/6dc299f2325417382847ba9ffa827c9adafeed49))
+* **internal:** codegen related update ([f163053](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/f163053fd9b97d1b1c56e801df2b9a3222fa808d))
+* **internal:** update `actions/checkout` version ([ef85ff8](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/ef85ff86aed1446023610663b9bc42fbaa3ccf2d))
+* update mock server docs ([d2ba99c](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/d2ba99c061b07c868d8cf7392aaf68aa761af4de))
+
 ## 0.13.0 (2026-01-13)
 
 Full Changelog: [v0.12.0...v0.13.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.12.0...v0.13.0)
