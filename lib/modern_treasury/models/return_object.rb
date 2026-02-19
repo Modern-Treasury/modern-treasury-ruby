@@ -496,9 +496,11 @@ module ModernTreasury
           COLUMN_FX_QUOTE_ID = :column_fx_quote_id
           COLUMN_REVERSAL_PAIR_TRANSFER_ID = :column_reversal_pair_transfer_id
           COLUMN_TRANSFER_ID = :column_transfer_id
+          CROSS_RIVER_CARD_TRACE_NUMBER = :cross_river_card_trace_number
           CROSS_RIVER_CORE_TRANSACTION_ID = :cross_river_core_transaction_id
           CROSS_RIVER_FED_BATCH_ID = :cross_river_fed_batch_id
           CROSS_RIVER_PAYMENT_ID = :cross_river_payment_id
+          CROSS_RIVER_RETRIEVAL_REFERENCE_ID = :cross_river_retrieval_reference_id
           CROSS_RIVER_SERVICE_MESSAGE = :cross_river_service_message
           CROSS_RIVER_TRANSACTION_ID = :cross_river_transaction_id
           CURRENCYCLOUD_CONVERSION_ID = :currencycloud_conversion_id

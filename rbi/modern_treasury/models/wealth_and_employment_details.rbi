@@ -651,6 +651,16 @@ module ModernTreasury
             :business_owner,
             ModernTreasury::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol
           )
+        BUSINESS_REVENUE =
+          T.let(
+            :business_revenue,
+            ModernTreasury::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol
+          )
+        DEBT_FINANCING =
+          T.let(
+            :debt_financing,
+            ModernTreasury::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol
+          )
         GENERAL_EMPLOYEE =
           T.let(
             :general_employee,
@@ -671,9 +681,19 @@ module ModernTreasury
             :inheritance_gift,
             ModernTreasury::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol
           )
+        INTERCOMPANY_LOAN =
+          T.let(
+            :intercompany_loan,
+            ModernTreasury::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol
+          )
         INVESTMENT =
           T.let(
             :investment,
+            ModernTreasury::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol
+          )
+        INVESTOR_FUNDING =
+          T.let(
+            :investor_funding,
             ModernTreasury::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol
           )
         LEGAL_SETTLEMENT =
@@ -691,6 +711,11 @@ module ModernTreasury
             :real_estate,
             ModernTreasury::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol
           )
+        RETAINED_EARNINGS_OR_SAVINGS =
+          T.let(
+            :retained_earnings_or_savings,
+            ModernTreasury::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol
+          )
         RETIRED =
           T.let(
             :retired,
@@ -704,6 +729,16 @@ module ModernTreasury
         SALARY =
           T.let(
             :salary,
+            ModernTreasury::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol
+          )
+        SALE_OF_BUSINESS_ASSETS =
+          T.let(
+            :sale_of_business_assets,
+            ModernTreasury::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol
+          )
+        SALE_OF_REAL_ESTATE =
+          T.let(
+            :sale_of_real_estate,
             ModernTreasury::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol
           )
         SELF_EMPLOYED =
