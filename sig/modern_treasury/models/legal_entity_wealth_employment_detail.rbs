@@ -253,17 +253,24 @@ module ModernTreasury
         :alimony
         | :annuity
         | :business_owner
+        | :business_revenue
+        | :debt_financing
         | :general_employee
         | :government_benefits
         | :homemaker
         | :inheritance_gift
+        | :intercompany_loan
         | :investment
+        | :investor_funding
         | :legal_settlement
         | :lottery
         | :real_estate
+        | :retained_earnings_or_savings
         | :retired
         | :retirement
         | :salary
+        | :sale_of_business_assets
+        | :sale_of_real_estate
         | :self_employed
         | :senior_executive
         | :trust_income
@@ -274,17 +281,24 @@ module ModernTreasury
         ALIMONY: :alimony
         ANNUITY: :annuity
         BUSINESS_OWNER: :business_owner
+        BUSINESS_REVENUE: :business_revenue
+        DEBT_FINANCING: :debt_financing
         GENERAL_EMPLOYEE: :general_employee
         GOVERNMENT_BENEFITS: :government_benefits
         HOMEMAKER: :homemaker
         INHERITANCE_GIFT: :inheritance_gift
+        INTERCOMPANY_LOAN: :intercompany_loan
         INVESTMENT: :investment
+        INVESTOR_FUNDING: :investor_funding
         LEGAL_SETTLEMENT: :legal_settlement
         LOTTERY: :lottery
         REAL_ESTATE: :real_estate
+        RETAINED_EARNINGS_OR_SAVINGS: :retained_earnings_or_savings
         RETIRED: :retired
         RETIREMENT: :retirement
         SALARY: :salary
+        SALE_OF_BUSINESS_ASSETS: :sale_of_business_assets
+        SALE_OF_REAL_ESTATE: :sale_of_real_estate
         SELF_EMPLOYED: :self_employed
         SENIOR_EXECUTIVE: :senior_executive
         TRUST_INCOME: :trust_income
