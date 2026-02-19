@@ -717,6 +717,11 @@ module ModernTreasury
               :column_transfer_id,
               ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
+          CROSS_RIVER_CARD_TRACE_NUMBER =
+            T.let(
+              :cross_river_card_trace_number,
+              ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
           CROSS_RIVER_CORE_TRANSACTION_ID =
             T.let(
               :cross_river_core_transaction_id,
@@ -730,6 +735,11 @@ module ModernTreasury
           CROSS_RIVER_PAYMENT_ID =
             T.let(
               :cross_river_payment_id,
+              ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
+          CROSS_RIVER_RETRIEVAL_REFERENCE_ID =
+            T.let(
+              :cross_river_retrieval_reference_id,
               ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           CROSS_RIVER_SERVICE_MESSAGE =
