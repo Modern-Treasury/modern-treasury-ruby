@@ -146,6 +146,7 @@ module ModernTreasury
         MT_FLOW_TRANSFER_ID = :mt_flow_transfer_id
         OTHER = :other
         PARTIAL_SWIFT_MIR = :partial_swift_mir
+        PAXOS_GROUP_ID = :paxos_group_id
         PAXOS_ORCHESTRATION_ID = :paxos_orchestration_id
         PAXOS_TRANSFER_ID = :paxos_transfer_id
         PNC_CLEARING_REFERENCE = :pnc_clearing_reference
