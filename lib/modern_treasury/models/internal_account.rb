@@ -59,6 +59,12 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::Currency]
       required :currency, enum: -> { ModernTreasury::Currency }
 
+      # @!attribute external_id
+      #   An optional user-defined 180 character unique identifier.
+      #
+      #   @return [String, nil]
+      required :external_id, String, nil?: true
+
       # @!attribute ledger_account_id
       #   If the internal account links to a ledger account in Modern Treasury, the id of
       #   the ledger account will be populated here.
@@ -144,7 +150,7 @@ module ModernTreasury
       #   @return [String, nil]
       required :vendor_id, String, nil?: true
 
-      # @!method initialize(id:, account_capabilities:, account_details:, account_type:, connection:, contra_ledger_account_id:, counterparty_id:, created_at:, currency:, ledger_account_id:, legal_entity_id:, live_mode:, metadata:, name:, object:, parent_account_id:, party_address:, party_name:, party_type:, routing_details:, status:, updated_at:, vendor_id:)
+      # @!method initialize(id:, account_capabilities:, account_details:, account_type:, connection:, contra_ledger_account_id:, counterparty_id:, created_at:, currency:, external_id:, ledger_account_id:, legal_entity_id:, live_mode:, metadata:, name:, object:, parent_account_id:, party_address:, party_name:, party_type:, routing_details:, status:, updated_at:, vendor_id:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::InternalAccount} for more details.
       #
@@ -165,6 +171,8 @@ module ModernTreasury
       #   @param created_at [Time]
       #
       #   @param currency [Symbol, ModernTreasury::Models::Currency] The currency of the account.
+      #
+      #   @param external_id [String, nil] An optional user-defined 180 character unique identifier.
       #
       #   @param ledger_account_id [String, nil] If the internal account links to a ledger account in Modern Treasury, the id of
       #

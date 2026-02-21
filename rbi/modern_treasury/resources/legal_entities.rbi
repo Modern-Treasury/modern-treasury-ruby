@@ -22,6 +22,7 @@ module ModernTreasury
           doing_business_as_names: T::Array[String],
           email: T.nilable(String),
           expected_activity_volume: T.nilable(Integer),
+          external_id: T.nilable(String),
           first_name: T.nilable(String),
           identifications:
             T::Array[ModernTreasury::IdentificationCreateRequest::OrHash],
@@ -109,6 +110,8 @@ module ModernTreasury
         email: nil,
         # Monthly expected transaction volume in USD.
         expected_activity_volume: nil,
+        # An optional user-defined 180 character unique identifier.
+        external_id: nil,
         # An individual's first name.
         first_name: nil,
         # A list of identifications for the legal entity.
@@ -193,6 +196,7 @@ module ModernTreasury
           doing_business_as_names: T::Array[String],
           email: T.nilable(String),
           expected_activity_volume: T.nilable(Integer),
+          external_id: T.nilable(String),
           first_name: T.nilable(String),
           identifications:
             T::Array[ModernTreasury::IdentificationCreateRequest::OrHash],
@@ -268,6 +272,8 @@ module ModernTreasury
         email: nil,
         # Monthly expected transaction volume in USD.
         expected_activity_volume: nil,
+        # An optional user-defined 180 character unique identifier.
+        external_id: nil,
         # An individual's first name.
         first_name: nil,
         # A list of identifications for the legal entity.
@@ -323,6 +329,7 @@ module ModernTreasury
       sig do
         params(
           after_cursor: T.nilable(String),
+          external_id: String,
           legal_entity_type:
             ModernTreasury::LegalEntityListParams::LegalEntityType::OrSymbol,
           metadata: T::Hash[Symbol, String],
@@ -334,6 +341,8 @@ module ModernTreasury
       end
       def list(
         after_cursor: nil,
+        # An optional user-defined 180 character unique identifier.
+        external_id: nil,
         legal_entity_type: nil,
         # For example, if you want to query for records with metadata key `Type` and value
         # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
