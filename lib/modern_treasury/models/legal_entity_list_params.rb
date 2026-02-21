@@ -12,6 +12,12 @@ module ModernTreasury
       #   @return [String, nil]
       optional :after_cursor, String, nil?: true
 
+      # @!attribute external_id
+      #   An optional user-defined 180 character unique identifier.
+      #
+      #   @return [String, nil]
+      optional :external_id, String
+
       # @!attribute legal_entity_type
       #
       #   @return [Symbol, ModernTreasury::Models::LegalEntityListParams::LegalEntityType, nil]
@@ -40,11 +46,13 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::LegalEntityListParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::LegalEntityListParams::Status }
 
-      # @!method initialize(after_cursor: nil, legal_entity_type: nil, metadata: nil, per_page: nil, show_deleted: nil, status: nil, request_options: {})
+      # @!method initialize(after_cursor: nil, external_id: nil, legal_entity_type: nil, metadata: nil, per_page: nil, show_deleted: nil, status: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LegalEntityListParams} for more details.
       #
       #   @param after_cursor [String, nil]
+      #
+      #   @param external_id [String] An optional user-defined 180 character unique identifier.
       #
       #   @param legal_entity_type [Symbol, ModernTreasury::Models::LegalEntityListParams::LegalEntityType]
       #

@@ -82,6 +82,10 @@ module ModernTreasury
       sig { params(counterparty_id: String).void }
       attr_writer :counterparty_id
 
+      # An optional user-defined 180 character unique identifier.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :external_id
+
       # The LegalEntity associated to this account.
       sig { returns(T.nilable(String)) }
       attr_reader :legal_entity_id
@@ -134,6 +138,7 @@ module ModernTreasury
           account_type:
             ModernTreasury::InternalAccountCreateParams::AccountType::OrSymbol,
           counterparty_id: String,
+          external_id: T.nilable(String),
           legal_entity_id: String,
           parent_account_id: String,
           party_address:
@@ -160,6 +165,8 @@ module ModernTreasury
         account_type: nil,
         # The Counterparty associated to this account.
         counterparty_id: nil,
+        # An optional user-defined 180 character unique identifier.
+        external_id: nil,
         # The LegalEntity associated to this account.
         legal_entity_id: nil,
         # The parent internal account of this new account.
@@ -188,6 +195,7 @@ module ModernTreasury
             account_type:
               ModernTreasury::InternalAccountCreateParams::AccountType::OrSymbol,
             counterparty_id: String,
+            external_id: T.nilable(String),
             legal_entity_id: String,
             parent_account_id: String,
             party_address:

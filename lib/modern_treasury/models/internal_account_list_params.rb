@@ -24,6 +24,12 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::Currency, nil]
       optional :currency, enum: -> { ModernTreasury::Currency }
 
+      # @!attribute external_id
+      #   An optional user-defined 180 character unique identifier.
+      #
+      #   @return [String, nil]
+      optional :external_id, String
+
       # @!attribute legal_entity_id
       #   Only return internal accounts associated with this legal entity.
       #
@@ -61,7 +67,7 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::InternalAccountListParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::InternalAccountListParams::Status }
 
-      # @!method initialize(after_cursor: nil, counterparty_id: nil, currency: nil, legal_entity_id: nil, metadata: nil, payment_direction: nil, payment_type: nil, per_page: nil, status: nil, request_options: {})
+      # @!method initialize(after_cursor: nil, counterparty_id: nil, currency: nil, external_id: nil, legal_entity_id: nil, metadata: nil, payment_direction: nil, payment_type: nil, per_page: nil, status: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::InternalAccountListParams} for more details.
       #
@@ -70,6 +76,8 @@ module ModernTreasury
       #   @param counterparty_id [String] Only return internal accounts associated with this counterparty.
       #
       #   @param currency [Symbol, ModernTreasury::Models::Currency] Only return internal accounts with this currency.
+      #
+      #   @param external_id [String] An optional user-defined 180 character unique identifier.
       #
       #   @param legal_entity_id [String] Only return internal accounts associated with this legal entity.
       #

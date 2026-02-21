@@ -5,6 +5,7 @@ module ModernTreasury
         after_cursor: String?,
         counterparty_id: String,
         currency: ModernTreasury::Models::currency,
+        external_id: String,
         legal_entity_id: String,
         metadata: ::Hash[Symbol, String],
         payment_direction: ModernTreasury::Models::transaction_direction,
@@ -29,6 +30,10 @@ module ModernTreasury
       def currency=: (
         ModernTreasury::Models::currency
       ) -> ModernTreasury::Models::currency
+
+      attr_reader external_id: String?
+
+      def external_id=: (String) -> String
 
       attr_reader legal_entity_id: String?
 
@@ -64,6 +69,7 @@ module ModernTreasury
         ?after_cursor: String?,
         ?counterparty_id: String,
         ?currency: ModernTreasury::Models::currency,
+        ?external_id: String,
         ?legal_entity_id: String,
         ?metadata: ::Hash[Symbol, String],
         ?payment_direction: ModernTreasury::Models::transaction_direction,
@@ -77,6 +83,7 @@ module ModernTreasury
         after_cursor: String?,
         counterparty_id: String,
         currency: ModernTreasury::Models::currency,
+        external_id: String,
         legal_entity_id: String,
         metadata: ::Hash[Symbol, String],
         payment_direction: ModernTreasury::Models::transaction_direction,

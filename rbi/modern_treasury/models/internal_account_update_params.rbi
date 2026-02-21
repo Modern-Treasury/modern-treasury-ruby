@@ -28,6 +28,10 @@ module ModernTreasury
       sig { params(counterparty_id: String).void }
       attr_writer :counterparty_id
 
+      # An optional user-defined 180 character unique identifier.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :external_id
+
       # The Ledger Account associated to this account.
       sig { returns(T.nilable(String)) }
       attr_reader :ledger_account_id
@@ -61,6 +65,7 @@ module ModernTreasury
         params(
           contra_ledger_account_id: String,
           counterparty_id: String,
+          external_id: T.nilable(String),
           ledger_account_id: String,
           metadata: T::Hash[Symbol, String],
           name: String,
@@ -73,6 +78,8 @@ module ModernTreasury
         contra_ledger_account_id: nil,
         # The Counterparty associated to this account.
         counterparty_id: nil,
+        # An optional user-defined 180 character unique identifier.
+        external_id: nil,
         # The Ledger Account associated to this account.
         ledger_account_id: nil,
         # Additional data in the form of key-value pairs. Pairs can be removed by passing
@@ -91,6 +98,7 @@ module ModernTreasury
           {
             contra_ledger_account_id: String,
             counterparty_id: String,
+            external_id: T.nilable(String),
             ledger_account_id: String,
             metadata: T::Hash[Symbol, String],
             name: String,

@@ -17,6 +17,13 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor
 
+      # An optional user-defined 180 character unique identifier.
+      sig { returns(T.nilable(String)) }
+      attr_reader :external_id
+
+      sig { params(external_id: String).void }
+      attr_writer :external_id
+
       sig do
         returns(
           T.nilable(
@@ -72,6 +79,7 @@ module ModernTreasury
       sig do
         params(
           after_cursor: T.nilable(String),
+          external_id: String,
           legal_entity_type:
             ModernTreasury::LegalEntityListParams::LegalEntityType::OrSymbol,
           metadata: T::Hash[Symbol, String],
@@ -83,6 +91,8 @@ module ModernTreasury
       end
       def self.new(
         after_cursor: nil,
+        # An optional user-defined 180 character unique identifier.
+        external_id: nil,
         legal_entity_type: nil,
         # For example, if you want to query for records with metadata key `Type` and value
         # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
@@ -99,6 +109,7 @@ module ModernTreasury
         override.returns(
           {
             after_cursor: T.nilable(String),
+            external_id: String,
             legal_entity_type:
               ModernTreasury::LegalEntityListParams::LegalEntityType::OrSymbol,
             metadata: T::Hash[Symbol, String],

@@ -507,6 +507,7 @@ module ModernTreasury
           doing_business_as_names: ::Array[String],
           email: String?,
           expected_activity_volume: Integer?,
+          external_id: String?,
           first_name: String?,
           identifications: ::Array[ModernTreasury::IdentificationCreateRequest],
           industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification],
@@ -565,6 +566,8 @@ module ModernTreasury
         attr_accessor email: String?
 
         attr_accessor expected_activity_volume: Integer?
+
+        attr_accessor external_id: String?
 
         attr_accessor first_name: String?
 
@@ -646,6 +649,7 @@ module ModernTreasury
           ?doing_business_as_names: ::Array[String],
           ?email: String?,
           ?expected_activity_volume: Integer?,
+          ?external_id: String?,
           ?first_name: String?,
           ?identifications: ::Array[ModernTreasury::IdentificationCreateRequest],
           ?industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification],
@@ -686,6 +690,7 @@ module ModernTreasury
           doing_business_as_names: ::Array[String],
           email: String?,
           expected_activity_volume: Integer?,
+          external_id: String?,
           first_name: String?,
           identifications: ::Array[ModernTreasury::IdentificationCreateRequest],
           industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification],
