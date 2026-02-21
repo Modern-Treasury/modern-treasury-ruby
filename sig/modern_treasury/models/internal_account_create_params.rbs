@@ -9,6 +9,7 @@ module ModernTreasury
         account_capabilities: ::Array[ModernTreasury::InternalAccountCreateParams::AccountCapability],
         account_type: ModernTreasury::Models::InternalAccountCreateParams::account_type,
         counterparty_id: String,
+        external_id: String?,
         legal_entity_id: String,
         parent_account_id: String,
         party_address: ModernTreasury::InternalAccountCreateParams::PartyAddress,
@@ -44,6 +45,8 @@ module ModernTreasury
 
       def counterparty_id=: (String) -> String
 
+      attr_accessor external_id: String?
+
       attr_reader legal_entity_id: String?
 
       def legal_entity_id=: (String) -> String
@@ -70,6 +73,7 @@ module ModernTreasury
         ?account_capabilities: ::Array[ModernTreasury::InternalAccountCreateParams::AccountCapability],
         ?account_type: ModernTreasury::Models::InternalAccountCreateParams::account_type,
         ?counterparty_id: String,
+        ?external_id: String?,
         ?legal_entity_id: String,
         ?parent_account_id: String,
         ?party_address: ModernTreasury::InternalAccountCreateParams::PartyAddress,
@@ -85,6 +89,7 @@ module ModernTreasury
         account_capabilities: ::Array[ModernTreasury::InternalAccountCreateParams::AccountCapability],
         account_type: ModernTreasury::Models::InternalAccountCreateParams::account_type,
         counterparty_id: String,
+        external_id: String?,
         legal_entity_id: String,
         parent_account_id: String,
         party_address: ModernTreasury::InternalAccountCreateParams::PartyAddress,

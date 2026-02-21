@@ -8,7 +8,7 @@ module ModernTreasury
       #
       # create legal_entity
       #
-      # @overload create(legal_entity_type:, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, connection_id: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_entity_associations: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, status: nil, suffix: nil, third_party_verification: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
+      # @overload create(legal_entity_type:, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, connection_id: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, external_id: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_entity_associations: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, status: nil, suffix: nil, third_party_verification: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
       #
       # @param legal_entity_type [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityType] The type of legal entity.
       #
@@ -35,6 +35,8 @@ module ModernTreasury
       # @param email [String, nil] The entity's primary email.
       #
       # @param expected_activity_volume [Integer, nil] Monthly expected transaction volume in USD.
+      #
+      # @param external_id [String, nil] An optional user-defined 180 character unique identifier.
       #
       # @param first_name [String, nil] An individual's first name.
       #
@@ -125,7 +127,7 @@ module ModernTreasury
       #
       # Update a legal entity.
       #
-      # @overload update(id, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, status: nil, suffix: nil, third_party_verification: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
+      # @overload update(id, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, external_id: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, status: nil, suffix: nil, third_party_verification: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
       #
       # @param id [String] id
       #
@@ -150,6 +152,8 @@ module ModernTreasury
       # @param email [String, nil] The entity's primary email.
       #
       # @param expected_activity_volume [Integer, nil] Monthly expected transaction volume in USD.
+      #
+      # @param external_id [String, nil] An optional user-defined 180 character unique identifier.
       #
       # @param first_name [String, nil] An individual's first name.
       #
@@ -218,9 +222,11 @@ module ModernTreasury
       #
       # Get a list of all legal entities.
       #
-      # @overload list(after_cursor: nil, legal_entity_type: nil, metadata: nil, per_page: nil, show_deleted: nil, status: nil, request_options: {})
+      # @overload list(after_cursor: nil, external_id: nil, legal_entity_type: nil, metadata: nil, per_page: nil, show_deleted: nil, status: nil, request_options: {})
       #
       # @param after_cursor [String, nil]
+      #
+      # @param external_id [String] An optional user-defined 180 character unique identifier.
       #
       # @param legal_entity_type [Symbol, ModernTreasury::Models::LegalEntityListParams::LegalEntityType]
       #

@@ -95,6 +95,12 @@ module ModernTreasury
       #   @return [Integer, nil]
       required :expected_activity_volume, Integer, nil?: true
 
+      # @!attribute external_id
+      #   An optional user-defined 180 character unique identifier.
+      #
+      #   @return [String, nil]
+      required :external_id, String, nil?: true
+
       # @!attribute first_name
       #   An individual's first name.
       #
@@ -274,7 +280,7 @@ module ModernTreasury
       #   @return [String, nil]
       required :website, String, nil?: true
 
-      # @!method initialize(id:, addresses:, bank_settings:, business_description:, business_name:, citizenship_country:, compliance_details:, country_of_incorporation:, created_at:, date_formed:, date_of_birth:, discarded_at:, documents:, doing_business_as_names:, email:, expected_activity_volume:, first_name:, identifications:, industry_classifications:, intended_use:, last_name:, legal_entity_associations:, legal_entity_type:, legal_structure:, listed_exchange:, live_mode:, metadata:, middle_name:, object:, operating_jurisdictions:, phone_numbers:, politically_exposed_person:, preferred_name:, prefix:, primary_social_media_sites:, regulators:, risk_rating:, status:, suffix:, third_party_verification:, ticker_symbol:, updated_at:, wealth_and_employment_details:, website:)
+      # @!method initialize(id:, addresses:, bank_settings:, business_description:, business_name:, citizenship_country:, compliance_details:, country_of_incorporation:, created_at:, date_formed:, date_of_birth:, discarded_at:, documents:, doing_business_as_names:, email:, expected_activity_volume:, external_id:, first_name:, identifications:, industry_classifications:, intended_use:, last_name:, legal_entity_associations:, legal_entity_type:, legal_structure:, listed_exchange:, live_mode:, metadata:, middle_name:, object:, operating_jurisdictions:, phone_numbers:, politically_exposed_person:, preferred_name:, prefix:, primary_social_media_sites:, regulators:, risk_rating:, status:, suffix:, third_party_verification:, ticker_symbol:, updated_at:, wealth_and_employment_details:, website:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::ChildLegalEntity} for more details.
       #
@@ -309,6 +315,8 @@ module ModernTreasury
       #   @param email [String, nil] The entity's primary email.
       #
       #   @param expected_activity_volume [Integer, nil] Monthly expected transaction volume in USD.
+      #
+      #   @param external_id [String, nil] An optional user-defined 180 character unique identifier.
       #
       #   @param first_name [String, nil] An individual's first name.
       #

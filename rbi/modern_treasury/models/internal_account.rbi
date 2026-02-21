@@ -56,6 +56,10 @@ module ModernTreasury
       sig { returns(ModernTreasury::Currency::TaggedSymbol) }
       attr_accessor :currency
 
+      # An optional user-defined 180 character unique identifier.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :external_id
+
       # If the internal account links to a ledger account in Modern Treasury, the id of
       # the ledger account will be populated here.
       sig { returns(T.nilable(String)) }
@@ -141,6 +145,7 @@ module ModernTreasury
           counterparty_id: T.nilable(String),
           created_at: Time,
           currency: ModernTreasury::Currency::OrSymbol,
+          external_id: T.nilable(String),
           ledger_account_id: T.nilable(String),
           legal_entity_id: T.nilable(String),
           live_mode: T::Boolean,
@@ -177,6 +182,8 @@ module ModernTreasury
         created_at:,
         # The currency of the account.
         currency:,
+        # An optional user-defined 180 character unique identifier.
+        external_id:,
         # If the internal account links to a ledger account in Modern Treasury, the id of
         # the ledger account will be populated here.
         ledger_account_id:,
@@ -225,6 +232,7 @@ module ModernTreasury
             counterparty_id: T.nilable(String),
             created_at: Time,
             currency: ModernTreasury::Currency::TaggedSymbol,
+            external_id: T.nilable(String),
             ledger_account_id: T.nilable(String),
             legal_entity_id: T.nilable(String),
             live_mode: T::Boolean,

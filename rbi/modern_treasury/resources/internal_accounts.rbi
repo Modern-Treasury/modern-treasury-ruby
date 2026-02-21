@@ -23,6 +23,7 @@ module ModernTreasury
           account_type:
             ModernTreasury::InternalAccountCreateParams::AccountType::OrSymbol,
           counterparty_id: String,
+          external_id: T.nilable(String),
           legal_entity_id: String,
           parent_account_id: String,
           party_address:
@@ -49,6 +50,8 @@ module ModernTreasury
         account_type: nil,
         # The Counterparty associated to this account.
         counterparty_id: nil,
+        # An optional user-defined 180 character unique identifier.
+        external_id: nil,
         # The LegalEntity associated to this account.
         legal_entity_id: nil,
         # The parent internal account of this new account.
@@ -82,6 +85,7 @@ module ModernTreasury
           id: String,
           contra_ledger_account_id: String,
           counterparty_id: String,
+          external_id: T.nilable(String),
           ledger_account_id: String,
           metadata: T::Hash[Symbol, String],
           name: String,
@@ -96,6 +100,8 @@ module ModernTreasury
         contra_ledger_account_id: nil,
         # The Counterparty associated to this account.
         counterparty_id: nil,
+        # An optional user-defined 180 character unique identifier.
+        external_id: nil,
         # The Ledger Account associated to this account.
         ledger_account_id: nil,
         # Additional data in the form of key-value pairs. Pairs can be removed by passing
@@ -115,6 +121,7 @@ module ModernTreasury
           after_cursor: T.nilable(String),
           counterparty_id: String,
           currency: ModernTreasury::Currency::OrSymbol,
+          external_id: String,
           legal_entity_id: String,
           metadata: T::Hash[Symbol, String],
           payment_direction: ModernTreasury::TransactionDirection::OrSymbol,
@@ -133,6 +140,8 @@ module ModernTreasury
         counterparty_id: nil,
         # Only return internal accounts with this currency.
         currency: nil,
+        # An optional user-defined 180 character unique identifier.
+        external_id: nil,
         # Only return internal accounts associated with this legal entity.
         legal_entity_id: nil,
         # For example, if you want to query for records with metadata key `Type` and value
