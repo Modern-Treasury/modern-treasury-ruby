@@ -3,6 +3,7 @@ module ModernTreasury
     type legal_entity_list_params =
       {
         after_cursor: String?,
+        external_id: String,
         legal_entity_type: ModernTreasury::Models::LegalEntityListParams::legal_entity_type,
         metadata: ::Hash[Symbol, String],
         per_page: Integer,
@@ -16,6 +17,10 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor after_cursor: String?
+
+      attr_reader external_id: String?
+
+      def external_id=: (String) -> String
 
       attr_reader legal_entity_type: ModernTreasury::Models::LegalEntityListParams::legal_entity_type?
 
@@ -43,6 +48,7 @@ module ModernTreasury
 
       def initialize: (
         ?after_cursor: String?,
+        ?external_id: String,
         ?legal_entity_type: ModernTreasury::Models::LegalEntityListParams::legal_entity_type,
         ?metadata: ::Hash[Symbol, String],
         ?per_page: Integer,
@@ -53,6 +59,7 @@ module ModernTreasury
 
       def to_hash: -> {
         after_cursor: String?,
+        external_id: String,
         legal_entity_type: ModernTreasury::Models::LegalEntityListParams::legal_entity_type,
         metadata: ::Hash[Symbol, String],
         per_page: Integer,

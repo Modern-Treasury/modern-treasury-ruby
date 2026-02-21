@@ -11,7 +11,7 @@ module ModernTreasury
       #
       # create internal account
       #
-      # @overload create(connection_id:, currency:, name:, party_name:, account_capabilities: nil, account_type: nil, counterparty_id: nil, legal_entity_id: nil, parent_account_id: nil, party_address: nil, vendor_attributes: nil, request_options: {})
+      # @overload create(connection_id:, currency:, name:, party_name:, account_capabilities: nil, account_type: nil, counterparty_id: nil, external_id: nil, legal_entity_id: nil, parent_account_id: nil, party_address: nil, vendor_attributes: nil, request_options: {})
       #
       # @param connection_id [String] The identifier of the financial institution the account belongs to.
       #
@@ -26,6 +26,8 @@ module ModernTreasury
       # @param account_type [Symbol, ModernTreasury::Models::InternalAccountCreateParams::AccountType] The account type, used to provision the appropriate account at the financial ins
       #
       # @param counterparty_id [String] The Counterparty associated to this account.
+      #
+      # @param external_id [String, nil] An optional user-defined 180 character unique identifier.
       #
       # @param legal_entity_id [String] The LegalEntity associated to this account.
       #
@@ -76,13 +78,15 @@ module ModernTreasury
       #
       # update internal account
       #
-      # @overload update(id, contra_ledger_account_id: nil, counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, request_options: {})
+      # @overload update(id, contra_ledger_account_id: nil, counterparty_id: nil, external_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, request_options: {})
       #
       # @param id [String] Unique identifier for the account.
       #
       # @param contra_ledger_account_id [String] The Contra Ledger Account associated to this account.
       #
       # @param counterparty_id [String] The Counterparty associated to this account.
+      #
+      # @param external_id [String, nil] An optional user-defined 180 character unique identifier.
       #
       # @param ledger_account_id [String] The Ledger Account associated to this account.
       #
@@ -113,13 +117,15 @@ module ModernTreasury
       #
       # list internal accounts
       #
-      # @overload list(after_cursor: nil, counterparty_id: nil, currency: nil, legal_entity_id: nil, metadata: nil, payment_direction: nil, payment_type: nil, per_page: nil, status: nil, request_options: {})
+      # @overload list(after_cursor: nil, counterparty_id: nil, currency: nil, external_id: nil, legal_entity_id: nil, metadata: nil, payment_direction: nil, payment_type: nil, per_page: nil, status: nil, request_options: {})
       #
       # @param after_cursor [String, nil]
       #
       # @param counterparty_id [String] Only return internal accounts associated with this counterparty.
       #
       # @param currency [Symbol, ModernTreasury::Models::Currency] Only return internal accounts with this currency.
+      #
+      # @param external_id [String] An optional user-defined 180 character unique identifier.
       #
       # @param legal_entity_id [String] Only return internal accounts associated with this legal entity.
       #

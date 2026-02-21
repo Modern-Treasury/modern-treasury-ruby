@@ -15,6 +15,7 @@ module ModernTreasury
         ?doing_business_as_names: ::Array[String],
         ?email: String?,
         ?expected_activity_volume: Integer?,
+        ?external_id: String?,
         ?first_name: String?,
         ?identifications: ::Array[ModernTreasury::IdentificationCreateRequest],
         ?industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification],
@@ -60,6 +61,7 @@ module ModernTreasury
         ?doing_business_as_names: ::Array[String],
         ?email: String?,
         ?expected_activity_volume: Integer?,
+        ?external_id: String?,
         ?first_name: String?,
         ?identifications: ::Array[ModernTreasury::IdentificationCreateRequest],
         ?industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification],
@@ -88,6 +90,7 @@ module ModernTreasury
 
       def list: (
         ?after_cursor: String?,
+        ?external_id: String,
         ?legal_entity_type: ModernTreasury::Models::LegalEntityListParams::legal_entity_type,
         ?metadata: ::Hash[Symbol, String],
         ?per_page: Integer,

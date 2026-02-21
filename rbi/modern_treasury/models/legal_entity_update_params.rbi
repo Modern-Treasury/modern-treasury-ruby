@@ -80,6 +80,10 @@ module ModernTreasury
       sig { returns(T.nilable(Integer)) }
       attr_accessor :expected_activity_volume
 
+      # An optional user-defined 180 character unique identifier.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :external_id
+
       # An individual's first name.
       sig { returns(T.nilable(String)) }
       attr_accessor :first_name
@@ -285,6 +289,7 @@ module ModernTreasury
           doing_business_as_names: T::Array[String],
           email: T.nilable(String),
           expected_activity_volume: T.nilable(Integer),
+          external_id: T.nilable(String),
           first_name: T.nilable(String),
           identifications:
             T::Array[ModernTreasury::IdentificationCreateRequest::OrHash],
@@ -358,6 +363,8 @@ module ModernTreasury
         email: nil,
         # Monthly expected transaction volume in USD.
         expected_activity_volume: nil,
+        # An optional user-defined 180 character unique identifier.
+        external_id: nil,
         # An individual's first name.
         first_name: nil,
         # A list of identifications for the legal entity.
@@ -424,6 +431,7 @@ module ModernTreasury
             doing_business_as_names: T::Array[String],
             email: T.nilable(String),
             expected_activity_volume: T.nilable(Integer),
+            external_id: T.nilable(String),
             first_name: T.nilable(String),
             identifications:
               T::Array[ModernTreasury::IdentificationCreateRequest],

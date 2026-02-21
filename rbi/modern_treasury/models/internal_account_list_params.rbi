@@ -31,6 +31,13 @@ module ModernTreasury
       sig { params(currency: ModernTreasury::Currency::OrSymbol).void }
       attr_writer :currency
 
+      # An optional user-defined 180 character unique identifier.
+      sig { returns(T.nilable(String)) }
+      attr_reader :external_id
+
+      sig { params(external_id: String).void }
+      attr_writer :external_id
+
       # Only return internal accounts associated with this legal entity.
       sig { returns(T.nilable(String)) }
       attr_reader :legal_entity_id
@@ -102,6 +109,7 @@ module ModernTreasury
           after_cursor: T.nilable(String),
           counterparty_id: String,
           currency: ModernTreasury::Currency::OrSymbol,
+          external_id: String,
           legal_entity_id: String,
           metadata: T::Hash[Symbol, String],
           payment_direction: ModernTreasury::TransactionDirection::OrSymbol,
@@ -118,6 +126,8 @@ module ModernTreasury
         counterparty_id: nil,
         # Only return internal accounts with this currency.
         currency: nil,
+        # An optional user-defined 180 character unique identifier.
+        external_id: nil,
         # Only return internal accounts associated with this legal entity.
         legal_entity_id: nil,
         # For example, if you want to query for records with metadata key `Type` and value
@@ -141,6 +151,7 @@ module ModernTreasury
             after_cursor: T.nilable(String),
             counterparty_id: String,
             currency: ModernTreasury::Currency::OrSymbol,
+            external_id: String,
             legal_entity_id: String,
             metadata: T::Hash[Symbol, String],
             payment_direction: ModernTreasury::TransactionDirection::OrSymbol,

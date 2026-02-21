@@ -53,6 +53,12 @@ module ModernTreasury
       #   @return [String, nil]
       optional :counterparty_id, String
 
+      # @!attribute external_id
+      #   An optional user-defined 180 character unique identifier.
+      #
+      #   @return [String, nil]
+      optional :external_id, String, nil?: true
+
       # @!attribute legal_entity_id
       #   The LegalEntity associated to this account.
       #
@@ -78,7 +84,7 @@ module ModernTreasury
       #   @return [Hash{Symbol=>String}, nil]
       optional :vendor_attributes, ModernTreasury::Internal::Type::HashOf[String]
 
-      # @!method initialize(connection_id:, currency:, name:, party_name:, account_capabilities: nil, account_type: nil, counterparty_id: nil, legal_entity_id: nil, parent_account_id: nil, party_address: nil, vendor_attributes: nil, request_options: {})
+      # @!method initialize(connection_id:, currency:, name:, party_name:, account_capabilities: nil, account_type: nil, counterparty_id: nil, external_id: nil, legal_entity_id: nil, parent_account_id: nil, party_address: nil, vendor_attributes: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::InternalAccountCreateParams} for more details.
       #
@@ -95,6 +101,8 @@ module ModernTreasury
       #   @param account_type [Symbol, ModernTreasury::Models::InternalAccountCreateParams::AccountType] The account type, used to provision the appropriate account at the financial ins
       #
       #   @param counterparty_id [String] The Counterparty associated to this account.
+      #
+      #   @param external_id [String, nil] An optional user-defined 180 character unique identifier.
       #
       #   @param legal_entity_id [String] The LegalEntity associated to this account.
       #

@@ -19,6 +19,12 @@ module ModernTreasury
       #   @return [String, nil]
       optional :counterparty_id, String
 
+      # @!attribute external_id
+      #   An optional user-defined 180 character unique identifier.
+      #
+      #   @return [String, nil]
+      optional :external_id, String, nil?: true
+
       # @!attribute ledger_account_id
       #   The Ledger Account associated to this account.
       #
@@ -44,13 +50,15 @@ module ModernTreasury
       #   @return [String, nil]
       optional :parent_account_id, String
 
-      # @!method initialize(contra_ledger_account_id: nil, counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, request_options: {})
+      # @!method initialize(contra_ledger_account_id: nil, counterparty_id: nil, external_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::InternalAccountUpdateParams} for more details.
       #
       #   @param contra_ledger_account_id [String] The Contra Ledger Account associated to this account.
       #
       #   @param counterparty_id [String] The Counterparty associated to this account.
+      #
+      #   @param external_id [String, nil] An optional user-defined 180 character unique identifier.
       #
       #   @param ledger_account_id [String] The Ledger Account associated to this account.
       #
