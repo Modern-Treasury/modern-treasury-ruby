@@ -14,6 +14,7 @@ class ModernTreasury::Test::Resources::PaymentOrders::ReversalsTest < ModernTrea
       response => {
         id: String,
         created_at: Time,
+        internal_account_id: String | nil,
         ledger_transaction_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
@@ -40,6 +41,7 @@ class ModernTreasury::Test::Resources::PaymentOrders::ReversalsTest < ModernTrea
       response => {
         id: String,
         created_at: Time,
+        internal_account_id: String | nil,
         ledger_transaction_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
@@ -72,6 +74,7 @@ class ModernTreasury::Test::Resources::PaymentOrders::ReversalsTest < ModernTrea
       row => {
         id: String,
         created_at: Time,
+        internal_account_id: String | nil,
         ledger_transaction_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),

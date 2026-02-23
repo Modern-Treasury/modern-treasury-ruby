@@ -15,6 +15,12 @@ module ModernTreasury
         #   @return [Time]
         required :created_at, Time
 
+        # @!attribute internal_account_id
+        #   The ID of the relevant Internal Account.
+        #
+        #   @return [String, nil]
+        required :internal_account_id, String, nil?: true
+
         # @!attribute ledger_transaction_id
         #   The ID of the ledger transaction linked to the reversal.
         #
@@ -75,13 +81,15 @@ module ModernTreasury
         #   @return [Time]
         required :updated_at, Time
 
-        # @!method initialize(id:, created_at:, ledger_transaction_id:, live_mode:, metadata:, object:, payment_order_id:, reason:, reconciliation_status:, status:, transaction_ids:, updated_at:)
+        # @!method initialize(id:, created_at:, internal_account_id:, ledger_transaction_id:, live_mode:, metadata:, object:, payment_order_id:, reason:, reconciliation_status:, status:, transaction_ids:, updated_at:)
         #   Some parameter documentations has been truncated, see
         #   {ModernTreasury::Models::PaymentOrders::Reversal} for more details.
         #
         #   @param id [String]
         #
         #   @param created_at [Time]
+        #
+        #   @param internal_account_id [String, nil] The ID of the relevant Internal Account.
         #
         #   @param ledger_transaction_id [String, nil] The ID of the ledger transaction linked to the reversal.
         #
