@@ -18,6 +18,10 @@ module ModernTreasury
         sig { returns(Time) }
         attr_accessor :created_at
 
+        # The ID of the relevant Internal Account.
+        sig { returns(T.nilable(String)) }
+        attr_accessor :internal_account_id
+
         # The ID of the ledger transaction linked to the reversal.
         sig { returns(T.nilable(String)) }
         attr_accessor :ledger_transaction_id
@@ -69,6 +73,7 @@ module ModernTreasury
           params(
             id: String,
             created_at: Time,
+            internal_account_id: T.nilable(String),
             ledger_transaction_id: T.nilable(String),
             live_mode: T::Boolean,
             metadata: T::Hash[Symbol, String],
@@ -85,6 +90,8 @@ module ModernTreasury
         def self.new(
           id:,
           created_at:,
+          # The ID of the relevant Internal Account.
+          internal_account_id:,
           # The ID of the ledger transaction linked to the reversal.
           ledger_transaction_id:,
           # This field will be true if this object exists in the live environment or false
@@ -112,6 +119,7 @@ module ModernTreasury
             {
               id: String,
               created_at: Time,
+              internal_account_id: T.nilable(String),
               ledger_transaction_id: T.nilable(String),
               live_mode: T::Boolean,
               metadata: T::Hash[Symbol, String],

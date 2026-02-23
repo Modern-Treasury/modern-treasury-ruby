@@ -5,6 +5,7 @@ module ModernTreasury
         {
           id: String,
           created_at: Time,
+          internal_account_id: String?,
           ledger_transaction_id: String?,
           live_mode: bool,
           metadata: ::Hash[Symbol, String],
@@ -21,6 +22,8 @@ module ModernTreasury
         attr_accessor id: String
 
         attr_accessor created_at: Time
+
+        attr_accessor internal_account_id: String?
 
         attr_accessor ledger_transaction_id: String?
 
@@ -45,6 +48,7 @@ module ModernTreasury
         def initialize: (
           id: String,
           created_at: Time,
+          internal_account_id: String?,
           ledger_transaction_id: String?,
           live_mode: bool,
           metadata: ::Hash[Symbol, String],
@@ -60,6 +64,7 @@ module ModernTreasury
         def to_hash: -> {
           id: String,
           created_at: Time,
+          internal_account_id: String?,
           ledger_transaction_id: String?,
           live_mode: bool,
           metadata: ::Hash[Symbol, String],
