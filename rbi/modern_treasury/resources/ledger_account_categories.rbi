@@ -69,6 +69,7 @@ module ModernTreasury
         params(
           id: String,
           description: T.nilable(String),
+          external_id: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           name: String,
           request_options: ModernTreasury::RequestOptions::OrHash
@@ -79,6 +80,8 @@ module ModernTreasury
         id,
         # The description of the ledger account category.
         description: nil,
+        # An optional user-defined 180 character unique identifier.
+        external_id: nil,
         # Additional data represented as key-value pairs. Both the key and value must be
         # strings.
         metadata: nil,

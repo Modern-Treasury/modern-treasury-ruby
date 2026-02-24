@@ -20,6 +20,13 @@ module ModernTreasury
       #   @return [Time, nil]
       optional :effective_at, Time
 
+      # @!attribute external_id
+      #   A unique string to represent the ledger transaction. Only one pending or posted
+      #   ledger transaction may have this ID in the ledger.
+      #
+      #   @return [String, nil]
+      optional :external_id, String, nil?: true
+
       # @!attribute ledger_entries
       #   An array of ledger entry objects.
       #
@@ -55,13 +62,15 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::LedgerTransactionUpdateParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::LedgerTransactionUpdateParams::Status }
 
-      # @!method initialize(description: nil, effective_at: nil, ledger_entries: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, status: nil, request_options: {})
+      # @!method initialize(description: nil, effective_at: nil, external_id: nil, ledger_entries: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, status: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LedgerTransactionUpdateParams} for more details.
       #
       #   @param description [String, nil] An optional description for internal use.
       #
       #   @param effective_at [Time] The timestamp (ISO8601 format) at which the ledger transaction happened for repo
+      #
+      #   @param external_id [String, nil] A unique string to represent the ledger transaction. Only one pending or posted
       #
       #   @param ledger_entries [Array<ModernTreasury::Models::LedgerEntryCreateRequest>] An array of ledger entry objects.
       #

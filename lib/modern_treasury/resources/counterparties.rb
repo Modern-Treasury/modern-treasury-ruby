@@ -75,11 +75,13 @@ module ModernTreasury
       #
       # Updates a given counterparty with new information.
       #
-      # @overload update(id, email: nil, legal_entity_id: nil, metadata: nil, name: nil, send_remittance_advice: nil, taxpayer_identifier: nil, request_options: {})
+      # @overload update(id, email: nil, external_id: nil, legal_entity_id: nil, metadata: nil, name: nil, send_remittance_advice: nil, taxpayer_identifier: nil, request_options: {})
       #
       # @param id [String] The id of an existing counterparty.
       #
       # @param email [String] A new email for the counterparty.
+      #
+      # @param external_id [String, nil] An optional user-defined 180 character unique identifier.
       #
       # @param legal_entity_id [String, nil] The id of the legal entity.
       #

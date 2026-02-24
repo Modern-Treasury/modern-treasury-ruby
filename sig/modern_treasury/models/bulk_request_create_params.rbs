@@ -103,6 +103,7 @@ module ModernTreasury
             description: String?,
             effective_date: Date,
             expires_at: Time?,
+            external_id: String?,
             fallback_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::fallback_type,
             foreign_exchange_contract: String?,
             foreign_exchange_indicator: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::foreign_exchange_indicator?,
@@ -163,6 +164,8 @@ module ModernTreasury
           def effective_date=: (Date) -> Date
 
           attr_accessor expires_at: Time?
+
+          attr_accessor external_id: String?
 
           attr_reader fallback_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::fallback_type?
 
@@ -259,6 +262,7 @@ module ModernTreasury
             ?description: String?,
             ?effective_date: Date,
             ?expires_at: Time?,
+            ?external_id: String?,
             ?fallback_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::fallback_type,
             ?foreign_exchange_contract: String?,
             ?foreign_exchange_indicator: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::foreign_exchange_indicator?,
@@ -298,6 +302,7 @@ module ModernTreasury
             description: String?,
             effective_date: Date,
             expires_at: Time?,
+            external_id: String?,
             fallback_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::fallback_type,
             foreign_exchange_contract: String?,
             foreign_exchange_indicator: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::foreign_exchange_indicator?,
@@ -1177,6 +1182,7 @@ module ModernTreasury
             direction: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::direction,
             effective_date: Date,
             expires_at: Time?,
+            external_id: String?,
             fallback_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::fallback_type,
             foreign_exchange_contract: String?,
             foreign_exchange_indicator: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::foreign_exchange_indicator?,
@@ -1245,6 +1251,8 @@ module ModernTreasury
           def effective_date=: (Date) -> Date
 
           attr_accessor expires_at: Time?
+
+          attr_accessor external_id: String?
 
           attr_reader fallback_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::fallback_type?
 
@@ -1343,6 +1351,7 @@ module ModernTreasury
             ?direction: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::direction,
             ?effective_date: Date,
             ?expires_at: Time?,
+            ?external_id: String?,
             ?fallback_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::fallback_type,
             ?foreign_exchange_contract: String?,
             ?foreign_exchange_indicator: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::foreign_exchange_indicator?,
@@ -1382,6 +1391,7 @@ module ModernTreasury
             direction: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::direction,
             effective_date: Date,
             expires_at: Time?,
+            external_id: String?,
             fallback_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::fallback_type,
             foreign_exchange_contract: String?,
             foreign_exchange_indicator: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::foreign_exchange_indicator?,
@@ -2106,6 +2116,7 @@ module ModernTreasury
             id: String,
             description: String?,
             effective_at: Time,
+            external_id: String?,
             ledger_entries: ::Array[ModernTreasury::LedgerEntryCreateRequest],
             ledgerable_id: String,
             ledgerable_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::ledgerable_type,
@@ -2123,6 +2134,8 @@ module ModernTreasury
           attr_reader effective_at: Time?
 
           def effective_at=: (Time) -> Time
+
+          attr_accessor external_id: String?
 
           attr_reader ledger_entries: ::Array[ModernTreasury::LedgerEntryCreateRequest]?
 
@@ -2154,6 +2167,7 @@ module ModernTreasury
             ?id: String,
             ?description: String?,
             ?effective_at: Time,
+            ?external_id: String?,
             ?ledger_entries: ::Array[ModernTreasury::LedgerEntryCreateRequest],
             ?ledgerable_id: String,
             ?ledgerable_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::ledgerable_type,
@@ -2165,6 +2179,7 @@ module ModernTreasury
             id: String,
             description: String?,
             effective_at: Time,
+            external_id: String?,
             ledger_entries: ::Array[ModernTreasury::LedgerEntryCreateRequest],
             ledgerable_id: String,
             ledgerable_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::ledgerable_type,

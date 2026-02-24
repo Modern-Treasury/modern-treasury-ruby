@@ -13,6 +13,12 @@ module ModernTreasury
       #   @return [String, nil]
       optional :email, String
 
+      # @!attribute external_id
+      #   An optional user-defined 180 character unique identifier.
+      #
+      #   @return [String, nil]
+      optional :external_id, String, nil?: true
+
       # @!attribute legal_entity_id
       #   The id of the legal entity.
       #
@@ -45,11 +51,13 @@ module ModernTreasury
       #   @return [String, nil]
       optional :taxpayer_identifier, String
 
-      # @!method initialize(email: nil, legal_entity_id: nil, metadata: nil, name: nil, send_remittance_advice: nil, taxpayer_identifier: nil, request_options: {})
+      # @!method initialize(email: nil, external_id: nil, legal_entity_id: nil, metadata: nil, name: nil, send_remittance_advice: nil, taxpayer_identifier: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::CounterpartyUpdateParams} for more details.
       #
       #   @param email [String] A new email for the counterparty.
+      #
+      #   @param external_id [String, nil] An optional user-defined 180 character unique identifier.
       #
       #   @param legal_entity_id [String, nil] The id of the legal entity.
       #
