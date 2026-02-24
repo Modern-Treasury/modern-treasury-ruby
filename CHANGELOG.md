@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.16.0 (2026-02-24)
+
+Full Changelog: [v0.15.0...v0.16.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.15.0...v0.16.0)
+
+### Features
+
+* **api:** api update ([56c491e](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/56c491e14575b8e85e5d885d85870d0c602baf72))
+* **api:** api update ([0d9d0f2](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/0d9d0f2ce0e877ff8d3c835858a8ae76ca804f8e))
+* **api:** api update ([11a5ef3](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/11a5ef3670dd153d50f37fd7092dfa17d7c96de6))
+* **api:** api update ([33d3263](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/33d3263bd00d33ebc839d0007dff1aa2261c30f1))
+
 ## 0.15.0 (2026-02-19)
 
 Full Changelog: [v0.14.0...v0.15.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.14.0...v0.15.0)
