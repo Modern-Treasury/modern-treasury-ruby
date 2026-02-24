@@ -101,6 +101,10 @@ module ModernTreasury
       sig { returns(T.nilable(Time)) }
       attr_accessor :expires_at
 
+      # An optional user-defined 180 character unique identifier.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :external_id
+
       # A payment type to fallback to if the original type is not valid for the
       # receiving account. Currently, this only supports falling back from RTP to ACH
       # (type=rtp and fallback_type=ach)
@@ -357,6 +361,7 @@ module ModernTreasury
           description: T.nilable(String),
           effective_date: Date,
           expires_at: T.nilable(Time),
+          external_id: T.nilable(String),
           fallback_type:
             ModernTreasury::PaymentOrderCreateAsyncParams::FallbackType::OrSymbol,
           foreign_exchange_contract: T.nilable(String),
@@ -431,6 +436,8 @@ module ModernTreasury
         effective_date: nil,
         # RFP payments require an expires_at. This value must be past the effective_date.
         expires_at: nil,
+        # An optional user-defined 180 character unique identifier.
+        external_id: nil,
         # A payment type to fallback to if the original type is not valid for the
         # receiving account. Currently, this only supports falling back from RTP to ACH
         # (type=rtp and fallback_type=ach)
@@ -543,6 +550,7 @@ module ModernTreasury
             description: T.nilable(String),
             effective_date: Date,
             expires_at: T.nilable(Time),
+            external_id: T.nilable(String),
             fallback_type:
               ModernTreasury::PaymentOrderCreateAsyncParams::FallbackType::OrSymbol,
             foreign_exchange_contract: T.nilable(String),

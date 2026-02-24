@@ -13,6 +13,12 @@ module ModernTreasury
       #   @return [String, nil]
       optional :description, String, nil?: true
 
+      # @!attribute external_id
+      #   An optional user-defined 180 character unique identifier.
+      #
+      #   @return [String, nil]
+      optional :external_id, String, nil?: true
+
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
@@ -26,11 +32,13 @@ module ModernTreasury
       #   @return [String, nil]
       optional :name, String
 
-      # @!method initialize(description: nil, metadata: nil, name: nil, request_options: {})
+      # @!method initialize(description: nil, external_id: nil, metadata: nil, name: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LedgerAccountUpdateParams} for more details.
       #
       #   @param description [String, nil] The description of the ledger account.
+      #
+      #   @param external_id [String, nil] An optional user-defined 180 character unique identifier.
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #

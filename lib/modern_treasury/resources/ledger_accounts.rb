@@ -80,11 +80,13 @@ module ModernTreasury
       #
       # Update the details of a ledger account.
       #
-      # @overload update(id, description: nil, metadata: nil, name: nil, request_options: {})
+      # @overload update(id, description: nil, external_id: nil, metadata: nil, name: nil, request_options: {})
       #
       # @param id [String] The ledger account id (UUID)
       #
       # @param description [String, nil] The description of the ledger account.
+      #
+      # @param external_id [String, nil] An optional user-defined 180 character unique identifier.
       #
       # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #

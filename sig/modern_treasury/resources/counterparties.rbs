@@ -25,6 +25,7 @@ module ModernTreasury
       def update: (
         String id,
         ?email: String,
+        ?external_id: String?,
         ?legal_entity_id: String?,
         ?metadata: ::Hash[Symbol, String],
         ?name: String,

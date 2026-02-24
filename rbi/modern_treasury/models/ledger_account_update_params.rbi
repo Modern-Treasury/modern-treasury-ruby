@@ -18,6 +18,10 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :description
 
+      # An optional user-defined 180 character unique identifier.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :external_id
+
       # Additional data represented as key-value pairs. Both the key and value must be
       # strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
@@ -36,6 +40,7 @@ module ModernTreasury
       sig do
         params(
           description: T.nilable(String),
+          external_id: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           name: String,
           request_options: ModernTreasury::RequestOptions::OrHash
@@ -44,6 +49,8 @@ module ModernTreasury
       def self.new(
         # The description of the ledger account.
         description: nil,
+        # An optional user-defined 180 character unique identifier.
+        external_id: nil,
         # Additional data represented as key-value pairs. Both the key and value must be
         # strings.
         metadata: nil,
@@ -57,6 +64,7 @@ module ModernTreasury
         override.returns(
           {
             description: T.nilable(String),
+            external_id: T.nilable(String),
             metadata: T::Hash[Symbol, String],
             name: String,
             request_options: ModernTreasury::RequestOptions

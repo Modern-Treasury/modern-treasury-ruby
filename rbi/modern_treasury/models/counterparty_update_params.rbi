@@ -21,6 +21,10 @@ module ModernTreasury
       sig { params(email: String).void }
       attr_writer :email
 
+      # An optional user-defined 180 character unique identifier.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :external_id
+
       # The id of the legal entity.
       sig { returns(T.nilable(String)) }
       attr_accessor :legal_entity_id
@@ -58,6 +62,7 @@ module ModernTreasury
       sig do
         params(
           email: String,
+          external_id: T.nilable(String),
           legal_entity_id: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           name: String,
@@ -69,6 +74,8 @@ module ModernTreasury
       def self.new(
         # A new email for the counterparty.
         email: nil,
+        # An optional user-defined 180 character unique identifier.
+        external_id: nil,
         # The id of the legal entity.
         legal_entity_id: nil,
         # Additional data in the form of key-value pairs. Pairs can be removed by passing
@@ -89,6 +96,7 @@ module ModernTreasury
         override.returns(
           {
             email: String,
+            external_id: T.nilable(String),
             legal_entity_id: T.nilable(String),
             metadata: T::Hash[Symbol, String],
             name: String,
