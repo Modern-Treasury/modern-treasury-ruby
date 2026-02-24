@@ -194,6 +194,12 @@ module ModernTreasury
           #   @return [Time, nil]
           optional :expires_at, Time, nil?: true
 
+          # @!attribute external_id
+          #   An optional user-defined 180 character unique identifier.
+          #
+          #   @return [String, nil]
+          optional :external_id, String, nil?: true
+
           # @!attribute fallback_type
           #   A payment type to fallback to if the original type is not valid for the
           #   receiving account. Currently, this only supports falling back from RTP to ACH
@@ -389,7 +395,7 @@ module ModernTreasury
           #   @return [String, nil]
           optional :ultimate_receiving_party_name, String, nil?: true
 
-          # @!method initialize(amount:, direction:, originating_account_id:, type:, accounting: nil, accounting_category_id: nil, accounting_ledger_class_id: nil, charge_bearer: nil, currency: nil, description: nil, effective_date: nil, expires_at: nil, fallback_type: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, ledger_transaction: nil, ledger_transaction_id: nil, line_items: nil, metadata: nil, nsf_protected: nil, originating_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account: nil, receiving_account_id: nil, reconciliation_status: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, subtype: nil, transaction_monitoring_enabled: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil)
+          # @!method initialize(amount:, direction:, originating_account_id:, type:, accounting: nil, accounting_category_id: nil, accounting_ledger_class_id: nil, charge_bearer: nil, currency: nil, description: nil, effective_date: nil, expires_at: nil, external_id: nil, fallback_type: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, ledger_transaction: nil, ledger_transaction_id: nil, line_items: nil, metadata: nil, nsf_protected: nil, originating_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account: nil, receiving_account_id: nil, reconciliation_status: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, subtype: nil, transaction_monitoring_enabled: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil)
           #   Some parameter documentations has been truncated, see
           #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest}
           #   for more details.
@@ -417,6 +423,8 @@ module ModernTreasury
           #   @param effective_date [Date] Date transactions are to be posted to the participants' account. Defaults to the
           #
           #   @param expires_at [Time, nil] RFP payments require an expires_at. This value must be past the effective_date.
+          #
+          #   @param external_id [String, nil] An optional user-defined 180 character unique identifier.
           #
           #   @param fallback_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::FallbackType] A payment type to fallback to if the original type is not valid for the receivin
           #
@@ -1493,6 +1501,12 @@ module ModernTreasury
           #   @return [Time, nil]
           optional :expires_at, Time, nil?: true
 
+          # @!attribute external_id
+          #   An optional user-defined 180 character unique identifier.
+          #
+          #   @return [String, nil]
+          optional :external_id, String, nil?: true
+
           # @!attribute fallback_type
           #   A payment type to fallback to if the original type is not valid for the
           #   receiving account. Currently, this only supports falling back from RTP to ACH
@@ -1692,7 +1706,7 @@ module ModernTreasury
           #   @return [String, nil]
           optional :ultimate_receiving_party_name, String, nil?: true
 
-          # @!method initialize(id: nil, accounting: nil, accounting_category_id: nil, accounting_ledger_class_id: nil, amount: nil, charge_bearer: nil, counterparty_id: nil, currency: nil, description: nil, direction: nil, effective_date: nil, expires_at: nil, fallback_type: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, line_items: nil, metadata: nil, nsf_protected: nil, originating_account_id: nil, originating_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account: nil, receiving_account_id: nil, reconciliation_status: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, status: nil, subtype: nil, type: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil)
+          # @!method initialize(id: nil, accounting: nil, accounting_category_id: nil, accounting_ledger_class_id: nil, amount: nil, charge_bearer: nil, counterparty_id: nil, currency: nil, description: nil, direction: nil, effective_date: nil, expires_at: nil, external_id: nil, fallback_type: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, line_items: nil, metadata: nil, nsf_protected: nil, originating_account_id: nil, originating_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account: nil, receiving_account_id: nil, reconciliation_status: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, status: nil, subtype: nil, type: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil)
           #   Some parameter documentations has been truncated, see
           #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID}
           #   for more details.
@@ -1720,6 +1734,8 @@ module ModernTreasury
           #   @param effective_date [Date] Date transactions are to be posted to the participants' account. Defaults to the
           #
           #   @param expires_at [Time, nil] RFP payments require an expires_at. This value must be past the effective_date.
+          #
+          #   @param external_id [String, nil] An optional user-defined 180 character unique identifier.
           #
           #   @param fallback_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::FallbackType] A payment type to fallback to if the original type is not valid for the receivin
           #
@@ -2568,6 +2584,13 @@ module ModernTreasury
           #   @return [Time, nil]
           optional :effective_at, Time
 
+          # @!attribute external_id
+          #   A unique string to represent the ledger transaction. Only one pending or posted
+          #   ledger transaction may have this ID in the ledger.
+          #
+          #   @return [String, nil]
+          optional :external_id, String, nil?: true
+
           # @!attribute ledger_entries
           #   An array of ledger entry objects.
           #
@@ -2605,7 +2628,7 @@ module ModernTreasury
           optional :status,
                    enum: -> { ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::Status }
 
-          # @!method initialize(id: nil, description: nil, effective_at: nil, ledger_entries: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, status: nil)
+          # @!method initialize(id: nil, description: nil, effective_at: nil, external_id: nil, ledger_entries: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, status: nil)
           #   Some parameter documentations has been truncated, see
           #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID}
           #   for more details.
@@ -2615,6 +2638,8 @@ module ModernTreasury
           #   @param description [String, nil] An optional description for internal use.
           #
           #   @param effective_at [Time] The timestamp (ISO8601 format) at which the ledger transaction happened for repo
+          #
+          #   @param external_id [String, nil] A unique string to represent the ledger transaction. Only one pending or posted
           #
           #   @param ledger_entries [Array<ModernTreasury::Models::LedgerEntryCreateRequest>] An array of ledger entry objects.
           #

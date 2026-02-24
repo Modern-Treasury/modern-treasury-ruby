@@ -25,6 +25,7 @@ module ModernTreasury
         String id,
         ?description: String?,
         ?effective_at: Time,
+        ?external_id: String?,
         ?ledger_entries: ::Array[ModernTreasury::LedgerEntryCreateRequest],
         ?ledgerable_id: String,
         ?ledgerable_type: ModernTreasury::Models::LedgerTransactionUpdateParams::ledgerable_type,

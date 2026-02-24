@@ -337,6 +337,10 @@ module ModernTreasury
           sig { returns(T.nilable(Time)) }
           attr_accessor :expires_at
 
+          # An optional user-defined 180 character unique identifier.
+          sig { returns(T.nilable(String)) }
+          attr_accessor :external_id
+
           # A payment type to fallback to if the original type is not valid for the
           # receiving account. Currently, this only supports falling back from RTP to ACH
           # (type=rtp and fallback_type=ach)
@@ -599,6 +603,7 @@ module ModernTreasury
               description: T.nilable(String),
               effective_date: Date,
               expires_at: T.nilable(Time),
+              external_id: T.nilable(String),
               fallback_type:
                 ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::FallbackType::OrSymbol,
               foreign_exchange_contract: T.nilable(String),
@@ -672,6 +677,8 @@ module ModernTreasury
             effective_date: nil,
             # RFP payments require an expires_at. This value must be past the effective_date.
             expires_at: nil,
+            # An optional user-defined 180 character unique identifier.
+            external_id: nil,
             # A payment type to fallback to if the original type is not valid for the
             # receiving account. Currently, this only supports falling back from RTP to ACH
             # (type=rtp and fallback_type=ach)
@@ -783,6 +790,7 @@ module ModernTreasury
                 description: T.nilable(String),
                 effective_date: Date,
                 expires_at: T.nilable(Time),
+                external_id: T.nilable(String),
                 fallback_type:
                   ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::FallbackType::OrSymbol,
                 foreign_exchange_contract: T.nilable(String),
@@ -3010,6 +3018,10 @@ module ModernTreasury
           sig { returns(T.nilable(Time)) }
           attr_accessor :expires_at
 
+          # An optional user-defined 180 character unique identifier.
+          sig { returns(T.nilable(String)) }
+          attr_accessor :external_id
+
           # A payment type to fallback to if the original type is not valid for the
           # receiving account. Currently, this only supports falling back from RTP to ACH
           # (type=rtp and fallback_type=ach)
@@ -3281,6 +3293,7 @@ module ModernTreasury
                 ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Direction::OrSymbol,
               effective_date: Date,
               expires_at: T.nilable(Time),
+              external_id: T.nilable(String),
               fallback_type:
                 ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::FallbackType::OrSymbol,
               foreign_exchange_contract: T.nilable(String),
@@ -3351,6 +3364,8 @@ module ModernTreasury
             effective_date: nil,
             # RFP payments require an expires_at. This value must be past the effective_date.
             expires_at: nil,
+            # An optional user-defined 180 character unique identifier.
+            external_id: nil,
             # A payment type to fallback to if the original type is not valid for the
             # receiving account. Currently, this only supports falling back from RTP to ACH
             # (type=rtp and fallback_type=ach)
@@ -3467,6 +3482,7 @@ module ModernTreasury
                   ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Direction::OrSymbol,
                 effective_date: Date,
                 expires_at: T.nilable(Time),
+                external_id: T.nilable(String),
                 fallback_type:
                   ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::FallbackType::OrSymbol,
                 foreign_exchange_contract: T.nilable(String),
@@ -5287,6 +5303,11 @@ module ModernTreasury
           sig { params(effective_at: Time).void }
           attr_writer :effective_at
 
+          # A unique string to represent the ledger transaction. Only one pending or posted
+          # ledger transaction may have this ID in the ledger.
+          sig { returns(T.nilable(String)) }
+          attr_accessor :external_id
+
           # An array of ledger entry objects.
           sig do
             returns(
@@ -5362,6 +5383,7 @@ module ModernTreasury
               id: String,
               description: T.nilable(String),
               effective_at: Time,
+              external_id: T.nilable(String),
               ledger_entries:
                 T::Array[ModernTreasury::LedgerEntryCreateRequest::OrHash],
               ledgerable_id: String,
@@ -5379,6 +5401,9 @@ module ModernTreasury
             # The timestamp (ISO8601 format) at which the ledger transaction happened for
             # reporting purposes.
             effective_at: nil,
+            # A unique string to represent the ledger transaction. Only one pending or posted
+            # ledger transaction may have this ID in the ledger.
+            external_id: nil,
             # An array of ledger entry objects.
             ledger_entries: nil,
             # If the ledger transaction can be reconciled to another object in Modern
@@ -5402,6 +5427,7 @@ module ModernTreasury
                 id: String,
                 description: T.nilable(String),
                 effective_at: Time,
+                external_id: T.nilable(String),
                 ledger_entries:
                   T::Array[ModernTreasury::LedgerEntryCreateRequest],
                 ledgerable_id: String,

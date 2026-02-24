@@ -23,6 +23,7 @@ module ModernTreasury
       def update: (
         String id,
         ?description: String?,
+        ?external_id: String?,
         ?metadata: ::Hash[Symbol, String],
         ?name: String,
         ?request_options: ModernTreasury::request_opts

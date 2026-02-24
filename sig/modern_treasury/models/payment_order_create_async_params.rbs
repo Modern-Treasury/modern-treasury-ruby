@@ -14,6 +14,7 @@ module ModernTreasury
         description: String?,
         effective_date: Date,
         expires_at: Time?,
+        external_id: String?,
         fallback_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::fallback_type,
         foreign_exchange_contract: String?,
         foreign_exchange_indicator: ModernTreasury::Models::PaymentOrderCreateAsyncParams::foreign_exchange_indicator?,
@@ -78,6 +79,8 @@ module ModernTreasury
       def effective_date=: (Date) -> Date
 
       attr_accessor expires_at: Time?
+
+      attr_accessor external_id: String?
 
       attr_reader fallback_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::fallback_type?
 
@@ -174,6 +177,7 @@ module ModernTreasury
         ?description: String?,
         ?effective_date: Date,
         ?expires_at: Time?,
+        ?external_id: String?,
         ?fallback_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::fallback_type,
         ?foreign_exchange_contract: String?,
         ?foreign_exchange_indicator: ModernTreasury::Models::PaymentOrderCreateAsyncParams::foreign_exchange_indicator?,
@@ -214,6 +218,7 @@ module ModernTreasury
         description: String?,
         effective_date: Date,
         expires_at: Time?,
+        external_id: String?,
         fallback_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::fallback_type,
         foreign_exchange_contract: String?,
         foreign_exchange_indicator: ModernTreasury::Models::PaymentOrderCreateAsyncParams::foreign_exchange_indicator?,

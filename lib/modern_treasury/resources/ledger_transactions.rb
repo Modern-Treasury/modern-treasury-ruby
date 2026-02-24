@@ -75,13 +75,15 @@ module ModernTreasury
       #
       # Update the details of a ledger transaction.
       #
-      # @overload update(id, description: nil, effective_at: nil, ledger_entries: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, status: nil, request_options: {})
+      # @overload update(id, description: nil, effective_at: nil, external_id: nil, ledger_entries: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, status: nil, request_options: {})
       #
       # @param id [String] The ledger transaction id (UUID)
       #
       # @param description [String, nil] An optional description for internal use.
       #
       # @param effective_at [Time] The timestamp (ISO8601 format) at which the ledger transaction happened for repo
+      #
+      # @param external_id [String, nil] A unique string to represent the ledger transaction. Only one pending or posted
       #
       # @param ledger_entries [Array<ModernTreasury::Models::LedgerEntryCreateRequest>] An array of ledger entry objects.
       #

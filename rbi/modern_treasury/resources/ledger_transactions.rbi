@@ -75,6 +75,7 @@ module ModernTreasury
           id: String,
           description: T.nilable(String),
           effective_at: Time,
+          external_id: T.nilable(String),
           ledger_entries:
             T::Array[ModernTreasury::LedgerEntryCreateRequest::OrHash],
           ledgerable_id: String,
@@ -94,6 +95,9 @@ module ModernTreasury
         # The timestamp (ISO8601 format) at which the ledger transaction happened for
         # reporting purposes.
         effective_at: nil,
+        # A unique string to represent the ledger transaction. Only one pending or posted
+        # ledger transaction may have this ID in the ledger.
+        external_id: nil,
         # An array of ledger entry objects.
         ledger_entries: nil,
         # If the ledger transaction can be reconciled to another object in Modern
