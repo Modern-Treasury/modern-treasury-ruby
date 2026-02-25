@@ -912,16 +912,6 @@ module ModernTreasury
               :lob_check_id,
               ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
-          MT_FLOW_ACH_NOC_ID =
-            T.let(
-              :mt_flow_ach_noc_id,
-              ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
-            )
-          MT_FLOW_TRANSFER_ID =
-            T.let(
-              :mt_flow_transfer_id,
-              ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
-            )
           OTHER =
             T.let(
               :other,
