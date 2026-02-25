@@ -400,16 +400,6 @@ module ModernTreasury
             :lob_check_id,
             ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
           )
-        MT_FLOW_ACH_NOC_ID =
-          T.let(
-            :mt_flow_ach_noc_id,
-            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
-          )
-        MT_FLOW_TRANSFER_ID =
-          T.let(
-            :mt_flow_transfer_id,
-            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
-          )
         OTHER =
           T.let(
             :other,
