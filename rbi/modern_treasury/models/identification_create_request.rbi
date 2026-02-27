@@ -106,6 +106,11 @@ module ModernTreasury
             :br_cpf,
             ModernTreasury::IdentificationCreateRequest::IDType::TaggedSymbol
           )
+        CA_SIN =
+          T.let(
+            :ca_sin,
+            ModernTreasury::IdentificationCreateRequest::IDType::TaggedSymbol
+          )
         CL_RUN =
           T.let(
             :cl_run,

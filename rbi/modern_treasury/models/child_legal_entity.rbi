@@ -798,6 +798,11 @@ module ModernTreasury
               :br_cpf,
               ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
             )
+          CA_SIN =
+            T.let(
+              :ca_sin,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
           CL_RUN =
             T.let(
               :cl_run,
