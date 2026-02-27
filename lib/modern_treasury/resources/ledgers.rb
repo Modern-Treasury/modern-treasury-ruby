@@ -107,10 +107,11 @@ module ModernTreasury
       # @see ModernTreasury::Models::LedgerListParams
       def list(params = {})
         parsed, options = ModernTreasury::LedgerListParams.dump_request(params)
+        query = ModernTreasury::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: "api/ledgers",
-          query: parsed,
+          query: query,
           page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Ledger,
           options: options

@@ -40,10 +40,11 @@ module ModernTreasury
       # @see ModernTreasury::Models::JournalEntryListParams
       def list(params)
         parsed, options = ModernTreasury::JournalEntryListParams.dump_request(params)
+        query = ModernTreasury::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: "api/journal_entries",
-          query: parsed,
+          query: query,
           model: NilClass,
           options: options
         )

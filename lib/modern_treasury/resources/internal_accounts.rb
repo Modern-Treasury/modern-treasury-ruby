@@ -146,10 +146,11 @@ module ModernTreasury
       # @see ModernTreasury::Models::InternalAccountListParams
       def list(params = {})
         parsed, options = ModernTreasury::InternalAccountListParams.dump_request(params)
+        query = ModernTreasury::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: "api/internal_accounts",
-          query: parsed,
+          query: query,
           page: ModernTreasury::Internal::Page,
           model: ModernTreasury::InternalAccount,
           options: options

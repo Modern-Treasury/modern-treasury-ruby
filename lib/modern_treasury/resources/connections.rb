@@ -22,10 +22,11 @@ module ModernTreasury
       # @see ModernTreasury::Models::ConnectionListParams
       def list(params = {})
         parsed, options = ModernTreasury::ConnectionListParams.dump_request(params)
+        query = ModernTreasury::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: "api/connections",
-          query: parsed,
+          query: query,
           page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Connection,
           options: options
