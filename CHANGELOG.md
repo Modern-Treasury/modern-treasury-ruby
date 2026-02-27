@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.17.0 (2026-02-27)
+
+Full Changelog: [v0.16.0...v0.17.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.16.0...v0.17.0)
+
+### Features
+
+* **api:** api update ([e1c8b74](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/e1c8b740d33ca5ebd874e17ef2a3f975e08b503d))
+* **api:** api update ([b17afc8](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/b17afc8564d19998272cdbaf41ae067e6cf4d39f))
+
+
+### Bug Fixes
+
+* **client:** serialize query parameters properly ([83c0d8c](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/83c0d8c5b0e28dd65ce629df1f51412cdd797dfd))
+* properly mock time in ruby ci tests ([ceed313](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/ceed313f8d3e380513b469c5e2f9502cd517e1c3))
+
+
+### Chores
+
+* **api:** remove an obsolete reviewer ([74995c3](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/74995c3c6a44af125b9dea483bd18e82ac3f0d81))
+
 ## 0.16.0 (2026-02-24)
 
 Full Changelog: [v0.15.0...v0.16.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.15.0...v0.16.0)
