@@ -594,6 +594,7 @@ module ModernTreasury
           AR_CUIT = :ar_cuit
           BR_CNPJ = :br_cnpj
           BR_CPF = :br_cpf
+          CA_SIN = :ca_sin
           CL_RUN = :cl_run
           CL_RUT = :cl_rut
           CO_CEDULAS = :co_cedulas
