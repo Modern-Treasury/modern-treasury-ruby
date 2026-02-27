@@ -94,6 +94,7 @@ module ModernTreasury
       # @see ModernTreasury::Models::LineItemListParams
       def list(itemizable_id, params)
         parsed, options = ModernTreasury::LineItemListParams.dump_request(params)
+        query = ModernTreasury::Internal::Util.encode_query_params(parsed)
         itemizable_type =
           parsed.delete(:itemizable_type) do
             raise ArgumentError.new("missing required path argument #{_1}")
@@ -101,7 +102,7 @@ module ModernTreasury
         @client.request(
           method: :get,
           path: ["api/%1$s/%2$s/line_items", itemizable_type, itemizable_id],
-          query: parsed,
+          query: query,
           page: ModernTreasury::Internal::Page,
           model: ModernTreasury::LineItem,
           options: options
