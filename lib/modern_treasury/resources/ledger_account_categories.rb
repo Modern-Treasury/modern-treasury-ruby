@@ -62,10 +62,11 @@ module ModernTreasury
       # @see ModernTreasury::Models::LedgerAccountCategoryRetrieveParams
       def retrieve(id, params = {})
         parsed, options = ModernTreasury::LedgerAccountCategoryRetrieveParams.dump_request(params)
+        query = ModernTreasury::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: ["api/ledger_account_categories/%1$s", id],
-          query: parsed,
+          query: query,
           model: ModernTreasury::LedgerAccountCategory,
           options: options
         )
@@ -140,10 +141,11 @@ module ModernTreasury
       # @see ModernTreasury::Models::LedgerAccountCategoryListParams
       def list(params = {})
         parsed, options = ModernTreasury::LedgerAccountCategoryListParams.dump_request(params)
+        query = ModernTreasury::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: "api/ledger_account_categories",
-          query: parsed,
+          query: query,
           page: ModernTreasury::Internal::Page,
           model: ModernTreasury::LedgerAccountCategory,
           options: options

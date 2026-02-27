@@ -47,10 +47,11 @@ module ModernTreasury
       # @see ModernTreasury::Models::PaymentReferenceListParams
       def list(params = {})
         parsed, options = ModernTreasury::PaymentReferenceListParams.dump_request(params)
+        query = ModernTreasury::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: "api/payment_references",
-          query: parsed,
+          query: query,
           page: ModernTreasury::Internal::Page,
           model: ModernTreasury::PaymentReference,
           options: options

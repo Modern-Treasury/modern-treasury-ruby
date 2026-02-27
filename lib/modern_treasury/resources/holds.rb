@@ -105,10 +105,11 @@ module ModernTreasury
       # @see ModernTreasury::Models::HoldListParams
       def list(params = {})
         parsed, options = ModernTreasury::HoldListParams.dump_request(params)
+        query = ModernTreasury::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: "api/holds",
-          query: parsed,
+          query: query,
           page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Models::HoldListResponse,
           options: options

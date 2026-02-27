@@ -92,6 +92,7 @@ module ModernTreasury
       # @see ModernTreasury::Models::RoutingDetailListParams
       def list(account_id, params)
         parsed, options = ModernTreasury::RoutingDetailListParams.dump_request(params)
+        query = ModernTreasury::Internal::Util.encode_query_params(parsed)
         accounts_type =
           parsed.delete(:accounts_type) do
             raise ArgumentError.new("missing required path argument #{_1}")
@@ -99,7 +100,7 @@ module ModernTreasury
         @client.request(
           method: :get,
           path: ["api/%1$s/%2$s/routing_details", accounts_type, account_id],
-          query: parsed,
+          query: query,
           page: ModernTreasury::Internal::Page,
           model: ModernTreasury::RoutingDetail,
           options: options

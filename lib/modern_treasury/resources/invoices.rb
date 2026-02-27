@@ -206,10 +206,11 @@ module ModernTreasury
       # @see ModernTreasury::Models::InvoiceListParams
       def list(params = {})
         parsed, options = ModernTreasury::InvoiceListParams.dump_request(params)
+        query = ModernTreasury::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: "api/invoices",
-          query: parsed,
+          query: query,
           page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Invoice,
           options: options

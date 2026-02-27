@@ -51,10 +51,11 @@ module ModernTreasury
       # @see ModernTreasury::Models::BulkResultListParams
       def list(params = {})
         parsed, options = ModernTreasury::BulkResultListParams.dump_request(params)
+        query = ModernTreasury::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: "api/bulk_results",
-          query: parsed,
+          query: query,
           page: ModernTreasury::Internal::Page,
           model: ModernTreasury::BulkResult,
           options: options

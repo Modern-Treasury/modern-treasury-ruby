@@ -120,10 +120,11 @@ module ModernTreasury
       # @see ModernTreasury::Models::VirtualAccountListParams
       def list(params = {})
         parsed, options = ModernTreasury::VirtualAccountListParams.dump_request(params)
+        query = ModernTreasury::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: "api/virtual_accounts",
-          query: parsed,
+          query: query,
           page: ModernTreasury::Internal::Page,
           model: ModernTreasury::VirtualAccount,
           options: options

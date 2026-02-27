@@ -31,10 +31,11 @@ module ModernTreasury
         # @see ModernTreasury::Models::LedgerTransactions::VersionListParams
         def list(params = {})
           parsed, options = ModernTreasury::LedgerTransactions::VersionListParams.dump_request(params)
+          query = ModernTreasury::Internal::Util.encode_query_params(parsed)
           @client.request(
             method: :get,
             path: "api/ledger_transaction_versions",
-            query: parsed,
+            query: query,
             page: ModernTreasury::Internal::Page,
             model: ModernTreasury::LedgerTransactions::LedgerTransactionVersion,
             options: options

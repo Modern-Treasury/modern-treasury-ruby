@@ -203,10 +203,11 @@ module ModernTreasury
       # @see ModernTreasury::Models::ExpectedPaymentListParams
       def list(params = {})
         parsed, options = ModernTreasury::ExpectedPaymentListParams.dump_request(params)
+        query = ModernTreasury::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: "api/expected_payments",
-          query: parsed,
+          query: query,
           page: ModernTreasury::Internal::Page,
           model: ModernTreasury::ExpectedPayment,
           options: options

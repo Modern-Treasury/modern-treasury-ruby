@@ -90,10 +90,11 @@ module ModernTreasury
       # @see ModernTreasury::Models::ForeignExchangeQuoteListParams
       def list(params = {})
         parsed, options = ModernTreasury::ForeignExchangeQuoteListParams.dump_request(params)
+        query = ModernTreasury::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: "api/foreign_exchange_quotes",
-          query: parsed,
+          query: query,
           page: ModernTreasury::Internal::Page,
           model: ModernTreasury::ForeignExchangeQuote,
           options: options

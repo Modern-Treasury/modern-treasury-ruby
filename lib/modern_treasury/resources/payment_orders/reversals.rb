@@ -79,10 +79,11 @@ module ModernTreasury
         # @see ModernTreasury::Models::PaymentOrders::ReversalListParams
         def list(payment_order_id, params = {})
           parsed, options = ModernTreasury::PaymentOrders::ReversalListParams.dump_request(params)
+          query = ModernTreasury::Internal::Util.encode_query_params(parsed)
           @client.request(
             method: :get,
             path: ["api/payment_orders/%1$s/reversals", payment_order_id],
-            query: parsed,
+            query: query,
             page: ModernTreasury::Internal::Page,
             model: ModernTreasury::PaymentOrders::Reversal,
             options: options

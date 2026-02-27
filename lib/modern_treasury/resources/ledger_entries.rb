@@ -21,10 +21,11 @@ module ModernTreasury
       # @see ModernTreasury::Models::LedgerEntryRetrieveParams
       def retrieve(id, params = {})
         parsed, options = ModernTreasury::LedgerEntryRetrieveParams.dump_request(params)
+        query = ModernTreasury::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: ["api/ledger_entries/%1$s", id],
-          query: parsed,
+          query: query,
           model: ModernTreasury::LedgerEntry,
           options: options
         )
@@ -113,10 +114,11 @@ module ModernTreasury
       # @see ModernTreasury::Models::LedgerEntryListParams
       def list(params = {})
         parsed, options = ModernTreasury::LedgerEntryListParams.dump_request(params)
+        query = ModernTreasury::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: "api/ledger_entries",
-          query: parsed,
+          query: query,
           page: ModernTreasury::Internal::Page,
           model: ModernTreasury::LedgerEntry,
           options: options

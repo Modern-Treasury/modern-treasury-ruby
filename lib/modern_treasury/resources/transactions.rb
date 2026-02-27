@@ -140,10 +140,11 @@ module ModernTreasury
       # @see ModernTreasury::Models::TransactionListParams
       def list(params = {})
         parsed, options = ModernTreasury::TransactionListParams.dump_request(params)
+        query = ModernTreasury::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: "api/transactions",
-          query: parsed,
+          query: query,
           page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Transaction,
           options: options

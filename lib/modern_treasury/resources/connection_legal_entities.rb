@@ -89,10 +89,11 @@ module ModernTreasury
       # @see ModernTreasury::Models::ConnectionLegalEntityListParams
       def list(params = {})
         parsed, options = ModernTreasury::ConnectionLegalEntityListParams.dump_request(params)
+        query = ModernTreasury::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: "api/connection_legal_entities",
-          query: parsed,
+          query: query,
           page: ModernTreasury::Internal::Page,
           model: ModernTreasury::ConnectionLegalEntity,
           options: options

@@ -69,10 +69,11 @@ module ModernTreasury
         # @see ModernTreasury::Models::Transactions::LineItemListParams
         def list(params = {})
           parsed, options = ModernTreasury::Transactions::LineItemListParams.dump_request(params)
+          query = ModernTreasury::Internal::Util.encode_query_params(parsed)
           @client.request(
             method: :get,
             path: "api/transaction_line_items",
-            query: parsed,
+            query: query,
             page: ModernTreasury::Internal::Page,
             model: ModernTreasury::Transactions::TransactionLineItem,
             options: options

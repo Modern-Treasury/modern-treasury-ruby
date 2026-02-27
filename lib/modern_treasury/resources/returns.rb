@@ -90,10 +90,11 @@ module ModernTreasury
       # @see ModernTreasury::Models::ReturnListParams
       def list(params = {})
         parsed, options = ModernTreasury::ReturnListParams.dump_request(params)
+        query = ModernTreasury::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: "api/returns",
-          query: parsed,
+          query: query,
           page: ModernTreasury::Internal::Page,
           model: ModernTreasury::ReturnObject,
           options: options

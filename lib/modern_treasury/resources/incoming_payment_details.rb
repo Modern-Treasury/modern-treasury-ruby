@@ -82,10 +82,11 @@ module ModernTreasury
       # @see ModernTreasury::Models::IncomingPaymentDetailListParams
       def list(params = {})
         parsed, options = ModernTreasury::IncomingPaymentDetailListParams.dump_request(params)
+        query = ModernTreasury::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: "api/incoming_payment_details",
-          query: parsed,
+          query: query,
           page: ModernTreasury::Internal::Page,
           model: ModernTreasury::IncomingPaymentDetail,
           options: options
