@@ -110,10 +110,11 @@ module ModernTreasury
       # @see ModernTreasury::Models::LedgerAccountBalanceMonitorListParams
       def list(params = {})
         parsed, options = ModernTreasury::LedgerAccountBalanceMonitorListParams.dump_request(params)
+        query = ModernTreasury::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: "api/ledger_account_balance_monitors",
-          query: parsed,
+          query: query,
           page: ModernTreasury::Internal::Page,
           model: ModernTreasury::LedgerAccountBalanceMonitor,
           options: options

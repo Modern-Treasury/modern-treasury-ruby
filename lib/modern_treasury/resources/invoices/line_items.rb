@@ -132,10 +132,11 @@ module ModernTreasury
         # @see ModernTreasury::Models::Invoices::LineItemListParams
         def list(invoice_id, params = {})
           parsed, options = ModernTreasury::Invoices::LineItemListParams.dump_request(params)
+          query = ModernTreasury::Internal::Util.encode_query_params(parsed)
           @client.request(
             method: :get,
             path: ["api/invoices/%1$s/invoice_line_items", invoice_id],
-            query: parsed,
+            query: query,
             page: ModernTreasury::Internal::Page,
             model: ModernTreasury::Invoices::InvoiceLineItem,
             options: options

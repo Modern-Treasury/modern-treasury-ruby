@@ -94,10 +94,11 @@ module ModernTreasury
         # @see ModernTreasury::Models::InternalAccounts::BalanceReportListParams
         def list(internal_account_id, params = {})
           parsed, options = ModernTreasury::InternalAccounts::BalanceReportListParams.dump_request(params)
+          query = ModernTreasury::Internal::Util.encode_query_params(parsed)
           @client.request(
             method: :get,
             path: ["api/internal_accounts/%1$s/balance_reports", internal_account_id],
-            query: parsed,
+            query: query,
             page: ModernTreasury::Internal::Page,
             model: ModernTreasury::InternalAccounts::BalanceReport,
             options: options
