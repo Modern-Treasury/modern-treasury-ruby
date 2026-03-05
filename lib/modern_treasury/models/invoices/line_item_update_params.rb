@@ -13,6 +13,11 @@ module ModernTreasury
         #   @return [String]
         required :invoice_id, String
 
+        # @!attribute id
+        #
+        #   @return [String]
+        required :id, String
+
         # @!attribute description
         #   An optional free-form description of the line item.
         #
@@ -62,11 +67,13 @@ module ModernTreasury
         #   @return [String, nil]
         optional :unit_amount_decimal, String
 
-        # @!method initialize(invoice_id:, description: nil, direction: nil, metadata: nil, name: nil, quantity: nil, unit_amount: nil, unit_amount_decimal: nil, request_options: {})
+        # @!method initialize(invoice_id:, id:, description: nil, direction: nil, metadata: nil, name: nil, quantity: nil, unit_amount: nil, unit_amount_decimal: nil, request_options: {})
         #   Some parameter documentations has been truncated, see
         #   {ModernTreasury::Models::Invoices::LineItemUpdateParams} for more details.
         #
         #   @param invoice_id [String]
+        #
+        #   @param id [String]
         #
         #   @param description [String] An optional free-form description of the line item.
         #

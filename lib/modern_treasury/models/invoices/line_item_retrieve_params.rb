@@ -13,8 +13,14 @@ module ModernTreasury
         #   @return [String]
         required :invoice_id, String
 
-        # @!method initialize(invoice_id:, request_options: {})
+        # @!attribute id
+        #
+        #   @return [String]
+        required :id, String
+
+        # @!method initialize(invoice_id:, id:, request_options: {})
         #   @param invoice_id [String]
+        #   @param id [String]
         #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       end
     end

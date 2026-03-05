@@ -15,6 +15,9 @@ module ModernTreasury
             )
           end
 
+        sig { returns(String) }
+        attr_accessor :payment_order_id
+
         sig { returns(T.nilable(String)) }
         attr_accessor :after_cursor
 
@@ -26,17 +29,24 @@ module ModernTreasury
 
         sig do
           params(
+            payment_order_id: String,
             after_cursor: T.nilable(String),
             per_page: Integer,
             request_options: ModernTreasury::RequestOptions::OrHash
           ).returns(T.attached_class)
         end
-        def self.new(after_cursor: nil, per_page: nil, request_options: {})
+        def self.new(
+          payment_order_id:,
+          after_cursor: nil,
+          per_page: nil,
+          request_options: {}
+        )
         end
 
         sig do
           override.returns(
             {
+              payment_order_id: String,
               after_cursor: T.nilable(String),
               per_page: Integer,
               request_options: ModernTreasury::RequestOptions

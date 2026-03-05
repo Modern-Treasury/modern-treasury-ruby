@@ -21,6 +21,9 @@ module ModernTreasury
       end
       attr_accessor :accounts_type
 
+      sig { returns(String) }
+      attr_accessor :account_id
+
       # The account number for the bank account.
       sig { returns(String) }
       attr_accessor :account_number
@@ -48,6 +51,7 @@ module ModernTreasury
         params(
           accounts_type:
             ModernTreasury::AccountDetailCreateParams::AccountsType::OrSymbol,
+          account_id: String,
           account_number: String,
           account_number_type:
             ModernTreasury::AccountDetailCreateParams::AccountNumberType::OrSymbol,
@@ -56,6 +60,7 @@ module ModernTreasury
       end
       def self.new(
         accounts_type:,
+        account_id:,
         # The account number for the bank account.
         account_number:,
         # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
@@ -70,6 +75,7 @@ module ModernTreasury
           {
             accounts_type:
               ModernTreasury::AccountDetailCreateParams::AccountsType::OrSymbol,
+            account_id: String,
             account_number: String,
             account_number_type:
               ModernTreasury::AccountDetailCreateParams::AccountNumberType::OrSymbol,

@@ -2,21 +2,25 @@ module ModernTreasury
   module Models
     module LedgerAccountSettlements
       type account_entry_update_params =
-        { ledger_entry_ids: ::Array[String]? }
+        { id: String, ledger_entry_ids: ::Array[String]? }
         & ModernTreasury::Internal::Type::request_parameters
 
       class AccountEntryUpdateParams < ModernTreasury::Internal::Type::BaseModel
         extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 
+        attr_accessor id: String
+
         attr_accessor ledger_entry_ids: ::Array[String]?
 
         def initialize: (
+          id: String,
           ledger_entry_ids: ::Array[String]?,
           ?request_options: ModernTreasury::request_opts
         ) -> void
 
         def to_hash: -> {
+          id: String,
           ledger_entry_ids: ::Array[String]?,
           request_options: ModernTreasury::RequestOptions
         }

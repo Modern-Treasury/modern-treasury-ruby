@@ -19,18 +19,38 @@ module ModernTreasury
         attr_accessor :internal_account_id
 
         sig do
+          returns(
+            T.any(
+              String,
+              ModernTreasury::InternalAccounts::BalanceReportRetrieveParams::ID::OrSymbol
+            )
+          )
+        end
+        attr_accessor :id
+
+        sig do
           params(
             internal_account_id: String,
+            id:
+              T.any(
+                String,
+                ModernTreasury::InternalAccounts::BalanceReportRetrieveParams::ID::OrSymbol
+              ),
             request_options: ModernTreasury::RequestOptions::OrHash
           ).returns(T.attached_class)
         end
-        def self.new(internal_account_id:, request_options: {})
+        def self.new(internal_account_id:, id:, request_options: {})
         end
 
         sig do
           override.returns(
             {
               internal_account_id: String,
+              id:
+                T.any(
+                  String,
+                  ModernTreasury::InternalAccounts::BalanceReportRetrieveParams::ID::OrSymbol
+                ),
               request_options: ModernTreasury::RequestOptions
             }
           )

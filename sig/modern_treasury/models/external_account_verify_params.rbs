@@ -2,6 +2,7 @@ module ModernTreasury
   module Models
     type external_account_verify_params =
       {
+        id: String,
         originating_account_id: String,
         payment_type: ModernTreasury::Models::ExternalAccountVerifyParams::payment_type,
         currency: ModernTreasury::Models::currency,
@@ -13,6 +14,8 @@ module ModernTreasury
     class ExternalAccountVerifyParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
+
+      attr_accessor id: String
 
       attr_accessor originating_account_id: String
 
@@ -37,6 +40,7 @@ module ModernTreasury
       ) -> ModernTreasury::Models::ExternalAccountVerifyParams::priority
 
       def initialize: (
+        id: String,
         originating_account_id: String,
         payment_type: ModernTreasury::Models::ExternalAccountVerifyParams::payment_type,
         ?currency: ModernTreasury::Models::currency,
@@ -46,6 +50,7 @@ module ModernTreasury
       ) -> void
 
       def to_hash: -> {
+        id: String,
         originating_account_id: String,
         payment_type: ModernTreasury::Models::ExternalAccountVerifyParams::payment_type,
         currency: ModernTreasury::Models::currency,

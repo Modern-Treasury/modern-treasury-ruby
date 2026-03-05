@@ -17,9 +17,15 @@ module ModernTreasury
       #   @return [String]
       required :itemizable_id, String
 
-      # @!method initialize(itemizable_type:, itemizable_id:, request_options: {})
+      # @!attribute id
+      #
+      #   @return [String]
+      required :id, String
+
+      # @!method initialize(itemizable_type:, itemizable_id:, id:, request_options: {})
       #   @param itemizable_type [Symbol, ModernTreasury::Models::LineItemRetrieveParams::ItemizableType]
       #   @param itemizable_id [String]
+      #   @param id [String]
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       module ItemizableType

@@ -3,6 +3,7 @@ module ModernTreasury
     module PaymentOrders
       type reversal_create_params =
         {
+          payment_order_id: String,
           reason: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::reason,
           ledger_transaction: ModernTreasury::LedgerTransactionCreateRequest,
           metadata: ::Hash[Symbol, String]
@@ -12,6 +13,8 @@ module ModernTreasury
       class ReversalCreateParams < ModernTreasury::Internal::Type::BaseModel
         extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
+
+        attr_accessor payment_order_id: String
 
         attr_accessor reason: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::reason
 
@@ -26,6 +29,7 @@ module ModernTreasury
         def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
         def initialize: (
+          payment_order_id: String,
           reason: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::reason,
           ?ledger_transaction: ModernTreasury::LedgerTransactionCreateRequest,
           ?metadata: ::Hash[Symbol, String],
@@ -33,6 +37,7 @@ module ModernTreasury
         ) -> void
 
         def to_hash: -> {
+          payment_order_id: String,
           reason: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::reason,
           ledger_transaction: ModernTreasury::LedgerTransactionCreateRequest,
           metadata: ::Hash[Symbol, String],

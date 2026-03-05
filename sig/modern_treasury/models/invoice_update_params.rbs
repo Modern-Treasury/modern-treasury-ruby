@@ -2,6 +2,7 @@ module ModernTreasury
   module Models
     type invoice_update_params =
       {
+        id: String,
         contact_details: ::Array[ModernTreasury::ContactDetail],
         counterparty_billing_address: ModernTreasury::InvoiceUpdateParams::CounterpartyBillingAddress?,
         counterparty_id: String,
@@ -31,6 +32,8 @@ module ModernTreasury
     class InvoiceUpdateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
+
+      attr_accessor id: String
 
       attr_reader contact_details: ::Array[ModernTreasury::ContactDetail]?
 
@@ -111,6 +114,7 @@ module ModernTreasury
       attr_accessor virtual_account_id: String?
 
       def initialize: (
+        id: String,
         ?contact_details: ::Array[ModernTreasury::ContactDetail],
         ?counterparty_billing_address: ModernTreasury::InvoiceUpdateParams::CounterpartyBillingAddress?,
         ?counterparty_id: String,
@@ -138,6 +142,7 @@ module ModernTreasury
       ) -> void
 
       def to_hash: -> {
+        id: String,
         contact_details: ::Array[ModernTreasury::ContactDetail],
         counterparty_billing_address: ModernTreasury::InvoiceUpdateParams::CounterpartyBillingAddress?,
         counterparty_id: String,

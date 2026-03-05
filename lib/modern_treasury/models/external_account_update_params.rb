@@ -7,6 +7,11 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      # @!attribute id
+      #
+      #   @return [String]
+      required :id, String
+
       # @!attribute account_type
       #   Can be `checking`, `savings` or `other`.
       #
@@ -49,9 +54,11 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType, nil]
       optional :party_type, enum: -> { ModernTreasury::ExternalAccountUpdateParams::PartyType }, nil?: true
 
-      # @!method initialize(account_type: nil, counterparty_id: nil, metadata: nil, name: nil, party_address: nil, party_name: nil, party_type: nil, request_options: {})
+      # @!method initialize(id:, account_type: nil, counterparty_id: nil, metadata: nil, name: nil, party_address: nil, party_name: nil, party_type: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::ExternalAccountUpdateParams} for more details.
+      #
+      #   @param id [String]
       #
       #   @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType] Can be `checking`, `savings` or `other`.
       #

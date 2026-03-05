@@ -7,6 +7,11 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      # @!attribute id
+      #
+      #   @return [String]
+      required :id, String
+
       # @!attribute status
       #   Required. The updated status of the account collection flow. Can only be used to
       #   mark a flow as `cancelled`.
@@ -14,9 +19,11 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status]
       required :status, enum: -> { ModernTreasury::AccountCollectionFlowUpdateParams::Status }
 
-      # @!method initialize(status:, request_options: {})
+      # @!method initialize(id:, status:, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::AccountCollectionFlowUpdateParams} for more details.
+      #
+      #   @param id [String]
       #
       #   @param status [Symbol, ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status] Required. The updated status of the account collection flow. Can only be used to
       #

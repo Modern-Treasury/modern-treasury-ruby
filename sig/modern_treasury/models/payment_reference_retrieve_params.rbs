@@ -1,15 +1,23 @@
 module ModernTreasury
   module Models
     type payment_reference_retrieve_params =
-      {  } & ModernTreasury::Internal::Type::request_parameters
+      { id: String } & ModernTreasury::Internal::Type::request_parameters
 
     class PaymentReferenceRetrieveParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
-      def initialize: (?request_options: ModernTreasury::request_opts) -> void
+      attr_accessor id: String
 
-      def to_hash: -> { request_options: ModernTreasury::RequestOptions }
+      def initialize: (
+        id: String,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        id: String,
+        request_options: ModernTreasury::RequestOptions
+      }
     end
   end
 end

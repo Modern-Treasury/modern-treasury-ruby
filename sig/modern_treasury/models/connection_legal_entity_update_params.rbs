@@ -2,6 +2,7 @@ module ModernTreasury
   module Models
     type connection_legal_entity_update_params =
       {
+        id: String,
         status: ModernTreasury::Models::ConnectionLegalEntityUpdateParams::status
       }
       & ModernTreasury::Internal::Type::request_parameters
@@ -10,6 +11,8 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      attr_accessor id: String
+
       attr_reader status: ModernTreasury::Models::ConnectionLegalEntityUpdateParams::status?
 
       def status=: (
@@ -17,11 +20,13 @@ module ModernTreasury
       ) -> ModernTreasury::Models::ConnectionLegalEntityUpdateParams::status
 
       def initialize: (
+        id: String,
         ?status: ModernTreasury::Models::ConnectionLegalEntityUpdateParams::status,
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
       def to_hash: -> {
+        id: String,
         status: ModernTreasury::Models::ConnectionLegalEntityUpdateParams::status,
         request_options: ModernTreasury::RequestOptions
       }

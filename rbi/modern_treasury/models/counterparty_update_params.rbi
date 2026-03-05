@@ -14,6 +14,9 @@ module ModernTreasury
           )
         end
 
+      sig { returns(String) }
+      attr_accessor :id
+
       # A new email for the counterparty.
       sig { returns(T.nilable(String)) }
       attr_reader :email
@@ -61,6 +64,7 @@ module ModernTreasury
 
       sig do
         params(
+          id: String,
           email: String,
           external_id: T.nilable(String),
           legal_entity_id: T.nilable(String),
@@ -72,6 +76,7 @@ module ModernTreasury
         ).returns(T.attached_class)
       end
       def self.new(
+        id:,
         # A new email for the counterparty.
         email: nil,
         # An optional user-defined 180 character unique identifier.
@@ -95,6 +100,7 @@ module ModernTreasury
       sig do
         override.returns(
           {
+            id: String,
             email: String,
             external_id: T.nilable(String),
             legal_entity_id: T.nilable(String),

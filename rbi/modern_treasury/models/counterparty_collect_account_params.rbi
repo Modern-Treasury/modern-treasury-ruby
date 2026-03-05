@@ -14,6 +14,9 @@ module ModernTreasury
           )
         end
 
+      sig { returns(String) }
+      attr_accessor :id
+
       # One of `credit` or `debit`. Use `credit` when you want to pay a counterparty.
       # Use `debit` when you need to charge a counterparty. This field helps us send a
       # more tailored email to your counterparties."
@@ -67,6 +70,7 @@ module ModernTreasury
 
       sig do
         params(
+          id: String,
           direction: ModernTreasury::TransactionDirection::OrSymbol,
           custom_redirect: String,
           fields:
@@ -78,6 +82,7 @@ module ModernTreasury
         ).returns(T.attached_class)
       end
       def self.new(
+        id:,
         # One of `credit` or `debit`. Use `credit` when you want to pay a counterparty.
         # Use `debit` when you need to charge a counterparty. This field helps us send a
         # more tailored email to your counterparties."
@@ -104,6 +109,7 @@ module ModernTreasury
       sig do
         override.returns(
           {
+            id: String,
             direction: ModernTreasury::TransactionDirection::OrSymbol,
             custom_redirect: String,
             fields:

@@ -18,6 +18,9 @@ module ModernTreasury
         sig { returns(String) }
         attr_accessor :invoice_id
 
+        sig { returns(String) }
+        attr_accessor :id
+
         # An optional free-form description of the line item.
         sig { returns(T.nilable(String)) }
         attr_reader :description
@@ -77,6 +80,7 @@ module ModernTreasury
         sig do
           params(
             invoice_id: String,
+            id: String,
             description: String,
             direction: String,
             metadata: T::Hash[Symbol, String],
@@ -89,6 +93,7 @@ module ModernTreasury
         end
         def self.new(
           invoice_id:,
+          id:,
           # An optional free-form description of the line item.
           description: nil,
           # Either `debit` or `credit`. `debit` indicates that a client owes the business
@@ -118,6 +123,7 @@ module ModernTreasury
           override.returns(
             {
               invoice_id: String,
+              id: String,
               description: String,
               direction: String,
               metadata: T::Hash[Symbol, String],

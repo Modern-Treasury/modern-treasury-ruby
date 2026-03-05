@@ -17,6 +17,11 @@ module ModernTreasury
       #   @return [String]
       required :itemizable_id, String
 
+      # @!attribute id
+      #
+      #   @return [String]
+      required :id, String
+
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
@@ -24,13 +29,15 @@ module ModernTreasury
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
-      # @!method initialize(itemizable_type:, itemizable_id:, metadata: nil, request_options: {})
+      # @!method initialize(itemizable_type:, itemizable_id:, id:, metadata: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LineItemUpdateParams} for more details.
       #
       #   @param itemizable_type [Symbol, ModernTreasury::Models::LineItemUpdateParams::ItemizableType]
       #
       #   @param itemizable_id [String]
+      #
+      #   @param id [String]
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #

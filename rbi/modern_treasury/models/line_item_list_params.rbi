@@ -19,6 +19,9 @@ module ModernTreasury
       end
       attr_accessor :itemizable_type
 
+      sig { returns(String) }
+      attr_accessor :itemizable_id
+
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor
 
@@ -32,6 +35,7 @@ module ModernTreasury
         params(
           itemizable_type:
             ModernTreasury::LineItemListParams::ItemizableType::OrSymbol,
+          itemizable_id: String,
           after_cursor: T.nilable(String),
           per_page: Integer,
           request_options: ModernTreasury::RequestOptions::OrHash
@@ -39,6 +43,7 @@ module ModernTreasury
       end
       def self.new(
         itemizable_type:,
+        itemizable_id:,
         after_cursor: nil,
         per_page: nil,
         request_options: {}
@@ -50,6 +55,7 @@ module ModernTreasury
           {
             itemizable_type:
               ModernTreasury::LineItemListParams::ItemizableType::OrSymbol,
+            itemizable_id: String,
             after_cursor: T.nilable(String),
             per_page: Integer,
             request_options: ModernTreasury::RequestOptions

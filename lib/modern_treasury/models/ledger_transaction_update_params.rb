@@ -7,6 +7,11 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      # @!attribute id
+      #
+      #   @return [String]
+      required :id, String
+
       # @!attribute description
       #   An optional description for internal use.
       #
@@ -62,9 +67,11 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::LedgerTransactionUpdateParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::LedgerTransactionUpdateParams::Status }
 
-      # @!method initialize(description: nil, effective_at: nil, external_id: nil, ledger_entries: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, status: nil, request_options: {})
+      # @!method initialize(id:, description: nil, effective_at: nil, external_id: nil, ledger_entries: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, status: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LedgerTransactionUpdateParams} for more details.
+      #
+      #   @param id [String]
       #
       #   @param description [String, nil] An optional description for internal use.
       #

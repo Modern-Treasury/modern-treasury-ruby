@@ -2,6 +2,7 @@ module ModernTreasury
   module Models
     type hold_update_params =
       {
+        id: String,
         status: ModernTreasury::Models::HoldUpdateParams::status,
         resolution: String?
       }
@@ -11,17 +12,21 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      attr_accessor id: String
+
       attr_accessor status: ModernTreasury::Models::HoldUpdateParams::status
 
       attr_accessor resolution: String?
 
       def initialize: (
+        id: String,
         status: ModernTreasury::Models::HoldUpdateParams::status,
         ?resolution: String?,
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
       def to_hash: -> {
+        id: String,
         status: ModernTreasury::Models::HoldUpdateParams::status,
         resolution: String?,
         request_options: ModernTreasury::RequestOptions

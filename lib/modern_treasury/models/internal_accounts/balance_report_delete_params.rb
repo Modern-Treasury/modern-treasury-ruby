@@ -13,8 +13,14 @@ module ModernTreasury
         #   @return [String]
         required :internal_account_id, String
 
-        # @!method initialize(internal_account_id:, request_options: {})
+        # @!attribute id
+        #
+        #   @return [String]
+        required :id, String
+
+        # @!method initialize(internal_account_id:, id:, request_options: {})
         #   @param internal_account_id [String]
+        #   @param id [String]
         #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       end
     end

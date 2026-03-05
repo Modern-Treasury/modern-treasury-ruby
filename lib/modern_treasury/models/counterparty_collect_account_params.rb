@@ -7,6 +7,11 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      # @!attribute id
+      #
+      #   @return [String]
+      required :id, String
+
       # @!attribute direction
       #   One of `credit` or `debit`. Use `credit` when you want to pay a counterparty.
       #   Use `debit` when you need to charge a counterparty. This field helps us send a
@@ -43,9 +48,11 @@ module ModernTreasury
       #   @return [Boolean, nil]
       optional :send_email, ModernTreasury::Internal::Type::Boolean
 
-      # @!method initialize(direction:, custom_redirect: nil, fields: nil, send_email: nil, request_options: {})
+      # @!method initialize(id:, direction:, custom_redirect: nil, fields: nil, send_email: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::CounterpartyCollectAccountParams} for more details.
+      #
+      #   @param id [String]
       #
       #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection] One of `credit` or `debit`. Use `credit` when you want to pay a counterparty. Us
       #

@@ -2,6 +2,7 @@ module ModernTreasury
   module Models
     type ledger_account_settlement_update_params =
       {
+        id: String,
         description: String?,
         metadata: ::Hash[Symbol, String],
         status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status
@@ -11,6 +12,8 @@ module ModernTreasury
     class LedgerAccountSettlementUpdateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
+
+      attr_accessor id: String
 
       attr_accessor description: String?
 
@@ -25,6 +28,7 @@ module ModernTreasury
       ) -> ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status
 
       def initialize: (
+        id: String,
         ?description: String?,
         ?metadata: ::Hash[Symbol, String],
         ?status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status,
@@ -32,6 +36,7 @@ module ModernTreasury
       ) -> void
 
       def to_hash: -> {
+        id: String,
         description: String?,
         metadata: ::Hash[Symbol, String],
         status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status,

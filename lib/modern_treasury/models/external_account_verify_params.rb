@@ -7,6 +7,11 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      # @!attribute id
+      #
+      #   @return [String]
+      required :id, String
+
       # @!attribute originating_account_id
       #   The ID of the internal account where the micro-deposits originate from. Both
       #   credit and debit capabilities must be enabled.
@@ -41,9 +46,11 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::Priority, nil]
       optional :priority, enum: -> { ModernTreasury::ExternalAccountVerifyParams::Priority }
 
-      # @!method initialize(originating_account_id:, payment_type:, currency: nil, fallback_type: nil, priority: nil, request_options: {})
+      # @!method initialize(id:, originating_account_id:, payment_type:, currency: nil, fallback_type: nil, priority: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::ExternalAccountVerifyParams} for more details.
+      #
+      #   @param id [String]
       #
       #   @param originating_account_id [String] The ID of the internal account where the micro-deposits originate from. Both cre
       #

@@ -7,6 +7,11 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      # @!attribute id
+      #
+      #   @return [String]
+      required :id, String
+
       # @!attribute status
       #   The new status of the hold
       #
@@ -19,7 +24,9 @@ module ModernTreasury
       #   @return [String, nil]
       optional :resolution, String, nil?: true
 
-      # @!method initialize(status:, resolution: nil, request_options: {})
+      # @!method initialize(id:, status:, resolution: nil, request_options: {})
+      #   @param id [String]
+      #
       #   @param status [Symbol, ModernTreasury::Models::HoldUpdateParams::Status] The new status of the hold
       #
       #   @param resolution [String, nil] The resolution of the hold

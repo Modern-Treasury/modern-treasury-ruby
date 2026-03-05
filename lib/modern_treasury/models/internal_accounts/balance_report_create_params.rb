@@ -8,6 +8,11 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 
+        # @!attribute internal_account_id
+        #
+        #   @return [String]
+        required :internal_account_id, String
+
         # @!attribute as_of_date
         #   The date of the balance report in local time.
         #
@@ -35,10 +40,12 @@ module ModernTreasury
         required :balances,
                  -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance] }
 
-        # @!method initialize(as_of_date:, as_of_time:, balance_report_type:, balances:, request_options: {})
+        # @!method initialize(internal_account_id:, as_of_date:, as_of_time:, balance_report_type:, balances:, request_options: {})
         #   Some parameter documentations has been truncated, see
         #   {ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams} for more
         #   details.
+        #
+        #   @param internal_account_id [String]
         #
         #   @param as_of_date [Date] The date of the balance report in local time.
         #

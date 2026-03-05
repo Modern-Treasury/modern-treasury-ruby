@@ -14,6 +14,9 @@ module ModernTreasury
           )
         end
 
+      sig { returns(String) }
+      attr_accessor :id
+
       # An optional free-form description for the reversal ledger transaction. Maximum
       # of 1000 characters allowed.
       sig { returns(T.nilable(String)) }
@@ -91,6 +94,7 @@ module ModernTreasury
 
       sig do
         params(
+          id: String,
           description: String,
           effective_at: T.nilable(Time),
           external_id: String,
@@ -104,6 +108,7 @@ module ModernTreasury
         ).returns(T.attached_class)
       end
       def self.new(
+        id:,
         # An optional free-form description for the reversal ledger transaction. Maximum
         # of 1000 characters allowed.
         description: nil,
@@ -132,6 +137,7 @@ module ModernTreasury
       sig do
         override.returns(
           {
+            id: String,
             description: String,
             effective_at: T.nilable(Time),
             external_id: String,

@@ -1,12 +1,17 @@
 module ModernTreasury
   module Models
     type ledger_account_retrieve_params =
-      { balances: ModernTreasury::LedgerAccountRetrieveParams::Balances }
+      {
+        id: String,
+        balances: ModernTreasury::LedgerAccountRetrieveParams::Balances
+      }
       & ModernTreasury::Internal::Type::request_parameters
 
     class LedgerAccountRetrieveParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
+
+      attr_accessor id: String
 
       attr_reader balances: ModernTreasury::LedgerAccountRetrieveParams::Balances?
 
@@ -15,11 +20,13 @@ module ModernTreasury
       ) -> ModernTreasury::LedgerAccountRetrieveParams::Balances
 
       def initialize: (
+        id: String,
         ?balances: ModernTreasury::LedgerAccountRetrieveParams::Balances,
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
       def to_hash: -> {
+        id: String,
         balances: ModernTreasury::LedgerAccountRetrieveParams::Balances,
         request_options: ModernTreasury::RequestOptions
       }

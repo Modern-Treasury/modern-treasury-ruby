@@ -13,8 +13,14 @@ module ModernTreasury
         #   @return [String]
         required :payment_order_id, String
 
-        # @!method initialize(payment_order_id:, request_options: {})
+        # @!attribute reversal_id
+        #
+        #   @return [String]
+        required :reversal_id, String
+
+        # @!method initialize(payment_order_id:, reversal_id:, request_options: {})
         #   @param payment_order_id [String]
+        #   @param reversal_id [String]
         #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       end
     end

@@ -14,6 +14,9 @@ module ModernTreasury
           )
         end
 
+      sig { returns(String) }
+      attr_accessor :id
+
       # Use `balances[effective_at_lower_bound]` and
       # `balances[effective_at_upper_bound]` to get the balances change between the two
       # timestamps. The lower bound is inclusive while the upper bound is exclusive of
@@ -37,12 +40,14 @@ module ModernTreasury
 
       sig do
         params(
+          id: String,
           balances:
             ModernTreasury::LedgerAccountRetrieveParams::Balances::OrHash,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
       def self.new(
+        id:,
         # Use `balances[effective_at_lower_bound]` and
         # `balances[effective_at_upper_bound]` to get the balances change between the two
         # timestamps. The lower bound is inclusive while the upper bound is exclusive of
@@ -57,6 +62,7 @@ module ModernTreasury
       sig do
         override.returns(
           {
+            id: String,
             balances: ModernTreasury::LedgerAccountRetrieveParams::Balances,
             request_options: ModernTreasury::RequestOptions
           }

@@ -3,6 +3,7 @@ module ModernTreasury
     type routing_detail_list_params =
       {
         accounts_type: ModernTreasury::Models::accounts_type,
+        account_id: String,
         after_cursor: String?,
         per_page: Integer
       }
@@ -14,6 +15,8 @@ module ModernTreasury
 
       attr_accessor accounts_type: ModernTreasury::Models::accounts_type
 
+      attr_accessor account_id: String
+
       attr_accessor after_cursor: String?
 
       attr_reader per_page: Integer?
@@ -22,6 +25,7 @@ module ModernTreasury
 
       def initialize: (
         accounts_type: ModernTreasury::Models::accounts_type,
+        account_id: String,
         ?after_cursor: String?,
         ?per_page: Integer,
         ?request_options: ModernTreasury::request_opts
@@ -29,6 +33,7 @@ module ModernTreasury
 
       def to_hash: -> {
         accounts_type: ModernTreasury::Models::accounts_type,
+        account_id: String,
         after_cursor: String?,
         per_page: Integer,
         request_options: ModernTreasury::RequestOptions

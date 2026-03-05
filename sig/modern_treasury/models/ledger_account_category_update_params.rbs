@@ -2,6 +2,7 @@ module ModernTreasury
   module Models
     type ledger_account_category_update_params =
       {
+        id: String,
         description: String?,
         external_id: String?,
         metadata: ::Hash[Symbol, String],
@@ -12,6 +13,8 @@ module ModernTreasury
     class LedgerAccountCategoryUpdateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
+
+      attr_accessor id: String
 
       attr_accessor description: String?
 
@@ -26,6 +29,7 @@ module ModernTreasury
       def name=: (String) -> String
 
       def initialize: (
+        id: String,
         ?description: String?,
         ?external_id: String?,
         ?metadata: ::Hash[Symbol, String],
@@ -34,6 +38,7 @@ module ModernTreasury
       ) -> void
 
       def to_hash: -> {
+        id: String,
         description: String?,
         external_id: String?,
         metadata: ::Hash[Symbol, String],

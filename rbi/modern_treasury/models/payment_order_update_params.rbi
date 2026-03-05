@@ -14,6 +14,9 @@ module ModernTreasury
           )
         end
 
+      sig { returns(String) }
+      attr_accessor :id
+
       sig do
         returns(T.nilable(ModernTreasury::PaymentOrderUpdateParams::Accounting))
       end
@@ -352,6 +355,7 @@ module ModernTreasury
 
       sig do
         params(
+          id: String,
           accounting:
             ModernTreasury::PaymentOrderUpdateParams::Accounting::OrHash,
           accounting_category_id: T.nilable(String),
@@ -407,6 +411,7 @@ module ModernTreasury
         ).returns(T.attached_class)
       end
       def self.new(
+        id:,
         accounting: nil,
         # The ID of one of your accounting categories. Note that these will only be
         # accessible if your accounting system has been connected.
@@ -540,6 +545,7 @@ module ModernTreasury
       sig do
         override.returns(
           {
+            id: String,
             accounting: ModernTreasury::PaymentOrderUpdateParams::Accounting,
             accounting_category_id: T.nilable(String),
             accounting_ledger_class_id: T.nilable(String),

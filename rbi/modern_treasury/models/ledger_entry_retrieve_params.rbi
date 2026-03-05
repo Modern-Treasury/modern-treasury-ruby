@@ -14,6 +14,9 @@ module ModernTreasury
           )
         end
 
+      sig { returns(String) }
+      attr_accessor :id
+
       # If true, response will include the balances attached to the ledger entry. If
       # there is no balance available, null will be returned instead.
       sig { returns(T.nilable(T::Boolean)) }
@@ -24,11 +27,13 @@ module ModernTreasury
 
       sig do
         params(
+          id: String,
           show_balances: T::Boolean,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
       def self.new(
+        id:,
         # If true, response will include the balances attached to the ledger entry. If
         # there is no balance available, null will be returned instead.
         show_balances: nil,
@@ -39,6 +44,7 @@ module ModernTreasury
       sig do
         override.returns(
           {
+            id: String,
             show_balances: T::Boolean,
             request_options: ModernTreasury::RequestOptions
           }

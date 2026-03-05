@@ -7,6 +7,11 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      # @!attribute id
+      #
+      #   @return [String]
+      required :id, String
+
       # @!attribute counterparty_id
       #
       #   @return [String, nil]
@@ -28,7 +33,9 @@ module ModernTreasury
       #   @return [String, nil]
       optional :name, String, nil?: true
 
-      # @!method initialize(counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, request_options: {})
+      # @!method initialize(id:, counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, request_options: {})
+      #   @param id [String]
+      #
       #   @param counterparty_id [String]
       #
       #   @param ledger_account_id [String] The ledger account that you'd like to link to the virtual account.

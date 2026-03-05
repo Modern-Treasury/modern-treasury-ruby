@@ -8,6 +8,11 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 
+        # @!attribute internal_account_id
+        #
+        #   @return [String]
+        required :internal_account_id, String
+
         # @!attribute after_cursor
         #
         #   @return [String, nil]
@@ -32,10 +37,12 @@ module ModernTreasury
         #   @return [Integer, nil]
         optional :per_page, Integer
 
-        # @!method initialize(after_cursor: nil, as_of_date: nil, balance_report_type: nil, per_page: nil, request_options: {})
+        # @!method initialize(internal_account_id:, after_cursor: nil, as_of_date: nil, balance_report_type: nil, per_page: nil, request_options: {})
         #   Some parameter documentations has been truncated, see
         #   {ModernTreasury::Models::InternalAccounts::BalanceReportListParams} for more
         #   details.
+        #
+        #   @param internal_account_id [String]
         #
         #   @param after_cursor [String, nil]
         #

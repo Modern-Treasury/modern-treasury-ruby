@@ -8,6 +8,11 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 
+        # @!attribute invoice_id
+        #
+        #   @return [String]
+        required :invoice_id, String
+
         # @!attribute name
         #   The name of the line item, typically a product or SKU name.
         #
@@ -57,9 +62,11 @@ module ModernTreasury
         #   @return [String, nil]
         optional :unit_amount_decimal, String
 
-        # @!method initialize(name:, unit_amount:, description: nil, direction: nil, metadata: nil, quantity: nil, unit_amount_decimal: nil, request_options: {})
+        # @!method initialize(invoice_id:, name:, unit_amount:, description: nil, direction: nil, metadata: nil, quantity: nil, unit_amount_decimal: nil, request_options: {})
         #   Some parameter documentations has been truncated, see
         #   {ModernTreasury::Models::Invoices::LineItemCreateParams} for more details.
+        #
+        #   @param invoice_id [String]
         #
         #   @param name [String] The name of the line item, typically a product or SKU name.
         #

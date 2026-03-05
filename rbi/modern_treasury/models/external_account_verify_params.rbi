@@ -14,6 +14,9 @@ module ModernTreasury
           )
         end
 
+      sig { returns(String) }
+      attr_accessor :id
+
       # The ID of the internal account where the micro-deposits originate from. Both
       # credit and debit capabilities must be enabled.
       sig { returns(String) }
@@ -75,6 +78,7 @@ module ModernTreasury
 
       sig do
         params(
+          id: String,
           originating_account_id: String,
           payment_type:
             ModernTreasury::ExternalAccountVerifyParams::PaymentType::OrSymbol,
@@ -87,6 +91,7 @@ module ModernTreasury
         ).returns(T.attached_class)
       end
       def self.new(
+        id:,
         # The ID of the internal account where the micro-deposits originate from. Both
         # credit and debit capabilities must be enabled.
         originating_account_id:,
@@ -108,6 +113,7 @@ module ModernTreasury
       sig do
         override.returns(
           {
+            id: String,
             originating_account_id: String,
             payment_type:
               ModernTreasury::ExternalAccountVerifyParams::PaymentType::OrSymbol,

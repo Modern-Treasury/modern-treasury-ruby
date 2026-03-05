@@ -14,6 +14,9 @@ module ModernTreasury
           )
         end
 
+      sig { returns(String) }
+      attr_accessor :id
+
       sig { returns(T.nilable(String)) }
       attr_reader :counterparty_id
 
@@ -38,6 +41,7 @@ module ModernTreasury
 
       sig do
         params(
+          id: String,
           counterparty_id: String,
           ledger_account_id: String,
           metadata: T::Hash[Symbol, String],
@@ -46,6 +50,7 @@ module ModernTreasury
         ).returns(T.attached_class)
       end
       def self.new(
+        id:,
         counterparty_id: nil,
         # The ledger account that you'd like to link to the virtual account.
         ledger_account_id: nil,
@@ -58,6 +63,7 @@ module ModernTreasury
       sig do
         override.returns(
           {
+            id: String,
             counterparty_id: String,
             ledger_account_id: String,
             metadata: T::Hash[Symbol, String],
