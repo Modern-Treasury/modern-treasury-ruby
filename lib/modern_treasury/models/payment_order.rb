@@ -806,6 +806,7 @@ module ModernTreasury
           BOFA_TRANSACTION_ID = :bofa_transaction_id
           BRALE_TRANSFER_ID = :brale_transfer_id
           CHECK_NUMBER = :check_number
+          CHIPS_UID = :chips_uid
           CITIBANK_REFERENCE_NUMBER = :citibank_reference_number
           CITIBANK_WORLDLINK_CLEARING_SYSTEM_REFERENCE_NUMBER =
             :citibank_worldlink_clearing_system_reference_number

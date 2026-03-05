@@ -1235,6 +1235,11 @@ module ModernTreasury
               :check_number,
               ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
+          CHIPS_UID =
+            T.let(
+              :chips_uid,
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
           CITIBANK_REFERENCE_NUMBER =
             T.let(
               :citibank_reference_number,
