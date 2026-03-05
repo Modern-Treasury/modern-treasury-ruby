@@ -24,15 +24,19 @@ module ModernTreasury
       sig { returns(String) }
       attr_accessor :itemizable_id
 
+      sig { returns(String) }
+      attr_accessor :id
+
       sig do
         params(
           itemizable_type:
             ModernTreasury::LineItemRetrieveParams::ItemizableType::OrSymbol,
           itemizable_id: String,
+          id: String,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
-      def self.new(itemizable_type:, itemizable_id:, request_options: {})
+      def self.new(itemizable_type:, itemizable_id:, id:, request_options: {})
       end
 
       sig do
@@ -41,6 +45,7 @@ module ModernTreasury
             itemizable_type:
               ModernTreasury::LineItemRetrieveParams::ItemizableType::OrSymbol,
             itemizable_id: String,
+            id: String,
             request_options: ModernTreasury::RequestOptions
           }
         )

@@ -14,6 +14,9 @@ module ModernTreasury
           )
         end
 
+      sig { returns(String) }
+      attr_accessor :id
+
       # The new status of the hold
       sig { returns(ModernTreasury::HoldUpdateParams::Status::OrSymbol) }
       attr_accessor :status
@@ -24,12 +27,14 @@ module ModernTreasury
 
       sig do
         params(
+          id: String,
           status: ModernTreasury::HoldUpdateParams::Status::OrSymbol,
           resolution: T.nilable(String),
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
       def self.new(
+        id:,
         # The new status of the hold
         status:,
         # The resolution of the hold
@@ -41,6 +46,7 @@ module ModernTreasury
       sig do
         override.returns(
           {
+            id: String,
             status: ModernTreasury::HoldUpdateParams::Status::OrSymbol,
             resolution: T.nilable(String),
             request_options: ModernTreasury::RequestOptions

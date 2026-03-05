@@ -21,6 +21,9 @@ module ModernTreasury
       end
       attr_accessor :accounts_type
 
+      sig { returns(String) }
+      attr_accessor :account_id
+
       # The routing number of the bank.
       sig { returns(String) }
       attr_accessor :routing_number
@@ -50,6 +53,7 @@ module ModernTreasury
         params(
           accounts_type:
             ModernTreasury::RoutingDetailCreateParams::AccountsType::OrSymbol,
+          account_id: String,
           routing_number: String,
           routing_number_type:
             ModernTreasury::RoutingDetailCreateParams::RoutingNumberType::OrSymbol,
@@ -62,6 +66,7 @@ module ModernTreasury
       end
       def self.new(
         accounts_type:,
+        account_id:,
         # The routing number of the bank.
         routing_number:,
         # The type of routing number. See
@@ -80,6 +85,7 @@ module ModernTreasury
           {
             accounts_type:
               ModernTreasury::RoutingDetailCreateParams::AccountsType::OrSymbol,
+            account_id: String,
             routing_number: String,
             routing_number_type:
               ModernTreasury::RoutingDetailCreateParams::RoutingNumberType::OrSymbol,

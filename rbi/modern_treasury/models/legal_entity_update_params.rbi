@@ -14,6 +14,9 @@ module ModernTreasury
           )
         end
 
+      sig { returns(String) }
+      attr_accessor :id
+
       # A list of addresses for the entity.
       sig do
         returns(
@@ -276,6 +279,7 @@ module ModernTreasury
 
       sig do
         params(
+          id: String,
           addresses:
             T::Array[ModernTreasury::LegalEntityAddressCreateRequest::OrHash],
           bank_settings:
@@ -342,6 +346,7 @@ module ModernTreasury
         ).returns(T.attached_class)
       end
       def self.new(
+        id:,
         # A list of addresses for the entity.
         addresses: nil,
         bank_settings: nil,
@@ -419,6 +424,7 @@ module ModernTreasury
       sig do
         override.returns(
           {
+            id: String,
             addresses:
               T::Array[ModernTreasury::LegalEntityAddressCreateRequest],
             bank_settings: T.nilable(ModernTreasury::LegalEntityBankSettings),

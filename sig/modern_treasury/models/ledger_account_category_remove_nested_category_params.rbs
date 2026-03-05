@@ -1,7 +1,8 @@
 module ModernTreasury
   module Models
     type ledger_account_category_remove_nested_category_params =
-      { id: String } & ModernTreasury::Internal::Type::request_parameters
+      { id: String, sub_category_id: String }
+      & ModernTreasury::Internal::Type::request_parameters
 
     class LedgerAccountCategoryRemoveNestedCategoryParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
@@ -9,13 +10,17 @@ module ModernTreasury
 
       attr_accessor id: String
 
+      attr_accessor sub_category_id: String
+
       def initialize: (
         id: String,
+        sub_category_id: String,
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
       def to_hash: -> {
         id: String,
+        sub_category_id: String,
         request_options: ModernTreasury::RequestOptions
       }
     end

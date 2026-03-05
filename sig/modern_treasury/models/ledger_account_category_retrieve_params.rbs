@@ -2,6 +2,7 @@ module ModernTreasury
   module Models
     type ledger_account_category_retrieve_params =
       {
+        id: String,
         balances: ModernTreasury::LedgerAccountCategoryRetrieveParams::Balances
       }
       & ModernTreasury::Internal::Type::request_parameters
@@ -10,6 +11,8 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      attr_accessor id: String
+
       attr_reader balances: ModernTreasury::LedgerAccountCategoryRetrieveParams::Balances?
 
       def balances=: (
@@ -17,11 +20,13 @@ module ModernTreasury
       ) -> ModernTreasury::LedgerAccountCategoryRetrieveParams::Balances
 
       def initialize: (
+        id: String,
         ?balances: ModernTreasury::LedgerAccountCategoryRetrieveParams::Balances,
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
       def to_hash: -> {
+        id: String,
         balances: ModernTreasury::LedgerAccountCategoryRetrieveParams::Balances,
         request_options: ModernTreasury::RequestOptions
       }

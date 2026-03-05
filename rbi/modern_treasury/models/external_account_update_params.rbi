@@ -14,6 +14,9 @@ module ModernTreasury
           )
         end
 
+      sig { returns(String) }
+      attr_accessor :id
+
       # Can be `checking`, `savings` or `other`.
       sig { returns(T.nilable(ModernTreasury::ExternalAccountType::OrSymbol)) }
       attr_reader :account_type
@@ -64,6 +67,7 @@ module ModernTreasury
 
       sig do
         params(
+          id: String,
           account_type: ModernTreasury::ExternalAccountType::OrSymbol,
           counterparty_id: T.nilable(String),
           metadata: T::Hash[Symbol, String],
@@ -78,6 +82,7 @@ module ModernTreasury
         ).returns(T.attached_class)
       end
       def self.new(
+        id:,
         # Can be `checking`, `savings` or `other`.
         account_type: nil,
         counterparty_id: nil,
@@ -99,6 +104,7 @@ module ModernTreasury
       sig do
         override.returns(
           {
+            id: String,
             account_type: ModernTreasury::ExternalAccountType::OrSymbol,
             counterparty_id: T.nilable(String),
             metadata: T::Hash[Symbol, String],

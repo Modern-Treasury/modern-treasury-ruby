@@ -14,6 +14,9 @@ module ModernTreasury
           )
         end
 
+      sig { returns(String) }
+      attr_accessor :id
+
       # The status of the connection legal entity.
       sig do
         returns(
@@ -34,12 +37,14 @@ module ModernTreasury
 
       sig do
         params(
+          id: String,
           status:
             ModernTreasury::ConnectionLegalEntityUpdateParams::Status::OrSymbol,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
       def self.new(
+        id:,
         # The status of the connection legal entity.
         status: nil,
         request_options: {}
@@ -49,6 +54,7 @@ module ModernTreasury
       sig do
         override.returns(
           {
+            id: String,
             status:
               ModernTreasury::ConnectionLegalEntityUpdateParams::Status::OrSymbol,
             request_options: ModernTreasury::RequestOptions

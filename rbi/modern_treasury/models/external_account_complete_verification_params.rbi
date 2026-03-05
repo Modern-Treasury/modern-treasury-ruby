@@ -14,6 +14,9 @@ module ModernTreasury
           )
         end
 
+      sig { returns(String) }
+      attr_accessor :id
+
       sig { returns(T.nilable(T::Array[Integer])) }
       attr_reader :amounts
 
@@ -22,16 +25,18 @@ module ModernTreasury
 
       sig do
         params(
+          id: String,
           amounts: T::Array[Integer],
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
-      def self.new(amounts: nil, request_options: {})
+      def self.new(id:, amounts: nil, request_options: {})
       end
 
       sig do
         override.returns(
           {
+            id: String,
             amounts: T::Array[Integer],
             request_options: ModernTreasury::RequestOptions
           }

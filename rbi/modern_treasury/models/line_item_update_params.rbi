@@ -22,6 +22,9 @@ module ModernTreasury
       sig { returns(String) }
       attr_accessor :itemizable_id
 
+      sig { returns(String) }
+      attr_accessor :id
+
       # Additional data represented as key-value pairs. Both the key and value must be
       # strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
@@ -35,6 +38,7 @@ module ModernTreasury
           itemizable_type:
             ModernTreasury::LineItemUpdateParams::ItemizableType::OrSymbol,
           itemizable_id: String,
+          id: String,
           metadata: T::Hash[Symbol, String],
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
@@ -42,6 +46,7 @@ module ModernTreasury
       def self.new(
         itemizable_type:,
         itemizable_id:,
+        id:,
         # Additional data represented as key-value pairs. Both the key and value must be
         # strings.
         metadata: nil,
@@ -55,6 +60,7 @@ module ModernTreasury
             itemizable_type:
               ModernTreasury::LineItemUpdateParams::ItemizableType::OrSymbol,
             itemizable_id: String,
+            id: String,
             metadata: T::Hash[Symbol, String],
             request_options: ModernTreasury::RequestOptions
           }

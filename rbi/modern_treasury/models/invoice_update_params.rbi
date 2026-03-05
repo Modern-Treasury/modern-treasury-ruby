@@ -14,6 +14,9 @@ module ModernTreasury
           )
         end
 
+      sig { returns(String) }
+      attr_accessor :id
+
       # The invoicer's contact details displayed at the top of the invoice.
       sig { returns(T.nilable(T::Array[ModernTreasury::ContactDetail])) }
       attr_reader :contact_details
@@ -232,6 +235,7 @@ module ModernTreasury
 
       sig do
         params(
+          id: String,
           contact_details: T::Array[ModernTreasury::ContactDetail::OrHash],
           counterparty_billing_address:
             T.nilable(
@@ -274,6 +278,7 @@ module ModernTreasury
         ).returns(T.attached_class)
       end
       def self.new(
+        id:,
         # The invoicer's contact details displayed at the top of the invoice.
         contact_details: nil,
         # The counterparty's billing address.
@@ -348,6 +353,7 @@ module ModernTreasury
       sig do
         override.returns(
           {
+            id: String,
             contact_details: T::Array[ModernTreasury::ContactDetail],
             counterparty_billing_address:
               T.nilable(

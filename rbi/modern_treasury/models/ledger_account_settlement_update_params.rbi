@@ -14,6 +14,9 @@ module ModernTreasury
           )
         end
 
+      sig { returns(String) }
+      attr_accessor :id
+
       # The description of the ledger account settlement.
       sig { returns(T.nilable(String)) }
       attr_accessor :description
@@ -47,6 +50,7 @@ module ModernTreasury
 
       sig do
         params(
+          id: String,
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           status:
@@ -55,6 +59,7 @@ module ModernTreasury
         ).returns(T.attached_class)
       end
       def self.new(
+        id:,
         # The description of the ledger account settlement.
         description: nil,
         # Additional data represented as key-value pairs. Both the key and value must be
@@ -70,6 +75,7 @@ module ModernTreasury
       sig do
         override.returns(
           {
+            id: String,
             description: T.nilable(String),
             metadata: T::Hash[Symbol, String],
             status:

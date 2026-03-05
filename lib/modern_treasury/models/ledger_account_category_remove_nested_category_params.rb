@@ -12,8 +12,14 @@ module ModernTreasury
       #   @return [String]
       required :id, String
 
-      # @!method initialize(id:, request_options: {})
+      # @!attribute sub_category_id
+      #
+      #   @return [String]
+      required :sub_category_id, String
+
+      # @!method initialize(id:, sub_category_id:, request_options: {})
       #   @param id [String]
+      #   @param sub_category_id [String]
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end

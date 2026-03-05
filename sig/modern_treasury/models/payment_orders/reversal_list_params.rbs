@@ -2,12 +2,14 @@ module ModernTreasury
   module Models
     module PaymentOrders
       type reversal_list_params =
-        { after_cursor: String?, per_page: Integer }
+        { payment_order_id: String, after_cursor: String?, per_page: Integer }
         & ModernTreasury::Internal::Type::request_parameters
 
       class ReversalListParams < ModernTreasury::Internal::Type::BaseModel
         extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
+
+        attr_accessor payment_order_id: String
 
         attr_accessor after_cursor: String?
 
@@ -16,12 +18,14 @@ module ModernTreasury
         def per_page=: (Integer) -> Integer
 
         def initialize: (
+          payment_order_id: String,
           ?after_cursor: String?,
           ?per_page: Integer,
           ?request_options: ModernTreasury::request_opts
         ) -> void
 
         def to_hash: -> {
+          payment_order_id: String,
           after_cursor: String?,
           per_page: Integer,
           request_options: ModernTreasury::RequestOptions

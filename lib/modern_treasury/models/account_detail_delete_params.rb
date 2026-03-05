@@ -17,9 +17,15 @@ module ModernTreasury
       #   @return [String]
       required :account_id, String
 
-      # @!method initialize(accounts_type:, account_id:, request_options: {})
+      # @!attribute id
+      #
+      #   @return [String]
+      required :id, String
+
+      # @!method initialize(accounts_type:, account_id:, id:, request_options: {})
       #   @param accounts_type [Symbol, ModernTreasury::Models::AccountDetailDeleteParams::AccountsType]
       #   @param account_id [String]
+      #   @param id [String]
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       module AccountsType

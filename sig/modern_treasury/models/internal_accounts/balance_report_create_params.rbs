@@ -3,6 +3,7 @@ module ModernTreasury
     module InternalAccounts
       type balance_report_create_params =
         {
+          internal_account_id: String,
           as_of_date: Date,
           as_of_time: String,
           balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::balance_report_type,
@@ -14,6 +15,8 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 
+        attr_accessor internal_account_id: String
+
         attr_accessor as_of_date: Date
 
         attr_accessor as_of_time: String
@@ -23,6 +26,7 @@ module ModernTreasury
         attr_accessor balances: ::Array[ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance]
 
         def initialize: (
+          internal_account_id: String,
           as_of_date: Date,
           as_of_time: String,
           balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::balance_report_type,
@@ -31,6 +35,7 @@ module ModernTreasury
         ) -> void
 
         def to_hash: -> {
+          internal_account_id: String,
           as_of_date: Date,
           as_of_time: String,
           balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::balance_report_type,

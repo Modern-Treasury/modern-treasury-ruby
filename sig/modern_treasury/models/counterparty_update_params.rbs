@@ -2,6 +2,7 @@ module ModernTreasury
   module Models
     type counterparty_update_params =
       {
+        id: String,
         email: String,
         external_id: String?,
         legal_entity_id: String?,
@@ -15,6 +16,8 @@ module ModernTreasury
     class CounterpartyUpdateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
+
+      attr_accessor id: String
 
       attr_reader email: String?
 
@@ -41,6 +44,7 @@ module ModernTreasury
       def taxpayer_identifier=: (String) -> String
 
       def initialize: (
+        id: String,
         ?email: String,
         ?external_id: String?,
         ?legal_entity_id: String?,
@@ -52,6 +56,7 @@ module ModernTreasury
       ) -> void
 
       def to_hash: -> {
+        id: String,
         email: String,
         external_id: String?,
         legal_entity_id: String?,

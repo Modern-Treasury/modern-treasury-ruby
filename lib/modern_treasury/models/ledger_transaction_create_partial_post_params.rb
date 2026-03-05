@@ -7,6 +7,11 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      # @!attribute id
+      #
+      #   @return [String]
+      required :id, String
+
       # @!attribute posted_ledger_entries
       #   An array of ledger entry objects to be set on the posted ledger transaction.
       #   There must be one entry for each of the existing entries with a lesser amount
@@ -37,10 +42,12 @@ module ModernTreasury
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
-      # @!method initialize(posted_ledger_entries:, description: nil, effective_at: nil, metadata: nil, request_options: {})
+      # @!method initialize(id:, posted_ledger_entries:, description: nil, effective_at: nil, metadata: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LedgerTransactionCreatePartialPostParams} for more
       #   details.
+      #
+      #   @param id [String]
       #
       #   @param posted_ledger_entries [Array<ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry>] An array of ledger entry objects to be set on the posted ledger transaction. The
       #

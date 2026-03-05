@@ -14,6 +14,9 @@ module ModernTreasury
           )
         end
 
+      sig { returns(String) }
+      attr_accessor :id
+
       # An optional, free-form description for internal use.
       sig { returns(T.nilable(String)) }
       attr_reader :description
@@ -31,12 +34,14 @@ module ModernTreasury
 
       sig do
         params(
+          id: String,
           description: String,
           metadata: T::Hash[Symbol, String],
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
       def self.new(
+        id:,
         # An optional, free-form description for internal use.
         description: nil,
         # Additional data represented as key-value pairs. Both the key and value must be
@@ -49,6 +54,7 @@ module ModernTreasury
       sig do
         override.returns(
           {
+            id: String,
             description: String,
             metadata: T::Hash[Symbol, String],
             request_options: ModernTreasury::RequestOptions

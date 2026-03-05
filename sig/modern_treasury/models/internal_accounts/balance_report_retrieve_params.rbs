@@ -2,7 +2,10 @@ module ModernTreasury
   module Models
     module InternalAccounts
       type balance_report_retrieve_params =
-        { internal_account_id: String }
+        {
+          internal_account_id: String,
+          id: ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams::id
+        }
         & ModernTreasury::Internal::Type::request_parameters
 
       class BalanceReportRetrieveParams < ModernTreasury::Internal::Type::BaseModel
@@ -11,13 +14,17 @@ module ModernTreasury
 
         attr_accessor internal_account_id: String
 
+        attr_accessor id: ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams::id
+
         def initialize: (
           internal_account_id: String,
+          id: ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams::id,
           ?request_options: ModernTreasury::request_opts
         ) -> void
 
         def to_hash: -> {
           internal_account_id: String,
+          id: ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams::id,
           request_options: ModernTreasury::RequestOptions
         }
 

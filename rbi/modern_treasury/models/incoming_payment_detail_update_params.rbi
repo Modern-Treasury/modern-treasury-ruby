@@ -14,6 +14,9 @@ module ModernTreasury
           )
         end
 
+      sig { returns(String) }
+      attr_accessor :id
+
       # Additional data in the form of key-value pairs. Pairs can be removed by passing
       # an empty string or `null` as the value.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
@@ -24,11 +27,13 @@ module ModernTreasury
 
       sig do
         params(
+          id: String,
           metadata: T::Hash[Symbol, String],
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
       def self.new(
+        id:,
         # Additional data in the form of key-value pairs. Pairs can be removed by passing
         # an empty string or `null` as the value.
         metadata: nil,
@@ -39,6 +44,7 @@ module ModernTreasury
       sig do
         override.returns(
           {
+            id: String,
             metadata: T::Hash[Symbol, String],
             request_options: ModernTreasury::RequestOptions
           }

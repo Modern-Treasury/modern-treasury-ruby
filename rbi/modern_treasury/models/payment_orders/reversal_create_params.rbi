@@ -15,6 +15,10 @@ module ModernTreasury
             )
           end
 
+        # The id of the payment order being reversed.
+        sig { returns(String) }
+        attr_accessor :payment_order_id
+
         # The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`,
         # `incorrect_receiving_account`, `date_earlier_than_intended`,
         # `date_later_than_intended`.
@@ -51,6 +55,7 @@ module ModernTreasury
 
         sig do
           params(
+            payment_order_id: String,
             reason:
               ModernTreasury::PaymentOrders::ReversalCreateParams::Reason::OrSymbol,
             ledger_transaction:
@@ -60,6 +65,8 @@ module ModernTreasury
           ).returns(T.attached_class)
         end
         def self.new(
+          # The id of the payment order being reversed.
+          payment_order_id:,
           # The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`,
           # `incorrect_receiving_account`, `date_earlier_than_intended`,
           # `date_later_than_intended`.
@@ -78,6 +85,7 @@ module ModernTreasury
         sig do
           override.returns(
             {
+              payment_order_id: String,
               reason:
                 ModernTreasury::PaymentOrders::ReversalCreateParams::Reason::OrSymbol,
               ledger_transaction:

@@ -2,6 +2,7 @@ module ModernTreasury
   module Models
     type expected_payment_update_params =
       {
+        id: String,
         amount_lower_bound: Integer?,
         amount_reconciled: Integer?,
         amount_reconciled_direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::amount_reconciled_direction?,
@@ -30,6 +31,8 @@ module ModernTreasury
     class ExpectedPaymentUpdateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
+
+      attr_accessor id: String
 
       attr_accessor amount_lower_bound: Integer?
 
@@ -78,6 +81,7 @@ module ModernTreasury
       attr_accessor type: ModernTreasury::Models::expected_payment_type?
 
       def initialize: (
+        id: String,
         ?amount_lower_bound: Integer?,
         ?amount_reconciled: Integer?,
         ?amount_reconciled_direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::amount_reconciled_direction?,
@@ -104,6 +108,7 @@ module ModernTreasury
       ) -> void
 
       def to_hash: -> {
+        id: String,
         amount_lower_bound: Integer?,
         amount_reconciled: Integer?,
         amount_reconciled_direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::amount_reconciled_direction?,

@@ -15,6 +15,9 @@ module ModernTreasury
             )
           end
 
+        sig { returns(String) }
+        attr_accessor :id
+
         # The ids of the ledger entries that are to be added or removed from the ledger
         # account settlement.
         sig { returns(T.nilable(T::Array[String])) }
@@ -22,11 +25,13 @@ module ModernTreasury
 
         sig do
           params(
+            id: String,
             ledger_entry_ids: T.nilable(T::Array[String]),
             request_options: ModernTreasury::RequestOptions::OrHash
           ).returns(T.attached_class)
         end
         def self.new(
+          id:,
           # The ids of the ledger entries that are to be added or removed from the ledger
           # account settlement.
           ledger_entry_ids:,
@@ -37,6 +42,7 @@ module ModernTreasury
         sig do
           override.returns(
             {
+              id: String,
               ledger_entry_ids: T.nilable(T::Array[String]),
               request_options: ModernTreasury::RequestOptions
             }

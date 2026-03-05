@@ -17,6 +17,9 @@ module ModernTreasury
       sig { returns(String) }
       attr_accessor :internal_account_id
 
+      sig { returns(String) }
+      attr_accessor :id
+
       # A unique reference assigned by your bank for tracking and recognizing payment
       # files. It is important this is formatted exactly how the bank assigned it.
       sig { returns(String) }
@@ -25,12 +28,14 @@ module ModernTreasury
       sig do
         params(
           internal_account_id: String,
+          id: String,
           identifier: String,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
       def self.new(
         internal_account_id:,
+        id:,
         # A unique reference assigned by your bank for tracking and recognizing payment
         # files. It is important this is formatted exactly how the bank assigned it.
         identifier:,
@@ -42,6 +47,7 @@ module ModernTreasury
         override.returns(
           {
             internal_account_id: String,
+            id: String,
             identifier: String,
             request_options: ModernTreasury::RequestOptions
           }

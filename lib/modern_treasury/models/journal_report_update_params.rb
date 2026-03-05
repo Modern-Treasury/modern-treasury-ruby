@@ -7,6 +7,11 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      # @!attribute id
+      #
+      #   @return [String]
+      required :id, String
+
       # @!attribute metadata
       #
       #   @return [Object, nil]
@@ -17,7 +22,8 @@ module ModernTreasury
       #   @return [String, nil]
       optional :status, String
 
-      # @!method initialize(metadata: nil, status: nil, request_options: {})
+      # @!method initialize(id:, metadata: nil, status: nil, request_options: {})
+      #   @param id [String]
       #   @param metadata [Object]
       #   @param status [String]
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]

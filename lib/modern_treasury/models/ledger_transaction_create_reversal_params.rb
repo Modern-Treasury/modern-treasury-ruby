@@ -7,6 +7,11 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      # @!attribute id
+      #
+      #   @return [String]
+      required :id, String
+
       # @!attribute description
       #   An optional free-form description for the reversal ledger transaction. Maximum
       #   of 1000 characters allowed.
@@ -57,10 +62,12 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::LedgerTransactionCreateReversalParams::Status }
 
-      # @!method initialize(description: nil, effective_at: nil, external_id: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, status: nil, request_options: {})
+      # @!method initialize(id:, description: nil, effective_at: nil, external_id: nil, ledgerable_id: nil, ledgerable_type: nil, metadata: nil, status: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LedgerTransactionCreateReversalParams} for more
       #   details.
+      #
+      #   @param id [String]
       #
       #   @param description [String] An optional free-form description for the reversal ledger transaction. Maximum o
       #

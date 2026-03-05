@@ -7,6 +7,11 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      # @!attribute id
+      #
+      #   @return [String]
+      required :id, String
+
       # @!attribute description
       #   The description of the ledger account.
       #
@@ -32,9 +37,11 @@ module ModernTreasury
       #   @return [String, nil]
       optional :name, String
 
-      # @!method initialize(description: nil, external_id: nil, metadata: nil, name: nil, request_options: {})
+      # @!method initialize(id:, description: nil, external_id: nil, metadata: nil, name: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LedgerAccountUpdateParams} for more details.
+      #
+      #   @param id [String]
       #
       #   @param description [String, nil] The description of the ledger account.
       #

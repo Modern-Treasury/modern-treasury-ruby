@@ -17,18 +17,26 @@ module ModernTreasury
       sig { returns(String) }
       attr_accessor :id
 
+      sig { returns(String) }
+      attr_accessor :payment_order_id
+
       sig do
         params(
           id: String,
+          payment_order_id: String,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
-      def self.new(id:, request_options: {})
+      def self.new(id:, payment_order_id:, request_options: {})
       end
 
       sig do
         override.returns(
-          { id: String, request_options: ModernTreasury::RequestOptions }
+          {
+            id: String,
+            payment_order_id: String,
+            request_options: ModernTreasury::RequestOptions
+          }
         )
       end
       def to_hash

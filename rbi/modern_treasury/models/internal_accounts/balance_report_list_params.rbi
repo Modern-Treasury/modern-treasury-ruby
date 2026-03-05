@@ -15,6 +15,9 @@ module ModernTreasury
             )
           end
 
+        sig { returns(String) }
+        attr_accessor :internal_account_id
+
         sig { returns(T.nilable(String)) }
         attr_accessor :after_cursor
 
@@ -52,6 +55,7 @@ module ModernTreasury
 
         sig do
           params(
+            internal_account_id: String,
             after_cursor: T.nilable(String),
             as_of_date: Date,
             balance_report_type:
@@ -61,6 +65,7 @@ module ModernTreasury
           ).returns(T.attached_class)
         end
         def self.new(
+          internal_account_id:,
           after_cursor: nil,
           # The date of the balance report in local time.
           as_of_date: nil,
@@ -75,6 +80,7 @@ module ModernTreasury
         sig do
           override.returns(
             {
+              internal_account_id: String,
               after_cursor: T.nilable(String),
               as_of_date: Date,
               balance_report_type:
