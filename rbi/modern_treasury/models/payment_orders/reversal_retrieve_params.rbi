@@ -18,19 +18,24 @@ module ModernTreasury
         sig { returns(String) }
         attr_accessor :payment_order_id
 
+        sig { returns(String) }
+        attr_accessor :reversal_id
+
         sig do
           params(
             payment_order_id: String,
+            reversal_id: String,
             request_options: ModernTreasury::RequestOptions::OrHash
           ).returns(T.attached_class)
         end
-        def self.new(payment_order_id:, request_options: {})
+        def self.new(payment_order_id:, reversal_id:, request_options: {})
         end
 
         sig do
           override.returns(
             {
               payment_order_id: String,
+              reversal_id: String,
               request_options: ModernTreasury::RequestOptions
             }
           )

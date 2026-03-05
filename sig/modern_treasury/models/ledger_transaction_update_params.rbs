@@ -2,6 +2,7 @@ module ModernTreasury
   module Models
     type ledger_transaction_update_params =
       {
+        id: String,
         description: String?,
         effective_at: Time,
         external_id: String?,
@@ -16,6 +17,8 @@ module ModernTreasury
     class LedgerTransactionUpdateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
+
+      attr_accessor id: String
 
       attr_accessor description: String?
 
@@ -52,6 +55,7 @@ module ModernTreasury
       ) -> ModernTreasury::Models::LedgerTransactionUpdateParams::status
 
       def initialize: (
+        id: String,
         ?description: String?,
         ?effective_at: Time,
         ?external_id: String?,
@@ -64,6 +68,7 @@ module ModernTreasury
       ) -> void
 
       def to_hash: -> {
+        id: String,
         description: String?,
         effective_at: Time,
         external_id: String?,

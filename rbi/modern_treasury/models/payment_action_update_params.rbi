@@ -14,6 +14,9 @@ module ModernTreasury
           )
         end
 
+      sig { returns(String) }
+      attr_accessor :id
+
       # Optional. Set the status of the payment action to `cancelled` to cancel the
       # payment action. This will only work if the payment action is in a `pending`
       # state.
@@ -24,11 +27,13 @@ module ModernTreasury
 
       sig do
         params(
+          id: String,
           status: ModernTreasury::PaymentActionUpdateParams::Status::OrSymbol,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
       def self.new(
+        id:,
         # Optional. Set the status of the payment action to `cancelled` to cancel the
         # payment action. This will only work if the payment action is in a `pending`
         # state.
@@ -40,6 +45,7 @@ module ModernTreasury
       sig do
         override.returns(
           {
+            id: String,
             status: ModernTreasury::PaymentActionUpdateParams::Status::OrSymbol,
             request_options: ModernTreasury::RequestOptions
           }

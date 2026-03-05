@@ -7,6 +7,11 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      # @!attribute id
+      #
+      #   @return [String]
+      required :id, String
+
       # @!attribute email
       #   A new email for the counterparty.
       #
@@ -51,9 +56,11 @@ module ModernTreasury
       #   @return [String, nil]
       optional :taxpayer_identifier, String
 
-      # @!method initialize(email: nil, external_id: nil, legal_entity_id: nil, metadata: nil, name: nil, send_remittance_advice: nil, taxpayer_identifier: nil, request_options: {})
+      # @!method initialize(id:, email: nil, external_id: nil, legal_entity_id: nil, metadata: nil, name: nil, send_remittance_advice: nil, taxpayer_identifier: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::CounterpartyUpdateParams} for more details.
+      #
+      #   @param id [String]
       #
       #   @param email [String] A new email for the counterparty.
       #

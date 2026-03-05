@@ -14,6 +14,9 @@ module ModernTreasury
           )
         end
 
+      sig { returns(String) }
+      attr_accessor :id
+
       # Required. The updated status of the payment flow. Can only be used to mark a
       # flow as `cancelled`.
       sig { returns(ModernTreasury::PaymentFlowUpdateParams::Status::OrSymbol) }
@@ -21,11 +24,13 @@ module ModernTreasury
 
       sig do
         params(
+          id: String,
           status: ModernTreasury::PaymentFlowUpdateParams::Status::OrSymbol,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
       def self.new(
+        id:,
         # Required. The updated status of the payment flow. Can only be used to mark a
         # flow as `cancelled`.
         status:,
@@ -36,6 +41,7 @@ module ModernTreasury
       sig do
         override.returns(
           {
+            id: String,
             status: ModernTreasury::PaymentFlowUpdateParams::Status::OrSymbol,
             request_options: ModernTreasury::RequestOptions
           }

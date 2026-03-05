@@ -8,6 +8,11 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 
+        # @!attribute id
+        #
+        #   @return [String]
+        required :id, String
+
         # @!attribute ledger_entry_ids
         #   The ids of the ledger entries that are to be added or removed from the ledger
         #   account settlement.
@@ -15,10 +20,12 @@ module ModernTreasury
         #   @return [Array<String>, nil]
         required :ledger_entry_ids, ModernTreasury::Internal::Type::ArrayOf[String], nil?: true
 
-        # @!method initialize(ledger_entry_ids:, request_options: {})
+        # @!method initialize(id:, ledger_entry_ids:, request_options: {})
         #   Some parameter documentations has been truncated, see
         #   {ModernTreasury::Models::LedgerAccountSettlements::AccountEntryDeleteParams} for
         #   more details.
+        #
+        #   @param id [String]
         #
         #   @param ledger_entry_ids [Array<String>, nil] The ids of the ledger entries that are to be added or removed from the ledger ac
         #

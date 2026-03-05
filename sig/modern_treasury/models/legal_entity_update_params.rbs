@@ -2,6 +2,7 @@ module ModernTreasury
   module Models
     type legal_entity_update_params =
       {
+        id: String,
         addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
         bank_settings: ModernTreasury::LegalEntityBankSettings?,
         business_description: String?,
@@ -43,6 +44,8 @@ module ModernTreasury
     class LegalEntityUpdateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
+
+      attr_accessor id: String
 
       attr_reader addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest]?
 
@@ -139,6 +142,7 @@ module ModernTreasury
       attr_accessor website: String?
 
       def initialize: (
+        id: String,
         ?addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
         ?bank_settings: ModernTreasury::LegalEntityBankSettings?,
         ?business_description: String?,
@@ -178,6 +182,7 @@ module ModernTreasury
       ) -> void
 
       def to_hash: -> {
+        id: String,
         addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
         bank_settings: ModernTreasury::LegalEntityBankSettings?,
         business_description: String?,

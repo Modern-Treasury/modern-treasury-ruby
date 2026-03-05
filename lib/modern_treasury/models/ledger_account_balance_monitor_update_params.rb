@@ -7,6 +7,11 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      # @!attribute id
+      #
+      #   @return [String]
+      required :id, String
+
       # @!attribute description
       #   An optional, free-form description for internal use.
       #
@@ -20,10 +25,12 @@ module ModernTreasury
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
-      # @!method initialize(description: nil, metadata: nil, request_options: {})
+      # @!method initialize(id:, description: nil, metadata: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LedgerAccountBalanceMonitorUpdateParams} for more
       #   details.
+      #
+      #   @param id [String]
       #
       #   @param description [String] An optional, free-form description for internal use.
       #

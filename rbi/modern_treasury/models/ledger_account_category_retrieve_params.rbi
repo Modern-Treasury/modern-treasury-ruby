@@ -14,6 +14,9 @@ module ModernTreasury
           )
         end
 
+      sig { returns(String) }
+      attr_accessor :id
+
       # For example, if you want the balances as of a particular time (ISO8601), the
       # encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
       # The balances as of a time are inclusive of entries with that exact time, but
@@ -37,12 +40,14 @@ module ModernTreasury
 
       sig do
         params(
+          id: String,
           balances:
             ModernTreasury::LedgerAccountCategoryRetrieveParams::Balances::OrHash,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
       def self.new(
+        id:,
         # For example, if you want the balances as of a particular time (ISO8601), the
         # encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
         # The balances as of a time are inclusive of entries with that exact time, but
@@ -55,6 +60,7 @@ module ModernTreasury
       sig do
         override.returns(
           {
+            id: String,
             balances:
               ModernTreasury::LedgerAccountCategoryRetrieveParams::Balances,
             request_options: ModernTreasury::RequestOptions

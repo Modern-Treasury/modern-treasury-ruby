@@ -2,6 +2,7 @@ module ModernTreasury
   module Models
     type external_account_update_params =
       {
+        id: String,
         account_type: ModernTreasury::Models::external_account_type,
         counterparty_id: String?,
         metadata: ::Hash[Symbol, String],
@@ -15,6 +16,8 @@ module ModernTreasury
     class ExternalAccountUpdateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
+
+      attr_accessor id: String
 
       attr_reader account_type: ModernTreasury::Models::external_account_type?
 
@@ -43,6 +46,7 @@ module ModernTreasury
       attr_accessor party_type: ModernTreasury::Models::ExternalAccountUpdateParams::party_type?
 
       def initialize: (
+        id: String,
         ?account_type: ModernTreasury::Models::external_account_type,
         ?counterparty_id: String?,
         ?metadata: ::Hash[Symbol, String],
@@ -54,6 +58,7 @@ module ModernTreasury
       ) -> void
 
       def to_hash: -> {
+        id: String,
         account_type: ModernTreasury::Models::external_account_type,
         counterparty_id: String?,
         metadata: ::Hash[Symbol, String],

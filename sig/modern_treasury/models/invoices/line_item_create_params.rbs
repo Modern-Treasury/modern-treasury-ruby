@@ -3,6 +3,7 @@ module ModernTreasury
     module Invoices
       type line_item_create_params =
         {
+          invoice_id: String,
           name: String,
           unit_amount: Integer,
           description: String,
@@ -16,6 +17,8 @@ module ModernTreasury
       class LineItemCreateParams < ModernTreasury::Internal::Type::BaseModel
         extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
+
+        attr_accessor invoice_id: String
 
         attr_accessor name: String
 
@@ -42,6 +45,7 @@ module ModernTreasury
         def unit_amount_decimal=: (String) -> String
 
         def initialize: (
+          invoice_id: String,
           name: String,
           unit_amount: Integer,
           ?description: String,
@@ -53,6 +57,7 @@ module ModernTreasury
         ) -> void
 
         def to_hash: -> {
+          invoice_id: String,
           name: String,
           unit_amount: Integer,
           description: String,

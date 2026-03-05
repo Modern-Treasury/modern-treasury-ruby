@@ -3,7 +3,8 @@ module ModernTreasury
     type routing_detail_delete_params =
       {
         accounts_type: ModernTreasury::Models::RoutingDetailDeleteParams::accounts_type,
-        account_id: String
+        account_id: String,
+        id: String
       }
       & ModernTreasury::Internal::Type::request_parameters
 
@@ -15,15 +16,19 @@ module ModernTreasury
 
       attr_accessor account_id: String
 
+      attr_accessor id: String
+
       def initialize: (
         accounts_type: ModernTreasury::Models::RoutingDetailDeleteParams::accounts_type,
         account_id: String,
+        id: String,
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
       def to_hash: -> {
         accounts_type: ModernTreasury::Models::RoutingDetailDeleteParams::accounts_type,
         account_id: String,
+        id: String,
         request_options: ModernTreasury::RequestOptions
       }
 

@@ -12,8 +12,14 @@ module ModernTreasury
       #   @return [String]
       required :id, String
 
-      # @!method initialize(id:, request_options: {})
+      # @!attribute ledger_account_id
+      #
+      #   @return [String]
+      required :ledger_account_id, String
+
+      # @!method initialize(id:, ledger_account_id:, request_options: {})
       #   @param id [String]
+      #   @param ledger_account_id [String]
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
   end

@@ -14,6 +14,9 @@ module ModernTreasury
           )
         end
 
+      sig { returns(String) }
+      attr_accessor :id
+
       # An array of ledger entry objects to be set on the posted ledger transaction.
       # There must be one entry for each of the existing entries with a lesser amount
       # than the existing entry.
@@ -52,6 +55,7 @@ module ModernTreasury
 
       sig do
         params(
+          id: String,
           posted_ledger_entries:
             T::Array[
               ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::OrHash
@@ -63,6 +67,7 @@ module ModernTreasury
         ).returns(T.attached_class)
       end
       def self.new(
+        id:,
         # An array of ledger entry objects to be set on the posted ledger transaction.
         # There must be one entry for each of the existing entries with a lesser amount
         # than the existing entry.
@@ -83,6 +88,7 @@ module ModernTreasury
       sig do
         override.returns(
           {
+            id: String,
             posted_ledger_entries:
               T::Array[
                 ModernTreasury::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry

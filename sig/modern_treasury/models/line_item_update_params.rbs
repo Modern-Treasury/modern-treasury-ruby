@@ -4,6 +4,7 @@ module ModernTreasury
       {
         itemizable_type: ModernTreasury::Models::LineItemUpdateParams::itemizable_type,
         itemizable_id: String,
+        id: String,
         metadata: ::Hash[Symbol, String]
       }
       & ModernTreasury::Internal::Type::request_parameters
@@ -16,6 +17,8 @@ module ModernTreasury
 
       attr_accessor itemizable_id: String
 
+      attr_accessor id: String
+
       attr_reader metadata: ::Hash[Symbol, String]?
 
       def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
@@ -23,6 +26,7 @@ module ModernTreasury
       def initialize: (
         itemizable_type: ModernTreasury::Models::LineItemUpdateParams::itemizable_type,
         itemizable_id: String,
+        id: String,
         ?metadata: ::Hash[Symbol, String],
         ?request_options: ModernTreasury::request_opts
       ) -> void
@@ -30,6 +34,7 @@ module ModernTreasury
       def to_hash: -> {
         itemizable_type: ModernTreasury::Models::LineItemUpdateParams::itemizable_type,
         itemizable_id: String,
+        id: String,
         metadata: ::Hash[Symbol, String],
         request_options: ModernTreasury::RequestOptions
       }

@@ -12,6 +12,11 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountsType]
       required :accounts_type, enum: -> { ModernTreasury::AccountDetailCreateParams::AccountsType }
 
+      # @!attribute account_id
+      #
+      #   @return [String]
+      required :account_id, String
+
       # @!attribute account_number
       #   The account number for the bank account.
       #
@@ -25,11 +30,13 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType, nil]
       optional :account_number_type, enum: -> { ModernTreasury::AccountDetailCreateParams::AccountNumberType }
 
-      # @!method initialize(accounts_type:, account_number:, account_number_type: nil, request_options: {})
+      # @!method initialize(accounts_type:, account_id:, account_number:, account_number_type: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::AccountDetailCreateParams} for more details.
       #
       #   @param accounts_type [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountsType]
+      #
+      #   @param account_id [String]
       #
       #   @param account_number [String] The account number for the bank account.
       #

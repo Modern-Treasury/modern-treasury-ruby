@@ -17,6 +17,9 @@ module ModernTreasury
       sig { returns(ModernTreasury::AccountsType::OrSymbol) }
       attr_accessor :accounts_type
 
+      sig { returns(String) }
+      attr_accessor :account_id
+
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor
 
@@ -29,6 +32,7 @@ module ModernTreasury
       sig do
         params(
           accounts_type: ModernTreasury::AccountsType::OrSymbol,
+          account_id: String,
           after_cursor: T.nilable(String),
           per_page: Integer,
           request_options: ModernTreasury::RequestOptions::OrHash
@@ -36,6 +40,7 @@ module ModernTreasury
       end
       def self.new(
         accounts_type:,
+        account_id:,
         after_cursor: nil,
         per_page: nil,
         request_options: {}
@@ -46,6 +51,7 @@ module ModernTreasury
         override.returns(
           {
             accounts_type: ModernTreasury::AccountsType::OrSymbol,
+            account_id: String,
             after_cursor: T.nilable(String),
             per_page: Integer,
             request_options: ModernTreasury::RequestOptions

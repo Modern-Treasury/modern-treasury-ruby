@@ -8,6 +8,12 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 
+        # @!attribute payment_order_id
+        #   The id of the payment order being reversed.
+        #
+        #   @return [String]
+        required :payment_order_id, String
+
         # @!attribute reason
         #   The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`,
         #   `incorrect_receiving_account`, `date_earlier_than_intended`,
@@ -31,9 +37,11 @@ module ModernTreasury
         #   @return [Hash{Symbol=>String}, nil]
         optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
-        # @!method initialize(reason:, ledger_transaction: nil, metadata: nil, request_options: {})
+        # @!method initialize(payment_order_id:, reason:, ledger_transaction: nil, metadata: nil, request_options: {})
         #   Some parameter documentations has been truncated, see
         #   {ModernTreasury::Models::PaymentOrders::ReversalCreateParams} for more details.
+        #
+        #   @param payment_order_id [String] The id of the payment order being reversed.
         #
         #   @param reason [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason] The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`, `in
         #

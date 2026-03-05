@@ -1,7 +1,7 @@
 module ModernTreasury
   module Models
     type internal_account_update_account_capability_params =
-      { internal_account_id: String, identifier: String }
+      { internal_account_id: String, id: String, identifier: String }
       & ModernTreasury::Internal::Type::request_parameters
 
     class InternalAccountUpdateAccountCapabilityParams < ModernTreasury::Internal::Type::BaseModel
@@ -10,16 +10,20 @@ module ModernTreasury
 
       attr_accessor internal_account_id: String
 
+      attr_accessor id: String
+
       attr_accessor identifier: String
 
       def initialize: (
         internal_account_id: String,
+        id: String,
         identifier: String,
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
       def to_hash: -> {
         internal_account_id: String,
+        id: String,
         identifier: String,
         request_options: ModernTreasury::RequestOptions
       }

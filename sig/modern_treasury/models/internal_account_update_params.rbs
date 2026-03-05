@@ -2,6 +2,7 @@ module ModernTreasury
   module Models
     type internal_account_update_params =
       {
+        id: String,
         contra_ledger_account_id: String,
         counterparty_id: String,
         external_id: String?,
@@ -15,6 +16,8 @@ module ModernTreasury
     class InternalAccountUpdateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
+
+      attr_accessor id: String
 
       attr_reader contra_ledger_account_id: String?
 
@@ -43,6 +46,7 @@ module ModernTreasury
       def parent_account_id=: (String) -> String
 
       def initialize: (
+        id: String,
         ?contra_ledger_account_id: String,
         ?counterparty_id: String,
         ?external_id: String?,
@@ -54,6 +58,7 @@ module ModernTreasury
       ) -> void
 
       def to_hash: -> {
+        id: String,
         contra_ledger_account_id: String,
         counterparty_id: String,
         external_id: String?,

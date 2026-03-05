@@ -7,6 +7,11 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      # @!attribute id
+      #
+      #   @return [String]
+      required :id, String
+
       # @!attribute status
       #   Optional. Set the status of the payment action to `cancelled` to cancel the
       #   payment action. This will only work if the payment action is in a `pending`
@@ -15,9 +20,11 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::PaymentActionUpdateParams::Status]
       required :status, enum: -> { ModernTreasury::PaymentActionUpdateParams::Status }
 
-      # @!method initialize(status:, request_options: {})
+      # @!method initialize(id:, status:, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::PaymentActionUpdateParams} for more details.
+      #
+      #   @param id [String]
       #
       #   @param status [Symbol, ModernTreasury::Models::PaymentActionUpdateParams::Status] Optional. Set the status of the payment action to `cancelled` to cancel the paym
       #

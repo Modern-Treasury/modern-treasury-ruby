@@ -7,6 +7,11 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      # @!attribute id
+      #
+      #   @return [String]
+      required :id, String
+
       # @!attribute show_balances
       #   If true, response will include the balances attached to the ledger entry. If
       #   there is no balance available, null will be returned instead.
@@ -14,9 +19,11 @@ module ModernTreasury
       #   @return [Boolean, nil]
       optional :show_balances, ModernTreasury::Internal::Type::Boolean
 
-      # @!method initialize(show_balances: nil, request_options: {})
+      # @!method initialize(id:, show_balances: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LedgerEntryRetrieveParams} for more details.
+      #
+      #   @param id [String]
       #
       #   @param show_balances [Boolean] If true, response will include the balances attached to the ledger entry. If the
       #

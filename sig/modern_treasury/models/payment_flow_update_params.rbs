@@ -1,21 +1,28 @@
 module ModernTreasury
   module Models
     type payment_flow_update_params =
-      { status: ModernTreasury::Models::PaymentFlowUpdateParams::status }
+      {
+        id: String,
+        status: ModernTreasury::Models::PaymentFlowUpdateParams::status
+      }
       & ModernTreasury::Internal::Type::request_parameters
 
     class PaymentFlowUpdateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      attr_accessor id: String
+
       attr_accessor status: ModernTreasury::Models::PaymentFlowUpdateParams::status
 
       def initialize: (
+        id: String,
         status: ModernTreasury::Models::PaymentFlowUpdateParams::status,
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
       def to_hash: -> {
+        id: String,
         status: ModernTreasury::Models::PaymentFlowUpdateParams::status,
         request_options: ModernTreasury::RequestOptions
       }

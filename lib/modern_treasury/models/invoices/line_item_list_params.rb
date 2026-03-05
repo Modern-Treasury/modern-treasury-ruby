@@ -8,6 +8,11 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 
+        # @!attribute invoice_id
+        #
+        #   @return [String]
+        required :invoice_id, String
+
         # @!attribute after_cursor
         #
         #   @return [String, nil]
@@ -18,7 +23,8 @@ module ModernTreasury
         #   @return [Integer, nil]
         optional :per_page, Integer
 
-        # @!method initialize(after_cursor: nil, per_page: nil, request_options: {})
+        # @!method initialize(invoice_id:, after_cursor: nil, per_page: nil, request_options: {})
+        #   @param invoice_id [String]
         #   @param after_cursor [String, nil]
         #   @param per_page [Integer]
         #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]

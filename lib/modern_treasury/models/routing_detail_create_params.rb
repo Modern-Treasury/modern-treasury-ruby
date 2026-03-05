@@ -12,6 +12,11 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::AccountsType]
       required :accounts_type, enum: -> { ModernTreasury::RoutingDetailCreateParams::AccountsType }
 
+      # @!attribute account_id
+      #
+      #   @return [String]
+      required :account_id, String
+
       # @!attribute routing_number
       #   The routing number of the bank.
       #
@@ -33,11 +38,13 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::PaymentType, nil]
       optional :payment_type, enum: -> { ModernTreasury::RoutingDetailCreateParams::PaymentType }, nil?: true
 
-      # @!method initialize(accounts_type:, routing_number:, routing_number_type:, payment_type: nil, request_options: {})
+      # @!method initialize(accounts_type:, account_id:, routing_number:, routing_number_type:, payment_type: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::RoutingDetailCreateParams} for more details.
       #
       #   @param accounts_type [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::AccountsType]
+      #
+      #   @param account_id [String]
       #
       #   @param routing_number [String] The routing number of the bank.
       #

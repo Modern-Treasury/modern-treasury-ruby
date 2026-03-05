@@ -7,6 +7,11 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      # @!attribute id
+      #
+      #   @return [String]
+      required :id, String
+
       # @!attribute description
       #   The description of the ledger account settlement.
       #
@@ -27,9 +32,11 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::LedgerAccountSettlementUpdateParams::Status }
 
-      # @!method initialize(description: nil, metadata: nil, status: nil, request_options: {})
+      # @!method initialize(id:, description: nil, metadata: nil, status: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LedgerAccountSettlementUpdateParams} for more details.
+      #
+      #   @param id [String]
       #
       #   @param description [String, nil] The description of the ledger account settlement.
       #

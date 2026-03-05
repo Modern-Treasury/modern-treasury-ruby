@@ -7,6 +7,11 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      # @!attribute id
+      #
+      #   @return [String]
+      required :id, String
+
       # @!attribute balances
       #   Use `balances[effective_at_lower_bound]` and
       #   `balances[effective_at_upper_bound]` to get the balances change between the two
@@ -18,9 +23,11 @@ module ModernTreasury
       #   @return [ModernTreasury::Models::LedgerAccountRetrieveParams::Balances, nil]
       optional :balances, -> { ModernTreasury::LedgerAccountRetrieveParams::Balances }
 
-      # @!method initialize(balances: nil, request_options: {})
+      # @!method initialize(id:, balances: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LedgerAccountRetrieveParams} for more details.
+      #
+      #   @param id [String]
       #
       #   @param balances [ModernTreasury::Models::LedgerAccountRetrieveParams::Balances] Use `balances[effective_at_lower_bound]` and `balances[effective_at_upper_bound]
       #

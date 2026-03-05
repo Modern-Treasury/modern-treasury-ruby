@@ -3,6 +3,7 @@ module ModernTreasury
     type account_detail_create_params =
       {
         accounts_type: ModernTreasury::Models::AccountDetailCreateParams::accounts_type,
+        account_id: String,
         account_number: String,
         account_number_type: ModernTreasury::Models::AccountDetailCreateParams::account_number_type
       }
@@ -14,6 +15,8 @@ module ModernTreasury
 
       attr_accessor accounts_type: ModernTreasury::Models::AccountDetailCreateParams::accounts_type
 
+      attr_accessor account_id: String
+
       attr_accessor account_number: String
 
       attr_reader account_number_type: ModernTreasury::Models::AccountDetailCreateParams::account_number_type?
@@ -24,6 +27,7 @@ module ModernTreasury
 
       def initialize: (
         accounts_type: ModernTreasury::Models::AccountDetailCreateParams::accounts_type,
+        account_id: String,
         account_number: String,
         ?account_number_type: ModernTreasury::Models::AccountDetailCreateParams::account_number_type,
         ?request_options: ModernTreasury::request_opts
@@ -31,6 +35,7 @@ module ModernTreasury
 
       def to_hash: -> {
         accounts_type: ModernTreasury::Models::AccountDetailCreateParams::accounts_type,
+        account_id: String,
         account_number: String,
         account_number_type: ModernTreasury::Models::AccountDetailCreateParams::account_number_type,
         request_options: ModernTreasury::RequestOptions

@@ -15,6 +15,9 @@ module ModernTreasury
             )
           end
 
+        sig { returns(String) }
+        attr_accessor :invoice_id
+
         # The name of the line item, typically a product or SKU name.
         sig { returns(String) }
         attr_accessor :name
@@ -67,6 +70,7 @@ module ModernTreasury
 
         sig do
           params(
+            invoice_id: String,
             name: String,
             unit_amount: Integer,
             description: String,
@@ -78,6 +82,7 @@ module ModernTreasury
           ).returns(T.attached_class)
         end
         def self.new(
+          invoice_id:,
           # The name of the line item, typically a product or SKU name.
           name:,
           # The cost per unit of the product or service that this line item is for,
@@ -106,6 +111,7 @@ module ModernTreasury
         sig do
           override.returns(
             {
+              invoice_id: String,
               name: String,
               unit_amount: Integer,
               description: String,

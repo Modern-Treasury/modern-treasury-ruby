@@ -7,13 +7,20 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      # @!attribute id
+      #
+      #   @return [String]
+      required :id, String
+
       # @!attribute status
       #   The status of the connection legal entity.
       #
       #   @return [Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::ConnectionLegalEntityUpdateParams::Status }
 
-      # @!method initialize(status: nil, request_options: {})
+      # @!method initialize(id:, status: nil, request_options: {})
+      #   @param id [String]
+      #
       #   @param status [Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status] The status of the connection legal entity.
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]

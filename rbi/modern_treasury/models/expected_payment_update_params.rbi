@@ -14,6 +14,9 @@ module ModernTreasury
           )
         end
 
+      sig { returns(String) }
+      attr_accessor :id
+
       # The lowest amount this expected payment may be equal to. Value in specified
       # currency's smallest unit. e.g. $10 would be represented as 1000.
       sig { returns(T.nilable(Integer)) }
@@ -146,6 +149,7 @@ module ModernTreasury
 
       sig do
         params(
+          id: String,
           amount_lower_bound: T.nilable(Integer),
           amount_reconciled: T.nilable(Integer),
           amount_reconciled_direction:
@@ -185,6 +189,7 @@ module ModernTreasury
         ).returns(T.attached_class)
       end
       def self.new(
+        id:,
         # The lowest amount this expected payment may be equal to. Value in specified
         # currency's smallest unit. e.g. $10 would be represented as 1000.
         amount_lower_bound: nil,
@@ -251,6 +256,7 @@ module ModernTreasury
       sig do
         override.returns(
           {
+            id: String,
             amount_lower_bound: T.nilable(Integer),
             amount_reconciled: T.nilable(Integer),
             amount_reconciled_direction:
