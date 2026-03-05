@@ -11,7 +11,7 @@ GIT
 PATH
   remote: .
   specs:
-    modern_treasury (0.16.0)
+    modern_treasury (0.17.0)
       cgi
       connection_pool
 

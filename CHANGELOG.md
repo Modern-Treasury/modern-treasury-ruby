@@ -1,5 +1,30 @@
 # Changelog
 
+## 0.17.0 (2026-03-05)
+
+Full Changelog: [v0.16.0...v0.17.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.16.0...v0.17.0)
+
+### Features
+
+* **api:** api update ([3e8297b](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/3e8297bd9b2fb3264d4a7fc619182acd8a993a20))
+* **api:** api update ([fb346f0](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/fb346f0f6426e878f7a1931c23720e6e2476d941))
+* **api:** api update ([e1c8b74](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/e1c8b740d33ca5ebd874e17ef2a3f975e08b503d))
+* **api:** api update ([b17afc8](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/b17afc8564d19998272cdbaf41ae067e6cf4d39f))
+
+
+### Bug Fixes
+
+* **client:** add types for path params, and update structure of unions nested in params ([ca506cb](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/ca506cbace43f8f3d6609e37b4bcfc0aad3adc1a))
+* **client:** serialize query parameters properly ([83c0d8c](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/83c0d8c5b0e28dd65ce629df1f51412cdd797dfd))
+* properly mock time in ruby ci tests ([ceed313](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/ceed313f8d3e380513b469c5e2f9502cd517e1c3))
+
+
+### Chores
+
+* **api:** remove an obsolete reviewer ([74995c3](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/74995c3c6a44af125b9dea483bd18e82ac3f0d81))
+* **ci:** add build step ([09e6042](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/09e604205bbc3523def470e5c6020c3f76f98650))
+* **test:** do not count install time for mock server timeout ([eababa8](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/eababa82f910079a86e5f35e5eea459b31d2e90f))
+
 ## 0.16.0 (2026-02-24)
 
 Full Changelog: [v0.15.0...v0.16.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.15.0...v0.16.0)
