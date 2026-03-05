@@ -189,7 +189,21 @@ module ModernTreasury
       #   @return [String, nil]
       optional :originating_party_vendor_identifier, String, nil?: true
 
-      # @!method initialize(id:, amount:, as_of_date:, created_at:, currency:, data:, direction:, internal_account_id:, ledger_transaction_id:, live_mode:, metadata:, object:, originating_account_number_safe:, originating_account_number_type:, originating_routing_number:, originating_routing_number_type:, reconciliation_status:, status:, transaction_id:, transaction_line_item_id:, type:, updated_at:, vendor_id:, virtual_account:, virtual_account_id:, originating_account_number: nil, originating_party_address: nil, originating_party_name: nil, originating_party_vendor_identifier: nil)
+      # @!attribute receiving_account_number
+      #   The account number of the receiving account for the incoming payment detail, or
+      #   `null`.
+      #
+      #   @return [String, nil]
+      optional :receiving_account_number, String, nil?: true
+
+      # @!attribute receiving_account_number_safe
+      #   The last 4 digits of the receiving account number for the incoming payment
+      #   detail, or `null`.
+      #
+      #   @return [String, nil]
+      optional :receiving_account_number_safe, String, nil?: true
+
+      # @!method initialize(id:, amount:, as_of_date:, created_at:, currency:, data:, direction:, internal_account_id:, ledger_transaction_id:, live_mode:, metadata:, object:, originating_account_number_safe:, originating_account_number_type:, originating_routing_number:, originating_routing_number_type:, reconciliation_status:, status:, transaction_id:, transaction_line_item_id:, type:, updated_at:, vendor_id:, virtual_account:, virtual_account_id:, originating_account_number: nil, originating_party_address: nil, originating_party_name: nil, originating_party_vendor_identifier: nil, receiving_account_number: nil, receiving_account_number_safe: nil)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::IncomingPaymentDetail} for more details.
       #
@@ -250,6 +264,10 @@ module ModernTreasury
       #   @param originating_party_name [String, nil] The name of the originating party for the incoming payment detail.
       #
       #   @param originating_party_vendor_identifier [String, nil] The vendor-assigned identifier for the originating party of the incoming payment
+      #
+      #   @param receiving_account_number [String, nil] The account number of the receiving account for the incoming payment detail, or
+      #
+      #   @param receiving_account_number_safe [String, nil] The last 4 digits of the receiving account number for the incoming payment detai
 
       # The type of the originating account number for the incoming payment detail.
       #
