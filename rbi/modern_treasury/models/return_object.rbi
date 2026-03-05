@@ -692,6 +692,11 @@ module ModernTreasury
               :check_number,
               ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
+          CHIPS_UID =
+            T.let(
+              :chips_uid,
+              ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
           CITIBANK_REFERENCE_NUMBER =
             T.let(
               :citibank_reference_number,
