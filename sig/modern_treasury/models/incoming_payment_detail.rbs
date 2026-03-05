@@ -30,7 +30,9 @@ module ModernTreasury
         originating_account_number: String?,
         originating_party_address: ModernTreasury::Address?,
         originating_party_name: String?,
-        originating_party_vendor_identifier: String?
+        originating_party_vendor_identifier: String?,
+        receiving_account_number: String?,
+        receiving_account_number_safe: String?
       }
 
     class IncomingPaymentDetail < ModernTreasury::Internal::Type::BaseModel
@@ -92,6 +94,10 @@ module ModernTreasury
 
       attr_accessor originating_party_vendor_identifier: String?
 
+      attr_accessor receiving_account_number: String?
+
+      attr_accessor receiving_account_number_safe: String?
+
       def initialize: (
         id: String,
         amount: Integer,
@@ -121,7 +127,9 @@ module ModernTreasury
         ?originating_account_number: String?,
         ?originating_party_address: ModernTreasury::Address?,
         ?originating_party_name: String?,
-        ?originating_party_vendor_identifier: String?
+        ?originating_party_vendor_identifier: String?,
+        ?receiving_account_number: String?,
+        ?receiving_account_number_safe: String?
       ) -> void
 
       def to_hash: -> {
@@ -153,7 +161,9 @@ module ModernTreasury
         originating_account_number: String?,
         originating_party_address: ModernTreasury::Address?,
         originating_party_name: String?,
-        originating_party_vendor_identifier: String?
+        originating_party_vendor_identifier: String?,
+        receiving_account_number: String?,
+        receiving_account_number_safe: String?
       }
 
       type originating_account_number_type =

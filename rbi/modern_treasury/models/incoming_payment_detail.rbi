@@ -166,6 +166,16 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :originating_party_vendor_identifier
 
+      # The account number of the receiving account for the incoming payment detail, or
+      # `null`.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :receiving_account_number
+
+      # The last 4 digits of the receiving account number for the incoming payment
+      # detail, or `null`.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :receiving_account_number_safe
+
       sig do
         params(
           id: String,
@@ -203,7 +213,9 @@ module ModernTreasury
           originating_account_number: T.nilable(String),
           originating_party_address: T.nilable(ModernTreasury::Address::OrHash),
           originating_party_name: T.nilable(String),
-          originating_party_vendor_identifier: T.nilable(String)
+          originating_party_vendor_identifier: T.nilable(String),
+          receiving_account_number: T.nilable(String),
+          receiving_account_number_safe: T.nilable(String)
         ).returns(T.attached_class)
       end
       def self.new(
@@ -271,7 +283,13 @@ module ModernTreasury
         originating_party_name: nil,
         # The vendor-assigned identifier for the originating party of the incoming payment
         # detail, or `null`.
-        originating_party_vendor_identifier: nil
+        originating_party_vendor_identifier: nil,
+        # The account number of the receiving account for the incoming payment detail, or
+        # `null`.
+        receiving_account_number: nil,
+        # The last 4 digits of the receiving account number for the incoming payment
+        # detail, or `null`.
+        receiving_account_number_safe: nil
       )
       end
 
@@ -313,7 +331,9 @@ module ModernTreasury
             originating_account_number: T.nilable(String),
             originating_party_address: T.nilable(ModernTreasury::Address),
             originating_party_name: T.nilable(String),
-            originating_party_vendor_identifier: T.nilable(String)
+            originating_party_vendor_identifier: T.nilable(String),
+            receiving_account_number: T.nilable(String),
+            receiving_account_number_safe: T.nilable(String)
           }
         )
       end
