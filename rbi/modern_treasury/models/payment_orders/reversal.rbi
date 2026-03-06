@@ -236,6 +236,11 @@ module ModernTreasury
             end
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
+          CANCELLED =
+            T.let(
+              :cancelled,
+              ModernTreasury::PaymentOrders::Reversal::Status::TaggedSymbol
+            )
           COMPLETED =
             T.let(
               :completed,
