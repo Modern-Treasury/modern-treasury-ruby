@@ -6,7 +6,7 @@ class ModernTreasury::Test::Resources::DocumentsTest < ModernTreasury::Test::Res
   def test_create_required_params
     skip("multipart/form-data not yet supported")
 
-    response = @modern_treasury.documents.create(file: Pathname(__FILE__))
+    response = @modern_treasury.documents.create(file: StringIO.new("Example data"))
 
     assert_pattern do
       response => ModernTreasury::Document
