@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.18.0 (2026-03-07)
+
+Full Changelog: [v0.17.0...v0.18.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.17.0...v0.18.0)
+
+### Features
+
+* **api:** api update ([3d4dfb8](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/3d4dfb85c61eced7492b6a100cfbf8f1fbfdf7ad))
+
+
+### Chores
+
+* **ci:** skip uploading artifacts on stainless-internal branches ([ae7b86d](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/ae7b86d6a667283e7eab33bb90e027c444f0afd0))
+* update placeholder string ([cfb3c0e](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/cfb3c0e4481cccb94fceb10e89ccdad5aa80529a))
+
 ## 0.17.0 (2026-03-05)
 
 Full Changelog: [v0.16.0...v0.17.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.16.0...v0.17.0)
