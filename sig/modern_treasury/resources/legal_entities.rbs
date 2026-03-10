@@ -12,6 +12,7 @@ module ModernTreasury
         ?country_of_incorporation: String?,
         ?date_formed: Date?,
         ?date_of_birth: Date?,
+        ?documents: ::Array[ModernTreasury::LegalEntityCreateParams::Document],
         ?doing_business_as_names: ::Array[String],
         ?email: String?,
         ?expected_activity_volume: Integer?,

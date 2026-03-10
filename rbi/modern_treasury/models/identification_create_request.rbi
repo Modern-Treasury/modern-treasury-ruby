@@ -21,6 +21,26 @@ module ModernTreasury
       end
       attr_accessor :id_type
 
+      # A list of documents to attach to the identification.
+      sig do
+        returns(
+          T.nilable(
+            T::Array[ModernTreasury::IdentificationCreateRequest::Document]
+          )
+        )
+      end
+      attr_reader :documents
+
+      sig do
+        params(
+          documents:
+            T::Array[
+              ModernTreasury::IdentificationCreateRequest::Document::OrHash
+            ]
+        ).void
+      end
+      attr_writer :documents
+
       # The date when the Identification is no longer considered valid by the issuing
       # authority.
       sig { returns(T.nilable(Date)) }
@@ -40,6 +60,10 @@ module ModernTreasury
           id_number: String,
           id_type:
             ModernTreasury::IdentificationCreateRequest::IDType::OrSymbol,
+          documents:
+            T::Array[
+              ModernTreasury::IdentificationCreateRequest::Document::OrHash
+            ],
           expiration_date: T.nilable(Date),
           issuing_country: T.nilable(String),
           issuing_region: T.nilable(String)
@@ -50,6 +74,8 @@ module ModernTreasury
         id_number:,
         # The type of ID number.
         id_type:,
+        # A list of documents to attach to the identification.
+        documents: nil,
         # The date when the Identification is no longer considered valid by the issuing
         # authority.
         expiration_date: nil,
@@ -67,6 +93,8 @@ module ModernTreasury
             id_number: String,
             id_type:
               ModernTreasury::IdentificationCreateRequest::IDType::OrSymbol,
+            documents:
+              T::Array[ModernTreasury::IdentificationCreateRequest::Document],
             expiration_date: T.nilable(Date),
             issuing_country: T.nilable(String),
             issuing_region: T.nilable(String)
@@ -210,6 +238,121 @@ module ModernTreasury
           )
         end
         def self.values
+        end
+      end
+
+      class Document < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              ModernTreasury::IdentificationCreateRequest::Document,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
+
+        # A category given to the document, can be `null`.
+        sig do
+          returns(
+            ModernTreasury::IdentificationCreateRequest::Document::DocumentType::OrSymbol
+          )
+        end
+        attr_accessor :document_type
+
+        # Base64-encoded file content for the document.
+        sig { returns(String) }
+        attr_accessor :file_data
+
+        # The original filename of the document.
+        sig { returns(T.nilable(String)) }
+        attr_reader :filename
+
+        sig { params(filename: String).void }
+        attr_writer :filename
+
+        sig do
+          params(
+            document_type:
+              ModernTreasury::IdentificationCreateRequest::Document::DocumentType::OrSymbol,
+            file_data: String,
+            filename: String
+          ).returns(T.attached_class)
+        end
+        def self.new(
+          # A category given to the document, can be `null`.
+          document_type:,
+          # Base64-encoded file content for the document.
+          file_data:,
+          # The original filename of the document.
+          filename: nil
+        )
+        end
+
+        sig do
+          override.returns(
+            {
+              document_type:
+                ModernTreasury::IdentificationCreateRequest::Document::DocumentType::OrSymbol,
+              file_data: String,
+              filename: String
+            }
+          )
+        end
+        def to_hash
+        end
+
+        # A category given to the document, can be `null`.
+        module DocumentType
+          extend ModernTreasury::Internal::Type::Enum
+
+          TaggedSymbol =
+            T.type_alias do
+              T.all(
+                Symbol,
+                ModernTreasury::IdentificationCreateRequest::Document::DocumentType
+              )
+            end
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          ARTICLES_OF_INCORPORATION =
+            T.let(
+              :articles_of_incorporation,
+              ModernTreasury::IdentificationCreateRequest::Document::DocumentType::TaggedSymbol
+            )
+          CERTIFICATE_OF_GOOD_STANDING =
+            T.let(
+              :certificate_of_good_standing,
+              ModernTreasury::IdentificationCreateRequest::Document::DocumentType::TaggedSymbol
+            )
+          EIN_LETTER =
+            T.let(
+              :ein_letter,
+              ModernTreasury::IdentificationCreateRequest::Document::DocumentType::TaggedSymbol
+            )
+          IDENTIFICATION_BACK =
+            T.let(
+              :identification_back,
+              ModernTreasury::IdentificationCreateRequest::Document::DocumentType::TaggedSymbol
+            )
+          IDENTIFICATION_FRONT =
+            T.let(
+              :identification_front,
+              ModernTreasury::IdentificationCreateRequest::Document::DocumentType::TaggedSymbol
+            )
+          PROOF_OF_ADDRESS =
+            T.let(
+              :proof_of_address,
+              ModernTreasury::IdentificationCreateRequest::Document::DocumentType::TaggedSymbol
+            )
+
+          sig do
+            override.returns(
+              T::Array[
+                ModernTreasury::IdentificationCreateRequest::Document::DocumentType::TaggedSymbol
+              ]
+            )
+          end
+          def self.values
+          end
         end
       end
     end
