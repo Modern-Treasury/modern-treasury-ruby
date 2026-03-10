@@ -504,6 +504,7 @@ module ModernTreasury
           country_of_incorporation: String?,
           date_formed: Date?,
           date_of_birth: Date?,
+          documents: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::Document],
           doing_business_as_names: ::Array[String],
           email: String?,
           expected_activity_volume: Integer?,
@@ -558,6 +559,12 @@ module ModernTreasury
         attr_accessor date_formed: Date?
 
         attr_accessor date_of_birth: Date?
+
+        attr_reader documents: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::Document]?
+
+        def documents=: (
+          ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::Document]
+        ) -> ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::Document]
 
         attr_reader doing_business_as_names: ::Array[String]?
 
@@ -646,6 +653,7 @@ module ModernTreasury
           ?country_of_incorporation: String?,
           ?date_formed: Date?,
           ?date_of_birth: Date?,
+          ?documents: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::Document],
           ?doing_business_as_names: ::Array[String],
           ?email: String?,
           ?expected_activity_volume: Integer?,
@@ -687,6 +695,7 @@ module ModernTreasury
           country_of_incorporation: String?,
           date_formed: Date?,
           date_of_birth: Date?,
+          documents: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::Document],
           doing_business_as_names: ::Array[String],
           email: String?,
           expected_activity_volume: Integer?,
@@ -726,6 +735,56 @@ module ModernTreasury
           INDIVIDUAL: :individual
 
           def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::legal_entity_type]
+        end
+
+        type document =
+          {
+            document_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Document::document_type,
+            file_data: String,
+            filename: String
+          }
+
+        class Document < ModernTreasury::Internal::Type::BaseModel
+          attr_accessor document_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Document::document_type
+
+          attr_accessor file_data: String
+
+          attr_reader filename: String?
+
+          def filename=: (String) -> String
+
+          def initialize: (
+            document_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Document::document_type,
+            file_data: String,
+            ?filename: String
+          ) -> void
+
+          def to_hash: -> {
+            document_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Document::document_type,
+            file_data: String,
+            filename: String
+          }
+
+          type document_type =
+            :articles_of_incorporation
+            | :certificate_of_good_standing
+            | :ein_letter
+            | :identification_back
+            | :identification_front
+            | :proof_of_address
+
+          module DocumentType
+            extend ModernTreasury::Internal::Type::Enum
+
+            ARTICLES_OF_INCORPORATION: :articles_of_incorporation
+            CERTIFICATE_OF_GOOD_STANDING: :certificate_of_good_standing
+            EIN_LETTER: :ein_letter
+            IDENTIFICATION_BACK: :identification_back
+            IDENTIFICATION_FRONT: :identification_front
+            PROOF_OF_ADDRESS: :proof_of_address
+
+            def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Document::document_type]
+          end
         end
 
         type legal_structure =

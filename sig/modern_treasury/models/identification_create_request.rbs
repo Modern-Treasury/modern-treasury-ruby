@@ -4,6 +4,7 @@ module ModernTreasury
       {
         id_number: String,
         id_type: ModernTreasury::Models::IdentificationCreateRequest::id_type,
+        documents: ::Array[ModernTreasury::IdentificationCreateRequest::Document],
         expiration_date: Date?,
         issuing_country: String?,
         issuing_region: String?
@@ -14,6 +15,12 @@ module ModernTreasury
 
       attr_accessor id_type: ModernTreasury::Models::IdentificationCreateRequest::id_type
 
+      attr_reader documents: ::Array[ModernTreasury::IdentificationCreateRequest::Document]?
+
+      def documents=: (
+        ::Array[ModernTreasury::IdentificationCreateRequest::Document]
+      ) -> ::Array[ModernTreasury::IdentificationCreateRequest::Document]
+
       attr_accessor expiration_date: Date?
 
       attr_accessor issuing_country: String?
@@ -23,6 +30,7 @@ module ModernTreasury
       def initialize: (
         id_number: String,
         id_type: ModernTreasury::Models::IdentificationCreateRequest::id_type,
+        ?documents: ::Array[ModernTreasury::IdentificationCreateRequest::Document],
         ?expiration_date: Date?,
         ?issuing_country: String?,
         ?issuing_region: String?
@@ -31,6 +39,7 @@ module ModernTreasury
       def to_hash: -> {
         id_number: String,
         id_type: ModernTreasury::Models::IdentificationCreateRequest::id_type,
+        documents: ::Array[ModernTreasury::IdentificationCreateRequest::Document],
         expiration_date: Date?,
         issuing_country: String?,
         issuing_region: String?
@@ -89,6 +98,56 @@ module ModernTreasury
         VN_TIN: :vn_tin
 
         def self?.values: -> ::Array[ModernTreasury::Models::IdentificationCreateRequest::id_type]
+      end
+
+      type document =
+        {
+          document_type: ModernTreasury::Models::IdentificationCreateRequest::Document::document_type,
+          file_data: String,
+          filename: String
+        }
+
+      class Document < ModernTreasury::Internal::Type::BaseModel
+        attr_accessor document_type: ModernTreasury::Models::IdentificationCreateRequest::Document::document_type
+
+        attr_accessor file_data: String
+
+        attr_reader filename: String?
+
+        def filename=: (String) -> String
+
+        def initialize: (
+          document_type: ModernTreasury::Models::IdentificationCreateRequest::Document::document_type,
+          file_data: String,
+          ?filename: String
+        ) -> void
+
+        def to_hash: -> {
+          document_type: ModernTreasury::Models::IdentificationCreateRequest::Document::document_type,
+          file_data: String,
+          filename: String
+        }
+
+        type document_type =
+          :articles_of_incorporation
+          | :certificate_of_good_standing
+          | :ein_letter
+          | :identification_back
+          | :identification_front
+          | :proof_of_address
+
+        module DocumentType
+          extend ModernTreasury::Internal::Type::Enum
+
+          ARTICLES_OF_INCORPORATION: :articles_of_incorporation
+          CERTIFICATE_OF_GOOD_STANDING: :certificate_of_good_standing
+          EIN_LETTER: :ein_letter
+          IDENTIFICATION_BACK: :identification_back
+          IDENTIFICATION_FRONT: :identification_front
+          PROOF_OF_ADDRESS: :proof_of_address
+
+          def self?.values: -> ::Array[ModernTreasury::Models::IdentificationCreateRequest::Document::document_type]
+        end
       end
     end
   end

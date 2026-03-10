@@ -19,6 +19,8 @@ module ModernTreasury
           country_of_incorporation: T.nilable(String),
           date_formed: T.nilable(Date),
           date_of_birth: T.nilable(Date),
+          documents:
+            T::Array[ModernTreasury::LegalEntityCreateParams::Document::OrHash],
           doing_business_as_names: T::Array[String],
           email: T.nilable(String),
           expected_activity_volume: T.nilable(Integer),
@@ -105,6 +107,9 @@ module ModernTreasury
         date_formed: nil,
         # An individual's date of birth (YYYY-MM-DD).
         date_of_birth: nil,
+        # A list of documents to attach to the legal entity (e.g. articles of
+        # incorporation, certificate of good standing, proof of address).
+        documents: nil,
         doing_business_as_names: nil,
         # The entity's primary email.
         email: nil,
