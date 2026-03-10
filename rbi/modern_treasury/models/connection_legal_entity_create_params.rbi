@@ -146,6 +146,29 @@ module ModernTreasury
         sig { returns(T.nilable(Date)) }
         attr_accessor :date_of_birth
 
+        # A list of documents to attach to the legal entity (e.g. articles of
+        # incorporation, certificate of good standing, proof of address).
+        sig do
+          returns(
+            T.nilable(
+              T::Array[
+                ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::Document
+              ]
+            )
+          )
+        end
+        attr_reader :documents
+
+        sig do
+          params(
+            documents:
+              T::Array[
+                ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::Document::OrHash
+              ]
+          ).void
+        end
+        attr_writer :documents
+
         sig { returns(T.nilable(T::Array[String])) }
         attr_reader :doing_business_as_names
 
@@ -408,6 +431,10 @@ module ModernTreasury
             country_of_incorporation: T.nilable(String),
             date_formed: T.nilable(Date),
             date_of_birth: T.nilable(Date),
+            documents:
+              T::Array[
+                ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::Document::OrHash
+              ],
             doing_business_as_names: T::Array[String],
             email: T.nilable(String),
             expected_activity_volume: T.nilable(Integer),
@@ -495,6 +522,9 @@ module ModernTreasury
           date_formed: nil,
           # An individual's date of birth (YYYY-MM-DD).
           date_of_birth: nil,
+          # A list of documents to attach to the legal entity (e.g. articles of
+          # incorporation, certificate of good standing, proof of address).
+          documents: nil,
           doing_business_as_names: nil,
           # The entity's primary email.
           email: nil,
@@ -569,6 +599,10 @@ module ModernTreasury
               country_of_incorporation: T.nilable(String),
               date_formed: T.nilable(Date),
               date_of_birth: T.nilable(Date),
+              documents:
+                T::Array[
+                  ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::Document
+                ],
               doing_business_as_names: T::Array[String],
               email: T.nilable(String),
               expected_activity_volume: T.nilable(Integer),
@@ -629,6 +663,121 @@ module ModernTreasury
           )
         end
         def to_hash
+        end
+
+        class Document < ModernTreasury::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(
+                ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::Document,
+                ModernTreasury::Internal::AnyHash
+              )
+            end
+
+          # A category given to the document, can be `null`.
+          sig do
+            returns(
+              ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::Document::DocumentType::OrSymbol
+            )
+          end
+          attr_accessor :document_type
+
+          # Base64-encoded file content for the document.
+          sig { returns(String) }
+          attr_accessor :file_data
+
+          # The original filename of the document.
+          sig { returns(T.nilable(String)) }
+          attr_reader :filename
+
+          sig { params(filename: String).void }
+          attr_writer :filename
+
+          sig do
+            params(
+              document_type:
+                ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::Document::DocumentType::OrSymbol,
+              file_data: String,
+              filename: String
+            ).returns(T.attached_class)
+          end
+          def self.new(
+            # A category given to the document, can be `null`.
+            document_type:,
+            # Base64-encoded file content for the document.
+            file_data:,
+            # The original filename of the document.
+            filename: nil
+          )
+          end
+
+          sig do
+            override.returns(
+              {
+                document_type:
+                  ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::Document::DocumentType::OrSymbol,
+                file_data: String,
+                filename: String
+              }
+            )
+          end
+          def to_hash
+          end
+
+          # A category given to the document, can be `null`.
+          module DocumentType
+            extend ModernTreasury::Internal::Type::Enum
+
+            TaggedSymbol =
+              T.type_alias do
+                T.all(
+                  Symbol,
+                  ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::Document::DocumentType
+                )
+              end
+            OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+            ARTICLES_OF_INCORPORATION =
+              T.let(
+                :articles_of_incorporation,
+                ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::Document::DocumentType::TaggedSymbol
+              )
+            CERTIFICATE_OF_GOOD_STANDING =
+              T.let(
+                :certificate_of_good_standing,
+                ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::Document::DocumentType::TaggedSymbol
+              )
+            EIN_LETTER =
+              T.let(
+                :ein_letter,
+                ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::Document::DocumentType::TaggedSymbol
+              )
+            IDENTIFICATION_BACK =
+              T.let(
+                :identification_back,
+                ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::Document::DocumentType::TaggedSymbol
+              )
+            IDENTIFICATION_FRONT =
+              T.let(
+                :identification_front,
+                ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::Document::DocumentType::TaggedSymbol
+              )
+            PROOF_OF_ADDRESS =
+              T.let(
+                :proof_of_address,
+                ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::Document::DocumentType::TaggedSymbol
+              )
+
+            sig do
+              override.returns(
+                T::Array[
+                  ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::Document::DocumentType::TaggedSymbol
+                ]
+              )
+            end
+            def self.values
+            end
+          end
         end
 
         # The type of legal entity.

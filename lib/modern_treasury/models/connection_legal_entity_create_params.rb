@@ -94,6 +94,14 @@ module ModernTreasury
         #   @return [Date, nil]
         optional :date_of_birth, Date, nil?: true
 
+        # @!attribute documents
+        #   A list of documents to attach to the legal entity (e.g. articles of
+        #   incorporation, certificate of good standing, proof of address).
+        #
+        #   @return [Array<ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Document>, nil]
+        optional :documents,
+                 -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::Document] }
+
         # @!attribute doing_business_as_names
         #
         #   @return [Array<String>, nil]
@@ -292,7 +300,7 @@ module ModernTreasury
         #   @return [String, nil]
         optional :website, String, nil?: true
 
-        # @!method initialize(addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, connection_id: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, external_id: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_entity_associations: nil, legal_entity_type: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, status: nil, suffix: nil, third_party_verification: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil)
+        # @!method initialize(addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, connection_id: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, documents: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, external_id: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_entity_associations: nil, legal_entity_type: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, status: nil, suffix: nil, third_party_verification: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil)
         #   Some parameter documentations has been truncated, see
         #   {ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity} for
         #   more details.
@@ -316,6 +324,8 @@ module ModernTreasury
         #   @param date_formed [Date, nil] A business's formation date (YYYY-MM-DD).
         #
         #   @param date_of_birth [Date, nil] An individual's date of birth (YYYY-MM-DD).
+        #
+        #   @param documents [Array<ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Document>] A list of documents to attach to the legal entity (e.g. articles of incorporatio
         #
         #   @param doing_business_as_names [Array<String>]
         #
@@ -374,6 +384,51 @@ module ModernTreasury
         #   @param wealth_and_employment_details [ModernTreasury::Models::LegalEntityWealthEmploymentDetail, nil]
         #
         #   @param website [String, nil] The entity's primary website URL.
+
+        class Document < ModernTreasury::Internal::Type::BaseModel
+          # @!attribute document_type
+          #   A category given to the document, can be `null`.
+          #
+          #   @return [Symbol, ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Document::DocumentType]
+          required :document_type,
+                   enum: -> { ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::Document::DocumentType }
+
+          # @!attribute file_data
+          #   Base64-encoded file content for the document.
+          #
+          #   @return [String]
+          required :file_data, String
+
+          # @!attribute filename
+          #   The original filename of the document.
+          #
+          #   @return [String, nil]
+          optional :filename, String
+
+          # @!method initialize(document_type:, file_data:, filename: nil)
+          #   @param document_type [Symbol, ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Document::DocumentType] A category given to the document, can be `null`.
+          #
+          #   @param file_data [String] Base64-encoded file content for the document.
+          #
+          #   @param filename [String] The original filename of the document.
+
+          # A category given to the document, can be `null`.
+          #
+          # @see ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Document#document_type
+          module DocumentType
+            extend ModernTreasury::Internal::Type::Enum
+
+            ARTICLES_OF_INCORPORATION = :articles_of_incorporation
+            CERTIFICATE_OF_GOOD_STANDING = :certificate_of_good_standing
+            EIN_LETTER = :ein_letter
+            IDENTIFICATION_BACK = :identification_back
+            IDENTIFICATION_FRONT = :identification_front
+            PROOF_OF_ADDRESS = :proof_of_address
+
+            # @!method self.values
+            #   @return [Array<Symbol>]
+          end
+        end
 
         # The type of legal entity.
         #

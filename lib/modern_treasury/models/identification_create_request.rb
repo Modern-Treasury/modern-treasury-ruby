@@ -15,6 +15,13 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::IdentificationCreateRequest::IDType]
       required :id_type, enum: -> { ModernTreasury::IdentificationCreateRequest::IDType }
 
+      # @!attribute documents
+      #   A list of documents to attach to the identification.
+      #
+      #   @return [Array<ModernTreasury::Models::IdentificationCreateRequest::Document>, nil]
+      optional :documents,
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::IdentificationCreateRequest::Document] }
+
       # @!attribute expiration_date
       #   The date when the Identification is no longer considered valid by the issuing
       #   authority.
@@ -35,13 +42,15 @@ module ModernTreasury
       #   @return [String, nil]
       optional :issuing_region, String, nil?: true
 
-      # @!method initialize(id_number:, id_type:, expiration_date: nil, issuing_country: nil, issuing_region: nil)
+      # @!method initialize(id_number:, id_type:, documents: nil, expiration_date: nil, issuing_country: nil, issuing_region: nil)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::IdentificationCreateRequest} for more details.
       #
       #   @param id_number [String] The ID number of identification document.
       #
       #   @param id_type [Symbol, ModernTreasury::Models::IdentificationCreateRequest::IDType] The type of ID number.
+      #
+      #   @param documents [Array<ModernTreasury::Models::IdentificationCreateRequest::Document>] A list of documents to attach to the identification.
       #
       #   @param expiration_date [Date, nil] The date when the Identification is no longer considered valid by the issuing au
       #
@@ -81,6 +90,50 @@ module ModernTreasury
 
         # @!method self.values
         #   @return [Array<Symbol>]
+      end
+
+      class Document < ModernTreasury::Internal::Type::BaseModel
+        # @!attribute document_type
+        #   A category given to the document, can be `null`.
+        #
+        #   @return [Symbol, ModernTreasury::Models::IdentificationCreateRequest::Document::DocumentType]
+        required :document_type, enum: -> { ModernTreasury::IdentificationCreateRequest::Document::DocumentType }
+
+        # @!attribute file_data
+        #   Base64-encoded file content for the document.
+        #
+        #   @return [String]
+        required :file_data, String
+
+        # @!attribute filename
+        #   The original filename of the document.
+        #
+        #   @return [String, nil]
+        optional :filename, String
+
+        # @!method initialize(document_type:, file_data:, filename: nil)
+        #   @param document_type [Symbol, ModernTreasury::Models::IdentificationCreateRequest::Document::DocumentType] A category given to the document, can be `null`.
+        #
+        #   @param file_data [String] Base64-encoded file content for the document.
+        #
+        #   @param filename [String] The original filename of the document.
+
+        # A category given to the document, can be `null`.
+        #
+        # @see ModernTreasury::Models::IdentificationCreateRequest::Document#document_type
+        module DocumentType
+          extend ModernTreasury::Internal::Type::Enum
+
+          ARTICLES_OF_INCORPORATION = :articles_of_incorporation
+          CERTIFICATE_OF_GOOD_STANDING = :certificate_of_good_standing
+          EIN_LETTER = :ein_letter
+          IDENTIFICATION_BACK = :identification_back
+          IDENTIFICATION_FRONT = :identification_front
+          PROOF_OF_ADDRESS = :proof_of_address
+
+          # @!method self.values
+          #   @return [Array<Symbol>]
+        end
       end
     end
   end
