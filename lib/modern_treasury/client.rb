@@ -21,6 +21,9 @@ module ModernTreasury
     # @return [String]
     attr_reader :organization_id
 
+    # @return [String, nil]
+    attr_reader :webhook_key
+
     # @return [ModernTreasury::Resources::Connections]
     attr_reader :connections
 
@@ -170,6 +173,8 @@ module ModernTreasury
     #
     # @param organization_id [String, nil] Defaults to `ENV["MODERN_TREASURY_ORGANIZATION_ID"]`
     #
+    # @param webhook_key [String, nil] Defaults to `ENV["MODERN_TREASURY_WEBHOOK_KEY"]`
+    #
     # @param base_url [String, nil] Override the default base URL for the API, e.g.,
     # `"https://api.example.com/v2/"`. Defaults to `ENV["MODERN_TREASURY_BASE_URL"]`
     #
@@ -185,6 +190,7 @@ module ModernTreasury
     def initialize(
       api_key: ENV["MODERN_TREASURY_API_KEY"],
       organization_id: ENV["MODERN_TREASURY_ORGANIZATION_ID"],
+      webhook_key: ENV["MODERN_TREASURY_WEBHOOK_KEY"],
       base_url: ENV["MODERN_TREASURY_BASE_URL"],
       max_retries: self.class::DEFAULT_MAX_RETRIES,
       timeout: self.class::DEFAULT_TIMEOUT_IN_SECONDS,
@@ -203,6 +209,7 @@ module ModernTreasury
 
       @api_key = api_key.to_s
       @organization_id = organization_id.to_s
+      @webhook_key = webhook_key&.to_s
 
       super(
         base_url: base_url,

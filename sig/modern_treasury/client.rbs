@@ -12,6 +12,8 @@ module ModernTreasury
 
     attr_reader organization_id: String
 
+    attr_reader webhook_key: String?
+
     attr_reader connections: ModernTreasury::Resources::Connections
 
     attr_reader counterparties: ModernTreasury::Resources::Counterparties
@@ -97,6 +99,7 @@ module ModernTreasury
     def initialize: (
       ?api_key: String?,
       ?organization_id: String?,
+      ?webhook_key: String?,
       ?base_url: String?,
       ?max_retries: Integer,
       ?timeout: Float,
