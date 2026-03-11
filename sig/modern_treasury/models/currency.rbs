@@ -165,6 +165,7 @@ module ModernTreasury
       | :USD
       | :USDB
       | :USDC
+      | :USDG
       | :USDP
       | :USDT
       | :UYU
@@ -365,6 +366,7 @@ module ModernTreasury
       USD: :USD
       USDB: :USDB
       USDC: :USDC
+      USDG: :USDG
       USDP: :USDP
       USDT: :USDT
       UYU: :UYU

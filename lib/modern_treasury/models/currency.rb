@@ -170,6 +170,7 @@ module ModernTreasury
       USD = :USD
       USDB = :USDB
       USDC = :USDC
+      USDG = :USDG
       USDP = :USDP
       USDT = :USDT
       UYU = :UYU
