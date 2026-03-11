@@ -16,6 +16,9 @@ module ModernTreasury
     sig { returns(String) }
     attr_reader :organization_id
 
+    sig { returns(T.nilable(String)) }
+    attr_reader :webhook_key
+
     sig { returns(ModernTreasury::Resources::Connections) }
     attr_reader :connections
 
@@ -150,6 +153,7 @@ module ModernTreasury
       params(
         api_key: T.nilable(String),
         organization_id: T.nilable(String),
+        webhook_key: T.nilable(String),
         base_url: T.nilable(String),
         max_retries: Integer,
         timeout: Float,
@@ -163,6 +167,8 @@ module ModernTreasury
       api_key: ENV["MODERN_TREASURY_API_KEY"],
       # Defaults to `ENV["MODERN_TREASURY_ORGANIZATION_ID"]`
       organization_id: ENV["MODERN_TREASURY_ORGANIZATION_ID"],
+      # Defaults to `ENV["MODERN_TREASURY_WEBHOOK_KEY"]`
+      webhook_key: ENV["MODERN_TREASURY_WEBHOOK_KEY"],
       # Override the default base URL for the API, e.g.,
       # `"https://api.example.com/v2/"`. Defaults to `ENV["MODERN_TREASURY_BASE_URL"]`
       base_url: ENV["MODERN_TREASURY_BASE_URL"],
