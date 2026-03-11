@@ -173,6 +173,7 @@ module ModernTreasury
       USD = T.let(:USD, ModernTreasury::Currency::TaggedSymbol)
       USDB = T.let(:USDB, ModernTreasury::Currency::TaggedSymbol)
       USDC = T.let(:USDC, ModernTreasury::Currency::TaggedSymbol)
+      USDG = T.let(:USDG, ModernTreasury::Currency::TaggedSymbol)
       USDP = T.let(:USDP, ModernTreasury::Currency::TaggedSymbol)
       USDT = T.let(:USDT, ModernTreasury::Currency::TaggedSymbol)
       UYU = T.let(:UYU, ModernTreasury::Currency::TaggedSymbol)
