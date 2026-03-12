@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.20.0 (2026-03-12)
+
+Full Changelog: [v0.19.0...v0.20.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.19.0...v0.20.0)
+
+### Features
+
+* **api:** api update ([7c77248](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/7c77248925b0be3472f16a133dc0e0ba1c0e5b00))
+* **api:** api update ([65a404c](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/65a404ca2ec61021074d78a8315ecbd9591b22a0))
+* **client:** add webhook support ([7dce7c9](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/7dce7c944d1fd5780333a260aab936e51eaa16f4))
+
 ## 0.19.0 (2026-03-10)
 
 Full Changelog: [v0.18.0...v0.19.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.18.0...v0.19.0)
