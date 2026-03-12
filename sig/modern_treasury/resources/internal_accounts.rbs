@@ -13,6 +13,7 @@ module ModernTreasury
         ?counterparty_id: String,
         ?external_id: String?,
         ?legal_entity_id: String,
+        ?metadata: ::Hash[Symbol, String],
         ?parent_account_id: String,
         ?party_address: ModernTreasury::InternalAccountCreateParams::PartyAddress,
         ?vendor_attributes: ::Hash[Symbol, String],
