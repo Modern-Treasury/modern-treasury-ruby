@@ -25,6 +25,7 @@ module ModernTreasury
           counterparty_id: String,
           external_id: T.nilable(String),
           legal_entity_id: String,
+          metadata: T::Hash[Symbol, String],
           parent_account_id: String,
           party_address:
             ModernTreasury::InternalAccountCreateParams::PartyAddress::OrHash,
@@ -54,6 +55,9 @@ module ModernTreasury
         external_id: nil,
         # The LegalEntity associated to this account.
         legal_entity_id: nil,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        # strings.
+        metadata: nil,
         # The parent internal account of this new account.
         parent_account_id: nil,
         # The address associated with the owner or null.

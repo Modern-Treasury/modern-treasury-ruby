@@ -11,6 +11,7 @@ module ModernTreasury
         counterparty_id: String,
         external_id: String?,
         legal_entity_id: String,
+        metadata: ::Hash[Symbol, String],
         parent_account_id: String,
         party_address: ModernTreasury::InternalAccountCreateParams::PartyAddress,
         vendor_attributes: ::Hash[Symbol, String]
@@ -51,6 +52,10 @@ module ModernTreasury
 
       def legal_entity_id=: (String) -> String
 
+      attr_reader metadata: ::Hash[Symbol, String]?
+
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
+
       attr_reader parent_account_id: String?
 
       def parent_account_id=: (String) -> String
@@ -75,6 +80,7 @@ module ModernTreasury
         ?counterparty_id: String,
         ?external_id: String?,
         ?legal_entity_id: String,
+        ?metadata: ::Hash[Symbol, String],
         ?parent_account_id: String,
         ?party_address: ModernTreasury::InternalAccountCreateParams::PartyAddress,
         ?vendor_attributes: ::Hash[Symbol, String],
@@ -91,6 +97,7 @@ module ModernTreasury
         counterparty_id: String,
         external_id: String?,
         legal_entity_id: String,
+        metadata: ::Hash[Symbol, String],
         parent_account_id: String,
         party_address: ModernTreasury::InternalAccountCreateParams::PartyAddress,
         vendor_attributes: ::Hash[Symbol, String],
