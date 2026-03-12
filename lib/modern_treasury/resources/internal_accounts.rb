@@ -11,7 +11,7 @@ module ModernTreasury
       #
       # create internal account
       #
-      # @overload create(connection_id:, currency:, name:, party_name:, account_capabilities: nil, account_type: nil, counterparty_id: nil, external_id: nil, legal_entity_id: nil, parent_account_id: nil, party_address: nil, vendor_attributes: nil, request_options: {})
+      # @overload create(connection_id:, currency:, name:, party_name:, account_capabilities: nil, account_type: nil, counterparty_id: nil, external_id: nil, legal_entity_id: nil, metadata: nil, parent_account_id: nil, party_address: nil, vendor_attributes: nil, request_options: {})
       #
       # @param connection_id [String] The identifier of the financial institution the account belongs to.
       #
@@ -30,6 +30,8 @@ module ModernTreasury
       # @param external_id [String, nil] An optional user-defined 180 character unique identifier.
       #
       # @param legal_entity_id [String] The LegalEntity associated to this account.
+      #
+      # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #
       # @param parent_account_id [String] The parent internal account of this new account.
       #
