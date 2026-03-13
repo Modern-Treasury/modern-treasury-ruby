@@ -674,6 +674,11 @@ module ModernTreasury
             :closed,
             ModernTreasury::LegalEntityUpdateParams::Status::TaggedSymbol
           )
+        DENIED =
+          T.let(
+            :denied,
+            ModernTreasury::LegalEntityUpdateParams::Status::TaggedSymbol
+          )
         PENDING =
           T.let(
             :pending,

@@ -62,10 +62,16 @@ module ModernTreasury
           statement_descriptor: T.nilable(String),
           subtype: T.nilable(ModernTreasury::PaymentOrderSubtype::OrSymbol),
           transaction_monitoring_enabled: T::Boolean,
+          ultimate_originating_account_id: String,
+          ultimate_originating_party_address:
+            T.nilable(
+              ModernTreasury::PaymentOrderCreateParams::UltimateOriginatingPartyAddress::OrHash
+            ),
           ultimate_originating_party_identifier: T.nilable(String),
           ultimate_originating_party_name: T.nilable(String),
           ultimate_receiving_party_identifier: T.nilable(String),
           ultimate_receiving_party_name: T.nilable(String),
+          vendor_attributes: T.anything,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::PaymentOrder)
       end
@@ -190,6 +196,11 @@ module ModernTreasury
         # A flag that determines whether a payment order should go through transaction
         # monitoring.
         transaction_monitoring_enabled: nil,
+        # The ultimate originating account ID. Can be a `virtual_account` or
+        # `internal_account`.
+        ultimate_originating_account_id: nil,
+        # Address of the ultimate originator of the payment order.
+        ultimate_originating_party_address: nil,
         # Identifier of the ultimate originator of the payment order.
         ultimate_originating_party_identifier: nil,
         # Name of the ultimate originator of the payment order.
@@ -198,6 +209,9 @@ module ModernTreasury
         ultimate_receiving_party_identifier: nil,
         # Name of the ultimate funds recipient.
         ultimate_receiving_party_name: nil,
+        # Additional vendor specific fields for this payment. Data must be represented as
+        # key-value pairs.
+        vendor_attributes: nil,
         request_options: {}
       )
       end
@@ -515,10 +529,16 @@ module ModernTreasury
           statement_descriptor: T.nilable(String),
           subtype: T.nilable(ModernTreasury::PaymentOrderSubtype::OrSymbol),
           transaction_monitoring_enabled: T::Boolean,
+          ultimate_originating_account_id: String,
+          ultimate_originating_party_address:
+            T.nilable(
+              ModernTreasury::PaymentOrderCreateAsyncParams::UltimateOriginatingPartyAddress::OrHash
+            ),
           ultimate_originating_party_identifier: T.nilable(String),
           ultimate_originating_party_name: T.nilable(String),
           ultimate_receiving_party_identifier: T.nilable(String),
           ultimate_receiving_party_name: T.nilable(String),
+          vendor_attributes: T.anything,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::AsyncResponse)
       end
@@ -640,6 +660,11 @@ module ModernTreasury
         # A flag that determines whether a payment order should go through transaction
         # monitoring.
         transaction_monitoring_enabled: nil,
+        # The ultimate originating account ID. Can be a `virtual_account` or
+        # `internal_account`.
+        ultimate_originating_account_id: nil,
+        # Address of the ultimate originator of the payment order.
+        ultimate_originating_party_address: nil,
         # Identifier of the ultimate originator of the payment order.
         ultimate_originating_party_identifier: nil,
         # Name of the ultimate originator of the payment order.
@@ -648,6 +673,9 @@ module ModernTreasury
         ultimate_receiving_party_identifier: nil,
         # Name of the ultimate funds recipient.
         ultimate_receiving_party_name: nil,
+        # Additional vendor specific fields for this payment. Data must be represented as
+        # key-value pairs.
+        vendor_attributes: nil,
         request_options: {}
       )
       end

@@ -186,6 +186,11 @@ module ModernTreasury
             :closed,
             ModernTreasury::LegalEntityListParams::Status::TaggedSymbol
           )
+        DENIED =
+          T.let(
+            :denied,
+            ModernTreasury::LegalEntityListParams::Status::TaggedSymbol
+          )
 
         sig do
           override.returns(

@@ -14,6 +14,7 @@ module ModernTreasury
         fallback_payment_method: String?,
         invoice_line_items: ::Array[ModernTreasury::InvoiceCreateParams::InvoiceLineItem]?,
         invoicer_address: ModernTreasury::InvoiceCreateParams::InvoicerAddress?,
+        invoicer_name: String?,
         metadata: ::Hash[Symbol, String]?,
         notification_email_addresses: ::Array[String]?,
         notifications_enabled: bool,
@@ -66,6 +67,8 @@ module ModernTreasury
 
       attr_accessor invoicer_address: ModernTreasury::InvoiceCreateParams::InvoicerAddress?
 
+      attr_accessor invoicer_name: String?
+
       attr_accessor metadata: ::Hash[Symbol, String]?
 
       attr_accessor notification_email_addresses: ::Array[String]?
@@ -115,6 +118,7 @@ module ModernTreasury
         ?fallback_payment_method: String?,
         ?invoice_line_items: ::Array[ModernTreasury::InvoiceCreateParams::InvoiceLineItem]?,
         ?invoicer_address: ModernTreasury::InvoiceCreateParams::InvoicerAddress?,
+        ?invoicer_name: String?,
         ?metadata: ::Hash[Symbol, String]?,
         ?notification_email_addresses: ::Array[String]?,
         ?notifications_enabled: bool,
@@ -142,6 +146,7 @@ module ModernTreasury
         fallback_payment_method: String?,
         invoice_line_items: ::Array[ModernTreasury::InvoiceCreateParams::InvoiceLineItem]?,
         invoicer_address: ModernTreasury::InvoiceCreateParams::InvoicerAddress?,
+        invoicer_name: String?,
         metadata: ::Hash[Symbol, String]?,
         notification_email_addresses: ::Array[String]?,
         notifications_enabled: bool,
