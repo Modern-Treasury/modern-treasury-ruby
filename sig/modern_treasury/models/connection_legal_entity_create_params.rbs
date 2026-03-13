@@ -45,6 +45,7 @@ module ModernTreasury
           business_description: String?,
           business_name: String?,
           citizenship_country: String?,
+          compliance_details: top?,
           connection_id: String?,
           country_of_incorporation: String?,
           date_formed: Date?,
@@ -95,6 +96,8 @@ module ModernTreasury
         attr_accessor business_name: String?
 
         attr_accessor citizenship_country: String?
+
+        attr_accessor compliance_details: top?
 
         attr_accessor connection_id: String?
 
@@ -198,6 +201,7 @@ module ModernTreasury
           ?business_description: String?,
           ?business_name: String?,
           ?citizenship_country: String?,
+          ?compliance_details: top?,
           ?connection_id: String?,
           ?country_of_incorporation: String?,
           ?date_formed: Date?,
@@ -240,6 +244,7 @@ module ModernTreasury
           business_description: String?,
           business_name: String?,
           citizenship_country: String?,
+          compliance_details: top?,
           connection_id: String?,
           country_of_incorporation: String?,
           date_formed: Date?,
@@ -405,13 +410,14 @@ module ModernTreasury
           def self?.values: -> ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::risk_rating]
         end
 
-        type status = :active | :closed | :pending | :suspended
+        type status = :active | :closed | :denied | :pending | :suspended
 
         module Status
           extend ModernTreasury::Internal::Type::Enum
 
           ACTIVE: :active
           CLOSED: :closed
+          DENIED: :denied
           PENDING: :pending
           SUSPENDED: :suspended
 

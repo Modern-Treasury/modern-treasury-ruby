@@ -8,6 +8,7 @@ module ModernTreasury
         ?business_description: String?,
         ?business_name: String?,
         ?citizenship_country: String?,
+        ?compliance_details: top?,
         ?connection_id: String?,
         ?country_of_incorporation: String?,
         ?date_formed: Date?,

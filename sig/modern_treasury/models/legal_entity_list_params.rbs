@@ -79,7 +79,7 @@ module ModernTreasury
         def self?.values: -> ::Array[ModernTreasury::Models::LegalEntityListParams::legal_entity_type]
       end
 
-      type status = :pending | :active | :suspended | :closed
+      type status = :pending | :active | :suspended | :closed | :denied
 
       module Status
         extend ModernTreasury::Internal::Type::Enum
@@ -88,6 +88,7 @@ module ModernTreasury
         ACTIVE: :active
         SUSPENDED: :suspended
         CLOSED: :closed
+        DENIED: :denied
 
         def self?.values: -> ::Array[ModernTreasury::Models::LegalEntityListParams::status]
       end

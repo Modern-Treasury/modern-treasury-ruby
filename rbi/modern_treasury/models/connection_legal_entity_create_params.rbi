@@ -125,6 +125,9 @@ module ModernTreasury
         sig { returns(T.nilable(String)) }
         attr_accessor :citizenship_country
 
+        sig { returns(T.nilable(T.anything)) }
+        attr_accessor :compliance_details
+
         # The connection ID for the connection the legal entity is associated with.
         # Defaults to the id of the connection designated with an is_default value of true
         # or the id of an existing operational connection if only one is available. Pass
@@ -427,6 +430,7 @@ module ModernTreasury
             business_description: T.nilable(String),
             business_name: T.nilable(String),
             citizenship_country: T.nilable(String),
+            compliance_details: T.nilable(T.anything),
             connection_id: T.nilable(String),
             country_of_incorporation: T.nilable(String),
             date_formed: T.nilable(Date),
@@ -509,6 +513,7 @@ module ModernTreasury
           business_name: nil,
           # The country of citizenship for an individual.
           citizenship_country: nil,
+          compliance_details: nil,
           # The connection ID for the connection the legal entity is associated with.
           # Defaults to the id of the connection designated with an is_default value of true
           # or the id of an existing operational connection if only one is available. Pass
@@ -595,6 +600,7 @@ module ModernTreasury
               business_description: T.nilable(String),
               business_name: T.nilable(String),
               citizenship_country: T.nilable(String),
+              compliance_details: T.nilable(T.anything),
               connection_id: T.nilable(String),
               country_of_incorporation: T.nilable(String),
               date_formed: T.nilable(Date),
@@ -1010,6 +1016,11 @@ module ModernTreasury
           CLOSED =
             T.let(
               :closed,
+              ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::Status::TaggedSymbol
+            )
+          DENIED =
+            T.let(
+              :denied,
               ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::Status::TaggedSymbol
             )
           PENDING =

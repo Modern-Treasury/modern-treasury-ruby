@@ -530,13 +530,14 @@ module ModernTreasury
         def self?.values: -> ::Array[ModernTreasury::Models::ChildLegalEntity::risk_rating]
       end
 
-      type status = :active | :closed | :pending | :suspended
+      type status = :active | :closed | :denied | :pending | :suspended
 
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
         ACTIVE: :active
         CLOSED: :closed
+        DENIED: :denied
         PENDING: :pending
         SUSPENDED: :suspended
 

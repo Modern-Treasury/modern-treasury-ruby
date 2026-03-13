@@ -8,7 +8,7 @@ module ModernTreasury
       #
       # create legal_entity
       #
-      # @overload create(legal_entity_type:, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, connection_id: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, documents: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, external_id: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_entity_associations: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, status: nil, suffix: nil, third_party_verification: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
+      # @overload create(legal_entity_type:, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, connection_id: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, documents: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, external_id: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_entity_associations: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, status: nil, suffix: nil, third_party_verification: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
       #
       # @param legal_entity_type [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityType] The type of legal entity.
       #
@@ -21,6 +21,8 @@ module ModernTreasury
       # @param business_name [String, nil] The business's legal business name.
       #
       # @param citizenship_country [String, nil] The country of citizenship for an individual.
+      #
+      # @param compliance_details [Object, nil]
       #
       # @param connection_id [String, nil] The connection ID for the connection the legal entity is associated with. Defaul
       #

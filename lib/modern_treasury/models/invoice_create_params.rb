@@ -92,6 +92,13 @@ module ModernTreasury
       #   @return [ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress, nil]
       optional :invoicer_address, -> { ModernTreasury::InvoiceCreateParams::InvoicerAddress }, nil?: true
 
+      # @!attribute invoicer_name
+      #   The name of the issuer for the invoice. Defaults to the name of the
+      #   Organization.
+      #
+      #   @return [String, nil]
+      optional :invoicer_name, String, nil?: true
+
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
@@ -174,7 +181,7 @@ module ModernTreasury
       #   @return [String, nil]
       optional :virtual_account_id, String, nil?: true
 
-      # @!method initialize(counterparty_id:, due_date:, originating_account_id:, auto_advance: nil, contact_details: nil, counterparty_billing_address: nil, counterparty_shipping_address: nil, currency: nil, description: nil, fallback_payment_method: nil, invoice_line_items: nil, invoicer_address: nil, metadata: nil, notification_email_addresses: nil, notifications_enabled: nil, payment_effective_date: nil, payment_method: nil, payment_type: nil, receiving_account_id: nil, recipient_email: nil, recipient_name: nil, remind_after_overdue_days: nil, virtual_account_id: nil, request_options: {})
+      # @!method initialize(counterparty_id:, due_date:, originating_account_id:, auto_advance: nil, contact_details: nil, counterparty_billing_address: nil, counterparty_shipping_address: nil, currency: nil, description: nil, fallback_payment_method: nil, invoice_line_items: nil, invoicer_address: nil, invoicer_name: nil, metadata: nil, notification_email_addresses: nil, notifications_enabled: nil, payment_effective_date: nil, payment_method: nil, payment_type: nil, receiving_account_id: nil, recipient_email: nil, recipient_name: nil, remind_after_overdue_days: nil, virtual_account_id: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::InvoiceCreateParams} for more details.
       #
@@ -201,6 +208,8 @@ module ModernTreasury
       #   @param invoice_line_items [Array<ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem>, nil] An array of invoice line items. The API supports a maximum of 50 invoice line it
       #
       #   @param invoicer_address [ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress, nil] The invoice issuer's business address.
+      #
+      #   @param invoicer_name [String, nil] The name of the issuer for the invoice. Defaults to the name of the Organization
       #
       #   @param metadata [Hash{Symbol=>String}, nil] Additional data represented as key-value pairs. Both the key and value must be s
       #

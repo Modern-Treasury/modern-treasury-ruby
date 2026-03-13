@@ -391,6 +391,7 @@ module ModernTreasury
 
         ACTIVE = :active
         CLOSED = :closed
+        DENIED = :denied
         PENDING = :pending
         SUSPENDED = :suspended
 

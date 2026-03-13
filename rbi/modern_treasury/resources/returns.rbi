@@ -15,6 +15,8 @@ module ModernTreasury
             T.nilable(ModernTreasury::ReturnCreateParams::Corrections::OrHash),
           data: T.nilable(T.anything),
           date_of_death: T.nilable(Date),
+          ledger_transaction:
+            ModernTreasury::LedgerTransactionCreateRequest::OrHash,
           reason: T.nilable(String),
           reconciliation_status:
             ModernTreasury::ReturnCreateParams::ReconciliationStatus::OrSymbol,
@@ -41,6 +43,10 @@ module ModernTreasury
         # If the return code is `R14` or `R15` this is the date the deceased counterparty
         # passed away.
         date_of_death: nil,
+        # Specifies a ledger transaction object that will be created with the return. If
+        # the ledger transaction cannot be created, then the return creation will fail.
+        # The resulting ledger transaction will mirror the status of the return.
+        ledger_transaction: nil,
         # An optional description of the reason for the return. This is for internal usage
         # and will not be transmitted to the bank.”
         reason: nil,
