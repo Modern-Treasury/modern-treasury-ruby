@@ -9,6 +9,7 @@ module ModernTreasury
         corrections: ModernTreasury::ReturnCreateParams::Corrections?,
         data: top?,
         date_of_death: Date?,
+        ledger_transaction: ModernTreasury::LedgerTransactionCreateRequest,
         reason: String?,
         reconciliation_status: ModernTreasury::Models::ReturnCreateParams::reconciliation_status
       }
@@ -32,6 +33,12 @@ module ModernTreasury
 
       attr_accessor date_of_death: Date?
 
+      attr_reader ledger_transaction: ModernTreasury::LedgerTransactionCreateRequest?
+
+      def ledger_transaction=: (
+        ModernTreasury::LedgerTransactionCreateRequest
+      ) -> ModernTreasury::LedgerTransactionCreateRequest
+
       attr_accessor reason: String?
 
       attr_reader reconciliation_status: ModernTreasury::Models::ReturnCreateParams::reconciliation_status?
@@ -48,6 +55,7 @@ module ModernTreasury
         ?corrections: ModernTreasury::ReturnCreateParams::Corrections?,
         ?data: top?,
         ?date_of_death: Date?,
+        ?ledger_transaction: ModernTreasury::LedgerTransactionCreateRequest,
         ?reason: String?,
         ?reconciliation_status: ModernTreasury::Models::ReturnCreateParams::reconciliation_status,
         ?request_options: ModernTreasury::request_opts
@@ -61,6 +69,7 @@ module ModernTreasury
         corrections: ModernTreasury::ReturnCreateParams::Corrections?,
         data: top?,
         date_of_death: Date?,
+        ledger_transaction: ModernTreasury::LedgerTransactionCreateRequest,
         reason: String?,
         reconciliation_status: ModernTreasury::Models::ReturnCreateParams::reconciliation_status,
         request_options: ModernTreasury::RequestOptions

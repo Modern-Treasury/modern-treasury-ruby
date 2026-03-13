@@ -326,6 +326,34 @@ module ModernTreasury
       sig { params(transaction_monitoring_enabled: T::Boolean).void }
       attr_writer :transaction_monitoring_enabled
 
+      # The ultimate originating account ID. Can be a `virtual_account` or
+      # `internal_account`.
+      sig { returns(T.nilable(String)) }
+      attr_reader :ultimate_originating_account_id
+
+      sig { params(ultimate_originating_account_id: String).void }
+      attr_writer :ultimate_originating_account_id
+
+      # Address of the ultimate originator of the payment order.
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::PaymentOrderCreateAsyncParams::UltimateOriginatingPartyAddress
+          )
+        )
+      end
+      attr_reader :ultimate_originating_party_address
+
+      sig do
+        params(
+          ultimate_originating_party_address:
+            T.nilable(
+              ModernTreasury::PaymentOrderCreateAsyncParams::UltimateOriginatingPartyAddress::OrHash
+            )
+        ).void
+      end
+      attr_writer :ultimate_originating_party_address
+
       # Identifier of the ultimate originator of the payment order.
       sig { returns(T.nilable(String)) }
       attr_accessor :ultimate_originating_party_identifier
@@ -341,6 +369,14 @@ module ModernTreasury
       # Name of the ultimate funds recipient.
       sig { returns(T.nilable(String)) }
       attr_accessor :ultimate_receiving_party_name
+
+      # Additional vendor specific fields for this payment. Data must be represented as
+      # key-value pairs.
+      sig { returns(T.nilable(T.anything)) }
+      attr_reader :vendor_attributes
+
+      sig { params(vendor_attributes: T.anything).void }
+      attr_writer :vendor_attributes
 
       sig do
         params(
@@ -393,10 +429,16 @@ module ModernTreasury
           statement_descriptor: T.nilable(String),
           subtype: T.nilable(ModernTreasury::PaymentOrderSubtype::OrSymbol),
           transaction_monitoring_enabled: T::Boolean,
+          ultimate_originating_account_id: String,
+          ultimate_originating_party_address:
+            T.nilable(
+              ModernTreasury::PaymentOrderCreateAsyncParams::UltimateOriginatingPartyAddress::OrHash
+            ),
           ultimate_originating_party_identifier: T.nilable(String),
           ultimate_originating_party_name: T.nilable(String),
           ultimate_receiving_party_identifier: T.nilable(String),
           ultimate_receiving_party_name: T.nilable(String),
+          vendor_attributes: T.anything,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
@@ -518,6 +560,11 @@ module ModernTreasury
         # A flag that determines whether a payment order should go through transaction
         # monitoring.
         transaction_monitoring_enabled: nil,
+        # The ultimate originating account ID. Can be a `virtual_account` or
+        # `internal_account`.
+        ultimate_originating_account_id: nil,
+        # Address of the ultimate originator of the payment order.
+        ultimate_originating_party_address: nil,
         # Identifier of the ultimate originator of the payment order.
         ultimate_originating_party_identifier: nil,
         # Name of the ultimate originator of the payment order.
@@ -526,6 +573,9 @@ module ModernTreasury
         ultimate_receiving_party_identifier: nil,
         # Name of the ultimate funds recipient.
         ultimate_receiving_party_name: nil,
+        # Additional vendor specific fields for this payment. Data must be represented as
+        # key-value pairs.
+        vendor_attributes: nil,
         request_options: {}
       )
       end
@@ -579,10 +629,16 @@ module ModernTreasury
             statement_descriptor: T.nilable(String),
             subtype: T.nilable(ModernTreasury::PaymentOrderSubtype::OrSymbol),
             transaction_monitoring_enabled: T::Boolean,
+            ultimate_originating_account_id: String,
+            ultimate_originating_party_address:
+              T.nilable(
+                ModernTreasury::PaymentOrderCreateAsyncParams::UltimateOriginatingPartyAddress
+              ),
             ultimate_originating_party_identifier: T.nilable(String),
             ultimate_originating_party_name: T.nilable(String),
             ultimate_receiving_party_identifier: T.nilable(String),
             ultimate_receiving_party_name: T.nilable(String),
+            vendor_attributes: T.anything,
             request_options: ModernTreasury::RequestOptions
           }
         )
@@ -1756,6 +1812,96 @@ module ModernTreasury
           )
         end
         def self.values
+        end
+      end
+
+      class UltimateOriginatingPartyAddress < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              ModernTreasury::PaymentOrderCreateAsyncParams::UltimateOriginatingPartyAddress,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
+
+        # Country code conforms to [ISO 3166-1 alpha-2]
+        sig { returns(T.nilable(String)) }
+        attr_reader :country
+
+        sig { params(country: String).void }
+        attr_writer :country
+
+        sig { returns(T.nilable(String)) }
+        attr_reader :line1
+
+        sig { params(line1: String).void }
+        attr_writer :line1
+
+        sig { returns(T.nilable(String)) }
+        attr_reader :line2
+
+        sig { params(line2: String).void }
+        attr_writer :line2
+
+        # Locality or City.
+        sig { returns(T.nilable(String)) }
+        attr_reader :locality
+
+        sig { params(locality: String).void }
+        attr_writer :locality
+
+        # The postal code of the address.
+        sig { returns(T.nilable(String)) }
+        attr_reader :postal_code
+
+        sig { params(postal_code: String).void }
+        attr_writer :postal_code
+
+        # Region or State.
+        sig { returns(T.nilable(String)) }
+        attr_reader :region
+
+        sig { params(region: String).void }
+        attr_writer :region
+
+        # Address of the ultimate originator of the payment order.
+        sig do
+          params(
+            country: String,
+            line1: String,
+            line2: String,
+            locality: String,
+            postal_code: String,
+            region: String
+          ).returns(T.attached_class)
+        end
+        def self.new(
+          # Country code conforms to [ISO 3166-1 alpha-2]
+          country: nil,
+          line1: nil,
+          line2: nil,
+          # Locality or City.
+          locality: nil,
+          # The postal code of the address.
+          postal_code: nil,
+          # Region or State.
+          region: nil
+        )
+        end
+
+        sig do
+          override.returns(
+            {
+              country: String,
+              line1: String,
+              line2: String,
+              locality: String,
+              postal_code: String,
+              region: String
+            }
+          )
+        end
+        def to_hash
         end
       end
     end

@@ -54,6 +54,14 @@ module ModernTreasury
       #   @return [Date, nil]
       optional :date_of_death, Date, nil?: true
 
+      # @!attribute ledger_transaction
+      #   Specifies a ledger transaction object that will be created with the return. If
+      #   the ledger transaction cannot be created, then the return creation will fail.
+      #   The resulting ledger transaction will mirror the status of the return.
+      #
+      #   @return [ModernTreasury::Models::LedgerTransactionCreateRequest, nil]
+      optional :ledger_transaction, -> { ModernTreasury::LedgerTransactionCreateRequest }
+
       # @!attribute reason
       #   An optional description of the reason for the return. This is for internal usage
       #   and will not be transmitted to the bank.”
@@ -67,7 +75,7 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::ReturnCreateParams::ReconciliationStatus, nil]
       optional :reconciliation_status, enum: -> { ModernTreasury::ReturnCreateParams::ReconciliationStatus }
 
-      # @!method initialize(returnable_id:, returnable_type:, additional_information: nil, code: nil, corrections: nil, data: nil, date_of_death: nil, reason: nil, reconciliation_status: nil, request_options: {})
+      # @!method initialize(returnable_id:, returnable_type:, additional_information: nil, code: nil, corrections: nil, data: nil, date_of_death: nil, ledger_transaction: nil, reason: nil, reconciliation_status: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::ReturnCreateParams} for more details.
       #
@@ -84,6 +92,8 @@ module ModernTreasury
       #   @param data [Object, nil] The raw data from the return file that we get from the bank.
       #
       #   @param date_of_death [Date, nil] If the return code is `R14` or `R15` this is the date the deceased counterparty
+      #
+      #   @param ledger_transaction [ModernTreasury::Models::LedgerTransactionCreateRequest] Specifies a ledger transaction object that will be created with the return. If t
       #
       #   @param reason [String, nil] An optional description of the reason for the return. This is for internal usage
       #
