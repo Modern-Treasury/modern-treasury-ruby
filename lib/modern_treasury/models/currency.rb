@@ -147,11 +147,13 @@ module ModernTreasury
       SGD = :SGD
       SHP = :SHP
       SKK = :SKK
+      SLE = :SLE
       SLL = :SLL
       SOS = :SOS
       SRD = :SRD
       SSP = :SSP
       STD = :STD
+      STN = :STN
       SVC = :SVC
       SYP = :SYP
       SZL = :SZL
@@ -188,6 +190,7 @@ module ModernTreasury
       XBC = :XBC
       XBD = :XBD
       XCD = :XCD
+      XCG = :XCG
       XDR = :XDR
       XFU = :XFU
       XOF = :XOF
@@ -200,6 +203,7 @@ module ModernTreasury
       ZMK = :ZMK
       ZMW = :ZMW
       ZWD = :ZWD
+      ZWG = :ZWG
       ZWL = :ZWL
       ZWN = :ZWN
       ZWR = :ZWR
