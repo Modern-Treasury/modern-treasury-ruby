@@ -124,10 +124,13 @@ module ModernTreasury
             statement_descriptor: String?,
             subtype: ModernTreasury::Models::payment_order_subtype?,
             transaction_monitoring_enabled: bool,
+            ultimate_originating_account_id: String,
+            ultimate_originating_party_address: ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::UltimateOriginatingPartyAddress?,
             ultimate_originating_party_identifier: String?,
             ultimate_originating_party_name: String?,
             ultimate_receiving_party_identifier: String?,
-            ultimate_receiving_party_name: String?
+            ultimate_receiving_party_name: String?,
+            vendor_attributes: top
           }
 
         class PaymentOrderAsyncCreateRequest < ModernTreasury::Internal::Type::BaseModel
@@ -241,6 +244,12 @@ module ModernTreasury
 
           def transaction_monitoring_enabled=: (bool) -> bool
 
+          attr_reader ultimate_originating_account_id: String?
+
+          def ultimate_originating_account_id=: (String) -> String
+
+          attr_accessor ultimate_originating_party_address: ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::UltimateOriginatingPartyAddress?
+
           attr_accessor ultimate_originating_party_identifier: String?
 
           attr_accessor ultimate_originating_party_name: String?
@@ -248,6 +257,10 @@ module ModernTreasury
           attr_accessor ultimate_receiving_party_identifier: String?
 
           attr_accessor ultimate_receiving_party_name: String?
+
+          attr_reader vendor_attributes: top?
+
+          def vendor_attributes=: (top) -> top
 
           def initialize: (
             amount: Integer,
@@ -283,10 +296,13 @@ module ModernTreasury
             ?statement_descriptor: String?,
             ?subtype: ModernTreasury::Models::payment_order_subtype?,
             ?transaction_monitoring_enabled: bool,
+            ?ultimate_originating_account_id: String,
+            ?ultimate_originating_party_address: ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::UltimateOriginatingPartyAddress?,
             ?ultimate_originating_party_identifier: String?,
             ?ultimate_originating_party_name: String?,
             ?ultimate_receiving_party_identifier: String?,
-            ?ultimate_receiving_party_name: String?
+            ?ultimate_receiving_party_name: String?,
+            ?vendor_attributes: top
           ) -> void
 
           def to_hash: -> {
@@ -323,10 +339,13 @@ module ModernTreasury
             statement_descriptor: String?,
             subtype: ModernTreasury::Models::payment_order_subtype?,
             transaction_monitoring_enabled: bool,
+            ultimate_originating_account_id: String,
+            ultimate_originating_party_address: ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::UltimateOriginatingPartyAddress?,
             ultimate_originating_party_identifier: String?,
             ultimate_originating_party_name: String?,
             ultimate_receiving_party_identifier: String?,
-            ultimate_receiving_party_name: String?
+            ultimate_receiving_party_name: String?,
+            vendor_attributes: top
           }
 
           type direction = :credit | :debit
@@ -790,6 +809,60 @@ module ModernTreasury
             RECONCILED: :reconciled
 
             def self?.values: -> ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::reconciliation_status]
+          end
+
+          type ultimate_originating_party_address =
+            {
+              country: String,
+              :line1 => String,
+              :line2 => String,
+              locality: String,
+              postal_code: String,
+              region: String
+            }
+
+          class UltimateOriginatingPartyAddress < ModernTreasury::Internal::Type::BaseModel
+            attr_reader country: String?
+
+            def country=: (String) -> String
+
+            attr_reader line1: String?
+
+            def line1=: (String) -> String
+
+            attr_reader line2: String?
+
+            def line2=: (String) -> String
+
+            attr_reader locality: String?
+
+            def locality=: (String) -> String
+
+            attr_reader postal_code: String?
+
+            def postal_code=: (String) -> String
+
+            attr_reader region: String?
+
+            def region=: (String) -> String
+
+            def initialize: (
+              ?country: String,
+              ?line1: String,
+              ?line2: String,
+              ?locality: String,
+              ?postal_code: String,
+              ?region: String
+            ) -> void
+
+            def to_hash: -> {
+              country: String,
+              :line1 => String,
+              :line2 => String,
+              locality: String,
+              postal_code: String,
+              region: String
+            }
           end
         end
 

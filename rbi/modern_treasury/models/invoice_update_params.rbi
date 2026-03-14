@@ -129,6 +129,11 @@ module ModernTreasury
       end
       attr_writer :invoicer_address
 
+      # The name of the issuer for the invoice. Defaults to the name of the
+      # Organization.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :invoicer_name
+
       # Additional data represented as key-value pairs. Both the key and value must be
       # strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
@@ -260,6 +265,7 @@ module ModernTreasury
             T.nilable(
               ModernTreasury::InvoiceUpdateParams::InvoicerAddress::OrHash
             ),
+          invoicer_name: T.nilable(String),
           metadata: T.nilable(T::Hash[Symbol, String]),
           notification_email_addresses: T.nilable(T::Array[String]),
           notifications_enabled: T::Boolean,
@@ -302,6 +308,9 @@ module ModernTreasury
         invoice_line_items: nil,
         # The invoice issuer's business address.
         invoicer_address: nil,
+        # The name of the issuer for the invoice. Defaults to the name of the
+        # Organization.
+        invoicer_name: nil,
         # Additional data represented as key-value pairs. Both the key and value must be
         # strings.
         metadata: nil,
@@ -374,6 +383,7 @@ module ModernTreasury
               ),
             invoicer_address:
               T.nilable(ModernTreasury::InvoiceUpdateParams::InvoicerAddress),
+            invoicer_name: T.nilable(String),
             metadata: T.nilable(T::Hash[Symbol, String]),
             notification_email_addresses: T.nilable(T::Array[String]),
             notifications_enabled: T::Boolean,

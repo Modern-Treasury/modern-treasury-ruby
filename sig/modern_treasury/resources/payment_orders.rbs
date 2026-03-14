@@ -38,10 +38,13 @@ module ModernTreasury
         ?statement_descriptor: String?,
         ?subtype: ModernTreasury::Models::payment_order_subtype?,
         ?transaction_monitoring_enabled: bool,
+        ?ultimate_originating_account_id: String,
+        ?ultimate_originating_party_address: ModernTreasury::PaymentOrderCreateParams::UltimateOriginatingPartyAddress?,
         ?ultimate_originating_party_identifier: String?,
         ?ultimate_originating_party_name: String?,
         ?ultimate_receiving_party_identifier: String?,
         ?ultimate_receiving_party_name: String?,
+        ?vendor_attributes: top,
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::PaymentOrder
 
@@ -147,10 +150,13 @@ module ModernTreasury
         ?statement_descriptor: String?,
         ?subtype: ModernTreasury::Models::payment_order_subtype?,
         ?transaction_monitoring_enabled: bool,
+        ?ultimate_originating_account_id: String,
+        ?ultimate_originating_party_address: ModernTreasury::PaymentOrderCreateAsyncParams::UltimateOriginatingPartyAddress?,
         ?ultimate_originating_party_identifier: String?,
         ?ultimate_originating_party_name: String?,
         ?ultimate_receiving_party_identifier: String?,
         ?ultimate_receiving_party_name: String?,
+        ?vendor_attributes: top,
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::AsyncResponse
 

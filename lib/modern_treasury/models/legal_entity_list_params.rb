@@ -83,6 +83,7 @@ module ModernTreasury
         ACTIVE = :active
         SUSPENDED = :suspended
         CLOSED = :closed
+        DENIED = :denied
 
         # @!method self.values
         #   @return [Array<Symbol>]

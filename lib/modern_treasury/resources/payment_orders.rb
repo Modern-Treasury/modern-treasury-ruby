@@ -11,7 +11,7 @@ module ModernTreasury
       #
       # Create a new Payment Order
       #
-      # @overload create(amount:, direction:, originating_account_id:, type:, accounting: nil, accounting_category_id: nil, accounting_ledger_class_id: nil, charge_bearer: nil, currency: nil, description: nil, documents: nil, effective_date: nil, expires_at: nil, external_id: nil, fallback_type: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, ledger_transaction: nil, ledger_transaction_id: nil, line_items: nil, metadata: nil, nsf_protected: nil, originating_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account: nil, receiving_account_id: nil, reconciliation_status: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, subtype: nil, transaction_monitoring_enabled: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil, request_options: {})
+      # @overload create(amount:, direction:, originating_account_id:, type:, accounting: nil, accounting_category_id: nil, accounting_ledger_class_id: nil, charge_bearer: nil, currency: nil, description: nil, documents: nil, effective_date: nil, expires_at: nil, external_id: nil, fallback_type: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, ledger_transaction: nil, ledger_transaction_id: nil, line_items: nil, metadata: nil, nsf_protected: nil, originating_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account: nil, receiving_account_id: nil, reconciliation_status: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, subtype: nil, transaction_monitoring_enabled: nil, ultimate_originating_account_id: nil, ultimate_originating_party_address: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil, vendor_attributes: nil, request_options: {})
       #
       # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
       #
@@ -81,6 +81,10 @@ module ModernTreasury
       #
       # @param transaction_monitoring_enabled [Boolean] A flag that determines whether a payment order should go through transaction mon
       #
+      # @param ultimate_originating_account_id [String] The ultimate originating account ID. Can be a `virtual_account` or `internal_acc
+      #
+      # @param ultimate_originating_party_address [ModernTreasury::Models::PaymentOrderCreateParams::UltimateOriginatingPartyAddress, nil] Address of the ultimate originator of the payment order.
+      #
       # @param ultimate_originating_party_identifier [String, nil] Identifier of the ultimate originator of the payment order.
       #
       # @param ultimate_originating_party_name [String, nil] Name of the ultimate originator of the payment order.
@@ -88,6 +92,8 @@ module ModernTreasury
       # @param ultimate_receiving_party_identifier [String, nil] Identifier of the ultimate funds recipient.
       #
       # @param ultimate_receiving_party_name [String, nil] Name of the ultimate funds recipient.
+      #
+      # @param vendor_attributes [Object] Additional vendor specific fields for this payment. Data must be represented as
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -287,7 +293,7 @@ module ModernTreasury
       #
       # Create a new payment order asynchronously
       #
-      # @overload create_async(amount:, direction:, originating_account_id:, type:, accounting: nil, accounting_category_id: nil, accounting_ledger_class_id: nil, charge_bearer: nil, currency: nil, description: nil, effective_date: nil, expires_at: nil, external_id: nil, fallback_type: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, ledger_transaction: nil, ledger_transaction_id: nil, line_items: nil, metadata: nil, nsf_protected: nil, originating_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account: nil, receiving_account_id: nil, reconciliation_status: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, subtype: nil, transaction_monitoring_enabled: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil, request_options: {})
+      # @overload create_async(amount:, direction:, originating_account_id:, type:, accounting: nil, accounting_category_id: nil, accounting_ledger_class_id: nil, charge_bearer: nil, currency: nil, description: nil, effective_date: nil, expires_at: nil, external_id: nil, fallback_type: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, ledger_transaction: nil, ledger_transaction_id: nil, line_items: nil, metadata: nil, nsf_protected: nil, originating_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account: nil, receiving_account_id: nil, reconciliation_status: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, subtype: nil, transaction_monitoring_enabled: nil, ultimate_originating_account_id: nil, ultimate_originating_party_address: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil, vendor_attributes: nil, request_options: {})
       #
       # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
       #
@@ -355,6 +361,10 @@ module ModernTreasury
       #
       # @param transaction_monitoring_enabled [Boolean] A flag that determines whether a payment order should go through transaction mon
       #
+      # @param ultimate_originating_account_id [String] The ultimate originating account ID. Can be a `virtual_account` or `internal_acc
+      #
+      # @param ultimate_originating_party_address [ModernTreasury::Models::PaymentOrderCreateAsyncParams::UltimateOriginatingPartyAddress, nil] Address of the ultimate originator of the payment order.
+      #
       # @param ultimate_originating_party_identifier [String, nil] Identifier of the ultimate originator of the payment order.
       #
       # @param ultimate_originating_party_name [String, nil] Name of the ultimate originator of the payment order.
@@ -362,6 +372,8 @@ module ModernTreasury
       # @param ultimate_receiving_party_identifier [String, nil] Identifier of the ultimate funds recipient.
       #
       # @param ultimate_receiving_party_name [String, nil] Name of the ultimate funds recipient.
+      #
+      # @param vendor_attributes [Object] Additional vendor specific fields for this payment. Data must be represented as
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
