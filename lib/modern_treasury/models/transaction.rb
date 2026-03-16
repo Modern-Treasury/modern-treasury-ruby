@@ -294,7 +294,6 @@ module ModernTreasury
         EVOLVE = :evolve
         FAKE_VENDOR = :fake_vendor
         GOLDMAN_SACHS = :goldman_sachs
-        HIFI = :hifi
         ISO20022 = :iso20022
         JPMC = :jpmc
         MODERN_TREASURY = :modern_treasury
