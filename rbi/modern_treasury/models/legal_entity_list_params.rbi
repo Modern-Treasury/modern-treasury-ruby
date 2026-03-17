@@ -181,11 +181,6 @@ module ModernTreasury
             :suspended,
             ModernTreasury::LegalEntityListParams::Status::TaggedSymbol
           )
-        CLOSED =
-          T.let(
-            :closed,
-            ModernTreasury::LegalEntityListParams::Status::TaggedSymbol
-          )
         DENIED =
           T.let(
             :denied,

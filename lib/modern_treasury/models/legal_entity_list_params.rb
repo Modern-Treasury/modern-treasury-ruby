@@ -82,7 +82,6 @@ module ModernTreasury
         PENDING = :pending
         ACTIVE = :active
         SUSPENDED = :suspended
-        CLOSED = :closed
         DENIED = :denied
 
         # @!method self.values

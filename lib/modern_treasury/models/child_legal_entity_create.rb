@@ -492,7 +492,6 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         ACTIVE = :active
-        CLOSED = :closed
         DENIED = :denied
         PENDING = :pending
         SUSPENDED = :suspended

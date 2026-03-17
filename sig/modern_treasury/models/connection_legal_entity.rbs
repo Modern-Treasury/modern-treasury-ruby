@@ -61,13 +61,11 @@ module ModernTreasury
         vendor_id: String
       }
 
-      type status =
-        :closed | :completed | :denied | :failed | :processing | :suspended
+      type status = :completed | :denied | :failed | :processing | :suspended
 
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
-        CLOSED: :closed
         COMPLETED: :completed
         DENIED: :denied
         FAILED: :failed
