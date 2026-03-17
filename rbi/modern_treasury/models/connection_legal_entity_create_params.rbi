@@ -1013,11 +1013,6 @@ module ModernTreasury
               :active,
               ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::Status::TaggedSymbol
             )
-          CLOSED =
-            T.let(
-              :closed,
-              ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::Status::TaggedSymbol
-            )
           DENIED =
             T.let(
               :denied,
