@@ -90,7 +90,6 @@ module ModernTreasury
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
-        CLOSED = :closed
         COMPLETED = :completed
         DENIED = :denied
         FAILED = :failed

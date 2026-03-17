@@ -1117,8 +1117,6 @@ module ModernTreasury
 
         ACTIVE =
           T.let(:active, ModernTreasury::ChildLegalEntity::Status::TaggedSymbol)
-        CLOSED =
-          T.let(:closed, ModernTreasury::ChildLegalEntity::Status::TaggedSymbol)
         DENIED =
           T.let(:denied, ModernTreasury::ChildLegalEntity::Status::TaggedSymbol)
         PENDING =

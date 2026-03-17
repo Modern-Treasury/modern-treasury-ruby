@@ -893,11 +893,6 @@ module ModernTreasury
             :active,
             ModernTreasury::ChildLegalEntityCreate::Status::TaggedSymbol
           )
-        CLOSED =
-          T.let(
-            :closed,
-            ModernTreasury::ChildLegalEntityCreate::Status::TaggedSymbol
-          )
         DENIED =
           T.let(
             :denied,

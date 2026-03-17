@@ -669,11 +669,6 @@ module ModernTreasury
             :active,
             ModernTreasury::LegalEntityUpdateParams::Status::TaggedSymbol
           )
-        CLOSED =
-          T.let(
-            :closed,
-            ModernTreasury::LegalEntityUpdateParams::Status::TaggedSymbol
-          )
         DENIED =
           T.let(
             :denied,
