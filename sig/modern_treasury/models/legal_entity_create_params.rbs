@@ -36,7 +36,6 @@ module ModernTreasury
         primary_social_media_sites: ::Array[String],
         regulators: ::Array[ModernTreasury::LegalEntityCreateParams::Regulator]?,
         risk_rating: ModernTreasury::Models::LegalEntityCreateParams::risk_rating?,
-        status: ModernTreasury::Models::LegalEntityCreateParams::status?,
         suffix: String?,
         third_party_verification: ModernTreasury::LegalEntityCreateParams::ThirdPartyVerification?,
         ticker_symbol: String?,
@@ -145,8 +144,6 @@ module ModernTreasury
 
       attr_accessor risk_rating: ModernTreasury::Models::LegalEntityCreateParams::risk_rating?
 
-      attr_accessor status: ModernTreasury::Models::LegalEntityCreateParams::status?
-
       attr_accessor suffix: String?
 
       attr_accessor third_party_verification: ModernTreasury::LegalEntityCreateParams::ThirdPartyVerification?
@@ -192,7 +189,6 @@ module ModernTreasury
         ?primary_social_media_sites: ::Array[String],
         ?regulators: ::Array[ModernTreasury::LegalEntityCreateParams::Regulator]?,
         ?risk_rating: ModernTreasury::Models::LegalEntityCreateParams::risk_rating?,
-        ?status: ModernTreasury::Models::LegalEntityCreateParams::status?,
         ?suffix: String?,
         ?third_party_verification: ModernTreasury::LegalEntityCreateParams::ThirdPartyVerification?,
         ?ticker_symbol: String?,
@@ -236,7 +232,6 @@ module ModernTreasury
         primary_social_media_sites: ::Array[String],
         regulators: ::Array[ModernTreasury::LegalEntityCreateParams::Regulator]?,
         risk_rating: ModernTreasury::Models::LegalEntityCreateParams::risk_rating?,
-        status: ModernTreasury::Models::LegalEntityCreateParams::status?,
         suffix: String?,
         third_party_verification: ModernTreasury::LegalEntityCreateParams::ThirdPartyVerification?,
         ticker_symbol: String?,
@@ -372,19 +367,6 @@ module ModernTreasury
         HIGH: :high
 
         def self?.values: -> ::Array[ModernTreasury::Models::LegalEntityCreateParams::risk_rating]
-      end
-
-      type status = :active | :denied | :pending | :suspended
-
-      module Status
-        extend ModernTreasury::Internal::Type::Enum
-
-        ACTIVE: :active
-        DENIED: :denied
-        PENDING: :pending
-        SUSPENDED: :suspended
-
-        def self?.values: -> ::Array[ModernTreasury::Models::LegalEntityCreateParams::status]
       end
 
       type third_party_verification =

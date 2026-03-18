@@ -65,10 +65,6 @@ module ModernTreasury
             T.nilable(
               ModernTreasury::LegalEntityCreateParams::RiskRating::OrSymbol
             ),
-          status:
-            T.nilable(
-              ModernTreasury::LegalEntityCreateParams::Status::OrSymbol
-            ),
           suffix: T.nilable(String),
           third_party_verification:
             T.nilable(
@@ -156,9 +152,6 @@ module ModernTreasury
         regulators: nil,
         # The risk rating of the legal entity. One of low, medium, high.
         risk_rating: nil,
-        # The activation status of the legal entity. One of pending, active, suspended, or
-        # closed.
-        status: nil,
         # An individual's suffix.
         suffix: nil,
         # Information describing a third-party verification run by an external vendor.
@@ -237,10 +230,6 @@ module ModernTreasury
             T.nilable(
               ModernTreasury::LegalEntityUpdateParams::RiskRating::OrSymbol
             ),
-          status:
-            T.nilable(
-              ModernTreasury::LegalEntityUpdateParams::Status::OrSymbol
-            ),
           suffix: T.nilable(String),
           third_party_verification:
             T.nilable(
@@ -316,9 +305,6 @@ module ModernTreasury
         regulators: nil,
         # The risk rating of the legal entity. One of low, medium, high.
         risk_rating: nil,
-        # The activation status of the legal entity. One of pending, active, suspended, or
-        # closed.
-        status: nil,
         # An individual's suffix.
         suffix: nil,
         # Information describing a third-party verification run by an external vendor.
