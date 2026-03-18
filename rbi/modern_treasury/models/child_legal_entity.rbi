@@ -189,7 +189,7 @@ module ModernTreasury
       attr_accessor :risk_rating
 
       # The activation status of the legal entity. One of pending, active, suspended, or
-      # closed.
+      # denied.
       sig do
         returns(
           T.nilable(ModernTreasury::ChildLegalEntity::Status::TaggedSymbol)
@@ -385,7 +385,7 @@ module ModernTreasury
         # The risk rating of the legal entity. One of low, medium, high.
         risk_rating:,
         # The activation status of the legal entity. One of pending, active, suspended, or
-        # closed.
+        # denied.
         status:,
         # An individual's suffix.
         suffix:,
@@ -1105,7 +1105,7 @@ module ModernTreasury
       end
 
       # The activation status of the legal entity. One of pending, active, suspended, or
-      # closed.
+      # denied.
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
