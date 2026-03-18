@@ -229,7 +229,7 @@ module ModernTreasury
 
       # @!attribute status
       #   The activation status of the legal entity. One of pending, active, suspended, or
-      #   closed.
+      #   denied.
       #
       #   @return [Symbol, ModernTreasury::Models::LegalEntity::Status, nil]
       required :status, enum: -> { ModernTreasury::LegalEntity::Status }, nil?: true
@@ -708,7 +708,7 @@ module ModernTreasury
       end
 
       # The activation status of the legal entity. One of pending, active, suspended, or
-      # closed.
+      # denied.
       #
       # @see ModernTreasury::Models::LegalEntity#status
       module Status

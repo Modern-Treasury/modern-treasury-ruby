@@ -528,7 +528,6 @@ module ModernTreasury
           primary_social_media_sites: ::Array[String],
           regulators: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::Regulator]?,
           risk_rating: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::risk_rating?,
-          status: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::status?,
           suffix: String?,
           third_party_verification: ModernTreasury::CounterpartyCreateParams::LegalEntity::ThirdPartyVerification?,
           ticker_symbol: String?,
@@ -633,8 +632,6 @@ module ModernTreasury
 
         attr_accessor risk_rating: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::risk_rating?
 
-        attr_accessor status: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::status?
-
         attr_accessor suffix: String?
 
         attr_accessor third_party_verification: ModernTreasury::CounterpartyCreateParams::LegalEntity::ThirdPartyVerification?
@@ -680,7 +677,6 @@ module ModernTreasury
           ?primary_social_media_sites: ::Array[String],
           ?regulators: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::Regulator]?,
           ?risk_rating: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::risk_rating?,
-          ?status: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::status?,
           ?suffix: String?,
           ?third_party_verification: ModernTreasury::CounterpartyCreateParams::LegalEntity::ThirdPartyVerification?,
           ?ticker_symbol: String?,
@@ -723,7 +719,6 @@ module ModernTreasury
           primary_social_media_sites: ::Array[String],
           regulators: ::Array[ModernTreasury::CounterpartyCreateParams::LegalEntity::Regulator]?,
           risk_rating: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::risk_rating?,
-          status: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::status?,
           suffix: String?,
           third_party_verification: ModernTreasury::CounterpartyCreateParams::LegalEntity::ThirdPartyVerification?,
           ticker_symbol: String?,
@@ -858,19 +853,6 @@ module ModernTreasury
           HIGH: :high
 
           def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::risk_rating]
-        end
-
-        type status = :active | :denied | :pending | :suspended
-
-        module Status
-          extend ModernTreasury::Internal::Type::Enum
-
-          ACTIVE: :active
-          DENIED: :denied
-          PENDING: :pending
-          SUSPENDED: :suspended
-
-          def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::status]
         end
 
         type third_party_verification =
