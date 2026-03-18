@@ -286,6 +286,7 @@ module ModernTreasury
         BNK_DEV = :bnk_dev
         BRALE = :brale
         CLEARTOUCH = :cleartouch
+        COINBASE_PRIME = :coinbase_prime
         COLUMN = :column
         CROSS_RIVER = :cross_river
         CURRENCYCLOUD = :currencycloud
