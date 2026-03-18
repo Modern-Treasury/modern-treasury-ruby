@@ -387,6 +387,11 @@ module ModernTreasury
             :cleartouch,
             ModernTreasury::Transaction::VendorCodeType::TaggedSymbol
           )
+        COINBASE_PRIME =
+          T.let(
+            :coinbase_prime,
+            ModernTreasury::Transaction::VendorCodeType::TaggedSymbol
+          )
         COLUMN =
           T.let(
             :column,
