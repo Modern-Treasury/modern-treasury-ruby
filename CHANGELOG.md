@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.24.0 (2026-03-20)
+
+Full Changelog: [v0.23.0...v0.24.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.23.0...v0.24.0)
+
+### Features
+
+* **api:** api update ([e2b0830](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/e2b08301720457291b2f7541773cca32135aa666))
+* **api:** api update ([fc6a60a](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/fc6a60af8d45dbbf28c2a7494cb151b0194ca5d2))
+
+
+### Chores
+
+* **tests:** bump steady to v0.19.4 ([6e3576d](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/6e3576dcfe61145a2700008ec43f1e58cab0d0f7))
+* **tests:** bump steady to v0.19.5 ([ca329ee](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/ca329eea0c3174d706d92dcab5ade09cb190d227))
+
+
+### Refactors
+
+* **tests:** switch from prism to steady ([f508886](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/f5088863a09e15de1442e3c8ae05458a8f41fecf))
+
 ## 0.23.0 (2026-03-18)
 
 Full Changelog: [v0.22.0...v0.23.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.22.0...v0.23.0)
