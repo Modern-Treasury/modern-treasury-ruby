@@ -69,6 +69,7 @@ module ModernTreasury
         AUTHORIZED_SIGNER = :authorized_signer
         BENEFICIAL_OWNER = :beneficial_owner
         CONTROL_PERSON = :control_person
+        SERVICE_CUSTOMER = :service_customer
 
         # @!method self.values
         #   @return [Array<Symbol>]
