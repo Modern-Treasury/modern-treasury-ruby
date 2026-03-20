@@ -132,6 +132,11 @@ module ModernTreasury
             :control_person,
             ModernTreasury::LegalEntityAssociationCreateParams::RelationshipType::TaggedSymbol
           )
+        SERVICE_CUSTOMER =
+          T.let(
+            :service_customer,
+            ModernTreasury::LegalEntityAssociationCreateParams::RelationshipType::TaggedSymbol
+          )
 
         sig do
           override.returns(
