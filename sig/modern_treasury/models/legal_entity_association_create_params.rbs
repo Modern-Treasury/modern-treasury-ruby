@@ -54,7 +54,10 @@ module ModernTreasury
       }
 
       type relationship_type =
-        :authorized_signer | :beneficial_owner | :control_person
+        :authorized_signer
+        | :beneficial_owner
+        | :control_person
+        | :service_customer
 
       module RelationshipType
         extend ModernTreasury::Internal::Type::Enum
@@ -62,6 +65,7 @@ module ModernTreasury
         AUTHORIZED_SIGNER: :authorized_signer
         BENEFICIAL_OWNER: :beneficial_owner
         CONTROL_PERSON: :control_person
+        SERVICE_CUSTOMER: :service_customer
 
         def self?.values: -> ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::relationship_type]
       end
