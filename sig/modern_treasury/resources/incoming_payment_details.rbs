@@ -36,7 +36,7 @@ module ModernTreasury
         ?type: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::type_,
         ?virtual_account_id: String?,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::AsyncResponse
+      ) -> ModernTreasury::IncomingPaymentDetail
 
       def initialize: (client: ModernTreasury::Client) -> void
     end
