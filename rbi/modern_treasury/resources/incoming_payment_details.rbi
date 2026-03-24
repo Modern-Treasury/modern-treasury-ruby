@@ -96,7 +96,7 @@ module ModernTreasury
             ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol,
           virtual_account_id: T.nilable(String),
           request_options: ModernTreasury::RequestOptions::OrHash
-        ).returns(ModernTreasury::AsyncResponse)
+        ).returns(ModernTreasury::IncomingPaymentDetail)
       end
       def create_async(
         # Value in specified currency's smallest unit. e.g. $10 would be represented

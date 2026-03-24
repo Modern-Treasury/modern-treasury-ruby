@@ -121,7 +121,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::AsyncResponse]
+      # @return [ModernTreasury::Models::IncomingPaymentDetail]
       #
       # @see ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams
       def create_async(params = {})
@@ -130,7 +130,7 @@ module ModernTreasury
           method: :post,
           path: "api/simulations/incoming_payment_details/create_async",
           body: parsed,
-          model: ModernTreasury::AsyncResponse,
+          model: ModernTreasury::IncomingPaymentDetail,
           options: options
         )
       end
