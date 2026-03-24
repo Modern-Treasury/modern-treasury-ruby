@@ -55,6 +55,7 @@ module ModernTreasury
       EGP = :EGP
       ERN = :ERN
       ETB = :ETB
+      ETH = :ETH
       EUR = :EUR
       EURC = :EURC
       FJD = :FJD
@@ -125,6 +126,7 @@ module ModernTreasury
       NPR = :NPR
       NZD = :NZD
       OMR = :OMR
+      OP = :OP
       PAB = :PAB
       PEN = :PEN
       PGK = :PGK
