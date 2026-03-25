@@ -1,5 +1,32 @@
 # Changelog
 
+## 0.24.0 (2026-03-25)
+
+Full Changelog: [v0.23.0...v0.24.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.23.0...v0.24.0)
+
+### Features
+
+* **api:** api update ([47b3e62](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/47b3e62aafe2a3345f52def71fbab0216f1092f2))
+* **api:** api update ([d422719](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/d422719b948c4aa2550890785cebb4a337bba375))
+* **api:** api update ([e2b0830](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/e2b08301720457291b2f7541773cca32135aa666))
+* **api:** api update ([fc6a60a](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/fc6a60af8d45dbbf28c2a7494cb151b0194ca5d2))
+* **api:** switch back to prism mock server ([bc5520b](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/bc5520bdbb3bfd1c3a3452a813a27bf71c8db2bd))
+
+
+### Chores
+
+* **ci:** skip lint on metadata-only changes ([87a19ae](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/87a19ae59a1f2ba1670eac17db78e9d5a40800b6))
+* **internal:** update gitignore ([98c0798](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/98c079816deef59c1a00fe940ca7e4e1e1f09835))
+* **tests:** bump steady to v0.19.4 ([6e3576d](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/6e3576dcfe61145a2700008ec43f1e58cab0d0f7))
+* **tests:** bump steady to v0.19.5 ([ca329ee](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/ca329eea0c3174d706d92dcab5ade09cb190d227))
+* **tests:** bump steady to v0.19.6 ([c9cabb6](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/c9cabb6397b91212c14f7754737ef705b9ec0b4a))
+* **tests:** bump steady to v0.19.7 ([26c8b49](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/26c8b49c5589988a3426a2c0a829edf0741838e7))
+
+
+### Refactors
+
+* **tests:** switch from prism to steady ([f508886](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/f5088863a09e15de1442e3c8ae05458a8f41fecf))
+
 ## 0.23.0 (2026-03-18)
 
 Full Changelog: [v0.22.0...v0.23.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.22.0...v0.23.0)
