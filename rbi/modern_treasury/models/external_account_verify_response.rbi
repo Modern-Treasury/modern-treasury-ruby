@@ -320,6 +320,11 @@ module ModernTreasury
               :solana,
               ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::TaggedSymbol
             )
+          STABLECOIN =
+            T.let(
+              :stablecoin,
+              ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::TaggedSymbol
+            )
           WIRE =
             T.let(
               :wire,

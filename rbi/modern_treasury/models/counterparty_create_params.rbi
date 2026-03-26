@@ -1089,6 +1089,11 @@ module ModernTreasury
                 :solana,
                 ModernTreasury::CounterpartyCreateParams::Account::RoutingDetail::PaymentType::TaggedSymbol
               )
+            STABLECOIN =
+              T.let(
+                :stablecoin,
+                ModernTreasury::CounterpartyCreateParams::Account::RoutingDetail::PaymentType::TaggedSymbol
+              )
             WIRE =
               T.let(
                 :wire,

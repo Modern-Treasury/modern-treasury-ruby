@@ -16,6 +16,7 @@ module ModernTreasury
       | :chats
       | :dk_nets
       | :eft
+      | :ethereum
       | :hu_ics
       | :masav
       | :mx_ccen
@@ -29,6 +30,7 @@ module ModernTreasury
       | :sg_giro
       | :sic
       | :sknbi
+      | :solana
       | :zengin
 
     module PaymentOrderSubtype
@@ -49,6 +51,7 @@ module ModernTreasury
       CHATS: :chats
       DK_NETS: :dk_nets
       EFT: :eft
+      ETHEREUM: :ethereum
       HU_ICS: :hu_ics
       MASAV: :masav
       MX_CCEN: :mx_ccen
@@ -62,6 +65,7 @@ module ModernTreasury
       SG_GIRO: :sg_giro
       SIC: :sic
       SKNBI: :sknbi
+      SOLANA: :solana
       ZENGIN: :zengin
 
       def self?.values: -> ::Array[ModernTreasury::Models::payment_order_subtype]
