@@ -269,6 +269,11 @@ module ModernTreasury
             :solana,
             ModernTreasury::RoutingDetail::PaymentType::TaggedSymbol
           )
+        STABLECOIN =
+          T.let(
+            :stablecoin,
+            ModernTreasury::RoutingDetail::PaymentType::TaggedSymbol
+          )
         WIRE =
           T.let(:wire, ModernTreasury::RoutingDetail::PaymentType::TaggedSymbol)
         ZENGIN =

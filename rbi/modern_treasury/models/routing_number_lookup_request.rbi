@@ -390,6 +390,11 @@ module ModernTreasury
             :solana,
             ModernTreasury::RoutingNumberLookupRequest::SupportedPaymentType::TaggedSymbol
           )
+        STABLECOIN =
+          T.let(
+            :stablecoin,
+            ModernTreasury::RoutingNumberLookupRequest::SupportedPaymentType::TaggedSymbol
+          )
         WIRE =
           T.let(
             :wire,

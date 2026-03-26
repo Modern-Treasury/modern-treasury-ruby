@@ -542,6 +542,11 @@ module ModernTreasury
             :solana,
             ModernTreasury::PaymentOrderListParams::Type::TaggedSymbol
           )
+        STABLECOIN =
+          T.let(
+            :stablecoin,
+            ModernTreasury::PaymentOrderListParams::Type::TaggedSymbol
+          )
         WIRE =
           T.let(
             :wire,
