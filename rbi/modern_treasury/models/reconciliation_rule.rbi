@@ -270,6 +270,11 @@ module ModernTreasury
           T.let(:sknbi, ModernTreasury::ReconciliationRule::Type::TaggedSymbol)
         SOLANA =
           T.let(:solana, ModernTreasury::ReconciliationRule::Type::TaggedSymbol)
+        STABLECOIN =
+          T.let(
+            :stablecoin,
+            ModernTreasury::ReconciliationRule::Type::TaggedSymbol
+          )
         WIRE =
           T.let(:wire, ModernTreasury::ReconciliationRule::Type::TaggedSymbol)
         ZENGIN =

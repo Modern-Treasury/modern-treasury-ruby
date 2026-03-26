@@ -364,8 +364,6 @@ module ModernTreasury
 
   LegalEntityAssociation = ModernTreasury::Models::LegalEntityAssociation
 
-  LegalEntityAssociationCreateParams = ModernTreasury::Models::LegalEntityAssociationCreateParams
-
   LegalEntityAssociationInlineCreate = ModernTreasury::Models::LegalEntityAssociationInlineCreate
 
   LegalEntityBankSettings = ModernTreasury::Models::LegalEntityBankSettings

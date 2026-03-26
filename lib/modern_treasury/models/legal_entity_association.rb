@@ -2,7 +2,6 @@
 
 module ModernTreasury
   module Models
-    # @see ModernTreasury::Resources::LegalEntityAssociations#create
     class LegalEntityAssociation < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
@@ -100,7 +99,6 @@ module ModernTreasury
         AUTHORIZED_SIGNER = :authorized_signer
         BENEFICIAL_OWNER = :beneficial_owner
         CONTROL_PERSON = :control_person
-        SERVICE_CUSTOMER = :service_customer
 
         # @!method self.values
         #   @return [Array<Symbol>]

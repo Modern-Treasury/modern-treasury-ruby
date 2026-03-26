@@ -24,6 +24,7 @@ module ModernTreasury
       CHATS = :chats
       DK_NETS = :dk_nets
       EFT = :eft
+      ETHEREUM = :ethereum
       HU_ICS = :hu_ics
       MASAV = :masav
       MX_CCEN = :mx_ccen
@@ -37,6 +38,7 @@ module ModernTreasury
       SG_GIRO = :sg_giro
       SIC = :sic
       SKNBI = :sknbi
+      SOLANA = :solana
       ZENGIN = :zengin
 
       # @!method self.values

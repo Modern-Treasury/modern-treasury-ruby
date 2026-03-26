@@ -313,8 +313,6 @@ module ModernTreasury
 
   class LegalEntityAssociation = ModernTreasury::Models::LegalEntityAssociation
 
-  class LegalEntityAssociationCreateParams = ModernTreasury::Models::LegalEntityAssociationCreateParams
-
   class LegalEntityAssociationInlineCreate = ModernTreasury::Models::LegalEntityAssociationInlineCreate
 
   class LegalEntityBankSettings = ModernTreasury::Models::LegalEntityBankSettings

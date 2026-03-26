@@ -130,6 +130,7 @@ module ModernTreasury
         SIGNET = :signet
         SKNBI = :sknbi
         SOLANA = :solana
+        STABLECOIN = :stablecoin
         WIRE = :wire
         ZENGIN = :zengin
 

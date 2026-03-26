@@ -2002,6 +2002,11 @@ module ModernTreasury
                     :solana,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
                   )
+                STABLECOIN =
+                  T.let(
+                    :stablecoin,
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                  )
                 WIRE =
                   T.let(
                     :wire,
@@ -2999,6 +3004,11 @@ module ModernTreasury
             SOLANA =
               T.let(
                 :solana,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            STABLECOIN =
+              T.let(
+                :stablecoin,
                 ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
               )
             WIRE =
@@ -4782,6 +4792,11 @@ module ModernTreasury
                 SOLANA =
                   T.let(
                     :solana,
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                  )
+                STABLECOIN =
+                  T.let(
+                    :stablecoin,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
                   )
                 WIRE =

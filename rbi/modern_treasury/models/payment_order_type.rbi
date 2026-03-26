@@ -50,6 +50,8 @@ module ModernTreasury
       SIGNET = T.let(:signet, ModernTreasury::PaymentOrderType::TaggedSymbol)
       SKNBI = T.let(:sknbi, ModernTreasury::PaymentOrderType::TaggedSymbol)
       SOLANA = T.let(:solana, ModernTreasury::PaymentOrderType::TaggedSymbol)
+      STABLECOIN =
+        T.let(:stablecoin, ModernTreasury::PaymentOrderType::TaggedSymbol)
       WIRE = T.let(:wire, ModernTreasury::PaymentOrderType::TaggedSymbol)
       ZENGIN = T.let(:zengin, ModernTreasury::PaymentOrderType::TaggedSymbol)
 
