@@ -188,6 +188,10 @@ module ModernTreasury
       end
       attr_accessor :risk_rating
 
+      # The UUID of the parent legal entity in the service provider tree.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :service_provider_legal_entity_id
+
       # The activation status of the legal entity. One of pending, active, suspended, or
       # denied.
       sig do
@@ -297,6 +301,7 @@ module ModernTreasury
             ),
           risk_rating:
             T.nilable(ModernTreasury::ChildLegalEntity::RiskRating::OrSymbol),
+          service_provider_legal_entity_id: T.nilable(String),
           status: T.nilable(ModernTreasury::ChildLegalEntity::Status::OrSymbol),
           suffix: T.nilable(String),
           third_party_verification:
@@ -384,6 +389,8 @@ module ModernTreasury
         regulators:,
         # The risk rating of the legal entity. One of low, medium, high.
         risk_rating:,
+        # The UUID of the parent legal entity in the service provider tree.
+        service_provider_legal_entity_id:,
         # The activation status of the legal entity. One of pending, active, suspended, or
         # denied.
         status:,
@@ -453,6 +460,7 @@ module ModernTreasury
               T.nilable(
                 ModernTreasury::ChildLegalEntity::RiskRating::TaggedSymbol
               ),
+            service_provider_legal_entity_id: T.nilable(String),
             status:
               T.nilable(ModernTreasury::ChildLegalEntity::Status::TaggedSymbol),
             suffix: T.nilable(String),

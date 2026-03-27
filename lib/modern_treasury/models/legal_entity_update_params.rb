@@ -196,6 +196,12 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::RiskRating, nil]
       optional :risk_rating, enum: -> { ModernTreasury::LegalEntityUpdateParams::RiskRating }, nil?: true
 
+      # @!attribute service_provider_legal_entity_id
+      #   The UUID of the parent legal entity in the service provider tree.
+      #
+      #   @return [String, nil]
+      optional :service_provider_legal_entity_id, String, nil?: true
+
       # @!attribute suffix
       #   An individual's suffix.
       #
@@ -229,7 +235,7 @@ module ModernTreasury
       #   @return [String, nil]
       optional :website, String, nil?: true
 
-      # @!method initialize(id:, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, external_id: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, suffix: nil, third_party_verification: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
+      # @!method initialize(id:, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, external_id: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, service_provider_legal_entity_id: nil, suffix: nil, third_party_verification: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LegalEntityUpdateParams} for more details.
       #
@@ -292,6 +298,8 @@ module ModernTreasury
       #   @param regulators [Array<ModernTreasury::Models::LegalEntityUpdateParams::Regulator>, nil] Array of regulatory bodies overseeing this institution.
       #
       #   @param risk_rating [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::RiskRating, nil] The risk rating of the legal entity. One of low, medium, high.
+      #
+      #   @param service_provider_legal_entity_id [String, nil] The UUID of the parent legal entity in the service provider tree.
       #
       #   @param suffix [String, nil] An individual's suffix.
       #
