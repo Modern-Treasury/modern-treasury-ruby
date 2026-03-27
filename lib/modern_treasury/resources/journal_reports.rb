@@ -51,19 +51,23 @@ module ModernTreasury
 
       # Retrieve a list of journal reports
       #
-      # @overload list(request_options: {})
+      # @overload list(status: nil, request_options: {})
       #
+      # @param status [Symbol, ModernTreasury::Models::JournalReportListParams::Status]
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [nil]
       #
       # @see ModernTreasury::Models::JournalReportListParams
       def list(params = {})
+        parsed, options = ModernTreasury::JournalReportListParams.dump_request(params)
+        query = ModernTreasury::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: "api/journal_reports",
+          query: query,
           model: NilClass,
-          options: params[:request_options]
+          options: options
         )
       end
 
