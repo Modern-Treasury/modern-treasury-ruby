@@ -852,6 +852,7 @@ module ModernTreasury
           LOB_CHECK_ID = :lob_check_id
           OTHER = :other
           PARTIAL_SWIFT_MIR = :partial_swift_mir
+          PAXOS_FIAT_WITHDRAWAL_ID = :paxos_fiat_withdrawal_id
           PAXOS_GROUP_ID = :paxos_group_id
           PAXOS_ORCHESTRATION_ID = :paxos_orchestration_id
           PAXOS_TRANSFER_ID = :paxos_transfer_id
