@@ -39,6 +39,7 @@ module ModernTreasury
         primary_social_media_sites: ::Array[String],
         regulators: ::Array[ModernTreasury::LegalEntity::Regulator]?,
         risk_rating: ModernTreasury::Models::LegalEntity::risk_rating?,
+        service_provider_legal_entity_id: String?,
         status: ModernTreasury::Models::LegalEntity::status?,
         suffix: String?,
         third_party_verification: ModernTreasury::LegalEntity::ThirdPartyVerification?,
@@ -124,6 +125,8 @@ module ModernTreasury
 
       attr_accessor risk_rating: ModernTreasury::Models::LegalEntity::risk_rating?
 
+      attr_accessor service_provider_legal_entity_id: String?
+
       attr_accessor status: ModernTreasury::Models::LegalEntity::status?
 
       attr_accessor suffix: String?
@@ -178,6 +181,7 @@ module ModernTreasury
         primary_social_media_sites: ::Array[String],
         regulators: ::Array[ModernTreasury::LegalEntity::Regulator]?,
         risk_rating: ModernTreasury::Models::LegalEntity::risk_rating?,
+        service_provider_legal_entity_id: String?,
         status: ModernTreasury::Models::LegalEntity::status?,
         suffix: String?,
         third_party_verification: ModernTreasury::LegalEntity::ThirdPartyVerification?,
@@ -226,6 +230,7 @@ module ModernTreasury
         primary_social_media_sites: ::Array[String],
         regulators: ::Array[ModernTreasury::LegalEntity::Regulator]?,
         risk_rating: ModernTreasury::Models::LegalEntity::risk_rating?,
+        service_provider_legal_entity_id: String?,
         status: ModernTreasury::Models::LegalEntity::status?,
         suffix: String?,
         third_party_verification: ModernTreasury::LegalEntity::ThirdPartyVerification?,

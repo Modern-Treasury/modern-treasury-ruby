@@ -266,6 +266,10 @@ module ModernTreasury
       end
       attr_accessor :risk_rating
 
+      # The UUID of the parent legal entity in the service provider tree.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :service_provider_legal_entity_id
+
       # An individual's suffix.
       sig { returns(T.nilable(String)) }
       attr_accessor :suffix
@@ -372,6 +376,7 @@ module ModernTreasury
             T.nilable(
               ModernTreasury::LegalEntityCreateParams::RiskRating::OrSymbol
             ),
+          service_provider_legal_entity_id: T.nilable(String),
           suffix: T.nilable(String),
           third_party_verification:
             T.nilable(
@@ -459,6 +464,8 @@ module ModernTreasury
         regulators: nil,
         # The risk rating of the legal entity. One of low, medium, high.
         risk_rating: nil,
+        # The UUID of the parent legal entity in the service provider tree.
+        service_provider_legal_entity_id: nil,
         # An individual's suffix.
         suffix: nil,
         # Information describing a third-party verification run by an external vendor.
@@ -527,6 +534,7 @@ module ModernTreasury
               T.nilable(
                 ModernTreasury::LegalEntityCreateParams::RiskRating::OrSymbol
               ),
+            service_provider_legal_entity_id: T.nilable(String),
             suffix: T.nilable(String),
             third_party_verification:
               T.nilable(

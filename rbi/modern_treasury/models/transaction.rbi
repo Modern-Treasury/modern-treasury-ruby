@@ -331,6 +331,8 @@ module ModernTreasury
         SIGNET = T.let(:signet, ModernTreasury::Transaction::Type::TaggedSymbol)
         SKNBI = T.let(:sknbi, ModernTreasury::Transaction::Type::TaggedSymbol)
         SOLANA = T.let(:solana, ModernTreasury::Transaction::Type::TaggedSymbol)
+        STABLECOIN =
+          T.let(:stablecoin, ModernTreasury::Transaction::Type::TaggedSymbol)
         WIRE = T.let(:wire, ModernTreasury::Transaction::Type::TaggedSymbol)
         ZENGIN = T.let(:zengin, ModernTreasury::Transaction::Type::TaggedSymbol)
         OTHER = T.let(:other, ModernTreasury::Transaction::Type::TaggedSymbol)

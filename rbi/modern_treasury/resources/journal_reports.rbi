@@ -37,9 +37,12 @@ module ModernTreasury
 
       # Retrieve a list of journal reports
       sig do
-        params(request_options: ModernTreasury::RequestOptions::OrHash).void
+        params(
+          status: ModernTreasury::JournalReportListParams::Status::OrSymbol,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).void
       end
-      def list(request_options: {})
+      def list(status: nil, request_options: {})
       end
 
       # @api private

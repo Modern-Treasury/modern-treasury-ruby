@@ -283,6 +283,11 @@ module ModernTreasury
             :solana,
             ModernTreasury::Models::InternalAccountUpdateAccountCapabilityResponse::PaymentType::TaggedSymbol
           )
+        STABLECOIN =
+          T.let(
+            :stablecoin,
+            ModernTreasury::Models::InternalAccountUpdateAccountCapabilityResponse::PaymentType::TaggedSymbol
+          )
         WIRE =
           T.let(
             :wire,

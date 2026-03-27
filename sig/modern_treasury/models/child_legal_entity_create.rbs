@@ -36,6 +36,7 @@ module ModernTreasury
         primary_social_media_sites: ::Array[String],
         regulators: ::Array[ModernTreasury::ChildLegalEntityCreate::Regulator]?,
         risk_rating: ModernTreasury::Models::ChildLegalEntityCreate::risk_rating?,
+        service_provider_legal_entity_id: String?,
         suffix: String?,
         third_party_verification: ModernTreasury::ChildLegalEntityCreate::ThirdPartyVerification?,
         ticker_symbol: String?,
@@ -144,6 +145,8 @@ module ModernTreasury
 
       attr_accessor risk_rating: ModernTreasury::Models::ChildLegalEntityCreate::risk_rating?
 
+      attr_accessor service_provider_legal_entity_id: String?
+
       attr_accessor suffix: String?
 
       attr_accessor third_party_verification: ModernTreasury::ChildLegalEntityCreate::ThirdPartyVerification?
@@ -189,6 +192,7 @@ module ModernTreasury
         ?primary_social_media_sites: ::Array[String],
         ?regulators: ::Array[ModernTreasury::ChildLegalEntityCreate::Regulator]?,
         ?risk_rating: ModernTreasury::Models::ChildLegalEntityCreate::risk_rating?,
+        ?service_provider_legal_entity_id: String?,
         ?suffix: String?,
         ?third_party_verification: ModernTreasury::ChildLegalEntityCreate::ThirdPartyVerification?,
         ?ticker_symbol: String?,
@@ -231,6 +235,7 @@ module ModernTreasury
         primary_social_media_sites: ::Array[String],
         regulators: ::Array[ModernTreasury::ChildLegalEntityCreate::Regulator]?,
         risk_rating: ModernTreasury::Models::ChildLegalEntityCreate::risk_rating?,
+        service_provider_legal_entity_id: String?,
         suffix: String?,
         third_party_verification: ModernTreasury::ChildLegalEntityCreate::ThirdPartyVerification?,
         ticker_symbol: String?,
