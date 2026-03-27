@@ -1460,6 +1460,11 @@ module ModernTreasury
               :partial_swift_mir,
               ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
+          PAXOS_FIAT_WITHDRAWAL_ID =
+            T.let(
+              :paxos_fiat_withdrawal_id,
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
           PAXOS_GROUP_ID =
             T.let(
               :paxos_group_id,
