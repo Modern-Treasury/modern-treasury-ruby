@@ -610,6 +610,7 @@ module ModernTreasury
           DRIVERS_LICENSE = :drivers_license
           HN_ID = :hn_id
           HN_RTN = :hn_rtn
+          IE_PPS = :ie_pps
           IN_LEI = :in_lei
           KR_BRN = :kr_brn
           KR_CRN = :kr_crn
