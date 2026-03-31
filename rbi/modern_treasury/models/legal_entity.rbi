@@ -817,6 +817,11 @@ module ModernTreasury
               :hn_rtn,
               ModernTreasury::LegalEntity::Identification::IDType::TaggedSymbol
             )
+          IE_PPS =
+            T.let(
+              :ie_pps,
+              ModernTreasury::LegalEntity::Identification::IDType::TaggedSymbol
+            )
           IN_LEI =
             T.let(
               :in_lei,
