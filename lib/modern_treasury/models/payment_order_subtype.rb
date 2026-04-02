@@ -21,6 +21,7 @@ module ModernTreasury
       WEB = :WEB
       AU_BECS = :au_becs
       BACS = :bacs
+      BASE = :base
       CHATS = :chats
       DK_NETS = :dk_nets
       EFT = :eft
@@ -32,6 +33,7 @@ module ModernTreasury
       NICS = :nics
       NZ_BECS = :nz_becs
       PL_ELIXIR = :pl_elixir
+      POLYGON = :polygon
       RO_SENT = :ro_sent
       SE_BANKGIROT = :se_bankgirot
       SEPA = :sepa
