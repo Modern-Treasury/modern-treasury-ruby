@@ -82,9 +82,9 @@ module ModernTreasury
       #
       # @param suffix [String, nil] An individual's suffix.
       #
-      # @param third_party_verification [ModernTreasury::Models::LegalEntityCreateParams::ThirdPartyVerification, nil] Deprecated. Use `third_party_verifications` instead.
+      # @param third_party_verification [ModernTreasury::Models::ThirdPartyVerification, nil] Deprecated. Use `third_party_verifications` instead.
       #
-      # @param third_party_verifications [Array<ModernTreasury::Models::LegalEntityCreateParams::ThirdPartyVerification>] A list of third-party verifications run by external vendors.
+      # @param third_party_verifications [Array<ModernTreasury::Models::ThirdPartyVerification>] A list of third-party verifications run by external vendors.
       #
       # @param ticker_symbol [String, nil] Stock ticker symbol for publicly traded companies.
       #
@@ -199,9 +199,9 @@ module ModernTreasury
       #
       # @param suffix [String, nil] An individual's suffix.
       #
-      # @param third_party_verification [ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification, nil] Deprecated. Use `third_party_verifications` instead.
+      # @param third_party_verification [ModernTreasury::Models::ThirdPartyVerification, nil] Deprecated. Use `third_party_verifications` instead.
       #
-      # @param third_party_verifications [Array<ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification>] A list of third-party verifications run by external vendors.
+      # @param third_party_verifications [Array<ModernTreasury::Models::ThirdPartyVerification>] A list of third-party verifications run by external vendors.
       #
       # @param ticker_symbol [String, nil] Stock ticker symbol for publicly traded companies.
       #

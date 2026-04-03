@@ -68,13 +68,9 @@ module ModernTreasury
           service_provider_legal_entity_id: T.nilable(String),
           suffix: T.nilable(String),
           third_party_verification:
-            T.nilable(
-              ModernTreasury::LegalEntityCreateParams::ThirdPartyVerification::OrHash
-            ),
+            T.nilable(ModernTreasury::ThirdPartyVerification::OrHash),
           third_party_verifications:
-            T::Array[
-              ModernTreasury::LegalEntityCreateParams::ThirdPartyVerification::OrHash
-            ],
+            T::Array[ModernTreasury::ThirdPartyVerification::OrHash],
           ticker_symbol: T.nilable(String),
           wealth_and_employment_details:
             T.nilable(
@@ -242,13 +238,9 @@ module ModernTreasury
           service_provider_legal_entity_id: T.nilable(String),
           suffix: T.nilable(String),
           third_party_verification:
-            T.nilable(
-              ModernTreasury::LegalEntityUpdateParams::ThirdPartyVerification::OrHash
-            ),
+            T.nilable(ModernTreasury::ThirdPartyVerification::OrHash),
           third_party_verifications:
-            T::Array[
-              ModernTreasury::LegalEntityUpdateParams::ThirdPartyVerification::OrHash
-            ],
+            T::Array[ModernTreasury::ThirdPartyVerification::OrHash],
           ticker_symbol: T.nilable(String),
           wealth_and_employment_details:
             T.nilable(

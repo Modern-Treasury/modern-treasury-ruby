@@ -488,6 +488,8 @@ module ModernTreasury
   RoutingNumberLookupRequest =
     ModernTreasury::Models::RoutingNumberLookupRequest
 
+  ThirdPartyVerification = ModernTreasury::Models::ThirdPartyVerification
+
   Transaction = ModernTreasury::Models::Transaction
 
   TransactionCreateParams = ModernTreasury::Models::TransactionCreateParams

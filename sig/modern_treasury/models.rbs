@@ -405,6 +405,8 @@ module ModernTreasury
 
   class RoutingNumberLookupRequest = ModernTreasury::Models::RoutingNumberLookupRequest
 
+  class ThirdPartyVerification = ModernTreasury::Models::ThirdPartyVerification
+
   class Transaction = ModernTreasury::Models::Transaction
 
   class TransactionCreateParams = ModernTreasury::Models::TransactionCreateParams
