@@ -35,6 +35,7 @@ module ModernTreasury
         service_provider_legal_entity_id: String?,
         suffix: String?,
         third_party_verification: ModernTreasury::LegalEntityUpdateParams::ThirdPartyVerification?,
+        third_party_verifications: ::Array[ModernTreasury::LegalEntityUpdateParams::ThirdPartyVerification],
         ticker_symbol: String?,
         wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,
         website: String?
@@ -135,6 +136,12 @@ module ModernTreasury
 
       attr_accessor third_party_verification: ModernTreasury::LegalEntityUpdateParams::ThirdPartyVerification?
 
+      attr_reader third_party_verifications: ::Array[ModernTreasury::LegalEntityUpdateParams::ThirdPartyVerification]?
+
+      def third_party_verifications=: (
+        ::Array[ModernTreasury::LegalEntityUpdateParams::ThirdPartyVerification]
+      ) -> ::Array[ModernTreasury::LegalEntityUpdateParams::ThirdPartyVerification]
+
       attr_accessor ticker_symbol: String?
 
       attr_accessor wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?
@@ -175,6 +182,7 @@ module ModernTreasury
         ?service_provider_legal_entity_id: String?,
         ?suffix: String?,
         ?third_party_verification: ModernTreasury::LegalEntityUpdateParams::ThirdPartyVerification?,
+        ?third_party_verifications: ::Array[ModernTreasury::LegalEntityUpdateParams::ThirdPartyVerification],
         ?ticker_symbol: String?,
         ?wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,
         ?website: String?,
@@ -215,6 +223,7 @@ module ModernTreasury
         service_provider_legal_entity_id: String?,
         suffix: String?,
         third_party_verification: ModernTreasury::LegalEntityUpdateParams::ThirdPartyVerification?,
+        third_party_verifications: ::Array[ModernTreasury::LegalEntityUpdateParams::ThirdPartyVerification],
         ticker_symbol: String?,
         wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,
         website: String?,
@@ -291,33 +300,92 @@ module ModernTreasury
 
       type third_party_verification =
         {
+          outcome: ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification::outcome,
           vendor: ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification::vendor,
-          vendor_verification_id: String
+          vendor_verification_id: String,
+          verification_category: ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification::verification_category,
+          verification_method: String,
+          verification_time: Time,
+          comment: String?
         }
 
       class ThirdPartyVerification < ModernTreasury::Internal::Type::BaseModel
+        attr_accessor outcome: ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification::outcome
+
         attr_accessor vendor: ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification::vendor
 
         attr_accessor vendor_verification_id: String
 
+        attr_accessor verification_category: ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification::verification_category
+
+        attr_accessor verification_method: String
+
+        attr_accessor verification_time: Time
+
+        attr_accessor comment: String?
+
         def initialize: (
+          outcome: ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification::outcome,
           vendor: ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification::vendor,
-          vendor_verification_id: String
+          vendor_verification_id: String,
+          verification_category: ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification::verification_category,
+          verification_method: String,
+          verification_time: Time,
+          ?comment: String?
         ) -> void
 
         def to_hash: -> {
+          outcome: ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification::outcome,
           vendor: ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification::vendor,
-          vendor_verification_id: String
+          vendor_verification_id: String,
+          verification_category: ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification::verification_category,
+          verification_method: String,
+          verification_time: Time,
+          comment: String?
         }
 
-        type vendor = :persona
+        type outcome = :passed | :failed
+
+        module Outcome
+          extend ModernTreasury::Internal::Type::Enum
+
+          PASSED: :passed
+          FAILED: :failed
+
+          def self?.values: -> ::Array[ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification::outcome]
+        end
+
+        type vendor = :persona | :middesk | :alloy | :sumsub | :veriff
 
         module Vendor
           extend ModernTreasury::Internal::Type::Enum
 
           PERSONA: :persona
+          MIDDESK: :middesk
+          ALLOY: :alloy
+          SUMSUB: :sumsub
+          VERIFF: :veriff
 
           def self?.values: -> ::Array[ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification::vendor]
+        end
+
+        type verification_category =
+          :legal_name
+          | :date_of_birth
+          | :address
+          | :government_id_number
+          | :adverse_media
+
+        module VerificationCategory
+          extend ModernTreasury::Internal::Type::Enum
+
+          LEGAL_NAME: :legal_name
+          DATE_OF_BIRTH: :date_of_birth
+          ADDRESS: :address
+          GOVERNMENT_ID_NUMBER: :government_id_number
+          ADVERSE_MEDIA: :adverse_media
+
+          def self?.values: -> ::Array[ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification::verification_category]
         end
       end
     end
