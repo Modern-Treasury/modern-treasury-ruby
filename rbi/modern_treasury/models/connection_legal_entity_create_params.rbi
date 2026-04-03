@@ -370,7 +370,7 @@ module ModernTreasury
         sig { returns(T.nilable(String)) }
         attr_accessor :suffix
 
-        # Information describing a third-party verification run by an external vendor.
+        # Deprecated. Use `third_party_verifications` instead.
         sig do
           returns(
             T.nilable(
@@ -389,6 +389,28 @@ module ModernTreasury
           ).void
         end
         attr_writer :third_party_verification
+
+        # A list of third-party verifications run by external vendors.
+        sig do
+          returns(
+            T.nilable(
+              T::Array[
+                ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification
+              ]
+            )
+          )
+        end
+        attr_reader :third_party_verifications
+
+        sig do
+          params(
+            third_party_verifications:
+              T::Array[
+                ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification::OrHash
+              ]
+          ).void
+        end
+        attr_writer :third_party_verifications
 
         # Stock ticker symbol for publicly traded companies.
         sig { returns(T.nilable(String)) }
@@ -485,6 +507,10 @@ module ModernTreasury
               T.nilable(
                 ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification::OrHash
               ),
+            third_party_verifications:
+              T::Array[
+                ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification::OrHash
+              ],
             ticker_symbol: T.nilable(String),
             wealth_and_employment_details:
               T.nilable(
@@ -570,8 +596,10 @@ module ModernTreasury
           service_provider_legal_entity_id: nil,
           # An individual's suffix.
           suffix: nil,
-          # Information describing a third-party verification run by an external vendor.
+          # Deprecated. Use `third_party_verifications` instead.
           third_party_verification: nil,
+          # A list of third-party verifications run by external vendors.
+          third_party_verifications: nil,
           # Stock ticker symbol for publicly traded companies.
           ticker_symbol: nil,
           wealth_and_employment_details: nil,
@@ -647,6 +675,10 @@ module ModernTreasury
                 T.nilable(
                   ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification
                 ),
+              third_party_verifications:
+                T::Array[
+                  ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification
+                ],
               ticker_symbol: T.nilable(String),
               wealth_and_employment_details:
                 T.nilable(ModernTreasury::LegalEntityWealthEmploymentDetail),
@@ -989,6 +1021,14 @@ module ModernTreasury
               )
             end
 
+          # The outcome of the verification. One of `passed` or `failed`.
+          sig do
+            returns(
+              ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification::Outcome::OrSymbol
+            )
+          end
+          attr_accessor :outcome
+
           # The vendor that performed the verification, e.g. `persona`.
           sig do
             returns(
@@ -1001,32 +1041,111 @@ module ModernTreasury
           sig { returns(String) }
           attr_accessor :vendor_verification_id
 
-          # Information describing a third-party verification run by an external vendor.
+          # The category of verification performed.
+          sig do
+            returns(
+              ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification::VerificationCategory::OrSymbol
+            )
+          end
+          attr_accessor :verification_category
+
+          # The method used to perform the verification.
+          sig { returns(String) }
+          attr_accessor :verification_method
+
+          # The timestamp when the verification was performed.
+          sig { returns(Time) }
+          attr_accessor :verification_time
+
+          # An optional comment about the verification.
+          sig { returns(T.nilable(String)) }
+          attr_accessor :comment
+
+          # Deprecated. Use `third_party_verifications` instead.
           sig do
             params(
+              outcome:
+                ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification::Outcome::OrSymbol,
               vendor:
                 ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification::Vendor::OrSymbol,
-              vendor_verification_id: String
+              vendor_verification_id: String,
+              verification_category:
+                ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification::VerificationCategory::OrSymbol,
+              verification_method: String,
+              verification_time: Time,
+              comment: T.nilable(String)
             ).returns(T.attached_class)
           end
           def self.new(
+            # The outcome of the verification. One of `passed` or `failed`.
+            outcome:,
             # The vendor that performed the verification, e.g. `persona`.
             vendor:,
             # The identification of the third party verification in `vendor`'s system.
-            vendor_verification_id:
+            vendor_verification_id:,
+            # The category of verification performed.
+            verification_category:,
+            # The method used to perform the verification.
+            verification_method:,
+            # The timestamp when the verification was performed.
+            verification_time:,
+            # An optional comment about the verification.
+            comment: nil
           )
           end
 
           sig do
             override.returns(
               {
+                outcome:
+                  ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification::Outcome::OrSymbol,
                 vendor:
                   ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification::Vendor::OrSymbol,
-                vendor_verification_id: String
+                vendor_verification_id: String,
+                verification_category:
+                  ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification::VerificationCategory::OrSymbol,
+                verification_method: String,
+                verification_time: Time,
+                comment: T.nilable(String)
               }
             )
           end
           def to_hash
+          end
+
+          # The outcome of the verification. One of `passed` or `failed`.
+          module Outcome
+            extend ModernTreasury::Internal::Type::Enum
+
+            TaggedSymbol =
+              T.type_alias do
+                T.all(
+                  Symbol,
+                  ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification::Outcome
+                )
+              end
+            OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+            PASSED =
+              T.let(
+                :passed,
+                ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification::Outcome::TaggedSymbol
+              )
+            FAILED =
+              T.let(
+                :failed,
+                ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification::Outcome::TaggedSymbol
+              )
+
+            sig do
+              override.returns(
+                T::Array[
+                  ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification::Outcome::TaggedSymbol
+                ]
+              )
+            end
+            def self.values
+            end
           end
 
           # The vendor that performed the verification, e.g. `persona`.
@@ -1047,11 +1166,81 @@ module ModernTreasury
                 :persona,
                 ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification::Vendor::TaggedSymbol
               )
+            MIDDESK =
+              T.let(
+                :middesk,
+                ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification::Vendor::TaggedSymbol
+              )
+            ALLOY =
+              T.let(
+                :alloy,
+                ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification::Vendor::TaggedSymbol
+              )
+            SUMSUB =
+              T.let(
+                :sumsub,
+                ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification::Vendor::TaggedSymbol
+              )
+            VERIFF =
+              T.let(
+                :veriff,
+                ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification::Vendor::TaggedSymbol
+              )
 
             sig do
               override.returns(
                 T::Array[
                   ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification::Vendor::TaggedSymbol
+                ]
+              )
+            end
+            def self.values
+            end
+          end
+
+          # The category of verification performed.
+          module VerificationCategory
+            extend ModernTreasury::Internal::Type::Enum
+
+            TaggedSymbol =
+              T.type_alias do
+                T.all(
+                  Symbol,
+                  ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification::VerificationCategory
+                )
+              end
+            OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+            LEGAL_NAME =
+              T.let(
+                :legal_name,
+                ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification::VerificationCategory::TaggedSymbol
+              )
+            DATE_OF_BIRTH =
+              T.let(
+                :date_of_birth,
+                ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification::VerificationCategory::TaggedSymbol
+              )
+            ADDRESS =
+              T.let(
+                :address,
+                ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification::VerificationCategory::TaggedSymbol
+              )
+            GOVERNMENT_ID_NUMBER =
+              T.let(
+                :government_id_number,
+                ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification::VerificationCategory::TaggedSymbol
+              )
+            ADVERSE_MEDIA =
+              T.let(
+                :adverse_media,
+                ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification::VerificationCategory::TaggedSymbol
+              )
+
+            sig do
+              override.returns(
+                T::Array[
+                  ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::ThirdPartyVerification::VerificationCategory::TaggedSymbol
                 ]
               )
             end
