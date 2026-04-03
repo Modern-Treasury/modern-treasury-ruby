@@ -246,17 +246,15 @@ module ModernTreasury
       #
       #   Deprecated. Use `third_party_verifications` instead.
       #
-      #   @return [ModernTreasury::Models::ChildLegalEntityCreate::ThirdPartyVerification, nil]
-      optional :third_party_verification,
-               -> { ModernTreasury::ChildLegalEntityCreate::ThirdPartyVerification },
-               nil?: true
+      #   @return [ModernTreasury::Models::ThirdPartyVerification, nil]
+      optional :third_party_verification, -> { ModernTreasury::ThirdPartyVerification }, nil?: true
 
       # @!attribute third_party_verifications
       #   A list of third-party verifications run by external vendors.
       #
-      #   @return [Array<ModernTreasury::Models::ChildLegalEntityCreate::ThirdPartyVerification>, nil]
+      #   @return [Array<ModernTreasury::Models::ThirdPartyVerification>, nil]
       optional :third_party_verifications,
-               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ChildLegalEntityCreate::ThirdPartyVerification] }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ThirdPartyVerification] }
 
       # @!attribute ticker_symbol
       #   Stock ticker symbol for publicly traded companies.
@@ -353,9 +351,9 @@ module ModernTreasury
       #
       #   @param suffix [String, nil] An individual's suffix.
       #
-      #   @param third_party_verification [ModernTreasury::Models::ChildLegalEntityCreate::ThirdPartyVerification, nil] Deprecated. Use `third_party_verifications` instead.
+      #   @param third_party_verification [ModernTreasury::Models::ThirdPartyVerification, nil] Deprecated. Use `third_party_verifications` instead.
       #
-      #   @param third_party_verifications [Array<ModernTreasury::Models::ChildLegalEntityCreate::ThirdPartyVerification>] A list of third-party verifications run by external vendors.
+      #   @param third_party_verifications [Array<ModernTreasury::Models::ThirdPartyVerification>] A list of third-party verifications run by external vendors.
       #
       #   @param ticker_symbol [String, nil] Stock ticker symbol for publicly traded companies.
       #
@@ -492,116 +490,6 @@ module ModernTreasury
 
         # @!method self.values
         #   @return [Array<Symbol>]
-      end
-
-      # @deprecated
-      #
-      # @see ModernTreasury::Models::ChildLegalEntityCreate#third_party_verification
-      class ThirdPartyVerification < ModernTreasury::Internal::Type::BaseModel
-        # @!attribute outcome
-        #   The outcome of the verification. One of `passed` or `failed`.
-        #
-        #   @return [Symbol, ModernTreasury::Models::ChildLegalEntityCreate::ThirdPartyVerification::Outcome]
-        required :outcome, enum: -> { ModernTreasury::ChildLegalEntityCreate::ThirdPartyVerification::Outcome }
-
-        # @!attribute vendor
-        #   The vendor that performed the verification, e.g. `persona`.
-        #
-        #   @return [Symbol, ModernTreasury::Models::ChildLegalEntityCreate::ThirdPartyVerification::Vendor]
-        required :vendor, enum: -> { ModernTreasury::ChildLegalEntityCreate::ThirdPartyVerification::Vendor }
-
-        # @!attribute vendor_verification_id
-        #   The identification of the third party verification in `vendor`'s system.
-        #
-        #   @return [String]
-        required :vendor_verification_id, String
-
-        # @!attribute verification_category
-        #   The category of verification performed.
-        #
-        #   @return [Symbol, ModernTreasury::Models::ChildLegalEntityCreate::ThirdPartyVerification::VerificationCategory]
-        required :verification_category,
-                 enum: -> { ModernTreasury::ChildLegalEntityCreate::ThirdPartyVerification::VerificationCategory }
-
-        # @!attribute verification_method
-        #   The method used to perform the verification.
-        #
-        #   @return [String]
-        required :verification_method, String
-
-        # @!attribute verification_time
-        #   The timestamp when the verification was performed.
-        #
-        #   @return [Time]
-        required :verification_time, Time
-
-        # @!attribute comment
-        #   An optional comment about the verification.
-        #
-        #   @return [String, nil]
-        optional :comment, String, nil?: true
-
-        # @!method initialize(outcome:, vendor:, vendor_verification_id:, verification_category:, verification_method:, verification_time:, comment: nil)
-        #   Deprecated. Use `third_party_verifications` instead.
-        #
-        #   @param outcome [Symbol, ModernTreasury::Models::ChildLegalEntityCreate::ThirdPartyVerification::Outcome] The outcome of the verification. One of `passed` or `failed`.
-        #
-        #   @param vendor [Symbol, ModernTreasury::Models::ChildLegalEntityCreate::ThirdPartyVerification::Vendor] The vendor that performed the verification, e.g. `persona`.
-        #
-        #   @param vendor_verification_id [String] The identification of the third party verification in `vendor`'s system.
-        #
-        #   @param verification_category [Symbol, ModernTreasury::Models::ChildLegalEntityCreate::ThirdPartyVerification::VerificationCategory] The category of verification performed.
-        #
-        #   @param verification_method [String] The method used to perform the verification.
-        #
-        #   @param verification_time [Time] The timestamp when the verification was performed.
-        #
-        #   @param comment [String, nil] An optional comment about the verification.
-
-        # The outcome of the verification. One of `passed` or `failed`.
-        #
-        # @see ModernTreasury::Models::ChildLegalEntityCreate::ThirdPartyVerification#outcome
-        module Outcome
-          extend ModernTreasury::Internal::Type::Enum
-
-          PASSED = :passed
-          FAILED = :failed
-
-          # @!method self.values
-          #   @return [Array<Symbol>]
-        end
-
-        # The vendor that performed the verification, e.g. `persona`.
-        #
-        # @see ModernTreasury::Models::ChildLegalEntityCreate::ThirdPartyVerification#vendor
-        module Vendor
-          extend ModernTreasury::Internal::Type::Enum
-
-          PERSONA = :persona
-          MIDDESK = :middesk
-          ALLOY = :alloy
-          SUMSUB = :sumsub
-          VERIFF = :veriff
-
-          # @!method self.values
-          #   @return [Array<Symbol>]
-        end
-
-        # The category of verification performed.
-        #
-        # @see ModernTreasury::Models::ChildLegalEntityCreate::ThirdPartyVerification#verification_category
-        module VerificationCategory
-          extend ModernTreasury::Internal::Type::Enum
-
-          LEGAL_NAME = :legal_name
-          DATE_OF_BIRTH = :date_of_birth
-          ADDRESS = :address
-          GOVERNMENT_ID_NUMBER = :government_id_number
-          ADVERSE_MEDIA = :adverse_media
-
-          # @!method self.values
-          #   @return [Array<Symbol>]
-        end
       end
     end
   end
