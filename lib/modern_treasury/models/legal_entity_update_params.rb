@@ -209,12 +209,21 @@ module ModernTreasury
       optional :suffix, String, nil?: true
 
       # @!attribute third_party_verification
-      #   Information describing a third-party verification run by an external vendor.
+      #   @deprecated
+      #
+      #   Deprecated. Use `third_party_verifications` instead.
       #
       #   @return [ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification, nil]
       optional :third_party_verification,
                -> { ModernTreasury::LegalEntityUpdateParams::ThirdPartyVerification },
                nil?: true
+
+      # @!attribute third_party_verifications
+      #   A list of third-party verifications run by external vendors.
+      #
+      #   @return [Array<ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification>, nil]
+      optional :third_party_verifications,
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityUpdateParams::ThirdPartyVerification] }
 
       # @!attribute ticker_symbol
       #   Stock ticker symbol for publicly traded companies.
@@ -235,7 +244,7 @@ module ModernTreasury
       #   @return [String, nil]
       optional :website, String, nil?: true
 
-      # @!method initialize(id:, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, external_id: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, service_provider_legal_entity_id: nil, suffix: nil, third_party_verification: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
+      # @!method initialize(id:, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, external_id: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, service_provider_legal_entity_id: nil, suffix: nil, third_party_verification: nil, third_party_verifications: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LegalEntityUpdateParams} for more details.
       #
@@ -303,7 +312,9 @@ module ModernTreasury
       #
       #   @param suffix [String, nil] An individual's suffix.
       #
-      #   @param third_party_verification [ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification, nil] Information describing a third-party verification run by an external vendor.
+      #   @param third_party_verification [ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification, nil] Deprecated. Use `third_party_verifications` instead.
+      #
+      #   @param third_party_verifications [Array<ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification>] A list of third-party verifications run by external vendors.
       #
       #   @param ticker_symbol [String, nil] Stock ticker symbol for publicly traded companies.
       #
@@ -383,7 +394,14 @@ module ModernTreasury
         #   @return [Array<Symbol>]
       end
 
+      # @deprecated
       class ThirdPartyVerification < ModernTreasury::Internal::Type::BaseModel
+        # @!attribute outcome
+        #   The outcome of the verification. One of `passed` or `failed`.
+        #
+        #   @return [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification::Outcome]
+        required :outcome, enum: -> { ModernTreasury::LegalEntityUpdateParams::ThirdPartyVerification::Outcome }
+
         # @!attribute vendor
         #   The vendor that performed the verification, e.g. `persona`.
         #
@@ -396,12 +414,60 @@ module ModernTreasury
         #   @return [String]
         required :vendor_verification_id, String
 
-        # @!method initialize(vendor:, vendor_verification_id:)
-        #   Information describing a third-party verification run by an external vendor.
+        # @!attribute verification_category
+        #   The category of verification performed.
+        #
+        #   @return [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification::VerificationCategory]
+        required :verification_category,
+                 enum: -> { ModernTreasury::LegalEntityUpdateParams::ThirdPartyVerification::VerificationCategory }
+
+        # @!attribute verification_method
+        #   The method used to perform the verification.
+        #
+        #   @return [String]
+        required :verification_method, String
+
+        # @!attribute verification_time
+        #   The timestamp when the verification was performed.
+        #
+        #   @return [Time]
+        required :verification_time, Time
+
+        # @!attribute comment
+        #   An optional comment about the verification.
+        #
+        #   @return [String, nil]
+        optional :comment, String, nil?: true
+
+        # @!method initialize(outcome:, vendor:, vendor_verification_id:, verification_category:, verification_method:, verification_time:, comment: nil)
+        #   Deprecated. Use `third_party_verifications` instead.
+        #
+        #   @param outcome [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification::Outcome] The outcome of the verification. One of `passed` or `failed`.
         #
         #   @param vendor [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification::Vendor] The vendor that performed the verification, e.g. `persona`.
         #
         #   @param vendor_verification_id [String] The identification of the third party verification in `vendor`'s system.
+        #
+        #   @param verification_category [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification::VerificationCategory] The category of verification performed.
+        #
+        #   @param verification_method [String] The method used to perform the verification.
+        #
+        #   @param verification_time [Time] The timestamp when the verification was performed.
+        #
+        #   @param comment [String, nil] An optional comment about the verification.
+
+        # The outcome of the verification. One of `passed` or `failed`.
+        #
+        # @see ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification#outcome
+        module Outcome
+          extend ModernTreasury::Internal::Type::Enum
+
+          PASSED = :passed
+          FAILED = :failed
+
+          # @!method self.values
+          #   @return [Array<Symbol>]
+        end
 
         # The vendor that performed the verification, e.g. `persona`.
         #
@@ -410,6 +476,26 @@ module ModernTreasury
           extend ModernTreasury::Internal::Type::Enum
 
           PERSONA = :persona
+          MIDDESK = :middesk
+          ALLOY = :alloy
+          SUMSUB = :sumsub
+          VERIFF = :veriff
+
+          # @!method self.values
+          #   @return [Array<Symbol>]
+        end
+
+        # The category of verification performed.
+        #
+        # @see ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification#verification_category
+        module VerificationCategory
+          extend ModernTreasury::Internal::Type::Enum
+
+          LEGAL_NAME = :legal_name
+          DATE_OF_BIRTH = :date_of_birth
+          ADDRESS = :address
+          GOVERNMENT_ID_NUMBER = :government_id_number
+          ADVERSE_MEDIA = :adverse_media
 
           # @!method self.values
           #   @return [Array<Symbol>]

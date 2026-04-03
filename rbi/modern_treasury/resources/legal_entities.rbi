@@ -71,6 +71,10 @@ module ModernTreasury
             T.nilable(
               ModernTreasury::LegalEntityCreateParams::ThirdPartyVerification::OrHash
             ),
+          third_party_verifications:
+            T::Array[
+              ModernTreasury::LegalEntityCreateParams::ThirdPartyVerification::OrHash
+            ],
           ticker_symbol: T.nilable(String),
           wealth_and_employment_details:
             T.nilable(
@@ -157,8 +161,10 @@ module ModernTreasury
         service_provider_legal_entity_id: nil,
         # An individual's suffix.
         suffix: nil,
-        # Information describing a third-party verification run by an external vendor.
+        # Deprecated. Use `third_party_verifications` instead.
         third_party_verification: nil,
+        # A list of third-party verifications run by external vendors.
+        third_party_verifications: nil,
         # Stock ticker symbol for publicly traded companies.
         ticker_symbol: nil,
         wealth_and_employment_details: nil,
@@ -239,6 +245,10 @@ module ModernTreasury
             T.nilable(
               ModernTreasury::LegalEntityUpdateParams::ThirdPartyVerification::OrHash
             ),
+          third_party_verifications:
+            T::Array[
+              ModernTreasury::LegalEntityUpdateParams::ThirdPartyVerification::OrHash
+            ],
           ticker_symbol: T.nilable(String),
           wealth_and_employment_details:
             T.nilable(
@@ -313,8 +323,10 @@ module ModernTreasury
         service_provider_legal_entity_id: nil,
         # An individual's suffix.
         suffix: nil,
-        # Information describing a third-party verification run by an external vendor.
+        # Deprecated. Use `third_party_verifications` instead.
         third_party_verification: nil,
+        # A list of third-party verifications run by external vendors.
+        third_party_verifications: nil,
         # Stock ticker symbol for publicly traded companies.
         ticker_symbol: nil,
         wealth_and_employment_details: nil,
