@@ -1,5 +1,33 @@
 # Changelog
 
+## 0.25.0 (2026-04-04)
+
+Full Changelog: [v0.24.0...v0.25.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.24.0...v0.25.0)
+
+### Features
+
+* **api:** add third_party_verification model ([4cb8cdb](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/4cb8cdb40f925534e2da7085dc054e798d351911))
+* **api:** api update ([fcb9241](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/fcb9241cda9910647c5207eb3de63d59223b61d7))
+* **api:** api update ([a47d167](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/a47d1676fe5f1907245885348c1954e8cbc5b896))
+* **api:** api update ([d98da2d](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/d98da2daa3b9ec65dbcf71a46d7c61d36acfa04b))
+* **api:** api update ([47ee83f](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/47ee83f30418da557b88f871c5195bb15ac4bbed))
+* **api:** api update ([a34526e](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/a34526e771be70dfcc86e74b3085a77f157c8965))
+* **api:** api update ([fc793c0](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/fc793c04ebbe3131f2eb79d2d7f850d71189b4f6))
+* **api:** api update ([404971a](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/404971a1b547630bd175540304ef0afea3edb2ae))
+* **api:** api update ([d1c55d8](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/d1c55d816573a99cb128884ddcdabde207b87585))
+
+
+### Bug Fixes
+
+* align path encoding with RFC 3986 section 3.3 ([ecab4ad](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/ecab4ad8d0ba2a9fdd6e6294782eaf29a140f548))
+* **internal:** correct multipart form field name encoding ([c7b4c30](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/c7b4c30e9ecf977f4d921aeafcd5f6306780c0eb))
+* variable name typo ([f765029](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/f76502971d22a2dc0d2710ee9813460b32f52e97))
+
+
+### Chores
+
+* **ci:** support opting out of skipping builds on metadata-only commits ([19ac913](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/19ac91398062cdddf3939095d8a82b77b8c9c44c))
+
 ## 0.24.0 (2026-03-25)
 
 Full Changelog: [v0.23.0...v0.24.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.23.0...v0.24.0)
