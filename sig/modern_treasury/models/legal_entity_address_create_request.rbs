@@ -50,12 +50,19 @@ module ModernTreasury
         :line2 => String?
       }
 
-      type address_type = :business | :mailing | :other | :po_box | :residential
+      type address_type =
+        :business
+        | :business_registered
+        | :mailing
+        | :other
+        | :po_box
+        | :residential
 
       module AddressType
         extend ModernTreasury::Internal::Type::Enum
 
         BUSINESS: :business
+        BUSINESS_REGISTERED: :business_registered
         MAILING: :mailing
         OTHER: :other
         PO_BOX: :po_box

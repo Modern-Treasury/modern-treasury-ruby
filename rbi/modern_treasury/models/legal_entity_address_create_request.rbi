@@ -121,6 +121,11 @@ module ModernTreasury
             :business,
             ModernTreasury::LegalEntityAddressCreateRequest::AddressType::TaggedSymbol
           )
+        BUSINESS_REGISTERED =
+          T.let(
+            :business_registered,
+            ModernTreasury::LegalEntityAddressCreateRequest::AddressType::TaggedSymbol
+          )
         MAILING =
           T.let(
             :mailing,
