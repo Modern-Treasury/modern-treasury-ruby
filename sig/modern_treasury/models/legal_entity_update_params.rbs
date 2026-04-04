@@ -32,8 +32,10 @@ module ModernTreasury
         primary_social_media_sites: ::Array[String],
         regulators: ::Array[ModernTreasury::LegalEntityUpdateParams::Regulator]?,
         risk_rating: ModernTreasury::Models::LegalEntityUpdateParams::risk_rating?,
+        service_provider_legal_entity_id: String?,
         suffix: String?,
-        third_party_verification: ModernTreasury::LegalEntityUpdateParams::ThirdPartyVerification?,
+        third_party_verification: ModernTreasury::ThirdPartyVerification?,
+        third_party_verifications: ::Array[ModernTreasury::ThirdPartyVerification],
         ticker_symbol: String?,
         wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,
         website: String?
@@ -128,9 +130,17 @@ module ModernTreasury
 
       attr_accessor risk_rating: ModernTreasury::Models::LegalEntityUpdateParams::risk_rating?
 
+      attr_accessor service_provider_legal_entity_id: String?
+
       attr_accessor suffix: String?
 
-      attr_accessor third_party_verification: ModernTreasury::LegalEntityUpdateParams::ThirdPartyVerification?
+      attr_accessor third_party_verification: ModernTreasury::ThirdPartyVerification?
+
+      attr_reader third_party_verifications: ::Array[ModernTreasury::ThirdPartyVerification]?
+
+      def third_party_verifications=: (
+        ::Array[ModernTreasury::ThirdPartyVerification]
+      ) -> ::Array[ModernTreasury::ThirdPartyVerification]
 
       attr_accessor ticker_symbol: String?
 
@@ -169,8 +179,10 @@ module ModernTreasury
         ?primary_social_media_sites: ::Array[String],
         ?regulators: ::Array[ModernTreasury::LegalEntityUpdateParams::Regulator]?,
         ?risk_rating: ModernTreasury::Models::LegalEntityUpdateParams::risk_rating?,
+        ?service_provider_legal_entity_id: String?,
         ?suffix: String?,
-        ?third_party_verification: ModernTreasury::LegalEntityUpdateParams::ThirdPartyVerification?,
+        ?third_party_verification: ModernTreasury::ThirdPartyVerification?,
+        ?third_party_verifications: ::Array[ModernTreasury::ThirdPartyVerification],
         ?ticker_symbol: String?,
         ?wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,
         ?website: String?,
@@ -208,8 +220,10 @@ module ModernTreasury
         primary_social_media_sites: ::Array[String],
         regulators: ::Array[ModernTreasury::LegalEntityUpdateParams::Regulator]?,
         risk_rating: ModernTreasury::Models::LegalEntityUpdateParams::risk_rating?,
+        service_provider_legal_entity_id: String?,
         suffix: String?,
-        third_party_verification: ModernTreasury::LegalEntityUpdateParams::ThirdPartyVerification?,
+        third_party_verification: ModernTreasury::ThirdPartyVerification?,
+        third_party_verifications: ::Array[ModernTreasury::ThirdPartyVerification],
         ticker_symbol: String?,
         wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,
         website: String?,
@@ -282,38 +296,6 @@ module ModernTreasury
         HIGH: :high
 
         def self?.values: -> ::Array[ModernTreasury::Models::LegalEntityUpdateParams::risk_rating]
-      end
-
-      type third_party_verification =
-        {
-          vendor: ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification::vendor,
-          vendor_verification_id: String
-        }
-
-      class ThirdPartyVerification < ModernTreasury::Internal::Type::BaseModel
-        attr_accessor vendor: ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification::vendor
-
-        attr_accessor vendor_verification_id: String
-
-        def initialize: (
-          vendor: ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification::vendor,
-          vendor_verification_id: String
-        ) -> void
-
-        def to_hash: -> {
-          vendor: ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification::vendor,
-          vendor_verification_id: String
-        }
-
-        type vendor = :persona
-
-        module Vendor
-          extend ModernTreasury::Internal::Type::Enum
-
-          PERSONA: :persona
-
-          def self?.values: -> ::Array[ModernTreasury::Models::LegalEntityUpdateParams::ThirdPartyVerification::vendor]
-        end
       end
     end
   end

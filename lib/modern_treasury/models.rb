@@ -364,8 +364,6 @@ module ModernTreasury
 
   LegalEntityAssociation = ModernTreasury::Models::LegalEntityAssociation
 
-  LegalEntityAssociationCreateParams = ModernTreasury::Models::LegalEntityAssociationCreateParams
-
   LegalEntityAssociationInlineCreate = ModernTreasury::Models::LegalEntityAssociationInlineCreate
 
   LegalEntityBankSettings = ModernTreasury::Models::LegalEntityBankSettings
@@ -457,6 +455,8 @@ module ModernTreasury
   RoutingDetailRetrieveParams = ModernTreasury::Models::RoutingDetailRetrieveParams
 
   RoutingNumberLookupRequest = ModernTreasury::Models::RoutingNumberLookupRequest
+
+  ThirdPartyVerification = ModernTreasury::Models::ThirdPartyVerification
 
   Transaction = ModernTreasury::Models::Transaction
 

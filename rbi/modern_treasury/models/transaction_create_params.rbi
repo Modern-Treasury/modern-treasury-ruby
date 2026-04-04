@@ -328,6 +328,11 @@ module ModernTreasury
             :solana,
             ModernTreasury::TransactionCreateParams::Type::TaggedSymbol
           )
+        STABLECOIN =
+          T.let(
+            :stablecoin,
+            ModernTreasury::TransactionCreateParams::Type::TaggedSymbol
+          )
         WIRE =
           T.let(
             :wire,

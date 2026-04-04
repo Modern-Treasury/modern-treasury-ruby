@@ -227,6 +227,12 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::LegalEntity::RiskRating, nil]
       required :risk_rating, enum: -> { ModernTreasury::LegalEntity::RiskRating }, nil?: true
 
+      # @!attribute service_provider_legal_entity_id
+      #   The UUID of the parent legal entity in the service provider tree.
+      #
+      #   @return [String, nil]
+      required :service_provider_legal_entity_id, String, nil?: true
+
       # @!attribute status
       #   The activation status of the legal entity. One of pending, active, suspended, or
       #   denied.
@@ -241,14 +247,19 @@ module ModernTreasury
       required :suffix, String, nil?: true
 
       # @!attribute third_party_verification
-      #   Information describing a third-party verification run by an external vendor.
+      #   @deprecated
       #
-      #   @return [ModernTreasury::Models::LegalEntity::ThirdPartyVerification, nil]
-      required :third_party_verification,
-               -> {
-                 ModernTreasury::LegalEntity::ThirdPartyVerification
-               },
-               nil?: true
+      #   Deprecated. Use `third_party_verifications` instead.
+      #
+      #   @return [ModernTreasury::Models::ThirdPartyVerification, nil]
+      required :third_party_verification, -> { ModernTreasury::ThirdPartyVerification }, nil?: true
+
+      # @!attribute third_party_verifications
+      #   A list of third-party verifications run by external vendors.
+      #
+      #   @return [Array<ModernTreasury::Models::ThirdPartyVerification>]
+      required :third_party_verifications,
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ThirdPartyVerification] }
 
       # @!attribute ticker_symbol
       #   Stock ticker symbol for publicly traded companies.
@@ -282,7 +293,7 @@ module ModernTreasury
                -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityAssociation] },
                nil?: true
 
-      # @!method initialize(id:, addresses:, bank_settings:, business_description:, business_name:, citizenship_country:, compliance_details:, country_of_incorporation:, created_at:, date_formed:, date_of_birth:, discarded_at:, documents:, doing_business_as_names:, email:, expected_activity_volume:, external_id:, first_name:, identifications:, industry_classifications:, intended_use:, last_name:, legal_entity_type:, legal_structure:, listed_exchange:, live_mode:, metadata:, middle_name:, object:, operating_jurisdictions:, phone_numbers:, politically_exposed_person:, preferred_name:, prefix:, primary_social_media_sites:, regulators:, risk_rating:, status:, suffix:, third_party_verification:, ticker_symbol:, updated_at:, wealth_and_employment_details:, website:, legal_entity_associations: nil)
+      # @!method initialize(id:, addresses:, bank_settings:, business_description:, business_name:, citizenship_country:, compliance_details:, country_of_incorporation:, created_at:, date_formed:, date_of_birth:, discarded_at:, documents:, doing_business_as_names:, email:, expected_activity_volume:, external_id:, first_name:, identifications:, industry_classifications:, intended_use:, last_name:, legal_entity_type:, legal_structure:, listed_exchange:, live_mode:, metadata:, middle_name:, object:, operating_jurisdictions:, phone_numbers:, politically_exposed_person:, preferred_name:, prefix:, primary_social_media_sites:, regulators:, risk_rating:, service_provider_legal_entity_id:, status:, suffix:, third_party_verification:, third_party_verifications:, ticker_symbol:, updated_at:, wealth_and_employment_details:, website:, legal_entity_associations: nil)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LegalEntity} for more details.
       #
@@ -360,11 +371,15 @@ module ModernTreasury
       #
       #   @param risk_rating [Symbol, ModernTreasury::Models::LegalEntity::RiskRating, nil] The risk rating of the legal entity. One of low, medium, high.
       #
+      #   @param service_provider_legal_entity_id [String, nil] The UUID of the parent legal entity in the service provider tree.
+      #
       #   @param status [Symbol, ModernTreasury::Models::LegalEntity::Status, nil] The activation status of the legal entity. One of pending, active, suspended, or
       #
       #   @param suffix [String, nil] An individual's suffix.
       #
-      #   @param third_party_verification [ModernTreasury::Models::LegalEntity::ThirdPartyVerification, nil] Information describing a third-party verification run by an external vendor.
+      #   @param third_party_verification [ModernTreasury::Models::ThirdPartyVerification, nil] Deprecated. Use `third_party_verifications` instead.
+      #
+      #   @param third_party_verifications [Array<ModernTreasury::Models::ThirdPartyVerification>] A list of third-party verifications run by external vendors.
       #
       #   @param ticker_symbol [String, nil] Stock ticker symbol for publicly traded companies.
       #
@@ -484,6 +499,7 @@ module ModernTreasury
           extend ModernTreasury::Internal::Type::Enum
 
           BUSINESS = :business
+          BUSINESS_REGISTERED = :business_registered
           MAILING = :mailing
           OTHER = :other
           PO_BOX = :po_box
@@ -602,6 +618,7 @@ module ModernTreasury
           DRIVERS_LICENSE = :drivers_license
           HN_ID = :hn_id
           HN_RTN = :hn_rtn
+          IE_PPS = :ie_pps
           IN_LEI = :in_lei
           KR_BRN = :kr_brn
           KR_CRN = :kr_crn
@@ -721,40 +738,6 @@ module ModernTreasury
 
         # @!method self.values
         #   @return [Array<Symbol>]
-      end
-
-      # @see ModernTreasury::Models::LegalEntity#third_party_verification
-      class ThirdPartyVerification < ModernTreasury::Internal::Type::BaseModel
-        # @!attribute vendor
-        #   The vendor that performed the verification, e.g. `persona`.
-        #
-        #   @return [Symbol, ModernTreasury::Models::LegalEntity::ThirdPartyVerification::Vendor]
-        required :vendor, enum: -> { ModernTreasury::LegalEntity::ThirdPartyVerification::Vendor }
-
-        # @!attribute vendor_verification_id
-        #   The identification of the third party verification in `vendor`'s system.
-        #
-        #   @return [String]
-        required :vendor_verification_id, String
-
-        # @!method initialize(vendor:, vendor_verification_id:)
-        #   Information describing a third-party verification run by an external vendor.
-        #
-        #   @param vendor [Symbol, ModernTreasury::Models::LegalEntity::ThirdPartyVerification::Vendor] The vendor that performed the verification, e.g. `persona`.
-        #
-        #   @param vendor_verification_id [String] The identification of the third party verification in `vendor`'s system.
-
-        # The vendor that performed the verification, e.g. `persona`.
-        #
-        # @see ModernTreasury::Models::LegalEntity::ThirdPartyVerification#vendor
-        module Vendor
-          extend ModernTreasury::Internal::Type::Enum
-
-          PERSONA = :persona
-
-          # @!method self.values
-          #   @return [Array<Symbol>]
-        end
       end
     end
   end

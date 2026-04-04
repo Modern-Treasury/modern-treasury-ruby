@@ -29,10 +29,13 @@ module ModernTreasury
       AU_BECS =
         T.let(:au_becs, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       BACS = T.let(:bacs, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
+      BASE = T.let(:base, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       CHATS = T.let(:chats, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       DK_NETS =
         T.let(:dk_nets, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       EFT = T.let(:eft, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
+      ETHEREUM =
+        T.let(:ethereum, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       HU_ICS = T.let(:hu_ics, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       MASAV = T.let(:masav, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       MX_CCEN =
@@ -43,6 +46,8 @@ module ModernTreasury
         T.let(:nz_becs, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       PL_ELIXIR =
         T.let(:pl_elixir, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
+      POLYGON =
+        T.let(:polygon, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       RO_SENT =
         T.let(:ro_sent, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       SE_BANKGIROT =
@@ -52,6 +57,7 @@ module ModernTreasury
         T.let(:sg_giro, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       SIC = T.let(:sic, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       SKNBI = T.let(:sknbi, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
+      SOLANA = T.let(:solana, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       ZENGIN = T.let(:zengin, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
 
       sig do

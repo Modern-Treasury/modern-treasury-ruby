@@ -1919,6 +1919,11 @@ module ModernTreasury
                 :solana,
                 ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
+            STABLECOIN =
+              T.let(
+                :stablecoin,
+                ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+              )
             WIRE =
               T.let(
                 :wire,

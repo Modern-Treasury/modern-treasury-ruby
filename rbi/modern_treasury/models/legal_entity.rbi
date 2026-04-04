@@ -173,6 +173,10 @@ module ModernTreasury
       end
       attr_accessor :risk_rating
 
+      # The UUID of the parent legal entity in the service provider tree.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :service_provider_legal_entity_id
+
       # The activation status of the legal entity. One of pending, active, suspended, or
       # denied.
       sig do
@@ -184,21 +188,21 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :suffix
 
-      # Information describing a third-party verification run by an external vendor.
-      sig do
-        returns(T.nilable(ModernTreasury::LegalEntity::ThirdPartyVerification))
-      end
+      # Deprecated. Use `third_party_verifications` instead.
+      sig { returns(T.nilable(ModernTreasury::ThirdPartyVerification)) }
       attr_reader :third_party_verification
 
       sig do
         params(
           third_party_verification:
-            T.nilable(
-              ModernTreasury::LegalEntity::ThirdPartyVerification::OrHash
-            )
+            T.nilable(ModernTreasury::ThirdPartyVerification::OrHash)
         ).void
       end
       attr_writer :third_party_verification
+
+      # A list of third-party verifications run by external vendors.
+      sig { returns(T::Array[ModernTreasury::ThirdPartyVerification]) }
+      attr_accessor :third_party_verifications
 
       # Stock ticker symbol for publicly traded companies.
       sig { returns(T.nilable(String)) }
@@ -277,12 +281,13 @@ module ModernTreasury
             T.nilable(T::Array[ModernTreasury::LegalEntity::Regulator::OrHash]),
           risk_rating:
             T.nilable(ModernTreasury::LegalEntity::RiskRating::OrSymbol),
+          service_provider_legal_entity_id: T.nilable(String),
           status: T.nilable(ModernTreasury::LegalEntity::Status::OrSymbol),
           suffix: T.nilable(String),
           third_party_verification:
-            T.nilable(
-              ModernTreasury::LegalEntity::ThirdPartyVerification::OrHash
-            ),
+            T.nilable(ModernTreasury::ThirdPartyVerification::OrHash),
+          third_party_verifications:
+            T::Array[ModernTreasury::ThirdPartyVerification::OrHash],
           ticker_symbol: T.nilable(String),
           updated_at: Time,
           wealth_and_employment_details:
@@ -364,13 +369,17 @@ module ModernTreasury
         regulators:,
         # The risk rating of the legal entity. One of low, medium, high.
         risk_rating:,
+        # The UUID of the parent legal entity in the service provider tree.
+        service_provider_legal_entity_id:,
         # The activation status of the legal entity. One of pending, active, suspended, or
         # denied.
         status:,
         # An individual's suffix.
         suffix:,
-        # Information describing a third-party verification run by an external vendor.
+        # Deprecated. Use `third_party_verifications` instead.
         third_party_verification:,
+        # A list of third-party verifications run by external vendors.
+        third_party_verifications:,
         # Stock ticker symbol for publicly traded companies.
         ticker_symbol:,
         updated_at:,
@@ -430,11 +439,14 @@ module ModernTreasury
               T.nilable(T::Array[ModernTreasury::LegalEntity::Regulator]),
             risk_rating:
               T.nilable(ModernTreasury::LegalEntity::RiskRating::TaggedSymbol),
+            service_provider_legal_entity_id: T.nilable(String),
             status:
               T.nilable(ModernTreasury::LegalEntity::Status::TaggedSymbol),
             suffix: T.nilable(String),
             third_party_verification:
-              T.nilable(ModernTreasury::LegalEntity::ThirdPartyVerification),
+              T.nilable(ModernTreasury::ThirdPartyVerification),
+            third_party_verifications:
+              T::Array[ModernTreasury::ThirdPartyVerification],
             ticker_symbol: T.nilable(String),
             updated_at: Time,
             wealth_and_employment_details:
@@ -590,6 +602,11 @@ module ModernTreasury
           BUSINESS =
             T.let(
               :business,
+              ModernTreasury::LegalEntity::Address::AddressType::TaggedSymbol
+            )
+          BUSINESS_REGISTERED =
+            T.let(
+              :business_registered,
               ModernTreasury::LegalEntity::Address::AddressType::TaggedSymbol
             )
           MAILING =
@@ -807,6 +824,11 @@ module ModernTreasury
           HN_RTN =
             T.let(
               :hn_rtn,
+              ModernTreasury::LegalEntity::Identification::IDType::TaggedSymbol
+            )
+          IE_PPS =
+            T.let(
+              :ie_pps,
               ModernTreasury::LegalEntity::Identification::IDType::TaggedSymbol
             )
           IN_LEI =
@@ -1082,86 +1104,6 @@ module ModernTreasury
           )
         end
         def self.values
-        end
-      end
-
-      class ThirdPartyVerification < ModernTreasury::Internal::Type::BaseModel
-        OrHash =
-          T.type_alias do
-            T.any(
-              ModernTreasury::LegalEntity::ThirdPartyVerification,
-              ModernTreasury::Internal::AnyHash
-            )
-          end
-
-        # The vendor that performed the verification, e.g. `persona`.
-        sig do
-          returns(
-            ModernTreasury::LegalEntity::ThirdPartyVerification::Vendor::TaggedSymbol
-          )
-        end
-        attr_accessor :vendor
-
-        # The identification of the third party verification in `vendor`'s system.
-        sig { returns(String) }
-        attr_accessor :vendor_verification_id
-
-        # Information describing a third-party verification run by an external vendor.
-        sig do
-          params(
-            vendor:
-              ModernTreasury::LegalEntity::ThirdPartyVerification::Vendor::OrSymbol,
-            vendor_verification_id: String
-          ).returns(T.attached_class)
-        end
-        def self.new(
-          # The vendor that performed the verification, e.g. `persona`.
-          vendor:,
-          # The identification of the third party verification in `vendor`'s system.
-          vendor_verification_id:
-        )
-        end
-
-        sig do
-          override.returns(
-            {
-              vendor:
-                ModernTreasury::LegalEntity::ThirdPartyVerification::Vendor::TaggedSymbol,
-              vendor_verification_id: String
-            }
-          )
-        end
-        def to_hash
-        end
-
-        # The vendor that performed the verification, e.g. `persona`.
-        module Vendor
-          extend ModernTreasury::Internal::Type::Enum
-
-          TaggedSymbol =
-            T.type_alias do
-              T.all(
-                Symbol,
-                ModernTreasury::LegalEntity::ThirdPartyVerification::Vendor
-              )
-            end
-          OrSymbol = T.type_alias { T.any(Symbol, String) }
-
-          PERSONA =
-            T.let(
-              :persona,
-              ModernTreasury::LegalEntity::ThirdPartyVerification::Vendor::TaggedSymbol
-            )
-
-          sig do
-            override.returns(
-              T::Array[
-                ModernTreasury::LegalEntity::ThirdPartyVerification::Vendor::TaggedSymbol
-              ]
-            )
-          end
-          def self.values
-          end
         end
       end
     end
