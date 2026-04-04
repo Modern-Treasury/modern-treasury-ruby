@@ -499,6 +499,7 @@ module ModernTreasury
           extend ModernTreasury::Internal::Type::Enum
 
           BUSINESS = :business
+          BUSINESS_REGISTERED = :business_registered
           MAILING = :mailing
           OTHER = :other
           PO_BOX = :po_box
