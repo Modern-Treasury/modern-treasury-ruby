@@ -333,6 +333,11 @@ module ModernTreasury
               :ein_letter,
               ModernTreasury::IdentificationCreateRequest::Document::DocumentType::TaggedSymbol
             )
+          GENERIC =
+            T.let(
+              :generic,
+              ModernTreasury::IdentificationCreateRequest::Document::DocumentType::TaggedSymbol
+            )
           IDENTIFICATION_BACK =
             T.let(
               :identification_back,
