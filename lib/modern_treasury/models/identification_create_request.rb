@@ -128,6 +128,7 @@ module ModernTreasury
           ARTICLES_OF_INCORPORATION = :articles_of_incorporation
           CERTIFICATE_OF_GOOD_STANDING = :certificate_of_good_standing
           EIN_LETTER = :ein_letter
+          GENERIC = :generic
           IDENTIFICATION_BACK = :identification_back
           IDENTIFICATION_FRONT = :identification_front
           PROOF_OF_ADDRESS = :proof_of_address
