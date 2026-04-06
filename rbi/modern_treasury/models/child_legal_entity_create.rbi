@@ -646,6 +646,11 @@ module ModernTreasury
               :ein_letter,
               ModernTreasury::ChildLegalEntityCreate::Document::DocumentType::TaggedSymbol
             )
+          GENERIC =
+            T.let(
+              :generic,
+              ModernTreasury::ChildLegalEntityCreate::Document::DocumentType::TaggedSymbol
+            )
           IDENTIFICATION_BACK =
             T.let(
               :identification_back,
