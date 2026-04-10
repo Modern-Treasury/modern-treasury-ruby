@@ -52,6 +52,14 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::IncomingPaymentDetailListParams::Status }
 
+      # @!attribute subtype
+      #   An additional layer of classification for the type of incoming payment detail.
+      #   For example, a `type` of `stablecoin` may have a `subtype` of `ethereum` or
+      #   `solana`.
+      #
+      #   @return [String, nil]
+      optional :subtype, String
+
       # @!attribute type
       #   One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
       #   `wire`.
@@ -66,7 +74,7 @@ module ModernTreasury
       #   @return [String, nil]
       optional :virtual_account_id, String
 
-      # @!method initialize(after_cursor: nil, as_of_date_end: nil, as_of_date_start: nil, direction: nil, metadata: nil, per_page: nil, status: nil, type: nil, virtual_account_id: nil, request_options: {})
+      # @!method initialize(after_cursor: nil, as_of_date_end: nil, as_of_date_start: nil, direction: nil, metadata: nil, per_page: nil, status: nil, subtype: nil, type: nil, virtual_account_id: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::IncomingPaymentDetailListParams} for more details.
       #
@@ -83,6 +91,8 @@ module ModernTreasury
       #   @param per_page [Integer]
       #
       #   @param status [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Status] The current status of the incoming payment order. One of `pending`, `completed`,
+      #
+      #   @param subtype [String] An additional layer of classification for the type of incoming payment detail. F
       #
       #   @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Type] One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or `w
       #

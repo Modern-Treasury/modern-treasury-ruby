@@ -9,6 +9,7 @@ module ModernTreasury
         metadata: ::Hash[Symbol, String],
         per_page: Integer,
         status: ModernTreasury::Models::IncomingPaymentDetailListParams::status,
+        subtype: String,
         type: ModernTreasury::Models::IncomingPaymentDetailListParams::type_,
         virtual_account_id: String
       }
@@ -48,6 +49,10 @@ module ModernTreasury
         ModernTreasury::Models::IncomingPaymentDetailListParams::status
       ) -> ModernTreasury::Models::IncomingPaymentDetailListParams::status
 
+      attr_reader subtype: String?
+
+      def subtype=: (String) -> String
+
       attr_reader type: ModernTreasury::Models::IncomingPaymentDetailListParams::type_?
 
       def type=: (
@@ -66,6 +71,7 @@ module ModernTreasury
         ?metadata: ::Hash[Symbol, String],
         ?per_page: Integer,
         ?status: ModernTreasury::Models::IncomingPaymentDetailListParams::status,
+        ?subtype: String,
         ?type: ModernTreasury::Models::IncomingPaymentDetailListParams::type_,
         ?virtual_account_id: String,
         ?request_options: ModernTreasury::request_opts
@@ -79,6 +85,7 @@ module ModernTreasury
         metadata: ::Hash[Symbol, String],
         per_page: Integer,
         status: ModernTreasury::Models::IncomingPaymentDetailListParams::status,
+        subtype: String,
         type: ModernTreasury::Models::IncomingPaymentDetailListParams::type_,
         virtual_account_id: String,
         request_options: ModernTreasury::RequestOptions

@@ -105,6 +105,12 @@ module ModernTreasury
       end
       attr_accessor :status
 
+      # An additional layer of classification for the type of incoming payment detail.
+      # For example, a `type` of `stablecoin` may have a `subtype` of `ethereum` or
+      # `solana`.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :subtype
+
       # The ID of the reconciled Transaction or `null`.
       sig { returns(T.nilable(String)) }
       attr_accessor :transaction_id
@@ -203,6 +209,7 @@ module ModernTreasury
           reconciliation_status:
             ModernTreasury::IncomingPaymentDetail::ReconciliationStatus::OrSymbol,
           status: ModernTreasury::IncomingPaymentDetail::Status::OrSymbol,
+          subtype: T.nilable(String),
           transaction_id: T.nilable(String),
           transaction_line_item_id: T.nilable(String),
           type: ModernTreasury::IncomingPaymentDetail::Type::OrSymbol,
@@ -259,6 +266,10 @@ module ModernTreasury
         # The current status of the incoming payment order. One of `pending`, `completed`,
         # or `returned`.
         status:,
+        # An additional layer of classification for the type of incoming payment detail.
+        # For example, a `type` of `stablecoin` may have a `subtype` of `ethereum` or
+        # `solana`.
+        subtype:,
         # The ID of the reconciled Transaction or `null`.
         transaction_id:,
         # The ID of the reconciled Transaction Line Item or `null`.
@@ -321,6 +332,7 @@ module ModernTreasury
             reconciliation_status:
               ModernTreasury::IncomingPaymentDetail::ReconciliationStatus::TaggedSymbol,
             status: ModernTreasury::IncomingPaymentDetail::Status::TaggedSymbol,
+            subtype: T.nilable(String),
             transaction_id: T.nilable(String),
             transaction_line_item_id: T.nilable(String),
             type: ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol,

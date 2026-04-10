@@ -55,7 +55,7 @@ module ModernTreasury
       #
       # Get a list of Incoming Payment Details.
       #
-      # @overload list(after_cursor: nil, as_of_date_end: nil, as_of_date_start: nil, direction: nil, metadata: nil, per_page: nil, status: nil, type: nil, virtual_account_id: nil, request_options: {})
+      # @overload list(after_cursor: nil, as_of_date_end: nil, as_of_date_start: nil, direction: nil, metadata: nil, per_page: nil, status: nil, subtype: nil, type: nil, virtual_account_id: nil, request_options: {})
       #
       # @param after_cursor [String, nil]
       #
@@ -70,6 +70,8 @@ module ModernTreasury
       # @param per_page [Integer]
       #
       # @param status [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Status] The current status of the incoming payment order. One of `pending`, `completed`,
+      #
+      # @param subtype [String] An additional layer of classification for the type of incoming payment detail. F
       #
       # @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Type] One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or `w
       #
@@ -99,7 +101,7 @@ module ModernTreasury
       #
       # Simulate Incoming Payment Detail
       #
-      # @overload create_async(amount: nil, as_of_date: nil, currency: nil, data: nil, description: nil, direction: nil, internal_account_id: nil, type: nil, virtual_account_id: nil, request_options: {})
+      # @overload create_async(amount: nil, as_of_date: nil, currency: nil, data: nil, description: nil, direction: nil, internal_account_id: nil, subtype: nil, type: nil, virtual_account_id: nil, request_options: {})
       #
       # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
       #
@@ -114,6 +116,8 @@ module ModernTreasury
       # @param direction [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction] One of `credit`, `debit`.
       #
       # @param internal_account_id [String] The ID of one of your internal accounts.
+      #
+      # @param subtype [String, nil] An additional layer of classification for the type of incoming payment detail, e
       #
       # @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type] One of `ach`, `wire`, `check`.
       #
