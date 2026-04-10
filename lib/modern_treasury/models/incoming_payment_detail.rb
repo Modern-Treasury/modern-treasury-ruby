@@ -120,6 +120,14 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetail::Status]
       required :status, enum: -> { ModernTreasury::IncomingPaymentDetail::Status }
 
+      # @!attribute subtype
+      #   An additional layer of classification for the type of incoming payment detail.
+      #   For example, a `type` of `stablecoin` may have a `subtype` of `ethereum` or
+      #   `solana`.
+      #
+      #   @return [String, nil]
+      required :subtype, String, nil?: true
+
       # @!attribute transaction_id
       #   The ID of the reconciled Transaction or `null`.
       #
@@ -203,7 +211,7 @@ module ModernTreasury
       #   @return [String, nil]
       optional :receiving_account_number_safe, String, nil?: true
 
-      # @!method initialize(id:, amount:, as_of_date:, created_at:, currency:, data:, direction:, internal_account_id:, ledger_transaction_id:, live_mode:, metadata:, object:, originating_account_number_safe:, originating_account_number_type:, originating_routing_number:, originating_routing_number_type:, reconciliation_status:, status:, transaction_id:, transaction_line_item_id:, type:, updated_at:, vendor_id:, virtual_account:, virtual_account_id:, originating_account_number: nil, originating_party_address: nil, originating_party_name: nil, originating_party_vendor_identifier: nil, receiving_account_number: nil, receiving_account_number_safe: nil)
+      # @!method initialize(id:, amount:, as_of_date:, created_at:, currency:, data:, direction:, internal_account_id:, ledger_transaction_id:, live_mode:, metadata:, object:, originating_account_number_safe:, originating_account_number_type:, originating_routing_number:, originating_routing_number_type:, reconciliation_status:, status:, subtype:, transaction_id:, transaction_line_item_id:, type:, updated_at:, vendor_id:, virtual_account:, virtual_account_id:, originating_account_number: nil, originating_party_address: nil, originating_party_name: nil, originating_party_vendor_identifier: nil, receiving_account_number: nil, receiving_account_number_safe: nil)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::IncomingPaymentDetail} for more details.
       #
@@ -242,6 +250,8 @@ module ModernTreasury
       #   @param reconciliation_status [Symbol, ModernTreasury::Models::IncomingPaymentDetail::ReconciliationStatus] One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
       #
       #   @param status [Symbol, ModernTreasury::Models::IncomingPaymentDetail::Status] The current status of the incoming payment order. One of `pending`, `completed`,
+      #
+      #   @param subtype [String, nil] An additional layer of classification for the type of incoming payment detail. F
       #
       #   @param transaction_id [String, nil] The ID of the reconciled Transaction or `null`.
       #
