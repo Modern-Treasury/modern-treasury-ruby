@@ -9,6 +9,7 @@ module ModernTreasury
         description: String?,
         direction: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::direction,
         internal_account_id: String,
+        subtype: String?,
         type: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::type_,
         virtual_account_id: String?
       }
@@ -40,6 +41,8 @@ module ModernTreasury
 
       def internal_account_id=: (String) -> String
 
+      attr_accessor subtype: String?
+
       attr_reader type: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::type_?
 
       def type=: (
@@ -56,6 +59,7 @@ module ModernTreasury
         ?description: String?,
         ?direction: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::direction,
         ?internal_account_id: String,
+        ?subtype: String?,
         ?type: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::type_,
         ?virtual_account_id: String?,
         ?request_options: ModernTreasury::request_opts
@@ -69,6 +73,7 @@ module ModernTreasury
         description: String?,
         direction: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::direction,
         internal_account_id: String,
+        subtype: String?,
         type: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::type_,
         virtual_account_id: String?,
         request_options: ModernTreasury::RequestOptions

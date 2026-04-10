@@ -51,6 +51,13 @@ module ModernTreasury
       #   @return [String, nil]
       optional :internal_account_id, String
 
+      # @!attribute subtype
+      #   An additional layer of classification for the type of incoming payment detail,
+      #   e.g. `ethereum` for a `stablecoin` type.
+      #
+      #   @return [String, nil]
+      optional :subtype, String, nil?: true
+
       # @!attribute type
       #   One of `ach`, `wire`, `check`.
       #
@@ -64,7 +71,7 @@ module ModernTreasury
       #   @return [String, nil]
       optional :virtual_account_id, String, nil?: true
 
-      # @!method initialize(amount: nil, as_of_date: nil, currency: nil, data: nil, description: nil, direction: nil, internal_account_id: nil, type: nil, virtual_account_id: nil, request_options: {})
+      # @!method initialize(amount: nil, as_of_date: nil, currency: nil, data: nil, description: nil, direction: nil, internal_account_id: nil, subtype: nil, type: nil, virtual_account_id: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams} for more
       #   details.
@@ -82,6 +89,8 @@ module ModernTreasury
       #   @param direction [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction] One of `credit`, `debit`.
       #
       #   @param internal_account_id [String] The ID of one of your internal accounts.
+      #
+      #   @param subtype [String, nil] An additional layer of classification for the type of incoming payment detail, e
       #
       #   @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type] One of `ach`, `wire`, `check`.
       #

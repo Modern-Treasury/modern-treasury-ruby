@@ -76,6 +76,15 @@ module ModernTreasury
       end
       attr_writer :status
 
+      # An additional layer of classification for the type of incoming payment detail.
+      # For example, a `type` of `stablecoin` may have a `subtype` of `ethereum` or
+      # `solana`.
+      sig { returns(T.nilable(String)) }
+      attr_reader :subtype
+
+      sig { params(subtype: String).void }
+      attr_writer :subtype
+
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
       # `wire`.
       sig do
@@ -112,6 +121,7 @@ module ModernTreasury
           per_page: Integer,
           status:
             ModernTreasury::IncomingPaymentDetailListParams::Status::OrSymbol,
+          subtype: String,
           type: ModernTreasury::IncomingPaymentDetailListParams::Type::OrSymbol,
           virtual_account_id: String,
           request_options: ModernTreasury::RequestOptions::OrHash
@@ -135,6 +145,10 @@ module ModernTreasury
         # The current status of the incoming payment order. One of `pending`, `completed`,
         # or `returned`.
         status: nil,
+        # An additional layer of classification for the type of incoming payment detail.
+        # For example, a `type` of `stablecoin` may have a `subtype` of `ethereum` or
+        # `solana`.
+        subtype: nil,
         # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
         # `wire`.
         type: nil,
@@ -156,6 +170,7 @@ module ModernTreasury
             per_page: Integer,
             status:
               ModernTreasury::IncomingPaymentDetailListParams::Status::OrSymbol,
+            subtype: String,
             type:
               ModernTreasury::IncomingPaymentDetailListParams::Type::OrSymbol,
             virtual_account_id: String,

@@ -64,6 +64,11 @@ module ModernTreasury
       sig { params(internal_account_id: String).void }
       attr_writer :internal_account_id
 
+      # An additional layer of classification for the type of incoming payment detail,
+      # e.g. `ethereum` for a `stablecoin` type.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :subtype
+
       # One of `ach`, `wire`, `check`.
       sig do
         returns(
@@ -97,6 +102,7 @@ module ModernTreasury
           direction:
             ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Direction::OrSymbol,
           internal_account_id: String,
+          subtype: T.nilable(String),
           type:
             ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol,
           virtual_account_id: T.nilable(String),
@@ -120,6 +126,9 @@ module ModernTreasury
         direction: nil,
         # The ID of one of your internal accounts.
         internal_account_id: nil,
+        # An additional layer of classification for the type of incoming payment detail,
+        # e.g. `ethereum` for a `stablecoin` type.
+        subtype: nil,
         # One of `ach`, `wire`, `check`.
         type: nil,
         # An optional parameter to associate the incoming payment detail to a virtual
@@ -140,6 +149,7 @@ module ModernTreasury
             direction:
               ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Direction::OrSymbol,
             internal_account_id: String,
+            subtype: T.nilable(String),
             type:
               ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol,
             virtual_account_id: T.nilable(String),
