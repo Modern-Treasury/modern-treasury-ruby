@@ -305,6 +305,7 @@ module ModernTreasury
         | :sepa
         | :signet
         | :solana
+        | :stablecoin
         | :wire
         | :zengin
 
@@ -327,6 +328,7 @@ module ModernTreasury
         SEPA: :sepa
         SIGNET: :signet
         SOLANA: :solana
+        STABLECOIN: :stablecoin
         WIRE: :wire
         ZENGIN: :zengin
 

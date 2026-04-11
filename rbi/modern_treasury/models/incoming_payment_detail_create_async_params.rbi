@@ -288,6 +288,11 @@ module ModernTreasury
             :solana,
             ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol
           )
+        STABLECOIN =
+          T.let(
+            :stablecoin,
+            ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol
+          )
         WIRE =
           T.let(
             :wire,
