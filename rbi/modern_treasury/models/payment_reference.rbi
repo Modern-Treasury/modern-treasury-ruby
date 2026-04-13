@@ -170,11 +170,6 @@ module ModernTreasury
             :bofa_transaction_id,
             ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
           )
-        BRALE_TRANSFER_ID =
-          T.let(
-            :brale_transfer_id,
-            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
-          )
         CHECK_NUMBER =
           T.let(
             :check_number,

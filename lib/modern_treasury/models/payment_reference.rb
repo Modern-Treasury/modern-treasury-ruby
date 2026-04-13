@@ -95,7 +95,6 @@ module ModernTreasury
         BNY_MELLON_TRANSACTION_REFERENCE_NUMBER = :bny_mellon_transaction_reference_number
         BOFA_END_TO_END_ID = :bofa_end_to_end_id
         BOFA_TRANSACTION_ID = :bofa_transaction_id
-        BRALE_TRANSFER_ID = :brale_transfer_id
         CHECK_NUMBER = :check_number
         CHIPS_UID = :chips_uid
         CITIBANK_REFERENCE_NUMBER = :citibank_reference_number
