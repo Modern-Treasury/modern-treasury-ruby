@@ -379,11 +379,6 @@ module ModernTreasury
             :bnk_dev,
             ModernTreasury::Transaction::VendorCodeType::TaggedSymbol
           )
-        BRALE =
-          T.let(
-            :brale,
-            ModernTreasury::Transaction::VendorCodeType::TaggedSymbol
-          )
         CLEARTOUCH =
           T.let(
             :cleartouch,

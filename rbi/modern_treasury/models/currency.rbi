@@ -144,7 +144,6 @@ module ModernTreasury
       RUB = T.let(:RUB, ModernTreasury::Currency::TaggedSymbol)
       RWF = T.let(:RWF, ModernTreasury::Currency::TaggedSymbol)
       SAR = T.let(:SAR, ModernTreasury::Currency::TaggedSymbol)
-      SBC = T.let(:SBC, ModernTreasury::Currency::TaggedSymbol)
       SBD = T.let(:SBD, ModernTreasury::Currency::TaggedSymbol)
       SCR = T.let(:SCR, ModernTreasury::Currency::TaggedSymbol)
       SDG = T.let(:SDG, ModernTreasury::Currency::TaggedSymbol)
