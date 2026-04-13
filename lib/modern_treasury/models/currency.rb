@@ -141,7 +141,6 @@ module ModernTreasury
       RUB = :RUB
       RWF = :RWF
       SAR = :SAR
-      SBC = :SBC
       SBD = :SBD
       SCR = :SCR
       SDG = :SDG

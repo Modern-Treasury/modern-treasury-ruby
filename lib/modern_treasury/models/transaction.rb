@@ -285,7 +285,6 @@ module ModernTreasury
         BANKING_CIRCLE = :banking_circle
         BANKPROV = :bankprov
         BNK_DEV = :bnk_dev
-        BRALE = :brale
         CLEARTOUCH = :cleartouch
         COINBASE_PRIME = :coinbase_prime
         COLUMN = :column
