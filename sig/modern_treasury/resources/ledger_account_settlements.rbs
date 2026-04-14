@@ -24,6 +24,7 @@ module ModernTreasury
         String id,
         ?description: String?,
         ?metadata: ::Hash[Symbol, String],
+        ?skip_settlement_ledger_transaction: bool?,
         ?status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status,
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::LedgerAccountSettlement

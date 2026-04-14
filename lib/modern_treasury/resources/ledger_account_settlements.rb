@@ -70,13 +70,15 @@ module ModernTreasury
       #
       # Update the details of a ledger account settlement.
       #
-      # @overload update(id, description: nil, metadata: nil, status: nil, request_options: {})
+      # @overload update(id, description: nil, metadata: nil, skip_settlement_ledger_transaction: nil, status: nil, request_options: {})
       #
       # @param id [String] id
       #
       # @param description [String, nil] The description of the ledger account settlement.
       #
       # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      #
+      # @param skip_settlement_ledger_transaction [Boolean, nil] It is set to `false` by default. It should be set to `true` when migrating exist
       #
       # @param status [Symbol, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status] To post a pending ledger account settlement, use `posted`. To archive a pending
       #
