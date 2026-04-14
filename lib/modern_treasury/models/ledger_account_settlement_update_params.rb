@@ -25,6 +25,13 @@ module ModernTreasury
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
+      # @!attribute skip_settlement_ledger_transaction
+      #   It is set to `false` by default. It should be set to `true` when migrating
+      #   existing settlements.
+      #
+      #   @return [Boolean, nil]
+      optional :skip_settlement_ledger_transaction, ModernTreasury::Internal::Type::Boolean, nil?: true
+
       # @!attribute status
       #   To post a pending ledger account settlement, use `posted`. To archive a pending
       #   ledger transaction, use `archived`.
@@ -32,7 +39,7 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::LedgerAccountSettlementUpdateParams::Status }
 
-      # @!method initialize(id:, description: nil, metadata: nil, status: nil, request_options: {})
+      # @!method initialize(id:, description: nil, metadata: nil, skip_settlement_ledger_transaction: nil, status: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LedgerAccountSettlementUpdateParams} for more details.
       #
@@ -41,6 +48,8 @@ module ModernTreasury
       #   @param description [String, nil] The description of the ledger account settlement.
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      #
+      #   @param skip_settlement_ledger_transaction [Boolean, nil] It is set to `false` by default. It should be set to `true` when migrating exist
       #
       #   @param status [Symbol, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status] To post a pending ledger account settlement, use `posted`. To archive a pending
       #

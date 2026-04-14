@@ -5,6 +5,7 @@ module ModernTreasury
         id: String,
         description: String?,
         metadata: ::Hash[Symbol, String],
+        skip_settlement_ledger_transaction: bool?,
         status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status
       }
       & ModernTreasury::Internal::Type::request_parameters
@@ -21,6 +22,8 @@ module ModernTreasury
 
       def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
+      attr_accessor skip_settlement_ledger_transaction: bool?
+
       attr_reader status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status?
 
       def status=: (
@@ -31,6 +34,7 @@ module ModernTreasury
         id: String,
         ?description: String?,
         ?metadata: ::Hash[Symbol, String],
+        ?skip_settlement_ledger_transaction: bool?,
         ?status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status,
         ?request_options: ModernTreasury::request_opts
       ) -> void
@@ -39,6 +43,7 @@ module ModernTreasury
         id: String,
         description: String?,
         metadata: ::Hash[Symbol, String],
+        skip_settlement_ledger_transaction: bool?,
         status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status,
         request_options: ModernTreasury::RequestOptions
       }
