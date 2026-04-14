@@ -77,6 +77,7 @@ module ModernTreasury
           id: String,
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
+          skip_settlement_ledger_transaction: T.nilable(T::Boolean),
           status:
             ModernTreasury::LedgerAccountSettlementUpdateParams::Status::OrSymbol,
           request_options: ModernTreasury::RequestOptions::OrHash
@@ -90,6 +91,9 @@ module ModernTreasury
         # Additional data represented as key-value pairs. Both the key and value must be
         # strings.
         metadata: nil,
+        # It is set to `false` by default. It should be set to `true` when migrating
+        # existing settlements.
+        skip_settlement_ledger_transaction: nil,
         # To post a pending ledger account settlement, use `posted`. To archive a pending
         # ledger transaction, use `archived`.
         status: nil,
