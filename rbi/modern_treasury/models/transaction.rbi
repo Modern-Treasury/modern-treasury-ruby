@@ -289,7 +289,6 @@ module ModernTreasury
         AU_BECS =
           T.let(:au_becs, ModernTreasury::Transaction::Type::TaggedSymbol)
         BACS = T.let(:bacs, ModernTreasury::Transaction::Type::TaggedSymbol)
-        BASE = T.let(:base, ModernTreasury::Transaction::Type::TaggedSymbol)
         BOOK = T.let(:book, ModernTreasury::Transaction::Type::TaggedSymbol)
         CARD = T.let(:card, ModernTreasury::Transaction::Type::TaggedSymbol)
         CHATS = T.let(:chats, ModernTreasury::Transaction::Type::TaggedSymbol)
@@ -299,8 +298,6 @@ module ModernTreasury
         DK_NETS =
           T.let(:dk_nets, ModernTreasury::Transaction::Type::TaggedSymbol)
         EFT = T.let(:eft, ModernTreasury::Transaction::Type::TaggedSymbol)
-        ETHEREUM =
-          T.let(:ethereum, ModernTreasury::Transaction::Type::TaggedSymbol)
         GB_FPS = T.let(:gb_fps, ModernTreasury::Transaction::Type::TaggedSymbol)
         HU_ICS = T.let(:hu_ics, ModernTreasury::Transaction::Type::TaggedSymbol)
         INTERAC =
@@ -314,8 +311,6 @@ module ModernTreasury
           T.let(:nz_becs, ModernTreasury::Transaction::Type::TaggedSymbol)
         PL_ELIXIR =
           T.let(:pl_elixir, ModernTreasury::Transaction::Type::TaggedSymbol)
-        POLYGON =
-          T.let(:polygon, ModernTreasury::Transaction::Type::TaggedSymbol)
         PROVXCHANGE =
           T.let(:provxchange, ModernTreasury::Transaction::Type::TaggedSymbol)
         RO_SENT =
@@ -330,7 +325,6 @@ module ModernTreasury
         SIC = T.let(:sic, ModernTreasury::Transaction::Type::TaggedSymbol)
         SIGNET = T.let(:signet, ModernTreasury::Transaction::Type::TaggedSymbol)
         SKNBI = T.let(:sknbi, ModernTreasury::Transaction::Type::TaggedSymbol)
-        SOLANA = T.let(:solana, ModernTreasury::Transaction::Type::TaggedSymbol)
         STABLECOIN =
           T.let(:stablecoin, ModernTreasury::Transaction::Type::TaggedSymbol)
         WIRE = T.let(:wire, ModernTreasury::Transaction::Type::TaggedSymbol)
