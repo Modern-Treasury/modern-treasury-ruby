@@ -392,11 +392,6 @@ module ModernTreasury
             :bacs,
             ModernTreasury::PaymentOrderListParams::Type::TaggedSymbol
           )
-        BASE =
-          T.let(
-            :base,
-            ModernTreasury::PaymentOrderListParams::Type::TaggedSymbol
-          )
         BOOK =
           T.let(
             :book,
@@ -430,11 +425,6 @@ module ModernTreasury
         EFT =
           T.let(
             :eft,
-            ModernTreasury::PaymentOrderListParams::Type::TaggedSymbol
-          )
-        ETHEREUM =
-          T.let(
-            :ethereum,
             ModernTreasury::PaymentOrderListParams::Type::TaggedSymbol
           )
         GB_FPS =
@@ -480,11 +470,6 @@ module ModernTreasury
         PL_ELIXIR =
           T.let(
             :pl_elixir,
-            ModernTreasury::PaymentOrderListParams::Type::TaggedSymbol
-          )
-        POLYGON =
-          T.let(
-            :polygon,
             ModernTreasury::PaymentOrderListParams::Type::TaggedSymbol
           )
         PROVXCHANGE =
@@ -535,11 +520,6 @@ module ModernTreasury
         SKNBI =
           T.let(
             :sknbi,
-            ModernTreasury::PaymentOrderListParams::Type::TaggedSymbol
-          )
-        SOLANA =
-          T.let(
-            :solana,
             ModernTreasury::PaymentOrderListParams::Type::TaggedSymbol
           )
         STABLECOIN =
