@@ -596,11 +596,6 @@ module ModernTreasury
               :bacs,
               ModernTreasury::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
             )
-          BASE =
-            T.let(
-              :base,
-              ModernTreasury::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
-            )
           BOOK =
             T.let(
               :book,
@@ -634,11 +629,6 @@ module ModernTreasury
           EFT =
             T.let(
               :eft,
-              ModernTreasury::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
-            )
-          ETHEREUM =
-            T.let(
-              :ethereum,
               ModernTreasury::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
             )
           GB_FPS =
@@ -684,11 +674,6 @@ module ModernTreasury
           PL_ELIXIR =
             T.let(
               :pl_elixir,
-              ModernTreasury::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
-            )
-          POLYGON =
-            T.let(
-              :polygon,
               ModernTreasury::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
             )
           PROVXCHANGE =
@@ -739,11 +724,6 @@ module ModernTreasury
           SKNBI =
             T.let(
               :sknbi,
-              ModernTreasury::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
-            )
-          SOLANA =
-            T.let(
-              :solana,
               ModernTreasury::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
             )
           STABLECOIN =

@@ -11,7 +11,6 @@ module ModernTreasury
       ACH = :ach
       AU_BECS = :au_becs
       BACS = :bacs
-      BASE = :base
       BOOK = :book
       CARD = :card
       CHATS = :chats
@@ -19,7 +18,6 @@ module ModernTreasury
       CROSS_BORDER = :cross_border
       DK_NETS = :dk_nets
       EFT = :eft
-      ETHEREUM = :ethereum
       GB_FPS = :gb_fps
       HU_ICS = :hu_ics
       INTERAC = :interac
@@ -29,7 +27,6 @@ module ModernTreasury
       NICS = :nics
       NZ_BECS = :nz_becs
       PL_ELIXIR = :pl_elixir
-      POLYGON = :polygon
       PROVXCHANGE = :provxchange
       RO_SENT = :ro_sent
       RTP = :rtp
@@ -40,7 +37,6 @@ module ModernTreasury
       SIC = :sic
       SIGNET = :signet
       SKNBI = :sknbi
-      SOLANA = :solana
       STABLECOIN = :stablecoin
       WIRE = :wire
       ZENGIN = :zengin

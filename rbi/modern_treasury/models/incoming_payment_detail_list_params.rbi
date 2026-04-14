@@ -248,11 +248,6 @@ module ModernTreasury
             :bacs,
             ModernTreasury::IncomingPaymentDetailListParams::Type::TaggedSymbol
           )
-        BASE =
-          T.let(
-            :base,
-            ModernTreasury::IncomingPaymentDetailListParams::Type::TaggedSymbol
-          )
         BOOK =
           T.let(
             :book,
@@ -266,11 +261,6 @@ module ModernTreasury
         EFT =
           T.let(
             :eft,
-            ModernTreasury::IncomingPaymentDetailListParams::Type::TaggedSymbol
-          )
-        ETHEREUM =
-          T.let(
-            :ethereum,
             ModernTreasury::IncomingPaymentDetailListParams::Type::TaggedSymbol
           )
         INTERAC =
@@ -288,11 +278,6 @@ module ModernTreasury
             :nz_becs,
             ModernTreasury::IncomingPaymentDetailListParams::Type::TaggedSymbol
           )
-        POLYGON =
-          T.let(
-            :polygon,
-            ModernTreasury::IncomingPaymentDetailListParams::Type::TaggedSymbol
-          )
         RTP =
           T.let(
             :rtp,
@@ -306,11 +291,6 @@ module ModernTreasury
         SIGNET =
           T.let(
             :signet,
-            ModernTreasury::IncomingPaymentDetailListParams::Type::TaggedSymbol
-          )
-        SOLANA =
-          T.let(
-            :solana,
             ModernTreasury::IncomingPaymentDetailListParams::Type::TaggedSymbol
           )
         STABLECOIN =
