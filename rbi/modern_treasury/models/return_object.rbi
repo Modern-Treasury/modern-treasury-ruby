@@ -682,6 +682,11 @@ module ModernTreasury
               :bofa_end_to_end_id,
               ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
+          BOFA_NEFT_CLEARING_REFERENCE_NUMBER =
+            T.let(
+              :bofa_neft_clearing_reference_number,
+              ModernTreasury::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
           BOFA_TRANSACTION_ID =
             T.let(
               :bofa_transaction_id,
