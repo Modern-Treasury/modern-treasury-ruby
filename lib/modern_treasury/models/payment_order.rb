@@ -799,6 +799,7 @@ module ModernTreasury
           BANKPROV_PAYMENT_ACTIVITY_DATE = :bankprov_payment_activity_date
           BANKPROV_PAYMENT_ID = :bankprov_payment_id
           BLOCKCHAIN_TRANSACTION_HASH = :blockchain_transaction_hash
+          BLOCKCHAIN_TRANSACTION_INDEX = :blockchain_transaction_index
           BNK_DEV_PRENOTIFICATION_ID = :bnk_dev_prenotification_id
           BNK_DEV_TRANSFER_ID = :bnk_dev_transfer_id
           BNY_MELLON_TRANSACTION_REFERENCE_NUMBER = :bny_mellon_transaction_reference_number
@@ -851,6 +852,7 @@ module ModernTreasury
           LOB_CHECK_ID = :lob_check_id
           OTHER = :other
           PARTIAL_SWIFT_MIR = :partial_swift_mir
+          PAXOS_CRYPTO_WITHDRAWAL_ID = :paxos_crypto_withdrawal_id
           PAXOS_FIAT_WITHDRAWAL_ID = :paxos_fiat_withdrawal_id
           PAXOS_GROUP_ID = :paxos_group_id
           PAXOS_ORCHESTRATION_ID = :paxos_orchestration_id
