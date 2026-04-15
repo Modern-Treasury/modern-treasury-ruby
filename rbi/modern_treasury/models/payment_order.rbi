@@ -1200,6 +1200,11 @@ module ModernTreasury
               :blockchain_transaction_hash,
               ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
+          BLOCKCHAIN_TRANSACTION_INDEX =
+            T.let(
+              :blockchain_transaction_index,
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
           BNK_DEV_PRENOTIFICATION_ID =
             T.let(
               :bnk_dev_prenotification_id,
@@ -1453,6 +1458,11 @@ module ModernTreasury
           PARTIAL_SWIFT_MIR =
             T.let(
               :partial_swift_mir,
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
+          PAXOS_CRYPTO_WITHDRAWAL_ID =
+            T.let(
+              :paxos_crypto_withdrawal_id,
               ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           PAXOS_FIAT_WITHDRAWAL_ID =
