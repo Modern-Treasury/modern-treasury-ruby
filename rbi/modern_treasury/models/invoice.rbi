@@ -106,6 +106,10 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :invoicer_name
 
+      # Translation missing: en.openapi.descriptions.invoice.schema.issued_at
+      sig { returns(T.nilable(Time)) }
+      attr_accessor :issued_at
+
       # The ledger account settlement object linked to the invoice.
       sig { returns(T.nilable(String)) }
       attr_accessor :ledger_account_settlement_id
@@ -141,6 +145,10 @@ module ModernTreasury
       # The ID of the internal account the invoice should be paid to.
       sig { returns(String) }
       attr_accessor :originating_account_id
+
+      # Translation missing: en.openapi.descriptions.invoice.schema.paid_at
+      sig { returns(T.nilable(Time)) }
+      attr_accessor :paid_at
 
       # Date transactions are to be posted to the participants' account. Defaults to the
       # current business day or the next business day if the current day is a bank
@@ -209,6 +217,10 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :virtual_account_id
 
+      # Translation missing: en.openapi.descriptions.invoice.schema.voided_at
+      sig { returns(T.nilable(Time)) }
+      attr_accessor :voided_at
+
       sig do
         params(
           id: String,
@@ -234,6 +246,7 @@ module ModernTreasury
           invoicer_address:
             T.nilable(ModernTreasury::Invoice::InvoicerAddress::OrHash),
           invoicer_name: T.nilable(String),
+          issued_at: T.nilable(Time),
           ledger_account_settlement_id: T.nilable(String),
           live_mode: T::Boolean,
           metadata: T.nilable(T::Hash[Symbol, String]),
@@ -242,6 +255,7 @@ module ModernTreasury
           number: String,
           object: String,
           originating_account_id: String,
+          paid_at: T.nilable(Time),
           payment_effective_date: T.nilable(Date),
           payment_method:
             T.nilable(ModernTreasury::Invoice::PaymentMethod::OrSymbol),
@@ -257,7 +271,8 @@ module ModernTreasury
           total_amount: Integer,
           transaction_line_item_ids: T::Array[String],
           updated_at: Time,
-          virtual_account_id: T.nilable(String)
+          virtual_account_id: T.nilable(String),
+          voided_at: T.nilable(Time)
         ).returns(T.attached_class)
       end
       def self.new(
@@ -295,6 +310,8 @@ module ModernTreasury
         # The name of the issuer for the invoice. Defaults to the name of the
         # Organization.
         invoicer_name:,
+        # Translation missing: en.openapi.descriptions.invoice.schema.issued_at
+        issued_at:,
         # The ledger account settlement object linked to the invoice.
         ledger_account_settlement_id:,
         # This field will be true if this object exists in the live environment or false
@@ -315,6 +332,8 @@ module ModernTreasury
         object:,
         # The ID of the internal account the invoice should be paid to.
         originating_account_id:,
+        # Translation missing: en.openapi.descriptions.invoice.schema.paid_at
+        paid_at:,
         # Date transactions are to be posted to the participants' account. Defaults to the
         # current business day or the next business day if the current day is a bank
         # holiday or weekend. Format: yyyy-mm-dd.
@@ -349,7 +368,9 @@ module ModernTreasury
         transaction_line_item_ids:,
         updated_at:,
         # The ID of the virtual account the invoice should be paid to.
-        virtual_account_id:
+        virtual_account_id:,
+        # Translation missing: en.openapi.descriptions.invoice.schema.voided_at
+        voided_at:
       )
       end
 
@@ -375,6 +396,7 @@ module ModernTreasury
             invoicer_address:
               T.nilable(ModernTreasury::Invoice::InvoicerAddress),
             invoicer_name: T.nilable(String),
+            issued_at: T.nilable(Time),
             ledger_account_settlement_id: T.nilable(String),
             live_mode: T::Boolean,
             metadata: T.nilable(T::Hash[Symbol, String]),
@@ -383,6 +405,7 @@ module ModernTreasury
             number: String,
             object: String,
             originating_account_id: String,
+            paid_at: T.nilable(Time),
             payment_effective_date: T.nilable(Date),
             payment_method:
               T.nilable(ModernTreasury::Invoice::PaymentMethod::TaggedSymbol),
@@ -398,7 +421,8 @@ module ModernTreasury
             total_amount: Integer,
             transaction_line_item_ids: T::Array[String],
             updated_at: Time,
-            virtual_account_id: T.nilable(String)
+            virtual_account_id: T.nilable(String),
+            voided_at: T.nilable(Time)
           }
         )
       end
