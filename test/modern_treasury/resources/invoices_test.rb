@@ -33,6 +33,7 @@ class ModernTreasury::Test::Resources::InvoicesTest < ModernTreasury::Test::Reso
         hosted_url: String,
         invoicer_address: ModernTreasury::Invoice::InvoicerAddress | nil,
         invoicer_name: String | nil,
+        issued_at: Time | nil,
         ledger_account_settlement_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]) | nil,
@@ -41,6 +42,7 @@ class ModernTreasury::Test::Resources::InvoicesTest < ModernTreasury::Test::Reso
         number: String,
         object: String,
         originating_account_id: String,
+        paid_at: Time | nil,
         payment_effective_date: Date | nil,
         payment_method: ModernTreasury::Invoice::PaymentMethod | nil,
         payment_orders: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::PaymentOrder]),
@@ -54,7 +56,8 @@ class ModernTreasury::Test::Resources::InvoicesTest < ModernTreasury::Test::Reso
         total_amount: Integer,
         transaction_line_item_ids: ^(ModernTreasury::Internal::Type::ArrayOf[String]),
         updated_at: Time,
-        virtual_account_id: String | nil
+        virtual_account_id: String | nil,
+        voided_at: Time | nil
       }
     end
   end
@@ -84,6 +87,7 @@ class ModernTreasury::Test::Resources::InvoicesTest < ModernTreasury::Test::Reso
         hosted_url: String,
         invoicer_address: ModernTreasury::Invoice::InvoicerAddress | nil,
         invoicer_name: String | nil,
+        issued_at: Time | nil,
         ledger_account_settlement_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]) | nil,
@@ -92,6 +96,7 @@ class ModernTreasury::Test::Resources::InvoicesTest < ModernTreasury::Test::Reso
         number: String,
         object: String,
         originating_account_id: String,
+        paid_at: Time | nil,
         payment_effective_date: Date | nil,
         payment_method: ModernTreasury::Invoice::PaymentMethod | nil,
         payment_orders: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::PaymentOrder]),
@@ -105,7 +110,8 @@ class ModernTreasury::Test::Resources::InvoicesTest < ModernTreasury::Test::Reso
         total_amount: Integer,
         transaction_line_item_ids: ^(ModernTreasury::Internal::Type::ArrayOf[String]),
         updated_at: Time,
-        virtual_account_id: String | nil
+        virtual_account_id: String | nil,
+        voided_at: Time | nil
       }
     end
   end
@@ -135,6 +141,7 @@ class ModernTreasury::Test::Resources::InvoicesTest < ModernTreasury::Test::Reso
         hosted_url: String,
         invoicer_address: ModernTreasury::Invoice::InvoicerAddress | nil,
         invoicer_name: String | nil,
+        issued_at: Time | nil,
         ledger_account_settlement_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]) | nil,
@@ -143,6 +150,7 @@ class ModernTreasury::Test::Resources::InvoicesTest < ModernTreasury::Test::Reso
         number: String,
         object: String,
         originating_account_id: String,
+        paid_at: Time | nil,
         payment_effective_date: Date | nil,
         payment_method: ModernTreasury::Invoice::PaymentMethod | nil,
         payment_orders: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::PaymentOrder]),
@@ -156,7 +164,8 @@ class ModernTreasury::Test::Resources::InvoicesTest < ModernTreasury::Test::Reso
         total_amount: Integer,
         transaction_line_item_ids: ^(ModernTreasury::Internal::Type::ArrayOf[String]),
         updated_at: Time,
-        virtual_account_id: String | nil
+        virtual_account_id: String | nil,
+        voided_at: Time | nil
       }
     end
   end
@@ -193,6 +202,7 @@ class ModernTreasury::Test::Resources::InvoicesTest < ModernTreasury::Test::Reso
         hosted_url: String,
         invoicer_address: ModernTreasury::Invoice::InvoicerAddress | nil,
         invoicer_name: String | nil,
+        issued_at: Time | nil,
         ledger_account_settlement_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]) | nil,
@@ -201,6 +211,7 @@ class ModernTreasury::Test::Resources::InvoicesTest < ModernTreasury::Test::Reso
         number: String,
         object: String,
         originating_account_id: String,
+        paid_at: Time | nil,
         payment_effective_date: Date | nil,
         payment_method: ModernTreasury::Invoice::PaymentMethod | nil,
         payment_orders: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::PaymentOrder]),
@@ -214,7 +225,8 @@ class ModernTreasury::Test::Resources::InvoicesTest < ModernTreasury::Test::Reso
         total_amount: Integer,
         transaction_line_item_ids: ^(ModernTreasury::Internal::Type::ArrayOf[String]),
         updated_at: Time,
-        virtual_account_id: String | nil
+        virtual_account_id: String | nil,
+        voided_at: Time | nil
       }
     end
   end
