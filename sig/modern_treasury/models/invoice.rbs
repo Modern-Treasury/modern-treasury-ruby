@@ -18,6 +18,7 @@ module ModernTreasury
         hosted_url: String,
         invoicer_address: ModernTreasury::Invoice::InvoicerAddress?,
         invoicer_name: String?,
+        issued_at: Time?,
         ledger_account_settlement_id: String?,
         live_mode: bool,
         metadata: ::Hash[Symbol, String]?,
@@ -26,6 +27,7 @@ module ModernTreasury
         number: String,
         object: String,
         originating_account_id: String,
+        paid_at: Time?,
         payment_effective_date: Date?,
         payment_method: ModernTreasury::Models::Invoice::payment_method?,
         payment_orders: ::Array[ModernTreasury::PaymentOrder],
@@ -39,7 +41,8 @@ module ModernTreasury
         total_amount: Integer,
         transaction_line_item_ids: ::Array[String],
         updated_at: Time,
-        virtual_account_id: String?
+        virtual_account_id: String?,
+        voided_at: Time?
       }
 
     class Invoice < ModernTreasury::Internal::Type::BaseModel
@@ -75,6 +78,8 @@ module ModernTreasury
 
       attr_accessor invoicer_name: String?
 
+      attr_accessor issued_at: Time?
+
       attr_accessor ledger_account_settlement_id: String?
 
       attr_accessor live_mode: bool
@@ -90,6 +95,8 @@ module ModernTreasury
       attr_accessor object: String
 
       attr_accessor originating_account_id: String
+
+      attr_accessor paid_at: Time?
 
       attr_accessor payment_effective_date: Date?
 
@@ -119,6 +126,8 @@ module ModernTreasury
 
       attr_accessor virtual_account_id: String?
 
+      attr_accessor voided_at: Time?
+
       def initialize: (
         id: String,
         amount_paid: Integer,
@@ -136,6 +145,7 @@ module ModernTreasury
         hosted_url: String,
         invoicer_address: ModernTreasury::Invoice::InvoicerAddress?,
         invoicer_name: String?,
+        issued_at: Time?,
         ledger_account_settlement_id: String?,
         live_mode: bool,
         metadata: ::Hash[Symbol, String]?,
@@ -144,6 +154,7 @@ module ModernTreasury
         number: String,
         object: String,
         originating_account_id: String,
+        paid_at: Time?,
         payment_effective_date: Date?,
         payment_method: ModernTreasury::Models::Invoice::payment_method?,
         payment_orders: ::Array[ModernTreasury::PaymentOrder],
@@ -157,7 +168,8 @@ module ModernTreasury
         total_amount: Integer,
         transaction_line_item_ids: ::Array[String],
         updated_at: Time,
-        virtual_account_id: String?
+        virtual_account_id: String?,
+        voided_at: Time?
       ) -> void
 
       def to_hash: -> {
@@ -177,6 +189,7 @@ module ModernTreasury
         hosted_url: String,
         invoicer_address: ModernTreasury::Invoice::InvoicerAddress?,
         invoicer_name: String?,
+        issued_at: Time?,
         ledger_account_settlement_id: String?,
         live_mode: bool,
         metadata: ::Hash[Symbol, String]?,
@@ -185,6 +198,7 @@ module ModernTreasury
         number: String,
         object: String,
         originating_account_id: String,
+        paid_at: Time?,
         payment_effective_date: Date?,
         payment_method: ModernTreasury::Models::Invoice::payment_method?,
         payment_orders: ::Array[ModernTreasury::PaymentOrder],
@@ -198,7 +212,8 @@ module ModernTreasury
         total_amount: Integer,
         transaction_line_item_ids: ::Array[String],
         updated_at: Time,
-        virtual_account_id: String?
+        virtual_account_id: String?,
+        voided_at: Time?
       }
 
       type counterparty_billing_address =

@@ -107,6 +107,12 @@ module ModernTreasury
       #   @return [String, nil]
       required :invoicer_name, String, nil?: true
 
+      # @!attribute issued_at
+      #   Translation missing: en.openapi.descriptions.invoice.schema.issued_at
+      #
+      #   @return [Time, nil]
+      required :issued_at, Time, nil?: true
+
       # @!attribute ledger_account_settlement_id
       #   @deprecated
       #
@@ -160,6 +166,12 @@ module ModernTreasury
       #
       #   @return [String]
       required :originating_account_id, String
+
+      # @!attribute paid_at
+      #   Translation missing: en.openapi.descriptions.invoice.schema.paid_at
+      #
+      #   @return [Time, nil]
+      required :paid_at, Time, nil?: true
 
       # @!attribute payment_effective_date
       #   Date transactions are to be posted to the participants' account. Defaults to the
@@ -252,7 +264,13 @@ module ModernTreasury
       #   @return [String, nil]
       required :virtual_account_id, String, nil?: true
 
-      # @!method initialize(id:, amount_paid:, amount_remaining:, contact_details:, counterparty_billing_address:, counterparty_id:, counterparty_shipping_address:, created_at:, currency:, description:, due_date:, expected_payments:, fallback_payment_method:, hosted_url:, invoicer_address:, invoicer_name:, ledger_account_settlement_id:, live_mode:, metadata:, notification_email_addresses:, notifications_enabled:, number:, object:, originating_account_id:, payment_effective_date:, payment_method:, payment_orders:, payment_type:, pdf_url:, receiving_account_id:, recipient_email:, recipient_name:, remind_after_overdue_days:, status:, total_amount:, transaction_line_item_ids:, updated_at:, virtual_account_id:)
+      # @!attribute voided_at
+      #   Translation missing: en.openapi.descriptions.invoice.schema.voided_at
+      #
+      #   @return [Time, nil]
+      required :voided_at, Time, nil?: true
+
+      # @!method initialize(id:, amount_paid:, amount_remaining:, contact_details:, counterparty_billing_address:, counterparty_id:, counterparty_shipping_address:, created_at:, currency:, description:, due_date:, expected_payments:, fallback_payment_method:, hosted_url:, invoicer_address:, invoicer_name:, issued_at:, ledger_account_settlement_id:, live_mode:, metadata:, notification_email_addresses:, notifications_enabled:, number:, object:, originating_account_id:, paid_at:, payment_effective_date:, payment_method:, payment_orders:, payment_type:, pdf_url:, receiving_account_id:, recipient_email:, recipient_name:, remind_after_overdue_days:, status:, total_amount:, transaction_line_item_ids:, updated_at:, virtual_account_id:, voided_at:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::Invoice} for more details.
       #
@@ -288,6 +306,8 @@ module ModernTreasury
       #
       #   @param invoicer_name [String, nil] The name of the issuer for the invoice. Defaults to the name of the Organization
       #
+      #   @param issued_at [Time, nil] Translation missing: en.openapi.descriptions.invoice.schema.issued_at
+      #
       #   @param ledger_account_settlement_id [String, nil] The ledger account settlement object linked to the invoice.
       #
       #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
@@ -303,6 +323,8 @@ module ModernTreasury
       #   @param object [String]
       #
       #   @param originating_account_id [String] The ID of the internal account the invoice should be paid to.
+      #
+      #   @param paid_at [Time, nil] Translation missing: en.openapi.descriptions.invoice.schema.paid_at
       #
       #   @param payment_effective_date [Date, nil] Date transactions are to be posted to the participants' account. Defaults to the
       #
@@ -331,6 +353,8 @@ module ModernTreasury
       #   @param updated_at [Time]
       #
       #   @param virtual_account_id [String, nil] The ID of the virtual account the invoice should be paid to.
+      #
+      #   @param voided_at [Time, nil] Translation missing: en.openapi.descriptions.invoice.schema.voided_at
 
       # @see ModernTreasury::Models::Invoice#counterparty_billing_address
       class CounterpartyBillingAddress < ModernTreasury::Internal::Type::BaseModel
