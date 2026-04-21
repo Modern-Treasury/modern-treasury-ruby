@@ -104,13 +104,16 @@ module ModernTreasury
         request_options: ModernTreasury::RequestOptions
       }
 
-      type currency = :USD | :CAD
+      type currency = :USD | :CAD | :USDC | :USDG | :PYUSD
 
       module Currency
         extend ModernTreasury::Internal::Type::Enum
 
         USD: :USD
         CAD: :CAD
+        USDC: :USDC
+        USDG: :USDG
+        PYUSD: :PYUSD
 
         def self?.values: -> ::Array[ModernTreasury::Models::InternalAccountCreateParams::currency]
       end

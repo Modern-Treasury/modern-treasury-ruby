@@ -15,7 +15,7 @@ module ModernTreasury
       #
       # @param connection_id [String] The identifier of the financial institution the account belongs to.
       #
-      # @param currency [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency] Either "USD" or "CAD". Internal accounts created at Increase only supports "USD"
+      # @param currency [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency] The currency of the internal account. Supports "USD" and "CAD" for fiat, and "US
       #
       # @param name [String] The nickname of the account.
       #
