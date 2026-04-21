@@ -36,8 +36,8 @@ module ModernTreasury
       def create(
         # The identifier of the financial institution the account belongs to.
         connection_id:,
-        # Either "USD" or "CAD". Internal accounts created at Increase only supports
-        # "USD".
+        # The currency of the internal account. Supports "USD" and "CAD" for fiat, and
+        # "USDC", "USDG", and "PYUSD" for stablecoin accounts.
         currency:,
         # The nickname of the account.
         name:,
