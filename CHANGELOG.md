@@ -1,5 +1,31 @@
 # Changelog
 
+## 0.27.0 (2026-04-22)
+
+Full Changelog: [v0.26.0...v0.27.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.26.0...v0.27.0)
+
+### Features
+
+* **api:** api update ([c7dc3ea](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/c7dc3ea3eaecb71c0f8c7e676daaf691b962f822))
+* **api:** api update ([b1586ed](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/b1586ed9a58b23b86689376617778b90510a4308))
+* **api:** api update ([948a7f6](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/948a7f63d2104316e5452ee653386729dd860a8d))
+* **api:** api update ([e186ff2](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/e186ff29b6fb43201e4d8e98175c47535d095bd8))
+* **api:** api update ([5ccf327](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/5ccf327c91bb3c5a16ca8fdecc338fd423d47e1c))
+* **api:** api update ([df76f3a](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/df76f3aeb7ed79d62ed0524b30228ed22cb5493d))
+* **api:** api update ([102435c](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/102435c9e3c07020521c075970c7fed8bf6e7a23))
+* **api:** api update ([b31a176](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/b31a1766bd973c4462cf7c0805ca5061d7ab158f))
+* **api:** api update ([7b96018](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/7b9601800a2c6602221f234bf75acb9687278f79))
+
+
+### Bug Fixes
+
+* multipart encoding for file arrays ([0415201](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/041520130c1ac42211bb3ddc3a18961e035e1216))
+
+
+### Chores
+
+* **internal:** more robust bootstrap script ([28d556b](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/28d556b65e1f7066b3e516124b99008143d5b459))
+
 ## 0.26.0 (2026-04-08)
 
 Full Changelog: [v0.25.0...v0.26.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.25.0...v0.26.0)
