@@ -881,6 +881,11 @@ module ModernTreasury
               :us_ssn,
               ModernTreasury::LegalEntity::Identification::IDType::TaggedSymbol
             )
+          UY_RUT =
+            T.let(
+              :uy_rut,
+              ModernTreasury::LegalEntity::Identification::IDType::TaggedSymbol
+            )
           VN_TIN =
             T.let(
               :vn_tin,
