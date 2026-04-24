@@ -623,6 +623,9 @@ module ModernTreasury
           KR_BRN = :kr_brn
           KR_CRN = :kr_crn
           KR_RRN = :kr_rrn
+          MX_CURP = :mx_curp
+          MX_INE = :mx_ine
+          MX_RFC = :mx_rfc
           PASSPORT = :passport
           SA_TIN = :sa_tin
           SA_VAT = :sa_vat
