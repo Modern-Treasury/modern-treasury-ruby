@@ -876,6 +876,21 @@ module ModernTreasury
               :kr_rrn,
               ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
             )
+          MX_CURP =
+            T.let(
+              :mx_curp,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          MX_INE =
+            T.let(
+              :mx_ine,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          MX_RFC =
+            T.let(
+              :mx_rfc,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
           PASSPORT =
             T.let(
               :passport,
