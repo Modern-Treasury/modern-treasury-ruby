@@ -102,7 +102,7 @@ module ModernTreasury
         class PaymentOrderAsyncCreateRequest < ModernTreasury::Internal::Type::BaseModel
           # @!attribute amount
           #   Value in specified currency's smallest unit. e.g. $10 would be represented as
-          #   1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
+          #   1000 (cents). For RTP, the maximum amount allowed by the network is $10,000,000.
           #
           #   @return [Integer]
           required :amount, Integer
@@ -1518,7 +1518,7 @@ module ModernTreasury
 
           # @!attribute amount
           #   Value in specified currency's smallest unit. e.g. $10 would be represented as
-          #   1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
+          #   1000 (cents). For RTP, the maximum amount allowed by the network is $10,000,000.
           #
           #   @return [Integer, nil]
           optional :amount, Integer
