@@ -32,7 +32,7 @@ module ModernTreasury
       attr_accessor :accounting_ledger_class_id
 
       # Value in specified currency's smallest unit. e.g. $10 would be represented as
-      # 1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
+      # 1000 (cents). For RTP, the maximum amount allowed by the network is $10,000,000.
       sig { returns(Integer) }
       attr_accessor :amount
 
@@ -398,7 +398,7 @@ module ModernTreasury
         # accessible if your accounting system has been connected.
         accounting_ledger_class_id:,
         # Value in specified currency's smallest unit. e.g. $10 would be represented as
-        # 1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
+        # 1000 (cents). For RTP, the maximum amount allowed by the network is $10,000,000.
         amount:,
         # The ID of the batch in which the payment order is included. Only populated after
         # the payment order begins processing.
