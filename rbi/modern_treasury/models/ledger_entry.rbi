@@ -16,6 +16,11 @@ module ModernTreasury
       sig { returns(Integer) }
       attr_accessor :amount
 
+      # The amount of the ledger entry as a string, preserving full precision for values
+      # that may exceed safe integer limits in some languages.
+      sig { returns(String) }
+      attr_accessor :amount_string
+
       sig { returns(Time) }
       attr_accessor :created_at
 
@@ -100,6 +105,7 @@ module ModernTreasury
         params(
           id: String,
           amount: Integer,
+          amount_string: String,
           created_at: Time,
           direction: ModernTreasury::TransactionDirection::OrSymbol,
           discarded_at: T.nilable(Time),
@@ -123,6 +129,9 @@ module ModernTreasury
         # Value in specified currency's smallest unit. e.g. $10 would be represented
         # as 1000. Can be any integer up to 36 digits.
         amount:,
+        # The amount of the ledger entry as a string, preserving full precision for values
+        # that may exceed safe integer limits in some languages.
+        amount_string:,
         created_at:,
         # One of `credit`, `debit`. Describes the direction money is flowing in the
         # transaction. A `credit` moves money from your account to someone else's. A
@@ -173,6 +182,7 @@ module ModernTreasury
           {
             id: String,
             amount: Integer,
+            amount_string: String,
             created_at: Time,
             direction: ModernTreasury::TransactionDirection::TaggedSymbol,
             discarded_at: T.nilable(Time),
