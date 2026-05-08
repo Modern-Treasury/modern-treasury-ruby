@@ -60,13 +60,6 @@ module ModernTreasury
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       class PostedLedgerEntry < ModernTreasury::Internal::Type::BaseModel
-        # @!attribute amount
-        #   Value in specified currency's smallest unit. e.g. $10 would be represented
-        #   as 1000. Can be any integer up to 36 digits.
-        #
-        #   @return [Integer]
-        required :amount, Integer
-
         # @!attribute direction
         #   One of `credit`, `debit`. Describes the direction money is flowing in the
         #   transaction. A `credit` moves money from your account to someone else's. A
@@ -82,6 +75,20 @@ module ModernTreasury
         #
         #   @return [String]
         required :ledger_account_id, String
+
+        # @!attribute amount
+        #   Value in specified currency's smallest unit. e.g. $10 would be represented
+        #   as 1000. Can be any integer up to 36 digits.
+        #
+        #   @return [Integer, nil]
+        optional :amount, Integer
+
+        # @!attribute amount_string
+        #   The amount of the ledger entry as a string, preserving full precision for values
+        #   that may exceed safe integer limits in some languages.
+        #
+        #   @return [String, nil]
+        optional :amount_string, String
 
         # @!attribute available_balance_amount
         #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
@@ -130,16 +137,18 @@ module ModernTreasury
         #   @return [Boolean, nil]
         optional :show_resulting_ledger_account_balances, ModernTreasury::Internal::Type::Boolean, nil?: true
 
-        # @!method initialize(amount:, direction:, ledger_account_id:, available_balance_amount: nil, lock_version: nil, metadata: nil, pending_balance_amount: nil, posted_balance_amount: nil, show_resulting_ledger_account_balances: nil)
+        # @!method initialize(direction:, ledger_account_id:, amount: nil, amount_string: nil, available_balance_amount: nil, lock_version: nil, metadata: nil, pending_balance_amount: nil, posted_balance_amount: nil, show_resulting_ledger_account_balances: nil)
         #   Some parameter documentations has been truncated, see
         #   {ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry}
         #   for more details.
         #
-        #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
-        #
         #   @param direction [Symbol, ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction] One of `credit`, `debit`. Describes the direction money is flowing in the transa
         #
         #   @param ledger_account_id [String] The ledger account that this ledger entry is associated with.
+        #
+        #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
+        #
+        #   @param amount_string [String] The amount of the ledger entry as a string, preserving full precision for values
         #
         #   @param available_balance_amount [Hash{Symbol=>Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the accou
         #
