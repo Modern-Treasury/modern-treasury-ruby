@@ -53,7 +53,12 @@ module ModernTreasury
           amount: Integer,
           direction: ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::direction,
           ledger_account_id: String,
-          metadata: ::Hash[Symbol, String]
+          available_balance_amount: ::Hash[Symbol, Integer]?,
+          lock_version: Integer?,
+          metadata: ::Hash[Symbol, String],
+          pending_balance_amount: ::Hash[Symbol, Integer]?,
+          posted_balance_amount: ::Hash[Symbol, Integer]?,
+          show_resulting_ledger_account_balances: bool?
         }
 
       class PostedLedgerEntry < ModernTreasury::Internal::Type::BaseModel
@@ -63,22 +68,42 @@ module ModernTreasury
 
         attr_accessor ledger_account_id: String
 
+        attr_accessor available_balance_amount: ::Hash[Symbol, Integer]?
+
+        attr_accessor lock_version: Integer?
+
         attr_reader metadata: ::Hash[Symbol, String]?
 
         def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
+
+        attr_accessor pending_balance_amount: ::Hash[Symbol, Integer]?
+
+        attr_accessor posted_balance_amount: ::Hash[Symbol, Integer]?
+
+        attr_accessor show_resulting_ledger_account_balances: bool?
 
         def initialize: (
           amount: Integer,
           direction: ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::direction,
           ledger_account_id: String,
-          ?metadata: ::Hash[Symbol, String]
+          ?available_balance_amount: ::Hash[Symbol, Integer]?,
+          ?lock_version: Integer?,
+          ?metadata: ::Hash[Symbol, String],
+          ?pending_balance_amount: ::Hash[Symbol, Integer]?,
+          ?posted_balance_amount: ::Hash[Symbol, Integer]?,
+          ?show_resulting_ledger_account_balances: bool?
         ) -> void
 
         def to_hash: -> {
           amount: Integer,
           direction: ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::direction,
           ledger_account_id: String,
-          metadata: ::Hash[Symbol, String]
+          available_balance_amount: ::Hash[Symbol, Integer]?,
+          lock_version: Integer?,
+          metadata: ::Hash[Symbol, String],
+          pending_balance_amount: ::Hash[Symbol, Integer]?,
+          posted_balance_amount: ::Hash[Symbol, Integer]?,
+          show_resulting_ledger_account_balances: bool?
         }
 
         type direction = :credit | :debit
