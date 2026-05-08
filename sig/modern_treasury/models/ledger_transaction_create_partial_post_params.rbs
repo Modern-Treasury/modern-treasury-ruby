@@ -50,9 +50,10 @@ module ModernTreasury
 
       type posted_ledger_entry =
         {
-          amount: Integer,
           direction: ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::direction,
           ledger_account_id: String,
+          amount: Integer,
+          amount_string: String,
           available_balance_amount: ::Hash[Symbol, Integer]?,
           lock_version: Integer?,
           metadata: ::Hash[Symbol, String],
@@ -62,11 +63,17 @@ module ModernTreasury
         }
 
       class PostedLedgerEntry < ModernTreasury::Internal::Type::BaseModel
-        attr_accessor amount: Integer
-
         attr_accessor direction: ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::direction
 
         attr_accessor ledger_account_id: String
+
+        attr_reader amount: Integer?
+
+        def amount=: (Integer) -> Integer
+
+        attr_reader amount_string: String?
+
+        def amount_string=: (String) -> String
 
         attr_accessor available_balance_amount: ::Hash[Symbol, Integer]?
 
@@ -83,9 +90,10 @@ module ModernTreasury
         attr_accessor show_resulting_ledger_account_balances: bool?
 
         def initialize: (
-          amount: Integer,
           direction: ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::direction,
           ledger_account_id: String,
+          ?amount: Integer,
+          ?amount_string: String,
           ?available_balance_amount: ::Hash[Symbol, Integer]?,
           ?lock_version: Integer?,
           ?metadata: ::Hash[Symbol, String],
@@ -95,9 +103,10 @@ module ModernTreasury
         ) -> void
 
         def to_hash: -> {
-          amount: Integer,
           direction: ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::direction,
           ledger_account_id: String,
+          amount: Integer,
+          amount_string: String,
           available_balance_amount: ::Hash[Symbol, Integer]?,
           lock_version: Integer?,
           metadata: ::Hash[Symbol, String],

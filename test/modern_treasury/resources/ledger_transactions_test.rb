@@ -6,13 +6,7 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < ModernTreasury::
   def test_create_required_params
     response =
       @modern_treasury.ledger_transactions.create(
-        ledger_entries: [
-          {
-            amount: 0,
-            direction: :credit,
-            ledger_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"
-          }
-        ]
+        ledger_entries: [{direction: :credit, ledger_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"}]
       )
 
     assert_pattern do
@@ -157,7 +151,6 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < ModernTreasury::
         "id",
         posted_ledger_entries: [
           {
-            amount: 0,
             direction: :credit,
             ledger_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"
           }
