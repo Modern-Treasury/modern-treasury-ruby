@@ -18,8 +18,7 @@ module ModernTreasury
       sig { returns(String) }
       attr_accessor :connection_id
 
-      # The currency of the internal account. Supports "USD" and "CAD" for fiat, and
-      # "USDC", "USDG", and "PYUSD" for stablecoin accounts.
+      # The currency of the internal account. Supports fiat and stablecoin currencies.
       sig do
         returns(ModernTreasury::InternalAccountCreateParams::Currency::OrSymbol)
       end
@@ -159,8 +158,7 @@ module ModernTreasury
       def self.new(
         # The identifier of the financial institution the account belongs to.
         connection_id:,
-        # The currency of the internal account. Supports "USD" and "CAD" for fiat, and
-        # "USDC", "USDG", and "PYUSD" for stablecoin accounts.
+        # The currency of the internal account. Supports fiat and stablecoin currencies.
         currency:,
         # The nickname of the account.
         name:,
@@ -221,8 +219,7 @@ module ModernTreasury
       def to_hash
       end
 
-      # The currency of the internal account. Supports "USD" and "CAD" for fiat, and
-      # "USDC", "USDG", and "PYUSD" for stablecoin accounts.
+      # The currency of the internal account. Supports fiat and stablecoin currencies.
       module Currency
         extend ModernTreasury::Internal::Type::Enum
 
@@ -250,6 +247,11 @@ module ModernTreasury
         USDG =
           T.let(
             :USDG,
+            ModernTreasury::InternalAccountCreateParams::Currency::TaggedSymbol
+          )
+        USDT =
+          T.let(
+            :USDT,
             ModernTreasury::InternalAccountCreateParams::Currency::TaggedSymbol
           )
         PYUSD =

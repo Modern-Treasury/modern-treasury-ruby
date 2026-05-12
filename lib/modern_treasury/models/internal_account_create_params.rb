@@ -14,8 +14,7 @@ module ModernTreasury
       required :connection_id, String
 
       # @!attribute currency
-      #   The currency of the internal account. Supports "USD" and "CAD" for fiat, and
-      #   "USDC", "USDG", and "PYUSD" for stablecoin accounts.
+      #   The currency of the internal account. Supports fiat and stablecoin currencies.
       #
       #   @return [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency]
       required :currency, enum: -> { ModernTreasury::InternalAccountCreateParams::Currency }
@@ -97,7 +96,7 @@ module ModernTreasury
       #
       #   @param connection_id [String] The identifier of the financial institution the account belongs to.
       #
-      #   @param currency [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency] The currency of the internal account. Supports "USD" and "CAD" for fiat, and "US
+      #   @param currency [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency] The currency of the internal account. Supports fiat and stablecoin currencies.
       #
       #   @param name [String] The nickname of the account.
       #
@@ -123,8 +122,7 @@ module ModernTreasury
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
-      # The currency of the internal account. Supports "USD" and "CAD" for fiat, and
-      # "USDC", "USDG", and "PYUSD" for stablecoin accounts.
+      # The currency of the internal account. Supports fiat and stablecoin currencies.
       module Currency
         extend ModernTreasury::Internal::Type::Enum
 
@@ -132,6 +130,7 @@ module ModernTreasury
         CAD = :CAD
         USDC = :USDC
         USDG = :USDG
+        USDT = :USDT
         PYUSD = :PYUSD
 
         # @!method self.values
