@@ -36,8 +36,7 @@ module ModernTreasury
       def create(
         # The identifier of the financial institution the account belongs to.
         connection_id:,
-        # The currency of the internal account. Supports "USD" and "CAD" for fiat, and
-        # "USDC", "USDG", and "PYUSD" for stablecoin accounts.
+        # The currency of the internal account. Supports fiat and stablecoin currencies.
         currency:,
         # The nickname of the account.
         name:,
