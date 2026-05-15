@@ -616,6 +616,7 @@ module ModernTreasury
           CO_CEDULAS = :co_cedulas
           CO_NIT = :co_nit
           DRIVERS_LICENSE = :drivers_license
+          ES_NIF = :es_nif
           HN_ID = :hn_id
           HN_RTN = :hn_rtn
           IE_PPS = :ie_pps
