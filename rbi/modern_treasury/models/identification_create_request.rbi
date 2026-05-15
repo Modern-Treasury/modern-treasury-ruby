@@ -164,6 +164,11 @@ module ModernTreasury
             :drivers_license,
             ModernTreasury::IdentificationCreateRequest::IDType::TaggedSymbol
           )
+        ES_NIF =
+          T.let(
+            :es_nif,
+            ModernTreasury::IdentificationCreateRequest::IDType::TaggedSymbol
+          )
         HN_ID =
           T.let(
             :hn_id,
