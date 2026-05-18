@@ -57,6 +57,8 @@ module ModernTreasury
         | :co_nit
         | :drivers_license
         | :es_nif
+        | :gb_nino
+        | :gb_utr
         | :hn_id
         | :hn_rtn
         | :ie_pps
@@ -90,6 +92,8 @@ module ModernTreasury
         CO_NIT: :co_nit
         DRIVERS_LICENSE: :drivers_license
         ES_NIF: :es_nif
+        GB_NINO: :gb_nino
+        GB_UTR: :gb_utr
         HN_ID: :hn_id
         HN_RTN: :hn_rtn
         IE_PPS: :ie_pps
