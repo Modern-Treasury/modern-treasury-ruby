@@ -846,6 +846,16 @@ module ModernTreasury
               :es_nif,
               ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
             )
+          GB_NINO =
+            T.let(
+              :gb_nino,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          GB_UTR =
+            T.let(
+              :gb_utr,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
           HN_ID =
             T.let(
               :hn_id,

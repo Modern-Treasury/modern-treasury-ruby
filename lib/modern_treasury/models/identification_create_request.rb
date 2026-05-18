@@ -75,6 +75,8 @@ module ModernTreasury
         CO_NIT = :co_nit
         DRIVERS_LICENSE = :drivers_license
         ES_NIF = :es_nif
+        GB_NINO = :gb_nino
+        GB_UTR = :gb_utr
         HN_ID = :hn_id
         HN_RTN = :hn_rtn
         IE_PPS = :ie_pps
