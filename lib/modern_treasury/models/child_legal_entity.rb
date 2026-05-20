@@ -454,6 +454,12 @@ module ModernTreasury
         #   @return [String, nil]
         required :postal_code, String, nil?: true
 
+        # @!attribute primary
+        #   Whether this address is the primary address for the legal entity.
+        #
+        #   @return [Boolean, nil]
+        required :primary, ModernTreasury::Internal::Type::Boolean, nil?: true
+
         # @!attribute region
         #   Region or State.
         #
@@ -465,7 +471,7 @@ module ModernTreasury
         #   @return [Time]
         required :updated_at, Time
 
-        # @!method initialize(id:, address_types:, country:, created_at:, discarded_at:, line1:, line2:, live_mode:, locality:, object:, postal_code:, region:, updated_at:)
+        # @!method initialize(id:, address_types:, country:, created_at:, discarded_at:, line1:, line2:, live_mode:, locality:, object:, postal_code:, primary:, region:, updated_at:)
         #   Some parameter documentations has been truncated, see
         #   {ModernTreasury::Models::ChildLegalEntity::Address} for more details.
         #
@@ -490,6 +496,8 @@ module ModernTreasury
         #   @param object [String]
         #
         #   @param postal_code [String, nil] The postal code of the address.
+        #
+        #   @param primary [Boolean, nil] Whether this address is the primary address for the legal entity.
         #
         #   @param region [String, nil] Region or State.
         #

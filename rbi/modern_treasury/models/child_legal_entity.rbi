@@ -533,6 +533,10 @@ module ModernTreasury
         sig { returns(T.nilable(String)) }
         attr_accessor :postal_code
 
+        # Whether this address is the primary address for the legal entity.
+        sig { returns(T.nilable(T::Boolean)) }
+        attr_accessor :primary
+
         # Region or State.
         sig { returns(T.nilable(String)) }
         attr_accessor :region
@@ -556,6 +560,7 @@ module ModernTreasury
             locality: T.nilable(String),
             object: String,
             postal_code: T.nilable(String),
+            primary: T.nilable(T::Boolean),
             region: T.nilable(String),
             updated_at: Time
           ).returns(T.attached_class)
@@ -578,6 +583,8 @@ module ModernTreasury
           object:,
           # The postal code of the address.
           postal_code:,
+          # Whether this address is the primary address for the legal entity.
+          primary:,
           # Region or State.
           region:,
           updated_at:
@@ -601,6 +608,7 @@ module ModernTreasury
               locality: T.nilable(String),
               object: String,
               postal_code: T.nilable(String),
+              primary: T.nilable(T::Boolean),
               region: T.nilable(String),
               updated_at: Time
             }

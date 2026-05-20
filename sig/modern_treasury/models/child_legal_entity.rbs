@@ -259,6 +259,7 @@ module ModernTreasury
           locality: String?,
           object: String,
           postal_code: String?,
+          primary: bool?,
           region: String?,
           updated_at: Time
         }
@@ -286,6 +287,8 @@ module ModernTreasury
 
         attr_accessor postal_code: String?
 
+        attr_accessor primary: bool?
+
         attr_accessor region: String?
 
         attr_accessor updated_at: Time
@@ -302,6 +305,7 @@ module ModernTreasury
           locality: String?,
           object: String,
           postal_code: String?,
+          primary: bool?,
           region: String?,
           updated_at: Time
         ) -> void
@@ -318,6 +322,7 @@ module ModernTreasury
           locality: String?,
           object: String,
           postal_code: String?,
+          primary: bool?,
           region: String?,
           updated_at: Time
         }
