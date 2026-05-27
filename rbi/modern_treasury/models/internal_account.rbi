@@ -56,6 +56,14 @@ module ModernTreasury
       sig { returns(ModernTreasury::Currency::TaggedSymbol) }
       attr_accessor :currency
 
+      # Whether this account can receive ACH debits. Only applicable to accounts created
+      # under a Modern Treasury PSP connection, or `null` for Bring Your Own Bank
+      # accounts. Defaults to `false`. Configurable on create only. Please reach out to
+      # support@moderntreasury.com or your customer success manager to enable this
+      # capability for your connection.
+      sig { returns(T.nilable(T::Boolean)) }
+      attr_accessor :debitable
+
       # An optional user-defined 180 character unique identifier.
       sig { returns(T.nilable(String)) }
       attr_accessor :external_id
@@ -145,6 +153,7 @@ module ModernTreasury
           counterparty_id: T.nilable(String),
           created_at: Time,
           currency: ModernTreasury::Currency::OrSymbol,
+          debitable: T.nilable(T::Boolean),
           external_id: T.nilable(String),
           ledger_account_id: T.nilable(String),
           legal_entity_id: T.nilable(String),
@@ -182,6 +191,12 @@ module ModernTreasury
         created_at:,
         # The currency of the account.
         currency:,
+        # Whether this account can receive ACH debits. Only applicable to accounts created
+        # under a Modern Treasury PSP connection, or `null` for Bring Your Own Bank
+        # accounts. Defaults to `false`. Configurable on create only. Please reach out to
+        # support@moderntreasury.com or your customer success manager to enable this
+        # capability for your connection.
+        debitable:,
         # An optional user-defined 180 character unique identifier.
         external_id:,
         # If the internal account links to a ledger account in Modern Treasury, the id of
@@ -232,6 +247,7 @@ module ModernTreasury
             counterparty_id: T.nilable(String),
             created_at: Time,
             currency: ModernTreasury::Currency::TaggedSymbol,
+            debitable: T.nilable(T::Boolean),
             external_id: T.nilable(String),
             ledger_account_id: T.nilable(String),
             legal_entity_id: T.nilable(String),
