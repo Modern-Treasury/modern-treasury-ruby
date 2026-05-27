@@ -41,7 +41,8 @@ module ModernTreasury
               ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID,
               ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID,
               ModernTreasury::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID,
-              ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID
+              ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID,
+              ModernTreasury::BulkRequestCreateParams::Resource::LedgerAccountUpdateRequestWithID
             )
           ]
         )
@@ -74,7 +75,8 @@ module ModernTreasury
                 ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::OrHash,
                 ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::OrHash,
                 ModernTreasury::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID::OrHash,
-                ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::OrHash
+                ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::OrHash,
+                ModernTreasury::BulkRequestCreateParams::Resource::LedgerAccountUpdateRequestWithID::OrHash
               )
             ],
           metadata: T::Hash[Symbol, String],
@@ -115,7 +117,8 @@ module ModernTreasury
                   ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID,
                   ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID,
                   ModernTreasury::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID,
-                  ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID
+                  ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID,
+                  ModernTreasury::BulkRequestCreateParams::Resource::LedgerAccountUpdateRequestWithID
                 )
               ],
             metadata: T::Hash[Symbol, String],
@@ -235,7 +238,8 @@ module ModernTreasury
               ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID,
               ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID,
               ModernTreasury::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID,
-              ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID
+              ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID,
+              ModernTreasury::BulkRequestCreateParams::Resource::LedgerAccountUpdateRequestWithID
             )
           end
 
@@ -5633,6 +5637,82 @@ module ModernTreasury
             end
             def self.values
             end
+          end
+        end
+
+        class LedgerAccountUpdateRequestWithID < ModernTreasury::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(
+                ModernTreasury::BulkRequestCreateParams::Resource::LedgerAccountUpdateRequestWithID,
+                ModernTreasury::Internal::AnyHash
+              )
+            end
+
+          sig { returns(T.nilable(String)) }
+          attr_reader :id
+
+          sig { params(id: String).void }
+          attr_writer :id
+
+          # The description of the ledger account.
+          sig { returns(T.nilable(String)) }
+          attr_accessor :description
+
+          # An optional user-defined 180 character unique identifier.
+          sig { returns(T.nilable(String)) }
+          attr_accessor :external_id
+
+          # Additional data represented as key-value pairs. Both the key and value must be
+          # strings.
+          sig { returns(T.nilable(T::Hash[Symbol, String])) }
+          attr_reader :metadata
+
+          sig { params(metadata: T::Hash[Symbol, String]).void }
+          attr_writer :metadata
+
+          # The name of the ledger account.
+          sig { returns(T.nilable(String)) }
+          attr_reader :name
+
+          sig { params(name: String).void }
+          attr_writer :name
+
+          sig do
+            params(
+              id: String,
+              description: T.nilable(String),
+              external_id: T.nilable(String),
+              metadata: T::Hash[Symbol, String],
+              name: String
+            ).returns(T.attached_class)
+          end
+          def self.new(
+            id: nil,
+            # The description of the ledger account.
+            description: nil,
+            # An optional user-defined 180 character unique identifier.
+            external_id: nil,
+            # Additional data represented as key-value pairs. Both the key and value must be
+            # strings.
+            metadata: nil,
+            # The name of the ledger account.
+            name: nil
+          )
+          end
+
+          sig do
+            override.returns(
+              {
+                id: String,
+                description: T.nilable(String),
+                external_id: T.nilable(String),
+                metadata: T::Hash[Symbol, String],
+                name: String
+              }
+            )
+          end
+          def to_hash
           end
         end
 
