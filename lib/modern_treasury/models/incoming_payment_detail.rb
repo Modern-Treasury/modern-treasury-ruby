@@ -299,7 +299,6 @@ module ModernTreasury
         POLYGON_ADDRESS = :polygon_address
         SG_NUMBER = :sg_number
         SOLANA_ADDRESS = :solana_address
-        WALLET_ADDRESS = :wallet_address
 
         # @!method self.values
         #   @return [Array<Symbol>]
