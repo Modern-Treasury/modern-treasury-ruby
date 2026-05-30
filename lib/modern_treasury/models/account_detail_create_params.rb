@@ -24,8 +24,8 @@ module ModernTreasury
       required :account_number, String
 
       # @!attribute account_number_type
-      #   One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
-      #   account number is in a generic format.
+      #   One of `iban`, `clabe`, or `other`. Use `other` if the bank account number is in
+      #   a generic format.
       #
       #   @return [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType, nil]
       optional :account_number_type, enum: -> { ModernTreasury::AccountDetailCreateParams::AccountNumberType }
@@ -40,7 +40,7 @@ module ModernTreasury
       #
       #   @param account_number [String] The account number for the bank account.
       #
-      #   @param account_number_type [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType] One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank ac
+      #   @param account_number_type [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType] One of `iban`, `clabe`, or `other`. Use `other` if the bank account number is in
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
@@ -53,8 +53,8 @@ module ModernTreasury
         #   @return [Array<Symbol>]
       end
 
-      # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
-      # account number is in a generic format.
+      # One of `iban`, `clabe`, or `other`. Use `other` if the bank account number is in
+      # a generic format.
       module AccountNumberType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -72,7 +72,6 @@ module ModernTreasury
         POLYGON_ADDRESS = :polygon_address
         SG_NUMBER = :sg_number
         SOLANA_ADDRESS = :solana_address
-        WALLET_ADDRESS = :wallet_address
 
         # @!method self.values
         #   @return [Array<Symbol>]
