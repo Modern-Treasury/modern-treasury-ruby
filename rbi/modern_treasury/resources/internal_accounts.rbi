@@ -53,9 +53,8 @@ module ModernTreasury
         counterparty_id: nil,
         # Whether this account can receive ACH debits. Only applicable to accounts created
         # under a Modern Treasury PSP connection, or `null` for Bring Your Own Bank
-        # accounts. Defaults to `false`. Configurable on create only. Please reach out to
-        # support@moderntreasury.com or your customer success manager to enable this
-        # capability for your connection.
+        # accounts. Defaults to `false`. Configurable only on creation. Please reach out
+        # to your customer success manager to enable this capability for your connection.
         debitable: nil,
         # An optional user-defined 180 character unique identifier.
         external_id: nil,

@@ -16,8 +16,8 @@ module ModernTreasury
       required :account_number_safe, String
 
       # @!attribute account_number_type
-      #   One of `iban`, `clabe`, or `other`. Use `other` if the bank account number is in
-      #   a generic format.
+      #   One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
+      #   account number is in a generic format.
       #
       #   @return [Symbol, ModernTreasury::Models::AccountDetail::AccountNumberType]
       required :account_number_type, enum: -> { ModernTreasury::AccountDetail::AccountNumberType }
@@ -63,7 +63,7 @@ module ModernTreasury
       #
       #   @param account_number_safe [String] The last 4 digits of the account_number.
       #
-      #   @param account_number_type [Symbol, ModernTreasury::Models::AccountDetail::AccountNumberType] One of `iban`, `clabe`, or `other`. Use `other` if the bank account number is in
+      #   @param account_number_type [Symbol, ModernTreasury::Models::AccountDetail::AccountNumberType] One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank ac
       #
       #   @param created_at [Time]
       #
@@ -77,8 +77,8 @@ module ModernTreasury
       #
       #   @param account_number [String] The account number for the bank account.
 
-      # One of `iban`, `clabe`, or `other`. Use `other` if the bank account number is in
-      # a generic format.
+      # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
+      # account number is in a generic format.
       #
       # @see ModernTreasury::Models::AccountDetail#account_number_type
       module AccountNumberType
@@ -98,6 +98,7 @@ module ModernTreasury
         POLYGON_ADDRESS = :polygon_address
         SG_NUMBER = :sg_number
         SOLANA_ADDRESS = :solana_address
+        WALLET_ADDRESS = :wallet_address
 
         # @!method self.values
         #   @return [Array<Symbol>]

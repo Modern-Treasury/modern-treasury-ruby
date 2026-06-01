@@ -378,6 +378,11 @@ module ModernTreasury
               :solana_address,
               ModernTreasury::ExternalAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
             )
+          WALLET_ADDRESS =
+            T.let(
+              :wallet_address,
+              ModernTreasury::ExternalAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
+            )
 
           sig do
             override.returns(
