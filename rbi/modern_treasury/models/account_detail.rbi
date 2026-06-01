@@ -18,8 +18,8 @@ module ModernTreasury
       sig { returns(String) }
       attr_accessor :account_number_safe
 
-      # One of `iban`, `clabe`, or `other`. Use `other` if the bank account number is in
-      # a generic format.
+      # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
+      # account number is in a generic format.
       sig do
         returns(ModernTreasury::AccountDetail::AccountNumberType::TaggedSymbol)
       end
@@ -67,8 +67,8 @@ module ModernTreasury
         id:,
         # The last 4 digits of the account_number.
         account_number_safe:,
-        # One of `iban`, `clabe`, or `other`. Use `other` if the bank account number is in
-        # a generic format.
+        # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
+        # account number is in a generic format.
         account_number_type:,
         created_at:,
         discarded_at:,
@@ -101,8 +101,8 @@ module ModernTreasury
       def to_hash
       end
 
-      # One of `iban`, `clabe`, or `other`. Use `other` if the bank account number is in
-      # a generic format.
+      # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
+      # account number is in a generic format.
       module AccountNumberType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -180,6 +180,11 @@ module ModernTreasury
         SOLANA_ADDRESS =
           T.let(
             :solana_address,
+            ModernTreasury::AccountDetail::AccountNumberType::TaggedSymbol
+          )
+        WALLET_ADDRESS =
+          T.let(
+            :wallet_address,
             ModernTreasury::AccountDetail::AccountNumberType::TaggedSymbol
           )
 

@@ -28,8 +28,8 @@ module ModernTreasury
       sig { returns(String) }
       attr_accessor :account_number
 
-      # One of `iban`, `clabe`, or `other`. Use `other` if the bank account number is in
-      # a generic format.
+      # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
+      # account number is in a generic format.
       sig do
         returns(
           T.nilable(
@@ -63,8 +63,8 @@ module ModernTreasury
         account_id:,
         # The account number for the bank account.
         account_number:,
-        # One of `iban`, `clabe`, or `other`. Use `other` if the bank account number is in
-        # a generic format.
+        # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
+        # account number is in a generic format.
         account_number_type: nil,
         request_options: {}
       )
@@ -115,8 +115,8 @@ module ModernTreasury
         end
       end
 
-      # One of `iban`, `clabe`, or `other`. Use `other` if the bank account number is in
-      # a generic format.
+      # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
+      # account number is in a generic format.
       module AccountNumberType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -197,6 +197,11 @@ module ModernTreasury
         SOLANA_ADDRESS =
           T.let(
             :solana_address,
+            ModernTreasury::AccountDetailCreateParams::AccountNumberType::TaggedSymbol
+          )
+        WALLET_ADDRESS =
+          T.let(
+            :wallet_address,
             ModernTreasury::AccountDetailCreateParams::AccountNumberType::TaggedSymbol
           )
 
