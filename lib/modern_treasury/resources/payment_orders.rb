@@ -19,7 +19,7 @@ module ModernTreasury
       #
       # @param originating_account_id [String] The ID of one of your organization's internal accounts.
       #
-      # @param type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
+      # @param type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`, `ba
       #
       # @param accounting [ModernTreasury::Models::PaymentOrderCreateParams::Accounting]
       #
@@ -201,7 +201,7 @@ module ModernTreasury
       #
       # @param subtype [Symbol, ModernTreasury::Models::PaymentOrderSubtype, nil] An additional layer of classification for the type of payment order you are doin
       #
-      # @param type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
+      # @param type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`, `ba
       #
       # @param ultimate_originating_party_identifier [String, nil] This represents the identifier by which the person is known to the receiver when
       #
@@ -301,7 +301,7 @@ module ModernTreasury
       #
       # @param originating_account_id [String] The ID of one of your organization's internal accounts.
       #
-      # @param type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
+      # @param type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`, `ba
       #
       # @param accounting [ModernTreasury::Models::PaymentOrderCreateAsyncParams::Accounting]
       #

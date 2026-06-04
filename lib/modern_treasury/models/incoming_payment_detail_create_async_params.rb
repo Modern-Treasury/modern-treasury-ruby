@@ -119,12 +119,10 @@ module ModernTreasury
         BOOK = :book
         CHECK = :check
         EFT = :eft
-        INTERAC = :interac
         NEFT = :neft
         NZ_BECS = :nz_becs
         RTP = :rtp
         SEPA = :sepa
-        SIGNET = :signet
         STABLECOIN = :stablecoin
         WIRE = :wire
         ZENGIN = :zengin
