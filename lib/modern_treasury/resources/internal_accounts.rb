@@ -11,11 +11,11 @@ module ModernTreasury
       #
       # create internal account
       #
-      # @overload create(connection_id:, currency:, name:, party_name:, account_capabilities: nil, account_type: nil, counterparty_id: nil, external_id: nil, legal_entity_id: nil, metadata: nil, parent_account_id: nil, party_address: nil, vendor_attributes: nil, request_options: {})
+      # @overload create(connection_id:, currency:, name:, party_name:, account_capabilities: nil, account_type: nil, counterparty_id: nil, debitable: nil, external_id: nil, legal_entity_id: nil, metadata: nil, parent_account_id: nil, party_address: nil, vendor_attributes: nil, request_options: {})
       #
       # @param connection_id [String] The identifier of the financial institution the account belongs to.
       #
-      # @param currency [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency] The currency of the internal account. Supports "USD" and "CAD" for fiat, and "US
+      # @param currency [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency] The currency of the internal account. Supports fiat and stablecoin currencies.
       #
       # @param name [String] The nickname of the account.
       #
@@ -26,6 +26,8 @@ module ModernTreasury
       # @param account_type [Symbol, ModernTreasury::Models::InternalAccountCreateParams::AccountType] The account type, used to provision the appropriate account at the financial ins
       #
       # @param counterparty_id [String] The Counterparty associated to this account.
+      #
+      # @param debitable [Boolean, nil] Whether this account can receive ACH debits. Only applicable to accounts created
       #
       # @param external_id [String, nil] An optional user-defined 180 character unique identifier.
       #

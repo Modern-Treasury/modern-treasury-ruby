@@ -14,8 +14,7 @@ module ModernTreasury
       required :connection_id, String
 
       # @!attribute currency
-      #   The currency of the internal account. Supports "USD" and "CAD" for fiat, and
-      #   "USDC", "USDG", and "PYUSD" for stablecoin accounts.
+      #   The currency of the internal account. Supports fiat and stablecoin currencies.
       #
       #   @return [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency]
       required :currency, enum: -> { ModernTreasury::InternalAccountCreateParams::Currency }
@@ -52,6 +51,15 @@ module ModernTreasury
       #
       #   @return [String, nil]
       optional :counterparty_id, String
+
+      # @!attribute debitable
+      #   Whether this account can receive ACH debits. Only applicable to accounts created
+      #   under a Modern Treasury PSP connection, or `null` for Bring Your Own Bank
+      #   accounts. Defaults to `false`. Configurable only on creation. Please reach out
+      #   to your customer success manager to enable this capability for your connection.
+      #
+      #   @return [Boolean, nil]
+      optional :debitable, ModernTreasury::Internal::Type::Boolean, nil?: true
 
       # @!attribute external_id
       #   An optional user-defined 180 character unique identifier.
@@ -91,13 +99,13 @@ module ModernTreasury
       #   @return [Hash{Symbol=>String}, nil]
       optional :vendor_attributes, ModernTreasury::Internal::Type::HashOf[String]
 
-      # @!method initialize(connection_id:, currency:, name:, party_name:, account_capabilities: nil, account_type: nil, counterparty_id: nil, external_id: nil, legal_entity_id: nil, metadata: nil, parent_account_id: nil, party_address: nil, vendor_attributes: nil, request_options: {})
+      # @!method initialize(connection_id:, currency:, name:, party_name:, account_capabilities: nil, account_type: nil, counterparty_id: nil, debitable: nil, external_id: nil, legal_entity_id: nil, metadata: nil, parent_account_id: nil, party_address: nil, vendor_attributes: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::InternalAccountCreateParams} for more details.
       #
       #   @param connection_id [String] The identifier of the financial institution the account belongs to.
       #
-      #   @param currency [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency] The currency of the internal account. Supports "USD" and "CAD" for fiat, and "US
+      #   @param currency [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency] The currency of the internal account. Supports fiat and stablecoin currencies.
       #
       #   @param name [String] The nickname of the account.
       #
@@ -108,6 +116,8 @@ module ModernTreasury
       #   @param account_type [Symbol, ModernTreasury::Models::InternalAccountCreateParams::AccountType] The account type, used to provision the appropriate account at the financial ins
       #
       #   @param counterparty_id [String] The Counterparty associated to this account.
+      #
+      #   @param debitable [Boolean, nil] Whether this account can receive ACH debits. Only applicable to accounts created
       #
       #   @param external_id [String, nil] An optional user-defined 180 character unique identifier.
       #
@@ -123,8 +133,7 @@ module ModernTreasury
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
-      # The currency of the internal account. Supports "USD" and "CAD" for fiat, and
-      # "USDC", "USDG", and "PYUSD" for stablecoin accounts.
+      # The currency of the internal account. Supports fiat and stablecoin currencies.
       module Currency
         extend ModernTreasury::Internal::Type::Enum
 
@@ -132,6 +141,7 @@ module ModernTreasury
         CAD = :CAD
         USDC = :USDC
         USDG = :USDG
+        USDT = :USDT
         PYUSD = :PYUSD
 
         # @!method self.values
