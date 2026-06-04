@@ -112,7 +112,7 @@ module ModernTreasury
 
       # @!attribute type
       #   The type of the transaction. Examples could be
-      #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
+      #   `card, `ach`, `wire`, `check`, `rtp`, or `book`.
       #
       #   @return [Symbol, ModernTreasury::Models::Transaction::Type]
       required :type, enum: -> { ModernTreasury::Transaction::Type }
@@ -132,8 +132,8 @@ module ModernTreasury
       # @!attribute vendor_code_type
       #   The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
       #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-      #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
-      #   `swift`, `us_bank`, or others.
+      #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`,
+      #   `us_bank`, or others.
       #
       #   @return [Symbol, ModernTreasury::Models::Transaction::VendorCodeType, nil]
       required :vendor_code_type, enum: -> { ModernTreasury::Transaction::VendorCodeType }, nil?: true
@@ -224,7 +224,7 @@ module ModernTreasury
       #   @param vendor_description [String, nil] The transaction detail text that often appears in on your bank statement and in
 
       # The type of the transaction. Examples could be
-      # `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
+      # `card, `ach`, `wire`, `check`, `rtp`, or `book`.
       #
       # @see ModernTreasury::Models::Transaction#type
       module Type
@@ -241,24 +241,17 @@ module ModernTreasury
         DK_NETS = :dk_nets
         EFT = :eft
         GB_FPS = :gb_fps
-        HU_ICS = :hu_ics
-        INTERAC = :interac
         MASAV = :masav
         MX_CCEN = :mx_ccen
         NEFT = :neft
         NICS = :nics
         NZ_BECS = :nz_becs
         PL_ELIXIR = :pl_elixir
-        PROVXCHANGE = :provxchange
-        RO_SENT = :ro_sent
         RTP = :rtp
         SE_BANKGIROT = :se_bankgirot
-        SEN = :sen
         SEPA = :sepa
         SG_GIRO = :sg_giro
         SIC = :sic
-        SIGNET = :signet
-        SKNBI = :sknbi
         STABLECOIN = :stablecoin
         WIRE = :wire
         ZENGIN = :zengin
@@ -270,8 +263,8 @@ module ModernTreasury
 
       # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
       # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-      # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
-      # `swift`, `us_bank`, or others.
+      # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`,
+      # `us_bank`, or others.
       #
       # @see ModernTreasury::Models::Transaction#vendor_code_type
       module VendorCodeType
@@ -298,7 +291,6 @@ module ModernTreasury
         PAXOS = :paxos
         PAYPAL = :paypal
         PNC = :pnc
-        SIGNET = :signet
         SILVERGATE = :silvergate
         SWIFT = :swift
         US_BANK = :us_bank

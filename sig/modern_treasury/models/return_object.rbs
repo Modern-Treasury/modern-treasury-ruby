@@ -692,13 +692,11 @@ module ModernTreasury
         | :cross_border
         | :eft
         | :gb_fps
-        | :interac
         | :manual
         | :neft
         | :nz_becs
         | :rtp
         | :sepa
-        | :signet
         | :stablecoin
         | :wire
         | :zengin
@@ -715,13 +713,11 @@ module ModernTreasury
         CROSS_BORDER: :cross_border
         EFT: :eft
         GB_FPS: :gb_fps
-        INTERAC: :interac
         MANUAL: :manual
         NEFT: :neft
         NZ_BECS: :nz_becs
         RTP: :rtp
         SEPA: :sepa
-        SIGNET: :signet
         STABLECOIN: :stablecoin
         WIRE: :wire
         ZENGIN: :zengin

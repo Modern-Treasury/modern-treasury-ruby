@@ -128,7 +128,7 @@ module ModernTreasury
       attr_accessor :transaction_line_item_id
 
       # The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`,
-      # `interac`, `manual`, `paper_item`, `wire`.
+      # `manual`, `paper_item`, `wire`.
       sig { returns(ModernTreasury::ReturnObject::Type::TaggedSymbol) }
       attr_accessor :type
 
@@ -231,7 +231,7 @@ module ModernTreasury
         # The ID of the relevant Transaction Line Item or `null`.
         transaction_line_item_id:,
         # The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`,
-        # `interac`, `manual`, `paper_item`, `wire`.
+        # `manual`, `paper_item`, `wire`.
         type:,
         updated_at:,
         # Some returns may include additional information from the bank. In these cases,
@@ -1194,7 +1194,7 @@ module ModernTreasury
       end
 
       # The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`,
-      # `interac`, `manual`, `paper_item`, `wire`.
+      # `manual`, `paper_item`, `wire`.
       module Type
         extend ModernTreasury::Internal::Type::Enum
 
@@ -1215,8 +1215,6 @@ module ModernTreasury
         EFT = T.let(:eft, ModernTreasury::ReturnObject::Type::TaggedSymbol)
         GB_FPS =
           T.let(:gb_fps, ModernTreasury::ReturnObject::Type::TaggedSymbol)
-        INTERAC =
-          T.let(:interac, ModernTreasury::ReturnObject::Type::TaggedSymbol)
         MANUAL =
           T.let(:manual, ModernTreasury::ReturnObject::Type::TaggedSymbol)
         NEFT = T.let(:neft, ModernTreasury::ReturnObject::Type::TaggedSymbol)
@@ -1224,8 +1222,6 @@ module ModernTreasury
           T.let(:nz_becs, ModernTreasury::ReturnObject::Type::TaggedSymbol)
         RTP = T.let(:rtp, ModernTreasury::ReturnObject::Type::TaggedSymbol)
         SEPA = T.let(:sepa, ModernTreasury::ReturnObject::Type::TaggedSymbol)
-        SIGNET =
-          T.let(:signet, ModernTreasury::ReturnObject::Type::TaggedSymbol)
         STABLECOIN =
           T.let(:stablecoin, ModernTreasury::ReturnObject::Type::TaggedSymbol)
         WIRE = T.let(:wire, ModernTreasury::ReturnObject::Type::TaggedSymbol)

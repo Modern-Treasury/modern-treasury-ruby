@@ -119,8 +119,7 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :transaction_line_item_id
 
-      # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
-      # `wire`.
+      # One of: `ach`, `book`, `check`, `eft`, `rtp`, `sepa`, or `wire`.
       sig { returns(ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol) }
       attr_accessor :type
 
@@ -274,8 +273,7 @@ module ModernTreasury
         transaction_id:,
         # The ID of the reconciled Transaction Line Item or `null`.
         transaction_line_item_id:,
-        # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
-        # `wire`.
+        # One of: `ach`, `book`, `check`, `eft`, `rtp`, `sepa`, or `wire`.
         type:,
         updated_at:,
         # The identifier of the vendor bank.
@@ -510,16 +508,6 @@ module ModernTreasury
             :hk_interbank_clearing_code,
             ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
           )
-        HU_INTERBANK_CLEARING_CODE =
-          T.let(
-            :hu_interbank_clearing_code,
-            ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
-          )
-        ID_SKNBI_CODE =
-          T.let(
-            :id_sknbi_code,
-            ModernTreasury::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
-          )
         IL_BANK_CODE =
           T.let(
             :il_bank_code,
@@ -665,8 +653,7 @@ module ModernTreasury
         end
       end
 
-      # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
-      # `wire`.
+      # One of: `ach`, `book`, `check`, `eft`, `rtp`, `sepa`, or `wire`.
       module Type
         extend ModernTreasury::Internal::Type::Enum
 
@@ -700,11 +687,6 @@ module ModernTreasury
           )
         EFT =
           T.let(:eft, ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol)
-        INTERAC =
-          T.let(
-            :interac,
-            ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol
-          )
         NEFT =
           T.let(
             :neft,
@@ -720,11 +702,6 @@ module ModernTreasury
         SEPA =
           T.let(
             :sepa,
-            ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol
-          )
-        SIGNET =
-          T.let(
-            :signet,
             ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol
           )
         STABLECOIN =
