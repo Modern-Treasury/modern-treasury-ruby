@@ -2,7 +2,8 @@
 
 module ModernTreasury
   module Models
-    # One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire.
+    # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
+    # sepa, signet, wire.
     module ExpectedPaymentType
       extend ModernTreasury::Internal::Type::Enum
 
@@ -17,17 +18,24 @@ module ModernTreasury
       DK_NETS = :dk_nets
       EFT = :eft
       GB_FPS = :gb_fps
+      HU_ICS = :hu_ics
+      INTERAC = :interac
       MASAV = :masav
       MX_CCEN = :mx_ccen
       NEFT = :neft
       NICS = :nics
       NZ_BECS = :nz_becs
       PL_ELIXIR = :pl_elixir
+      PROVXCHANGE = :provxchange
+      RO_SENT = :ro_sent
       RTP = :rtp
       SE_BANKGIROT = :se_bankgirot
+      SEN = :sen
       SEPA = :sepa
       SG_GIRO = :sg_giro
       SIC = :sic
+      SIGNET = :signet
+      SKNBI = :sknbi
       STABLECOIN = :stablecoin
       WIRE = :wire
       ZENGIN = :zengin

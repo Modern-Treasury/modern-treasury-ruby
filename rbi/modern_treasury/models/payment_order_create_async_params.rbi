@@ -34,8 +34,9 @@ module ModernTreasury
       sig { returns(String) }
       attr_accessor :originating_account_id
 
-      # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`,
-      # `bacs`, `au_becs`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `zengin`.
+      # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
+      # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
+      # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
       sig { returns(ModernTreasury::PaymentOrderType::OrSymbol) }
       attr_accessor :type
 
@@ -452,8 +453,9 @@ module ModernTreasury
         direction:,
         # The ID of one of your organization's internal accounts.
         originating_account_id:,
-        # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`,
-        # `bacs`, `au_becs`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `zengin`.
+        # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
+        # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
+        # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
         type:,
         accounting: nil,
         # The ID of one of your accounting categories. Note that these will only be
@@ -1495,6 +1497,16 @@ module ModernTreasury
                 :hk_interbank_clearing_code,
                 ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
+            HU_INTERBANK_CLEARING_CODE =
+              T.let(
+                :hu_interbank_clearing_code,
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+              )
+            ID_SKNBI_CODE =
+              T.let(
+                :id_sknbi_code,
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+              )
             IL_BANK_CODE =
               T.let(
                 :il_bank_code,
@@ -1629,6 +1641,16 @@ module ModernTreasury
                 :gb_fps,
                 ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
+            HU_ICS =
+              T.let(
+                :hu_ics,
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+              )
+            INTERAC =
+              T.let(
+                :interac,
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+              )
             MASAV =
               T.let(
                 :masav,
@@ -1659,6 +1681,16 @@ module ModernTreasury
                 :pl_elixir,
                 ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
+            PROVXCHANGE =
+              T.let(
+                :provxchange,
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+              )
+            RO_SENT =
+              T.let(
+                :ro_sent,
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+              )
             RTP =
               T.let(
                 :rtp,
@@ -1667,6 +1699,11 @@ module ModernTreasury
             SE_BANKGIROT =
               T.let(
                 :se_bankgirot,
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+              )
+            SEN =
+              T.let(
+                :sen,
                 ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             SEPA =
@@ -1682,6 +1719,16 @@ module ModernTreasury
             SIC =
               T.let(
                 :sic,
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+              )
+            SIGNET =
+              T.let(
+                :signet,
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+              )
+            SKNBI =
+              T.let(
+                :sknbi,
                 ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             STABLECOIN =

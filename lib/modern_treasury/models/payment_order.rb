@@ -292,8 +292,9 @@ module ModernTreasury
       required :transaction_ids, ModernTreasury::Internal::Type::ArrayOf[String]
 
       # @!attribute type
-      #   One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`,
-      #   `bacs`, `au_becs`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `zengin`.
+      #   One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
+      #   `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
+      #   `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
       #
       #   @return [Symbol, ModernTreasury::Models::PaymentOrderType]
       required :type, enum: -> { ModernTreasury::PaymentOrderType }
@@ -446,7 +447,7 @@ module ModernTreasury
       #
       #   @param transaction_ids [Array<String>] The IDs of all the transactions associated to this payment order. Usually, you w
       #
-      #   @param type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`, `ba
+      #   @param type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
       #
       #   @param ultimate_originating_account [ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount, nil] The account to which the originating of this payment should be attributed to. Ca
       #

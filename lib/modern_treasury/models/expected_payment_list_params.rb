@@ -67,7 +67,8 @@ module ModernTreasury
       optional :status, enum: -> { ModernTreasury::ExpectedPaymentListParams::Status }
 
       # @!attribute type
-      #   One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire
+      #   One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
+      #   sepa, signet, wire
       #
       #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type, nil]
       optional :type, enum: -> { ModernTreasury::ExpectedPaymentListParams::Type }
@@ -108,7 +109,7 @@ module ModernTreasury
       #
       #   @param status [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Status] One of unreconciled, reconciled, or archived.
       #
-      #   @param type [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type] One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire
+      #   @param type [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type] One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen, sep
       #
       #   @param updated_at_lower_bound [Time] Used to return expected payments updated after some datetime
       #
@@ -129,7 +130,8 @@ module ModernTreasury
         #   @return [Array<Symbol>]
       end
 
-      # One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire
+      # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
+      # sepa, signet, wire
       module Type
         extend ModernTreasury::Internal::Type::Enum
 
@@ -144,17 +146,24 @@ module ModernTreasury
         DK_NETS = :dk_nets
         EFT = :eft
         GB_FPS = :gb_fps
+        HU_ICS = :hu_ics
+        INTERAC = :interac
         MASAV = :masav
         MX_CCEN = :mx_ccen
         NEFT = :neft
         NICS = :nics
         NZ_BECS = :nz_becs
         PL_ELIXIR = :pl_elixir
+        PROVXCHANGE = :provxchange
+        RO_SENT = :ro_sent
         RTP = :rtp
         SE_BANKGIROT = :se_bankgirot
+        SEN = :sen
         SEPA = :sepa
         SG_GIRO = :sg_giro
         SIC = :sic
+        SIGNET = :signet
+        SKNBI = :sknbi
         STABLECOIN = :stablecoin
         WIRE = :wire
         ZENGIN = :zengin

@@ -92,7 +92,9 @@ module ModernTreasury
         SE_BANKGIRO_CLEARING_CODE = :seBankgiroClearingCode
         NZ_NATIONAL_CLEARING_CODE = :nzNationalClearingCode
         HK_INTERBANK_CLEARING_CODE = :hkInterbankClearingCode
+        HU_INTERBANK_CLEARING_CODE = :huInterbankClearingCode
         DK_INTERBANK_CLEARING_CODE = :dkInterbankClearingCode
+        ID_SKNBI_CODE = :idSknbiCode
         ZA_NATIONAL_CLEARING_CODE = :zaNationalClearingCode
 
         # @!method self.values

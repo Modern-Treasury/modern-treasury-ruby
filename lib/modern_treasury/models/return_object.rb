@@ -149,7 +149,7 @@ module ModernTreasury
 
       # @!attribute type
       #   The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`,
-      #   `manual`, `paper_item`, `wire`.
+      #   `interac`, `manual`, `paper_item`, `wire`.
       #
       #   @return [Symbol, ModernTreasury::Models::ReturnObject::Type]
       required :type, enum: -> { ModernTreasury::ReturnObject::Type }
@@ -623,7 +623,7 @@ module ModernTreasury
       end
 
       # The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`,
-      # `manual`, `paper_item`, `wire`.
+      # `interac`, `manual`, `paper_item`, `wire`.
       #
       # @see ModernTreasury::Models::ReturnObject#type
       module Type
@@ -638,11 +638,13 @@ module ModernTreasury
         CROSS_BORDER = :cross_border
         EFT = :eft
         GB_FPS = :gb_fps
+        INTERAC = :interac
         MANUAL = :manual
         NEFT = :neft
         NZ_BECS = :nz_becs
         RTP = :rtp
         SEPA = :sepa
+        SIGNET = :signet
         STABLECOIN = :stablecoin
         WIRE = :wire
         ZENGIN = :zengin

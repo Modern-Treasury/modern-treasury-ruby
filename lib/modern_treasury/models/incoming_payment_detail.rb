@@ -141,7 +141,8 @@ module ModernTreasury
       required :transaction_line_item_id, String, nil?: true
 
       # @!attribute type
-      #   One of: `ach`, `book`, `check`, `eft`, `rtp`, `sepa`, or `wire`.
+      #   One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
+      #   `wire`.
       #
       #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetail::Type]
       required :type, enum: -> { ModernTreasury::IncomingPaymentDetail::Type }
@@ -256,7 +257,7 @@ module ModernTreasury
       #
       #   @param transaction_line_item_id [String, nil] The ID of the reconciled Transaction Line Item or `null`.
       #
-      #   @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetail::Type] One of: `ach`, `book`, `check`, `eft`, `rtp`, `sepa`, or `wire`.
+      #   @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetail::Type] One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or `w
       #
       #   @param updated_at [Time]
       #
@@ -319,6 +320,8 @@ module ModernTreasury
         DK_INTERBANK_CLEARING_CODE = :dk_interbank_clearing_code
         GB_SORT_CODE = :gb_sort_code
         HK_INTERBANK_CLEARING_CODE = :hk_interbank_clearing_code
+        HU_INTERBANK_CLEARING_CODE = :hu_interbank_clearing_code
+        ID_SKNBI_CODE = :id_sknbi_code
         IL_BANK_CODE = :il_bank_code
         IN_IFSC = :in_ifsc
         JP_ZENGIN_CODE = :jp_zengin_code
@@ -364,7 +367,8 @@ module ModernTreasury
         #   @return [Array<Symbol>]
       end
 
-      # One of: `ach`, `book`, `check`, `eft`, `rtp`, `sepa`, or `wire`.
+      # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
+      # `wire`.
       #
       # @see ModernTreasury::Models::IncomingPaymentDetail#type
       module Type
@@ -376,10 +380,12 @@ module ModernTreasury
         BOOK = :book
         CHECK = :check
         EFT = :eft
+        INTERAC = :interac
         NEFT = :neft
         NZ_BECS = :nz_becs
         RTP = :rtp
         SEPA = :sepa
+        SIGNET = :signet
         STABLECOIN = :stablecoin
         WIRE = :wire
         ZENGIN = :zengin
