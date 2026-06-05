@@ -42,8 +42,8 @@ module ModernTreasury
       # @!attribute vendor_code_type
       #   The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
       #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-      #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
-      #   `swift`, `us_bank`, or others.
+      #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`,
+      #   `us_bank`, or others.
       #
       #   @return [String, nil]
       required :vendor_code_type, String, nil?: true
@@ -63,7 +63,7 @@ module ModernTreasury
 
       # @!attribute type
       #   The type of the transaction. Examples could be
-      #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
+      #   `card, `ach`, `wire`, `check`, `rtp`, or `book`.
       #
       #   @return [Symbol, ModernTreasury::Models::TransactionCreateParams::Type, nil]
       optional :type, enum: -> { ModernTreasury::TransactionCreateParams::Type }, nil?: true
@@ -110,7 +110,7 @@ module ModernTreasury
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # The type of the transaction. Examples could be
-      # `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
+      # `card, `ach`, `wire`, `check`, `rtp`, or `book`.
       module Type
         extend ModernTreasury::Internal::Type::Enum
 
@@ -125,24 +125,17 @@ module ModernTreasury
         DK_NETS = :dk_nets
         EFT = :eft
         GB_FPS = :gb_fps
-        HU_ICS = :hu_ics
-        INTERAC = :interac
         MASAV = :masav
         MX_CCEN = :mx_ccen
         NEFT = :neft
         NICS = :nics
         NZ_BECS = :nz_becs
         PL_ELIXIR = :pl_elixir
-        PROVXCHANGE = :provxchange
-        RO_SENT = :ro_sent
         RTP = :rtp
         SE_BANKGIROT = :se_bankgirot
-        SEN = :sen
         SEPA = :sepa
         SG_GIRO = :sg_giro
         SIC = :sic
-        SIGNET = :signet
-        SKNBI = :sknbi
         STABLECOIN = :stablecoin
         WIRE = :wire
         ZENGIN = :zengin

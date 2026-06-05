@@ -36,7 +36,6 @@ module ModernTreasury
       EFT = T.let(:eft, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       ETHEREUM =
         T.let(:ethereum, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
-      HU_ICS = T.let(:hu_ics, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       MASAV = T.let(:masav, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       MX_CCEN =
         T.let(:mx_ccen, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
@@ -48,15 +47,12 @@ module ModernTreasury
         T.let(:pl_elixir, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       POLYGON =
         T.let(:polygon, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
-      RO_SENT =
-        T.let(:ro_sent, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       SE_BANKGIROT =
         T.let(:se_bankgirot, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       SEPA = T.let(:sepa, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       SG_GIRO =
         T.let(:sg_giro, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       SIC = T.let(:sic, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
-      SKNBI = T.let(:sknbi, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       SOLANA = T.let(:solana, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       ZENGIN = T.let(:zengin, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
 

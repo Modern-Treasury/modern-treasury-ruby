@@ -162,8 +162,7 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :transaction_line_item_id
 
-      # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
-      # sepa, signet, wire.
+      # One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire.
       sig do
         returns(T.nilable(ModernTreasury::ExpectedPaymentType::TaggedSymbol))
       end
@@ -290,8 +289,7 @@ module ModernTreasury
         transaction_id:,
         # The ID of the Transaction Line Item this expected payment has been matched to.
         transaction_line_item_id:,
-        # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
-        # sepa, signet, wire.
+        # One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire.
         type:,
         updated_at:
       )

@@ -89,7 +89,7 @@ module ModernTreasury
       attr_accessor :reconciled
 
       # The type of the transaction. Examples could be
-      # `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
+      # `card, `ach`, `wire`, `check`, `rtp`, or `book`.
       sig { returns(ModernTreasury::Transaction::Type::TaggedSymbol) }
       attr_accessor :type
 
@@ -103,8 +103,8 @@ module ModernTreasury
 
       # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
       # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-      # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
-      # `swift`, `us_bank`, or others.
+      # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`,
+      # `us_bank`, or others.
       sig do
         returns(
           T.nilable(ModernTreasury::Transaction::VendorCodeType::TaggedSymbol)
@@ -209,7 +209,7 @@ module ModernTreasury
         # transaction's amount.
         reconciled:,
         # The type of the transaction. Examples could be
-        # `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
+        # `card, `ach`, `wire`, `check`, `rtp`, or `book`.
         type:,
         updated_at:,
         # When applicable, the bank-given code that determines the transaction's category.
@@ -217,8 +217,8 @@ module ModernTreasury
         vendor_code:,
         # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
         # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-        # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
-        # `swift`, `us_bank`, or others.
+        # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`,
+        # `us_bank`, or others.
         vendor_code_type:,
         # An identifier given to this transaction by the bank, often `null`.
         vendor_customer_id:,
@@ -277,7 +277,7 @@ module ModernTreasury
       end
 
       # The type of the transaction. Examples could be
-      # `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
+      # `card, `ach`, `wire`, `check`, `rtp`, or `book`.
       module Type
         extend ModernTreasury::Internal::Type::Enum
 
@@ -299,9 +299,6 @@ module ModernTreasury
           T.let(:dk_nets, ModernTreasury::Transaction::Type::TaggedSymbol)
         EFT = T.let(:eft, ModernTreasury::Transaction::Type::TaggedSymbol)
         GB_FPS = T.let(:gb_fps, ModernTreasury::Transaction::Type::TaggedSymbol)
-        HU_ICS = T.let(:hu_ics, ModernTreasury::Transaction::Type::TaggedSymbol)
-        INTERAC =
-          T.let(:interac, ModernTreasury::Transaction::Type::TaggedSymbol)
         MASAV = T.let(:masav, ModernTreasury::Transaction::Type::TaggedSymbol)
         MX_CCEN =
           T.let(:mx_ccen, ModernTreasury::Transaction::Type::TaggedSymbol)
@@ -311,20 +308,13 @@ module ModernTreasury
           T.let(:nz_becs, ModernTreasury::Transaction::Type::TaggedSymbol)
         PL_ELIXIR =
           T.let(:pl_elixir, ModernTreasury::Transaction::Type::TaggedSymbol)
-        PROVXCHANGE =
-          T.let(:provxchange, ModernTreasury::Transaction::Type::TaggedSymbol)
-        RO_SENT =
-          T.let(:ro_sent, ModernTreasury::Transaction::Type::TaggedSymbol)
         RTP = T.let(:rtp, ModernTreasury::Transaction::Type::TaggedSymbol)
         SE_BANKGIROT =
           T.let(:se_bankgirot, ModernTreasury::Transaction::Type::TaggedSymbol)
-        SEN = T.let(:sen, ModernTreasury::Transaction::Type::TaggedSymbol)
         SEPA = T.let(:sepa, ModernTreasury::Transaction::Type::TaggedSymbol)
         SG_GIRO =
           T.let(:sg_giro, ModernTreasury::Transaction::Type::TaggedSymbol)
         SIC = T.let(:sic, ModernTreasury::Transaction::Type::TaggedSymbol)
-        SIGNET = T.let(:signet, ModernTreasury::Transaction::Type::TaggedSymbol)
-        SKNBI = T.let(:sknbi, ModernTreasury::Transaction::Type::TaggedSymbol)
         STABLECOIN =
           T.let(:stablecoin, ModernTreasury::Transaction::Type::TaggedSymbol)
         WIRE = T.let(:wire, ModernTreasury::Transaction::Type::TaggedSymbol)
@@ -342,8 +332,8 @@ module ModernTreasury
 
       # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
       # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-      # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
-      # `swift`, `us_bank`, or others.
+      # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`,
+      # `us_bank`, or others.
       module VendorCodeType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -452,11 +442,6 @@ module ModernTreasury
           )
         PNC =
           T.let(:pnc, ModernTreasury::Transaction::VendorCodeType::TaggedSymbol)
-        SIGNET =
-          T.let(
-            :signet,
-            ModernTreasury::Transaction::VendorCodeType::TaggedSymbol
-          )
         SILVERGATE =
           T.let(
             :silvergate,
