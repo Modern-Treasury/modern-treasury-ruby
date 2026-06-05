@@ -123,7 +123,6 @@ module ModernTreasury
           {
             id: String,
             amount: Integer,
-            amount_string: String,
             created_at: Time,
             direction: ModernTreasury::Models::transaction_direction,
             effective_at: Time,
@@ -143,8 +142,6 @@ module ModernTreasury
           attr_accessor id: String
 
           attr_accessor amount: Integer
-
-          attr_accessor amount_string: String
 
           attr_accessor created_at: Time
 
@@ -175,7 +172,6 @@ module ModernTreasury
           def initialize: (
             id: String,
             amount: Integer,
-            amount_string: String,
             created_at: Time,
             direction: ModernTreasury::Models::transaction_direction,
             effective_at: Time,
@@ -194,7 +190,6 @@ module ModernTreasury
           def to_hash: -> {
             id: String,
             amount: Integer,
-            amount_string: String,
             created_at: Time,
             direction: ModernTreasury::Models::transaction_direction,
             effective_at: Time,

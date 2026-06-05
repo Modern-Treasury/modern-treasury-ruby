@@ -640,12 +640,7 @@ module ModernTreasury
         GB_FPS = :gb_fps
         INTERAC = :interac
         MANUAL = :manual
-        NEFT = :neft
-        NZ_BECS = :nz_becs
-        RTP = :rtp
         SEPA = :sepa
-        SIGNET = :signet
-        STABLECOIN = :stablecoin
         WIRE = :wire
         ZENGIN = :zengin
 

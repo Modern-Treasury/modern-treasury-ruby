@@ -41,8 +41,7 @@ module ModernTreasury
               ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID,
               ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID,
               ModernTreasury::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID,
-              ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID,
-              ModernTreasury::BulkRequestCreateParams::Resource::LedgerAccountUpdateRequestWithID
+              ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID
             )
           ]
         )
@@ -75,8 +74,7 @@ module ModernTreasury
                 ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::OrHash,
                 ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::OrHash,
                 ModernTreasury::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID::OrHash,
-                ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::OrHash,
-                ModernTreasury::BulkRequestCreateParams::Resource::LedgerAccountUpdateRequestWithID::OrHash
+                ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::OrHash
               )
             ],
           metadata: T::Hash[Symbol, String],
@@ -117,8 +115,7 @@ module ModernTreasury
                   ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID,
                   ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID,
                   ModernTreasury::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID,
-                  ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID,
-                  ModernTreasury::BulkRequestCreateParams::Resource::LedgerAccountUpdateRequestWithID
+                  ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID
                 )
               ],
             metadata: T::Hash[Symbol, String],
@@ -238,8 +235,7 @@ module ModernTreasury
               ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID,
               ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID,
               ModernTreasury::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID,
-              ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID,
-              ModernTreasury::BulkRequestCreateParams::Resource::LedgerAccountUpdateRequestWithID
+              ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID
             )
           end
 
@@ -253,7 +249,7 @@ module ModernTreasury
             end
 
           # Value in specified currency's smallest unit. e.g. $10 would be represented as
-          # 1000 (cents). For RTP, the maximum amount allowed by the network is $10,000,000.
+          # 1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
           sig { returns(Integer) }
           attr_accessor :amount
 
@@ -689,7 +685,7 @@ module ModernTreasury
           end
           def self.new(
             # Value in specified currency's smallest unit. e.g. $10 would be represented as
-            # 1000 (cents). For RTP, the maximum amount allowed by the network is $10,000,000.
+            # 1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
             amount:,
             # One of `credit`, `debit`. Describes the direction money is flowing in the
             # transaction. A `credit` moves money from your account to someone else's. A
@@ -3070,7 +3066,7 @@ module ModernTreasury
           attr_accessor :accounting_ledger_class_id
 
           # Value in specified currency's smallest unit. e.g. $10 would be represented as
-          # 1000 (cents). For RTP, the maximum amount allowed by the network is $10,000,000.
+          # 1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
           sig { returns(T.nilable(Integer)) }
           attr_reader :amount
 
@@ -3461,7 +3457,7 @@ module ModernTreasury
             # accessible if your accounting system has been connected.
             accounting_ledger_class_id: nil,
             # Value in specified currency's smallest unit. e.g. $10 would be represented as
-            # 1000 (cents). For RTP, the maximum amount allowed by the network is $10,000,000.
+            # 1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
             amount: nil,
             # The party that will pay the fees for the payment order. See
             # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
@@ -5637,82 +5633,6 @@ module ModernTreasury
             end
             def self.values
             end
-          end
-        end
-
-        class LedgerAccountUpdateRequestWithID < ModernTreasury::Internal::Type::BaseModel
-          OrHash =
-            T.type_alias do
-              T.any(
-                ModernTreasury::BulkRequestCreateParams::Resource::LedgerAccountUpdateRequestWithID,
-                ModernTreasury::Internal::AnyHash
-              )
-            end
-
-          sig { returns(T.nilable(String)) }
-          attr_reader :id
-
-          sig { params(id: String).void }
-          attr_writer :id
-
-          # The description of the ledger account.
-          sig { returns(T.nilable(String)) }
-          attr_accessor :description
-
-          # An optional user-defined 180 character unique identifier.
-          sig { returns(T.nilable(String)) }
-          attr_accessor :external_id
-
-          # Additional data represented as key-value pairs. Both the key and value must be
-          # strings.
-          sig { returns(T.nilable(T::Hash[Symbol, String])) }
-          attr_reader :metadata
-
-          sig { params(metadata: T::Hash[Symbol, String]).void }
-          attr_writer :metadata
-
-          # The name of the ledger account.
-          sig { returns(T.nilable(String)) }
-          attr_reader :name
-
-          sig { params(name: String).void }
-          attr_writer :name
-
-          sig do
-            params(
-              id: String,
-              description: T.nilable(String),
-              external_id: T.nilable(String),
-              metadata: T::Hash[Symbol, String],
-              name: String
-            ).returns(T.attached_class)
-          end
-          def self.new(
-            id: nil,
-            # The description of the ledger account.
-            description: nil,
-            # An optional user-defined 180 character unique identifier.
-            external_id: nil,
-            # Additional data represented as key-value pairs. Both the key and value must be
-            # strings.
-            metadata: nil,
-            # The name of the ledger account.
-            name: nil
-          )
-          end
-
-          sig do
-            override.returns(
-              {
-                id: String,
-                description: T.nilable(String),
-                external_id: T.nilable(String),
-                metadata: T::Hash[Symbol, String],
-                name: String
-              }
-            )
-          end
-          def to_hash
           end
         end
 

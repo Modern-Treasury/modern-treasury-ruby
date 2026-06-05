@@ -59,15 +59,6 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::Currency]
       required :currency, enum: -> { ModernTreasury::Currency }
 
-      # @!attribute debitable
-      #   Whether this account can receive ACH debits. Only applicable to accounts created
-      #   under a Modern Treasury PSP connection, or `null` for Bring Your Own Bank
-      #   accounts. Defaults to `false`. Configurable only on creation. Please reach out
-      #   to your customer success manager to enable this capability for your connection.
-      #
-      #   @return [Boolean, nil]
-      required :debitable, ModernTreasury::Internal::Type::Boolean, nil?: true
-
       # @!attribute external_id
       #   An optional user-defined 180 character unique identifier.
       #
@@ -159,7 +150,7 @@ module ModernTreasury
       #   @return [String, nil]
       required :vendor_id, String, nil?: true
 
-      # @!method initialize(id:, account_capabilities:, account_details:, account_type:, connection:, contra_ledger_account_id:, counterparty_id:, created_at:, currency:, debitable:, external_id:, ledger_account_id:, legal_entity_id:, live_mode:, metadata:, name:, object:, parent_account_id:, party_address:, party_name:, party_type:, routing_details:, status:, updated_at:, vendor_id:)
+      # @!method initialize(id:, account_capabilities:, account_details:, account_type:, connection:, contra_ledger_account_id:, counterparty_id:, created_at:, currency:, external_id:, ledger_account_id:, legal_entity_id:, live_mode:, metadata:, name:, object:, parent_account_id:, party_address:, party_name:, party_type:, routing_details:, status:, updated_at:, vendor_id:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::InternalAccount} for more details.
       #
@@ -180,8 +171,6 @@ module ModernTreasury
       #   @param created_at [Time]
       #
       #   @param currency [Symbol, ModernTreasury::Models::Currency] The currency of the account.
-      #
-      #   @param debitable [Boolean, nil] Whether this account can receive ACH debits. Only applicable to accounts created
       #
       #   @param external_id [String, nil] An optional user-defined 180 character unique identifier.
       #

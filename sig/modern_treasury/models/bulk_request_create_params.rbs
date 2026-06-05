@@ -85,7 +85,6 @@ module ModernTreasury
         | ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID
         | ModernTreasury::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID
         | ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID
-        | ModernTreasury::BulkRequestCreateParams::Resource::LedgerAccountUpdateRequestWithID
 
       module Resource
         extend ModernTreasury::Internal::Type::Union
@@ -2273,49 +2272,6 @@ module ModernTreasury
 
             def self?.values: -> ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::status]
           end
-        end
-
-        type ledger_account_update_request_with_id =
-          {
-            id: String,
-            description: String?,
-            external_id: String?,
-            metadata: ::Hash[Symbol, String],
-            name: String
-          }
-
-        class LedgerAccountUpdateRequestWithID < ModernTreasury::Internal::Type::BaseModel
-          attr_reader id: String?
-
-          def id=: (String) -> String
-
-          attr_accessor description: String?
-
-          attr_accessor external_id: String?
-
-          attr_reader metadata: ::Hash[Symbol, String]?
-
-          def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
-
-          attr_reader name: String?
-
-          def name=: (String) -> String
-
-          def initialize: (
-            ?id: String,
-            ?description: String?,
-            ?external_id: String?,
-            ?metadata: ::Hash[Symbol, String],
-            ?name: String
-          ) -> void
-
-          def to_hash: -> {
-            id: String,
-            description: String?,
-            external_id: String?,
-            metadata: ::Hash[Symbol, String],
-            name: String
-          }
         end
 
         def self?.variants: -> ::Array[ModernTreasury::Models::BulkRequestCreateParams::resource]

@@ -1219,15 +1219,7 @@ module ModernTreasury
           T.let(:interac, ModernTreasury::ReturnObject::Type::TaggedSymbol)
         MANUAL =
           T.let(:manual, ModernTreasury::ReturnObject::Type::TaggedSymbol)
-        NEFT = T.let(:neft, ModernTreasury::ReturnObject::Type::TaggedSymbol)
-        NZ_BECS =
-          T.let(:nz_becs, ModernTreasury::ReturnObject::Type::TaggedSymbol)
-        RTP = T.let(:rtp, ModernTreasury::ReturnObject::Type::TaggedSymbol)
         SEPA = T.let(:sepa, ModernTreasury::ReturnObject::Type::TaggedSymbol)
-        SIGNET =
-          T.let(:signet, ModernTreasury::ReturnObject::Type::TaggedSymbol)
-        STABLECOIN =
-          T.let(:stablecoin, ModernTreasury::ReturnObject::Type::TaggedSymbol)
         WIRE = T.let(:wire, ModernTreasury::ReturnObject::Type::TaggedSymbol)
         ZENGIN =
           T.let(:zengin, ModernTreasury::ReturnObject::Type::TaggedSymbol)

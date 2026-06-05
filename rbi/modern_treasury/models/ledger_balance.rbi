@@ -14,14 +14,8 @@ module ModernTreasury
       sig { returns(Integer) }
       attr_accessor :amount
 
-      sig { returns(String) }
-      attr_accessor :amount_string
-
       sig { returns(Integer) }
       attr_accessor :credits
-
-      sig { returns(String) }
-      attr_accessor :credits_string
 
       # The currency of the ledger account.
       sig { returns(String) }
@@ -34,32 +28,23 @@ module ModernTreasury
       sig { returns(Integer) }
       attr_accessor :debits
 
-      sig { returns(String) }
-      attr_accessor :debits_string
-
       sig do
         params(
           amount: Integer,
-          amount_string: String,
           credits: Integer,
-          credits_string: String,
           currency: String,
           currency_exponent: Integer,
-          debits: Integer,
-          debits_string: String
+          debits: Integer
         ).returns(T.attached_class)
       end
       def self.new(
         amount:,
-        amount_string:,
         credits:,
-        credits_string:,
         # The currency of the ledger account.
         currency:,
         # The currency exponent of the ledger account.
         currency_exponent:,
-        debits:,
-        debits_string:
+        debits:
       )
       end
 
@@ -67,13 +52,10 @@ module ModernTreasury
         override.returns(
           {
             amount: Integer,
-            amount_string: String,
             credits: Integer,
-            credits_string: String,
             currency: String,
             currency_exponent: Integer,
-            debits: Integer,
-            debits_string: String
+            debits: Integer
           }
         )
       end

@@ -9,7 +9,6 @@ module ModernTreasury
         account_capabilities: ::Array[ModernTreasury::InternalAccountCreateParams::AccountCapability],
         account_type: ModernTreasury::Models::InternalAccountCreateParams::account_type,
         counterparty_id: String,
-        debitable: bool?,
         external_id: String?,
         legal_entity_id: String,
         metadata: ::Hash[Symbol, String],
@@ -47,8 +46,6 @@ module ModernTreasury
 
       def counterparty_id=: (String) -> String
 
-      attr_accessor debitable: bool?
-
       attr_accessor external_id: String?
 
       attr_reader legal_entity_id: String?
@@ -81,7 +78,6 @@ module ModernTreasury
         ?account_capabilities: ::Array[ModernTreasury::InternalAccountCreateParams::AccountCapability],
         ?account_type: ModernTreasury::Models::InternalAccountCreateParams::account_type,
         ?counterparty_id: String,
-        ?debitable: bool?,
         ?external_id: String?,
         ?legal_entity_id: String,
         ?metadata: ::Hash[Symbol, String],
@@ -99,7 +95,6 @@ module ModernTreasury
         account_capabilities: ::Array[ModernTreasury::InternalAccountCreateParams::AccountCapability],
         account_type: ModernTreasury::Models::InternalAccountCreateParams::account_type,
         counterparty_id: String,
-        debitable: bool?,
         external_id: String?,
         legal_entity_id: String,
         metadata: ::Hash[Symbol, String],
@@ -109,7 +104,7 @@ module ModernTreasury
         request_options: ModernTreasury::RequestOptions
       }
 
-      type currency = :USD | :CAD | :USDC | :USDG | :USDT | :PYUSD
+      type currency = :USD | :CAD | :USDC | :USDG | :PYUSD
 
       module Currency
         extend ModernTreasury::Internal::Type::Enum
@@ -118,7 +113,6 @@ module ModernTreasury
         CAD: :CAD
         USDC: :USDC
         USDG: :USDG
-        USDT: :USDT
         PYUSD: :PYUSD
 
         def self?.values: -> ::Array[ModernTreasury::Models::InternalAccountCreateParams::currency]

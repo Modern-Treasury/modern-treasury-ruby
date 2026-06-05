@@ -11,7 +11,6 @@ module ModernTreasury
         ?account_capabilities: ::Array[ModernTreasury::InternalAccountCreateParams::AccountCapability],
         ?account_type: ModernTreasury::Models::InternalAccountCreateParams::account_type,
         ?counterparty_id: String,
-        ?debitable: bool?,
         ?external_id: String?,
         ?legal_entity_id: String,
         ?metadata: ::Hash[Symbol, String],

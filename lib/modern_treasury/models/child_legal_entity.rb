@@ -454,12 +454,6 @@ module ModernTreasury
         #   @return [String, nil]
         required :postal_code, String, nil?: true
 
-        # @!attribute primary
-        #   Whether this address is the primary address for the legal entity.
-        #
-        #   @return [Boolean, nil]
-        required :primary, ModernTreasury::Internal::Type::Boolean, nil?: true
-
         # @!attribute region
         #   Region or State.
         #
@@ -471,7 +465,7 @@ module ModernTreasury
         #   @return [Time]
         required :updated_at, Time
 
-        # @!method initialize(id:, address_types:, country:, created_at:, discarded_at:, line1:, line2:, live_mode:, locality:, object:, postal_code:, primary:, region:, updated_at:)
+        # @!method initialize(id:, address_types:, country:, created_at:, discarded_at:, line1:, line2:, live_mode:, locality:, object:, postal_code:, region:, updated_at:)
         #   Some parameter documentations has been truncated, see
         #   {ModernTreasury::Models::ChildLegalEntity::Address} for more details.
         #
@@ -496,8 +490,6 @@ module ModernTreasury
         #   @param object [String]
         #
         #   @param postal_code [String, nil] The postal code of the address.
-        #
-        #   @param primary [Boolean, nil] Whether this address is the primary address for the legal entity.
         #
         #   @param region [String, nil] Region or State.
         #
@@ -616,96 +608,24 @@ module ModernTreasury
 
           AR_CUIL = :ar_cuil
           AR_CUIT = :ar_cuit
-          AT_ATIN = :at_atin
-          AT_VAT = :at_vat
-          AU_ABN = :au_abn
-          AU_TFN = :au_tfn
-          BE_ENT = :be_ent
-          BE_NRN = :be_nrn
           BR_CNPJ = :br_cnpj
           BR_CPF = :br_cpf
-          CA_BN = :ca_bn
           CA_SIN = :ca_sin
-          CH_AHV = :ch_ahv
-          CH_UID = :ch_uid
           CL_RUN = :cl_run
           CL_RUT = :cl_rut
           CO_CEDULAS = :co_cedulas
           CO_NIT = :co_nit
-          CY_TIN = :cy_tin
-          CZ_ICO = :cz_ico
-          CZ_RC = :cz_rc
-          DE_STID = :de_stid
-          DE_STNR = :de_stnr
-          DE_VAT = :de_vat
-          DK_CPR = :dk_cpr
-          DK_CVR = :dk_cvr
           DRIVERS_LICENSE = :drivers_license
-          EE_IK = :ee_ik
-          EE_RK = :ee_rk
-          ES_NIE = :es_nie
-          ES_NIF = :es_nif
-          FI_HETU = :fi_hetu
-          FI_YTJ = :fi_ytj
-          FR_NIF = :fr_nif
-          FR_SIREN = :fr_siren
-          FR_VAT = :fr_vat
-          GB_NINO = :gb_nino
-          GB_UTR = :gb_utr
-          GB_VAT = :gb_vat
-          GR_VAT = :gr_vat
           HN_ID = :hn_id
           HN_RTN = :hn_rtn
-          HR_OIB = :hr_oib
-          HU_ADJ = :hu_adj
-          HU_ANUM = :hu_anum
           IE_PPS = :ie_pps
-          IE_TRN = :ie_trn
           IN_LEI = :in_lei
-          IS_KNT = :is_knt
-          IT_CF = :it_cf
-          IT_PIVA = :it_piva
-          JP_HB = :jp_hb
-          JP_MN = :jp_mn
           KR_BRN = :kr_brn
           KR_CRN = :kr_crn
           KR_RRN = :kr_rrn
-          LI_PEID = :li_peid
-          LT_AK = :lt_ak
-          LT_JAK = :lt_jak
-          LU_MTC = :lu_mtc
-          LU_VAT = :lu_vat
-          LV_PK = :lv_pk
-          LV_RN = :lv_rn
-          MT_TIN = :mt_tin
-          MT_VAT = :mt_vat
-          MX_CURP = :mx_curp
-          MX_INE = :mx_ine
-          MX_RFC = :mx_rfc
-          NL_BSN = :nl_bsn
-          NL_BTW = :nl_btw
-          NL_RSIN = :nl_rsin
-          NO_FDN = :no_fdn
-          NO_MVA = :no_mva
-          NO_ORGNR = :no_orgnr
-          NZ_IRD = :nz_ird
           PASSPORT = :passport
-          PL_NIP = :pl_nip
-          PL_PESEL = :pl_pesel
-          PT_NIF = :pt_nif
-          RO_CNP = :ro_cnp
-          RO_CUI = :ro_cui
           SA_TIN = :sa_tin
           SA_VAT = :sa_vat
-          SE_ORGNR = :se_orgnr
-          SE_PNMR = :se_pnmr
-          SG_FIN = :sg_fin
-          SG_NRIC = :sg_nric
-          SG_UEN = :sg_uen
-          SI_DAV = :si_dav
-          SI_TIN = :si_tin
-          SK_ICO = :sk_ico
-          SK_RC = :sk_rc
           US_EIN = :us_ein
           US_ITIN = :us_itin
           US_SSN = :us_ssn
