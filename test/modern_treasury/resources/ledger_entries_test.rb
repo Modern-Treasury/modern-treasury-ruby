@@ -14,6 +14,7 @@ class ModernTreasury::Test::Resources::LedgerEntriesTest < ModernTreasury::Test:
       response => {
         id: String,
         amount: Integer,
+        amount_string: String,
         created_at: Time,
         direction: ModernTreasury::TransactionDirection,
         discarded_at: Time | nil,
@@ -44,6 +45,7 @@ class ModernTreasury::Test::Resources::LedgerEntriesTest < ModernTreasury::Test:
       response => {
         id: String,
         amount: Integer,
+        amount_string: String,
         created_at: Time,
         direction: ModernTreasury::TransactionDirection,
         discarded_at: Time | nil,
@@ -81,6 +83,7 @@ class ModernTreasury::Test::Resources::LedgerEntriesTest < ModernTreasury::Test:
       row => {
         id: String,
         amount: Integer,
+        amount_string: String,
         created_at: Time,
         direction: ModernTreasury::TransactionDirection,
         discarded_at: Time | nil,

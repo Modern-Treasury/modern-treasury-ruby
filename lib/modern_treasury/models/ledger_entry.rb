@@ -16,6 +16,13 @@ module ModernTreasury
       #   @return [Integer]
       required :amount, Integer
 
+      # @!attribute amount_string
+      #   The amount of the ledger entry as a string, preserving full precision for values
+      #   that may exceed safe integer limits in some languages.
+      #
+      #   @return [String]
+      required :amount_string, String
+
       # @!attribute created_at
       #
       #   @return [Time]
@@ -118,13 +125,15 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!method initialize(id:, amount:, created_at:, direction:, discarded_at:, effective_at:, ledger_account_currency:, ledger_account_currency_exponent:, ledger_account_id:, ledger_account_lock_version:, ledger_transaction_id:, live_mode:, metadata:, object:, resulting_ledger_account_balances:, status:, updated_at:)
+      # @!method initialize(id:, amount:, amount_string:, created_at:, direction:, discarded_at:, effective_at:, ledger_account_currency:, ledger_account_currency_exponent:, ledger_account_id:, ledger_account_lock_version:, ledger_transaction_id:, live_mode:, metadata:, object:, resulting_ledger_account_balances:, status:, updated_at:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LedgerEntry} for more details.
       #
       #   @param id [String]
       #
       #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
+      #
+      #   @param amount_string [String] The amount of the ledger entry as a string, preserving full precision for values
       #
       #   @param created_at [Time]
       #
