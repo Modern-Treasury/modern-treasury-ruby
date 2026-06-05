@@ -257,9 +257,8 @@ module ModernTreasury
       sig { returns(T::Array[String]) }
       attr_accessor :transaction_ids
 
-      # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
-      # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
-      # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
+      # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`,
+      # `bacs`, `au_becs`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `zengin`.
       sig { returns(ModernTreasury::PaymentOrderType::TaggedSymbol) }
       attr_accessor :type
 
@@ -508,9 +507,8 @@ module ModernTreasury
         # results in a Return, but gets redrafted and is later successfully completed, it
         # can have many transactions.
         transaction_ids:,
-        # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
-        # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
-        # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
+        # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`,
+        # `bacs`, `au_becs`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `zengin`.
         type:,
         # The account to which the originating of this payment should be attributed to.
         # Can be a `virtual_account` or `internal_account`.
