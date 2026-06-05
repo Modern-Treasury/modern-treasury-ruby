@@ -39,8 +39,8 @@ module ModernTreasury
         vendor_code:,
         # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
         # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-        # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`,
-        # `us_bank`, or others.
+        # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+        # `swift`, `us_bank`, or others.
         vendor_code_type:,
         # Additional data represented as key-value pairs. Both the key and value must be
         # strings.
@@ -48,7 +48,7 @@ module ModernTreasury
         # This field will be `true` if the transaction has posted to the account.
         posted: nil,
         # The type of the transaction. Examples could be
-        # `card, `ach`, `wire`, `check`, `rtp`, or `book`.
+        # `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
         type: nil,
         # An identifier given to this transaction by the bank, often `null`.
         vendor_customer_id: nil,

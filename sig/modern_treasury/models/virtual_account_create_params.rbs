@@ -190,6 +190,8 @@ module ModernTreasury
           | :dk_interbank_clearing_code
           | :gb_sort_code
           | :hk_interbank_clearing_code
+          | :hu_interbank_clearing_code
+          | :id_sknbi_code
           | :il_bank_code
           | :in_ifsc
           | :jp_zengin_code
@@ -214,6 +216,8 @@ module ModernTreasury
           DK_INTERBANK_CLEARING_CODE: :dk_interbank_clearing_code
           GB_SORT_CODE: :gb_sort_code
           HK_INTERBANK_CLEARING_CODE: :hk_interbank_clearing_code
+          HU_INTERBANK_CLEARING_CODE: :hu_interbank_clearing_code
+          ID_SKNBI_CODE: :id_sknbi_code
           IL_BANK_CODE: :il_bank_code
           IN_IFSC: :in_ifsc
           JP_ZENGIN_CODE: :jp_zengin_code
@@ -241,17 +245,24 @@ module ModernTreasury
           | :dk_nets
           | :eft
           | :gb_fps
+          | :hu_ics
+          | :interac
           | :masav
           | :mx_ccen
           | :neft
           | :nics
           | :nz_becs
           | :pl_elixir
+          | :provxchange
+          | :ro_sent
           | :rtp
           | :se_bankgirot
+          | :sen
           | :sepa
           | :sg_giro
           | :sic
+          | :signet
+          | :sknbi
           | :stablecoin
           | :wire
           | :zengin
@@ -270,17 +281,24 @@ module ModernTreasury
           DK_NETS: :dk_nets
           EFT: :eft
           GB_FPS: :gb_fps
+          HU_ICS: :hu_ics
+          INTERAC: :interac
           MASAV: :masav
           MX_CCEN: :mx_ccen
           NEFT: :neft
           NICS: :nics
           NZ_BECS: :nz_becs
           PL_ELIXIR: :pl_elixir
+          PROVXCHANGE: :provxchange
+          RO_SENT: :ro_sent
           RTP: :rtp
           SE_BANKGIROT: :se_bankgirot
+          SEN: :sen
           SEPA: :sepa
           SG_GIRO: :sg_giro
           SIC: :sic
+          SIGNET: :signet
+          SKNBI: :sknbi
           STABLECOIN: :stablecoin
           WIRE: :wire
           ZENGIN: :zengin

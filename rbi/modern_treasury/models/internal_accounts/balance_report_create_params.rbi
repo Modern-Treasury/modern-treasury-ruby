@@ -169,8 +169,8 @@ module ModernTreasury
 
           # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
           # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-          # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`, or
-          # `us_bank`.
+          # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+          # `swift`, or `us_bank`.
           sig { returns(T.nilable(String)) }
           attr_accessor :vendor_code_type
 
@@ -195,8 +195,8 @@ module ModernTreasury
             vendor_code:,
             # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
             # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-            # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`, or
-            # `us_bank`.
+            # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+            # `swift`, or `us_bank`.
             vendor_code_type:
           )
           end

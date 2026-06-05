@@ -38,8 +38,8 @@ module ModernTreasury
 
       # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
       # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-      # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`,
-      # `us_bank`, or others.
+      # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+      # `swift`, `us_bank`, or others.
       sig { returns(T.nilable(String)) }
       attr_accessor :vendor_code_type
 
@@ -59,7 +59,7 @@ module ModernTreasury
       attr_writer :posted
 
       # The type of the transaction. Examples could be
-      # `card, `ach`, `wire`, `check`, `rtp`, or `book`.
+      # `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       sig do
         returns(
           T.nilable(ModernTreasury::TransactionCreateParams::Type::OrSymbol)
@@ -108,8 +108,8 @@ module ModernTreasury
         vendor_code:,
         # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
         # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-        # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`,
-        # `us_bank`, or others.
+        # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+        # `swift`, `us_bank`, or others.
         vendor_code_type:,
         # Additional data represented as key-value pairs. Both the key and value must be
         # strings.
@@ -117,7 +117,7 @@ module ModernTreasury
         # This field will be `true` if the transaction has posted to the account.
         posted: nil,
         # The type of the transaction. Examples could be
-        # `card, `ach`, `wire`, `check`, `rtp`, or `book`.
+        # `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
         type: nil,
         # An identifier given to this transaction by the bank, often `null`.
         vendor_customer_id: nil,
@@ -153,7 +153,7 @@ module ModernTreasury
       end
 
       # The type of the transaction. Examples could be
-      # `card, `ach`, `wire`, `check`, `rtp`, or `book`.
+      # `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       module Type
         extend ModernTreasury::Internal::Type::Enum
 
@@ -218,6 +218,16 @@ module ModernTreasury
             :gb_fps,
             ModernTreasury::TransactionCreateParams::Type::TaggedSymbol
           )
+        HU_ICS =
+          T.let(
+            :hu_ics,
+            ModernTreasury::TransactionCreateParams::Type::TaggedSymbol
+          )
+        INTERAC =
+          T.let(
+            :interac,
+            ModernTreasury::TransactionCreateParams::Type::TaggedSymbol
+          )
         MASAV =
           T.let(
             :masav,
@@ -248,6 +258,16 @@ module ModernTreasury
             :pl_elixir,
             ModernTreasury::TransactionCreateParams::Type::TaggedSymbol
           )
+        PROVXCHANGE =
+          T.let(
+            :provxchange,
+            ModernTreasury::TransactionCreateParams::Type::TaggedSymbol
+          )
+        RO_SENT =
+          T.let(
+            :ro_sent,
+            ModernTreasury::TransactionCreateParams::Type::TaggedSymbol
+          )
         RTP =
           T.let(
             :rtp,
@@ -256,6 +276,11 @@ module ModernTreasury
         SE_BANKGIROT =
           T.let(
             :se_bankgirot,
+            ModernTreasury::TransactionCreateParams::Type::TaggedSymbol
+          )
+        SEN =
+          T.let(
+            :sen,
             ModernTreasury::TransactionCreateParams::Type::TaggedSymbol
           )
         SEPA =
@@ -271,6 +296,16 @@ module ModernTreasury
         SIC =
           T.let(
             :sic,
+            ModernTreasury::TransactionCreateParams::Type::TaggedSymbol
+          )
+        SIGNET =
+          T.let(
+            :signet,
+            ModernTreasury::TransactionCreateParams::Type::TaggedSymbol
+          )
+        SKNBI =
+          T.let(
+            :sknbi,
             ModernTreasury::TransactionCreateParams::Type::TaggedSymbol
           )
         STABLECOIN =

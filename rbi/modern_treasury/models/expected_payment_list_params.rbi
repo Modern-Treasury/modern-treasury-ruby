@@ -90,7 +90,8 @@ module ModernTreasury
       end
       attr_writer :status
 
-      # One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire
+      # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
+      # sepa, signet, wire
       sig do
         returns(
           T.nilable(ModernTreasury::ExpectedPaymentListParams::Type::OrSymbol)
@@ -157,7 +158,8 @@ module ModernTreasury
         per_page: nil,
         # One of unreconciled, reconciled, or archived.
         status: nil,
-        # One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire
+        # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
+        # sepa, signet, wire
         type: nil,
         # Used to return expected payments updated after some datetime
         updated_at_lower_bound: nil,
@@ -232,7 +234,8 @@ module ModernTreasury
         end
       end
 
-      # One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire
+      # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
+      # sepa, signet, wire
       module Type
         extend ModernTreasury::Internal::Type::Enum
 
@@ -297,6 +300,16 @@ module ModernTreasury
             :gb_fps,
             ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
           )
+        HU_ICS =
+          T.let(
+            :hu_ics,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        INTERAC =
+          T.let(
+            :interac,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
         MASAV =
           T.let(
             :masav,
@@ -327,6 +340,16 @@ module ModernTreasury
             :pl_elixir,
             ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
           )
+        PROVXCHANGE =
+          T.let(
+            :provxchange,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        RO_SENT =
+          T.let(
+            :ro_sent,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
         RTP =
           T.let(
             :rtp,
@@ -335,6 +358,11 @@ module ModernTreasury
         SE_BANKGIROT =
           T.let(
             :se_bankgirot,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        SEN =
+          T.let(
+            :sen,
             ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
           )
         SEPA =
@@ -350,6 +378,16 @@ module ModernTreasury
         SIC =
           T.let(
             :sic,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        SIGNET =
+          T.let(
+            :signet,
+            ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
+          )
+        SKNBI =
+          T.let(
+            :sknbi,
             ModernTreasury::ExpectedPaymentListParams::Type::TaggedSymbol
           )
         STABLECOIN =

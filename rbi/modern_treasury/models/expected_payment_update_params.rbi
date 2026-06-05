@@ -142,7 +142,8 @@ module ModernTreasury
       end
       attr_accessor :status
 
-      # One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire.
+      # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
+      # sepa, signet, wire.
       sig { returns(T.nilable(ModernTreasury::ExpectedPaymentType::OrSymbol)) }
       attr_accessor :type
 
@@ -245,7 +246,8 @@ module ModernTreasury
         # The Expected Payment's status can be updated from partially_reconciled to
         # reconciled.
         status: nil,
-        # One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire.
+        # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
+        # sepa, signet, wire.
         type: nil,
         request_options: {}
       )

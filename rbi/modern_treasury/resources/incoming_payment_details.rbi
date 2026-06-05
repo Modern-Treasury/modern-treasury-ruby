@@ -76,7 +76,8 @@ module ModernTreasury
         # For example, a `type` of `stablecoin` may have a `subtype` of `ethereum` or
         # `solana`.
         subtype: nil,
-        # One of: `ach`, `book`, `check`, `eft`, `rtp`, `sepa`, or `wire`.
+        # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
+        # `wire`.
         type: nil,
         # If the incoming payment detail is in a virtual account, the ID of the Virtual
         # Account.
