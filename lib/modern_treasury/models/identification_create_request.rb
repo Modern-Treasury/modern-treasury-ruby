@@ -87,7 +87,6 @@ module ModernTreasury
         US_EIN = :us_ein
         US_ITIN = :us_itin
         US_SSN = :us_ssn
-        UY_RUT = :uy_rut
         VN_TIN = :vn_tin
 
         # @!method self.values
