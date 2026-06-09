@@ -1,0 +1,5 @@
+module ModernTreasury
+  module Models
+    VendorAttributes: ModernTreasury::Internal::Type::Converter
+  end
+end
