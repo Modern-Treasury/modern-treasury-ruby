@@ -509,6 +509,12 @@ module ModernTreasury
   ValidationValidateRoutingNumberParams =
     ModernTreasury::Models::ValidationValidateRoutingNumberParams
 
+  VendorAttributes =
+    T.let(
+      ModernTreasury::Models::VendorAttributes,
+      ModernTreasury::Internal::Type::Converter
+    )
+
   VirtualAccount = ModernTreasury::Models::VirtualAccount
 
   VirtualAccountCreateParams =

@@ -425,6 +425,8 @@ module ModernTreasury
 
   class ValidationValidateRoutingNumberParams = ModernTreasury::Models::ValidationValidateRoutingNumberParams
 
+  VendorAttributes: ModernTreasury::Internal::Type::Converter
+
   class VirtualAccount = ModernTreasury::Models::VirtualAccount
 
   class VirtualAccountCreateParams = ModernTreasury::Models::VirtualAccountCreateParams
