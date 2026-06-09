@@ -682,6 +682,7 @@ module ModernTreasury
           MX_CURP = :mx_curp
           MX_INE = :mx_ine
           MX_RFC = :mx_rfc
+          NATIONAL_ID = :national_id
           NL_BSN = :nl_bsn
           NL_BTW = :nl_btw
           NL_RSIN = :nl_rsin

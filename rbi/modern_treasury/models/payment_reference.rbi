@@ -335,11 +335,6 @@ module ModernTreasury
             :goldman_sachs_unique_payment_id,
             ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
           )
-        INTERAC_MESSAGE_ID =
-          T.let(
-            :interac_message_id,
-            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
-          )
         JPMC_CCN =
           T.let(
             :jpmc_ccn,
@@ -473,21 +468,6 @@ module ModernTreasury
         RTP_INSTRUCTION_ID =
           T.let(
             :rtp_instruction_id,
-            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
-          )
-        SIGNET_API_REFERENCE_ID =
-          T.let(
-            :signet_api_reference_id,
-            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
-          )
-        SIGNET_CONFIRMATION_ID =
-          T.let(
-            :signet_confirmation_id,
-            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
-          )
-        SIGNET_REQUEST_ID =
-          T.let(
-            :signet_request_id,
             ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
           )
         SILVERGATE_PAYMENT_ID =

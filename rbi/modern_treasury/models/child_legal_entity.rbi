@@ -1139,6 +1139,11 @@ module ModernTreasury
               :mx_rfc,
               ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
             )
+          NATIONAL_ID =
+            T.let(
+              :national_id,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
           NL_BSN =
             T.let(
               :nl_bsn,
