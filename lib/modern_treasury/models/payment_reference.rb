@@ -129,7 +129,6 @@ module ModernTreasury
         GOLDMAN_SACHS_PAYMENT_REQUEST_ID = :goldman_sachs_payment_request_id
         GOLDMAN_SACHS_REQUEST_ID = :goldman_sachs_request_id
         GOLDMAN_SACHS_UNIQUE_PAYMENT_ID = :goldman_sachs_unique_payment_id
-        INTERAC_MESSAGE_ID = :interac_message_id
         JPMC_CCN = :jpmc_ccn
         JPMC_CLEARING_SYSTEM_REFERENCE = :jpmc_clearing_system_reference
         JPMC_CUSTOMER_REFERENCE_ID = :jpmc_customer_reference_id
@@ -157,9 +156,6 @@ module ModernTreasury
         PNC_TRANSACTION_REFERENCE_NUMBER = :pnc_transaction_reference_number
         RBC_WIRE_REFERENCE_ID = :rbc_wire_reference_id
         RTP_INSTRUCTION_ID = :rtp_instruction_id
-        SIGNET_API_REFERENCE_ID = :signet_api_reference_id
-        SIGNET_CONFIRMATION_ID = :signet_confirmation_id
-        SIGNET_REQUEST_ID = :signet_request_id
         SILVERGATE_PAYMENT_ID = :silvergate_payment_id
         SVB_END_TO_END_ID = :svb_end_to_end_id
         SVB_PAYMENT_ID = :svb_payment_id
