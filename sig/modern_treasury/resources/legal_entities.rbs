@@ -103,6 +103,12 @@ module ModernTreasury
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::Internal::Page[ModernTreasury::LegalEntity]
 
+      def update_status: (
+        String id,
+        status: ModernTreasury::Models::LegalEntityUpdateStatusParams::status,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::LegalEntity
+
       def initialize: (client: ModernTreasury::Client) -> void
     end
   end
