@@ -15,7 +15,6 @@ module ModernTreasury
           currency:
             ModernTreasury::InternalAccountCreateParams::Currency::OrSymbol,
           name: String,
-          party_name: String,
           account_capabilities:
             T::Array[
               ModernTreasury::InternalAccountCreateParams::AccountCapability::OrHash
@@ -30,6 +29,7 @@ module ModernTreasury
           parent_account_id: String,
           party_address:
             ModernTreasury::InternalAccountCreateParams::PartyAddress::OrHash,
+          party_name: T.nilable(String),
           vendor_attributes: T::Hash[Symbol, String],
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::InternalAccount)
@@ -41,8 +41,6 @@ module ModernTreasury
         currency:,
         # The nickname of the account.
         name:,
-        # The legal name of the entity which owns the account.
-        party_name:,
         # An array of AccountCapability objects that list the originating abilities of the
         # internal account and any relevant information for them.
         account_capabilities: nil,
@@ -67,6 +65,8 @@ module ModernTreasury
         parent_account_id: nil,
         # The address associated with the owner or null.
         party_address: nil,
+        # The legal name of the entity which owns the account.
+        party_name: nil,
         # A hash of vendor specific attributes that will be used when creating the account
         # at the vendor specified by the given connection.
         vendor_attributes: nil,

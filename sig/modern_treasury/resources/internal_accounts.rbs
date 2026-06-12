@@ -7,7 +7,6 @@ module ModernTreasury
         connection_id: String,
         currency: ModernTreasury::Models::InternalAccountCreateParams::currency,
         name: String,
-        party_name: String,
         ?account_capabilities: ::Array[ModernTreasury::InternalAccountCreateParams::AccountCapability],
         ?account_type: ModernTreasury::Models::InternalAccountCreateParams::account_type,
         ?counterparty_id: String,
@@ -17,6 +16,7 @@ module ModernTreasury
         ?metadata: ::Hash[Symbol, String],
         ?parent_account_id: String,
         ?party_address: ModernTreasury::InternalAccountCreateParams::PartyAddress,
+        ?party_name: String?,
         ?vendor_attributes: ::Hash[Symbol, String],
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::InternalAccount

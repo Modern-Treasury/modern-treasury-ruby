@@ -25,12 +25,6 @@ module ModernTreasury
       #   @return [String]
       required :name, String
 
-      # @!attribute party_name
-      #   The legal name of the entity which owns the account.
-      #
-      #   @return [String]
-      required :party_name, String
-
       # @!attribute account_capabilities
       #   An array of AccountCapability objects that list the originating abilities of the
       #   internal account and any relevant information for them.
@@ -92,6 +86,12 @@ module ModernTreasury
       #   @return [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress, nil]
       optional :party_address, -> { ModernTreasury::InternalAccountCreateParams::PartyAddress }
 
+      # @!attribute party_name
+      #   The legal name of the entity which owns the account.
+      #
+      #   @return [String, nil]
+      optional :party_name, String, nil?: true
+
       # @!attribute vendor_attributes
       #   A hash of vendor specific attributes that will be used when creating the account
       #   at the vendor specified by the given connection.
@@ -99,7 +99,7 @@ module ModernTreasury
       #   @return [Hash{Symbol=>String}, nil]
       optional :vendor_attributes, ModernTreasury::Internal::Type::HashOf[String]
 
-      # @!method initialize(connection_id:, currency:, name:, party_name:, account_capabilities: nil, account_type: nil, counterparty_id: nil, debitable: nil, external_id: nil, legal_entity_id: nil, metadata: nil, parent_account_id: nil, party_address: nil, vendor_attributes: nil, request_options: {})
+      # @!method initialize(connection_id:, currency:, name:, account_capabilities: nil, account_type: nil, counterparty_id: nil, debitable: nil, external_id: nil, legal_entity_id: nil, metadata: nil, parent_account_id: nil, party_address: nil, party_name: nil, vendor_attributes: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::InternalAccountCreateParams} for more details.
       #
@@ -108,8 +108,6 @@ module ModernTreasury
       #   @param currency [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency] The currency of the internal account. Supports fiat and stablecoin currencies.
       #
       #   @param name [String] The nickname of the account.
-      #
-      #   @param party_name [String] The legal name of the entity which owns the account.
       #
       #   @param account_capabilities [Array<ModernTreasury::Models::InternalAccountCreateParams::AccountCapability>] An array of AccountCapability objects that list the originating abilities of the
       #
@@ -128,6 +126,8 @@ module ModernTreasury
       #   @param parent_account_id [String] The parent internal account of this new account.
       #
       #   @param party_address [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress] The address associated with the owner or null.
+      #
+      #   @param party_name [String, nil] The legal name of the entity which owns the account.
       #
       #   @param vendor_attributes [Hash{Symbol=>String}] A hash of vendor specific attributes that will be used when creating the account
       #
