@@ -378,6 +378,8 @@ module ModernTreasury
 
   LegalEntityUpdateParams = ModernTreasury::Models::LegalEntityUpdateParams
 
+  LegalEntityUpdateStatusParams = ModernTreasury::Models::LegalEntityUpdateStatusParams
+
   LegalEntityWealthEmploymentDetail = ModernTreasury::Models::LegalEntityWealthEmploymentDetail
 
   LineItem = ModernTreasury::Models::LineItem
