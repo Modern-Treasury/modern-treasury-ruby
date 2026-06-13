@@ -258,11 +258,6 @@ module ModernTreasury
             :USDC,
             ModernTreasury::InternalAccountCreateParams::Currency::TaggedSymbol
           )
-        USDG =
-          T.let(
-            :USDG,
-            ModernTreasury::InternalAccountCreateParams::Currency::TaggedSymbol
-          )
         USDT =
           T.let(
             :USDT,
@@ -271,6 +266,11 @@ module ModernTreasury
         PYUSD =
           T.let(
             :PYUSD,
+            ModernTreasury::InternalAccountCreateParams::Currency::TaggedSymbol
+          )
+        USDG =
+          T.let(
+            :USDG,
             ModernTreasury::InternalAccountCreateParams::Currency::TaggedSymbol
           )
 

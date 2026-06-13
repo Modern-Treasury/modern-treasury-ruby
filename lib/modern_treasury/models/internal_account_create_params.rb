@@ -140,9 +140,9 @@ module ModernTreasury
         USD = :USD
         CAD = :CAD
         USDC = :USDC
-        USDG = :USDG
         USDT = :USDT
         PYUSD = :PYUSD
+        USDG = :USDG
 
         # @!method self.values
         #   @return [Array<Symbol>]
