@@ -55,6 +55,10 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :line2
 
+      # Whether this address is the primary address for the legal entity.
+      sig { returns(T.nilable(T::Boolean)) }
+      attr_accessor :primary
+
       sig do
         params(
           country: T.nilable(String),
@@ -66,7 +70,8 @@ module ModernTreasury
             T::Array[
               ModernTreasury::LegalEntityAddressCreateRequest::AddressType::OrSymbol
             ],
-          line2: T.nilable(String)
+          line2: T.nilable(String),
+          primary: T.nilable(T::Boolean)
         ).returns(T.attached_class)
       end
       def self.new(
@@ -81,7 +86,9 @@ module ModernTreasury
         region:,
         # The types of this address.
         address_types: nil,
-        line2: nil
+        line2: nil,
+        # Whether this address is the primary address for the legal entity.
+        primary: nil
       )
       end
 
@@ -97,7 +104,8 @@ module ModernTreasury
               T::Array[
                 ModernTreasury::LegalEntityAddressCreateRequest::AddressType::OrSymbol
               ],
-            line2: T.nilable(String)
+            line2: T.nilable(String),
+            primary: T.nilable(T::Boolean)
           }
         )
       end

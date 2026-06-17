@@ -11,11 +11,6 @@ module ModernTreasury
           )
         end
 
-      # Value in specified currency's smallest unit. e.g. $10 would be represented
-      # as 1000. Can be any integer up to 36 digits.
-      sig { returns(Integer) }
-      attr_accessor :amount
-
       # One of `credit`, `debit`. Describes the direction money is flowing in the
       # transaction. A `credit` moves money from your account to someone else's. A
       # `debit` pulls money from someone else's account to your own. Note that wire,
@@ -26,6 +21,22 @@ module ModernTreasury
       # The ledger account that this ledger entry is associated with.
       sig { returns(String) }
       attr_accessor :ledger_account_id
+
+      # Value in specified currency's smallest unit. e.g. $10 would be represented
+      # as 1000. Can be any integer up to 36 digits.
+      sig { returns(T.nilable(Integer)) }
+      attr_reader :amount
+
+      sig { params(amount: Integer).void }
+      attr_writer :amount
+
+      # The amount of the ledger entry as a string, preserving full precision for values
+      # that may exceed safe integer limits in some languages.
+      sig { returns(T.nilable(String)) }
+      attr_reader :amount_string
+
+      sig { params(amount_string: String).void }
+      attr_writer :amount_string
 
       # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
       # account’s available balance. If any of these conditions would be false after the
@@ -75,9 +86,10 @@ module ModernTreasury
 
       sig do
         params(
-          amount: Integer,
           direction: ModernTreasury::TransactionDirection::OrSymbol,
           ledger_account_id: String,
+          amount: Integer,
+          amount_string: String,
           available_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
           effective_at: Time,
           lock_version: T.nilable(Integer),
@@ -88,9 +100,6 @@ module ModernTreasury
         ).returns(T.attached_class)
       end
       def self.new(
-        # Value in specified currency's smallest unit. e.g. $10 would be represented
-        # as 1000. Can be any integer up to 36 digits.
-        amount:,
         # One of `credit`, `debit`. Describes the direction money is flowing in the
         # transaction. A `credit` moves money from your account to someone else's. A
         # `debit` pulls money from someone else's account to your own. Note that wire,
@@ -98,6 +107,12 @@ module ModernTreasury
         direction:,
         # The ledger account that this ledger entry is associated with.
         ledger_account_id:,
+        # Value in specified currency's smallest unit. e.g. $10 would be represented
+        # as 1000. Can be any integer up to 36 digits.
+        amount: nil,
+        # The amount of the ledger entry as a string, preserving full precision for values
+        # that may exceed safe integer limits in some languages.
+        amount_string: nil,
         # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
         # account’s available balance. If any of these conditions would be false after the
         # transaction is created, the entire call will fail with error code 422.
@@ -130,9 +145,10 @@ module ModernTreasury
       sig do
         override.returns(
           {
-            amount: Integer,
             direction: ModernTreasury::TransactionDirection::OrSymbol,
             ledger_account_id: String,
+            amount: Integer,
+            amount_string: String,
             available_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
             effective_at: Time,
             lock_version: T.nilable(Integer),
