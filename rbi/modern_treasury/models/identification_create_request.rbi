@@ -309,6 +309,11 @@ module ModernTreasury
             :gb_vat,
             ModernTreasury::IdentificationCreateRequest::IDType::TaggedSymbol
           )
+        GENERIC_INTERNATIONAL =
+          T.let(
+            :generic_international,
+            ModernTreasury::IdentificationCreateRequest::IDType::TaggedSymbol
+          )
         GR_VAT =
           T.let(
             :gr_vat,

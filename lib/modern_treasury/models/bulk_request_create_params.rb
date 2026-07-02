@@ -23,7 +23,7 @@ module ModernTreasury
       #   An array of objects where each object contains the input params for a single
       #   `action_type` request on a `resource_type` resource
       #
-      #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest, ModernTreasury::Models::LedgerTransactionCreateRequest, ModernTreasury::Models::LedgerAccountCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ID, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerAccountUpdateRequestWithID>]
+      #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest, ModernTreasury::Models::LedgerTransactionCreateRequest, ModernTreasury::Models::LedgerAccountCreateRequest, Object, ModernTreasury::Models::BulkRequestCreateParams::Resource::ID, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerAccountUpdateRequestWithID>]
       required :resources,
                -> { ModernTreasury::Internal::Type::ArrayOf[union: ModernTreasury::BulkRequestCreateParams::Resource] }
 
@@ -42,7 +42,7 @@ module ModernTreasury
       #
       #   @param resource_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::ResourceType] One of payment_order, expected_payment, or ledger_transaction.
       #
-      #   @param resources [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest, ModernTreasury::Models::LedgerTransactionCreateRequest, ModernTreasury::Models::LedgerAccountCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ID, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerAccountUpdateRequestWithID>] An array of objects where each object contains the input params for a single `ac
+      #   @param resources [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest, ModernTreasury::Models::LedgerTransactionCreateRequest, ModernTreasury::Models::LedgerAccountCreateRequest, Object, ModernTreasury::Models::BulkRequestCreateParams::Resource::ID, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerAccountUpdateRequestWithID>] An array of objects where each object contains the input params for a single `ac
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #
@@ -87,7 +87,7 @@ module ModernTreasury
 
         variant -> { ModernTreasury::LedgerAccountCreateRequest }
 
-        variant -> { ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest }
+        variant ModernTreasury::Internal::Type::Unknown
 
         variant -> { ModernTreasury::BulkRequestCreateParams::Resource::ID }
 
@@ -1311,151 +1311,6 @@ module ModernTreasury
             #   @param description [String, nil] A free-form description of the line item.
             #
             #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-          end
-        end
-
-        class TransactionCreateRequest < ModernTreasury::Internal::Type::BaseModel
-          # @!attribute amount
-          #   Value in specified currency's smallest unit. e.g. $10 would be represented
-          #   as 1000.
-          #
-          #   @return [Integer]
-          required :amount, Integer
-
-          # @!attribute as_of_date
-          #   The date on which the transaction occurred.
-          #
-          #   @return [Date, nil]
-          required :as_of_date, Date, nil?: true
-
-          # @!attribute direction
-          #   Either `credit` or `debit`.
-          #
-          #   @return [String]
-          required :direction, String
-
-          # @!attribute internal_account_id
-          #   The ID of the relevant Internal Account.
-          #
-          #   @return [String]
-          required :internal_account_id, String
-
-          # @!attribute vendor_code
-          #   When applicable, the bank-given code that determines the transaction's category.
-          #   For most banks this is the BAI2/BTRS transaction code.
-          #
-          #   @return [String, nil]
-          required :vendor_code, String, nil?: true
-
-          # @!attribute vendor_code_type
-          #   The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
-          #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-          #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`,
-          #   `us_bank`, or others.
-          #
-          #   @return [String, nil]
-          required :vendor_code_type, String, nil?: true
-
-          # @!attribute metadata
-          #   Additional data represented as key-value pairs. Both the key and value must be
-          #   strings.
-          #
-          #   @return [Hash{Symbol=>String}, nil]
-          optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
-
-          # @!attribute posted
-          #   This field will be `true` if the transaction has posted to the account.
-          #
-          #   @return [Boolean, nil]
-          optional :posted, ModernTreasury::Internal::Type::Boolean
-
-          # @!attribute type
-          #   The type of the transaction. Examples could be
-          #   `card, `ach`, `wire`, `check`, `rtp`, or `book`.
-          #
-          #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type, nil]
-          optional :type,
-                   enum: -> {
-                     ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type
-                   },
-                   nil?: true
-
-          # @!attribute vendor_customer_id
-          #   An identifier given to this transaction by the bank, often `null`.
-          #
-          #   @return [String, nil]
-          optional :vendor_customer_id, String, nil?: true
-
-          # @!attribute vendor_description
-          #   The transaction detail text that often appears in on your bank statement and in
-          #   your banking portal.
-          #
-          #   @return [String, nil]
-          optional :vendor_description, String, nil?: true
-
-          # @!method initialize(amount:, as_of_date:, direction:, internal_account_id:, vendor_code:, vendor_code_type:, metadata: nil, posted: nil, type: nil, vendor_customer_id: nil, vendor_description: nil)
-          #   Some parameter documentations has been truncated, see
-          #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest}
-          #   for more details.
-          #
-          #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
-          #
-          #   @param as_of_date [Date, nil] The date on which the transaction occurred.
-          #
-          #   @param direction [String] Either `credit` or `debit`.
-          #
-          #   @param internal_account_id [String] The ID of the relevant Internal Account.
-          #
-          #   @param vendor_code [String, nil] When applicable, the bank-given code that determines the transaction's category.
-          #
-          #   @param vendor_code_type [String, nil] The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`, `bnk
-          #
-          #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
-          #
-          #   @param posted [Boolean] This field will be `true` if the transaction has posted to the account.
-          #
-          #   @param type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type, nil] The type of the transaction. Examples could be `card, `ach`, `wire`, `check`, `r
-          #
-          #   @param vendor_customer_id [String, nil] An identifier given to this transaction by the bank, often `null`.
-          #
-          #   @param vendor_description [String, nil] The transaction detail text that often appears in on your bank statement and in
-
-          # The type of the transaction. Examples could be
-          # `card, `ach`, `wire`, `check`, `rtp`, or `book`.
-          #
-          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest#type
-          module Type
-            extend ModernTreasury::Internal::Type::Enum
-
-            ACH = :ach
-            AU_BECS = :au_becs
-            BACS = :bacs
-            BOOK = :book
-            CARD = :card
-            CHATS = :chats
-            CHECK = :check
-            CROSS_BORDER = :cross_border
-            DK_NETS = :dk_nets
-            EFT = :eft
-            GB_FPS = :gb_fps
-            MASAV = :masav
-            MX_CCEN = :mx_ccen
-            NEFT = :neft
-            NICS = :nics
-            NZ_BECS = :nz_becs
-            PL_ELIXIR = :pl_elixir
-            RTP = :rtp
-            SE_BANKGIROT = :se_bankgirot
-            SEPA = :sepa
-            SG_GIRO = :sg_giro
-            SIC = :sic
-            STABLECOIN = :stablecoin
-            WIRE = :wire
-            ZENGIN = :zengin
-            OTHER = :other
-
-            # @!method self.values
-            #   @return [Array<Symbol>]
           end
         end
 
@@ -2778,7 +2633,7 @@ module ModernTreasury
         end
 
         # @!method self.variants
-        #   @return [Array(ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest, ModernTreasury::Models::LedgerTransactionCreateRequest, ModernTreasury::Models::LedgerAccountCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ID, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerAccountUpdateRequestWithID)]
+        #   @return [Array(ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest, ModernTreasury::Models::LedgerTransactionCreateRequest, ModernTreasury::Models::LedgerAccountCreateRequest, Object, ModernTreasury::Models::BulkRequestCreateParams::Resource::ID, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerAccountUpdateRequestWithID)]
       end
     end
   end

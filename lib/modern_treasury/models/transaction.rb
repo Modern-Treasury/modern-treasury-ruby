@@ -16,6 +16,13 @@ module ModernTreasury
       #   @return [Integer]
       required :amount, Integer
 
+      # @!attribute amount_string
+      #   The amount of the transaction as a string, preserving full precision for values
+      #   that may exceed safe integer limits in some languages.
+      #
+      #   @return [String]
+      required :amount_string, String
+
       # @!attribute as_of_date
       #   The date on which the transaction occurred.
       #
@@ -169,13 +176,15 @@ module ModernTreasury
       #   @return [String, nil]
       optional :vendor_description, String, nil?: true
 
-      # @!method initialize(id:, amount:, as_of_date:, as_of_time:, as_of_timezone:, created_at:, currency:, custom_identifiers:, direction:, discarded_at:, foreign_exchange_rate:, internal_account_id:, live_mode:, metadata:, object:, posted:, reconciled:, type:, updated_at:, vendor_code:, vendor_code_type:, vendor_customer_id:, vendor_id:, details: nil, vendor_description: nil)
+      # @!method initialize(id:, amount:, amount_string:, as_of_date:, as_of_time:, as_of_timezone:, created_at:, currency:, custom_identifiers:, direction:, discarded_at:, foreign_exchange_rate:, internal_account_id:, live_mode:, metadata:, object:, posted:, reconciled:, type:, updated_at:, vendor_code:, vendor_code_type:, vendor_customer_id:, vendor_id:, details: nil, vendor_description: nil)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::Transaction} for more details.
       #
       #   @param id [String]
       #
       #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
+      #
+      #   @param amount_string [String] The amount of the transaction as a string, preserving full precision for values
       #
       #   @param as_of_date [Date, nil] The date on which the transaction occurred.
       #
@@ -293,6 +302,7 @@ module ModernTreasury
         PNC = :pnc
         SILVERGATE = :silvergate
         SWIFT = :swift
+        TURNKEY = :turnkey
         US_BANK = :us_bank
         USER = :user
         WESTERN_ALLIANCE = :western_alliance

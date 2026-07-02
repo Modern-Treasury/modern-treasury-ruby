@@ -82,6 +82,8 @@ module ModernTreasury
         PERSONA = :persona
         MIDDESK = :middesk
         ALLOY = :alloy
+        IDOLOGY = :idology
+        SOCURE = :socure
         SUMSUB = :sumsub
         VERIFF = :veriff
 

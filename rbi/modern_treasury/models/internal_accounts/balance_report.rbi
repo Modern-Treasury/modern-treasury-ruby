@@ -20,7 +20,7 @@ module ModernTreasury
         attr_accessor :as_of_date
 
         # The time (24-hour clock) of the balance report in local time.
-        sig { returns(T.nilable(Time)) }
+        sig { returns(Time) }
         attr_accessor :as_of_time
 
         # The specific type of balance report. One of `intraday`, `previous_day`,
@@ -62,7 +62,7 @@ module ModernTreasury
           params(
             id: String,
             as_of_date: Date,
-            as_of_time: T.nilable(Time),
+            as_of_time: Time,
             balance_report_type:
               ModernTreasury::InternalAccounts::BalanceReport::BalanceReportType::OrSymbol,
             balances:
@@ -103,7 +103,7 @@ module ModernTreasury
             {
               id: String,
               as_of_date: Date,
-              as_of_time: T.nilable(Time),
+              as_of_time: Time,
               balance_report_type:
                 ModernTreasury::InternalAccounts::BalanceReport::BalanceReportType::TaggedSymbol,
               balances:
@@ -183,6 +183,11 @@ module ModernTreasury
           sig { returns(Integer) }
           attr_accessor :amount
 
+          # The amount of the balance as a string, preserving full precision for values that
+          # may exceed safe integer limits in some languages.
+          sig { returns(String) }
+          attr_accessor :amount_string
+
           # The date on which the balance became true for the account.
           sig { returns(T.nilable(Date)) }
           attr_accessor :as_of_date
@@ -239,6 +244,7 @@ module ModernTreasury
             params(
               id: String,
               amount: Integer,
+              amount_string: String,
               as_of_date: T.nilable(Date),
               as_of_time: T.nilable(Time),
               balance_type:
@@ -257,6 +263,9 @@ module ModernTreasury
             id:,
             # The balance amount.
             amount:,
+            # The amount of the balance as a string, preserving full precision for values that
+            # may exceed safe integer limits in some languages.
+            amount_string:,
             # The date on which the balance became true for the account.
             as_of_date:,
             # The time on which the balance became true for the account.
@@ -291,6 +300,7 @@ module ModernTreasury
               {
                 id: String,
                 amount: Integer,
+                amount_string: String,
                 as_of_date: T.nilable(Date),
                 as_of_time: T.nilable(Time),
                 balance_type:

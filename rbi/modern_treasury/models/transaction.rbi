@@ -16,6 +16,11 @@ module ModernTreasury
       sig { returns(Integer) }
       attr_accessor :amount
 
+      # The amount of the transaction as a string, preserving full precision for values
+      # that may exceed safe integer limits in some languages.
+      sig { returns(String) }
+      attr_accessor :amount_string
+
       # The date on which the transaction occurred.
       sig { returns(T.nilable(Date)) }
       attr_accessor :as_of_date
@@ -142,6 +147,7 @@ module ModernTreasury
         params(
           id: String,
           amount: Integer,
+          amount_string: String,
           as_of_date: T.nilable(Date),
           as_of_time: T.nilable(Time),
           as_of_timezone: T.nilable(String),
@@ -174,6 +180,9 @@ module ModernTreasury
         # Value in specified currency's smallest unit. e.g. $10 would be represented
         # as 1000.
         amount:,
+        # The amount of the transaction as a string, preserving full precision for values
+        # that may exceed safe integer limits in some languages.
+        amount_string:,
         # The date on which the transaction occurred.
         as_of_date:,
         # The time on which the transaction occurred. Depending on the granularity of the
@@ -243,6 +252,7 @@ module ModernTreasury
           {
             id: String,
             amount: Integer,
+            amount_string: String,
             as_of_date: T.nilable(Date),
             as_of_time: T.nilable(Time),
             as_of_timezone: T.nilable(String),
@@ -450,6 +460,11 @@ module ModernTreasury
         SWIFT =
           T.let(
             :swift,
+            ModernTreasury::Transaction::VendorCodeType::TaggedSymbol
+          )
+        TURNKEY =
+          T.let(
+            :turnkey,
             ModernTreasury::Transaction::VendorCodeType::TaggedSymbol
           )
         US_BANK =

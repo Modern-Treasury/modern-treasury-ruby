@@ -9,12 +9,13 @@ module ModernTreasury
       # create transaction
       sig do
         params(
-          amount: Integer,
           as_of_date: T.nilable(Date),
           direction: String,
           internal_account_id: String,
           vendor_code: T.nilable(String),
           vendor_code_type: T.nilable(String),
+          amount: Integer,
+          amount_string: String,
           metadata: T::Hash[Symbol, String],
           posted: T::Boolean,
           type:
@@ -25,9 +26,6 @@ module ModernTreasury
         ).returns(ModernTreasury::Transaction)
       end
       def create(
-        # Value in specified currency's smallest unit. e.g. $10 would be represented
-        # as 1000.
-        amount:,
         # The date on which the transaction occurred.
         as_of_date:,
         # Either `credit` or `debit`.
@@ -42,6 +40,12 @@ module ModernTreasury
         # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`,
         # `us_bank`, or others.
         vendor_code_type:,
+        # Value in specified currency's smallest unit. e.g. $10 would be represented
+        # as 1000.
+        amount: nil,
+        # The transaction amount as a string, preserving full precision for values that
+        # may exceed safe integer limits in some languages.
+        amount_string: nil,
         # Additional data represented as key-value pairs. Both the key and value must be
         # strings.
         metadata: nil,

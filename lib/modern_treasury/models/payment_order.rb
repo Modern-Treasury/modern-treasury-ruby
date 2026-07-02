@@ -869,6 +869,8 @@ module ModernTreasury
           SVB_PAYMENT_ID = :svb_payment_id
           SWIFT_MIR = :swift_mir
           SWIFT_UETR = :swift_uetr
+          TURNKEY_ACTIVITY_ID = :turnkey_activity_id
+          TURNKEY_SEND_TRANSACTION_STATUS_ID = :turnkey_send_transaction_status_id
           UMB_PRODUCT_PARTNER_ACCOUNT_NUMBER = :umb_product_partner_account_number
           USBANK_PAYMENT_APPLICATION_REFERENCE_ID = :usbank_payment_application_reference_id
           USBANK_PAYMENT_ID = :usbank_payment_id

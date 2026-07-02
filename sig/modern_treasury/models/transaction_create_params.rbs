@@ -2,12 +2,13 @@ module ModernTreasury
   module Models
     type transaction_create_params =
       {
-        amount: Integer,
         as_of_date: Date?,
         direction: String,
         internal_account_id: String,
         vendor_code: String?,
         vendor_code_type: String?,
+        amount: Integer,
+        amount_string: String,
         metadata: ::Hash[Symbol, String],
         posted: bool,
         type: ModernTreasury::Models::TransactionCreateParams::type_?,
@@ -20,8 +21,6 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
-      attr_accessor amount: Integer
-
       attr_accessor as_of_date: Date?
 
       attr_accessor direction: String
@@ -31,6 +30,14 @@ module ModernTreasury
       attr_accessor vendor_code: String?
 
       attr_accessor vendor_code_type: String?
+
+      attr_reader amount: Integer?
+
+      def amount=: (Integer) -> Integer
+
+      attr_reader amount_string: String?
+
+      def amount_string=: (String) -> String
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
@@ -47,12 +54,13 @@ module ModernTreasury
       attr_accessor vendor_description: String?
 
       def initialize: (
-        amount: Integer,
         as_of_date: Date?,
         direction: String,
         internal_account_id: String,
         vendor_code: String?,
         vendor_code_type: String?,
+        ?amount: Integer,
+        ?amount_string: String,
         ?metadata: ::Hash[Symbol, String],
         ?posted: bool,
         ?type: ModernTreasury::Models::TransactionCreateParams::type_?,
@@ -62,12 +70,13 @@ module ModernTreasury
       ) -> void
 
       def to_hash: -> {
-        amount: Integer,
         as_of_date: Date?,
         direction: String,
         internal_account_id: String,
         vendor_code: String?,
         vendor_code_type: String?,
+        amount: Integer,
+        amount_string: String,
         metadata: ::Hash[Symbol, String],
         posted: bool,
         type: ModernTreasury::Models::TransactionCreateParams::type_?,
