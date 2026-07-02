@@ -495,6 +495,16 @@ module ModernTreasury
             :swift_uetr,
             ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
           )
+        TURNKEY_ACTIVITY_ID =
+          T.let(
+            :turnkey_activity_id,
+            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
+          )
+        TURNKEY_SEND_TRANSACTION_STATUS_ID =
+          T.let(
+            :turnkey_send_transaction_status_id,
+            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
+          )
         UMB_PRODUCT_PARTNER_ACCOUNT_NUMBER =
           T.let(
             :umb_product_partner_account_number,

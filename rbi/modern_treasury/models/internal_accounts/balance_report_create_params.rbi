@@ -148,10 +148,6 @@ module ModernTreasury
               )
             end
 
-          # The balance amount.
-          sig { returns(Integer) }
-          attr_accessor :amount
-
           # The specific type of balance reported. One of `opening_ledger`,
           # `closing_ledger`, `current_ledger`, `opening_available`,
           # `opening_available_next_business_day`, `closing_available`, `current_available`,
@@ -174,18 +170,32 @@ module ModernTreasury
           sig { returns(T.nilable(String)) }
           attr_accessor :vendor_code_type
 
+          # The balance amount.
+          sig { returns(T.nilable(Integer)) }
+          attr_reader :amount
+
+          sig { params(amount: Integer).void }
+          attr_writer :amount
+
+          # The amount of the balance as a string, preserving full precision for values that
+          # may exceed safe integer limits in some languages.
+          sig { returns(T.nilable(String)) }
+          attr_reader :amount_string
+
+          sig { params(amount_string: String).void }
+          attr_writer :amount_string
+
           sig do
             params(
-              amount: Integer,
               balance_type:
                 ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol,
               vendor_code: String,
-              vendor_code_type: T.nilable(String)
+              vendor_code_type: T.nilable(String),
+              amount: Integer,
+              amount_string: String
             ).returns(T.attached_class)
           end
           def self.new(
-            # The balance amount.
-            amount:,
             # The specific type of balance reported. One of `opening_ledger`,
             # `closing_ledger`, `current_ledger`, `opening_available`,
             # `opening_available_next_business_day`, `closing_available`, `current_available`,
@@ -197,18 +207,24 @@ module ModernTreasury
             # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
             # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`, or
             # `us_bank`.
-            vendor_code_type:
+            vendor_code_type:,
+            # The balance amount.
+            amount: nil,
+            # The amount of the balance as a string, preserving full precision for values that
+            # may exceed safe integer limits in some languages.
+            amount_string: nil
           )
           end
 
           sig do
             override.returns(
               {
-                amount: Integer,
                 balance_type:
                   ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol,
                 vendor_code: String,
-                vendor_code_type: T.nilable(String)
+                vendor_code_type: T.nilable(String),
+                amount: Integer,
+                amount_string: String
               }
             )
           end

@@ -31,6 +31,8 @@ module ModernTreasury
       BACS = T.let(:bacs, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       BASE = T.let(:base, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       CHATS = T.let(:chats, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
+      DIGITAL =
+        T.let(:digital, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       DK_NETS =
         T.let(:dk_nets, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       EFT = T.let(:eft, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
@@ -47,6 +49,7 @@ module ModernTreasury
         T.let(:pl_elixir, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       POLYGON =
         T.let(:polygon, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
+      PRINT = T.let(:print, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       SE_BANKGIROT =
         T.let(:se_bankgirot, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       SEPA = T.let(:sepa, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)

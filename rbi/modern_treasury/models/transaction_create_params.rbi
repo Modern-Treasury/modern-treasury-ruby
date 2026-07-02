@@ -14,11 +14,6 @@ module ModernTreasury
           )
         end
 
-      # Value in specified currency's smallest unit. e.g. $10 would be represented
-      # as 1000.
-      sig { returns(Integer) }
-      attr_accessor :amount
-
       # The date on which the transaction occurred.
       sig { returns(T.nilable(Date)) }
       attr_accessor :as_of_date
@@ -42,6 +37,22 @@ module ModernTreasury
       # `us_bank`, or others.
       sig { returns(T.nilable(String)) }
       attr_accessor :vendor_code_type
+
+      # Value in specified currency's smallest unit. e.g. $10 would be represented
+      # as 1000.
+      sig { returns(T.nilable(Integer)) }
+      attr_reader :amount
+
+      sig { params(amount: Integer).void }
+      attr_writer :amount
+
+      # The transaction amount as a string, preserving full precision for values that
+      # may exceed safe integer limits in some languages.
+      sig { returns(T.nilable(String)) }
+      attr_reader :amount_string
+
+      sig { params(amount_string: String).void }
+      attr_writer :amount_string
 
       # Additional data represented as key-value pairs. Both the key and value must be
       # strings.
@@ -78,12 +89,13 @@ module ModernTreasury
 
       sig do
         params(
-          amount: Integer,
           as_of_date: T.nilable(Date),
           direction: String,
           internal_account_id: String,
           vendor_code: T.nilable(String),
           vendor_code_type: T.nilable(String),
+          amount: Integer,
+          amount_string: String,
           metadata: T::Hash[Symbol, String],
           posted: T::Boolean,
           type:
@@ -94,9 +106,6 @@ module ModernTreasury
         ).returns(T.attached_class)
       end
       def self.new(
-        # Value in specified currency's smallest unit. e.g. $10 would be represented
-        # as 1000.
-        amount:,
         # The date on which the transaction occurred.
         as_of_date:,
         # Either `credit` or `debit`.
@@ -111,6 +120,12 @@ module ModernTreasury
         # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`,
         # `us_bank`, or others.
         vendor_code_type:,
+        # Value in specified currency's smallest unit. e.g. $10 would be represented
+        # as 1000.
+        amount: nil,
+        # The transaction amount as a string, preserving full precision for values that
+        # may exceed safe integer limits in some languages.
+        amount_string: nil,
         # Additional data represented as key-value pairs. Both the key and value must be
         # strings.
         metadata: nil,
@@ -131,12 +146,13 @@ module ModernTreasury
       sig do
         override.returns(
           {
-            amount: Integer,
             as_of_date: T.nilable(Date),
             direction: String,
             internal_account_id: String,
             vendor_code: T.nilable(String),
             vendor_code_type: T.nilable(String),
+            amount: Integer,
+            amount_string: String,
             metadata: T::Hash[Symbol, String],
             posted: T::Boolean,
             type:

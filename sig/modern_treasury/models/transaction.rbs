@@ -4,6 +4,7 @@ module ModernTreasury
       {
         id: String,
         amount: Integer,
+        amount_string: String,
         as_of_date: Date?,
         as_of_time: Time?,
         as_of_timezone: String?,
@@ -33,6 +34,8 @@ module ModernTreasury
       attr_accessor id: String
 
       attr_accessor amount: Integer
+
+      attr_accessor amount_string: String
 
       attr_accessor as_of_date: Date?
 
@@ -85,6 +88,7 @@ module ModernTreasury
       def initialize: (
         id: String,
         amount: Integer,
+        amount_string: String,
         as_of_date: Date?,
         as_of_time: Time?,
         as_of_timezone: String?,
@@ -113,6 +117,7 @@ module ModernTreasury
       def to_hash: -> {
         id: String,
         amount: Integer,
+        amount_string: String,
         as_of_date: Date?,
         as_of_time: Time?,
         as_of_timezone: String?,
@@ -223,6 +228,7 @@ module ModernTreasury
         | :pnc
         | :silvergate
         | :swift
+        | :turnkey
         | :us_bank
         | :user
         | :western_alliance
@@ -253,6 +259,7 @@ module ModernTreasury
         PNC: :pnc
         SILVERGATE: :silvergate
         SWIFT: :swift
+        TURNKEY: :turnkey
         US_BANK: :us_bank
         USER: :user
         WESTERN_ALLIANCE: :western_alliance
