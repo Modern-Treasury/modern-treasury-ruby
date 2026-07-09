@@ -463,7 +463,8 @@ module ModernTreasury
         required :postal_code, String, nil?: true
 
         # @!attribute primary
-        #   Whether this address is the primary address for the legal entity.
+        #   Whether this address is the primary address for the legal entity. Optional; when
+        #   omitted it is inferred from the address types.
         #
         #   @return [Boolean, nil]
         required :primary, ModernTreasury::Internal::Type::Boolean, nil?: true
@@ -505,7 +506,7 @@ module ModernTreasury
         #
         #   @param postal_code [String, nil] The postal code of the address.
         #
-        #   @param primary [Boolean, nil] Whether this address is the primary address for the legal entity.
+        #   @param primary [Boolean, nil] Whether this address is the primary address for the legal entity. Optional; when
         #
         #   @param region [String, nil] Region or State.
         #
@@ -515,6 +516,7 @@ module ModernTreasury
           extend ModernTreasury::Internal::Type::Enum
 
           BUSINESS = :business
+          BUSINESS_PHYSICAL = :business_physical
           BUSINESS_REGISTERED = :business_registered
           MAILING = :mailing
           OTHER = :other
