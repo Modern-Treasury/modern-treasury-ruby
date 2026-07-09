@@ -334,6 +334,7 @@ module ModernTreasury
 
         type address_type =
           :business
+          | :business_physical
           | :business_registered
           | :mailing
           | :other
@@ -344,6 +345,7 @@ module ModernTreasury
           extend ModernTreasury::Internal::Type::Enum
 
           BUSINESS: :business
+          BUSINESS_PHYSICAL: :business_physical
           BUSINESS_REGISTERED: :business_registered
           MAILING: :mailing
           OTHER: :other

@@ -531,7 +531,8 @@ module ModernTreasury
         sig { returns(T.nilable(String)) }
         attr_accessor :postal_code
 
-        # Whether this address is the primary address for the legal entity.
+        # Whether this address is the primary address for the legal entity. Optional; when
+        # omitted it is inferred from the address types.
         sig { returns(T.nilable(T::Boolean)) }
         attr_accessor :primary
 
@@ -581,7 +582,8 @@ module ModernTreasury
           object:,
           # The postal code of the address.
           postal_code:,
-          # Whether this address is the primary address for the legal entity.
+          # Whether this address is the primary address for the legal entity. Optional; when
+          # omitted it is inferred from the address types.
           primary:,
           # Region or State.
           region:,
@@ -627,6 +629,11 @@ module ModernTreasury
           BUSINESS =
             T.let(
               :business,
+              ModernTreasury::LegalEntity::Address::AddressType::TaggedSymbol
+            )
+          BUSINESS_PHYSICAL =
+            T.let(
+              :business_physical,
               ModernTreasury::LegalEntity::Address::AddressType::TaggedSymbol
             )
           BUSINESS_REGISTERED =
