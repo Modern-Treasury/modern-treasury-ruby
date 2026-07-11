@@ -2,11 +2,11 @@ module ModernTreasury
   module Models
     type internal_account_create_params =
       {
-        connection_id: String,
         currency: ModernTreasury::Models::InternalAccountCreateParams::currency,
         name: String,
         account_capabilities: ::Array[ModernTreasury::InternalAccountCreateParams::AccountCapability],
         account_type: ModernTreasury::Models::InternalAccountCreateParams::account_type,
+        connection_id: String,
         counterparty_id: String,
         debitable: bool?,
         external_id: String?,
@@ -23,8 +23,6 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
-      attr_accessor connection_id: String
-
       attr_accessor currency: ModernTreasury::Models::InternalAccountCreateParams::currency
 
       attr_accessor name: String
@@ -40,6 +38,10 @@ module ModernTreasury
       def account_type=: (
         ModernTreasury::Models::InternalAccountCreateParams::account_type
       ) -> ModernTreasury::Models::InternalAccountCreateParams::account_type
+
+      attr_reader connection_id: String?
+
+      def connection_id=: (String) -> String
 
       attr_reader counterparty_id: String?
 
@@ -74,11 +76,11 @@ module ModernTreasury
       def vendor_attributes=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       def initialize: (
-        connection_id: String,
         currency: ModernTreasury::Models::InternalAccountCreateParams::currency,
         name: String,
         ?account_capabilities: ::Array[ModernTreasury::InternalAccountCreateParams::AccountCapability],
         ?account_type: ModernTreasury::Models::InternalAccountCreateParams::account_type,
+        ?connection_id: String,
         ?counterparty_id: String,
         ?debitable: bool?,
         ?external_id: String?,
@@ -92,11 +94,11 @@ module ModernTreasury
       ) -> void
 
       def to_hash: -> {
-        connection_id: String,
         currency: ModernTreasury::Models::InternalAccountCreateParams::currency,
         name: String,
         account_capabilities: ::Array[ModernTreasury::InternalAccountCreateParams::AccountCapability],
         account_type: ModernTreasury::Models::InternalAccountCreateParams::account_type,
+        connection_id: String,
         counterparty_id: String,
         debitable: bool?,
         external_id: String?,

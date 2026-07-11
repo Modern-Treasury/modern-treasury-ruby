@@ -4,8 +4,7 @@ require_relative "../test_helper"
 
 class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Test::ResourceTest
   def test_create_required_params
-    response =
-      @modern_treasury.internal_accounts.create(connection_id: "connection_id", currency: :USD, name: "name")
+    response = @modern_treasury.internal_accounts.create(currency: :USD, name: "name")
 
     assert_pattern do
       response => ModernTreasury::InternalAccount
