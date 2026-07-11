@@ -4,11 +4,11 @@ module ModernTreasury
       attr_reader balance_reports: ModernTreasury::Resources::InternalAccounts::BalanceReports
 
       def create: (
-        connection_id: String,
         currency: ModernTreasury::Models::InternalAccountCreateParams::currency,
         name: String,
         ?account_capabilities: ::Array[ModernTreasury::InternalAccountCreateParams::AccountCapability],
         ?account_type: ModernTreasury::Models::InternalAccountCreateParams::account_type,
+        ?connection_id: String,
         ?counterparty_id: String,
         ?debitable: bool?,
         ?external_id: String?,

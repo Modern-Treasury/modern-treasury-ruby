@@ -7,12 +7,6 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
-      # @!attribute connection_id
-      #   The identifier of the financial institution the account belongs to.
-      #
-      #   @return [String]
-      required :connection_id, String
-
       # @!attribute currency
       #   The currency of the internal account. Supports fiat and stablecoin currencies.
       #
@@ -39,6 +33,14 @@ module ModernTreasury
       #
       #   @return [Symbol, ModernTreasury::Models::InternalAccountCreateParams::AccountType, nil]
       optional :account_type, enum: -> { ModernTreasury::InternalAccountCreateParams::AccountType }
+
+      # @!attribute connection_id
+      #   The identifier of the financial institution the account belongs to. If not
+      #   provided, defaults to the default connection, or the sole connection if only one
+      #   exists.
+      #
+      #   @return [String, nil]
+      optional :connection_id, String
 
       # @!attribute counterparty_id
       #   The Counterparty associated to this account.
@@ -99,11 +101,9 @@ module ModernTreasury
       #   @return [Hash{Symbol=>String}, nil]
       optional :vendor_attributes, ModernTreasury::Internal::Type::HashOf[String]
 
-      # @!method initialize(connection_id:, currency:, name:, account_capabilities: nil, account_type: nil, counterparty_id: nil, debitable: nil, external_id: nil, legal_entity_id: nil, metadata: nil, parent_account_id: nil, party_address: nil, party_name: nil, vendor_attributes: nil, request_options: {})
+      # @!method initialize(currency:, name:, account_capabilities: nil, account_type: nil, connection_id: nil, counterparty_id: nil, debitable: nil, external_id: nil, legal_entity_id: nil, metadata: nil, parent_account_id: nil, party_address: nil, party_name: nil, vendor_attributes: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::InternalAccountCreateParams} for more details.
-      #
-      #   @param connection_id [String] The identifier of the financial institution the account belongs to.
       #
       #   @param currency [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency] The currency of the internal account. Supports fiat and stablecoin currencies.
       #
@@ -112,6 +112,8 @@ module ModernTreasury
       #   @param account_capabilities [Array<ModernTreasury::Models::InternalAccountCreateParams::AccountCapability>] An array of AccountCapability objects that list the originating abilities of the
       #
       #   @param account_type [Symbol, ModernTreasury::Models::InternalAccountCreateParams::AccountType] The account type, used to provision the appropriate account at the financial ins
+      #
+      #   @param connection_id [String] The identifier of the financial institution the account belongs to. If not provi
       #
       #   @param counterparty_id [String] The Counterparty associated to this account.
       #

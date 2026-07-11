@@ -11,7 +11,6 @@ module ModernTreasury
       # create internal account
       sig do
         params(
-          connection_id: String,
           currency:
             ModernTreasury::InternalAccountCreateParams::Currency::OrSymbol,
           name: String,
@@ -21,6 +20,7 @@ module ModernTreasury
             ],
           account_type:
             ModernTreasury::InternalAccountCreateParams::AccountType::OrSymbol,
+          connection_id: String,
           counterparty_id: String,
           debitable: T.nilable(T::Boolean),
           external_id: T.nilable(String),
@@ -35,8 +35,6 @@ module ModernTreasury
         ).returns(ModernTreasury::InternalAccount)
       end
       def create(
-        # The identifier of the financial institution the account belongs to.
-        connection_id:,
         # The currency of the internal account. Supports fiat and stablecoin currencies.
         currency:,
         # The nickname of the account.
@@ -47,6 +45,10 @@ module ModernTreasury
         # The account type, used to provision the appropriate account at the financial
         # institution.
         account_type: nil,
+        # The identifier of the financial institution the account belongs to. If not
+        # provided, defaults to the default connection, or the sole connection if only one
+        # exists.
+        connection_id: nil,
         # The Counterparty associated to this account.
         counterparty_id: nil,
         # Whether this account can receive ACH debits. Only applicable to accounts created
