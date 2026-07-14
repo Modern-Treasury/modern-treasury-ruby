@@ -18,8 +18,7 @@ module ModernTreasury
       sig { returns(String) }
       attr_accessor :connection_id
 
-      # The currency of the internal account. Supports "USD" and "CAD" for fiat, and
-      # "USDC", "USDG", and "PYUSD" for stablecoin accounts.
+      # The currency of the internal account. Supports fiat and stablecoin currencies.
       sig do
         returns(ModernTreasury::InternalAccountCreateParams::Currency::OrSymbol)
       end
@@ -81,6 +80,13 @@ module ModernTreasury
 
       sig { params(counterparty_id: String).void }
       attr_writer :counterparty_id
+
+      # Whether this account can receive ACH debits. Only applicable to accounts created
+      # under a Modern Treasury PSP connection, or `null` for Bring Your Own Bank
+      # accounts. Defaults to `false`. Configurable only on creation. Please reach out
+      # to your customer success manager to enable this capability for your connection.
+      sig { returns(T.nilable(T::Boolean)) }
+      attr_accessor :debitable
 
       # An optional user-defined 180 character unique identifier.
       sig { returns(T.nilable(String)) }
@@ -146,6 +152,7 @@ module ModernTreasury
           account_type:
             ModernTreasury::InternalAccountCreateParams::AccountType::OrSymbol,
           counterparty_id: String,
+          debitable: T.nilable(T::Boolean),
           external_id: T.nilable(String),
           legal_entity_id: String,
           metadata: T::Hash[Symbol, String],
@@ -159,8 +166,7 @@ module ModernTreasury
       def self.new(
         # The identifier of the financial institution the account belongs to.
         connection_id:,
-        # The currency of the internal account. Supports "USD" and "CAD" for fiat, and
-        # "USDC", "USDG", and "PYUSD" for stablecoin accounts.
+        # The currency of the internal account. Supports fiat and stablecoin currencies.
         currency:,
         # The nickname of the account.
         name:,
@@ -174,6 +180,11 @@ module ModernTreasury
         account_type: nil,
         # The Counterparty associated to this account.
         counterparty_id: nil,
+        # Whether this account can receive ACH debits. Only applicable to accounts created
+        # under a Modern Treasury PSP connection, or `null` for Bring Your Own Bank
+        # accounts. Defaults to `false`. Configurable only on creation. Please reach out
+        # to your customer success manager to enable this capability for your connection.
+        debitable: nil,
         # An optional user-defined 180 character unique identifier.
         external_id: nil,
         # The LegalEntity associated to this account.
@@ -207,6 +218,7 @@ module ModernTreasury
             account_type:
               ModernTreasury::InternalAccountCreateParams::AccountType::OrSymbol,
             counterparty_id: String,
+            debitable: T.nilable(T::Boolean),
             external_id: T.nilable(String),
             legal_entity_id: String,
             metadata: T::Hash[Symbol, String],
@@ -221,8 +233,7 @@ module ModernTreasury
       def to_hash
       end
 
-      # The currency of the internal account. Supports "USD" and "CAD" for fiat, and
-      # "USDC", "USDG", and "PYUSD" for stablecoin accounts.
+      # The currency of the internal account. Supports fiat and stablecoin currencies.
       module Currency
         extend ModernTreasury::Internal::Type::Enum
 
@@ -250,6 +261,11 @@ module ModernTreasury
         USDG =
           T.let(
             :USDG,
+            ModernTreasury::InternalAccountCreateParams::Currency::TaggedSymbol
+          )
+        USDT =
+          T.let(
+            :USDT,
             ModernTreasury::InternalAccountCreateParams::Currency::TaggedSymbol
           )
         PYUSD =
