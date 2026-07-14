@@ -77,7 +77,7 @@ module ModernTreasury
       end
       def create(
         # Value in specified currency's smallest unit. e.g. $10 would be represented as
-        # 1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
+        # 1000 (cents). For RTP, the maximum amount allowed by the network is $10,000,000.
         amount:,
         # One of `credit`, `debit`. Describes the direction money is flowing in the
         # transaction. A `credit` moves money from your account to someone else's. A
@@ -294,7 +294,7 @@ module ModernTreasury
         # accessible if your accounting system has been connected.
         accounting_ledger_class_id: nil,
         # Value in specified currency's smallest unit. e.g. $10 would be represented as
-        # 1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
+        # 1000 (cents). For RTP, the maximum amount allowed by the network is $10,000,000.
         amount: nil,
         # The party that will pay the fees for the payment order. See
         # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
@@ -544,7 +544,7 @@ module ModernTreasury
       end
       def create_async(
         # Value in specified currency's smallest unit. e.g. $10 would be represented as
-        # 1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
+        # 1000 (cents). For RTP, the maximum amount allowed by the network is $10,000,000.
         amount:,
         # One of `credit`, `debit`. Describes the direction money is flowing in the
         # transaction. A `credit` moves money from your account to someone else's. A
