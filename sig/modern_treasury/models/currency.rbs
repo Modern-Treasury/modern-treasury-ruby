@@ -166,10 +166,8 @@ module ModernTreasury
       | :UAH
       | :UGX
       | :USD
-      | :USDB
       | :USDC
       | :USDG
-      | :USDP
       | :USDT
       | :UYU
       | :UZS
@@ -372,10 +370,8 @@ module ModernTreasury
       UAH: :UAH
       UGX: :UGX
       USD: :USD
-      USDB: :USDB
       USDC: :USDC
       USDG: :USDG
-      USDP: :USDP
       USDT: :USDT
       UYU: :UYU
       UZS: :UZS
