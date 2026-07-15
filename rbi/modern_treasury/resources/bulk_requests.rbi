@@ -22,7 +22,8 @@ module ModernTreasury
                 ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::OrHash,
                 ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::OrHash,
                 ModernTreasury::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID::OrHash,
-                ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::OrHash
+                ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::OrHash,
+                ModernTreasury::BulkRequestCreateParams::Resource::LedgerAccountUpdateRequestWithID::OrHash
               )
             ],
           metadata: T::Hash[Symbol, String],

@@ -11,6 +11,7 @@ module ModernTreasury
         counterparty_id: String?,
         created_at: Time,
         currency: ModernTreasury::Models::currency,
+        debitable: bool?,
         external_id: String?,
         ledger_account_id: String?,
         legal_entity_id: String?,
@@ -46,6 +47,8 @@ module ModernTreasury
       attr_accessor created_at: Time
 
       attr_accessor currency: ModernTreasury::Models::currency
+
+      attr_accessor debitable: bool?
 
       attr_accessor external_id: String?
 
@@ -87,6 +90,7 @@ module ModernTreasury
         counterparty_id: String?,
         created_at: Time,
         currency: ModernTreasury::Models::currency,
+        debitable: bool?,
         external_id: String?,
         ledger_account_id: String?,
         legal_entity_id: String?,
@@ -114,6 +118,7 @@ module ModernTreasury
         counterparty_id: String?,
         created_at: Time,
         currency: ModernTreasury::Models::currency,
+        debitable: bool?,
         external_id: String?,
         ledger_account_id: String?,
         legal_entity_id: String?,
