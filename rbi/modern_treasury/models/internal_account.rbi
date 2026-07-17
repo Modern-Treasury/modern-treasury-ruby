@@ -442,16 +442,6 @@ module ModernTreasury
               :gb_fps,
               ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
             )
-          HU_ICS =
-            T.let(
-              :hu_ics,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-          INTERAC =
-            T.let(
-              :interac,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
           MASAV =
             T.let(
               :masav,
@@ -482,16 +472,6 @@ module ModernTreasury
               :pl_elixir,
               ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
             )
-          PROVXCHANGE =
-            T.let(
-              :provxchange,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-          RO_SENT =
-            T.let(
-              :ro_sent,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
           RTP =
             T.let(
               :rtp,
@@ -500,11 +480,6 @@ module ModernTreasury
           SE_BANKGIROT =
             T.let(
               :se_bankgirot,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-          SEN =
-            T.let(
-              :sen,
               ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
             )
           SEPA =
@@ -520,16 +495,6 @@ module ModernTreasury
           SIC =
             T.let(
               :sic,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-          SIGNET =
-            T.let(
-              :signet,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-          SKNBI =
-            T.let(
-              :sknbi,
               ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
             )
           STABLECOIN =

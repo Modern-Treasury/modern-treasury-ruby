@@ -85,6 +85,7 @@ module ModernTreasury
         | :gb_nino
         | :gb_utr
         | :gb_vat
+        | :generic_international
         | :gr_vat
         | :hn_id
         | :hn_rtn
@@ -114,6 +115,7 @@ module ModernTreasury
         | :mx_curp
         | :mx_ine
         | :mx_rfc
+        | :national_id
         | :nl_bsn
         | :nl_btw
         | :nl_rsin
@@ -186,6 +188,7 @@ module ModernTreasury
         GB_NINO: :gb_nino
         GB_UTR: :gb_utr
         GB_VAT: :gb_vat
+        GENERIC_INTERNATIONAL: :generic_international
         GR_VAT: :gr_vat
         HN_ID: :hn_id
         HN_RTN: :hn_rtn
@@ -215,6 +218,7 @@ module ModernTreasury
         MX_CURP: :mx_curp
         MX_INE: :mx_ine
         MX_RFC: :mx_rfc
+        NATIONAL_ID: :national_id
         NL_BSN: :nl_bsn
         NL_BTW: :nl_btw
         NL_RSIN: :nl_rsin
