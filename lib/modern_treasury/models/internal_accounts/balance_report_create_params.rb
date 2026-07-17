@@ -72,12 +72,6 @@ module ModernTreasury
         end
 
         class Balance < ModernTreasury::Internal::Type::BaseModel
-          # @!attribute amount
-          #   The balance amount.
-          #
-          #   @return [Integer]
-          required :amount, Integer
-
           # @!attribute balance_type
           #   The specific type of balance reported. One of `opening_ledger`,
           #   `closing_ledger`, `current_ledger`, `opening_available`,
@@ -97,24 +91,39 @@ module ModernTreasury
           # @!attribute vendor_code_type
           #   The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
           #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-          #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
-          #   `swift`, or `us_bank`.
+          #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`, or
+          #   `us_bank`.
           #
           #   @return [String, nil]
           required :vendor_code_type, String, nil?: true
 
-          # @!method initialize(amount:, balance_type:, vendor_code:, vendor_code_type:)
+          # @!attribute amount
+          #   The balance amount.
+          #
+          #   @return [Integer, nil]
+          optional :amount, Integer
+
+          # @!attribute amount_string
+          #   The amount of the balance as a string, preserving full precision for values that
+          #   may exceed safe integer limits in some languages.
+          #
+          #   @return [String, nil]
+          optional :amount_string, String
+
+          # @!method initialize(balance_type:, vendor_code:, vendor_code_type:, amount: nil, amount_string: nil)
           #   Some parameter documentations has been truncated, see
           #   {ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance}
           #   for more details.
-          #
-          #   @param amount [Integer] The balance amount.
           #
           #   @param balance_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType] The specific type of balance reported. One of `opening_ledger`, `closing_ledger`
           #
           #   @param vendor_code [String] The code used by the bank when reporting this specific balance.
           #
           #   @param vendor_code_type [String, nil] The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`, `bnk
+          #
+          #   @param amount [Integer] The balance amount.
+          #
+          #   @param amount_string [String] The amount of the balance as a string, preserving full precision for values that
 
           # The specific type of balance reported. One of `opening_ledger`,
           # `closing_ledger`, `current_ledger`, `opening_available`,

@@ -53,8 +53,7 @@ module ModernTreasury
       sig { returns(T.nilable(Date)) }
       attr_accessor :date_upper_bound
 
-      # One of ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
-      # sepa, signet wire
+      # One of ach, au_becs, bacs, book, check, eft, rtp, sepa, wire
       sig do
         returns(T.nilable(ModernTreasury::ReconciliationRule::Type::OrSymbol))
       end
@@ -96,8 +95,7 @@ module ModernTreasury
         date_lower_bound: nil,
         # The latest date the payment may come in. Format is yyyy-mm-dd
         date_upper_bound: nil,
-        # One of ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
-        # sepa, signet wire
+        # One of ach, au_becs, bacs, book, check, eft, rtp, sepa, wire
         type: nil
       )
       end
@@ -154,8 +152,7 @@ module ModernTreasury
         end
       end
 
-      # One of ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
-      # sepa, signet wire
+      # One of ach, au_becs, bacs, book, check, eft, rtp, sepa, wire
       module Type
         extend ModernTreasury::Internal::Type::Enum
 
@@ -196,13 +193,6 @@ module ModernTreasury
           T.let(:eft, ModernTreasury::ReconciliationRule::Type::TaggedSymbol)
         GB_FPS =
           T.let(:gb_fps, ModernTreasury::ReconciliationRule::Type::TaggedSymbol)
-        HU_ICS =
-          T.let(:hu_ics, ModernTreasury::ReconciliationRule::Type::TaggedSymbol)
-        INTERAC =
-          T.let(
-            :interac,
-            ModernTreasury::ReconciliationRule::Type::TaggedSymbol
-          )
         MASAV =
           T.let(:masav, ModernTreasury::ReconciliationRule::Type::TaggedSymbol)
         MX_CCEN =
@@ -224,16 +214,6 @@ module ModernTreasury
             :pl_elixir,
             ModernTreasury::ReconciliationRule::Type::TaggedSymbol
           )
-        PROVXCHANGE =
-          T.let(
-            :provxchange,
-            ModernTreasury::ReconciliationRule::Type::TaggedSymbol
-          )
-        RO_SENT =
-          T.let(
-            :ro_sent,
-            ModernTreasury::ReconciliationRule::Type::TaggedSymbol
-          )
         RTP =
           T.let(:rtp, ModernTreasury::ReconciliationRule::Type::TaggedSymbol)
         SE_BANKGIROT =
@@ -241,8 +221,6 @@ module ModernTreasury
             :se_bankgirot,
             ModernTreasury::ReconciliationRule::Type::TaggedSymbol
           )
-        SEN =
-          T.let(:sen, ModernTreasury::ReconciliationRule::Type::TaggedSymbol)
         SEPA =
           T.let(:sepa, ModernTreasury::ReconciliationRule::Type::TaggedSymbol)
         SG_GIRO =
@@ -252,10 +230,6 @@ module ModernTreasury
           )
         SIC =
           T.let(:sic, ModernTreasury::ReconciliationRule::Type::TaggedSymbol)
-        SIGNET =
-          T.let(:signet, ModernTreasury::ReconciliationRule::Type::TaggedSymbol)
-        SKNBI =
-          T.let(:sknbi, ModernTreasury::ReconciliationRule::Type::TaggedSymbol)
         STABLECOIN =
           T.let(
             :stablecoin,

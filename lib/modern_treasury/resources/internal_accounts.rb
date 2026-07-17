@@ -11,19 +11,17 @@ module ModernTreasury
       #
       # create internal account
       #
-      # @overload create(connection_id:, currency:, name:, party_name:, account_capabilities: nil, account_type: nil, counterparty_id: nil, debitable: nil, external_id: nil, legal_entity_id: nil, metadata: nil, parent_account_id: nil, party_address: nil, vendor_attributes: nil, request_options: {})
-      #
-      # @param connection_id [String] The identifier of the financial institution the account belongs to.
+      # @overload create(currency:, name:, account_capabilities: nil, account_type: nil, connection_id: nil, counterparty_id: nil, debitable: nil, external_id: nil, legal_entity_id: nil, metadata: nil, parent_account_id: nil, party_address: nil, party_name: nil, vendor_attributes: nil, request_options: {})
       #
       # @param currency [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency] The currency of the internal account. Supports fiat and stablecoin currencies.
       #
       # @param name [String] The nickname of the account.
       #
-      # @param party_name [String] The legal name of the entity which owns the account.
-      #
       # @param account_capabilities [Array<ModernTreasury::Models::InternalAccountCreateParams::AccountCapability>] An array of AccountCapability objects that list the originating abilities of the
       #
       # @param account_type [Symbol, ModernTreasury::Models::InternalAccountCreateParams::AccountType] The account type, used to provision the appropriate account at the financial ins
+      #
+      # @param connection_id [String] The identifier of the financial institution the account belongs to. If not provi
       #
       # @param counterparty_id [String] The Counterparty associated to this account.
       #
@@ -38,6 +36,8 @@ module ModernTreasury
       # @param parent_account_id [String] The parent internal account of this new account.
       #
       # @param party_address [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress] The address associated with the owner or null.
+      #
+      # @param party_name [String, nil] The legal name of the entity which owns the account.
       #
       # @param vendor_attributes [Hash{Symbol=>String}] A hash of vendor specific attributes that will be used when creating the account
       #
