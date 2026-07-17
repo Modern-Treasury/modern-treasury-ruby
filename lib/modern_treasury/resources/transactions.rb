@@ -11,9 +11,7 @@ module ModernTreasury
       #
       # create transaction
       #
-      # @overload create(amount:, as_of_date:, direction:, internal_account_id:, vendor_code:, vendor_code_type:, metadata: nil, posted: nil, type: nil, vendor_customer_id: nil, vendor_description: nil, request_options: {})
-      #
-      # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
+      # @overload create(as_of_date:, direction:, internal_account_id:, vendor_code:, vendor_code_type:, amount: nil, amount_string: nil, metadata: nil, posted: nil, type: nil, vendor_customer_id: nil, vendor_description: nil, request_options: {})
       #
       # @param as_of_date [Date, nil] The date on which the transaction occurred.
       #
@@ -24,6 +22,10 @@ module ModernTreasury
       # @param vendor_code [String, nil] When applicable, the bank-given code that determines the transaction's category.
       #
       # @param vendor_code_type [String, nil] The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`, `bnk
+      #
+      # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
+      #
+      # @param amount_string [String] The transaction amount as a string, preserving full precision for values that ma
       #
       # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #

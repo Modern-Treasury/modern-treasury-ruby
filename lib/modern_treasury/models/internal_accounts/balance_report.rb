@@ -19,8 +19,8 @@ module ModernTreasury
         # @!attribute as_of_time
         #   The time (24-hour clock) of the balance report in local time.
         #
-        #   @return [Time, nil]
-        required :as_of_time, Time, nil?: true
+        #   @return [Time]
+        required :as_of_time, Time
 
         # @!attribute balance_report_type
         #   The specific type of balance report. One of `intraday`, `previous_day`,
@@ -73,7 +73,7 @@ module ModernTreasury
         #
         #   @param as_of_date [Date] The date of the balance report in local time.
         #
-        #   @param as_of_time [Time, nil] The time (24-hour clock) of the balance report in local time.
+        #   @param as_of_time [Time] The time (24-hour clock) of the balance report in local time.
         #
         #   @param balance_report_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType] The specific type of balance report. One of `intraday`, `previous_day`, `real_ti
         #
@@ -116,6 +116,13 @@ module ModernTreasury
           #
           #   @return [Integer]
           required :amount, Integer
+
+          # @!attribute amount_string
+          #   The amount of the balance as a string, preserving full precision for values that
+          #   may exceed safe integer limits in some languages.
+          #
+          #   @return [String]
+          required :amount_string, String
 
           # @!attribute as_of_date
           #   The date on which the balance became true for the account.
@@ -181,13 +188,13 @@ module ModernTreasury
           # @!attribute vendor_code_type
           #   The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
           #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-          #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
-          #   `swift`, or `us_bank`.
+          #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`, or
+          #   `us_bank`.
           #
           #   @return [String, nil]
           required :vendor_code_type, String, nil?: true
 
-          # @!method initialize(id:, amount:, as_of_date:, as_of_time:, balance_type:, created_at:, currency:, live_mode:, object:, updated_at:, value_date:, vendor_code:, vendor_code_type:)
+          # @!method initialize(id:, amount:, amount_string:, as_of_date:, as_of_time:, balance_type:, created_at:, currency:, live_mode:, object:, updated_at:, value_date:, vendor_code:, vendor_code_type:)
           #   Some parameter documentations has been truncated, see
           #   {ModernTreasury::Models::InternalAccounts::BalanceReport::Balance} for more
           #   details.
@@ -195,6 +202,8 @@ module ModernTreasury
           #   @param id [String]
           #
           #   @param amount [Integer] The balance amount.
+          #
+          #   @param amount_string [String] The amount of the balance as a string, preserving full precision for values that
           #
           #   @param as_of_date [Date, nil] The date on which the balance became true for the account.
           #
