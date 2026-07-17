@@ -205,6 +205,18 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :suffix
 
+      # Acceptance of terms of use by the legal entity.
+      sig { returns(T.nilable(ModernTreasury::ChildLegalEntity::TermsOfUse)) }
+      attr_reader :terms_of_use
+
+      sig do
+        params(
+          terms_of_use:
+            T.nilable(ModernTreasury::ChildLegalEntity::TermsOfUse::OrHash)
+        ).void
+      end
+      attr_writer :terms_of_use
+
       # Deprecated. Use `third_party_verifications` instead.
       sig { returns(T.nilable(ModernTreasury::ThirdPartyVerification)) }
       attr_reader :third_party_verification
@@ -302,6 +314,8 @@ module ModernTreasury
           service_provider_legal_entity_id: T.nilable(String),
           status: T.nilable(ModernTreasury::ChildLegalEntity::Status::OrSymbol),
           suffix: T.nilable(String),
+          terms_of_use:
+            T.nilable(ModernTreasury::ChildLegalEntity::TermsOfUse::OrHash),
           third_party_verification:
             T.nilable(ModernTreasury::ThirdPartyVerification::OrHash),
           third_party_verifications:
@@ -394,6 +408,8 @@ module ModernTreasury
         status:,
         # An individual's suffix.
         suffix:,
+        # Acceptance of terms of use by the legal entity.
+        terms_of_use:,
         # Deprecated. Use `third_party_verifications` instead.
         third_party_verification:,
         # A list of third-party verifications run by external vendors.
@@ -464,6 +480,8 @@ module ModernTreasury
             status:
               T.nilable(ModernTreasury::ChildLegalEntity::Status::TaggedSymbol),
             suffix: T.nilable(String),
+            terms_of_use:
+              T.nilable(ModernTreasury::ChildLegalEntity::TermsOfUse),
             third_party_verification:
               T.nilable(ModernTreasury::ThirdPartyVerification),
             third_party_verifications:
@@ -533,6 +551,11 @@ module ModernTreasury
         sig { returns(T.nilable(String)) }
         attr_accessor :postal_code
 
+        # Whether this address is the primary address for the legal entity. Optional; when
+        # omitted it is inferred from the address types.
+        sig { returns(T.nilable(T::Boolean)) }
+        attr_accessor :primary
+
         # Region or State.
         sig { returns(T.nilable(String)) }
         attr_accessor :region
@@ -556,6 +579,7 @@ module ModernTreasury
             locality: T.nilable(String),
             object: String,
             postal_code: T.nilable(String),
+            primary: T.nilable(T::Boolean),
             region: T.nilable(String),
             updated_at: Time
           ).returns(T.attached_class)
@@ -578,6 +602,9 @@ module ModernTreasury
           object:,
           # The postal code of the address.
           postal_code:,
+          # Whether this address is the primary address for the legal entity. Optional; when
+          # omitted it is inferred from the address types.
+          primary:,
           # Region or State.
           region:,
           updated_at:
@@ -601,6 +628,7 @@ module ModernTreasury
               locality: T.nilable(String),
               object: String,
               postal_code: T.nilable(String),
+              primary: T.nilable(T::Boolean),
               region: T.nilable(String),
               updated_at: Time
             }
@@ -624,6 +652,11 @@ module ModernTreasury
           BUSINESS =
             T.let(
               :business,
+              ModernTreasury::ChildLegalEntity::Address::AddressType::TaggedSymbol
+            )
+          BUSINESS_PHYSICAL =
+            T.let(
+              :business_physical,
               ModernTreasury::ChildLegalEntity::Address::AddressType::TaggedSymbol
             )
           BUSINESS_REGISTERED =
@@ -801,6 +834,36 @@ module ModernTreasury
               :ar_cuit,
               ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
             )
+          AT_ATIN =
+            T.let(
+              :at_atin,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          AT_VAT =
+            T.let(
+              :at_vat,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          AU_ABN =
+            T.let(
+              :au_abn,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          AU_TFN =
+            T.let(
+              :au_tfn,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          BE_ENT =
+            T.let(
+              :be_ent,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          BE_NRN =
+            T.let(
+              :be_nrn,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
           BR_CNPJ =
             T.let(
               :br_cnpj,
@@ -811,9 +874,24 @@ module ModernTreasury
               :br_cpf,
               ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
             )
+          CA_BN =
+            T.let(
+              :ca_bn,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
           CA_SIN =
             T.let(
               :ca_sin,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          CH_AHV =
+            T.let(
+              :ch_ahv,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          CH_UID =
+            T.let(
+              :ch_uid,
               ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
             )
           CL_RUN =
@@ -836,9 +914,119 @@ module ModernTreasury
               :co_nit,
               ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
             )
+          CY_TIN =
+            T.let(
+              :cy_tin,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          CZ_ICO =
+            T.let(
+              :cz_ico,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          CZ_RC =
+            T.let(
+              :cz_rc,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          DE_STID =
+            T.let(
+              :de_stid,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          DE_STNR =
+            T.let(
+              :de_stnr,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          DE_VAT =
+            T.let(
+              :de_vat,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          DK_CPR =
+            T.let(
+              :dk_cpr,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          DK_CVR =
+            T.let(
+              :dk_cvr,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
           DRIVERS_LICENSE =
             T.let(
               :drivers_license,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          EE_IK =
+            T.let(
+              :ee_ik,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          EE_RK =
+            T.let(
+              :ee_rk,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          ES_NIE =
+            T.let(
+              :es_nie,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          ES_NIF =
+            T.let(
+              :es_nif,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          FI_HETU =
+            T.let(
+              :fi_hetu,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          FI_YTJ =
+            T.let(
+              :fi_ytj,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          FR_NIF =
+            T.let(
+              :fr_nif,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          FR_SIREN =
+            T.let(
+              :fr_siren,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          FR_VAT =
+            T.let(
+              :fr_vat,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          GB_NINO =
+            T.let(
+              :gb_nino,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          GB_UTR =
+            T.let(
+              :gb_utr,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          GB_VAT =
+            T.let(
+              :gb_vat,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          GENERIC_INTERNATIONAL =
+            T.let(
+              :generic_international,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          GR_VAT =
+            T.let(
+              :gr_vat,
               ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
             )
           HN_ID =
@@ -851,14 +1039,59 @@ module ModernTreasury
               :hn_rtn,
               ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
             )
+          HR_OIB =
+            T.let(
+              :hr_oib,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          HU_ADJ =
+            T.let(
+              :hu_adj,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          HU_ANUM =
+            T.let(
+              :hu_anum,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
           IE_PPS =
             T.let(
               :ie_pps,
               ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
             )
+          IE_TRN =
+            T.let(
+              :ie_trn,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
           IN_LEI =
             T.let(
               :in_lei,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          IS_KNT =
+            T.let(
+              :is_knt,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          IT_CF =
+            T.let(
+              :it_cf,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          IT_PIVA =
+            T.let(
+              :it_piva,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          JP_HB =
+            T.let(
+              :jp_hb,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          JP_MN =
+            T.let(
+              :jp_mn,
               ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
             )
           KR_BRN =
@@ -876,9 +1109,134 @@ module ModernTreasury
               :kr_rrn,
               ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
             )
+          LI_PEID =
+            T.let(
+              :li_peid,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          LT_AK =
+            T.let(
+              :lt_ak,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          LT_JAK =
+            T.let(
+              :lt_jak,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          LU_MTC =
+            T.let(
+              :lu_mtc,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          LU_VAT =
+            T.let(
+              :lu_vat,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          LV_PK =
+            T.let(
+              :lv_pk,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          LV_RN =
+            T.let(
+              :lv_rn,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          MT_TIN =
+            T.let(
+              :mt_tin,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          MT_VAT =
+            T.let(
+              :mt_vat,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          MX_CURP =
+            T.let(
+              :mx_curp,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          MX_INE =
+            T.let(
+              :mx_ine,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          MX_RFC =
+            T.let(
+              :mx_rfc,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          NATIONAL_ID =
+            T.let(
+              :national_id,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          NL_BSN =
+            T.let(
+              :nl_bsn,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          NL_BTW =
+            T.let(
+              :nl_btw,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          NL_RSIN =
+            T.let(
+              :nl_rsin,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          NO_FDN =
+            T.let(
+              :no_fdn,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          NO_MVA =
+            T.let(
+              :no_mva,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          NO_ORGNR =
+            T.let(
+              :no_orgnr,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          NZ_IRD =
+            T.let(
+              :nz_ird,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
           PASSPORT =
             T.let(
               :passport,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          PL_NIP =
+            T.let(
+              :pl_nip,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          PL_PESEL =
+            T.let(
+              :pl_pesel,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          PT_NIF =
+            T.let(
+              :pt_nif,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          RO_CNP =
+            T.let(
+              :ro_cnp,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          RO_CUI =
+            T.let(
+              :ro_cui,
               ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
             )
           SA_TIN =
@@ -889,6 +1247,51 @@ module ModernTreasury
           SA_VAT =
             T.let(
               :sa_vat,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          SE_ORGNR =
+            T.let(
+              :se_orgnr,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          SE_PNMR =
+            T.let(
+              :se_pnmr,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          SG_FIN =
+            T.let(
+              :sg_fin,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          SG_NRIC =
+            T.let(
+              :sg_nric,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          SG_UEN =
+            T.let(
+              :sg_uen,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          SI_DAV =
+            T.let(
+              :si_dav,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          SI_TIN =
+            T.let(
+              :si_tin,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          SK_ICO =
+            T.let(
+              :sk_ico,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          SK_RC =
+            T.let(
+              :sk_rc,
               ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
             )
           US_EIN =
@@ -904,6 +1307,11 @@ module ModernTreasury
           US_SSN =
             T.let(
               :us_ssn,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          UY_RUT =
+            T.let(
+              :uy_rut,
               ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
             )
           VN_TIN =
@@ -942,11 +1350,6 @@ module ModernTreasury
         INDIVIDUAL =
           T.let(
             :individual,
-            ModernTreasury::ChildLegalEntity::LegalEntityType::TaggedSymbol
-          )
-        JOINT =
-          T.let(
-            :joint,
             ModernTreasury::ChildLegalEntity::LegalEntityType::TaggedSymbol
           )
 
@@ -1154,6 +1557,50 @@ module ModernTreasury
           )
         end
         def self.values
+        end
+      end
+
+      class TermsOfUse < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              ModernTreasury::ChildLegalEntity::TermsOfUse,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
+
+        # The ISO 8601 timestamp indicating when the terms of use were accepted.
+        sig { returns(T.nilable(Time)) }
+        attr_reader :accepted_at
+
+        sig { params(accepted_at: Time).void }
+        attr_writer :accepted_at
+
+        # The IP address from which the terms of use were accepted. Supports both IPv4 and
+        # IPv6 formats.
+        sig { returns(T.nilable(String)) }
+        attr_reader :ip_address
+
+        sig { params(ip_address: String).void }
+        attr_writer :ip_address
+
+        # Acceptance of terms of use by the legal entity.
+        sig do
+          params(accepted_at: Time, ip_address: String).returns(
+            T.attached_class
+          )
+        end
+        def self.new(
+          # The ISO 8601 timestamp indicating when the terms of use were accepted.
+          accepted_at: nil,
+          # The IP address from which the terms of use were accepted. Supports both IPv4 and
+          # IPv6 formats.
+          ip_address: nil
+        )
+        end
+
+        sig { override.returns({ accepted_at: Time, ip_address: String }) }
+        def to_hash
         end
       end
     end

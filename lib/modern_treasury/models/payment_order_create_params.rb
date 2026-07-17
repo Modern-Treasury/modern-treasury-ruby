@@ -9,7 +9,7 @@ module ModernTreasury
 
       # @!attribute amount
       #   Value in specified currency's smallest unit. e.g. $10 would be represented as
-      #   1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
+      #   1000 (cents). For RTP, the maximum amount allowed by the network is $10,000,000.
       #
       #   @return [Integer]
       required :amount, Integer
@@ -30,9 +30,8 @@ module ModernTreasury
       required :originating_account_id, String
 
       # @!attribute type
-      #   One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
-      #   `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
-      #   `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
+      #   One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`,
+      #   `bacs`, `au_becs`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `zengin`.
       #
       #   @return [Symbol, ModernTreasury::Models::PaymentOrderType]
       required :type, enum: -> { ModernTreasury::PaymentOrderType }
@@ -331,7 +330,7 @@ module ModernTreasury
       #
       #   @param originating_account_id [String] The ID of one of your organization's internal accounts.
       #
-      #   @param type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
+      #   @param type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`, `ba
       #
       #   @param accounting [ModernTreasury::Models::PaymentOrderCreateParams::Accounting]
       #
@@ -504,17 +503,17 @@ module ModernTreasury
         module DocumentableType
           extend ModernTreasury::Internal::Type::Enum
 
-          CONNECTIONS = :connections
-          COUNTERPARTIES = :counterparties
-          EXPECTED_PAYMENTS = :expected_payments
-          EXTERNAL_ACCOUNTS = :external_accounts
-          IDENTIFICATIONS = :identifications
-          INCOMING_PAYMENT_DETAILS = :incoming_payment_details
-          INTERNAL_ACCOUNTS = :internal_accounts
-          LEGAL_ENTITIES = :legal_entities
-          ORGANIZATIONS = :organizations
-          PAYMENT_ORDERS = :payment_orders
-          TRANSACTIONS = :transactions
+          CONNECTION = :connection
+          COUNTERPARTY = :counterparty
+          EXPECTED_PAYMENT = :expected_payment
+          EXTERNAL_ACCOUNT = :external_account
+          IDENTIFICATION = :identification
+          INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
+          INTERNAL_ACCOUNT = :internal_account
+          LEGAL_ENTITY = :legal_entity
+          ORGANIZATION = :organization
+          PAYMENT_ORDER = :payment_order
+          TRANSACTION = :transaction
 
           # @!method self.values
           #   @return [Array<Symbol>]
@@ -812,8 +811,6 @@ module ModernTreasury
             DK_INTERBANK_CLEARING_CODE = :dk_interbank_clearing_code
             GB_SORT_CODE = :gb_sort_code
             HK_INTERBANK_CLEARING_CODE = :hk_interbank_clearing_code
-            HU_INTERBANK_CLEARING_CODE = :hu_interbank_clearing_code
-            ID_SKNBI_CODE = :id_sknbi_code
             IL_BANK_CODE = :il_bank_code
             IN_IFSC = :in_ifsc
             JP_ZENGIN_CODE = :jp_zengin_code
@@ -845,24 +842,17 @@ module ModernTreasury
             DK_NETS = :dk_nets
             EFT = :eft
             GB_FPS = :gb_fps
-            HU_ICS = :hu_ics
-            INTERAC = :interac
             MASAV = :masav
             MX_CCEN = :mx_ccen
             NEFT = :neft
             NICS = :nics
             NZ_BECS = :nz_becs
             PL_ELIXIR = :pl_elixir
-            PROVXCHANGE = :provxchange
-            RO_SENT = :ro_sent
             RTP = :rtp
             SE_BANKGIROT = :se_bankgirot
-            SEN = :sen
             SEPA = :sepa
             SG_GIRO = :sg_giro
             SIC = :sic
-            SIGNET = :signet
-            SKNBI = :sknbi
             STABLECOIN = :stablecoin
             WIRE = :wire
             ZENGIN = :zengin

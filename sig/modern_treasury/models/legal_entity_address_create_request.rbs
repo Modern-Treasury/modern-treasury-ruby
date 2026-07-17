@@ -8,7 +8,8 @@ module ModernTreasury
         postal_code: String?,
         region: String?,
         address_types: ::Array[ModernTreasury::Models::LegalEntityAddressCreateRequest::address_type],
-        :line2 => String?
+        :line2 => String?,
+        primary: bool?
       }
 
     class LegalEntityAddressCreateRequest < ModernTreasury::Internal::Type::BaseModel
@@ -30,6 +31,8 @@ module ModernTreasury
 
       attr_accessor line2: String?
 
+      attr_accessor primary: bool?
+
       def initialize: (
         country: String?,
         line1: String?,
@@ -37,7 +40,8 @@ module ModernTreasury
         postal_code: String?,
         region: String?,
         ?address_types: ::Array[ModernTreasury::Models::LegalEntityAddressCreateRequest::address_type],
-        ?line2: String?
+        ?line2: String?,
+        ?primary: bool?
       ) -> void
 
       def to_hash: -> {
@@ -47,11 +51,13 @@ module ModernTreasury
         postal_code: String?,
         region: String?,
         address_types: ::Array[ModernTreasury::Models::LegalEntityAddressCreateRequest::address_type],
-        :line2 => String?
+        :line2 => String?,
+        primary: bool?
       }
 
       type address_type =
         :business
+        | :business_physical
         | :business_registered
         | :mailing
         | :other
@@ -62,6 +68,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         BUSINESS: :business
+        BUSINESS_PHYSICAL: :business_physical
         BUSINESS_REGISTERED: :business_registered
         MAILING: :mailing
         OTHER: :other

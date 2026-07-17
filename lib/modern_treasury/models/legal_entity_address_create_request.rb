@@ -44,7 +44,17 @@ module ModernTreasury
       #   @return [String, nil]
       optional :line2, String, nil?: true
 
-      # @!method initialize(country:, line1:, locality:, postal_code:, region:, address_types: nil, line2: nil)
+      # @!attribute primary
+      #   Whether this address is the primary address for the legal entity. Optional; when
+      #   omitted it is inferred from the address types.
+      #
+      #   @return [Boolean, nil]
+      optional :primary, ModernTreasury::Internal::Type::Boolean, nil?: true
+
+      # @!method initialize(country:, line1:, locality:, postal_code:, region:, address_types: nil, line2: nil, primary: nil)
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::LegalEntityAddressCreateRequest} for more details.
+      #
       #   @param country [String, nil] Country code conforms to [ISO 3166-1 alpha-2]
       #
       #   @param line1 [String, nil]
@@ -58,11 +68,14 @@ module ModernTreasury
       #   @param address_types [Array<Symbol, ModernTreasury::Models::LegalEntityAddressCreateRequest::AddressType>] The types of this address.
       #
       #   @param line2 [String, nil]
+      #
+      #   @param primary [Boolean, nil] Whether this address is the primary address for the legal entity. Optional; when
 
       module AddressType
         extend ModernTreasury::Internal::Type::Enum
 
         BUSINESS = :business
+        BUSINESS_PHYSICAL = :business_physical
         BUSINESS_REGISTERED = :business_registered
         MAILING = :mailing
         OTHER = :other

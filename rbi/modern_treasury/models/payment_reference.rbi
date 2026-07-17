@@ -335,11 +335,6 @@ module ModernTreasury
             :goldman_sachs_unique_payment_id,
             ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
           )
-        INTERAC_MESSAGE_ID =
-          T.let(
-            :interac_message_id,
-            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
-          )
         JPMC_CCN =
           T.let(
             :jpmc_ccn,
@@ -475,21 +470,6 @@ module ModernTreasury
             :rtp_instruction_id,
             ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
           )
-        SIGNET_API_REFERENCE_ID =
-          T.let(
-            :signet_api_reference_id,
-            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
-          )
-        SIGNET_CONFIRMATION_ID =
-          T.let(
-            :signet_confirmation_id,
-            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
-          )
-        SIGNET_REQUEST_ID =
-          T.let(
-            :signet_request_id,
-            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
-          )
         SILVERGATE_PAYMENT_ID =
           T.let(
             :silvergate_payment_id,
@@ -513,6 +493,16 @@ module ModernTreasury
         SWIFT_UETR =
           T.let(
             :swift_uetr,
+            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
+          )
+        TURNKEY_ACTIVITY_ID =
+          T.let(
+            :turnkey_activity_id,
+            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
+          )
+        TURNKEY_SEND_TRANSACTION_STATUS_ID =
+          T.let(
+            :turnkey_send_transaction_status_id,
             ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
           )
         UMB_PRODUCT_PARTNER_ACCOUNT_NUMBER =

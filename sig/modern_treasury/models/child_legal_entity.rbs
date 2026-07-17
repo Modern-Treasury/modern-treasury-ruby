@@ -43,6 +43,7 @@ module ModernTreasury
         service_provider_legal_entity_id: String?,
         status: ModernTreasury::Models::ChildLegalEntity::status?,
         suffix: String?,
+        terms_of_use: ModernTreasury::ChildLegalEntity::TermsOfUse?,
         third_party_verification: ModernTreasury::ThirdPartyVerification?,
         third_party_verifications: ::Array[ModernTreasury::ThirdPartyVerification],
         ticker_symbol: String?,
@@ -134,6 +135,8 @@ module ModernTreasury
 
       attr_accessor suffix: String?
 
+      attr_accessor terms_of_use: ModernTreasury::ChildLegalEntity::TermsOfUse?
+
       attr_accessor third_party_verification: ModernTreasury::ThirdPartyVerification?
 
       attr_accessor third_party_verifications: ::Array[ModernTreasury::ThirdPartyVerification]
@@ -188,6 +191,7 @@ module ModernTreasury
         service_provider_legal_entity_id: String?,
         status: ModernTreasury::Models::ChildLegalEntity::status?,
         suffix: String?,
+        terms_of_use: ModernTreasury::ChildLegalEntity::TermsOfUse?,
         third_party_verification: ModernTreasury::ThirdPartyVerification?,
         third_party_verifications: ::Array[ModernTreasury::ThirdPartyVerification],
         ticker_symbol: String?,
@@ -238,6 +242,7 @@ module ModernTreasury
         service_provider_legal_entity_id: String?,
         status: ModernTreasury::Models::ChildLegalEntity::status?,
         suffix: String?,
+        terms_of_use: ModernTreasury::ChildLegalEntity::TermsOfUse?,
         third_party_verification: ModernTreasury::ThirdPartyVerification?,
         third_party_verifications: ::Array[ModernTreasury::ThirdPartyVerification],
         ticker_symbol: String?,
@@ -259,6 +264,7 @@ module ModernTreasury
           locality: String?,
           object: String,
           postal_code: String?,
+          primary: bool?,
           region: String?,
           updated_at: Time
         }
@@ -286,6 +292,8 @@ module ModernTreasury
 
         attr_accessor postal_code: String?
 
+        attr_accessor primary: bool?
+
         attr_accessor region: String?
 
         attr_accessor updated_at: Time
@@ -302,6 +310,7 @@ module ModernTreasury
           locality: String?,
           object: String,
           postal_code: String?,
+          primary: bool?,
           region: String?,
           updated_at: Time
         ) -> void
@@ -318,12 +327,14 @@ module ModernTreasury
           locality: String?,
           object: String,
           postal_code: String?,
+          primary: bool?,
           region: String?,
           updated_at: Time
         }
 
         type address_type =
           :business
+          | :business_physical
           | :business_registered
           | :mailing
           | :other
@@ -334,6 +345,7 @@ module ModernTreasury
           extend ModernTreasury::Internal::Type::Enum
 
           BUSINESS: :business
+          BUSINESS_PHYSICAL: :business_physical
           BUSINESS_REGISTERED: :business_registered
           MAILING: :mailing
           OTHER: :other
@@ -413,27 +425,102 @@ module ModernTreasury
         type id_type =
           :ar_cuil
           | :ar_cuit
+          | :at_atin
+          | :at_vat
+          | :au_abn
+          | :au_tfn
+          | :be_ent
+          | :be_nrn
           | :br_cnpj
           | :br_cpf
+          | :ca_bn
           | :ca_sin
+          | :ch_ahv
+          | :ch_uid
           | :cl_run
           | :cl_rut
           | :co_cedulas
           | :co_nit
+          | :cy_tin
+          | :cz_ico
+          | :cz_rc
+          | :de_stid
+          | :de_stnr
+          | :de_vat
+          | :dk_cpr
+          | :dk_cvr
           | :drivers_license
+          | :ee_ik
+          | :ee_rk
+          | :es_nie
+          | :es_nif
+          | :fi_hetu
+          | :fi_ytj
+          | :fr_nif
+          | :fr_siren
+          | :fr_vat
+          | :gb_nino
+          | :gb_utr
+          | :gb_vat
+          | :generic_international
+          | :gr_vat
           | :hn_id
           | :hn_rtn
+          | :hr_oib
+          | :hu_adj
+          | :hu_anum
           | :ie_pps
+          | :ie_trn
           | :in_lei
+          | :is_knt
+          | :it_cf
+          | :it_piva
+          | :jp_hb
+          | :jp_mn
           | :kr_brn
           | :kr_crn
           | :kr_rrn
+          | :li_peid
+          | :lt_ak
+          | :lt_jak
+          | :lu_mtc
+          | :lu_vat
+          | :lv_pk
+          | :lv_rn
+          | :mt_tin
+          | :mt_vat
+          | :mx_curp
+          | :mx_ine
+          | :mx_rfc
+          | :national_id
+          | :nl_bsn
+          | :nl_btw
+          | :nl_rsin
+          | :no_fdn
+          | :no_mva
+          | :no_orgnr
+          | :nz_ird
           | :passport
+          | :pl_nip
+          | :pl_pesel
+          | :pt_nif
+          | :ro_cnp
+          | :ro_cui
           | :sa_tin
           | :sa_vat
+          | :se_orgnr
+          | :se_pnmr
+          | :sg_fin
+          | :sg_nric
+          | :sg_uen
+          | :si_dav
+          | :si_tin
+          | :sk_ico
+          | :sk_rc
           | :us_ein
           | :us_itin
           | :us_ssn
+          | :uy_rut
           | :vn_tin
 
         module IDType
@@ -441,41 +528,115 @@ module ModernTreasury
 
           AR_CUIL: :ar_cuil
           AR_CUIT: :ar_cuit
+          AT_ATIN: :at_atin
+          AT_VAT: :at_vat
+          AU_ABN: :au_abn
+          AU_TFN: :au_tfn
+          BE_ENT: :be_ent
+          BE_NRN: :be_nrn
           BR_CNPJ: :br_cnpj
           BR_CPF: :br_cpf
+          CA_BN: :ca_bn
           CA_SIN: :ca_sin
+          CH_AHV: :ch_ahv
+          CH_UID: :ch_uid
           CL_RUN: :cl_run
           CL_RUT: :cl_rut
           CO_CEDULAS: :co_cedulas
           CO_NIT: :co_nit
+          CY_TIN: :cy_tin
+          CZ_ICO: :cz_ico
+          CZ_RC: :cz_rc
+          DE_STID: :de_stid
+          DE_STNR: :de_stnr
+          DE_VAT: :de_vat
+          DK_CPR: :dk_cpr
+          DK_CVR: :dk_cvr
           DRIVERS_LICENSE: :drivers_license
+          EE_IK: :ee_ik
+          EE_RK: :ee_rk
+          ES_NIE: :es_nie
+          ES_NIF: :es_nif
+          FI_HETU: :fi_hetu
+          FI_YTJ: :fi_ytj
+          FR_NIF: :fr_nif
+          FR_SIREN: :fr_siren
+          FR_VAT: :fr_vat
+          GB_NINO: :gb_nino
+          GB_UTR: :gb_utr
+          GB_VAT: :gb_vat
+          GENERIC_INTERNATIONAL: :generic_international
+          GR_VAT: :gr_vat
           HN_ID: :hn_id
           HN_RTN: :hn_rtn
+          HR_OIB: :hr_oib
+          HU_ADJ: :hu_adj
+          HU_ANUM: :hu_anum
           IE_PPS: :ie_pps
+          IE_TRN: :ie_trn
           IN_LEI: :in_lei
+          IS_KNT: :is_knt
+          IT_CF: :it_cf
+          IT_PIVA: :it_piva
+          JP_HB: :jp_hb
+          JP_MN: :jp_mn
           KR_BRN: :kr_brn
           KR_CRN: :kr_crn
           KR_RRN: :kr_rrn
+          LI_PEID: :li_peid
+          LT_AK: :lt_ak
+          LT_JAK: :lt_jak
+          LU_MTC: :lu_mtc
+          LU_VAT: :lu_vat
+          LV_PK: :lv_pk
+          LV_RN: :lv_rn
+          MT_TIN: :mt_tin
+          MT_VAT: :mt_vat
+          MX_CURP: :mx_curp
+          MX_INE: :mx_ine
+          MX_RFC: :mx_rfc
+          NATIONAL_ID: :national_id
+          NL_BSN: :nl_bsn
+          NL_BTW: :nl_btw
+          NL_RSIN: :nl_rsin
+          NO_FDN: :no_fdn
+          NO_MVA: :no_mva
+          NO_ORGNR: :no_orgnr
+          NZ_IRD: :nz_ird
           PASSPORT: :passport
+          PL_NIP: :pl_nip
+          PL_PESEL: :pl_pesel
+          PT_NIF: :pt_nif
+          RO_CNP: :ro_cnp
+          RO_CUI: :ro_cui
           SA_TIN: :sa_tin
           SA_VAT: :sa_vat
+          SE_ORGNR: :se_orgnr
+          SE_PNMR: :se_pnmr
+          SG_FIN: :sg_fin
+          SG_NRIC: :sg_nric
+          SG_UEN: :sg_uen
+          SI_DAV: :si_dav
+          SI_TIN: :si_tin
+          SK_ICO: :sk_ico
+          SK_RC: :sk_rc
           US_EIN: :us_ein
           US_ITIN: :us_itin
           US_SSN: :us_ssn
+          UY_RUT: :uy_rut
           VN_TIN: :vn_tin
 
           def self?.values: -> ::Array[ModernTreasury::Models::ChildLegalEntity::Identification::id_type]
         end
       end
 
-      type legal_entity_type = :business | :individual | :joint
+      type legal_entity_type = :business | :individual
 
       module LegalEntityType
         extend ModernTreasury::Internal::Type::Enum
 
         BUSINESS: :business
         INDIVIDUAL: :individual
-        JOINT: :joint
 
         def self?.values: -> ::Array[ModernTreasury::Models::ChildLegalEntity::legal_entity_type]
       end
@@ -559,6 +720,22 @@ module ModernTreasury
         SUSPENDED: :suspended
 
         def self?.values: -> ::Array[ModernTreasury::Models::ChildLegalEntity::status]
+      end
+
+      type terms_of_use = { accepted_at: Time, ip_address: String }
+
+      class TermsOfUse < ModernTreasury::Internal::Type::BaseModel
+        attr_reader accepted_at: Time?
+
+        def accepted_at=: (Time) -> Time
+
+        attr_reader ip_address: String?
+
+        def ip_address=: (String) -> String
+
+        def initialize: (?accepted_at: Time, ?ip_address: String) -> void
+
+        def to_hash: -> { accepted_at: Time, ip_address: String }
       end
     end
   end

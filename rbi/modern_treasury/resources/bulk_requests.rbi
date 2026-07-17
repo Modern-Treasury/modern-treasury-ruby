@@ -17,12 +17,13 @@ module ModernTreasury
                 ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::OrHash,
                 ModernTreasury::LedgerTransactionCreateRequest::OrHash,
                 ModernTreasury::LedgerAccountCreateRequest::OrHash,
-                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::OrHash,
+                T.anything,
                 ModernTreasury::BulkRequestCreateParams::Resource::ID::OrHash,
                 ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::OrHash,
                 ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::OrHash,
                 ModernTreasury::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID::OrHash,
-                ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::OrHash
+                ModernTreasury::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::OrHash,
+                ModernTreasury::BulkRequestCreateParams::Resource::LedgerAccountUpdateRequestWithID::OrHash
               )
             ],
           metadata: T::Hash[Symbol, String],

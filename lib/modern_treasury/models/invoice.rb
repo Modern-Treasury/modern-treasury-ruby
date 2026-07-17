@@ -108,7 +108,7 @@ module ModernTreasury
       required :invoicer_name, String, nil?: true
 
       # @!attribute issued_at
-      #   Translation missing: en.openapi.descriptions.invoice.schema.issued_at
+      #   The time at which the invoice was issued.
       #
       #   @return [Time, nil]
       required :issued_at, Time, nil?: true
@@ -168,7 +168,7 @@ module ModernTreasury
       required :originating_account_id, String
 
       # @!attribute paid_at
-      #   Translation missing: en.openapi.descriptions.invoice.schema.paid_at
+      #   The time at which the invoice was paid.
       #
       #   @return [Time, nil]
       required :paid_at, Time, nil?: true
@@ -265,7 +265,7 @@ module ModernTreasury
       required :virtual_account_id, String, nil?: true
 
       # @!attribute voided_at
-      #   Translation missing: en.openapi.descriptions.invoice.schema.voided_at
+      #   The time at which the invoice was voided.
       #
       #   @return [Time, nil]
       required :voided_at, Time, nil?: true
@@ -306,7 +306,7 @@ module ModernTreasury
       #
       #   @param invoicer_name [String, nil] The name of the issuer for the invoice. Defaults to the name of the Organization
       #
-      #   @param issued_at [Time, nil] Translation missing: en.openapi.descriptions.invoice.schema.issued_at
+      #   @param issued_at [Time, nil] The time at which the invoice was issued.
       #
       #   @param ledger_account_settlement_id [String, nil] The ledger account settlement object linked to the invoice.
       #
@@ -324,7 +324,7 @@ module ModernTreasury
       #
       #   @param originating_account_id [String] The ID of the internal account the invoice should be paid to.
       #
-      #   @param paid_at [Time, nil] Translation missing: en.openapi.descriptions.invoice.schema.paid_at
+      #   @param paid_at [Time, nil] The time at which the invoice was paid.
       #
       #   @param payment_effective_date [Date, nil] Date transactions are to be posted to the participants' account. Defaults to the
       #
@@ -354,7 +354,7 @@ module ModernTreasury
       #
       #   @param virtual_account_id [String, nil] The ID of the virtual account the invoice should be paid to.
       #
-      #   @param voided_at [Time, nil] Translation missing: en.openapi.descriptions.invoice.schema.voided_at
+      #   @param voided_at [Time, nil] The time at which the invoice was voided.
 
       # @see ModernTreasury::Models::Invoice#counterparty_billing_address
       class CounterpartyBillingAddress < ModernTreasury::Internal::Type::BaseModel

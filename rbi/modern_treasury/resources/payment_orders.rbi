@@ -77,7 +77,7 @@ module ModernTreasury
       end
       def create(
         # Value in specified currency's smallest unit. e.g. $10 would be represented as
-        # 1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
+        # 1000 (cents). For RTP, the maximum amount allowed by the network is $10,000,000.
         amount:,
         # One of `credit`, `debit`. Describes the direction money is flowing in the
         # transaction. A `credit` moves money from your account to someone else's. A
@@ -86,9 +86,8 @@ module ModernTreasury
         direction:,
         # The ID of one of your organization's internal accounts.
         originating_account_id:,
-        # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
-        # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
-        # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
+        # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`,
+        # `bacs`, `au_becs`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `zengin`.
         type:,
         accounting: nil,
         # The ID of one of your accounting categories. Note that these will only be
@@ -294,7 +293,7 @@ module ModernTreasury
         # accessible if your accounting system has been connected.
         accounting_ledger_class_id: nil,
         # Value in specified currency's smallest unit. e.g. $10 would be represented as
-        # 1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
+        # 1000 (cents). For RTP, the maximum amount allowed by the network is $10,000,000.
         amount: nil,
         # The party that will pay the fees for the payment order. See
         # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
@@ -392,9 +391,8 @@ module ModernTreasury
         # payment orders, the `subtype` represents the SEC code. We currently support
         # `CCD`, `PPD`, `IAT`, `CTX`, `WEB`, `CIE`, and `TEL`.
         subtype: nil,
-        # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
-        # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
-        # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
+        # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`,
+        # `bacs`, `au_becs`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `zengin`.
         type: nil,
         # This represents the identifier by which the person is known to the receiver when
         # using the CIE subtype for ACH payments. Only the first 22 characters of this
@@ -544,7 +542,7 @@ module ModernTreasury
       end
       def create_async(
         # Value in specified currency's smallest unit. e.g. $10 would be represented as
-        # 1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
+        # 1000 (cents). For RTP, the maximum amount allowed by the network is $10,000,000.
         amount:,
         # One of `credit`, `debit`. Describes the direction money is flowing in the
         # transaction. A `credit` moves money from your account to someone else's. A
@@ -553,9 +551,8 @@ module ModernTreasury
         direction:,
         # The ID of one of your organization's internal accounts.
         originating_account_id:,
-        # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
-        # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
-        # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
+        # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`,
+        # `bacs`, `au_becs`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `zengin`.
         type:,
         accounting: nil,
         # The ID of one of your accounting categories. Note that these will only be

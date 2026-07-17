@@ -38,7 +38,7 @@ module ModernTreasury
 
       # @!attribute amount
       #   Value in specified currency's smallest unit. e.g. $10 would be represented as
-      #   1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
+      #   1000 (cents). For RTP, the maximum amount allowed by the network is $10,000,000.
       #
       #   @return [Integer, nil]
       optional :amount, Integer
@@ -252,9 +252,8 @@ module ModernTreasury
       optional :subtype, enum: -> { ModernTreasury::PaymentOrderSubtype }, nil?: true
 
       # @!attribute type
-      #   One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
-      #   `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
-      #   `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
+      #   One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`,
+      #   `bacs`, `au_becs`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `zengin`.
       #
       #   @return [Symbol, ModernTreasury::Models::PaymentOrderType, nil]
       optional :type, enum: -> { ModernTreasury::PaymentOrderType }
@@ -359,7 +358,7 @@ module ModernTreasury
       #
       #   @param subtype [Symbol, ModernTreasury::Models::PaymentOrderSubtype, nil] An additional layer of classification for the type of payment order you are doin
       #
-      #   @param type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
+      #   @param type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`, `ba
       #
       #   @param ultimate_originating_party_identifier [String, nil] This represents the identifier by which the person is known to the receiver when
       #
@@ -720,8 +719,6 @@ module ModernTreasury
             DK_INTERBANK_CLEARING_CODE = :dk_interbank_clearing_code
             GB_SORT_CODE = :gb_sort_code
             HK_INTERBANK_CLEARING_CODE = :hk_interbank_clearing_code
-            HU_INTERBANK_CLEARING_CODE = :hu_interbank_clearing_code
-            ID_SKNBI_CODE = :id_sknbi_code
             IL_BANK_CODE = :il_bank_code
             IN_IFSC = :in_ifsc
             JP_ZENGIN_CODE = :jp_zengin_code
@@ -753,24 +750,17 @@ module ModernTreasury
             DK_NETS = :dk_nets
             EFT = :eft
             GB_FPS = :gb_fps
-            HU_ICS = :hu_ics
-            INTERAC = :interac
             MASAV = :masav
             MX_CCEN = :mx_ccen
             NEFT = :neft
             NICS = :nics
             NZ_BECS = :nz_becs
             PL_ELIXIR = :pl_elixir
-            PROVXCHANGE = :provxchange
-            RO_SENT = :ro_sent
             RTP = :rtp
             SE_BANKGIROT = :se_bankgirot
-            SEN = :sen
             SEPA = :sepa
             SG_GIRO = :sg_giro
             SIC = :sic
-            SIGNET = :signet
-            SKNBI = :sknbi
             STABLECOIN = :stablecoin
             WIRE = :wire
             ZENGIN = :zengin
