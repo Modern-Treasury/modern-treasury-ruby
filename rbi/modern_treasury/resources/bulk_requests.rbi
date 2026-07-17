@@ -17,7 +17,7 @@ module ModernTreasury
                 ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::OrHash,
                 ModernTreasury::LedgerTransactionCreateRequest::OrHash,
                 ModernTreasury::LedgerAccountCreateRequest::OrHash,
-                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::OrHash,
+                T.anything,
                 ModernTreasury::BulkRequestCreateParams::Resource::ID::OrHash,
                 ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::OrHash,
                 ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::OrHash,

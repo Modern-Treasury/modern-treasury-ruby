@@ -173,16 +173,6 @@ module ModernTreasury
             :gb_fps,
             ModernTreasury::Models::InternalAccountUpdateAccountCapabilityResponse::PaymentType::TaggedSymbol
           )
-        HU_ICS =
-          T.let(
-            :hu_ics,
-            ModernTreasury::Models::InternalAccountUpdateAccountCapabilityResponse::PaymentType::TaggedSymbol
-          )
-        INTERAC =
-          T.let(
-            :interac,
-            ModernTreasury::Models::InternalAccountUpdateAccountCapabilityResponse::PaymentType::TaggedSymbol
-          )
         MASAV =
           T.let(
             :masav,
@@ -213,16 +203,6 @@ module ModernTreasury
             :pl_elixir,
             ModernTreasury::Models::InternalAccountUpdateAccountCapabilityResponse::PaymentType::TaggedSymbol
           )
-        PROVXCHANGE =
-          T.let(
-            :provxchange,
-            ModernTreasury::Models::InternalAccountUpdateAccountCapabilityResponse::PaymentType::TaggedSymbol
-          )
-        RO_SENT =
-          T.let(
-            :ro_sent,
-            ModernTreasury::Models::InternalAccountUpdateAccountCapabilityResponse::PaymentType::TaggedSymbol
-          )
         RTP =
           T.let(
             :rtp,
@@ -231,11 +211,6 @@ module ModernTreasury
         SE_BANKGIROT =
           T.let(
             :se_bankgirot,
-            ModernTreasury::Models::InternalAccountUpdateAccountCapabilityResponse::PaymentType::TaggedSymbol
-          )
-        SEN =
-          T.let(
-            :sen,
             ModernTreasury::Models::InternalAccountUpdateAccountCapabilityResponse::PaymentType::TaggedSymbol
           )
         SEPA =
@@ -251,16 +226,6 @@ module ModernTreasury
         SIC =
           T.let(
             :sic,
-            ModernTreasury::Models::InternalAccountUpdateAccountCapabilityResponse::PaymentType::TaggedSymbol
-          )
-        SIGNET =
-          T.let(
-            :signet,
-            ModernTreasury::Models::InternalAccountUpdateAccountCapabilityResponse::PaymentType::TaggedSymbol
-          )
-        SKNBI =
-          T.let(
-            :sknbi,
             ModernTreasury::Models::InternalAccountUpdateAccountCapabilityResponse::PaymentType::TaggedSymbol
           )
         STABLECOIN =

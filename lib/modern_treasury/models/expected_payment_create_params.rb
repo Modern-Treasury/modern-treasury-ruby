@@ -171,8 +171,7 @@ module ModernTreasury
       optional :statement_descriptor, String, nil?: true
 
       # @!attribute type
-      #   One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
-      #   sepa, signet, wire.
+      #   One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire.
       #
       #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil]
       optional :type, enum: -> { ModernTreasury::ExpectedPaymentType }, nil?: true
@@ -227,7 +226,7 @@ module ModernTreasury
       #
       #   @param statement_descriptor [String, nil] The statement description you expect to see on the transaction. For ACH payments
       #
-      #   @param type [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil] One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen, se
+      #   @param type [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil] One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire.
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
