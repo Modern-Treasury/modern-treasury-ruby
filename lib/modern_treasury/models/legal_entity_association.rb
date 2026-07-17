@@ -43,7 +43,8 @@ module ModernTreasury
       required :ownership_percentage, Integer, nil?: true
 
       # @!attribute parent_legal_entity_id
-      #   The ID of the parent legal entity. This must be a business legal entity.
+      #   The ID of the parent legal entity. This must be a business or joint legal
+      #   entity.
       #
       #   @return [String]
       required :parent_legal_entity_id, String
@@ -83,7 +84,7 @@ module ModernTreasury
       #
       #   @param ownership_percentage [Integer, nil] The child entity's ownership percentage iff they are a beneficial owner.
       #
-      #   @param parent_legal_entity_id [String] The ID of the parent legal entity. This must be a business legal entity.
+      #   @param parent_legal_entity_id [String] The ID of the parent legal entity. This must be a business or joint legal entity
       #
       #   @param relationship_types [Array<Symbol, ModernTreasury::Models::LegalEntityAssociation::RelationshipType>]
       #

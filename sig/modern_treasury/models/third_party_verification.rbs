@@ -57,8 +57,7 @@ module ModernTreasury
         def self?.values: -> ::Array[ModernTreasury::Models::ThirdPartyVerification::outcome]
       end
 
-      type vendor =
-        :persona | :middesk | :alloy | :idology | :socure | :sumsub | :veriff
+      type vendor = :persona | :middesk | :alloy | :sumsub | :veriff
 
       module Vendor
         extend ModernTreasury::Internal::Type::Enum
@@ -66,8 +65,6 @@ module ModernTreasury
         PERSONA: :persona
         MIDDESK: :middesk
         ALLOY: :alloy
-        IDOLOGY: :idology
-        SOCURE: :socure
         SUMSUB: :sumsub
         VERIFF: :veriff
 

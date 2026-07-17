@@ -180,6 +180,16 @@ module ModernTreasury
             :gb_fps,
             ModernTreasury::RoutingDetail::PaymentType::TaggedSymbol
           )
+        HU_ICS =
+          T.let(
+            :hu_ics,
+            ModernTreasury::RoutingDetail::PaymentType::TaggedSymbol
+          )
+        INTERAC =
+          T.let(
+            :interac,
+            ModernTreasury::RoutingDetail::PaymentType::TaggedSymbol
+          )
         MASAV =
           T.let(
             :masav,
@@ -204,6 +214,16 @@ module ModernTreasury
             :pl_elixir,
             ModernTreasury::RoutingDetail::PaymentType::TaggedSymbol
           )
+        PROVXCHANGE =
+          T.let(
+            :provxchange,
+            ModernTreasury::RoutingDetail::PaymentType::TaggedSymbol
+          )
+        RO_SENT =
+          T.let(
+            :ro_sent,
+            ModernTreasury::RoutingDetail::PaymentType::TaggedSymbol
+          )
         RTP =
           T.let(:rtp, ModernTreasury::RoutingDetail::PaymentType::TaggedSymbol)
         SE_BANKGIROT =
@@ -211,6 +231,8 @@ module ModernTreasury
             :se_bankgirot,
             ModernTreasury::RoutingDetail::PaymentType::TaggedSymbol
           )
+        SEN =
+          T.let(:sen, ModernTreasury::RoutingDetail::PaymentType::TaggedSymbol)
         SEPA =
           T.let(:sepa, ModernTreasury::RoutingDetail::PaymentType::TaggedSymbol)
         SG_GIRO =
@@ -220,6 +242,16 @@ module ModernTreasury
           )
         SIC =
           T.let(:sic, ModernTreasury::RoutingDetail::PaymentType::TaggedSymbol)
+        SIGNET =
+          T.let(
+            :signet,
+            ModernTreasury::RoutingDetail::PaymentType::TaggedSymbol
+          )
+        SKNBI =
+          T.let(
+            :sknbi,
+            ModernTreasury::RoutingDetail::PaymentType::TaggedSymbol
+          )
         STABLECOIN =
           T.let(
             :stablecoin,
@@ -297,6 +329,16 @@ module ModernTreasury
         HK_INTERBANK_CLEARING_CODE =
           T.let(
             :hk_interbank_clearing_code,
+            ModernTreasury::RoutingDetail::RoutingNumberType::TaggedSymbol
+          )
+        HU_INTERBANK_CLEARING_CODE =
+          T.let(
+            :hu_interbank_clearing_code,
+            ModernTreasury::RoutingDetail::RoutingNumberType::TaggedSymbol
+          )
+        ID_SKNBI_CODE =
+          T.let(
+            :id_sknbi_code,
             ModernTreasury::RoutingDetail::RoutingNumberType::TaggedSymbol
           )
         IL_BANK_CODE =

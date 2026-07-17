@@ -55,8 +55,7 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :line2
 
-      # Whether this address is the primary address for the legal entity. Optional; when
-      # omitted it is inferred from the address types.
+      # Whether this address is the primary address for the legal entity.
       sig { returns(T.nilable(T::Boolean)) }
       attr_accessor :primary
 
@@ -88,8 +87,7 @@ module ModernTreasury
         # The types of this address.
         address_types: nil,
         line2: nil,
-        # Whether this address is the primary address for the legal entity. Optional; when
-        # omitted it is inferred from the address types.
+        # Whether this address is the primary address for the legal entity.
         primary: nil
       )
       end
@@ -129,11 +127,6 @@ module ModernTreasury
         BUSINESS =
           T.let(
             :business,
-            ModernTreasury::LegalEntityAddressCreateRequest::AddressType::TaggedSymbol
-          )
-        BUSINESS_PHYSICAL =
-          T.let(
-            :business_physical,
             ModernTreasury::LegalEntityAddressCreateRequest::AddressType::TaggedSymbol
           )
         BUSINESS_REGISTERED =

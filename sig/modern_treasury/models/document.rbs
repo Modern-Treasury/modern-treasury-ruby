@@ -5,6 +5,7 @@ module ModernTreasury
         id: String,
         created_at: Time,
         discarded_at: Time?,
+        document_details: ::Array[ModernTreasury::Document::DocumentDetail],
         document_type: String?,
         documentable_id: String?,
         documentable_type: ModernTreasury::Models::Document::documentable_type?,
@@ -21,6 +22,8 @@ module ModernTreasury
       attr_accessor created_at: Time
 
       attr_accessor discarded_at: Time?
+
+      attr_accessor document_details: ::Array[ModernTreasury::Document::DocumentDetail]
 
       attr_accessor document_type: String?
 
@@ -42,6 +45,7 @@ module ModernTreasury
         id: String,
         created_at: Time,
         discarded_at: Time?,
+        document_details: ::Array[ModernTreasury::Document::DocumentDetail],
         document_type: String?,
         documentable_id: String?,
         documentable_type: ModernTreasury::Models::Document::documentable_type?,
@@ -56,6 +60,7 @@ module ModernTreasury
         id: String,
         created_at: Time,
         discarded_at: Time?,
+        document_details: ::Array[ModernTreasury::Document::DocumentDetail],
         document_type: String?,
         documentable_id: String?,
         documentable_type: ModernTreasury::Models::Document::documentable_type?,
@@ -65,6 +70,58 @@ module ModernTreasury
         source: String,
         updated_at: Time
       }
+
+      type document_detail =
+        {
+          id: String,
+          created_at: Time,
+          discarded_at: Time?,
+          document_identifier: String,
+          document_identifier_type: String,
+          live_mode: bool,
+          object: String,
+          updated_at: Time
+        }
+
+      class DocumentDetail < ModernTreasury::Internal::Type::BaseModel
+        attr_accessor id: String
+
+        attr_accessor created_at: Time
+
+        attr_accessor discarded_at: Time?
+
+        attr_accessor document_identifier: String
+
+        attr_accessor document_identifier_type: String
+
+        attr_accessor live_mode: bool
+
+        attr_accessor object: String
+
+        attr_accessor updated_at: Time
+
+        def initialize: (
+          id: String,
+          created_at: Time,
+          discarded_at: Time?,
+          document_identifier: String,
+          document_identifier_type: String,
+          live_mode: bool,
+          object: String,
+          updated_at: Time
+        ) -> void
+
+        def to_hash: -> {
+          id: String,
+          created_at: Time,
+          discarded_at: Time?,
+          document_identifier: String,
+          document_identifier_type: String,
+          live_mode: bool,
+          object: String,
+          updated_at: Time
+        }
+      end
 
       type documentable_type =
         :connection

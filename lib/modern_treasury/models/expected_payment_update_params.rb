@@ -159,7 +159,8 @@ module ModernTreasury
       optional :status, enum: -> { ModernTreasury::ExpectedPaymentUpdateParams::Status }, nil?: true
 
       # @!attribute type
-      #   One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire.
+      #   One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
+      #   sepa, signet, wire.
       #
       #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil]
       optional :type, enum: -> { ModernTreasury::ExpectedPaymentType }, nil?: true
@@ -212,7 +213,7 @@ module ModernTreasury
       #
       #   @param status [Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Status, nil] The Expected Payment's status can be updated from partially_reconciled to reconc
       #
-      #   @param type [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil] One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire.
+      #   @param type [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil] One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen, se
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 

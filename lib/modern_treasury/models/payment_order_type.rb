@@ -2,8 +2,9 @@
 
 module ModernTreasury
   module Models
-    # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`,
-    # `bacs`, `au_becs`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `zengin`.
+    # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
+    # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
+    # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
     module PaymentOrderType
       extend ModernTreasury::Internal::Type::Enum
 
@@ -18,17 +19,24 @@ module ModernTreasury
       DK_NETS = :dk_nets
       EFT = :eft
       GB_FPS = :gb_fps
+      HU_ICS = :hu_ics
+      INTERAC = :interac
       MASAV = :masav
       MX_CCEN = :mx_ccen
       NEFT = :neft
       NICS = :nics
       NZ_BECS = :nz_becs
       PL_ELIXIR = :pl_elixir
+      PROVXCHANGE = :provxchange
+      RO_SENT = :ro_sent
       RTP = :rtp
       SE_BANKGIROT = :se_bankgirot
+      SEN = :sen
       SEPA = :sepa
       SG_GIRO = :sg_giro
       SIC = :sic
+      SIGNET = :signet
+      SKNBI = :sknbi
       STABLECOIN = :stablecoin
       WIRE = :wire
       ZENGIN = :zengin

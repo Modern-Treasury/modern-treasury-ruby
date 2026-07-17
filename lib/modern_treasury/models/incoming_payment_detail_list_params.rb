@@ -61,7 +61,8 @@ module ModernTreasury
       optional :subtype, String
 
       # @!attribute type
-      #   One of: `ach`, `book`, `check`, `eft`, `rtp`, `sepa`, or `wire`.
+      #   One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
+      #   `wire`.
       #
       #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Type, nil]
       optional :type, enum: -> { ModernTreasury::IncomingPaymentDetailListParams::Type }
@@ -93,7 +94,7 @@ module ModernTreasury
       #
       #   @param subtype [String] An additional layer of classification for the type of incoming payment detail. F
       #
-      #   @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Type] One of: `ach`, `book`, `check`, `eft`, `rtp`, `sepa`, or `wire`.
+      #   @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Type] One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or `w
       #
       #   @param virtual_account_id [String] If the incoming payment detail is in a virtual account, the ID of the Virtual Ac
       #
@@ -112,7 +113,8 @@ module ModernTreasury
         #   @return [Array<Symbol>]
       end
 
-      # One of: `ach`, `book`, `check`, `eft`, `rtp`, `sepa`, or `wire`.
+      # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
+      # `wire`.
       module Type
         extend ModernTreasury::Internal::Type::Enum
 
@@ -122,10 +124,12 @@ module ModernTreasury
         BOOK = :book
         CHECK = :check
         EFT = :eft
+        INTERAC = :interac
         NEFT = :neft
         NZ_BECS = :nz_becs
         RTP = :rtp
         SEPA = :sepa
+        SIGNET = :signet
         STABLECOIN = :stablecoin
         WIRE = :wire
         ZENGIN = :zengin

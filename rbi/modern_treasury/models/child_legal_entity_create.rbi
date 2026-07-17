@@ -279,22 +279,6 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :suffix
 
-      # Acceptance of terms of use by the legal entity.
-      sig do
-        returns(T.nilable(ModernTreasury::ChildLegalEntityCreate::TermsOfUse))
-      end
-      attr_reader :terms_of_use
-
-      sig do
-        params(
-          terms_of_use:
-            T.nilable(
-              ModernTreasury::ChildLegalEntityCreate::TermsOfUse::OrHash
-            )
-        ).void
-      end
-      attr_writer :terms_of_use
-
       # Deprecated. Use `third_party_verifications` instead.
       sig { returns(T.nilable(ModernTreasury::ThirdPartyVerification)) }
       attr_reader :third_party_verification
@@ -403,10 +387,6 @@ module ModernTreasury
             ),
           service_provider_legal_entity_id: T.nilable(String),
           suffix: T.nilable(String),
-          terms_of_use:
-            T.nilable(
-              ModernTreasury::ChildLegalEntityCreate::TermsOfUse::OrHash
-            ),
           third_party_verification:
             T.nilable(ModernTreasury::ThirdPartyVerification::OrHash),
           third_party_verifications:
@@ -496,8 +476,6 @@ module ModernTreasury
         service_provider_legal_entity_id: nil,
         # An individual's suffix.
         suffix: nil,
-        # Acceptance of terms of use by the legal entity.
-        terms_of_use: nil,
         # Deprecated. Use `third_party_verifications` instead.
         third_party_verification: nil,
         # A list of third-party verifications run by external vendors.
@@ -567,8 +545,6 @@ module ModernTreasury
               ),
             service_provider_legal_entity_id: T.nilable(String),
             suffix: T.nilable(String),
-            terms_of_use:
-              T.nilable(ModernTreasury::ChildLegalEntityCreate::TermsOfUse),
             third_party_verification:
               T.nilable(ModernTreasury::ThirdPartyVerification),
             third_party_verifications:
@@ -901,50 +877,6 @@ module ModernTreasury
           )
         end
         def self.values
-        end
-      end
-
-      class TermsOfUse < ModernTreasury::Internal::Type::BaseModel
-        OrHash =
-          T.type_alias do
-            T.any(
-              ModernTreasury::ChildLegalEntityCreate::TermsOfUse,
-              ModernTreasury::Internal::AnyHash
-            )
-          end
-
-        # The ISO 8601 timestamp indicating when the terms of use were accepted.
-        sig { returns(T.nilable(Time)) }
-        attr_reader :accepted_at
-
-        sig { params(accepted_at: Time).void }
-        attr_writer :accepted_at
-
-        # The IP address from which the terms of use were accepted. Supports both IPv4 and
-        # IPv6 formats.
-        sig { returns(T.nilable(String)) }
-        attr_reader :ip_address
-
-        sig { params(ip_address: String).void }
-        attr_writer :ip_address
-
-        # Acceptance of terms of use by the legal entity.
-        sig do
-          params(accepted_at: Time, ip_address: String).returns(
-            T.attached_class
-          )
-        end
-        def self.new(
-          # The ISO 8601 timestamp indicating when the terms of use were accepted.
-          accepted_at: nil,
-          # The IP address from which the terms of use were accepted. Supports both IPv4 and
-          # IPv6 formats.
-          ip_address: nil
-        )
-        end
-
-        sig { override.returns({ accepted_at: Time, ip_address: String }) }
-        def to_hash
         end
       end
     end

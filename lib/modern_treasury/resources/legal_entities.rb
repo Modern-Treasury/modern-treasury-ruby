@@ -8,7 +8,7 @@ module ModernTreasury
       #
       # create legal_entity
       #
-      # @overload create(legal_entity_type:, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, connection_id: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, documents: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, external_id: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_entity_associations: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, service_provider_legal_entity_id: nil, suffix: nil, terms_of_use: nil, third_party_verification: nil, third_party_verifications: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
+      # @overload create(legal_entity_type:, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, connection_id: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, documents: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, external_id: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_entity_associations: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, service_provider_legal_entity_id: nil, suffix: nil, third_party_verification: nil, third_party_verifications: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
       #
       # @param legal_entity_type [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityType] The type of legal entity.
       #
@@ -82,8 +82,6 @@ module ModernTreasury
       #
       # @param suffix [String, nil] An individual's suffix.
       #
-      # @param terms_of_use [ModernTreasury::Models::LegalEntityCreateParams::TermsOfUse, nil] Acceptance of terms of use by the legal entity.
-      #
       # @param third_party_verification [ModernTreasury::Models::ThirdPartyVerification, nil] Deprecated. Use `third_party_verifications` instead.
       #
       # @param third_party_verifications [Array<ModernTreasury::Models::ThirdPartyVerification>] A list of third-party verifications run by external vendors.
@@ -135,7 +133,7 @@ module ModernTreasury
       #
       # Update a legal entity.
       #
-      # @overload update(id, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, external_id: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, service_provider_legal_entity_id: nil, suffix: nil, terms_of_use: nil, third_party_verification: nil, third_party_verifications: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
+      # @overload update(id, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, external_id: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, service_provider_legal_entity_id: nil, suffix: nil, third_party_verification: nil, third_party_verifications: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
       #
       # @param id [String] id
       #
@@ -201,8 +199,6 @@ module ModernTreasury
       #
       # @param suffix [String, nil] An individual's suffix.
       #
-      # @param terms_of_use [ModernTreasury::Models::LegalEntityUpdateParams::TermsOfUse, nil] Acceptance of terms of use by the legal entity.
-      #
       # @param third_party_verification [ModernTreasury::Models::ThirdPartyVerification, nil] Deprecated. Use `third_party_verifications` instead.
       #
       # @param third_party_verifications [Array<ModernTreasury::Models::ThirdPartyVerification>] A list of third-party verifications run by external vendors.
@@ -263,33 +259,6 @@ module ModernTreasury
           path: "api/legal_entities",
           query: query,
           page: ModernTreasury::Internal::Page,
-          model: ModernTreasury::LegalEntity,
-          options: options
-        )
-      end
-
-      # Some parameter documentations has been truncated, see
-      # {ModernTreasury::Models::LegalEntityUpdateStatusParams} for more details.
-      #
-      # Update Legal Entity Status (sandbox only)
-      #
-      # @overload update_status(id, status:, request_options: {})
-      #
-      # @param id [String] Legal entity ID
-      #
-      # @param status [Symbol, ModernTreasury::Models::LegalEntityUpdateStatusParams::Status] The target status for the legal entity. One of `active`, `suspended`, or `denied
-      #
-      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
-      #
-      # @return [ModernTreasury::Models::LegalEntity]
-      #
-      # @see ModernTreasury::Models::LegalEntityUpdateStatusParams
-      def update_status(id, params)
-        parsed, options = ModernTreasury::LegalEntityUpdateStatusParams.dump_request(params)
-        @client.request(
-          method: :patch,
-          path: ["api/simulations/legal_entities/%1$s/update_status", id],
-          body: parsed,
           model: ModernTreasury::LegalEntity,
           options: options
         )

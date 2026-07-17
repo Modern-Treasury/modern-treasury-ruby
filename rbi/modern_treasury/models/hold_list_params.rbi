@@ -32,17 +32,19 @@ module ModernTreasury
       sig { params(per_page: Integer).void }
       attr_writer :per_page
 
-      # Only return holds for a specific status.
+      # Translation missing: en.openapi.descriptions.payment_order.query_params.status
       sig do
         returns(T.nilable(ModernTreasury::HoldListParams::Status::OrSymbol))
       end
       attr_accessor :status
 
-      # Only return holds for a specific target ID.
+      # Translation missing:
+      # en.openapi.descriptions.payment_order.query_params.target_id
       sig { returns(T.nilable(String)) }
       attr_accessor :target_id
 
-      # Only return holds for a specific target type.
+      # Translation missing:
+      # en.openapi.descriptions.payment_order.query_params.target_type
       sig do
         returns(T.nilable(ModernTreasury::HoldListParams::TargetType::OrSymbol))
       end
@@ -67,11 +69,13 @@ module ModernTreasury
         # parameters.
         metadata: nil,
         per_page: nil,
-        # Only return holds for a specific status.
+        # Translation missing: en.openapi.descriptions.payment_order.query_params.status
         status: nil,
-        # Only return holds for a specific target ID.
+        # Translation missing:
+        # en.openapi.descriptions.payment_order.query_params.target_id
         target_id: nil,
-        # Only return holds for a specific target type.
+        # Translation missing:
+        # en.openapi.descriptions.payment_order.query_params.target_type
         target_type: nil,
         request_options: {}
       )
@@ -94,7 +98,7 @@ module ModernTreasury
       def to_hash
       end
 
-      # Only return holds for a specific status.
+      # Translation missing: en.openapi.descriptions.payment_order.query_params.status
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
@@ -116,7 +120,8 @@ module ModernTreasury
         end
       end
 
-      # Only return holds for a specific target type.
+      # Translation missing:
+      # en.openapi.descriptions.payment_order.query_params.target_type
       module TargetType
         extend ModernTreasury::Internal::Type::Enum
 

@@ -4,13 +4,12 @@ module ModernTreasury
       attr_reader line_items: ModernTreasury::Resources::Transactions::LineItems
 
       def create: (
+        amount: Integer,
         as_of_date: Date?,
         direction: String,
         internal_account_id: String,
         vendor_code: String?,
         vendor_code_type: String?,
-        ?amount: Integer,
-        ?amount_string: String,
         ?metadata: ::Hash[Symbol, String],
         ?posted: bool,
         ?type: ModernTreasury::Models::TransactionCreateParams::type_?,

@@ -39,7 +39,8 @@ module ModernTreasury
       sig { returns(T.nilable(Integer)) }
       attr_accessor :ownership_percentage
 
-      # The ID of the parent legal entity. This must be a business legal entity.
+      # The ID of the parent legal entity. This must be a business or joint legal
+      # entity.
       sig { returns(String) }
       attr_accessor :parent_legal_entity_id
 
@@ -89,7 +90,8 @@ module ModernTreasury
         object:,
         # The child entity's ownership percentage iff they are a beneficial owner.
         ownership_percentage:,
-        # The ID of the parent legal entity. This must be a business legal entity.
+        # The ID of the parent legal entity. This must be a business or joint legal
+        # entity.
         parent_legal_entity_id:,
         relationship_types:,
         # The job title of the child entity at the parent entity.
