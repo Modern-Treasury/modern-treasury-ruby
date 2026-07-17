@@ -17,9 +17,6 @@ module ModernTreasury
       sig { returns(T.nilable(Time)) }
       attr_accessor :discarded_at
 
-      sig { returns(T::Array[ModernTreasury::Document::DocumentDetail]) }
-      attr_accessor :document_details
-
       # A category given to the document, can be `null`.
       sig { returns(T.nilable(String)) }
       attr_accessor :document_type
@@ -64,8 +61,6 @@ module ModernTreasury
           id: String,
           created_at: Time,
           discarded_at: T.nilable(Time),
-          document_details:
-            T::Array[ModernTreasury::Document::DocumentDetail::OrHash],
           document_type: T.nilable(String),
           documentable_id: T.nilable(String),
           documentable_type:
@@ -81,7 +76,6 @@ module ModernTreasury
         id:,
         created_at:,
         discarded_at:,
-        document_details:,
         # A category given to the document, can be `null`.
         document_type:,
         # The unique identifier for the associated object.
@@ -107,8 +101,6 @@ module ModernTreasury
             id: String,
             created_at: Time,
             discarded_at: T.nilable(Time),
-            document_details:
-              T::Array[ModernTreasury::Document::DocumentDetail],
             document_type: T.nilable(String),
             documentable_id: T.nilable(String),
             documentable_type:
@@ -124,85 +116,6 @@ module ModernTreasury
         )
       end
       def to_hash
-      end
-
-      class DocumentDetail < ModernTreasury::Internal::Type::BaseModel
-        OrHash =
-          T.type_alias do
-            T.any(
-              ModernTreasury::Document::DocumentDetail,
-              ModernTreasury::Internal::AnyHash
-            )
-          end
-
-        sig { returns(String) }
-        attr_accessor :id
-
-        sig { returns(Time) }
-        attr_accessor :created_at
-
-        sig { returns(T.nilable(Time)) }
-        attr_accessor :discarded_at
-
-        sig { returns(String) }
-        attr_accessor :document_identifier
-
-        sig { returns(String) }
-        attr_accessor :document_identifier_type
-
-        # This field will be true if this object exists in the live environment or false
-        # if it exists in the test environment.
-        sig { returns(T::Boolean) }
-        attr_accessor :live_mode
-
-        sig { returns(String) }
-        attr_accessor :object
-
-        sig { returns(Time) }
-        attr_accessor :updated_at
-
-        sig do
-          params(
-            id: String,
-            created_at: Time,
-            discarded_at: T.nilable(Time),
-            document_identifier: String,
-            document_identifier_type: String,
-            live_mode: T::Boolean,
-            object: String,
-            updated_at: Time
-          ).returns(T.attached_class)
-        end
-        def self.new(
-          id:,
-          created_at:,
-          discarded_at:,
-          document_identifier:,
-          document_identifier_type:,
-          # This field will be true if this object exists in the live environment or false
-          # if it exists in the test environment.
-          live_mode:,
-          object:,
-          updated_at:
-        )
-        end
-
-        sig do
-          override.returns(
-            {
-              id: String,
-              created_at: Time,
-              discarded_at: T.nilable(Time),
-              document_identifier: String,
-              document_identifier_type: String,
-              live_mode: T::Boolean,
-              object: String,
-              updated_at: Time
-            }
-          )
-        end
-        def to_hash
-        end
       end
 
       # The type of the associated object. Currently can be one of `payment_order`,

@@ -84,14 +84,14 @@ require "pathname"
 document = modern_treasury.documents.create(
   file: Pathname("my/file.txt"),
   documentable_id: "24c6b7a3-02...",
-  documentable_type: "counterparties"
+  documentable_type: "connection"
 )
 
 # Alternatively, pass file contents or a `StringIO` directly:
 document = modern_treasury.documents.create(
   file: File.read("my/file.txt"),
   documentable_id: "24c6b7a3-02...",
-  documentable_type: "counterparties"
+  documentable_type: "connection"
 )
 
 # Or, to control the filename and/or content type:
@@ -99,7 +99,7 @@ file = ModernTreasury::FilePart.new(File.read("my/file.txt"), filename: "my/file
 document = modern_treasury.documents.create(
   file: file,
   documentable_id: "24c6b7a3-02...",
-  documentable_type: "counterparties"
+  documentable_type: "connection"
 )
 
 puts(document.id)

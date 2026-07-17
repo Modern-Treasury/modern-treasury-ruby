@@ -103,6 +103,7 @@ module ModernTreasury
         GB_NINO = :gb_nino
         GB_UTR = :gb_utr
         GB_VAT = :gb_vat
+        GENERIC_INTERNATIONAL = :generic_international
         GR_VAT = :gr_vat
         HN_ID = :hn_id
         HN_RTN = :hn_rtn
@@ -132,6 +133,7 @@ module ModernTreasury
         MX_CURP = :mx_curp
         MX_INE = :mx_ine
         MX_RFC = :mx_rfc
+        NATIONAL_ID = :national_id
         NL_BSN = :nl_bsn
         NL_BTW = :nl_btw
         NL_RSIN = :nl_rsin
