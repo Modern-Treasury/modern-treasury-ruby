@@ -4,6 +4,7 @@ module ModernTreasury
       {
         id: String,
         amount: Integer,
+        amount_string: String,
         as_of_date: Date?,
         as_of_time: Time?,
         as_of_timezone: String?,
@@ -33,6 +34,8 @@ module ModernTreasury
       attr_accessor id: String
 
       attr_accessor amount: Integer
+
+      attr_accessor amount_string: String
 
       attr_accessor as_of_date: Date?
 
@@ -85,6 +88,7 @@ module ModernTreasury
       def initialize: (
         id: String,
         amount: Integer,
+        amount_string: String,
         as_of_date: Date?,
         as_of_time: Time?,
         as_of_timezone: String?,
@@ -113,6 +117,7 @@ module ModernTreasury
       def to_hash: -> {
         id: String,
         amount: Integer,
+        amount_string: String,
         as_of_date: Date?,
         as_of_time: Time?,
         as_of_timezone: String?,
@@ -150,24 +155,17 @@ module ModernTreasury
         | :dk_nets
         | :eft
         | :gb_fps
-        | :hu_ics
-        | :interac
         | :masav
         | :mx_ccen
         | :neft
         | :nics
         | :nz_becs
         | :pl_elixir
-        | :provxchange
-        | :ro_sent
         | :rtp
         | :se_bankgirot
-        | :sen
         | :sepa
         | :sg_giro
         | :sic
-        | :signet
-        | :sknbi
         | :stablecoin
         | :wire
         | :zengin
@@ -187,24 +185,17 @@ module ModernTreasury
         DK_NETS: :dk_nets
         EFT: :eft
         GB_FPS: :gb_fps
-        HU_ICS: :hu_ics
-        INTERAC: :interac
         MASAV: :masav
         MX_CCEN: :mx_ccen
         NEFT: :neft
         NICS: :nics
         NZ_BECS: :nz_becs
         PL_ELIXIR: :pl_elixir
-        PROVXCHANGE: :provxchange
-        RO_SENT: :ro_sent
         RTP: :rtp
         SE_BANKGIROT: :se_bankgirot
-        SEN: :sen
         SEPA: :sepa
         SG_GIRO: :sg_giro
         SIC: :sic
-        SIGNET: :signet
-        SKNBI: :sknbi
         STABLECOIN: :stablecoin
         WIRE: :wire
         ZENGIN: :zengin
@@ -235,9 +226,9 @@ module ModernTreasury
         | :paxos
         | :paypal
         | :pnc
-        | :signet
         | :silvergate
         | :swift
+        | :turnkey
         | :us_bank
         | :user
         | :western_alliance
@@ -266,9 +257,9 @@ module ModernTreasury
         PAXOS: :paxos
         PAYPAL: :paypal
         PNC: :pnc
-        SIGNET: :signet
         SILVERGATE: :silvergate
         SWIFT: :swift
+        TURNKEY: :turnkey
         US_BANK: :us_bank
         USER: :user
         WESTERN_ALLIANCE: :western_alliance
