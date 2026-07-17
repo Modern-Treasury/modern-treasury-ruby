@@ -123,6 +123,16 @@ module ModernTreasury
             :hk_interbank_clearing_code,
             ModernTreasury::ValidationValidateRoutingNumberParams::RoutingNumberType::TaggedSymbol
           )
+        HU_INTERBANK_CLEARING_CODE =
+          T.let(
+            :hu_interbank_clearing_code,
+            ModernTreasury::ValidationValidateRoutingNumberParams::RoutingNumberType::TaggedSymbol
+          )
+        ID_SKNBI_CODE =
+          T.let(
+            :id_sknbi_code,
+            ModernTreasury::ValidationValidateRoutingNumberParams::RoutingNumberType::TaggedSymbol
+          )
         IL_BANK_CODE =
           T.let(
             :il_bank_code,

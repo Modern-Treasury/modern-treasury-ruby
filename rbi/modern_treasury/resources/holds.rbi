@@ -87,11 +87,13 @@ module ModernTreasury
         # parameters.
         metadata: nil,
         per_page: nil,
-        # Only return holds for a specific status.
+        # Translation missing: en.openapi.descriptions.payment_order.query_params.status
         status: nil,
-        # Only return holds for a specific target ID.
+        # Translation missing:
+        # en.openapi.descriptions.payment_order.query_params.target_id
         target_id: nil,
-        # Only return holds for a specific target type.
+        # Translation missing:
+        # en.openapi.descriptions.payment_order.query_params.target_type
         target_type: nil,
         request_options: {}
       )

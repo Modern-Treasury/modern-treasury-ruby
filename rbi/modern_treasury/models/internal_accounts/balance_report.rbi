@@ -20,7 +20,7 @@ module ModernTreasury
         attr_accessor :as_of_date
 
         # The time (24-hour clock) of the balance report in local time.
-        sig { returns(Time) }
+        sig { returns(T.nilable(Time)) }
         attr_accessor :as_of_time
 
         # The specific type of balance report. One of `intraday`, `previous_day`,
@@ -62,7 +62,7 @@ module ModernTreasury
           params(
             id: String,
             as_of_date: Date,
-            as_of_time: Time,
+            as_of_time: T.nilable(Time),
             balance_report_type:
               ModernTreasury::InternalAccounts::BalanceReport::BalanceReportType::OrSymbol,
             balances:
@@ -103,7 +103,7 @@ module ModernTreasury
             {
               id: String,
               as_of_date: Date,
-              as_of_time: Time,
+              as_of_time: T.nilable(Time),
               balance_report_type:
                 ModernTreasury::InternalAccounts::BalanceReport::BalanceReportType::TaggedSymbol,
               balances:
@@ -183,11 +183,6 @@ module ModernTreasury
           sig { returns(Integer) }
           attr_accessor :amount
 
-          # The amount of the balance as a string, preserving full precision for values that
-          # may exceed safe integer limits in some languages.
-          sig { returns(String) }
-          attr_accessor :amount_string
-
           # The date on which the balance became true for the account.
           sig { returns(T.nilable(Date)) }
           attr_accessor :as_of_date
@@ -235,8 +230,8 @@ module ModernTreasury
 
           # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
           # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-          # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`, or
-          # `us_bank`.
+          # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+          # `swift`, or `us_bank`.
           sig { returns(T.nilable(String)) }
           attr_accessor :vendor_code_type
 
@@ -244,7 +239,6 @@ module ModernTreasury
             params(
               id: String,
               amount: Integer,
-              amount_string: String,
               as_of_date: T.nilable(Date),
               as_of_time: T.nilable(Time),
               balance_type:
@@ -263,9 +257,6 @@ module ModernTreasury
             id:,
             # The balance amount.
             amount:,
-            # The amount of the balance as a string, preserving full precision for values that
-            # may exceed safe integer limits in some languages.
-            amount_string:,
             # The date on which the balance became true for the account.
             as_of_date:,
             # The time on which the balance became true for the account.
@@ -289,8 +280,8 @@ module ModernTreasury
             vendor_code:,
             # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
             # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-            # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`, or
-            # `us_bank`.
+            # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+            # `swift`, or `us_bank`.
             vendor_code_type:
           )
           end
@@ -300,7 +291,6 @@ module ModernTreasury
               {
                 id: String,
                 amount: Integer,
-                amount_string: String,
                 as_of_date: T.nilable(Date),
                 as_of_time: T.nilable(Time),
                 balance_type:

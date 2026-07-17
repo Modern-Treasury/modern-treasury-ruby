@@ -86,8 +86,9 @@ module ModernTreasury
         direction:,
         # The ID of one of your organization's internal accounts.
         originating_account_id:,
-        # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`,
-        # `bacs`, `au_becs`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `zengin`.
+        # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
+        # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
+        # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
         type:,
         accounting: nil,
         # The ID of one of your accounting categories. Note that these will only be
@@ -391,8 +392,9 @@ module ModernTreasury
         # payment orders, the `subtype` represents the SEC code. We currently support
         # `CCD`, `PPD`, `IAT`, `CTX`, `WEB`, `CIE`, and `TEL`.
         subtype: nil,
-        # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`,
-        # `bacs`, `au_becs`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `zengin`.
+        # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
+        # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
+        # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
         type: nil,
         # This represents the identifier by which the person is known to the receiver when
         # using the CIE subtype for ACH payments. Only the first 22 characters of this
@@ -551,8 +553,9 @@ module ModernTreasury
         direction:,
         # The ID of one of your organization's internal accounts.
         originating_account_id:,
-        # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`,
-        # `bacs`, `au_becs`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `zengin`.
+        # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
+        # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
+        # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
         type:,
         accounting: nil,
         # The ID of one of your accounting categories. Note that these will only be

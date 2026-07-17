@@ -112,7 +112,8 @@ module ModernTreasury
         # payments, this will be the OBI field on the wire. For check payments, this will
         # be the memo field.
         statement_descriptor: nil,
-        # One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire.
+        # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
+        # sepa, signet, wire.
         type: nil,
         request_options: {}
       )
@@ -233,7 +234,8 @@ module ModernTreasury
         # The Expected Payment's status can be updated from partially_reconciled to
         # reconciled.
         status: nil,
-        # One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire.
+        # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
+        # sepa, signet, wire.
         type: nil,
         request_options: {}
       )
@@ -280,7 +282,8 @@ module ModernTreasury
         per_page: nil,
         # One of unreconciled, reconciled, or archived.
         status: nil,
-        # One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire
+        # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
+        # sepa, signet, wire
         type: nil,
         # Used to return expected payments updated after some datetime
         updated_at_lower_bound: nil,

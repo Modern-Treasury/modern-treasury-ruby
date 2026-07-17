@@ -7,6 +7,13 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      # @!attribute amount
+      #   Value in specified currency's smallest unit. e.g. $10 would be represented
+      #   as 1000.
+      #
+      #   @return [Integer]
+      required :amount, Integer
+
       # @!attribute as_of_date
       #   The date on which the transaction occurred.
       #
@@ -35,25 +42,11 @@ module ModernTreasury
       # @!attribute vendor_code_type
       #   The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
       #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-      #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`,
-      #   `us_bank`, or others.
+      #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+      #   `swift`, `us_bank`, or others.
       #
       #   @return [String, nil]
       required :vendor_code_type, String, nil?: true
-
-      # @!attribute amount
-      #   Value in specified currency's smallest unit. e.g. $10 would be represented
-      #   as 1000.
-      #
-      #   @return [Integer, nil]
-      optional :amount, Integer
-
-      # @!attribute amount_string
-      #   The transaction amount as a string, preserving full precision for values that
-      #   may exceed safe integer limits in some languages.
-      #
-      #   @return [String, nil]
-      optional :amount_string, String
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
@@ -70,7 +63,7 @@ module ModernTreasury
 
       # @!attribute type
       #   The type of the transaction. Examples could be
-      #   `card, `ach`, `wire`, `check`, `rtp`, or `book`.
+      #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       #
       #   @return [Symbol, ModernTreasury::Models::TransactionCreateParams::Type, nil]
       optional :type, enum: -> { ModernTreasury::TransactionCreateParams::Type }, nil?: true
@@ -88,9 +81,11 @@ module ModernTreasury
       #   @return [String, nil]
       optional :vendor_description, String, nil?: true
 
-      # @!method initialize(as_of_date:, direction:, internal_account_id:, vendor_code:, vendor_code_type:, amount: nil, amount_string: nil, metadata: nil, posted: nil, type: nil, vendor_customer_id: nil, vendor_description: nil, request_options: {})
+      # @!method initialize(amount:, as_of_date:, direction:, internal_account_id:, vendor_code:, vendor_code_type:, metadata: nil, posted: nil, type: nil, vendor_customer_id: nil, vendor_description: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::TransactionCreateParams} for more details.
+      #
+      #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
       #
       #   @param as_of_date [Date, nil] The date on which the transaction occurred.
       #
@@ -101,10 +96,6 @@ module ModernTreasury
       #   @param vendor_code [String, nil] When applicable, the bank-given code that determines the transaction's category.
       #
       #   @param vendor_code_type [String, nil] The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`, `bnk
-      #
-      #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
-      #
-      #   @param amount_string [String] The transaction amount as a string, preserving full precision for values that ma
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #
@@ -119,7 +110,7 @@ module ModernTreasury
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # The type of the transaction. Examples could be
-      # `card, `ach`, `wire`, `check`, `rtp`, or `book`.
+      # `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       module Type
         extend ModernTreasury::Internal::Type::Enum
 
@@ -134,17 +125,24 @@ module ModernTreasury
         DK_NETS = :dk_nets
         EFT = :eft
         GB_FPS = :gb_fps
+        HU_ICS = :hu_ics
+        INTERAC = :interac
         MASAV = :masav
         MX_CCEN = :mx_ccen
         NEFT = :neft
         NICS = :nics
         NZ_BECS = :nz_becs
         PL_ELIXIR = :pl_elixir
+        PROVXCHANGE = :provxchange
+        RO_SENT = :ro_sent
         RTP = :rtp
         SE_BANKGIROT = :se_bankgirot
+        SEN = :sen
         SEPA = :sepa
         SG_GIRO = :sg_giro
         SIC = :sic
+        SIGNET = :signet
+        SKNBI = :sknbi
         STABLECOIN = :stablecoin
         WIRE = :wire
         ZENGIN = :zengin

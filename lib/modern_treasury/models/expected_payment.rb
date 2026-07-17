@@ -200,7 +200,8 @@ module ModernTreasury
       required :transaction_line_item_id, String, nil?: true
 
       # @!attribute type
-      #   One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire.
+      #   One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
+      #   sepa, signet, wire.
       #
       #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil]
       required :type, enum: -> { ModernTreasury::ExpectedPaymentType }, nil?: true
@@ -272,7 +273,7 @@ module ModernTreasury
       #
       #   @param transaction_line_item_id [String, nil] The ID of the Transaction Line Item this expected payment has been matched to.
       #
-      #   @param type [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil] One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire.
+      #   @param type [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil] One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen, se
       #
       #   @param updated_at [Time]
 

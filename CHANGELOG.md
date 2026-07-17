@@ -1,50 +1,5 @@
 # Changelog
 
-## 0.28.0 (2026-07-11)
-
-Full Changelog: [v0.27.0...v0.28.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.27.0...v0.28.0)
-
-### Features
-
-* **api:** add legal entity simulation endpoint ([f06599f](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/f06599f79f7a0a8fd4ddd2c1aa1ca42d2c8014d0))
-* **api:** api update ([84443ac](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/84443ac5d4987ac39e6d49f67b37ef8f6bf44dc5))
-* **api:** api update ([396ce9e](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/396ce9e866a81371ca477a56b07bce1939c5bdcf))
-* **api:** api update ([8da2d50](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/8da2d508c0a120e16891388a2b918c1f0fcfbc4f))
-* **api:** api update ([f2bbb4d](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/f2bbb4d415509ca803abd0b82fa1bb3d9c487b88))
-* **api:** api update ([5fa6a05](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/5fa6a05aa073dda9533c0debb02a61216a6301b7))
-* **api:** api update ([a86eb51](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/a86eb514979fa254a18fb9d145a6a637fbd14b78))
-* **api:** api update ([30b7e14](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/30b7e140705f2d133060db6b07b7443a2d298eb3))
-* **api:** api update ([87cdb3c](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/87cdb3ce81f897f08d9b8b7492ef4e07142d0c1d))
-* **api:** api update ([d15d28f](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/d15d28fb2e2f8dfea886245f0462307fe3e2fa1a))
-* **api:** api update ([053da05](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/053da05eed36f2085b92121960d81bc3ef76ea5d))
-* **api:** api update ([e3de743](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/e3de7434657a6df98b858042bd60590393037e52))
-* **api:** api update ([957260c](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/957260cf1b6d1343659c4c7b38541cfe12f6a2c7))
-* **api:** api update ([bc65a9d](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/bc65a9d99769dce96895bae87fb4bb2a3e87ea1e))
-* **api:** api update ([9dc71ea](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/9dc71ea087a80e3d6c19f1b73ee8ed965edc6e1f))
-* **api:** api update ([1fc3cd4](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/1fc3cd4524ced4199b92e6bb096ff92db8e6794f))
-* **api:** api update ([dc38dfd](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/dc38dfde588570c6b5682f735b2b079b93bbc63f))
-* **api:** api update ([dce7143](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/dce7143ecded83393d3993c299f0333249a0b8bb))
-* **api:** api update ([20ccb3e](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/20ccb3e5fa768d240a8a5f4bc491099c58e622fc))
-* **api:** api update ([02faafd](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/02faafd674816fd272b5949612ae8b064d21b751))
-* **api:** api update ([76e467d](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/76e467d4dc733c1d0104b0f8723283aa3b017ecd))
-* **api:** api update ([07b3cd9](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/07b3cd9a1b72d30c9faef26596a13ee6ad53e1cc))
-* **api:** api update ([bd4feeb](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/bd4feeb8287680a4fb972ffda9f6a4f914391429))
-* **api:** api update ([f896c07](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/f896c078608062e7658170a3d2ba0feb56576de2))
-* **api:** api update ([da3b541](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/da3b541fd9148d7e5446ee0d8528277628f67755))
-* **api:** api update ([67a4d13](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/67a4d1338a7993af379fb31f0d119b0e9b3a77a6))
-* support setting headers via env ([6c6c502](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/6c6c50264447960671789dd90eacf781cbd8627f))
-
-
-### Bug Fixes
-
-* **client:** elide content type header on requests without body ([9ded309](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/9ded3091557e2f722de1744989937d2d6f636806))
-* **client:** send content-type header for requests with an omitted optional body ([7f398b0](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/7f398b0a4f11ba97bfc5dddbe907d91e5d204be5))
-
-
-### Chores
-
-* **internal:** bound formatter parallelism to CPU count ([89f2508](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/89f25083d68b3316c9d2503a2ace14f67fa5618e))
-
 ## 0.27.0 (2026-04-22)
 
 Full Changelog: [v0.26.0...v0.27.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.26.0...v0.27.0)

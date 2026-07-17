@@ -12,6 +12,7 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mo
         balance_report_type: :intraday,
         balances: [
           {
+            amount: 0,
             balance_type: :closing_available,
             vendor_code: "vendor_code",
             vendor_code_type: "vendor_code_type"
@@ -27,7 +28,7 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mo
       response => {
         id: String,
         as_of_date: Date,
-        as_of_time: Time,
+        as_of_time: Time | nil,
         balance_report_type: ModernTreasury::InternalAccounts::BalanceReport::BalanceReportType,
         balances: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccounts::BalanceReport::Balance]),
         created_at: Time,
@@ -54,7 +55,7 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mo
       response => {
         id: String,
         as_of_date: Date,
-        as_of_time: Time,
+        as_of_time: Time | nil,
         balance_report_type: ModernTreasury::InternalAccounts::BalanceReport::BalanceReportType,
         balances: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccounts::BalanceReport::Balance]),
         created_at: Time,
@@ -84,7 +85,7 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mo
       row => {
         id: String,
         as_of_date: Date,
-        as_of_time: Time,
+        as_of_time: Time | nil,
         balance_report_type: ModernTreasury::InternalAccounts::BalanceReport::BalanceReportType,
         balances: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccounts::BalanceReport::Balance]),
         created_at: Time,

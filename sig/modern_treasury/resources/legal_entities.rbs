@@ -38,7 +38,6 @@ module ModernTreasury
         ?risk_rating: ModernTreasury::Models::LegalEntityCreateParams::risk_rating?,
         ?service_provider_legal_entity_id: String?,
         ?suffix: String?,
-        ?terms_of_use: ModernTreasury::LegalEntityCreateParams::TermsOfUse?,
         ?third_party_verification: ModernTreasury::ThirdPartyVerification?,
         ?third_party_verifications: ::Array[ModernTreasury::ThirdPartyVerification],
         ?ticker_symbol: String?,
@@ -85,7 +84,6 @@ module ModernTreasury
         ?risk_rating: ModernTreasury::Models::LegalEntityUpdateParams::risk_rating?,
         ?service_provider_legal_entity_id: String?,
         ?suffix: String?,
-        ?terms_of_use: ModernTreasury::LegalEntityUpdateParams::TermsOfUse?,
         ?third_party_verification: ModernTreasury::ThirdPartyVerification?,
         ?third_party_verifications: ::Array[ModernTreasury::ThirdPartyVerification],
         ?ticker_symbol: String?,
@@ -104,12 +102,6 @@ module ModernTreasury
         ?status: ModernTreasury::Models::LegalEntityListParams::status,
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::Internal::Page[ModernTreasury::LegalEntity]
-
-      def update_status: (
-        String id,
-        status: ModernTreasury::Models::LegalEntityUpdateStatusParams::status,
-        ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::LegalEntity
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

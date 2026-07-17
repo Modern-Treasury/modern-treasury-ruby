@@ -14,6 +14,10 @@ module ModernTreasury
           )
         end
 
+      # The identifier of the financial institution the account belongs to.
+      sig { returns(String) }
+      attr_accessor :connection_id
+
       # The currency of the internal account. Supports fiat and stablecoin currencies.
       sig do
         returns(ModernTreasury::InternalAccountCreateParams::Currency::OrSymbol)
@@ -23,6 +27,10 @@ module ModernTreasury
       # The nickname of the account.
       sig { returns(String) }
       attr_accessor :name
+
+      # The legal name of the entity which owns the account.
+      sig { returns(String) }
+      attr_accessor :party_name
 
       # An array of AccountCapability objects that list the originating abilities of the
       # internal account and any relevant information for them.
@@ -65,15 +73,6 @@ module ModernTreasury
         ).void
       end
       attr_writer :account_type
-
-      # The identifier of the financial institution the account belongs to. If not
-      # provided, defaults to the default connection, or the sole connection if only one
-      # exists.
-      sig { returns(T.nilable(String)) }
-      attr_reader :connection_id
-
-      sig { params(connection_id: String).void }
-      attr_writer :connection_id
 
       # The Counterparty associated to this account.
       sig { returns(T.nilable(String)) }
@@ -131,10 +130,6 @@ module ModernTreasury
       end
       attr_writer :party_address
 
-      # The legal name of the entity which owns the account.
-      sig { returns(T.nilable(String)) }
-      attr_accessor :party_name
-
       # A hash of vendor specific attributes that will be used when creating the account
       # at the vendor specified by the given connection.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
@@ -145,16 +140,17 @@ module ModernTreasury
 
       sig do
         params(
+          connection_id: String,
           currency:
             ModernTreasury::InternalAccountCreateParams::Currency::OrSymbol,
           name: String,
+          party_name: String,
           account_capabilities:
             T::Array[
               ModernTreasury::InternalAccountCreateParams::AccountCapability::OrHash
             ],
           account_type:
             ModernTreasury::InternalAccountCreateParams::AccountType::OrSymbol,
-          connection_id: String,
           counterparty_id: String,
           debitable: T.nilable(T::Boolean),
           external_id: T.nilable(String),
@@ -163,26 +159,25 @@ module ModernTreasury
           parent_account_id: String,
           party_address:
             ModernTreasury::InternalAccountCreateParams::PartyAddress::OrHash,
-          party_name: T.nilable(String),
           vendor_attributes: T::Hash[Symbol, String],
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
       def self.new(
+        # The identifier of the financial institution the account belongs to.
+        connection_id:,
         # The currency of the internal account. Supports fiat and stablecoin currencies.
         currency:,
         # The nickname of the account.
         name:,
+        # The legal name of the entity which owns the account.
+        party_name:,
         # An array of AccountCapability objects that list the originating abilities of the
         # internal account and any relevant information for them.
         account_capabilities: nil,
         # The account type, used to provision the appropriate account at the financial
         # institution.
         account_type: nil,
-        # The identifier of the financial institution the account belongs to. If not
-        # provided, defaults to the default connection, or the sole connection if only one
-        # exists.
-        connection_id: nil,
         # The Counterparty associated to this account.
         counterparty_id: nil,
         # Whether this account can receive ACH debits. Only applicable to accounts created
@@ -201,8 +196,6 @@ module ModernTreasury
         parent_account_id: nil,
         # The address associated with the owner or null.
         party_address: nil,
-        # The legal name of the entity which owns the account.
-        party_name: nil,
         # A hash of vendor specific attributes that will be used when creating the account
         # at the vendor specified by the given connection.
         vendor_attributes: nil,
@@ -213,16 +206,17 @@ module ModernTreasury
       sig do
         override.returns(
           {
+            connection_id: String,
             currency:
               ModernTreasury::InternalAccountCreateParams::Currency::OrSymbol,
             name: String,
+            party_name: String,
             account_capabilities:
               T::Array[
                 ModernTreasury::InternalAccountCreateParams::AccountCapability
               ],
             account_type:
               ModernTreasury::InternalAccountCreateParams::AccountType::OrSymbol,
-            connection_id: String,
             counterparty_id: String,
             debitable: T.nilable(T::Boolean),
             external_id: T.nilable(String),
@@ -231,7 +225,6 @@ module ModernTreasury
             parent_account_id: String,
             party_address:
               ModernTreasury::InternalAccountCreateParams::PartyAddress,
-            party_name: T.nilable(String),
             vendor_attributes: T::Hash[Symbol, String],
             request_options: ModernTreasury::RequestOptions
           }
@@ -265,6 +258,11 @@ module ModernTreasury
             :USDC,
             ModernTreasury::InternalAccountCreateParams::Currency::TaggedSymbol
           )
+        USDG =
+          T.let(
+            :USDG,
+            ModernTreasury::InternalAccountCreateParams::Currency::TaggedSymbol
+          )
         USDT =
           T.let(
             :USDT,
@@ -273,11 +271,6 @@ module ModernTreasury
         PYUSD =
           T.let(
             :PYUSD,
-            ModernTreasury::InternalAccountCreateParams::Currency::TaggedSymbol
-          )
-        USDG =
-          T.let(
-            :USDG,
             ModernTreasury::InternalAccountCreateParams::Currency::TaggedSymbol
           )
 
@@ -463,6 +456,16 @@ module ModernTreasury
               :gb_fps,
               ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
             )
+          HU_ICS =
+            T.let(
+              :hu_ics,
+              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
+            )
+          INTERAC =
+            T.let(
+              :interac,
+              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
+            )
           MASAV =
             T.let(
               :masav,
@@ -493,6 +496,16 @@ module ModernTreasury
               :pl_elixir,
               ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
             )
+          PROVXCHANGE =
+            T.let(
+              :provxchange,
+              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
+            )
+          RO_SENT =
+            T.let(
+              :ro_sent,
+              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
+            )
           RTP =
             T.let(
               :rtp,
@@ -501,6 +514,11 @@ module ModernTreasury
           SE_BANKGIROT =
             T.let(
               :se_bankgirot,
+              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
+            )
+          SEN =
+            T.let(
+              :sen,
               ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
             )
           SEPA =
@@ -516,6 +534,16 @@ module ModernTreasury
           SIC =
             T.let(
               :sic,
+              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
+            )
+          SIGNET =
+            T.let(
+              :signet,
+              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
+            )
+          SKNBI =
+            T.let(
+              :sknbi,
               ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
             )
           STABLECOIN =

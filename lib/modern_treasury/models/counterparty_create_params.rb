@@ -353,6 +353,8 @@ module ModernTreasury
             DK_INTERBANK_CLEARING_CODE = :dk_interbank_clearing_code
             GB_SORT_CODE = :gb_sort_code
             HK_INTERBANK_CLEARING_CODE = :hk_interbank_clearing_code
+            HU_INTERBANK_CLEARING_CODE = :hu_interbank_clearing_code
+            ID_SKNBI_CODE = :id_sknbi_code
             IL_BANK_CODE = :il_bank_code
             IN_IFSC = :in_ifsc
             JP_ZENGIN_CODE = :jp_zengin_code
@@ -384,17 +386,24 @@ module ModernTreasury
             DK_NETS = :dk_nets
             EFT = :eft
             GB_FPS = :gb_fps
+            HU_ICS = :hu_ics
+            INTERAC = :interac
             MASAV = :masav
             MX_CCEN = :mx_ccen
             NEFT = :neft
             NICS = :nics
             NZ_BECS = :nz_becs
             PL_ELIXIR = :pl_elixir
+            PROVXCHANGE = :provxchange
+            RO_SENT = :ro_sent
             RTP = :rtp
             SE_BANKGIROT = :se_bankgirot
+            SEN = :sen
             SEPA = :sepa
             SG_GIRO = :sg_giro
             SIC = :sic
+            SIGNET = :signet
+            SKNBI = :sknbi
             STABLECOIN = :stablecoin
             WIRE = :wire
             ZENGIN = :zengin
@@ -659,14 +668,6 @@ module ModernTreasury
         #   @return [String, nil]
         optional :suffix, String, nil?: true
 
-        # @!attribute terms_of_use
-        #   Acceptance of terms of use by the legal entity.
-        #
-        #   @return [ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::TermsOfUse, nil]
-        optional :terms_of_use,
-                 -> { ModernTreasury::CounterpartyCreateParams::LegalEntity::TermsOfUse },
-                 nil?: true
-
         # @!attribute third_party_verification
         #   @deprecated
         #
@@ -701,7 +702,7 @@ module ModernTreasury
         #   @return [String, nil]
         optional :website, String, nil?: true
 
-        # @!method initialize(legal_entity_type:, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, connection_id: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, documents: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, external_id: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_entity_associations: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, service_provider_legal_entity_id: nil, suffix: nil, terms_of_use: nil, third_party_verification: nil, third_party_verifications: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil)
+        # @!method initialize(legal_entity_type:, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, connection_id: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, documents: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, external_id: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_entity_associations: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, service_provider_legal_entity_id: nil, suffix: nil, third_party_verification: nil, third_party_verifications: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil)
         #   Some parameter documentations has been truncated, see
         #   {ModernTreasury::Models::CounterpartyCreateParams::LegalEntity} for more
         #   details.
@@ -777,8 +778,6 @@ module ModernTreasury
         #   @param service_provider_legal_entity_id [String, nil] The UUID of the parent legal entity in the service provider tree.
         #
         #   @param suffix [String, nil] An individual's suffix.
-        #
-        #   @param terms_of_use [ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::TermsOfUse, nil] Acceptance of terms of use by the legal entity.
         #
         #   @param third_party_verification [ModernTreasury::Models::ThirdPartyVerification, nil] Deprecated. Use `third_party_verifications` instead.
         #
@@ -922,33 +921,6 @@ module ModernTreasury
 
           # @!method self.values
           #   @return [Array<Symbol>]
-        end
-
-        # @see ModernTreasury::Models::CounterpartyCreateParams::LegalEntity#terms_of_use
-        class TermsOfUse < ModernTreasury::Internal::Type::BaseModel
-          # @!attribute accepted_at
-          #   The ISO 8601 timestamp indicating when the terms of use were accepted.
-          #
-          #   @return [Time, nil]
-          optional :accepted_at, Time
-
-          # @!attribute ip_address
-          #   The IP address from which the terms of use were accepted. Supports both IPv4 and
-          #   IPv6 formats.
-          #
-          #   @return [String, nil]
-          optional :ip_address, String
-
-          # @!method initialize(accepted_at: nil, ip_address: nil)
-          #   Some parameter documentations has been truncated, see
-          #   {ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::TermsOfUse} for
-          #   more details.
-          #
-          #   Acceptance of terms of use by the legal entity.
-          #
-          #   @param accepted_at [Time] The ISO 8601 timestamp indicating when the terms of use were accepted.
-          #
-          #   @param ip_address [String] The IP address from which the terms of use were accepted. Supports both IPv4 and
         end
       end
     end

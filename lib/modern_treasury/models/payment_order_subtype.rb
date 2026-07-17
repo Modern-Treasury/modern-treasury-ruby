@@ -23,10 +23,10 @@ module ModernTreasury
       BACS = :bacs
       BASE = :base
       CHATS = :chats
-      DIGITAL = :digital
       DK_NETS = :dk_nets
       EFT = :eft
       ETHEREUM = :ethereum
+      HU_ICS = :hu_ics
       MASAV = :masav
       MX_CCEN = :mx_ccen
       NEFT = :neft
@@ -34,11 +34,12 @@ module ModernTreasury
       NZ_BECS = :nz_becs
       PL_ELIXIR = :pl_elixir
       POLYGON = :polygon
-      PRINT = :print
+      RO_SENT = :ro_sent
       SE_BANKGIROT = :se_bankgirot
       SEPA = :sepa
       SG_GIRO = :sg_giro
       SIC = :sic
+      SKNBI = :sknbi
       SOLANA = :solana
       ZENGIN = :zengin
 
