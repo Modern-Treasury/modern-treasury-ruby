@@ -172,7 +172,8 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :statement_descriptor
 
-      # One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire.
+      # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
+      # sepa, signet, wire.
       sig { returns(T.nilable(ModernTreasury::ExpectedPaymentType::OrSymbol)) }
       attr_accessor :type
 
@@ -284,7 +285,8 @@ module ModernTreasury
         # payments, this will be the OBI field on the wire. For check payments, this will
         # be the memo field.
         statement_descriptor: nil,
-        # One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire.
+        # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
+        # sepa, signet, wire.
         type: nil,
         request_options: {}
       )

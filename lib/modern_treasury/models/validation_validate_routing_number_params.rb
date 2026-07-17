@@ -50,6 +50,8 @@ module ModernTreasury
         DK_INTERBANK_CLEARING_CODE = :dk_interbank_clearing_code
         GB_SORT_CODE = :gb_sort_code
         HK_INTERBANK_CLEARING_CODE = :hk_interbank_clearing_code
+        HU_INTERBANK_CLEARING_CODE = :hu_interbank_clearing_code
+        ID_SKNBI_CODE = :id_sknbi_code
         IL_BANK_CODE = :il_bank_code
         IN_IFSC = :in_ifsc
         JP_ZENGIN_CODE = :jp_zengin_code

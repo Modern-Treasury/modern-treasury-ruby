@@ -96,59 +96,59 @@ module ModernTreasury
           end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        CONNECTION =
+        CONNECTIONS =
           T.let(
-            :connection,
+            :connections,
             ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
           )
-        COUNTERPARTY =
+        COUNTERPARTIES =
           T.let(
-            :counterparty,
+            :counterparties,
             ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
           )
-        EXPECTED_PAYMENT =
+        EXPECTED_PAYMENTS =
           T.let(
-            :expected_payment,
+            :expected_payments,
             ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
           )
-        EXTERNAL_ACCOUNT =
+        EXTERNAL_ACCOUNTS =
           T.let(
-            :external_account,
+            :external_accounts,
             ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
           )
-        IDENTIFICATION =
+        IDENTIFICATIONS =
           T.let(
-            :identification,
+            :identifications,
             ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
           )
-        INCOMING_PAYMENT_DETAIL =
+        INCOMING_PAYMENT_DETAILS =
           T.let(
-            :incoming_payment_detail,
+            :incoming_payment_details,
             ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
           )
-        INTERNAL_ACCOUNT =
+        INTERNAL_ACCOUNTS =
           T.let(
-            :internal_account,
+            :internal_accounts,
             ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
           )
-        LEGAL_ENTITY =
+        LEGAL_ENTITIES =
           T.let(
-            :legal_entity,
+            :legal_entities,
             ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
           )
-        ORGANIZATION =
+        ORGANIZATIONS =
           T.let(
-            :organization,
+            :organizations,
             ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
           )
-        PAYMENT_ORDER =
+        PAYMENT_ORDERS =
           T.let(
-            :payment_order,
+            :payment_orders,
             ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
           )
-        TRANSACTION =
+        TRANSACTIONS =
           T.let(
-            :transaction,
+            :transactions,
             ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
           )
 

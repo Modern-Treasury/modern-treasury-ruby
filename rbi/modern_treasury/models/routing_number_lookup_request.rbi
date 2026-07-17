@@ -280,6 +280,16 @@ module ModernTreasury
             :gb_fps,
             ModernTreasury::RoutingNumberLookupRequest::SupportedPaymentType::TaggedSymbol
           )
+        HU_ICS =
+          T.let(
+            :hu_ics,
+            ModernTreasury::RoutingNumberLookupRequest::SupportedPaymentType::TaggedSymbol
+          )
+        INTERAC =
+          T.let(
+            :interac,
+            ModernTreasury::RoutingNumberLookupRequest::SupportedPaymentType::TaggedSymbol
+          )
         MASAV =
           T.let(
             :masav,
@@ -310,6 +320,16 @@ module ModernTreasury
             :pl_elixir,
             ModernTreasury::RoutingNumberLookupRequest::SupportedPaymentType::TaggedSymbol
           )
+        PROVXCHANGE =
+          T.let(
+            :provxchange,
+            ModernTreasury::RoutingNumberLookupRequest::SupportedPaymentType::TaggedSymbol
+          )
+        RO_SENT =
+          T.let(
+            :ro_sent,
+            ModernTreasury::RoutingNumberLookupRequest::SupportedPaymentType::TaggedSymbol
+          )
         RTP =
           T.let(
             :rtp,
@@ -318,6 +338,11 @@ module ModernTreasury
         SE_BANKGIROT =
           T.let(
             :se_bankgirot,
+            ModernTreasury::RoutingNumberLookupRequest::SupportedPaymentType::TaggedSymbol
+          )
+        SEN =
+          T.let(
+            :sen,
             ModernTreasury::RoutingNumberLookupRequest::SupportedPaymentType::TaggedSymbol
           )
         SEPA =
@@ -333,6 +358,16 @@ module ModernTreasury
         SIC =
           T.let(
             :sic,
+            ModernTreasury::RoutingNumberLookupRequest::SupportedPaymentType::TaggedSymbol
+          )
+        SIGNET =
+          T.let(
+            :signet,
+            ModernTreasury::RoutingNumberLookupRequest::SupportedPaymentType::TaggedSymbol
+          )
+        SKNBI =
+          T.let(
+            :sknbi,
             ModernTreasury::RoutingNumberLookupRequest::SupportedPaymentType::TaggedSymbol
           )
         STABLECOIN =

@@ -43,7 +43,6 @@ module ModernTreasury
         service_provider_legal_entity_id: String?,
         status: ModernTreasury::Models::ChildLegalEntity::status?,
         suffix: String?,
-        terms_of_use: ModernTreasury::ChildLegalEntity::TermsOfUse?,
         third_party_verification: ModernTreasury::ThirdPartyVerification?,
         third_party_verifications: ::Array[ModernTreasury::ThirdPartyVerification],
         ticker_symbol: String?,
@@ -135,8 +134,6 @@ module ModernTreasury
 
       attr_accessor suffix: String?
 
-      attr_accessor terms_of_use: ModernTreasury::ChildLegalEntity::TermsOfUse?
-
       attr_accessor third_party_verification: ModernTreasury::ThirdPartyVerification?
 
       attr_accessor third_party_verifications: ::Array[ModernTreasury::ThirdPartyVerification]
@@ -191,7 +188,6 @@ module ModernTreasury
         service_provider_legal_entity_id: String?,
         status: ModernTreasury::Models::ChildLegalEntity::status?,
         suffix: String?,
-        terms_of_use: ModernTreasury::ChildLegalEntity::TermsOfUse?,
         third_party_verification: ModernTreasury::ThirdPartyVerification?,
         third_party_verifications: ::Array[ModernTreasury::ThirdPartyVerification],
         ticker_symbol: String?,
@@ -242,7 +238,6 @@ module ModernTreasury
         service_provider_legal_entity_id: String?,
         status: ModernTreasury::Models::ChildLegalEntity::status?,
         suffix: String?,
-        terms_of_use: ModernTreasury::ChildLegalEntity::TermsOfUse?,
         third_party_verification: ModernTreasury::ThirdPartyVerification?,
         third_party_verifications: ::Array[ModernTreasury::ThirdPartyVerification],
         ticker_symbol: String?,
@@ -334,7 +329,6 @@ module ModernTreasury
 
         type address_type =
           :business
-          | :business_physical
           | :business_registered
           | :mailing
           | :other
@@ -345,7 +339,6 @@ module ModernTreasury
           extend ModernTreasury::Internal::Type::Enum
 
           BUSINESS: :business
-          BUSINESS_PHYSICAL: :business_physical
           BUSINESS_REGISTERED: :business_registered
           MAILING: :mailing
           OTHER: :other
@@ -462,7 +455,6 @@ module ModernTreasury
           | :gb_nino
           | :gb_utr
           | :gb_vat
-          | :generic_international
           | :gr_vat
           | :hn_id
           | :hn_rtn
@@ -492,7 +484,6 @@ module ModernTreasury
           | :mx_curp
           | :mx_ine
           | :mx_rfc
-          | :national_id
           | :nl_bsn
           | :nl_btw
           | :nl_rsin
@@ -565,7 +556,6 @@ module ModernTreasury
           GB_NINO: :gb_nino
           GB_UTR: :gb_utr
           GB_VAT: :gb_vat
-          GENERIC_INTERNATIONAL: :generic_international
           GR_VAT: :gr_vat
           HN_ID: :hn_id
           HN_RTN: :hn_rtn
@@ -595,7 +585,6 @@ module ModernTreasury
           MX_CURP: :mx_curp
           MX_INE: :mx_ine
           MX_RFC: :mx_rfc
-          NATIONAL_ID: :national_id
           NL_BSN: :nl_bsn
           NL_BTW: :nl_btw
           NL_RSIN: :nl_rsin
@@ -630,13 +619,14 @@ module ModernTreasury
         end
       end
 
-      type legal_entity_type = :business | :individual
+      type legal_entity_type = :business | :individual | :joint
 
       module LegalEntityType
         extend ModernTreasury::Internal::Type::Enum
 
         BUSINESS: :business
         INDIVIDUAL: :individual
+        JOINT: :joint
 
         def self?.values: -> ::Array[ModernTreasury::Models::ChildLegalEntity::legal_entity_type]
       end
@@ -720,22 +710,6 @@ module ModernTreasury
         SUSPENDED: :suspended
 
         def self?.values: -> ::Array[ModernTreasury::Models::ChildLegalEntity::status]
-      end
-
-      type terms_of_use = { accepted_at: Time, ip_address: String }
-
-      class TermsOfUse < ModernTreasury::Internal::Type::BaseModel
-        attr_reader accepted_at: Time?
-
-        def accepted_at=: (Time) -> Time
-
-        attr_reader ip_address: String?
-
-        def ip_address=: (String) -> String
-
-        def initialize: (?accepted_at: Time, ?ip_address: String) -> void
-
-        def to_hash: -> { accepted_at: Time, ip_address: String }
       end
     end
   end

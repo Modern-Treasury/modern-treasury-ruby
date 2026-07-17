@@ -16,13 +16,6 @@ module ModernTreasury
       #   @return [Integer]
       required :amount, Integer
 
-      # @!attribute amount_string
-      #   The amount of the transaction as a string, preserving full precision for values
-      #   that may exceed safe integer limits in some languages.
-      #
-      #   @return [String]
-      required :amount_string, String
-
       # @!attribute as_of_date
       #   The date on which the transaction occurred.
       #
@@ -119,7 +112,7 @@ module ModernTreasury
 
       # @!attribute type
       #   The type of the transaction. Examples could be
-      #   `card, `ach`, `wire`, `check`, `rtp`, or `book`.
+      #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       #
       #   @return [Symbol, ModernTreasury::Models::Transaction::Type]
       required :type, enum: -> { ModernTreasury::Transaction::Type }
@@ -139,8 +132,8 @@ module ModernTreasury
       # @!attribute vendor_code_type
       #   The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
       #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-      #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`,
-      #   `us_bank`, or others.
+      #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+      #   `swift`, `us_bank`, or others.
       #
       #   @return [Symbol, ModernTreasury::Models::Transaction::VendorCodeType, nil]
       required :vendor_code_type, enum: -> { ModernTreasury::Transaction::VendorCodeType }, nil?: true
@@ -176,15 +169,13 @@ module ModernTreasury
       #   @return [String, nil]
       optional :vendor_description, String, nil?: true
 
-      # @!method initialize(id:, amount:, amount_string:, as_of_date:, as_of_time:, as_of_timezone:, created_at:, currency:, custom_identifiers:, direction:, discarded_at:, foreign_exchange_rate:, internal_account_id:, live_mode:, metadata:, object:, posted:, reconciled:, type:, updated_at:, vendor_code:, vendor_code_type:, vendor_customer_id:, vendor_id:, details: nil, vendor_description: nil)
+      # @!method initialize(id:, amount:, as_of_date:, as_of_time:, as_of_timezone:, created_at:, currency:, custom_identifiers:, direction:, discarded_at:, foreign_exchange_rate:, internal_account_id:, live_mode:, metadata:, object:, posted:, reconciled:, type:, updated_at:, vendor_code:, vendor_code_type:, vendor_customer_id:, vendor_id:, details: nil, vendor_description: nil)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::Transaction} for more details.
       #
       #   @param id [String]
       #
       #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
-      #
-      #   @param amount_string [String] The amount of the transaction as a string, preserving full precision for values
       #
       #   @param as_of_date [Date, nil] The date on which the transaction occurred.
       #
@@ -233,7 +224,7 @@ module ModernTreasury
       #   @param vendor_description [String, nil] The transaction detail text that often appears in on your bank statement and in
 
       # The type of the transaction. Examples could be
-      # `card, `ach`, `wire`, `check`, `rtp`, or `book`.
+      # `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       #
       # @see ModernTreasury::Models::Transaction#type
       module Type
@@ -250,17 +241,24 @@ module ModernTreasury
         DK_NETS = :dk_nets
         EFT = :eft
         GB_FPS = :gb_fps
+        HU_ICS = :hu_ics
+        INTERAC = :interac
         MASAV = :masav
         MX_CCEN = :mx_ccen
         NEFT = :neft
         NICS = :nics
         NZ_BECS = :nz_becs
         PL_ELIXIR = :pl_elixir
+        PROVXCHANGE = :provxchange
+        RO_SENT = :ro_sent
         RTP = :rtp
         SE_BANKGIROT = :se_bankgirot
+        SEN = :sen
         SEPA = :sepa
         SG_GIRO = :sg_giro
         SIC = :sic
+        SIGNET = :signet
+        SKNBI = :sknbi
         STABLECOIN = :stablecoin
         WIRE = :wire
         ZENGIN = :zengin
@@ -272,8 +270,8 @@ module ModernTreasury
 
       # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
       # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-      # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`,
-      # `us_bank`, or others.
+      # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+      # `swift`, `us_bank`, or others.
       #
       # @see ModernTreasury::Models::Transaction#vendor_code_type
       module VendorCodeType
@@ -300,9 +298,9 @@ module ModernTreasury
         PAXOS = :paxos
         PAYPAL = :paypal
         PNC = :pnc
+        SIGNET = :signet
         SILVERGATE = :silvergate
         SWIFT = :swift
-        TURNKEY = :turnkey
         US_BANK = :us_bank
         USER = :user
         WESTERN_ALLIANCE = :western_alliance

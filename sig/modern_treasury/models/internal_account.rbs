@@ -204,17 +204,24 @@ module ModernTreasury
           | :dk_nets
           | :eft
           | :gb_fps
+          | :hu_ics
+          | :interac
           | :masav
           | :mx_ccen
           | :neft
           | :nics
           | :nz_becs
           | :pl_elixir
+          | :provxchange
+          | :ro_sent
           | :rtp
           | :se_bankgirot
+          | :sen
           | :sepa
           | :sg_giro
           | :sic
+          | :signet
+          | :sknbi
           | :stablecoin
           | :wire
           | :zengin
@@ -233,17 +240,24 @@ module ModernTreasury
           DK_NETS: :dk_nets
           EFT: :eft
           GB_FPS: :gb_fps
+          HU_ICS: :hu_ics
+          INTERAC: :interac
           MASAV: :masav
           MX_CCEN: :mx_ccen
           NEFT: :neft
           NICS: :nics
           NZ_BECS: :nz_becs
           PL_ELIXIR: :pl_elixir
+          PROVXCHANGE: :provxchange
+          RO_SENT: :ro_sent
           RTP: :rtp
           SE_BANKGIROT: :se_bankgirot
+          SEN: :sen
           SEPA: :sepa
           SG_GIRO: :sg_giro
           SIC: :sic
+          SIGNET: :signet
+          SKNBI: :sknbi
           STABLECOIN: :stablecoin
           WIRE: :wire
           ZENGIN: :zengin

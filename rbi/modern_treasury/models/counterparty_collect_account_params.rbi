@@ -261,9 +261,19 @@ module ModernTreasury
             :hkInterbankClearingCode,
             ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
           )
+        HU_INTERBANK_CLEARING_CODE =
+          T.let(
+            :huInterbankClearingCode,
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
+          )
         DK_INTERBANK_CLEARING_CODE =
           T.let(
             :dkInterbankClearingCode,
+            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
+          )
+        ID_SKNBI_CODE =
+          T.let(
+            :idSknbiCode,
             ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
           )
         ZA_NATIONAL_CLEARING_CODE =

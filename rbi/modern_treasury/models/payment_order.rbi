@@ -257,8 +257,9 @@ module ModernTreasury
       sig { returns(T::Array[String]) }
       attr_accessor :transaction_ids
 
-      # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`,
-      # `bacs`, `au_becs`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `zengin`.
+      # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
+      # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
+      # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
       sig { returns(ModernTreasury::PaymentOrderType::TaggedSymbol) }
       attr_accessor :type
 
@@ -507,8 +508,9 @@ module ModernTreasury
         # results in a Return, but gets redrafted and is later successfully completed, it
         # can have many transactions.
         transaction_ids:,
-        # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`,
-        # `bacs`, `au_becs`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `zengin`.
+        # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
+        # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
+        # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
         type:,
         # The account to which the originating of this payment should be attributed to.
         # Can be a `virtual_account` or `internal_account`.
@@ -1388,6 +1390,11 @@ module ModernTreasury
               :goldman_sachs_unique_payment_id,
               ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
+          INTERAC_MESSAGE_ID =
+            T.let(
+              :interac_message_id,
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
           JPMC_CCN =
             T.let(
               :jpmc_ccn,
@@ -1523,6 +1530,21 @@ module ModernTreasury
               :rtp_instruction_id,
               ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
+          SIGNET_API_REFERENCE_ID =
+            T.let(
+              :signet_api_reference_id,
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
+          SIGNET_CONFIRMATION_ID =
+            T.let(
+              :signet_confirmation_id,
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
+          SIGNET_REQUEST_ID =
+            T.let(
+              :signet_request_id,
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
           SILVERGATE_PAYMENT_ID =
             T.let(
               :silvergate_payment_id,
@@ -1546,16 +1568,6 @@ module ModernTreasury
           SWIFT_UETR =
             T.let(
               :swift_uetr,
-              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
-            )
-          TURNKEY_ACTIVITY_ID =
-            T.let(
-              :turnkey_activity_id,
-              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
-            )
-          TURNKEY_SEND_TRANSACTION_STATUS_ID =
-            T.let(
-              :turnkey_send_transaction_status_id,
               ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           UMB_PRODUCT_PARTNER_ACCOUNT_NUMBER =

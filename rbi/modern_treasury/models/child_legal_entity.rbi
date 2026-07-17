@@ -205,18 +205,6 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :suffix
 
-      # Acceptance of terms of use by the legal entity.
-      sig { returns(T.nilable(ModernTreasury::ChildLegalEntity::TermsOfUse)) }
-      attr_reader :terms_of_use
-
-      sig do
-        params(
-          terms_of_use:
-            T.nilable(ModernTreasury::ChildLegalEntity::TermsOfUse::OrHash)
-        ).void
-      end
-      attr_writer :terms_of_use
-
       # Deprecated. Use `third_party_verifications` instead.
       sig { returns(T.nilable(ModernTreasury::ThirdPartyVerification)) }
       attr_reader :third_party_verification
@@ -314,8 +302,6 @@ module ModernTreasury
           service_provider_legal_entity_id: T.nilable(String),
           status: T.nilable(ModernTreasury::ChildLegalEntity::Status::OrSymbol),
           suffix: T.nilable(String),
-          terms_of_use:
-            T.nilable(ModernTreasury::ChildLegalEntity::TermsOfUse::OrHash),
           third_party_verification:
             T.nilable(ModernTreasury::ThirdPartyVerification::OrHash),
           third_party_verifications:
@@ -408,8 +394,6 @@ module ModernTreasury
         status:,
         # An individual's suffix.
         suffix:,
-        # Acceptance of terms of use by the legal entity.
-        terms_of_use:,
         # Deprecated. Use `third_party_verifications` instead.
         third_party_verification:,
         # A list of third-party verifications run by external vendors.
@@ -480,8 +464,6 @@ module ModernTreasury
             status:
               T.nilable(ModernTreasury::ChildLegalEntity::Status::TaggedSymbol),
             suffix: T.nilable(String),
-            terms_of_use:
-              T.nilable(ModernTreasury::ChildLegalEntity::TermsOfUse),
             third_party_verification:
               T.nilable(ModernTreasury::ThirdPartyVerification),
             third_party_verifications:
@@ -551,8 +533,7 @@ module ModernTreasury
         sig { returns(T.nilable(String)) }
         attr_accessor :postal_code
 
-        # Whether this address is the primary address for the legal entity. Optional; when
-        # omitted it is inferred from the address types.
+        # Whether this address is the primary address for the legal entity.
         sig { returns(T.nilable(T::Boolean)) }
         attr_accessor :primary
 
@@ -602,8 +583,7 @@ module ModernTreasury
           object:,
           # The postal code of the address.
           postal_code:,
-          # Whether this address is the primary address for the legal entity. Optional; when
-          # omitted it is inferred from the address types.
+          # Whether this address is the primary address for the legal entity.
           primary:,
           # Region or State.
           region:,
@@ -652,11 +632,6 @@ module ModernTreasury
           BUSINESS =
             T.let(
               :business,
-              ModernTreasury::ChildLegalEntity::Address::AddressType::TaggedSymbol
-            )
-          BUSINESS_PHYSICAL =
-            T.let(
-              :business_physical,
               ModernTreasury::ChildLegalEntity::Address::AddressType::TaggedSymbol
             )
           BUSINESS_REGISTERED =
@@ -1019,11 +994,6 @@ module ModernTreasury
               :gb_vat,
               ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
             )
-          GENERIC_INTERNATIONAL =
-            T.let(
-              :generic_international,
-              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
-            )
           GR_VAT =
             T.let(
               :gr_vat,
@@ -1167,11 +1137,6 @@ module ModernTreasury
           MX_RFC =
             T.let(
               :mx_rfc,
-              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
-            )
-          NATIONAL_ID =
-            T.let(
-              :national_id,
               ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
             )
           NL_BSN =
@@ -1350,6 +1315,11 @@ module ModernTreasury
         INDIVIDUAL =
           T.let(
             :individual,
+            ModernTreasury::ChildLegalEntity::LegalEntityType::TaggedSymbol
+          )
+        JOINT =
+          T.let(
+            :joint,
             ModernTreasury::ChildLegalEntity::LegalEntityType::TaggedSymbol
           )
 
@@ -1557,50 +1527,6 @@ module ModernTreasury
           )
         end
         def self.values
-        end
-      end
-
-      class TermsOfUse < ModernTreasury::Internal::Type::BaseModel
-        OrHash =
-          T.type_alias do
-            T.any(
-              ModernTreasury::ChildLegalEntity::TermsOfUse,
-              ModernTreasury::Internal::AnyHash
-            )
-          end
-
-        # The ISO 8601 timestamp indicating when the terms of use were accepted.
-        sig { returns(T.nilable(Time)) }
-        attr_reader :accepted_at
-
-        sig { params(accepted_at: Time).void }
-        attr_writer :accepted_at
-
-        # The IP address from which the terms of use were accepted. Supports both IPv4 and
-        # IPv6 formats.
-        sig { returns(T.nilable(String)) }
-        attr_reader :ip_address
-
-        sig { params(ip_address: String).void }
-        attr_writer :ip_address
-
-        # Acceptance of terms of use by the legal entity.
-        sig do
-          params(accepted_at: Time, ip_address: String).returns(
-            T.attached_class
-          )
-        end
-        def self.new(
-          # The ISO 8601 timestamp indicating when the terms of use were accepted.
-          accepted_at: nil,
-          # The IP address from which the terms of use were accepted. Supports both IPv4 and
-          # IPv6 formats.
-          ip_address: nil
-        )
-        end
-
-        sig { override.returns({ accepted_at: Time, ip_address: String }) }
-        def to_hash
         end
       end
     end

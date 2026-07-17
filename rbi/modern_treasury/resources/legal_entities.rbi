@@ -67,10 +67,6 @@ module ModernTreasury
             ),
           service_provider_legal_entity_id: T.nilable(String),
           suffix: T.nilable(String),
-          terms_of_use:
-            T.nilable(
-              ModernTreasury::LegalEntityCreateParams::TermsOfUse::OrHash
-            ),
           third_party_verification:
             T.nilable(ModernTreasury::ThirdPartyVerification::OrHash),
           third_party_verifications:
@@ -161,8 +157,6 @@ module ModernTreasury
         service_provider_legal_entity_id: nil,
         # An individual's suffix.
         suffix: nil,
-        # Acceptance of terms of use by the legal entity.
-        terms_of_use: nil,
         # Deprecated. Use `third_party_verifications` instead.
         third_party_verification: nil,
         # A list of third-party verifications run by external vendors.
@@ -243,10 +237,6 @@ module ModernTreasury
             ),
           service_provider_legal_entity_id: T.nilable(String),
           suffix: T.nilable(String),
-          terms_of_use:
-            T.nilable(
-              ModernTreasury::LegalEntityUpdateParams::TermsOfUse::OrHash
-            ),
           third_party_verification:
             T.nilable(ModernTreasury::ThirdPartyVerification::OrHash),
           third_party_verifications:
@@ -325,8 +315,6 @@ module ModernTreasury
         service_provider_legal_entity_id: nil,
         # An individual's suffix.
         suffix: nil,
-        # Acceptance of terms of use by the legal entity.
-        terms_of_use: nil,
         # Deprecated. Use `third_party_verifications` instead.
         third_party_verification: nil,
         # A list of third-party verifications run by external vendors.
@@ -366,25 +354,6 @@ module ModernTreasury
         per_page: nil,
         show_deleted: nil,
         status: nil,
-        request_options: {}
-      )
-      end
-
-      # Update Legal Entity Status (sandbox only)
-      sig do
-        params(
-          id: String,
-          status:
-            ModernTreasury::LegalEntityUpdateStatusParams::Status::OrSymbol,
-          request_options: ModernTreasury::RequestOptions::OrHash
-        ).returns(ModernTreasury::LegalEntity)
-      end
-      def update_status(
-        # Legal entity ID
-        id,
-        # The target status for the legal entity. One of `active`, `suspended`, or
-        # `denied`. Valid transitions depend on the current status.
-        status:,
         request_options: {}
       )
       end
