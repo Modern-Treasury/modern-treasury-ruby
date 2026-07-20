@@ -106,7 +106,7 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :invoicer_name
 
-      # Translation missing: en.openapi.descriptions.invoice.schema.issued_at
+      # The time at which the invoice was issued.
       sig { returns(T.nilable(Time)) }
       attr_accessor :issued_at
 
@@ -146,7 +146,7 @@ module ModernTreasury
       sig { returns(String) }
       attr_accessor :originating_account_id
 
-      # Translation missing: en.openapi.descriptions.invoice.schema.paid_at
+      # The time at which the invoice was paid.
       sig { returns(T.nilable(Time)) }
       attr_accessor :paid_at
 
@@ -217,7 +217,7 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :virtual_account_id
 
-      # Translation missing: en.openapi.descriptions.invoice.schema.voided_at
+      # The time at which the invoice was voided.
       sig { returns(T.nilable(Time)) }
       attr_accessor :voided_at
 
@@ -310,7 +310,7 @@ module ModernTreasury
         # The name of the issuer for the invoice. Defaults to the name of the
         # Organization.
         invoicer_name:,
-        # Translation missing: en.openapi.descriptions.invoice.schema.issued_at
+        # The time at which the invoice was issued.
         issued_at:,
         # The ledger account settlement object linked to the invoice.
         ledger_account_settlement_id:,
@@ -332,7 +332,7 @@ module ModernTreasury
         object:,
         # The ID of the internal account the invoice should be paid to.
         originating_account_id:,
-        # Translation missing: en.openapi.descriptions.invoice.schema.paid_at
+        # The time at which the invoice was paid.
         paid_at:,
         # Date transactions are to be posted to the participants' account. Defaults to the
         # current business day or the next business day if the current day is a bank
@@ -369,7 +369,7 @@ module ModernTreasury
         updated_at:,
         # The ID of the virtual account the invoice should be paid to.
         virtual_account_id:,
-        # Translation missing: en.openapi.descriptions.invoice.schema.voided_at
+        # The time at which the invoice was voided.
         voided_at:
       )
       end
