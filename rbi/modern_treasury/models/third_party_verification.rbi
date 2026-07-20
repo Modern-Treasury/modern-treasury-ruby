@@ -147,6 +147,16 @@ module ModernTreasury
             :alloy,
             ModernTreasury::ThirdPartyVerification::Vendor::TaggedSymbol
           )
+        IDOLOGY =
+          T.let(
+            :idology,
+            ModernTreasury::ThirdPartyVerification::Vendor::TaggedSymbol
+          )
+        SOCURE =
+          T.let(
+            :socure,
+            ModernTreasury::ThirdPartyVerification::Vendor::TaggedSymbol
+          )
         SUMSUB =
           T.let(
             :sumsub,

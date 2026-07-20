@@ -85,8 +85,7 @@ module ModernTreasury
       sig { params(subtype: String).void }
       attr_writer :subtype
 
-      # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
-      # `wire`.
+      # One of: `ach`, `book`, `check`, `eft`, `rtp`, `sepa`, or `wire`.
       sig do
         returns(
           T.nilable(
@@ -149,8 +148,7 @@ module ModernTreasury
         # For example, a `type` of `stablecoin` may have a `subtype` of `ethereum` or
         # `solana`.
         subtype: nil,
-        # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
-        # `wire`.
+        # One of: `ach`, `book`, `check`, `eft`, `rtp`, `sepa`, or `wire`.
         type: nil,
         # If the incoming payment detail is in a virtual account, the ID of the Virtual
         # Account.
@@ -222,8 +220,7 @@ module ModernTreasury
         end
       end
 
-      # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
-      # `wire`.
+      # One of: `ach`, `book`, `check`, `eft`, `rtp`, `sepa`, or `wire`.
       module Type
         extend ModernTreasury::Internal::Type::Enum
 
@@ -263,11 +260,6 @@ module ModernTreasury
             :eft,
             ModernTreasury::IncomingPaymentDetailListParams::Type::TaggedSymbol
           )
-        INTERAC =
-          T.let(
-            :interac,
-            ModernTreasury::IncomingPaymentDetailListParams::Type::TaggedSymbol
-          )
         NEFT =
           T.let(
             :neft,
@@ -286,11 +278,6 @@ module ModernTreasury
         SEPA =
           T.let(
             :sepa,
-            ModernTreasury::IncomingPaymentDetailListParams::Type::TaggedSymbol
-          )
-        SIGNET =
-          T.let(
-            :signet,
             ModernTreasury::IncomingPaymentDetailListParams::Type::TaggedSymbol
           )
         STABLECOIN =
