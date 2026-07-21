@@ -2,9 +2,8 @@
 
 module ModernTreasury
   module Models
-    # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
-    # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
-    # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
+    # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`,
+    # `bacs`, `au_becs`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `zengin`.
     module PaymentOrderType
       extend ModernTreasury::Internal::Type::Enum
 
@@ -24,8 +23,6 @@ module ModernTreasury
       DK_NETS = T.let(:dk_nets, ModernTreasury::PaymentOrderType::TaggedSymbol)
       EFT = T.let(:eft, ModernTreasury::PaymentOrderType::TaggedSymbol)
       GB_FPS = T.let(:gb_fps, ModernTreasury::PaymentOrderType::TaggedSymbol)
-      HU_ICS = T.let(:hu_ics, ModernTreasury::PaymentOrderType::TaggedSymbol)
-      INTERAC = T.let(:interac, ModernTreasury::PaymentOrderType::TaggedSymbol)
       MASAV = T.let(:masav, ModernTreasury::PaymentOrderType::TaggedSymbol)
       MX_CCEN = T.let(:mx_ccen, ModernTreasury::PaymentOrderType::TaggedSymbol)
       NEFT = T.let(:neft, ModernTreasury::PaymentOrderType::TaggedSymbol)
@@ -33,18 +30,12 @@ module ModernTreasury
       NZ_BECS = T.let(:nz_becs, ModernTreasury::PaymentOrderType::TaggedSymbol)
       PL_ELIXIR =
         T.let(:pl_elixir, ModernTreasury::PaymentOrderType::TaggedSymbol)
-      PROVXCHANGE =
-        T.let(:provxchange, ModernTreasury::PaymentOrderType::TaggedSymbol)
-      RO_SENT = T.let(:ro_sent, ModernTreasury::PaymentOrderType::TaggedSymbol)
       RTP = T.let(:rtp, ModernTreasury::PaymentOrderType::TaggedSymbol)
       SE_BANKGIROT =
         T.let(:se_bankgirot, ModernTreasury::PaymentOrderType::TaggedSymbol)
-      SEN = T.let(:sen, ModernTreasury::PaymentOrderType::TaggedSymbol)
       SEPA = T.let(:sepa, ModernTreasury::PaymentOrderType::TaggedSymbol)
       SG_GIRO = T.let(:sg_giro, ModernTreasury::PaymentOrderType::TaggedSymbol)
       SIC = T.let(:sic, ModernTreasury::PaymentOrderType::TaggedSymbol)
-      SIGNET = T.let(:signet, ModernTreasury::PaymentOrderType::TaggedSymbol)
-      SKNBI = T.let(:sknbi, ModernTreasury::PaymentOrderType::TaggedSymbol)
       STABLECOIN =
         T.let(:stablecoin, ModernTreasury::PaymentOrderType::TaggedSymbol)
       WIRE = T.let(:wire, ModernTreasury::PaymentOrderType::TaggedSymbol)

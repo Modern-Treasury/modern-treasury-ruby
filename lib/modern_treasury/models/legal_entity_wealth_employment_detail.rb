@@ -37,7 +37,8 @@ module ModernTreasury
       required :employer_name, String, nil?: true
 
       # @!attribute employer_state
-      #   The state in which the employer is located.
+      #   The state in which the employer is located. This field is free-form text; for US
+      #   states, we recommend a two-letter abbreviation (e.g. CA).
       #
       #   @return [String, nil]
       required :employer_state, String, nil?: true
@@ -133,7 +134,7 @@ module ModernTreasury
       #
       #   @param employer_name [String, nil] The name of the employer.
       #
-      #   @param employer_state [String, nil] The state in which the employer is located.
+      #   @param employer_state [String, nil] The state in which the employer is located. This field is free-form text; for US
       #
       #   @param employment_status [Symbol, ModernTreasury::Models::LegalEntityWealthEmploymentDetail::EmploymentStatus, nil] The employment status of the individual.
       #

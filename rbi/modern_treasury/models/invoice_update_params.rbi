@@ -192,9 +192,8 @@ module ModernTreasury
       end
       attr_writer :payment_method
 
-      # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
-      # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
-      # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
+      # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`,
+      # `bacs`, `au_becs`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `zengin`.
       sig { returns(T.nilable(ModernTreasury::PaymentOrderType::OrSymbol)) }
       attr_reader :payment_type
 
@@ -334,9 +333,8 @@ module ModernTreasury
         # invoice amount is negative, the automatically initiated payment order's
         # direction will be credit. One of `manual`, `ui`, or `automatic`.
         payment_method: nil,
-        # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
-        # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
-        # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
+        # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`,
+        # `bacs`, `au_becs`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `zengin`.
         payment_type: nil,
         # The receiving account ID. Can be an `external_account`.
         receiving_account_id: nil,
@@ -421,7 +419,8 @@ module ModernTreasury
         sig { returns(String) }
         attr_accessor :line1
 
-        # Locality or City.
+        # Locality or City. Use the full city name rather than an abbreviation (e.g. San
+        # Francisco).
         sig { returns(String) }
         attr_accessor :locality
 
@@ -429,7 +428,8 @@ module ModernTreasury
         sig { returns(String) }
         attr_accessor :postal_code
 
-        # Region or State.
+        # Region or State. This field is free-form; for US states, we recommend a
+        # two-letter code (e.g. CA). Full state names are also accepted.
         sig { returns(String) }
         attr_accessor :region
 
@@ -454,11 +454,13 @@ module ModernTreasury
           # Country code conforms to [ISO 3166-1 alpha-2]
           country:,
           line1:,
-          # Locality or City.
+          # Locality or City. Use the full city name rather than an abbreviation (e.g. San
+          # Francisco).
           locality:,
           # The postal code of the address.
           postal_code:,
-          # Region or State.
+          # Region or State. This field is free-form; for US states, we recommend a
+          # two-letter code (e.g. CA). Full state names are also accepted.
           region:,
           line2: nil
         )
@@ -496,7 +498,8 @@ module ModernTreasury
         sig { returns(String) }
         attr_accessor :line1
 
-        # Locality or City.
+        # Locality or City. Use the full city name rather than an abbreviation (e.g. San
+        # Francisco).
         sig { returns(String) }
         attr_accessor :locality
 
@@ -504,7 +507,8 @@ module ModernTreasury
         sig { returns(String) }
         attr_accessor :postal_code
 
-        # Region or State.
+        # Region or State. This field is free-form; for US states, we recommend a
+        # two-letter code (e.g. CA). Full state names are also accepted.
         sig { returns(String) }
         attr_accessor :region
 
@@ -529,11 +533,13 @@ module ModernTreasury
           # Country code conforms to [ISO 3166-1 alpha-2]
           country:,
           line1:,
-          # Locality or City.
+          # Locality or City. Use the full city name rather than an abbreviation (e.g. San
+          # Francisco).
           locality:,
           # The postal code of the address.
           postal_code:,
-          # Region or State.
+          # Region or State. This field is free-form; for US states, we recommend a
+          # two-letter code (e.g. CA). Full state names are also accepted.
           region:,
           line2: nil
         )
@@ -683,7 +689,8 @@ module ModernTreasury
         sig { returns(String) }
         attr_accessor :line1
 
-        # Locality or City.
+        # Locality or City. Use the full city name rather than an abbreviation (e.g. San
+        # Francisco).
         sig { returns(String) }
         attr_accessor :locality
 
@@ -691,7 +698,8 @@ module ModernTreasury
         sig { returns(String) }
         attr_accessor :postal_code
 
-        # Region or State.
+        # Region or State. This field is free-form; for US states, we recommend a
+        # two-letter code (e.g. CA). Full state names are also accepted.
         sig { returns(String) }
         attr_accessor :region
 
@@ -716,11 +724,13 @@ module ModernTreasury
           # Country code conforms to [ISO 3166-1 alpha-2]
           country:,
           line1:,
-          # Locality or City.
+          # Locality or City. Use the full city name rather than an abbreviation (e.g. San
+          # Francisco).
           locality:,
           # The postal code of the address.
           postal_code:,
-          # Region or State.
+          # Region or State. This field is free-form; for US states, we recommend a
+          # two-letter code (e.g. CA). Full state names are also accepted.
           region:,
           line2: nil
         )

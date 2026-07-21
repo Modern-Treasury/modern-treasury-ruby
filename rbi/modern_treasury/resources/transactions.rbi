@@ -9,12 +9,13 @@ module ModernTreasury
       # create transaction
       sig do
         params(
-          amount: Integer,
           as_of_date: T.nilable(Date),
           direction: String,
           internal_account_id: String,
           vendor_code: T.nilable(String),
           vendor_code_type: T.nilable(String),
+          amount: Integer,
+          amount_string: String,
           metadata: T::Hash[Symbol, String],
           posted: T::Boolean,
           type:
@@ -25,9 +26,6 @@ module ModernTreasury
         ).returns(ModernTreasury::Transaction)
       end
       def create(
-        # Value in specified currency's smallest unit. e.g. $10 would be represented
-        # as 1000.
-        amount:,
         # The date on which the transaction occurred.
         as_of_date:,
         # Either `credit` or `debit`.
@@ -39,16 +37,22 @@ module ModernTreasury
         vendor_code:,
         # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
         # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-        # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
-        # `swift`, `us_bank`, or others.
+        # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`,
+        # `us_bank`, or others.
         vendor_code_type:,
+        # Value in specified currency's smallest unit. e.g. $10 would be represented
+        # as 1000.
+        amount: nil,
+        # The transaction amount as a string, preserving full precision for values that
+        # may exceed safe integer limits in some languages.
+        amount_string: nil,
         # Additional data represented as key-value pairs. Both the key and value must be
         # strings.
         metadata: nil,
         # This field will be `true` if the transaction has posted to the account.
         posted: nil,
         # The type of the transaction. Examples could be
-        # `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
+        # `card, `ach`, `wire`, `check`, `rtp`, or `book`.
         type: nil,
         # An identifier given to this transaction by the bank, often `null`.
         vendor_customer_id: nil,
