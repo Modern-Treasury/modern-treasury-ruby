@@ -56,8 +56,8 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :citizenship_country
 
-      # The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
-      # alpha-3 formats.
+      # The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
+      # code (e.g. US).
       sig { returns(T.nilable(String)) }
       attr_accessor :country_of_incorporation
 
@@ -157,8 +157,8 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :middle_name
 
-      # A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3
-      # codes).
+      # A list of countries where the business operates, as ISO 3166-1 alpha-2 country
+      # codes (e.g. ["US", "CA"]).
       sig { returns(T.nilable(T::Array[String])) }
       attr_reader :operating_jurisdictions
 
@@ -374,8 +374,8 @@ module ModernTreasury
         business_name: nil,
         # The country of citizenship for an individual.
         citizenship_country: nil,
-        # The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
-        # alpha-3 formats.
+        # The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
+        # code (e.g. US).
         country_of_incorporation: nil,
         # A business's formation date (YYYY-MM-DD).
         date_formed: nil,
@@ -407,8 +407,8 @@ module ModernTreasury
         metadata: nil,
         # An individual's middle name.
         middle_name: nil,
-        # A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3
-        # codes).
+        # A list of countries where the business operates, as ISO 3166-1 alpha-2 country
+        # codes (e.g. ["US", "CA"]).
         operating_jurisdictions: nil,
         phone_numbers: nil,
         # Whether the individual is a politically exposed person.

@@ -45,8 +45,8 @@ module ModernTreasury
       required :compliance_details, ModernTreasury::Internal::Type::Unknown, nil?: true
 
       # @!attribute country_of_incorporation
-      #   The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
-      #   alpha-3 formats.
+      #   The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
+      #   code (e.g. US).
       #
       #   @return [String, nil]
       required :country_of_incorporation, String, nil?: true
@@ -185,8 +185,8 @@ module ModernTreasury
       required :object, String
 
       # @!attribute operating_jurisdictions
-      #   A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3
-      #   codes).
+      #   A list of countries where the business operates, as ISO 3166-1 alpha-2 country
+      #   codes (e.g. ["US", "CA"]).
       #
       #   @return [Array<String>]
       required :operating_jurisdictions, ModernTreasury::Internal::Type::ArrayOf[String]
@@ -317,7 +317,7 @@ module ModernTreasury
       #
       #   @param compliance_details [Object, nil]
       #
-      #   @param country_of_incorporation [String, nil] The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
+      #   @param country_of_incorporation [String, nil] The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
       #
       #   @param created_at [Time]
       #
@@ -363,7 +363,7 @@ module ModernTreasury
       #
       #   @param object [String]
       #
-      #   @param operating_jurisdictions [Array<String>] A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3 c
+      #   @param operating_jurisdictions [Array<String>] A list of countries where the business operates, as ISO 3166-1 alpha-2 country c
       #
       #   @param phone_numbers [Array<ModernTreasury::Models::ChildLegalEntity::PhoneNumber>]
       #

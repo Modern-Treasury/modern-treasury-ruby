@@ -26,7 +26,7 @@ module ModernTreasury
       #
       # @param connection_id [String, nil] The connection ID for the connection the legal entity is associated with. Defaul
       #
-      # @param country_of_incorporation [String, nil] The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
+      # @param country_of_incorporation [String, nil] The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
       #
       # @param date_formed [Date, nil] A business's formation date (YYYY-MM-DD).
       #
@@ -62,7 +62,7 @@ module ModernTreasury
       #
       # @param middle_name [String, nil] An individual's middle name.
       #
-      # @param operating_jurisdictions [Array<String>] A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3 c
+      # @param operating_jurisdictions [Array<String>] A list of countries where the business operates, as ISO 3166-1 alpha-2 country c
       #
       # @param phone_numbers [Array<ModernTreasury::Models::LegalEntityCreateParams::PhoneNumber>]
       #
@@ -149,7 +149,7 @@ module ModernTreasury
       #
       # @param citizenship_country [String, nil] The country of citizenship for an individual.
       #
-      # @param country_of_incorporation [String, nil] The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
+      # @param country_of_incorporation [String, nil] The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
       #
       # @param date_formed [Date, nil] A business's formation date (YYYY-MM-DD).
       #
@@ -181,7 +181,7 @@ module ModernTreasury
       #
       # @param middle_name [String, nil] An individual's middle name.
       #
-      # @param operating_jurisdictions [Array<String>] A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3 c
+      # @param operating_jurisdictions [Array<String>] A list of countries where the business operates, as ISO 3166-1 alpha-2 country c
       #
       # @param phone_numbers [Array<ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber>]
       #

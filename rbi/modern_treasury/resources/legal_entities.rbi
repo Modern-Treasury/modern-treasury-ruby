@@ -103,8 +103,8 @@ module ModernTreasury
         # in a value of null to prevent the connection from being associated with the
         # legal entity.
         connection_id: nil,
-        # The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
-        # alpha-3 formats.
+        # The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
+        # code (e.g. US).
         country_of_incorporation: nil,
         # A business's formation date (YYYY-MM-DD).
         date_formed: nil,
@@ -141,8 +141,8 @@ module ModernTreasury
         metadata: nil,
         # An individual's middle name.
         middle_name: nil,
-        # A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3
-        # codes).
+        # A list of countries where the business operates, as ISO 3166-1 alpha-2 country
+        # codes (e.g. ["US", "CA"]).
         operating_jurisdictions: nil,
         phone_numbers: nil,
         # Whether the individual is a politically exposed person.
@@ -272,8 +272,8 @@ module ModernTreasury
         business_name: nil,
         # The country of citizenship for an individual.
         citizenship_country: nil,
-        # The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
-        # alpha-3 formats.
+        # The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
+        # code (e.g. US).
         country_of_incorporation: nil,
         # A business's formation date (YYYY-MM-DD).
         date_formed: nil,
@@ -305,8 +305,8 @@ module ModernTreasury
         metadata: nil,
         # An individual's middle name.
         middle_name: nil,
-        # A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3
-        # codes).
+        # A list of countries where the business operates, as ISO 3166-1 alpha-2 country
+        # codes (e.g. ["US", "CA"]).
         operating_jurisdictions: nil,
         phone_numbers: nil,
         # Whether the individual is a politically exposed person.
