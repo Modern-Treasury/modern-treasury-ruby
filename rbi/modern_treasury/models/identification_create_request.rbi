@@ -319,6 +319,16 @@ module ModernTreasury
             :gr_vat,
             ModernTreasury::IdentificationCreateRequest::IDType::TaggedSymbol
           )
+        HK_BRN =
+          T.let(
+            :hk_brn,
+            ModernTreasury::IdentificationCreateRequest::IDType::TaggedSymbol
+          )
+        HK_HKID =
+          T.let(
+            :hk_hkid,
+            ModernTreasury::IdentificationCreateRequest::IDType::TaggedSymbol
+          )
         HN_ID =
           T.let(
             :hn_id,
