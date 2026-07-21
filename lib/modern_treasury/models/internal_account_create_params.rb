@@ -94,6 +94,13 @@ module ModernTreasury
       #   @return [String, nil]
       optional :party_name, String, nil?: true
 
+      # @!attribute requested_account_number_types
+      #   An array of account number types requested for provisioning.
+      #
+      #   @return [Array<Symbol, ModernTreasury::Models::InternalAccountCreateParams::RequestedAccountNumberType>, nil]
+      optional :requested_account_number_types,
+               -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::InternalAccountCreateParams::RequestedAccountNumberType] }
+
       # @!attribute vendor_attributes
       #   A hash of vendor specific attributes that will be used when creating the account
       #   at the vendor specified by the given connection.
@@ -101,7 +108,7 @@ module ModernTreasury
       #   @return [Hash{Symbol=>String}, nil]
       optional :vendor_attributes, ModernTreasury::Internal::Type::HashOf[String]
 
-      # @!method initialize(currency:, name:, account_capabilities: nil, account_type: nil, connection_id: nil, counterparty_id: nil, debitable: nil, external_id: nil, legal_entity_id: nil, metadata: nil, parent_account_id: nil, party_address: nil, party_name: nil, vendor_attributes: nil, request_options: {})
+      # @!method initialize(currency:, name:, account_capabilities: nil, account_type: nil, connection_id: nil, counterparty_id: nil, debitable: nil, external_id: nil, legal_entity_id: nil, metadata: nil, parent_account_id: nil, party_address: nil, party_name: nil, requested_account_number_types: nil, vendor_attributes: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::InternalAccountCreateParams} for more details.
       #
@@ -130,6 +137,8 @@ module ModernTreasury
       #   @param party_address [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress] The address associated with the owner or null.
       #
       #   @param party_name [String, nil] The legal name of the entity which owns the account.
+      #
+      #   @param requested_account_number_types [Array<Symbol, ModernTreasury::Models::InternalAccountCreateParams::RequestedAccountNumberType>] An array of account number types requested for provisioning.
       #
       #   @param vendor_attributes [Hash{Symbol=>String}] A hash of vendor specific attributes that will be used when creating the account
       #
@@ -338,6 +347,18 @@ module ModernTreasury
         #   @param region [String] Region or State.
         #
         #   @param line2 [String]
+      end
+
+      module RequestedAccountNumberType
+        extend ModernTreasury::Internal::Type::Enum
+
+        ETHEREUM_ADDRESS = :ethereum_address
+        SOLANA_ADDRESS = :solana_address
+        POLYGON_ADDRESS = :polygon_address
+        BASE_ADDRESS = :base_address
+
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end
