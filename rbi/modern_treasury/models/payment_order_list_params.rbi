@@ -432,16 +432,6 @@ module ModernTreasury
             :gb_fps,
             ModernTreasury::PaymentOrderListParams::Type::TaggedSymbol
           )
-        HU_ICS =
-          T.let(
-            :hu_ics,
-            ModernTreasury::PaymentOrderListParams::Type::TaggedSymbol
-          )
-        INTERAC =
-          T.let(
-            :interac,
-            ModernTreasury::PaymentOrderListParams::Type::TaggedSymbol
-          )
         MASAV =
           T.let(
             :masav,
@@ -472,16 +462,6 @@ module ModernTreasury
             :pl_elixir,
             ModernTreasury::PaymentOrderListParams::Type::TaggedSymbol
           )
-        PROVXCHANGE =
-          T.let(
-            :provxchange,
-            ModernTreasury::PaymentOrderListParams::Type::TaggedSymbol
-          )
-        RO_SENT =
-          T.let(
-            :ro_sent,
-            ModernTreasury::PaymentOrderListParams::Type::TaggedSymbol
-          )
         RTP =
           T.let(
             :rtp,
@@ -490,11 +470,6 @@ module ModernTreasury
         SE_BANKGIROT =
           T.let(
             :se_bankgirot,
-            ModernTreasury::PaymentOrderListParams::Type::TaggedSymbol
-          )
-        SEN =
-          T.let(
-            :sen,
             ModernTreasury::PaymentOrderListParams::Type::TaggedSymbol
           )
         SEPA =
@@ -510,16 +485,6 @@ module ModernTreasury
         SIC =
           T.let(
             :sic,
-            ModernTreasury::PaymentOrderListParams::Type::TaggedSymbol
-          )
-        SIGNET =
-          T.let(
-            :signet,
-            ModernTreasury::PaymentOrderListParams::Type::TaggedSymbol
-          )
-        SKNBI =
-          T.let(
-            :sknbi,
             ModernTreasury::PaymentOrderListParams::Type::TaggedSymbol
           )
         STABLECOIN =

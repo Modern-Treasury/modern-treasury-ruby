@@ -3,7 +3,7 @@
 module ModernTreasury
   module Resources
     class LegalEntities
-      # create legal_entity
+      # Create a legal entity. All country fields use ISO 3166-1 alpha-2 (e.g. US).
       sig do
         params(
           legal_entity_type:
@@ -67,6 +67,10 @@ module ModernTreasury
             ),
           service_provider_legal_entity_id: T.nilable(String),
           suffix: T.nilable(String),
+          terms_of_use:
+            T.nilable(
+              ModernTreasury::LegalEntityCreateParams::TermsOfUse::OrHash
+            ),
           third_party_verification:
             T.nilable(ModernTreasury::ThirdPartyVerification::OrHash),
           third_party_verifications:
@@ -99,8 +103,8 @@ module ModernTreasury
         # in a value of null to prevent the connection from being associated with the
         # legal entity.
         connection_id: nil,
-        # The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
-        # alpha-3 formats.
+        # The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
+        # code (e.g. US).
         country_of_incorporation: nil,
         # A business's formation date (YYYY-MM-DD).
         date_formed: nil,
@@ -137,8 +141,8 @@ module ModernTreasury
         metadata: nil,
         # An individual's middle name.
         middle_name: nil,
-        # A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3
-        # codes).
+        # A list of countries where the business operates, as ISO 3166-1 alpha-2 country
+        # codes (e.g. ["US", "CA"]).
         operating_jurisdictions: nil,
         phone_numbers: nil,
         # Whether the individual is a politically exposed person.
@@ -157,6 +161,8 @@ module ModernTreasury
         service_provider_legal_entity_id: nil,
         # An individual's suffix.
         suffix: nil,
+        # Acceptance of terms of use by the legal entity.
+        terms_of_use: nil,
         # Deprecated. Use `third_party_verifications` instead.
         third_party_verification: nil,
         # A list of third-party verifications run by external vendors.
@@ -237,6 +243,10 @@ module ModernTreasury
             ),
           service_provider_legal_entity_id: T.nilable(String),
           suffix: T.nilable(String),
+          terms_of_use:
+            T.nilable(
+              ModernTreasury::LegalEntityUpdateParams::TermsOfUse::OrHash
+            ),
           third_party_verification:
             T.nilable(ModernTreasury::ThirdPartyVerification::OrHash),
           third_party_verifications:
@@ -262,8 +272,8 @@ module ModernTreasury
         business_name: nil,
         # The country of citizenship for an individual.
         citizenship_country: nil,
-        # The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
-        # alpha-3 formats.
+        # The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
+        # code (e.g. US).
         country_of_incorporation: nil,
         # A business's formation date (YYYY-MM-DD).
         date_formed: nil,
@@ -295,8 +305,8 @@ module ModernTreasury
         metadata: nil,
         # An individual's middle name.
         middle_name: nil,
-        # A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3
-        # codes).
+        # A list of countries where the business operates, as ISO 3166-1 alpha-2 country
+        # codes (e.g. ["US", "CA"]).
         operating_jurisdictions: nil,
         phone_numbers: nil,
         # Whether the individual is a politically exposed person.
@@ -315,6 +325,8 @@ module ModernTreasury
         service_provider_legal_entity_id: nil,
         # An individual's suffix.
         suffix: nil,
+        # Acceptance of terms of use by the legal entity.
+        terms_of_use: nil,
         # Deprecated. Use `third_party_verifications` instead.
         third_party_verification: nil,
         # A list of third-party verifications run by external vendors.

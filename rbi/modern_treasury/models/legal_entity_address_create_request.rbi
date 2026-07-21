@@ -18,7 +18,8 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :line1
 
-      # Locality or City.
+      # Locality or City. Use the full city name rather than an abbreviation (e.g. San
+      # Francisco).
       sig { returns(T.nilable(String)) }
       attr_accessor :locality
 
@@ -26,7 +27,8 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :postal_code
 
-      # Region or State.
+      # Region or State. This field is free-form; for US states, we recommend a
+      # two-letter code (e.g. CA). Full state names are also accepted.
       sig { returns(T.nilable(String)) }
       attr_accessor :region
 
@@ -55,7 +57,8 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :line2
 
-      # Whether this address is the primary address for the legal entity.
+      # Whether this address is the primary address for the legal entity. Optional; when
+      # omitted it is inferred from the address types.
       sig { returns(T.nilable(T::Boolean)) }
       attr_accessor :primary
 
@@ -78,16 +81,19 @@ module ModernTreasury
         # Country code conforms to [ISO 3166-1 alpha-2]
         country:,
         line1:,
-        # Locality or City.
+        # Locality or City. Use the full city name rather than an abbreviation (e.g. San
+        # Francisco).
         locality:,
         # The postal code of the address.
         postal_code:,
-        # Region or State.
+        # Region or State. This field is free-form; for US states, we recommend a
+        # two-letter code (e.g. CA). Full state names are also accepted.
         region:,
         # The types of this address.
         address_types: nil,
         line2: nil,
-        # Whether this address is the primary address for the legal entity.
+        # Whether this address is the primary address for the legal entity. Optional; when
+        # omitted it is inferred from the address types.
         primary: nil
       )
       end
@@ -127,6 +133,11 @@ module ModernTreasury
         BUSINESS =
           T.let(
             :business,
+            ModernTreasury::LegalEntityAddressCreateRequest::AddressType::TaggedSymbol
+          )
+        BUSINESS_PHYSICAL =
+          T.let(
+            :business_physical,
             ModernTreasury::LegalEntityAddressCreateRequest::AddressType::TaggedSymbol
           )
         BUSINESS_REGISTERED =

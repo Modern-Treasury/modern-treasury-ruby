@@ -835,16 +835,6 @@ module ModernTreasury
                 :hk_interbank_clearing_code,
                 ModernTreasury::CounterpartyCreateParams::Account::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
-            HU_INTERBANK_CLEARING_CODE =
-              T.let(
-                :hu_interbank_clearing_code,
-                ModernTreasury::CounterpartyCreateParams::Account::RoutingDetail::RoutingNumberType::TaggedSymbol
-              )
-            ID_SKNBI_CODE =
-              T.let(
-                :id_sknbi_code,
-                ModernTreasury::CounterpartyCreateParams::Account::RoutingDetail::RoutingNumberType::TaggedSymbol
-              )
             IL_BANK_CODE =
               T.let(
                 :il_bank_code,
@@ -979,16 +969,6 @@ module ModernTreasury
                 :gb_fps,
                 ModernTreasury::CounterpartyCreateParams::Account::RoutingDetail::PaymentType::TaggedSymbol
               )
-            HU_ICS =
-              T.let(
-                :hu_ics,
-                ModernTreasury::CounterpartyCreateParams::Account::RoutingDetail::PaymentType::TaggedSymbol
-              )
-            INTERAC =
-              T.let(
-                :interac,
-                ModernTreasury::CounterpartyCreateParams::Account::RoutingDetail::PaymentType::TaggedSymbol
-              )
             MASAV =
               T.let(
                 :masav,
@@ -1019,16 +999,6 @@ module ModernTreasury
                 :pl_elixir,
                 ModernTreasury::CounterpartyCreateParams::Account::RoutingDetail::PaymentType::TaggedSymbol
               )
-            PROVXCHANGE =
-              T.let(
-                :provxchange,
-                ModernTreasury::CounterpartyCreateParams::Account::RoutingDetail::PaymentType::TaggedSymbol
-              )
-            RO_SENT =
-              T.let(
-                :ro_sent,
-                ModernTreasury::CounterpartyCreateParams::Account::RoutingDetail::PaymentType::TaggedSymbol
-              )
             RTP =
               T.let(
                 :rtp,
@@ -1037,11 +1007,6 @@ module ModernTreasury
             SE_BANKGIROT =
               T.let(
                 :se_bankgirot,
-                ModernTreasury::CounterpartyCreateParams::Account::RoutingDetail::PaymentType::TaggedSymbol
-              )
-            SEN =
-              T.let(
-                :sen,
                 ModernTreasury::CounterpartyCreateParams::Account::RoutingDetail::PaymentType::TaggedSymbol
               )
             SEPA =
@@ -1057,16 +1022,6 @@ module ModernTreasury
             SIC =
               T.let(
                 :sic,
-                ModernTreasury::CounterpartyCreateParams::Account::RoutingDetail::PaymentType::TaggedSymbol
-              )
-            SIGNET =
-              T.let(
-                :signet,
-                ModernTreasury::CounterpartyCreateParams::Account::RoutingDetail::PaymentType::TaggedSymbol
-              )
-            SKNBI =
-              T.let(
-                :sknbi,
                 ModernTreasury::CounterpartyCreateParams::Account::RoutingDetail::PaymentType::TaggedSymbol
               )
             STABLECOIN =
@@ -1198,8 +1153,8 @@ module ModernTreasury
         sig { returns(T.nilable(String)) }
         attr_accessor :connection_id
 
-        # The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
-        # alpha-3 formats.
+        # The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
+        # code (e.g. US).
         sig { returns(T.nilable(String)) }
         attr_accessor :country_of_incorporation
 
@@ -1336,8 +1291,8 @@ module ModernTreasury
         sig { returns(T.nilable(String)) }
         attr_accessor :middle_name
 
-        # A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3
-        # codes).
+        # A list of countries where the business operates, as ISO 3166-1 alpha-2 country
+        # codes (e.g. ["US", "CA"]).
         sig { returns(T.nilable(T::Array[String])) }
         attr_reader :operating_jurisdictions
 
@@ -1413,6 +1368,26 @@ module ModernTreasury
         # An individual's suffix.
         sig { returns(T.nilable(String)) }
         attr_accessor :suffix
+
+        # Acceptance of terms of use by the legal entity.
+        sig do
+          returns(
+            T.nilable(
+              ModernTreasury::CounterpartyCreateParams::LegalEntity::TermsOfUse
+            )
+          )
+        end
+        attr_reader :terms_of_use
+
+        sig do
+          params(
+            terms_of_use:
+              T.nilable(
+                ModernTreasury::CounterpartyCreateParams::LegalEntity::TermsOfUse::OrHash
+              )
+          ).void
+        end
+        attr_writer :terms_of_use
 
         # Deprecated. Use `third_party_verifications` instead.
         sig { returns(T.nilable(ModernTreasury::ThirdPartyVerification)) }
@@ -1530,6 +1505,10 @@ module ModernTreasury
               ),
             service_provider_legal_entity_id: T.nilable(String),
             suffix: T.nilable(String),
+            terms_of_use:
+              T.nilable(
+                ModernTreasury::CounterpartyCreateParams::LegalEntity::TermsOfUse::OrHash
+              ),
             third_party_verification:
               T.nilable(ModernTreasury::ThirdPartyVerification::OrHash),
             third_party_verifications:
@@ -1561,8 +1540,8 @@ module ModernTreasury
           # in a value of null to prevent the connection from being associated with the
           # legal entity.
           connection_id: nil,
-          # The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
-          # alpha-3 formats.
+          # The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
+          # code (e.g. US).
           country_of_incorporation: nil,
           # A business's formation date (YYYY-MM-DD).
           date_formed: nil,
@@ -1599,8 +1578,8 @@ module ModernTreasury
           metadata: nil,
           # An individual's middle name.
           middle_name: nil,
-          # A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3
-          # codes).
+          # A list of countries where the business operates, as ISO 3166-1 alpha-2 country
+          # codes (e.g. ["US", "CA"]).
           operating_jurisdictions: nil,
           phone_numbers: nil,
           # Whether the individual is a politically exposed person.
@@ -1619,6 +1598,8 @@ module ModernTreasury
           service_provider_legal_entity_id: nil,
           # An individual's suffix.
           suffix: nil,
+          # Acceptance of terms of use by the legal entity.
+          terms_of_use: nil,
           # Deprecated. Use `third_party_verifications` instead.
           third_party_verification: nil,
           # A list of third-party verifications run by external vendors.
@@ -1694,6 +1675,10 @@ module ModernTreasury
                 ),
               service_provider_legal_entity_id: T.nilable(String),
               suffix: T.nilable(String),
+              terms_of_use:
+                T.nilable(
+                  ModernTreasury::CounterpartyCreateParams::LegalEntity::TermsOfUse
+                ),
               third_party_verification:
                 T.nilable(ModernTreasury::ThirdPartyVerification),
               third_party_verifications:
@@ -1927,6 +1912,9 @@ module ModernTreasury
               )
             end
 
+          # A phone number in E.164 format. This format is strictly validated: include a
+          # leading + and country code, followed by digits only (no spaces or dashes), e.g.
+          # +12025551234.
           sig { returns(T.nilable(String)) }
           attr_reader :phone_number
 
@@ -1935,7 +1923,12 @@ module ModernTreasury
 
           # A list of phone numbers in E.164 format.
           sig { params(phone_number: String).returns(T.attached_class) }
-          def self.new(phone_number: nil)
+          def self.new(
+            # A phone number in E.164 format. This format is strictly validated: include a
+            # leading + and country code, followed by digits only (no spaces or dashes), e.g.
+            # +12025551234.
+            phone_number: nil
+          )
           end
 
           sig { override.returns({ phone_number: String }) }
@@ -2033,6 +2026,50 @@ module ModernTreasury
             )
           end
           def self.values
+          end
+        end
+
+        class TermsOfUse < ModernTreasury::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(
+                ModernTreasury::CounterpartyCreateParams::LegalEntity::TermsOfUse,
+                ModernTreasury::Internal::AnyHash
+              )
+            end
+
+          # The ISO 8601 timestamp indicating when the terms of use were accepted.
+          sig { returns(T.nilable(Time)) }
+          attr_reader :accepted_at
+
+          sig { params(accepted_at: Time).void }
+          attr_writer :accepted_at
+
+          # The IP address from which the terms of use were accepted. Supports both IPv4 and
+          # IPv6 formats.
+          sig { returns(T.nilable(String)) }
+          attr_reader :ip_address
+
+          sig { params(ip_address: String).void }
+          attr_writer :ip_address
+
+          # Acceptance of terms of use by the legal entity.
+          sig do
+            params(accepted_at: Time, ip_address: String).returns(
+              T.attached_class
+            )
+          end
+          def self.new(
+            # The ISO 8601 timestamp indicating when the terms of use were accepted.
+            accepted_at: nil,
+            # The IP address from which the terms of use were accepted. Supports both IPv4 and
+            # IPv6 formats.
+            ip_address: nil
+          )
+          end
+
+          sig { override.returns({ accepted_at: Time, ip_address: String }) }
+          def to_hash
           end
         end
       end

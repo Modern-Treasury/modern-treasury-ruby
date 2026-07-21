@@ -50,8 +50,8 @@ module ModernTreasury
       optional :connection_id, String, nil?: true
 
       # @!attribute country_of_incorporation
-      #   The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
-      #   alpha-3 formats.
+      #   The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
+      #   code (e.g. US).
       #
       #   @return [String, nil]
       optional :country_of_incorporation, String, nil?: true
@@ -177,8 +177,8 @@ module ModernTreasury
       optional :middle_name, String, nil?: true
 
       # @!attribute operating_jurisdictions
-      #   A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3
-      #   codes).
+      #   A list of countries where the business operates, as ISO 3166-1 alpha-2 country
+      #   codes (e.g. ["US", "CA"]).
       #
       #   @return [Array<String>, nil]
       optional :operating_jurisdictions, ModernTreasury::Internal::Type::ArrayOf[String]
@@ -241,6 +241,12 @@ module ModernTreasury
       #   @return [String, nil]
       optional :suffix, String, nil?: true
 
+      # @!attribute terms_of_use
+      #   Acceptance of terms of use by the legal entity.
+      #
+      #   @return [ModernTreasury::Models::ChildLegalEntityCreate::TermsOfUse, nil]
+      optional :terms_of_use, -> { ModernTreasury::ChildLegalEntityCreate::TermsOfUse }, nil?: true
+
       # @!attribute third_party_verification
       #   @deprecated
       #
@@ -275,7 +281,7 @@ module ModernTreasury
       #   @return [String, nil]
       optional :website, String, nil?: true
 
-      # @!method initialize(addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, connection_id: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, documents: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, external_id: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_entity_associations: nil, legal_entity_type: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, service_provider_legal_entity_id: nil, suffix: nil, third_party_verification: nil, third_party_verifications: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil)
+      # @!method initialize(addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, connection_id: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, documents: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, external_id: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_entity_associations: nil, legal_entity_type: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, service_provider_legal_entity_id: nil, suffix: nil, terms_of_use: nil, third_party_verification: nil, third_party_verifications: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::ChildLegalEntityCreate} for more details.
       #
@@ -293,7 +299,7 @@ module ModernTreasury
       #
       #   @param connection_id [String, nil] The connection ID for the connection the legal entity is associated with. Defaul
       #
-      #   @param country_of_incorporation [String, nil] The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
+      #   @param country_of_incorporation [String, nil] The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
       #
       #   @param date_formed [Date, nil] A business's formation date (YYYY-MM-DD).
       #
@@ -331,7 +337,7 @@ module ModernTreasury
       #
       #   @param middle_name [String, nil] An individual's middle name.
       #
-      #   @param operating_jurisdictions [Array<String>] A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3 c
+      #   @param operating_jurisdictions [Array<String>] A list of countries where the business operates, as ISO 3166-1 alpha-2 country c
       #
       #   @param phone_numbers [Array<ModernTreasury::Models::ChildLegalEntityCreate::PhoneNumber>]
       #
@@ -350,6 +356,8 @@ module ModernTreasury
       #   @param service_provider_legal_entity_id [String, nil] The UUID of the parent legal entity in the service provider tree.
       #
       #   @param suffix [String, nil] An individual's suffix.
+      #
+      #   @param terms_of_use [ModernTreasury::Models::ChildLegalEntityCreate::TermsOfUse, nil] Acceptance of terms of use by the legal entity.
       #
       #   @param third_party_verification [ModernTreasury::Models::ThirdPartyVerification, nil] Deprecated. Use `third_party_verifications` instead.
       #
@@ -438,14 +446,20 @@ module ModernTreasury
 
       class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
         # @!attribute phone_number
+        #   A phone number in E.164 format. This format is strictly validated: include a
+        #   leading + and country code, followed by digits only (no spaces or dashes), e.g.
+        #   +12025551234.
         #
         #   @return [String, nil]
         optional :phone_number, String
 
         # @!method initialize(phone_number: nil)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::ChildLegalEntityCreate::PhoneNumber} for more details.
+        #
         #   A list of phone numbers in E.164 format.
         #
-        #   @param phone_number [String]
+        #   @param phone_number [String] A phone number in E.164 format. This format is strictly validated: include a lea
       end
 
       class Regulator < ModernTreasury::Internal::Type::BaseModel
@@ -491,6 +505,32 @@ module ModernTreasury
 
         # @!method self.values
         #   @return [Array<Symbol>]
+      end
+
+      # @see ModernTreasury::Models::ChildLegalEntityCreate#terms_of_use
+      class TermsOfUse < ModernTreasury::Internal::Type::BaseModel
+        # @!attribute accepted_at
+        #   The ISO 8601 timestamp indicating when the terms of use were accepted.
+        #
+        #   @return [Time, nil]
+        optional :accepted_at, Time
+
+        # @!attribute ip_address
+        #   The IP address from which the terms of use were accepted. Supports both IPv4 and
+        #   IPv6 formats.
+        #
+        #   @return [String, nil]
+        optional :ip_address, String
+
+        # @!method initialize(accepted_at: nil, ip_address: nil)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::ChildLegalEntityCreate::TermsOfUse} for more details.
+        #
+        #   Acceptance of terms of use by the legal entity.
+        #
+        #   @param accepted_at [Time] The ISO 8601 timestamp indicating when the terms of use were accepted.
+        #
+        #   @param ip_address [String] The IP address from which the terms of use were accepted. Supports both IPv4 and
       end
     end
   end

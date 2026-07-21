@@ -92,11 +92,11 @@ module ModernTreasury
       #
       # @param per_page [Integer]
       #
-      # @param status [Symbol, ModernTreasury::Models::HoldListParams::Status, nil] Translation missing: en.openapi.descriptions.payment_order.query_params.status
+      # @param status [Symbol, ModernTreasury::Models::HoldListParams::Status, nil] Only return holds for a specific status.
       #
-      # @param target_id [String, nil] Translation missing: en.openapi.descriptions.payment_order.query_params.target_i
+      # @param target_id [String, nil] Only return holds for a specific target ID.
       #
-      # @param target_type [Symbol, ModernTreasury::Models::HoldListParams::TargetType, nil] Translation missing: en.openapi.descriptions.payment_order.query_params.target_t
+      # @param target_type [Symbol, ModernTreasury::Models::HoldListParams::TargetType, nil] Only return holds for a specific target type.
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
