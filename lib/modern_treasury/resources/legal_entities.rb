@@ -26,7 +26,7 @@ module ModernTreasury
       #
       # @param connection_id [String, nil] The connection ID for the connection the legal entity is associated with. Defaul
       #
-      # @param country_of_incorporation [String, nil] The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
+      # @param country_of_incorporation [String, nil] The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
       #
       # @param date_formed [Date, nil] A business's formation date (YYYY-MM-DD).
       #
@@ -62,7 +62,7 @@ module ModernTreasury
       #
       # @param middle_name [String, nil] An individual's middle name.
       #
-      # @param operating_jurisdictions [Array<String>] A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3 c
+      # @param operating_jurisdictions [Array<String>] A list of countries where the business operates, as ISO 3166-1 alpha-2 country c
       #
       # @param phone_numbers [Array<ModernTreasury::Models::LegalEntityCreateParams::PhoneNumber>]
       #
@@ -149,7 +149,7 @@ module ModernTreasury
       #
       # @param citizenship_country [String, nil] The country of citizenship for an individual.
       #
-      # @param country_of_incorporation [String, nil] The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
+      # @param country_of_incorporation [String, nil] The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
       #
       # @param date_formed [Date, nil] A business's formation date (YYYY-MM-DD).
       #
@@ -181,7 +181,7 @@ module ModernTreasury
       #
       # @param middle_name [String, nil] An individual's middle name.
       #
-      # @param operating_jurisdictions [Array<String>] A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3 c
+      # @param operating_jurisdictions [Array<String>] A list of countries where the business operates, as ISO 3166-1 alpha-2 country c
       #
       # @param phone_numbers [Array<ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber>]
       #
@@ -263,33 +263,6 @@ module ModernTreasury
           path: "api/legal_entities",
           query: query,
           page: ModernTreasury::Internal::Page,
-          model: ModernTreasury::LegalEntity,
-          options: options
-        )
-      end
-
-      # Some parameter documentations has been truncated, see
-      # {ModernTreasury::Models::LegalEntityUpdateStatusParams} for more details.
-      #
-      # Update Legal Entity Status (sandbox only)
-      #
-      # @overload update_status(id, status:, request_options: {})
-      #
-      # @param id [String] Legal entity ID
-      #
-      # @param status [Symbol, ModernTreasury::Models::LegalEntityUpdateStatusParams::Status] The target status for the legal entity. One of `active`, `suspended`, or `denied
-      #
-      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
-      #
-      # @return [ModernTreasury::Models::LegalEntity]
-      #
-      # @see ModernTreasury::Models::LegalEntityUpdateStatusParams
-      def update_status(id, params)
-        parsed, options = ModernTreasury::LegalEntityUpdateStatusParams.dump_request(params)
-        @client.request(
-          method: :patch,
-          path: ["api/simulations/legal_entities/%1$s/update_status", id],
-          body: parsed,
           model: ModernTreasury::LegalEntity,
           options: options
         )
