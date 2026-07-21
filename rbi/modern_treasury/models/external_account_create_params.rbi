@@ -550,16 +550,6 @@ module ModernTreasury
               :hk_interbank_clearing_code,
               ModernTreasury::ExternalAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
             )
-          HU_INTERBANK_CLEARING_CODE =
-            T.let(
-              :hu_interbank_clearing_code,
-              ModernTreasury::ExternalAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
-            )
-          ID_SKNBI_CODE =
-            T.let(
-              :id_sknbi_code,
-              ModernTreasury::ExternalAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
-            )
           IL_BANK_CODE =
             T.let(
               :il_bank_code,
@@ -694,16 +684,6 @@ module ModernTreasury
               :gb_fps,
               ModernTreasury::ExternalAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
             )
-          HU_ICS =
-            T.let(
-              :hu_ics,
-              ModernTreasury::ExternalAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
-            )
-          INTERAC =
-            T.let(
-              :interac,
-              ModernTreasury::ExternalAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
-            )
           MASAV =
             T.let(
               :masav,
@@ -734,16 +714,6 @@ module ModernTreasury
               :pl_elixir,
               ModernTreasury::ExternalAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
             )
-          PROVXCHANGE =
-            T.let(
-              :provxchange,
-              ModernTreasury::ExternalAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
-            )
-          RO_SENT =
-            T.let(
-              :ro_sent,
-              ModernTreasury::ExternalAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
-            )
           RTP =
             T.let(
               :rtp,
@@ -752,11 +722,6 @@ module ModernTreasury
           SE_BANKGIROT =
             T.let(
               :se_bankgirot,
-              ModernTreasury::ExternalAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
-            )
-          SEN =
-            T.let(
-              :sen,
               ModernTreasury::ExternalAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
             )
           SEPA =
@@ -772,16 +737,6 @@ module ModernTreasury
           SIC =
             T.let(
               :sic,
-              ModernTreasury::ExternalAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
-            )
-          SIGNET =
-            T.let(
-              :signet,
-              ModernTreasury::ExternalAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
-            )
-          SKNBI =
-            T.let(
-              :sknbi,
               ModernTreasury::ExternalAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
             )
           STABLECOIN =

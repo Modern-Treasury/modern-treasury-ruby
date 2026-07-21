@@ -45,8 +45,8 @@ module ModernTreasury
       required :compliance_details, ModernTreasury::Internal::Type::Unknown, nil?: true
 
       # @!attribute country_of_incorporation
-      #   The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
-      #   alpha-3 formats.
+      #   The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
+      #   code (e.g. US).
       #
       #   @return [String, nil]
       required :country_of_incorporation, String, nil?: true
@@ -177,8 +177,8 @@ module ModernTreasury
       required :object, String
 
       # @!attribute operating_jurisdictions
-      #   A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3
-      #   codes).
+      #   A list of countries where the business operates, as ISO 3166-1 alpha-2 country
+      #   codes (e.g. ["US", "CA"]).
       #
       #   @return [Array<String>]
       required :operating_jurisdictions, ModernTreasury::Internal::Type::ArrayOf[String]
@@ -246,6 +246,12 @@ module ModernTreasury
       #   @return [String, nil]
       required :suffix, String, nil?: true
 
+      # @!attribute terms_of_use
+      #   Acceptance of terms of use by the legal entity.
+      #
+      #   @return [ModernTreasury::Models::LegalEntity::TermsOfUse, nil]
+      required :terms_of_use, -> { ModernTreasury::LegalEntity::TermsOfUse }, nil?: true
+
       # @!attribute third_party_verification
       #   @deprecated
       #
@@ -293,7 +299,7 @@ module ModernTreasury
                -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityAssociation] },
                nil?: true
 
-      # @!method initialize(id:, addresses:, bank_settings:, business_description:, business_name:, citizenship_country:, compliance_details:, country_of_incorporation:, created_at:, date_formed:, date_of_birth:, discarded_at:, documents:, doing_business_as_names:, email:, expected_activity_volume:, external_id:, first_name:, identifications:, industry_classifications:, intended_use:, last_name:, legal_entity_type:, legal_structure:, listed_exchange:, live_mode:, metadata:, middle_name:, object:, operating_jurisdictions:, phone_numbers:, politically_exposed_person:, preferred_name:, prefix:, primary_social_media_sites:, regulators:, risk_rating:, service_provider_legal_entity_id:, status:, suffix:, third_party_verification:, third_party_verifications:, ticker_symbol:, updated_at:, wealth_and_employment_details:, website:, legal_entity_associations: nil)
+      # @!method initialize(id:, addresses:, bank_settings:, business_description:, business_name:, citizenship_country:, compliance_details:, country_of_incorporation:, created_at:, date_formed:, date_of_birth:, discarded_at:, documents:, doing_business_as_names:, email:, expected_activity_volume:, external_id:, first_name:, identifications:, industry_classifications:, intended_use:, last_name:, legal_entity_type:, legal_structure:, listed_exchange:, live_mode:, metadata:, middle_name:, object:, operating_jurisdictions:, phone_numbers:, politically_exposed_person:, preferred_name:, prefix:, primary_social_media_sites:, regulators:, risk_rating:, service_provider_legal_entity_id:, status:, suffix:, terms_of_use:, third_party_verification:, third_party_verifications:, ticker_symbol:, updated_at:, wealth_and_employment_details:, website:, legal_entity_associations: nil)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LegalEntity} for more details.
       #
@@ -311,7 +317,7 @@ module ModernTreasury
       #
       #   @param compliance_details [Object, nil]
       #
-      #   @param country_of_incorporation [String, nil] The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
+      #   @param country_of_incorporation [String, nil] The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
       #
       #   @param created_at [Time]
       #
@@ -355,7 +361,7 @@ module ModernTreasury
       #
       #   @param object [String]
       #
-      #   @param operating_jurisdictions [Array<String>] A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3 c
+      #   @param operating_jurisdictions [Array<String>] A list of countries where the business operates, as ISO 3166-1 alpha-2 country c
       #
       #   @param phone_numbers [Array<ModernTreasury::Models::LegalEntity::PhoneNumber>]
       #
@@ -376,6 +382,8 @@ module ModernTreasury
       #   @param status [Symbol, ModernTreasury::Models::LegalEntity::Status, nil] The activation status of the legal entity. One of pending, active, suspended, or
       #
       #   @param suffix [String, nil] An individual's suffix.
+      #
+      #   @param terms_of_use [ModernTreasury::Models::LegalEntity::TermsOfUse, nil] Acceptance of terms of use by the legal entity.
       #
       #   @param third_party_verification [ModernTreasury::Models::ThirdPartyVerification, nil] Deprecated. Use `third_party_verifications` instead.
       #
@@ -455,7 +463,8 @@ module ModernTreasury
         required :postal_code, String, nil?: true
 
         # @!attribute primary
-        #   Whether this address is the primary address for the legal entity.
+        #   Whether this address is the primary address for the legal entity. Optional; when
+        #   omitted it is inferred from the address types.
         #
         #   @return [Boolean, nil]
         required :primary, ModernTreasury::Internal::Type::Boolean, nil?: true
@@ -497,7 +506,7 @@ module ModernTreasury
         #
         #   @param postal_code [String, nil] The postal code of the address.
         #
-        #   @param primary [Boolean, nil] Whether this address is the primary address for the legal entity.
+        #   @param primary [Boolean, nil] Whether this address is the primary address for the legal entity. Optional; when
         #
         #   @param region [String, nil] Region or State.
         #
@@ -507,6 +516,7 @@ module ModernTreasury
           extend ModernTreasury::Internal::Type::Enum
 
           BUSINESS = :business
+          BUSINESS_PHYSICAL = :business_physical
           BUSINESS_REGISTERED = :business_registered
           MAILING = :mailing
           OTHER = :other
@@ -653,6 +663,7 @@ module ModernTreasury
           GB_NINO = :gb_nino
           GB_UTR = :gb_utr
           GB_VAT = :gb_vat
+          GENERIC_INTERNATIONAL = :generic_international
           GR_VAT = :gr_vat
           HN_ID = :hn_id
           HN_RTN = :hn_rtn
@@ -682,6 +693,7 @@ module ModernTreasury
           MX_CURP = :mx_curp
           MX_INE = :mx_ine
           MX_RFC = :mx_rfc
+          NATIONAL_ID = :national_id
           NL_BSN = :nl_bsn
           NL_BTW = :nl_btw
           NL_RSIN = :nl_rsin
@@ -725,7 +737,6 @@ module ModernTreasury
 
         BUSINESS = :business
         INDIVIDUAL = :individual
-        JOINT = :joint
 
         # @!method self.values
         #   @return [Array<Symbol>]
@@ -819,6 +830,32 @@ module ModernTreasury
 
         # @!method self.values
         #   @return [Array<Symbol>]
+      end
+
+      # @see ModernTreasury::Models::LegalEntity#terms_of_use
+      class TermsOfUse < ModernTreasury::Internal::Type::BaseModel
+        # @!attribute accepted_at
+        #   The ISO 8601 timestamp indicating when the terms of use were accepted.
+        #
+        #   @return [Time, nil]
+        optional :accepted_at, Time
+
+        # @!attribute ip_address
+        #   The IP address from which the terms of use were accepted. Supports both IPv4 and
+        #   IPv6 formats.
+        #
+        #   @return [String, nil]
+        optional :ip_address, String
+
+        # @!method initialize(accepted_at: nil, ip_address: nil)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::LegalEntity::TermsOfUse} for more details.
+        #
+        #   Acceptance of terms of use by the legal entity.
+        #
+        #   @param accepted_at [Time] The ISO 8601 timestamp indicating when the terms of use were accepted.
+        #
+        #   @param ip_address [String] The IP address from which the terms of use were accepted. Supports both IPv4 and
       end
     end
   end
