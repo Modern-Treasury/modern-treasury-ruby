@@ -474,8 +474,8 @@ module ModernTreasury
         optional :connection_id, String, nil?: true
 
         # @!attribute country_of_incorporation
-        #   The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
-        #   alpha-3 formats.
+        #   The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
+        #   code (e.g. US).
         #
         #   @return [String, nil]
         optional :country_of_incorporation, String, nil?: true
@@ -593,8 +593,8 @@ module ModernTreasury
         optional :middle_name, String, nil?: true
 
         # @!attribute operating_jurisdictions
-        #   A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3
-        #   codes).
+        #   A list of countries where the business operates, as ISO 3166-1 alpha-2 country
+        #   codes (e.g. ["US", "CA"]).
         #
         #   @return [Array<String>, nil]
         optional :operating_jurisdictions, ModernTreasury::Internal::Type::ArrayOf[String]
@@ -722,7 +722,7 @@ module ModernTreasury
         #
         #   @param connection_id [String, nil] The connection ID for the connection the legal entity is associated with. Defaul
         #
-        #   @param country_of_incorporation [String, nil] The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
+        #   @param country_of_incorporation [String, nil] The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
         #
         #   @param date_formed [Date, nil] A business's formation date (YYYY-MM-DD).
         #
@@ -758,7 +758,7 @@ module ModernTreasury
         #
         #   @param middle_name [String, nil] An individual's middle name.
         #
-        #   @param operating_jurisdictions [Array<String>] A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3 c
+        #   @param operating_jurisdictions [Array<String>] A list of countries where the business operates, as ISO 3166-1 alpha-2 country c
         #
         #   @param phone_numbers [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber>]
         #
@@ -868,14 +868,21 @@ module ModernTreasury
 
         class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
           # @!attribute phone_number
+          #   A phone number in E.164 format. This format is strictly validated: include a
+          #   leading + and country code, followed by digits only (no spaces or dashes), e.g.
+          #   +12025551234.
           #
           #   @return [String, nil]
           optional :phone_number, String
 
           # @!method initialize(phone_number: nil)
+          #   Some parameter documentations has been truncated, see
+          #   {ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber} for
+          #   more details.
+          #
           #   A list of phone numbers in E.164 format.
           #
-          #   @param phone_number [String]
+          #   @param phone_number [String] A phone number in E.164 format. This format is strictly validated: include a lea
         end
 
         class Regulator < ModernTreasury::Internal::Type::BaseModel
