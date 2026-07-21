@@ -540,7 +540,8 @@ module ModernTreasury
         sig { returns(T::Boolean) }
         attr_accessor :live_mode
 
-        # Locality or City.
+        # Locality or City. Use the full city name rather than an abbreviation (e.g. San
+        # Francisco).
         sig { returns(T.nilable(String)) }
         attr_accessor :locality
 
@@ -556,7 +557,8 @@ module ModernTreasury
         sig { returns(T.nilable(T::Boolean)) }
         attr_accessor :primary
 
-        # Region or State.
+        # Region or State. This field is free-form; for US states, we recommend a
+        # two-letter code (e.g. CA). Full state names are also accepted.
         sig { returns(T.nilable(String)) }
         attr_accessor :region
 
@@ -597,7 +599,8 @@ module ModernTreasury
           # This field will be true if this object exists in the live environment or false
           # if it exists in the test environment.
           live_mode:,
-          # Locality or City.
+          # Locality or City. Use the full city name rather than an abbreviation (e.g. San
+          # Francisco).
           locality:,
           object:,
           # The postal code of the address.
@@ -605,7 +608,8 @@ module ModernTreasury
           # Whether this address is the primary address for the legal entity. Optional; when
           # omitted it is inferred from the address types.
           primary:,
-          # Region or State.
+          # Region or State. This field is free-form; for US states, we recommend a
+          # two-letter code (e.g. CA). Full state names are also accepted.
           region:,
           updated_at:
         )
@@ -1425,6 +1429,9 @@ module ModernTreasury
             )
           end
 
+        # A phone number in E.164 format. This format is strictly validated: include a
+        # leading + and country code, followed by digits only (no spaces or dashes), e.g.
+        # +12025551234.
         sig { returns(T.nilable(String)) }
         attr_reader :phone_number
 
@@ -1433,7 +1440,12 @@ module ModernTreasury
 
         # A list of phone numbers in E.164 format.
         sig { params(phone_number: String).returns(T.attached_class) }
-        def self.new(phone_number: nil)
+        def self.new(
+          # A phone number in E.164 format. This format is strictly validated: include a
+          # leading + and country code, followed by digits only (no spaces or dashes), e.g.
+          # +12025551234.
+          phone_number: nil
+        )
         end
 
         sig { override.returns({ phone_number: String }) }

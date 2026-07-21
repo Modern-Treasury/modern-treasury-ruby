@@ -1912,6 +1912,9 @@ module ModernTreasury
               )
             end
 
+          # A phone number in E.164 format. This format is strictly validated: include a
+          # leading + and country code, followed by digits only (no spaces or dashes), e.g.
+          # +12025551234.
           sig { returns(T.nilable(String)) }
           attr_reader :phone_number
 
@@ -1920,7 +1923,12 @@ module ModernTreasury
 
           # A list of phone numbers in E.164 format.
           sig { params(phone_number: String).returns(T.attached_class) }
-          def self.new(phone_number: nil)
+          def self.new(
+            # A phone number in E.164 format. This format is strictly validated: include a
+            # leading + and country code, followed by digits only (no spaces or dashes), e.g.
+            # +12025551234.
+            phone_number: nil
+          )
           end
 
           sig { override.returns({ phone_number: String }) }

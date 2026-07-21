@@ -6,7 +6,7 @@ module ModernTreasury
       # Some parameter documentations has been truncated, see
       # {ModernTreasury::Models::LegalEntityCreateParams} for more details.
       #
-      # create legal_entity
+      # Create a legal entity. All country fields use ISO 3166-1 alpha-2 (e.g. US).
       #
       # @overload create(legal_entity_type:, addresses: nil, bank_settings: nil, business_description: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, connection_id: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, documents: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, external_id: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_entity_associations: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, service_provider_legal_entity_id: nil, suffix: nil, terms_of_use: nil, third_party_verification: nil, third_party_verifications: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
       #

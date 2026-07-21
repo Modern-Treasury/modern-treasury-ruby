@@ -3,7 +3,7 @@
 module ModernTreasury
   module Resources
     class LegalEntities
-      # create legal_entity
+      # Create a legal entity. All country fields use ISO 3166-1 alpha-2 (e.g. US).
       sig do
         params(
           legal_entity_type:
