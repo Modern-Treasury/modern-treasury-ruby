@@ -446,7 +446,8 @@ module ModernTreasury
         required :live_mode, ModernTreasury::Internal::Type::Boolean
 
         # @!attribute locality
-        #   Locality or City.
+        #   Locality or City. Use the full city name rather than an abbreviation (e.g. San
+        #   Francisco).
         #
         #   @return [String, nil]
         required :locality, String, nil?: true
@@ -470,7 +471,8 @@ module ModernTreasury
         required :primary, ModernTreasury::Internal::Type::Boolean, nil?: true
 
         # @!attribute region
-        #   Region or State.
+        #   Region or State. This field is free-form; for US states, we recommend a
+        #   two-letter code (e.g. CA). Full state names are also accepted.
         #
         #   @return [String, nil]
         required :region, String, nil?: true
@@ -500,7 +502,7 @@ module ModernTreasury
         #
         #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
         #
-        #   @param locality [String, nil] Locality or City.
+        #   @param locality [String, nil] Locality or City. Use the full city name rather than an abbreviation (e.g. San F
         #
         #   @param object [String]
         #
@@ -508,7 +510,7 @@ module ModernTreasury
         #
         #   @param primary [Boolean, nil] Whether this address is the primary address for the legal entity. Optional; when
         #
-        #   @param region [String, nil] Region or State.
+        #   @param region [String, nil] Region or State. This field is free-form; for US states, we recommend a two-lett
         #
         #   @param updated_at [Time]
 
@@ -761,14 +763,20 @@ module ModernTreasury
 
       class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
         # @!attribute phone_number
+        #   A phone number in E.164 format. This format is strictly validated: include a
+        #   leading + and country code, followed by digits only (no spaces or dashes), e.g.
+        #   +12025551234.
         #
         #   @return [String, nil]
         optional :phone_number, String
 
         # @!method initialize(phone_number: nil)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::LegalEntity::PhoneNumber} for more details.
+        #
         #   A list of phone numbers in E.164 format.
         #
-        #   @param phone_number [String]
+        #   @param phone_number [String] A phone number in E.164 format. This format is strictly validated: include a lea
       end
 
       class Regulator < ModernTreasury::Internal::Type::BaseModel
