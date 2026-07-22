@@ -94,6 +94,13 @@ module ModernTreasury
       #   @return [String, nil]
       optional :party_name, String, nil?: true
 
+      # @!attribute requested_account_number_types
+      #   An array of account number types requested for provisioning.
+      #
+      #   @return [Array<Symbol, ModernTreasury::Models::InternalAccountCreateParams::RequestedAccountNumberType>, nil]
+      optional :requested_account_number_types,
+               -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::InternalAccountCreateParams::RequestedAccountNumberType] }
+
       # @!attribute vendor_attributes
       #   A hash of vendor specific attributes that will be used when creating the account
       #   at the vendor specified by the given connection.
@@ -101,7 +108,7 @@ module ModernTreasury
       #   @return [Hash{Symbol=>String}, nil]
       optional :vendor_attributes, ModernTreasury::Internal::Type::HashOf[String]
 
-      # @!method initialize(currency:, name:, account_capabilities: nil, account_type: nil, connection_id: nil, counterparty_id: nil, debitable: nil, external_id: nil, legal_entity_id: nil, metadata: nil, parent_account_id: nil, party_address: nil, party_name: nil, vendor_attributes: nil, request_options: {})
+      # @!method initialize(currency:, name:, account_capabilities: nil, account_type: nil, connection_id: nil, counterparty_id: nil, debitable: nil, external_id: nil, legal_entity_id: nil, metadata: nil, parent_account_id: nil, party_address: nil, party_name: nil, requested_account_number_types: nil, vendor_attributes: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::InternalAccountCreateParams} for more details.
       #
@@ -130,6 +137,8 @@ module ModernTreasury
       #   @param party_address [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress] The address associated with the owner or null.
       #
       #   @param party_name [String, nil] The legal name of the entity which owns the account.
+      #
+      #   @param requested_account_number_types [Array<Symbol, ModernTreasury::Models::InternalAccountCreateParams::RequestedAccountNumberType>] An array of account number types requested for provisioning.
       #
       #   @param vendor_attributes [Hash{Symbol=>String}] A hash of vendor specific attributes that will be used when creating the account
       #
@@ -302,7 +311,8 @@ module ModernTreasury
         required :line1, String
 
         # @!attribute locality
-        #   Locality or City.
+        #   Locality or City. Use the full city name rather than an abbreviation (e.g. San
+        #   Francisco).
         #
         #   @return [String]
         required :locality, String
@@ -314,7 +324,8 @@ module ModernTreasury
         required :postal_code, String
 
         # @!attribute region
-        #   Region or State.
+        #   Region or State. This field is free-form; for US states, we recommend a
+        #   two-letter code (e.g. CA). Full state names are also accepted.
         #
         #   @return [String]
         required :region, String
@@ -325,19 +336,35 @@ module ModernTreasury
         optional :line2, String
 
         # @!method initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::InternalAccountCreateParams::PartyAddress} for more
+        #   details.
+        #
         #   The address associated with the owner or null.
         #
         #   @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
         #
         #   @param line1 [String]
         #
-        #   @param locality [String] Locality or City.
+        #   @param locality [String] Locality or City. Use the full city name rather than an abbreviation (e.g. San F
         #
         #   @param postal_code [String] The postal code of the address.
         #
-        #   @param region [String] Region or State.
+        #   @param region [String] Region or State. This field is free-form; for US states, we recommend a two-lett
         #
         #   @param line2 [String]
+      end
+
+      module RequestedAccountNumberType
+        extend ModernTreasury::Internal::Type::Enum
+
+        ETHEREUM_ADDRESS = :ethereum_address
+        SOLANA_ADDRESS = :solana_address
+        POLYGON_ADDRESS = :polygon_address
+        BASE_ADDRESS = :base_address
+
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end
