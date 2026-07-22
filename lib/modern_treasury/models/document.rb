@@ -19,12 +19,6 @@ module ModernTreasury
       #   @return [Time, nil]
       required :discarded_at, Time, nil?: true
 
-      # @!attribute document_details
-      #
-      #   @return [Array<ModernTreasury::Models::Document::DocumentDetail>]
-      required :document_details,
-               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Document::DocumentDetail] }
-
       # @!attribute document_type
       #   A category given to the document, can be `null`.
       #
@@ -73,7 +67,7 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!method initialize(id:, created_at:, discarded_at:, document_details:, document_type:, documentable_id:, documentable_type:, file:, live_mode:, object:, source:, updated_at:)
+      # @!method initialize(id:, created_at:, discarded_at:, document_type:, documentable_id:, documentable_type:, file:, live_mode:, object:, source:, updated_at:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::Document} for more details.
       #
@@ -82,8 +76,6 @@ module ModernTreasury
       #   @param created_at [Time]
       #
       #   @param discarded_at [Time, nil]
-      #
-      #   @param document_details [Array<ModernTreasury::Models::Document::DocumentDetail>]
       #
       #   @param document_type [String, nil] A category given to the document, can be `null`.
       #
@@ -100,70 +92,6 @@ module ModernTreasury
       #   @param source [String] The source of the document. Can be `vendor`, `customer`, or `modern_treasury`.
       #
       #   @param updated_at [Time]
-
-      class DocumentDetail < ModernTreasury::Internal::Type::BaseModel
-        # @!attribute id
-        #
-        #   @return [String]
-        required :id, String
-
-        # @!attribute created_at
-        #
-        #   @return [Time]
-        required :created_at, Time
-
-        # @!attribute discarded_at
-        #
-        #   @return [Time, nil]
-        required :discarded_at, Time, nil?: true
-
-        # @!attribute document_identifier
-        #
-        #   @return [String]
-        required :document_identifier, String
-
-        # @!attribute document_identifier_type
-        #
-        #   @return [String]
-        required :document_identifier_type, String
-
-        # @!attribute live_mode
-        #   This field will be true if this object exists in the live environment or false
-        #   if it exists in the test environment.
-        #
-        #   @return [Boolean]
-        required :live_mode, ModernTreasury::Internal::Type::Boolean
-
-        # @!attribute object
-        #
-        #   @return [String]
-        required :object, String
-
-        # @!attribute updated_at
-        #
-        #   @return [Time]
-        required :updated_at, Time
-
-        # @!method initialize(id:, created_at:, discarded_at:, document_identifier:, document_identifier_type:, live_mode:, object:, updated_at:)
-        #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Models::Document::DocumentDetail} for more details.
-        #
-        #   @param id [String]
-        #
-        #   @param created_at [Time]
-        #
-        #   @param discarded_at [Time, nil]
-        #
-        #   @param document_identifier [String]
-        #
-        #   @param document_identifier_type [String]
-        #
-        #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
-        #
-        #   @param object [String]
-        #
-        #   @param updated_at [Time]
-      end
 
       # The type of the associated object. Currently can be one of `payment_order`,
       # `transaction`, `expected_payment`, `counterparty`, `organization`, `case`,

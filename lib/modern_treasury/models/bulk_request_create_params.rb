@@ -76,6 +76,7 @@ module ModernTreasury
         #   @return [Array<Symbol>]
       end
 
+      # At least one of "amount" or "amount_string" is required.
       module Resource
         extend ModernTreasury::Internal::Type::Union
 
@@ -87,6 +88,7 @@ module ModernTreasury
 
         variant -> { ModernTreasury::LedgerAccountCreateRequest }
 
+        # At least one of "amount" or "amount_string" is required.
         variant -> { ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest }
 
         variant -> { ModernTreasury::BulkRequestCreateParams::Resource::ID }
@@ -126,9 +128,8 @@ module ModernTreasury
           required :originating_account_id, String
 
           # @!attribute type
-          #   One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
-          #   `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
-          #   `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
+          #   One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`,
+          #   `bacs`, `au_becs`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `zengin`.
           #
           #   @return [Symbol, ModernTreasury::Models::PaymentOrderType]
           required :type, enum: -> { ModernTreasury::PaymentOrderType }
@@ -432,7 +433,7 @@ module ModernTreasury
           #
           #   @param originating_account_id [String] The ID of one of your organization's internal accounts.
           #
-          #   @param type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
+          #   @param type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`, `ba
           #
           #   @param accounting [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Accounting]
           #
@@ -880,8 +881,6 @@ module ModernTreasury
                 DK_INTERBANK_CLEARING_CODE = :dk_interbank_clearing_code
                 GB_SORT_CODE = :gb_sort_code
                 HK_INTERBANK_CLEARING_CODE = :hk_interbank_clearing_code
-                HU_INTERBANK_CLEARING_CODE = :hu_interbank_clearing_code
-                ID_SKNBI_CODE = :id_sknbi_code
                 IL_BANK_CODE = :il_bank_code
                 IN_IFSC = :in_ifsc
                 JP_ZENGIN_CODE = :jp_zengin_code
@@ -913,24 +912,17 @@ module ModernTreasury
                 DK_NETS = :dk_nets
                 EFT = :eft
                 GB_FPS = :gb_fps
-                HU_ICS = :hu_ics
-                INTERAC = :interac
                 MASAV = :masav
                 MX_CCEN = :mx_ccen
                 NEFT = :neft
                 NICS = :nics
                 NZ_BECS = :nz_becs
                 PL_ELIXIR = :pl_elixir
-                PROVXCHANGE = :provxchange
-                RO_SENT = :ro_sent
                 RTP = :rtp
                 SE_BANKGIROT = :se_bankgirot
-                SEN = :sen
                 SEPA = :sepa
                 SG_GIRO = :sg_giro
                 SIC = :sic
-                SIGNET = :signet
-                SKNBI = :sknbi
                 STABLECOIN = :stablecoin
                 WIRE = :wire
                 ZENGIN = :zengin
@@ -1181,8 +1173,7 @@ module ModernTreasury
           optional :statement_descriptor, String, nil?: true
 
           # @!attribute type
-          #   One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
-          #   sepa, signet, wire.
+          #   One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire.
           #
           #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil]
           optional :type, enum: -> { ModernTreasury::ExpectedPaymentType }, nil?: true
@@ -1238,7 +1229,7 @@ module ModernTreasury
           #
           #   @param statement_descriptor [String, nil] The statement description you expect to see on the transaction. For ACH payments
           #
-          #   @param type [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil] One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen, se
+          #   @param type [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil] One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire.
 
           # One of credit or debit. Indicates whether amount_reconciled is a credit or debit
           # amount.
@@ -1326,13 +1317,6 @@ module ModernTreasury
         end
 
         class TransactionCreateRequest < ModernTreasury::Internal::Type::BaseModel
-          # @!attribute amount
-          #   Value in specified currency's smallest unit. e.g. $10 would be represented
-          #   as 1000.
-          #
-          #   @return [Integer]
-          required :amount, Integer
-
           # @!attribute as_of_date
           #   The date on which the transaction occurred.
           #
@@ -1361,11 +1345,25 @@ module ModernTreasury
           # @!attribute vendor_code_type
           #   The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
           #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-          #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
-          #   `swift`, `us_bank`, or others.
+          #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`,
+          #   `us_bank`, or others.
           #
           #   @return [String, nil]
           required :vendor_code_type, String, nil?: true
+
+          # @!attribute amount
+          #   Value in specified currency's smallest unit. e.g. $10 would be represented
+          #   as 1000.
+          #
+          #   @return [Integer, nil]
+          optional :amount, Integer
+
+          # @!attribute amount_string
+          #   The transaction amount as a string, preserving full precision for values that
+          #   may exceed safe integer limits in some languages.
+          #
+          #   @return [String, nil]
+          optional :amount_string, String
 
           # @!attribute metadata
           #   Additional data represented as key-value pairs. Both the key and value must be
@@ -1382,7 +1380,7 @@ module ModernTreasury
 
           # @!attribute type
           #   The type of the transaction. Examples could be
-          #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
+          #   `card, `ach`, `wire`, `check`, `rtp`, or `book`.
           #
           #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type, nil]
           optional :type,
@@ -1404,12 +1402,12 @@ module ModernTreasury
           #   @return [String, nil]
           optional :vendor_description, String, nil?: true
 
-          # @!method initialize(amount:, as_of_date:, direction:, internal_account_id:, vendor_code:, vendor_code_type:, metadata: nil, posted: nil, type: nil, vendor_customer_id: nil, vendor_description: nil)
+          # @!method initialize(as_of_date:, direction:, internal_account_id:, vendor_code:, vendor_code_type:, amount: nil, amount_string: nil, metadata: nil, posted: nil, type: nil, vendor_customer_id: nil, vendor_description: nil)
           #   Some parameter documentations has been truncated, see
           #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest}
           #   for more details.
           #
-          #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
+          #   At least one of "amount" or "amount_string" is required.
           #
           #   @param as_of_date [Date, nil] The date on which the transaction occurred.
           #
@@ -1420,6 +1418,10 @@ module ModernTreasury
           #   @param vendor_code [String, nil] When applicable, the bank-given code that determines the transaction's category.
           #
           #   @param vendor_code_type [String, nil] The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`, `bnk
+          #
+          #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
+          #
+          #   @param amount_string [String] The transaction amount as a string, preserving full precision for values that ma
           #
           #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
           #
@@ -1432,7 +1434,7 @@ module ModernTreasury
           #   @param vendor_description [String, nil] The transaction detail text that often appears in on your bank statement and in
 
           # The type of the transaction. Examples could be
-          # `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
+          # `card, `ach`, `wire`, `check`, `rtp`, or `book`.
           #
           # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest#type
           module Type
@@ -1449,24 +1451,17 @@ module ModernTreasury
             DK_NETS = :dk_nets
             EFT = :eft
             GB_FPS = :gb_fps
-            HU_ICS = :hu_ics
-            INTERAC = :interac
             MASAV = :masav
             MX_CCEN = :mx_ccen
             NEFT = :neft
             NICS = :nics
             NZ_BECS = :nz_becs
             PL_ELIXIR = :pl_elixir
-            PROVXCHANGE = :provxchange
-            RO_SENT = :ro_sent
             RTP = :rtp
             SE_BANKGIROT = :se_bankgirot
-            SEN = :sen
             SEPA = :sepa
             SG_GIRO = :sg_giro
             SIC = :sic
-            SIGNET = :signet
-            SKNBI = :sknbi
             STABLECOIN = :stablecoin
             WIRE = :wire
             ZENGIN = :zengin
@@ -1745,9 +1740,8 @@ module ModernTreasury
           optional :subtype, enum: -> { ModernTreasury::PaymentOrderSubtype }, nil?: true
 
           # @!attribute type
-          #   One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
-          #   `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
-          #   `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
+          #   One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`,
+          #   `bacs`, `au_becs`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `zengin`.
           #
           #   @return [Symbol, ModernTreasury::Models::PaymentOrderType, nil]
           optional :type, enum: -> { ModernTreasury::PaymentOrderType }
@@ -1853,7 +1847,7 @@ module ModernTreasury
           #
           #   @param subtype [Symbol, ModernTreasury::Models::PaymentOrderSubtype, nil] An additional layer of classification for the type of payment order you are doin
           #
-          #   @param type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
+          #   @param type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`, `ba
           #
           #   @param ultimate_originating_party_identifier [String, nil] This represents the identifier by which the person is known to the receiver when
           #
@@ -2237,8 +2231,6 @@ module ModernTreasury
                 DK_INTERBANK_CLEARING_CODE = :dk_interbank_clearing_code
                 GB_SORT_CODE = :gb_sort_code
                 HK_INTERBANK_CLEARING_CODE = :hk_interbank_clearing_code
-                HU_INTERBANK_CLEARING_CODE = :hu_interbank_clearing_code
-                ID_SKNBI_CODE = :id_sknbi_code
                 IL_BANK_CODE = :il_bank_code
                 IN_IFSC = :in_ifsc
                 JP_ZENGIN_CODE = :jp_zengin_code
@@ -2270,24 +2262,17 @@ module ModernTreasury
                 DK_NETS = :dk_nets
                 EFT = :eft
                 GB_FPS = :gb_fps
-                HU_ICS = :hu_ics
-                INTERAC = :interac
                 MASAV = :masav
                 MX_CCEN = :mx_ccen
                 NEFT = :neft
                 NICS = :nics
                 NZ_BECS = :nz_becs
                 PL_ELIXIR = :pl_elixir
-                PROVXCHANGE = :provxchange
-                RO_SENT = :ro_sent
                 RTP = :rtp
                 SE_BANKGIROT = :se_bankgirot
-                SEN = :sen
                 SEPA = :sepa
                 SG_GIRO = :sg_giro
                 SIC = :sic
-                SIGNET = :signet
-                SKNBI = :sknbi
                 STABLECOIN = :stablecoin
                 WIRE = :wire
                 ZENGIN = :zengin
@@ -2504,8 +2489,7 @@ module ModernTreasury
                    nil?: true
 
           # @!attribute type
-          #   One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
-          #   sepa, signet, wire.
+          #   One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire.
           #
           #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil]
           optional :type, enum: -> { ModernTreasury::ExpectedPaymentType }, nil?: true
@@ -2559,7 +2543,7 @@ module ModernTreasury
           #
           #   @param status [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Status, nil] The Expected Payment's status can be updated from partially_reconciled to reconc
           #
-          #   @param type [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil] One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen, se
+          #   @param type [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil] One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire.
 
           # One of credit or debit. Indicates whether amount_reconciled is a credit or debit
           # amount.
