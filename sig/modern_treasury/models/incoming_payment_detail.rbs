@@ -220,8 +220,6 @@ module ModernTreasury
         | :dk_interbank_clearing_code
         | :gb_sort_code
         | :hk_interbank_clearing_code
-        | :hu_interbank_clearing_code
-        | :id_sknbi_code
         | :il_bank_code
         | :in_ifsc
         | :jp_zengin_code
@@ -246,8 +244,6 @@ module ModernTreasury
         DK_INTERBANK_CLEARING_CODE: :dk_interbank_clearing_code
         GB_SORT_CODE: :gb_sort_code
         HK_INTERBANK_CLEARING_CODE: :hk_interbank_clearing_code
-        HU_INTERBANK_CLEARING_CODE: :hu_interbank_clearing_code
-        ID_SKNBI_CODE: :id_sknbi_code
         IL_BANK_CODE: :il_bank_code
         IN_IFSC: :in_ifsc
         JP_ZENGIN_CODE: :jp_zengin_code
@@ -295,12 +291,10 @@ module ModernTreasury
         | :book
         | :check
         | :eft
-        | :interac
         | :neft
         | :nz_becs
         | :rtp
         | :sepa
-        | :signet
         | :stablecoin
         | :wire
         | :zengin
@@ -314,12 +308,10 @@ module ModernTreasury
         BOOK: :book
         CHECK: :check
         EFT: :eft
-        INTERAC: :interac
         NEFT: :neft
         NZ_BECS: :nz_becs
         RTP: :rtp
         SEPA: :sepa
-        SIGNET: :signet
         STABLECOIN: :stablecoin
         WIRE: :wire
         ZENGIN: :zengin

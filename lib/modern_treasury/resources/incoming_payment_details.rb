@@ -73,7 +73,7 @@ module ModernTreasury
       #
       # @param subtype [String] An additional layer of classification for the type of incoming payment detail. F
       #
-      # @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Type] One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or `w
+      # @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Type] One of: `ach`, `book`, `check`, `eft`, `rtp`, `sepa`, or `wire`.
       #
       # @param virtual_account_id [String] If the incoming payment detail is in a virtual account, the ID of the Virtual Ac
       #
