@@ -292,9 +292,8 @@ module ModernTreasury
       required :transaction_ids, ModernTreasury::Internal::Type::ArrayOf[String]
 
       # @!attribute type
-      #   One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
-      #   `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
-      #   `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
+      #   One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`,
+      #   `bacs`, `au_becs`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `zengin`.
       #
       #   @return [Symbol, ModernTreasury::Models::PaymentOrderType]
       required :type, enum: -> { ModernTreasury::PaymentOrderType }
@@ -447,7 +446,7 @@ module ModernTreasury
       #
       #   @param transaction_ids [Array<String>] The IDs of all the transactions associated to this payment order. Usually, you w
       #
-      #   @param type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
+      #   @param type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`, `ba
       #
       #   @param ultimate_originating_account [ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount, nil] The account to which the originating of this payment should be attributed to. Ca
       #
@@ -838,7 +837,6 @@ module ModernTreasury
           GOLDMAN_SACHS_PAYMENT_REQUEST_ID = :goldman_sachs_payment_request_id
           GOLDMAN_SACHS_REQUEST_ID = :goldman_sachs_request_id
           GOLDMAN_SACHS_UNIQUE_PAYMENT_ID = :goldman_sachs_unique_payment_id
-          INTERAC_MESSAGE_ID = :interac_message_id
           JPMC_CCN = :jpmc_ccn
           JPMC_CLEARING_SYSTEM_REFERENCE = :jpmc_clearing_system_reference
           JPMC_CUSTOMER_REFERENCE_ID = :jpmc_customer_reference_id
@@ -866,14 +864,13 @@ module ModernTreasury
           PNC_TRANSACTION_REFERENCE_NUMBER = :pnc_transaction_reference_number
           RBC_WIRE_REFERENCE_ID = :rbc_wire_reference_id
           RTP_INSTRUCTION_ID = :rtp_instruction_id
-          SIGNET_API_REFERENCE_ID = :signet_api_reference_id
-          SIGNET_CONFIRMATION_ID = :signet_confirmation_id
-          SIGNET_REQUEST_ID = :signet_request_id
           SILVERGATE_PAYMENT_ID = :silvergate_payment_id
           SVB_END_TO_END_ID = :svb_end_to_end_id
           SVB_PAYMENT_ID = :svb_payment_id
           SWIFT_MIR = :swift_mir
           SWIFT_UETR = :swift_uetr
+          TURNKEY_ACTIVITY_ID = :turnkey_activity_id
+          TURNKEY_SEND_TRANSACTION_STATUS_ID = :turnkey_send_transaction_status_id
           UMB_PRODUCT_PARTNER_ACCOUNT_NUMBER = :umb_product_partner_account_number
           USBANK_PAYMENT_APPLICATION_REFERENCE_ID = :usbank_payment_application_reference_id
           USBANK_PAYMENT_ID = :usbank_payment_id
