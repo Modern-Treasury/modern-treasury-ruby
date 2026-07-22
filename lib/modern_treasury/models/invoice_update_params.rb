@@ -138,9 +138,8 @@ module ModernTreasury
       optional :payment_method, enum: -> { ModernTreasury::InvoiceUpdateParams::PaymentMethod }
 
       # @!attribute payment_type
-      #   One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
-      #   `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
-      #   `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
+      #   One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`,
+      #   `bacs`, `au_becs`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `zengin`.
       #
       #   @return [Symbol, ModernTreasury::Models::PaymentOrderType, nil]
       optional :payment_type, enum: -> { ModernTreasury::PaymentOrderType }
@@ -226,7 +225,7 @@ module ModernTreasury
       #
       #   @param payment_method [Symbol, ModernTreasury::Models::InvoiceUpdateParams::PaymentMethod] The method by which the invoice can be paid. `ui` will show the embedded payment
       #
-      #   @param payment_type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sep
+      #   @param payment_type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`, `ba
       #
       #   @param receiving_account_id [String] The receiving account ID. Can be an `external_account`.
       #
@@ -255,7 +254,8 @@ module ModernTreasury
         required :line1, String
 
         # @!attribute locality
-        #   Locality or City.
+        #   Locality or City. Use the full city name rather than an abbreviation (e.g. San
+        #   Francisco).
         #
         #   @return [String]
         required :locality, String
@@ -267,7 +267,8 @@ module ModernTreasury
         required :postal_code, String
 
         # @!attribute region
-        #   Region or State.
+        #   Region or State. This field is free-form; for US states, we recommend a
+        #   two-letter code (e.g. CA). Full state names are also accepted.
         #
         #   @return [String]
         required :region, String
@@ -278,17 +279,21 @@ module ModernTreasury
         optional :line2, String
 
         # @!method initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::InvoiceUpdateParams::CounterpartyBillingAddress} for
+        #   more details.
+        #
         #   The counterparty's billing address.
         #
         #   @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
         #
         #   @param line1 [String]
         #
-        #   @param locality [String] Locality or City.
+        #   @param locality [String] Locality or City. Use the full city name rather than an abbreviation (e.g. San F
         #
         #   @param postal_code [String] The postal code of the address.
         #
-        #   @param region [String] Region or State.
+        #   @param region [String] Region or State. This field is free-form; for US states, we recommend a two-lett
         #
         #   @param line2 [String]
       end
@@ -306,7 +311,8 @@ module ModernTreasury
         required :line1, String
 
         # @!attribute locality
-        #   Locality or City.
+        #   Locality or City. Use the full city name rather than an abbreviation (e.g. San
+        #   Francisco).
         #
         #   @return [String]
         required :locality, String
@@ -318,7 +324,8 @@ module ModernTreasury
         required :postal_code, String
 
         # @!attribute region
-        #   Region or State.
+        #   Region or State. This field is free-form; for US states, we recommend a
+        #   two-letter code (e.g. CA). Full state names are also accepted.
         #
         #   @return [String]
         required :region, String
@@ -329,17 +336,21 @@ module ModernTreasury
         optional :line2, String
 
         # @!method initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::InvoiceUpdateParams::CounterpartyShippingAddress} for
+        #   more details.
+        #
         #   The counterparty's shipping address where physical goods should be delivered.
         #
         #   @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
         #
         #   @param line1 [String]
         #
-        #   @param locality [String] Locality or City.
+        #   @param locality [String] Locality or City. Use the full city name rather than an abbreviation (e.g. San F
         #
         #   @param postal_code [String] The postal code of the address.
         #
-        #   @param region [String] Region or State.
+        #   @param region [String] Region or State. This field is free-form; for US states, we recommend a two-lett
         #
         #   @param line2 [String]
       end
@@ -426,7 +437,8 @@ module ModernTreasury
         required :line1, String
 
         # @!attribute locality
-        #   Locality or City.
+        #   Locality or City. Use the full city name rather than an abbreviation (e.g. San
+        #   Francisco).
         #
         #   @return [String]
         required :locality, String
@@ -438,7 +450,8 @@ module ModernTreasury
         required :postal_code, String
 
         # @!attribute region
-        #   Region or State.
+        #   Region or State. This field is free-form; for US states, we recommend a
+        #   two-letter code (e.g. CA). Full state names are also accepted.
         #
         #   @return [String]
         required :region, String
@@ -449,17 +462,20 @@ module ModernTreasury
         optional :line2, String
 
         # @!method initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::InvoiceUpdateParams::InvoicerAddress} for more details.
+        #
         #   The invoice issuer's business address.
         #
         #   @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
         #
         #   @param line1 [String]
         #
-        #   @param locality [String] Locality or City.
+        #   @param locality [String] Locality or City. Use the full city name rather than an abbreviation (e.g. San F
         #
         #   @param postal_code [String] The postal code of the address.
         #
-        #   @param region [String] Region or State.
+        #   @param region [String] Region or State. This field is free-form; for US states, we recommend a two-lett
         #
         #   @param line2 [String]
       end

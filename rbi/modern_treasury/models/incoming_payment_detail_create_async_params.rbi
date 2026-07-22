@@ -238,11 +238,6 @@ module ModernTreasury
             :eft,
             ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol
           )
-        INTERAC =
-          T.let(
-            :interac,
-            ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol
-          )
         NEFT =
           T.let(
             :neft,
@@ -261,11 +256,6 @@ module ModernTreasury
         SEPA =
           T.let(
             :sepa,
-            ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol
-          )
-        SIGNET =
-          T.let(
-            :signet,
             ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol
           )
         STABLECOIN =
