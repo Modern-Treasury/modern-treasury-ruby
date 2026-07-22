@@ -90,6 +90,8 @@ module ModernTreasury
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LedgerEntryCreateRequest} for more details.
       #
+      #   At least one of "amount" or "amount_string" is required.
+      #
       #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection] One of `credit`, `debit`. Describes the direction money is flowing in the transa
       #
       #   @param ledger_account_id [String] The ledger account that this ledger entry is associated with.

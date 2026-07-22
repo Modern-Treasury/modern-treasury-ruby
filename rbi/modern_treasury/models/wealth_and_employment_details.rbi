@@ -32,7 +32,8 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :employer_name
 
-      # The state in which the employer is located.
+      # The state in which the employer is located. This field is free-form text; for US
+      # states, we recommend a two-letter abbreviation (e.g. CA).
       sig { returns(T.nilable(String)) }
       attr_accessor :employer_state
 
@@ -165,7 +166,8 @@ module ModernTreasury
         employer_country:,
         # The name of the employer.
         employer_name:,
-        # The state in which the employer is located.
+        # The state in which the employer is located. This field is free-form text; for US
+        # states, we recommend a two-letter abbreviation (e.g. CA).
         employer_state:,
         # The employment status of the individual.
         employment_status:,

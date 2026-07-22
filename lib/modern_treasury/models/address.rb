@@ -37,7 +37,8 @@ module ModernTreasury
       required :live_mode, ModernTreasury::Internal::Type::Boolean
 
       # @!attribute locality
-      #   Locality or City.
+      #   Locality or City. Use the full city name rather than an abbreviation (e.g. San
+      #   Francisco).
       #
       #   @return [String, nil]
       required :locality, String, nil?: true
@@ -54,7 +55,8 @@ module ModernTreasury
       required :postal_code, String, nil?: true
 
       # @!attribute region
-      #   Region or State.
+      #   Region or State. This field is free-form; for US states, we recommend a
+      #   two-letter code (e.g. CA). Full state names are also accepted.
       #
       #   @return [String, nil]
       required :region, String, nil?: true
@@ -80,13 +82,13 @@ module ModernTreasury
       #
       #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
       #
-      #   @param locality [String, nil] Locality or City.
+      #   @param locality [String, nil] Locality or City. Use the full city name rather than an abbreviation (e.g. San F
       #
       #   @param object [String]
       #
       #   @param postal_code [String, nil] The postal code of the address.
       #
-      #   @param region [String, nil] Region or State.
+      #   @param region [String, nil] Region or State. This field is free-form; for US states, we recommend a two-lett
       #
       #   @param updated_at [Time]
     end
