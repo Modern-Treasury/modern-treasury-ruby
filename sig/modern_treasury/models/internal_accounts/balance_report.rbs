@@ -5,7 +5,7 @@ module ModernTreasury
         {
           id: String,
           as_of_date: Date,
-          as_of_time: Time?,
+          as_of_time: Time,
           balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::balance_report_type,
           balances: ::Array[ModernTreasury::InternalAccounts::BalanceReport::Balance],
           created_at: Time,
@@ -20,7 +20,7 @@ module ModernTreasury
 
         attr_accessor as_of_date: Date
 
-        attr_accessor as_of_time: Time?
+        attr_accessor as_of_time: Time
 
         attr_accessor balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::balance_report_type
 
@@ -39,7 +39,7 @@ module ModernTreasury
         def initialize: (
           id: String,
           as_of_date: Date,
-          as_of_time: Time?,
+          as_of_time: Time,
           balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::balance_report_type,
           balances: ::Array[ModernTreasury::InternalAccounts::BalanceReport::Balance],
           created_at: Time,
@@ -52,7 +52,7 @@ module ModernTreasury
         def to_hash: -> {
           id: String,
           as_of_date: Date,
-          as_of_time: Time?,
+          as_of_time: Time,
           balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::balance_report_type,
           balances: ::Array[ModernTreasury::InternalAccounts::BalanceReport::Balance],
           created_at: Time,
@@ -80,6 +80,7 @@ module ModernTreasury
           {
             id: String,
             amount: Integer,
+            amount_string: String,
             as_of_date: Date?,
             as_of_time: Time?,
             balance_type: ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::balance_type,
@@ -97,6 +98,8 @@ module ModernTreasury
           attr_accessor id: String
 
           attr_accessor amount: Integer
+
+          attr_accessor amount_string: String
 
           attr_accessor as_of_date: Date?
 
@@ -123,6 +126,7 @@ module ModernTreasury
           def initialize: (
             id: String,
             amount: Integer,
+            amount_string: String,
             as_of_date: Date?,
             as_of_time: Time?,
             balance_type: ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::balance_type,
@@ -139,6 +143,7 @@ module ModernTreasury
           def to_hash: -> {
             id: String,
             amount: Integer,
+            amount_string: String,
             as_of_date: Date?,
             as_of_time: Time?,
             balance_type: ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::balance_type,
