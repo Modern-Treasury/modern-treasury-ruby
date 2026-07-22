@@ -108,7 +108,7 @@ module ModernTreasury
       required :invoicer_name, String, nil?: true
 
       # @!attribute issued_at
-      #   Translation missing: en.openapi.descriptions.invoice.schema.issued_at
+      #   The time at which the invoice was issued.
       #
       #   @return [Time, nil]
       required :issued_at, Time, nil?: true
@@ -168,7 +168,7 @@ module ModernTreasury
       required :originating_account_id, String
 
       # @!attribute paid_at
-      #   Translation missing: en.openapi.descriptions.invoice.schema.paid_at
+      #   The time at which the invoice was paid.
       #
       #   @return [Time, nil]
       required :paid_at, Time, nil?: true
@@ -265,7 +265,7 @@ module ModernTreasury
       required :virtual_account_id, String, nil?: true
 
       # @!attribute voided_at
-      #   Translation missing: en.openapi.descriptions.invoice.schema.voided_at
+      #   The time at which the invoice was voided.
       #
       #   @return [Time, nil]
       required :voided_at, Time, nil?: true
@@ -306,7 +306,7 @@ module ModernTreasury
       #
       #   @param invoicer_name [String, nil] The name of the issuer for the invoice. Defaults to the name of the Organization
       #
-      #   @param issued_at [Time, nil] Translation missing: en.openapi.descriptions.invoice.schema.issued_at
+      #   @param issued_at [Time, nil] The time at which the invoice was issued.
       #
       #   @param ledger_account_settlement_id [String, nil] The ledger account settlement object linked to the invoice.
       #
@@ -324,7 +324,7 @@ module ModernTreasury
       #
       #   @param originating_account_id [String] The ID of the internal account the invoice should be paid to.
       #
-      #   @param paid_at [Time, nil] Translation missing: en.openapi.descriptions.invoice.schema.paid_at
+      #   @param paid_at [Time, nil] The time at which the invoice was paid.
       #
       #   @param payment_effective_date [Date, nil] Date transactions are to be posted to the participants' account. Defaults to the
       #
@@ -354,7 +354,7 @@ module ModernTreasury
       #
       #   @param virtual_account_id [String, nil] The ID of the virtual account the invoice should be paid to.
       #
-      #   @param voided_at [Time, nil] Translation missing: en.openapi.descriptions.invoice.schema.voided_at
+      #   @param voided_at [Time, nil] The time at which the invoice was voided.
 
       # @see ModernTreasury::Models::Invoice#counterparty_billing_address
       class CounterpartyBillingAddress < ModernTreasury::Internal::Type::BaseModel
@@ -370,7 +370,8 @@ module ModernTreasury
         required :line1, String
 
         # @!attribute locality
-        #   Locality or City.
+        #   Locality or City. Use the full city name rather than an abbreviation (e.g. San
+        #   Francisco).
         #
         #   @return [String]
         required :locality, String
@@ -382,7 +383,8 @@ module ModernTreasury
         required :postal_code, String
 
         # @!attribute region
-        #   Region or State.
+        #   Region or State. This field is free-form; for US states, we recommend a
+        #   two-letter code (e.g. CA). Full state names are also accepted.
         #
         #   @return [String]
         required :region, String
@@ -393,17 +395,20 @@ module ModernTreasury
         optional :line2, String
 
         # @!method initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::Invoice::CounterpartyBillingAddress} for more details.
+        #
         #   The counterparty's billing address.
         #
         #   @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
         #
         #   @param line1 [String]
         #
-        #   @param locality [String] Locality or City.
+        #   @param locality [String] Locality or City. Use the full city name rather than an abbreviation (e.g. San F
         #
         #   @param postal_code [String] The postal code of the address.
         #
-        #   @param region [String] Region or State.
+        #   @param region [String] Region or State. This field is free-form; for US states, we recommend a two-lett
         #
         #   @param line2 [String]
       end
@@ -422,7 +427,8 @@ module ModernTreasury
         required :line1, String
 
         # @!attribute locality
-        #   Locality or City.
+        #   Locality or City. Use the full city name rather than an abbreviation (e.g. San
+        #   Francisco).
         #
         #   @return [String]
         required :locality, String
@@ -434,7 +440,8 @@ module ModernTreasury
         required :postal_code, String
 
         # @!attribute region
-        #   Region or State.
+        #   Region or State. This field is free-form; for US states, we recommend a
+        #   two-letter code (e.g. CA). Full state names are also accepted.
         #
         #   @return [String]
         required :region, String
@@ -445,17 +452,20 @@ module ModernTreasury
         optional :line2, String
 
         # @!method initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::Invoice::CounterpartyShippingAddress} for more details.
+        #
         #   The counterparty's shipping address where physical goods should be delivered.
         #
         #   @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
         #
         #   @param line1 [String]
         #
-        #   @param locality [String] Locality or City.
+        #   @param locality [String] Locality or City. Use the full city name rather than an abbreviation (e.g. San F
         #
         #   @param postal_code [String] The postal code of the address.
         #
-        #   @param region [String] Region or State.
+        #   @param region [String] Region or State. This field is free-form; for US states, we recommend a two-lett
         #
         #   @param line2 [String]
       end
@@ -474,7 +484,8 @@ module ModernTreasury
         required :line1, String
 
         # @!attribute locality
-        #   Locality or City.
+        #   Locality or City. Use the full city name rather than an abbreviation (e.g. San
+        #   Francisco).
         #
         #   @return [String]
         required :locality, String
@@ -486,7 +497,8 @@ module ModernTreasury
         required :postal_code, String
 
         # @!attribute region
-        #   Region or State.
+        #   Region or State. This field is free-form; for US states, we recommend a
+        #   two-letter code (e.g. CA). Full state names are also accepted.
         #
         #   @return [String]
         required :region, String
@@ -497,17 +509,20 @@ module ModernTreasury
         optional :line2, String
 
         # @!method initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::Invoice::InvoicerAddress} for more details.
+        #
         #   The invoice issuer's business address.
         #
         #   @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
         #
         #   @param line1 [String]
         #
-        #   @param locality [String] Locality or City.
+        #   @param locality [String] Locality or City. Use the full city name rather than an abbreviation (e.g. San F
         #
         #   @param postal_code [String] The postal code of the address.
         #
-        #   @param region [String] Region or State.
+        #   @param region [String] Region or State. This field is free-form; for US states, we recommend a two-lett
         #
         #   @param line2 [String]
       end

@@ -59,33 +59,42 @@ module ModernTreasury
 
         type balance =
           {
-            amount: Integer,
             balance_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::balance_type,
             vendor_code: String,
-            vendor_code_type: String?
+            vendor_code_type: String?,
+            amount: Integer,
+            amount_string: String
           }
 
         class Balance < ModernTreasury::Internal::Type::BaseModel
-          attr_accessor amount: Integer
-
           attr_accessor balance_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::balance_type
 
           attr_accessor vendor_code: String
 
           attr_accessor vendor_code_type: String?
 
+          attr_reader amount: Integer?
+
+          def amount=: (Integer) -> Integer
+
+          attr_reader amount_string: String?
+
+          def amount_string=: (String) -> String
+
           def initialize: (
-            amount: Integer,
             balance_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::balance_type,
             vendor_code: String,
-            vendor_code_type: String?
+            vendor_code_type: String?,
+            ?amount: Integer,
+            ?amount_string: String
           ) -> void
 
           def to_hash: -> {
-            amount: Integer,
             balance_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::balance_type,
             vendor_code: String,
-            vendor_code_type: String?
+            vendor_code_type: String?,
+            amount: Integer,
+            amount_string: String
           }
 
           type balance_type =

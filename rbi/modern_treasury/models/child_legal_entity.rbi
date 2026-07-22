@@ -44,8 +44,8 @@ module ModernTreasury
       sig { returns(T.nilable(T.anything)) }
       attr_accessor :compliance_details
 
-      # The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
-      # alpha-3 formats.
+      # The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
+      # code (e.g. US).
       sig { returns(T.nilable(String)) }
       attr_accessor :country_of_incorporation
 
@@ -148,8 +148,8 @@ module ModernTreasury
       sig { returns(String) }
       attr_accessor :object
 
-      # A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3
-      # codes).
+      # A list of countries where the business operates, as ISO 3166-1 alpha-2 country
+      # codes (e.g. ["US", "CA"]).
       sig { returns(T::Array[String]) }
       attr_accessor :operating_jurisdictions
 
@@ -204,6 +204,18 @@ module ModernTreasury
       # An individual's suffix.
       sig { returns(T.nilable(String)) }
       attr_accessor :suffix
+
+      # Acceptance of terms of use by the legal entity.
+      sig { returns(T.nilable(ModernTreasury::ChildLegalEntity::TermsOfUse)) }
+      attr_reader :terms_of_use
+
+      sig do
+        params(
+          terms_of_use:
+            T.nilable(ModernTreasury::ChildLegalEntity::TermsOfUse::OrHash)
+        ).void
+      end
+      attr_writer :terms_of_use
 
       # Deprecated. Use `third_party_verifications` instead.
       sig { returns(T.nilable(ModernTreasury::ThirdPartyVerification)) }
@@ -302,6 +314,8 @@ module ModernTreasury
           service_provider_legal_entity_id: T.nilable(String),
           status: T.nilable(ModernTreasury::ChildLegalEntity::Status::OrSymbol),
           suffix: T.nilable(String),
+          terms_of_use:
+            T.nilable(ModernTreasury::ChildLegalEntity::TermsOfUse::OrHash),
           third_party_verification:
             T.nilable(ModernTreasury::ThirdPartyVerification::OrHash),
           third_party_verifications:
@@ -327,8 +341,8 @@ module ModernTreasury
         # The country of citizenship for an individual.
         citizenship_country:,
         compliance_details:,
-        # The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
-        # alpha-3 formats.
+        # The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
+        # code (e.g. US).
         country_of_incorporation:,
         created_at:,
         # A business's formation date (YYYY-MM-DD).
@@ -371,8 +385,8 @@ module ModernTreasury
         # An individual's middle name.
         middle_name:,
         object:,
-        # A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3
-        # codes).
+        # A list of countries where the business operates, as ISO 3166-1 alpha-2 country
+        # codes (e.g. ["US", "CA"]).
         operating_jurisdictions:,
         phone_numbers:,
         # Whether the individual is a politically exposed person.
@@ -394,6 +408,8 @@ module ModernTreasury
         status:,
         # An individual's suffix.
         suffix:,
+        # Acceptance of terms of use by the legal entity.
+        terms_of_use:,
         # Deprecated. Use `third_party_verifications` instead.
         third_party_verification:,
         # A list of third-party verifications run by external vendors.
@@ -464,6 +480,8 @@ module ModernTreasury
             status:
               T.nilable(ModernTreasury::ChildLegalEntity::Status::TaggedSymbol),
             suffix: T.nilable(String),
+            terms_of_use:
+              T.nilable(ModernTreasury::ChildLegalEntity::TermsOfUse),
             third_party_verification:
               T.nilable(ModernTreasury::ThirdPartyVerification),
             third_party_verifications:
@@ -522,7 +540,8 @@ module ModernTreasury
         sig { returns(T::Boolean) }
         attr_accessor :live_mode
 
-        # Locality or City.
+        # Locality or City. Use the full city name rather than an abbreviation (e.g. San
+        # Francisco).
         sig { returns(T.nilable(String)) }
         attr_accessor :locality
 
@@ -533,11 +552,13 @@ module ModernTreasury
         sig { returns(T.nilable(String)) }
         attr_accessor :postal_code
 
-        # Whether this address is the primary address for the legal entity.
+        # Whether this address is the primary address for the legal entity. Optional; when
+        # omitted it is inferred from the address types.
         sig { returns(T.nilable(T::Boolean)) }
         attr_accessor :primary
 
-        # Region or State.
+        # Region or State. This field is free-form; for US states, we recommend a
+        # two-letter code (e.g. CA). Full state names are also accepted.
         sig { returns(T.nilable(String)) }
         attr_accessor :region
 
@@ -578,14 +599,17 @@ module ModernTreasury
           # This field will be true if this object exists in the live environment or false
           # if it exists in the test environment.
           live_mode:,
-          # Locality or City.
+          # Locality or City. Use the full city name rather than an abbreviation (e.g. San
+          # Francisco).
           locality:,
           object:,
           # The postal code of the address.
           postal_code:,
-          # Whether this address is the primary address for the legal entity.
+          # Whether this address is the primary address for the legal entity. Optional; when
+          # omitted it is inferred from the address types.
           primary:,
-          # Region or State.
+          # Region or State. This field is free-form; for US states, we recommend a
+          # two-letter code (e.g. CA). Full state names are also accepted.
           region:,
           updated_at:
         )
@@ -632,6 +656,11 @@ module ModernTreasury
           BUSINESS =
             T.let(
               :business,
+              ModernTreasury::ChildLegalEntity::Address::AddressType::TaggedSymbol
+            )
+          BUSINESS_PHYSICAL =
+            T.let(
+              :business_physical,
               ModernTreasury::ChildLegalEntity::Address::AddressType::TaggedSymbol
             )
           BUSINESS_REGISTERED =
@@ -994,9 +1023,24 @@ module ModernTreasury
               :gb_vat,
               ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
             )
+          GENERIC_INTERNATIONAL =
+            T.let(
+              :generic_international,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
           GR_VAT =
             T.let(
               :gr_vat,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          HK_BRN =
+            T.let(
+              :hk_brn,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          HK_HKID =
+            T.let(
+              :hk_hkid,
               ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
             )
           HN_ID =
@@ -1137,6 +1181,11 @@ module ModernTreasury
           MX_RFC =
             T.let(
               :mx_rfc,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          NATIONAL_ID =
+            T.let(
+              :national_id,
               ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
             )
           NL_BSN =
@@ -1317,11 +1366,6 @@ module ModernTreasury
             :individual,
             ModernTreasury::ChildLegalEntity::LegalEntityType::TaggedSymbol
           )
-        JOINT =
-          T.let(
-            :joint,
-            ModernTreasury::ChildLegalEntity::LegalEntityType::TaggedSymbol
-          )
 
         sig do
           override.returns(
@@ -1395,6 +1439,9 @@ module ModernTreasury
             )
           end
 
+        # A phone number in E.164 format. This format is strictly validated: include a
+        # leading + and country code, followed by digits only (no spaces or dashes), e.g.
+        # +12025551234.
         sig { returns(T.nilable(String)) }
         attr_reader :phone_number
 
@@ -1403,7 +1450,12 @@ module ModernTreasury
 
         # A list of phone numbers in E.164 format.
         sig { params(phone_number: String).returns(T.attached_class) }
-        def self.new(phone_number: nil)
+        def self.new(
+          # A phone number in E.164 format. This format is strictly validated: include a
+          # leading + and country code, followed by digits only (no spaces or dashes), e.g.
+          # +12025551234.
+          phone_number: nil
+        )
         end
 
         sig { override.returns({ phone_number: String }) }
@@ -1527,6 +1579,50 @@ module ModernTreasury
           )
         end
         def self.values
+        end
+      end
+
+      class TermsOfUse < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              ModernTreasury::ChildLegalEntity::TermsOfUse,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
+
+        # The ISO 8601 timestamp indicating when the terms of use were accepted.
+        sig { returns(T.nilable(Time)) }
+        attr_reader :accepted_at
+
+        sig { params(accepted_at: Time).void }
+        attr_writer :accepted_at
+
+        # The IP address from which the terms of use were accepted. Supports both IPv4 and
+        # IPv6 formats.
+        sig { returns(T.nilable(String)) }
+        attr_reader :ip_address
+
+        sig { params(ip_address: String).void }
+        attr_writer :ip_address
+
+        # Acceptance of terms of use by the legal entity.
+        sig do
+          params(accepted_at: Time, ip_address: String).returns(
+            T.attached_class
+          )
+        end
+        def self.new(
+          # The ISO 8601 timestamp indicating when the terms of use were accepted.
+          accepted_at: nil,
+          # The IP address from which the terms of use were accepted. Supports both IPv4 and
+          # IPv6 formats.
+          ip_address: nil
+        )
+        end
+
+        sig { override.returns({ accepted_at: Time, ip_address: String }) }
+        def to_hash
         end
       end
     end

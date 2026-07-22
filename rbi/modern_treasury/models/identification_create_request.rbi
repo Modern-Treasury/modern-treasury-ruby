@@ -309,9 +309,24 @@ module ModernTreasury
             :gb_vat,
             ModernTreasury::IdentificationCreateRequest::IDType::TaggedSymbol
           )
+        GENERIC_INTERNATIONAL =
+          T.let(
+            :generic_international,
+            ModernTreasury::IdentificationCreateRequest::IDType::TaggedSymbol
+          )
         GR_VAT =
           T.let(
             :gr_vat,
+            ModernTreasury::IdentificationCreateRequest::IDType::TaggedSymbol
+          )
+        HK_BRN =
+          T.let(
+            :hk_brn,
+            ModernTreasury::IdentificationCreateRequest::IDType::TaggedSymbol
+          )
+        HK_HKID =
+          T.let(
+            :hk_hkid,
             ModernTreasury::IdentificationCreateRequest::IDType::TaggedSymbol
           )
         HN_ID =
@@ -452,6 +467,11 @@ module ModernTreasury
         MX_RFC =
           T.let(
             :mx_rfc,
+            ModernTreasury::IdentificationCreateRequest::IDType::TaggedSymbol
+          )
+        NATIONAL_ID =
+          T.let(
+            :national_id,
             ModernTreasury::IdentificationCreateRequest::IDType::TaggedSymbol
           )
         NL_BSN =

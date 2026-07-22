@@ -223,6 +223,7 @@ module ModernTreasury
         end
       end
 
+      # At least one of "amount" or "amount_string" is required.
       module Resource
         extend ModernTreasury::Internal::Type::Union
 
@@ -272,9 +273,8 @@ module ModernTreasury
           sig { returns(String) }
           attr_accessor :originating_account_id
 
-          # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
-          # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
-          # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
+          # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`,
+          # `bacs`, `au_becs`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `zengin`.
           sig { returns(ModernTreasury::PaymentOrderType::OrSymbol) }
           attr_accessor :type
 
@@ -698,9 +698,8 @@ module ModernTreasury
             direction:,
             # The ID of one of your organization's internal accounts.
             originating_account_id:,
-            # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
-            # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
-            # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
+            # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`,
+            # `bacs`, `au_becs`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `zengin`.
             type:,
             accounting: nil,
             # The ID of one of your accounting categories. Note that these will only be
@@ -1752,16 +1751,6 @@ module ModernTreasury
                     :hk_interbank_clearing_code,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
                   )
-                HU_INTERBANK_CLEARING_CODE =
-                  T.let(
-                    :hu_interbank_clearing_code,
-                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
-                  )
-                ID_SKNBI_CODE =
-                  T.let(
-                    :id_sknbi_code,
-                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
-                  )
                 IL_BANK_CODE =
                   T.let(
                     :il_bank_code,
@@ -1896,16 +1885,6 @@ module ModernTreasury
                     :gb_fps,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
                   )
-                HU_ICS =
-                  T.let(
-                    :hu_ics,
-                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
-                  )
-                INTERAC =
-                  T.let(
-                    :interac,
-                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
-                  )
                 MASAV =
                   T.let(
                     :masav,
@@ -1936,16 +1915,6 @@ module ModernTreasury
                     :pl_elixir,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
                   )
-                PROVXCHANGE =
-                  T.let(
-                    :provxchange,
-                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
-                  )
-                RO_SENT =
-                  T.let(
-                    :ro_sent,
-                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
-                  )
                 RTP =
                   T.let(
                     :rtp,
@@ -1954,11 +1923,6 @@ module ModernTreasury
                 SE_BANKGIROT =
                   T.let(
                     :se_bankgirot,
-                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
-                  )
-                SEN =
-                  T.let(
-                    :sen,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
                   )
                 SEPA =
@@ -1974,16 +1938,6 @@ module ModernTreasury
                 SIC =
                   T.let(
                     :sic,
-                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
-                  )
-                SIGNET =
-                  T.let(
-                    :signet,
-                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
-                  )
-                SKNBI =
-                  T.let(
-                    :sknbi,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
                   )
                 STABLECOIN =
@@ -2083,7 +2037,8 @@ module ModernTreasury
             sig { params(line2: String).void }
             attr_writer :line2
 
-            # Locality or City.
+            # Locality or City. Use the full city name rather than an abbreviation (e.g. San
+            # Francisco).
             sig { returns(T.nilable(String)) }
             attr_reader :locality
 
@@ -2097,7 +2052,8 @@ module ModernTreasury
             sig { params(postal_code: String).void }
             attr_writer :postal_code
 
-            # Region or State.
+            # Region or State. This field is free-form; for US states, we recommend a
+            # two-letter code (e.g. CA). Full state names are also accepted.
             sig { returns(T.nilable(String)) }
             attr_reader :region
 
@@ -2120,11 +2076,13 @@ module ModernTreasury
               country: nil,
               line1: nil,
               line2: nil,
-              # Locality or City.
+              # Locality or City. Use the full city name rather than an abbreviation (e.g. San
+              # Francisco).
               locality: nil,
               # The postal code of the address.
               postal_code: nil,
-              # Region or State.
+              # Region or State. This field is free-form; for US states, we recommend a
+              # two-letter code (e.g. CA). Full state names are also accepted.
               region: nil
             )
             end
@@ -2319,8 +2277,7 @@ module ModernTreasury
           sig { returns(T.nilable(String)) }
           attr_accessor :statement_descriptor
 
-          # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
-          # sepa, signet, wire.
+          # One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire.
           sig do
             returns(T.nilable(ModernTreasury::ExpectedPaymentType::OrSymbol))
           end
@@ -2433,8 +2390,7 @@ module ModernTreasury
             # payments, this will be the OBI field on the wire. For check payments, this will
             # be the memo field.
             statement_descriptor: nil,
-            # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
-            # sepa, signet, wire.
+            # One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire.
             type: nil
           )
           end
@@ -2672,11 +2628,6 @@ module ModernTreasury
               )
             end
 
-          # Value in specified currency's smallest unit. e.g. $10 would be represented
-          # as 1000.
-          sig { returns(Integer) }
-          attr_accessor :amount
-
           # The date on which the transaction occurred.
           sig { returns(T.nilable(Date)) }
           attr_accessor :as_of_date
@@ -2696,10 +2647,26 @@ module ModernTreasury
 
           # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
           # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-          # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
-          # `swift`, `us_bank`, or others.
+          # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`,
+          # `us_bank`, or others.
           sig { returns(T.nilable(String)) }
           attr_accessor :vendor_code_type
+
+          # Value in specified currency's smallest unit. e.g. $10 would be represented
+          # as 1000.
+          sig { returns(T.nilable(Integer)) }
+          attr_reader :amount
+
+          sig { params(amount: Integer).void }
+          attr_writer :amount
+
+          # The transaction amount as a string, preserving full precision for values that
+          # may exceed safe integer limits in some languages.
+          sig { returns(T.nilable(String)) }
+          attr_reader :amount_string
+
+          sig { params(amount_string: String).void }
+          attr_writer :amount_string
 
           # Additional data represented as key-value pairs. Both the key and value must be
           # strings.
@@ -2717,7 +2684,7 @@ module ModernTreasury
           attr_writer :posted
 
           # The type of the transaction. Examples could be
-          # `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
+          # `card, `ach`, `wire`, `check`, `rtp`, or `book`.
           sig do
             returns(
               T.nilable(
@@ -2736,14 +2703,16 @@ module ModernTreasury
           sig { returns(T.nilable(String)) }
           attr_accessor :vendor_description
 
+          # At least one of "amount" or "amount_string" is required.
           sig do
             params(
-              amount: Integer,
               as_of_date: T.nilable(Date),
               direction: String,
               internal_account_id: String,
               vendor_code: T.nilable(String),
               vendor_code_type: T.nilable(String),
+              amount: Integer,
+              amount_string: String,
               metadata: T::Hash[Symbol, String],
               posted: T::Boolean,
               type:
@@ -2755,9 +2724,6 @@ module ModernTreasury
             ).returns(T.attached_class)
           end
           def self.new(
-            # Value in specified currency's smallest unit. e.g. $10 would be represented
-            # as 1000.
-            amount:,
             # The date on which the transaction occurred.
             as_of_date:,
             # Either `credit` or `debit`.
@@ -2769,16 +2735,22 @@ module ModernTreasury
             vendor_code:,
             # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
             # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-            # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
-            # `swift`, `us_bank`, or others.
+            # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`,
+            # `us_bank`, or others.
             vendor_code_type:,
+            # Value in specified currency's smallest unit. e.g. $10 would be represented
+            # as 1000.
+            amount: nil,
+            # The transaction amount as a string, preserving full precision for values that
+            # may exceed safe integer limits in some languages.
+            amount_string: nil,
             # Additional data represented as key-value pairs. Both the key and value must be
             # strings.
             metadata: nil,
             # This field will be `true` if the transaction has posted to the account.
             posted: nil,
             # The type of the transaction. Examples could be
-            # `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
+            # `card, `ach`, `wire`, `check`, `rtp`, or `book`.
             type: nil,
             # An identifier given to this transaction by the bank, often `null`.
             vendor_customer_id: nil,
@@ -2791,12 +2763,13 @@ module ModernTreasury
           sig do
             override.returns(
               {
-                amount: Integer,
                 as_of_date: T.nilable(Date),
                 direction: String,
                 internal_account_id: String,
                 vendor_code: T.nilable(String),
                 vendor_code_type: T.nilable(String),
+                amount: Integer,
+                amount_string: String,
                 metadata: T::Hash[Symbol, String],
                 posted: T::Boolean,
                 type:
@@ -2812,7 +2785,7 @@ module ModernTreasury
           end
 
           # The type of the transaction. Examples could be
-          # `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
+          # `card, `ach`, `wire`, `check`, `rtp`, or `book`.
           module Type
             extend ModernTreasury::Internal::Type::Enum
 
@@ -2880,16 +2853,6 @@ module ModernTreasury
                 :gb_fps,
                 ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
               )
-            HU_ICS =
-              T.let(
-                :hu_ics,
-                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
-              )
-            INTERAC =
-              T.let(
-                :interac,
-                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
-              )
             MASAV =
               T.let(
                 :masav,
@@ -2920,16 +2883,6 @@ module ModernTreasury
                 :pl_elixir,
                 ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
               )
-            PROVXCHANGE =
-              T.let(
-                :provxchange,
-                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
-              )
-            RO_SENT =
-              T.let(
-                :ro_sent,
-                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
-              )
             RTP =
               T.let(
                 :rtp,
@@ -2938,11 +2891,6 @@ module ModernTreasury
             SE_BANKGIROT =
               T.let(
                 :se_bankgirot,
-                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
-              )
-            SEN =
-              T.let(
-                :sen,
                 ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
               )
             SEPA =
@@ -2958,16 +2906,6 @@ module ModernTreasury
             SIC =
               T.let(
                 :sic,
-                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
-              )
-            SIGNET =
-              T.let(
-                :signet,
-                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
-              )
-            SKNBI =
-              T.let(
-                :sknbi,
                 ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
               )
             STABLECOIN =
@@ -3361,9 +3299,8 @@ module ModernTreasury
           end
           attr_accessor :subtype
 
-          # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
-          # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
-          # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
+          # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`,
+          # `bacs`, `au_becs`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `zengin`.
           sig { returns(T.nilable(ModernTreasury::PaymentOrderType::OrSymbol)) }
           attr_reader :type
 
@@ -3559,9 +3496,8 @@ module ModernTreasury
             # payment orders, the `subtype` represents the SEC code. We currently support
             # `CCD`, `PPD`, `IAT`, `CTX`, `WEB`, `CIE`, and `TEL`.
             subtype: nil,
-            # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
-            # `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
-            # `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
+            # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`,
+            # `bacs`, `au_becs`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `zengin`.
             type: nil,
             # This represents the identifier by which the person is known to the receiver when
             # using the CIE subtype for ACH payments. Only the first 22 characters of this
@@ -4504,16 +4440,6 @@ module ModernTreasury
                     :hk_interbank_clearing_code,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
                   )
-                HU_INTERBANK_CLEARING_CODE =
-                  T.let(
-                    :hu_interbank_clearing_code,
-                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
-                  )
-                ID_SKNBI_CODE =
-                  T.let(
-                    :id_sknbi_code,
-                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
-                  )
                 IL_BANK_CODE =
                   T.let(
                     :il_bank_code,
@@ -4648,16 +4574,6 @@ module ModernTreasury
                     :gb_fps,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
                   )
-                HU_ICS =
-                  T.let(
-                    :hu_ics,
-                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
-                  )
-                INTERAC =
-                  T.let(
-                    :interac,
-                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
-                  )
                 MASAV =
                   T.let(
                     :masav,
@@ -4688,16 +4604,6 @@ module ModernTreasury
                     :pl_elixir,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
                   )
-                PROVXCHANGE =
-                  T.let(
-                    :provxchange,
-                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
-                  )
-                RO_SENT =
-                  T.let(
-                    :ro_sent,
-                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
-                  )
                 RTP =
                   T.let(
                     :rtp,
@@ -4706,11 +4612,6 @@ module ModernTreasury
                 SE_BANKGIROT =
                   T.let(
                     :se_bankgirot,
-                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
-                  )
-                SEN =
-                  T.let(
-                    :sen,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
                   )
                 SEPA =
@@ -4726,16 +4627,6 @@ module ModernTreasury
                 SIC =
                   T.let(
                     :sic,
-                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
-                  )
-                SIGNET =
-                  T.let(
-                    :signet,
-                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
-                  )
-                SKNBI =
-                  T.let(
-                    :sknbi,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
                   )
                 STABLECOIN =
@@ -5042,8 +4933,7 @@ module ModernTreasury
           end
           attr_accessor :status
 
-          # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
-          # sepa, signet, wire.
+          # One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire.
           sig do
             returns(T.nilable(ModernTreasury::ExpectedPaymentType::OrSymbol))
           end
@@ -5147,8 +5037,7 @@ module ModernTreasury
             # The Expected Payment's status can be updated from partially_reconciled to
             # reconciled.
             status: nil,
-            # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
-            # sepa, signet, wire.
+            # One of: ach, au_becs, bacs, book, check, eft, rtp, sepa, wire.
             type: nil
           )
           end
