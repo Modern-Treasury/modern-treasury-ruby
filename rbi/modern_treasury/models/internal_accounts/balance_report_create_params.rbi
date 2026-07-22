@@ -185,6 +185,7 @@ module ModernTreasury
           sig { params(amount_string: String).void }
           attr_writer :amount_string
 
+          # At least one of "amount" or "amount_string" is required.
           sig do
             params(
               balance_type:
