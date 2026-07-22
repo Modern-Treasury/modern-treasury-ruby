@@ -1033,6 +1033,16 @@ module ModernTreasury
               :gr_vat,
               ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
             )
+          HK_BRN =
+            T.let(
+              :hk_brn,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
+          HK_HKID =
+            T.let(
+              :hk_hkid,
+              ModernTreasury::ChildLegalEntity::Identification::IDType::TaggedSymbol
+            )
           HN_ID =
             T.let(
               :hn_id,

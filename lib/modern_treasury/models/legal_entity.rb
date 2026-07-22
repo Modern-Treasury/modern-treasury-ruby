@@ -667,6 +667,8 @@ module ModernTreasury
           GB_VAT = :gb_vat
           GENERIC_INTERNATIONAL = :generic_international
           GR_VAT = :gr_vat
+          HK_BRN = :hk_brn
+          HK_HKID = :hk_hkid
           HN_ID = :hn_id
           HN_RTN = :hn_rtn
           HR_OIB = :hr_oib
