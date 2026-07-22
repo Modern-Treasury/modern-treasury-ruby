@@ -6,7 +6,6 @@ class ModernTreasury::Test::Resources::TransactionsTest < ModernTreasury::Test::
   def test_create_required_params
     response =
       @modern_treasury.transactions.create(
-        amount: 0,
         as_of_date: "2019-12-27",
         direction: "direction",
         internal_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
@@ -22,6 +21,7 @@ class ModernTreasury::Test::Resources::TransactionsTest < ModernTreasury::Test::
       response => {
         id: String,
         amount: Integer,
+        amount_string: String,
         as_of_date: Date | nil,
         as_of_time: Time | nil,
         as_of_timezone: String | nil,
@@ -60,6 +60,7 @@ class ModernTreasury::Test::Resources::TransactionsTest < ModernTreasury::Test::
       response => {
         id: String,
         amount: Integer,
+        amount_string: String,
         as_of_date: Date | nil,
         as_of_time: Time | nil,
         as_of_timezone: String | nil,
@@ -98,6 +99,7 @@ class ModernTreasury::Test::Resources::TransactionsTest < ModernTreasury::Test::
       response => {
         id: String,
         amount: Integer,
+        amount_string: String,
         as_of_date: Date | nil,
         as_of_time: Time | nil,
         as_of_timezone: String | nil,
@@ -143,6 +145,7 @@ class ModernTreasury::Test::Resources::TransactionsTest < ModernTreasury::Test::
       row => {
         id: String,
         amount: Integer,
+        amount_string: String,
         as_of_date: Date | nil,
         as_of_time: Time | nil,
         as_of_timezone: String | nil,

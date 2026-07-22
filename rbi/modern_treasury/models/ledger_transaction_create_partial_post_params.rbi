@@ -181,6 +181,7 @@ module ModernTreasury
         sig { returns(T.nilable(T::Boolean)) }
         attr_accessor :show_resulting_ledger_account_balances
 
+        # At least one of "amount" or "amount_string" is required.
         sig do
           params(
             direction:
