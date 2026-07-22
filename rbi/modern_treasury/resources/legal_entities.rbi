@@ -3,7 +3,7 @@
 module ModernTreasury
   module Resources
     class LegalEntities
-      # Create a legal entity. All country fields use ISO 3166-1 alpha-2 (e.g. US).
+      # create legal_entity
       sig do
         params(
           legal_entity_type:
@@ -103,8 +103,8 @@ module ModernTreasury
         # in a value of null to prevent the connection from being associated with the
         # legal entity.
         connection_id: nil,
-        # The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
-        # code (e.g. US).
+        # The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
+        # alpha-3 formats.
         country_of_incorporation: nil,
         # A business's formation date (YYYY-MM-DD).
         date_formed: nil,
@@ -141,8 +141,8 @@ module ModernTreasury
         metadata: nil,
         # An individual's middle name.
         middle_name: nil,
-        # A list of countries where the business operates, as ISO 3166-1 alpha-2 country
-        # codes (e.g. ["US", "CA"]).
+        # A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3
+        # codes).
         operating_jurisdictions: nil,
         phone_numbers: nil,
         # Whether the individual is a politically exposed person.
@@ -272,8 +272,8 @@ module ModernTreasury
         business_name: nil,
         # The country of citizenship for an individual.
         citizenship_country: nil,
-        # The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
-        # code (e.g. US).
+        # The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
+        # alpha-3 formats.
         country_of_incorporation: nil,
         # A business's formation date (YYYY-MM-DD).
         date_formed: nil,
@@ -305,8 +305,8 @@ module ModernTreasury
         metadata: nil,
         # An individual's middle name.
         middle_name: nil,
-        # A list of countries where the business operates, as ISO 3166-1 alpha-2 country
-        # codes (e.g. ["US", "CA"]).
+        # A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3
+        # codes).
         operating_jurisdictions: nil,
         phone_numbers: nil,
         # Whether the individual is a politically exposed person.
@@ -366,25 +366,6 @@ module ModernTreasury
         per_page: nil,
         show_deleted: nil,
         status: nil,
-        request_options: {}
-      )
-      end
-
-      # Update Legal Entity Status (sandbox only)
-      sig do
-        params(
-          id: String,
-          status:
-            ModernTreasury::LegalEntityUpdateStatusParams::Status::OrSymbol,
-          request_options: ModernTreasury::RequestOptions::OrHash
-        ).returns(ModernTreasury::LegalEntity)
-      end
-      def update_status(
-        # Legal entity ID
-        id,
-        # The target status for the legal entity. One of `active`, `suspended`, or
-        # `denied`. Valid transitions depend on the current status.
-        status:,
         request_options: {}
       )
       end

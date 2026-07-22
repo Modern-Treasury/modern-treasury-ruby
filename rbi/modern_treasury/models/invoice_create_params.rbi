@@ -401,8 +401,7 @@ module ModernTreasury
         sig { returns(String) }
         attr_accessor :line1
 
-        # Locality or City. Use the full city name rather than an abbreviation (e.g. San
-        # Francisco).
+        # Locality or City.
         sig { returns(String) }
         attr_accessor :locality
 
@@ -410,8 +409,7 @@ module ModernTreasury
         sig { returns(String) }
         attr_accessor :postal_code
 
-        # Region or State. This field is free-form; for US states, we recommend a
-        # two-letter code (e.g. CA). Full state names are also accepted.
+        # Region or State.
         sig { returns(String) }
         attr_accessor :region
 
@@ -436,13 +434,11 @@ module ModernTreasury
           # Country code conforms to [ISO 3166-1 alpha-2]
           country:,
           line1:,
-          # Locality or City. Use the full city name rather than an abbreviation (e.g. San
-          # Francisco).
+          # Locality or City.
           locality:,
           # The postal code of the address.
           postal_code:,
-          # Region or State. This field is free-form; for US states, we recommend a
-          # two-letter code (e.g. CA). Full state names are also accepted.
+          # Region or State.
           region:,
           line2: nil
         )
@@ -480,8 +476,7 @@ module ModernTreasury
         sig { returns(String) }
         attr_accessor :line1
 
-        # Locality or City. Use the full city name rather than an abbreviation (e.g. San
-        # Francisco).
+        # Locality or City.
         sig { returns(String) }
         attr_accessor :locality
 
@@ -489,8 +484,7 @@ module ModernTreasury
         sig { returns(String) }
         attr_accessor :postal_code
 
-        # Region or State. This field is free-form; for US states, we recommend a
-        # two-letter code (e.g. CA). Full state names are also accepted.
+        # Region or State.
         sig { returns(String) }
         attr_accessor :region
 
@@ -515,13 +509,11 @@ module ModernTreasury
           # Country code conforms to [ISO 3166-1 alpha-2]
           country:,
           line1:,
-          # Locality or City. Use the full city name rather than an abbreviation (e.g. San
-          # Francisco).
+          # Locality or City.
           locality:,
           # The postal code of the address.
           postal_code:,
-          # Region or State. This field is free-form; for US states, we recommend a
-          # two-letter code (e.g. CA). Full state names are also accepted.
+          # Region or State.
           region:,
           line2: nil
         )
@@ -671,8 +663,7 @@ module ModernTreasury
         sig { returns(String) }
         attr_accessor :line1
 
-        # Locality or City. Use the full city name rather than an abbreviation (e.g. San
-        # Francisco).
+        # Locality or City.
         sig { returns(String) }
         attr_accessor :locality
 
@@ -680,8 +671,7 @@ module ModernTreasury
         sig { returns(String) }
         attr_accessor :postal_code
 
-        # Region or State. This field is free-form; for US states, we recommend a
-        # two-letter code (e.g. CA). Full state names are also accepted.
+        # Region or State.
         sig { returns(String) }
         attr_accessor :region
 
@@ -706,13 +696,11 @@ module ModernTreasury
           # Country code conforms to [ISO 3166-1 alpha-2]
           country:,
           line1:,
-          # Locality or City. Use the full city name rather than an abbreviation (e.g. San
-          # Francisco).
+          # Locality or City.
           locality:,
           # The postal code of the address.
           postal_code:,
-          # Region or State. This field is free-form; for US states, we recommend a
-          # two-letter code (e.g. CA). Full state names are also accepted.
+          # Region or State.
           region:,
           line2: nil
         )

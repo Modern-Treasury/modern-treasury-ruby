@@ -15,8 +15,7 @@ module ModernTreasury
       required :line1, String, nil?: true
 
       # @!attribute locality
-      #   Locality or City. Use the full city name rather than an abbreviation (e.g. San
-      #   Francisco).
+      #   Locality or City.
       #
       #   @return [String, nil]
       required :locality, String, nil?: true
@@ -28,8 +27,7 @@ module ModernTreasury
       required :postal_code, String, nil?: true
 
       # @!attribute region
-      #   Region or State. This field is free-form; for US states, we recommend a
-      #   two-letter code (e.g. CA). Full state names are also accepted.
+      #   Region or State.
       #
       #   @return [String, nil]
       required :region, String, nil?: true
@@ -61,11 +59,11 @@ module ModernTreasury
       #
       #   @param line1 [String, nil]
       #
-      #   @param locality [String, nil] Locality or City. Use the full city name rather than an abbreviation (e.g. San F
+      #   @param locality [String, nil] Locality or City.
       #
       #   @param postal_code [String, nil] The postal code of the address.
       #
-      #   @param region [String, nil] Region or State. This field is free-form; for US states, we recommend a two-lett
+      #   @param region [String, nil] Region or State.
       #
       #   @param address_types [Array<Symbol, ModernTreasury::Models::LegalEntityAddressCreateRequest::AddressType>] The types of this address.
       #

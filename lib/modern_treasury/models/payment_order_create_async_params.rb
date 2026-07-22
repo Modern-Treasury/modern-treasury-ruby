@@ -833,8 +833,7 @@ module ModernTreasury
         optional :line2, String
 
         # @!attribute locality
-        #   Locality or City. Use the full city name rather than an abbreviation (e.g. San
-        #   Francisco).
+        #   Locality or City.
         #
         #   @return [String, nil]
         optional :locality, String
@@ -846,17 +845,12 @@ module ModernTreasury
         optional :postal_code, String
 
         # @!attribute region
-        #   Region or State. This field is free-form; for US states, we recommend a
-        #   two-letter code (e.g. CA). Full state names are also accepted.
+        #   Region or State.
         #
         #   @return [String, nil]
         optional :region, String
 
         # @!method initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
-        #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Models::PaymentOrderCreateAsyncParams::UltimateOriginatingPartyAddress}
-        #   for more details.
-        #
         #   Address of the ultimate originator of the payment order.
         #
         #   @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
@@ -865,11 +859,11 @@ module ModernTreasury
         #
         #   @param line2 [String]
         #
-        #   @param locality [String] Locality or City. Use the full city name rather than an abbreviation (e.g. San F
+        #   @param locality [String] Locality or City.
         #
         #   @param postal_code [String] The postal code of the address.
         #
-        #   @param region [String] Region or State. This field is free-form; for US states, we recommend a two-lett
+        #   @param region [String] Region or State.
       end
     end
   end
