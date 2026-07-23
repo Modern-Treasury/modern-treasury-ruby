@@ -36,7 +36,7 @@ module ModernTreasury
               ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest,
               ModernTreasury::LedgerTransactionCreateRequest,
               ModernTreasury::LedgerAccountCreateRequest,
-              T.anything,
+              ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest,
               ModernTreasury::BulkRequestCreateParams::Resource::ID,
               ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID,
               ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID,
@@ -70,7 +70,7 @@ module ModernTreasury
                 ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::OrHash,
                 ModernTreasury::LedgerTransactionCreateRequest::OrHash,
                 ModernTreasury::LedgerAccountCreateRequest::OrHash,
-                T.anything,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::OrHash,
                 ModernTreasury::BulkRequestCreateParams::Resource::ID::OrHash,
                 ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::OrHash,
                 ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::OrHash,
@@ -112,7 +112,7 @@ module ModernTreasury
                   ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest,
                   ModernTreasury::LedgerTransactionCreateRequest,
                   ModernTreasury::LedgerAccountCreateRequest,
-                  T.anything,
+                  ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest,
                   ModernTreasury::BulkRequestCreateParams::Resource::ID,
                   ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID,
                   ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID,
@@ -223,6 +223,7 @@ module ModernTreasury
         end
       end
 
+      # At least one of "amount" or "amount_string" is required.
       module Resource
         extend ModernTreasury::Internal::Type::Union
 
@@ -233,7 +234,7 @@ module ModernTreasury
               ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest,
               ModernTreasury::LedgerTransactionCreateRequest,
               ModernTreasury::LedgerAccountCreateRequest,
-              T.anything,
+              ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest,
               ModernTreasury::BulkRequestCreateParams::Resource::ID,
               ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID,
               ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID,
@@ -2614,6 +2615,328 @@ module ModernTreasury
               )
             end
             def to_hash
+            end
+          end
+        end
+
+        class TransactionCreateRequest < ModernTreasury::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest,
+                ModernTreasury::Internal::AnyHash
+              )
+            end
+
+          # The date on which the transaction occurred.
+          sig { returns(T.nilable(Date)) }
+          attr_accessor :as_of_date
+
+          # Either `credit` or `debit`.
+          sig { returns(String) }
+          attr_accessor :direction
+
+          # The ID of the relevant Internal Account.
+          sig { returns(String) }
+          attr_accessor :internal_account_id
+
+          # When applicable, the bank-given code that determines the transaction's category.
+          # For most banks this is the BAI2/BTRS transaction code.
+          sig { returns(T.nilable(String)) }
+          attr_accessor :vendor_code
+
+          # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
+          # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
+          # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`,
+          # `us_bank`, or others.
+          sig { returns(T.nilable(String)) }
+          attr_accessor :vendor_code_type
+
+          # Value in specified currency's smallest unit. e.g. $10 would be represented
+          # as 1000.
+          sig { returns(T.nilable(Integer)) }
+          attr_reader :amount
+
+          sig { params(amount: Integer).void }
+          attr_writer :amount
+
+          # The transaction amount as a string, preserving full precision for values that
+          # may exceed safe integer limits in some languages.
+          sig { returns(T.nilable(String)) }
+          attr_reader :amount_string
+
+          sig { params(amount_string: String).void }
+          attr_writer :amount_string
+
+          # Additional data represented as key-value pairs. Both the key and value must be
+          # strings.
+          sig { returns(T.nilable(T::Hash[Symbol, String])) }
+          attr_reader :metadata
+
+          sig { params(metadata: T::Hash[Symbol, String]).void }
+          attr_writer :metadata
+
+          # This field will be `true` if the transaction has posted to the account.
+          sig { returns(T.nilable(T::Boolean)) }
+          attr_reader :posted
+
+          sig { params(posted: T::Boolean).void }
+          attr_writer :posted
+
+          # The type of the transaction. Examples could be
+          # `card, `ach`, `wire`, `check`, `rtp`, or `book`.
+          sig do
+            returns(
+              T.nilable(
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::OrSymbol
+              )
+            )
+          end
+          attr_accessor :type
+
+          # An identifier given to this transaction by the bank, often `null`.
+          sig { returns(T.nilable(String)) }
+          attr_accessor :vendor_customer_id
+
+          # The transaction detail text that often appears in on your bank statement and in
+          # your banking portal.
+          sig { returns(T.nilable(String)) }
+          attr_accessor :vendor_description
+
+          # At least one of "amount" or "amount_string" is required.
+          sig do
+            params(
+              as_of_date: T.nilable(Date),
+              direction: String,
+              internal_account_id: String,
+              vendor_code: T.nilable(String),
+              vendor_code_type: T.nilable(String),
+              amount: Integer,
+              amount_string: String,
+              metadata: T::Hash[Symbol, String],
+              posted: T::Boolean,
+              type:
+                T.nilable(
+                  ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::OrSymbol
+                ),
+              vendor_customer_id: T.nilable(String),
+              vendor_description: T.nilable(String)
+            ).returns(T.attached_class)
+          end
+          def self.new(
+            # The date on which the transaction occurred.
+            as_of_date:,
+            # Either `credit` or `debit`.
+            direction:,
+            # The ID of the relevant Internal Account.
+            internal_account_id:,
+            # When applicable, the bank-given code that determines the transaction's category.
+            # For most banks this is the BAI2/BTRS transaction code.
+            vendor_code:,
+            # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
+            # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
+            # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`,
+            # `us_bank`, or others.
+            vendor_code_type:,
+            # Value in specified currency's smallest unit. e.g. $10 would be represented
+            # as 1000.
+            amount: nil,
+            # The transaction amount as a string, preserving full precision for values that
+            # may exceed safe integer limits in some languages.
+            amount_string: nil,
+            # Additional data represented as key-value pairs. Both the key and value must be
+            # strings.
+            metadata: nil,
+            # This field will be `true` if the transaction has posted to the account.
+            posted: nil,
+            # The type of the transaction. Examples could be
+            # `card, `ach`, `wire`, `check`, `rtp`, or `book`.
+            type: nil,
+            # An identifier given to this transaction by the bank, often `null`.
+            vendor_customer_id: nil,
+            # The transaction detail text that often appears in on your bank statement and in
+            # your banking portal.
+            vendor_description: nil
+          )
+          end
+
+          sig do
+            override.returns(
+              {
+                as_of_date: T.nilable(Date),
+                direction: String,
+                internal_account_id: String,
+                vendor_code: T.nilable(String),
+                vendor_code_type: T.nilable(String),
+                amount: Integer,
+                amount_string: String,
+                metadata: T::Hash[Symbol, String],
+                posted: T::Boolean,
+                type:
+                  T.nilable(
+                    ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::OrSymbol
+                  ),
+                vendor_customer_id: T.nilable(String),
+                vendor_description: T.nilable(String)
+              }
+            )
+          end
+          def to_hash
+          end
+
+          # The type of the transaction. Examples could be
+          # `card, `ach`, `wire`, `check`, `rtp`, or `book`.
+          module Type
+            extend ModernTreasury::Internal::Type::Enum
+
+            TaggedSymbol =
+              T.type_alias do
+                T.all(
+                  Symbol,
+                  ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type
+                )
+              end
+            OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+            ACH =
+              T.let(
+                :ach,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            AU_BECS =
+              T.let(
+                :au_becs,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            BACS =
+              T.let(
+                :bacs,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            BOOK =
+              T.let(
+                :book,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            CARD =
+              T.let(
+                :card,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            CHATS =
+              T.let(
+                :chats,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            CHECK =
+              T.let(
+                :check,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            CROSS_BORDER =
+              T.let(
+                :cross_border,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            DK_NETS =
+              T.let(
+                :dk_nets,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            EFT =
+              T.let(
+                :eft,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            GB_FPS =
+              T.let(
+                :gb_fps,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            MASAV =
+              T.let(
+                :masav,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            MX_CCEN =
+              T.let(
+                :mx_ccen,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            NEFT =
+              T.let(
+                :neft,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            NICS =
+              T.let(
+                :nics,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            NZ_BECS =
+              T.let(
+                :nz_becs,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            PL_ELIXIR =
+              T.let(
+                :pl_elixir,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            RTP =
+              T.let(
+                :rtp,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            SE_BANKGIROT =
+              T.let(
+                :se_bankgirot,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            SEPA =
+              T.let(
+                :sepa,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            SG_GIRO =
+              T.let(
+                :sg_giro,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            SIC =
+              T.let(
+                :sic,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            STABLECOIN =
+              T.let(
+                :stablecoin,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            WIRE =
+              T.let(
+                :wire,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            ZENGIN =
+              T.let(
+                :zengin,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+            OTHER =
+              T.let(
+                :other,
+                ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+              )
+
+            sig do
+              override.returns(
+                T::Array[
+                  ModernTreasury::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
+                ]
+              )
+            end
+            def self.values
             end
           end
         end
