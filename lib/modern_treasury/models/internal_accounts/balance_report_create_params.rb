@@ -115,6 +115,8 @@ module ModernTreasury
           #   {ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance}
           #   for more details.
           #
+          #   At least one of "amount" or "amount_string" is required.
+          #
           #   @param balance_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType] The specific type of balance reported. One of `opening_ledger`, `closing_ledger`
           #
           #   @param vendor_code [String] The code used by the bank when reporting this specific balance.
