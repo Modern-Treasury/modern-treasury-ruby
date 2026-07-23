@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.29.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.28.0...v0.29.0) (2026-07-23)
+
+
+### Features
+
+* **api:** api update ([a67fb96](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/a67fb96739780ee8800974f64c44dcb865c2a1a6))
+* **api:** api update ([991d181](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/991d1814e2636b6eaf4beb8b02357181741b807b))
+* **api:** api update ([222861e](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/222861ea87ee8aefbc4083347da936eea56c634f))
+* **api:** api update ([1b84642](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/1b84642a83c14a49134dac9bc8a30e17b7dcce7e))
+* **stlc:** configurable CI runner and private-production-repo support in workflow templates ([12a94e4](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/12a94e4c4c91266ce3b7bcc2749b1dbfb534c3ec))
+
+
+### Chores
+
+* regenerate SDKs from 24f3dc7dc33d9f75e2d589541d11b7a8bd943451 ([9834fb8](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/9834fb8cea0f8729fa96ba1eca12e21f618186dd))
+
 ## 0.28.0 (2026-07-11)
 
 Full Changelog: [v0.27.0...v0.28.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.27.0...v0.28.0)
