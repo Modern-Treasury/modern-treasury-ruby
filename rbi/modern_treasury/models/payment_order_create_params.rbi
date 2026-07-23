@@ -1949,7 +1949,8 @@ module ModernTreasury
         sig { params(line2: String).void }
         attr_writer :line2
 
-        # Locality or City.
+        # Locality or City. Use the full city name rather than an abbreviation (e.g. San
+        # Francisco).
         sig { returns(T.nilable(String)) }
         attr_reader :locality
 
@@ -1963,7 +1964,8 @@ module ModernTreasury
         sig { params(postal_code: String).void }
         attr_writer :postal_code
 
-        # Region or State.
+        # Region or State. This field is free-form; for US states, we recommend a
+        # two-letter code (e.g. CA). Full state names are also accepted.
         sig { returns(T.nilable(String)) }
         attr_reader :region
 
@@ -1986,11 +1988,13 @@ module ModernTreasury
           country: nil,
           line1: nil,
           line2: nil,
-          # Locality or City.
+          # Locality or City. Use the full city name rather than an abbreviation (e.g. San
+          # Francisco).
           locality: nil,
           # The postal code of the address.
           postal_code: nil,
-          # Region or State.
+          # Region or State. This field is free-form; for US states, we recommend a
+          # two-letter code (e.g. CA). Full state names are also accepted.
           region: nil
         )
         end
