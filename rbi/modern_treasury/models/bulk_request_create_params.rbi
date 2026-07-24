@@ -618,10 +618,10 @@ module ModernTreasury
 
           # Additional vendor specific fields for this payment. Data must be represented as
           # key-value pairs.
-          sig { returns(T.nilable(T.anything)) }
+          sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
           attr_reader :vendor_attributes
 
-          sig { params(vendor_attributes: T.anything).void }
+          sig { params(vendor_attributes: T::Hash[Symbol, T.anything]).void }
           attr_writer :vendor_attributes
 
           sig do
@@ -684,7 +684,7 @@ module ModernTreasury
               ultimate_originating_party_name: T.nilable(String),
               ultimate_receiving_party_identifier: T.nilable(String),
               ultimate_receiving_party_name: T.nilable(String),
-              vendor_attributes: T.anything
+              vendor_attributes: T::Hash[Symbol, T.anything]
             ).returns(T.attached_class)
           end
           def self.new(
@@ -885,7 +885,7 @@ module ModernTreasury
                 ultimate_originating_party_name: T.nilable(String),
                 ultimate_receiving_party_identifier: T.nilable(String),
                 ultimate_receiving_party_name: T.nilable(String),
-                vendor_attributes: T.anything
+                vendor_attributes: T::Hash[Symbol, T.anything]
               }
             )
           end
