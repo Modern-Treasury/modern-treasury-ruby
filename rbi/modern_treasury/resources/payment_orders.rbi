@@ -71,7 +71,7 @@ module ModernTreasury
           ultimate_originating_party_name: T.nilable(String),
           ultimate_receiving_party_identifier: T.nilable(String),
           ultimate_receiving_party_name: T.nilable(String),
-          vendor_attributes: T.anything,
+          vendor_attributes: T::Hash[Symbol, T.anything],
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::PaymentOrder)
       end
@@ -536,7 +536,7 @@ module ModernTreasury
           ultimate_originating_party_name: T.nilable(String),
           ultimate_receiving_party_identifier: T.nilable(String),
           ultimate_receiving_party_name: T.nilable(String),
-          vendor_attributes: T.anything,
+          vendor_attributes: T::Hash[Symbol, T.anything],
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::AsyncResponse)
       end

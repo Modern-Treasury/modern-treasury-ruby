@@ -53,6 +53,7 @@ module ModernTreasury
         LEGAL_ENTITY = :legal_entity
         ORGANIZATION = :organization
         PAYMENT_ORDER = :payment_order
+        RETURN = :return
         TRANSACTION = :transaction
 
         # @!method self.values
