@@ -42,7 +42,7 @@ module ModernTreasury
         ultimate_originating_party_name: String?,
         ultimate_receiving_party_identifier: String?,
         ultimate_receiving_party_name: String?,
-        vendor_attributes: top
+        vendor_attributes: ::Hash[Symbol, top]
       }
       & ModernTreasury::Internal::Type::request_parameters
 
@@ -180,9 +180,9 @@ module ModernTreasury
 
       attr_accessor ultimate_receiving_party_name: String?
 
-      attr_reader vendor_attributes: top?
+      attr_reader vendor_attributes: ::Hash[Symbol, top]?
 
-      def vendor_attributes=: (top) -> top
+      def vendor_attributes=: (::Hash[Symbol, top]) -> ::Hash[Symbol, top]
 
       def initialize: (
         amount: Integer,
@@ -225,7 +225,7 @@ module ModernTreasury
         ?ultimate_originating_party_name: String?,
         ?ultimate_receiving_party_identifier: String?,
         ?ultimate_receiving_party_name: String?,
-        ?vendor_attributes: top,
+        ?vendor_attributes: ::Hash[Symbol, top],
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
@@ -270,7 +270,7 @@ module ModernTreasury
         ultimate_originating_party_name: String?,
         ultimate_receiving_party_identifier: String?,
         ultimate_receiving_party_name: String?,
-        vendor_attributes: top,
+        vendor_attributes: ::Hash[Symbol, top],
         request_options: ModernTreasury::RequestOptions
       }
 
@@ -359,6 +359,7 @@ module ModernTreasury
           | :legal_entity
           | :organization
           | :payment_order
+          | :return
           | :transaction
 
         module DocumentableType
@@ -374,6 +375,7 @@ module ModernTreasury
           LEGAL_ENTITY: :legal_entity
           ORGANIZATION: :organization
           PAYMENT_ORDER: :payment_order
+          RETURN: :return
           TRANSACTION: :transaction
 
           def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::Document::documentable_type]

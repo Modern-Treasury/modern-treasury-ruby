@@ -93,7 +93,7 @@ module ModernTreasury
       #
       # @param ultimate_receiving_party_name [String, nil] Name of the ultimate funds recipient.
       #
-      # @param vendor_attributes [Object] Additional vendor specific fields for this payment. Data must be represented as
+      # @param vendor_attributes [Hash{Symbol=>Object}] Additional vendor specific fields for this payment. Data must be represented as
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -373,7 +373,7 @@ module ModernTreasury
       #
       # @param ultimate_receiving_party_name [String, nil] Name of the ultimate funds recipient.
       #
-      # @param vendor_attributes [Object] Additional vendor specific fields for this payment. Data must be represented as
+      # @param vendor_attributes [Hash{Symbol=>Object}] Additional vendor specific fields for this payment. Data must be represented as
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
