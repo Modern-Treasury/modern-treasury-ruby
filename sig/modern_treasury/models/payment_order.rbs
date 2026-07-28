@@ -28,6 +28,7 @@ module ModernTreasury
         nsf_protected: bool,
         object: String,
         originating_account_id: String,
+        originating_party_address: ModernTreasury::PaymentOrder::OriginatingPartyAddress?,
         originating_party_name: String?,
         priority: ModernTreasury::Models::PaymentOrder::priority,
         process_after: Time?,
@@ -108,6 +109,8 @@ module ModernTreasury
 
       attr_accessor originating_account_id: String
 
+      attr_accessor originating_party_address: ModernTreasury::PaymentOrder::OriginatingPartyAddress?
+
       attr_accessor originating_party_name: String?
 
       attr_accessor priority: ModernTreasury::Models::PaymentOrder::priority
@@ -185,6 +188,7 @@ module ModernTreasury
         nsf_protected: bool,
         object: String,
         originating_account_id: String,
+        originating_party_address: ModernTreasury::PaymentOrder::OriginatingPartyAddress?,
         originating_party_name: String?,
         priority: ModernTreasury::Models::PaymentOrder::priority,
         process_after: Time?,
@@ -239,6 +243,7 @@ module ModernTreasury
         nsf_protected: bool,
         object: String,
         originating_account_id: String,
+        originating_party_address: ModernTreasury::PaymentOrder::OriginatingPartyAddress?,
         originating_party_name: String?,
         priority: ModernTreasury::Models::PaymentOrder::priority,
         process_after: Time?,
@@ -415,6 +420,48 @@ module ModernTreasury
         VARIABLE_TO_FIXED: :variable_to_fixed
 
         def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrder::foreign_exchange_indicator]
+      end
+
+      type originating_party_address =
+        {
+          country: String?,
+          :line1 => String?,
+          :line2 => String?,
+          locality: String?,
+          postal_code: String?,
+          region: String?
+        }
+
+      class OriginatingPartyAddress < ModernTreasury::Internal::Type::BaseModel
+        attr_accessor country: String?
+
+        attr_accessor line1: String?
+
+        attr_accessor line2: String?
+
+        attr_accessor locality: String?
+
+        attr_accessor postal_code: String?
+
+        attr_accessor region: String?
+
+        def initialize: (
+          ?country: String?,
+          ?line1: String?,
+          ?line2: String?,
+          ?locality: String?,
+          ?postal_code: String?,
+          ?region: String?
+        ) -> void
+
+        def to_hash: -> {
+          country: String?,
+          :line1 => String?,
+          :line2 => String?,
+          locality: String?,
+          postal_code: String?,
+          region: String?
+        }
       end
 
       type priority = :high | :normal
