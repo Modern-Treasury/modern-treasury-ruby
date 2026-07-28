@@ -146,6 +146,11 @@ module ModernTreasury
             :payment_order,
             ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
           )
+        RETURN =
+          T.let(
+            :return,
+            ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
+          )
         TRANSACTION =
           T.let(
             :transaction,
