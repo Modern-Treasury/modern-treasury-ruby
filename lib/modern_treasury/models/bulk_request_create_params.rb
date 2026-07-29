@@ -268,6 +268,17 @@ module ModernTreasury
           #   @return [Boolean, nil]
           optional :nsf_protected, ModernTreasury::Internal::Type::Boolean
 
+          # @!attribute originating_party_address
+          #   If present, this address will override the default originating party address
+          #   used on the payment order. This works across all payment types.
+          #
+          #   @return [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::OriginatingPartyAddress, nil]
+          optional :originating_party_address,
+                   -> {
+                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::OriginatingPartyAddress
+                   },
+                   nil?: true
+
           # @!attribute originating_party_name
           #   If present, this will replace your default company name on receiver's bank
           #   statement. This field can only be used for ACH payments currently. For ACH, only
@@ -421,7 +432,7 @@ module ModernTreasury
           optional :vendor_attributes,
                    ModernTreasury::Internal::Type::HashOf[ModernTreasury::Internal::Type::Unknown]
 
-          # @!method initialize(amount:, direction:, originating_account_id:, type:, accounting: nil, accounting_category_id: nil, accounting_ledger_class_id: nil, charge_bearer: nil, currency: nil, description: nil, effective_date: nil, expires_at: nil, external_id: nil, fallback_type: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, ledger_transaction: nil, ledger_transaction_id: nil, line_items: nil, metadata: nil, nsf_protected: nil, originating_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account: nil, receiving_account_id: nil, reconciliation_status: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, subtype: nil, transaction_monitoring_enabled: nil, ultimate_originating_account_id: nil, ultimate_originating_party_address: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil, vendor_attributes: nil)
+          # @!method initialize(amount:, direction:, originating_account_id:, type:, accounting: nil, accounting_category_id: nil, accounting_ledger_class_id: nil, charge_bearer: nil, currency: nil, description: nil, effective_date: nil, expires_at: nil, external_id: nil, fallback_type: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, ledger_transaction: nil, ledger_transaction_id: nil, line_items: nil, metadata: nil, nsf_protected: nil, originating_party_address: nil, originating_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account: nil, receiving_account_id: nil, reconciliation_status: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, subtype: nil, transaction_monitoring_enabled: nil, ultimate_originating_account_id: nil, ultimate_originating_party_address: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil, vendor_attributes: nil)
           #   Some parameter documentations has been truncated, see
           #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest}
           #   for more details.
@@ -467,6 +478,8 @@ module ModernTreasury
           #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
           #
           #   @param nsf_protected [Boolean] A boolean to determine if NSF Protection is enabled for this payment order. Note
+          #
+          #   @param originating_party_address [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::OriginatingPartyAddress, nil] If present, this address will override the default originating party address use
           #
           #   @param originating_party_name [String, nil] If present, this will replace your default company name on receiver's bank state
           #
@@ -640,6 +653,65 @@ module ModernTreasury
             #   @param description [String, nil] A free-form description of the line item.
             #
             #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+          end
+
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#originating_party_address
+          class OriginatingPartyAddress < ModernTreasury::Internal::Type::BaseModel
+            # @!attribute country
+            #   Country code conforms to [ISO 3166-1 alpha-2]
+            #
+            #   @return [String, nil]
+            optional :country, String, nil?: true
+
+            # @!attribute line1
+            #
+            #   @return [String, nil]
+            optional :line1, String, nil?: true
+
+            # @!attribute line2
+            #
+            #   @return [String, nil]
+            optional :line2, String, nil?: true
+
+            # @!attribute locality
+            #   Locality or City. Use the full city name rather than an abbreviation (e.g. San
+            #   Francisco).
+            #
+            #   @return [String, nil]
+            optional :locality, String, nil?: true
+
+            # @!attribute postal_code
+            #   The postal code of the address.
+            #
+            #   @return [String, nil]
+            optional :postal_code, String, nil?: true
+
+            # @!attribute region
+            #   Region or State. This field is free-form; for US states, we recommend a
+            #   two-letter code (e.g. CA). Full state names are also accepted.
+            #
+            #   @return [String, nil]
+            optional :region, String, nil?: true
+
+            # @!method initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
+            #   Some parameter documentations has been truncated, see
+            #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::OriginatingPartyAddress}
+            #   for more details.
+            #
+            #   If present, this address will override the default originating party address
+            #   used on the payment order. This works across all payment types.
+            #
+            #   @param country [String, nil] Country code conforms to [ISO 3166-1 alpha-2]
+            #
+            #   @param line1 [String, nil]
+            #
+            #   @param line2 [String, nil]
+            #
+            #   @param locality [String, nil] Locality or City. Use the full city name rather than an abbreviation (e.g. San F
+            #
+            #   @param postal_code [String, nil] The postal code of the address.
+            #
+            #   @param region [String, nil] Region or State. This field is free-form; for US states, we recommend a two-lett
           end
 
           # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
@@ -1484,6 +1556,17 @@ module ModernTreasury
           #   @return [String, nil]
           optional :originating_account_id, String
 
+          # @!attribute originating_party_address
+          #   If present, this address will override the default originating party address
+          #   used on the payment order. This works across all payment types.
+          #
+          #   @return [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::OriginatingPartyAddress, nil]
+          optional :originating_party_address,
+                   -> {
+                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::OriginatingPartyAddress
+                   },
+                   nil?: true
+
           # @!attribute originating_party_name
           #   If present, this will replace your default company name on receiver's bank
           #   statement. This field can only be used for ACH payments currently. For ACH, only
@@ -1627,7 +1710,7 @@ module ModernTreasury
           #   @return [String, nil]
           optional :ultimate_receiving_party_name, String, nil?: true
 
-          # @!method initialize(id: nil, accounting: nil, accounting_category_id: nil, accounting_ledger_class_id: nil, amount: nil, charge_bearer: nil, counterparty_id: nil, currency: nil, description: nil, direction: nil, effective_date: nil, expires_at: nil, external_id: nil, fallback_type: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, line_items: nil, metadata: nil, nsf_protected: nil, originating_account_id: nil, originating_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account: nil, receiving_account_id: nil, reconciliation_status: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, status: nil, subtype: nil, type: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil)
+          # @!method initialize(id: nil, accounting: nil, accounting_category_id: nil, accounting_ledger_class_id: nil, amount: nil, charge_bearer: nil, counterparty_id: nil, currency: nil, description: nil, direction: nil, effective_date: nil, expires_at: nil, external_id: nil, fallback_type: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, line_items: nil, metadata: nil, nsf_protected: nil, originating_account_id: nil, originating_party_address: nil, originating_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account: nil, receiving_account_id: nil, reconciliation_status: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, status: nil, subtype: nil, type: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil)
           #   Some parameter documentations has been truncated, see
           #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID}
           #   for more details.
@@ -1671,6 +1754,8 @@ module ModernTreasury
           #   @param nsf_protected [Boolean] A boolean to determine if NSF Protection is enabled for this payment order. Note
           #
           #   @param originating_account_id [String] The ID of one of your organization's internal accounts.
+          #
+          #   @param originating_party_address [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::OriginatingPartyAddress, nil] If present, this address will override the default originating party address use
           #
           #   @param originating_party_name [String, nil] If present, this will replace your default company name on receiver's bank state
           #
@@ -1840,6 +1925,65 @@ module ModernTreasury
             #   @param description [String, nil] A free-form description of the line item.
             #
             #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+          end
+
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#originating_party_address
+          class OriginatingPartyAddress < ModernTreasury::Internal::Type::BaseModel
+            # @!attribute country
+            #   Country code conforms to [ISO 3166-1 alpha-2]
+            #
+            #   @return [String, nil]
+            optional :country, String, nil?: true
+
+            # @!attribute line1
+            #
+            #   @return [String, nil]
+            optional :line1, String, nil?: true
+
+            # @!attribute line2
+            #
+            #   @return [String, nil]
+            optional :line2, String, nil?: true
+
+            # @!attribute locality
+            #   Locality or City. Use the full city name rather than an abbreviation (e.g. San
+            #   Francisco).
+            #
+            #   @return [String, nil]
+            optional :locality, String, nil?: true
+
+            # @!attribute postal_code
+            #   The postal code of the address.
+            #
+            #   @return [String, nil]
+            optional :postal_code, String, nil?: true
+
+            # @!attribute region
+            #   Region or State. This field is free-form; for US states, we recommend a
+            #   two-letter code (e.g. CA). Full state names are also accepted.
+            #
+            #   @return [String, nil]
+            optional :region, String, nil?: true
+
+            # @!method initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
+            #   Some parameter documentations has been truncated, see
+            #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::OriginatingPartyAddress}
+            #   for more details.
+            #
+            #   If present, this address will override the default originating party address
+            #   used on the payment order. This works across all payment types.
+            #
+            #   @param country [String, nil] Country code conforms to [ISO 3166-1 alpha-2]
+            #
+            #   @param line1 [String, nil]
+            #
+            #   @param line2 [String, nil]
+            #
+            #   @param locality [String, nil] Locality or City. Use the full city name rather than an abbreviation (e.g. San F
+            #
+            #   @param postal_code [String, nil] The postal code of the address.
+            #
+            #   @param region [String, nil] Region or State. This field is free-form; for US states, we recommend a two-lett
           end
 
           # Either `normal` or `high`. For ACH and EFT payments, `high` represents a

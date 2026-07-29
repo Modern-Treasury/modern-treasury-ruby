@@ -24,6 +24,7 @@ module ModernTreasury
         line_items: ::Array[ModernTreasury::PaymentOrderCreateParams::LineItem],
         metadata: ::Hash[Symbol, String],
         nsf_protected: bool,
+        originating_party_address: ModernTreasury::PaymentOrderCreateParams::OriginatingPartyAddress?,
         originating_party_name: String?,
         priority: ModernTreasury::Models::PaymentOrderCreateParams::priority,
         process_after: Time?,
@@ -126,6 +127,8 @@ module ModernTreasury
 
       def nsf_protected=: (bool) -> bool
 
+      attr_accessor originating_party_address: ModernTreasury::PaymentOrderCreateParams::OriginatingPartyAddress?
+
       attr_accessor originating_party_name: String?
 
       attr_reader priority: ModernTreasury::Models::PaymentOrderCreateParams::priority?
@@ -207,6 +210,7 @@ module ModernTreasury
         ?line_items: ::Array[ModernTreasury::PaymentOrderCreateParams::LineItem],
         ?metadata: ::Hash[Symbol, String],
         ?nsf_protected: bool,
+        ?originating_party_address: ModernTreasury::PaymentOrderCreateParams::OriginatingPartyAddress?,
         ?originating_party_name: String?,
         ?priority: ModernTreasury::Models::PaymentOrderCreateParams::priority,
         ?process_after: Time?,
@@ -252,6 +256,7 @@ module ModernTreasury
         line_items: ::Array[ModernTreasury::PaymentOrderCreateParams::LineItem],
         metadata: ::Hash[Symbol, String],
         nsf_protected: bool,
+        originating_party_address: ModernTreasury::PaymentOrderCreateParams::OriginatingPartyAddress?,
         originating_party_name: String?,
         priority: ModernTreasury::Models::PaymentOrderCreateParams::priority,
         process_after: Time?,
@@ -434,6 +439,48 @@ module ModernTreasury
           accounting_category_id: String?,
           description: String?,
           metadata: ::Hash[Symbol, String]
+        }
+      end
+
+      type originating_party_address =
+        {
+          country: String?,
+          :line1 => String?,
+          :line2 => String?,
+          locality: String?,
+          postal_code: String?,
+          region: String?
+        }
+
+      class OriginatingPartyAddress < ModernTreasury::Internal::Type::BaseModel
+        attr_accessor country: String?
+
+        attr_accessor line1: String?
+
+        attr_accessor line2: String?
+
+        attr_accessor locality: String?
+
+        attr_accessor postal_code: String?
+
+        attr_accessor region: String?
+
+        def initialize: (
+          ?country: String?,
+          ?line1: String?,
+          ?line2: String?,
+          ?locality: String?,
+          ?postal_code: String?,
+          ?region: String?
+        ) -> void
+
+        def to_hash: -> {
+          country: String?,
+          :line1 => String?,
+          :line2 => String?,
+          locality: String?,
+          postal_code: String?,
+          region: String?
         }
       end
 
