@@ -47,6 +47,10 @@ module ModernTreasury
             ],
           metadata: T::Hash[Symbol, String],
           nsf_protected: T::Boolean,
+          originating_party_address:
+            T.nilable(
+              ModernTreasury::PaymentOrderCreateParams::OriginatingPartyAddress::OrHash
+            ),
           originating_party_name: T.nilable(String),
           priority:
             ModernTreasury::PaymentOrderCreateParams::Priority::OrSymbol,
@@ -144,6 +148,9 @@ module ModernTreasury
         # A boolean to determine if NSF Protection is enabled for this payment order. Note
         # that this setting must also be turned on in your organization settings page.
         nsf_protected: nil,
+        # If present, this address will override the default originating party address
+        # used on the payment order. This works across all payment types.
+        originating_party_address: nil,
         # If present, this will replace your default company name on receiver's bank
         # statement. This field can only be used for ACH payments currently. For ACH, only
         # the first 16 characters of this string will be used. Any additional characters
@@ -260,6 +267,10 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           nsf_protected: T::Boolean,
           originating_account_id: String,
+          originating_party_address:
+            T.nilable(
+              ModernTreasury::PaymentOrderUpdateParams::OriginatingPartyAddress::OrHash
+            ),
           originating_party_name: T.nilable(String),
           priority:
             ModernTreasury::PaymentOrderUpdateParams::Priority::OrSymbol,
@@ -339,6 +350,9 @@ module ModernTreasury
         nsf_protected: nil,
         # The ID of one of your organization's internal accounts.
         originating_account_id: nil,
+        # If present, this address will override the default originating party address
+        # used on the payment order. This works across all payment types.
+        originating_party_address: nil,
         # If present, this will replace your default company name on receiver's bank
         # statement. This field can only be used for ACH payments currently. For ACH, only
         # the first 16 characters of this string will be used. Any additional characters
@@ -512,6 +526,10 @@ module ModernTreasury
             ],
           metadata: T::Hash[Symbol, String],
           nsf_protected: T::Boolean,
+          originating_party_address:
+            T.nilable(
+              ModernTreasury::PaymentOrderCreateAsyncParams::OriginatingPartyAddress::OrHash
+            ),
           originating_party_name: T.nilable(String),
           priority:
             ModernTreasury::PaymentOrderCreateAsyncParams::Priority::OrSymbol,
@@ -606,6 +624,9 @@ module ModernTreasury
         # A boolean to determine if NSF Protection is enabled for this payment order. Note
         # that this setting must also be turned on in your organization settings page.
         nsf_protected: nil,
+        # If present, this address will override the default originating party address
+        # used on the payment order. This works across all payment types.
+        originating_party_address: nil,
         # If present, this will replace your default company name on receiver's bank
         # statement. This field can only be used for ACH payments currently. For ACH, only
         # the first 16 characters of this string will be used. Any additional characters

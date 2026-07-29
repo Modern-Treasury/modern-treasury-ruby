@@ -447,6 +447,27 @@ module ModernTreasury
           sig { params(nsf_protected: T::Boolean).void }
           attr_writer :nsf_protected
 
+          # If present, this address will override the default originating party address
+          # used on the payment order. This works across all payment types.
+          sig do
+            returns(
+              T.nilable(
+                ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::OriginatingPartyAddress
+              )
+            )
+          end
+          attr_reader :originating_party_address
+
+          sig do
+            params(
+              originating_party_address:
+                T.nilable(
+                  ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::OriginatingPartyAddress::OrHash
+                )
+            ).void
+          end
+          attr_writer :originating_party_address
+
           # If present, this will replace your default company name on receiver's bank
           # statement. This field can only be used for ACH payments currently. For ACH, only
           # the first 16 characters of this string will be used. Any additional characters
@@ -660,6 +681,10 @@ module ModernTreasury
                 ],
               metadata: T::Hash[Symbol, String],
               nsf_protected: T::Boolean,
+              originating_party_address:
+                T.nilable(
+                  ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::OriginatingPartyAddress::OrHash
+                ),
               originating_party_name: T.nilable(String),
               priority:
                 ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Priority::OrSymbol,
@@ -753,6 +778,9 @@ module ModernTreasury
             # A boolean to determine if NSF Protection is enabled for this payment order. Note
             # that this setting must also be turned on in your organization settings page.
             nsf_protected: nil,
+            # If present, this address will override the default originating party address
+            # used on the payment order. This works across all payment types.
+            originating_party_address: nil,
             # If present, this will replace your default company name on receiver's bank
             # statement. This field can only be used for ACH payments currently. For ACH, only
             # the first 16 characters of this string will be used. Any additional characters
@@ -860,6 +888,10 @@ module ModernTreasury
                   ],
                 metadata: T::Hash[Symbol, String],
                 nsf_protected: T::Boolean,
+                originating_party_address:
+                  T.nilable(
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::OriginatingPartyAddress
+                  ),
                 originating_party_name: T.nilable(String),
                 priority:
                   ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Priority::OrSymbol,
@@ -1148,6 +1180,83 @@ module ModernTreasury
                   accounting_category_id: T.nilable(String),
                   description: T.nilable(String),
                   metadata: T::Hash[Symbol, String]
+                }
+              )
+            end
+            def to_hash
+            end
+          end
+
+          class OriginatingPartyAddress < ModernTreasury::Internal::Type::BaseModel
+            OrHash =
+              T.type_alias do
+                T.any(
+                  ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::OriginatingPartyAddress,
+                  ModernTreasury::Internal::AnyHash
+                )
+              end
+
+            # Country code conforms to [ISO 3166-1 alpha-2]
+            sig { returns(T.nilable(String)) }
+            attr_accessor :country
+
+            sig { returns(T.nilable(String)) }
+            attr_accessor :line1
+
+            sig { returns(T.nilable(String)) }
+            attr_accessor :line2
+
+            # Locality or City. Use the full city name rather than an abbreviation (e.g. San
+            # Francisco).
+            sig { returns(T.nilable(String)) }
+            attr_accessor :locality
+
+            # The postal code of the address.
+            sig { returns(T.nilable(String)) }
+            attr_accessor :postal_code
+
+            # Region or State. This field is free-form; for US states, we recommend a
+            # two-letter code (e.g. CA). Full state names are also accepted.
+            sig { returns(T.nilable(String)) }
+            attr_accessor :region
+
+            # If present, this address will override the default originating party address
+            # used on the payment order. This works across all payment types.
+            sig do
+              params(
+                country: T.nilable(String),
+                line1: T.nilable(String),
+                line2: T.nilable(String),
+                locality: T.nilable(String),
+                postal_code: T.nilable(String),
+                region: T.nilable(String)
+              ).returns(T.attached_class)
+            end
+            def self.new(
+              # Country code conforms to [ISO 3166-1 alpha-2]
+              country: nil,
+              line1: nil,
+              line2: nil,
+              # Locality or City. Use the full city name rather than an abbreviation (e.g. San
+              # Francisco).
+              locality: nil,
+              # The postal code of the address.
+              postal_code: nil,
+              # Region or State. This field is free-form; for US states, we recommend a
+              # two-letter code (e.g. CA). Full state names are also accepted.
+              region: nil
+            )
+            end
+
+            sig do
+              override.returns(
+                {
+                  country: T.nilable(String),
+                  line1: T.nilable(String),
+                  line2: T.nilable(String),
+                  locality: T.nilable(String),
+                  postal_code: T.nilable(String),
+                  region: T.nilable(String)
                 }
               )
             end
@@ -3162,6 +3271,27 @@ module ModernTreasury
           sig { params(originating_account_id: String).void }
           attr_writer :originating_account_id
 
+          # If present, this address will override the default originating party address
+          # used on the payment order. This works across all payment types.
+          sig do
+            returns(
+              T.nilable(
+                ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::OriginatingPartyAddress
+              )
+            )
+          end
+          attr_reader :originating_party_address
+
+          sig do
+            params(
+              originating_party_address:
+                T.nilable(
+                  ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::OriginatingPartyAddress::OrHash
+                )
+            ).void
+          end
+          attr_writer :originating_party_address
+
           # If present, this will replace your default company name on receiver's bank
           # statement. This field can only be used for ACH payments currently. For ACH, only
           # the first 16 characters of this string will be used. Any additional characters
@@ -3365,6 +3495,10 @@ module ModernTreasury
               metadata: T::Hash[Symbol, String],
               nsf_protected: T::Boolean,
               originating_account_id: String,
+              originating_party_address:
+                T.nilable(
+                  ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::OriginatingPartyAddress::OrHash
+                ),
               originating_party_name: T.nilable(String),
               priority:
                 ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Priority::OrSymbol,
@@ -3444,6 +3578,9 @@ module ModernTreasury
             nsf_protected: nil,
             # The ID of one of your organization's internal accounts.
             originating_account_id: nil,
+            # If present, this address will override the default originating party address
+            # used on the payment order. This works across all payment types.
+            originating_party_address: nil,
             # If present, this will replace your default company name on receiver's bank
             # statement. This field can only be used for ACH payments currently. For ACH, only
             # the first 16 characters of this string will be used. Any additional characters
@@ -3553,6 +3690,10 @@ module ModernTreasury
                 metadata: T::Hash[Symbol, String],
                 nsf_protected: T::Boolean,
                 originating_account_id: String,
+                originating_party_address:
+                  T.nilable(
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::OriginatingPartyAddress
+                  ),
                 originating_party_name: T.nilable(String),
                 priority:
                   ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Priority::OrSymbol,
@@ -3837,6 +3978,83 @@ module ModernTreasury
                   accounting_category_id: T.nilable(String),
                   description: T.nilable(String),
                   metadata: T::Hash[Symbol, String]
+                }
+              )
+            end
+            def to_hash
+            end
+          end
+
+          class OriginatingPartyAddress < ModernTreasury::Internal::Type::BaseModel
+            OrHash =
+              T.type_alias do
+                T.any(
+                  ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::OriginatingPartyAddress,
+                  ModernTreasury::Internal::AnyHash
+                )
+              end
+
+            # Country code conforms to [ISO 3166-1 alpha-2]
+            sig { returns(T.nilable(String)) }
+            attr_accessor :country
+
+            sig { returns(T.nilable(String)) }
+            attr_accessor :line1
+
+            sig { returns(T.nilable(String)) }
+            attr_accessor :line2
+
+            # Locality or City. Use the full city name rather than an abbreviation (e.g. San
+            # Francisco).
+            sig { returns(T.nilable(String)) }
+            attr_accessor :locality
+
+            # The postal code of the address.
+            sig { returns(T.nilable(String)) }
+            attr_accessor :postal_code
+
+            # Region or State. This field is free-form; for US states, we recommend a
+            # two-letter code (e.g. CA). Full state names are also accepted.
+            sig { returns(T.nilable(String)) }
+            attr_accessor :region
+
+            # If present, this address will override the default originating party address
+            # used on the payment order. This works across all payment types.
+            sig do
+              params(
+                country: T.nilable(String),
+                line1: T.nilable(String),
+                line2: T.nilable(String),
+                locality: T.nilable(String),
+                postal_code: T.nilable(String),
+                region: T.nilable(String)
+              ).returns(T.attached_class)
+            end
+            def self.new(
+              # Country code conforms to [ISO 3166-1 alpha-2]
+              country: nil,
+              line1: nil,
+              line2: nil,
+              # Locality or City. Use the full city name rather than an abbreviation (e.g. San
+              # Francisco).
+              locality: nil,
+              # The postal code of the address.
+              postal_code: nil,
+              # Region or State. This field is free-form; for US states, we recommend a
+              # two-letter code (e.g. CA). Full state names are also accepted.
+              region: nil
+            )
+            end
+
+            sig do
+              override.returns(
+                {
+                  country: T.nilable(String),
+                  line1: T.nilable(String),
+                  line2: T.nilable(String),
+                  locality: T.nilable(String),
+                  postal_code: T.nilable(String),
+                  region: T.nilable(String)
                 }
               )
             end
