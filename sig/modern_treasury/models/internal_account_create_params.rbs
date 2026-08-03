@@ -15,7 +15,6 @@ module ModernTreasury
         parent_account_id: String,
         party_address: ModernTreasury::InternalAccountCreateParams::PartyAddress,
         party_name: String?,
-        requested_account_number_types: ::Array[ModernTreasury::Models::InternalAccountCreateParams::requested_account_number_type],
         vendor_attributes: ::Hash[Symbol, String]
       }
       & ModernTreasury::Internal::Type::request_parameters
@@ -72,12 +71,6 @@ module ModernTreasury
 
       attr_accessor party_name: String?
 
-      attr_reader requested_account_number_types: ::Array[ModernTreasury::Models::InternalAccountCreateParams::requested_account_number_type]?
-
-      def requested_account_number_types=: (
-        ::Array[ModernTreasury::Models::InternalAccountCreateParams::requested_account_number_type]
-      ) -> ::Array[ModernTreasury::Models::InternalAccountCreateParams::requested_account_number_type]
-
       attr_reader vendor_attributes: ::Hash[Symbol, String]?
 
       def vendor_attributes=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
@@ -96,7 +89,6 @@ module ModernTreasury
         ?parent_account_id: String,
         ?party_address: ModernTreasury::InternalAccountCreateParams::PartyAddress,
         ?party_name: String?,
-        ?requested_account_number_types: ::Array[ModernTreasury::Models::InternalAccountCreateParams::requested_account_number_type],
         ?vendor_attributes: ::Hash[Symbol, String],
         ?request_options: ModernTreasury::request_opts
       ) -> void
@@ -115,7 +107,6 @@ module ModernTreasury
         parent_account_id: String,
         party_address: ModernTreasury::InternalAccountCreateParams::PartyAddress,
         party_name: String?,
-        requested_account_number_types: ::Array[ModernTreasury::Models::InternalAccountCreateParams::requested_account_number_type],
         vendor_attributes: ::Hash[Symbol, String],
         request_options: ModernTreasury::RequestOptions
       }
@@ -328,20 +319,6 @@ module ModernTreasury
           region: String,
           :line2 => String
         }
-      end
-
-      type requested_account_number_type =
-        :ethereum_address | :solana_address | :polygon_address | :base_address
-
-      module RequestedAccountNumberType
-        extend ModernTreasury::Internal::Type::Enum
-
-        ETHEREUM_ADDRESS: :ethereum_address
-        SOLANA_ADDRESS: :solana_address
-        POLYGON_ADDRESS: :polygon_address
-        BASE_ADDRESS: :base_address
-
-        def self?.values: -> ::Array[ModernTreasury::Models::InternalAccountCreateParams::requested_account_number_type]
       end
     end
   end

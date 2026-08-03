@@ -45,8 +45,8 @@ module ModernTreasury
       required :compliance_details, ModernTreasury::Internal::Type::Unknown, nil?: true
 
       # @!attribute country_of_incorporation
-      #   The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
-      #   code (e.g. US).
+      #   The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
+      #   alpha-3 formats.
       #
       #   @return [String, nil]
       required :country_of_incorporation, String, nil?: true
@@ -177,8 +177,8 @@ module ModernTreasury
       required :object, String
 
       # @!attribute operating_jurisdictions
-      #   A list of countries where the business operates, as ISO 3166-1 alpha-2 country
-      #   codes (e.g. ["US", "CA"]).
+      #   A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3
+      #   codes).
       #
       #   @return [Array<String>]
       required :operating_jurisdictions, ModernTreasury::Internal::Type::ArrayOf[String]
@@ -317,7 +317,7 @@ module ModernTreasury
       #
       #   @param compliance_details [Object, nil]
       #
-      #   @param country_of_incorporation [String, nil] The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
+      #   @param country_of_incorporation [String, nil] The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
       #
       #   @param created_at [Time]
       #
@@ -361,7 +361,7 @@ module ModernTreasury
       #
       #   @param object [String]
       #
-      #   @param operating_jurisdictions [Array<String>] A list of countries where the business operates, as ISO 3166-1 alpha-2 country c
+      #   @param operating_jurisdictions [Array<String>] A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3 c
       #
       #   @param phone_numbers [Array<ModernTreasury::Models::LegalEntity::PhoneNumber>]
       #
@@ -446,8 +446,7 @@ module ModernTreasury
         required :live_mode, ModernTreasury::Internal::Type::Boolean
 
         # @!attribute locality
-        #   Locality or City. Use the full city name rather than an abbreviation (e.g. San
-        #   Francisco).
+        #   Locality or City.
         #
         #   @return [String, nil]
         required :locality, String, nil?: true
@@ -471,8 +470,7 @@ module ModernTreasury
         required :primary, ModernTreasury::Internal::Type::Boolean, nil?: true
 
         # @!attribute region
-        #   Region or State. This field is free-form; for US states, we recommend a
-        #   two-letter code (e.g. CA). Full state names are also accepted.
+        #   Region or State.
         #
         #   @return [String, nil]
         required :region, String, nil?: true
@@ -502,7 +500,7 @@ module ModernTreasury
         #
         #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
         #
-        #   @param locality [String, nil] Locality or City. Use the full city name rather than an abbreviation (e.g. San F
+        #   @param locality [String, nil] Locality or City.
         #
         #   @param object [String]
         #
@@ -510,7 +508,7 @@ module ModernTreasury
         #
         #   @param primary [Boolean, nil] Whether this address is the primary address for the legal entity. Optional; when
         #
-        #   @param region [String, nil] Region or State. This field is free-form; for US states, we recommend a two-lett
+        #   @param region [String, nil] Region or State.
         #
         #   @param updated_at [Time]
 
@@ -667,8 +665,6 @@ module ModernTreasury
           GB_VAT = :gb_vat
           GENERIC_INTERNATIONAL = :generic_international
           GR_VAT = :gr_vat
-          HK_BRN = :hk_brn
-          HK_HKID = :hk_hkid
           HN_ID = :hn_id
           HN_RTN = :hn_rtn
           HR_OIB = :hr_oib
@@ -765,20 +761,14 @@ module ModernTreasury
 
       class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
         # @!attribute phone_number
-        #   A phone number in E.164 format. This format is strictly validated: include a
-        #   leading + and country code, followed by digits only (no spaces or dashes), e.g.
-        #   +12025551234.
         #
         #   @return [String, nil]
         optional :phone_number, String
 
         # @!method initialize(phone_number: nil)
-        #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Models::LegalEntity::PhoneNumber} for more details.
-        #
         #   A list of phone numbers in E.164 format.
         #
-        #   @param phone_number [String] A phone number in E.164 format. This format is strictly validated: include a lea
+        #   @param phone_number [String]
       end
 
       class Regulator < ModernTreasury::Internal::Type::BaseModel

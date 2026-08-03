@@ -30,10 +30,6 @@ module ModernTreasury
           party_address:
             ModernTreasury::InternalAccountCreateParams::PartyAddress::OrHash,
           party_name: T.nilable(String),
-          requested_account_number_types:
-            T::Array[
-              ModernTreasury::InternalAccountCreateParams::RequestedAccountNumberType::OrSymbol
-            ],
           vendor_attributes: T::Hash[Symbol, String],
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::InternalAccount)
@@ -73,8 +69,6 @@ module ModernTreasury
         party_address: nil,
         # The legal name of the entity which owns the account.
         party_name: nil,
-        # An array of account number types requested for provisioning.
-        requested_account_number_types: nil,
         # A hash of vendor specific attributes that will be used when creating the account
         # at the vendor specified by the given connection.
         vendor_attributes: nil,

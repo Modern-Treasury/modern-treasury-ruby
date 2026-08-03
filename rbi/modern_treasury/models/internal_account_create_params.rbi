@@ -135,28 +135,6 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :party_name
 
-      # An array of account number types requested for provisioning.
-      sig do
-        returns(
-          T.nilable(
-            T::Array[
-              ModernTreasury::InternalAccountCreateParams::RequestedAccountNumberType::OrSymbol
-            ]
-          )
-        )
-      end
-      attr_reader :requested_account_number_types
-
-      sig do
-        params(
-          requested_account_number_types:
-            T::Array[
-              ModernTreasury::InternalAccountCreateParams::RequestedAccountNumberType::OrSymbol
-            ]
-        ).void
-      end
-      attr_writer :requested_account_number_types
-
       # A hash of vendor specific attributes that will be used when creating the account
       # at the vendor specified by the given connection.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
@@ -186,10 +164,6 @@ module ModernTreasury
           party_address:
             ModernTreasury::InternalAccountCreateParams::PartyAddress::OrHash,
           party_name: T.nilable(String),
-          requested_account_number_types:
-            T::Array[
-              ModernTreasury::InternalAccountCreateParams::RequestedAccountNumberType::OrSymbol
-            ],
           vendor_attributes: T::Hash[Symbol, String],
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
@@ -229,8 +203,6 @@ module ModernTreasury
         party_address: nil,
         # The legal name of the entity which owns the account.
         party_name: nil,
-        # An array of account number types requested for provisioning.
-        requested_account_number_types: nil,
         # A hash of vendor specific attributes that will be used when creating the account
         # at the vendor specified by the given connection.
         vendor_attributes: nil,
@@ -260,10 +232,6 @@ module ModernTreasury
             party_address:
               ModernTreasury::InternalAccountCreateParams::PartyAddress,
             party_name: T.nilable(String),
-            requested_account_number_types:
-              T::Array[
-                ModernTreasury::InternalAccountCreateParams::RequestedAccountNumberType::OrSymbol
-              ],
             vendor_attributes: T::Hash[Symbol, String],
             request_options: ModernTreasury::RequestOptions
           }
@@ -685,8 +653,7 @@ module ModernTreasury
         sig { returns(String) }
         attr_accessor :line1
 
-        # Locality or City. Use the full city name rather than an abbreviation (e.g. San
-        # Francisco).
+        # Locality or City.
         sig { returns(String) }
         attr_accessor :locality
 
@@ -694,8 +661,7 @@ module ModernTreasury
         sig { returns(String) }
         attr_accessor :postal_code
 
-        # Region or State. This field is free-form; for US states, we recommend a
-        # two-letter code (e.g. CA). Full state names are also accepted.
+        # Region or State.
         sig { returns(String) }
         attr_accessor :region
 
@@ -720,13 +686,11 @@ module ModernTreasury
           # Country code conforms to [ISO 3166-1 alpha-2]
           country:,
           line1:,
-          # Locality or City. Use the full city name rather than an abbreviation (e.g. San
-          # Francisco).
+          # Locality or City.
           locality:,
           # The postal code of the address.
           postal_code:,
-          # Region or State. This field is free-form; for US states, we recommend a
-          # two-letter code (e.g. CA). Full state names are also accepted.
+          # Region or State.
           region:,
           line2: nil
         )
@@ -745,50 +709,6 @@ module ModernTreasury
           )
         end
         def to_hash
-        end
-      end
-
-      module RequestedAccountNumberType
-        extend ModernTreasury::Internal::Type::Enum
-
-        TaggedSymbol =
-          T.type_alias do
-            T.all(
-              Symbol,
-              ModernTreasury::InternalAccountCreateParams::RequestedAccountNumberType
-            )
-          end
-        OrSymbol = T.type_alias { T.any(Symbol, String) }
-
-        ETHEREUM_ADDRESS =
-          T.let(
-            :ethereum_address,
-            ModernTreasury::InternalAccountCreateParams::RequestedAccountNumberType::TaggedSymbol
-          )
-        SOLANA_ADDRESS =
-          T.let(
-            :solana_address,
-            ModernTreasury::InternalAccountCreateParams::RequestedAccountNumberType::TaggedSymbol
-          )
-        POLYGON_ADDRESS =
-          T.let(
-            :polygon_address,
-            ModernTreasury::InternalAccountCreateParams::RequestedAccountNumberType::TaggedSymbol
-          )
-        BASE_ADDRESS =
-          T.let(
-            :base_address,
-            ModernTreasury::InternalAccountCreateParams::RequestedAccountNumberType::TaggedSymbol
-          )
-
-        sig do
-          override.returns(
-            T::Array[
-              ModernTreasury::InternalAccountCreateParams::RequestedAccountNumberType::TaggedSymbol
-            ]
-          )
-        end
-        def self.values
         end
       end
     end

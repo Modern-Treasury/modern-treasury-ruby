@@ -371,10 +371,10 @@ module ModernTreasury
 
       # Additional vendor specific fields for this payment. Data must be represented as
       # key-value pairs.
-      sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
+      sig { returns(T.nilable(T.anything)) }
       attr_reader :vendor_attributes
 
-      sig { params(vendor_attributes: T::Hash[Symbol, T.anything]).void }
+      sig { params(vendor_attributes: T.anything).void }
       attr_writer :vendor_attributes
 
       sig do
@@ -437,7 +437,7 @@ module ModernTreasury
           ultimate_originating_party_name: T.nilable(String),
           ultimate_receiving_party_identifier: T.nilable(String),
           ultimate_receiving_party_name: T.nilable(String),
-          vendor_attributes: T::Hash[Symbol, T.anything],
+          vendor_attributes: T.anything,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
@@ -636,7 +636,7 @@ module ModernTreasury
             ultimate_originating_party_name: T.nilable(String),
             ultimate_receiving_party_identifier: T.nilable(String),
             ultimate_receiving_party_name: T.nilable(String),
-            vendor_attributes: T::Hash[Symbol, T.anything],
+            vendor_attributes: T.anything,
             request_options: ModernTreasury::RequestOptions
           }
         )
@@ -1781,8 +1781,7 @@ module ModernTreasury
         sig { params(line2: String).void }
         attr_writer :line2
 
-        # Locality or City. Use the full city name rather than an abbreviation (e.g. San
-        # Francisco).
+        # Locality or City.
         sig { returns(T.nilable(String)) }
         attr_reader :locality
 
@@ -1796,8 +1795,7 @@ module ModernTreasury
         sig { params(postal_code: String).void }
         attr_writer :postal_code
 
-        # Region or State. This field is free-form; for US states, we recommend a
-        # two-letter code (e.g. CA). Full state names are also accepted.
+        # Region or State.
         sig { returns(T.nilable(String)) }
         attr_reader :region
 
@@ -1820,13 +1818,11 @@ module ModernTreasury
           country: nil,
           line1: nil,
           line2: nil,
-          # Locality or City. Use the full city name rather than an abbreviation (e.g. San
-          # Francisco).
+          # Locality or City.
           locality: nil,
           # The postal code of the address.
           postal_code: nil,
-          # Region or State. This field is free-form; for US states, we recommend a
-          # two-letter code (e.g. CA). Full state names are also accepted.
+          # Region or State.
           region: nil
         )
         end

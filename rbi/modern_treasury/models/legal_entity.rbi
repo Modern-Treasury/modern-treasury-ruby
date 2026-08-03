@@ -41,8 +41,8 @@ module ModernTreasury
       sig { returns(T.nilable(T.anything)) }
       attr_accessor :compliance_details
 
-      # The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
-      # code (e.g. US).
+      # The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
+      # alpha-3 formats.
       sig { returns(T.nilable(String)) }
       attr_accessor :country_of_incorporation
 
@@ -135,8 +135,8 @@ module ModernTreasury
       sig { returns(String) }
       attr_accessor :object
 
-      # A list of countries where the business operates, as ISO 3166-1 alpha-2 country
-      # codes (e.g. ["US", "CA"]).
+      # A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3
+      # codes).
       sig { returns(T::Array[String]) }
       attr_accessor :operating_jurisdictions
 
@@ -325,8 +325,8 @@ module ModernTreasury
         # The country of citizenship for an individual.
         citizenship_country:,
         compliance_details:,
-        # The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
-        # code (e.g. US).
+        # The country code where the business is incorporated in the ISO 3166-1 alpha-2 or
+        # alpha-3 formats.
         country_of_incorporation:,
         created_at:,
         # A business's formation date (YYYY-MM-DD).
@@ -367,8 +367,8 @@ module ModernTreasury
         # An individual's middle name.
         middle_name:,
         object:,
-        # A list of countries where the business operates, as ISO 3166-1 alpha-2 country
-        # codes (e.g. ["US", "CA"]).
+        # A list of countries where the business operates (ISO 3166-1 alpha-2 or alpha-3
+        # codes).
         operating_jurisdictions:,
         phone_numbers:,
         # Whether the individual is a politically exposed person.
@@ -520,8 +520,7 @@ module ModernTreasury
         sig { returns(T::Boolean) }
         attr_accessor :live_mode
 
-        # Locality or City. Use the full city name rather than an abbreviation (e.g. San
-        # Francisco).
+        # Locality or City.
         sig { returns(T.nilable(String)) }
         attr_accessor :locality
 
@@ -537,8 +536,7 @@ module ModernTreasury
         sig { returns(T.nilable(T::Boolean)) }
         attr_accessor :primary
 
-        # Region or State. This field is free-form; for US states, we recommend a
-        # two-letter code (e.g. CA). Full state names are also accepted.
+        # Region or State.
         sig { returns(T.nilable(String)) }
         attr_accessor :region
 
@@ -579,8 +577,7 @@ module ModernTreasury
           # This field will be true if this object exists in the live environment or false
           # if it exists in the test environment.
           live_mode:,
-          # Locality or City. Use the full city name rather than an abbreviation (e.g. San
-          # Francisco).
+          # Locality or City.
           locality:,
           object:,
           # The postal code of the address.
@@ -588,8 +585,7 @@ module ModernTreasury
           # Whether this address is the primary address for the legal entity. Optional; when
           # omitted it is inferred from the address types.
           primary:,
-          # Region or State. This field is free-form; for US states, we recommend a
-          # two-letter code (e.g. CA). Full state names are also accepted.
+          # Region or State.
           region:,
           updated_at:
         )
@@ -1007,16 +1003,6 @@ module ModernTreasury
               :gr_vat,
               ModernTreasury::LegalEntity::Identification::IDType::TaggedSymbol
             )
-          HK_BRN =
-            T.let(
-              :hk_brn,
-              ModernTreasury::LegalEntity::Identification::IDType::TaggedSymbol
-            )
-          HK_HKID =
-            T.let(
-              :hk_hkid,
-              ModernTreasury::LegalEntity::Identification::IDType::TaggedSymbol
-            )
           HN_ID =
             T.let(
               :hn_id,
@@ -1406,9 +1392,6 @@ module ModernTreasury
             )
           end
 
-        # A phone number in E.164 format. This format is strictly validated: include a
-        # leading + and country code, followed by digits only (no spaces or dashes), e.g.
-        # +12025551234.
         sig { returns(T.nilable(String)) }
         attr_reader :phone_number
 
@@ -1417,12 +1400,7 @@ module ModernTreasury
 
         # A list of phone numbers in E.164 format.
         sig { params(phone_number: String).returns(T.attached_class) }
-        def self.new(
-          # A phone number in E.164 format. This format is strictly validated: include a
-          # leading + and country code, followed by digits only (no spaces or dashes), e.g.
-          # +12025551234.
-          phone_number: nil
-        )
+        def self.new(phone_number: nil)
         end
 
         sig { override.returns({ phone_number: String }) }

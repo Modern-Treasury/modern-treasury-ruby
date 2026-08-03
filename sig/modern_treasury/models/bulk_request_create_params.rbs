@@ -131,7 +131,7 @@ module ModernTreasury
             ultimate_originating_party_name: String?,
             ultimate_receiving_party_identifier: String?,
             ultimate_receiving_party_name: String?,
-            vendor_attributes: ::Hash[Symbol, top]
+            vendor_attributes: top
           }
 
         class PaymentOrderAsyncCreateRequest < ModernTreasury::Internal::Type::BaseModel
@@ -259,9 +259,9 @@ module ModernTreasury
 
           attr_accessor ultimate_receiving_party_name: String?
 
-          attr_reader vendor_attributes: ::Hash[Symbol, top]?
+          attr_reader vendor_attributes: top?
 
-          def vendor_attributes=: (::Hash[Symbol, top]) -> ::Hash[Symbol, top]
+          def vendor_attributes=: (top) -> top
 
           def initialize: (
             amount: Integer,
@@ -303,7 +303,7 @@ module ModernTreasury
             ?ultimate_originating_party_name: String?,
             ?ultimate_receiving_party_identifier: String?,
             ?ultimate_receiving_party_name: String?,
-            ?vendor_attributes: ::Hash[Symbol, top]
+            ?vendor_attributes: top
           ) -> void
 
           def to_hash: -> {
@@ -346,7 +346,7 @@ module ModernTreasury
             ultimate_originating_party_name: String?,
             ultimate_receiving_party_identifier: String?,
             ultimate_receiving_party_name: String?,
-            vendor_attributes: ::Hash[Symbol, top]
+            vendor_attributes: top
           }
 
           type direction = :credit | :debit

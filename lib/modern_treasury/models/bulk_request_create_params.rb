@@ -419,9 +419,8 @@ module ModernTreasury
           #   Additional vendor specific fields for this payment. Data must be represented as
           #   key-value pairs.
           #
-          #   @return [Hash{Symbol=>Object}, nil]
-          optional :vendor_attributes,
-                   ModernTreasury::Internal::Type::HashOf[ModernTreasury::Internal::Type::Unknown]
+          #   @return [Object, nil]
+          optional :vendor_attributes, ModernTreasury::Internal::Type::Unknown
 
           # @!method initialize(amount:, direction:, originating_account_id:, type:, accounting: nil, accounting_category_id: nil, accounting_ledger_class_id: nil, charge_bearer: nil, currency: nil, description: nil, effective_date: nil, expires_at: nil, external_id: nil, fallback_type: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, ledger_transaction: nil, ledger_transaction_id: nil, line_items: nil, metadata: nil, nsf_protected: nil, originating_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account: nil, receiving_account_id: nil, reconciliation_status: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, subtype: nil, transaction_monitoring_enabled: nil, ultimate_originating_account_id: nil, ultimate_originating_party_address: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil, vendor_attributes: nil)
           #   Some parameter documentations has been truncated, see
@@ -506,7 +505,7 @@ module ModernTreasury
           #
           #   @param ultimate_receiving_party_name [String, nil] Name of the ultimate funds recipient.
           #
-          #   @param vendor_attributes [Hash{Symbol=>Object}] Additional vendor specific fields for this payment. Data must be represented as
+          #   @param vendor_attributes [Object] Additional vendor specific fields for this payment. Data must be represented as
 
           # One of `credit`, `debit`. Describes the direction money is flowing in the
           # transaction. A `credit` moves money from your account to someone else's. A
@@ -967,8 +966,7 @@ module ModernTreasury
             optional :line2, String
 
             # @!attribute locality
-            #   Locality or City. Use the full city name rather than an abbreviation (e.g. San
-            #   Francisco).
+            #   Locality or City.
             #
             #   @return [String, nil]
             optional :locality, String
@@ -980,17 +978,12 @@ module ModernTreasury
             optional :postal_code, String
 
             # @!attribute region
-            #   Region or State. This field is free-form; for US states, we recommend a
-            #   two-letter code (e.g. CA). Full state names are also accepted.
+            #   Region or State.
             #
             #   @return [String, nil]
             optional :region, String
 
             # @!method initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
-            #   Some parameter documentations has been truncated, see
-            #   {ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::UltimateOriginatingPartyAddress}
-            #   for more details.
-            #
             #   Address of the ultimate originator of the payment order.
             #
             #   @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
@@ -999,11 +992,11 @@ module ModernTreasury
             #
             #   @param line2 [String]
             #
-            #   @param locality [String] Locality or City. Use the full city name rather than an abbreviation (e.g. San F
+            #   @param locality [String] Locality or City.
             #
             #   @param postal_code [String] The postal code of the address.
             #
-            #   @param region [String] Region or State. This field is free-form; for US states, we recommend a two-lett
+            #   @param region [String] Region or State.
           end
         end
 
