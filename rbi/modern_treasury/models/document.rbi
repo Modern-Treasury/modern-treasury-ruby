@@ -26,8 +26,8 @@ module ModernTreasury
       attr_accessor :documentable_id
 
       # The type of the associated object. Currently can be one of `payment_order`,
-      # `transaction`, `expected_payment`, `counterparty`, `organization`, `case`,
-      # `internal_account`, `decision`, or `external_account`.
+      # `transaction`, `expected_payment`, `return`, `legal_entity`, `counterparty`,
+      # `organization`, `case`, `internal_account`, `decision`, or `external_account`.
       sig do
         returns(
           T.nilable(ModernTreasury::Document::DocumentableType::TaggedSymbol)
@@ -81,8 +81,8 @@ module ModernTreasury
         # The unique identifier for the associated object.
         documentable_id:,
         # The type of the associated object. Currently can be one of `payment_order`,
-        # `transaction`, `expected_payment`, `counterparty`, `organization`, `case`,
-        # `internal_account`, `decision`, or `external_account`.
+        # `transaction`, `expected_payment`, `return`, `legal_entity`, `counterparty`,
+        # `organization`, `case`, `internal_account`, `decision`, or `external_account`.
         documentable_type:,
         file:,
         # This field will be true if this object exists in the live environment or false
@@ -119,8 +119,8 @@ module ModernTreasury
       end
 
       # The type of the associated object. Currently can be one of `payment_order`,
-      # `transaction`, `expected_payment`, `counterparty`, `organization`, `case`,
-      # `internal_account`, `decision`, or `external_account`.
+      # `transaction`, `expected_payment`, `return`, `legal_entity`, `counterparty`,
+      # `organization`, `case`, `internal_account`, `decision`, or `external_account`.
       module DocumentableType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -178,6 +178,11 @@ module ModernTreasury
         PAYMENT_ORDER =
           T.let(
             :payment_order,
+            ModernTreasury::Document::DocumentableType::TaggedSymbol
+          )
+        RETURN =
+          T.let(
+            :return,
             ModernTreasury::Document::DocumentableType::TaggedSymbol
           )
         TRANSACTION =
