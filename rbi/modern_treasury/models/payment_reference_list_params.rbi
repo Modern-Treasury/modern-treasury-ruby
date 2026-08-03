@@ -128,6 +128,16 @@ module ModernTreasury
             :reversal,
             ModernTreasury::PaymentReferenceListParams::ReferenceableType::TaggedSymbol
           )
+        INCOMING_PAYMENT_DETAIL =
+          T.let(
+            :incoming_payment_detail,
+            ModernTreasury::PaymentReferenceListParams::ReferenceableType::TaggedSymbol
+          )
+        TRANSACTION =
+          T.let(
+            :transaction,
+            ModernTreasury::PaymentReferenceListParams::ReferenceableType::TaggedSymbol
+          )
 
         sig do
           override.returns(
