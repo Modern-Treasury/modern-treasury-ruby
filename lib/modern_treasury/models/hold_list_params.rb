@@ -26,21 +26,19 @@ module ModernTreasury
       optional :per_page, Integer
 
       # @!attribute status
-      #   Translation missing: en.openapi.descriptions.payment_order.query_params.status
+      #   Only return holds for a specific status.
       #
       #   @return [Symbol, ModernTreasury::Models::HoldListParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::HoldListParams::Status }, nil?: true
 
       # @!attribute target_id
-      #   Translation missing:
-      #   en.openapi.descriptions.payment_order.query_params.target_id
+      #   Only return holds for a specific target ID.
       #
       #   @return [String, nil]
       optional :target_id, String, nil?: true
 
       # @!attribute target_type
-      #   Translation missing:
-      #   en.openapi.descriptions.payment_order.query_params.target_type
+      #   Only return holds for a specific target type.
       #
       #   @return [Symbol, ModernTreasury::Models::HoldListParams::TargetType, nil]
       optional :target_type, enum: -> { ModernTreasury::HoldListParams::TargetType }, nil?: true
@@ -55,15 +53,15 @@ module ModernTreasury
       #
       #   @param per_page [Integer]
       #
-      #   @param status [Symbol, ModernTreasury::Models::HoldListParams::Status, nil] Translation missing: en.openapi.descriptions.payment_order.query_params.status
+      #   @param status [Symbol, ModernTreasury::Models::HoldListParams::Status, nil] Only return holds for a specific status.
       #
-      #   @param target_id [String, nil] Translation missing: en.openapi.descriptions.payment_order.query_params.target_i
+      #   @param target_id [String, nil] Only return holds for a specific target ID.
       #
-      #   @param target_type [Symbol, ModernTreasury::Models::HoldListParams::TargetType, nil] Translation missing: en.openapi.descriptions.payment_order.query_params.target_t
+      #   @param target_type [Symbol, ModernTreasury::Models::HoldListParams::TargetType, nil] Only return holds for a specific target type.
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
-      # Translation missing: en.openapi.descriptions.payment_order.query_params.status
+      # Only return holds for a specific status.
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
@@ -74,8 +72,7 @@ module ModernTreasury
         #   @return [Array<Symbol>]
       end
 
-      # Translation missing:
-      # en.openapi.descriptions.payment_order.query_params.target_type
+      # Only return holds for a specific target type.
       module TargetType
         extend ModernTreasury::Internal::Type::Enum
 

@@ -61,8 +61,7 @@ module ModernTreasury
       optional :date_upper_bound, Date, nil?: true
 
       # @!attribute type
-      #   One of ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
-      #   sepa, signet wire
+      #   One of ach, au_becs, bacs, book, check, eft, rtp, sepa, wire
       #
       #   @return [Symbol, ModernTreasury::Models::ReconciliationRule::Type, nil]
       optional :type, enum: -> { ModernTreasury::ReconciliationRule::Type }, nil?: true
@@ -89,7 +88,7 @@ module ModernTreasury
       #
       #   @param date_upper_bound [Date, nil] The latest date the payment may come in. Format is yyyy-mm-dd
       #
-      #   @param type [Symbol, ModernTreasury::Models::ReconciliationRule::Type, nil] One of ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen, sep
+      #   @param type [Symbol, ModernTreasury::Models::ReconciliationRule::Type, nil] One of ach, au_becs, bacs, book, check, eft, rtp, sepa, wire
 
       # One of credit or debit. When you are receiving money, use credit. When you are
       # being charged, use debit.
@@ -105,8 +104,7 @@ module ModernTreasury
         #   @return [Array<Symbol>]
       end
 
-      # One of ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
-      # sepa, signet wire
+      # One of ach, au_becs, bacs, book, check, eft, rtp, sepa, wire
       #
       # @see ModernTreasury::Models::ReconciliationRule#type
       module Type
@@ -123,24 +121,17 @@ module ModernTreasury
         DK_NETS = :dk_nets
         EFT = :eft
         GB_FPS = :gb_fps
-        HU_ICS = :hu_ics
-        INTERAC = :interac
         MASAV = :masav
         MX_CCEN = :mx_ccen
         NEFT = :neft
         NICS = :nics
         NZ_BECS = :nz_becs
         PL_ELIXIR = :pl_elixir
-        PROVXCHANGE = :provxchange
-        RO_SENT = :ro_sent
         RTP = :rtp
         SE_BANKGIROT = :se_bankgirot
-        SEN = :sen
         SEPA = :sepa
         SG_GIRO = :sg_giro
         SIC = :sic
-        SIGNET = :signet
-        SKNBI = :sknbi
         STABLECOIN = :stablecoin
         WIRE = :wire
         ZENGIN = :zengin
