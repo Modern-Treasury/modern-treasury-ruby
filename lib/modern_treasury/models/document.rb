@@ -33,8 +33,8 @@ module ModernTreasury
 
       # @!attribute documentable_type
       #   The type of the associated object. Currently can be one of `payment_order`,
-      #   `transaction`, `expected_payment`, `counterparty`, `organization`, `case`,
-      #   `internal_account`, `decision`, or `external_account`.
+      #   `transaction`, `expected_payment`, `return`, `legal_entity`, `counterparty`,
+      #   `organization`, `case`, `internal_account`, `decision`, or `external_account`.
       #
       #   @return [Symbol, ModernTreasury::Models::Document::DocumentableType, nil]
       required :documentable_type, enum: -> { ModernTreasury::Document::DocumentableType }, nil?: true
@@ -94,8 +94,8 @@ module ModernTreasury
       #   @param updated_at [Time]
 
       # The type of the associated object. Currently can be one of `payment_order`,
-      # `transaction`, `expected_payment`, `counterparty`, `organization`, `case`,
-      # `internal_account`, `decision`, or `external_account`.
+      # `transaction`, `expected_payment`, `return`, `legal_entity`, `counterparty`,
+      # `organization`, `case`, `internal_account`, `decision`, or `external_account`.
       #
       # @see ModernTreasury::Models::Document#documentable_type
       module DocumentableType
@@ -111,6 +111,7 @@ module ModernTreasury
         LEGAL_ENTITY = :legal_entity
         ORGANIZATION = :organization
         PAYMENT_ORDER = :payment_order
+        RETURN = :return
         TRANSACTION = :transaction
 
         # @!method self.values
