@@ -61,6 +61,8 @@ module ModernTreasury
         PAYMENT_ORDER = :payment_order
         RETURN = :return
         REVERSAL = :reversal
+        INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
+        TRANSACTION = :transaction
 
         # @!method self.values
         #   @return [Array<Symbol>]
