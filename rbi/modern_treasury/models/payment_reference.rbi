@@ -603,6 +603,16 @@ module ModernTreasury
             :return,
             ModernTreasury::PaymentReference::ReferenceableType::TaggedSymbol
           )
+        INCOMING_PAYMENT_DETAIL =
+          T.let(
+            :incoming_payment_detail,
+            ModernTreasury::PaymentReference::ReferenceableType::TaggedSymbol
+          )
+        TRANSACTION =
+          T.let(
+            :transaction,
+            ModernTreasury::PaymentReference::ReferenceableType::TaggedSymbol
+          )
 
         sig do
           override.returns(
