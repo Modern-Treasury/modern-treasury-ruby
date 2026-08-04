@@ -107,6 +107,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           name: String,
           parent_account_id: String,
+          status: ModernTreasury::InternalAccountUpdateParams::Status::OrSymbol,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::InternalAccount)
       end
@@ -128,6 +129,9 @@ module ModernTreasury
         name: nil,
         # The parent internal account for this account.
         parent_account_id: nil,
+        # Requests closure of the internal account. The resulting status may be `closed`
+        # for vendors that close synchronously.
+        status: nil,
         request_options: {}
       )
       end

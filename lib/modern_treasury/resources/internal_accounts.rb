@@ -84,7 +84,7 @@ module ModernTreasury
       #
       # update internal account
       #
-      # @overload update(id, contra_ledger_account_id: nil, counterparty_id: nil, external_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, request_options: {})
+      # @overload update(id, contra_ledger_account_id: nil, counterparty_id: nil, external_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, status: nil, request_options: {})
       #
       # @param id [String] Unique identifier for the account.
       #
@@ -101,6 +101,8 @@ module ModernTreasury
       # @param name [String] The nickname for the internal account.
       #
       # @param parent_account_id [String] The parent internal account for this account.
+      #
+      # @param status [Symbol, ModernTreasury::Models::InternalAccountUpdateParams::Status] Requests closure of the internal account. The resulting status may be `closed` f
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #

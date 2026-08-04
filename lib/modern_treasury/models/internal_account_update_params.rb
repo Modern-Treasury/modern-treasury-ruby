@@ -55,7 +55,14 @@ module ModernTreasury
       #   @return [String, nil]
       optional :parent_account_id, String
 
-      # @!method initialize(id:, contra_ledger_account_id: nil, counterparty_id: nil, external_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, request_options: {})
+      # @!attribute status
+      #   Requests closure of the internal account. The resulting status may be `closed`
+      #   for vendors that close synchronously.
+      #
+      #   @return [Symbol, ModernTreasury::Models::InternalAccountUpdateParams::Status, nil]
+      optional :status, enum: -> { ModernTreasury::InternalAccountUpdateParams::Status }
+
+      # @!method initialize(id:, contra_ledger_account_id: nil, counterparty_id: nil, external_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, status: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::InternalAccountUpdateParams} for more details.
       #
@@ -75,7 +82,20 @@ module ModernTreasury
       #
       #   @param parent_account_id [String] The parent internal account for this account.
       #
+      #   @param status [Symbol, ModernTreasury::Models::InternalAccountUpdateParams::Status] Requests closure of the internal account. The resulting status may be `closed` f
+      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
+
+      # Requests closure of the internal account. The resulting status may be `closed`
+      # for vendors that close synchronously.
+      module Status
+        extend ModernTreasury::Internal::Type::Enum
+
+        PENDING_CLOSURE = :pending_closure
+
+        # @!method self.values
+        #   @return [Array<Symbol>]
+      end
     end
   end
 end
