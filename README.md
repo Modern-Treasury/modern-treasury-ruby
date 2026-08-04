@@ -24,7 +24,7 @@ To use this gem, install via Bundler by adding the following to your application
 <!-- x-release-please-start-version -->
 
 ```ruby
-gem "modern_treasury", "~> 0.29.0"
+gem "modern_treasury", "~> 0.29.1"
 ```
 
 <!-- x-release-please-end -->
