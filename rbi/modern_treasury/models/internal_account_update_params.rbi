@@ -64,6 +64,24 @@ module ModernTreasury
       sig { params(parent_account_id: String).void }
       attr_writer :parent_account_id
 
+      # Requests closure of the internal account. The resulting status may be `closed`
+      # for vendors that close synchronously.
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::InternalAccountUpdateParams::Status::OrSymbol
+          )
+        )
+      end
+      attr_reader :status
+
+      sig do
+        params(
+          status: ModernTreasury::InternalAccountUpdateParams::Status::OrSymbol
+        ).void
+      end
+      attr_writer :status
+
       sig do
         params(
           id: String,
@@ -74,6 +92,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           name: String,
           parent_account_id: String,
+          status: ModernTreasury::InternalAccountUpdateParams::Status::OrSymbol,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
@@ -94,6 +113,9 @@ module ModernTreasury
         name: nil,
         # The parent internal account for this account.
         parent_account_id: nil,
+        # Requests closure of the internal account. The resulting status may be `closed`
+        # for vendors that close synchronously.
+        status: nil,
         request_options: {}
       )
       end
@@ -109,11 +131,41 @@ module ModernTreasury
             metadata: T::Hash[Symbol, String],
             name: String,
             parent_account_id: String,
+            status:
+              ModernTreasury::InternalAccountUpdateParams::Status::OrSymbol,
             request_options: ModernTreasury::RequestOptions
           }
         )
       end
       def to_hash
+      end
+
+      # Requests closure of the internal account. The resulting status may be `closed`
+      # for vendors that close synchronously.
+      module Status
+        extend ModernTreasury::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::InternalAccountUpdateParams::Status)
+          end
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        PENDING_CLOSURE =
+          T.let(
+            :pending_closure,
+            ModernTreasury::InternalAccountUpdateParams::Status::TaggedSymbol
+          )
+
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::InternalAccountUpdateParams::Status::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
     end
   end
