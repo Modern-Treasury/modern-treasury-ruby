@@ -953,6 +953,7 @@ module ModernTreasury
           WESTERN_ALLIANCE_PAYMENT_ID = :western_alliance_payment_id
           WESTERN_ALLIANCE_TRANSACTION_ID = :western_alliance_transaction_id
           WESTERN_ALLIANCE_WIRE_CONFIRMATION_NUMBER = :western_alliance_wire_confirmation_number
+          WISE_TRANSFER_ID = :wise_transfer_id
 
           # @!method self.values
           #   @return [Array<Symbol>]
