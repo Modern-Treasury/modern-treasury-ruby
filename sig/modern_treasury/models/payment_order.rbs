@@ -635,6 +635,7 @@ module ModernTreasury
           | :western_alliance_payment_id
           | :western_alliance_transaction_id
           | :western_alliance_wire_confirmation_number
+          | :wise_transfer_id
 
         module ReferenceNumberType
           extend ModernTreasury::Internal::Type::Enum
@@ -728,6 +729,7 @@ module ModernTreasury
           WESTERN_ALLIANCE_PAYMENT_ID: :western_alliance_payment_id
           WESTERN_ALLIANCE_TRANSACTION_ID: :western_alliance_transaction_id
           WESTERN_ALLIANCE_WIRE_CONFIRMATION_NUMBER: :western_alliance_wire_confirmation_number
+          WISE_TRANSFER_ID: :wise_transfer_id
 
           def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber::reference_number_type]
         end
