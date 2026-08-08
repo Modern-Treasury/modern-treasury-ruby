@@ -1723,6 +1723,11 @@ module ModernTreasury
               :western_alliance_wire_confirmation_number,
               ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
+          WISE_TRANSFER_ID =
+            T.let(
+              :wise_transfer_id,
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
 
           sig do
             override.returns(
