@@ -760,14 +760,14 @@ module ModernTreasury
           end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
+        BASE_ADDRESS =
+          T.let(
+            :base_address,
+            ModernTreasury::InternalAccountCreateParams::RequestedAccountNumberType::TaggedSymbol
+          )
         ETHEREUM_ADDRESS =
           T.let(
             :ethereum_address,
-            ModernTreasury::InternalAccountCreateParams::RequestedAccountNumberType::TaggedSymbol
-          )
-        SOLANA_ADDRESS =
-          T.let(
-            :solana_address,
             ModernTreasury::InternalAccountCreateParams::RequestedAccountNumberType::TaggedSymbol
           )
         POLYGON_ADDRESS =
@@ -775,9 +775,9 @@ module ModernTreasury
             :polygon_address,
             ModernTreasury::InternalAccountCreateParams::RequestedAccountNumberType::TaggedSymbol
           )
-        BASE_ADDRESS =
+        SOLANA_ADDRESS =
           T.let(
-            :base_address,
+            :solana_address,
             ModernTreasury::InternalAccountCreateParams::RequestedAccountNumberType::TaggedSymbol
           )
 
