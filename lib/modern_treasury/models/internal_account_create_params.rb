@@ -358,10 +358,10 @@ module ModernTreasury
       module RequestedAccountNumberType
         extend ModernTreasury::Internal::Type::Enum
 
-        ETHEREUM_ADDRESS = :ethereum_address
-        SOLANA_ADDRESS = :solana_address
-        POLYGON_ADDRESS = :polygon_address
         BASE_ADDRESS = :base_address
+        ETHEREUM_ADDRESS = :ethereum_address
+        POLYGON_ADDRESS = :polygon_address
+        SOLANA_ADDRESS = :solana_address
 
         # @!method self.values
         #   @return [Array<Symbol>]

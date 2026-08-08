@@ -331,15 +331,15 @@ module ModernTreasury
       end
 
       type requested_account_number_type =
-        :ethereum_address | :solana_address | :polygon_address | :base_address
+        :base_address | :ethereum_address | :polygon_address | :solana_address
 
       module RequestedAccountNumberType
         extend ModernTreasury::Internal::Type::Enum
 
-        ETHEREUM_ADDRESS: :ethereum_address
-        SOLANA_ADDRESS: :solana_address
-        POLYGON_ADDRESS: :polygon_address
         BASE_ADDRESS: :base_address
+        ETHEREUM_ADDRESS: :ethereum_address
+        POLYGON_ADDRESS: :polygon_address
+        SOLANA_ADDRESS: :solana_address
 
         def self?.values: -> ::Array[ModernTreasury::Models::InternalAccountCreateParams::requested_account_number_type]
       end
