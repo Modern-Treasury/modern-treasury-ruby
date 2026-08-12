@@ -206,11 +206,6 @@ module ModernTreasury
             :transaction_line_item,
             ModernTreasury::BulkRequestListParams::ResourceType::TaggedSymbol
           )
-        ENTITY_LINK =
-          T.let(
-            :entity_link,
-            ModernTreasury::BulkRequestListParams::ResourceType::TaggedSymbol
-          )
 
         sig do
           override.returns(
