@@ -20,6 +20,11 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::ExternalAccountType]
       required :account_type, enum: -> { ModernTreasury::ExternalAccountType }
 
+      # @!attribute card_id
+      #
+      #   @return [String, nil]
+      required :card_id, String, nil?: true
+
       # @!attribute contact_details
       #
       #   @return [Array<ModernTreasury::Models::ContactDetail>]
@@ -119,7 +124,7 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::ExternalAccount::VerificationStatus]
       required :verification_status, enum: -> { ModernTreasury::ExternalAccount::VerificationStatus }
 
-      # @!method initialize(id:, account_details:, account_type:, contact_details:, counterparty_id:, created_at:, discarded_at:, external_id:, ledger_account_id:, live_mode:, metadata:, name:, object:, party_address:, party_name:, party_type:, routing_details:, updated_at:, verification_source:, verification_status:)
+      # @!method initialize(id:, account_details:, account_type:, card_id:, contact_details:, counterparty_id:, created_at:, discarded_at:, external_id:, ledger_account_id:, live_mode:, metadata:, name:, object:, party_address:, party_name:, party_type:, routing_details:, updated_at:, verification_source:, verification_status:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::ExternalAccount} for more details.
       #
@@ -128,6 +133,8 @@ module ModernTreasury
       #   @param account_details [Array<ModernTreasury::Models::AccountDetail>]
       #
       #   @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType] Can be `checking`, `savings` or `other`.
+      #
+      #   @param card_id [String, nil]
       #
       #   @param contact_details [Array<ModernTreasury::Models::ContactDetail>]
       #
