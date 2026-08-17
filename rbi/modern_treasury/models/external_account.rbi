@@ -21,6 +21,9 @@ module ModernTreasury
       sig { returns(ModernTreasury::ExternalAccountType::TaggedSymbol) }
       attr_accessor :account_type
 
+      sig { returns(T.nilable(String)) }
+      attr_accessor :card_id
+
       sig { returns(T::Array[ModernTreasury::ContactDetail]) }
       attr_accessor :contact_details
 
@@ -108,6 +111,7 @@ module ModernTreasury
           id: String,
           account_details: T::Array[ModernTreasury::AccountDetail::OrHash],
           account_type: ModernTreasury::ExternalAccountType::OrSymbol,
+          card_id: T.nilable(String),
           contact_details: T::Array[ModernTreasury::ContactDetail::OrHash],
           counterparty_id: T.nilable(String),
           created_at: Time,
@@ -137,6 +141,7 @@ module ModernTreasury
         account_details:,
         # Can be `checking`, `savings` or `other`.
         account_type:,
+        card_id:,
         contact_details:,
         counterparty_id:,
         created_at:,
@@ -175,6 +180,7 @@ module ModernTreasury
             id: String,
             account_details: T::Array[ModernTreasury::AccountDetail],
             account_type: ModernTreasury::ExternalAccountType::TaggedSymbol,
+            card_id: T.nilable(String),
             contact_details: T::Array[ModernTreasury::ContactDetail],
             counterparty_id: T.nilable(String),
             created_at: Time,
