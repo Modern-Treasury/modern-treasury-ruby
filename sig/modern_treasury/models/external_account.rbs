@@ -5,6 +5,7 @@ module ModernTreasury
         id: String,
         account_details: ::Array[ModernTreasury::AccountDetail],
         account_type: ModernTreasury::Models::external_account_type,
+        card_id: String?,
         contact_details: ::Array[ModernTreasury::ContactDetail],
         counterparty_id: String?,
         created_at: Time,
@@ -30,6 +31,8 @@ module ModernTreasury
       attr_accessor account_details: ::Array[ModernTreasury::AccountDetail]
 
       attr_accessor account_type: ModernTreasury::Models::external_account_type
+
+      attr_accessor card_id: String?
 
       attr_accessor contact_details: ::Array[ModernTreasury::ContactDetail]
 
@@ -69,6 +72,7 @@ module ModernTreasury
         id: String,
         account_details: ::Array[ModernTreasury::AccountDetail],
         account_type: ModernTreasury::Models::external_account_type,
+        card_id: String?,
         contact_details: ::Array[ModernTreasury::ContactDetail],
         counterparty_id: String?,
         created_at: Time,
@@ -92,6 +96,7 @@ module ModernTreasury
         id: String,
         account_details: ::Array[ModernTreasury::AccountDetail],
         account_type: ModernTreasury::Models::external_account_type,
+        card_id: String?,
         contact_details: ::Array[ModernTreasury::ContactDetail],
         counterparty_id: String?,
         created_at: Time,

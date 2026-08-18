@@ -137,6 +137,11 @@ module ModernTreasury
         #   @return [Symbol, ModernTreasury::Models::ExternalAccountType, nil]
         optional :account_type, enum: -> { ModernTreasury::ExternalAccountType }
 
+        # @!attribute card_id
+        #
+        #   @return [String, nil]
+        optional :card_id, String, nil?: true
+
         # @!attribute contact_details
         #
         #   @return [Array<ModernTreasury::Models::ContactDetail>, nil]
@@ -231,7 +236,7 @@ module ModernTreasury
         #   @return [Symbol, ModernTreasury::Models::Counterparty::Account::VerificationStatus, nil]
         optional :verification_status, enum: -> { ModernTreasury::Counterparty::Account::VerificationStatus }
 
-        # @!method initialize(id: nil, account_details: nil, account_type: nil, contact_details: nil, created_at: nil, discarded_at: nil, external_id: nil, ledger_account_id: nil, live_mode: nil, metadata: nil, name: nil, object: nil, party_address: nil, party_name: nil, party_type: nil, routing_details: nil, updated_at: nil, verification_source: nil, verification_status: nil)
+        # @!method initialize(id: nil, account_details: nil, account_type: nil, card_id: nil, contact_details: nil, created_at: nil, discarded_at: nil, external_id: nil, ledger_account_id: nil, live_mode: nil, metadata: nil, name: nil, object: nil, party_address: nil, party_name: nil, party_type: nil, routing_details: nil, updated_at: nil, verification_source: nil, verification_status: nil)
         #   Some parameter documentations has been truncated, see
         #   {ModernTreasury::Models::Counterparty::Account} for more details.
         #
@@ -240,6 +245,8 @@ module ModernTreasury
         #   @param account_details [Array<ModernTreasury::Models::AccountDetail>]
         #
         #   @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType] Can be `checking`, `savings` or `other`.
+        #
+        #   @param card_id [String, nil]
         #
         #   @param contact_details [Array<ModernTreasury::Models::ContactDetail>]
         #
