@@ -107,9 +107,9 @@ module ModernTreasury
       attr_accessor :vendor_code
 
       # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
-      # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-      # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`,
-      # `us_bank`, or others.
+      # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dwolla`, `evolve`,
+      # `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`, `us_bank`, or
+      # others.
       sig do
         returns(
           T.nilable(ModernTreasury::Transaction::VendorCodeType::TaggedSymbol)
@@ -225,9 +225,9 @@ module ModernTreasury
         # For most banks this is the BAI2/BTRS transaction code.
         vendor_code:,
         # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
-        # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-        # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`,
-        # `us_bank`, or others.
+        # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dwolla`, `evolve`,
+        # `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`, `us_bank`, or
+        # others.
         vendor_code_type:,
         # An identifier given to this transaction by the bank, often `null`.
         vendor_customer_id:,
@@ -341,9 +341,9 @@ module ModernTreasury
       end
 
       # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
-      # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-      # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`,
-      # `us_bank`, or others.
+      # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dwolla`, `evolve`,
+      # `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`, `us_bank`, or
+      # others.
       module VendorCodeType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -396,11 +396,6 @@ module ModernTreasury
         CURRENCYCLOUD =
           T.let(
             :currencycloud,
-            ModernTreasury::Transaction::VendorCodeType::TaggedSymbol
-          )
-        DC_BANK =
-          T.let(
-            :dc_bank,
             ModernTreasury::Transaction::VendorCodeType::TaggedSymbol
           )
         DWOLLA =
