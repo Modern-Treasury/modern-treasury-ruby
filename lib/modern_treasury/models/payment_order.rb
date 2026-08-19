@@ -892,7 +892,6 @@ module ModernTreasury
           CROSS_RIVER_TRANSACTION_ID = :cross_river_transaction_id
           CURRENCYCLOUD_CONVERSION_ID = :currencycloud_conversion_id
           CURRENCYCLOUD_PAYMENT_ID = :currencycloud_payment_id
-          DC_BANK_TRANSACTION_ID = :dc_bank_transaction_id
           EFT_TRACE_NUMBER = :eft_trace_number
           EVOLVE_CORE_BATCH = :evolve_core_batch
           EVOLVE_CORE_FILE_KEY = :evolve_core_file_key

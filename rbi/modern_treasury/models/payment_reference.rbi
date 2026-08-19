@@ -260,11 +260,6 @@ module ModernTreasury
             :currencycloud_payment_id,
             ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
           )
-        DC_BANK_TRANSACTION_ID =
-          T.let(
-            :dc_bank_transaction_id,
-            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
-          )
         EFT_TRACE_NUMBER =
           T.let(
             :eft_trace_number,
