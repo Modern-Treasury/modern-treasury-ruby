@@ -138,9 +138,9 @@ module ModernTreasury
 
       # @!attribute vendor_code_type
       #   The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
-      #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-      #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`,
-      #   `us_bank`, or others.
+      #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dwolla`, `evolve`,
+      #   `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`, `us_bank`, or
+      #   others.
       #
       #   @return [Symbol, ModernTreasury::Models::Transaction::VendorCodeType, nil]
       required :vendor_code_type, enum: -> { ModernTreasury::Transaction::VendorCodeType }, nil?: true
@@ -271,9 +271,9 @@ module ModernTreasury
       end
 
       # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
-      # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-      # `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`,
-      # `us_bank`, or others.
+      # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dwolla`, `evolve`,
+      # `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`, `us_bank`, or
+      # others.
       #
       # @see ModernTreasury::Models::Transaction#vendor_code_type
       module VendorCodeType
@@ -288,7 +288,6 @@ module ModernTreasury
         COLUMN = :column
         CROSS_RIVER = :cross_river
         CURRENCYCLOUD = :currencycloud
-        DC_BANK = :dc_bank
         DWOLLA = :dwolla
         EVOLVE = :evolve
         FAKE_VENDOR = :fake_vendor

@@ -214,7 +214,6 @@ module ModernTreasury
         | :column
         | :cross_river
         | :currencycloud
-        | :dc_bank
         | :dwolla
         | :evolve
         | :fake_vendor
@@ -245,7 +244,6 @@ module ModernTreasury
         COLUMN: :column
         CROSS_RIVER: :cross_river
         CURRENCYCLOUD: :currencycloud
-        DC_BANK: :dc_bank
         DWOLLA: :dwolla
         EVOLVE: :evolve
         FAKE_VENDOR: :fake_vendor
