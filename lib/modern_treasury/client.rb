@@ -105,6 +105,9 @@ module ModernTreasury
     # @return [ModernTreasury::Resources::VirtualAccounts]
     attr_reader :virtual_accounts
 
+    # @return [ModernTreasury::Resources::VirtualAccountSettings]
+    attr_reader :virtual_account_settings
+
     # @return [ModernTreasury::Resources::BulkRequests]
     attr_reader :bulk_requests
 
@@ -262,6 +265,7 @@ module ModernTreasury
       @transactions = ModernTreasury::Resources::Transactions.new(client: self)
       @validations = ModernTreasury::Resources::Validations.new(client: self)
       @virtual_accounts = ModernTreasury::Resources::VirtualAccounts.new(client: self)
+      @virtual_account_settings = ModernTreasury::Resources::VirtualAccountSettings.new(client: self)
       @bulk_requests = ModernTreasury::Resources::BulkRequests.new(client: self)
       @bulk_results = ModernTreasury::Resources::BulkResults.new(client: self)
       @ledger_account_settlements = ModernTreasury::Resources::LedgerAccountSettlements.new(client: self)

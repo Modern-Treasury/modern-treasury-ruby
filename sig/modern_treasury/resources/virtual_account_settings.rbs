@@ -1,0 +1,7 @@
+module ModernTreasury
+  module Resources
+    class VirtualAccountSettings
+      def initialize: (client: ModernTreasury::Client) -> void
+    end
+  end
+end
