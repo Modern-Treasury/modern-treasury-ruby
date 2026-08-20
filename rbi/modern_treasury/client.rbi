@@ -100,6 +100,9 @@ module ModernTreasury
     sig { returns(ModernTreasury::Resources::VirtualAccounts) }
     attr_reader :virtual_accounts
 
+    sig { returns(ModernTreasury::Resources::VirtualAccountSettings) }
+    attr_reader :virtual_account_settings
+
     sig { returns(ModernTreasury::Resources::BulkRequests) }
     attr_reader :bulk_requests
 
