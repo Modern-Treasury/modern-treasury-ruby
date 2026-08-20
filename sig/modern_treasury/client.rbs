@@ -68,6 +68,8 @@ module ModernTreasury
 
     attr_reader virtual_accounts: ModernTreasury::Resources::VirtualAccounts
 
+    attr_reader virtual_account_settings: ModernTreasury::Resources::VirtualAccountSettings
+
     attr_reader bulk_requests: ModernTreasury::Resources::BulkRequests
 
     attr_reader bulk_results: ModernTreasury::Resources::BulkResults
