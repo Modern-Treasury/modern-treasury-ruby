@@ -183,6 +183,11 @@ module ModernTreasury
       #   @return [String]
       required :originating_account_id, String
 
+      # @!attribute originating_account_type
+      #
+      #   @return [Symbol, ModernTreasury::Models::PaymentOrder::OriginatingAccountType]
+      required :originating_account_type, enum: -> { ModernTreasury::PaymentOrder::OriginatingAccountType }
+
       # @!attribute originating_party_address
       #   If present, this address will override the default originating party address
       #   used on the payment order. This works across all payment types.
@@ -371,7 +376,7 @@ module ModernTreasury
       #   @return [String, nil]
       required :vendor_failure_reason, String, nil?: true
 
-      # @!method initialize(id:, accounting:, accounting_category_id:, accounting_ledger_class_id:, amount:, batch_id:, charge_bearer:, counterparty_id:, created_at:, currency:, current_hold:, current_return:, description:, direction:, effective_date:, expires_at:, external_id:, foreign_exchange_contract:, foreign_exchange_indicator:, foreign_exchange_rate:, ledger_transaction_id:, live_mode:, metadata:, nsf_protected:, object:, originating_account_id:, originating_party_address:, originating_party_name:, priority:, process_after:, purpose:, receiving_account_id:, receiving_account_type:, reconciliation_status:, reference_numbers:, remittance_information:, send_remittance_advice:, statement_descriptor:, status:, subtype:, transaction_ids:, type:, ultimate_originating_account:, ultimate_originating_account_id:, ultimate_originating_account_type:, ultimate_originating_party_identifier:, ultimate_originating_party_name:, ultimate_receiving_party_identifier:, ultimate_receiving_party_name:, updated_at:, vendor_attributes:, vendor_failure_reason:)
+      # @!method initialize(id:, accounting:, accounting_category_id:, accounting_ledger_class_id:, amount:, batch_id:, charge_bearer:, counterparty_id:, created_at:, currency:, current_hold:, current_return:, description:, direction:, effective_date:, expires_at:, external_id:, foreign_exchange_contract:, foreign_exchange_indicator:, foreign_exchange_rate:, ledger_transaction_id:, live_mode:, metadata:, nsf_protected:, object:, originating_account_id:, originating_account_type:, originating_party_address:, originating_party_name:, priority:, process_after:, purpose:, receiving_account_id:, receiving_account_type:, reconciliation_status:, reference_numbers:, remittance_information:, send_remittance_advice:, statement_descriptor:, status:, subtype:, transaction_ids:, type:, ultimate_originating_account:, ultimate_originating_account_id:, ultimate_originating_account_type:, ultimate_originating_party_identifier:, ultimate_originating_party_name:, ultimate_receiving_party_identifier:, ultimate_receiving_party_name:, updated_at:, vendor_attributes:, vendor_failure_reason:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::PaymentOrder} for more details.
       #
@@ -426,6 +431,8 @@ module ModernTreasury
       #   @param object [String]
       #
       #   @param originating_account_id [String] The ID of one of your organization's internal accounts.
+      #
+      #   @param originating_account_type [Symbol, ModernTreasury::Models::PaymentOrder::OriginatingAccountType]
       #
       #   @param originating_party_address [ModernTreasury::Models::PaymentOrder::OriginatingPartyAddress, nil] If present, this address will override the default originating party address use
       #
@@ -694,6 +701,17 @@ module ModernTreasury
 
         FIXED_TO_VARIABLE = :fixed_to_variable
         VARIABLE_TO_FIXED = :variable_to_fixed
+
+        # @!method self.values
+        #   @return [Array<Symbol>]
+      end
+
+      # @see ModernTreasury::Models::PaymentOrder#originating_account_type
+      module OriginatingAccountType
+        extend ModernTreasury::Internal::Type::Enum
+
+        INTERNAL_ACCOUNT = :internal_account
+        VIRTUAL_ACCOUNT = :virtual_account
 
         # @!method self.values
         #   @return [Array<Symbol>]
