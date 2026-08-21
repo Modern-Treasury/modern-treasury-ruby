@@ -168,6 +168,13 @@ module ModernTreasury
       sig { returns(String) }
       attr_accessor :originating_account_id
 
+      sig do
+        returns(
+          ModernTreasury::PaymentOrder::OriginatingAccountType::TaggedSymbol
+        )
+      end
+      attr_accessor :originating_account_type
+
       # If present, this address will override the default originating party address
       # used on the payment order. This works across all payment types.
       sig do
@@ -367,6 +374,8 @@ module ModernTreasury
           nsf_protected: T::Boolean,
           object: String,
           originating_account_id: String,
+          originating_account_type:
+            ModernTreasury::PaymentOrder::OriginatingAccountType::OrSymbol,
           originating_party_address:
             T.nilable(
               ModernTreasury::PaymentOrder::OriginatingPartyAddress::OrHash
@@ -479,6 +488,7 @@ module ModernTreasury
         object:,
         # The ID of one of your organization's internal accounts.
         originating_account_id:,
+        originating_account_type:,
         # If present, this address will override the default originating party address
         # used on the payment order. This works across all payment types.
         originating_party_address:,
@@ -595,6 +605,8 @@ module ModernTreasury
             nsf_protected: T::Boolean,
             object: String,
             originating_account_id: String,
+            originating_account_type:
+              ModernTreasury::PaymentOrder::OriginatingAccountType::TaggedSymbol,
             originating_party_address:
               T.nilable(ModernTreasury::PaymentOrder::OriginatingPartyAddress),
             originating_party_name: T.nilable(String),
@@ -1007,6 +1019,37 @@ module ModernTreasury
           override.returns(
             T::Array[
               ModernTreasury::PaymentOrder::ForeignExchangeIndicator::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
+      end
+
+      module OriginatingAccountType
+        extend ModernTreasury::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::PaymentOrder::OriginatingAccountType)
+          end
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        INTERNAL_ACCOUNT =
+          T.let(
+            :internal_account,
+            ModernTreasury::PaymentOrder::OriginatingAccountType::TaggedSymbol
+          )
+        VIRTUAL_ACCOUNT =
+          T.let(
+            :virtual_account,
+            ModernTreasury::PaymentOrder::OriginatingAccountType::TaggedSymbol
+          )
+
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::PaymentOrder::OriginatingAccountType::TaggedSymbol
             ]
           )
         end
