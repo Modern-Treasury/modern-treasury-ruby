@@ -28,6 +28,7 @@ module ModernTreasury
         nsf_protected: bool,
         object: String,
         originating_account_id: String,
+        originating_account_type: ModernTreasury::Models::PaymentOrder::originating_account_type,
         originating_party_address: ModernTreasury::PaymentOrder::OriginatingPartyAddress?,
         originating_party_name: String?,
         priority: ModernTreasury::Models::PaymentOrder::priority,
@@ -109,6 +110,8 @@ module ModernTreasury
 
       attr_accessor originating_account_id: String
 
+      attr_accessor originating_account_type: ModernTreasury::Models::PaymentOrder::originating_account_type
+
       attr_accessor originating_party_address: ModernTreasury::PaymentOrder::OriginatingPartyAddress?
 
       attr_accessor originating_party_name: String?
@@ -188,6 +191,7 @@ module ModernTreasury
         nsf_protected: bool,
         object: String,
         originating_account_id: String,
+        originating_account_type: ModernTreasury::Models::PaymentOrder::originating_account_type,
         originating_party_address: ModernTreasury::PaymentOrder::OriginatingPartyAddress?,
         originating_party_name: String?,
         priority: ModernTreasury::Models::PaymentOrder::priority,
@@ -243,6 +247,7 @@ module ModernTreasury
         nsf_protected: bool,
         object: String,
         originating_account_id: String,
+        originating_account_type: ModernTreasury::Models::PaymentOrder::originating_account_type,
         originating_party_address: ModernTreasury::PaymentOrder::OriginatingPartyAddress?,
         originating_party_name: String?,
         priority: ModernTreasury::Models::PaymentOrder::priority,
@@ -420,6 +425,17 @@ module ModernTreasury
         VARIABLE_TO_FIXED: :variable_to_fixed
 
         def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrder::foreign_exchange_indicator]
+      end
+
+      type originating_account_type = :internal_account | :virtual_account
+
+      module OriginatingAccountType
+        extend ModernTreasury::Internal::Type::Enum
+
+        INTERNAL_ACCOUNT: :internal_account
+        VIRTUAL_ACCOUNT: :virtual_account
+
+        def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrder::originating_account_type]
       end
 
       type originating_party_address =
