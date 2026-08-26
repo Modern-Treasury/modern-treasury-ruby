@@ -152,9 +152,10 @@ module ModernTreasury
         # used on the payment order. This works across all payment types.
         originating_party_address: nil,
         # If present, this will replace your default company name on receiver's bank
-        # statement. This field can only be used for ACH payments currently. For ACH, only
-        # the first 16 characters of this string will be used. Any additional characters
-        # will be truncated.
+        # statement. For ACH, only the first 16 characters of this string will be used.
+        # This must be a name the account holder legally operates under, such as a DBA. Do
+        # not use it to originate on behalf of another person or business, including an
+        # end customer.
         originating_party_name: nil,
         # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
         # same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
@@ -354,9 +355,10 @@ module ModernTreasury
         # used on the payment order. This works across all payment types.
         originating_party_address: nil,
         # If present, this will replace your default company name on receiver's bank
-        # statement. This field can only be used for ACH payments currently. For ACH, only
-        # the first 16 characters of this string will be used. Any additional characters
-        # will be truncated.
+        # statement. For ACH, only the first 16 characters of this string will be used.
+        # This must be a name the account holder legally operates under, such as a DBA. Do
+        # not use it to originate on behalf of another person or business, including an
+        # end customer.
         originating_party_name: nil,
         # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
         # same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
@@ -628,9 +630,10 @@ module ModernTreasury
         # used on the payment order. This works across all payment types.
         originating_party_address: nil,
         # If present, this will replace your default company name on receiver's bank
-        # statement. This field can only be used for ACH payments currently. For ACH, only
-        # the first 16 characters of this string will be used. Any additional characters
-        # will be truncated.
+        # statement. For ACH, only the first 16 characters of this string will be used.
+        # This must be a name the account holder legally operates under, such as a DBA. Do
+        # not use it to originate on behalf of another person or business, including an
+        # end customer.
         originating_party_name: nil,
         # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
         # same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
