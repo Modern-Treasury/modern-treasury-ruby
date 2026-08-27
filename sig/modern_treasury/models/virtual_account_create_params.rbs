@@ -11,7 +11,8 @@ module ModernTreasury
         description: String,
         ledger_account: ModernTreasury::LedgerAccountCreateRequest,
         metadata: ::Hash[Symbol, String],
-        routing_details: ::Array[ModernTreasury::VirtualAccountCreateParams::RoutingDetail]
+        routing_details: ::Array[ModernTreasury::VirtualAccountCreateParams::RoutingDetail],
+        virtual_account_setting_id: String
       }
       & ModernTreasury::Internal::Type::request_parameters
 
@@ -61,6 +62,10 @@ module ModernTreasury
         ::Array[ModernTreasury::VirtualAccountCreateParams::RoutingDetail]
       ) -> ::Array[ModernTreasury::VirtualAccountCreateParams::RoutingDetail]
 
+      attr_reader virtual_account_setting_id: String?
+
+      def virtual_account_setting_id=: (String) -> String
+
       def initialize: (
         internal_account_id: String,
         name: String,
@@ -72,6 +77,7 @@ module ModernTreasury
         ?ledger_account: ModernTreasury::LedgerAccountCreateRequest,
         ?metadata: ::Hash[Symbol, String],
         ?routing_details: ::Array[ModernTreasury::VirtualAccountCreateParams::RoutingDetail],
+        ?virtual_account_setting_id: String,
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
@@ -86,6 +92,7 @@ module ModernTreasury
         ledger_account: ModernTreasury::LedgerAccountCreateRequest,
         metadata: ::Hash[Symbol, String],
         routing_details: ::Array[ModernTreasury::VirtualAccountCreateParams::RoutingDetail],
+        virtual_account_setting_id: String,
         request_options: ModernTreasury::RequestOptions
       }
 
