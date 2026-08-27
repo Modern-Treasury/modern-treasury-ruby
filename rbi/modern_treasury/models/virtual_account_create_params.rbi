@@ -115,6 +115,13 @@ module ModernTreasury
       end
       attr_writer :routing_details
 
+      # The ID of the virtual account setting used to allocate this virtual account.
+      sig { returns(T.nilable(String)) }
+      attr_reader :virtual_account_setting_id
+
+      sig { params(virtual_account_setting_id: String).void }
+      attr_writer :virtual_account_setting_id
+
       sig do
         params(
           internal_account_id: String,
@@ -133,6 +140,7 @@ module ModernTreasury
             T::Array[
               ModernTreasury::VirtualAccountCreateParams::RoutingDetail::OrHash
             ],
+          virtual_account_setting_id: String,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
@@ -164,6 +172,8 @@ module ModernTreasury
         metadata: nil,
         # An array of routing detail objects.
         routing_details: nil,
+        # The ID of the virtual account setting used to allocate this virtual account.
+        virtual_account_setting_id: nil,
         request_options: {}
       )
       end
@@ -187,6 +197,7 @@ module ModernTreasury
               T::Array[
                 ModernTreasury::VirtualAccountCreateParams::RoutingDetail
               ],
+            virtual_account_setting_id: String,
             request_options: ModernTreasury::RequestOptions
           }
         )
