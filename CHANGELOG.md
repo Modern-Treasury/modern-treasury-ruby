@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.29.1](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.29.0...v0.29.1) (2026-08-04)
+
+
+### Chores
+
+* regenerate SDKs from 0371cfa2f8d48d2b06f62453e50d5b6eb64dccf3 ([0a69ce6](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/0a69ce647a162a99a5351ac40b5beb02f6af6f3a))
+* regenerate SDKs from 2191f6bdc29650bb2462317646fe2689b92241e7 ([b5366bf](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/b5366bf7c8122dab024e8e74e30168d342a76bcf))
+* regenerate SDKs from 79394308401c2da912ede2ecfef7a23c8c407e1b ([b86edf7](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/b86edf7c862f31bfc86332da6cd107eb5f40012b))
+
 ## 0.29.0 (2026-07-24)
 
 Full Changelog: [v0.28.0...v0.29.0](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.28.0...v0.29.0)
