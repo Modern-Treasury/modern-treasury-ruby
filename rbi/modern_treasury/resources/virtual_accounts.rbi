@@ -22,6 +22,7 @@ module ModernTreasury
             T::Array[
               ModernTreasury::VirtualAccountCreateParams::RoutingDetail::OrHash
             ],
+          virtual_account_setting_id: String,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::VirtualAccount)
       end
@@ -53,6 +54,8 @@ module ModernTreasury
         metadata: nil,
         # An array of routing detail objects.
         routing_details: nil,
+        # The ID of the virtual account setting used to allocate this virtual account.
+        virtual_account_setting_id: nil,
         request_options: {}
       )
       end
