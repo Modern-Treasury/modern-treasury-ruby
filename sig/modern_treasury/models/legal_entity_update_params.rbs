@@ -6,6 +6,7 @@ module ModernTreasury
         addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
         bank_settings: ModernTreasury::LegalEntityBankSettings?,
         business_description: String?,
+        business_designation: ModernTreasury::Models::LegalEntityUpdateParams::business_designation?,
         business_name: String?,
         citizenship_country: String?,
         country_of_incorporation: String?,
@@ -58,6 +59,8 @@ module ModernTreasury
       attr_accessor bank_settings: ModernTreasury::LegalEntityBankSettings?
 
       attr_accessor business_description: String?
+
+      attr_accessor business_designation: ModernTreasury::Models::LegalEntityUpdateParams::business_designation?
 
       attr_accessor business_name: String?
 
@@ -156,6 +159,7 @@ module ModernTreasury
         ?addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
         ?bank_settings: ModernTreasury::LegalEntityBankSettings?,
         ?business_description: String?,
+        ?business_designation: ModernTreasury::Models::LegalEntityUpdateParams::business_designation?,
         ?business_name: String?,
         ?citizenship_country: String?,
         ?country_of_incorporation: String?,
@@ -198,6 +202,7 @@ module ModernTreasury
         addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
         bank_settings: ModernTreasury::LegalEntityBankSettings?,
         business_description: String?,
+        business_designation: ModernTreasury::Models::LegalEntityUpdateParams::business_designation?,
         business_name: String?,
         citizenship_country: String?,
         country_of_incorporation: String?,
@@ -234,6 +239,18 @@ module ModernTreasury
         website: String?,
         request_options: ModernTreasury::RequestOptions
       }
+
+      type business_designation =
+        :exempt_financial_institution | :non_operating_business
+
+      module BusinessDesignation
+        extend ModernTreasury::Internal::Type::Enum
+
+        EXEMPT_FINANCIAL_INSTITUTION: :exempt_financial_institution
+        NON_OPERATING_BUSINESS: :non_operating_business
+
+        def self?.values: -> ::Array[ModernTreasury::Models::LegalEntityUpdateParams::business_designation]
+      end
 
       type legal_structure =
         :corporation
