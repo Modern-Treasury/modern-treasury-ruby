@@ -1,0 +1,36 @@
+module ModernTreasury
+  module Models
+    type virtual_account_setting_list_params =
+      { after_cursor: String?, external_id: String, per_page: Integer }
+      & ModernTreasury::Internal::Type::request_parameters
+
+    class VirtualAccountSettingListParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
+
+      attr_accessor after_cursor: String?
+
+      attr_reader external_id: String?
+
+      def external_id=: (String) -> String
+
+      attr_reader per_page: Integer?
+
+      def per_page=: (Integer) -> Integer
+
+      def initialize: (
+        ?after_cursor: String?,
+        ?external_id: String,
+        ?per_page: Integer,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        after_cursor: String?,
+        external_id: String,
+        per_page: Integer,
+        request_options: ModernTreasury::RequestOptions
+      }
+    end
+  end
+end

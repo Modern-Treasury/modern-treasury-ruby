@@ -43,6 +43,12 @@ module ModernTreasury
 
   class BulkResultRetrieveParams = ModernTreasury::Models::BulkResultRetrieveParams
 
+  class Case = ModernTreasury::Models::Case
+
+  class CaseListParams = ModernTreasury::Models::CaseListParams
+
+  class CaseRetrieveParams = ModernTreasury::Models::CaseRetrieveParams
+
   class ChildLegalEntity = ModernTreasury::Models::ChildLegalEntity
 
   class ChildLegalEntityCreate = ModernTreasury::Models::ChildLegalEntityCreate
@@ -313,6 +319,10 @@ module ModernTreasury
 
   class LegalEntityAssociation = ModernTreasury::Models::LegalEntityAssociation
 
+  class LegalEntityAssociationCreateParams = ModernTreasury::Models::LegalEntityAssociationCreateParams
+
+  class LegalEntityAssociationDeleteParams = ModernTreasury::Models::LegalEntityAssociationDeleteParams
+
   class LegalEntityAssociationInlineCreate = ModernTreasury::Models::LegalEntityAssociationInlineCreate
 
   class LegalEntityBankSettings = ModernTreasury::Models::LegalEntityBankSettings
@@ -434,6 +444,12 @@ module ModernTreasury
   class VirtualAccountListParams = ModernTreasury::Models::VirtualAccountListParams
 
   class VirtualAccountRetrieveParams = ModernTreasury::Models::VirtualAccountRetrieveParams
+
+  class VirtualAccountSetting = ModernTreasury::Models::VirtualAccountSetting
+
+  class VirtualAccountSettingCreateParams = ModernTreasury::Models::VirtualAccountSettingCreateParams
+
+  class VirtualAccountSettingListParams = ModernTreasury::Models::VirtualAccountSettingListParams
 
   class VirtualAccountUpdateParams = ModernTreasury::Models::VirtualAccountUpdateParams
 

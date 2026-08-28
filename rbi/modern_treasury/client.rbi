@@ -133,6 +133,12 @@ module ModernTreasury
     sig { returns(ModernTreasury::Resources::Holds) }
     attr_reader :holds
 
+    sig { returns(ModernTreasury::Resources::Cases) }
+    attr_reader :cases
+
+    sig { returns(ModernTreasury::Resources::VirtualAccountSettings) }
+    attr_reader :virtual_account_settings
+
     # A test endpoint often used to confirm credentials and headers are being passed
     # in correctly.
     sig do
