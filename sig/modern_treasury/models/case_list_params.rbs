@@ -1,0 +1,79 @@
+module ModernTreasury
+  module Models
+    type case_list_params =
+      {
+        after_cursor: String?,
+        per_page: Integer,
+        status: ModernTreasury::Models::CaseListParams::status,
+        subject_id: String,
+        subject_type: ModernTreasury::Models::CaseListParams::subject_type
+      }
+      & ModernTreasury::Internal::Type::request_parameters
+
+    class CaseListParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
+
+      attr_accessor after_cursor: String?
+
+      attr_reader per_page: Integer?
+
+      def per_page=: (Integer) -> Integer
+
+      attr_reader status: ModernTreasury::Models::CaseListParams::status?
+
+      def status=: (
+        ModernTreasury::Models::CaseListParams::status
+      ) -> ModernTreasury::Models::CaseListParams::status
+
+      attr_reader subject_id: String?
+
+      def subject_id=: (String) -> String
+
+      attr_reader subject_type: ModernTreasury::Models::CaseListParams::subject_type?
+
+      def subject_type=: (
+        ModernTreasury::Models::CaseListParams::subject_type
+      ) -> ModernTreasury::Models::CaseListParams::subject_type
+
+      def initialize: (
+        ?after_cursor: String?,
+        ?per_page: Integer,
+        ?status: ModernTreasury::Models::CaseListParams::status,
+        ?subject_id: String,
+        ?subject_type: ModernTreasury::Models::CaseListParams::subject_type,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        after_cursor: String?,
+        per_page: Integer,
+        status: ModernTreasury::Models::CaseListParams::status,
+        subject_id: String,
+        subject_type: ModernTreasury::Models::CaseListParams::subject_type,
+        request_options: ModernTreasury::RequestOptions
+      }
+
+      type status = :open | :resolved
+
+      module Status
+        extend ModernTreasury::Internal::Type::Enum
+
+        OPEN: :open
+        RESOLVED: :resolved
+
+        def self?.values: -> ::Array[ModernTreasury::Models::CaseListParams::status]
+      end
+
+      type subject_type = :legal_entity
+
+      module SubjectType
+        extend ModernTreasury::Internal::Type::Enum
+
+        LEGAL_ENTITY: :legal_entity
+
+        def self?.values: -> ::Array[ModernTreasury::Models::CaseListParams::subject_type]
+      end
+    end
+  end
+end
