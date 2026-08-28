@@ -50,6 +50,12 @@ module ModernTreasury
 
   BulkResultRetrieveParams = ModernTreasury::Models::BulkResultRetrieveParams
 
+  Case = ModernTreasury::Models::Case
+
+  CaseListParams = ModernTreasury::Models::CaseListParams
+
+  CaseRetrieveParams = ModernTreasury::Models::CaseRetrieveParams
+
   ChildLegalEntity = ModernTreasury::Models::ChildLegalEntity
 
   ChildLegalEntityCreate = ModernTreasury::Models::ChildLegalEntityCreate
@@ -242,6 +248,11 @@ module ModernTreasury
 
   JournalReportUpdateParams = ModernTreasury::Models::JournalReportUpdateParams
 
+  JournalSourceListParams = ModernTreasury::Models::JournalSourceListParams
+
+  JournalSourceRetrieveParams =
+    ModernTreasury::Models::JournalSourceRetrieveParams
+
   Ledger = ModernTreasury::Models::Ledger
 
   LedgerAccount = ModernTreasury::Models::LedgerAccount
@@ -385,6 +396,12 @@ module ModernTreasury
 
   LegalEntityAssociation = ModernTreasury::Models::LegalEntityAssociation
 
+  LegalEntityAssociationCreateParams =
+    ModernTreasury::Models::LegalEntityAssociationCreateParams
+
+  LegalEntityAssociationDeleteParams =
+    ModernTreasury::Models::LegalEntityAssociationDeleteParams
+
   LegalEntityAssociationInlineCreate =
     ModernTreasury::Models::LegalEntityAssociationInlineCreate
 
@@ -400,6 +417,9 @@ module ModernTreasury
   LegalEntityRetrieveParams = ModernTreasury::Models::LegalEntityRetrieveParams
 
   LegalEntityUpdateParams = ModernTreasury::Models::LegalEntityUpdateParams
+
+  LegalEntityUpdateStatusParams =
+    ModernTreasury::Models::LegalEntityUpdateStatusParams
 
   LegalEntityWealthEmploymentDetail =
     ModernTreasury::Models::LegalEntityWealthEmploymentDetail
@@ -521,6 +541,14 @@ module ModernTreasury
 
   VirtualAccountRetrieveParams =
     ModernTreasury::Models::VirtualAccountRetrieveParams
+
+  VirtualAccountSetting = ModernTreasury::Models::VirtualAccountSetting
+
+  VirtualAccountSettingCreateParams =
+    ModernTreasury::Models::VirtualAccountSettingCreateParams
+
+  VirtualAccountSettingListParams =
+    ModernTreasury::Models::VirtualAccountSettingListParams
 
   VirtualAccountUpdateParams =
     ModernTreasury::Models::VirtualAccountUpdateParams
