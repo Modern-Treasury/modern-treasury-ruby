@@ -382,6 +382,25 @@ module ModernTreasury
       )
       end
 
+      # Update Legal Entity Status (sandbox only)
+      sig do
+        params(
+          id: String,
+          status:
+            ModernTreasury::LegalEntityUpdateStatusParams::Status::OrSymbol,
+          request_options: ModernTreasury::RequestOptions::OrHash
+        ).returns(ModernTreasury::LegalEntity)
+      end
+      def update_status(
+        # Legal entity ID
+        id,
+        # The target status for the legal entity. One of `active`, `suspended`, or
+        # `denied`. Valid transitions depend on the current status.
+        status:,
+        request_options: {}
+      )
+      end
+
       # @api private
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
       def self.new(client:)

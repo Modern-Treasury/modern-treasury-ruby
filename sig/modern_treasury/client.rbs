@@ -86,9 +86,15 @@ module ModernTreasury
 
     attr_reader journal_entries: ModernTreasury::Resources::JournalEntries
 
+    attr_reader journal_sources: ModernTreasury::Resources::JournalSources
+
     attr_reader journal_reports: ModernTreasury::Resources::JournalReports
 
     attr_reader holds: ModernTreasury::Resources::Holds
+
+    attr_reader cases: ModernTreasury::Resources::Cases
+
+    attr_reader virtual_account_settings: ModernTreasury::Resources::VirtualAccountSettings
 
     def ping: (
       ?request_options: ModernTreasury::request_opts

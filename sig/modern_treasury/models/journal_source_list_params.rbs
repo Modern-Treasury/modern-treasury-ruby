@@ -1,0 +1,63 @@
+module ModernTreasury
+  module Models
+    type journal_source_list_params =
+      {
+        journal_entry_id: String,
+        journal_report_id: String,
+        page: Integer,
+        per_page: Integer,
+        source_id: String,
+        source_type: String
+      }
+      & ModernTreasury::Internal::Type::request_parameters
+
+    class JournalSourceListParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
+
+      attr_reader journal_entry_id: String?
+
+      def journal_entry_id=: (String) -> String
+
+      attr_reader journal_report_id: String?
+
+      def journal_report_id=: (String) -> String
+
+      attr_reader page: Integer?
+
+      def page=: (Integer) -> Integer
+
+      attr_reader per_page: Integer?
+
+      def per_page=: (Integer) -> Integer
+
+      attr_reader source_id: String?
+
+      def source_id=: (String) -> String
+
+      attr_reader source_type: String?
+
+      def source_type=: (String) -> String
+
+      def initialize: (
+        ?journal_entry_id: String,
+        ?journal_report_id: String,
+        ?page: Integer,
+        ?per_page: Integer,
+        ?source_id: String,
+        ?source_type: String,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        journal_entry_id: String,
+        journal_report_id: String,
+        page: Integer,
+        per_page: Integer,
+        source_id: String,
+        source_type: String,
+        request_options: ModernTreasury::RequestOptions
+      }
+    end
+  end
+end
