@@ -5,6 +5,7 @@ module ModernTreasury
         addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
         bank_settings: ModernTreasury::LegalEntityBankSettings?,
         business_description: String?,
+        business_designation: ModernTreasury::Models::ChildLegalEntityCreate::business_designation?,
         business_name: String?,
         citizenship_country: String?,
         compliance_details: top?,
@@ -56,6 +57,8 @@ module ModernTreasury
       attr_accessor bank_settings: ModernTreasury::LegalEntityBankSettings?
 
       attr_accessor business_description: String?
+
+      attr_accessor business_designation: ModernTreasury::Models::ChildLegalEntityCreate::business_designation?
 
       attr_accessor business_name: String?
 
@@ -171,6 +174,7 @@ module ModernTreasury
         ?addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
         ?bank_settings: ModernTreasury::LegalEntityBankSettings?,
         ?business_description: String?,
+        ?business_designation: ModernTreasury::Models::ChildLegalEntityCreate::business_designation?,
         ?business_name: String?,
         ?citizenship_country: String?,
         ?compliance_details: top?,
@@ -216,6 +220,7 @@ module ModernTreasury
         addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
         bank_settings: ModernTreasury::LegalEntityBankSettings?,
         business_description: String?,
+        business_designation: ModernTreasury::Models::ChildLegalEntityCreate::business_designation?,
         business_name: String?,
         citizenship_country: String?,
         compliance_details: top?,
@@ -256,6 +261,18 @@ module ModernTreasury
         wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,
         website: String?
       }
+
+      type business_designation =
+        :exempt_financial_institution | :non_operating_business
+
+      module BusinessDesignation
+        extend ModernTreasury::Internal::Type::Enum
+
+        EXEMPT_FINANCIAL_INSTITUTION: :exempt_financial_institution
+        NON_OPERATING_BUSINESS: :non_operating_business
+
+        def self?.values: -> ::Array[ModernTreasury::Models::ChildLegalEntityCreate::business_designation]
+      end
 
       type document =
         {

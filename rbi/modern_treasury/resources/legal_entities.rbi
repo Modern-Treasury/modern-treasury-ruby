@@ -13,6 +13,10 @@ module ModernTreasury
           bank_settings:
             T.nilable(ModernTreasury::LegalEntityBankSettings::OrHash),
           business_description: T.nilable(String),
+          business_designation:
+            T.nilable(
+              ModernTreasury::LegalEntityCreateParams::BusinessDesignation::OrSymbol
+            ),
           business_name: T.nilable(String),
           citizenship_country: T.nilable(String),
           compliance_details: T.nilable(T.anything),
@@ -92,6 +96,8 @@ module ModernTreasury
         bank_settings: nil,
         # A description of the business.
         business_description: nil,
+        # Legal designation associated with the business.
+        business_designation: nil,
         # The business's legal business name.
         business_name: nil,
         # The country of citizenship for an individual.
@@ -199,6 +205,10 @@ module ModernTreasury
           bank_settings:
             T.nilable(ModernTreasury::LegalEntityBankSettings::OrHash),
           business_description: T.nilable(String),
+          business_designation:
+            T.nilable(
+              ModernTreasury::LegalEntityUpdateParams::BusinessDesignation::OrSymbol
+            ),
           business_name: T.nilable(String),
           citizenship_country: T.nilable(String),
           country_of_incorporation: T.nilable(String),
@@ -268,6 +278,8 @@ module ModernTreasury
         bank_settings: nil,
         # A description of the business.
         business_description: nil,
+        # Legal designation associated with the business.
+        business_designation: nil,
         # The business's legal business name.
         business_name: nil,
         # The country of citizenship for an individual.
