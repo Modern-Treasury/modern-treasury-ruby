@@ -272,6 +272,33 @@ module ModernTreasury
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {ModernTreasury::Models::LegalEntityUpdateStatusParams} for more details.
+      #
+      # Update Legal Entity Status (sandbox only)
+      #
+      # @overload update_status(id, status:, request_options: {})
+      #
+      # @param id [String] Legal entity ID
+      #
+      # @param status [Symbol, ModernTreasury::Models::LegalEntityUpdateStatusParams::Status] The target status for the legal entity. One of `active`, `suspended`, or `denied
+      #
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [ModernTreasury::Models::LegalEntity]
+      #
+      # @see ModernTreasury::Models::LegalEntityUpdateStatusParams
+      def update_status(id, params)
+        parsed, options = ModernTreasury::LegalEntityUpdateStatusParams.dump_request(params)
+        @client.request(
+          method: :patch,
+          path: ["api/simulations/legal_entities/%1$s/update_status", id],
+          body: parsed,
+          model: ModernTreasury::LegalEntity,
+          options: options
+        )
+      end
+
       # @api private
       #
       # @param client [ModernTreasury::Client]

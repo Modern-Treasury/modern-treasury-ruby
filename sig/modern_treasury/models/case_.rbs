@@ -1,0 +1,266 @@
+module ModernTreasury
+  module Models
+    type case_ =
+      {
+        id: String,
+        created_at: Time,
+        live_mode: bool,
+        object: String,
+        requested_actions: ::Array[ModernTreasury::Case::RequestedAction],
+        resolved_actions: ::Array[ModernTreasury::Case::ResolvedAction],
+        status: ModernTreasury::Models::Case::status,
+        subject_id: String,
+        subject_type: String,
+        updated_at: Time
+      }
+
+    class Case < ModernTreasury::Internal::Type::BaseModel
+      attr_accessor id: String
+
+      attr_accessor created_at: Time
+
+      attr_accessor live_mode: bool
+
+      attr_accessor object: String
+
+      attr_accessor requested_actions: ::Array[ModernTreasury::Case::RequestedAction]
+
+      attr_accessor resolved_actions: ::Array[ModernTreasury::Case::ResolvedAction]
+
+      attr_accessor status: ModernTreasury::Models::Case::status
+
+      attr_accessor subject_id: String
+
+      attr_accessor subject_type: String
+
+      attr_accessor updated_at: Time
+
+      def initialize: (
+        id: String,
+        created_at: Time,
+        live_mode: bool,
+        object: String,
+        requested_actions: ::Array[ModernTreasury::Case::RequestedAction],
+        resolved_actions: ::Array[ModernTreasury::Case::ResolvedAction],
+        status: ModernTreasury::Models::Case::status,
+        subject_id: String,
+        subject_type: String,
+        updated_at: Time
+      ) -> void
+
+      def to_hash: -> {
+        id: String,
+        created_at: Time,
+        live_mode: bool,
+        object: String,
+        requested_actions: ::Array[ModernTreasury::Case::RequestedAction],
+        resolved_actions: ::Array[ModernTreasury::Case::ResolvedAction],
+        status: ModernTreasury::Models::Case::status,
+        subject_id: String,
+        subject_type: String,
+        updated_at: Time
+      }
+
+      type requested_action =
+        {
+          id: String,
+          category: ModernTreasury::Models::Case::RequestedAction::category,
+          created_at: Time,
+          field: ModernTreasury::Models::Case::RequestedAction::field?,
+          instructions: String?,
+          live_mode: bool,
+          object: String,
+          reasons: ::Array[String],
+          updated_at: Time
+        }
+
+      class RequestedAction < ModernTreasury::Internal::Type::BaseModel
+        attr_accessor id: String
+
+        attr_accessor category: ModernTreasury::Models::Case::RequestedAction::category
+
+        attr_accessor created_at: Time
+
+        attr_accessor field: ModernTreasury::Models::Case::RequestedAction::field?
+
+        attr_accessor instructions: String?
+
+        attr_accessor live_mode: bool
+
+        attr_accessor object: String
+
+        attr_accessor reasons: ::Array[String]
+
+        attr_accessor updated_at: Time
+
+        def initialize: (
+          id: String,
+          category: ModernTreasury::Models::Case::RequestedAction::category,
+          created_at: Time,
+          field: ModernTreasury::Models::Case::RequestedAction::field?,
+          instructions: String?,
+          live_mode: bool,
+          object: String,
+          reasons: ::Array[String],
+          updated_at: Time
+        ) -> void
+
+        def to_hash: -> {
+          id: String,
+          category: ModernTreasury::Models::Case::RequestedAction::category,
+          created_at: Time,
+          field: ModernTreasury::Models::Case::RequestedAction::field?,
+          instructions: String?,
+          live_mode: bool,
+          object: String,
+          reasons: ::Array[String],
+          updated_at: Time
+        }
+
+        type category =
+          :onboarding_articles_of_incorporation_failure
+          | :onboarding_business_registry_verification_failure
+          | :onboarding_database_failure
+          | :onboarding_proof_of_address_failure
+          | :onboarding_ssn_check_failure
+          | :onboarding_tin_check_failure
+
+        module Category
+          extend ModernTreasury::Internal::Type::Enum
+
+          ONBOARDING_ARTICLES_OF_INCORPORATION_FAILURE: :onboarding_articles_of_incorporation_failure
+          ONBOARDING_BUSINESS_REGISTRY_VERIFICATION_FAILURE: :onboarding_business_registry_verification_failure
+          ONBOARDING_DATABASE_FAILURE: :onboarding_database_failure
+          ONBOARDING_PROOF_OF_ADDRESS_FAILURE: :onboarding_proof_of_address_failure
+          ONBOARDING_SSN_CHECK_FAILURE: :onboarding_ssn_check_failure
+          ONBOARDING_TIN_CHECK_FAILURE: :onboarding_tin_check_failure
+
+          def self?.values: -> ::Array[ModernTreasury::Models::Case::RequestedAction::category]
+        end
+
+        type field =
+          :articles_of_incorporation
+          | :ein_letter
+          | :legal_entity_details
+          | :proof_of_address
+
+        module Field
+          extend ModernTreasury::Internal::Type::Enum
+
+          ARTICLES_OF_INCORPORATION: :articles_of_incorporation
+          EIN_LETTER: :ein_letter
+          LEGAL_ENTITY_DETAILS: :legal_entity_details
+          PROOF_OF_ADDRESS: :proof_of_address
+
+          def self?.values: -> ::Array[ModernTreasury::Models::Case::RequestedAction::field]
+        end
+      end
+
+      type resolved_action =
+        {
+          id: String,
+          category: ModernTreasury::Models::Case::ResolvedAction::category,
+          created_at: Time,
+          field: ModernTreasury::Models::Case::ResolvedAction::field?,
+          instructions: String?,
+          live_mode: bool,
+          object: String,
+          reasons: ::Array[String],
+          updated_at: Time
+        }
+
+      class ResolvedAction < ModernTreasury::Internal::Type::BaseModel
+        attr_accessor id: String
+
+        attr_accessor category: ModernTreasury::Models::Case::ResolvedAction::category
+
+        attr_accessor created_at: Time
+
+        attr_accessor field: ModernTreasury::Models::Case::ResolvedAction::field?
+
+        attr_accessor instructions: String?
+
+        attr_accessor live_mode: bool
+
+        attr_accessor object: String
+
+        attr_accessor reasons: ::Array[String]
+
+        attr_accessor updated_at: Time
+
+        def initialize: (
+          id: String,
+          category: ModernTreasury::Models::Case::ResolvedAction::category,
+          created_at: Time,
+          field: ModernTreasury::Models::Case::ResolvedAction::field?,
+          instructions: String?,
+          live_mode: bool,
+          object: String,
+          reasons: ::Array[String],
+          updated_at: Time
+        ) -> void
+
+        def to_hash: -> {
+          id: String,
+          category: ModernTreasury::Models::Case::ResolvedAction::category,
+          created_at: Time,
+          field: ModernTreasury::Models::Case::ResolvedAction::field?,
+          instructions: String?,
+          live_mode: bool,
+          object: String,
+          reasons: ::Array[String],
+          updated_at: Time
+        }
+
+        type category =
+          :onboarding_articles_of_incorporation_failure
+          | :onboarding_business_registry_verification_failure
+          | :onboarding_database_failure
+          | :onboarding_proof_of_address_failure
+          | :onboarding_ssn_check_failure
+          | :onboarding_tin_check_failure
+
+        module Category
+          extend ModernTreasury::Internal::Type::Enum
+
+          ONBOARDING_ARTICLES_OF_INCORPORATION_FAILURE: :onboarding_articles_of_incorporation_failure
+          ONBOARDING_BUSINESS_REGISTRY_VERIFICATION_FAILURE: :onboarding_business_registry_verification_failure
+          ONBOARDING_DATABASE_FAILURE: :onboarding_database_failure
+          ONBOARDING_PROOF_OF_ADDRESS_FAILURE: :onboarding_proof_of_address_failure
+          ONBOARDING_SSN_CHECK_FAILURE: :onboarding_ssn_check_failure
+          ONBOARDING_TIN_CHECK_FAILURE: :onboarding_tin_check_failure
+
+          def self?.values: -> ::Array[ModernTreasury::Models::Case::ResolvedAction::category]
+        end
+
+        type field =
+          :articles_of_incorporation
+          | :ein_letter
+          | :legal_entity_details
+          | :proof_of_address
+
+        module Field
+          extend ModernTreasury::Internal::Type::Enum
+
+          ARTICLES_OF_INCORPORATION: :articles_of_incorporation
+          EIN_LETTER: :ein_letter
+          LEGAL_ENTITY_DETAILS: :legal_entity_details
+          PROOF_OF_ADDRESS: :proof_of_address
+
+          def self?.values: -> ::Array[ModernTreasury::Models::Case::ResolvedAction::field]
+        end
+      end
+
+      type status = :open | :resolved
+
+      module Status
+        extend ModernTreasury::Internal::Type::Enum
+
+        OPEN: :open
+        RESOLVED: :resolved
+
+        def self?.values: -> ::Array[ModernTreasury::Models::Case::status]
+      end
+    end
+  end
+end

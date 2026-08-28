@@ -1,0 +1,23 @@
+module ModernTreasury
+  module Models
+    type journal_source_retrieve_params =
+      { id: String } & ModernTreasury::Internal::Type::request_parameters
+
+    class JournalSourceRetrieveParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
+
+      attr_accessor id: String
+
+      def initialize: (
+        id: String,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        id: String,
+        request_options: ModernTreasury::RequestOptions
+      }
+    end
+  end
+end
