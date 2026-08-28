@@ -138,6 +138,12 @@ module ModernTreasury
     # @return [ModernTreasury::Resources::Holds]
     attr_reader :holds
 
+    # @return [ModernTreasury::Resources::Cases]
+    attr_reader :cases
+
+    # @return [ModernTreasury::Resources::VirtualAccountSettings]
+    attr_reader :virtual_account_settings
+
     # A test endpoint often used to confirm credentials and headers are being passed
     # in correctly.
     #
@@ -273,6 +279,8 @@ module ModernTreasury
       @journal_entries = ModernTreasury::Resources::JournalEntries.new(client: self)
       @journal_reports = ModernTreasury::Resources::JournalReports.new(client: self)
       @holds = ModernTreasury::Resources::Holds.new(client: self)
+      @cases = ModernTreasury::Resources::Cases.new(client: self)
+      @virtual_account_settings = ModernTreasury::Resources::VirtualAccountSettings.new(client: self)
     end
   end
 end

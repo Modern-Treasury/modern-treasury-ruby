@@ -1,0 +1,26 @@
+module ModernTreasury
+  module Resources
+    class VirtualAccountSettings
+      def create: (
+        allocation_type: String,
+        internal_account_id: String,
+        ?allocation_identifier: String?,
+        ?allocation_length: Integer?,
+        ?allocation_range_end: String?,
+        ?allocation_range_start: String?,
+        ?external_id: String?,
+        ?generated_allocation_identifier_length: Integer?,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::VirtualAccountSetting
+
+      def list: (
+        ?after_cursor: String?,
+        ?external_id: String,
+        ?per_page: Integer,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::VirtualAccountSetting]
+
+      def initialize: (client: ModernTreasury::Client) -> void
+    end
+  end
+end
