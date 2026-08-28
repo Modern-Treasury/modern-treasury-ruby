@@ -30,6 +30,16 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :business_description
 
+      # Legal designation associated with the business.
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::LegalEntity::BusinessDesignation::TaggedSymbol
+          )
+        )
+      end
+      attr_accessor :business_designation
+
       # The business's legal business name.
       sig { returns(T.nilable(String)) }
       attr_accessor :business_name
@@ -253,6 +263,10 @@ module ModernTreasury
           bank_settings:
             T.nilable(ModernTreasury::LegalEntityBankSettings::OrHash),
           business_description: T.nilable(String),
+          business_designation:
+            T.nilable(
+              ModernTreasury::LegalEntity::BusinessDesignation::OrSymbol
+            ),
           business_name: T.nilable(String),
           citizenship_country: T.nilable(String),
           compliance_details: T.nilable(T.anything),
@@ -320,6 +334,8 @@ module ModernTreasury
         bank_settings:,
         # A description of the business.
         business_description:,
+        # Legal designation associated with the business.
+        business_designation:,
         # The business's legal business name.
         business_name:,
         # The country of citizenship for an individual.
@@ -414,6 +430,10 @@ module ModernTreasury
             addresses: T::Array[ModernTreasury::LegalEntity::Address],
             bank_settings: T.nilable(ModernTreasury::LegalEntityBankSettings),
             business_description: T.nilable(String),
+            business_designation:
+              T.nilable(
+                ModernTreasury::LegalEntity::BusinessDesignation::TaggedSymbol
+              ),
             business_name: T.nilable(String),
             citizenship_country: T.nilable(String),
             compliance_details: T.nilable(T.anything),
@@ -675,6 +695,38 @@ module ModernTreasury
           end
           def self.values
           end
+        end
+      end
+
+      # Legal designation associated with the business.
+      module BusinessDesignation
+        extend ModernTreasury::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::LegalEntity::BusinessDesignation)
+          end
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        EXEMPT_FINANCIAL_INSTITUTION =
+          T.let(
+            :exempt_financial_institution,
+            ModernTreasury::LegalEntity::BusinessDesignation::TaggedSymbol
+          )
+        NON_OPERATING_BUSINESS =
+          T.let(
+            :non_operating_business,
+            ModernTreasury::LegalEntity::BusinessDesignation::TaggedSymbol
+          )
+
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::LegalEntity::BusinessDesignation::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
         end
       end
 

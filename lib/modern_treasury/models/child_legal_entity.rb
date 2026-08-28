@@ -26,6 +26,14 @@ module ModernTreasury
       #   @return [String, nil]
       required :business_description, String, nil?: true
 
+      # @!attribute business_designation
+      #   Legal designation associated with the business.
+      #
+      #   @return [Symbol, ModernTreasury::Models::ChildLegalEntity::BusinessDesignation, nil]
+      required :business_designation,
+               enum: -> { ModernTreasury::ChildLegalEntity::BusinessDesignation },
+               nil?: true
+
       # @!attribute business_name
       #   The business's legal business name.
       #
@@ -299,7 +307,7 @@ module ModernTreasury
       #   @return [String, nil]
       required :website, String, nil?: true
 
-      # @!method initialize(id:, addresses:, bank_settings:, business_description:, business_name:, citizenship_country:, compliance_details:, country_of_incorporation:, created_at:, date_formed:, date_of_birth:, discarded_at:, documents:, doing_business_as_names:, email:, expected_activity_volume:, external_id:, first_name:, identifications:, industry_classifications:, intended_use:, last_name:, legal_entity_associations:, legal_entity_type:, legal_structure:, listed_exchange:, live_mode:, metadata:, middle_name:, object:, operating_jurisdictions:, phone_numbers:, politically_exposed_person:, preferred_name:, prefix:, primary_social_media_sites:, regulators:, risk_rating:, service_provider_legal_entity_id:, status:, suffix:, terms_of_use:, third_party_verification:, third_party_verifications:, ticker_symbol:, updated_at:, wealth_and_employment_details:, website:)
+      # @!method initialize(id:, addresses:, bank_settings:, business_description:, business_designation:, business_name:, citizenship_country:, compliance_details:, country_of_incorporation:, created_at:, date_formed:, date_of_birth:, discarded_at:, documents:, doing_business_as_names:, email:, expected_activity_volume:, external_id:, first_name:, identifications:, industry_classifications:, intended_use:, last_name:, legal_entity_associations:, legal_entity_type:, legal_structure:, listed_exchange:, live_mode:, metadata:, middle_name:, object:, operating_jurisdictions:, phone_numbers:, politically_exposed_person:, preferred_name:, prefix:, primary_social_media_sites:, regulators:, risk_rating:, service_provider_legal_entity_id:, status:, suffix:, terms_of_use:, third_party_verification:, third_party_verifications:, ticker_symbol:, updated_at:, wealth_and_employment_details:, website:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::ChildLegalEntity} for more details.
       #
@@ -310,6 +318,8 @@ module ModernTreasury
       #   @param bank_settings [ModernTreasury::Models::LegalEntityBankSettings, nil]
       #
       #   @param business_description [String, nil] A description of the business.
+      #
+      #   @param business_designation [Symbol, ModernTreasury::Models::ChildLegalEntity::BusinessDesignation, nil] Legal designation associated with the business.
       #
       #   @param business_name [String, nil] The business's legal business name.
       #
@@ -528,6 +538,19 @@ module ModernTreasury
           # @!method self.values
           #   @return [Array<Symbol>]
         end
+      end
+
+      # Legal designation associated with the business.
+      #
+      # @see ModernTreasury::Models::ChildLegalEntity#business_designation
+      module BusinessDesignation
+        extend ModernTreasury::Internal::Type::Enum
+
+        EXEMPT_FINANCIAL_INSTITUTION = :exempt_financial_institution
+        NON_OPERATING_BUSINESS = :non_operating_business
+
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       class Identification < ModernTreasury::Internal::Type::BaseModel
