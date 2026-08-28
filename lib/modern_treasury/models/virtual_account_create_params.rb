@@ -76,7 +76,13 @@ module ModernTreasury
       optional :routing_details,
                -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::VirtualAccountCreateParams::RoutingDetail] }
 
-      # @!method initialize(internal_account_id:, name:, account_details: nil, counterparty_id: nil, credit_ledger_account_id: nil, debit_ledger_account_id: nil, description: nil, ledger_account: nil, metadata: nil, routing_details: nil, request_options: {})
+      # @!attribute virtual_account_setting_id
+      #   The ID of the virtual account setting used to allocate this virtual account.
+      #
+      #   @return [String, nil]
+      optional :virtual_account_setting_id, String
+
+      # @!method initialize(internal_account_id:, name:, account_details: nil, counterparty_id: nil, credit_ledger_account_id: nil, debit_ledger_account_id: nil, description: nil, ledger_account: nil, metadata: nil, routing_details: nil, virtual_account_setting_id: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::VirtualAccountCreateParams} for more details.
       #
@@ -99,6 +105,8 @@ module ModernTreasury
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #
       #   @param routing_details [Array<ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail>] An array of routing detail objects.
+      #
+      #   @param virtual_account_setting_id [String] The ID of the virtual account setting used to allocate this virtual account.
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
