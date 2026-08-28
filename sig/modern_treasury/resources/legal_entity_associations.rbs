@@ -1,6 +1,20 @@
 module ModernTreasury
   module Resources
     class LegalEntityAssociations
+      def create: (
+        child_legal_entity_id: String,
+        parent_legal_entity_id: String,
+        relationship_types: ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::relationship_type],
+        ?ownership_percentage: Integer?,
+        ?title: String?,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::LegalEntityAssociation
+
+      def delete: (
+        String id,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::LegalEntityAssociation
+
       def initialize: (client: ModernTreasury::Client) -> void
     end
   end

@@ -1,0 +1,21 @@
+module ModernTreasury
+  module Resources
+    class Cases
+      def retrieve: (
+        String id,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Case
+
+      def list: (
+        ?after_cursor: String?,
+        ?per_page: Integer,
+        ?status: ModernTreasury::Models::CaseListParams::status,
+        ?subject_id: String,
+        ?subject_type: ModernTreasury::Models::CaseListParams::subject_type,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Case]
+
+      def initialize: (client: ModernTreasury::Client) -> void
+    end
+  end
+end
