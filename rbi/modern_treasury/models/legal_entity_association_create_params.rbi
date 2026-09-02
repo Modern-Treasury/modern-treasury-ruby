@@ -14,10 +14,6 @@ module ModernTreasury
           )
         end
 
-      # The ID of the child legal entity.
-      sig { returns(String) }
-      attr_accessor :child_legal_entity_id
-
       # The ID of the parent legal entity. This must be a business legal entity.
       sig { returns(String) }
       attr_accessor :parent_legal_entity_id
@@ -31,6 +27,24 @@ module ModernTreasury
       end
       attr_accessor :relationship_types
 
+      # The child legal entity.
+      sig { returns(T.nilable(ModernTreasury::ChildLegalEntityCreate)) }
+      attr_reader :child_legal_entity
+
+      sig do
+        params(
+          child_legal_entity: ModernTreasury::ChildLegalEntityCreate::OrHash
+        ).void
+      end
+      attr_writer :child_legal_entity
+
+      # The ID of the child legal entity.
+      sig { returns(T.nilable(String)) }
+      attr_reader :child_legal_entity_id
+
+      sig { params(child_legal_entity_id: String).void }
+      attr_writer :child_legal_entity_id
+
       # The child entity's ownership percentage iff they are a beneficial owner.
       sig { returns(T.nilable(Integer)) }
       attr_accessor :ownership_percentage
@@ -41,23 +55,26 @@ module ModernTreasury
 
       sig do
         params(
-          child_legal_entity_id: String,
           parent_legal_entity_id: String,
           relationship_types:
             T::Array[
               ModernTreasury::LegalEntityAssociationCreateParams::RelationshipType::OrSymbol
             ],
+          child_legal_entity: ModernTreasury::ChildLegalEntityCreate::OrHash,
+          child_legal_entity_id: String,
           ownership_percentage: T.nilable(Integer),
           title: T.nilable(String),
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
       def self.new(
-        # The ID of the child legal entity.
-        child_legal_entity_id:,
         # The ID of the parent legal entity. This must be a business legal entity.
         parent_legal_entity_id:,
         relationship_types:,
+        # The child legal entity.
+        child_legal_entity: nil,
+        # The ID of the child legal entity.
+        child_legal_entity_id: nil,
         # The child entity's ownership percentage iff they are a beneficial owner.
         ownership_percentage: nil,
         # The job title of the child entity at the parent entity.
@@ -69,12 +86,13 @@ module ModernTreasury
       sig do
         override.returns(
           {
-            child_legal_entity_id: String,
             parent_legal_entity_id: String,
             relationship_types:
               T::Array[
                 ModernTreasury::LegalEntityAssociationCreateParams::RelationshipType::OrSymbol
               ],
+            child_legal_entity: ModernTreasury::ChildLegalEntityCreate,
+            child_legal_entity_id: String,
             ownership_percentage: T.nilable(Integer),
             title: T.nilable(String),
             request_options: ModernTreasury::RequestOptions
