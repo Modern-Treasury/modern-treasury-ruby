@@ -5,13 +5,15 @@ module ModernTreasury
     class LegalEntityAssociations
       # Add an associated legal entity to a business legal entity.
       #
-      # @overload create(child_legal_entity_id:, parent_legal_entity_id:, relationship_types:, ownership_percentage: nil, title: nil, request_options: {})
-      #
-      # @param child_legal_entity_id [String] The ID of the child legal entity.
+      # @overload create(parent_legal_entity_id:, relationship_types:, child_legal_entity: nil, child_legal_entity_id: nil, ownership_percentage: nil, title: nil, request_options: {})
       #
       # @param parent_legal_entity_id [String] The ID of the parent legal entity. This must be a business legal entity.
       #
       # @param relationship_types [Array<Symbol, ModernTreasury::Models::LegalEntityAssociationCreateParams::RelationshipType>]
+      #
+      # @param child_legal_entity [ModernTreasury::Models::ChildLegalEntityCreate] The child legal entity.
+      #
+      # @param child_legal_entity_id [String] The ID of the child legal entity.
       #
       # @param ownership_percentage [Integer, nil] The child entity's ownership percentage iff they are a beneficial owner.
       #

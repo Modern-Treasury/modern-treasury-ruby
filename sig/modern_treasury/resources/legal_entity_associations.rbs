@@ -2,9 +2,10 @@ module ModernTreasury
   module Resources
     class LegalEntityAssociations
       def create: (
-        child_legal_entity_id: String,
         parent_legal_entity_id: String,
         relationship_types: ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::relationship_type],
+        ?child_legal_entity: ModernTreasury::ChildLegalEntityCreate,
+        ?child_legal_entity_id: String,
         ?ownership_percentage: Integer?,
         ?title: String?,
         ?request_options: ModernTreasury::request_opts
