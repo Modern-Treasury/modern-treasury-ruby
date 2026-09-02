@@ -7,12 +7,6 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
-      # @!attribute child_legal_entity_id
-      #   The ID of the child legal entity.
-      #
-      #   @return [String]
-      required :child_legal_entity_id, String
-
       # @!attribute parent_legal_entity_id
       #   The ID of the parent legal entity. This must be a business legal entity.
       #
@@ -24,6 +18,18 @@ module ModernTreasury
       #   @return [Array<Symbol, ModernTreasury::Models::LegalEntityAssociationCreateParams::RelationshipType>]
       required :relationship_types,
                -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::LegalEntityAssociationCreateParams::RelationshipType] }
+
+      # @!attribute child_legal_entity
+      #   The child legal entity.
+      #
+      #   @return [ModernTreasury::Models::ChildLegalEntityCreate, nil]
+      optional :child_legal_entity, -> { ModernTreasury::ChildLegalEntityCreate }
+
+      # @!attribute child_legal_entity_id
+      #   The ID of the child legal entity.
+      #
+      #   @return [String, nil]
+      optional :child_legal_entity_id, String
 
       # @!attribute ownership_percentage
       #   The child entity's ownership percentage iff they are a beneficial owner.
@@ -37,12 +43,14 @@ module ModernTreasury
       #   @return [String, nil]
       optional :title, String, nil?: true
 
-      # @!method initialize(child_legal_entity_id:, parent_legal_entity_id:, relationship_types:, ownership_percentage: nil, title: nil, request_options: {})
-      #   @param child_legal_entity_id [String] The ID of the child legal entity.
-      #
+      # @!method initialize(parent_legal_entity_id:, relationship_types:, child_legal_entity: nil, child_legal_entity_id: nil, ownership_percentage: nil, title: nil, request_options: {})
       #   @param parent_legal_entity_id [String] The ID of the parent legal entity. This must be a business legal entity.
       #
       #   @param relationship_types [Array<Symbol, ModernTreasury::Models::LegalEntityAssociationCreateParams::RelationshipType>]
+      #
+      #   @param child_legal_entity [ModernTreasury::Models::ChildLegalEntityCreate] The child legal entity.
+      #
+      #   @param child_legal_entity_id [String] The ID of the child legal entity.
       #
       #   @param ownership_percentage [Integer, nil] The child entity's ownership percentage iff they are a beneficial owner.
       #
