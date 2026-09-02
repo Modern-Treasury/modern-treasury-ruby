@@ -107,6 +107,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           name: String,
           parent_account_id: String,
+          party_address: ModernTreasury::AddressRequest::OrHash,
           status: ModernTreasury::InternalAccountUpdateParams::Status::OrSymbol,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::InternalAccount)
@@ -129,6 +130,11 @@ module ModernTreasury
         name: nil,
         # The parent internal account for this account.
         parent_account_id: nil,
+        # The address associated with the owner of the internal account. Updating this
+        # value does not guarantee that the new address matches the address on record with
+        # the account's bank; you are responsible for verifying that the address is
+        # accurate.
+        party_address: nil,
         # Requests closure of the internal account. The resulting status may be `closed`
         # for vendors that close synchronously.
         status: nil,
