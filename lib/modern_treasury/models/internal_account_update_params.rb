@@ -55,6 +55,15 @@ module ModernTreasury
       #   @return [String, nil]
       optional :parent_account_id, String
 
+      # @!attribute party_address
+      #   The address associated with the owner of the internal account. Updating this
+      #   value does not guarantee that the new address matches the address on record with
+      #   the account's bank; you are responsible for verifying that the address is
+      #   accurate.
+      #
+      #   @return [ModernTreasury::Models::AddressRequest, nil]
+      optional :party_address, -> { ModernTreasury::AddressRequest }
+
       # @!attribute status
       #   Requests closure of the internal account. The resulting status may be `closed`
       #   for vendors that close synchronously.
@@ -62,7 +71,7 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::InternalAccountUpdateParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::InternalAccountUpdateParams::Status }
 
-      # @!method initialize(id:, contra_ledger_account_id: nil, counterparty_id: nil, external_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, status: nil, request_options: {})
+      # @!method initialize(id:, contra_ledger_account_id: nil, counterparty_id: nil, external_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, party_address: nil, status: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::InternalAccountUpdateParams} for more details.
       #
@@ -81,6 +90,8 @@ module ModernTreasury
       #   @param name [String] The nickname for the internal account.
       #
       #   @param parent_account_id [String] The parent internal account for this account.
+      #
+      #   @param party_address [ModernTreasury::Models::AddressRequest] The address associated with the owner of the internal account. Updating this val
       #
       #   @param status [Symbol, ModernTreasury::Models::InternalAccountUpdateParams::Status] Requests closure of the internal account. The resulting status may be `closed` f
       #
