@@ -10,6 +10,7 @@ module ModernTreasury
         ?debit_ledger_account_id: String,
         ?description: String,
         ?ledger_account: ModernTreasury::LedgerAccountCreateRequest,
+        ?ledger_account_id: String,
         ?metadata: ::Hash[Symbol, String],
         ?routing_details: ::Array[ModernTreasury::VirtualAccountCreateParams::RoutingDetail],
         ?virtual_account_setting_id: String,
