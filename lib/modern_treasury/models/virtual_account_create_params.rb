@@ -62,6 +62,12 @@ module ModernTreasury
       #   @return [ModernTreasury::Models::LedgerAccountCreateRequest, nil]
       optional :ledger_account, -> { ModernTreasury::LedgerAccountCreateRequest }
 
+      # @!attribute ledger_account_id
+      #   The ledger account that you'd like to link to the virtual account.
+      #
+      #   @return [String, nil]
+      optional :ledger_account_id, String
+
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
@@ -82,7 +88,7 @@ module ModernTreasury
       #   @return [String, nil]
       optional :virtual_account_setting_id, String
 
-      # @!method initialize(internal_account_id:, name:, account_details: nil, counterparty_id: nil, credit_ledger_account_id: nil, debit_ledger_account_id: nil, description: nil, ledger_account: nil, metadata: nil, routing_details: nil, virtual_account_setting_id: nil, request_options: {})
+      # @!method initialize(internal_account_id:, name:, account_details: nil, counterparty_id: nil, credit_ledger_account_id: nil, debit_ledger_account_id: nil, description: nil, ledger_account: nil, ledger_account_id: nil, metadata: nil, routing_details: nil, virtual_account_setting_id: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::VirtualAccountCreateParams} for more details.
       #
@@ -101,6 +107,8 @@ module ModernTreasury
       #   @param description [String] An optional description for internal use.
       #
       #   @param ledger_account [ModernTreasury::Models::LedgerAccountCreateRequest] Specifies a ledger account object that will be created with the virtual account.
+      #
+      #   @param ledger_account_id [String] The ledger account that you'd like to link to the virtual account.
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #

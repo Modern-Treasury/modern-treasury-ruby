@@ -17,6 +17,7 @@ module ModernTreasury
           debit_ledger_account_id: String,
           description: String,
           ledger_account: ModernTreasury::LedgerAccountCreateRequest::OrHash,
+          ledger_account_id: String,
           metadata: T::Hash[Symbol, String],
           routing_details:
             T::Array[
@@ -49,6 +50,8 @@ module ModernTreasury
         # The resulting ledger account is linked to the virtual account for auto-ledgering
         # IPDs.
         ledger_account: nil,
+        # The ledger account that you'd like to link to the virtual account.
+        ledger_account_id: nil,
         # Additional data represented as key-value pairs. Both the key and value must be
         # strings.
         metadata: nil,
