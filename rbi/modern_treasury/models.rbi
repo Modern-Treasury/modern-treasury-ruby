@@ -183,8 +183,19 @@ module ModernTreasury
 
   HoldUpdateParams = ModernTreasury::Models::HoldUpdateParams
 
+  Identification = ModernTreasury::Models::Identification
+
+  IdentificationCreateParams =
+    ModernTreasury::Models::IdentificationCreateParams
+
   IdentificationCreateRequest =
     ModernTreasury::Models::IdentificationCreateRequest
+
+  IdentificationRetrieveParams =
+    ModernTreasury::Models::IdentificationRetrieveParams
+
+  IdentificationUpdateParams =
+    ModernTreasury::Models::IdentificationUpdateParams
 
   IncomingPaymentDetail = ModernTreasury::Models::IncomingPaymentDetail
 
