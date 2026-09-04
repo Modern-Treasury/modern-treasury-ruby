@@ -433,11 +433,6 @@ module ModernTreasury
             :solana_address,
             ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
           )
-        WALLET_ADDRESS =
-          T.let(
-            :wallet_address,
-            ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
-          )
 
         sig do
           override.returns(

@@ -126,8 +126,9 @@ module ModernTreasury
         required :account_number, String
 
         # @!attribute account_number_type
-        #   One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
-        #   account number is in a generic format.
+        #   The type of the account number. For wallet addresses, use the chain-specific
+        #   type (e.g. `ethereum_address`). Use `other` if the account number is in a
+        #   generic format.
         #
         #   @return [Symbol, ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType, nil]
         optional :account_number_type,
@@ -140,10 +141,11 @@ module ModernTreasury
         #
         #   @param account_number [String] The account number for the bank account.
         #
-        #   @param account_number_type [Symbol, ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType] One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank ac
+        #   @param account_number_type [Symbol, ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType] The type of the account number. For wallet addresses, use the chain-specific typ
 
-        # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
-        # account number is in a generic format.
+        # The type of the account number. For wallet addresses, use the chain-specific
+        # type (e.g. `ethereum_address`). Use `other` if the account number is in a
+        # generic format.
         #
         # @see ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail#account_number_type
         module AccountNumberType
@@ -163,7 +165,6 @@ module ModernTreasury
           POLYGON_ADDRESS = :polygon_address
           SG_NUMBER = :sg_number
           SOLANA_ADDRESS = :solana_address
-          WALLET_ADDRESS = :wallet_address
 
           # @!method self.values
           #   @return [Array<Symbol>]

@@ -229,8 +229,9 @@ module ModernTreasury
         sig { returns(String) }
         attr_accessor :account_number
 
-        # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
-        # account number is in a generic format.
+        # The type of the account number. For wallet addresses, use the chain-specific
+        # type (e.g. `ethereum_address`). Use `other` if the account number is in a
+        # generic format.
         sig do
           returns(
             T.nilable(
@@ -258,8 +259,9 @@ module ModernTreasury
         def self.new(
           # The account number for the bank account.
           account_number:,
-          # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
-          # account number is in a generic format.
+          # The type of the account number. For wallet addresses, use the chain-specific
+          # type (e.g. `ethereum_address`). Use `other` if the account number is in a
+          # generic format.
           account_number_type: nil
         )
         end
@@ -276,8 +278,9 @@ module ModernTreasury
         def to_hash
         end
 
-        # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
-        # account number is in a generic format.
+        # The type of the account number. For wallet addresses, use the chain-specific
+        # type (e.g. `ethereum_address`). Use `other` if the account number is in a
+        # generic format.
         module AccountNumberType
           extend ModernTreasury::Internal::Type::Enum
 
@@ -358,11 +361,6 @@ module ModernTreasury
           SOLANA_ADDRESS =
             T.let(
               :solana_address,
-              ModernTreasury::VirtualAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
-            )
-          WALLET_ADDRESS =
-            T.let(
-              :wallet_address,
               ModernTreasury::VirtualAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
             )
 
