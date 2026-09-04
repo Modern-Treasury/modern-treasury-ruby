@@ -96,6 +96,8 @@ module ModernTreasury
 
     attr_reader virtual_account_settings: ModernTreasury::Resources::VirtualAccountSettings
 
+    attr_reader identifications: ModernTreasury::Resources::Identifications
+
     def ping: (
       ?request_options: ModernTreasury::request_opts
     ) -> ModernTreasury::PingResponse
