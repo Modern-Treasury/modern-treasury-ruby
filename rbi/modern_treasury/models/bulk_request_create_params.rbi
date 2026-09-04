@@ -1679,11 +1679,6 @@ module ModernTreasury
                     :solana_address,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
                   )
-                WALLET_ADDRESS =
-                  T.let(
-                    :wallet_address,
-                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
-                  )
 
                 sig do
                   override.returns(
@@ -4475,11 +4470,6 @@ module ModernTreasury
                 SOLANA_ADDRESS =
                   T.let(
                     :solana_address,
-                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
-                  )
-                WALLET_ADDRESS =
-                  T.let(
-                    :wallet_address,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
                   )
 
