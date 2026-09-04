@@ -147,6 +147,9 @@ module ModernTreasury
     # @return [ModernTreasury::Resources::VirtualAccountSettings]
     attr_reader :virtual_account_settings
 
+    # @return [ModernTreasury::Resources::Identifications]
+    attr_reader :identifications
+
     # A test endpoint often used to confirm credentials and headers are being passed
     # in correctly.
     #
@@ -285,6 +288,7 @@ module ModernTreasury
       @holds = ModernTreasury::Resources::Holds.new(client: self)
       @cases = ModernTreasury::Resources::Cases.new(client: self)
       @virtual_account_settings = ModernTreasury::Resources::VirtualAccountSettings.new(client: self)
+      @identifications = ModernTreasury::Resources::Identifications.new(client: self)
     end
   end
 end
