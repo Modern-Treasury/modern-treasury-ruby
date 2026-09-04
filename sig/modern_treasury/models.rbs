@@ -155,7 +155,15 @@ module ModernTreasury
 
   class HoldUpdateParams = ModernTreasury::Models::HoldUpdateParams
 
+  class Identification = ModernTreasury::Models::Identification
+
+  class IdentificationCreateParams = ModernTreasury::Models::IdentificationCreateParams
+
   class IdentificationCreateRequest = ModernTreasury::Models::IdentificationCreateRequest
+
+  class IdentificationRetrieveParams = ModernTreasury::Models::IdentificationRetrieveParams
+
+  class IdentificationUpdateParams = ModernTreasury::Models::IdentificationUpdateParams
 
   class IncomingPaymentDetail = ModernTreasury::Models::IncomingPaymentDetail
 

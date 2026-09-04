@@ -1,0 +1,33 @@
+module ModernTreasury
+  module Resources
+    class Identifications
+      def create: (
+        id_number: String,
+        id_type: ModernTreasury::Models::IdentificationCreateParams::id_type,
+        legal_entity_id: String,
+        ?documents: ::Array[ModernTreasury::IdentificationCreateParams::Document],
+        ?expiration_date: Date?,
+        ?issuing_country: String?,
+        ?issuing_region: String?,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Identification
+
+      def retrieve: (
+        String id,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Identification
+
+      def update: (
+        String id,
+        ?expiration_date: Date?,
+        ?id_number: String,
+        ?id_type: ModernTreasury::Models::IdentificationUpdateParams::id_type,
+        ?issuing_country: String?,
+        ?issuing_region: String?,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Identification
+
+      def initialize: (client: ModernTreasury::Client) -> void
+    end
+  end
+end

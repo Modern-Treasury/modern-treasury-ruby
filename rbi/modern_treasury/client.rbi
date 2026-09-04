@@ -142,6 +142,9 @@ module ModernTreasury
     sig { returns(ModernTreasury::Resources::VirtualAccountSettings) }
     attr_reader :virtual_account_settings
 
+    sig { returns(ModernTreasury::Resources::Identifications) }
+    attr_reader :identifications
+
     # A test endpoint often used to confirm credentials and headers are being passed
     # in correctly.
     sig do
