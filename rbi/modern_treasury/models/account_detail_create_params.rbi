@@ -28,8 +28,9 @@ module ModernTreasury
       sig { returns(String) }
       attr_accessor :account_number
 
-      # One of `iban`, `clabe`, or `other`. Use `other` if the bank account number is in
-      # a generic format.
+      # The type of the account number. For wallet addresses, use the chain-specific
+      # type (e.g. `ethereum_address`). Use `other` if the account number is in a
+      # generic format.
       sig do
         returns(
           T.nilable(
@@ -63,8 +64,9 @@ module ModernTreasury
         account_id:,
         # The account number for the bank account.
         account_number:,
-        # One of `iban`, `clabe`, or `other`. Use `other` if the bank account number is in
-        # a generic format.
+        # The type of the account number. For wallet addresses, use the chain-specific
+        # type (e.g. `ethereum_address`). Use `other` if the account number is in a
+        # generic format.
         account_number_type: nil,
         request_options: {}
       )
@@ -115,8 +117,9 @@ module ModernTreasury
         end
       end
 
-      # One of `iban`, `clabe`, or `other`. Use `other` if the bank account number is in
-      # a generic format.
+      # The type of the account number. For wallet addresses, use the chain-specific
+      # type (e.g. `ethereum_address`). Use `other` if the account number is in a
+      # generic format.
       module AccountNumberType
         extend ModernTreasury::Internal::Type::Enum
 

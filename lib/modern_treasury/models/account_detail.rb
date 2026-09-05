@@ -16,8 +16,9 @@ module ModernTreasury
       required :account_number_safe, String
 
       # @!attribute account_number_type
-      #   One of `iban`, `clabe`, or `other`. Use `other` if the bank account number is in
-      #   a generic format.
+      #   The type of the account number. For wallet addresses, use the chain-specific
+      #   type (e.g. `ethereum_address`). Use `other` if the account number is in a
+      #   generic format.
       #
       #   @return [Symbol, ModernTreasury::Models::AccountDetail::AccountNumberType]
       required :account_number_type, enum: -> { ModernTreasury::AccountDetail::AccountNumberType }
@@ -63,7 +64,7 @@ module ModernTreasury
       #
       #   @param account_number_safe [String] The last 4 digits of the account_number.
       #
-      #   @param account_number_type [Symbol, ModernTreasury::Models::AccountDetail::AccountNumberType] One of `iban`, `clabe`, or `other`. Use `other` if the bank account number is in
+      #   @param account_number_type [Symbol, ModernTreasury::Models::AccountDetail::AccountNumberType] The type of the account number. For wallet addresses, use the chain-specific typ
       #
       #   @param created_at [Time]
       #
@@ -77,8 +78,9 @@ module ModernTreasury
       #
       #   @param account_number [String] The account number for the bank account.
 
-      # One of `iban`, `clabe`, or `other`. Use `other` if the bank account number is in
-      # a generic format.
+      # The type of the account number. For wallet addresses, use the chain-specific
+      # type (e.g. `ethereum_address`). Use `other` if the account number is in a
+      # generic format.
       #
       # @see ModernTreasury::Models::AccountDetail#account_number_type
       module AccountNumberType
