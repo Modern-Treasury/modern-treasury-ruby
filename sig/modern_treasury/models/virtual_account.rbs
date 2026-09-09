@@ -10,6 +10,7 @@ module ModernTreasury
         debit_ledger_account_id: String?,
         description: String?,
         discarded_at: Time?,
+        external_id: String?,
         internal_account_id: String,
         ledger_account_id: String?,
         live_mode: bool,
@@ -37,6 +38,8 @@ module ModernTreasury
 
       attr_accessor discarded_at: Time?
 
+      attr_accessor external_id: String?
+
       attr_accessor internal_account_id: String
 
       attr_accessor ledger_account_id: String?
@@ -62,6 +65,7 @@ module ModernTreasury
         debit_ledger_account_id: String?,
         description: String?,
         discarded_at: Time?,
+        external_id: String?,
         internal_account_id: String,
         ledger_account_id: String?,
         live_mode: bool,
@@ -81,6 +85,7 @@ module ModernTreasury
         debit_ledger_account_id: String?,
         description: String?,
         discarded_at: Time?,
+        external_id: String?,
         internal_account_id: String,
         ledger_account_id: String?,
         live_mode: bool,

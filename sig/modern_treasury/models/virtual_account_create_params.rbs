@@ -9,6 +9,7 @@ module ModernTreasury
         credit_ledger_account_id: String,
         debit_ledger_account_id: String,
         description: String,
+        external_id: String?,
         ledger_account: ModernTreasury::LedgerAccountCreateRequest,
         ledger_account_id: String,
         metadata: ::Hash[Symbol, String],
@@ -47,6 +48,8 @@ module ModernTreasury
 
       def description=: (String) -> String
 
+      attr_accessor external_id: String?
+
       attr_reader ledger_account: ModernTreasury::LedgerAccountCreateRequest?
 
       def ledger_account=: (
@@ -79,6 +82,7 @@ module ModernTreasury
         ?credit_ledger_account_id: String,
         ?debit_ledger_account_id: String,
         ?description: String,
+        ?external_id: String?,
         ?ledger_account: ModernTreasury::LedgerAccountCreateRequest,
         ?ledger_account_id: String,
         ?metadata: ::Hash[Symbol, String],
@@ -95,6 +99,7 @@ module ModernTreasury
         credit_ledger_account_id: String,
         debit_ledger_account_id: String,
         description: String,
+        external_id: String?,
         ledger_account: ModernTreasury::LedgerAccountCreateRequest,
         ledger_account_id: String,
         metadata: ::Hash[Symbol, String],

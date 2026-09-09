@@ -17,6 +17,12 @@ module ModernTreasury
       #   @return [String, nil]
       optional :counterparty_id, String
 
+      # @!attribute external_id
+      #   Only return virtual accounts with this external ID.
+      #
+      #   @return [String, nil]
+      optional :external_id, String
+
       # @!attribute internal_account_id
       #
       #   @return [String, nil]
@@ -35,13 +41,15 @@ module ModernTreasury
       #   @return [Integer, nil]
       optional :per_page, Integer
 
-      # @!method initialize(after_cursor: nil, counterparty_id: nil, internal_account_id: nil, metadata: nil, per_page: nil, request_options: {})
+      # @!method initialize(after_cursor: nil, counterparty_id: nil, external_id: nil, internal_account_id: nil, metadata: nil, per_page: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::VirtualAccountListParams} for more details.
       #
       #   @param after_cursor [String, nil]
       #
       #   @param counterparty_id [String]
+      #
+      #   @param external_id [String] Only return virtual accounts with this external ID.
       #
       #   @param internal_account_id [String]
       #
