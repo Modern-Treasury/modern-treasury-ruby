@@ -23,6 +23,13 @@ module ModernTreasury
       sig { params(counterparty_id: String).void }
       attr_writer :counterparty_id
 
+      # Only return virtual accounts with this external ID.
+      sig { returns(T.nilable(String)) }
+      attr_reader :external_id
+
+      sig { params(external_id: String).void }
+      attr_writer :external_id
+
       sig { returns(T.nilable(String)) }
       attr_reader :internal_account_id
 
@@ -48,6 +55,7 @@ module ModernTreasury
         params(
           after_cursor: T.nilable(String),
           counterparty_id: String,
+          external_id: String,
           internal_account_id: String,
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
@@ -57,6 +65,8 @@ module ModernTreasury
       def self.new(
         after_cursor: nil,
         counterparty_id: nil,
+        # Only return virtual accounts with this external ID.
+        external_id: nil,
         internal_account_id: nil,
         # For example, if you want to query for records with metadata key `Type` and value
         # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
@@ -72,6 +82,7 @@ module ModernTreasury
           {
             after_cursor: T.nilable(String),
             counterparty_id: String,
+            external_id: String,
             internal_account_id: String,
             metadata: T::Hash[Symbol, String],
             per_page: Integer,

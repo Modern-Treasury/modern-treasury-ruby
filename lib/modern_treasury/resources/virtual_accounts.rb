@@ -8,7 +8,7 @@ module ModernTreasury
       #
       # create virtual_account
       #
-      # @overload create(internal_account_id:, name:, account_details: nil, counterparty_id: nil, credit_ledger_account_id: nil, debit_ledger_account_id: nil, description: nil, ledger_account: nil, ledger_account_id: nil, metadata: nil, routing_details: nil, virtual_account_setting_id: nil, request_options: {})
+      # @overload create(internal_account_id:, name:, account_details: nil, counterparty_id: nil, credit_ledger_account_id: nil, debit_ledger_account_id: nil, description: nil, external_id: nil, ledger_account: nil, ledger_account_id: nil, metadata: nil, routing_details: nil, virtual_account_setting_id: nil, request_options: {})
       #
       # @param internal_account_id [String] The ID of the internal account that this virtual account is associated with.
       #
@@ -23,6 +23,8 @@ module ModernTreasury
       # @param debit_ledger_account_id [String] The ID of a debit normal ledger account. When money enters the virtual account,
       #
       # @param description [String] An optional description for internal use.
+      #
+      # @param external_id [String, nil] A user-defined identifier for the virtual account.
       #
       # @param ledger_account [ModernTreasury::Models::LedgerAccountCreateRequest] Specifies a ledger account object that will be created with the virtual account.
       #
@@ -105,11 +107,13 @@ module ModernTreasury
       #
       # Get a list of virtual accounts.
       #
-      # @overload list(after_cursor: nil, counterparty_id: nil, internal_account_id: nil, metadata: nil, per_page: nil, request_options: {})
+      # @overload list(after_cursor: nil, counterparty_id: nil, external_id: nil, internal_account_id: nil, metadata: nil, per_page: nil, request_options: {})
       #
       # @param after_cursor [String, nil]
       #
       # @param counterparty_id [String]
+      #
+      # @param external_id [String] Only return virtual accounts with this external ID.
       #
       # @param internal_account_id [String]
       #

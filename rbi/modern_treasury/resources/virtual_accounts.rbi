@@ -16,6 +16,7 @@ module ModernTreasury
           credit_ledger_account_id: String,
           debit_ledger_account_id: String,
           description: String,
+          external_id: T.nilable(String),
           ledger_account: ModernTreasury::LedgerAccountCreateRequest::OrHash,
           ledger_account_id: String,
           metadata: T::Hash[Symbol, String],
@@ -46,6 +47,8 @@ module ModernTreasury
         debit_ledger_account_id: nil,
         # An optional description for internal use.
         description: nil,
+        # A user-defined identifier for the virtual account.
+        external_id: nil,
         # Specifies a ledger account object that will be created with the virtual account.
         # The resulting ledger account is linked to the virtual account for auto-ledgering
         # IPDs.
@@ -105,6 +108,7 @@ module ModernTreasury
         params(
           after_cursor: T.nilable(String),
           counterparty_id: String,
+          external_id: String,
           internal_account_id: String,
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
@@ -116,6 +120,8 @@ module ModernTreasury
       def list(
         after_cursor: nil,
         counterparty_id: nil,
+        # Only return virtual accounts with this external ID.
+        external_id: nil,
         internal_account_id: nil,
         # For example, if you want to query for records with metadata key `Type` and value
         # `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query

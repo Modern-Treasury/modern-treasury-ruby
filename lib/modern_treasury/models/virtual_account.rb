@@ -53,6 +53,12 @@ module ModernTreasury
       #   @return [Time, nil]
       required :discarded_at, Time, nil?: true
 
+      # @!attribute external_id
+      #   A user-defined identifier for the virtual account.
+      #
+      #   @return [String, nil]
+      required :external_id, String, nil?: true
+
       # @!attribute internal_account_id
       #   The ID of the internal account that the virtual account is in.
       #
@@ -103,7 +109,7 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!method initialize(id:, account_details:, counterparty_id:, created_at:, credit_ledger_account_id:, debit_ledger_account_id:, description:, discarded_at:, internal_account_id:, ledger_account_id:, live_mode:, metadata:, name:, object:, routing_details:, updated_at:)
+      # @!method initialize(id:, account_details:, counterparty_id:, created_at:, credit_ledger_account_id:, debit_ledger_account_id:, description:, discarded_at:, external_id:, internal_account_id:, ledger_account_id:, live_mode:, metadata:, name:, object:, routing_details:, updated_at:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::VirtualAccount} for more details.
       #
@@ -122,6 +128,8 @@ module ModernTreasury
       #   @param description [String, nil] An optional free-form description for internal use.
       #
       #   @param discarded_at [Time, nil]
+      #
+      #   @param external_id [String, nil] A user-defined identifier for the virtual account.
       #
       #   @param internal_account_id [String] The ID of the internal account that the virtual account is in.
       #
