@@ -157,7 +157,7 @@ module ModernTreasury
         preferred_name: nil,
         # An individual's prefix.
         prefix: nil,
-        # A list of primary social media URLs for the business.
+        # A list of the entity's primary social media URLs.
         primary_social_media_sites: nil,
         # Array of regulatory bodies overseeing this institution.
         regulators: nil,
@@ -327,7 +327,7 @@ module ModernTreasury
         preferred_name: nil,
         # An individual's prefix.
         prefix: nil,
-        # A list of primary social media URLs for the business.
+        # A list of the entity's primary social media URLs.
         primary_social_media_sites: nil,
         # Array of regulatory bodies overseeing this institution.
         regulators: nil,
