@@ -9,6 +9,7 @@ module ModernTreasury
         ?credit_ledger_account_id: String,
         ?debit_ledger_account_id: String,
         ?description: String,
+        ?external_id: String?,
         ?ledger_account: ModernTreasury::LedgerAccountCreateRequest,
         ?ledger_account_id: String,
         ?metadata: ::Hash[Symbol, String],
@@ -34,6 +35,7 @@ module ModernTreasury
       def list: (
         ?after_cursor: String?,
         ?counterparty_id: String,
+        ?external_id: String,
         ?internal_account_id: String,
         ?metadata: ::Hash[Symbol, String],
         ?per_page: Integer,

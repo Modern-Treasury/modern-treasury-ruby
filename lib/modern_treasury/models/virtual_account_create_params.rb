@@ -54,6 +54,12 @@ module ModernTreasury
       #   @return [String, nil]
       optional :description, String
 
+      # @!attribute external_id
+      #   A user-defined identifier for the virtual account.
+      #
+      #   @return [String, nil]
+      optional :external_id, String, nil?: true
+
       # @!attribute ledger_account
       #   Specifies a ledger account object that will be created with the virtual account.
       #   The resulting ledger account is linked to the virtual account for auto-ledgering
@@ -88,7 +94,7 @@ module ModernTreasury
       #   @return [String, nil]
       optional :virtual_account_setting_id, String
 
-      # @!method initialize(internal_account_id:, name:, account_details: nil, counterparty_id: nil, credit_ledger_account_id: nil, debit_ledger_account_id: nil, description: nil, ledger_account: nil, ledger_account_id: nil, metadata: nil, routing_details: nil, virtual_account_setting_id: nil, request_options: {})
+      # @!method initialize(internal_account_id:, name:, account_details: nil, counterparty_id: nil, credit_ledger_account_id: nil, debit_ledger_account_id: nil, description: nil, external_id: nil, ledger_account: nil, ledger_account_id: nil, metadata: nil, routing_details: nil, virtual_account_setting_id: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::VirtualAccountCreateParams} for more details.
       #
@@ -105,6 +111,8 @@ module ModernTreasury
       #   @param debit_ledger_account_id [String] The ID of a debit normal ledger account. When money enters the virtual account,
       #
       #   @param description [String] An optional description for internal use.
+      #
+      #   @param external_id [String, nil] A user-defined identifier for the virtual account.
       #
       #   @param ledger_account [ModernTreasury::Models::LedgerAccountCreateRequest] Specifies a ledger account object that will be created with the virtual account.
       #

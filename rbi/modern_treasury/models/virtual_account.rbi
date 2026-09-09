@@ -44,6 +44,10 @@ module ModernTreasury
       sig { returns(T.nilable(Time)) }
       attr_accessor :discarded_at
 
+      # A user-defined identifier for the virtual account.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :external_id
+
       # The ID of the internal account that the virtual account is in.
       sig { returns(String) }
       attr_accessor :internal_account_id
@@ -88,6 +92,7 @@ module ModernTreasury
           debit_ledger_account_id: T.nilable(String),
           description: T.nilable(String),
           discarded_at: T.nilable(Time),
+          external_id: T.nilable(String),
           internal_account_id: String,
           ledger_account_id: T.nilable(String),
           live_mode: T::Boolean,
@@ -116,6 +121,8 @@ module ModernTreasury
         # An optional free-form description for internal use.
         description:,
         discarded_at:,
+        # A user-defined identifier for the virtual account.
+        external_id:,
         # The ID of the internal account that the virtual account is in.
         internal_account_id:,
         # If the virtual account links to a ledger account in Modern Treasury, the id of
@@ -148,6 +155,7 @@ module ModernTreasury
             debit_ledger_account_id: T.nilable(String),
             description: T.nilable(String),
             discarded_at: T.nilable(Time),
+            external_id: T.nilable(String),
             internal_account_id: String,
             ledger_account_id: T.nilable(String),
             live_mode: T::Boolean,

@@ -74,6 +74,10 @@ module ModernTreasury
       sig { params(description: String).void }
       attr_writer :description
 
+      # A user-defined identifier for the virtual account.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :external_id
+
       # Specifies a ledger account object that will be created with the virtual account.
       # The resulting ledger account is linked to the virtual account for auto-ledgering
       # IPDs.
@@ -141,6 +145,7 @@ module ModernTreasury
           credit_ledger_account_id: String,
           debit_ledger_account_id: String,
           description: String,
+          external_id: T.nilable(String),
           ledger_account: ModernTreasury::LedgerAccountCreateRequest::OrHash,
           ledger_account_id: String,
           metadata: T::Hash[Symbol, String],
@@ -171,6 +176,8 @@ module ModernTreasury
         debit_ledger_account_id: nil,
         # An optional description for internal use.
         description: nil,
+        # A user-defined identifier for the virtual account.
+        external_id: nil,
         # Specifies a ledger account object that will be created with the virtual account.
         # The resulting ledger account is linked to the virtual account for auto-ledgering
         # IPDs.
@@ -201,6 +208,7 @@ module ModernTreasury
             credit_ledger_account_id: String,
             debit_ledger_account_id: String,
             description: String,
+            external_id: T.nilable(String),
             ledger_account: ModernTreasury::LedgerAccountCreateRequest,
             ledger_account_id: String,
             metadata: T::Hash[Symbol, String],
