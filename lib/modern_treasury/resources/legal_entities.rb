@@ -74,7 +74,7 @@ module ModernTreasury
       #
       # @param prefix [String, nil] An individual's prefix.
       #
-      # @param primary_social_media_sites [Array<String>] A list of primary social media URLs for the business.
+      # @param primary_social_media_sites [Array<String>] A list of the entity's primary social media URLs.
       #
       # @param regulators [Array<ModernTreasury::Models::LegalEntityCreateParams::Regulator>, nil] Array of regulatory bodies overseeing this institution.
       #
@@ -195,7 +195,7 @@ module ModernTreasury
       #
       # @param prefix [String, nil] An individual's prefix.
       #
-      # @param primary_social_media_sites [Array<String>] A list of primary social media URLs for the business.
+      # @param primary_social_media_sites [Array<String>] A list of the entity's primary social media URLs.
       #
       # @param regulators [Array<ModernTreasury::Models::LegalEntityUpdateParams::Regulator>, nil] Array of regulatory bodies overseeing this institution.
       #
