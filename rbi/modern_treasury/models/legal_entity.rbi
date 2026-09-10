@@ -165,7 +165,7 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :prefix
 
-      # A list of primary social media URLs for the business.
+      # A list of the entity's primary social media URLs.
       sig { returns(T::Array[String]) }
       attr_accessor :primary_social_media_sites
 
@@ -392,7 +392,7 @@ module ModernTreasury
         preferred_name:,
         # An individual's prefix.
         prefix:,
-        # A list of primary social media URLs for the business.
+        # A list of the entity's primary social media URLs.
         primary_social_media_sites:,
         # Array of regulatory bodies overseeing this institution.
         regulators:,

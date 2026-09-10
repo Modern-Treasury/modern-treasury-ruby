@@ -218,7 +218,7 @@ module ModernTreasury
       optional :prefix, String, nil?: true
 
       # @!attribute primary_social_media_sites
-      #   A list of primary social media URLs for the business.
+      #   A list of the entity's primary social media URLs.
       #
       #   @return [Array<String>, nil]
       optional :primary_social_media_sites, ModernTreasury::Internal::Type::ArrayOf[String]
@@ -359,7 +359,7 @@ module ModernTreasury
       #
       #   @param prefix [String, nil] An individual's prefix.
       #
-      #   @param primary_social_media_sites [Array<String>] A list of primary social media URLs for the business.
+      #   @param primary_social_media_sites [Array<String>] A list of the entity's primary social media URLs.
       #
       #   @param regulators [Array<ModernTreasury::Models::LegalEntityCreateParams::Regulator>, nil] Array of regulatory bodies overseeing this institution.
       #
