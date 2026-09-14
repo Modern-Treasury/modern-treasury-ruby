@@ -46,12 +46,10 @@ module ModernTreasury
         CONNECTION = :connection
         COUNTERPARTY = :counterparty
         EXPECTED_PAYMENT = :expected_payment
-        EXTERNAL_ACCOUNT = :external_account
         IDENTIFICATION = :identification
         INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
         INTERNAL_ACCOUNT = :internal_account
         LEGAL_ENTITY = :legal_entity
-        ORGANIZATION = :organization
         PAYMENT_ORDER = :payment_order
         RETURN = :return
         TRANSACTION = :transaction
