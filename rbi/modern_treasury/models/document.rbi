@@ -25,9 +25,9 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :documentable_id
 
-      # The type of the associated object. Currently can be one of `payment_order`,
-      # `transaction`, `expected_payment`, `return`, `legal_entity`, `counterparty`,
-      # `organization`, `case`, `internal_account`, `decision`, or `external_account`.
+      # The type of the associated object. Currently can be one of `connection`,
+      # `counterparty`, `expected_payment`, `identification`, `incoming_payment_detail`,
+      # `internal_account`, `legal_entity`, `payment_order`, `return`, or `transaction`.
       sig do
         returns(
           T.nilable(ModernTreasury::Document::DocumentableType::TaggedSymbol)
@@ -80,9 +80,9 @@ module ModernTreasury
         document_type:,
         # The unique identifier for the associated object.
         documentable_id:,
-        # The type of the associated object. Currently can be one of `payment_order`,
-        # `transaction`, `expected_payment`, `return`, `legal_entity`, `counterparty`,
-        # `organization`, `case`, `internal_account`, `decision`, or `external_account`.
+        # The type of the associated object. Currently can be one of `connection`,
+        # `counterparty`, `expected_payment`, `identification`, `incoming_payment_detail`,
+        # `internal_account`, `legal_entity`, `payment_order`, `return`, or `transaction`.
         documentable_type:,
         file:,
         # This field will be true if this object exists in the live environment or false
@@ -118,9 +118,9 @@ module ModernTreasury
       def to_hash
       end
 
-      # The type of the associated object. Currently can be one of `payment_order`,
-      # `transaction`, `expected_payment`, `return`, `legal_entity`, `counterparty`,
-      # `organization`, `case`, `internal_account`, `decision`, or `external_account`.
+      # The type of the associated object. Currently can be one of `connection`,
+      # `counterparty`, `expected_payment`, `identification`, `incoming_payment_detail`,
+      # `internal_account`, `legal_entity`, `payment_order`, `return`, or `transaction`.
       module DocumentableType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -145,11 +145,6 @@ module ModernTreasury
             :expected_payment,
             ModernTreasury::Document::DocumentableType::TaggedSymbol
           )
-        EXTERNAL_ACCOUNT =
-          T.let(
-            :external_account,
-            ModernTreasury::Document::DocumentableType::TaggedSymbol
-          )
         IDENTIFICATION =
           T.let(
             :identification,
@@ -168,11 +163,6 @@ module ModernTreasury
         LEGAL_ENTITY =
           T.let(
             :legal_entity,
-            ModernTreasury::Document::DocumentableType::TaggedSymbol
-          )
-        ORGANIZATION =
-          T.let(
-            :organization,
             ModernTreasury::Document::DocumentableType::TaggedSymbol
           )
         PAYMENT_ORDER =

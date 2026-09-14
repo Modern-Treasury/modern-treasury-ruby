@@ -63,7 +63,7 @@ module ModernTreasury
       #
       # @param documentable_id [String] The unique identifier for the associated object.
       #
-      # @param documentable_type [Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType] The type of the associated object. Currently can be one of `payment_order`, `tra
+      # @param documentable_type [Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType] The type of the associated object. Currently can be one of `connection`, `counte
       #
       # @param per_page [Integer]
       #
