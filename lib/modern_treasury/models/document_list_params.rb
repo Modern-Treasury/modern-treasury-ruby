@@ -19,9 +19,9 @@ module ModernTreasury
       optional :documentable_id, String
 
       # @!attribute documentable_type
-      #   The type of the associated object. Currently can be one of `payment_order`,
-      #   `transaction`, `expected_payment`, `return`, `legal_entity`, `counterparty`,
-      #   `organization`, `case`, `internal_account`, `decision`, or `external_account`.
+      #   The type of the associated object. Currently can be one of `connection`,
+      #   `counterparty`, `expected_payment`, `identification`, `incoming_payment_detail`,
+      #   `internal_account`, `legal_entity`, `payment_order`, `return`, or `transaction`.
       #
       #   @return [Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType, nil]
       optional :documentable_type, enum: -> { ModernTreasury::DocumentListParams::DocumentableType }
@@ -39,27 +39,25 @@ module ModernTreasury
       #
       #   @param documentable_id [String] The unique identifier for the associated object.
       #
-      #   @param documentable_type [Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType] The type of the associated object. Currently can be one of `payment_order`, `tra
+      #   @param documentable_type [Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType] The type of the associated object. Currently can be one of `connection`, `counte
       #
       #   @param per_page [Integer]
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
-      # The type of the associated object. Currently can be one of `payment_order`,
-      # `transaction`, `expected_payment`, `return`, `legal_entity`, `counterparty`,
-      # `organization`, `case`, `internal_account`, `decision`, or `external_account`.
+      # The type of the associated object. Currently can be one of `connection`,
+      # `counterparty`, `expected_payment`, `identification`, `incoming_payment_detail`,
+      # `internal_account`, `legal_entity`, `payment_order`, `return`, or `transaction`.
       module DocumentableType
         extend ModernTreasury::Internal::Type::Enum
 
         CONNECTION = :connection
         COUNTERPARTY = :counterparty
         EXPECTED_PAYMENT = :expected_payment
-        EXTERNAL_ACCOUNT = :external_account
         IDENTIFICATION = :identification
         INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
         INTERNAL_ACCOUNT = :internal_account
         LEGAL_ENTITY = :legal_entity
-        ORGANIZATION = :organization
         PAYMENT_ORDER = :payment_order
         RETURN = :return
         TRANSACTION = :transaction

@@ -32,9 +32,9 @@ module ModernTreasury
       required :documentable_id, String, nil?: true
 
       # @!attribute documentable_type
-      #   The type of the associated object. Currently can be one of `payment_order`,
-      #   `transaction`, `expected_payment`, `return`, `legal_entity`, `counterparty`,
-      #   `organization`, `case`, `internal_account`, `decision`, or `external_account`.
+      #   The type of the associated object. Currently can be one of `connection`,
+      #   `counterparty`, `expected_payment`, `identification`, `incoming_payment_detail`,
+      #   `internal_account`, `legal_entity`, `payment_order`, `return`, or `transaction`.
       #
       #   @return [Symbol, ModernTreasury::Models::Document::DocumentableType, nil]
       required :documentable_type, enum: -> { ModernTreasury::Document::DocumentableType }, nil?: true
@@ -81,7 +81,7 @@ module ModernTreasury
       #
       #   @param documentable_id [String, nil] The unique identifier for the associated object.
       #
-      #   @param documentable_type [Symbol, ModernTreasury::Models::Document::DocumentableType, nil] The type of the associated object. Currently can be one of `payment_order`, `tra
+      #   @param documentable_type [Symbol, ModernTreasury::Models::Document::DocumentableType, nil] The type of the associated object. Currently can be one of `connection`, `counte
       #
       #   @param file [ModernTreasury::Models::Document::File]
       #
@@ -93,9 +93,9 @@ module ModernTreasury
       #
       #   @param updated_at [Time]
 
-      # The type of the associated object. Currently can be one of `payment_order`,
-      # `transaction`, `expected_payment`, `return`, `legal_entity`, `counterparty`,
-      # `organization`, `case`, `internal_account`, `decision`, or `external_account`.
+      # The type of the associated object. Currently can be one of `connection`,
+      # `counterparty`, `expected_payment`, `identification`, `incoming_payment_detail`,
+      # `internal_account`, `legal_entity`, `payment_order`, `return`, or `transaction`.
       #
       # @see ModernTreasury::Models::Document#documentable_type
       module DocumentableType
@@ -104,12 +104,10 @@ module ModernTreasury
         CONNECTION = :connection
         COUNTERPARTY = :counterparty
         EXPECTED_PAYMENT = :expected_payment
-        EXTERNAL_ACCOUNT = :external_account
         IDENTIFICATION = :identification
         INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
         INTERNAL_ACCOUNT = :internal_account
         LEGAL_ENTITY = :legal_entity
-        ORGANIZATION = :organization
         PAYMENT_ORDER = :payment_order
         RETURN = :return
         TRANSACTION = :transaction

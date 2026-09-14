@@ -111,11 +111,6 @@ module ModernTreasury
             :expected_payment,
             ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
           )
-        EXTERNAL_ACCOUNT =
-          T.let(
-            :external_account,
-            ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
-          )
         IDENTIFICATION =
           T.let(
             :identification,
@@ -134,11 +129,6 @@ module ModernTreasury
         LEGAL_ENTITY =
           T.let(
             :legal_entity,
-            ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
-          )
-        ORGANIZATION =
-          T.let(
-            :organization,
             ModernTreasury::DocumentCreateParams::DocumentableType::TaggedSymbol
           )
         PAYMENT_ORDER =

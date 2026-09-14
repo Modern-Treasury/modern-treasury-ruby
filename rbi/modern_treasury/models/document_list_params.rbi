@@ -24,9 +24,9 @@ module ModernTreasury
       sig { params(documentable_id: String).void }
       attr_writer :documentable_id
 
-      # The type of the associated object. Currently can be one of `payment_order`,
-      # `transaction`, `expected_payment`, `return`, `legal_entity`, `counterparty`,
-      # `organization`, `case`, `internal_account`, `decision`, or `external_account`.
+      # The type of the associated object. Currently can be one of `connection`,
+      # `counterparty`, `expected_payment`, `identification`, `incoming_payment_detail`,
+      # `internal_account`, `legal_entity`, `payment_order`, `return`, or `transaction`.
       sig do
         returns(
           T.nilable(
@@ -64,9 +64,9 @@ module ModernTreasury
         after_cursor: nil,
         # The unique identifier for the associated object.
         documentable_id: nil,
-        # The type of the associated object. Currently can be one of `payment_order`,
-        # `transaction`, `expected_payment`, `return`, `legal_entity`, `counterparty`,
-        # `organization`, `case`, `internal_account`, `decision`, or `external_account`.
+        # The type of the associated object. Currently can be one of `connection`,
+        # `counterparty`, `expected_payment`, `identification`, `incoming_payment_detail`,
+        # `internal_account`, `legal_entity`, `payment_order`, `return`, or `transaction`.
         documentable_type: nil,
         per_page: nil,
         request_options: {}
@@ -88,9 +88,9 @@ module ModernTreasury
       def to_hash
       end
 
-      # The type of the associated object. Currently can be one of `payment_order`,
-      # `transaction`, `expected_payment`, `return`, `legal_entity`, `counterparty`,
-      # `organization`, `case`, `internal_account`, `decision`, or `external_account`.
+      # The type of the associated object. Currently can be one of `connection`,
+      # `counterparty`, `expected_payment`, `identification`, `incoming_payment_detail`,
+      # `internal_account`, `legal_entity`, `payment_order`, `return`, or `transaction`.
       module DocumentableType
         extend ModernTreasury::Internal::Type::Enum
 
@@ -115,11 +115,6 @@ module ModernTreasury
             :expected_payment,
             ModernTreasury::DocumentListParams::DocumentableType::TaggedSymbol
           )
-        EXTERNAL_ACCOUNT =
-          T.let(
-            :external_account,
-            ModernTreasury::DocumentListParams::DocumentableType::TaggedSymbol
-          )
         IDENTIFICATION =
           T.let(
             :identification,
@@ -138,11 +133,6 @@ module ModernTreasury
         LEGAL_ENTITY =
           T.let(
             :legal_entity,
-            ModernTreasury::DocumentListParams::DocumentableType::TaggedSymbol
-          )
-        ORGANIZATION =
-          T.let(
-            :organization,
             ModernTreasury::DocumentListParams::DocumentableType::TaggedSymbol
           )
         PAYMENT_ORDER =

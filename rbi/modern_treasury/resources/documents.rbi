@@ -54,9 +54,9 @@ module ModernTreasury
         after_cursor: nil,
         # The unique identifier for the associated object.
         documentable_id: nil,
-        # The type of the associated object. Currently can be one of `payment_order`,
-        # `transaction`, `expected_payment`, `return`, `legal_entity`, `counterparty`,
-        # `organization`, `case`, `internal_account`, `decision`, or `external_account`.
+        # The type of the associated object. Currently can be one of `connection`,
+        # `counterparty`, `expected_payment`, `identification`, `incoming_payment_detail`,
+        # `internal_account`, `legal_entity`, `payment_order`, `return`, or `transaction`.
         documentable_type: nil,
         per_page: nil,
         request_options: {}
