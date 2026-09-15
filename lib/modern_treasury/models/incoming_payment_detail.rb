@@ -284,6 +284,7 @@ module ModernTreasury
       module OriginatingAccountNumberType
         extend ModernTreasury::Internal::Type::Enum
 
+        ARBITRUM_ADDRESS = :arbitrum_address
         AU_NUMBER = :au_number
         BASE_ADDRESS = :base_address
         CARD_TOKEN = :card_token

@@ -19,6 +19,7 @@ module ModernTreasury
       PPD = :PPD
       TEL = :TEL
       WEB = :WEB
+      ARBITRUM = :arbitrum
       AU_BECS = :au_becs
       BACS = :bacs
       BASE = :base

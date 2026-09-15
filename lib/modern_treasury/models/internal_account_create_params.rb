@@ -358,6 +358,7 @@ module ModernTreasury
       module RequestedAccountNumberType
         extend ModernTreasury::Internal::Type::Enum
 
+        ARBITRUM_ADDRESS = :arbitrum_address
         BASE_ADDRESS = :base_address
         ETHEREUM_ADDRESS = :ethereum_address
         POLYGON_ADDRESS = :polygon_address
