@@ -26,6 +26,8 @@ module ModernTreasury
       PPD = T.let(:PPD, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       TEL = T.let(:TEL, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       WEB = T.let(:WEB, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
+      ARBITRUM =
+        T.let(:arbitrum, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       AU_BECS =
         T.let(:au_becs, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       BACS = T.let(:bacs, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)

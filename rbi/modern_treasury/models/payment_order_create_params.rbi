@@ -1525,6 +1525,11 @@ module ModernTreasury
               end
             OrSymbol = T.type_alias { T.any(Symbol, String) }
 
+            ARBITRUM_ADDRESS =
+              T.let(
+                :arbitrum_address,
+                ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
+              )
             AU_NUMBER =
               T.let(
                 :au_number,
