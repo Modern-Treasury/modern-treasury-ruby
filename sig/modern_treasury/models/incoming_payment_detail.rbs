@@ -172,7 +172,8 @@ module ModernTreasury
       }
 
       type originating_account_number_type =
-        :au_number
+        :arbitrum_address
+        | :au_number
         | :base_address
         | :card_token
         | :clabe
@@ -190,6 +191,7 @@ module ModernTreasury
       module OriginatingAccountNumberType
         extend ModernTreasury::Internal::Type::Enum
 
+        ARBITRUM_ADDRESS: :arbitrum_address
         AU_NUMBER: :au_number
         BASE_ADDRESS: :base_address
         CARD_TOKEN: :card_token
