@@ -760,6 +760,11 @@ module ModernTreasury
           end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
+        ARBITRUM_ADDRESS =
+          T.let(
+            :arbitrum_address,
+            ModernTreasury::InternalAccountCreateParams::RequestedAccountNumberType::TaggedSymbol
+          )
         BASE_ADDRESS =
           T.let(
             :base_address,
