@@ -93,8 +93,7 @@ module ModernTreasury
           currency: T.nilable(ModernTreasury::Currency::OrSymbol),
           data: T.nilable(T.anything),
           description: T.nilable(String),
-          direction:
-            ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Direction::OrSymbol,
+          direction: ModernTreasury::TransactionDirection::OrSymbol,
           internal_account_id: String,
           subtype: T.nilable(String),
           type:

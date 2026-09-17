@@ -40,20 +40,11 @@ module ModernTreasury
       attr_accessor :description
 
       # One of `credit`, `debit`.
-      sig do
-        returns(
-          T.nilable(
-            ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Direction::OrSymbol
-          )
-        )
-      end
+      sig { returns(T.nilable(ModernTreasury::TransactionDirection::OrSymbol)) }
       attr_reader :direction
 
       sig do
-        params(
-          direction:
-            ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Direction::OrSymbol
-        ).void
+        params(direction: ModernTreasury::TransactionDirection::OrSymbol).void
       end
       attr_writer :direction
 
@@ -99,8 +90,7 @@ module ModernTreasury
           currency: T.nilable(ModernTreasury::Currency::OrSymbol),
           data: T.nilable(T.anything),
           description: T.nilable(String),
-          direction:
-            ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Direction::OrSymbol,
+          direction: ModernTreasury::TransactionDirection::OrSymbol,
           internal_account_id: String,
           subtype: T.nilable(String),
           type:
@@ -146,8 +136,7 @@ module ModernTreasury
             currency: T.nilable(ModernTreasury::Currency::OrSymbol),
             data: T.nilable(T.anything),
             description: T.nilable(String),
-            direction:
-              ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Direction::OrSymbol,
+            direction: ModernTreasury::TransactionDirection::OrSymbol,
             internal_account_id: String,
             subtype: T.nilable(String),
             type:
@@ -158,41 +147,6 @@ module ModernTreasury
         )
       end
       def to_hash
-      end
-
-      # One of `credit`, `debit`.
-      module Direction
-        extend ModernTreasury::Internal::Type::Enum
-
-        TaggedSymbol =
-          T.type_alias do
-            T.all(
-              Symbol,
-              ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Direction
-            )
-          end
-        OrSymbol = T.type_alias { T.any(Symbol, String) }
-
-        CREDIT =
-          T.let(
-            :credit,
-            ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Direction::TaggedSymbol
-          )
-        DEBIT =
-          T.let(
-            :debit,
-            ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Direction::TaggedSymbol
-          )
-
-        sig do
-          override.returns(
-            T::Array[
-              ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Direction::TaggedSymbol
-            ]
-          )
-        end
-        def self.values
-        end
       end
 
       # One of `ach`, `wire`, `check`.
