@@ -184,6 +184,14 @@ module ModernTreasury
       #   @return [String, nil]
       optional :originating_party_name, String, nil?: true
 
+      # @!attribute originating_secondary_party_name
+      #   Secondary name for the legal entity making the payment. Can be used for e.g.
+      #   check signatures where the originating party wishes to retain their company's
+      #   display name but use an employee's name for the signature.
+      #
+      #   @return [String, nil]
+      optional :originating_secondary_party_name, String, nil?: true
+
       # @!attribute priority
       #   Either `normal` or `high`. For ACH and EFT payments, `high` represents a
       #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
@@ -324,7 +332,7 @@ module ModernTreasury
       optional :vendor_attributes,
                ModernTreasury::Internal::Type::HashOf[ModernTreasury::Internal::Type::Unknown]
 
-      # @!method initialize(amount:, direction:, originating_account_id:, type:, accounting: nil, accounting_category_id: nil, accounting_ledger_class_id: nil, charge_bearer: nil, currency: nil, description: nil, effective_date: nil, expires_at: nil, external_id: nil, fallback_type: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, ledger_transaction: nil, ledger_transaction_id: nil, line_items: nil, metadata: nil, nsf_protected: nil, originating_party_address: nil, originating_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account: nil, receiving_account_id: nil, reconciliation_status: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, subtype: nil, transaction_monitoring_enabled: nil, ultimate_originating_account_id: nil, ultimate_originating_party_address: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil, vendor_attributes: nil, request_options: {})
+      # @!method initialize(amount:, direction:, originating_account_id:, type:, accounting: nil, accounting_category_id: nil, accounting_ledger_class_id: nil, charge_bearer: nil, currency: nil, description: nil, effective_date: nil, expires_at: nil, external_id: nil, fallback_type: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, ledger_transaction: nil, ledger_transaction_id: nil, line_items: nil, metadata: nil, nsf_protected: nil, originating_party_address: nil, originating_party_name: nil, originating_secondary_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account: nil, receiving_account_id: nil, reconciliation_status: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, subtype: nil, transaction_monitoring_enabled: nil, ultimate_originating_account_id: nil, ultimate_originating_party_address: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil, vendor_attributes: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::PaymentOrderCreateAsyncParams} for more details.
       #
@@ -373,6 +381,8 @@ module ModernTreasury
       #   @param originating_party_address [ModernTreasury::Models::PaymentOrderCreateAsyncParams::OriginatingPartyAddress, nil] If present, this address will override the default originating party address use
       #
       #   @param originating_party_name [String, nil] If present, this will replace your default company name on receiver's bank state
+      #
+      #   @param originating_secondary_party_name [String, nil] Secondary name for the legal entity making the payment. Can be used for e.g. ch
       #
       #   @param priority [Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::Priority] Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-da
       #

@@ -42,8 +42,8 @@ module ModernTreasury
       # @!attribute direction
       #   One of `credit`, `debit`.
       #
-      #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction, nil]
-      optional :direction, enum: -> { ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Direction }
+      #   @return [Symbol, ModernTreasury::Models::TransactionDirection, nil]
+      optional :direction, enum: -> { ModernTreasury::TransactionDirection }
 
       # @!attribute internal_account_id
       #   The ID of one of your internal accounts.
@@ -86,7 +86,7 @@ module ModernTreasury
       #
       #   @param description [String, nil] Defaults to a random description.
       #
-      #   @param direction [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction] One of `credit`, `debit`.
+      #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection] One of `credit`, `debit`.
       #
       #   @param internal_account_id [String] The ID of one of your internal accounts.
       #
@@ -97,17 +97,6 @@ module ModernTreasury
       #   @param virtual_account_id [String, nil] An optional parameter to associate the incoming payment detail to a virtual acco
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-
-      # One of `credit`, `debit`.
-      module Direction
-        extend ModernTreasury::Internal::Type::Enum
-
-        CREDIT = :credit
-        DEBIT = :debit
-
-        # @!method self.values
-        #   @return [Array<Symbol>]
-      end
 
       # One of `ach`, `wire`, `check`.
       module Type

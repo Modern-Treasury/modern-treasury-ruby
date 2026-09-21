@@ -243,6 +243,12 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :originating_party_name
 
+      # Secondary name for the legal entity making the payment. Can be used for e.g.
+      # check signatures where the originating party wishes to retain their company's
+      # display name but use an employee's name for the signature.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :originating_secondary_party_name
+
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
       # same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
       # an overnight check rather than standard mail.
@@ -453,6 +459,7 @@ module ModernTreasury
               ModernTreasury::PaymentOrderCreateParams::OriginatingPartyAddress::OrHash
             ),
           originating_party_name: T.nilable(String),
+          originating_secondary_party_name: T.nilable(String),
           priority:
             ModernTreasury::PaymentOrderCreateParams::Priority::OrSymbol,
           process_after: T.nilable(Time),
@@ -557,6 +564,10 @@ module ModernTreasury
         # the first 16 characters of this string will be used. Any additional characters
         # will be truncated.
         originating_party_name: nil,
+        # Secondary name for the legal entity making the payment. Can be used for e.g.
+        # check signatures where the originating party wishes to retain their company's
+        # display name but use an employee's name for the signature.
+        originating_secondary_party_name: nil,
         # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
         # same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
         # an overnight check rather than standard mail.
@@ -663,6 +674,7 @@ module ModernTreasury
                 ModernTreasury::PaymentOrderCreateParams::OriginatingPartyAddress
               ),
             originating_party_name: T.nilable(String),
+            originating_secondary_party_name: T.nilable(String),
             priority:
               ModernTreasury::PaymentOrderCreateParams::Priority::OrSymbol,
             process_after: T.nilable(Time),

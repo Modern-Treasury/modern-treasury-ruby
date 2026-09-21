@@ -206,6 +206,14 @@ module ModernTreasury
       #   @return [String, nil]
       required :originating_party_name, String, nil?: true
 
+      # @!attribute originating_secondary_party_name
+      #   Secondary name for the legal entity making the payment. Can be used for e.g.
+      #   check signatures where the originating party wishes to retain their company's
+      #   display name but use an employee's name for the signature.
+      #
+      #   @return [String, nil]
+      required :originating_secondary_party_name, String, nil?: true
+
       # @!attribute priority
       #   Either `normal` or `high`. For ACH and EFT payments, `high` represents a
       #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
@@ -376,7 +384,7 @@ module ModernTreasury
       #   @return [String, nil]
       required :vendor_failure_reason, String, nil?: true
 
-      # @!method initialize(id:, accounting:, accounting_category_id:, accounting_ledger_class_id:, amount:, batch_id:, charge_bearer:, counterparty_id:, created_at:, currency:, current_hold:, current_return:, description:, direction:, effective_date:, expires_at:, external_id:, foreign_exchange_contract:, foreign_exchange_indicator:, foreign_exchange_rate:, ledger_transaction_id:, live_mode:, metadata:, nsf_protected:, object:, originating_account_id:, originating_account_type:, originating_party_address:, originating_party_name:, priority:, process_after:, purpose:, receiving_account_id:, receiving_account_type:, reconciliation_status:, reference_numbers:, remittance_information:, send_remittance_advice:, statement_descriptor:, status:, subtype:, transaction_ids:, type:, ultimate_originating_account:, ultimate_originating_account_id:, ultimate_originating_account_type:, ultimate_originating_party_identifier:, ultimate_originating_party_name:, ultimate_receiving_party_identifier:, ultimate_receiving_party_name:, updated_at:, vendor_attributes:, vendor_failure_reason:)
+      # @!method initialize(id:, accounting:, accounting_category_id:, accounting_ledger_class_id:, amount:, batch_id:, charge_bearer:, counterparty_id:, created_at:, currency:, current_hold:, current_return:, description:, direction:, effective_date:, expires_at:, external_id:, foreign_exchange_contract:, foreign_exchange_indicator:, foreign_exchange_rate:, ledger_transaction_id:, live_mode:, metadata:, nsf_protected:, object:, originating_account_id:, originating_account_type:, originating_party_address:, originating_party_name:, originating_secondary_party_name:, priority:, process_after:, purpose:, receiving_account_id:, receiving_account_type:, reconciliation_status:, reference_numbers:, remittance_information:, send_remittance_advice:, statement_descriptor:, status:, subtype:, transaction_ids:, type:, ultimate_originating_account:, ultimate_originating_account_id:, ultimate_originating_account_type:, ultimate_originating_party_identifier:, ultimate_originating_party_name:, ultimate_receiving_party_identifier:, ultimate_receiving_party_name:, updated_at:, vendor_attributes:, vendor_failure_reason:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::PaymentOrder} for more details.
       #
@@ -437,6 +445,8 @@ module ModernTreasury
       #   @param originating_party_address [ModernTreasury::Models::PaymentOrder::OriginatingPartyAddress, nil] If present, this address will override the default originating party address use
       #
       #   @param originating_party_name [String, nil] If present, this will replace your default company name on receiver's bank state
+      #
+      #   @param originating_secondary_party_name [String, nil] Secondary name for the legal entity making the payment. Can be used for e.g. ch
       #
       #   @param priority [Symbol, ModernTreasury::Models::PaymentOrder::Priority] Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-da
       #

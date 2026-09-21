@@ -32,7 +32,7 @@ module ModernTreasury
         ?currency: ModernTreasury::Models::currency?,
         ?data: top?,
         ?description: String?,
-        ?direction: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::direction,
+        ?direction: ModernTreasury::Models::transaction_direction,
         ?internal_account_id: String,
         ?subtype: String?,
         ?type: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::type_,

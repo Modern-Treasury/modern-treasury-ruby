@@ -25,6 +25,7 @@ module ModernTreasury
         nsf_protected: bool,
         originating_party_address: ModernTreasury::PaymentOrderCreateAsyncParams::OriginatingPartyAddress?,
         originating_party_name: String?,
+        originating_secondary_party_name: String?,
         priority: ModernTreasury::Models::PaymentOrderCreateAsyncParams::priority,
         process_after: Time?,
         purpose: String?,
@@ -124,6 +125,8 @@ module ModernTreasury
 
       attr_accessor originating_party_name: String?
 
+      attr_accessor originating_secondary_party_name: String?
+
       attr_reader priority: ModernTreasury::Models::PaymentOrderCreateAsyncParams::priority?
 
       def priority=: (
@@ -204,6 +207,7 @@ module ModernTreasury
         ?nsf_protected: bool,
         ?originating_party_address: ModernTreasury::PaymentOrderCreateAsyncParams::OriginatingPartyAddress?,
         ?originating_party_name: String?,
+        ?originating_secondary_party_name: String?,
         ?priority: ModernTreasury::Models::PaymentOrderCreateAsyncParams::priority,
         ?process_after: Time?,
         ?purpose: String?,
@@ -249,6 +253,7 @@ module ModernTreasury
         nsf_protected: bool,
         originating_party_address: ModernTreasury::PaymentOrderCreateAsyncParams::OriginatingPartyAddress?,
         originating_party_name: String?,
+        originating_secondary_party_name: String?,
         priority: ModernTreasury::Models::PaymentOrderCreateAsyncParams::priority,
         process_after: Time?,
         purpose: String?,
