@@ -31,6 +31,7 @@ module ModernTreasury
         originating_account_type: ModernTreasury::Models::PaymentOrder::originating_account_type,
         originating_party_address: ModernTreasury::PaymentOrder::OriginatingPartyAddress?,
         originating_party_name: String?,
+        originating_secondary_party_name: String?,
         priority: ModernTreasury::Models::PaymentOrder::priority,
         process_after: Time?,
         purpose: String?,
@@ -116,6 +117,8 @@ module ModernTreasury
 
       attr_accessor originating_party_name: String?
 
+      attr_accessor originating_secondary_party_name: String?
+
       attr_accessor priority: ModernTreasury::Models::PaymentOrder::priority
 
       attr_accessor process_after: Time?
@@ -194,6 +197,7 @@ module ModernTreasury
         originating_account_type: ModernTreasury::Models::PaymentOrder::originating_account_type,
         originating_party_address: ModernTreasury::PaymentOrder::OriginatingPartyAddress?,
         originating_party_name: String?,
+        originating_secondary_party_name: String?,
         priority: ModernTreasury::Models::PaymentOrder::priority,
         process_after: Time?,
         purpose: String?,
@@ -250,6 +254,7 @@ module ModernTreasury
         originating_account_type: ModernTreasury::Models::PaymentOrder::originating_account_type,
         originating_party_address: ModernTreasury::PaymentOrder::OriginatingPartyAddress?,
         originating_party_name: String?,
+        originating_secondary_party_name: String?,
         priority: ModernTreasury::Models::PaymentOrder::priority,
         process_after: Time?,
         purpose: String?,

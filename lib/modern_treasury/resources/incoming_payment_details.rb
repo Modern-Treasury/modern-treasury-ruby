@@ -113,7 +113,7 @@ module ModernTreasury
       #
       # @param description [String, nil] Defaults to a random description.
       #
-      # @param direction [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction] One of `credit`, `debit`.
+      # @param direction [Symbol, ModernTreasury::Models::TransactionDirection] One of `credit`, `debit`.
       #
       # @param internal_account_id [String] The ID of one of your internal accounts.
       #
