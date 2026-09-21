@@ -7,7 +7,7 @@ module ModernTreasury
         currency: ModernTreasury::Models::currency?,
         data: top?,
         description: String?,
-        direction: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::direction,
+        direction: ModernTreasury::Models::transaction_direction,
         internal_account_id: String,
         subtype: String?,
         type: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::type_,
@@ -31,11 +31,11 @@ module ModernTreasury
 
       attr_accessor description: String?
 
-      attr_reader direction: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::direction?
+      attr_reader direction: ModernTreasury::Models::transaction_direction?
 
       def direction=: (
-        ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::direction
-      ) -> ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::direction
+        ModernTreasury::Models::transaction_direction
+      ) -> ModernTreasury::Models::transaction_direction
 
       attr_reader internal_account_id: String?
 
@@ -57,7 +57,7 @@ module ModernTreasury
         ?currency: ModernTreasury::Models::currency?,
         ?data: top?,
         ?description: String?,
-        ?direction: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::direction,
+        ?direction: ModernTreasury::Models::transaction_direction,
         ?internal_account_id: String,
         ?subtype: String?,
         ?type: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::type_,
@@ -71,24 +71,13 @@ module ModernTreasury
         currency: ModernTreasury::Models::currency?,
         data: top?,
         description: String?,
-        direction: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::direction,
+        direction: ModernTreasury::Models::transaction_direction,
         internal_account_id: String,
         subtype: String?,
         type: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::type_,
         virtual_account_id: String?,
         request_options: ModernTreasury::RequestOptions
       }
-
-      type direction = :credit | :debit
-
-      module Direction
-        extend ModernTreasury::Internal::Type::Enum
-
-        CREDIT: :credit
-        DEBIT: :debit
-
-        def self?.values: -> ::Array[ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::direction]
-      end
 
       type type_ =
         :ach
