@@ -212,6 +212,11 @@ module ModernTreasury
             :government_id_number,
             ModernTreasury::ThirdPartyVerification::VerificationCategory::TaggedSymbol
           )
+        TAX_ID =
+          T.let(
+            :tax_id,
+            ModernTreasury::ThirdPartyVerification::VerificationCategory::TaggedSymbol
+          )
         ADVERSE_MEDIA =
           T.let(
             :adverse_media,
