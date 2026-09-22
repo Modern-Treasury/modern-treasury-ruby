@@ -101,6 +101,7 @@ module ModernTreasury
         DATE_OF_BIRTH = :date_of_birth
         ADDRESS = :address
         GOVERNMENT_ID_NUMBER = :government_id_number
+        TAX_ID = :tax_id
         ADVERSE_MEDIA = :adverse_media
 
         # @!method self.values
