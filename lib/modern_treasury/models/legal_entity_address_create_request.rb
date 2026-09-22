@@ -21,12 +21,6 @@ module ModernTreasury
       #   @return [String, nil]
       required :locality, String, nil?: true
 
-      # @!attribute postal_code
-      #   The postal code of the address.
-      #
-      #   @return [String, nil]
-      required :postal_code, String, nil?: true
-
       # @!attribute region
       #   Region or State. This field is free-form; for US states, we recommend a
       #   two-letter code (e.g. CA). Full state names are also accepted.
@@ -46,6 +40,12 @@ module ModernTreasury
       #   @return [String, nil]
       optional :line2, String, nil?: true
 
+      # @!attribute postal_code
+      #   The postal code of the address.
+      #
+      #   @return [String, nil]
+      optional :postal_code, String, nil?: true
+
       # @!attribute primary
       #   Whether this address is the primary address for the legal entity. Optional; when
       #   omitted it is inferred from the address types.
@@ -53,7 +53,7 @@ module ModernTreasury
       #   @return [Boolean, nil]
       optional :primary, ModernTreasury::Internal::Type::Boolean, nil?: true
 
-      # @!method initialize(country:, line1:, locality:, postal_code:, region:, address_types: nil, line2: nil, primary: nil)
+      # @!method initialize(country:, line1:, locality:, region:, address_types: nil, line2: nil, postal_code: nil, primary: nil)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LegalEntityAddressCreateRequest} for more details.
       #
@@ -63,13 +63,13 @@ module ModernTreasury
       #
       #   @param locality [String, nil] Locality or City. Use the full city name rather than an abbreviation (e.g. San F
       #
-      #   @param postal_code [String, nil] The postal code of the address.
-      #
       #   @param region [String, nil] Region or State. This field is free-form; for US states, we recommend a two-lett
       #
       #   @param address_types [Array<Symbol, ModernTreasury::Models::LegalEntityAddressCreateRequest::AddressType>] The types of this address.
       #
       #   @param line2 [String, nil]
+      #
+      #   @param postal_code [String, nil] The postal code of the address.
       #
       #   @param primary [Boolean, nil] Whether this address is the primary address for the legal entity. Optional; when
 
