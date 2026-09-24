@@ -134,7 +134,7 @@ module ModernTreasury
       attr_accessor :reconciliation_method
 
       # An array of reconciliation rule variables for this payment.
-      sig { returns(T.nilable(T::Array[ModernTreasury::ReconciliationRule])) }
+      sig { returns(T::Array[ModernTreasury::ReconciliationRule]) }
       attr_accessor :reconciliation_rule_variables
 
       # For `ach`, this field will be passed through on an addenda record. For `wire`
@@ -207,7 +207,7 @@ module ModernTreasury
               ModernTreasury::ExpectedPayment::ReconciliationMethod::OrSymbol
             ),
           reconciliation_rule_variables:
-            T.nilable(T::Array[ModernTreasury::ReconciliationRule::OrHash]),
+            T::Array[ModernTreasury::ReconciliationRule::OrHash],
           remittance_information: T.nilable(String),
           statement_descriptor: T.nilable(String),
           status: ModernTreasury::ExpectedPayment::Status::OrSymbol,
@@ -334,7 +334,7 @@ module ModernTreasury
                 ModernTreasury::ExpectedPayment::ReconciliationMethod::TaggedSymbol
               ),
             reconciliation_rule_variables:
-              T.nilable(T::Array[ModernTreasury::ReconciliationRule]),
+              T::Array[ModernTreasury::ReconciliationRule],
             remittance_information: T.nilable(String),
             statement_descriptor: T.nilable(String),
             status: ModernTreasury::ExpectedPayment::Status::TaggedSymbol,
