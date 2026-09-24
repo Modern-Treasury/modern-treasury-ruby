@@ -50,7 +50,7 @@ module ModernTreasury
       #
       # @param reconciliation_groups [Object, nil] The reconciliation groups you have for this payment.
       #
-      # @param reconciliation_rule_variables [Array<ModernTreasury::Models::ReconciliationRule>, nil] An array of reconciliation rule variables for this payment.
+      # @param reconciliation_rule_variables [Array<ModernTreasury::Models::ReconciliationRule>] An array of reconciliation rule variables for this payment.
       #
       # @param remittance_information [String, nil] For `ach`, this field will be passed through on an addenda record. For `wire` pa
       #
@@ -137,7 +137,7 @@ module ModernTreasury
       #
       # @param reconciliation_groups [Object, nil] The reconciliation groups you have for this payment.
       #
-      # @param reconciliation_rule_variables [Array<ModernTreasury::Models::ReconciliationRule>, nil] An array of reconciliation rule variables for this payment.
+      # @param reconciliation_rule_variables [Array<ModernTreasury::Models::ReconciliationRule>] An array of reconciliation rule variables for this payment.
       #
       # @param remittance_information [String, nil] For `ach`, this field will be passed through on an addenda record. For `wire` pa
       #
