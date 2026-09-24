@@ -40,7 +40,7 @@ module ModernTreasury
           reconciliation_filters: T.nilable(T.anything),
           reconciliation_groups: T.nilable(T.anything),
           reconciliation_rule_variables:
-            T.nilable(T::Array[ModernTreasury::ReconciliationRule::OrHash]),
+            T::Array[ModernTreasury::ReconciliationRule::OrHash],
           remittance_information: T.nilable(String),
           statement_descriptor: T.nilable(String),
           type: T.nilable(ModernTreasury::ExpectedPaymentType::OrSymbol),
@@ -163,7 +163,7 @@ module ModernTreasury
           reconciliation_filters: T.nilable(T.anything),
           reconciliation_groups: T.nilable(T.anything),
           reconciliation_rule_variables:
-            T.nilable(T::Array[ModernTreasury::ReconciliationRule::OrHash]),
+            T::Array[ModernTreasury::ReconciliationRule::OrHash],
           remittance_information: T.nilable(String),
           statement_descriptor: T.nilable(String),
           status:

@@ -159,10 +159,9 @@ module ModernTreasury
       # @!attribute reconciliation_rule_variables
       #   An array of reconciliation rule variables for this payment.
       #
-      #   @return [Array<ModernTreasury::Models::ReconciliationRule>, nil]
+      #   @return [Array<ModernTreasury::Models::ReconciliationRule>]
       required :reconciliation_rule_variables,
-               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ReconciliationRule] },
-               nil?: true
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ReconciliationRule] }
 
       # @!attribute remittance_information
       #   For `ach`, this field will be passed through on an addenda record. For `wire`
@@ -260,7 +259,7 @@ module ModernTreasury
       #
       #   @param reconciliation_method [Symbol, ModernTreasury::Models::ExpectedPayment::ReconciliationMethod, nil] One of manual if this expected payment was manually reconciled in the dashboard,
       #
-      #   @param reconciliation_rule_variables [Array<ModernTreasury::Models::ReconciliationRule>, nil] An array of reconciliation rule variables for this payment.
+      #   @param reconciliation_rule_variables [Array<ModernTreasury::Models::ReconciliationRule>] An array of reconciliation rule variables for this payment.
       #
       #   @param remittance_information [String, nil] For `ach`, this field will be passed through on an addenda record. For `wire` pa
       #

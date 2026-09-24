@@ -20,7 +20,7 @@ module ModernTreasury
         metadata: ::Hash[Symbol, String],
         reconciliation_filters: top?,
         reconciliation_groups: top?,
-        reconciliation_rule_variables: ::Array[ModernTreasury::ReconciliationRule]?,
+        reconciliation_rule_variables: ::Array[ModernTreasury::ReconciliationRule],
         remittance_information: String?,
         statement_descriptor: String?,
         status: ModernTreasury::Models::ExpectedPaymentUpdateParams::status?,
@@ -70,7 +70,11 @@ module ModernTreasury
 
       attr_accessor reconciliation_groups: top?
 
-      attr_accessor reconciliation_rule_variables: ::Array[ModernTreasury::ReconciliationRule]?
+      attr_reader reconciliation_rule_variables: ::Array[ModernTreasury::ReconciliationRule]?
+
+      def reconciliation_rule_variables=: (
+        ::Array[ModernTreasury::ReconciliationRule]
+      ) -> ::Array[ModernTreasury::ReconciliationRule]
 
       attr_accessor remittance_information: String?
 
@@ -99,7 +103,7 @@ module ModernTreasury
         ?metadata: ::Hash[Symbol, String],
         ?reconciliation_filters: top?,
         ?reconciliation_groups: top?,
-        ?reconciliation_rule_variables: ::Array[ModernTreasury::ReconciliationRule]?,
+        ?reconciliation_rule_variables: ::Array[ModernTreasury::ReconciliationRule],
         ?remittance_information: String?,
         ?statement_descriptor: String?,
         ?status: ModernTreasury::Models::ExpectedPaymentUpdateParams::status?,
@@ -126,7 +130,7 @@ module ModernTreasury
         metadata: ::Hash[Symbol, String],
         reconciliation_filters: top?,
         reconciliation_groups: top?,
-        reconciliation_rule_variables: ::Array[ModernTreasury::ReconciliationRule]?,
+        reconciliation_rule_variables: ::Array[ModernTreasury::ReconciliationRule],
         remittance_information: String?,
         statement_descriptor: String?,
         status: ModernTreasury::Models::ExpectedPaymentUpdateParams::status?,

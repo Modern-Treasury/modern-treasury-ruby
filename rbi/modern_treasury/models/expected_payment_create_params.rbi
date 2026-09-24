@@ -157,7 +157,15 @@ module ModernTreasury
 
       # An array of reconciliation rule variables for this payment.
       sig { returns(T.nilable(T::Array[ModernTreasury::ReconciliationRule])) }
-      attr_accessor :reconciliation_rule_variables
+      attr_reader :reconciliation_rule_variables
+
+      sig do
+        params(
+          reconciliation_rule_variables:
+            T::Array[ModernTreasury::ReconciliationRule::OrHash]
+        ).void
+      end
+      attr_writer :reconciliation_rule_variables
 
       # For `ach`, this field will be passed through on an addenda record. For `wire`
       # payments the field will be passed through as the "Originator to Beneficiary
@@ -212,7 +220,7 @@ module ModernTreasury
           reconciliation_filters: T.nilable(T.anything),
           reconciliation_groups: T.nilable(T.anything),
           reconciliation_rule_variables:
-            T.nilable(T::Array[ModernTreasury::ReconciliationRule::OrHash]),
+            T::Array[ModernTreasury::ReconciliationRule::OrHash],
           remittance_information: T.nilable(String),
           statement_descriptor: T.nilable(String),
           type: T.nilable(ModernTreasury::ExpectedPaymentType::OrSymbol),
@@ -324,7 +332,7 @@ module ModernTreasury
             reconciliation_filters: T.nilable(T.anything),
             reconciliation_groups: T.nilable(T.anything),
             reconciliation_rule_variables:
-              T.nilable(T::Array[ModernTreasury::ReconciliationRule]),
+              T::Array[ModernTreasury::ReconciliationRule],
             remittance_information: T.nilable(String),
             statement_descriptor: T.nilable(String),
             type: T.nilable(ModernTreasury::ExpectedPaymentType::OrSymbol),
