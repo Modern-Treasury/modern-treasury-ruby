@@ -5,11 +5,11 @@ module ModernTreasury
         country: String?,
         :line1 => String?,
         locality: String?,
-        region: String?,
         address_types: ::Array[ModernTreasury::Models::LegalEntityAddressCreateRequest::address_type],
         :line2 => String?,
         postal_code: String?,
-        primary: bool?
+        primary: bool?,
+        region: String?
       }
 
     class LegalEntityAddressCreateRequest < ModernTreasury::Internal::Type::BaseModel
@@ -18,8 +18,6 @@ module ModernTreasury
       attr_accessor line1: String?
 
       attr_accessor locality: String?
-
-      attr_accessor region: String?
 
       attr_reader address_types: ::Array[ModernTreasury::Models::LegalEntityAddressCreateRequest::address_type]?
 
@@ -33,26 +31,28 @@ module ModernTreasury
 
       attr_accessor primary: bool?
 
+      attr_accessor region: String?
+
       def initialize: (
         country: String?,
         line1: String?,
         locality: String?,
-        region: String?,
         ?address_types: ::Array[ModernTreasury::Models::LegalEntityAddressCreateRequest::address_type],
         ?line2: String?,
         ?postal_code: String?,
-        ?primary: bool?
+        ?primary: bool?,
+        ?region: String?
       ) -> void
 
       def to_hash: -> {
         country: String?,
         :line1 => String?,
         locality: String?,
-        region: String?,
         address_types: ::Array[ModernTreasury::Models::LegalEntityAddressCreateRequest::address_type],
         :line2 => String?,
         postal_code: String?,
-        primary: bool?
+        primary: bool?,
+        region: String?
       }
 
       type address_type =

@@ -21,13 +21,6 @@ module ModernTreasury
       #   @return [String, nil]
       required :locality, String, nil?: true
 
-      # @!attribute region
-      #   Region or State. This field is free-form; for US states, we recommend a
-      #   two-letter code (e.g. CA). Full state names are also accepted.
-      #
-      #   @return [String, nil]
-      required :region, String, nil?: true
-
       # @!attribute address_types
       #   The types of this address.
       #
@@ -53,7 +46,14 @@ module ModernTreasury
       #   @return [Boolean, nil]
       optional :primary, ModernTreasury::Internal::Type::Boolean, nil?: true
 
-      # @!method initialize(country:, line1:, locality:, region:, address_types: nil, line2: nil, postal_code: nil, primary: nil)
+      # @!attribute region
+      #   Region or State. This field is free-form; for US states, we recommend a
+      #   two-letter code (e.g. CA). Full state names are also accepted.
+      #
+      #   @return [String, nil]
+      optional :region, String, nil?: true
+
+      # @!method initialize(country:, line1:, locality:, address_types: nil, line2: nil, postal_code: nil, primary: nil, region: nil)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LegalEntityAddressCreateRequest} for more details.
       #
@@ -63,8 +63,6 @@ module ModernTreasury
       #
       #   @param locality [String, nil] Locality or City. Use the full city name rather than an abbreviation (e.g. San F
       #
-      #   @param region [String, nil] Region or State. This field is free-form; for US states, we recommend a two-lett
-      #
       #   @param address_types [Array<Symbol, ModernTreasury::Models::LegalEntityAddressCreateRequest::AddressType>] The types of this address.
       #
       #   @param line2 [String, nil]
@@ -72,6 +70,8 @@ module ModernTreasury
       #   @param postal_code [String, nil] The postal code of the address.
       #
       #   @param primary [Boolean, nil] Whether this address is the primary address for the legal entity. Optional; when
+      #
+      #   @param region [String, nil] Region or State. This field is free-form; for US states, we recommend a two-lett
 
       module AddressType
         extend ModernTreasury::Internal::Type::Enum
