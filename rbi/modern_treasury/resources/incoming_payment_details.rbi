@@ -108,7 +108,7 @@ module ModernTreasury
         amount: nil,
         # Defaults to today.
         as_of_date: nil,
-        # Defaults to the currency of the originating account.
+        # Three-letter ISO currency code.
         currency: nil,
         # An object passed through to the simulated IPD that could reflect what a vendor
         # would pass.
