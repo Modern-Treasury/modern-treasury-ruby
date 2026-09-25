@@ -14,7 +14,7 @@ module ModernTreasury
       #
       # @param addresses [Array<ModernTreasury::Models::LegalEntityAddressCreateRequest>] A list of addresses for the entity.
       #
-      # @param bank_settings [ModernTreasury::Models::LegalEntityBankSettings, nil]
+      # @param bank_settings [ModernTreasury::Models::LegalEntityBankSettings, Object, nil]
       #
       # @param business_description [String, nil] A description of the business.
       #
@@ -86,13 +86,13 @@ module ModernTreasury
       #
       # @param terms_of_use [ModernTreasury::Models::LegalEntityCreateParams::TermsOfUse, nil] Acceptance of terms of use by the legal entity.
       #
-      # @param third_party_verification [ModernTreasury::Models::ThirdPartyVerification, nil] Deprecated. Use `third_party_verifications` instead.
+      # @param third_party_verification [ModernTreasury::Models::ThirdPartyVerification, Object, nil] Deprecated. Use `third_party_verifications` instead.
       #
       # @param third_party_verifications [Array<ModernTreasury::Models::ThirdPartyVerification>] A list of third-party verifications run by external vendors.
       #
       # @param ticker_symbol [String, nil] Stock ticker symbol for publicly traded companies.
       #
-      # @param wealth_and_employment_details [ModernTreasury::Models::LegalEntityWealthEmploymentDetail, nil]
+      # @param wealth_and_employment_details [ModernTreasury::Models::LegalEntityWealthEmploymentDetail, Object, nil]
       #
       # @param website [String, nil] The entity's primary website URL.
       #
@@ -143,7 +143,7 @@ module ModernTreasury
       #
       # @param addresses [Array<ModernTreasury::Models::LegalEntityAddressCreateRequest>] A list of addresses for the entity.
       #
-      # @param bank_settings [ModernTreasury::Models::LegalEntityBankSettings, nil]
+      # @param bank_settings [ModernTreasury::Models::LegalEntityBankSettings, Object, nil]
       #
       # @param business_description [String, nil] A description of the business.
       #
@@ -207,13 +207,13 @@ module ModernTreasury
       #
       # @param terms_of_use [ModernTreasury::Models::LegalEntityUpdateParams::TermsOfUse, nil] Acceptance of terms of use by the legal entity.
       #
-      # @param third_party_verification [ModernTreasury::Models::ThirdPartyVerification, nil] Deprecated. Use `third_party_verifications` instead.
+      # @param third_party_verification [ModernTreasury::Models::ThirdPartyVerification, Object, nil] Deprecated. Use `third_party_verifications` instead.
       #
       # @param third_party_verifications [Array<ModernTreasury::Models::ThirdPartyVerification>] A list of third-party verifications run by external vendors.
       #
       # @param ticker_symbol [String, nil] Stock ticker symbol for publicly traded companies.
       #
-      # @param wealth_and_employment_details [ModernTreasury::Models::LegalEntityWealthEmploymentDetail, nil]
+      # @param wealth_and_employment_details [ModernTreasury::Models::LegalEntityWealthEmploymentDetail, Object, nil]
       #
       # @param website [String, nil] The entity's primary website URL.
       #

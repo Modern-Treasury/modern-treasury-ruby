@@ -45,8 +45,8 @@ module ModernTreasury
       #   If the return's status is `returned`, this will include the return object's data
       #   that is returning this return.
       #
-      #   @return [ModernTreasury::Models::ReturnObject, nil]
-      required :current_return, -> { ModernTreasury::ReturnObject }, nil?: true
+      #   @return [ModernTreasury::Models::ReturnObject, Object, nil]
+      required :current_return, union: -> { ModernTreasury::ReturnObject::CurrentReturn }
 
       # @!attribute date_of_death
       #   If the return code is `R14` or `R15` this is the date the deceased counterparty
@@ -188,7 +188,7 @@ module ModernTreasury
       #
       #   @param currency [Symbol, ModernTreasury::Models::Currency] Currency that this transaction is denominated in.
       #
-      #   @param current_return [ModernTreasury::Models::ReturnObject, nil] If the return's status is `returned`, this will include the return object's data
+      #   @param current_return [ModernTreasury::Models::ReturnObject, Object, nil] If the return's status is `returned`, this will include the return object's data
       #
       #   @param date_of_death [Date, nil] If the return code is `R14` or `R15` this is the date the deceased counterparty
       #
@@ -397,6 +397,21 @@ module ModernTreasury
         #   @param routing_number [String, nil] The updated routing number that should replace the one originally used on the ou
         #
         #   @param transaction_code [String, nil] The updated account type code that should replace the one originally used on the
+      end
+
+      # If the return's status is `returned`, this will include the return object's data
+      # that is returning this return.
+      #
+      # @see ModernTreasury::Models::ReturnObject#current_return
+      module CurrentReturn
+        extend ModernTreasury::Internal::Type::Union
+
+        variant -> { ModernTreasury::ReturnObject }
+
+        variant ModernTreasury::Internal::Type::Unknown
+
+        # @!method self.variants
+        #   @return [Array(ModernTreasury::Models::ReturnObject, Object)]
       end
 
       # One of `unreconciled`, `tentatively_reconciled` or `reconciled`.

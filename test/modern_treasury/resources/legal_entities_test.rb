@@ -14,7 +14,7 @@ class ModernTreasury::Test::Resources::LegalEntitiesTest < ModernTreasury::Test:
       response => {
         id: String,
         addresses: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntity::Address]),
-        bank_settings: ModernTreasury::LegalEntityBankSettings | nil,
+        bank_settings: ModernTreasury::LegalEntity::BankSettings,
         business_description: String | nil,
         business_designation: ModernTreasury::LegalEntity::BusinessDesignation | nil,
         business_name: String | nil,
@@ -54,11 +54,11 @@ class ModernTreasury::Test::Resources::LegalEntitiesTest < ModernTreasury::Test:
         status: ModernTreasury::LegalEntity::Status | nil,
         suffix: String | nil,
         terms_of_use: ModernTreasury::LegalEntity::TermsOfUse | nil,
-        third_party_verification: ModernTreasury::ThirdPartyVerification | nil,
+        third_party_verification: ModernTreasury::LegalEntity::ThirdPartyVerification,
         third_party_verifications: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ThirdPartyVerification]),
         ticker_symbol: String | nil,
         updated_at: Time,
-        wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail | nil,
+        wealth_and_employment_details: ModernTreasury::LegalEntity::WealthAndEmploymentDetails,
         website: String | nil,
         legal_entity_associations: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityAssociation]) | nil
       }
@@ -76,7 +76,7 @@ class ModernTreasury::Test::Resources::LegalEntitiesTest < ModernTreasury::Test:
       response => {
         id: String,
         addresses: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntity::Address]),
-        bank_settings: ModernTreasury::LegalEntityBankSettings | nil,
+        bank_settings: ModernTreasury::LegalEntity::BankSettings,
         business_description: String | nil,
         business_designation: ModernTreasury::LegalEntity::BusinessDesignation | nil,
         business_name: String | nil,
@@ -116,11 +116,11 @@ class ModernTreasury::Test::Resources::LegalEntitiesTest < ModernTreasury::Test:
         status: ModernTreasury::LegalEntity::Status | nil,
         suffix: String | nil,
         terms_of_use: ModernTreasury::LegalEntity::TermsOfUse | nil,
-        third_party_verification: ModernTreasury::ThirdPartyVerification | nil,
+        third_party_verification: ModernTreasury::LegalEntity::ThirdPartyVerification,
         third_party_verifications: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ThirdPartyVerification]),
         ticker_symbol: String | nil,
         updated_at: Time,
-        wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail | nil,
+        wealth_and_employment_details: ModernTreasury::LegalEntity::WealthAndEmploymentDetails,
         website: String | nil,
         legal_entity_associations: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityAssociation]) | nil
       }
@@ -138,7 +138,7 @@ class ModernTreasury::Test::Resources::LegalEntitiesTest < ModernTreasury::Test:
       response => {
         id: String,
         addresses: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntity::Address]),
-        bank_settings: ModernTreasury::LegalEntityBankSettings | nil,
+        bank_settings: ModernTreasury::LegalEntity::BankSettings,
         business_description: String | nil,
         business_designation: ModernTreasury::LegalEntity::BusinessDesignation | nil,
         business_name: String | nil,
@@ -178,11 +178,11 @@ class ModernTreasury::Test::Resources::LegalEntitiesTest < ModernTreasury::Test:
         status: ModernTreasury::LegalEntity::Status | nil,
         suffix: String | nil,
         terms_of_use: ModernTreasury::LegalEntity::TermsOfUse | nil,
-        third_party_verification: ModernTreasury::ThirdPartyVerification | nil,
+        third_party_verification: ModernTreasury::LegalEntity::ThirdPartyVerification,
         third_party_verifications: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ThirdPartyVerification]),
         ticker_symbol: String | nil,
         updated_at: Time,
-        wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail | nil,
+        wealth_and_employment_details: ModernTreasury::LegalEntity::WealthAndEmploymentDetails,
         website: String | nil,
         legal_entity_associations: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityAssociation]) | nil
       }
@@ -207,7 +207,7 @@ class ModernTreasury::Test::Resources::LegalEntitiesTest < ModernTreasury::Test:
       row => {
         id: String,
         addresses: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntity::Address]),
-        bank_settings: ModernTreasury::LegalEntityBankSettings | nil,
+        bank_settings: ModernTreasury::LegalEntity::BankSettings,
         business_description: String | nil,
         business_designation: ModernTreasury::LegalEntity::BusinessDesignation | nil,
         business_name: String | nil,
@@ -247,11 +247,11 @@ class ModernTreasury::Test::Resources::LegalEntitiesTest < ModernTreasury::Test:
         status: ModernTreasury::LegalEntity::Status | nil,
         suffix: String | nil,
         terms_of_use: ModernTreasury::LegalEntity::TermsOfUse | nil,
-        third_party_verification: ModernTreasury::ThirdPartyVerification | nil,
+        third_party_verification: ModernTreasury::LegalEntity::ThirdPartyVerification,
         third_party_verifications: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ThirdPartyVerification]),
         ticker_symbol: String | nil,
         updated_at: Time,
-        wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail | nil,
+        wealth_and_employment_details: ModernTreasury::LegalEntity::WealthAndEmploymentDetails,
         website: String | nil,
         legal_entity_associations: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityAssociation]) | nil
       }
@@ -269,7 +269,7 @@ class ModernTreasury::Test::Resources::LegalEntitiesTest < ModernTreasury::Test:
       response => {
         id: String,
         addresses: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntity::Address]),
-        bank_settings: ModernTreasury::LegalEntityBankSettings | nil,
+        bank_settings: ModernTreasury::LegalEntity::BankSettings,
         business_description: String | nil,
         business_designation: ModernTreasury::LegalEntity::BusinessDesignation | nil,
         business_name: String | nil,
@@ -309,11 +309,11 @@ class ModernTreasury::Test::Resources::LegalEntitiesTest < ModernTreasury::Test:
         status: ModernTreasury::LegalEntity::Status | nil,
         suffix: String | nil,
         terms_of_use: ModernTreasury::LegalEntity::TermsOfUse | nil,
-        third_party_verification: ModernTreasury::ThirdPartyVerification | nil,
+        third_party_verification: ModernTreasury::LegalEntity::ThirdPartyVerification,
         third_party_verifications: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ThirdPartyVerification]),
         ticker_symbol: String | nil,
         updated_at: Time,
-        wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail | nil,
+        wealth_and_employment_details: ModernTreasury::LegalEntity::WealthAndEmploymentDetails,
         website: String | nil,
         legal_entity_associations: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityAssociation]) | nil
       }

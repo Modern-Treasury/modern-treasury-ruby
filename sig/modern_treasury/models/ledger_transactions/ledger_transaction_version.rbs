@@ -135,7 +135,7 @@ module ModernTreasury
             live_mode: bool,
             metadata: ::Hash[Symbol, String],
             object: String,
-            resulting_ledger_account_balances: ModernTreasury::LedgerBalances?,
+            resulting_ledger_account_balances: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::resulting_ledger_account_balances?,
             status: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::status
           }
 
@@ -168,7 +168,7 @@ module ModernTreasury
 
           attr_accessor object: String
 
-          attr_accessor resulting_ledger_account_balances: ModernTreasury::LedgerBalances?
+          attr_accessor resulting_ledger_account_balances: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::resulting_ledger_account_balances?
 
           attr_accessor status: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::status
 
@@ -187,7 +187,7 @@ module ModernTreasury
             live_mode: bool,
             metadata: ::Hash[Symbol, String],
             object: String,
-            resulting_ledger_account_balances: ModernTreasury::LedgerBalances?,
+            resulting_ledger_account_balances: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::resulting_ledger_account_balances?,
             status: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::status
           ) -> void
 
@@ -206,9 +206,18 @@ module ModernTreasury
             live_mode: bool,
             metadata: ::Hash[Symbol, String],
             object: String,
-            resulting_ledger_account_balances: ModernTreasury::LedgerBalances?,
+            resulting_ledger_account_balances: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::resulting_ledger_account_balances?,
             status: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::status
           }
+
+          type resulting_ledger_account_balances =
+            (ModernTreasury::LedgerBalances | top)?
+
+          module ResultingLedgerAccountBalances
+            extend ModernTreasury::Internal::Type::Union
+
+            def self?.variants: -> ::Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::resulting_ledger_account_balances]
+          end
 
           type status = :archived | :pending | :posted
 

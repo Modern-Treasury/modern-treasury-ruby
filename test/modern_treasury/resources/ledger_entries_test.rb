@@ -27,7 +27,7 @@ class ModernTreasury::Test::Resources::LedgerEntriesTest < ModernTreasury::Test:
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
-        resulting_ledger_account_balances: ModernTreasury::LedgerBalances | nil,
+        resulting_ledger_account_balances: ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances,
         status: ModernTreasury::LedgerEntry::Status,
         updated_at: Time
       }
@@ -58,7 +58,7 @@ class ModernTreasury::Test::Resources::LedgerEntriesTest < ModernTreasury::Test:
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
-        resulting_ledger_account_balances: ModernTreasury::LedgerBalances | nil,
+        resulting_ledger_account_balances: ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances,
         status: ModernTreasury::LedgerEntry::Status,
         updated_at: Time
       }
@@ -96,7 +96,7 @@ class ModernTreasury::Test::Resources::LedgerEntriesTest < ModernTreasury::Test:
         live_mode: ModernTreasury::Internal::Type::Boolean,
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
-        resulting_ledger_account_balances: ModernTreasury::LedgerBalances | nil,
+        resulting_ledger_account_balances: ModernTreasury::LedgerEntry::ResultingLedgerAccountBalances,
         status: ModernTreasury::LedgerEntry::Status,
         updated_at: Time
       }

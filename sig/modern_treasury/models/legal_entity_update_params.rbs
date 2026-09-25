@@ -4,7 +4,7 @@ module ModernTreasury
       {
         id: String,
         addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
-        bank_settings: ModernTreasury::LegalEntityBankSettings?,
+        bank_settings: ModernTreasury::Models::LegalEntityUpdateParams::bank_settings?,
         business_description: String?,
         business_designation: ModernTreasury::Models::LegalEntityUpdateParams::business_designation?,
         business_name: String?,
@@ -36,10 +36,10 @@ module ModernTreasury
         service_provider_legal_entity_id: String?,
         suffix: String?,
         terms_of_use: ModernTreasury::LegalEntityUpdateParams::TermsOfUse?,
-        third_party_verification: ModernTreasury::ThirdPartyVerification?,
+        third_party_verification: ModernTreasury::Models::LegalEntityUpdateParams::third_party_verification?,
         third_party_verifications: ::Array[ModernTreasury::ThirdPartyVerification],
         ticker_symbol: String?,
-        wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,
+        wealth_and_employment_details: ModernTreasury::Models::LegalEntityUpdateParams::wealth_and_employment_details?,
         website: String?
       }
       & ModernTreasury::Internal::Type::request_parameters
@@ -56,7 +56,11 @@ module ModernTreasury
         ::Array[ModernTreasury::LegalEntityAddressCreateRequest]
       ) -> ::Array[ModernTreasury::LegalEntityAddressCreateRequest]
 
-      attr_accessor bank_settings: ModernTreasury::LegalEntityBankSettings?
+      attr_reader bank_settings: ModernTreasury::Models::LegalEntityUpdateParams::bank_settings?
+
+      def bank_settings=: (
+        ModernTreasury::Models::LegalEntityUpdateParams::bank_settings?
+      ) -> ModernTreasury::Models::LegalEntityUpdateParams::bank_settings?
 
       attr_accessor business_description: String?
 
@@ -140,7 +144,11 @@ module ModernTreasury
 
       attr_accessor terms_of_use: ModernTreasury::LegalEntityUpdateParams::TermsOfUse?
 
-      attr_accessor third_party_verification: ModernTreasury::ThirdPartyVerification?
+      attr_reader third_party_verification: ModernTreasury::Models::LegalEntityUpdateParams::third_party_verification?
+
+      def third_party_verification=: (
+        ModernTreasury::Models::LegalEntityUpdateParams::third_party_verification?
+      ) -> ModernTreasury::Models::LegalEntityUpdateParams::third_party_verification?
 
       attr_reader third_party_verifications: ::Array[ModernTreasury::ThirdPartyVerification]?
 
@@ -150,14 +158,18 @@ module ModernTreasury
 
       attr_accessor ticker_symbol: String?
 
-      attr_accessor wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?
+      attr_reader wealth_and_employment_details: ModernTreasury::Models::LegalEntityUpdateParams::wealth_and_employment_details?
+
+      def wealth_and_employment_details=: (
+        ModernTreasury::Models::LegalEntityUpdateParams::wealth_and_employment_details?
+      ) -> ModernTreasury::Models::LegalEntityUpdateParams::wealth_and_employment_details?
 
       attr_accessor website: String?
 
       def initialize: (
         id: String,
         ?addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
-        ?bank_settings: ModernTreasury::LegalEntityBankSettings?,
+        ?bank_settings: ModernTreasury::Models::LegalEntityUpdateParams::bank_settings?,
         ?business_description: String?,
         ?business_designation: ModernTreasury::Models::LegalEntityUpdateParams::business_designation?,
         ?business_name: String?,
@@ -189,10 +201,10 @@ module ModernTreasury
         ?service_provider_legal_entity_id: String?,
         ?suffix: String?,
         ?terms_of_use: ModernTreasury::LegalEntityUpdateParams::TermsOfUse?,
-        ?third_party_verification: ModernTreasury::ThirdPartyVerification?,
+        ?third_party_verification: ModernTreasury::Models::LegalEntityUpdateParams::third_party_verification?,
         ?third_party_verifications: ::Array[ModernTreasury::ThirdPartyVerification],
         ?ticker_symbol: String?,
-        ?wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,
+        ?wealth_and_employment_details: ModernTreasury::Models::LegalEntityUpdateParams::wealth_and_employment_details?,
         ?website: String?,
         ?request_options: ModernTreasury::request_opts
       ) -> void
@@ -200,7 +212,7 @@ module ModernTreasury
       def to_hash: -> {
         id: String,
         addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
-        bank_settings: ModernTreasury::LegalEntityBankSettings?,
+        bank_settings: ModernTreasury::Models::LegalEntityUpdateParams::bank_settings?,
         business_description: String?,
         business_designation: ModernTreasury::Models::LegalEntityUpdateParams::business_designation?,
         business_name: String?,
@@ -232,13 +244,21 @@ module ModernTreasury
         service_provider_legal_entity_id: String?,
         suffix: String?,
         terms_of_use: ModernTreasury::LegalEntityUpdateParams::TermsOfUse?,
-        third_party_verification: ModernTreasury::ThirdPartyVerification?,
+        third_party_verification: ModernTreasury::Models::LegalEntityUpdateParams::third_party_verification?,
         third_party_verifications: ::Array[ModernTreasury::ThirdPartyVerification],
         ticker_symbol: String?,
-        wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,
+        wealth_and_employment_details: ModernTreasury::Models::LegalEntityUpdateParams::wealth_and_employment_details?,
         website: String?,
         request_options: ModernTreasury::RequestOptions
       }
+
+      type bank_settings = (ModernTreasury::LegalEntityBankSettings | top)?
+
+      module BankSettings
+        extend ModernTreasury::Internal::Type::Union
+
+        def self?.variants: -> ::Array[ModernTreasury::Models::LegalEntityUpdateParams::bank_settings]
+      end
 
       type business_designation =
         :exempt_financial_institution | :non_operating_business
@@ -334,6 +354,24 @@ module ModernTreasury
         def initialize: (?accepted_at: Time, ?ip_address: String) -> void
 
         def to_hash: -> { accepted_at: Time, ip_address: String }
+      end
+
+      type third_party_verification =
+        (ModernTreasury::ThirdPartyVerification | top)?
+
+      module ThirdPartyVerification
+        extend ModernTreasury::Internal::Type::Union
+
+        def self?.variants: -> ::Array[ModernTreasury::Models::LegalEntityUpdateParams::third_party_verification]
+      end
+
+      type wealth_and_employment_details =
+        (ModernTreasury::LegalEntityWealthEmploymentDetail | top)?
+
+      module WealthAndEmploymentDetails
+        extend ModernTreasury::Internal::Type::Union
+
+        def self?.variants: -> ::Array[ModernTreasury::Models::LegalEntityUpdateParams::wealth_and_employment_details]
       end
     end
   end

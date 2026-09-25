@@ -45,13 +45,12 @@ module ModernTreasury
 
       # If the return's status is `returned`, this will include the return object's data
       # that is returning this return.
-      sig { returns(T.nilable(ModernTreasury::ReturnObject)) }
-      attr_reader :current_return
-
       sig do
-        params(current_return: T.nilable(ModernTreasury::ReturnObject)).void
+        returns(
+          T.nilable(ModernTreasury::ReturnObject::CurrentReturn::Variants)
+        )
       end
-      attr_writer :current_return
+      attr_accessor :current_return
 
       # If the return code is `R14` or `R15` this is the date the deceased counterparty
       # passed away.
@@ -153,7 +152,8 @@ module ModernTreasury
             T.nilable(ModernTreasury::ReturnObject::Corrections::OrHash),
           created_at: Time,
           currency: ModernTreasury::Currency::OrSymbol,
-          current_return: T.nilable(ModernTreasury::ReturnObject),
+          current_return:
+            T.nilable(T.any(ModernTreasury::ReturnObject, T.anything)),
           date_of_death: T.nilable(Date),
           discarded_at: T.nilable(Time),
           failure_reason: T.nilable(String),
@@ -251,7 +251,8 @@ module ModernTreasury
             corrections: T.nilable(ModernTreasury::ReturnObject::Corrections),
             created_at: Time,
             currency: ModernTreasury::Currency::TaggedSymbol,
-            current_return: T.nilable(ModernTreasury::ReturnObject),
+            current_return:
+              T.nilable(ModernTreasury::ReturnObject::CurrentReturn::Variants),
             date_of_death: T.nilable(Date),
             discarded_at: T.nilable(Time),
             failure_reason: T.nilable(String),
@@ -497,6 +498,25 @@ module ModernTreasury
           )
         end
         def to_hash
+        end
+      end
+
+      # If the return's status is `returned`, this will include the return object's data
+      # that is returning this return.
+      module CurrentReturn
+        extend ModernTreasury::Internal::Type::Union
+
+        Variants =
+          T.type_alias do
+            T.nilable(T.any(ModernTreasury::ReturnObject, T.anything))
+          end
+
+        sig do
+          override.returns(
+            T::Array[ModernTreasury::ReturnObject::CurrentReturn::Variants]
+          )
+        end
+        def self.variants
         end
       end
 

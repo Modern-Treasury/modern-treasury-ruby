@@ -4,7 +4,7 @@ module ModernTreasury
       def create: (
         legal_entity_type: ModernTreasury::Models::LegalEntityCreateParams::legal_entity_type,
         ?addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
-        ?bank_settings: ModernTreasury::LegalEntityBankSettings?,
+        ?bank_settings: ModernTreasury::Models::LegalEntityCreateParams::bank_settings?,
         ?business_description: String?,
         ?business_designation: ModernTreasury::Models::LegalEntityCreateParams::business_designation?,
         ?business_name: String?,
@@ -40,10 +40,10 @@ module ModernTreasury
         ?service_provider_legal_entity_id: String?,
         ?suffix: String?,
         ?terms_of_use: ModernTreasury::LegalEntityCreateParams::TermsOfUse?,
-        ?third_party_verification: ModernTreasury::ThirdPartyVerification?,
+        ?third_party_verification: ModernTreasury::Models::LegalEntityCreateParams::third_party_verification?,
         ?third_party_verifications: ::Array[ModernTreasury::ThirdPartyVerification],
         ?ticker_symbol: String?,
-        ?wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,
+        ?wealth_and_employment_details: ModernTreasury::Models::LegalEntityCreateParams::wealth_and_employment_details?,
         ?website: String?,
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::LegalEntity
@@ -56,7 +56,7 @@ module ModernTreasury
       def update: (
         String id,
         ?addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
-        ?bank_settings: ModernTreasury::LegalEntityBankSettings?,
+        ?bank_settings: ModernTreasury::Models::LegalEntityUpdateParams::bank_settings?,
         ?business_description: String?,
         ?business_designation: ModernTreasury::Models::LegalEntityUpdateParams::business_designation?,
         ?business_name: String?,
@@ -88,10 +88,10 @@ module ModernTreasury
         ?service_provider_legal_entity_id: String?,
         ?suffix: String?,
         ?terms_of_use: ModernTreasury::LegalEntityUpdateParams::TermsOfUse?,
-        ?third_party_verification: ModernTreasury::ThirdPartyVerification?,
+        ?third_party_verification: ModernTreasury::Models::LegalEntityUpdateParams::third_party_verification?,
         ?third_party_verifications: ::Array[ModernTreasury::ThirdPartyVerification],
         ?ticker_symbol: String?,
-        ?wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,
+        ?wealth_and_employment_details: ModernTreasury::Models::LegalEntityUpdateParams::wealth_and_employment_details?,
         ?website: String?,
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::LegalEntity

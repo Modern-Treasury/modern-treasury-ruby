@@ -75,8 +75,8 @@ module ModernTreasury
       # @!attribute foreign_exchange_rate
       #   Associated serialized foreign exchange rate information.
       #
-      #   @return [ModernTreasury::Models::ForeignExchangeRate, nil]
-      required :foreign_exchange_rate, -> { ModernTreasury::ForeignExchangeRate }, nil?: true
+      #   @return [ModernTreasury::Models::ForeignExchangeRate, Object, nil]
+      required :foreign_exchange_rate, union: -> { ModernTreasury::Transaction::ForeignExchangeRate }
 
       # @!attribute internal_account_id
       #   The ID of the relevant Internal Account.
@@ -202,7 +202,7 @@ module ModernTreasury
       #
       #   @param discarded_at [Time, nil]
       #
-      #   @param foreign_exchange_rate [ModernTreasury::Models::ForeignExchangeRate, nil] Associated serialized foreign exchange rate information.
+      #   @param foreign_exchange_rate [ModernTreasury::Models::ForeignExchangeRate, Object, nil] Associated serialized foreign exchange rate information.
       #
       #   @param internal_account_id [String] The ID of the relevant Internal Account.
       #
@@ -231,6 +231,20 @@ module ModernTreasury
       #   @param details [Hash{Symbol=>String}] This field contains additional information that the bank provided about the tran
       #
       #   @param vendor_description [String, nil] The transaction detail text that often appears in on your bank statement and in
+
+      # Associated serialized foreign exchange rate information.
+      #
+      # @see ModernTreasury::Models::Transaction#foreign_exchange_rate
+      module ForeignExchangeRate
+        extend ModernTreasury::Internal::Type::Union
+
+        variant -> { ModernTreasury::ForeignExchangeRate }
+
+        variant ModernTreasury::Internal::Type::Unknown
+
+        # @!method self.variants
+        #   @return [Array(ModernTreasury::Models::ForeignExchangeRate, Object)]
+      end
 
       # The type of the transaction. Examples could be
       # `card, `ach`, `wire`, `check`, `rtp`, or `book`.
