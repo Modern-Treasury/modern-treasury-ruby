@@ -23,11 +23,6 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :locality
 
-      # Region or State. This field is free-form; for US states, we recommend a
-      # two-letter code (e.g. CA). Full state names are also accepted.
-      sig { returns(T.nilable(String)) }
-      attr_accessor :region
-
       # The types of this address.
       sig do
         returns(
@@ -62,19 +57,24 @@ module ModernTreasury
       sig { returns(T.nilable(T::Boolean)) }
       attr_accessor :primary
 
+      # Region or State. This field is free-form; for US states, we recommend a
+      # two-letter code (e.g. CA). Full state names are also accepted.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :region
+
       sig do
         params(
           country: T.nilable(String),
           line1: T.nilable(String),
           locality: T.nilable(String),
-          region: T.nilable(String),
           address_types:
             T::Array[
               ModernTreasury::LegalEntityAddressCreateRequest::AddressType::OrSymbol
             ],
           line2: T.nilable(String),
           postal_code: T.nilable(String),
-          primary: T.nilable(T::Boolean)
+          primary: T.nilable(T::Boolean),
+          region: T.nilable(String)
         ).returns(T.attached_class)
       end
       def self.new(
@@ -84,9 +84,6 @@ module ModernTreasury
         # Locality or City. Use the full city name rather than an abbreviation (e.g. San
         # Francisco).
         locality:,
-        # Region or State. This field is free-form; for US states, we recommend a
-        # two-letter code (e.g. CA). Full state names are also accepted.
-        region:,
         # The types of this address.
         address_types: nil,
         line2: nil,
@@ -94,7 +91,10 @@ module ModernTreasury
         postal_code: nil,
         # Whether this address is the primary address for the legal entity. Optional; when
         # omitted it is inferred from the address types.
-        primary: nil
+        primary: nil,
+        # Region or State. This field is free-form; for US states, we recommend a
+        # two-letter code (e.g. CA). Full state names are also accepted.
+        region: nil
       )
       end
 
@@ -104,14 +104,14 @@ module ModernTreasury
             country: T.nilable(String),
             line1: T.nilable(String),
             locality: T.nilable(String),
-            region: T.nilable(String),
             address_types:
               T::Array[
                 ModernTreasury::LegalEntityAddressCreateRequest::AddressType::OrSymbol
               ],
             line2: T.nilable(String),
             postal_code: T.nilable(String),
-            primary: T.nilable(T::Boolean)
+            primary: T.nilable(T::Boolean),
+            region: T.nilable(String)
           }
         )
       end
