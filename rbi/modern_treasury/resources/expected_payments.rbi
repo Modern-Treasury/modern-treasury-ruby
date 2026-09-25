@@ -68,7 +68,7 @@ module ModernTreasury
         amount_upper_bound: nil,
         # The ID of the counterparty you expect for this payment.
         counterparty_id: nil,
-        # Must conform to ISO 4217. Defaults to the currency of the internal account.
+        # Three-letter ISO currency code.
         currency: nil,
         # The earliest date the payment may come in. Format: yyyy-mm-dd
         date_lower_bound: nil,
@@ -197,7 +197,7 @@ module ModernTreasury
         amount_upper_bound: nil,
         # The ID of the counterparty you expect for this payment.
         counterparty_id: nil,
-        # Must conform to ISO 4217. Defaults to the currency of the internal account.
+        # Three-letter ISO currency code.
         currency: nil,
         # The earliest date the payment may come in. Format: yyyy-mm-dd
         date_lower_bound: nil,
