@@ -19,7 +19,10 @@ module ModernTreasury
             ),
           amount_upper_bound: T.nilable(Integer),
           counterparty_id: T.nilable(String),
-          currency: T.nilable(ModernTreasury::Currency::OrSymbol),
+          currency:
+            T.nilable(
+              ModernTreasury::ExpectedPaymentCreateParams::Currency::OrSymbol
+            ),
           date_lower_bound: T.nilable(Date),
           date_upper_bound: T.nilable(Date),
           description: T.nilable(String),
@@ -68,7 +71,6 @@ module ModernTreasury
         amount_upper_bound: nil,
         # The ID of the counterparty you expect for this payment.
         counterparty_id: nil,
-        # Must conform to ISO 4217. Defaults to the currency of the internal account.
         currency: nil,
         # The earliest date the payment may come in. Format: yyyy-mm-dd
         date_lower_bound: nil,
@@ -149,7 +151,10 @@ module ModernTreasury
             ),
           amount_upper_bound: T.nilable(Integer),
           counterparty_id: T.nilable(String),
-          currency: T.nilable(ModernTreasury::Currency::OrSymbol),
+          currency:
+            T.nilable(
+              ModernTreasury::ExpectedPaymentUpdateParams::Currency::OrSymbol
+            ),
           date_lower_bound: T.nilable(Date),
           date_upper_bound: T.nilable(Date),
           description: T.nilable(String),
@@ -197,7 +202,6 @@ module ModernTreasury
         amount_upper_bound: nil,
         # The ID of the counterparty you expect for this payment.
         counterparty_id: nil,
-        # Must conform to ISO 4217. Defaults to the currency of the internal account.
         currency: nil,
         # The earliest date the payment may come in. Format: yyyy-mm-dd
         date_lower_bound: nil,

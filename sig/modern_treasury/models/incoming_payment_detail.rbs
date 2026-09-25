@@ -26,10 +26,10 @@ module ModernTreasury
         type: ModernTreasury::Models::IncomingPaymentDetail::type_,
         updated_at: Time,
         vendor_id: String?,
-        virtual_account: ModernTreasury::VirtualAccount?,
+        virtual_account: ModernTreasury::Models::IncomingPaymentDetail::virtual_account?,
         virtual_account_id: String?,
         originating_account_number: String?,
-        originating_party_address: ModernTreasury::Address?,
+        originating_party_address: ModernTreasury::Models::IncomingPaymentDetail::originating_party_address?,
         originating_party_name: String?,
         originating_party_vendor_identifier: String?,
         receiving_account_number: String?,
@@ -85,13 +85,17 @@ module ModernTreasury
 
       attr_accessor vendor_id: String?
 
-      attr_accessor virtual_account: ModernTreasury::VirtualAccount?
+      attr_accessor virtual_account: ModernTreasury::Models::IncomingPaymentDetail::virtual_account?
 
       attr_accessor virtual_account_id: String?
 
       attr_accessor originating_account_number: String?
 
-      attr_accessor originating_party_address: ModernTreasury::Address?
+      attr_reader originating_party_address: ModernTreasury::Models::IncomingPaymentDetail::originating_party_address?
+
+      def originating_party_address=: (
+        ModernTreasury::Models::IncomingPaymentDetail::originating_party_address?
+      ) -> ModernTreasury::Models::IncomingPaymentDetail::originating_party_address?
 
       attr_accessor originating_party_name: String?
 
@@ -126,10 +130,10 @@ module ModernTreasury
         type: ModernTreasury::Models::IncomingPaymentDetail::type_,
         updated_at: Time,
         vendor_id: String?,
-        virtual_account: ModernTreasury::VirtualAccount?,
+        virtual_account: ModernTreasury::Models::IncomingPaymentDetail::virtual_account?,
         virtual_account_id: String?,
         ?originating_account_number: String?,
-        ?originating_party_address: ModernTreasury::Address?,
+        ?originating_party_address: ModernTreasury::Models::IncomingPaymentDetail::originating_party_address?,
         ?originating_party_name: String?,
         ?originating_party_vendor_identifier: String?,
         ?receiving_account_number: String?,
@@ -161,10 +165,10 @@ module ModernTreasury
         type: ModernTreasury::Models::IncomingPaymentDetail::type_,
         updated_at: Time,
         vendor_id: String?,
-        virtual_account: ModernTreasury::VirtualAccount?,
+        virtual_account: ModernTreasury::Models::IncomingPaymentDetail::virtual_account?,
         virtual_account_id: String?,
         originating_account_number: String?,
-        originating_party_address: ModernTreasury::Address?,
+        originating_party_address: ModernTreasury::Models::IncomingPaymentDetail::originating_party_address?,
         originating_party_name: String?,
         originating_party_vendor_identifier: String?,
         receiving_account_number: String?,
@@ -317,6 +321,22 @@ module ModernTreasury
         ZENGIN: :zengin
 
         def self?.values: -> ::Array[ModernTreasury::Models::IncomingPaymentDetail::type_]
+      end
+
+      type virtual_account = (ModernTreasury::VirtualAccount | top)?
+
+      module VirtualAccount
+        extend ModernTreasury::Internal::Type::Union
+
+        def self?.variants: -> ::Array[ModernTreasury::Models::IncomingPaymentDetail::virtual_account]
+      end
+
+      type originating_party_address = (ModernTreasury::Address | top)?
+
+      module OriginatingPartyAddress
+        extend ModernTreasury::Internal::Type::Union
+
+        def self?.variants: -> ::Array[ModernTreasury::Models::IncomingPaymentDetail::originating_party_address]
       end
     end
   end

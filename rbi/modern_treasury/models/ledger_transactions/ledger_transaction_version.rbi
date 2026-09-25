@@ -329,16 +329,14 @@ module ModernTreasury
           # and posted outgoing amounts. Please see
           # https://docs.moderntreasury.com/docs/transaction-status-and-balances for more
           # details.
-          sig { returns(T.nilable(ModernTreasury::LedgerBalances)) }
-          attr_reader :resulting_ledger_account_balances
-
           sig do
-            params(
-              resulting_ledger_account_balances:
-                T.nilable(ModernTreasury::LedgerBalances::OrHash)
-            ).void
+            returns(
+              T.nilable(
+                ModernTreasury::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::Variants
+              )
+            )
           end
-          attr_writer :resulting_ledger_account_balances
+          attr_accessor :resulting_ledger_account_balances
 
           # Equal to the state of the ledger transaction when the ledger entry was created.
           # One of `pending`, `posted`, or `archived`.
@@ -366,7 +364,9 @@ module ModernTreasury
               metadata: T::Hash[Symbol, String],
               object: String,
               resulting_ledger_account_balances:
-                T.nilable(ModernTreasury::LedgerBalances::OrHash),
+                T.nilable(
+                  T.any(ModernTreasury::LedgerBalances::OrHash, T.anything)
+                ),
               status:
                 ModernTreasury::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::Status::OrSymbol
             ).returns(T.attached_class)
@@ -440,13 +440,41 @@ module ModernTreasury
                 metadata: T::Hash[Symbol, String],
                 object: String,
                 resulting_ledger_account_balances:
-                  T.nilable(ModernTreasury::LedgerBalances),
+                  T.nilable(
+                    ModernTreasury::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::Variants
+                  ),
                 status:
                   ModernTreasury::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::Status::TaggedSymbol
               }
             )
           end
           def to_hash
+          end
+
+          # The pending, posted, and available balances for this ledger entry's ledger
+          # account. The posted balance is the sum of all posted entries on the account. The
+          # pending balance is the sum of all pending and posted entries on the account. The
+          # available balance is the posted incoming entries minus the sum of the pending
+          # and posted outgoing amounts. Please see
+          # https://docs.moderntreasury.com/docs/transaction-status-and-balances for more
+          # details.
+          module ResultingLedgerAccountBalances
+            extend ModernTreasury::Internal::Type::Union
+
+            Variants =
+              T.type_alias do
+                T.nilable(T.any(ModernTreasury::LedgerBalances, T.anything))
+              end
+
+            sig do
+              override.returns(
+                T::Array[
+                  ModernTreasury::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::Variants
+                ]
+              )
+            end
+            def self.variants
+            end
           end
 
           # Equal to the state of the ledger transaction when the ledger entry was created.

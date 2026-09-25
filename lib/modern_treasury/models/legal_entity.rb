@@ -17,8 +17,8 @@ module ModernTreasury
 
       # @!attribute bank_settings
       #
-      #   @return [ModernTreasury::Models::LegalEntityBankSettings, nil]
-      required :bank_settings, -> { ModernTreasury::LegalEntityBankSettings }, nil?: true
+      #   @return [ModernTreasury::Models::LegalEntityBankSettings, Object, nil]
+      required :bank_settings, union: -> { ModernTreasury::LegalEntity::BankSettings }
 
       # @!attribute business_description
       #   A description of the business.
@@ -262,12 +262,10 @@ module ModernTreasury
       required :terms_of_use, -> { ModernTreasury::LegalEntity::TermsOfUse }, nil?: true
 
       # @!attribute third_party_verification
-      #   @deprecated
-      #
       #   Deprecated. Use `third_party_verifications` instead.
       #
-      #   @return [ModernTreasury::Models::ThirdPartyVerification, nil]
-      required :third_party_verification, -> { ModernTreasury::ThirdPartyVerification }, nil?: true
+      #   @return [ModernTreasury::Models::ThirdPartyVerification, Object, nil]
+      required :third_party_verification, union: -> { ModernTreasury::LegalEntity::ThirdPartyVerification }
 
       # @!attribute third_party_verifications
       #   A list of third-party verifications run by external vendors.
@@ -289,10 +287,9 @@ module ModernTreasury
 
       # @!attribute wealth_and_employment_details
       #
-      #   @return [ModernTreasury::Models::LegalEntityWealthEmploymentDetail, nil]
+      #   @return [ModernTreasury::Models::LegalEntityWealthEmploymentDetail, Object, nil]
       required :wealth_and_employment_details,
-               -> { ModernTreasury::LegalEntityWealthEmploymentDetail },
-               nil?: true
+               union: -> { ModernTreasury::LegalEntity::WealthAndEmploymentDetails }
 
       # @!attribute website
       #   The entity's primary website URL.
@@ -316,7 +313,7 @@ module ModernTreasury
       #
       #   @param addresses [Array<ModernTreasury::Models::LegalEntity::Address>] A list of addresses for the entity.
       #
-      #   @param bank_settings [ModernTreasury::Models::LegalEntityBankSettings, nil]
+      #   @param bank_settings [ModernTreasury::Models::LegalEntityBankSettings, Object, nil]
       #
       #   @param business_description [String, nil] A description of the business.
       #
@@ -396,7 +393,7 @@ module ModernTreasury
       #
       #   @param terms_of_use [ModernTreasury::Models::LegalEntity::TermsOfUse, nil] Acceptance of terms of use by the legal entity.
       #
-      #   @param third_party_verification [ModernTreasury::Models::ThirdPartyVerification, nil] Deprecated. Use `third_party_verifications` instead.
+      #   @param third_party_verification [ModernTreasury::Models::ThirdPartyVerification, Object, nil] Deprecated. Use `third_party_verifications` instead.
       #
       #   @param third_party_verifications [Array<ModernTreasury::Models::ThirdPartyVerification>] A list of third-party verifications run by external vendors.
       #
@@ -404,7 +401,7 @@ module ModernTreasury
       #
       #   @param updated_at [Time]
       #
-      #   @param wealth_and_employment_details [ModernTreasury::Models::LegalEntityWealthEmploymentDetail, nil]
+      #   @param wealth_and_employment_details [ModernTreasury::Models::LegalEntityWealthEmploymentDetail, Object, nil]
       #
       #   @param website [String, nil] The entity's primary website URL.
       #
@@ -539,6 +536,18 @@ module ModernTreasury
           # @!method self.values
           #   @return [Array<Symbol>]
         end
+      end
+
+      # @see ModernTreasury::Models::LegalEntity#bank_settings
+      module BankSettings
+        extend ModernTreasury::Internal::Type::Union
+
+        variant -> { ModernTreasury::LegalEntityBankSettings }
+
+        variant ModernTreasury::Internal::Type::Unknown
+
+        # @!method self.variants
+        #   @return [Array(ModernTreasury::Models::LegalEntityBankSettings, Object)]
       end
 
       # Legal designation associated with the business.
@@ -687,6 +696,32 @@ module ModernTreasury
         #   @param accepted_at [Time] The ISO 8601 timestamp indicating when the terms of use were accepted.
         #
         #   @param ip_address [String] The IP address from which the terms of use were accepted. Supports both IPv4 and
+      end
+
+      # Deprecated. Use `third_party_verifications` instead.
+      #
+      # @see ModernTreasury::Models::LegalEntity#third_party_verification
+      module ThirdPartyVerification
+        extend ModernTreasury::Internal::Type::Union
+
+        variant -> { ModernTreasury::ThirdPartyVerification }
+
+        variant ModernTreasury::Internal::Type::Unknown
+
+        # @!method self.variants
+        #   @return [Array(ModernTreasury::Models::ThirdPartyVerification, Object)]
+      end
+
+      # @see ModernTreasury::Models::LegalEntity#wealth_and_employment_details
+      module WealthAndEmploymentDetails
+        extend ModernTreasury::Internal::Type::Union
+
+        variant -> { ModernTreasury::LegalEntityWealthEmploymentDetail }
+
+        variant ModernTreasury::Internal::Type::Unknown
+
+        # @!method self.variants
+        #   @return [Array(ModernTreasury::Models::LegalEntityWealthEmploymentDetail, Object)]
       end
     end
   end

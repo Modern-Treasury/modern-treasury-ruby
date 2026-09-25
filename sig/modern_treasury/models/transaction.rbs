@@ -13,7 +13,7 @@ module ModernTreasury
         custom_identifiers: ::Hash[Symbol, String],
         direction: String,
         discarded_at: Time?,
-        foreign_exchange_rate: ModernTreasury::ForeignExchangeRate?,
+        foreign_exchange_rate: ModernTreasury::Models::Transaction::foreign_exchange_rate?,
         internal_account_id: String,
         live_mode: bool,
         metadata: ::Hash[Symbol, String],
@@ -53,7 +53,7 @@ module ModernTreasury
 
       attr_accessor discarded_at: Time?
 
-      attr_accessor foreign_exchange_rate: ModernTreasury::ForeignExchangeRate?
+      attr_accessor foreign_exchange_rate: ModernTreasury::Models::Transaction::foreign_exchange_rate?
 
       attr_accessor internal_account_id: String
 
@@ -97,7 +97,7 @@ module ModernTreasury
         custom_identifiers: ::Hash[Symbol, String],
         direction: String,
         discarded_at: Time?,
-        foreign_exchange_rate: ModernTreasury::ForeignExchangeRate?,
+        foreign_exchange_rate: ModernTreasury::Models::Transaction::foreign_exchange_rate?,
         internal_account_id: String,
         live_mode: bool,
         metadata: ::Hash[Symbol, String],
@@ -126,7 +126,7 @@ module ModernTreasury
         custom_identifiers: ::Hash[Symbol, String],
         direction: String,
         discarded_at: Time?,
-        foreign_exchange_rate: ModernTreasury::ForeignExchangeRate?,
+        foreign_exchange_rate: ModernTreasury::Models::Transaction::foreign_exchange_rate?,
         internal_account_id: String,
         live_mode: bool,
         metadata: ::Hash[Symbol, String],
@@ -142,6 +142,14 @@ module ModernTreasury
         details: ::Hash[Symbol, String],
         vendor_description: String?
       }
+
+      type foreign_exchange_rate = (ModernTreasury::ForeignExchangeRate | top)?
+
+      module ForeignExchangeRate
+        extend ModernTreasury::Internal::Type::Union
+
+        def self?.variants: -> ::Array[ModernTreasury::Models::Transaction::foreign_exchange_rate]
+      end
 
       type type_ =
         :ach

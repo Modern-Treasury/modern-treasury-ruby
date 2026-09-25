@@ -65,28 +65,19 @@ module ModernTreasury
 
       # If the payment order's status is `held`, this will include the hold object's
       # data.
-      sig { returns(T.nilable(ModernTreasury::PaymentOrder::CurrentHold)) }
-      attr_reader :current_hold
-
       sig do
-        params(
-          current_hold:
-            T.nilable(ModernTreasury::PaymentOrder::CurrentHold::OrHash)
-        ).void
+        returns(T.nilable(ModernTreasury::PaymentOrder::CurrentHold::Variants))
       end
-      attr_writer :current_hold
+      attr_accessor :current_hold
 
       # If the payment order's status is `returned`, this will include the return
       # object's data.
-      sig { returns(T.nilable(ModernTreasury::ReturnObject)) }
-      attr_reader :current_return
-
       sig do
-        params(
-          current_return: T.nilable(ModernTreasury::ReturnObject::OrHash)
-        ).void
+        returns(
+          T.nilable(ModernTreasury::PaymentOrder::CurrentReturn::Variants)
+        )
       end
-      attr_writer :current_return
+      attr_accessor :current_return
 
       # An optional description for internal use.
       sig { returns(T.nilable(String)) }
@@ -131,16 +122,12 @@ module ModernTreasury
       attr_accessor :foreign_exchange_indicator
 
       # Associated serialized foreign exchange rate information.
-      sig { returns(T.nilable(ModernTreasury::ForeignExchangeRate)) }
-      attr_reader :foreign_exchange_rate
-
       sig do
-        params(
-          foreign_exchange_rate:
-            T.nilable(ModernTreasury::ForeignExchangeRate::OrHash)
-        ).void
+        returns(
+          T.nilable(ModernTreasury::PaymentOrder::ForeignExchangeRate::Variants)
+        )
       end
-      attr_writer :foreign_exchange_rate
+      attr_accessor :foreign_exchange_rate
 
       # The ID of the ledger transaction linked to the payment order.
       sig { returns(T.nilable(String)) }
@@ -360,8 +347,14 @@ module ModernTreasury
           created_at: Time,
           currency: ModernTreasury::Currency::OrSymbol,
           current_hold:
-            T.nilable(ModernTreasury::PaymentOrder::CurrentHold::OrHash),
-          current_return: T.nilable(ModernTreasury::ReturnObject::OrHash),
+            T.nilable(
+              T.any(
+                ModernTreasury::PaymentOrder::CurrentHold::Hold::OrHash,
+                T.anything
+              )
+            ),
+          current_return:
+            T.nilable(T.any(ModernTreasury::ReturnObject::OrHash, T.anything)),
           description: T.nilable(String),
           direction: ModernTreasury::PaymentOrder::Direction::OrSymbol,
           effective_date: Date,
@@ -373,7 +366,9 @@ module ModernTreasury
               ModernTreasury::PaymentOrder::ForeignExchangeIndicator::OrSymbol
             ),
           foreign_exchange_rate:
-            T.nilable(ModernTreasury::ForeignExchangeRate::OrHash),
+            T.nilable(
+              T.any(ModernTreasury::ForeignExchangeRate::OrHash, T.anything)
+            ),
           ledger_transaction_id: T.nilable(String),
           live_mode: T::Boolean,
           metadata: T::Hash[Symbol, String],
@@ -596,8 +591,10 @@ module ModernTreasury
             counterparty_id: T.nilable(String),
             created_at: Time,
             currency: ModernTreasury::Currency::TaggedSymbol,
-            current_hold: T.nilable(ModernTreasury::PaymentOrder::CurrentHold),
-            current_return: T.nilable(ModernTreasury::ReturnObject),
+            current_hold:
+              T.nilable(ModernTreasury::PaymentOrder::CurrentHold::Variants),
+            current_return:
+              T.nilable(ModernTreasury::PaymentOrder::CurrentReturn::Variants),
             description: T.nilable(String),
             direction: ModernTreasury::PaymentOrder::Direction::TaggedSymbol,
             effective_date: Date,
@@ -609,7 +606,9 @@ module ModernTreasury
                 ModernTreasury::PaymentOrder::ForeignExchangeIndicator::TaggedSymbol
               ),
             foreign_exchange_rate:
-              T.nilable(ModernTreasury::ForeignExchangeRate),
+              T.nilable(
+                ModernTreasury::PaymentOrder::ForeignExchangeRate::Variants
+              ),
             ledger_transaction_id: T.nilable(String),
             live_mode: T::Boolean,
             metadata: T::Hash[Symbol, String],
@@ -745,232 +744,278 @@ module ModernTreasury
         end
       end
 
-      class CurrentHold < ModernTreasury::Internal::Type::BaseModel
-        OrHash =
+      # If the payment order's status is `held`, this will include the hold object's
+      # data.
+      module CurrentHold
+        extend ModernTreasury::Internal::Type::Union
+
+        Variants =
           T.type_alias do
-            T.any(
-              ModernTreasury::PaymentOrder::CurrentHold,
-              ModernTreasury::Internal::AnyHash
+            T.nilable(
+              T.any(ModernTreasury::PaymentOrder::CurrentHold::Hold, T.anything)
             )
           end
 
-        sig { returns(String) }
-        attr_accessor :id
+        class Hold < ModernTreasury::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(
+                ModernTreasury::PaymentOrder::CurrentHold::Hold,
+                ModernTreasury::Internal::AnyHash
+              )
+            end
 
-        sig { returns(Time) }
-        attr_accessor :created_at
+          sig { returns(String) }
+          attr_accessor :id
 
-        # The type of object
-        sig do
-          returns(
-            ModernTreasury::PaymentOrder::CurrentHold::Object::TaggedSymbol
-          )
-        end
-        attr_accessor :object
+          sig { returns(Time) }
+          attr_accessor :created_at
 
-        # The status of the hold
-        sig do
-          returns(
-            ModernTreasury::PaymentOrder::CurrentHold::Status::TaggedSymbol
-          )
-        end
-        attr_accessor :status
-
-        # The ID of the target being held
-        sig { returns(String) }
-        attr_accessor :target_id
-
-        # The type of target being held
-        sig do
-          returns(
-            ModernTreasury::PaymentOrder::CurrentHold::TargetType::TaggedSymbol
-          )
-        end
-        attr_accessor :target_type
-
-        sig { returns(Time) }
-        attr_accessor :updated_at
-
-        # This field will be true if this object exists in the live environment or false
-        # if it exists in the test environment.
-        sig { returns(T.nilable(T::Boolean)) }
-        attr_reader :live_mode
-
-        sig { params(live_mode: T::Boolean).void }
-        attr_writer :live_mode
-
-        # Additional metadata for the hold
-        sig { returns(T.nilable(T::Hash[Symbol, String])) }
-        attr_accessor :metadata
-
-        # The reason for the hold
-        sig { returns(T.nilable(String)) }
-        attr_accessor :reason
-
-        # The resolution of the hold
-        sig { returns(T.nilable(String)) }
-        attr_accessor :resolution
-
-        # When the hold was resolved
-        sig { returns(T.nilable(Time)) }
-        attr_accessor :resolved_at
-
-        # If the payment order's status is `held`, this will include the hold object's
-        # data.
-        sig do
-          params(
-            id: String,
-            created_at: Time,
-            object: ModernTreasury::PaymentOrder::CurrentHold::Object::OrSymbol,
-            status: ModernTreasury::PaymentOrder::CurrentHold::Status::OrSymbol,
-            target_id: String,
-            target_type:
-              ModernTreasury::PaymentOrder::CurrentHold::TargetType::OrSymbol,
-            updated_at: Time,
-            live_mode: T::Boolean,
-            metadata: T.nilable(T::Hash[Symbol, String]),
-            reason: T.nilable(String),
-            resolution: T.nilable(String),
-            resolved_at: T.nilable(Time)
-          ).returns(T.attached_class)
-        end
-        def self.new(
-          id:,
-          created_at:,
           # The type of object
-          object:,
+          sig do
+            returns(
+              ModernTreasury::PaymentOrder::CurrentHold::Hold::Object::TaggedSymbol
+            )
+          end
+          attr_accessor :object
+
           # The status of the hold
-          status:,
+          sig do
+            returns(
+              ModernTreasury::PaymentOrder::CurrentHold::Hold::Status::TaggedSymbol
+            )
+          end
+          attr_accessor :status
+
           # The ID of the target being held
-          target_id:,
+          sig { returns(String) }
+          attr_accessor :target_id
+
           # The type of target being held
-          target_type:,
-          updated_at:,
+          sig do
+            returns(
+              ModernTreasury::PaymentOrder::CurrentHold::Hold::TargetType::TaggedSymbol
+            )
+          end
+          attr_accessor :target_type
+
+          sig { returns(Time) }
+          attr_accessor :updated_at
+
           # This field will be true if this object exists in the live environment or false
           # if it exists in the test environment.
-          live_mode: nil,
-          # Additional metadata for the hold
-          metadata: nil,
-          # The reason for the hold
-          reason: nil,
-          # The resolution of the hold
-          resolution: nil,
-          # When the hold was resolved
-          resolved_at: nil
-        )
-        end
+          sig { returns(T.nilable(T::Boolean)) }
+          attr_reader :live_mode
 
-        sig do
-          override.returns(
-            {
+          sig { params(live_mode: T::Boolean).void }
+          attr_writer :live_mode
+
+          # Additional metadata for the hold
+          sig { returns(T.nilable(T::Hash[Symbol, String])) }
+          attr_accessor :metadata
+
+          # The reason for the hold
+          sig { returns(T.nilable(String)) }
+          attr_accessor :reason
+
+          # The resolution of the hold
+          sig { returns(T.nilable(String)) }
+          attr_accessor :resolution
+
+          # When the hold was resolved
+          sig { returns(T.nilable(Time)) }
+          attr_accessor :resolved_at
+
+          sig do
+            params(
               id: String,
               created_at: Time,
               object:
-                ModernTreasury::PaymentOrder::CurrentHold::Object::TaggedSymbol,
+                ModernTreasury::PaymentOrder::CurrentHold::Hold::Object::OrSymbol,
               status:
-                ModernTreasury::PaymentOrder::CurrentHold::Status::TaggedSymbol,
+                ModernTreasury::PaymentOrder::CurrentHold::Hold::Status::OrSymbol,
               target_id: String,
               target_type:
-                ModernTreasury::PaymentOrder::CurrentHold::TargetType::TaggedSymbol,
+                ModernTreasury::PaymentOrder::CurrentHold::Hold::TargetType::OrSymbol,
               updated_at: Time,
               live_mode: T::Boolean,
               metadata: T.nilable(T::Hash[Symbol, String]),
               reason: T.nilable(String),
               resolution: T.nilable(String),
               resolved_at: T.nilable(Time)
-            }
+            ).returns(T.attached_class)
+          end
+          def self.new(
+            id:,
+            created_at:,
+            # The type of object
+            object:,
+            # The status of the hold
+            status:,
+            # The ID of the target being held
+            target_id:,
+            # The type of target being held
+            target_type:,
+            updated_at:,
+            # This field will be true if this object exists in the live environment or false
+            # if it exists in the test environment.
+            live_mode: nil,
+            # Additional metadata for the hold
+            metadata: nil,
+            # The reason for the hold
+            reason: nil,
+            # The resolution of the hold
+            resolution: nil,
+            # When the hold was resolved
+            resolved_at: nil
           )
-        end
-        def to_hash
-        end
-
-        # The type of object
-        module Object
-          extend ModernTreasury::Internal::Type::Enum
-
-          TaggedSymbol =
-            T.type_alias do
-              T.all(Symbol, ModernTreasury::PaymentOrder::CurrentHold::Object)
-            end
-          OrSymbol = T.type_alias { T.any(Symbol, String) }
-
-          HOLD =
-            T.let(
-              :hold,
-              ModernTreasury::PaymentOrder::CurrentHold::Object::TaggedSymbol
-            )
+          end
 
           sig do
             override.returns(
-              T::Array[
-                ModernTreasury::PaymentOrder::CurrentHold::Object::TaggedSymbol
-              ]
+              {
+                id: String,
+                created_at: Time,
+                object:
+                  ModernTreasury::PaymentOrder::CurrentHold::Hold::Object::TaggedSymbol,
+                status:
+                  ModernTreasury::PaymentOrder::CurrentHold::Hold::Status::TaggedSymbol,
+                target_id: String,
+                target_type:
+                  ModernTreasury::PaymentOrder::CurrentHold::Hold::TargetType::TaggedSymbol,
+                updated_at: Time,
+                live_mode: T::Boolean,
+                metadata: T.nilable(T::Hash[Symbol, String]),
+                reason: T.nilable(String),
+                resolution: T.nilable(String),
+                resolved_at: T.nilable(Time)
+              }
             )
           end
-          def self.values
+          def to_hash
           end
-        end
 
-        # The status of the hold
-        module Status
-          extend ModernTreasury::Internal::Type::Enum
+          # The type of object
+          module Object
+            extend ModernTreasury::Internal::Type::Enum
 
-          TaggedSymbol =
-            T.type_alias do
-              T.all(Symbol, ModernTreasury::PaymentOrder::CurrentHold::Status)
-            end
-          OrSymbol = T.type_alias { T.any(Symbol, String) }
+            TaggedSymbol =
+              T.type_alias do
+                T.all(
+                  Symbol,
+                  ModernTreasury::PaymentOrder::CurrentHold::Hold::Object
+                )
+              end
+            OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-          ACTIVE =
-            T.let(
-              :active,
-              ModernTreasury::PaymentOrder::CurrentHold::Status::TaggedSymbol
-            )
-          RESOLVED =
-            T.let(
-              :resolved,
-              ModernTreasury::PaymentOrder::CurrentHold::Status::TaggedSymbol
-            )
+            HOLD =
+              T.let(
+                :hold,
+                ModernTreasury::PaymentOrder::CurrentHold::Hold::Object::TaggedSymbol
+              )
 
-          sig do
-            override.returns(
-              T::Array[
-                ModernTreasury::PaymentOrder::CurrentHold::Status::TaggedSymbol
-              ]
-            )
-          end
-          def self.values
-          end
-        end
-
-        # The type of target being held
-        module TargetType
-          extend ModernTreasury::Internal::Type::Enum
-
-          TaggedSymbol =
-            T.type_alias do
-              T.all(
-                Symbol,
-                ModernTreasury::PaymentOrder::CurrentHold::TargetType
+            sig do
+              override.returns(
+                T::Array[
+                  ModernTreasury::PaymentOrder::CurrentHold::Hold::Object::TaggedSymbol
+                ]
               )
             end
-          OrSymbol = T.type_alias { T.any(Symbol, String) }
-
-          PAYMENT_ORDER =
-            T.let(
-              :payment_order,
-              ModernTreasury::PaymentOrder::CurrentHold::TargetType::TaggedSymbol
-            )
-
-          sig do
-            override.returns(
-              T::Array[
-                ModernTreasury::PaymentOrder::CurrentHold::TargetType::TaggedSymbol
-              ]
-            )
+            def self.values
+            end
           end
-          def self.values
+
+          # The status of the hold
+          module Status
+            extend ModernTreasury::Internal::Type::Enum
+
+            TaggedSymbol =
+              T.type_alias do
+                T.all(
+                  Symbol,
+                  ModernTreasury::PaymentOrder::CurrentHold::Hold::Status
+                )
+              end
+            OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+            ACTIVE =
+              T.let(
+                :active,
+                ModernTreasury::PaymentOrder::CurrentHold::Hold::Status::TaggedSymbol
+              )
+            RESOLVED =
+              T.let(
+                :resolved,
+                ModernTreasury::PaymentOrder::CurrentHold::Hold::Status::TaggedSymbol
+              )
+
+            sig do
+              override.returns(
+                T::Array[
+                  ModernTreasury::PaymentOrder::CurrentHold::Hold::Status::TaggedSymbol
+                ]
+              )
+            end
+            def self.values
+            end
           end
+
+          # The type of target being held
+          module TargetType
+            extend ModernTreasury::Internal::Type::Enum
+
+            TaggedSymbol =
+              T.type_alias do
+                T.all(
+                  Symbol,
+                  ModernTreasury::PaymentOrder::CurrentHold::Hold::TargetType
+                )
+              end
+            OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+            PAYMENT_ORDER =
+              T.let(
+                :payment_order,
+                ModernTreasury::PaymentOrder::CurrentHold::Hold::TargetType::TaggedSymbol
+              )
+
+            sig do
+              override.returns(
+                T::Array[
+                  ModernTreasury::PaymentOrder::CurrentHold::Hold::TargetType::TaggedSymbol
+                ]
+              )
+            end
+            def self.values
+            end
+          end
+        end
+
+        sig do
+          override.returns(
+            T::Array[ModernTreasury::PaymentOrder::CurrentHold::Variants]
+          )
+        end
+        def self.variants
+        end
+      end
+
+      # If the payment order's status is `returned`, this will include the return
+      # object's data.
+      module CurrentReturn
+        extend ModernTreasury::Internal::Type::Union
+
+        Variants =
+          T.type_alias do
+            T.nilable(T.any(ModernTreasury::ReturnObject, T.anything))
+          end
+
+        sig do
+          override.returns(
+            T::Array[ModernTreasury::PaymentOrder::CurrentReturn::Variants]
+          )
+        end
+        def self.variants
         end
       end
 
@@ -1035,6 +1080,26 @@ module ModernTreasury
           )
         end
         def self.values
+        end
+      end
+
+      # Associated serialized foreign exchange rate information.
+      module ForeignExchangeRate
+        extend ModernTreasury::Internal::Type::Union
+
+        Variants =
+          T.type_alias do
+            T.nilable(T.any(ModernTreasury::ForeignExchangeRate, T.anything))
+          end
+
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::PaymentOrder::ForeignExchangeRate::Variants
+            ]
+          )
+        end
+        def self.variants
         end
       end
 

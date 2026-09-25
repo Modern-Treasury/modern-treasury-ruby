@@ -161,8 +161,8 @@ module ModernTreasury
       #   If the incoming payment detail is in a virtual account, the serialized virtual
       #   account object.
       #
-      #   @return [ModernTreasury::Models::VirtualAccount, nil]
-      required :virtual_account, -> { ModernTreasury::VirtualAccount }, nil?: true
+      #   @return [ModernTreasury::Models::VirtualAccount, Object, nil]
+      required :virtual_account, union: -> { ModernTreasury::IncomingPaymentDetail::VirtualAccount }
 
       # @!attribute virtual_account_id
       #   If the incoming payment detail is in a virtual account, the ID of the Virtual
@@ -180,8 +180,9 @@ module ModernTreasury
       # @!attribute originating_party_address
       #   The address of the originating party for the incoming payment detail, or `null`.
       #
-      #   @return [ModernTreasury::Models::Address, nil]
-      optional :originating_party_address, -> { ModernTreasury::Address }, nil?: true
+      #   @return [ModernTreasury::Models::Address, Object, nil]
+      optional :originating_party_address,
+               union: -> { ModernTreasury::IncomingPaymentDetail::OriginatingPartyAddress }
 
       # @!attribute originating_party_name
       #   The name of the originating party for the incoming payment detail.
@@ -262,13 +263,13 @@ module ModernTreasury
       #
       #   @param vendor_id [String, nil] The identifier of the vendor bank.
       #
-      #   @param virtual_account [ModernTreasury::Models::VirtualAccount, nil] If the incoming payment detail is in a virtual account, the serialized virtual a
+      #   @param virtual_account [ModernTreasury::Models::VirtualAccount, Object, nil] If the incoming payment detail is in a virtual account, the serialized virtual a
       #
       #   @param virtual_account_id [String, nil] If the incoming payment detail is in a virtual account, the ID of the Virtual Ac
       #
       #   @param originating_account_number [String, nil] The account number of the originating account for the incoming payment detail.
       #
-      #   @param originating_party_address [ModernTreasury::Models::Address, nil] The address of the originating party for the incoming payment detail, or `null`.
+      #   @param originating_party_address [ModernTreasury::Models::Address, Object, nil] The address of the originating party for the incoming payment detail, or `null`.
       #
       #   @param originating_party_name [String, nil] The name of the originating party for the incoming payment detail.
       #
@@ -386,6 +387,35 @@ module ModernTreasury
 
         # @!method self.values
         #   @return [Array<Symbol>]
+      end
+
+      # If the incoming payment detail is in a virtual account, the serialized virtual
+      # account object.
+      #
+      # @see ModernTreasury::Models::IncomingPaymentDetail#virtual_account
+      module VirtualAccount
+        extend ModernTreasury::Internal::Type::Union
+
+        variant -> { ModernTreasury::VirtualAccount }
+
+        variant ModernTreasury::Internal::Type::Unknown
+
+        # @!method self.variants
+        #   @return [Array(ModernTreasury::Models::VirtualAccount, Object)]
+      end
+
+      # The address of the originating party for the incoming payment detail, or `null`.
+      #
+      # @see ModernTreasury::Models::IncomingPaymentDetail#originating_party_address
+      module OriginatingPartyAddress
+        extend ModernTreasury::Internal::Type::Union
+
+        variant -> { ModernTreasury::Address }
+
+        variant ModernTreasury::Internal::Type::Unknown
+
+        # @!method self.variants
+        #   @return [Array(ModernTreasury::Models::Address, Object)]
       end
     end
   end

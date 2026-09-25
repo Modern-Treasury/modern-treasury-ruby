@@ -55,16 +55,12 @@ module ModernTreasury
       attr_accessor :discarded_at
 
       # Associated serialized foreign exchange rate information.
-      sig { returns(T.nilable(ModernTreasury::ForeignExchangeRate)) }
-      attr_reader :foreign_exchange_rate
-
       sig do
-        params(
-          foreign_exchange_rate:
-            T.nilable(ModernTreasury::ForeignExchangeRate::OrHash)
-        ).void
+        returns(
+          T.nilable(ModernTreasury::Transaction::ForeignExchangeRate::Variants)
+        )
       end
-      attr_writer :foreign_exchange_rate
+      attr_accessor :foreign_exchange_rate
 
       # The ID of the relevant Internal Account.
       sig { returns(String) }
@@ -157,7 +153,9 @@ module ModernTreasury
           direction: String,
           discarded_at: T.nilable(Time),
           foreign_exchange_rate:
-            T.nilable(ModernTreasury::ForeignExchangeRate::OrHash),
+            T.nilable(
+              T.any(ModernTreasury::ForeignExchangeRate::OrHash, T.anything)
+            ),
           internal_account_id: String,
           live_mode: T::Boolean,
           metadata: T::Hash[Symbol, String],
@@ -262,7 +260,9 @@ module ModernTreasury
             direction: String,
             discarded_at: T.nilable(Time),
             foreign_exchange_rate:
-              T.nilable(ModernTreasury::ForeignExchangeRate),
+              T.nilable(
+                ModernTreasury::Transaction::ForeignExchangeRate::Variants
+              ),
             internal_account_id: String,
             live_mode: T::Boolean,
             metadata: T::Hash[Symbol, String],
@@ -284,6 +284,24 @@ module ModernTreasury
         )
       end
       def to_hash
+      end
+
+      # Associated serialized foreign exchange rate information.
+      module ForeignExchangeRate
+        extend ModernTreasury::Internal::Type::Union
+
+        Variants =
+          T.type_alias do
+            T.nilable(T.any(ModernTreasury::ForeignExchangeRate, T.anything))
+          end
+
+        sig do
+          override.returns(
+            T::Array[ModernTreasury::Transaction::ForeignExchangeRate::Variants]
+          )
+        end
+        def self.variants
+        end
       end
 
       # The type of the transaction. Examples could be

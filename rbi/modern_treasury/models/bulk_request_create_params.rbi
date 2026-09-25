@@ -2275,8 +2275,13 @@ module ModernTreasury
           sig { returns(T.nilable(String)) }
           attr_accessor :counterparty_id
 
-          # Must conform to ISO 4217. Defaults to the currency of the internal account.
-          sig { returns(T.nilable(ModernTreasury::Currency::OrSymbol)) }
+          sig do
+            returns(
+              T.nilable(
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::OrSymbol
+              )
+            )
+          end
           attr_accessor :currency
 
           # The earliest date the payment may come in. Format: yyyy-mm-dd
@@ -2422,7 +2427,10 @@ module ModernTreasury
                 ),
               amount_upper_bound: T.nilable(Integer),
               counterparty_id: T.nilable(String),
-              currency: T.nilable(ModernTreasury::Currency::OrSymbol),
+              currency:
+                T.nilable(
+                  ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::OrSymbol
+                ),
               date_lower_bound: T.nilable(Date),
               date_upper_bound: T.nilable(Date),
               description: T.nilable(String),
@@ -2470,7 +2478,6 @@ module ModernTreasury
             amount_upper_bound: nil,
             # The ID of the counterparty you expect for this payment.
             counterparty_id: nil,
-            # Must conform to ISO 4217. Defaults to the currency of the internal account.
             currency: nil,
             # The earliest date the payment may come in. Format: yyyy-mm-dd
             date_lower_bound: nil,
@@ -2535,7 +2542,10 @@ module ModernTreasury
                   ),
                 amount_upper_bound: T.nilable(Integer),
                 counterparty_id: T.nilable(String),
-                currency: T.nilable(ModernTreasury::Currency::OrSymbol),
+                currency:
+                  T.nilable(
+                    ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::OrSymbol
+                  ),
                 date_lower_bound: T.nilable(Date),
                 date_upper_bound: T.nilable(Date),
                 description: T.nilable(String),
@@ -2631,6 +2641,1030 @@ module ModernTreasury
               override.returns(
                 T::Array[
                   ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::AmountUnreconciledDirection::TaggedSymbol
+                ]
+              )
+            end
+            def self.values
+            end
+          end
+
+          module Currency
+            extend ModernTreasury::Internal::Type::Enum
+
+            TaggedSymbol =
+              T.type_alias do
+                T.all(
+                  Symbol,
+                  ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency
+                )
+              end
+            OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+            AED =
+              T.let(
+                :AED,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            AFN =
+              T.let(
+                :AFN,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            ALL =
+              T.let(
+                :ALL,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            AMD =
+              T.let(
+                :AMD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            ANG =
+              T.let(
+                :ANG,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            AOA =
+              T.let(
+                :AOA,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            ARS =
+              T.let(
+                :ARS,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            AUD =
+              T.let(
+                :AUD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            AWG =
+              T.let(
+                :AWG,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            AZN =
+              T.let(
+                :AZN,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            BAM =
+              T.let(
+                :BAM,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            BBD =
+              T.let(
+                :BBD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            BCH =
+              T.let(
+                :BCH,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            BDT =
+              T.let(
+                :BDT,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            BGN =
+              T.let(
+                :BGN,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            BHD =
+              T.let(
+                :BHD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            BIF =
+              T.let(
+                :BIF,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            BMD =
+              T.let(
+                :BMD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            BND =
+              T.let(
+                :BND,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            BOB =
+              T.let(
+                :BOB,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            BRL =
+              T.let(
+                :BRL,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            BSD =
+              T.let(
+                :BSD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            BTC =
+              T.let(
+                :BTC,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            BTN =
+              T.let(
+                :BTN,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            BWP =
+              T.let(
+                :BWP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            BYN =
+              T.let(
+                :BYN,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            BYR =
+              T.let(
+                :BYR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            BZD =
+              T.let(
+                :BZD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            CAD =
+              T.let(
+                :CAD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            CDF =
+              T.let(
+                :CDF,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            CHF =
+              T.let(
+                :CHF,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            CLF =
+              T.let(
+                :CLF,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            CLP =
+              T.let(
+                :CLP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            CNH =
+              T.let(
+                :CNH,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            CNY =
+              T.let(
+                :CNY,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            COP =
+              T.let(
+                :COP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            CRC =
+              T.let(
+                :CRC,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            CUC =
+              T.let(
+                :CUC,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            CUP =
+              T.let(
+                :CUP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            CVE =
+              T.let(
+                :CVE,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            CZK =
+              T.let(
+                :CZK,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            DJF =
+              T.let(
+                :DJF,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            DKK =
+              T.let(
+                :DKK,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            DOP =
+              T.let(
+                :DOP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            DZD =
+              T.let(
+                :DZD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            EEK =
+              T.let(
+                :EEK,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            EGP =
+              T.let(
+                :EGP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            ERN =
+              T.let(
+                :ERN,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            ETB =
+              T.let(
+                :ETB,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            ETH =
+              T.let(
+                :ETH,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            EUR =
+              T.let(
+                :EUR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            EURC =
+              T.let(
+                :EURC,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            FJD =
+              T.let(
+                :FJD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            FKP =
+              T.let(
+                :FKP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            GBP =
+              T.let(
+                :GBP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            GBX =
+              T.let(
+                :GBX,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            GEL =
+              T.let(
+                :GEL,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            GGP =
+              T.let(
+                :GGP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            GHS =
+              T.let(
+                :GHS,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            GIP =
+              T.let(
+                :GIP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            GMD =
+              T.let(
+                :GMD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            GNF =
+              T.let(
+                :GNF,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            GTQ =
+              T.let(
+                :GTQ,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            GYD =
+              T.let(
+                :GYD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            HKD =
+              T.let(
+                :HKD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            HNL =
+              T.let(
+                :HNL,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            HRK =
+              T.let(
+                :HRK,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            HTG =
+              T.let(
+                :HTG,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            HUF =
+              T.let(
+                :HUF,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            IDR =
+              T.let(
+                :IDR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            ILS =
+              T.let(
+                :ILS,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            IMP =
+              T.let(
+                :IMP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            INR =
+              T.let(
+                :INR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            IQD =
+              T.let(
+                :IQD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            IRR =
+              T.let(
+                :IRR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            ISK =
+              T.let(
+                :ISK,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            JEP =
+              T.let(
+                :JEP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            JMD =
+              T.let(
+                :JMD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            JOD =
+              T.let(
+                :JOD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            JPY =
+              T.let(
+                :JPY,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            KES =
+              T.let(
+                :KES,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            KGS =
+              T.let(
+                :KGS,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            KHR =
+              T.let(
+                :KHR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            KMF =
+              T.let(
+                :KMF,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            KPW =
+              T.let(
+                :KPW,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            KRW =
+              T.let(
+                :KRW,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            KWD =
+              T.let(
+                :KWD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            KYD =
+              T.let(
+                :KYD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            KZT =
+              T.let(
+                :KZT,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            LAK =
+              T.let(
+                :LAK,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            LBP =
+              T.let(
+                :LBP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            LKR =
+              T.let(
+                :LKR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            LRD =
+              T.let(
+                :LRD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            LSL =
+              T.let(
+                :LSL,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            LTL =
+              T.let(
+                :LTL,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            LVL =
+              T.let(
+                :LVL,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            LYD =
+              T.let(
+                :LYD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            MAD =
+              T.let(
+                :MAD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            MDL =
+              T.let(
+                :MDL,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            MGA =
+              T.let(
+                :MGA,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            MKD =
+              T.let(
+                :MKD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            MMK =
+              T.let(
+                :MMK,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            MNT =
+              T.let(
+                :MNT,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            MOP =
+              T.let(
+                :MOP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            MRO =
+              T.let(
+                :MRO,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            MRU =
+              T.let(
+                :MRU,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            MTL =
+              T.let(
+                :MTL,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            MUR =
+              T.let(
+                :MUR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            MVR =
+              T.let(
+                :MVR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            MWK =
+              T.let(
+                :MWK,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            MXN =
+              T.let(
+                :MXN,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            MYR =
+              T.let(
+                :MYR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            MZN =
+              T.let(
+                :MZN,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            NAD =
+              T.let(
+                :NAD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            NGN =
+              T.let(
+                :NGN,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            NIO =
+              T.let(
+                :NIO,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            NOK =
+              T.let(
+                :NOK,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            NPR =
+              T.let(
+                :NPR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            NZD =
+              T.let(
+                :NZD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            OMR =
+              T.let(
+                :OMR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            OP =
+              T.let(
+                :OP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            PAB =
+              T.let(
+                :PAB,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            PEN =
+              T.let(
+                :PEN,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            PGK =
+              T.let(
+                :PGK,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            PHP =
+              T.let(
+                :PHP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            PKR =
+              T.let(
+                :PKR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            PLN =
+              T.let(
+                :PLN,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            PYG =
+              T.let(
+                :PYG,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            PYUSD =
+              T.let(
+                :PYUSD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            QAR =
+              T.let(
+                :QAR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            RON =
+              T.let(
+                :RON,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            RSD =
+              T.let(
+                :RSD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            RUB =
+              T.let(
+                :RUB,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            RWF =
+              T.let(
+                :RWF,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            SAR =
+              T.let(
+                :SAR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            SBD =
+              T.let(
+                :SBD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            SCR =
+              T.let(
+                :SCR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            SDG =
+              T.let(
+                :SDG,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            SEK =
+              T.let(
+                :SEK,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            SGD =
+              T.let(
+                :SGD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            SHP =
+              T.let(
+                :SHP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            SKK =
+              T.let(
+                :SKK,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            SLE =
+              T.let(
+                :SLE,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            SLL =
+              T.let(
+                :SLL,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            SOS =
+              T.let(
+                :SOS,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            SRD =
+              T.let(
+                :SRD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            SSP =
+              T.let(
+                :SSP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            STD =
+              T.let(
+                :STD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            STN =
+              T.let(
+                :STN,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            SVC =
+              T.let(
+                :SVC,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            SYP =
+              T.let(
+                :SYP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            SZL =
+              T.let(
+                :SZL,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            THB =
+              T.let(
+                :THB,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            TJS =
+              T.let(
+                :TJS,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            TMM =
+              T.let(
+                :TMM,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            TMT =
+              T.let(
+                :TMT,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            TND =
+              T.let(
+                :TND,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            TOP =
+              T.let(
+                :TOP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            TRY =
+              T.let(
+                :TRY,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            TTD =
+              T.let(
+                :TTD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            TWD =
+              T.let(
+                :TWD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            TZS =
+              T.let(
+                :TZS,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            UAH =
+              T.let(
+                :UAH,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            UGX =
+              T.let(
+                :UGX,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            USD =
+              T.let(
+                :USD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            USDC =
+              T.let(
+                :USDC,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            USDG =
+              T.let(
+                :USDG,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            USDT =
+              T.let(
+                :USDT,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            UYU =
+              T.let(
+                :UYU,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            UZS =
+              T.let(
+                :UZS,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            VEF =
+              T.let(
+                :VEF,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            VES =
+              T.let(
+                :VES,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            VND =
+              T.let(
+                :VND,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            VUV =
+              T.let(
+                :VUV,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            WST =
+              T.let(
+                :WST,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            XAF =
+              T.let(
+                :XAF,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            XAG =
+              T.let(
+                :XAG,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            XAU =
+              T.let(
+                :XAU,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            XBA =
+              T.let(
+                :XBA,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            XBB =
+              T.let(
+                :XBB,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            XBC =
+              T.let(
+                :XBC,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            XBD =
+              T.let(
+                :XBD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            XCD =
+              T.let(
+                :XCD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            XCG =
+              T.let(
+                :XCG,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            XDR =
+              T.let(
+                :XDR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            XFU =
+              T.let(
+                :XFU,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            XOF =
+              T.let(
+                :XOF,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            XPD =
+              T.let(
+                :XPD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            XPF =
+              T.let(
+                :XPF,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            XPT =
+              T.let(
+                :XPT,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            XTS =
+              T.let(
+                :XTS,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            YER =
+              T.let(
+                :YER,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            ZAR =
+              T.let(
+                :ZAR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            ZMK =
+              T.let(
+                :ZMK,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            ZMW =
+              T.let(
+                :ZMW,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            ZWD =
+              T.let(
+                :ZWD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            ZWG =
+              T.let(
+                :ZWG,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            ZWL =
+              T.let(
+                :ZWL,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            ZWN =
+              T.let(
+                :ZWN,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+            ZWR =
+              T.let(
+                :ZWR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
+              )
+
+            sig do
+              override.returns(
+                T::Array[
+                  ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Currency::TaggedSymbol
                 ]
               )
             end
@@ -5097,8 +6131,13 @@ module ModernTreasury
           sig { returns(T.nilable(String)) }
           attr_accessor :counterparty_id
 
-          # Must conform to ISO 4217. Defaults to the currency of the internal account.
-          sig { returns(T.nilable(ModernTreasury::Currency::OrSymbol)) }
+          sig do
+            returns(
+              T.nilable(
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::OrSymbol
+              )
+            )
+          end
           attr_accessor :currency
 
           # The earliest date the payment may come in. Format: yyyy-mm-dd
@@ -5208,7 +6247,10 @@ module ModernTreasury
                 ),
               amount_upper_bound: T.nilable(Integer),
               counterparty_id: T.nilable(String),
-              currency: T.nilable(ModernTreasury::Currency::OrSymbol),
+              currency:
+                T.nilable(
+                  ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::OrSymbol
+                ),
               date_lower_bound: T.nilable(Date),
               date_upper_bound: T.nilable(Date),
               description: T.nilable(String),
@@ -5254,7 +6296,6 @@ module ModernTreasury
             amount_upper_bound: nil,
             # The ID of the counterparty you expect for this payment.
             counterparty_id: nil,
-            # Must conform to ISO 4217. Defaults to the currency of the internal account.
             currency: nil,
             # The earliest date the payment may come in. Format: yyyy-mm-dd
             date_lower_bound: nil,
@@ -5312,7 +6353,10 @@ module ModernTreasury
                   ),
                 amount_upper_bound: T.nilable(Integer),
                 counterparty_id: T.nilable(String),
-                currency: T.nilable(ModernTreasury::Currency::OrSymbol),
+                currency:
+                  T.nilable(
+                    ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::OrSymbol
+                  ),
                 date_lower_bound: T.nilable(Date),
                 date_upper_bound: T.nilable(Date),
                 description: T.nilable(String),
@@ -5405,6 +6449,1030 @@ module ModernTreasury
               override.returns(
                 T::Array[
                   ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::AmountUnreconciledDirection::TaggedSymbol
+                ]
+              )
+            end
+            def self.values
+            end
+          end
+
+          module Currency
+            extend ModernTreasury::Internal::Type::Enum
+
+            TaggedSymbol =
+              T.type_alias do
+                T.all(
+                  Symbol,
+                  ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency
+                )
+              end
+            OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+            AED =
+              T.let(
+                :AED,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            AFN =
+              T.let(
+                :AFN,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            ALL =
+              T.let(
+                :ALL,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            AMD =
+              T.let(
+                :AMD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            ANG =
+              T.let(
+                :ANG,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            AOA =
+              T.let(
+                :AOA,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            ARS =
+              T.let(
+                :ARS,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            AUD =
+              T.let(
+                :AUD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            AWG =
+              T.let(
+                :AWG,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            AZN =
+              T.let(
+                :AZN,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            BAM =
+              T.let(
+                :BAM,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            BBD =
+              T.let(
+                :BBD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            BCH =
+              T.let(
+                :BCH,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            BDT =
+              T.let(
+                :BDT,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            BGN =
+              T.let(
+                :BGN,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            BHD =
+              T.let(
+                :BHD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            BIF =
+              T.let(
+                :BIF,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            BMD =
+              T.let(
+                :BMD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            BND =
+              T.let(
+                :BND,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            BOB =
+              T.let(
+                :BOB,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            BRL =
+              T.let(
+                :BRL,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            BSD =
+              T.let(
+                :BSD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            BTC =
+              T.let(
+                :BTC,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            BTN =
+              T.let(
+                :BTN,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            BWP =
+              T.let(
+                :BWP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            BYN =
+              T.let(
+                :BYN,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            BYR =
+              T.let(
+                :BYR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            BZD =
+              T.let(
+                :BZD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            CAD =
+              T.let(
+                :CAD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            CDF =
+              T.let(
+                :CDF,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            CHF =
+              T.let(
+                :CHF,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            CLF =
+              T.let(
+                :CLF,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            CLP =
+              T.let(
+                :CLP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            CNH =
+              T.let(
+                :CNH,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            CNY =
+              T.let(
+                :CNY,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            COP =
+              T.let(
+                :COP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            CRC =
+              T.let(
+                :CRC,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            CUC =
+              T.let(
+                :CUC,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            CUP =
+              T.let(
+                :CUP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            CVE =
+              T.let(
+                :CVE,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            CZK =
+              T.let(
+                :CZK,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            DJF =
+              T.let(
+                :DJF,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            DKK =
+              T.let(
+                :DKK,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            DOP =
+              T.let(
+                :DOP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            DZD =
+              T.let(
+                :DZD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            EEK =
+              T.let(
+                :EEK,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            EGP =
+              T.let(
+                :EGP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            ERN =
+              T.let(
+                :ERN,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            ETB =
+              T.let(
+                :ETB,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            ETH =
+              T.let(
+                :ETH,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            EUR =
+              T.let(
+                :EUR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            EURC =
+              T.let(
+                :EURC,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            FJD =
+              T.let(
+                :FJD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            FKP =
+              T.let(
+                :FKP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            GBP =
+              T.let(
+                :GBP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            GBX =
+              T.let(
+                :GBX,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            GEL =
+              T.let(
+                :GEL,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            GGP =
+              T.let(
+                :GGP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            GHS =
+              T.let(
+                :GHS,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            GIP =
+              T.let(
+                :GIP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            GMD =
+              T.let(
+                :GMD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            GNF =
+              T.let(
+                :GNF,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            GTQ =
+              T.let(
+                :GTQ,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            GYD =
+              T.let(
+                :GYD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            HKD =
+              T.let(
+                :HKD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            HNL =
+              T.let(
+                :HNL,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            HRK =
+              T.let(
+                :HRK,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            HTG =
+              T.let(
+                :HTG,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            HUF =
+              T.let(
+                :HUF,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            IDR =
+              T.let(
+                :IDR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            ILS =
+              T.let(
+                :ILS,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            IMP =
+              T.let(
+                :IMP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            INR =
+              T.let(
+                :INR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            IQD =
+              T.let(
+                :IQD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            IRR =
+              T.let(
+                :IRR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            ISK =
+              T.let(
+                :ISK,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            JEP =
+              T.let(
+                :JEP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            JMD =
+              T.let(
+                :JMD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            JOD =
+              T.let(
+                :JOD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            JPY =
+              T.let(
+                :JPY,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            KES =
+              T.let(
+                :KES,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            KGS =
+              T.let(
+                :KGS,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            KHR =
+              T.let(
+                :KHR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            KMF =
+              T.let(
+                :KMF,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            KPW =
+              T.let(
+                :KPW,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            KRW =
+              T.let(
+                :KRW,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            KWD =
+              T.let(
+                :KWD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            KYD =
+              T.let(
+                :KYD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            KZT =
+              T.let(
+                :KZT,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            LAK =
+              T.let(
+                :LAK,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            LBP =
+              T.let(
+                :LBP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            LKR =
+              T.let(
+                :LKR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            LRD =
+              T.let(
+                :LRD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            LSL =
+              T.let(
+                :LSL,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            LTL =
+              T.let(
+                :LTL,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            LVL =
+              T.let(
+                :LVL,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            LYD =
+              T.let(
+                :LYD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            MAD =
+              T.let(
+                :MAD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            MDL =
+              T.let(
+                :MDL,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            MGA =
+              T.let(
+                :MGA,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            MKD =
+              T.let(
+                :MKD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            MMK =
+              T.let(
+                :MMK,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            MNT =
+              T.let(
+                :MNT,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            MOP =
+              T.let(
+                :MOP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            MRO =
+              T.let(
+                :MRO,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            MRU =
+              T.let(
+                :MRU,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            MTL =
+              T.let(
+                :MTL,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            MUR =
+              T.let(
+                :MUR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            MVR =
+              T.let(
+                :MVR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            MWK =
+              T.let(
+                :MWK,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            MXN =
+              T.let(
+                :MXN,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            MYR =
+              T.let(
+                :MYR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            MZN =
+              T.let(
+                :MZN,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            NAD =
+              T.let(
+                :NAD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            NGN =
+              T.let(
+                :NGN,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            NIO =
+              T.let(
+                :NIO,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            NOK =
+              T.let(
+                :NOK,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            NPR =
+              T.let(
+                :NPR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            NZD =
+              T.let(
+                :NZD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            OMR =
+              T.let(
+                :OMR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            OP =
+              T.let(
+                :OP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            PAB =
+              T.let(
+                :PAB,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            PEN =
+              T.let(
+                :PEN,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            PGK =
+              T.let(
+                :PGK,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            PHP =
+              T.let(
+                :PHP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            PKR =
+              T.let(
+                :PKR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            PLN =
+              T.let(
+                :PLN,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            PYG =
+              T.let(
+                :PYG,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            PYUSD =
+              T.let(
+                :PYUSD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            QAR =
+              T.let(
+                :QAR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            RON =
+              T.let(
+                :RON,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            RSD =
+              T.let(
+                :RSD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            RUB =
+              T.let(
+                :RUB,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            RWF =
+              T.let(
+                :RWF,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            SAR =
+              T.let(
+                :SAR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            SBD =
+              T.let(
+                :SBD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            SCR =
+              T.let(
+                :SCR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            SDG =
+              T.let(
+                :SDG,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            SEK =
+              T.let(
+                :SEK,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            SGD =
+              T.let(
+                :SGD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            SHP =
+              T.let(
+                :SHP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            SKK =
+              T.let(
+                :SKK,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            SLE =
+              T.let(
+                :SLE,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            SLL =
+              T.let(
+                :SLL,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            SOS =
+              T.let(
+                :SOS,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            SRD =
+              T.let(
+                :SRD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            SSP =
+              T.let(
+                :SSP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            STD =
+              T.let(
+                :STD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            STN =
+              T.let(
+                :STN,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            SVC =
+              T.let(
+                :SVC,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            SYP =
+              T.let(
+                :SYP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            SZL =
+              T.let(
+                :SZL,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            THB =
+              T.let(
+                :THB,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            TJS =
+              T.let(
+                :TJS,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            TMM =
+              T.let(
+                :TMM,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            TMT =
+              T.let(
+                :TMT,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            TND =
+              T.let(
+                :TND,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            TOP =
+              T.let(
+                :TOP,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            TRY =
+              T.let(
+                :TRY,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            TTD =
+              T.let(
+                :TTD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            TWD =
+              T.let(
+                :TWD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            TZS =
+              T.let(
+                :TZS,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            UAH =
+              T.let(
+                :UAH,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            UGX =
+              T.let(
+                :UGX,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            USD =
+              T.let(
+                :USD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            USDC =
+              T.let(
+                :USDC,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            USDG =
+              T.let(
+                :USDG,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            USDT =
+              T.let(
+                :USDT,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            UYU =
+              T.let(
+                :UYU,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            UZS =
+              T.let(
+                :UZS,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            VEF =
+              T.let(
+                :VEF,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            VES =
+              T.let(
+                :VES,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            VND =
+              T.let(
+                :VND,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            VUV =
+              T.let(
+                :VUV,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            WST =
+              T.let(
+                :WST,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            XAF =
+              T.let(
+                :XAF,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            XAG =
+              T.let(
+                :XAG,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            XAU =
+              T.let(
+                :XAU,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            XBA =
+              T.let(
+                :XBA,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            XBB =
+              T.let(
+                :XBB,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            XBC =
+              T.let(
+                :XBC,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            XBD =
+              T.let(
+                :XBD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            XCD =
+              T.let(
+                :XCD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            XCG =
+              T.let(
+                :XCG,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            XDR =
+              T.let(
+                :XDR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            XFU =
+              T.let(
+                :XFU,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            XOF =
+              T.let(
+                :XOF,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            XPD =
+              T.let(
+                :XPD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            XPF =
+              T.let(
+                :XPF,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            XPT =
+              T.let(
+                :XPT,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            XTS =
+              T.let(
+                :XTS,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            YER =
+              T.let(
+                :YER,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            ZAR =
+              T.let(
+                :ZAR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            ZMK =
+              T.let(
+                :ZMK,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            ZMW =
+              T.let(
+                :ZMW,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            ZWD =
+              T.let(
+                :ZWD,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            ZWG =
+              T.let(
+                :ZWG,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            ZWL =
+              T.let(
+                :ZWL,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            ZWN =
+              T.let(
+                :ZWN,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+            ZWR =
+              T.let(
+                :ZWR,
+                ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
+              )
+
+            sig do
+              override.returns(
+                T::Array[
+                  ModernTreasury::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Currency::TaggedSymbol
                 ]
               )
             end

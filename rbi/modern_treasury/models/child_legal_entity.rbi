@@ -18,16 +18,12 @@ module ModernTreasury
       sig { returns(T::Array[ModernTreasury::ChildLegalEntity::Address]) }
       attr_accessor :addresses
 
-      sig { returns(T.nilable(ModernTreasury::LegalEntityBankSettings)) }
-      attr_reader :bank_settings
-
       sig do
-        params(
-          bank_settings:
-            T.nilable(ModernTreasury::LegalEntityBankSettings::OrHash)
-        ).void
+        returns(
+          T.nilable(ModernTreasury::ChildLegalEntity::BankSettings::Variants)
+        )
       end
-      attr_writer :bank_settings
+      attr_accessor :bank_settings
 
       # A description of the business.
       sig { returns(T.nilable(String)) }
@@ -226,16 +222,14 @@ module ModernTreasury
       attr_writer :terms_of_use
 
       # Deprecated. Use `third_party_verifications` instead.
-      sig { returns(T.nilable(ModernTreasury::ThirdPartyVerification)) }
-      attr_reader :third_party_verification
-
       sig do
-        params(
-          third_party_verification:
-            T.nilable(ModernTreasury::ThirdPartyVerification::OrHash)
-        ).void
+        returns(
+          T.nilable(
+            ModernTreasury::ChildLegalEntity::ThirdPartyVerification::Variants
+          )
+        )
       end
-      attr_writer :third_party_verification
+      attr_accessor :third_party_verification
 
       # A list of third-party verifications run by external vendors.
       sig { returns(T::Array[ModernTreasury::ThirdPartyVerification]) }
@@ -249,17 +243,13 @@ module ModernTreasury
       attr_accessor :updated_at
 
       sig do
-        returns(T.nilable(ModernTreasury::LegalEntityWealthEmploymentDetail))
+        returns(
+          T.nilable(
+            ModernTreasury::ChildLegalEntity::WealthAndEmploymentDetails::Variants
+          )
+        )
       end
-      attr_reader :wealth_and_employment_details
-
-      sig do
-        params(
-          wealth_and_employment_details:
-            T.nilable(ModernTreasury::LegalEntityWealthEmploymentDetail::OrHash)
-        ).void
-      end
-      attr_writer :wealth_and_employment_details
+      attr_accessor :wealth_and_employment_details
 
       # The entity's primary website URL.
       sig { returns(T.nilable(String)) }
@@ -271,7 +261,9 @@ module ModernTreasury
           addresses:
             T::Array[ModernTreasury::ChildLegalEntity::Address::OrHash],
           bank_settings:
-            T.nilable(ModernTreasury::LegalEntityBankSettings::OrHash),
+            T.nilable(
+              T.any(ModernTreasury::LegalEntityBankSettings::OrHash, T.anything)
+            ),
           business_description: T.nilable(String),
           business_designation:
             T.nilable(
@@ -328,14 +320,19 @@ module ModernTreasury
           terms_of_use:
             T.nilable(ModernTreasury::ChildLegalEntity::TermsOfUse::OrHash),
           third_party_verification:
-            T.nilable(ModernTreasury::ThirdPartyVerification::OrHash),
+            T.nilable(
+              T.any(ModernTreasury::ThirdPartyVerification::OrHash, T.anything)
+            ),
           third_party_verifications:
             T::Array[ModernTreasury::ThirdPartyVerification::OrHash],
           ticker_symbol: T.nilable(String),
           updated_at: Time,
           wealth_and_employment_details:
             T.nilable(
-              ModernTreasury::LegalEntityWealthEmploymentDetail::OrHash
+              T.any(
+                ModernTreasury::LegalEntityWealthEmploymentDetail::OrHash,
+                T.anything
+              )
             ),
           website: T.nilable(String)
         ).returns(T.attached_class)
@@ -441,7 +438,10 @@ module ModernTreasury
           {
             id: String,
             addresses: T::Array[ModernTreasury::ChildLegalEntity::Address],
-            bank_settings: T.nilable(ModernTreasury::LegalEntityBankSettings),
+            bank_settings:
+              T.nilable(
+                ModernTreasury::ChildLegalEntity::BankSettings::Variants
+              ),
             business_description: T.nilable(String),
             business_designation:
               T.nilable(
@@ -499,13 +499,17 @@ module ModernTreasury
             terms_of_use:
               T.nilable(ModernTreasury::ChildLegalEntity::TermsOfUse),
             third_party_verification:
-              T.nilable(ModernTreasury::ThirdPartyVerification),
+              T.nilable(
+                ModernTreasury::ChildLegalEntity::ThirdPartyVerification::Variants
+              ),
             third_party_verifications:
               T::Array[ModernTreasury::ThirdPartyVerification],
             ticker_symbol: T.nilable(String),
             updated_at: Time,
             wealth_and_employment_details:
-              T.nilable(ModernTreasury::LegalEntityWealthEmploymentDetail),
+              T.nilable(
+                ModernTreasury::ChildLegalEntity::WealthAndEmploymentDetails::Variants
+              ),
             website: T.nilable(String)
           }
         )
@@ -714,6 +718,25 @@ module ModernTreasury
           end
           def self.values
           end
+        end
+      end
+
+      module BankSettings
+        extend ModernTreasury::Internal::Type::Union
+
+        Variants =
+          T.type_alias do
+            T.nilable(
+              T.any(ModernTreasury::LegalEntityBankSettings, T.anything)
+            )
+          end
+
+        sig do
+          override.returns(
+            T::Array[ModernTreasury::ChildLegalEntity::BankSettings::Variants]
+          )
+        end
+        def self.variants
         end
       end
 
@@ -1026,6 +1049,50 @@ module ModernTreasury
 
         sig { override.returns({ accepted_at: Time, ip_address: String }) }
         def to_hash
+        end
+      end
+
+      # Deprecated. Use `third_party_verifications` instead.
+      module ThirdPartyVerification
+        extend ModernTreasury::Internal::Type::Union
+
+        Variants =
+          T.type_alias do
+            T.nilable(T.any(ModernTreasury::ThirdPartyVerification, T.anything))
+          end
+
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::ChildLegalEntity::ThirdPartyVerification::Variants
+            ]
+          )
+        end
+        def self.variants
+        end
+      end
+
+      module WealthAndEmploymentDetails
+        extend ModernTreasury::Internal::Type::Union
+
+        Variants =
+          T.type_alias do
+            T.nilable(
+              T.any(
+                ModernTreasury::LegalEntityWealthEmploymentDetail,
+                T.anything
+              )
+            )
+          end
+
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::ChildLegalEntity::WealthAndEmploymentDetails::Variants
+            ]
+          )
+        end
+        def self.variants
         end
       end
     end

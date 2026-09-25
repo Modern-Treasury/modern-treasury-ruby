@@ -293,8 +293,9 @@ module ModernTreasury
           #   https://docs.moderntreasury.com/docs/transaction-status-and-balances for more
           #   details.
           #
-          #   @return [ModernTreasury::Models::LedgerBalances, nil]
-          required :resulting_ledger_account_balances, -> { ModernTreasury::LedgerBalances }, nil?: true
+          #   @return [ModernTreasury::Models::LedgerBalances, Object, nil]
+          required :resulting_ledger_account_balances,
+                   union: -> { ModernTreasury::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances }
 
           # @!attribute status
           #   Equal to the state of the ledger transaction when the ledger entry was created.
@@ -337,9 +338,29 @@ module ModernTreasury
           #
           #   @param object [String]
           #
-          #   @param resulting_ledger_account_balances [ModernTreasury::Models::LedgerBalances, nil] The pending, posted, and available balances for this ledger entry's ledger accou
+          #   @param resulting_ledger_account_balances [ModernTreasury::Models::LedgerBalances, Object, nil] The pending, posted, and available balances for this ledger entry's ledger accou
           #
           #   @param status [Symbol, ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::Status] Equal to the state of the ledger transaction when the ledger entry was created.
+
+          # The pending, posted, and available balances for this ledger entry's ledger
+          # account. The posted balance is the sum of all posted entries on the account. The
+          # pending balance is the sum of all pending and posted entries on the account. The
+          # available balance is the posted incoming entries minus the sum of the pending
+          # and posted outgoing amounts. Please see
+          # https://docs.moderntreasury.com/docs/transaction-status-and-balances for more
+          # details.
+          #
+          # @see ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry#resulting_ledger_account_balances
+          module ResultingLedgerAccountBalances
+            extend ModernTreasury::Internal::Type::Union
+
+            variant -> { ModernTreasury::LedgerBalances }
+
+            variant ModernTreasury::Internal::Type::Unknown
+
+            # @!method self.variants
+            #   @return [Array(ModernTreasury::Models::LedgerBalances, Object)]
+          end
 
           # Equal to the state of the ledger transaction when the ledger entry was created.
           # One of `pending`, `posted`, or `archived`.

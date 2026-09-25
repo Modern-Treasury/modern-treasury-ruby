@@ -132,15 +132,14 @@ module ModernTreasury
 
       # If the incoming payment detail is in a virtual account, the serialized virtual
       # account object.
-      sig { returns(T.nilable(ModernTreasury::VirtualAccount)) }
-      attr_reader :virtual_account
-
       sig do
-        params(
-          virtual_account: T.nilable(ModernTreasury::VirtualAccount::OrHash)
-        ).void
+        returns(
+          T.nilable(
+            ModernTreasury::IncomingPaymentDetail::VirtualAccount::Variants
+          )
+        )
       end
-      attr_writer :virtual_account
+      attr_accessor :virtual_account
 
       # If the incoming payment detail is in a virtual account, the ID of the Virtual
       # Account.
@@ -152,12 +151,19 @@ module ModernTreasury
       attr_accessor :originating_account_number
 
       # The address of the originating party for the incoming payment detail, or `null`.
-      sig { returns(T.nilable(ModernTreasury::Address)) }
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::IncomingPaymentDetail::OriginatingPartyAddress::Variants
+          )
+        )
+      end
       attr_reader :originating_party_address
 
       sig do
         params(
-          originating_party_address: T.nilable(ModernTreasury::Address::OrHash)
+          originating_party_address:
+            T.nilable(T.any(ModernTreasury::Address::OrHash, T.anything))
         ).void
       end
       attr_writer :originating_party_address
@@ -214,10 +220,14 @@ module ModernTreasury
           type: ModernTreasury::IncomingPaymentDetail::Type::OrSymbol,
           updated_at: Time,
           vendor_id: T.nilable(String),
-          virtual_account: T.nilable(ModernTreasury::VirtualAccount::OrHash),
+          virtual_account:
+            T.nilable(
+              T.any(ModernTreasury::VirtualAccount::OrHash, T.anything)
+            ),
           virtual_account_id: T.nilable(String),
           originating_account_number: T.nilable(String),
-          originating_party_address: T.nilable(ModernTreasury::Address::OrHash),
+          originating_party_address:
+            T.nilable(T.any(ModernTreasury::Address::OrHash, T.anything)),
           originating_party_name: T.nilable(String),
           originating_party_vendor_identifier: T.nilable(String),
           receiving_account_number: T.nilable(String),
@@ -336,10 +346,16 @@ module ModernTreasury
             type: ModernTreasury::IncomingPaymentDetail::Type::TaggedSymbol,
             updated_at: Time,
             vendor_id: T.nilable(String),
-            virtual_account: T.nilable(ModernTreasury::VirtualAccount),
+            virtual_account:
+              T.nilable(
+                ModernTreasury::IncomingPaymentDetail::VirtualAccount::Variants
+              ),
             virtual_account_id: T.nilable(String),
             originating_account_number: T.nilable(String),
-            originating_party_address: T.nilable(ModernTreasury::Address),
+            originating_party_address:
+              T.nilable(
+                ModernTreasury::IncomingPaymentDetail::OriginatingPartyAddress::Variants
+              ),
             originating_party_name: T.nilable(String),
             originating_party_vendor_identifier: T.nilable(String),
             receiving_account_number: T.nilable(String),
@@ -726,6 +742,45 @@ module ModernTreasury
           )
         end
         def self.values
+        end
+      end
+
+      # If the incoming payment detail is in a virtual account, the serialized virtual
+      # account object.
+      module VirtualAccount
+        extend ModernTreasury::Internal::Type::Union
+
+        Variants =
+          T.type_alias do
+            T.nilable(T.any(ModernTreasury::VirtualAccount, T.anything))
+          end
+
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::IncomingPaymentDetail::VirtualAccount::Variants
+            ]
+          )
+        end
+        def self.variants
+        end
+      end
+
+      # The address of the originating party for the incoming payment detail, or `null`.
+      module OriginatingPartyAddress
+        extend ModernTreasury::Internal::Type::Union
+
+        Variants =
+          T.type_alias { T.nilable(T.any(ModernTreasury::Address, T.anything)) }
+
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::IncomingPaymentDetail::OriginatingPartyAddress::Variants
+            ]
+          )
+        end
+        def self.variants
         end
       end
     end

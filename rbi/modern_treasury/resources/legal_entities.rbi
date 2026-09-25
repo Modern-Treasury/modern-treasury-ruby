@@ -11,7 +11,9 @@ module ModernTreasury
           addresses:
             T::Array[ModernTreasury::LegalEntityAddressCreateRequest::OrHash],
           bank_settings:
-            T.nilable(ModernTreasury::LegalEntityBankSettings::OrHash),
+            T.nilable(
+              T.any(ModernTreasury::LegalEntityBankSettings::OrHash, T.anything)
+            ),
           business_description: T.nilable(String),
           business_designation:
             T.nilable(
@@ -76,13 +78,18 @@ module ModernTreasury
               ModernTreasury::LegalEntityCreateParams::TermsOfUse::OrHash
             ),
           third_party_verification:
-            T.nilable(ModernTreasury::ThirdPartyVerification::OrHash),
+            T.nilable(
+              T.any(ModernTreasury::ThirdPartyVerification::OrHash, T.anything)
+            ),
           third_party_verifications:
             T::Array[ModernTreasury::ThirdPartyVerification::OrHash],
           ticker_symbol: T.nilable(String),
           wealth_and_employment_details:
             T.nilable(
-              ModernTreasury::LegalEntityWealthEmploymentDetail::OrHash
+              T.any(
+                ModernTreasury::LegalEntityWealthEmploymentDetail::OrHash,
+                T.anything
+              )
             ),
           website: T.nilable(String),
           request_options: ModernTreasury::RequestOptions::OrHash
@@ -203,7 +210,9 @@ module ModernTreasury
           addresses:
             T::Array[ModernTreasury::LegalEntityAddressCreateRequest::OrHash],
           bank_settings:
-            T.nilable(ModernTreasury::LegalEntityBankSettings::OrHash),
+            T.nilable(
+              T.any(ModernTreasury::LegalEntityBankSettings::OrHash, T.anything)
+            ),
           business_description: T.nilable(String),
           business_designation:
             T.nilable(
@@ -258,13 +267,18 @@ module ModernTreasury
               ModernTreasury::LegalEntityUpdateParams::TermsOfUse::OrHash
             ),
           third_party_verification:
-            T.nilable(ModernTreasury::ThirdPartyVerification::OrHash),
+            T.nilable(
+              T.any(ModernTreasury::ThirdPartyVerification::OrHash, T.anything)
+            ),
           third_party_verifications:
             T::Array[ModernTreasury::ThirdPartyVerification::OrHash],
           ticker_symbol: T.nilable(String),
           wealth_and_employment_details:
             T.nilable(
-              ModernTreasury::LegalEntityWealthEmploymentDetail::OrHash
+              T.any(
+                ModernTreasury::LegalEntityWealthEmploymentDetail::OrHash,
+                T.anything
+              )
             ),
           website: T.nilable(String),
           request_options: ModernTreasury::RequestOptions::OrHash
