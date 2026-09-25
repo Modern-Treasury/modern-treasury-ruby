@@ -118,6 +118,24 @@ module ModernTreasury
           T.type_alias { T.all(Symbol, ModernTreasury::Identification::IDType) }
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
+        AD_NRT =
+          T.let(:ad_nrt, ModernTreasury::Identification::IDType::TaggedSymbol)
+        AE_EID =
+          T.let(:ae_eid, ModernTreasury::Identification::IDType::TaggedSymbol)
+        AE_TRN =
+          T.let(:ae_trn, ModernTreasury::Identification::IDType::TaggedSymbol)
+        AG_TIN =
+          T.let(:ag_tin, ModernTreasury::Identification::IDType::TaggedSymbol)
+        AI_TIN =
+          T.let(:ai_tin, ModernTreasury::Identification::IDType::TaggedSymbol)
+        AL_NID =
+          T.let(:al_nid, ModernTreasury::Identification::IDType::TaggedSymbol)
+        AL_NIPT =
+          T.let(:al_nipt, ModernTreasury::Identification::IDType::TaggedSymbol)
+        AM_TIN =
+          T.let(:am_tin, ModernTreasury::Identification::IDType::TaggedSymbol)
+        AO_NIF =
+          T.let(:ao_nif, ModernTreasury::Identification::IDType::TaggedSymbol)
         AR_CUIL =
           T.let(:ar_cuil, ModernTreasury::Identification::IDType::TaggedSymbol)
         AR_CUIT =
@@ -130,14 +148,42 @@ module ModernTreasury
           T.let(:au_abn, ModernTreasury::Identification::IDType::TaggedSymbol)
         AU_TFN =
           T.let(:au_tfn, ModernTreasury::Identification::IDType::TaggedSymbol)
+        AW_TIN =
+          T.let(:aw_tin, ModernTreasury::Identification::IDType::TaggedSymbol)
+        AZ_PIN =
+          T.let(:az_pin, ModernTreasury::Identification::IDType::TaggedSymbol)
+        BB_TIN =
+          T.let(:bb_tin, ModernTreasury::Identification::IDType::TaggedSymbol)
+        BD_TIN =
+          T.let(:bd_tin, ModernTreasury::Identification::IDType::TaggedSymbol)
         BE_ENT =
           T.let(:be_ent, ModernTreasury::Identification::IDType::TaggedSymbol)
         BE_NRN =
           T.let(:be_nrn, ModernTreasury::Identification::IDType::TaggedSymbol)
+        BF_IFU =
+          T.let(:bf_ifu, ModernTreasury::Identification::IDType::TaggedSymbol)
+        BG_EGN =
+          T.let(:bg_egn, ModernTreasury::Identification::IDType::TaggedSymbol)
+        BH_CPR =
+          T.let(:bh_cpr, ModernTreasury::Identification::IDType::TaggedSymbol)
+        BH_VAT =
+          T.let(:bh_vat, ModernTreasury::Identification::IDType::TaggedSymbol)
+        BJ_IFU =
+          T.let(:bj_ifu, ModernTreasury::Identification::IDType::TaggedSymbol)
+        BO_NIT =
+          T.let(:bo_nit, ModernTreasury::Identification::IDType::TaggedSymbol)
         BR_CNPJ =
           T.let(:br_cnpj, ModernTreasury::Identification::IDType::TaggedSymbol)
         BR_CPF =
           T.let(:br_cpf, ModernTreasury::Identification::IDType::TaggedSymbol)
+        BS_TIN =
+          T.let(:bs_tin, ModernTreasury::Identification::IDType::TaggedSymbol)
+        BT_BIN =
+          T.let(:bt_bin, ModernTreasury::Identification::IDType::TaggedSymbol)
+        BW_TIN =
+          T.let(:bw_tin, ModernTreasury::Identification::IDType::TaggedSymbol)
+        BZ_TIN =
+          T.let(:bz_tin, ModernTreasury::Identification::IDType::TaggedSymbol)
         CA_BN =
           T.let(:ca_bn, ModernTreasury::Identification::IDType::TaggedSymbol)
         CA_SIN =
@@ -146,10 +192,14 @@ module ModernTreasury
           T.let(:ch_ahv, ModernTreasury::Identification::IDType::TaggedSymbol)
         CH_UID =
           T.let(:ch_uid, ModernTreasury::Identification::IDType::TaggedSymbol)
+        CI_NCC =
+          T.let(:ci_ncc, ModernTreasury::Identification::IDType::TaggedSymbol)
         CL_RUN =
           T.let(:cl_run, ModernTreasury::Identification::IDType::TaggedSymbol)
         CL_RUT =
           T.let(:cl_rut, ModernTreasury::Identification::IDType::TaggedSymbol)
+        CM_NIU =
+          T.let(:cm_niu, ModernTreasury::Identification::IDType::TaggedSymbol)
         CO_CEDULAS =
           T.let(
             :co_cedulas,
@@ -157,6 +207,10 @@ module ModernTreasury
           )
         CO_NIT =
           T.let(:co_nit, ModernTreasury::Identification::IDType::TaggedSymbol)
+        CR_CPF =
+          T.let(:cr_cpf, ModernTreasury::Identification::IDType::TaggedSymbol)
+        CW_CRIB =
+          T.let(:cw_crib, ModernTreasury::Identification::IDType::TaggedSymbol)
         CY_TIN =
           T.let(:cy_tin, ModernTreasury::Identification::IDType::TaggedSymbol)
         CZ_ICO =
@@ -173,11 +227,22 @@ module ModernTreasury
           T.let(:dk_cpr, ModernTreasury::Identification::IDType::TaggedSymbol)
         DK_CVR =
           T.let(:dk_cvr, ModernTreasury::Identification::IDType::TaggedSymbol)
+        DM_TIN =
+          T.let(:dm_tin, ModernTreasury::Identification::IDType::TaggedSymbol)
+        DO_CEDULA =
+          T.let(
+            :do_cedula,
+            ModernTreasury::Identification::IDType::TaggedSymbol
+          )
+        DO_RNC =
+          T.let(:do_rnc, ModernTreasury::Identification::IDType::TaggedSymbol)
         DRIVERS_LICENSE =
           T.let(
             :drivers_license,
             ModernTreasury::Identification::IDType::TaggedSymbol
           )
+        EC_RUC =
+          T.let(:ec_ruc, ModernTreasury::Identification::IDType::TaggedSymbol)
         EE_IK =
           T.let(:ee_ik, ModernTreasury::Identification::IDType::TaggedSymbol)
         EE_RK =
@@ -190,6 +255,10 @@ module ModernTreasury
           T.let(:fi_hetu, ModernTreasury::Identification::IDType::TaggedSymbol)
         FI_YTJ =
           T.let(:fi_ytj, ModernTreasury::Identification::IDType::TaggedSymbol)
+        FJ_TIN =
+          T.let(:fj_tin, ModernTreasury::Identification::IDType::TaggedSymbol)
+        FO_PTAL =
+          T.let(:fo_ptal, ModernTreasury::Identification::IDType::TaggedSymbol)
         FR_NIF =
           T.let(:fr_nif, ModernTreasury::Identification::IDType::TaggedSymbol)
         FR_SIREN =
@@ -202,11 +271,33 @@ module ModernTreasury
           T.let(:gb_utr, ModernTreasury::Identification::IDType::TaggedSymbol)
         GB_VAT =
           T.let(:gb_vat, ModernTreasury::Identification::IDType::TaggedSymbol)
+        GD_TIN =
+          T.let(:gd_tin, ModernTreasury::Identification::IDType::TaggedSymbol)
+        GE_IC =
+          T.let(:ge_ic, ModernTreasury::Identification::IDType::TaggedSymbol)
+        GE_PN =
+          T.let(:ge_pn, ModernTreasury::Identification::IDType::TaggedSymbol)
+        GE_TIN =
+          T.let(:ge_tin, ModernTreasury::Identification::IDType::TaggedSymbol)
         GENERIC_INTERNATIONAL =
           T.let(
             :generic_international,
             ModernTreasury::Identification::IDType::TaggedSymbol
           )
+        GG_SIN =
+          T.let(:gg_sin, ModernTreasury::Identification::IDType::TaggedSymbol)
+        GH_PIN =
+          T.let(:gh_pin, ModernTreasury::Identification::IDType::TaggedSymbol)
+        GH_TIN =
+          T.let(:gh_tin, ModernTreasury::Identification::IDType::TaggedSymbol)
+        GI_TRN =
+          T.let(:gi_trn, ModernTreasury::Identification::IDType::TaggedSymbol)
+        GL_CPR =
+          T.let(:gl_cpr, ModernTreasury::Identification::IDType::TaggedSymbol)
+        GL_GER =
+          T.let(:gl_ger, ModernTreasury::Identification::IDType::TaggedSymbol)
+        GM_TIN =
+          T.let(:gm_tin, ModernTreasury::Identification::IDType::TaggedSymbol)
         GR_VAT =
           T.let(:gr_vat, ModernTreasury::Identification::IDType::TaggedSymbol)
         HK_BRN =

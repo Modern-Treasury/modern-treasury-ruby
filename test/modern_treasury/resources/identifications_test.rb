@@ -7,7 +7,7 @@ class ModernTreasury::Test::Resources::IdentificationsTest < ModernTreasury::Tes
     response =
       @modern_treasury.identifications.create(
         id_number: "id_number",
-        id_type: :ar_cuil,
+        id_type: :ad_nrt,
         legal_entity_id: "legal_entity_id"
       )
 
