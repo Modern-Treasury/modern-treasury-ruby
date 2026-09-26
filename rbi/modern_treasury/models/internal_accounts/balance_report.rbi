@@ -210,7 +210,7 @@ module ModernTreasury
           sig { returns(Time) }
           attr_accessor :created_at
 
-          # Three-letter ISO currency code.
+          # The currency of the balance.
           sig { returns(ModernTreasury::Currency::TaggedSymbol) }
           attr_accessor :currency
 
@@ -275,7 +275,7 @@ module ModernTreasury
             # 'previously_closed_book', or `other`.
             balance_type:,
             created_at:,
-            # Three-letter ISO currency code.
+            # The currency of the balance.
             currency:,
             # This field will be true if this object exists in the live environment or false
             # if it exists in the test environment.

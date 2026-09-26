@@ -36,7 +36,7 @@ module ModernTreasury
       required :created_at, Time
 
       # @!attribute currency
-      #   Three-letter ISO currency code.
+      #   Currency that this transaction is denominated in.
       #
       #   @return [Symbol, ModernTreasury::Models::Currency]
       required :currency, enum: -> { ModernTreasury::Currency }
@@ -186,7 +186,7 @@ module ModernTreasury
       #
       #   @param created_at [Time]
       #
-      #   @param currency [Symbol, ModernTreasury::Models::Currency] Three-letter ISO currency code.
+      #   @param currency [Symbol, ModernTreasury::Models::Currency] Currency that this transaction is denominated in.
       #
       #   @param current_return [ModernTreasury::Models::ReturnObject, nil] If the return's status is `returned`, this will include the return object's data
       #

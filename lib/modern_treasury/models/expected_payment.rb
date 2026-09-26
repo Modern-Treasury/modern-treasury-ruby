@@ -67,7 +67,7 @@ module ModernTreasury
       required :created_at, Time
 
       # @!attribute currency
-      #   Three-letter ISO currency code.
+      #   Must conform to ISO 4217. Defaults to the currency of the internal account.
       #
       #   @return [Symbol, ModernTreasury::Models::Currency, nil]
       required :currency, enum: -> { ModernTreasury::Currency }, nil?: true
@@ -231,7 +231,7 @@ module ModernTreasury
       #
       #   @param created_at [Time]
       #
-      #   @param currency [Symbol, ModernTreasury::Models::Currency, nil] Three-letter ISO currency code.
+      #   @param currency [Symbol, ModernTreasury::Models::Currency, nil] Must conform to ISO 4217. Defaults to the currency of the internal account.
       #
       #   @param date_lower_bound [Date, nil] The earliest date the payment may come in. Format: yyyy-mm-dd
       #

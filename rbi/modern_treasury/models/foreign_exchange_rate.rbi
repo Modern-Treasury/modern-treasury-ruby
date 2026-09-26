@@ -16,7 +16,7 @@ module ModernTreasury
       sig { returns(Integer) }
       attr_accessor :base_amount
 
-      # Three-letter ISO currency code.
+      # Currency to convert, often called the "sell" currency.
       sig { returns(ModernTreasury::Currency::TaggedSymbol) }
       attr_accessor :base_currency
 
@@ -34,7 +34,7 @@ module ModernTreasury
       sig { returns(Integer) }
       attr_accessor :target_amount
 
-      # Three-letter ISO currency code.
+      # Currency to convert the `base_currency` to, often called the "buy" currency.
       sig { returns(ModernTreasury::Currency::TaggedSymbol) }
       attr_accessor :target_currency
 
@@ -58,7 +58,7 @@ module ModernTreasury
         # Amount in the lowest denomination of the `base_currency` to convert, often
         # called the "sell" amount.
         base_amount:,
-        # Three-letter ISO currency code.
+        # Currency to convert, often called the "sell" currency.
         base_currency:,
         # The exponent component of the rate. The decimal is calculated as `value` / (10 ^
         # `exponent`).
@@ -68,7 +68,7 @@ module ModernTreasury
         # Amount in the lowest denomination of the `target_currency`, often called the
         # "buy" amount.
         target_amount:,
-        # Three-letter ISO currency code.
+        # Currency to convert the `base_currency` to, often called the "buy" currency.
         target_currency:,
         # The whole number component of the rate. The decimal is calculated as `value` /
         # (10 ^ `exponent`).

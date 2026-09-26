@@ -83,7 +83,7 @@ module ModernTreasury
       end
       attr_writer :counterparty_shipping_address
 
-      # Three-letter ISO currency code.
+      # Currency that the invoice is denominated in. Defaults to `USD` if not provided.
       sig { returns(T.nilable(ModernTreasury::Currency::OrSymbol)) }
       attr_reader :currency
 
@@ -283,7 +283,7 @@ module ModernTreasury
         counterparty_billing_address: nil,
         # The counterparty's shipping address where physical goods should be delivered.
         counterparty_shipping_address: nil,
-        # Three-letter ISO currency code.
+        # Currency that the invoice is denominated in. Defaults to `USD` if not provided.
         currency: nil,
         # A free-form description of the invoice.
         description: nil,

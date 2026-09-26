@@ -151,7 +151,7 @@ module ModernTreasury
           required :created_at, Time
 
           # @!attribute currency
-          #   Three-letter ISO currency code.
+          #   The currency of the balance.
           #
           #   @return [Symbol, ModernTreasury::Models::Currency]
           required :currency, enum: -> { ModernTreasury::Currency }
@@ -212,7 +212,7 @@ module ModernTreasury
           #
           #   @param created_at [Time]
           #
-          #   @param currency [Symbol, ModernTreasury::Models::Currency] Three-letter ISO currency code.
+          #   @param currency [Symbol, ModernTreasury::Models::Currency] The currency of the balance.
           #
           #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
           #

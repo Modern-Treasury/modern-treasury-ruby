@@ -11,7 +11,7 @@ module ModernTreasury
       required :base_amount, Integer
 
       # @!attribute base_currency
-      #   Three-letter ISO currency code.
+      #   Currency to convert, often called the "sell" currency.
       #
       #   @return [Symbol, ModernTreasury::Models::Currency]
       required :base_currency, enum: -> { ModernTreasury::Currency }
@@ -37,7 +37,7 @@ module ModernTreasury
       required :target_amount, Integer
 
       # @!attribute target_currency
-      #   Three-letter ISO currency code.
+      #   Currency to convert the `base_currency` to, often called the "buy" currency.
       #
       #   @return [Symbol, ModernTreasury::Models::Currency]
       required :target_currency, enum: -> { ModernTreasury::Currency }
@@ -55,7 +55,7 @@ module ModernTreasury
       #
       #   @param base_amount [Integer] Amount in the lowest denomination of the `base_currency` to convert, often calle
       #
-      #   @param base_currency [Symbol, ModernTreasury::Models::Currency] Three-letter ISO currency code.
+      #   @param base_currency [Symbol, ModernTreasury::Models::Currency] Currency to convert, often called the "sell" currency.
       #
       #   @param exponent [Integer] The exponent component of the rate. The decimal is calculated as `value` / (10 ^
       #
@@ -63,7 +63,7 @@ module ModernTreasury
       #
       #   @param target_amount [Integer] Amount in the lowest denomination of the `target_currency`, often called the "bu
       #
-      #   @param target_currency [Symbol, ModernTreasury::Models::Currency] Three-letter ISO currency code.
+      #   @param target_currency [Symbol, ModernTreasury::Models::Currency] Currency to convert the `base_currency` to, often called the "buy" currency.
       #
       #   @param value [Integer] The whole number component of the rate. The decimal is calculated as `value` / (
     end

@@ -34,7 +34,7 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :counterparty_id
 
-      # Three-letter ISO currency code.
+      # Must conform to ISO 4217. Defaults to the currency of the internal account
       sig { returns(T.nilable(ModernTreasury::Currency::OrSymbol)) }
       attr_reader :currency
 
@@ -87,7 +87,7 @@ module ModernTreasury
         internal_account_id:,
         # The ID of the counterparty you expect for this payment
         counterparty_id: nil,
-        # Three-letter ISO currency code.
+        # Must conform to ISO 4217. Defaults to the currency of the internal account
         currency: nil,
         # A hash of custom identifiers for this payment
         custom_identifiers: nil,

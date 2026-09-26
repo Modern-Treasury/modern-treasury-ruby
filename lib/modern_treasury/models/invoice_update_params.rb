@@ -41,7 +41,7 @@ module ModernTreasury
                nil?: true
 
       # @!attribute currency
-      #   Three-letter ISO currency code.
+      #   Currency that the invoice is denominated in. Defaults to `USD` if not provided.
       #
       #   @return [Symbol, ModernTreasury::Models::Currency, nil]
       optional :currency, enum: -> { ModernTreasury::Currency }
@@ -199,7 +199,7 @@ module ModernTreasury
       #
       #   @param counterparty_shipping_address [ModernTreasury::Models::InvoiceUpdateParams::CounterpartyShippingAddress, nil] The counterparty's shipping address where physical goods should be delivered.
       #
-      #   @param currency [Symbol, ModernTreasury::Models::Currency] Three-letter ISO currency code.
+      #   @param currency [Symbol, ModernTreasury::Models::Currency] Currency that the invoice is denominated in. Defaults to `USD` if not provided.
       #
       #   @param description [String] A free-form description of the invoice.
       #
