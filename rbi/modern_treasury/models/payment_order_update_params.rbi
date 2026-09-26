@@ -64,7 +64,7 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :counterparty_id
 
-      # Defaults to the currency of the originating account.
+      # Three-letter ISO currency code.
       sig { returns(T.nilable(ModernTreasury::Currency::OrSymbol)) }
       attr_reader :currency
 
@@ -459,7 +459,7 @@ module ModernTreasury
         charge_bearer: nil,
         # Required when receiving_account_id is passed the ID of an external account.
         counterparty_id: nil,
-        # Defaults to the currency of the originating account.
+        # Three-letter ISO currency code.
         currency: nil,
         # An optional description for internal use.
         description: nil,

@@ -63,7 +63,7 @@ module ModernTreasury
       sig { returns(Time) }
       attr_accessor :created_at
 
-      # Must conform to ISO 4217. Defaults to the currency of the internal account.
+      # Three-letter ISO currency code.
       sig { returns(T.nilable(ModernTreasury::Currency::TaggedSymbol)) }
       attr_accessor :currency
 
@@ -240,7 +240,7 @@ module ModernTreasury
         # The ID of the counterparty you expect for this payment.
         counterparty_id:,
         created_at:,
-        # Must conform to ISO 4217. Defaults to the currency of the internal account.
+        # Three-letter ISO currency code.
         currency:,
         # The earliest date the payment may come in. Format: yyyy-mm-dd
         date_lower_bound:,

@@ -29,7 +29,7 @@ module ModernTreasury
       #
       # @param charge_bearer [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::ChargeBearer, nil] The party that will pay the fees for the payment order. See https://docs.modernt
       #
-      # @param currency [Symbol, ModernTreasury::Models::Currency] Defaults to the currency of the originating account.
+      # @param currency [Symbol, ModernTreasury::Models::Currency] Three-letter ISO currency code.
       #
       # @param description [String, nil] An optional description for internal use.
       #
@@ -155,7 +155,7 @@ module ModernTreasury
       #
       # @param counterparty_id [String, nil] Required when receiving_account_id is passed the ID of an external account.
       #
-      # @param currency [Symbol, ModernTreasury::Models::Currency] Defaults to the currency of the originating account.
+      # @param currency [Symbol, ModernTreasury::Models::Currency] Three-letter ISO currency code.
       #
       # @param description [String, nil] An optional description for internal use.
       #
@@ -319,7 +319,7 @@ module ModernTreasury
       #
       # @param charge_bearer [Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::ChargeBearer, nil] The party that will pay the fees for the payment order. See https://docs.modernt
       #
-      # @param currency [Symbol, ModernTreasury::Models::Currency] Defaults to the currency of the originating account.
+      # @param currency [Symbol, ModernTreasury::Models::Currency] Three-letter ISO currency code.
       #
       # @param description [String, nil] An optional description for internal use.
       #

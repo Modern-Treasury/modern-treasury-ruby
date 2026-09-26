@@ -59,7 +59,7 @@ module ModernTreasury
       sig { returns(Time) }
       attr_accessor :created_at
 
-      # Defaults to the currency of the originating account.
+      # Three-letter ISO currency code.
       sig { returns(ModernTreasury::Currency::TaggedSymbol) }
       attr_accessor :currency
 
@@ -449,7 +449,7 @@ module ModernTreasury
         # otherwise `null`.
         counterparty_id:,
         created_at:,
-        # Defaults to the currency of the originating account.
+        # Three-letter ISO currency code.
         currency:,
         # If the payment order's status is `held`, this will include the hold object's
         # data.

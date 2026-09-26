@@ -64,7 +64,7 @@ module ModernTreasury
       sig { returns(Time) }
       attr_accessor :created_at
 
-      # Currency that the invoice is denominated in. Defaults to `USD` if not provided.
+      # Three-letter ISO currency code.
       sig { returns(ModernTreasury::Currency::TaggedSymbol) }
       attr_accessor :currency
 
@@ -292,7 +292,7 @@ module ModernTreasury
         # The counterparty's shipping address where physical goods should be delivered.
         counterparty_shipping_address:,
         created_at:,
-        # Currency that the invoice is denominated in. Defaults to `USD` if not provided.
+        # Three-letter ISO currency code.
         currency:,
         # An optional free-form description of the invoice.
         description:,

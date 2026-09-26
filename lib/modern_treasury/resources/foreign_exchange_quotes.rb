@@ -12,11 +12,11 @@ module ModernTreasury
       #
       # @param internal_account_id [String] The ID for the `InternalAccount` this quote is associated with.
       #
-      # @param target_currency [Symbol, ModernTreasury::Models::Currency] Currency to convert the `base_currency` to, often called the "buy" currency.
+      # @param target_currency [Symbol, ModernTreasury::Models::Currency] Three-letter ISO currency code.
       #
       # @param base_amount [Integer] Amount in the lowest denomination of the `base_currency` to convert, often calle
       #
-      # @param base_currency [Symbol, ModernTreasury::Models::Currency] Currency to convert, often called the "sell" currency.
+      # @param base_currency [Symbol, ModernTreasury::Models::Currency] Three-letter ISO currency code.
       #
       # @param effective_at [Time] The timestamp until when the quoted rate is valid.
       #
