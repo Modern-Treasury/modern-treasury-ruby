@@ -28,7 +28,7 @@ module ModernTreasury
       required :created_at, Time
 
       # @!attribute currency
-      #   The currency of the incoming payment detail.
+      #   Three-letter ISO currency code.
       #
       #   @return [Symbol, ModernTreasury::Models::Currency]
       required :currency, enum: -> { ModernTreasury::Currency }
@@ -222,7 +222,7 @@ module ModernTreasury
       #
       #   @param created_at [Time]
       #
-      #   @param currency [Symbol, ModernTreasury::Models::Currency] The currency of the incoming payment detail.
+      #   @param currency [Symbol, ModernTreasury::Models::Currency] Three-letter ISO currency code.
       #
       #   @param data [Hash{Symbol=>Object}] The raw data from the payment pre-notification file that we get from the bank.
       #

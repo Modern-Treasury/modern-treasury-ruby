@@ -105,7 +105,7 @@ module ModernTreasury
         # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
         # differences between the options.
         charge_bearer: nil,
-        # Defaults to the currency of the originating account.
+        # Three-letter ISO currency code.
         currency: nil,
         # An optional description for internal use.
         description: nil,
@@ -318,7 +318,7 @@ module ModernTreasury
         charge_bearer: nil,
         # Required when receiving_account_id is passed the ID of an external account.
         counterparty_id: nil,
-        # Defaults to the currency of the originating account.
+        # Three-letter ISO currency code.
         currency: nil,
         # An optional description for internal use.
         description: nil,
@@ -594,7 +594,7 @@ module ModernTreasury
         # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
         # differences between the options.
         charge_bearer: nil,
-        # Defaults to the currency of the originating account.
+        # Three-letter ISO currency code.
         currency: nil,
         # An optional description for internal use.
         description: nil,

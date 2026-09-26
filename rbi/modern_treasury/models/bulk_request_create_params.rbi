@@ -312,7 +312,7 @@ module ModernTreasury
           end
           attr_accessor :charge_bearer
 
-          # Defaults to the currency of the originating account.
+          # Three-letter ISO currency code.
           sig { returns(T.nilable(ModernTreasury::Currency::OrSymbol)) }
           attr_reader :currency
 
@@ -739,7 +739,7 @@ module ModernTreasury
             # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
             # differences between the options.
             charge_bearer: nil,
-            # Defaults to the currency of the originating account.
+            # Three-letter ISO currency code.
             currency: nil,
             # An optional description for internal use.
             description: nil,
@@ -2275,7 +2275,7 @@ module ModernTreasury
           sig { returns(T.nilable(String)) }
           attr_accessor :counterparty_id
 
-          # Must conform to ISO 4217. Defaults to the currency of the internal account.
+          # Three-letter ISO currency code.
           sig { returns(T.nilable(ModernTreasury::Currency::OrSymbol)) }
           attr_accessor :currency
 
@@ -2470,7 +2470,7 @@ module ModernTreasury
             amount_upper_bound: nil,
             # The ID of the counterparty you expect for this payment.
             counterparty_id: nil,
-            # Must conform to ISO 4217. Defaults to the currency of the internal account.
+            # Three-letter ISO currency code.
             currency: nil,
             # The earliest date the payment may come in. Format: yyyy-mm-dd
             date_lower_bound: nil,
@@ -3155,7 +3155,7 @@ module ModernTreasury
           sig { returns(T.nilable(String)) }
           attr_accessor :counterparty_id
 
-          # Defaults to the currency of the originating account.
+          # Three-letter ISO currency code.
           sig { returns(T.nilable(ModernTreasury::Currency::OrSymbol)) }
           attr_reader :currency
 
@@ -3562,7 +3562,7 @@ module ModernTreasury
             charge_bearer: nil,
             # Required when receiving_account_id is passed the ID of an external account.
             counterparty_id: nil,
-            # Defaults to the currency of the originating account.
+            # Three-letter ISO currency code.
             currency: nil,
             # An optional description for internal use.
             description: nil,
@@ -5097,7 +5097,7 @@ module ModernTreasury
           sig { returns(T.nilable(String)) }
           attr_accessor :counterparty_id
 
-          # Must conform to ISO 4217. Defaults to the currency of the internal account.
+          # Three-letter ISO currency code.
           sig { returns(T.nilable(ModernTreasury::Currency::OrSymbol)) }
           attr_accessor :currency
 
@@ -5254,7 +5254,7 @@ module ModernTreasury
             amount_upper_bound: nil,
             # The ID of the counterparty you expect for this payment.
             counterparty_id: nil,
-            # Must conform to ISO 4217. Defaults to the currency of the internal account.
+            # Three-letter ISO currency code.
             currency: nil,
             # The earliest date the payment may come in. Format: yyyy-mm-dd
             date_lower_bound: nil,

@@ -57,7 +57,7 @@ module ModernTreasury
       required :created_at, Time
 
       # @!attribute currency
-      #   Currency that the invoice is denominated in. Defaults to `USD` if not provided.
+      #   Three-letter ISO currency code.
       #
       #   @return [Symbol, ModernTreasury::Models::Currency]
       required :currency, enum: -> { ModernTreasury::Currency }
@@ -290,7 +290,7 @@ module ModernTreasury
       #
       #   @param created_at [Time]
       #
-      #   @param currency [Symbol, ModernTreasury::Models::Currency] Currency that the invoice is denominated in. Defaults to `USD` if not provided.
+      #   @param currency [Symbol, ModernTreasury::Models::Currency] Three-letter ISO currency code.
       #
       #   @param description [String] An optional free-form description of the invoice.
       #

@@ -205,7 +205,7 @@ module ModernTreasury
         originating_account_id:,
         # Can be `ach`, `eft`, or `rtp`.
         payment_type:,
-        # Defaults to the currency of the originating account.
+        # Three-letter ISO currency code.
         currency: nil,
         # A payment type to fallback to if the original type is not valid for the
         # receiving account. Currently, this only supports falling back from RTP to ACH

@@ -26,7 +26,7 @@ module ModernTreasury
       sig { returns(Time) }
       attr_accessor :created_at
 
-      # The currency of the incoming payment detail.
+      # Three-letter ISO currency code.
       sig { returns(ModernTreasury::Currency::TaggedSymbol) }
       attr_accessor :currency
 
@@ -232,7 +232,7 @@ module ModernTreasury
         # The date on which the corresponding transaction will occur.
         as_of_date:,
         created_at:,
-        # The currency of the incoming payment detail.
+        # Three-letter ISO currency code.
         currency:,
         # The raw data from the payment pre-notification file that we get from the bank.
         data:,

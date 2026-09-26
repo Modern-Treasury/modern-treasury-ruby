@@ -37,7 +37,7 @@ module ModernTreasury
       optional :counterparty_id, String, nil?: true
 
       # @!attribute currency
-      #   Must conform to ISO 4217. Defaults to the currency of the internal account
+      #   Three-letter ISO currency code.
       #
       #   @return [Symbol, ModernTreasury::Models::Currency, nil]
       optional :currency, enum: -> { ModernTreasury::Currency }
@@ -80,7 +80,7 @@ module ModernTreasury
       #
       #   @param counterparty_id [String, nil] The ID of the counterparty you expect for this payment
       #
-      #   @param currency [Symbol, ModernTreasury::Models::Currency] Must conform to ISO 4217. Defaults to the currency of the internal account
+      #   @param currency [Symbol, ModernTreasury::Models::Currency] Three-letter ISO currency code.
       #
       #   @param custom_identifiers [Hash{Symbol=>String}, nil] A hash of custom identifiers for this payment
       #

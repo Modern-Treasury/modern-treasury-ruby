@@ -107,7 +107,7 @@ module ModernTreasury
       #
       # @param as_of_date [Date, nil] Defaults to today.
       #
-      # @param currency [Symbol, ModernTreasury::Models::Currency, nil] Defaults to the currency of the originating account.
+      # @param currency [Symbol, ModernTreasury::Models::Currency, nil] Three-letter ISO currency code.
       #
       # @param data [Object, nil] An object passed through to the simulated IPD that could reflect what a vendor w
       #

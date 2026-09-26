@@ -68,7 +68,7 @@ module ModernTreasury
         counterparty_billing_address: nil,
         # The counterparty's shipping address where physical goods should be delivered.
         counterparty_shipping_address: nil,
-        # Currency that the invoice is denominated in. Defaults to `USD` if not provided.
+        # Three-letter ISO currency code.
         currency: nil,
         # A free-form description of the invoice.
         description: nil,
@@ -196,7 +196,7 @@ module ModernTreasury
         counterparty_id: nil,
         # The counterparty's shipping address where physical goods should be delivered.
         counterparty_shipping_address: nil,
-        # Currency that the invoice is denominated in. Defaults to `USD` if not provided.
+        # Three-letter ISO currency code.
         currency: nil,
         # A free-form description of the invoice.
         description: nil,

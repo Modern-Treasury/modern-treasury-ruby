@@ -24,7 +24,7 @@ module ModernTreasury
       #
       # @param counterparty_id [String, nil] The ID of the counterparty you expect for this payment.
       #
-      # @param currency [Symbol, ModernTreasury::Models::Currency, nil] Must conform to ISO 4217. Defaults to the currency of the internal account.
+      # @param currency [Symbol, ModernTreasury::Models::Currency, nil] Three-letter ISO currency code.
       #
       # @param date_lower_bound [Date, nil] The earliest date the payment may come in. Format: yyyy-mm-dd
       #
@@ -117,7 +117,7 @@ module ModernTreasury
       #
       # @param counterparty_id [String, nil] The ID of the counterparty you expect for this payment.
       #
-      # @param currency [Symbol, ModernTreasury::Models::Currency, nil] Must conform to ISO 4217. Defaults to the currency of the internal account.
+      # @param currency [Symbol, ModernTreasury::Models::Currency, nil] Three-letter ISO currency code.
       #
       # @param date_lower_bound [Date, nil] The earliest date the payment may come in. Format: yyyy-mm-dd
       #

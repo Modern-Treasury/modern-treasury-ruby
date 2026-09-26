@@ -26,7 +26,7 @@ module ModernTreasury
       required :payment_type, enum: -> { ModernTreasury::ExternalAccountVerifyParams::PaymentType }
 
       # @!attribute currency
-      #   Defaults to the currency of the originating account.
+      #   Three-letter ISO currency code.
       #
       #   @return [Symbol, ModernTreasury::Models::Currency, nil]
       optional :currency, enum: -> { ModernTreasury::Currency }
@@ -56,7 +56,7 @@ module ModernTreasury
       #
       #   @param payment_type [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType] Can be `ach`, `eft`, or `rtp`.
       #
-      #   @param currency [Symbol, ModernTreasury::Models::Currency] Defaults to the currency of the originating account.
+      #   @param currency [Symbol, ModernTreasury::Models::Currency] Three-letter ISO currency code.
       #
       #   @param fallback_type [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType] A payment type to fallback to if the original type is not valid for the receivin
       #

@@ -52,7 +52,7 @@ module ModernTreasury
       sig { returns(Time) }
       attr_accessor :created_at
 
-      # The currency of the account.
+      # Three-letter ISO currency code.
       sig { returns(ModernTreasury::Currency::TaggedSymbol) }
       attr_accessor :currency
 
@@ -188,7 +188,7 @@ module ModernTreasury
         # The Counterparty associated to this account.
         counterparty_id:,
         created_at:,
-        # The currency of the account.
+        # Three-letter ISO currency code.
         currency:,
         # Whether this account can receive ACH debits. Only applicable to accounts created
         # under a Modern Treasury PSP connection, or `null` for Bring Your Own Bank
