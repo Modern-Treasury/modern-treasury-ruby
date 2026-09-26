@@ -207,7 +207,7 @@ module ModernTreasury
       #
       # @param payment_type [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType] Can be `ach`, `eft`, or `rtp`.
       #
-      # @param currency [Symbol, ModernTreasury::Models::Currency] Three-letter ISO currency code.
+      # @param currency [Symbol, ModernTreasury::Models::Currency] Defaults to the currency of the originating account.
       #
       # @param fallback_type [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType] A payment type to fallback to if the original type is not valid for the receivin
       #

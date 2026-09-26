@@ -69,7 +69,7 @@ module ModernTreasury
       optional :charge_bearer, enum: -> { ModernTreasury::PaymentOrderCreateParams::ChargeBearer }, nil?: true
 
       # @!attribute currency
-      #   Three-letter ISO currency code.
+      #   Defaults to the currency of the originating account.
       #
       #   @return [Symbol, ModernTreasury::Models::Currency, nil]
       optional :currency, enum: -> { ModernTreasury::Currency }
@@ -358,7 +358,7 @@ module ModernTreasury
       #
       #   @param charge_bearer [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::ChargeBearer, nil] The party that will pay the fees for the payment order. See https://docs.modernt
       #
-      #   @param currency [Symbol, ModernTreasury::Models::Currency] Three-letter ISO currency code.
+      #   @param currency [Symbol, ModernTreasury::Models::Currency] Defaults to the currency of the originating account.
       #
       #   @param description [String, nil] An optional description for internal use.
       #

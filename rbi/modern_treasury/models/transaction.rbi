@@ -38,7 +38,7 @@ module ModernTreasury
       sig { returns(Time) }
       attr_accessor :created_at
 
-      # Three-letter ISO currency code.
+      # Currency that this transaction is denominated in.
       sig { returns(ModernTreasury::Currency::TaggedSymbol) }
       attr_accessor :currency
 
@@ -192,7 +192,7 @@ module ModernTreasury
         # does not provide timezone info.
         as_of_timezone:,
         created_at:,
-        # Three-letter ISO currency code.
+        # Currency that this transaction is denominated in.
         currency:,
         # An object containing key-value pairs, each with a custom identifier as the key
         # and a string value.

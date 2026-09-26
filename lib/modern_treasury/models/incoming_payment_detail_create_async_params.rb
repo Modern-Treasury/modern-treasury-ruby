@@ -21,7 +21,7 @@ module ModernTreasury
       optional :as_of_date, Date, nil?: true
 
       # @!attribute currency
-      #   Three-letter ISO currency code.
+      #   Defaults to the currency of the originating account.
       #
       #   @return [Symbol, ModernTreasury::Models::Currency, nil]
       optional :currency, enum: -> { ModernTreasury::Currency }, nil?: true
@@ -80,7 +80,7 @@ module ModernTreasury
       #
       #   @param as_of_date [Date, nil] Defaults to today.
       #
-      #   @param currency [Symbol, ModernTreasury::Models::Currency, nil] Three-letter ISO currency code.
+      #   @param currency [Symbol, ModernTreasury::Models::Currency, nil] Defaults to the currency of the originating account.
       #
       #   @param data [Object, nil] An object passed through to the simulated IPD that could reflect what a vendor w
       #

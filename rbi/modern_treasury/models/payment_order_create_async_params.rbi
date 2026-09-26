@@ -76,7 +76,7 @@ module ModernTreasury
       end
       attr_accessor :charge_bearer
 
-      # Three-letter ISO currency code.
+      # Defaults to the currency of the originating account.
       sig { returns(T.nilable(ModernTreasury::Currency::OrSymbol)) }
       attr_reader :currency
 
@@ -498,7 +498,7 @@ module ModernTreasury
         # https://docs.moderntreasury.com/payments/docs/charge-bearer to understand the
         # differences between the options.
         charge_bearer: nil,
-        # Three-letter ISO currency code.
+        # Defaults to the currency of the originating account.
         currency: nil,
         # An optional description for internal use.
         description: nil,

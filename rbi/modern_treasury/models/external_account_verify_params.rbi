@@ -30,7 +30,7 @@ module ModernTreasury
       end
       attr_accessor :payment_type
 
-      # Three-letter ISO currency code.
+      # Defaults to the currency of the originating account.
       sig { returns(T.nilable(ModernTreasury::Currency::OrSymbol)) }
       attr_reader :currency
 
@@ -97,7 +97,7 @@ module ModernTreasury
         originating_account_id:,
         # Can be `ach`, `eft`, or `rtp`.
         payment_type:,
-        # Three-letter ISO currency code.
+        # Defaults to the currency of the originating account.
         currency: nil,
         # A payment type to fallback to if the original type is not valid for the
         # receiving account. Currently, this only supports falling back from RTP to ACH

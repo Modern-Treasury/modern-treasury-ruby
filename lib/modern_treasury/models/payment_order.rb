@@ -68,7 +68,7 @@ module ModernTreasury
       required :created_at, Time
 
       # @!attribute currency
-      #   Three-letter ISO currency code.
+      #   Defaults to the currency of the originating account.
       #
       #   @return [Symbol, ModernTreasury::Models::Currency]
       required :currency, enum: -> { ModernTreasury::Currency }
@@ -406,7 +406,7 @@ module ModernTreasury
       #
       #   @param created_at [Time]
       #
-      #   @param currency [Symbol, ModernTreasury::Models::Currency] Three-letter ISO currency code.
+      #   @param currency [Symbol, ModernTreasury::Models::Currency] Defaults to the currency of the originating account.
       #
       #   @param current_hold [ModernTreasury::Models::PaymentOrder::CurrentHold, nil] If the payment order's status is `held`, this will include the hold object's dat
       #

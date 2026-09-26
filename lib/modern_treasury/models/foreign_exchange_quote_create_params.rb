@@ -14,7 +14,7 @@ module ModernTreasury
       required :internal_account_id, String
 
       # @!attribute target_currency
-      #   Three-letter ISO currency code.
+      #   Currency to convert the `base_currency` to, often called the "buy" currency.
       #
       #   @return [Symbol, ModernTreasury::Models::Currency]
       required :target_currency, enum: -> { ModernTreasury::Currency }
@@ -27,7 +27,7 @@ module ModernTreasury
       optional :base_amount, Integer
 
       # @!attribute base_currency
-      #   Three-letter ISO currency code.
+      #   Currency to convert, often called the "sell" currency.
       #
       #   @return [Symbol, ModernTreasury::Models::Currency, nil]
       optional :base_currency, enum: -> { ModernTreasury::Currency }
@@ -51,11 +51,11 @@ module ModernTreasury
       #
       #   @param internal_account_id [String] The ID for the `InternalAccount` this quote is associated with.
       #
-      #   @param target_currency [Symbol, ModernTreasury::Models::Currency] Three-letter ISO currency code.
+      #   @param target_currency [Symbol, ModernTreasury::Models::Currency] Currency to convert the `base_currency` to, often called the "buy" currency.
       #
       #   @param base_amount [Integer] Amount in the lowest denomination of the `base_currency` to convert, often calle
       #
-      #   @param base_currency [Symbol, ModernTreasury::Models::Currency] Three-letter ISO currency code.
+      #   @param base_currency [Symbol, ModernTreasury::Models::Currency] Currency to convert, often called the "sell" currency.
       #
       #   @param effective_at [Time] The timestamp until when the quoted rate is valid.
       #

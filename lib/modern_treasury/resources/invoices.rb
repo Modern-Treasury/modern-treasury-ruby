@@ -27,7 +27,7 @@ module ModernTreasury
       #
       # @param counterparty_shipping_address [ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress, nil] The counterparty's shipping address where physical goods should be delivered.
       #
-      # @param currency [Symbol, ModernTreasury::Models::Currency] Three-letter ISO currency code.
+      # @param currency [Symbol, ModernTreasury::Models::Currency] Currency that the invoice is denominated in. Defaults to `USD` if not provided.
       #
       # @param description [String] A free-form description of the invoice.
       #
@@ -114,7 +114,7 @@ module ModernTreasury
       #
       # @param counterparty_shipping_address [ModernTreasury::Models::InvoiceUpdateParams::CounterpartyShippingAddress, nil] The counterparty's shipping address where physical goods should be delivered.
       #
-      # @param currency [Symbol, ModernTreasury::Models::Currency] Three-letter ISO currency code.
+      # @param currency [Symbol, ModernTreasury::Models::Currency] Currency that the invoice is denominated in. Defaults to `USD` if not provided.
       #
       # @param description [String] A free-form description of the invoice.
       #

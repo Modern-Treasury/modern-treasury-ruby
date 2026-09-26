@@ -39,7 +39,7 @@ module ModernTreasury
       sig { returns(Time) }
       attr_accessor :created_at
 
-      # Three-letter ISO currency code.
+      # Currency that this transaction is denominated in.
       sig { returns(ModernTreasury::Currency::TaggedSymbol) }
       attr_accessor :currency
 
@@ -191,7 +191,7 @@ module ModernTreasury
         # the original outgoing payment.
         corrections:,
         created_at:,
-        # Three-letter ISO currency code.
+        # Currency that this transaction is denominated in.
         currency:,
         # If the return's status is `returned`, this will include the return object's data
         # that is returning this return.
