@@ -1384,6 +1384,11 @@ module ModernTreasury
                 :au_number,
                 ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
               )
+            AVALANCHE_ADDRESS =
+              T.let(
+                :avalanche_address,
+                ModernTreasury::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
+              )
             BASE_ADDRESS =
               T.let(
                 :base_address,

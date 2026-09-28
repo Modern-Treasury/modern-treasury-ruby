@@ -21,6 +21,7 @@ module ModernTreasury
       WEB = :WEB
       ARBITRUM = :arbitrum
       AU_BECS = :au_becs
+      AVALANCHE = :avalanche
       BACS = :bacs
       BASE = :base
       CHATS = :chats
