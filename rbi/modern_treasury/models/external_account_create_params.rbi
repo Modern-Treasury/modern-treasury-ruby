@@ -318,6 +318,11 @@ module ModernTreasury
               :au_number,
               ModernTreasury::ExternalAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
             )
+          AVALANCHE_ADDRESS =
+            T.let(
+              :avalanche_address,
+              ModernTreasury::ExternalAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
+            )
           BASE_ADDRESS =
             T.let(
               :base_address,

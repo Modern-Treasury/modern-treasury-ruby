@@ -125,6 +125,11 @@ module ModernTreasury
             :au_number,
             ModernTreasury::AccountDetail::AccountNumberType::TaggedSymbol
           )
+        AVALANCHE_ADDRESS =
+          T.let(
+            :avalanche_address,
+            ModernTreasury::AccountDetail::AccountNumberType::TaggedSymbol
+          )
         BASE_ADDRESS =
           T.let(
             :base_address,

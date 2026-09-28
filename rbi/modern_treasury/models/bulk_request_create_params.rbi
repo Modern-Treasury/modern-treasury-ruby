@@ -1631,6 +1631,11 @@ module ModernTreasury
                     :au_number,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
                   )
+                AVALANCHE_ADDRESS =
+                  T.let(
+                    :avalanche_address,
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
+                  )
                 BASE_ADDRESS =
                   T.let(
                     :base_address,
@@ -4447,6 +4452,11 @@ module ModernTreasury
                 AU_NUMBER =
                   T.let(
                     :au_number,
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
+                  )
+                AVALANCHE_ADDRESS =
+                  T.let(
+                    :avalanche_address,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
                   )
                 BASE_ADDRESS =

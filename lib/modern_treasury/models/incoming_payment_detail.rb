@@ -286,6 +286,7 @@ module ModernTreasury
 
         ARBITRUM_ADDRESS = :arbitrum_address
         AU_NUMBER = :au_number
+        AVALANCHE_ADDRESS = :avalanche_address
         BASE_ADDRESS = :base_address
         CARD_TOKEN = :card_token
         CLABE = :clabe
