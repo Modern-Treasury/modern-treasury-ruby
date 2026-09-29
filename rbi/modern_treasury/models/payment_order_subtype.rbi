@@ -30,6 +30,8 @@ module ModernTreasury
         T.let(:arbitrum, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       AU_BECS =
         T.let(:au_becs, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
+      AVALANCHE =
+        T.let(:avalanche, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       BACS = T.let(:bacs, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       BASE = T.let(:base, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       CHATS = T.let(:chats, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)

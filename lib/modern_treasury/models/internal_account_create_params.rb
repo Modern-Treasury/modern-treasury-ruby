@@ -359,6 +359,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         ARBITRUM_ADDRESS = :arbitrum_address
+        AVALANCHE_ADDRESS = :avalanche_address
         BASE_ADDRESS = :base_address
         ETHEREUM_ADDRESS = :ethereum_address
         POLYGON_ADDRESS = :polygon_address
