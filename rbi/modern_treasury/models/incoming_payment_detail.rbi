@@ -373,6 +373,11 @@ module ModernTreasury
             :au_number,
             ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
           )
+        AVALANCHE_ADDRESS =
+          T.let(
+            :avalanche_address,
+            ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
+          )
         BASE_ADDRESS =
           T.let(
             :base_address,

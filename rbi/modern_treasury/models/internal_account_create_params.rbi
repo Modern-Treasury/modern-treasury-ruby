@@ -765,6 +765,11 @@ module ModernTreasury
             :arbitrum_address,
             ModernTreasury::InternalAccountCreateParams::RequestedAccountNumberType::TaggedSymbol
           )
+        AVALANCHE_ADDRESS =
+          T.let(
+            :avalanche_address,
+            ModernTreasury::InternalAccountCreateParams::RequestedAccountNumberType::TaggedSymbol
+          )
         BASE_ADDRESS =
           T.let(
             :base_address,
