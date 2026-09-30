@@ -1,8 +1,7 @@
 module ModernTreasury
   module Models
     type ledger_entry_retrieve_params =
-      { id: String, show_balances: bool }
-      & ModernTreasury::Internal::Type::request_parameters
+      { id: String } & ModernTreasury::Internal::Type::request_parameters
 
     class LedgerEntryRetrieveParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
@@ -10,19 +9,13 @@ module ModernTreasury
 
       attr_accessor id: String
 
-      attr_reader show_balances: bool?
-
-      def show_balances=: (bool) -> bool
-
       def initialize: (
         id: String,
-        ?show_balances: bool,
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
       def to_hash: -> {
         id: String,
-        show_balances: bool,
         request_options: ModernTreasury::RequestOptions
       }
     end

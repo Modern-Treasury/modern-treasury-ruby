@@ -3,16 +3,11 @@
 module ModernTreasury
   module Resources
     class LedgerEntries
-      # Some parameter documentations has been truncated, see
-      # {ModernTreasury::Models::LedgerEntryRetrieveParams} for more details.
-      #
       # Get details on a single ledger entry.
       #
-      # @overload retrieve(id, show_balances: nil, request_options: {})
+      # @overload retrieve(id, request_options: {})
       #
       # @param id [String] id
-      #
-      # @param show_balances [Boolean] If true, response will include the balances attached to the ledger entry. If the
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -20,14 +15,11 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::LedgerEntryRetrieveParams
       def retrieve(id, params = {})
-        parsed, options = ModernTreasury::LedgerEntryRetrieveParams.dump_request(params)
-        query = ModernTreasury::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: ["api/ledger_entries/%1$s", id],
-          query: query,
           model: ModernTreasury::LedgerEntry,
-          options: options
+          options: params[:request_options]
         )
       end
 
@@ -63,7 +55,7 @@ module ModernTreasury
       #
       # Get a list of all ledger entries.
       #
-      # @overload list(id: nil, after_cursor: nil, amount: nil, as_of_lock_version: nil, direction: nil, effective_at: nil, effective_date: nil, ledger_account_category_id: nil, ledger_account_id: nil, ledger_account_lock_version: nil, ledger_account_payout_id: nil, ledger_account_settlement_id: nil, ledger_account_statement_id: nil, ledger_transaction_id: nil, metadata: nil, order_by: nil, per_page: nil, show_balances: nil, show_deleted: nil, status: nil, updated_at: nil, request_options: {})
+      # @overload list(id: nil, after_cursor: nil, amount: nil, as_of_lock_version: nil, direction: nil, effective_at: nil, effective_date: nil, ledger_account_category_id: nil, ledger_account_id: nil, ledger_account_lock_version: nil, ledger_account_payout_id: nil, ledger_account_settlement_id: nil, ledger_account_statement_id: nil, ledger_transaction_id: nil, metadata: nil, order_by: nil, per_page: nil, show_deleted: nil, status: nil, updated_at: nil, request_options: {})
       #
       # @param id [Array<String>] If you have specific IDs to retrieve in bulk, you can pass them as query paramet
       #
@@ -98,8 +90,6 @@ module ModernTreasury
       # @param order_by [ModernTreasury::Models::LedgerEntryListParams::OrderBy] Order by `created_at` or `effective_at` in `asc` or `desc` order. For example, t
       #
       # @param per_page [Integer]
-      #
-      # @param show_balances [Boolean] If true, response will include the balances attached to the ledger entry. If the
       #
       # @param show_deleted [Boolean] If true, response will include ledger entries that were deleted. When you update
       #
