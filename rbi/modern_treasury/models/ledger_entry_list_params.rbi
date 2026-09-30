@@ -148,14 +148,6 @@ module ModernTreasury
       sig { params(per_page: Integer).void }
       attr_writer :per_page
 
-      # If true, response will include the balances attached to the ledger entry. If
-      # there is no balance available, null will be returned instead.
-      sig { returns(T.nilable(T::Boolean)) }
-      attr_reader :show_balances
-
-      sig { params(show_balances: T::Boolean).void }
-      attr_writer :show_balances
-
       # If true, response will include ledger entries that were deleted. When you update
       # a ledger transaction to specify a new set of entries, the previous entries are
       # deleted.
@@ -210,7 +202,6 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           order_by: ModernTreasury::LedgerEntryListParams::OrderBy::OrHash,
           per_page: Integer,
-          show_balances: T::Boolean,
           show_deleted: T::Boolean,
           status: ModernTreasury::LedgerEntryListParams::Status::OrSymbol,
           updated_at: T::Hash[Symbol, Time],
@@ -260,9 +251,6 @@ module ModernTreasury
         # by only one field at a time is supported.
         order_by: nil,
         per_page: nil,
-        # If true, response will include the balances attached to the ledger entry. If
-        # there is no balance available, null will be returned instead.
-        show_balances: nil,
         # If true, response will include ledger entries that were deleted. When you update
         # a ledger transaction to specify a new set of entries, the previous entries are
         # deleted.
@@ -299,7 +287,6 @@ module ModernTreasury
             metadata: T::Hash[Symbol, String],
             order_by: ModernTreasury::LedgerEntryListParams::OrderBy,
             per_page: Integer,
-            show_balances: T::Boolean,
             show_deleted: T::Boolean,
             status: ModernTreasury::LedgerEntryListParams::Status::OrSymbol,
             updated_at: T::Hash[Symbol, Time],

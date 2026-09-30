@@ -117,13 +117,6 @@ module ModernTreasury
       #   @return [Integer, nil]
       optional :per_page, Integer
 
-      # @!attribute show_balances
-      #   If true, response will include the balances attached to the ledger entry. If
-      #   there is no balance available, null will be returned instead.
-      #
-      #   @return [Boolean, nil]
-      optional :show_balances, ModernTreasury::Internal::Type::Boolean
-
       # @!attribute show_deleted
       #   If true, response will include ledger entries that were deleted. When you update
       #   a ledger transaction to specify a new set of entries, the previous entries are
@@ -148,7 +141,7 @@ module ModernTreasury
       #   @return [Hash{Symbol=>Time}, nil]
       optional :updated_at, ModernTreasury::Internal::Type::HashOf[Time]
 
-      # @!method initialize(id: nil, after_cursor: nil, amount: nil, as_of_lock_version: nil, direction: nil, effective_at: nil, effective_date: nil, ledger_account_category_id: nil, ledger_account_id: nil, ledger_account_lock_version: nil, ledger_account_payout_id: nil, ledger_account_settlement_id: nil, ledger_account_statement_id: nil, ledger_transaction_id: nil, metadata: nil, order_by: nil, per_page: nil, show_balances: nil, show_deleted: nil, status: nil, updated_at: nil, request_options: {})
+      # @!method initialize(id: nil, after_cursor: nil, amount: nil, as_of_lock_version: nil, direction: nil, effective_at: nil, effective_date: nil, ledger_account_category_id: nil, ledger_account_id: nil, ledger_account_lock_version: nil, ledger_account_payout_id: nil, ledger_account_settlement_id: nil, ledger_account_statement_id: nil, ledger_transaction_id: nil, metadata: nil, order_by: nil, per_page: nil, show_deleted: nil, status: nil, updated_at: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LedgerEntryListParams} for more details.
       #
@@ -185,8 +178,6 @@ module ModernTreasury
       #   @param order_by [ModernTreasury::Models::LedgerEntryListParams::OrderBy] Order by `created_at` or `effective_at` in `asc` or `desc` order. For example, t
       #
       #   @param per_page [Integer]
-      #
-      #   @param show_balances [Boolean] If true, response will include the balances attached to the ledger entry. If the
       #
       #   @param show_deleted [Boolean] If true, response will include ledger entries that were deleted. When you update
       #

@@ -7,16 +7,12 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          show_balances: T::Boolean,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::LedgerEntry)
       end
       def retrieve(
         # id
         id,
-        # If true, response will include the balances attached to the ledger entry. If
-        # there is no balance available, null will be returned instead.
-        show_balances: nil,
         request_options: {}
       )
       end
@@ -59,7 +55,6 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           order_by: ModernTreasury::LedgerEntryListParams::OrderBy::OrHash,
           per_page: Integer,
-          show_balances: T::Boolean,
           show_deleted: T::Boolean,
           status: ModernTreasury::LedgerEntryListParams::Status::OrSymbol,
           updated_at: T::Hash[Symbol, Time],
@@ -109,9 +104,6 @@ module ModernTreasury
         # by only one field at a time is supported.
         order_by: nil,
         per_page: nil,
-        # If true, response will include the balances attached to the ledger entry. If
-        # there is no balance available, null will be returned instead.
-        show_balances: nil,
         # If true, response will include ledger entries that were deleted. When you update
         # a ledger transaction to specify a new set of entries, the previous entries are
         # deleted.
