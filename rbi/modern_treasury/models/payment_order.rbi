@@ -1428,6 +1428,11 @@ module ModernTreasury
               :column_transfer_id,
               ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
+          CROSS_RIVER_CARD_NETWORK =
+            T.let(
+              :cross_river_card_network,
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
           CROSS_RIVER_CARD_TRACE_NUMBER =
             T.let(
               :cross_river_card_trace_number,
