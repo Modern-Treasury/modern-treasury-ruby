@@ -54,6 +54,11 @@ module ModernTreasury
       POLYGON =
         T.let(:polygon, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       PRINT = T.let(:print, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
+      REMOTE_DEPOSIT =
+        T.let(
+          :remote_deposit,
+          ModernTreasury::PaymentOrderSubtype::TaggedSymbol
+        )
       SE_BANKGIROT =
         T.let(:se_bankgirot, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
       SEPA = T.let(:sepa, ModernTreasury::PaymentOrderSubtype::TaggedSymbol)
