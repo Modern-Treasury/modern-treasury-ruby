@@ -37,6 +37,7 @@ module ModernTreasury
       PL_ELIXIR = :pl_elixir
       POLYGON = :polygon
       PRINT = :print
+      REMOTE_DEPOSIT = :remote_deposit
       SE_BANKGIROT = :se_bankgirot
       SEPA = :sepa
       SG_GIRO = :sg_giro
