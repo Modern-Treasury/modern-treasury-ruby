@@ -237,6 +237,23 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :service_provider_legal_entity_id
 
+      # Set to pending to submit a draft legal entity for processing. Only valid while
+      # the legal entity is draft, and must be the only attribute in the request. Draft
+      # child legal entities are submitted with it.
+      sig do
+        returns(
+          T.nilable(ModernTreasury::LegalEntityUpdateParams::Status::OrSymbol)
+        )
+      end
+      attr_reader :status
+
+      sig do
+        params(
+          status: ModernTreasury::LegalEntityUpdateParams::Status::OrSymbol
+        ).void
+      end
+      attr_writer :status
+
       # An individual's suffix.
       sig { returns(T.nilable(String)) }
       attr_accessor :suffix
@@ -359,6 +376,7 @@ module ModernTreasury
               ModernTreasury::LegalEntityUpdateParams::RiskRating::OrSymbol
             ),
           service_provider_legal_entity_id: T.nilable(String),
+          status: ModernTreasury::LegalEntityUpdateParams::Status::OrSymbol,
           suffix: T.nilable(String),
           terms_of_use:
             T.nilable(
@@ -441,6 +459,10 @@ module ModernTreasury
         risk_rating: nil,
         # The UUID of the parent legal entity in the service provider tree.
         service_provider_legal_entity_id: nil,
+        # Set to pending to submit a draft legal entity for processing. Only valid while
+        # the legal entity is draft, and must be the only attribute in the request. Draft
+        # child legal entities are submitted with it.
+        status: nil,
         # An individual's suffix.
         suffix: nil,
         # Acceptance of terms of use by the legal entity.
@@ -509,6 +531,7 @@ module ModernTreasury
                 ModernTreasury::LegalEntityUpdateParams::RiskRating::OrSymbol
               ),
             service_provider_legal_entity_id: T.nilable(String),
+            status: ModernTreasury::LegalEntityUpdateParams::Status::OrSymbol,
             suffix: T.nilable(String),
             terms_of_use:
               T.nilable(ModernTreasury::LegalEntityUpdateParams::TermsOfUse),
@@ -729,6 +752,35 @@ module ModernTreasury
           override.returns(
             T::Array[
               ModernTreasury::LegalEntityUpdateParams::RiskRating::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
+      end
+
+      # Set to pending to submit a draft legal entity for processing. Only valid while
+      # the legal entity is draft, and must be the only attribute in the request. Draft
+      # child legal entities are submitted with it.
+      module Status
+        extend ModernTreasury::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::LegalEntityUpdateParams::Status)
+          end
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        PENDING =
+          T.let(
+            :pending,
+            ModernTreasury::LegalEntityUpdateParams::Status::TaggedSymbol
+          )
+
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::LegalEntityUpdateParams::Status::TaggedSymbol
             ]
           )
         end

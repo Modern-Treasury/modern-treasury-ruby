@@ -187,8 +187,8 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :service_provider_legal_entity_id
 
-      # The activation status of the legal entity. One of pending, active, suspended, or
-      # denied.
+      # The activation status of the legal entity. One of draft, pending, active,
+      # suspended, or denied.
       sig do
         returns(T.nilable(ModernTreasury::LegalEntity::Status::TaggedSymbol))
       end
@@ -400,8 +400,8 @@ module ModernTreasury
         risk_rating:,
         # The UUID of the parent legal entity in the service provider tree.
         service_provider_legal_entity_id:,
-        # The activation status of the legal entity. One of pending, active, suspended, or
-        # denied.
+        # The activation status of the legal entity. One of draft, pending, active,
+        # suspended, or denied.
         status:,
         # An individual's suffix.
         suffix:,
@@ -912,8 +912,8 @@ module ModernTreasury
         end
       end
 
-      # The activation status of the legal entity. One of pending, active, suspended, or
-      # denied.
+      # The activation status of the legal entity. One of draft, pending, active,
+      # suspended, or denied.
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
@@ -925,6 +925,7 @@ module ModernTreasury
           T.let(:active, ModernTreasury::LegalEntity::Status::TaggedSymbol)
         DENIED =
           T.let(:denied, ModernTreasury::LegalEntity::Status::TaggedSymbol)
+        DRAFT = T.let(:draft, ModernTreasury::LegalEntity::Status::TaggedSymbol)
         PENDING =
           T.let(:pending, ModernTreasury::LegalEntity::Status::TaggedSymbol)
         SUSPENDED =

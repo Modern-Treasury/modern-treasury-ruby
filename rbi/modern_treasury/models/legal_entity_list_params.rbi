@@ -171,6 +171,11 @@ module ModernTreasury
             :pending,
             ModernTreasury::LegalEntityListParams::Status::TaggedSymbol
           )
+        DRAFT =
+          T.let(
+            :draft,
+            ModernTreasury::LegalEntityListParams::Status::TaggedSymbol
+          )
         ACTIVE =
           T.let(
             :active,

@@ -243,8 +243,8 @@ module ModernTreasury
       required :service_provider_legal_entity_id, String, nil?: true
 
       # @!attribute status
-      #   The activation status of the legal entity. One of pending, active, suspended, or
-      #   denied.
+      #   The activation status of the legal entity. One of draft, pending, active,
+      #   suspended, or denied.
       #
       #   @return [Symbol, ModernTreasury::Models::LegalEntity::Status, nil]
       required :status, enum: -> { ModernTreasury::LegalEntity::Status }, nil?: true
@@ -390,7 +390,7 @@ module ModernTreasury
       #
       #   @param service_provider_legal_entity_id [String, nil] The UUID of the parent legal entity in the service provider tree.
       #
-      #   @param status [Symbol, ModernTreasury::Models::LegalEntity::Status, nil] The activation status of the legal entity. One of pending, active, suspended, or
+      #   @param status [Symbol, ModernTreasury::Models::LegalEntity::Status, nil] The activation status of the legal entity. One of draft, pending, active, suspen
       #
       #   @param suffix [String, nil] An individual's suffix.
       #
@@ -647,8 +647,8 @@ module ModernTreasury
         #   @return [Array<Symbol>]
       end
 
-      # The activation status of the legal entity. One of pending, active, suspended, or
-      # denied.
+      # The activation status of the legal entity. One of draft, pending, active,
+      # suspended, or denied.
       #
       # @see ModernTreasury::Models::LegalEntity#status
       module Status
@@ -656,6 +656,7 @@ module ModernTreasury
 
         ACTIVE = :active
         DENIED = :denied
+        DRAFT = :draft
         PENDING = :pending
         SUSPENDED = :suspended
 
