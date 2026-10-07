@@ -29,6 +29,7 @@ module ModernTreasury
       | :pl_elixir
       | :polygon
       | :print
+      | :remote_deposit
       | :se_bankgirot
       | :sepa
       | :sg_giro
@@ -67,6 +68,7 @@ module ModernTreasury
       PL_ELIXIR: :pl_elixir
       POLYGON: :polygon
       PRINT: :print
+      REMOTE_DEPOSIT: :remote_deposit
       SE_BANKGIROT: :se_bankgirot
       SEPA: :sepa
       SG_GIRO: :sg_giro
