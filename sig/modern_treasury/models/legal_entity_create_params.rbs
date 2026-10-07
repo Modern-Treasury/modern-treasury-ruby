@@ -38,6 +38,7 @@ module ModernTreasury
         regulators: ::Array[ModernTreasury::LegalEntityCreateParams::Regulator]?,
         risk_rating: ModernTreasury::Models::LegalEntityCreateParams::risk_rating?,
         service_provider_legal_entity_id: String?,
+        status: ModernTreasury::Models::LegalEntityCreateParams::status,
         suffix: String?,
         terms_of_use: ModernTreasury::LegalEntityCreateParams::TermsOfUse?,
         third_party_verification: ModernTreasury::ThirdPartyVerification?,
@@ -152,6 +153,12 @@ module ModernTreasury
 
       attr_accessor service_provider_legal_entity_id: String?
 
+      attr_reader status: ModernTreasury::Models::LegalEntityCreateParams::status?
+
+      def status=: (
+        ModernTreasury::Models::LegalEntityCreateParams::status
+      ) -> ModernTreasury::Models::LegalEntityCreateParams::status
+
       attr_accessor suffix: String?
 
       attr_accessor terms_of_use: ModernTreasury::LegalEntityCreateParams::TermsOfUse?
@@ -207,6 +214,7 @@ module ModernTreasury
         ?regulators: ::Array[ModernTreasury::LegalEntityCreateParams::Regulator]?,
         ?risk_rating: ModernTreasury::Models::LegalEntityCreateParams::risk_rating?,
         ?service_provider_legal_entity_id: String?,
+        ?status: ModernTreasury::Models::LegalEntityCreateParams::status,
         ?suffix: String?,
         ?terms_of_use: ModernTreasury::LegalEntityCreateParams::TermsOfUse?,
         ?third_party_verification: ModernTreasury::ThirdPartyVerification?,
@@ -254,6 +262,7 @@ module ModernTreasury
         regulators: ::Array[ModernTreasury::LegalEntityCreateParams::Regulator]?,
         risk_rating: ModernTreasury::Models::LegalEntityCreateParams::risk_rating?,
         service_provider_legal_entity_id: String?,
+        status: ModernTreasury::Models::LegalEntityCreateParams::status,
         suffix: String?,
         terms_of_use: ModernTreasury::LegalEntityCreateParams::TermsOfUse?,
         third_party_verification: ModernTreasury::ThirdPartyVerification?,
@@ -405,6 +414,16 @@ module ModernTreasury
         HIGH: :high
 
         def self?.values: -> ::Array[ModernTreasury::Models::LegalEntityCreateParams::risk_rating]
+      end
+
+      type status = :draft
+
+      module Status
+        extend ModernTreasury::Internal::Type::Enum
+
+        DRAFT: :draft
+
+        def self?.values: -> ::Array[ModernTreasury::Models::LegalEntityCreateParams::status]
       end
 
       type terms_of_use = { accepted_at: Time, ip_address: String }
