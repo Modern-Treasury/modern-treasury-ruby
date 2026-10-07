@@ -70,6 +70,7 @@ module ModernTreasury
               ModernTreasury::LegalEntityCreateParams::RiskRating::OrSymbol
             ),
           service_provider_legal_entity_id: T.nilable(String),
+          status: ModernTreasury::LegalEntityCreateParams::Status::OrSymbol,
           suffix: T.nilable(String),
           terms_of_use:
             T.nilable(
@@ -165,6 +166,9 @@ module ModernTreasury
         risk_rating: nil,
         # The UUID of the parent legal entity in the service provider tree.
         service_provider_legal_entity_id: nil,
+        # Set to draft to create the legal entity as a draft. Omit to create it as
+        # pending. Inline child legal entities take the parent's status.
+        status: nil,
         # An individual's suffix.
         suffix: nil,
         # Acceptance of terms of use by the legal entity.
@@ -252,6 +256,7 @@ module ModernTreasury
               ModernTreasury::LegalEntityUpdateParams::RiskRating::OrSymbol
             ),
           service_provider_legal_entity_id: T.nilable(String),
+          status: ModernTreasury::LegalEntityUpdateParams::Status::OrSymbol,
           suffix: T.nilable(String),
           terms_of_use:
             T.nilable(
@@ -335,6 +340,10 @@ module ModernTreasury
         risk_rating: nil,
         # The UUID of the parent legal entity in the service provider tree.
         service_provider_legal_entity_id: nil,
+        # Set to pending to submit a draft legal entity for processing. Only valid while
+        # the legal entity is draft, and must be the only attribute in the request. Draft
+        # child legal entities are submitted with it.
+        status: nil,
         # An individual's suffix.
         suffix: nil,
         # Acceptance of terms of use by the legal entity.
