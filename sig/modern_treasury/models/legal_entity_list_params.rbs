@@ -79,12 +79,13 @@ module ModernTreasury
         def self?.values: -> ::Array[ModernTreasury::Models::LegalEntityListParams::legal_entity_type]
       end
 
-      type status = :pending | :active | :suspended | :denied
+      type status = :pending | :draft | :active | :suspended | :denied
 
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
         PENDING: :pending
+        DRAFT: :draft
         ACTIVE: :active
         SUSPENDED: :suspended
         DENIED: :denied

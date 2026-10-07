@@ -80,6 +80,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         PENDING = :pending
+        DRAFT = :draft
         ACTIVE = :active
         SUSPENDED = :suspended
         DENIED = :denied

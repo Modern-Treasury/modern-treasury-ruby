@@ -210,6 +210,14 @@ module ModernTreasury
       #   @return [String, nil]
       optional :service_provider_legal_entity_id, String, nil?: true
 
+      # @!attribute status
+      #   Set to pending to submit a draft legal entity for processing. Only valid while
+      #   the legal entity is draft, and must be the only attribute in the request. Draft
+      #   child legal entities are submitted with it.
+      #
+      #   @return [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::Status, nil]
+      optional :status, enum: -> { ModernTreasury::LegalEntityUpdateParams::Status }
+
       # @!attribute suffix
       #   An individual's suffix.
       #
@@ -256,7 +264,7 @@ module ModernTreasury
       #   @return [String, nil]
       optional :website, String, nil?: true
 
-      # @!method initialize(id:, addresses: nil, bank_settings: nil, business_description: nil, business_designation: nil, business_name: nil, citizenship_country: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, external_id: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, service_provider_legal_entity_id: nil, suffix: nil, terms_of_use: nil, third_party_verification: nil, third_party_verifications: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
+      # @!method initialize(id:, addresses: nil, bank_settings: nil, business_description: nil, business_designation: nil, business_name: nil, citizenship_country: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, external_id: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, service_provider_legal_entity_id: nil, status: nil, suffix: nil, terms_of_use: nil, third_party_verification: nil, third_party_verifications: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::LegalEntityUpdateParams} for more details.
       #
@@ -323,6 +331,8 @@ module ModernTreasury
       #   @param risk_rating [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::RiskRating, nil] The risk rating of the legal entity. One of low, medium, high.
       #
       #   @param service_provider_legal_entity_id [String, nil] The UUID of the parent legal entity in the service provider tree.
+      #
+      #   @param status [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::Status] Set to pending to submit a draft legal entity for processing. Only valid while t
       #
       #   @param suffix [String, nil] An individual's suffix.
       #
@@ -422,6 +432,18 @@ module ModernTreasury
         LOW = :low
         MEDIUM = :medium
         HIGH = :high
+
+        # @!method self.values
+        #   @return [Array<Symbol>]
+      end
+
+      # Set to pending to submit a draft legal entity for processing. Only valid while
+      # the legal entity is draft, and must be the only attribute in the request. Draft
+      # child legal entities are submitted with it.
+      module Status
+        extend ModernTreasury::Internal::Type::Enum
+
+        PENDING = :pending
 
         # @!method self.values
         #   @return [Array<Symbol>]

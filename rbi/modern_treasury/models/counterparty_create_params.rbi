@@ -1380,6 +1380,25 @@ module ModernTreasury
         sig { returns(T.nilable(String)) }
         attr_accessor :service_provider_legal_entity_id
 
+        # Set to draft to create the legal entity as a draft. Omit to create it as
+        # pending. Inline child legal entities take the parent's status.
+        sig do
+          returns(
+            T.nilable(
+              ModernTreasury::CounterpartyCreateParams::LegalEntity::Status::OrSymbol
+            )
+          )
+        end
+        attr_reader :status
+
+        sig do
+          params(
+            status:
+              ModernTreasury::CounterpartyCreateParams::LegalEntity::Status::OrSymbol
+          ).void
+        end
+        attr_writer :status
+
         # An individual's suffix.
         sig { returns(T.nilable(String)) }
         attr_accessor :suffix
@@ -1523,6 +1542,8 @@ module ModernTreasury
                 ModernTreasury::CounterpartyCreateParams::LegalEntity::RiskRating::OrSymbol
               ),
             service_provider_legal_entity_id: T.nilable(String),
+            status:
+              ModernTreasury::CounterpartyCreateParams::LegalEntity::Status::OrSymbol,
             suffix: T.nilable(String),
             terms_of_use:
               T.nilable(
@@ -1617,6 +1638,9 @@ module ModernTreasury
           risk_rating: nil,
           # The UUID of the parent legal entity in the service provider tree.
           service_provider_legal_entity_id: nil,
+          # Set to draft to create the legal entity as a draft. Omit to create it as
+          # pending. Inline child legal entities take the parent's status.
+          status: nil,
           # An individual's suffix.
           suffix: nil,
           # Acceptance of terms of use by the legal entity.
@@ -1699,6 +1723,8 @@ module ModernTreasury
                   ModernTreasury::CounterpartyCreateParams::LegalEntity::RiskRating::OrSymbol
                 ),
               service_provider_legal_entity_id: T.nilable(String),
+              status:
+                ModernTreasury::CounterpartyCreateParams::LegalEntity::Status::OrSymbol,
               suffix: T.nilable(String),
               terms_of_use:
                 T.nilable(
@@ -2082,6 +2108,37 @@ module ModernTreasury
             override.returns(
               T::Array[
                 ModernTreasury::CounterpartyCreateParams::LegalEntity::RiskRating::TaggedSymbol
+              ]
+            )
+          end
+          def self.values
+          end
+        end
+
+        # Set to draft to create the legal entity as a draft. Omit to create it as
+        # pending. Inline child legal entities take the parent's status.
+        module Status
+          extend ModernTreasury::Internal::Type::Enum
+
+          TaggedSymbol =
+            T.type_alias do
+              T.all(
+                Symbol,
+                ModernTreasury::CounterpartyCreateParams::LegalEntity::Status
+              )
+            end
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          DRAFT =
+            T.let(
+              :draft,
+              ModernTreasury::CounterpartyCreateParams::LegalEntity::Status::TaggedSymbol
+            )
+
+          sig do
+            override.returns(
+              T::Array[
+                ModernTreasury::CounterpartyCreateParams::LegalEntity::Status::TaggedSymbol
               ]
             )
           end
