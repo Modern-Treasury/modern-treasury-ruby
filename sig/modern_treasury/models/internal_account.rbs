@@ -25,6 +25,7 @@ module ModernTreasury
         party_type: ModernTreasury::Models::InternalAccount::party_type?,
         routing_details: ::Array[ModernTreasury::RoutingDetail],
         status: ModernTreasury::Models::InternalAccount::status?,
+        title: String?,
         updated_at: Time,
         vendor_id: String?
       }
@@ -76,6 +77,8 @@ module ModernTreasury
 
       attr_accessor status: ModernTreasury::Models::InternalAccount::status?
 
+      attr_accessor title: String?
+
       attr_accessor updated_at: Time
 
       attr_accessor vendor_id: String?
@@ -104,6 +107,7 @@ module ModernTreasury
         party_type: ModernTreasury::Models::InternalAccount::party_type?,
         routing_details: ::Array[ModernTreasury::RoutingDetail],
         status: ModernTreasury::Models::InternalAccount::status?,
+        title: String?,
         updated_at: Time,
         vendor_id: String?
       ) -> void
@@ -132,6 +136,7 @@ module ModernTreasury
         party_type: ModernTreasury::Models::InternalAccount::party_type?,
         routing_details: ::Array[ModernTreasury::RoutingDetail],
         status: ModernTreasury::Models::InternalAccount::status?,
+        title: String?,
         updated_at: Time,
         vendor_id: String?
       }
