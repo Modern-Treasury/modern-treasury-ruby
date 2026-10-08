@@ -435,6 +435,11 @@ module ModernTreasury
           )
         MX =
           T.let(:mx, ModernTreasury::Transaction::VendorCodeType::TaggedSymbol)
+        ONE_MONEY =
+          T.let(
+            :one_money,
+            ModernTreasury::Transaction::VendorCodeType::TaggedSymbol
+          )
         PAXOS =
           T.let(
             :paxos,

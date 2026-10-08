@@ -77,8 +77,9 @@ module ModernTreasury
         # An array of account number types requested for provisioning.
         requested_account_number_types: nil,
         # The account title at the financial institution, used in place of the party name.
-        # Only applicable to accounts created under supported connections. Please reach
-        # out to your customer success manager to enable this capability for your program.
+        # Defaults to the party name if not set. Only applicable to accounts created under
+        # supported connections. Please reach out to your customer success manager to
+        # enable this capability for your program.
         title: nil,
         # A hash of vendor specific attributes that will be used when creating the account
         # at the vendor specified by the given connection.
