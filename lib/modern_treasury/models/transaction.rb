@@ -296,6 +296,7 @@ module ModernTreasury
         JPMC = :jpmc
         MODERN_TREASURY = :modern_treasury
         MX = :mx
+        ONE_MONEY = :one_money
         PAXOS = :paxos
         PAYPAL = :paypal
         PNC = :pnc
