@@ -148,6 +148,13 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::InternalAccount::Status, nil]
       required :status, enum: -> { ModernTreasury::InternalAccount::Status }, nil?: true
 
+      # @!attribute title
+      #   The account title at the financial institution, used in place of the party name.
+      #   Only applicable to accounts created under supported connections.
+      #
+      #   @return [String, nil]
+      required :title, String, nil?: true
+
       # @!attribute updated_at
       #
       #   @return [Time]
@@ -159,7 +166,7 @@ module ModernTreasury
       #   @return [String, nil]
       required :vendor_id, String, nil?: true
 
-      # @!method initialize(id:, account_capabilities:, account_details:, account_type:, connection:, contra_ledger_account_id:, counterparty_id:, created_at:, currency:, debitable:, external_id:, ledger_account_id:, legal_entity_id:, live_mode:, metadata:, name:, object:, parent_account_id:, party_address:, party_name:, party_type:, routing_details:, status:, updated_at:, vendor_id:)
+      # @!method initialize(id:, account_capabilities:, account_details:, account_type:, connection:, contra_ledger_account_id:, counterparty_id:, created_at:, currency:, debitable:, external_id:, ledger_account_id:, legal_entity_id:, live_mode:, metadata:, name:, object:, parent_account_id:, party_address:, party_name:, party_type:, routing_details:, status:, title:, updated_at:, vendor_id:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::InternalAccount} for more details.
       #
@@ -208,6 +215,8 @@ module ModernTreasury
       #   @param routing_details [Array<ModernTreasury::Models::RoutingDetail>] An array of routing detail objects.
       #
       #   @param status [Symbol, ModernTreasury::Models::InternalAccount::Status, nil] The internal account status.
+      #
+      #   @param title [String, nil] The account title at the financial institution, used in place of the party name.
       #
       #   @param updated_at [Time]
       #
