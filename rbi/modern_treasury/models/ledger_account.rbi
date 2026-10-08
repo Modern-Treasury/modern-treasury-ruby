@@ -286,11 +286,6 @@ module ModernTreasury
           end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        COUNTERPARTY =
-          T.let(
-            :counterparty,
-            ModernTreasury::LedgerAccount::LedgerableType::TaggedSymbol
-          )
         EXTERNAL_ACCOUNT =
           T.let(
             :external_account,
