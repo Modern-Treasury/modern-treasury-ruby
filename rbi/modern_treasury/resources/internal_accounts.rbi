@@ -34,6 +34,7 @@ module ModernTreasury
             T::Array[
               ModernTreasury::InternalAccountCreateParams::RequestedAccountNumberType::OrSymbol
             ],
+          title: T.nilable(String),
           vendor_attributes: T::Hash[Symbol, String],
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::InternalAccount)
@@ -75,6 +76,10 @@ module ModernTreasury
         party_name: nil,
         # An array of account number types requested for provisioning.
         requested_account_number_types: nil,
+        # The account title at the financial institution, used in place of the party name.
+        # Only applicable to accounts created under supported connections. Please reach
+        # out to your customer success manager to enable this capability for your program.
+        title: nil,
         # A hash of vendor specific attributes that will be used when creating the account
         # at the vendor specified by the given connection.
         vendor_attributes: nil,

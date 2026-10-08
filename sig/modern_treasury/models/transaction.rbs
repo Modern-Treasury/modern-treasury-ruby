@@ -222,6 +222,7 @@ module ModernTreasury
         | :jpmc
         | :modern_treasury
         | :mx
+        | :one_money
         | :paxos
         | :paypal
         | :pnc
@@ -252,6 +253,7 @@ module ModernTreasury
         JPMC: :jpmc
         MODERN_TREASURY: :modern_treasury
         MX: :mx
+        ONE_MONEY: :one_money
         PAXOS: :paxos
         PAYPAL: :paypal
         PNC: :pnc
