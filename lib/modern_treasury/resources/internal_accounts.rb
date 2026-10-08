@@ -167,7 +167,10 @@ module ModernTreasury
         )
       end
 
-      # request closure of internal account
+      # @deprecated
+      #
+      # This endpoint has been deprecated. Request closure with PATCH
+      # /api/internal_accounts/{id} and status: "pending_closure".
       #
       # @overload request_closure(id, request_options: {})
       #
