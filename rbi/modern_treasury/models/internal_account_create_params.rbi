@@ -157,6 +157,12 @@ module ModernTreasury
       end
       attr_writer :requested_account_number_types
 
+      # The account title at the financial institution, used in place of the party name.
+      # Only applicable to accounts created under supported connections. Please reach
+      # out to your customer success manager to enable this capability for your program.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :title
+
       # A hash of vendor specific attributes that will be used when creating the account
       # at the vendor specified by the given connection.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
@@ -190,6 +196,7 @@ module ModernTreasury
             T::Array[
               ModernTreasury::InternalAccountCreateParams::RequestedAccountNumberType::OrSymbol
             ],
+          title: T.nilable(String),
           vendor_attributes: T::Hash[Symbol, String],
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
@@ -231,6 +238,10 @@ module ModernTreasury
         party_name: nil,
         # An array of account number types requested for provisioning.
         requested_account_number_types: nil,
+        # The account title at the financial institution, used in place of the party name.
+        # Only applicable to accounts created under supported connections. Please reach
+        # out to your customer success manager to enable this capability for your program.
+        title: nil,
         # A hash of vendor specific attributes that will be used when creating the account
         # at the vendor specified by the given connection.
         vendor_attributes: nil,
@@ -264,6 +275,7 @@ module ModernTreasury
               T::Array[
                 ModernTreasury::InternalAccountCreateParams::RequestedAccountNumberType::OrSymbol
               ],
+            title: T.nilable(String),
             vendor_attributes: T::Hash[Symbol, String],
             request_options: ModernTreasury::RequestOptions
           }
