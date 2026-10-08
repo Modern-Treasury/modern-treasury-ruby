@@ -108,7 +108,6 @@ module ModernTreasury
       module LedgerableType
         extend ModernTreasury::Internal::Type::Enum
 
-        COUNTERPARTY = :counterparty
         EXTERNAL_ACCOUNT = :external_account
         INTERNAL_ACCOUNT = :internal_account
         VIRTUAL_ACCOUNT = :virtual_account
