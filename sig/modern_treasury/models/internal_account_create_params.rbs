@@ -16,6 +16,7 @@ module ModernTreasury
         party_address: ModernTreasury::InternalAccountCreateParams::PartyAddress,
         party_name: String?,
         requested_account_number_types: ::Array[ModernTreasury::Models::InternalAccountCreateParams::requested_account_number_type],
+        title: String?,
         vendor_attributes: ::Hash[Symbol, String]
       }
       & ModernTreasury::Internal::Type::request_parameters
@@ -78,6 +79,8 @@ module ModernTreasury
         ::Array[ModernTreasury::Models::InternalAccountCreateParams::requested_account_number_type]
       ) -> ::Array[ModernTreasury::Models::InternalAccountCreateParams::requested_account_number_type]
 
+      attr_accessor title: String?
+
       attr_reader vendor_attributes: ::Hash[Symbol, String]?
 
       def vendor_attributes=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
@@ -97,6 +100,7 @@ module ModernTreasury
         ?party_address: ModernTreasury::InternalAccountCreateParams::PartyAddress,
         ?party_name: String?,
         ?requested_account_number_types: ::Array[ModernTreasury::Models::InternalAccountCreateParams::requested_account_number_type],
+        ?title: String?,
         ?vendor_attributes: ::Hash[Symbol, String],
         ?request_options: ModernTreasury::request_opts
       ) -> void
@@ -116,6 +120,7 @@ module ModernTreasury
         party_address: ModernTreasury::InternalAccountCreateParams::PartyAddress,
         party_name: String?,
         requested_account_number_types: ::Array[ModernTreasury::Models::InternalAccountCreateParams::requested_account_number_type],
+        title: String?,
         vendor_attributes: ::Hash[Symbol, String],
         request_options: ModernTreasury::RequestOptions
       }
