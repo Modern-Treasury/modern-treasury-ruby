@@ -105,6 +105,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         COMPLETED = :completed
+        FAILED = :failed
         PENDING = :pending
         RETURNED = :returned
 

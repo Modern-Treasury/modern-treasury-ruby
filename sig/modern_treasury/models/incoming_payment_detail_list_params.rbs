@@ -91,12 +91,13 @@ module ModernTreasury
         request_options: ModernTreasury::RequestOptions
       }
 
-      type status = :completed | :pending | :returned
+      type status = :completed | :failed | :pending | :returned
 
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
         COMPLETED: :completed
+        FAILED: :failed
         PENDING: :pending
         RETURNED: :returned
 

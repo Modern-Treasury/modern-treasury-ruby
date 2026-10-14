@@ -198,6 +198,11 @@ module ModernTreasury
             :completed,
             ModernTreasury::IncomingPaymentDetailListParams::Status::TaggedSymbol
           )
+        FAILED =
+          T.let(
+            :failed,
+            ModernTreasury::IncomingPaymentDetailListParams::Status::TaggedSymbol
+          )
         PENDING =
           T.let(
             :pending,
