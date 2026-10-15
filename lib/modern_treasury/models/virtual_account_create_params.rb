@@ -81,6 +81,13 @@ module ModernTreasury
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
+      # @!attribute party_address
+      #   The address of the owner of the virtual account. When absent, the internal
+      #   account's party address is used.
+      #
+      #   @return [ModernTreasury::Models::AddressRequest, nil]
+      optional :party_address, -> { ModernTreasury::AddressRequest }
+
       # @!attribute routing_details
       #   An array of routing detail objects.
       #
@@ -94,7 +101,7 @@ module ModernTreasury
       #   @return [String, nil]
       optional :virtual_account_setting_id, String
 
-      # @!method initialize(internal_account_id:, name:, account_details: nil, counterparty_id: nil, credit_ledger_account_id: nil, debit_ledger_account_id: nil, description: nil, external_id: nil, ledger_account: nil, ledger_account_id: nil, metadata: nil, routing_details: nil, virtual_account_setting_id: nil, request_options: {})
+      # @!method initialize(internal_account_id:, name:, account_details: nil, counterparty_id: nil, credit_ledger_account_id: nil, debit_ledger_account_id: nil, description: nil, external_id: nil, ledger_account: nil, ledger_account_id: nil, metadata: nil, party_address: nil, routing_details: nil, virtual_account_setting_id: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::VirtualAccountCreateParams} for more details.
       #
@@ -119,6 +126,8 @@ module ModernTreasury
       #   @param ledger_account_id [String] The ledger account that you'd like to link to the virtual account.
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      #
+      #   @param party_address [ModernTreasury::Models::AddressRequest] The address of the owner of the virtual account. When absent, the internal accou
       #
       #   @param routing_details [Array<ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail>] An array of routing detail objects.
       #

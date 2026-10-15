@@ -27,6 +27,8 @@ module ModernTreasury
           :general_ledger,
           ModernTreasury::ExternalAccountType::TaggedSymbol
         )
+      HOSTED_WALLET =
+        T.let(:hosted_wallet, ModernTreasury::ExternalAccountType::TaggedSymbol)
       LOAN = T.let(:loan, ModernTreasury::ExternalAccountType::TaggedSymbol)
       NON_RESIDENT =
         T.let(:non_resident, ModernTreasury::ExternalAccountType::TaggedSymbol)
@@ -40,6 +42,11 @@ module ModernTreasury
         )
       SAVINGS =
         T.let(:savings, ModernTreasury::ExternalAccountType::TaggedSymbol)
+      SELF_HOSTED_WALLET =
+        T.let(
+          :self_hosted_wallet,
+          ModernTreasury::ExternalAccountType::TaggedSymbol
+        )
       SOLANA_WALLET =
         T.let(:solana_wallet, ModernTreasury::ExternalAccountType::TaggedSymbol)
 
