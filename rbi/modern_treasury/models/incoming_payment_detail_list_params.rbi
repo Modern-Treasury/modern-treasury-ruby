@@ -58,7 +58,7 @@ module ModernTreasury
       attr_writer :per_page
 
       # The current status of the incoming payment order. One of `pending`, `completed`,
-      # or `returned`.
+      # `returned`, `failed`, or `held`.
       sig do
         returns(
           T.nilable(
@@ -142,7 +142,7 @@ module ModernTreasury
         metadata: nil,
         per_page: nil,
         # The current status of the incoming payment order. One of `pending`, `completed`,
-        # or `returned`.
+        # `returned`, `failed`, or `held`.
         status: nil,
         # An additional layer of classification for the type of incoming payment detail.
         # For example, a `type` of `stablecoin` may have a `subtype` of `ethereum` or
@@ -180,7 +180,7 @@ module ModernTreasury
       end
 
       # The current status of the incoming payment order. One of `pending`, `completed`,
-      # or `returned`.
+      # `returned`, `failed`, or `held`.
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
@@ -196,6 +196,16 @@ module ModernTreasury
         COMPLETED =
           T.let(
             :completed,
+            ModernTreasury::IncomingPaymentDetailListParams::Status::TaggedSymbol
+          )
+        FAILED =
+          T.let(
+            :failed,
+            ModernTreasury::IncomingPaymentDetailListParams::Status::TaggedSymbol
+          )
+        HELD =
+          T.let(
+            :held,
             ModernTreasury::IncomingPaymentDetailListParams::Status::TaggedSymbol
           )
         PENDING =
