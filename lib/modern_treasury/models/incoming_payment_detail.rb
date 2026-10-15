@@ -45,6 +45,12 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
       required :direction, enum: -> { ModernTreasury::TransactionDirection }
 
+      # @!attribute failure_reason
+      #   The reason the incoming payment detail failed, or `null`.
+      #
+      #   @return [String, nil]
+      required :failure_reason, String, nil?: true
+
       # @!attribute internal_account_id
       #   The ID of the Internal Account for the incoming payment detail. This is always
       #   present.
@@ -115,7 +121,7 @@ module ModernTreasury
 
       # @!attribute status
       #   The current status of the incoming payment order. One of `pending`, `completed`,
-      #   or `returned`.
+      #   `returned`, `failed`, or `held`.
       #
       #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetail::Status]
       required :status, enum: -> { ModernTreasury::IncomingPaymentDetail::Status }
@@ -210,7 +216,7 @@ module ModernTreasury
       #   @return [String, nil]
       optional :receiving_account_number_safe, String, nil?: true
 
-      # @!method initialize(id:, amount:, as_of_date:, created_at:, currency:, data:, direction:, internal_account_id:, ledger_transaction_id:, live_mode:, metadata:, object:, originating_account_number_safe:, originating_account_number_type:, originating_routing_number:, originating_routing_number_type:, reconciliation_status:, status:, subtype:, transaction_id:, transaction_line_item_id:, type:, updated_at:, vendor_id:, virtual_account:, virtual_account_id:, originating_account_number: nil, originating_party_address: nil, originating_party_name: nil, originating_party_vendor_identifier: nil, receiving_account_number: nil, receiving_account_number_safe: nil)
+      # @!method initialize(id:, amount:, as_of_date:, created_at:, currency:, data:, direction:, failure_reason:, internal_account_id:, ledger_transaction_id:, live_mode:, metadata:, object:, originating_account_number_safe:, originating_account_number_type:, originating_routing_number:, originating_routing_number_type:, reconciliation_status:, status:, subtype:, transaction_id:, transaction_line_item_id:, type:, updated_at:, vendor_id:, virtual_account:, virtual_account_id:, originating_account_number: nil, originating_party_address: nil, originating_party_name: nil, originating_party_vendor_identifier: nil, receiving_account_number: nil, receiving_account_number_safe: nil)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::IncomingPaymentDetail} for more details.
       #
@@ -227,6 +233,8 @@ module ModernTreasury
       #   @param data [Hash{Symbol=>Object}] The raw data from the payment pre-notification file that we get from the bank.
       #
       #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection] One of `credit` or `debit`.
+      #
+      #   @param failure_reason [String, nil] The reason the incoming payment detail failed, or `null`.
       #
       #   @param internal_account_id [String] The ID of the Internal Account for the incoming payment detail. This is always p
       #
@@ -351,13 +359,15 @@ module ModernTreasury
       end
 
       # The current status of the incoming payment order. One of `pending`, `completed`,
-      # or `returned`.
+      # `returned`, `failed`, or `held`.
       #
       # @see ModernTreasury::Models::IncomingPaymentDetail#status
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
         COMPLETED = :completed
+        FAILED = :failed
+        HELD = :held
         PENDING = :pending
         RETURNED = :returned
 

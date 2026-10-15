@@ -31,6 +31,7 @@ class ModernTreasury::Test::Resources::VirtualAccountsTest < ModernTreasury::Tes
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         object: String,
+        party_address: ModernTreasury::Address | nil,
         routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail]),
         updated_at: Time
       }
@@ -61,6 +62,7 @@ class ModernTreasury::Test::Resources::VirtualAccountsTest < ModernTreasury::Tes
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         object: String,
+        party_address: ModernTreasury::Address | nil,
         routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail]),
         updated_at: Time
       }
@@ -91,6 +93,7 @@ class ModernTreasury::Test::Resources::VirtualAccountsTest < ModernTreasury::Tes
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         object: String,
+        party_address: ModernTreasury::Address | nil,
         routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail]),
         updated_at: Time
       }
@@ -128,6 +131,7 @@ class ModernTreasury::Test::Resources::VirtualAccountsTest < ModernTreasury::Tes
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         object: String,
+        party_address: ModernTreasury::Address | nil,
         routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail]),
         updated_at: Time
       }
@@ -158,6 +162,7 @@ class ModernTreasury::Test::Resources::VirtualAccountsTest < ModernTreasury::Tes
         metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         object: String,
+        party_address: ModernTreasury::Address | nil,
         routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail]),
         updated_at: Time
       }

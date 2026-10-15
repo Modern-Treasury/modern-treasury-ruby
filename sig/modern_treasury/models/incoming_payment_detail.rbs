@@ -9,6 +9,7 @@ module ModernTreasury
         currency: ModernTreasury::Models::currency,
         data: ::Hash[Symbol, top],
         direction: ModernTreasury::Models::transaction_direction,
+        failure_reason: String?,
         internal_account_id: String,
         ledger_transaction_id: String?,
         live_mode: bool,
@@ -50,6 +51,8 @@ module ModernTreasury
       attr_accessor data: ::Hash[Symbol, top]
 
       attr_accessor direction: ModernTreasury::Models::transaction_direction
+
+      attr_accessor failure_reason: String?
 
       attr_accessor internal_account_id: String
 
@@ -109,6 +112,7 @@ module ModernTreasury
         currency: ModernTreasury::Models::currency,
         data: ::Hash[Symbol, top],
         direction: ModernTreasury::Models::transaction_direction,
+        failure_reason: String?,
         internal_account_id: String,
         ledger_transaction_id: String?,
         live_mode: bool,
@@ -144,6 +148,7 @@ module ModernTreasury
         currency: ModernTreasury::Models::currency,
         data: ::Hash[Symbol, top],
         direction: ModernTreasury::Models::transaction_direction,
+        failure_reason: String?,
         internal_account_id: String,
         ledger_transaction_id: String?,
         live_mode: bool,
@@ -274,12 +279,14 @@ module ModernTreasury
         def self?.values: -> ::Array[ModernTreasury::Models::IncomingPaymentDetail::reconciliation_status]
       end
 
-      type status = :completed | :pending | :returned
+      type status = :completed | :failed | :held | :pending | :returned
 
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
         COMPLETED: :completed
+        FAILED: :failed
+        HELD: :held
         PENDING: :pending
         RETURNED: :returned
 
