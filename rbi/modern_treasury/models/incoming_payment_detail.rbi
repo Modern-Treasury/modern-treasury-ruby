@@ -38,6 +38,10 @@ module ModernTreasury
       sig { returns(ModernTreasury::TransactionDirection::TaggedSymbol) }
       attr_accessor :direction
 
+      # The reason the incoming payment detail failed, or `null`.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :failure_reason
+
       # The ID of the Internal Account for the incoming payment detail. This is always
       # present.
       sig { returns(String) }
@@ -99,7 +103,7 @@ module ModernTreasury
       attr_accessor :reconciliation_status
 
       # The current status of the incoming payment order. One of `pending`, `completed`,
-      # or `returned`.
+      # `returned`, `failed`, or `held`.
       sig do
         returns(ModernTreasury::IncomingPaymentDetail::Status::TaggedSymbol)
       end
@@ -190,6 +194,7 @@ module ModernTreasury
           currency: ModernTreasury::Currency::OrSymbol,
           data: T::Hash[Symbol, T.anything],
           direction: ModernTreasury::TransactionDirection::OrSymbol,
+          failure_reason: T.nilable(String),
           internal_account_id: String,
           ledger_transaction_id: T.nilable(String),
           live_mode: T::Boolean,
@@ -238,6 +243,8 @@ module ModernTreasury
         data:,
         # One of `credit` or `debit`.
         direction:,
+        # The reason the incoming payment detail failed, or `null`.
+        failure_reason:,
         # The ID of the Internal Account for the incoming payment detail. This is always
         # present.
         internal_account_id:,
@@ -263,7 +270,7 @@ module ModernTreasury
         # One of `unreconciled`, `tentatively_reconciled` or `reconciled`.
         reconciliation_status:,
         # The current status of the incoming payment order. One of `pending`, `completed`,
-        # or `returned`.
+        # `returned`, `failed`, or `held`.
         status:,
         # An additional layer of classification for the type of incoming payment detail.
         # For example, a `type` of `stablecoin` may have a `subtype` of `ethereum` or
@@ -312,6 +319,7 @@ module ModernTreasury
             currency: ModernTreasury::Currency::TaggedSymbol,
             data: T::Hash[Symbol, T.anything],
             direction: ModernTreasury::TransactionDirection::TaggedSymbol,
+            failure_reason: T.nilable(String),
             internal_account_id: String,
             ledger_transaction_id: T.nilable(String),
             live_mode: T::Boolean,
@@ -621,7 +629,7 @@ module ModernTreasury
       end
 
       # The current status of the incoming payment order. One of `pending`, `completed`,
-      # or `returned`.
+      # `returned`, `failed`, or `held`.
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
@@ -634,6 +642,16 @@ module ModernTreasury
         COMPLETED =
           T.let(
             :completed,
+            ModernTreasury::IncomingPaymentDetail::Status::TaggedSymbol
+          )
+        FAILED =
+          T.let(
+            :failed,
+            ModernTreasury::IncomingPaymentDetail::Status::TaggedSymbol
+          )
+        HELD =
+          T.let(
+            :held,
             ModernTreasury::IncomingPaymentDetail::Status::TaggedSymbol
           )
         PENDING =

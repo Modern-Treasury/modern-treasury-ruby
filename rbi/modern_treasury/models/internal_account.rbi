@@ -130,9 +130,10 @@ module ModernTreasury
       end
       attr_accessor :status
 
-      # The account title at the financial institution, used in place of the party name.
-      # Only applicable to accounts created under supported connections.
-      sig { returns(T.nilable(String)) }
+      # The account title at the financial institution. Defaults to the party name
+      # unless a custom title was set on creation. Custom titles are only applicable to
+      # accounts created under supported connections.
+      sig { returns(String) }
       attr_accessor :title
 
       sig { returns(Time) }
@@ -172,7 +173,7 @@ module ModernTreasury
             T.nilable(ModernTreasury::InternalAccount::PartyType::OrSymbol),
           routing_details: T::Array[ModernTreasury::RoutingDetail::OrHash],
           status: T.nilable(ModernTreasury::InternalAccount::Status::OrSymbol),
-          title: T.nilable(String),
+          title: String,
           updated_at: Time,
           vendor_id: T.nilable(String)
         ).returns(T.attached_class)
@@ -229,8 +230,9 @@ module ModernTreasury
         routing_details:,
         # The internal account status.
         status:,
-        # The account title at the financial institution, used in place of the party name.
-        # Only applicable to accounts created under supported connections.
+        # The account title at the financial institution. Defaults to the party name
+        # unless a custom title was set on creation. Custom titles are only applicable to
+        # accounts created under supported connections.
         title:,
         updated_at:,
         # The vendor ID associated with this account.
@@ -272,7 +274,7 @@ module ModernTreasury
             routing_details: T::Array[ModernTreasury::RoutingDetail],
             status:
               T.nilable(ModernTreasury::InternalAccount::Status::TaggedSymbol),
-            title: T.nilable(String),
+            title: String,
             updated_at: Time,
             vendor_id: T.nilable(String)
           }
@@ -545,11 +547,6 @@ module ModernTreasury
           end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        BASE_WALLET =
-          T.let(
-            :base_wallet,
-            ModernTreasury::InternalAccount::AccountType::TaggedSymbol
-          )
         CASH =
           T.let(
             :cash,
@@ -558,16 +555,6 @@ module ModernTreasury
         CHECKING =
           T.let(
             :checking,
-            ModernTreasury::InternalAccount::AccountType::TaggedSymbol
-          )
-        CRYPTO_WALLET =
-          T.let(
-            :crypto_wallet,
-            ModernTreasury::InternalAccount::AccountType::TaggedSymbol
-          )
-        ETHEREUM_WALLET =
-          T.let(
-            :ethereum_wallet,
             ModernTreasury::InternalAccount::AccountType::TaggedSymbol
           )
         GENERAL_LEDGER =
@@ -595,19 +582,9 @@ module ModernTreasury
             :overdraft,
             ModernTreasury::InternalAccount::AccountType::TaggedSymbol
           )
-        POLYGON_WALLET =
-          T.let(
-            :polygon_wallet,
-            ModernTreasury::InternalAccount::AccountType::TaggedSymbol
-          )
         SAVINGS =
           T.let(
             :savings,
-            ModernTreasury::InternalAccount::AccountType::TaggedSymbol
-          )
-        SOLANA_WALLET =
-          T.let(
-            :solana_wallet,
             ModernTreasury::InternalAccount::AccountType::TaggedSymbol
           )
 

@@ -13,6 +13,7 @@ module ModernTreasury
         ?ledger_account: ModernTreasury::LedgerAccountCreateRequest,
         ?ledger_account_id: String,
         ?metadata: ::Hash[Symbol, String],
+        ?party_address: ModernTreasury::AddressRequest,
         ?routing_details: ::Array[ModernTreasury::VirtualAccountCreateParams::RoutingDetail],
         ?virtual_account_setting_id: String,
         ?request_options: ModernTreasury::request_opts
@@ -29,6 +30,7 @@ module ModernTreasury
         ?ledger_account_id: String,
         ?metadata: ::Hash[Symbol, String],
         ?name: String?,
+        ?party_address: ModernTreasury::AddressRequest,
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::VirtualAccount
 
