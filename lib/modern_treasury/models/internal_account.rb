@@ -149,11 +149,12 @@ module ModernTreasury
       required :status, enum: -> { ModernTreasury::InternalAccount::Status }, nil?: true
 
       # @!attribute title
-      #   The account title at the financial institution, used in place of the party name.
-      #   Only applicable to accounts created under supported connections.
+      #   The account title at the financial institution. Defaults to the party name
+      #   unless a custom title was set on creation. Custom titles are only applicable to
+      #   accounts created under supported connections.
       #
-      #   @return [String, nil]
-      required :title, String, nil?: true
+      #   @return [String]
+      required :title, String
 
       # @!attribute updated_at
       #
@@ -216,7 +217,7 @@ module ModernTreasury
       #
       #   @param status [Symbol, ModernTreasury::Models::InternalAccount::Status, nil] The internal account status.
       #
-      #   @param title [String, nil] The account title at the financial institution, used in place of the party name.
+      #   @param title [String] The account title at the financial institution. Defaults to the party name unles
       #
       #   @param updated_at [Time]
       #
@@ -342,19 +343,14 @@ module ModernTreasury
       module AccountType
         extend ModernTreasury::Internal::Type::Enum
 
-        BASE_WALLET = :base_wallet
         CASH = :cash
         CHECKING = :checking
-        CRYPTO_WALLET = :crypto_wallet
-        ETHEREUM_WALLET = :ethereum_wallet
         GENERAL_LEDGER = :general_ledger
         LOAN = :loan
         NON_RESIDENT = :non_resident
         OTHER = :other
         OVERDRAFT = :overdraft
-        POLYGON_WALLET = :polygon_wallet
         SAVINGS = :savings
-        SOLANA_WALLET = :solana_wallet
 
         # @!method self.values
         #   @return [Array<Symbol>]

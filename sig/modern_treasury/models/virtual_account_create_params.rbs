@@ -13,6 +13,7 @@ module ModernTreasury
         ledger_account: ModernTreasury::LedgerAccountCreateRequest,
         ledger_account_id: String,
         metadata: ::Hash[Symbol, String],
+        party_address: ModernTreasury::AddressRequest,
         routing_details: ::Array[ModernTreasury::VirtualAccountCreateParams::RoutingDetail],
         virtual_account_setting_id: String
       }
@@ -64,6 +65,12 @@ module ModernTreasury
 
       def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
+      attr_reader party_address: ModernTreasury::AddressRequest?
+
+      def party_address=: (
+        ModernTreasury::AddressRequest
+      ) -> ModernTreasury::AddressRequest
+
       attr_reader routing_details: ::Array[ModernTreasury::VirtualAccountCreateParams::RoutingDetail]?
 
       def routing_details=: (
@@ -86,6 +93,7 @@ module ModernTreasury
         ?ledger_account: ModernTreasury::LedgerAccountCreateRequest,
         ?ledger_account_id: String,
         ?metadata: ::Hash[Symbol, String],
+        ?party_address: ModernTreasury::AddressRequest,
         ?routing_details: ::Array[ModernTreasury::VirtualAccountCreateParams::RoutingDetail],
         ?virtual_account_setting_id: String,
         ?request_options: ModernTreasury::request_opts
@@ -103,6 +111,7 @@ module ModernTreasury
         ledger_account: ModernTreasury::LedgerAccountCreateRequest,
         ledger_account_id: String,
         metadata: ::Hash[Symbol, String],
+        party_address: ModernTreasury::AddressRequest,
         routing_details: ::Array[ModernTreasury::VirtualAccountCreateParams::RoutingDetail],
         virtual_account_setting_id: String,
         request_options: ModernTreasury::RequestOptions
