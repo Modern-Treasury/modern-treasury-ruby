@@ -70,7 +70,7 @@ module ModernTreasury
         metadata: nil,
         per_page: nil,
         # The current status of the incoming payment order. One of `pending`, `completed`,
-        # or `returned`.
+        # `returned`, `failed`, or `held`.
         status: nil,
         # An additional layer of classification for the type of incoming payment detail.
         # For example, a `type` of `stablecoin` may have a `subtype` of `ethereum` or

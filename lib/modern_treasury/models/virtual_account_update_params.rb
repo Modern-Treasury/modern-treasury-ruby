@@ -33,7 +33,18 @@ module ModernTreasury
       #   @return [String, nil]
       optional :name, String, nil?: true
 
-      # @!method initialize(id:, counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, request_options: {})
+      # @!attribute party_address
+      #   The address of the owner of the virtual account. Omit to leave it unchanged;
+      #   pass all fields blank to clear it, after which the internal account's party
+      #   address is used.
+      #
+      #   @return [ModernTreasury::Models::AddressRequest, nil]
+      optional :party_address, -> { ModernTreasury::AddressRequest }
+
+      # @!method initialize(id:, counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, party_address: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {ModernTreasury::Models::VirtualAccountUpdateParams} for more details.
+      #
       #   @param id [String]
       #
       #   @param counterparty_id [String]
@@ -43,6 +54,8 @@ module ModernTreasury
       #   @param metadata [Hash{Symbol=>String}]
       #
       #   @param name [String, nil]
+      #
+      #   @param party_address [ModernTreasury::Models::AddressRequest] The address of the owner of the virtual account. Omit to leave it unchanged; pas
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
     end
