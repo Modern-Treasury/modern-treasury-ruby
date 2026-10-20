@@ -103,8 +103,9 @@ module ModernTreasury
 
       # @!attribute title
       #   The account title at the financial institution, used in place of the party name.
-      #   Only applicable to accounts created under supported connections. Please reach
-      #   out to your customer success manager to enable this capability for your program.
+      #   Defaults to the party name if not set. Only applicable to accounts created under
+      #   supported connections. Please reach out to your customer success manager to
+      #   enable this capability for your program.
       #
       #   @return [String, nil]
       optional :title, String, nil?: true
@@ -290,19 +291,14 @@ module ModernTreasury
       module AccountType
         extend ModernTreasury::Internal::Type::Enum
 
-        BASE_WALLET = :base_wallet
         CASH = :cash
         CHECKING = :checking
-        CRYPTO_WALLET = :crypto_wallet
-        ETHEREUM_WALLET = :ethereum_wallet
         GENERAL_LEDGER = :general_ledger
         LOAN = :loan
         NON_RESIDENT = :non_resident
         OTHER = :other
         OVERDRAFT = :overdraft
-        POLYGON_WALLET = :polygon_wallet
         SAVINGS = :savings
-        SOLANA_WALLET = :solana_wallet
 
         # @!method self.values
         #   @return [Array<Symbol>]
