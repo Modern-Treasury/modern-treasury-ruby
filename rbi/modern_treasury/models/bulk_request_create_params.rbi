@@ -1922,6 +1922,11 @@ module ModernTreasury
                     :swift,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
                   )
+                VASP =
+                  T.let(
+                    :vasp,
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+                  )
                 ZA_NATIONAL_CLEARING_CODE =
                   T.let(
                     :za_national_clearing_code,
@@ -4743,6 +4748,11 @@ module ModernTreasury
                 SWIFT =
                   T.let(
                     :swift,
+                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+                  )
+                VASP =
+                  T.let(
+                    :vasp,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
                   )
                 ZA_NATIONAL_CLEARING_CODE =

@@ -167,6 +167,11 @@ module ModernTreasury
             :veriff,
             ModernTreasury::ThirdPartyVerification::Vendor::TaggedSymbol
           )
+        SMARTY =
+          T.let(
+            :smarty,
+            ModernTreasury::ThirdPartyVerification::Vendor::TaggedSymbol
+          )
 
         sig do
           override.returns(
