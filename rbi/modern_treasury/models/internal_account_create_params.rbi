@@ -158,8 +158,9 @@ module ModernTreasury
       attr_writer :requested_account_number_types
 
       # The account title at the financial institution, used in place of the party name.
-      # Only applicable to accounts created under supported connections. Please reach
-      # out to your customer success manager to enable this capability for your program.
+      # Defaults to the party name if not set. Only applicable to accounts created under
+      # supported connections. Please reach out to your customer success manager to
+      # enable this capability for your program.
       sig { returns(T.nilable(String)) }
       attr_accessor :title
 
@@ -239,8 +240,9 @@ module ModernTreasury
         # An array of account number types requested for provisioning.
         requested_account_number_types: nil,
         # The account title at the financial institution, used in place of the party name.
-        # Only applicable to accounts created under supported connections. Please reach
-        # out to your customer success manager to enable this capability for your program.
+        # Defaults to the party name if not set. Only applicable to accounts created under
+        # supported connections. Please reach out to your customer success manager to
+        # enable this capability for your program.
         title: nil,
         # A hash of vendor specific attributes that will be used when creating the account
         # at the vendor specified by the given connection.
@@ -604,11 +606,6 @@ module ModernTreasury
           end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        BASE_WALLET =
-          T.let(
-            :base_wallet,
-            ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
-          )
         CASH =
           T.let(
             :cash,
@@ -617,16 +614,6 @@ module ModernTreasury
         CHECKING =
           T.let(
             :checking,
-            ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
-          )
-        CRYPTO_WALLET =
-          T.let(
-            :crypto_wallet,
-            ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
-          )
-        ETHEREUM_WALLET =
-          T.let(
-            :ethereum_wallet,
             ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
           )
         GENERAL_LEDGER =
@@ -654,19 +641,9 @@ module ModernTreasury
             :overdraft,
             ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
           )
-        POLYGON_WALLET =
-          T.let(
-            :polygon_wallet,
-            ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
-          )
         SAVINGS =
           T.let(
             :savings,
-            ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
-          )
-        SOLANA_WALLET =
-          T.let(
-            :solana_wallet,
             ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
           )
 
