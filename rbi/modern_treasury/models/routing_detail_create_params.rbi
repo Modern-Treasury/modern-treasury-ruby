@@ -239,6 +239,11 @@ module ModernTreasury
             :swift,
             ModernTreasury::RoutingDetailCreateParams::RoutingNumberType::TaggedSymbol
           )
+        VASP =
+          T.let(
+            :vasp,
+            ModernTreasury::RoutingDetailCreateParams::RoutingNumberType::TaggedSymbol
+          )
         ZA_NATIONAL_CLEARING_CODE =
           T.let(
             :za_national_clearing_code,
