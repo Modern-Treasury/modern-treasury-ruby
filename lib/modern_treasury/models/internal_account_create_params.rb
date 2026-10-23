@@ -94,6 +94,13 @@ module ModernTreasury
       #   @return [String, nil]
       optional :party_name, String, nil?: true
 
+      # @!attribute party_type
+      #   Either individual or business. Inherits from associated LegalEntity
+      #   legal_entity_type, if one exists.
+      #
+      #   @return [Symbol, ModernTreasury::Models::InternalAccountCreateParams::PartyType, nil]
+      optional :party_type, enum: -> { ModernTreasury::InternalAccountCreateParams::PartyType }, nil?: true
+
       # @!attribute requested_account_number_types
       #   An array of account number types requested for provisioning.
       #
@@ -103,8 +110,9 @@ module ModernTreasury
 
       # @!attribute title
       #   The account title at the financial institution, used in place of the party name.
-      #   Only applicable to accounts created under supported connections. Please reach
-      #   out to your customer success manager to enable this capability for your program.
+      #   Defaults to the party name if not set. Only applicable to accounts created under
+      #   supported connections. Please reach out to your customer success manager to
+      #   enable this capability for your program.
       #
       #   @return [String, nil]
       optional :title, String, nil?: true
@@ -116,7 +124,7 @@ module ModernTreasury
       #   @return [Hash{Symbol=>String}, nil]
       optional :vendor_attributes, ModernTreasury::Internal::Type::HashOf[String]
 
-      # @!method initialize(currency:, name:, account_capabilities: nil, account_type: nil, connection_id: nil, counterparty_id: nil, debitable: nil, external_id: nil, legal_entity_id: nil, metadata: nil, parent_account_id: nil, party_address: nil, party_name: nil, requested_account_number_types: nil, title: nil, vendor_attributes: nil, request_options: {})
+      # @!method initialize(currency:, name:, account_capabilities: nil, account_type: nil, connection_id: nil, counterparty_id: nil, debitable: nil, external_id: nil, legal_entity_id: nil, metadata: nil, parent_account_id: nil, party_address: nil, party_name: nil, party_type: nil, requested_account_number_types: nil, title: nil, vendor_attributes: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::InternalAccountCreateParams} for more details.
       #
@@ -145,6 +153,8 @@ module ModernTreasury
       #   @param party_address [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress] The address associated with the owner or null.
       #
       #   @param party_name [String, nil] The legal name of the entity which owns the account.
+      #
+      #   @param party_type [Symbol, ModernTreasury::Models::InternalAccountCreateParams::PartyType, nil] Either individual or business. Inherits from associated LegalEntity legal_entity
       #
       #   @param requested_account_number_types [Array<Symbol, ModernTreasury::Models::InternalAccountCreateParams::RequestedAccountNumberType>] An array of account number types requested for provisioning.
       #
@@ -290,19 +300,14 @@ module ModernTreasury
       module AccountType
         extend ModernTreasury::Internal::Type::Enum
 
-        BASE_WALLET = :base_wallet
         CASH = :cash
         CHECKING = :checking
-        CRYPTO_WALLET = :crypto_wallet
-        ETHEREUM_WALLET = :ethereum_wallet
         GENERAL_LEDGER = :general_ledger
         LOAN = :loan
         NON_RESIDENT = :non_resident
         OTHER = :other
         OVERDRAFT = :overdraft
-        POLYGON_WALLET = :polygon_wallet
         SAVINGS = :savings
-        SOLANA_WALLET = :solana_wallet
 
         # @!method self.values
         #   @return [Array<Symbol>]
@@ -363,6 +368,18 @@ module ModernTreasury
         #   @param region [String] Region or State. This field is free-form; for US states, we recommend a two-lett
         #
         #   @param line2 [String]
+      end
+
+      # Either individual or business. Inherits from associated LegalEntity
+      # legal_entity_type, if one exists.
+      module PartyType
+        extend ModernTreasury::Internal::Type::Enum
+
+        INDIVIDUAL = :individual
+        BUSINESS = :business
+
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
 
       module RequestedAccountNumberType

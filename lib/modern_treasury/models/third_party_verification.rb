@@ -86,6 +86,7 @@ module ModernTreasury
         SOCURE = :socure
         SUMSUB = :sumsub
         VERIFF = :veriff
+        SMARTY = :smarty
 
         # @!method self.values
         #   @return [Array<Symbol>]

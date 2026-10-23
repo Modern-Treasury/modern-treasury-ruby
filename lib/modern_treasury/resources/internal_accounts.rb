@@ -11,7 +11,7 @@ module ModernTreasury
       #
       # create internal account
       #
-      # @overload create(currency:, name:, account_capabilities: nil, account_type: nil, connection_id: nil, counterparty_id: nil, debitable: nil, external_id: nil, legal_entity_id: nil, metadata: nil, parent_account_id: nil, party_address: nil, party_name: nil, requested_account_number_types: nil, title: nil, vendor_attributes: nil, request_options: {})
+      # @overload create(currency:, name:, account_capabilities: nil, account_type: nil, connection_id: nil, counterparty_id: nil, debitable: nil, external_id: nil, legal_entity_id: nil, metadata: nil, parent_account_id: nil, party_address: nil, party_name: nil, party_type: nil, requested_account_number_types: nil, title: nil, vendor_attributes: nil, request_options: {})
       #
       # @param currency [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency] The currency of the internal account. Supports fiat and stablecoin currencies.
       #
@@ -38,6 +38,8 @@ module ModernTreasury
       # @param party_address [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress] The address associated with the owner or null.
       #
       # @param party_name [String, nil] The legal name of the entity which owns the account.
+      #
+      # @param party_type [Symbol, ModernTreasury::Models::InternalAccountCreateParams::PartyType, nil] Either individual or business. Inherits from associated LegalEntity legal_entity
       #
       # @param requested_account_number_types [Array<Symbol, ModernTreasury::Models::InternalAccountCreateParams::RequestedAccountNumberType>] An array of account number types requested for provisioning.
       #
@@ -86,7 +88,7 @@ module ModernTreasury
       #
       # update internal account
       #
-      # @overload update(id, contra_ledger_account_id: nil, counterparty_id: nil, external_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, party_address: nil, status: nil, request_options: {})
+      # @overload update(id, contra_ledger_account_id: nil, counterparty_id: nil, external_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, party_address: nil, party_type: nil, status: nil, request_options: {})
       #
       # @param id [String] Unique identifier for the account.
       #
@@ -105,6 +107,8 @@ module ModernTreasury
       # @param parent_account_id [String] The parent internal account for this account.
       #
       # @param party_address [ModernTreasury::Models::AddressRequest] The address associated with the owner of the internal account. Updating this val
+      #
+      # @param party_type [Symbol, ModernTreasury::Models::InternalAccountUpdateParams::PartyType, nil] Either individual or business. Inherits from associated LegalEntity legal_entity
       #
       # @param status [Symbol, ModernTreasury::Models::InternalAccountUpdateParams::Status] Requests closure of the internal account. The resulting status may be `closed` f
       #
