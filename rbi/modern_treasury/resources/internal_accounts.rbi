@@ -30,6 +30,10 @@ module ModernTreasury
           party_address:
             ModernTreasury::InternalAccountCreateParams::PartyAddress::OrHash,
           party_name: T.nilable(String),
+          party_type:
+            T.nilable(
+              ModernTreasury::InternalAccountCreateParams::PartyType::OrSymbol
+            ),
           requested_account_number_types:
             T::Array[
               ModernTreasury::InternalAccountCreateParams::RequestedAccountNumberType::OrSymbol
@@ -74,11 +78,15 @@ module ModernTreasury
         party_address: nil,
         # The legal name of the entity which owns the account.
         party_name: nil,
+        # Either individual or business. Inherits from associated LegalEntity
+        # legal_entity_type, if one exists.
+        party_type: nil,
         # An array of account number types requested for provisioning.
         requested_account_number_types: nil,
         # The account title at the financial institution, used in place of the party name.
-        # Only applicable to accounts created under supported connections. Please reach
-        # out to your customer success manager to enable this capability for your program.
+        # Defaults to the party name if not set. Only applicable to accounts created under
+        # supported connections. Please reach out to your customer success manager to
+        # enable this capability for your program.
         title: nil,
         # A hash of vendor specific attributes that will be used when creating the account
         # at the vendor specified by the given connection.
@@ -113,6 +121,10 @@ module ModernTreasury
           name: String,
           parent_account_id: String,
           party_address: ModernTreasury::AddressRequest::OrHash,
+          party_type:
+            T.nilable(
+              ModernTreasury::InternalAccountUpdateParams::PartyType::OrSymbol
+            ),
           status: ModernTreasury::InternalAccountUpdateParams::Status::OrSymbol,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::InternalAccount)
@@ -140,6 +152,9 @@ module ModernTreasury
         # the account's bank; you are responsible for verifying that the address is
         # accurate.
         party_address: nil,
+        # Either individual or business. Inherits from associated LegalEntity
+        # legal_entity_type, if one exists.
+        party_type: nil,
         # Requests closure of the internal account. The resulting status may be `closed`
         # for vendors that close synchronously.
         status: nil,

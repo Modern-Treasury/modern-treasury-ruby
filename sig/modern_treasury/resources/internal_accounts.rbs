@@ -17,6 +17,7 @@ module ModernTreasury
         ?parent_account_id: String,
         ?party_address: ModernTreasury::InternalAccountCreateParams::PartyAddress,
         ?party_name: String?,
+        ?party_type: ModernTreasury::Models::InternalAccountCreateParams::party_type?,
         ?requested_account_number_types: ::Array[ModernTreasury::Models::InternalAccountCreateParams::requested_account_number_type],
         ?title: String?,
         ?vendor_attributes: ::Hash[Symbol, String],
@@ -38,6 +39,7 @@ module ModernTreasury
         ?name: String,
         ?parent_account_id: String,
         ?party_address: ModernTreasury::AddressRequest,
+        ?party_type: ModernTreasury::Models::InternalAccountUpdateParams::party_type?,
         ?status: ModernTreasury::Models::InternalAccountUpdateParams::status,
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::InternalAccount
