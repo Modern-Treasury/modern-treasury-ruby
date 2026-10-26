@@ -47,7 +47,7 @@ module ModernTreasury
 
       # @!attribute status
       #   The current status of the incoming payment order. One of `pending`, `completed`,
-      #   or `returned`.
+      #   `returned`, `failed`, or `held`.
       #
       #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::IncomingPaymentDetailListParams::Status }
@@ -100,11 +100,13 @@ module ModernTreasury
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       # The current status of the incoming payment order. One of `pending`, `completed`,
-      # or `returned`.
+      # `returned`, `failed`, or `held`.
       module Status
         extend ModernTreasury::Internal::Type::Enum
 
         COMPLETED = :completed
+        FAILED = :failed
+        HELD = :held
         PENDING = :pending
         RETURNED = :returned
 
