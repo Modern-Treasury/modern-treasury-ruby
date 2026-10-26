@@ -131,7 +131,8 @@ module ModernTreasury
       required :party_name, String
 
       # @!attribute party_type
-      #   Either individual or business.
+      #   Either individual or business. Inherits from associated LegalEntity
+      #   legal_entity_type, if one exists.
       #
       #   @return [Symbol, ModernTreasury::Models::InternalAccount::PartyType, nil]
       required :party_type, enum: -> { ModernTreasury::InternalAccount::PartyType }, nil?: true
@@ -149,11 +150,12 @@ module ModernTreasury
       required :status, enum: -> { ModernTreasury::InternalAccount::Status }, nil?: true
 
       # @!attribute title
-      #   The account title at the financial institution, used in place of the party name.
-      #   Only applicable to accounts created under supported connections.
+      #   The account title at the financial institution. Defaults to the party name
+      #   unless a custom title was set on creation. Custom titles are only applicable to
+      #   accounts created under supported connections.
       #
-      #   @return [String, nil]
-      required :title, String, nil?: true
+      #   @return [String]
+      required :title, String
 
       # @!attribute updated_at
       #
@@ -210,13 +212,13 @@ module ModernTreasury
       #
       #   @param party_name [String] The legal name of the entity which owns the account.
       #
-      #   @param party_type [Symbol, ModernTreasury::Models::InternalAccount::PartyType, nil] Either individual or business.
+      #   @param party_type [Symbol, ModernTreasury::Models::InternalAccount::PartyType, nil] Either individual or business. Inherits from associated LegalEntity legal_entity
       #
       #   @param routing_details [Array<ModernTreasury::Models::RoutingDetail>] An array of routing detail objects.
       #
       #   @param status [Symbol, ModernTreasury::Models::InternalAccount::Status, nil] The internal account status.
       #
-      #   @param title [String, nil] The account title at the financial institution, used in place of the party name.
+      #   @param title [String] The account title at the financial institution. Defaults to the party name unles
       #
       #   @param updated_at [Time]
       #
@@ -342,25 +344,21 @@ module ModernTreasury
       module AccountType
         extend ModernTreasury::Internal::Type::Enum
 
-        BASE_WALLET = :base_wallet
         CASH = :cash
         CHECKING = :checking
-        CRYPTO_WALLET = :crypto_wallet
-        ETHEREUM_WALLET = :ethereum_wallet
         GENERAL_LEDGER = :general_ledger
         LOAN = :loan
         NON_RESIDENT = :non_resident
         OTHER = :other
         OVERDRAFT = :overdraft
-        POLYGON_WALLET = :polygon_wallet
         SAVINGS = :savings
-        SOLANA_WALLET = :solana_wallet
 
         # @!method self.values
         #   @return [Array<Symbol>]
       end
 
-      # Either individual or business.
+      # Either individual or business. Inherits from associated LegalEntity
+      # legal_entity_type, if one exists.
       #
       # @see ModernTreasury::Models::InternalAccount#party_type
       module PartyType
