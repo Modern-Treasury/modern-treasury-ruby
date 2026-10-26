@@ -64,6 +64,13 @@ module ModernTreasury
       #   @return [ModernTreasury::Models::AddressRequest, nil]
       optional :party_address, -> { ModernTreasury::AddressRequest }
 
+      # @!attribute party_type
+      #   Either individual or business. Inherits from associated LegalEntity
+      #   legal_entity_type, if one exists.
+      #
+      #   @return [Symbol, ModernTreasury::Models::InternalAccountUpdateParams::PartyType, nil]
+      optional :party_type, enum: -> { ModernTreasury::InternalAccountUpdateParams::PartyType }, nil?: true
+
       # @!attribute status
       #   Requests closure of the internal account. The resulting status may be `closed`
       #   for vendors that close synchronously.
@@ -71,7 +78,7 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::InternalAccountUpdateParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::InternalAccountUpdateParams::Status }
 
-      # @!method initialize(id:, contra_ledger_account_id: nil, counterparty_id: nil, external_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, party_address: nil, status: nil, request_options: {})
+      # @!method initialize(id:, contra_ledger_account_id: nil, counterparty_id: nil, external_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, party_address: nil, party_type: nil, status: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::InternalAccountUpdateParams} for more details.
       #
@@ -93,9 +100,23 @@ module ModernTreasury
       #
       #   @param party_address [ModernTreasury::Models::AddressRequest] The address associated with the owner of the internal account. Updating this val
       #
+      #   @param party_type [Symbol, ModernTreasury::Models::InternalAccountUpdateParams::PartyType, nil] Either individual or business. Inherits from associated LegalEntity legal_entity
+      #
       #   @param status [Symbol, ModernTreasury::Models::InternalAccountUpdateParams::Status] Requests closure of the internal account. The resulting status may be `closed` f
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
+
+      # Either individual or business. Inherits from associated LegalEntity
+      # legal_entity_type, if one exists.
+      module PartyType
+        extend ModernTreasury::Internal::Type::Enum
+
+        INDIVIDUAL = :individual
+        BUSINESS = :business
+
+        # @!method self.values
+        #   @return [Array<Symbol>]
+      end
 
       # Requests closure of the internal account. The resulting status may be `closed`
       # for vendors that close synchronously.
