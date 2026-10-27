@@ -130,6 +130,7 @@ module ModernTreasury
       NZD = T.let(:NZD, ModernTreasury::Currency::TaggedSymbol)
       OMR = T.let(:OMR, ModernTreasury::Currency::TaggedSymbol)
       OP = T.let(:OP, ModernTreasury::Currency::TaggedSymbol)
+      OUSD = T.let(:OUSD, ModernTreasury::Currency::TaggedSymbol)
       PAB = T.let(:PAB, ModernTreasury::Currency::TaggedSymbol)
       PEN = T.let(:PEN, ModernTreasury::Currency::TaggedSymbol)
       PGK = T.let(:PGK, ModernTreasury::Currency::TaggedSymbol)
