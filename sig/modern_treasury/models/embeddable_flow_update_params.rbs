@@ -1,0 +1,41 @@
+module ModernTreasury
+  module Models
+    type embeddable_flow_update_params =
+      {
+        id: String,
+        status: ModernTreasury::Models::EmbeddableFlowUpdateParams::status
+      }
+      & ModernTreasury::Internal::Type::request_parameters
+
+    class EmbeddableFlowUpdateParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
+
+      attr_accessor id: String
+
+      attr_accessor status: ModernTreasury::Models::EmbeddableFlowUpdateParams::status
+
+      def initialize: (
+        id: String,
+        status: ModernTreasury::Models::EmbeddableFlowUpdateParams::status,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        id: String,
+        status: ModernTreasury::Models::EmbeddableFlowUpdateParams::status,
+        request_options: ModernTreasury::RequestOptions
+      }
+
+      type status = :cancelled
+
+      module Status
+        extend ModernTreasury::Internal::Type::Enum
+
+        CANCELLED: :cancelled
+
+        def self?.values: -> ::Array[ModernTreasury::Models::EmbeddableFlowUpdateParams::status]
+      end
+    end
+  end
+end
