@@ -11,6 +11,7 @@ module ModernTreasury
         name: String,
         parent_account_id: String,
         party_address: ModernTreasury::AddressRequest,
+        party_type: ModernTreasury::Models::InternalAccountUpdateParams::party_type?,
         status: ModernTreasury::Models::InternalAccountUpdateParams::status
       }
       & ModernTreasury::Internal::Type::request_parameters
@@ -53,6 +54,8 @@ module ModernTreasury
         ModernTreasury::AddressRequest
       ) -> ModernTreasury::AddressRequest
 
+      attr_accessor party_type: ModernTreasury::Models::InternalAccountUpdateParams::party_type?
+
       attr_reader status: ModernTreasury::Models::InternalAccountUpdateParams::status?
 
       def status=: (
@@ -69,6 +72,7 @@ module ModernTreasury
         ?name: String,
         ?parent_account_id: String,
         ?party_address: ModernTreasury::AddressRequest,
+        ?party_type: ModernTreasury::Models::InternalAccountUpdateParams::party_type?,
         ?status: ModernTreasury::Models::InternalAccountUpdateParams::status,
         ?request_options: ModernTreasury::request_opts
       ) -> void
@@ -83,9 +87,21 @@ module ModernTreasury
         name: String,
         parent_account_id: String,
         party_address: ModernTreasury::AddressRequest,
+        party_type: ModernTreasury::Models::InternalAccountUpdateParams::party_type?,
         status: ModernTreasury::Models::InternalAccountUpdateParams::status,
         request_options: ModernTreasury::RequestOptions
       }
+
+      type party_type = :individual | :business
+
+      module PartyType
+        extend ModernTreasury::Internal::Type::Enum
+
+        INDIVIDUAL: :individual
+        BUSINESS: :business
+
+        def self?.values: -> ::Array[ModernTreasury::Models::InternalAccountUpdateParams::party_type]
+      end
 
       type status = :pending_closure
 

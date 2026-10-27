@@ -74,6 +74,15 @@ module ModernTreasury
       sig { returns(String) }
       attr_accessor :object
 
+      # The address of the owner of the virtual account, or null.
+      sig { returns(T.nilable(ModernTreasury::Address)) }
+      attr_reader :party_address
+
+      sig do
+        params(party_address: T.nilable(ModernTreasury::Address::OrHash)).void
+      end
+      attr_writer :party_address
+
       # An array of routing detail objects. These will be the routing details of the
       # internal account.
       sig { returns(T::Array[ModernTreasury::RoutingDetail]) }
@@ -99,6 +108,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           name: String,
           object: String,
+          party_address: T.nilable(ModernTreasury::Address::OrHash),
           routing_details: T::Array[ModernTreasury::RoutingDetail::OrHash],
           updated_at: Time
         ).returns(T.attached_class)
@@ -137,6 +147,8 @@ module ModernTreasury
         # The name of the virtual account.
         name:,
         object:,
+        # The address of the owner of the virtual account, or null.
+        party_address:,
         # An array of routing detail objects. These will be the routing details of the
         # internal account.
         routing_details:,
@@ -162,6 +174,7 @@ module ModernTreasury
             metadata: T::Hash[Symbol, String],
             name: String,
             object: String,
+            party_address: T.nilable(ModernTreasury::Address),
             routing_details: T::Array[ModernTreasury::RoutingDetail],
             updated_at: Time
           }

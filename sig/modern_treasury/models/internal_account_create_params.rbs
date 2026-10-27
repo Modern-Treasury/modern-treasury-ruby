@@ -6,6 +6,7 @@ module ModernTreasury
         name: String,
         account_capabilities: ::Array[ModernTreasury::InternalAccountCreateParams::AccountCapability],
         account_type: ModernTreasury::Models::InternalAccountCreateParams::account_type,
+        allowed_ach_debit_company_ids: ::Array[String]?,
         connection_id: String,
         counterparty_id: String,
         debitable: bool?,
@@ -15,6 +16,7 @@ module ModernTreasury
         parent_account_id: String,
         party_address: ModernTreasury::InternalAccountCreateParams::PartyAddress,
         party_name: String?,
+        party_type: ModernTreasury::Models::InternalAccountCreateParams::party_type?,
         requested_account_number_types: ::Array[ModernTreasury::Models::InternalAccountCreateParams::requested_account_number_type],
         title: String?,
         vendor_attributes: ::Hash[Symbol, String]
@@ -40,6 +42,8 @@ module ModernTreasury
       def account_type=: (
         ModernTreasury::Models::InternalAccountCreateParams::account_type
       ) -> ModernTreasury::Models::InternalAccountCreateParams::account_type
+
+      attr_accessor allowed_ach_debit_company_ids: ::Array[String]?
 
       attr_reader connection_id: String?
 
@@ -73,6 +77,8 @@ module ModernTreasury
 
       attr_accessor party_name: String?
 
+      attr_accessor party_type: ModernTreasury::Models::InternalAccountCreateParams::party_type?
+
       attr_reader requested_account_number_types: ::Array[ModernTreasury::Models::InternalAccountCreateParams::requested_account_number_type]?
 
       def requested_account_number_types=: (
@@ -90,6 +96,7 @@ module ModernTreasury
         name: String,
         ?account_capabilities: ::Array[ModernTreasury::InternalAccountCreateParams::AccountCapability],
         ?account_type: ModernTreasury::Models::InternalAccountCreateParams::account_type,
+        ?allowed_ach_debit_company_ids: ::Array[String]?,
         ?connection_id: String,
         ?counterparty_id: String,
         ?debitable: bool?,
@@ -99,6 +106,7 @@ module ModernTreasury
         ?parent_account_id: String,
         ?party_address: ModernTreasury::InternalAccountCreateParams::PartyAddress,
         ?party_name: String?,
+        ?party_type: ModernTreasury::Models::InternalAccountCreateParams::party_type?,
         ?requested_account_number_types: ::Array[ModernTreasury::Models::InternalAccountCreateParams::requested_account_number_type],
         ?title: String?,
         ?vendor_attributes: ::Hash[Symbol, String],
@@ -110,6 +118,7 @@ module ModernTreasury
         name: String,
         account_capabilities: ::Array[ModernTreasury::InternalAccountCreateParams::AccountCapability],
         account_type: ModernTreasury::Models::InternalAccountCreateParams::account_type,
+        allowed_ach_debit_company_ids: ::Array[String]?,
         connection_id: String,
         counterparty_id: String,
         debitable: bool?,
@@ -119,6 +128,7 @@ module ModernTreasury
         parent_account_id: String,
         party_address: ModernTreasury::InternalAccountCreateParams::PartyAddress,
         party_name: String?,
+        party_type: ModernTreasury::Models::InternalAccountCreateParams::party_type?,
         requested_account_number_types: ::Array[ModernTreasury::Models::InternalAccountCreateParams::requested_account_number_type],
         title: String?,
         vendor_attributes: ::Hash[Symbol, String],
@@ -257,36 +267,26 @@ module ModernTreasury
       end
 
       type account_type =
-        :base_wallet
-        | :cash
+        :cash
         | :checking
-        | :crypto_wallet
-        | :ethereum_wallet
         | :general_ledger
         | :loan
         | :non_resident
         | :other
         | :overdraft
-        | :polygon_wallet
         | :savings
-        | :solana_wallet
 
       module AccountType
         extend ModernTreasury::Internal::Type::Enum
 
-        BASE_WALLET: :base_wallet
         CASH: :cash
         CHECKING: :checking
-        CRYPTO_WALLET: :crypto_wallet
-        ETHEREUM_WALLET: :ethereum_wallet
         GENERAL_LEDGER: :general_ledger
         LOAN: :loan
         NON_RESIDENT: :non_resident
         OTHER: :other
         OVERDRAFT: :overdraft
-        POLYGON_WALLET: :polygon_wallet
         SAVINGS: :savings
-        SOLANA_WALLET: :solana_wallet
 
         def self?.values: -> ::Array[ModernTreasury::Models::InternalAccountCreateParams::account_type]
       end
@@ -333,6 +333,17 @@ module ModernTreasury
           region: String,
           :line2 => String
         }
+      end
+
+      type party_type = :individual | :business
+
+      module PartyType
+        extend ModernTreasury::Internal::Type::Enum
+
+        INDIVIDUAL: :individual
+        BUSINESS: :business
+
+        def self?.values: -> ::Array[ModernTreasury::Models::InternalAccountCreateParams::party_type]
       end
 
       type requested_account_number_type =
