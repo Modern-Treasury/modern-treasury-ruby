@@ -1620,6 +1620,11 @@ module ModernTreasury
                 :swift,
                 ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
+            VASP =
+              T.let(
+                :vasp,
+                ModernTreasury::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+              )
             ZA_NATIONAL_CLEARING_CODE =
               T.let(
                 :za_national_clearing_code,
