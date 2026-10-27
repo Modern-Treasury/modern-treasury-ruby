@@ -70,7 +70,7 @@ module ModernTreasury
         metadata: nil,
         per_page: nil,
         # The current status of the incoming payment order. One of `pending`, `completed`,
-        # or `returned`.
+        # `returned`, `failed`, or `held`.
         status: nil,
         # An additional layer of classification for the type of incoming payment detail.
         # For example, a `type` of `stablecoin` may have a `subtype` of `ethereum` or
@@ -88,6 +88,8 @@ module ModernTreasury
       # Simulate Incoming Payment Detail
       sig do
         params(
+          type:
+            ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol,
           amount: Integer,
           as_of_date: T.nilable(Date),
           currency: T.nilable(ModernTreasury::Currency::OrSymbol),
@@ -96,13 +98,13 @@ module ModernTreasury
           direction: ModernTreasury::TransactionDirection::OrSymbol,
           internal_account_id: String,
           subtype: T.nilable(String),
-          type:
-            ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol,
           virtual_account_id: T.nilable(String),
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::IncomingPaymentDetail)
       end
       def create_async(
+        # One of `ach`, `wire`, `check`.
+        type:,
         # Value in specified currency's smallest unit. e.g. $10 would be represented
         # as 1000.
         amount: nil,
@@ -111,7 +113,9 @@ module ModernTreasury
         # Defaults to the currency of the originating account.
         currency: nil,
         # An object passed through to the simulated IPD that could reflect what a vendor
-        # would pass.
+        # would pass. For `type: check` with `subtype: lockbox` (sandbox Modern Treasury
+        # payment accounts only), `data` must include `payor_name`, otherwise the request
+        # returns 422.
         data: nil,
         # Defaults to a random description.
         description: nil,
@@ -120,10 +124,9 @@ module ModernTreasury
         # The ID of one of your internal accounts.
         internal_account_id: nil,
         # An additional layer of classification for the type of incoming payment detail,
-        # e.g. `ethereum` for a `stablecoin` type.
+        # e.g. `ethereum` for a `stablecoin` type. For `type: check`, `subtype: lockbox`
+        # simulates a lockbox check deposit.
         subtype: nil,
-        # One of `ach`, `wire`, `check`.
-        type: nil,
         # An optional parameter to associate the incoming payment detail to a virtual
         # account.
         virtual_account_id: nil,
