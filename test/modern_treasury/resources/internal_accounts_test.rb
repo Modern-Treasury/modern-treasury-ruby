@@ -16,6 +16,7 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
         account_capabilities: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccount::AccountCapability]),
         account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail]),
         account_type: ModernTreasury::InternalAccount::AccountType | nil,
+        allowed_ach_debit_company_ids: ^(ModernTreasury::Internal::Type::ArrayOf[String]) | nil,
         connection: ModernTreasury::Connection,
         contra_ledger_account_id: String | nil,
         counterparty_id: String | nil,
@@ -35,7 +36,7 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
         party_type: ModernTreasury::InternalAccount::PartyType | nil,
         routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail]),
         status: ModernTreasury::InternalAccount::Status | nil,
-        title: String | nil,
+        title: String,
         updated_at: Time,
         vendor_id: String | nil
       }
@@ -55,6 +56,7 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
         account_capabilities: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccount::AccountCapability]),
         account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail]),
         account_type: ModernTreasury::InternalAccount::AccountType | nil,
+        allowed_ach_debit_company_ids: ^(ModernTreasury::Internal::Type::ArrayOf[String]) | nil,
         connection: ModernTreasury::Connection,
         contra_ledger_account_id: String | nil,
         counterparty_id: String | nil,
@@ -74,7 +76,7 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
         party_type: ModernTreasury::InternalAccount::PartyType | nil,
         routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail]),
         status: ModernTreasury::InternalAccount::Status | nil,
-        title: String | nil,
+        title: String,
         updated_at: Time,
         vendor_id: String | nil
       }
@@ -94,6 +96,7 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
         account_capabilities: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccount::AccountCapability]),
         account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail]),
         account_type: ModernTreasury::InternalAccount::AccountType | nil,
+        allowed_ach_debit_company_ids: ^(ModernTreasury::Internal::Type::ArrayOf[String]) | nil,
         connection: ModernTreasury::Connection,
         contra_ledger_account_id: String | nil,
         counterparty_id: String | nil,
@@ -113,7 +116,7 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
         party_type: ModernTreasury::InternalAccount::PartyType | nil,
         routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail]),
         status: ModernTreasury::InternalAccount::Status | nil,
-        title: String | nil,
+        title: String,
         updated_at: Time,
         vendor_id: String | nil
       }
@@ -140,6 +143,7 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
         account_capabilities: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccount::AccountCapability]),
         account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail]),
         account_type: ModernTreasury::InternalAccount::AccountType | nil,
+        allowed_ach_debit_company_ids: ^(ModernTreasury::Internal::Type::ArrayOf[String]) | nil,
         connection: ModernTreasury::Connection,
         contra_ledger_account_id: String | nil,
         counterparty_id: String | nil,
@@ -159,7 +163,7 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
         party_type: ModernTreasury::InternalAccount::PartyType | nil,
         routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail]),
         status: ModernTreasury::InternalAccount::Status | nil,
-        title: String | nil,
+        title: String,
         updated_at: Time,
         vendor_id: String | nil
       }
@@ -179,6 +183,7 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
         account_capabilities: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccount::AccountCapability]),
         account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail]),
         account_type: ModernTreasury::InternalAccount::AccountType | nil,
+        allowed_ach_debit_company_ids: ^(ModernTreasury::Internal::Type::ArrayOf[String]) | nil,
         connection: ModernTreasury::Connection,
         contra_ledger_account_id: String | nil,
         counterparty_id: String | nil,
@@ -198,7 +203,7 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
         party_type: ModernTreasury::InternalAccount::PartyType | nil,
         routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail]),
         status: ModernTreasury::InternalAccount::Status | nil,
-        title: String | nil,
+        title: String,
         updated_at: Time,
         vendor_id: String | nil
       }
