@@ -3,6 +3,8 @@
 module ModernTreasury
   module Resources
     class AccountCollectionFlows
+      # @deprecated
+      #
       # create account_collection_flow
       #
       # @overload create(counterparty_id:, payment_types:, receiving_countries: nil, request_options: {})
@@ -11,7 +13,7 @@ module ModernTreasury
       #
       # @param payment_types [Array<String>]
       #
-      # @param receiving_countries [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>]
+      # @param receiving_countries [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateRequest::ReceivingCountry>]
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #

@@ -1,0 +1,81 @@
+module ModernTreasury
+  module Models
+    type embeddable_flow_create_params =
+      {
+        options: ModernTreasury::Models::EmbeddableFlowCreateParams::options,
+        template: ModernTreasury::Models::EmbeddableFlowCreateParams::template
+      }
+      & ModernTreasury::Internal::Type::request_parameters
+
+    class EmbeddableFlowCreateParams < ModernTreasury::Internal::Type::BaseModel
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
+
+      attr_accessor options: ModernTreasury::Models::EmbeddableFlowCreateParams::options
+
+      attr_accessor template: ModernTreasury::Models::EmbeddableFlowCreateParams::template
+
+      def initialize: (
+        options: ModernTreasury::Models::EmbeddableFlowCreateParams::options,
+        template: ModernTreasury::Models::EmbeddableFlowCreateParams::template,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        options: ModernTreasury::Models::EmbeddableFlowCreateParams::options,
+        template: ModernTreasury::Models::EmbeddableFlowCreateParams::template,
+        request_options: ModernTreasury::RequestOptions
+      }
+
+      type options =
+        ModernTreasury::AccountCollectionFlowCreateRequest
+        | ModernTreasury::PaymentFlowCreateRequest
+        | ModernTreasury::EmbeddableFlowCreateParams::Options::Type
+
+      module Options
+        extend ModernTreasury::Internal::Type::Union
+
+        type type_ =
+          {
+            type: ModernTreasury::Models::EmbeddableFlowCreateParams::Options::Type::type_
+          }
+
+        class Type < ModernTreasury::Internal::Type::BaseModel
+          attr_accessor type: ModernTreasury::Models::EmbeddableFlowCreateParams::Options::Type::type_
+
+          def initialize: (
+            type: ModernTreasury::Models::EmbeddableFlowCreateParams::Options::Type::type_
+          ) -> void
+
+          def to_hash: -> {
+            type: ModernTreasury::Models::EmbeddableFlowCreateParams::Options::Type::type_
+          }
+
+          type type_ = :individual
+
+          module Type
+            extend ModernTreasury::Internal::Type::Enum
+
+            INDIVIDUAL: :individual
+
+            def self?.values: -> ::Array[ModernTreasury::Models::EmbeddableFlowCreateParams::Options::Type::type_]
+          end
+        end
+
+        def self?.variants: -> ::Array[ModernTreasury::Models::EmbeddableFlowCreateParams::options]
+      end
+
+      type template = :legal_entity_onboarding | :account_collection | :payment
+
+      module Template
+        extend ModernTreasury::Internal::Type::Enum
+
+        LEGAL_ENTITY_ONBOARDING: :legal_entity_onboarding
+        ACCOUNT_COLLECTION: :account_collection
+        PAYMENT: :payment
+
+        def self?.values: -> ::Array[ModernTreasury::Models::EmbeddableFlowCreateParams::template]
+      end
+    end
+  end
+end
