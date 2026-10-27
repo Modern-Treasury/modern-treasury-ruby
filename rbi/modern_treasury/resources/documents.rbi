@@ -10,7 +10,7 @@ module ModernTreasury
           document_type: String,
           documentable_id: String,
           documentable_type:
-            ModernTreasury::DocumentCreateParams::DocumentableType::OrSymbol,
+            ModernTreasury::DocumentCreateRequest::DocumentableType::OrSymbol,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::Document)
       end

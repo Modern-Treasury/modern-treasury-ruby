@@ -22,7 +22,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::LedgerAccountStatementCreateResponse]
+      # @return [ModernTreasury::Models::LedgerAccountStatement]
       #
       # @see ModernTreasury::Models::LedgerAccountStatementCreateParams
       def create(params)
@@ -31,7 +31,7 @@ module ModernTreasury
           method: :post,
           path: "api/ledger_account_statements",
           body: parsed,
-          model: ModernTreasury::Models::LedgerAccountStatementCreateResponse,
+          model: ModernTreasury::LedgerAccountStatement,
           options: options
         )
       end
@@ -44,14 +44,14 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse]
+      # @return [ModernTreasury::Models::LedgerAccountStatement]
       #
       # @see ModernTreasury::Models::LedgerAccountStatementRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
           path: ["api/ledger_account_statements/%1$s", id],
-          model: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse,
+          model: ModernTreasury::LedgerAccountStatement,
           options: params[:request_options]
         )
       end

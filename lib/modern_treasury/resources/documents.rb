@@ -13,7 +13,7 @@ module ModernTreasury
       #
       # @param documentable_id [String] The unique identifier for the associated object.
       #
-      # @param documentable_type [Symbol, ModernTreasury::Models::DocumentCreateParams::DocumentableType]
+      # @param documentable_type [Symbol, ModernTreasury::Models::DocumentCreateRequest::DocumentableType]
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #

@@ -13,9 +13,9 @@ module ModernTreasury
       #   An array of AccountCapability objects that list the originating abilities of the
       #   internal account and any relevant information for them.
       #
-      #   @return [Array<ModernTreasury::Models::InternalAccount::AccountCapability>]
+      #   @return [Array<ModernTreasury::Models::AccountCapability>]
       required :account_capabilities,
-               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccount::AccountCapability] }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountCapability] }
 
       # @!attribute account_details
       #   An array of account detail objects.
@@ -28,6 +28,15 @@ module ModernTreasury
       #
       #   @return [Symbol, ModernTreasury::Models::InternalAccount::AccountType, nil]
       required :account_type, enum: -> { ModernTreasury::InternalAccount::AccountType }, nil?: true
+
+      # @!attribute allowed_ach_debit_company_ids
+      #   The ACH Company IDs allowed to debit this account. `null` allows every company.
+      #   An empty array allows none. Debits from any other company are returned with code
+      #   R10. Only applicable to debitable accounts under a Modern Treasury PSP
+      #   connection.
+      #
+      #   @return [Array<String>, nil]
+      required :allowed_ach_debit_company_ids, ModernTreasury::Internal::Type::ArrayOf[String], nil?: true
 
       # @!attribute connection
       #   Specifies which financial institution the accounts belong to.
@@ -131,7 +140,8 @@ module ModernTreasury
       required :party_name, String
 
       # @!attribute party_type
-      #   Either individual or business.
+      #   Either individual or business. Inherits from associated LegalEntity
+      #   legal_entity_type, if one exists.
       #
       #   @return [Symbol, ModernTreasury::Models::InternalAccount::PartyType, nil]
       required :party_type, enum: -> { ModernTreasury::InternalAccount::PartyType }, nil?: true
@@ -149,11 +159,12 @@ module ModernTreasury
       required :status, enum: -> { ModernTreasury::InternalAccount::Status }, nil?: true
 
       # @!attribute title
-      #   The account title at the financial institution, used in place of the party name.
-      #   Only applicable to accounts created under supported connections.
+      #   The account title at the financial institution. Defaults to the party name
+      #   unless a custom title was set on creation. Custom titles are only applicable to
+      #   accounts created under supported connections.
       #
-      #   @return [String, nil]
-      required :title, String, nil?: true
+      #   @return [String]
+      required :title, String
 
       # @!attribute updated_at
       #
@@ -166,17 +177,19 @@ module ModernTreasury
       #   @return [String, nil]
       required :vendor_id, String, nil?: true
 
-      # @!method initialize(id:, account_capabilities:, account_details:, account_type:, connection:, contra_ledger_account_id:, counterparty_id:, created_at:, currency:, debitable:, external_id:, ledger_account_id:, legal_entity_id:, live_mode:, metadata:, name:, object:, parent_account_id:, party_address:, party_name:, party_type:, routing_details:, status:, title:, updated_at:, vendor_id:)
+      # @!method initialize(id:, account_capabilities:, account_details:, account_type:, allowed_ach_debit_company_ids:, connection:, contra_ledger_account_id:, counterparty_id:, created_at:, currency:, debitable:, external_id:, ledger_account_id:, legal_entity_id:, live_mode:, metadata:, name:, object:, parent_account_id:, party_address:, party_name:, party_type:, routing_details:, status:, title:, updated_at:, vendor_id:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::InternalAccount} for more details.
       #
       #   @param id [String]
       #
-      #   @param account_capabilities [Array<ModernTreasury::Models::InternalAccount::AccountCapability>] An array of AccountCapability objects that list the originating abilities of the
+      #   @param account_capabilities [Array<ModernTreasury::Models::AccountCapability>] An array of AccountCapability objects that list the originating abilities of the
       #
       #   @param account_details [Array<ModernTreasury::Models::AccountDetail>] An array of account detail objects.
       #
       #   @param account_type [Symbol, ModernTreasury::Models::InternalAccount::AccountType, nil] Can be checking, savings or other.
+      #
+      #   @param allowed_ach_debit_company_ids [Array<String>, nil] The ACH Company IDs allowed to debit this account. `null` allows every company.
       #
       #   @param connection [ModernTreasury::Models::Connection] Specifies which financial institution the accounts belong to.
       #
@@ -210,131 +223,17 @@ module ModernTreasury
       #
       #   @param party_name [String] The legal name of the entity which owns the account.
       #
-      #   @param party_type [Symbol, ModernTreasury::Models::InternalAccount::PartyType, nil] Either individual or business.
+      #   @param party_type [Symbol, ModernTreasury::Models::InternalAccount::PartyType, nil] Either individual or business. Inherits from associated LegalEntity legal_entity
       #
       #   @param routing_details [Array<ModernTreasury::Models::RoutingDetail>] An array of routing detail objects.
       #
       #   @param status [Symbol, ModernTreasury::Models::InternalAccount::Status, nil] The internal account status.
       #
-      #   @param title [String, nil] The account title at the financial institution, used in place of the party name.
+      #   @param title [String] The account title at the financial institution. Defaults to the party name unles
       #
       #   @param updated_at [Time]
       #
       #   @param vendor_id [String, nil] The vendor ID associated with this account.
-
-      class AccountCapability < ModernTreasury::Internal::Type::BaseModel
-        # @!attribute id
-        #
-        #   @return [String]
-        required :id, String
-
-        # @!attribute created_at
-        #
-        #   @return [Time]
-        required :created_at, Time
-
-        # @!attribute direction
-        #   One of `debit` or `credit`. Indicates the direction of money movement this
-        #   capability is responsible for.
-        #
-        #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
-        required :direction, enum: -> { ModernTreasury::TransactionDirection }
-
-        # @!attribute discarded_at
-        #
-        #   @return [Time, nil]
-        required :discarded_at, Time, nil?: true
-
-        # @!attribute identifier
-        #   A unique reference assigned by your bank for tracking and recognizing payment
-        #   files. It is important this is formatted exactly how the bank assigned it.
-        #
-        #   @return [String, nil]
-        required :identifier, String, nil?: true
-
-        # @!attribute live_mode
-        #   This field will be true if this object exists in the live environment or false
-        #   if it exists in the test environment.
-        #
-        #   @return [Boolean]
-        required :live_mode, ModernTreasury::Internal::Type::Boolean
-
-        # @!attribute object
-        #
-        #   @return [String]
-        required :object, String
-
-        # @!attribute payment_type
-        #   Indicates the the type of payment this capability is responsible for
-        #   originating.
-        #
-        #   @return [Symbol, ModernTreasury::Models::InternalAccount::AccountCapability::PaymentType]
-        required :payment_type, enum: -> { ModernTreasury::InternalAccount::AccountCapability::PaymentType }
-
-        # @!attribute updated_at
-        #
-        #   @return [Time]
-        required :updated_at, Time
-
-        # @!method initialize(id:, created_at:, direction:, discarded_at:, identifier:, live_mode:, object:, payment_type:, updated_at:)
-        #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Models::InternalAccount::AccountCapability} for more details.
-        #
-        #   @param id [String]
-        #
-        #   @param created_at [Time]
-        #
-        #   @param direction [Symbol, ModernTreasury::Models::TransactionDirection] One of `debit` or `credit`. Indicates the direction of money movement this capab
-        #
-        #   @param discarded_at [Time, nil]
-        #
-        #   @param identifier [String, nil] A unique reference assigned by your bank for tracking and recognizing payment fi
-        #
-        #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
-        #
-        #   @param object [String]
-        #
-        #   @param payment_type [Symbol, ModernTreasury::Models::InternalAccount::AccountCapability::PaymentType] Indicates the the type of payment this capability is responsible for originating
-        #
-        #   @param updated_at [Time]
-
-        # Indicates the the type of payment this capability is responsible for
-        # originating.
-        #
-        # @see ModernTreasury::Models::InternalAccount::AccountCapability#payment_type
-        module PaymentType
-          extend ModernTreasury::Internal::Type::Enum
-
-          ACH = :ach
-          AU_BECS = :au_becs
-          BACS = :bacs
-          BOOK = :book
-          CARD = :card
-          CHATS = :chats
-          CHECK = :check
-          CROSS_BORDER = :cross_border
-          DK_NETS = :dk_nets
-          EFT = :eft
-          GB_FPS = :gb_fps
-          MASAV = :masav
-          MX_CCEN = :mx_ccen
-          NEFT = :neft
-          NICS = :nics
-          NZ_BECS = :nz_becs
-          PL_ELIXIR = :pl_elixir
-          RTP = :rtp
-          SE_BANKGIROT = :se_bankgirot
-          SEPA = :sepa
-          SG_GIRO = :sg_giro
-          SIC = :sic
-          STABLECOIN = :stablecoin
-          WIRE = :wire
-          ZENGIN = :zengin
-
-          # @!method self.values
-          #   @return [Array<Symbol>]
-        end
-      end
 
       # Can be checking, savings or other.
       #
@@ -342,25 +241,21 @@ module ModernTreasury
       module AccountType
         extend ModernTreasury::Internal::Type::Enum
 
-        BASE_WALLET = :base_wallet
         CASH = :cash
         CHECKING = :checking
-        CRYPTO_WALLET = :crypto_wallet
-        ETHEREUM_WALLET = :ethereum_wallet
         GENERAL_LEDGER = :general_ledger
         LOAN = :loan
         NON_RESIDENT = :non_resident
         OTHER = :other
         OVERDRAFT = :overdraft
-        POLYGON_WALLET = :polygon_wallet
         SAVINGS = :savings
-        SOLANA_WALLET = :solana_wallet
 
         # @!method self.values
         #   @return [Array<Symbol>]
       end
 
-      # Either individual or business.
+      # Either individual or business. Inherits from associated LegalEntity
+      # legal_entity_type, if one exists.
       #
       # @see ModernTreasury::Models::InternalAccount#party_type
       module PartyType
