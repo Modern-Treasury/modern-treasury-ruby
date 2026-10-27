@@ -80,6 +80,7 @@ module ModernTreasury
         NZ_NATIONAL_CLEARING_CODE = :nz_national_clearing_code
         SE_BANKGIRO_CLEARING_CODE = :se_bankgiro_clearing_code
         SWIFT = :swift
+        VASP = :vasp
         ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
         # @!method self.values

@@ -29,6 +29,15 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::InternalAccount::AccountType, nil]
       required :account_type, enum: -> { ModernTreasury::InternalAccount::AccountType }, nil?: true
 
+      # @!attribute allowed_ach_debit_company_ids
+      #   The ACH Company IDs allowed to debit this account. `null` allows every company.
+      #   An empty array allows none. Debits from any other company are returned with code
+      #   R10. Only applicable to debitable accounts under a Modern Treasury PSP
+      #   connection.
+      #
+      #   @return [Array<String>, nil]
+      required :allowed_ach_debit_company_ids, ModernTreasury::Internal::Type::ArrayOf[String], nil?: true
+
       # @!attribute connection
       #   Specifies which financial institution the accounts belong to.
       #
@@ -131,7 +140,8 @@ module ModernTreasury
       required :party_name, String
 
       # @!attribute party_type
-      #   Either individual or business.
+      #   Either individual or business. Inherits from associated LegalEntity
+      #   legal_entity_type, if one exists.
       #
       #   @return [Symbol, ModernTreasury::Models::InternalAccount::PartyType, nil]
       required :party_type, enum: -> { ModernTreasury::InternalAccount::PartyType }, nil?: true
@@ -149,11 +159,12 @@ module ModernTreasury
       required :status, enum: -> { ModernTreasury::InternalAccount::Status }, nil?: true
 
       # @!attribute title
-      #   The account title at the financial institution, used in place of the party name.
-      #   Only applicable to accounts created under supported connections.
+      #   The account title at the financial institution. Defaults to the party name
+      #   unless a custom title was set on creation. Custom titles are only applicable to
+      #   accounts created under supported connections.
       #
-      #   @return [String, nil]
-      required :title, String, nil?: true
+      #   @return [String]
+      required :title, String
 
       # @!attribute updated_at
       #
@@ -166,7 +177,7 @@ module ModernTreasury
       #   @return [String, nil]
       required :vendor_id, String, nil?: true
 
-      # @!method initialize(id:, account_capabilities:, account_details:, account_type:, connection:, contra_ledger_account_id:, counterparty_id:, created_at:, currency:, debitable:, external_id:, ledger_account_id:, legal_entity_id:, live_mode:, metadata:, name:, object:, parent_account_id:, party_address:, party_name:, party_type:, routing_details:, status:, title:, updated_at:, vendor_id:)
+      # @!method initialize(id:, account_capabilities:, account_details:, account_type:, allowed_ach_debit_company_ids:, connection:, contra_ledger_account_id:, counterparty_id:, created_at:, currency:, debitable:, external_id:, ledger_account_id:, legal_entity_id:, live_mode:, metadata:, name:, object:, parent_account_id:, party_address:, party_name:, party_type:, routing_details:, status:, title:, updated_at:, vendor_id:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::InternalAccount} for more details.
       #
@@ -177,6 +188,8 @@ module ModernTreasury
       #   @param account_details [Array<ModernTreasury::Models::AccountDetail>] An array of account detail objects.
       #
       #   @param account_type [Symbol, ModernTreasury::Models::InternalAccount::AccountType, nil] Can be checking, savings or other.
+      #
+      #   @param allowed_ach_debit_company_ids [Array<String>, nil] The ACH Company IDs allowed to debit this account. `null` allows every company.
       #
       #   @param connection [ModernTreasury::Models::Connection] Specifies which financial institution the accounts belong to.
       #
@@ -210,13 +223,13 @@ module ModernTreasury
       #
       #   @param party_name [String] The legal name of the entity which owns the account.
       #
-      #   @param party_type [Symbol, ModernTreasury::Models::InternalAccount::PartyType, nil] Either individual or business.
+      #   @param party_type [Symbol, ModernTreasury::Models::InternalAccount::PartyType, nil] Either individual or business. Inherits from associated LegalEntity legal_entity
       #
       #   @param routing_details [Array<ModernTreasury::Models::RoutingDetail>] An array of routing detail objects.
       #
       #   @param status [Symbol, ModernTreasury::Models::InternalAccount::Status, nil] The internal account status.
       #
-      #   @param title [String, nil] The account title at the financial institution, used in place of the party name.
+      #   @param title [String] The account title at the financial institution. Defaults to the party name unles
       #
       #   @param updated_at [Time]
       #
@@ -342,25 +355,21 @@ module ModernTreasury
       module AccountType
         extend ModernTreasury::Internal::Type::Enum
 
-        BASE_WALLET = :base_wallet
         CASH = :cash
         CHECKING = :checking
-        CRYPTO_WALLET = :crypto_wallet
-        ETHEREUM_WALLET = :ethereum_wallet
         GENERAL_LEDGER = :general_ledger
         LOAN = :loan
         NON_RESIDENT = :non_resident
         OTHER = :other
         OVERDRAFT = :overdraft
-        POLYGON_WALLET = :polygon_wallet
         SAVINGS = :savings
-        SOLANA_WALLET = :solana_wallet
 
         # @!method self.values
         #   @return [Array<Symbol>]
       end
 
-      # Either individual or business.
+      # Either individual or business. Inherits from associated LegalEntity
+      # legal_entity_type, if one exists.
       #
       # @see ModernTreasury::Models::InternalAccount#party_type
       module PartyType

@@ -127,6 +127,7 @@ module ModernTreasury
       NZD = :NZD
       OMR = :OMR
       OP = :OP
+      OUSD = :OUSD
       PAB = :PAB
       PEN = :PEN
       PGK = :PGK

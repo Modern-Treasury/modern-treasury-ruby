@@ -7,6 +7,12 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
+      # @!attribute type
+      #   One of `ach`, `wire`, `check`.
+      #
+      #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type]
+      required :type, enum: -> { ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Type }
+
       # @!attribute amount
       #   Value in specified currency's smallest unit. e.g. $10 would be represented
       #   as 1000.
@@ -28,7 +34,9 @@ module ModernTreasury
 
       # @!attribute data
       #   An object passed through to the simulated IPD that could reflect what a vendor
-      #   would pass.
+      #   would pass. For `type: check` with `subtype: lockbox` (sandbox Modern Treasury
+      #   payment accounts only), `data` must include `payor_name`, otherwise the request
+      #   returns 422.
       #
       #   @return [Object, nil]
       optional :data, ModernTreasury::Internal::Type::Unknown, nil?: true
@@ -53,16 +61,11 @@ module ModernTreasury
 
       # @!attribute subtype
       #   An additional layer of classification for the type of incoming payment detail,
-      #   e.g. `ethereum` for a `stablecoin` type.
+      #   e.g. `ethereum` for a `stablecoin` type. For `type: check`, `subtype: lockbox`
+      #   simulates a lockbox check deposit.
       #
       #   @return [String, nil]
       optional :subtype, String, nil?: true
-
-      # @!attribute type
-      #   One of `ach`, `wire`, `check`.
-      #
-      #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type, nil]
-      optional :type, enum: -> { ModernTreasury::IncomingPaymentDetailCreateAsyncParams::Type }
 
       # @!attribute virtual_account_id
       #   An optional parameter to associate the incoming payment detail to a virtual
@@ -71,10 +74,12 @@ module ModernTreasury
       #   @return [String, nil]
       optional :virtual_account_id, String, nil?: true
 
-      # @!method initialize(amount: nil, as_of_date: nil, currency: nil, data: nil, description: nil, direction: nil, internal_account_id: nil, subtype: nil, type: nil, virtual_account_id: nil, request_options: {})
+      # @!method initialize(type:, amount: nil, as_of_date: nil, currency: nil, data: nil, description: nil, direction: nil, internal_account_id: nil, subtype: nil, virtual_account_id: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams} for more
       #   details.
+      #
+      #   @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type] One of `ach`, `wire`, `check`.
       #
       #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
       #
@@ -91,8 +96,6 @@ module ModernTreasury
       #   @param internal_account_id [String] The ID of one of your internal accounts.
       #
       #   @param subtype [String, nil] An additional layer of classification for the type of incoming payment detail, e
-      #
-      #   @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type] One of `ach`, `wire`, `check`.
       #
       #   @param virtual_account_id [String, nil] An optional parameter to associate the incoming payment detail to a virtual acco
       #
