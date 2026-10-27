@@ -106,6 +106,14 @@ module ModernTreasury
       sig { params(metadata: T::Hash[Symbol, String]).void }
       attr_writer :metadata
 
+      # The address of the owner of the virtual account. When absent, the internal
+      # account's party address is used.
+      sig { returns(T.nilable(ModernTreasury::AddressRequest)) }
+      attr_reader :party_address
+
+      sig { params(party_address: ModernTreasury::AddressRequest::OrHash).void }
+      attr_writer :party_address
+
       # An array of routing detail objects.
       sig do
         returns(
@@ -149,6 +157,7 @@ module ModernTreasury
           ledger_account: ModernTreasury::LedgerAccountCreateRequest::OrHash,
           ledger_account_id: String,
           metadata: T::Hash[Symbol, String],
+          party_address: ModernTreasury::AddressRequest::OrHash,
           routing_details:
             T::Array[
               ModernTreasury::VirtualAccountCreateParams::RoutingDetail::OrHash
@@ -187,6 +196,9 @@ module ModernTreasury
         # Additional data represented as key-value pairs. Both the key and value must be
         # strings.
         metadata: nil,
+        # The address of the owner of the virtual account. When absent, the internal
+        # account's party address is used.
+        party_address: nil,
         # An array of routing detail objects.
         routing_details: nil,
         # The ID of the virtual account setting used to allocate this virtual account.
@@ -212,6 +224,7 @@ module ModernTreasury
             ledger_account: ModernTreasury::LedgerAccountCreateRequest,
             ledger_account_id: String,
             metadata: T::Hash[Symbol, String],
+            party_address: ModernTreasury::AddressRequest,
             routing_details:
               T::Array[
                 ModernTreasury::VirtualAccountCreateParams::RoutingDetail
@@ -576,6 +589,11 @@ module ModernTreasury
           SWIFT =
             T.let(
               :swift,
+              ModernTreasury::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
+            )
+          VASP =
+            T.let(
+              :vasp,
               ModernTreasury::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
             )
           ZA_NATIONAL_CLEARING_CODE =

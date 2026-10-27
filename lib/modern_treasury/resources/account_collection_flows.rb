@@ -3,6 +3,8 @@
 module ModernTreasury
   module Resources
     class AccountCollectionFlows
+      # @deprecated
+      #
       # create account_collection_flow
       #
       # @overload create(counterparty_id:, payment_types:, receiving_countries: nil, request_options: {})

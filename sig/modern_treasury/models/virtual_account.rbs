@@ -17,6 +17,7 @@ module ModernTreasury
         metadata: ::Hash[Symbol, String],
         name: String,
         object: String,
+        party_address: ModernTreasury::Address?,
         routing_details: ::Array[ModernTreasury::RoutingDetail],
         updated_at: Time
       }
@@ -52,6 +53,8 @@ module ModernTreasury
 
       attr_accessor object: String
 
+      attr_accessor party_address: ModernTreasury::Address?
+
       attr_accessor routing_details: ::Array[ModernTreasury::RoutingDetail]
 
       attr_accessor updated_at: Time
@@ -72,6 +75,7 @@ module ModernTreasury
         metadata: ::Hash[Symbol, String],
         name: String,
         object: String,
+        party_address: ModernTreasury::Address?,
         routing_details: ::Array[ModernTreasury::RoutingDetail],
         updated_at: Time
       ) -> void
@@ -92,6 +96,7 @@ module ModernTreasury
         metadata: ::Hash[Symbol, String],
         name: String,
         object: String,
+        party_address: ModernTreasury::Address?,
         routing_details: ::Array[ModernTreasury::RoutingDetail],
         updated_at: Time
       }
