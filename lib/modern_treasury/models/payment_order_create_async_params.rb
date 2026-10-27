@@ -842,6 +842,7 @@ module ModernTreasury
             SE_BANKGIRO_CLEARING_CODE = :se_bankgiro_clearing_code
             SG_INTERBANK_CLEARING_CODE = :sg_interbank_clearing_code
             SWIFT = :swift
+            VASP = :vasp
             ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
             # @!method self.values

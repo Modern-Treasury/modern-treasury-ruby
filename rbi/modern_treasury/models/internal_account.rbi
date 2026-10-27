@@ -33,6 +33,13 @@ module ModernTreasury
       end
       attr_accessor :account_type
 
+      # The ACH Company IDs allowed to debit this account. `null` allows every company.
+      # An empty array allows none. Debits from any other company are returned with code
+      # R10. Only applicable to debitable accounts under a Modern Treasury PSP
+      # connection.
+      sig { returns(T.nilable(T::Array[String])) }
+      attr_accessor :allowed_ach_debit_company_ids
+
       # Specifies which financial institution the accounts belong to.
       sig { returns(ModernTreasury::Connection) }
       attr_reader :connection
@@ -110,7 +117,8 @@ module ModernTreasury
       sig { returns(String) }
       attr_accessor :party_name
 
-      # Either individual or business.
+      # Either individual or business. Inherits from associated LegalEntity
+      # legal_entity_type, if one exists.
       sig do
         returns(
           T.nilable(ModernTreasury::InternalAccount::PartyType::TaggedSymbol)
@@ -130,9 +138,10 @@ module ModernTreasury
       end
       attr_accessor :status
 
-      # The account title at the financial institution, used in place of the party name.
-      # Only applicable to accounts created under supported connections.
-      sig { returns(T.nilable(String)) }
+      # The account title at the financial institution. Defaults to the party name
+      # unless a custom title was set on creation. Custom titles are only applicable to
+      # accounts created under supported connections.
+      sig { returns(String) }
       attr_accessor :title
 
       sig { returns(Time) }
@@ -152,6 +161,7 @@ module ModernTreasury
           account_details: T::Array[ModernTreasury::AccountDetail::OrHash],
           account_type:
             T.nilable(ModernTreasury::InternalAccount::AccountType::OrSymbol),
+          allowed_ach_debit_company_ids: T.nilable(T::Array[String]),
           connection: ModernTreasury::Connection::OrHash,
           contra_ledger_account_id: T.nilable(String),
           counterparty_id: T.nilable(String),
@@ -172,7 +182,7 @@ module ModernTreasury
             T.nilable(ModernTreasury::InternalAccount::PartyType::OrSymbol),
           routing_details: T::Array[ModernTreasury::RoutingDetail::OrHash],
           status: T.nilable(ModernTreasury::InternalAccount::Status::OrSymbol),
-          title: T.nilable(String),
+          title: String,
           updated_at: Time,
           vendor_id: T.nilable(String)
         ).returns(T.attached_class)
@@ -186,6 +196,11 @@ module ModernTreasury
         account_details:,
         # Can be checking, savings or other.
         account_type:,
+        # The ACH Company IDs allowed to debit this account. `null` allows every company.
+        # An empty array allows none. Debits from any other company are returned with code
+        # R10. Only applicable to debitable accounts under a Modern Treasury PSP
+        # connection.
+        allowed_ach_debit_company_ids:,
         # Specifies which financial institution the accounts belong to.
         connection:,
         # If the internal account links to a contra ledger account in Modern Treasury, the
@@ -223,14 +238,16 @@ module ModernTreasury
         party_address:,
         # The legal name of the entity which owns the account.
         party_name:,
-        # Either individual or business.
+        # Either individual or business. Inherits from associated LegalEntity
+        # legal_entity_type, if one exists.
         party_type:,
         # An array of routing detail objects.
         routing_details:,
         # The internal account status.
         status:,
-        # The account title at the financial institution, used in place of the party name.
-        # Only applicable to accounts created under supported connections.
+        # The account title at the financial institution. Defaults to the party name
+        # unless a custom title was set on creation. Custom titles are only applicable to
+        # accounts created under supported connections.
         title:,
         updated_at:,
         # The vendor ID associated with this account.
@@ -249,6 +266,7 @@ module ModernTreasury
               T.nilable(
                 ModernTreasury::InternalAccount::AccountType::TaggedSymbol
               ),
+            allowed_ach_debit_company_ids: T.nilable(T::Array[String]),
             connection: ModernTreasury::Connection,
             contra_ledger_account_id: T.nilable(String),
             counterparty_id: T.nilable(String),
@@ -272,7 +290,7 @@ module ModernTreasury
             routing_details: T::Array[ModernTreasury::RoutingDetail],
             status:
               T.nilable(ModernTreasury::InternalAccount::Status::TaggedSymbol),
-            title: T.nilable(String),
+            title: String,
             updated_at: Time,
             vendor_id: T.nilable(String)
           }
@@ -545,11 +563,6 @@ module ModernTreasury
           end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        BASE_WALLET =
-          T.let(
-            :base_wallet,
-            ModernTreasury::InternalAccount::AccountType::TaggedSymbol
-          )
         CASH =
           T.let(
             :cash,
@@ -558,16 +571,6 @@ module ModernTreasury
         CHECKING =
           T.let(
             :checking,
-            ModernTreasury::InternalAccount::AccountType::TaggedSymbol
-          )
-        CRYPTO_WALLET =
-          T.let(
-            :crypto_wallet,
-            ModernTreasury::InternalAccount::AccountType::TaggedSymbol
-          )
-        ETHEREUM_WALLET =
-          T.let(
-            :ethereum_wallet,
             ModernTreasury::InternalAccount::AccountType::TaggedSymbol
           )
         GENERAL_LEDGER =
@@ -595,19 +598,9 @@ module ModernTreasury
             :overdraft,
             ModernTreasury::InternalAccount::AccountType::TaggedSymbol
           )
-        POLYGON_WALLET =
-          T.let(
-            :polygon_wallet,
-            ModernTreasury::InternalAccount::AccountType::TaggedSymbol
-          )
         SAVINGS =
           T.let(
             :savings,
-            ModernTreasury::InternalAccount::AccountType::TaggedSymbol
-          )
-        SOLANA_WALLET =
-          T.let(
-            :solana_wallet,
             ModernTreasury::InternalAccount::AccountType::TaggedSymbol
           )
 
@@ -620,7 +613,8 @@ module ModernTreasury
         end
       end
 
-      # Either individual or business.
+      # Either individual or business. Inherits from associated LegalEntity
+      # legal_entity_type, if one exists.
       module PartyType
         extend ModernTreasury::Internal::Type::Enum
 
