@@ -75,8 +75,10 @@ module ModernTreasury
           # @!attribute balance_type
           #   The specific type of balance reported. One of `opening_ledger`,
           #   `closing_ledger`, `current_ledger`, `opening_available`,
-          #   `opening_available_next_business_day`, `closing_available`, `current_available`,
-          #   'previously_closed_book', or `other`.
+          #   `opening_available_next_business_day`, `closing_available`,
+          #   `closing_pending_inflows`, `closing_pending_outflows`, `current_available`,
+          #   'previously_closed_book', `current_pending_inflows`, `current_pending_outflows`,
+          #   or `other`.
           #
           #   @return [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType]
           required :balance_type,
@@ -128,8 +130,10 @@ module ModernTreasury
 
           # The specific type of balance reported. One of `opening_ledger`,
           # `closing_ledger`, `current_ledger`, `opening_available`,
-          # `opening_available_next_business_day`, `closing_available`, `current_available`,
-          # 'previously_closed_book', or `other`.
+          # `opening_available_next_business_day`, `closing_available`,
+          # `closing_pending_inflows`, `closing_pending_outflows`, `current_available`,
+          # 'previously_closed_book', `current_pending_inflows`, `current_pending_outflows`,
+          # or `other`.
           #
           # @see ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance#balance_type
           module BalanceType
@@ -137,8 +141,12 @@ module ModernTreasury
 
             CLOSING_AVAILABLE = :closing_available
             CLOSING_LEDGER = :closing_ledger
+            CLOSING_PENDING_INFLOWS = :closing_pending_inflows
+            CLOSING_PENDING_OUTFLOWS = :closing_pending_outflows
             CURRENT_AVAILABLE = :current_available
             CURRENT_LEDGER = :current_ledger
+            CURRENT_PENDING_INFLOWS = :current_pending_inflows
+            CURRENT_PENDING_OUTFLOWS = :current_pending_outflows
             OPENING_AVAILABLE = :opening_available
             OPENING_AVAILABLE_NEXT_BUSINESS_DAY = :opening_available_next_business_day
             OPENING_LEDGER = :opening_ledger

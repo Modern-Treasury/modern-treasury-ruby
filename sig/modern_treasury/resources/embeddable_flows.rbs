@@ -1,0 +1,32 @@
+module ModernTreasury
+  module Resources
+    class EmbeddableFlows
+      def create: (
+        options: ModernTreasury::Models::EmbeddableFlowCreateParams::options,
+        template: ModernTreasury::Models::EmbeddableFlowCreateParams::template,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::EmbeddableFlow
+
+      def retrieve: (
+        String id,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::EmbeddableFlow
+
+      def update: (
+        String id,
+        status: ModernTreasury::Models::EmbeddableFlowUpdateParams::status,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::EmbeddableFlow
+
+      def list: (
+        ?after_cursor: String?,
+        ?per_page: Integer,
+        ?status: String,
+        ?template: ModernTreasury::Models::EmbeddableFlowListParams::template,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::EmbeddableFlow]
+
+      def initialize: (client: ModernTreasury::Client) -> void
+    end
+  end
+end

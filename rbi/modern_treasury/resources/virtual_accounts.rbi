@@ -9,9 +9,7 @@ module ModernTreasury
           internal_account_id: String,
           name: String,
           account_details:
-            T::Array[
-              ModernTreasury::VirtualAccountCreateParams::AccountDetail::OrHash
-            ],
+            T::Array[ModernTreasury::AccountDetailCreateRequest::OrHash],
           counterparty_id: String,
           credit_ledger_account_id: String,
           debit_ledger_account_id: String,
@@ -20,10 +18,9 @@ module ModernTreasury
           ledger_account: ModernTreasury::LedgerAccountCreateRequest::OrHash,
           ledger_account_id: String,
           metadata: T::Hash[Symbol, String],
+          party_address: ModernTreasury::AddressRequest::OrHash,
           routing_details:
-            T::Array[
-              ModernTreasury::VirtualAccountCreateParams::RoutingDetail::OrHash
-            ],
+            T::Array[ModernTreasury::RoutingDetailCreateRequest::OrHash],
           virtual_account_setting_id: String,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::VirtualAccount)
@@ -58,6 +55,9 @@ module ModernTreasury
         # Additional data represented as key-value pairs. Both the key and value must be
         # strings.
         metadata: nil,
+        # The address of the owner of the virtual account. When absent, the internal
+        # account's party address is used.
+        party_address: nil,
         # An array of routing detail objects.
         routing_details: nil,
         # The ID of the virtual account setting used to allocate this virtual account.
@@ -88,6 +88,7 @@ module ModernTreasury
           ledger_account_id: String,
           metadata: T::Hash[Symbol, String],
           name: T.nilable(String),
+          party_address: ModernTreasury::AddressRequest::OrHash,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::VirtualAccount)
       end
@@ -99,6 +100,10 @@ module ModernTreasury
         ledger_account_id: nil,
         metadata: nil,
         name: nil,
+        # The address of the owner of the virtual account. Omit to leave it unchanged;
+        # pass all fields blank to clear it, after which the internal account's party
+        # address is used.
+        party_address: nil,
         request_options: {}
       )
       end

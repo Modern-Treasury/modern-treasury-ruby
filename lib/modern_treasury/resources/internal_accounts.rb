@@ -11,15 +11,17 @@ module ModernTreasury
       #
       # create internal account
       #
-      # @overload create(currency:, name:, account_capabilities: nil, account_type: nil, connection_id: nil, counterparty_id: nil, debitable: nil, external_id: nil, legal_entity_id: nil, metadata: nil, parent_account_id: nil, party_address: nil, party_name: nil, requested_account_number_types: nil, title: nil, vendor_attributes: nil, request_options: {})
+      # @overload create(currency:, name:, account_capabilities: nil, account_type: nil, allowed_ach_debit_company_ids: nil, connection_id: nil, counterparty_id: nil, debitable: nil, external_id: nil, legal_entity_id: nil, metadata: nil, parent_account_id: nil, party_address: nil, party_name: nil, party_type: nil, requested_account_number_types: nil, title: nil, vendor_attributes: nil, request_options: {})
       #
       # @param currency [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency] The currency of the internal account. Supports fiat and stablecoin currencies.
       #
       # @param name [String] The nickname of the account.
       #
-      # @param account_capabilities [Array<ModernTreasury::Models::InternalAccountCreateParams::AccountCapability>] An array of AccountCapability objects that list the originating abilities of the
+      # @param account_capabilities [Array<ModernTreasury::Models::AccountCapability>] An array of AccountCapability objects that list the originating abilities of the
       #
       # @param account_type [Symbol, ModernTreasury::Models::InternalAccountCreateParams::AccountType] The account type, used to provision the appropriate account at the financial ins
+      #
+      # @param allowed_ach_debit_company_ids [Array<String>, nil] The ACH Company IDs allowed to debit this account. `null` allows every company.
       #
       # @param connection_id [String] The identifier of the financial institution the account belongs to. If not provi
       #
@@ -38,6 +40,8 @@ module ModernTreasury
       # @param party_address [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress] The address associated with the owner or null.
       #
       # @param party_name [String, nil] The legal name of the entity which owns the account.
+      #
+      # @param party_type [Symbol, ModernTreasury::Models::InternalAccountCreateParams::PartyType, nil] Either individual or business. Inherits from associated LegalEntity legal_entity
       #
       # @param requested_account_number_types [Array<Symbol, ModernTreasury::Models::InternalAccountCreateParams::RequestedAccountNumberType>] An array of account number types requested for provisioning.
       #
@@ -86,7 +90,7 @@ module ModernTreasury
       #
       # update internal account
       #
-      # @overload update(id, contra_ledger_account_id: nil, counterparty_id: nil, external_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, party_address: nil, status: nil, request_options: {})
+      # @overload update(id, contra_ledger_account_id: nil, counterparty_id: nil, external_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, party_address: nil, party_type: nil, status: nil, request_options: {})
       #
       # @param id [String] Unique identifier for the account.
       #
@@ -105,6 +109,8 @@ module ModernTreasury
       # @param parent_account_id [String] The parent internal account for this account.
       #
       # @param party_address [ModernTreasury::Models::AddressRequest] The address associated with the owner of the internal account. Updating this val
+      #
+      # @param party_type [Symbol, ModernTreasury::Models::InternalAccountUpdateParams::PartyType, nil] Either individual or business. Inherits from associated LegalEntity legal_entity
       #
       # @param status [Symbol, ModernTreasury::Models::InternalAccountUpdateParams::Status] Requests closure of the internal account. The resulting status may be `closed` f
       #
@@ -208,7 +214,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::InternalAccountUpdateAccountCapabilityResponse]
+      # @return [ModernTreasury::Models::AccountCapability]
       #
       # @see ModernTreasury::Models::InternalAccountUpdateAccountCapabilityParams
       def update_account_capability(id, params)
@@ -221,7 +227,7 @@ module ModernTreasury
           method: :patch,
           path: ["api/internal_accounts/%1$s/account_capabilities/%2$s", internal_account_id, id],
           body: parsed,
-          model: ModernTreasury::Models::InternalAccountUpdateAccountCapabilityResponse,
+          model: ModernTreasury::AccountCapability,
           options: options
         )
       end

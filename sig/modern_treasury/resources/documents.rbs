@@ -5,7 +5,7 @@ module ModernTreasury
         file: ModernTreasury::Internal::file_input,
         ?document_type: String,
         ?documentable_id: String,
-        ?documentable_type: ModernTreasury::Models::DocumentCreateParams::documentable_type,
+        ?documentable_type: ModernTreasury::Models::DocumentCreateRequest::documentable_type,
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::Document
 

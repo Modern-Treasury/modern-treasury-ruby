@@ -26,23 +26,13 @@ module ModernTreasury
 
       # An array of AccountCapability objects that list the originating abilities of the
       # internal account and any relevant information for them.
-      sig do
-        returns(
-          T.nilable(
-            T::Array[
-              ModernTreasury::InternalAccountCreateParams::AccountCapability
-            ]
-          )
-        )
-      end
+      sig { returns(T.nilable(T::Array[ModernTreasury::AccountCapability])) }
       attr_reader :account_capabilities
 
       sig do
         params(
           account_capabilities:
-            T::Array[
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::OrHash
-            ]
+            T::Array[ModernTreasury::AccountCapability::OrHash]
         ).void
       end
       attr_writer :account_capabilities
@@ -65,6 +55,13 @@ module ModernTreasury
         ).void
       end
       attr_writer :account_type
+
+      # The ACH Company IDs allowed to debit this account. `null` allows every company.
+      # An empty array allows none. Debits from any other company are returned with code
+      # R10. Only applicable to debitable accounts under a Modern Treasury PSP
+      # connection.
+      sig { returns(T.nilable(T::Array[String])) }
+      attr_accessor :allowed_ach_debit_company_ids
 
       # The identifier of the financial institution the account belongs to. If not
       # provided, defaults to the default connection, or the sole connection if only one
@@ -135,6 +132,17 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :party_name
 
+      # Either individual or business. Inherits from associated LegalEntity
+      # legal_entity_type, if one exists.
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::InternalAccountCreateParams::PartyType::OrSymbol
+          )
+        )
+      end
+      attr_accessor :party_type
+
       # An array of account number types requested for provisioning.
       sig do
         returns(
@@ -158,8 +166,9 @@ module ModernTreasury
       attr_writer :requested_account_number_types
 
       # The account title at the financial institution, used in place of the party name.
-      # Only applicable to accounts created under supported connections. Please reach
-      # out to your customer success manager to enable this capability for your program.
+      # Defaults to the party name if not set. Only applicable to accounts created under
+      # supported connections. Please reach out to your customer success manager to
+      # enable this capability for your program.
       sig { returns(T.nilable(String)) }
       attr_accessor :title
 
@@ -177,11 +186,10 @@ module ModernTreasury
             ModernTreasury::InternalAccountCreateParams::Currency::OrSymbol,
           name: String,
           account_capabilities:
-            T::Array[
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::OrHash
-            ],
+            T::Array[ModernTreasury::AccountCapability::OrHash],
           account_type:
             ModernTreasury::InternalAccountCreateParams::AccountType::OrSymbol,
+          allowed_ach_debit_company_ids: T.nilable(T::Array[String]),
           connection_id: String,
           counterparty_id: String,
           debitable: T.nilable(T::Boolean),
@@ -192,6 +200,10 @@ module ModernTreasury
           party_address:
             ModernTreasury::InternalAccountCreateParams::PartyAddress::OrHash,
           party_name: T.nilable(String),
+          party_type:
+            T.nilable(
+              ModernTreasury::InternalAccountCreateParams::PartyType::OrSymbol
+            ),
           requested_account_number_types:
             T::Array[
               ModernTreasury::InternalAccountCreateParams::RequestedAccountNumberType::OrSymbol
@@ -212,6 +224,11 @@ module ModernTreasury
         # The account type, used to provision the appropriate account at the financial
         # institution.
         account_type: nil,
+        # The ACH Company IDs allowed to debit this account. `null` allows every company.
+        # An empty array allows none. Debits from any other company are returned with code
+        # R10. Only applicable to debitable accounts under a Modern Treasury PSP
+        # connection.
+        allowed_ach_debit_company_ids: nil,
         # The identifier of the financial institution the account belongs to. If not
         # provided, defaults to the default connection, or the sole connection if only one
         # exists.
@@ -236,11 +253,15 @@ module ModernTreasury
         party_address: nil,
         # The legal name of the entity which owns the account.
         party_name: nil,
+        # Either individual or business. Inherits from associated LegalEntity
+        # legal_entity_type, if one exists.
+        party_type: nil,
         # An array of account number types requested for provisioning.
         requested_account_number_types: nil,
         # The account title at the financial institution, used in place of the party name.
-        # Only applicable to accounts created under supported connections. Please reach
-        # out to your customer success manager to enable this capability for your program.
+        # Defaults to the party name if not set. Only applicable to accounts created under
+        # supported connections. Please reach out to your customer success manager to
+        # enable this capability for your program.
         title: nil,
         # A hash of vendor specific attributes that will be used when creating the account
         # at the vendor specified by the given connection.
@@ -255,12 +276,10 @@ module ModernTreasury
             currency:
               ModernTreasury::InternalAccountCreateParams::Currency::OrSymbol,
             name: String,
-            account_capabilities:
-              T::Array[
-                ModernTreasury::InternalAccountCreateParams::AccountCapability
-              ],
+            account_capabilities: T::Array[ModernTreasury::AccountCapability],
             account_type:
               ModernTreasury::InternalAccountCreateParams::AccountType::OrSymbol,
+            allowed_ach_debit_company_ids: T.nilable(T::Array[String]),
             connection_id: String,
             counterparty_id: String,
             debitable: T.nilable(T::Boolean),
@@ -271,6 +290,10 @@ module ModernTreasury
             party_address:
               ModernTreasury::InternalAccountCreateParams::PartyAddress,
             party_name: T.nilable(String),
+            party_type:
+              T.nilable(
+                ModernTreasury::InternalAccountCreateParams::PartyType::OrSymbol
+              ),
             requested_account_number_types:
               T::Array[
                 ModernTreasury::InternalAccountCreateParams::RequestedAccountNumberType::OrSymbol
@@ -336,260 +359,6 @@ module ModernTreasury
         end
       end
 
-      class AccountCapability < ModernTreasury::Internal::Type::BaseModel
-        OrHash =
-          T.type_alias do
-            T.any(
-              ModernTreasury::InternalAccountCreateParams::AccountCapability,
-              ModernTreasury::Internal::AnyHash
-            )
-          end
-
-        sig { returns(String) }
-        attr_accessor :id
-
-        sig { returns(Time) }
-        attr_accessor :created_at
-
-        # One of `debit` or `credit`. Indicates the direction of money movement this
-        # capability is responsible for.
-        sig { returns(ModernTreasury::TransactionDirection::OrSymbol) }
-        attr_accessor :direction
-
-        sig { returns(T.nilable(Time)) }
-        attr_accessor :discarded_at
-
-        # A unique reference assigned by your bank for tracking and recognizing payment
-        # files. It is important this is formatted exactly how the bank assigned it.
-        sig { returns(T.nilable(String)) }
-        attr_accessor :identifier
-
-        # This field will be true if this object exists in the live environment or false
-        # if it exists in the test environment.
-        sig { returns(T::Boolean) }
-        attr_accessor :live_mode
-
-        sig { returns(String) }
-        attr_accessor :object
-
-        # Indicates the the type of payment this capability is responsible for
-        # originating.
-        sig do
-          returns(
-            ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::OrSymbol
-          )
-        end
-        attr_accessor :payment_type
-
-        sig { returns(Time) }
-        attr_accessor :updated_at
-
-        sig do
-          params(
-            id: String,
-            created_at: Time,
-            direction: ModernTreasury::TransactionDirection::OrSymbol,
-            discarded_at: T.nilable(Time),
-            identifier: T.nilable(String),
-            live_mode: T::Boolean,
-            object: String,
-            payment_type:
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::OrSymbol,
-            updated_at: Time
-          ).returns(T.attached_class)
-        end
-        def self.new(
-          id:,
-          created_at:,
-          # One of `debit` or `credit`. Indicates the direction of money movement this
-          # capability is responsible for.
-          direction:,
-          discarded_at:,
-          # A unique reference assigned by your bank for tracking and recognizing payment
-          # files. It is important this is formatted exactly how the bank assigned it.
-          identifier:,
-          # This field will be true if this object exists in the live environment or false
-          # if it exists in the test environment.
-          live_mode:,
-          object:,
-          # Indicates the the type of payment this capability is responsible for
-          # originating.
-          payment_type:,
-          updated_at:
-        )
-        end
-
-        sig do
-          override.returns(
-            {
-              id: String,
-              created_at: Time,
-              direction: ModernTreasury::TransactionDirection::OrSymbol,
-              discarded_at: T.nilable(Time),
-              identifier: T.nilable(String),
-              live_mode: T::Boolean,
-              object: String,
-              payment_type:
-                ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::OrSymbol,
-              updated_at: Time
-            }
-          )
-        end
-        def to_hash
-        end
-
-        # Indicates the the type of payment this capability is responsible for
-        # originating.
-        module PaymentType
-          extend ModernTreasury::Internal::Type::Enum
-
-          TaggedSymbol =
-            T.type_alias do
-              T.all(
-                Symbol,
-                ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType
-              )
-            end
-          OrSymbol = T.type_alias { T.any(Symbol, String) }
-
-          ACH =
-            T.let(
-              :ach,
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
-            )
-          AU_BECS =
-            T.let(
-              :au_becs,
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
-            )
-          BACS =
-            T.let(
-              :bacs,
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
-            )
-          BOOK =
-            T.let(
-              :book,
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
-            )
-          CARD =
-            T.let(
-              :card,
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
-            )
-          CHATS =
-            T.let(
-              :chats,
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
-            )
-          CHECK =
-            T.let(
-              :check,
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
-            )
-          CROSS_BORDER =
-            T.let(
-              :cross_border,
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
-            )
-          DK_NETS =
-            T.let(
-              :dk_nets,
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
-            )
-          EFT =
-            T.let(
-              :eft,
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
-            )
-          GB_FPS =
-            T.let(
-              :gb_fps,
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
-            )
-          MASAV =
-            T.let(
-              :masav,
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
-            )
-          MX_CCEN =
-            T.let(
-              :mx_ccen,
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
-            )
-          NEFT =
-            T.let(
-              :neft,
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
-            )
-          NICS =
-            T.let(
-              :nics,
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
-            )
-          NZ_BECS =
-            T.let(
-              :nz_becs,
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
-            )
-          PL_ELIXIR =
-            T.let(
-              :pl_elixir,
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
-            )
-          RTP =
-            T.let(
-              :rtp,
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
-            )
-          SE_BANKGIROT =
-            T.let(
-              :se_bankgirot,
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
-            )
-          SEPA =
-            T.let(
-              :sepa,
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
-            )
-          SG_GIRO =
-            T.let(
-              :sg_giro,
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
-            )
-          SIC =
-            T.let(
-              :sic,
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
-            )
-          STABLECOIN =
-            T.let(
-              :stablecoin,
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
-            )
-          WIRE =
-            T.let(
-              :wire,
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
-            )
-          ZENGIN =
-            T.let(
-              :zengin,
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
-            )
-
-          sig do
-            override.returns(
-              T::Array[
-                ModernTreasury::InternalAccountCreateParams::AccountCapability::PaymentType::TaggedSymbol
-              ]
-            )
-          end
-          def self.values
-          end
-        end
-      end
-
       # The account type, used to provision the appropriate account at the financial
       # institution.
       module AccountType
@@ -604,11 +373,6 @@ module ModernTreasury
           end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        BASE_WALLET =
-          T.let(
-            :base_wallet,
-            ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
-          )
         CASH =
           T.let(
             :cash,
@@ -617,16 +381,6 @@ module ModernTreasury
         CHECKING =
           T.let(
             :checking,
-            ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
-          )
-        CRYPTO_WALLET =
-          T.let(
-            :crypto_wallet,
-            ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
-          )
-        ETHEREUM_WALLET =
-          T.let(
-            :ethereum_wallet,
             ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
           )
         GENERAL_LEDGER =
@@ -654,19 +408,9 @@ module ModernTreasury
             :overdraft,
             ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
           )
-        POLYGON_WALLET =
-          T.let(
-            :polygon_wallet,
-            ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
-          )
         SAVINGS =
           T.let(
             :savings,
-            ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
-          )
-        SOLANA_WALLET =
-          T.let(
-            :solana_wallet,
             ModernTreasury::InternalAccountCreateParams::AccountType::TaggedSymbol
           )
 
@@ -757,6 +501,42 @@ module ModernTreasury
           )
         end
         def to_hash
+        end
+      end
+
+      # Either individual or business. Inherits from associated LegalEntity
+      # legal_entity_type, if one exists.
+      module PartyType
+        extend ModernTreasury::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::InternalAccountCreateParams::PartyType
+            )
+          end
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        INDIVIDUAL =
+          T.let(
+            :individual,
+            ModernTreasury::InternalAccountCreateParams::PartyType::TaggedSymbol
+          )
+        BUSINESS =
+          T.let(
+            :business,
+            ModernTreasury::InternalAccountCreateParams::PartyType::TaggedSymbol
+          )
+
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::InternalAccountCreateParams::PartyType::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
         end
       end
 

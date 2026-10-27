@@ -98,6 +98,8 @@ module ModernTreasury
 
     attr_reader identifications: ModernTreasury::Resources::Identifications
 
+    attr_reader embeddable_flows: ModernTreasury::Resources::EmbeddableFlows
+
     def ping: (
       ?request_options: ModernTreasury::request_opts
     ) -> ModernTreasury::PingResponse
