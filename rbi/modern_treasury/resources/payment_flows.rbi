@@ -10,7 +10,7 @@ module ModernTreasury
           counterparty_id: String,
           currency: String,
           direction:
-            ModernTreasury::PaymentFlowCreateParams::Direction::OrSymbol,
+            ModernTreasury::PaymentFlowCreateRequest::Direction::OrSymbol,
           originating_account_id: String,
           due_date: Date,
           request_options: ModernTreasury::RequestOptions::OrHash

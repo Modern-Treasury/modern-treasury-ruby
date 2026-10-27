@@ -74,6 +74,17 @@ module ModernTreasury
       sig { params(party_address: ModernTreasury::AddressRequest::OrHash).void }
       attr_writer :party_address
 
+      # Either individual or business. Inherits from associated LegalEntity
+      # legal_entity_type, if one exists.
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::InternalAccountUpdateParams::PartyType::OrSymbol
+          )
+        )
+      end
+      attr_accessor :party_type
+
       # Requests closure of the internal account. The resulting status may be `closed`
       # for vendors that close synchronously.
       sig do
@@ -103,6 +114,10 @@ module ModernTreasury
           name: String,
           parent_account_id: String,
           party_address: ModernTreasury::AddressRequest::OrHash,
+          party_type:
+            T.nilable(
+              ModernTreasury::InternalAccountUpdateParams::PartyType::OrSymbol
+            ),
           status: ModernTreasury::InternalAccountUpdateParams::Status::OrSymbol,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
@@ -129,6 +144,9 @@ module ModernTreasury
         # the account's bank; you are responsible for verifying that the address is
         # accurate.
         party_address: nil,
+        # Either individual or business. Inherits from associated LegalEntity
+        # legal_entity_type, if one exists.
+        party_type: nil,
         # Requests closure of the internal account. The resulting status may be `closed`
         # for vendors that close synchronously.
         status: nil,
@@ -148,6 +166,10 @@ module ModernTreasury
             name: String,
             parent_account_id: String,
             party_address: ModernTreasury::AddressRequest,
+            party_type:
+              T.nilable(
+                ModernTreasury::InternalAccountUpdateParams::PartyType::OrSymbol
+              ),
             status:
               ModernTreasury::InternalAccountUpdateParams::Status::OrSymbol,
             request_options: ModernTreasury::RequestOptions
@@ -155,6 +177,42 @@ module ModernTreasury
         )
       end
       def to_hash
+      end
+
+      # Either individual or business. Inherits from associated LegalEntity
+      # legal_entity_type, if one exists.
+      module PartyType
+        extend ModernTreasury::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::InternalAccountUpdateParams::PartyType
+            )
+          end
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        INDIVIDUAL =
+          T.let(
+            :individual,
+            ModernTreasury::InternalAccountUpdateParams::PartyType::TaggedSymbol
+          )
+        BUSINESS =
+          T.let(
+            :business,
+            ModernTreasury::InternalAccountUpdateParams::PartyType::TaggedSymbol
+          )
+
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::InternalAccountUpdateParams::PartyType::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
 
       # Requests closure of the internal account. The resulting status may be `closed`

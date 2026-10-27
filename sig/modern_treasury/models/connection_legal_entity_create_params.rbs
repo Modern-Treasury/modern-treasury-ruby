@@ -73,7 +73,7 @@ module ModernTreasury
           preferred_name: String?,
           prefix: String?,
           primary_social_media_sites: ::Array[String],
-          regulators: ::Array[ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::Regulator]?,
+          regulators: ::Array[ModernTreasury::LegalEntityRegulator]?,
           risk_rating: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::risk_rating?,
           service_provider_legal_entity_id: String?,
           suffix: String?,
@@ -184,7 +184,7 @@ module ModernTreasury
 
         def primary_social_media_sites=: (::Array[String]) -> ::Array[String]
 
-        attr_accessor regulators: ::Array[ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::Regulator]?
+        attr_accessor regulators: ::Array[ModernTreasury::LegalEntityRegulator]?
 
         attr_accessor risk_rating: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::risk_rating?
 
@@ -242,7 +242,7 @@ module ModernTreasury
           ?preferred_name: String?,
           ?prefix: String?,
           ?primary_social_media_sites: ::Array[String],
-          ?regulators: ::Array[ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::Regulator]?,
+          ?regulators: ::Array[ModernTreasury::LegalEntityRegulator]?,
           ?risk_rating: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::risk_rating?,
           ?service_provider_legal_entity_id: String?,
           ?suffix: String?,
@@ -288,7 +288,7 @@ module ModernTreasury
           preferred_name: String?,
           prefix: String?,
           primary_social_media_sites: ::Array[String],
-          regulators: ::Array[ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::Regulator]?,
+          regulators: ::Array[ModernTreasury::LegalEntityRegulator]?,
           risk_rating: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::risk_rating?,
           service_provider_legal_entity_id: String?,
           suffix: String?,
@@ -406,29 +406,6 @@ module ModernTreasury
           def initialize: (?phone_number: String) -> void
 
           def to_hash: -> { phone_number: String }
-        end
-
-        type regulator =
-          { jurisdiction: String, name: String, registration_number: String }
-
-        class Regulator < ModernTreasury::Internal::Type::BaseModel
-          attr_accessor jurisdiction: String
-
-          attr_accessor name: String
-
-          attr_accessor registration_number: String
-
-          def initialize: (
-            jurisdiction: String,
-            name: String,
-            registration_number: String
-          ) -> void
-
-          def to_hash: -> {
-            jurisdiction: String,
-            name: String,
-            registration_number: String
-          }
         end
 
         type risk_rating = :low | :medium | :high
