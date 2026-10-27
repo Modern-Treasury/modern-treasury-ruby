@@ -8,7 +8,7 @@ module ModernTreasury
       #
       # create virtual_account
       #
-      # @overload create(internal_account_id:, name:, account_details: nil, counterparty_id: nil, credit_ledger_account_id: nil, debit_ledger_account_id: nil, description: nil, external_id: nil, ledger_account: nil, ledger_account_id: nil, metadata: nil, routing_details: nil, virtual_account_setting_id: nil, request_options: {})
+      # @overload create(internal_account_id:, name:, account_details: nil, counterparty_id: nil, credit_ledger_account_id: nil, debit_ledger_account_id: nil, description: nil, external_id: nil, ledger_account: nil, ledger_account_id: nil, metadata: nil, party_address: nil, routing_details: nil, virtual_account_setting_id: nil, request_options: {})
       #
       # @param internal_account_id [String] The ID of the internal account that this virtual account is associated with.
       #
@@ -31,6 +31,8 @@ module ModernTreasury
       # @param ledger_account_id [String] The ledger account that you'd like to link to the virtual account.
       #
       # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
+      #
+      # @param party_address [ModernTreasury::Models::AddressRequest] The address of the owner of the virtual account. When absent, the internal accou
       #
       # @param routing_details [Array<ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail>] An array of routing detail objects.
       #
@@ -72,9 +74,12 @@ module ModernTreasury
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {ModernTreasury::Models::VirtualAccountUpdateParams} for more details.
+      #
       # update virtual_account
       #
-      # @overload update(id, counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, request_options: {})
+      # @overload update(id, counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, party_address: nil, request_options: {})
       #
       # @param id [String] Virtual Acccount ID
       #
@@ -85,6 +90,8 @@ module ModernTreasury
       # @param metadata [Hash{Symbol=>String}]
       #
       # @param name [String, nil]
+      #
+      # @param party_address [ModernTreasury::Models::AddressRequest] The address of the owner of the virtual account. Omit to leave it unchanged; pas
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #

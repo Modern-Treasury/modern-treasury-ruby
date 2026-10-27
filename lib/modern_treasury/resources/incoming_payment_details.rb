@@ -101,7 +101,9 @@ module ModernTreasury
       #
       # Simulate Incoming Payment Detail
       #
-      # @overload create_async(amount: nil, as_of_date: nil, currency: nil, data: nil, description: nil, direction: nil, internal_account_id: nil, subtype: nil, type: nil, virtual_account_id: nil, request_options: {})
+      # @overload create_async(type:, amount: nil, as_of_date: nil, currency: nil, data: nil, description: nil, direction: nil, internal_account_id: nil, subtype: nil, virtual_account_id: nil, request_options: {})
+      #
+      # @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type] One of `ach`, `wire`, `check`.
       #
       # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
       #
@@ -119,8 +121,6 @@ module ModernTreasury
       #
       # @param subtype [String, nil] An additional layer of classification for the type of incoming payment detail, e
       #
-      # @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type] One of `ach`, `wire`, `check`.
-      #
       # @param virtual_account_id [String, nil] An optional parameter to associate the incoming payment detail to a virtual acco
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
@@ -128,7 +128,7 @@ module ModernTreasury
       # @return [ModernTreasury::Models::IncomingPaymentDetail]
       #
       # @see ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams
-      def create_async(params = {})
+      def create_async(params)
         parsed, options = ModernTreasury::IncomingPaymentDetailCreateAsyncParams.dump_request(params)
         @client.request(
           method: :post,
