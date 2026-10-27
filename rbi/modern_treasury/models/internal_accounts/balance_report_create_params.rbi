@@ -150,8 +150,10 @@ module ModernTreasury
 
           # The specific type of balance reported. One of `opening_ledger`,
           # `closing_ledger`, `current_ledger`, `opening_available`,
-          # `opening_available_next_business_day`, `closing_available`, `current_available`,
-          # 'previously_closed_book', or `other`.
+          # `opening_available_next_business_day`, `closing_available`,
+          # `closing_pending_inflows`, `closing_pending_outflows`, `current_available`,
+          # 'previously_closed_book', `current_pending_inflows`, `current_pending_outflows`,
+          # or `other`.
           sig do
             returns(
               ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol
@@ -198,8 +200,10 @@ module ModernTreasury
           def self.new(
             # The specific type of balance reported. One of `opening_ledger`,
             # `closing_ledger`, `current_ledger`, `opening_available`,
-            # `opening_available_next_business_day`, `closing_available`, `current_available`,
-            # 'previously_closed_book', or `other`.
+            # `opening_available_next_business_day`, `closing_available`,
+            # `closing_pending_inflows`, `closing_pending_outflows`, `current_available`,
+            # 'previously_closed_book', `current_pending_inflows`, `current_pending_outflows`,
+            # or `other`.
             balance_type:,
             # The code used by the bank when reporting this specific balance.
             vendor_code:,
@@ -232,8 +236,10 @@ module ModernTreasury
 
           # The specific type of balance reported. One of `opening_ledger`,
           # `closing_ledger`, `current_ledger`, `opening_available`,
-          # `opening_available_next_business_day`, `closing_available`, `current_available`,
-          # 'previously_closed_book', or `other`.
+          # `opening_available_next_business_day`, `closing_available`,
+          # `closing_pending_inflows`, `closing_pending_outflows`, `current_available`,
+          # 'previously_closed_book', `current_pending_inflows`, `current_pending_outflows`,
+          # or `other`.
           module BalanceType
             extend ModernTreasury::Internal::Type::Enum
 
@@ -256,6 +262,16 @@ module ModernTreasury
                 :closing_ledger,
                 ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::TaggedSymbol
               )
+            CLOSING_PENDING_INFLOWS =
+              T.let(
+                :closing_pending_inflows,
+                ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::TaggedSymbol
+              )
+            CLOSING_PENDING_OUTFLOWS =
+              T.let(
+                :closing_pending_outflows,
+                ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::TaggedSymbol
+              )
             CURRENT_AVAILABLE =
               T.let(
                 :current_available,
@@ -264,6 +280,16 @@ module ModernTreasury
             CURRENT_LEDGER =
               T.let(
                 :current_ledger,
+                ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::TaggedSymbol
+              )
+            CURRENT_PENDING_INFLOWS =
+              T.let(
+                :current_pending_inflows,
+                ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::TaggedSymbol
+              )
+            CURRENT_PENDING_OUTFLOWS =
+              T.let(
+                :current_pending_outflows,
                 ModernTreasury::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::TaggedSymbol
               )
             OPENING_AVAILABLE =

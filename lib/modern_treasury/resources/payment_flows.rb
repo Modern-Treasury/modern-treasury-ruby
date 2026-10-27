@@ -3,6 +3,8 @@
 module ModernTreasury
   module Resources
     class PaymentFlows
+      # @deprecated
+      #
       # Some parameter documentations has been truncated, see
       # {ModernTreasury::Models::PaymentFlowCreateParams} for more details.
       #
