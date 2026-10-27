@@ -16,7 +16,7 @@ module ModernTreasury
       #
       # @param account_number [String] Body param: The account number for the bank account.
       #
-      # @param account_number_type [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType] Body param: The type of the account number. For wallet addresses, use the chain-
+      # @param account_number_type [Symbol, ModernTreasury::Models::AccountDetailCreateRequest::AccountNumberType] Body param: The type of the account number. For wallet addresses, use the chain-
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #

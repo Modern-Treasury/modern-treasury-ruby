@@ -15,11 +15,10 @@ module ModernTreasury
             ModernTreasury::InternalAccountCreateParams::Currency::OrSymbol,
           name: String,
           account_capabilities:
-            T::Array[
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::OrHash
-            ],
+            T::Array[ModernTreasury::AccountCapability::OrHash],
           account_type:
             ModernTreasury::InternalAccountCreateParams::AccountType::OrSymbol,
+          allowed_ach_debit_company_ids: T.nilable(T::Array[String]),
           connection_id: String,
           counterparty_id: String,
           debitable: T.nilable(T::Boolean),
@@ -30,6 +29,10 @@ module ModernTreasury
           party_address:
             ModernTreasury::InternalAccountCreateParams::PartyAddress::OrHash,
           party_name: T.nilable(String),
+          party_type:
+            T.nilable(
+              ModernTreasury::InternalAccountCreateParams::PartyType::OrSymbol
+            ),
           requested_account_number_types:
             T::Array[
               ModernTreasury::InternalAccountCreateParams::RequestedAccountNumberType::OrSymbol
@@ -50,6 +53,11 @@ module ModernTreasury
         # The account type, used to provision the appropriate account at the financial
         # institution.
         account_type: nil,
+        # The ACH Company IDs allowed to debit this account. `null` allows every company.
+        # An empty array allows none. Debits from any other company are returned with code
+        # R10. Only applicable to debitable accounts under a Modern Treasury PSP
+        # connection.
+        allowed_ach_debit_company_ids: nil,
         # The identifier of the financial institution the account belongs to. If not
         # provided, defaults to the default connection, or the sole connection if only one
         # exists.
@@ -74,11 +82,15 @@ module ModernTreasury
         party_address: nil,
         # The legal name of the entity which owns the account.
         party_name: nil,
+        # Either individual or business. Inherits from associated LegalEntity
+        # legal_entity_type, if one exists.
+        party_type: nil,
         # An array of account number types requested for provisioning.
         requested_account_number_types: nil,
         # The account title at the financial institution, used in place of the party name.
-        # Only applicable to accounts created under supported connections. Please reach
-        # out to your customer success manager to enable this capability for your program.
+        # Defaults to the party name if not set. Only applicable to accounts created under
+        # supported connections. Please reach out to your customer success manager to
+        # enable this capability for your program.
         title: nil,
         # A hash of vendor specific attributes that will be used when creating the account
         # at the vendor specified by the given connection.
@@ -113,6 +125,10 @@ module ModernTreasury
           name: String,
           parent_account_id: String,
           party_address: ModernTreasury::AddressRequest::OrHash,
+          party_type:
+            T.nilable(
+              ModernTreasury::InternalAccountUpdateParams::PartyType::OrSymbol
+            ),
           status: ModernTreasury::InternalAccountUpdateParams::Status::OrSymbol,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::InternalAccount)
@@ -140,6 +156,9 @@ module ModernTreasury
         # the account's bank; you are responsible for verifying that the address is
         # accurate.
         party_address: nil,
+        # Either individual or business. Inherits from associated LegalEntity
+        # legal_entity_type, if one exists.
+        party_type: nil,
         # Requests closure of the internal account. The resulting status may be `closed`
         # for vendors that close synchronously.
         status: nil,
@@ -213,9 +232,7 @@ module ModernTreasury
           internal_account_id: String,
           identifier: String,
           request_options: ModernTreasury::RequestOptions::OrHash
-        ).returns(
-          ModernTreasury::Models::InternalAccountUpdateAccountCapabilityResponse
-        )
+        ).returns(ModernTreasury::AccountCapability)
       end
       def update_account_capability(
         # Path param: Unique identifier for the account capability.

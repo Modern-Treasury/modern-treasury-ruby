@@ -1,0 +1,37 @@
+module ModernTreasury
+  module Models
+    type line_item_request =
+      {
+        amount: Integer,
+        accounting_category_id: String?,
+        description: String?,
+        metadata: ::Hash[Symbol, String]
+      }
+
+    class LineItemRequest < ModernTreasury::Internal::Type::BaseModel
+      attr_accessor amount: Integer
+
+      attr_accessor accounting_category_id: String?
+
+      attr_accessor description: String?
+
+      attr_reader metadata: ::Hash[Symbol, String]?
+
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
+
+      def initialize: (
+        amount: Integer,
+        ?accounting_category_id: String?,
+        ?description: String?,
+        ?metadata: ::Hash[Symbol, String]
+      ) -> void
+
+      def to_hash: -> {
+        amount: Integer,
+        accounting_category_id: String?,
+        description: String?,
+        metadata: ::Hash[Symbol, String]
+      }
+    end
+  end
+end

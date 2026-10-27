@@ -28,9 +28,9 @@ module ModernTreasury
         ?external_id: String?,
         ?ledger_entries: ::Array[ModernTreasury::LedgerEntryCreateRequest],
         ?ledgerable_id: String,
-        ?ledgerable_type: ModernTreasury::Models::LedgerTransactionUpdateParams::ledgerable_type,
+        ?ledgerable_type: ModernTreasury::Models::LedgerTransactionUpdateRequest::ledgerable_type,
         ?metadata: ::Hash[Symbol, String],
-        ?status: ModernTreasury::Models::LedgerTransactionUpdateParams::status,
+        ?status: ModernTreasury::Models::LedgerTransactionUpdateRequest::status,
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::LedgerTransaction
 

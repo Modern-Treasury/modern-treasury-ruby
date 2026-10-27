@@ -16,9 +16,7 @@ module ModernTreasury
 
       # An array of AccountCapability objects that list the originating abilities of the
       # internal account and any relevant information for them.
-      sig do
-        returns(T::Array[ModernTreasury::InternalAccount::AccountCapability])
-      end
+      sig { returns(T::Array[ModernTreasury::AccountCapability]) }
       attr_accessor :account_capabilities
 
       # An array of account detail objects.
@@ -32,6 +30,13 @@ module ModernTreasury
         )
       end
       attr_accessor :account_type
+
+      # The ACH Company IDs allowed to debit this account. `null` allows every company.
+      # An empty array allows none. Debits from any other company are returned with code
+      # R10. Only applicable to debitable accounts under a Modern Treasury PSP
+      # connection.
+      sig { returns(T.nilable(T::Array[String])) }
+      attr_accessor :allowed_ach_debit_company_ids
 
       # Specifies which financial institution the accounts belong to.
       sig { returns(ModernTreasury::Connection) }
@@ -110,7 +115,8 @@ module ModernTreasury
       sig { returns(String) }
       attr_accessor :party_name
 
-      # Either individual or business.
+      # Either individual or business. Inherits from associated LegalEntity
+      # legal_entity_type, if one exists.
       sig do
         returns(
           T.nilable(ModernTreasury::InternalAccount::PartyType::TaggedSymbol)
@@ -130,9 +136,10 @@ module ModernTreasury
       end
       attr_accessor :status
 
-      # The account title at the financial institution, used in place of the party name.
-      # Only applicable to accounts created under supported connections.
-      sig { returns(T.nilable(String)) }
+      # The account title at the financial institution. Defaults to the party name
+      # unless a custom title was set on creation. Custom titles are only applicable to
+      # accounts created under supported connections.
+      sig { returns(String) }
       attr_accessor :title
 
       sig { returns(Time) }
@@ -146,12 +153,11 @@ module ModernTreasury
         params(
           id: String,
           account_capabilities:
-            T::Array[
-              ModernTreasury::InternalAccount::AccountCapability::OrHash
-            ],
+            T::Array[ModernTreasury::AccountCapability::OrHash],
           account_details: T::Array[ModernTreasury::AccountDetail::OrHash],
           account_type:
             T.nilable(ModernTreasury::InternalAccount::AccountType::OrSymbol),
+          allowed_ach_debit_company_ids: T.nilable(T::Array[String]),
           connection: ModernTreasury::Connection::OrHash,
           contra_ledger_account_id: T.nilable(String),
           counterparty_id: T.nilable(String),
@@ -172,7 +178,7 @@ module ModernTreasury
             T.nilable(ModernTreasury::InternalAccount::PartyType::OrSymbol),
           routing_details: T::Array[ModernTreasury::RoutingDetail::OrHash],
           status: T.nilable(ModernTreasury::InternalAccount::Status::OrSymbol),
-          title: T.nilable(String),
+          title: String,
           updated_at: Time,
           vendor_id: T.nilable(String)
         ).returns(T.attached_class)
@@ -186,6 +192,11 @@ module ModernTreasury
         account_details:,
         # Can be checking, savings or other.
         account_type:,
+        # The ACH Company IDs allowed to debit this account. `null` allows every company.
+        # An empty array allows none. Debits from any other company are returned with code
+        # R10. Only applicable to debitable accounts under a Modern Treasury PSP
+        # connection.
+        allowed_ach_debit_company_ids:,
         # Specifies which financial institution the accounts belong to.
         connection:,
         # If the internal account links to a contra ledger account in Modern Treasury, the
@@ -223,14 +234,16 @@ module ModernTreasury
         party_address:,
         # The legal name of the entity which owns the account.
         party_name:,
-        # Either individual or business.
+        # Either individual or business. Inherits from associated LegalEntity
+        # legal_entity_type, if one exists.
         party_type:,
         # An array of routing detail objects.
         routing_details:,
         # The internal account status.
         status:,
-        # The account title at the financial institution, used in place of the party name.
-        # Only applicable to accounts created under supported connections.
+        # The account title at the financial institution. Defaults to the party name
+        # unless a custom title was set on creation. Custom titles are only applicable to
+        # accounts created under supported connections.
         title:,
         updated_at:,
         # The vendor ID associated with this account.
@@ -242,13 +255,13 @@ module ModernTreasury
         override.returns(
           {
             id: String,
-            account_capabilities:
-              T::Array[ModernTreasury::InternalAccount::AccountCapability],
+            account_capabilities: T::Array[ModernTreasury::AccountCapability],
             account_details: T::Array[ModernTreasury::AccountDetail],
             account_type:
               T.nilable(
                 ModernTreasury::InternalAccount::AccountType::TaggedSymbol
               ),
+            allowed_ach_debit_company_ids: T.nilable(T::Array[String]),
             connection: ModernTreasury::Connection,
             contra_ledger_account_id: T.nilable(String),
             counterparty_id: T.nilable(String),
@@ -272,267 +285,13 @@ module ModernTreasury
             routing_details: T::Array[ModernTreasury::RoutingDetail],
             status:
               T.nilable(ModernTreasury::InternalAccount::Status::TaggedSymbol),
-            title: T.nilable(String),
+            title: String,
             updated_at: Time,
             vendor_id: T.nilable(String)
           }
         )
       end
       def to_hash
-      end
-
-      class AccountCapability < ModernTreasury::Internal::Type::BaseModel
-        OrHash =
-          T.type_alias do
-            T.any(
-              ModernTreasury::InternalAccount::AccountCapability,
-              ModernTreasury::Internal::AnyHash
-            )
-          end
-
-        sig { returns(String) }
-        attr_accessor :id
-
-        sig { returns(Time) }
-        attr_accessor :created_at
-
-        # One of `debit` or `credit`. Indicates the direction of money movement this
-        # capability is responsible for.
-        sig { returns(ModernTreasury::TransactionDirection::TaggedSymbol) }
-        attr_accessor :direction
-
-        sig { returns(T.nilable(Time)) }
-        attr_accessor :discarded_at
-
-        # A unique reference assigned by your bank for tracking and recognizing payment
-        # files. It is important this is formatted exactly how the bank assigned it.
-        sig { returns(T.nilable(String)) }
-        attr_accessor :identifier
-
-        # This field will be true if this object exists in the live environment or false
-        # if it exists in the test environment.
-        sig { returns(T::Boolean) }
-        attr_accessor :live_mode
-
-        sig { returns(String) }
-        attr_accessor :object
-
-        # Indicates the the type of payment this capability is responsible for
-        # originating.
-        sig do
-          returns(
-            ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-          )
-        end
-        attr_accessor :payment_type
-
-        sig { returns(Time) }
-        attr_accessor :updated_at
-
-        sig do
-          params(
-            id: String,
-            created_at: Time,
-            direction: ModernTreasury::TransactionDirection::OrSymbol,
-            discarded_at: T.nilable(Time),
-            identifier: T.nilable(String),
-            live_mode: T::Boolean,
-            object: String,
-            payment_type:
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::OrSymbol,
-            updated_at: Time
-          ).returns(T.attached_class)
-        end
-        def self.new(
-          id:,
-          created_at:,
-          # One of `debit` or `credit`. Indicates the direction of money movement this
-          # capability is responsible for.
-          direction:,
-          discarded_at:,
-          # A unique reference assigned by your bank for tracking and recognizing payment
-          # files. It is important this is formatted exactly how the bank assigned it.
-          identifier:,
-          # This field will be true if this object exists in the live environment or false
-          # if it exists in the test environment.
-          live_mode:,
-          object:,
-          # Indicates the the type of payment this capability is responsible for
-          # originating.
-          payment_type:,
-          updated_at:
-        )
-        end
-
-        sig do
-          override.returns(
-            {
-              id: String,
-              created_at: Time,
-              direction: ModernTreasury::TransactionDirection::TaggedSymbol,
-              discarded_at: T.nilable(Time),
-              identifier: T.nilable(String),
-              live_mode: T::Boolean,
-              object: String,
-              payment_type:
-                ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol,
-              updated_at: Time
-            }
-          )
-        end
-        def to_hash
-        end
-
-        # Indicates the the type of payment this capability is responsible for
-        # originating.
-        module PaymentType
-          extend ModernTreasury::Internal::Type::Enum
-
-          TaggedSymbol =
-            T.type_alias do
-              T.all(
-                Symbol,
-                ModernTreasury::InternalAccount::AccountCapability::PaymentType
-              )
-            end
-          OrSymbol = T.type_alias { T.any(Symbol, String) }
-
-          ACH =
-            T.let(
-              :ach,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-          AU_BECS =
-            T.let(
-              :au_becs,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-          BACS =
-            T.let(
-              :bacs,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-          BOOK =
-            T.let(
-              :book,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-          CARD =
-            T.let(
-              :card,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-          CHATS =
-            T.let(
-              :chats,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-          CHECK =
-            T.let(
-              :check,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-          CROSS_BORDER =
-            T.let(
-              :cross_border,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-          DK_NETS =
-            T.let(
-              :dk_nets,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-          EFT =
-            T.let(
-              :eft,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-          GB_FPS =
-            T.let(
-              :gb_fps,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-          MASAV =
-            T.let(
-              :masav,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-          MX_CCEN =
-            T.let(
-              :mx_ccen,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-          NEFT =
-            T.let(
-              :neft,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-          NICS =
-            T.let(
-              :nics,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-          NZ_BECS =
-            T.let(
-              :nz_becs,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-          PL_ELIXIR =
-            T.let(
-              :pl_elixir,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-          RTP =
-            T.let(
-              :rtp,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-          SE_BANKGIROT =
-            T.let(
-              :se_bankgirot,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-          SEPA =
-            T.let(
-              :sepa,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-          SG_GIRO =
-            T.let(
-              :sg_giro,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-          SIC =
-            T.let(
-              :sic,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-          STABLECOIN =
-            T.let(
-              :stablecoin,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-          WIRE =
-            T.let(
-              :wire,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-          ZENGIN =
-            T.let(
-              :zengin,
-              ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-            )
-
-          sig do
-            override.returns(
-              T::Array[
-                ModernTreasury::InternalAccount::AccountCapability::PaymentType::TaggedSymbol
-              ]
-            )
-          end
-          def self.values
-          end
-        end
       end
 
       # Can be checking, savings or other.
@@ -545,11 +304,6 @@ module ModernTreasury
           end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-        BASE_WALLET =
-          T.let(
-            :base_wallet,
-            ModernTreasury::InternalAccount::AccountType::TaggedSymbol
-          )
         CASH =
           T.let(
             :cash,
@@ -558,16 +312,6 @@ module ModernTreasury
         CHECKING =
           T.let(
             :checking,
-            ModernTreasury::InternalAccount::AccountType::TaggedSymbol
-          )
-        CRYPTO_WALLET =
-          T.let(
-            :crypto_wallet,
-            ModernTreasury::InternalAccount::AccountType::TaggedSymbol
-          )
-        ETHEREUM_WALLET =
-          T.let(
-            :ethereum_wallet,
             ModernTreasury::InternalAccount::AccountType::TaggedSymbol
           )
         GENERAL_LEDGER =
@@ -595,19 +339,9 @@ module ModernTreasury
             :overdraft,
             ModernTreasury::InternalAccount::AccountType::TaggedSymbol
           )
-        POLYGON_WALLET =
-          T.let(
-            :polygon_wallet,
-            ModernTreasury::InternalAccount::AccountType::TaggedSymbol
-          )
         SAVINGS =
           T.let(
             :savings,
-            ModernTreasury::InternalAccount::AccountType::TaggedSymbol
-          )
-        SOLANA_WALLET =
-          T.let(
-            :solana_wallet,
             ModernTreasury::InternalAccount::AccountType::TaggedSymbol
           )
 
@@ -620,7 +354,8 @@ module ModernTreasury
         end
       end
 
-      # Either individual or business.
+      # Either individual or business. Inherits from associated LegalEntity
+      # legal_entity_type, if one exists.
       module PartyType
         extend ModernTreasury::Internal::Type::Enum
 
