@@ -19,6 +19,7 @@ class ModernTreasury::Test::Resources::IncomingPaymentDetailsTest < ModernTreasu
         currency: ModernTreasury::Currency,
         data: ^(ModernTreasury::Internal::Type::HashOf[ModernTreasury::Internal::Type::Unknown]),
         direction: ModernTreasury::TransactionDirection,
+        failure_reason: String | nil,
         internal_account_id: String,
         ledger_transaction_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
@@ -64,6 +65,7 @@ class ModernTreasury::Test::Resources::IncomingPaymentDetailsTest < ModernTreasu
         currency: ModernTreasury::Currency,
         data: ^(ModernTreasury::Internal::Type::HashOf[ModernTreasury::Internal::Type::Unknown]),
         direction: ModernTreasury::TransactionDirection,
+        failure_reason: String | nil,
         internal_account_id: String,
         ledger_transaction_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
@@ -116,6 +118,7 @@ class ModernTreasury::Test::Resources::IncomingPaymentDetailsTest < ModernTreasu
         currency: ModernTreasury::Currency,
         data: ^(ModernTreasury::Internal::Type::HashOf[ModernTreasury::Internal::Type::Unknown]),
         direction: ModernTreasury::TransactionDirection,
+        failure_reason: String | nil,
         internal_account_id: String,
         ledger_transaction_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
@@ -145,8 +148,8 @@ class ModernTreasury::Test::Resources::IncomingPaymentDetailsTest < ModernTreasu
     end
   end
 
-  def test_create_async
-    response = @modern_treasury.incoming_payment_details.create_async
+  def test_create_async_required_params
+    response = @modern_treasury.incoming_payment_details.create_async(type: :ach)
 
     assert_pattern do
       response => ModernTreasury::IncomingPaymentDetail
@@ -161,6 +164,7 @@ class ModernTreasury::Test::Resources::IncomingPaymentDetailsTest < ModernTreasu
         currency: ModernTreasury::Currency,
         data: ^(ModernTreasury::Internal::Type::HashOf[ModernTreasury::Internal::Type::Unknown]),
         direction: ModernTreasury::TransactionDirection,
+        failure_reason: String | nil,
         internal_account_id: String,
         ledger_transaction_id: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
