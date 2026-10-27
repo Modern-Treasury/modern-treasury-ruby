@@ -114,6 +114,19 @@ module ModernTreasury
 
   DocumentRetrieveParams = ModernTreasury::Models::DocumentRetrieveParams
 
+  EmbeddableFlow = ModernTreasury::Models::EmbeddableFlow
+
+  EmbeddableFlowCreateParams =
+    ModernTreasury::Models::EmbeddableFlowCreateParams
+
+  EmbeddableFlowListParams = ModernTreasury::Models::EmbeddableFlowListParams
+
+  EmbeddableFlowRetrieveParams =
+    ModernTreasury::Models::EmbeddableFlowRetrieveParams
+
+  EmbeddableFlowUpdateParams =
+    ModernTreasury::Models::EmbeddableFlowUpdateParams
+
   Event = ModernTreasury::Models::Event
 
   EventListParams = ModernTreasury::Models::EventListParams
