@@ -39,6 +39,15 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :name
 
+      # The address of the owner of the virtual account. Omit to leave it unchanged;
+      # pass all fields blank to clear it, after which the internal account's party
+      # address is used.
+      sig { returns(T.nilable(ModernTreasury::AddressRequest)) }
+      attr_reader :party_address
+
+      sig { params(party_address: ModernTreasury::AddressRequest::OrHash).void }
+      attr_writer :party_address
+
       sig do
         params(
           id: String,
@@ -46,6 +55,7 @@ module ModernTreasury
           ledger_account_id: String,
           metadata: T::Hash[Symbol, String],
           name: T.nilable(String),
+          party_address: ModernTreasury::AddressRequest::OrHash,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
@@ -56,6 +66,10 @@ module ModernTreasury
         ledger_account_id: nil,
         metadata: nil,
         name: nil,
+        # The address of the owner of the virtual account. Omit to leave it unchanged;
+        # pass all fields blank to clear it, after which the internal account's party
+        # address is used.
+        party_address: nil,
         request_options: {}
       )
       end
@@ -68,6 +82,7 @@ module ModernTreasury
             ledger_account_id: String,
             metadata: T::Hash[Symbol, String],
             name: T.nilable(String),
+            party_address: ModernTreasury::AddressRequest,
             request_options: ModernTreasury::RequestOptions
           }
         )
