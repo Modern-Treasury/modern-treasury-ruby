@@ -97,6 +97,12 @@ module ModernTreasury
       #   @return [String]
       required :object, String
 
+      # @!attribute party_address
+      #   The address of the owner of the virtual account, or null.
+      #
+      #   @return [ModernTreasury::Models::Address, nil]
+      required :party_address, -> { ModernTreasury::Address }, nil?: true
+
       # @!attribute routing_details
       #   An array of routing detail objects. These will be the routing details of the
       #   internal account.
@@ -109,7 +115,7 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!method initialize(id:, account_details:, counterparty_id:, created_at:, credit_ledger_account_id:, debit_ledger_account_id:, description:, discarded_at:, external_id:, internal_account_id:, ledger_account_id:, live_mode:, metadata:, name:, object:, routing_details:, updated_at:)
+      # @!method initialize(id:, account_details:, counterparty_id:, created_at:, credit_ledger_account_id:, debit_ledger_account_id:, description:, discarded_at:, external_id:, internal_account_id:, ledger_account_id:, live_mode:, metadata:, name:, object:, party_address:, routing_details:, updated_at:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::VirtualAccount} for more details.
       #
@@ -142,6 +148,8 @@ module ModernTreasury
       #   @param name [String] The name of the virtual account.
       #
       #   @param object [String]
+      #
+      #   @param party_address [ModernTreasury::Models::Address, nil] The address of the owner of the virtual account, or null.
       #
       #   @param routing_details [Array<ModernTreasury::Models::RoutingDetail>] An array of routing detail objects. These will be the routing details of the int
       #

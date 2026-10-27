@@ -150,6 +150,9 @@ module ModernTreasury
     # @return [ModernTreasury::Resources::Identifications]
     attr_reader :identifications
 
+    # @return [ModernTreasury::Resources::EmbeddableFlows]
+    attr_reader :embeddable_flows
+
     # A test endpoint often used to confirm credentials and headers are being passed
     # in correctly.
     #
@@ -289,6 +292,7 @@ module ModernTreasury
       @cases = ModernTreasury::Resources::Cases.new(client: self)
       @virtual_account_settings = ModernTreasury::Resources::VirtualAccountSettings.new(client: self)
       @identifications = ModernTreasury::Resources::Identifications.new(client: self)
+      @embeddable_flows = ModernTreasury::Resources::EmbeddableFlows.new(client: self)
     end
   end
 end
