@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::AccountDetails#create
-    class AccountDetailCreateParams < ModernTreasury::Internal::Type::BaseModel
+    class AccountDetailCreateParams < ModernTreasury::Models::AccountDetailCreateRequest
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -17,65 +17,15 @@ module ModernTreasury
       #   @return [String]
       required :account_id, String
 
-      # @!attribute account_number
-      #   The account number for the bank account.
-      #
-      #   @return [String]
-      required :account_number, String
-
-      # @!attribute account_number_type
-      #   The type of the account number. For wallet addresses, use the chain-specific
-      #   type (e.g. `ethereum_address`). Use `other` if the account number is in a
-      #   generic format.
-      #
-      #   @return [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType, nil]
-      optional :account_number_type, enum: -> { ModernTreasury::AccountDetailCreateParams::AccountNumberType }
-
-      # @!method initialize(accounts_type:, account_id:, account_number:, account_number_type: nil, request_options: {})
-      #   Some parameter documentations has been truncated, see
-      #   {ModernTreasury::Models::AccountDetailCreateParams} for more details.
-      #
+      # @!method initialize(accounts_type:, account_id:, request_options: {})
       #   @param accounts_type [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountsType]
-      #
       #   @param account_id [String]
-      #
-      #   @param account_number [String] The account number for the bank account.
-      #
-      #   @param account_number_type [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType] The type of the account number. For wallet addresses, use the chain-specific typ
-      #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
       module AccountsType
         extend ModernTreasury::Internal::Type::Enum
 
         EXTERNAL_ACCOUNTS = :external_accounts
-
-        # @!method self.values
-        #   @return [Array<Symbol>]
-      end
-
-      # The type of the account number. For wallet addresses, use the chain-specific
-      # type (e.g. `ethereum_address`). Use `other` if the account number is in a
-      # generic format.
-      module AccountNumberType
-        extend ModernTreasury::Internal::Type::Enum
-
-        ARBITRUM_ADDRESS = :arbitrum_address
-        AU_NUMBER = :au_number
-        AVALANCHE_ADDRESS = :avalanche_address
-        BASE_ADDRESS = :base_address
-        CARD_TOKEN = :card_token
-        CLABE = :clabe
-        ETHEREUM_ADDRESS = :ethereum_address
-        HK_NUMBER = :hk_number
-        IBAN = :iban
-        ID_NUMBER = :id_number
-        NZ_NUMBER = :nz_number
-        OTHER = :other
-        PAN = :pan
-        POLYGON_ADDRESS = :polygon_address
-        SG_NUMBER = :sg_number
-        SOLANA_ADDRESS = :solana_address
 
         # @!method self.values
         #   @return [Array<Symbol>]
