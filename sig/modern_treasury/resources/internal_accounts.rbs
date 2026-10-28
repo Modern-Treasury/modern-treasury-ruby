@@ -32,6 +32,7 @@ module ModernTreasury
 
       def update: (
         String id,
+        ?allowed_ach_debit_company_ids: ::Array[String]?,
         ?contra_ledger_account_id: String,
         ?counterparty_id: String,
         ?external_id: String?,
