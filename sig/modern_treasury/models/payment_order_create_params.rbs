@@ -6,7 +6,7 @@ module ModernTreasury
         direction: ModernTreasury::Models::PaymentOrderCreateParams::direction,
         originating_account_id: String,
         type: ModernTreasury::Models::payment_order_type,
-        accounting: ModernTreasury::PaymentOrderCreateParams::Accounting,
+        accounting: ModernTreasury::Accounting,
         accounting_category_id: String?,
         accounting_ledger_class_id: String?,
         charge_bearer: ModernTreasury::Models::PaymentOrderCreateParams::charge_bearer?,
@@ -21,7 +21,7 @@ module ModernTreasury
         foreign_exchange_indicator: ModernTreasury::Models::PaymentOrderCreateParams::foreign_exchange_indicator?,
         ledger_transaction: ModernTreasury::LedgerTransactionCreateRequest,
         ledger_transaction_id: String,
-        line_items: ::Array[ModernTreasury::PaymentOrderCreateParams::LineItem],
+        line_items: ::Array[ModernTreasury::LineItemRequest],
         metadata: ::Hash[Symbol, String],
         nsf_protected: bool,
         originating_party_address: ModernTreasury::PaymentOrderCreateParams::OriginatingPartyAddress?,
@@ -60,11 +60,11 @@ module ModernTreasury
 
       attr_accessor type: ModernTreasury::Models::payment_order_type
 
-      attr_reader accounting: ModernTreasury::PaymentOrderCreateParams::Accounting?
+      attr_reader accounting: ModernTreasury::Accounting?
 
       def accounting=: (
-        ModernTreasury::PaymentOrderCreateParams::Accounting
-      ) -> ModernTreasury::PaymentOrderCreateParams::Accounting
+        ModernTreasury::Accounting
+      ) -> ModernTreasury::Accounting
 
       attr_accessor accounting_category_id: String?
 
@@ -114,11 +114,11 @@ module ModernTreasury
 
       def ledger_transaction_id=: (String) -> String
 
-      attr_reader line_items: ::Array[ModernTreasury::PaymentOrderCreateParams::LineItem]?
+      attr_reader line_items: ::Array[ModernTreasury::LineItemRequest]?
 
       def line_items=: (
-        ::Array[ModernTreasury::PaymentOrderCreateParams::LineItem]
-      ) -> ::Array[ModernTreasury::PaymentOrderCreateParams::LineItem]
+        ::Array[ModernTreasury::LineItemRequest]
+      ) -> ::Array[ModernTreasury::LineItemRequest]
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
@@ -195,7 +195,7 @@ module ModernTreasury
         direction: ModernTreasury::Models::PaymentOrderCreateParams::direction,
         originating_account_id: String,
         type: ModernTreasury::Models::payment_order_type,
-        ?accounting: ModernTreasury::PaymentOrderCreateParams::Accounting,
+        ?accounting: ModernTreasury::Accounting,
         ?accounting_category_id: String?,
         ?accounting_ledger_class_id: String?,
         ?charge_bearer: ModernTreasury::Models::PaymentOrderCreateParams::charge_bearer?,
@@ -210,7 +210,7 @@ module ModernTreasury
         ?foreign_exchange_indicator: ModernTreasury::Models::PaymentOrderCreateParams::foreign_exchange_indicator?,
         ?ledger_transaction: ModernTreasury::LedgerTransactionCreateRequest,
         ?ledger_transaction_id: String,
-        ?line_items: ::Array[ModernTreasury::PaymentOrderCreateParams::LineItem],
+        ?line_items: ::Array[ModernTreasury::LineItemRequest],
         ?metadata: ::Hash[Symbol, String],
         ?nsf_protected: bool,
         ?originating_party_address: ModernTreasury::PaymentOrderCreateParams::OriginatingPartyAddress?,
@@ -242,7 +242,7 @@ module ModernTreasury
         direction: ModernTreasury::Models::PaymentOrderCreateParams::direction,
         originating_account_id: String,
         type: ModernTreasury::Models::payment_order_type,
-        accounting: ModernTreasury::PaymentOrderCreateParams::Accounting,
+        accounting: ModernTreasury::Accounting,
         accounting_category_id: String?,
         accounting_ledger_class_id: String?,
         charge_bearer: ModernTreasury::Models::PaymentOrderCreateParams::charge_bearer?,
@@ -257,7 +257,7 @@ module ModernTreasury
         foreign_exchange_indicator: ModernTreasury::Models::PaymentOrderCreateParams::foreign_exchange_indicator?,
         ledger_transaction: ModernTreasury::LedgerTransactionCreateRequest,
         ledger_transaction_id: String,
-        line_items: ::Array[ModernTreasury::PaymentOrderCreateParams::LineItem],
+        line_items: ::Array[ModernTreasury::LineItemRequest],
         metadata: ::Hash[Symbol, String],
         nsf_protected: bool,
         originating_party_address: ModernTreasury::PaymentOrderCreateParams::OriginatingPartyAddress?,
@@ -293,18 +293,6 @@ module ModernTreasury
         DEBIT: :debit
 
         def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::direction]
-      end
-
-      type accounting = { account_id: String?, class_id: String? }
-
-      class Accounting < ModernTreasury::Internal::Type::BaseModel
-        attr_accessor account_id: String?
-
-        attr_accessor class_id: String?
-
-        def initialize: (?account_id: String?, ?class_id: String?) -> void
-
-        def to_hash: -> { account_id: String?, class_id: String? }
       end
 
       type charge_bearer = :shared | :sender | :receiver
@@ -407,40 +395,6 @@ module ModernTreasury
         VARIABLE_TO_FIXED: :variable_to_fixed
 
         def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::foreign_exchange_indicator]
-      end
-
-      type line_item =
-        {
-          amount: Integer,
-          accounting_category_id: String?,
-          description: String?,
-          metadata: ::Hash[Symbol, String]
-        }
-
-      class LineItem < ModernTreasury::Internal::Type::BaseModel
-        attr_accessor amount: Integer
-
-        attr_accessor accounting_category_id: String?
-
-        attr_accessor description: String?
-
-        attr_reader metadata: ::Hash[Symbol, String]?
-
-        def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
-
-        def initialize: (
-          amount: Integer,
-          ?accounting_category_id: String?,
-          ?description: String?,
-          ?metadata: ::Hash[Symbol, String]
-        ) -> void
-
-        def to_hash: -> {
-          amount: Integer,
-          accounting_category_id: String?,
-          description: String?,
-          metadata: ::Hash[Symbol, String]
-        }
       end
 
       type originating_party_address =
