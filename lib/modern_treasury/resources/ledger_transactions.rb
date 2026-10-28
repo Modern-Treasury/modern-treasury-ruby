@@ -89,11 +89,11 @@ module ModernTreasury
       #
       # @param ledgerable_id [String] If the ledger transaction can be reconciled to another object in Modern Treasury
       #
-      # @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType] If the ledger transaction can be reconciled to another object in Modern Treasury
+      # @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerTransactionUpdateRequest::LedgerableType] If the ledger transaction can be reconciled to another object in Modern Treasury
       #
       # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #
-      # @param status [Symbol, ModernTreasury::Models::LedgerTransactionUpdateParams::Status] To post a ledger transaction at creation, use `posted`.
+      # @param status [Symbol, ModernTreasury::Models::LedgerTransactionUpdateRequest::Status] To post a ledger transaction at creation, use `posted`.
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #

@@ -39,8 +39,8 @@ module ModernTreasury
       # @!attribute accounting
       #   @deprecated
       #
-      #   @return [ModernTreasury::Models::PaymentOrderCreateParams::Accounting, nil]
-      optional :accounting, -> { ModernTreasury::PaymentOrderCreateParams::Accounting }
+      #   @return [ModernTreasury::Models::Accounting, nil]
+      optional :accounting, -> { ModernTreasury::Accounting }
 
       # @!attribute accounting_category_id
       #   @deprecated
@@ -154,9 +154,8 @@ module ModernTreasury
       # @!attribute line_items
       #   An array of line items that must sum up to the amount of the payment order.
       #
-      #   @return [Array<ModernTreasury::Models::PaymentOrderCreateParams::LineItem>, nil]
-      optional :line_items,
-               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::PaymentOrderCreateParams::LineItem] }
+      #   @return [Array<ModernTreasury::Models::LineItemRequest>, nil]
+      optional :line_items, -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LineItemRequest] }
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
@@ -350,7 +349,7 @@ module ModernTreasury
       #
       #   @param type [Symbol, ModernTreasury::Models::PaymentOrderType] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `book`, `rtp`, `sepa`, `ba
       #
-      #   @param accounting [ModernTreasury::Models::PaymentOrderCreateParams::Accounting]
+      #   @param accounting [ModernTreasury::Models::Accounting]
       #
       #   @param accounting_category_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
       #
@@ -380,7 +379,7 @@ module ModernTreasury
       #
       #   @param ledger_transaction_id [String] Either ledger_transaction or ledger_transaction_id can be provided. Only a pendi
       #
-      #   @param line_items [Array<ModernTreasury::Models::PaymentOrderCreateParams::LineItem>] An array of line items that must sum up to the amount of the payment order.
+      #   @param line_items [Array<ModernTreasury::Models::LineItemRequest>] An array of line items that must sum up to the amount of the payment order.
       #
       #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       #
@@ -442,36 +441,6 @@ module ModernTreasury
 
         # @!method self.values
         #   @return [Array<Symbol>]
-      end
-
-      # @deprecated
-      class Accounting < ModernTreasury::Internal::Type::BaseModel
-        # @!attribute account_id
-        #   @deprecated
-        #
-        #   The ID of one of your accounting categories. Note that these will only be
-        #   accessible if your accounting system has been connected.
-        #
-        #   @return [String, nil]
-        optional :account_id, String, nil?: true
-
-        # @!attribute class_id
-        #   @deprecated
-        #
-        #   The ID of one of the class objects in your accounting system. Class objects
-        #   track segments of your business independent of client or project. Note that
-        #   these will only be accessible if your accounting system has been connected.
-        #
-        #   @return [String, nil]
-        optional :class_id, String, nil?: true
-
-        # @!method initialize(account_id: nil, class_id: nil)
-        #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Models::PaymentOrderCreateParams::Accounting} for more details.
-        #
-        #   @param account_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
-        #
-        #   @param class_id [String, nil] The ID of one of the class objects in your accounting system. Class objects trac
       end
 
       # The party that will pay the fees for the payment order. See
@@ -564,47 +533,6 @@ module ModernTreasury
 
         # @!method self.values
         #   @return [Array<Symbol>]
-      end
-
-      class LineItem < ModernTreasury::Internal::Type::BaseModel
-        # @!attribute amount
-        #   Value in specified currency's smallest unit. e.g. $10 would be represented
-        #   as 1000.
-        #
-        #   @return [Integer]
-        required :amount, Integer
-
-        # @!attribute accounting_category_id
-        #   The ID of one of your accounting categories. Note that these will only be
-        #   accessible if your accounting system has been connected.
-        #
-        #   @return [String, nil]
-        optional :accounting_category_id, String, nil?: true
-
-        # @!attribute description
-        #   A free-form description of the line item.
-        #
-        #   @return [String, nil]
-        optional :description, String, nil?: true
-
-        # @!attribute metadata
-        #   Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
-        #
-        #   @return [Hash{Symbol=>String}, nil]
-        optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
-
-        # @!method initialize(amount:, accounting_category_id: nil, description: nil, metadata: nil)
-        #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Models::PaymentOrderCreateParams::LineItem} for more details.
-        #
-        #   @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as 10
-        #
-        #   @param accounting_category_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
-        #
-        #   @param description [String, nil] A free-form description of the line item.
-        #
-        #   @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be s
       end
 
       class OriginatingPartyAddress < ModernTreasury::Internal::Type::BaseModel

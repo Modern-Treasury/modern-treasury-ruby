@@ -6,7 +6,7 @@ module ModernTreasury
       def create: (
         currency: ModernTreasury::Models::InternalAccountCreateParams::currency,
         name: String,
-        ?account_capabilities: ::Array[ModernTreasury::InternalAccountCreateParams::AccountCapability],
+        ?account_capabilities: ::Array[ModernTreasury::AccountCapability],
         ?account_type: ModernTreasury::Models::InternalAccountCreateParams::account_type,
         ?allowed_ach_debit_company_ids: ::Array[String]?,
         ?connection_id: String,
@@ -69,7 +69,7 @@ module ModernTreasury
         internal_account_id: String,
         identifier: String,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Models::InternalAccountUpdateAccountCapabilityResponse
+      ) -> ModernTreasury::AccountCapability
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

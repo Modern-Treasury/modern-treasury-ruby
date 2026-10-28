@@ -1,0 +1,417 @@
+module ModernTreasury
+  module Models
+    type legal_entity_create_request =
+      {
+        legal_entity_type: ModernTreasury::Models::LegalEntityCreateRequest::legal_entity_type,
+        addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
+        bank_settings: ModernTreasury::LegalEntityBankSettings?,
+        business_description: String?,
+        business_designation: ModernTreasury::Models::LegalEntityCreateRequest::business_designation?,
+        business_name: String?,
+        citizenship_country: String?,
+        compliance_details: top?,
+        connection_id: String?,
+        country_of_incorporation: String?,
+        date_formed: Date?,
+        date_of_birth: Date?,
+        documents: ::Array[ModernTreasury::LegalEntityCreateRequest::Document],
+        doing_business_as_names: ::Array[String],
+        email: String?,
+        expected_activity_volume: Integer?,
+        external_id: String?,
+        first_name: String?,
+        identifications: ::Array[ModernTreasury::IdentificationCreateRequest],
+        industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification],
+        intended_use: String?,
+        last_name: String?,
+        legal_entity_associations: ::Array[ModernTreasury::LegalEntityAssociationInlineCreate]?,
+        legal_structure: ModernTreasury::Models::LegalEntityCreateRequest::legal_structure?,
+        listed_exchange: String?,
+        metadata: ::Hash[Symbol, String],
+        middle_name: String?,
+        operating_jurisdictions: ::Array[String],
+        phone_numbers: ::Array[ModernTreasury::LegalEntityCreateRequest::PhoneNumber],
+        politically_exposed_person: bool?,
+        preferred_name: String?,
+        prefix: String?,
+        primary_social_media_sites: ::Array[String],
+        regulators: ::Array[ModernTreasury::LegalEntityRegulator]?,
+        risk_rating: ModernTreasury::Models::LegalEntityCreateRequest::risk_rating?,
+        service_provider_legal_entity_id: String?,
+        status: ModernTreasury::Models::LegalEntityCreateRequest::status,
+        suffix: String?,
+        terms_of_use: ModernTreasury::LegalEntityCreateRequest::TermsOfUse?,
+        third_party_verification: ModernTreasury::ThirdPartyVerification?,
+        third_party_verifications: ::Array[ModernTreasury::ThirdPartyVerification],
+        ticker_symbol: String?,
+        wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,
+        website: String?
+      }
+
+    class LegalEntityCreateRequest < ModernTreasury::Internal::Type::BaseModel
+      attr_accessor legal_entity_type: ModernTreasury::Models::LegalEntityCreateRequest::legal_entity_type
+
+      attr_reader addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest]?
+
+      def addresses=: (
+        ::Array[ModernTreasury::LegalEntityAddressCreateRequest]
+      ) -> ::Array[ModernTreasury::LegalEntityAddressCreateRequest]
+
+      attr_accessor bank_settings: ModernTreasury::LegalEntityBankSettings?
+
+      attr_accessor business_description: String?
+
+      attr_accessor business_designation: ModernTreasury::Models::LegalEntityCreateRequest::business_designation?
+
+      attr_accessor business_name: String?
+
+      attr_accessor citizenship_country: String?
+
+      attr_accessor compliance_details: top?
+
+      attr_accessor connection_id: String?
+
+      attr_accessor country_of_incorporation: String?
+
+      attr_accessor date_formed: Date?
+
+      attr_accessor date_of_birth: Date?
+
+      attr_reader documents: ::Array[ModernTreasury::LegalEntityCreateRequest::Document]?
+
+      def documents=: (
+        ::Array[ModernTreasury::LegalEntityCreateRequest::Document]
+      ) -> ::Array[ModernTreasury::LegalEntityCreateRequest::Document]
+
+      attr_reader doing_business_as_names: ::Array[String]?
+
+      def doing_business_as_names=: (::Array[String]) -> ::Array[String]
+
+      attr_accessor email: String?
+
+      attr_accessor expected_activity_volume: Integer?
+
+      attr_accessor external_id: String?
+
+      attr_accessor first_name: String?
+
+      attr_reader identifications: ::Array[ModernTreasury::IdentificationCreateRequest]?
+
+      def identifications=: (
+        ::Array[ModernTreasury::IdentificationCreateRequest]
+      ) -> ::Array[ModernTreasury::IdentificationCreateRequest]
+
+      attr_reader industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification]?
+
+      def industry_classifications=: (
+        ::Array[ModernTreasury::LegalEntityIndustryClassification]
+      ) -> ::Array[ModernTreasury::LegalEntityIndustryClassification]
+
+      attr_accessor intended_use: String?
+
+      attr_accessor last_name: String?
+
+      attr_accessor legal_entity_associations: ::Array[ModernTreasury::LegalEntityAssociationInlineCreate]?
+
+      attr_accessor legal_structure: ModernTreasury::Models::LegalEntityCreateRequest::legal_structure?
+
+      attr_accessor listed_exchange: String?
+
+      attr_reader metadata: ::Hash[Symbol, String]?
+
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
+
+      attr_accessor middle_name: String?
+
+      attr_reader operating_jurisdictions: ::Array[String]?
+
+      def operating_jurisdictions=: (::Array[String]) -> ::Array[String]
+
+      attr_reader phone_numbers: ::Array[ModernTreasury::LegalEntityCreateRequest::PhoneNumber]?
+
+      def phone_numbers=: (
+        ::Array[ModernTreasury::LegalEntityCreateRequest::PhoneNumber]
+      ) -> ::Array[ModernTreasury::LegalEntityCreateRequest::PhoneNumber]
+
+      attr_accessor politically_exposed_person: bool?
+
+      attr_accessor preferred_name: String?
+
+      attr_accessor prefix: String?
+
+      attr_reader primary_social_media_sites: ::Array[String]?
+
+      def primary_social_media_sites=: (::Array[String]) -> ::Array[String]
+
+      attr_accessor regulators: ::Array[ModernTreasury::LegalEntityRegulator]?
+
+      attr_accessor risk_rating: ModernTreasury::Models::LegalEntityCreateRequest::risk_rating?
+
+      attr_accessor service_provider_legal_entity_id: String?
+
+      attr_reader status: ModernTreasury::Models::LegalEntityCreateRequest::status?
+
+      def status=: (
+        ModernTreasury::Models::LegalEntityCreateRequest::status
+      ) -> ModernTreasury::Models::LegalEntityCreateRequest::status
+
+      attr_accessor suffix: String?
+
+      attr_accessor terms_of_use: ModernTreasury::LegalEntityCreateRequest::TermsOfUse?
+
+      attr_accessor third_party_verification: ModernTreasury::ThirdPartyVerification?
+
+      attr_reader third_party_verifications: ::Array[ModernTreasury::ThirdPartyVerification]?
+
+      def third_party_verifications=: (
+        ::Array[ModernTreasury::ThirdPartyVerification]
+      ) -> ::Array[ModernTreasury::ThirdPartyVerification]
+
+      attr_accessor ticker_symbol: String?
+
+      attr_accessor wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?
+
+      attr_accessor website: String?
+
+      def initialize: (
+        legal_entity_type: ModernTreasury::Models::LegalEntityCreateRequest::legal_entity_type,
+        ?addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
+        ?bank_settings: ModernTreasury::LegalEntityBankSettings?,
+        ?business_description: String?,
+        ?business_designation: ModernTreasury::Models::LegalEntityCreateRequest::business_designation?,
+        ?business_name: String?,
+        ?citizenship_country: String?,
+        ?compliance_details: top?,
+        ?connection_id: String?,
+        ?country_of_incorporation: String?,
+        ?date_formed: Date?,
+        ?date_of_birth: Date?,
+        ?documents: ::Array[ModernTreasury::LegalEntityCreateRequest::Document],
+        ?doing_business_as_names: ::Array[String],
+        ?email: String?,
+        ?expected_activity_volume: Integer?,
+        ?external_id: String?,
+        ?first_name: String?,
+        ?identifications: ::Array[ModernTreasury::IdentificationCreateRequest],
+        ?industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification],
+        ?intended_use: String?,
+        ?last_name: String?,
+        ?legal_entity_associations: ::Array[ModernTreasury::LegalEntityAssociationInlineCreate]?,
+        ?legal_structure: ModernTreasury::Models::LegalEntityCreateRequest::legal_structure?,
+        ?listed_exchange: String?,
+        ?metadata: ::Hash[Symbol, String],
+        ?middle_name: String?,
+        ?operating_jurisdictions: ::Array[String],
+        ?phone_numbers: ::Array[ModernTreasury::LegalEntityCreateRequest::PhoneNumber],
+        ?politically_exposed_person: bool?,
+        ?preferred_name: String?,
+        ?prefix: String?,
+        ?primary_social_media_sites: ::Array[String],
+        ?regulators: ::Array[ModernTreasury::LegalEntityRegulator]?,
+        ?risk_rating: ModernTreasury::Models::LegalEntityCreateRequest::risk_rating?,
+        ?service_provider_legal_entity_id: String?,
+        ?status: ModernTreasury::Models::LegalEntityCreateRequest::status,
+        ?suffix: String?,
+        ?terms_of_use: ModernTreasury::LegalEntityCreateRequest::TermsOfUse?,
+        ?third_party_verification: ModernTreasury::ThirdPartyVerification?,
+        ?third_party_verifications: ::Array[ModernTreasury::ThirdPartyVerification],
+        ?ticker_symbol: String?,
+        ?wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,
+        ?website: String?
+      ) -> void
+
+      def to_hash: -> {
+        legal_entity_type: ModernTreasury::Models::LegalEntityCreateRequest::legal_entity_type,
+        addresses: ::Array[ModernTreasury::LegalEntityAddressCreateRequest],
+        bank_settings: ModernTreasury::LegalEntityBankSettings?,
+        business_description: String?,
+        business_designation: ModernTreasury::Models::LegalEntityCreateRequest::business_designation?,
+        business_name: String?,
+        citizenship_country: String?,
+        compliance_details: top?,
+        connection_id: String?,
+        country_of_incorporation: String?,
+        date_formed: Date?,
+        date_of_birth: Date?,
+        documents: ::Array[ModernTreasury::LegalEntityCreateRequest::Document],
+        doing_business_as_names: ::Array[String],
+        email: String?,
+        expected_activity_volume: Integer?,
+        external_id: String?,
+        first_name: String?,
+        identifications: ::Array[ModernTreasury::IdentificationCreateRequest],
+        industry_classifications: ::Array[ModernTreasury::LegalEntityIndustryClassification],
+        intended_use: String?,
+        last_name: String?,
+        legal_entity_associations: ::Array[ModernTreasury::LegalEntityAssociationInlineCreate]?,
+        legal_structure: ModernTreasury::Models::LegalEntityCreateRequest::legal_structure?,
+        listed_exchange: String?,
+        metadata: ::Hash[Symbol, String],
+        middle_name: String?,
+        operating_jurisdictions: ::Array[String],
+        phone_numbers: ::Array[ModernTreasury::LegalEntityCreateRequest::PhoneNumber],
+        politically_exposed_person: bool?,
+        preferred_name: String?,
+        prefix: String?,
+        primary_social_media_sites: ::Array[String],
+        regulators: ::Array[ModernTreasury::LegalEntityRegulator]?,
+        risk_rating: ModernTreasury::Models::LegalEntityCreateRequest::risk_rating?,
+        service_provider_legal_entity_id: String?,
+        status: ModernTreasury::Models::LegalEntityCreateRequest::status,
+        suffix: String?,
+        terms_of_use: ModernTreasury::LegalEntityCreateRequest::TermsOfUse?,
+        third_party_verification: ModernTreasury::ThirdPartyVerification?,
+        third_party_verifications: ::Array[ModernTreasury::ThirdPartyVerification],
+        ticker_symbol: String?,
+        wealth_and_employment_details: ModernTreasury::LegalEntityWealthEmploymentDetail?,
+        website: String?
+      }
+
+      type legal_entity_type = :business | :individual
+
+      module LegalEntityType
+        extend ModernTreasury::Internal::Type::Enum
+
+        BUSINESS: :business
+        INDIVIDUAL: :individual
+
+        def self?.values: -> ::Array[ModernTreasury::Models::LegalEntityCreateRequest::legal_entity_type]
+      end
+
+      type business_designation =
+        :exempt_financial_institution | :non_operating_business
+
+      module BusinessDesignation
+        extend ModernTreasury::Internal::Type::Enum
+
+        EXEMPT_FINANCIAL_INSTITUTION: :exempt_financial_institution
+        NON_OPERATING_BUSINESS: :non_operating_business
+
+        def self?.values: -> ::Array[ModernTreasury::Models::LegalEntityCreateRequest::business_designation]
+      end
+
+      type document =
+        {
+          document_type: ModernTreasury::Models::LegalEntityCreateRequest::Document::document_type,
+          file_data: String,
+          filename: String
+        }
+
+      class Document < ModernTreasury::Internal::Type::BaseModel
+        attr_accessor document_type: ModernTreasury::Models::LegalEntityCreateRequest::Document::document_type
+
+        attr_accessor file_data: String
+
+        attr_reader filename: String?
+
+        def filename=: (String) -> String
+
+        def initialize: (
+          document_type: ModernTreasury::Models::LegalEntityCreateRequest::Document::document_type,
+          file_data: String,
+          ?filename: String
+        ) -> void
+
+        def to_hash: -> {
+          document_type: ModernTreasury::Models::LegalEntityCreateRequest::Document::document_type,
+          file_data: String,
+          filename: String
+        }
+
+        type document_type =
+          :articles_of_incorporation
+          | :certificate_of_good_standing
+          | :ein_letter
+          | :generic
+          | :identification_back
+          | :identification_front
+          | :proof_of_address
+
+        module DocumentType
+          extend ModernTreasury::Internal::Type::Enum
+
+          ARTICLES_OF_INCORPORATION: :articles_of_incorporation
+          CERTIFICATE_OF_GOOD_STANDING: :certificate_of_good_standing
+          EIN_LETTER: :ein_letter
+          GENERIC: :generic
+          IDENTIFICATION_BACK: :identification_back
+          IDENTIFICATION_FRONT: :identification_front
+          PROOF_OF_ADDRESS: :proof_of_address
+
+          def self?.values: -> ::Array[ModernTreasury::Models::LegalEntityCreateRequest::Document::document_type]
+        end
+      end
+
+      type legal_structure =
+        :corporation
+        | :llc
+        | :non_profit
+        | :partnership
+        | :sole_proprietorship
+        | :trust
+
+      module LegalStructure
+        extend ModernTreasury::Internal::Type::Enum
+
+        CORPORATION: :corporation
+        LLC: :llc
+        NON_PROFIT: :non_profit
+        PARTNERSHIP: :partnership
+        SOLE_PROPRIETORSHIP: :sole_proprietorship
+        TRUST: :trust
+
+        def self?.values: -> ::Array[ModernTreasury::Models::LegalEntityCreateRequest::legal_structure]
+      end
+
+      type phone_number = { phone_number: String }
+
+      class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
+        attr_reader phone_number: String?
+
+        def phone_number=: (String) -> String
+
+        def initialize: (?phone_number: String) -> void
+
+        def to_hash: -> { phone_number: String }
+      end
+
+      type risk_rating = :low | :medium | :high
+
+      module RiskRating
+        extend ModernTreasury::Internal::Type::Enum
+
+        LOW: :low
+        MEDIUM: :medium
+        HIGH: :high
+
+        def self?.values: -> ::Array[ModernTreasury::Models::LegalEntityCreateRequest::risk_rating]
+      end
+
+      type status = :draft
+
+      module Status
+        extend ModernTreasury::Internal::Type::Enum
+
+        DRAFT: :draft
+
+        def self?.values: -> ::Array[ModernTreasury::Models::LegalEntityCreateRequest::status]
+      end
+
+      type terms_of_use = { accepted_at: Time, ip_address: String }
+
+      class TermsOfUse < ModernTreasury::Internal::Type::BaseModel
+        attr_reader accepted_at: Time?
+
+        def accepted_at=: (Time) -> Time
+
+        attr_reader ip_address: String?
+
+        def ip_address=: (String) -> String
+
+        def initialize: (?accepted_at: Time, ?ip_address: String) -> void
+
+        def to_hash: -> { accepted_at: Time, ip_address: String }
+      end
+    end
+  end
+end
