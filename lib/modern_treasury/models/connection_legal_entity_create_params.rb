@@ -257,11 +257,9 @@ module ModernTreasury
         # @!attribute regulators
         #   Array of regulatory bodies overseeing this institution.
         #
-        #   @return [Array<ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Regulator>, nil]
+        #   @return [Array<ModernTreasury::Models::LegalEntityRegulator>, nil]
         optional :regulators,
-                 -> {
-                   ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ConnectionLegalEntityCreateParams::LegalEntity::Regulator]
-                 },
+                 -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::LegalEntityRegulator] },
                  nil?: true
 
         # @!attribute risk_rating
@@ -399,7 +397,7 @@ module ModernTreasury
         #
         #   @param primary_social_media_sites [Array<String>] A list of the entity's primary social media URLs.
         #
-        #   @param regulators [Array<ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Regulator>, nil] Array of regulatory bodies overseeing this institution.
+        #   @param regulators [Array<ModernTreasury::Models::LegalEntityRegulator>, nil] Array of regulatory bodies overseeing this institution.
         #
         #   @param risk_rating [Symbol, ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::RiskRating, nil] The risk rating of the legal entity. One of low, medium, high.
         #
@@ -525,38 +523,6 @@ module ModernTreasury
           #   A list of phone numbers in E.164 format.
           #
           #   @param phone_number [String] A phone number in E.164 format. This format is strictly validated: include a lea
-        end
-
-        class Regulator < ModernTreasury::Internal::Type::BaseModel
-          # @!attribute jurisdiction
-          #   The country code where the regulator operates in the ISO 3166-1 alpha-2 format
-          #   (e.g., "US", "CA", "GB").
-          #
-          #   @return [String]
-          required :jurisdiction, String
-
-          # @!attribute name
-          #   Full name of the regulatory body.
-          #
-          #   @return [String]
-          required :name, String
-
-          # @!attribute registration_number
-          #   Registration or identification number with the regulator.
-          #
-          #   @return [String]
-          required :registration_number, String
-
-          # @!method initialize(jurisdiction:, name:, registration_number:)
-          #   Some parameter documentations has been truncated, see
-          #   {ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Regulator}
-          #   for more details.
-          #
-          #   @param jurisdiction [String] The country code where the regulator operates in the ISO 3166-1 alpha-2 format (
-          #
-          #   @param name [String] Full name of the regulatory body.
-          #
-          #   @param registration_number [String] Registration or identification number with the regulator.
         end
 
         # The risk rating of the legal entity. One of low, medium, high.

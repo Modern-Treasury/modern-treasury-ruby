@@ -1,0 +1,1001 @@
+# typed: strong
+
+module ModernTreasury
+  module Models
+    class LegalEntityCreateRequest < ModernTreasury::Internal::Type::BaseModel
+      OrHash =
+        T.type_alias do
+          T.any(
+            ModernTreasury::LegalEntityCreateRequest,
+            ModernTreasury::Internal::AnyHash
+          )
+        end
+
+      # The type of legal entity.
+      sig do
+        returns(
+          ModernTreasury::LegalEntityCreateRequest::LegalEntityType::OrSymbol
+        )
+      end
+      attr_accessor :legal_entity_type
+
+      # A list of addresses for the entity.
+      sig do
+        returns(
+          T.nilable(T::Array[ModernTreasury::LegalEntityAddressCreateRequest])
+        )
+      end
+      attr_reader :addresses
+
+      sig do
+        params(
+          addresses:
+            T::Array[ModernTreasury::LegalEntityAddressCreateRequest::OrHash]
+        ).void
+      end
+      attr_writer :addresses
+
+      sig { returns(T.nilable(ModernTreasury::LegalEntityBankSettings)) }
+      attr_reader :bank_settings
+
+      sig do
+        params(
+          bank_settings:
+            T.nilable(ModernTreasury::LegalEntityBankSettings::OrHash)
+        ).void
+      end
+      attr_writer :bank_settings
+
+      # A description of the business.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :business_description
+
+      # Legal designation associated with the business.
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::LegalEntityCreateRequest::BusinessDesignation::OrSymbol
+          )
+        )
+      end
+      attr_accessor :business_designation
+
+      # The business's legal business name.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :business_name
+
+      # The country of citizenship for an individual.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :citizenship_country
+
+      sig { returns(T.nilable(T.anything)) }
+      attr_accessor :compliance_details
+
+      # The connection ID for the connection the legal entity is associated with.
+      # Defaults to the id of the connection designated with an is_default value of true
+      # or the id of an existing operational connection if only one is available. Pass
+      # in a value of null to prevent the connection from being associated with the
+      # legal entity.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :connection_id
+
+      # The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
+      # code (e.g. US).
+      sig { returns(T.nilable(String)) }
+      attr_accessor :country_of_incorporation
+
+      # A business's formation date (YYYY-MM-DD).
+      sig { returns(T.nilable(Date)) }
+      attr_accessor :date_formed
+
+      # An individual's date of birth (YYYY-MM-DD).
+      sig { returns(T.nilable(Date)) }
+      attr_accessor :date_of_birth
+
+      # A list of documents to attach to the legal entity (e.g. articles of
+      # incorporation, certificate of good standing, proof of address).
+      sig do
+        returns(
+          T.nilable(
+            T::Array[ModernTreasury::LegalEntityCreateRequest::Document]
+          )
+        )
+      end
+      attr_reader :documents
+
+      sig do
+        params(
+          documents:
+            T::Array[ModernTreasury::LegalEntityCreateRequest::Document::OrHash]
+        ).void
+      end
+      attr_writer :documents
+
+      sig { returns(T.nilable(T::Array[String])) }
+      attr_reader :doing_business_as_names
+
+      sig { params(doing_business_as_names: T::Array[String]).void }
+      attr_writer :doing_business_as_names
+
+      # The entity's primary email.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :email
+
+      # Monthly expected transaction volume in USD.
+      sig { returns(T.nilable(Integer)) }
+      attr_accessor :expected_activity_volume
+
+      # An optional user-defined 180 character unique identifier.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :external_id
+
+      # An individual's first name.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :first_name
+
+      # A list of identifications for the legal entity.
+      sig do
+        returns(
+          T.nilable(T::Array[ModernTreasury::IdentificationCreateRequest])
+        )
+      end
+      attr_reader :identifications
+
+      sig do
+        params(
+          identifications:
+            T::Array[ModernTreasury::IdentificationCreateRequest::OrHash]
+        ).void
+      end
+      attr_writer :identifications
+
+      # A list of industry classifications for the legal entity.
+      sig do
+        returns(
+          T.nilable(T::Array[ModernTreasury::LegalEntityIndustryClassification])
+        )
+      end
+      attr_reader :industry_classifications
+
+      sig do
+        params(
+          industry_classifications:
+            T::Array[ModernTreasury::LegalEntityIndustryClassification::OrHash]
+        ).void
+      end
+      attr_writer :industry_classifications
+
+      # A description of the intended use of the legal entity.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :intended_use
+
+      # An individual's last name.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :last_name
+
+      # The legal entity associations and its child legal entities.
+      sig do
+        returns(
+          T.nilable(
+            T::Array[ModernTreasury::LegalEntityAssociationInlineCreate]
+          )
+        )
+      end
+      attr_accessor :legal_entity_associations
+
+      # The business's legal structure.
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::LegalEntityCreateRequest::LegalStructure::OrSymbol
+          )
+        )
+      end
+      attr_accessor :legal_structure
+
+      # ISO 10383 market identifier code.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :listed_exchange
+
+      # Additional data represented as key-value pairs. Both the key and value must be
+      # strings.
+      sig { returns(T.nilable(T::Hash[Symbol, String])) }
+      attr_reader :metadata
+
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
+
+      # An individual's middle name.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :middle_name
+
+      # A list of countries where the business operates, as ISO 3166-1 alpha-2 country
+      # codes (e.g. ["US", "CA"]).
+      sig { returns(T.nilable(T::Array[String])) }
+      attr_reader :operating_jurisdictions
+
+      sig { params(operating_jurisdictions: T::Array[String]).void }
+      attr_writer :operating_jurisdictions
+
+      sig do
+        returns(
+          T.nilable(
+            T::Array[ModernTreasury::LegalEntityCreateRequest::PhoneNumber]
+          )
+        )
+      end
+      attr_reader :phone_numbers
+
+      sig do
+        params(
+          phone_numbers:
+            T::Array[
+              ModernTreasury::LegalEntityCreateRequest::PhoneNumber::OrHash
+            ]
+        ).void
+      end
+      attr_writer :phone_numbers
+
+      # Whether the individual is a politically exposed person.
+      sig { returns(T.nilable(T::Boolean)) }
+      attr_accessor :politically_exposed_person
+
+      # An individual's preferred name.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :preferred_name
+
+      # An individual's prefix.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :prefix
+
+      # A list of the entity's primary social media URLs.
+      sig { returns(T.nilable(T::Array[String])) }
+      attr_reader :primary_social_media_sites
+
+      sig { params(primary_social_media_sites: T::Array[String]).void }
+      attr_writer :primary_social_media_sites
+
+      # Array of regulatory bodies overseeing this institution.
+      sig { returns(T.nilable(T::Array[ModernTreasury::LegalEntityRegulator])) }
+      attr_accessor :regulators
+
+      # The risk rating of the legal entity. One of low, medium, high.
+      sig do
+        returns(
+          T.nilable(
+            ModernTreasury::LegalEntityCreateRequest::RiskRating::OrSymbol
+          )
+        )
+      end
+      attr_accessor :risk_rating
+
+      # The UUID of the parent legal entity in the service provider tree.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :service_provider_legal_entity_id
+
+      # Set to draft to create the legal entity as a draft. Omit to create it as
+      # pending. Inline child legal entities take the parent's status.
+      sig do
+        returns(
+          T.nilable(ModernTreasury::LegalEntityCreateRequest::Status::OrSymbol)
+        )
+      end
+      attr_reader :status
+
+      sig do
+        params(
+          status: ModernTreasury::LegalEntityCreateRequest::Status::OrSymbol
+        ).void
+      end
+      attr_writer :status
+
+      # An individual's suffix.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :suffix
+
+      # Acceptance of terms of use by the legal entity.
+      sig do
+        returns(T.nilable(ModernTreasury::LegalEntityCreateRequest::TermsOfUse))
+      end
+      attr_reader :terms_of_use
+
+      sig do
+        params(
+          terms_of_use:
+            T.nilable(
+              ModernTreasury::LegalEntityCreateRequest::TermsOfUse::OrHash
+            )
+        ).void
+      end
+      attr_writer :terms_of_use
+
+      # Deprecated. Use `third_party_verifications` instead.
+      sig { returns(T.nilable(ModernTreasury::ThirdPartyVerification)) }
+      attr_reader :third_party_verification
+
+      sig do
+        params(
+          third_party_verification:
+            T.nilable(ModernTreasury::ThirdPartyVerification::OrHash)
+        ).void
+      end
+      attr_writer :third_party_verification
+
+      # A list of third-party verifications run by external vendors.
+      sig do
+        returns(T.nilable(T::Array[ModernTreasury::ThirdPartyVerification]))
+      end
+      attr_reader :third_party_verifications
+
+      sig do
+        params(
+          third_party_verifications:
+            T::Array[ModernTreasury::ThirdPartyVerification::OrHash]
+        ).void
+      end
+      attr_writer :third_party_verifications
+
+      # Stock ticker symbol for publicly traded companies.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :ticker_symbol
+
+      sig do
+        returns(T.nilable(ModernTreasury::LegalEntityWealthEmploymentDetail))
+      end
+      attr_reader :wealth_and_employment_details
+
+      sig do
+        params(
+          wealth_and_employment_details:
+            T.nilable(ModernTreasury::LegalEntityWealthEmploymentDetail::OrHash)
+        ).void
+      end
+      attr_writer :wealth_and_employment_details
+
+      # The entity's primary website URL.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :website
+
+      sig do
+        params(
+          legal_entity_type:
+            ModernTreasury::LegalEntityCreateRequest::LegalEntityType::OrSymbol,
+          addresses:
+            T::Array[ModernTreasury::LegalEntityAddressCreateRequest::OrHash],
+          bank_settings:
+            T.nilable(ModernTreasury::LegalEntityBankSettings::OrHash),
+          business_description: T.nilable(String),
+          business_designation:
+            T.nilable(
+              ModernTreasury::LegalEntityCreateRequest::BusinessDesignation::OrSymbol
+            ),
+          business_name: T.nilable(String),
+          citizenship_country: T.nilable(String),
+          compliance_details: T.nilable(T.anything),
+          connection_id: T.nilable(String),
+          country_of_incorporation: T.nilable(String),
+          date_formed: T.nilable(Date),
+          date_of_birth: T.nilable(Date),
+          documents:
+            T::Array[
+              ModernTreasury::LegalEntityCreateRequest::Document::OrHash
+            ],
+          doing_business_as_names: T::Array[String],
+          email: T.nilable(String),
+          expected_activity_volume: T.nilable(Integer),
+          external_id: T.nilable(String),
+          first_name: T.nilable(String),
+          identifications:
+            T::Array[ModernTreasury::IdentificationCreateRequest::OrHash],
+          industry_classifications:
+            T::Array[ModernTreasury::LegalEntityIndustryClassification::OrHash],
+          intended_use: T.nilable(String),
+          last_name: T.nilable(String),
+          legal_entity_associations:
+            T.nilable(
+              T::Array[
+                ModernTreasury::LegalEntityAssociationInlineCreate::OrHash
+              ]
+            ),
+          legal_structure:
+            T.nilable(
+              ModernTreasury::LegalEntityCreateRequest::LegalStructure::OrSymbol
+            ),
+          listed_exchange: T.nilable(String),
+          metadata: T::Hash[Symbol, String],
+          middle_name: T.nilable(String),
+          operating_jurisdictions: T::Array[String],
+          phone_numbers:
+            T::Array[
+              ModernTreasury::LegalEntityCreateRequest::PhoneNumber::OrHash
+            ],
+          politically_exposed_person: T.nilable(T::Boolean),
+          preferred_name: T.nilable(String),
+          prefix: T.nilable(String),
+          primary_social_media_sites: T::Array[String],
+          regulators:
+            T.nilable(T::Array[ModernTreasury::LegalEntityRegulator::OrHash]),
+          risk_rating:
+            T.nilable(
+              ModernTreasury::LegalEntityCreateRequest::RiskRating::OrSymbol
+            ),
+          service_provider_legal_entity_id: T.nilable(String),
+          status: ModernTreasury::LegalEntityCreateRequest::Status::OrSymbol,
+          suffix: T.nilable(String),
+          terms_of_use:
+            T.nilable(
+              ModernTreasury::LegalEntityCreateRequest::TermsOfUse::OrHash
+            ),
+          third_party_verification:
+            T.nilable(ModernTreasury::ThirdPartyVerification::OrHash),
+          third_party_verifications:
+            T::Array[ModernTreasury::ThirdPartyVerification::OrHash],
+          ticker_symbol: T.nilable(String),
+          wealth_and_employment_details:
+            T.nilable(
+              ModernTreasury::LegalEntityWealthEmploymentDetail::OrHash
+            ),
+          website: T.nilable(String)
+        ).returns(T.attached_class)
+      end
+      def self.new(
+        # The type of legal entity.
+        legal_entity_type:,
+        # A list of addresses for the entity.
+        addresses: nil,
+        bank_settings: nil,
+        # A description of the business.
+        business_description: nil,
+        # Legal designation associated with the business.
+        business_designation: nil,
+        # The business's legal business name.
+        business_name: nil,
+        # The country of citizenship for an individual.
+        citizenship_country: nil,
+        compliance_details: nil,
+        # The connection ID for the connection the legal entity is associated with.
+        # Defaults to the id of the connection designated with an is_default value of true
+        # or the id of an existing operational connection if only one is available. Pass
+        # in a value of null to prevent the connection from being associated with the
+        # legal entity.
+        connection_id: nil,
+        # The country where the business is incorporated, as an ISO 3166-1 alpha-2 country
+        # code (e.g. US).
+        country_of_incorporation: nil,
+        # A business's formation date (YYYY-MM-DD).
+        date_formed: nil,
+        # An individual's date of birth (YYYY-MM-DD).
+        date_of_birth: nil,
+        # A list of documents to attach to the legal entity (e.g. articles of
+        # incorporation, certificate of good standing, proof of address).
+        documents: nil,
+        doing_business_as_names: nil,
+        # The entity's primary email.
+        email: nil,
+        # Monthly expected transaction volume in USD.
+        expected_activity_volume: nil,
+        # An optional user-defined 180 character unique identifier.
+        external_id: nil,
+        # An individual's first name.
+        first_name: nil,
+        # A list of identifications for the legal entity.
+        identifications: nil,
+        # A list of industry classifications for the legal entity.
+        industry_classifications: nil,
+        # A description of the intended use of the legal entity.
+        intended_use: nil,
+        # An individual's last name.
+        last_name: nil,
+        # The legal entity associations and its child legal entities.
+        legal_entity_associations: nil,
+        # The business's legal structure.
+        legal_structure: nil,
+        # ISO 10383 market identifier code.
+        listed_exchange: nil,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        # strings.
+        metadata: nil,
+        # An individual's middle name.
+        middle_name: nil,
+        # A list of countries where the business operates, as ISO 3166-1 alpha-2 country
+        # codes (e.g. ["US", "CA"]).
+        operating_jurisdictions: nil,
+        phone_numbers: nil,
+        # Whether the individual is a politically exposed person.
+        politically_exposed_person: nil,
+        # An individual's preferred name.
+        preferred_name: nil,
+        # An individual's prefix.
+        prefix: nil,
+        # A list of the entity's primary social media URLs.
+        primary_social_media_sites: nil,
+        # Array of regulatory bodies overseeing this institution.
+        regulators: nil,
+        # The risk rating of the legal entity. One of low, medium, high.
+        risk_rating: nil,
+        # The UUID of the parent legal entity in the service provider tree.
+        service_provider_legal_entity_id: nil,
+        # Set to draft to create the legal entity as a draft. Omit to create it as
+        # pending. Inline child legal entities take the parent's status.
+        status: nil,
+        # An individual's suffix.
+        suffix: nil,
+        # Acceptance of terms of use by the legal entity.
+        terms_of_use: nil,
+        # Deprecated. Use `third_party_verifications` instead.
+        third_party_verification: nil,
+        # A list of third-party verifications run by external vendors.
+        third_party_verifications: nil,
+        # Stock ticker symbol for publicly traded companies.
+        ticker_symbol: nil,
+        wealth_and_employment_details: nil,
+        # The entity's primary website URL.
+        website: nil
+      )
+      end
+
+      sig do
+        override.returns(
+          {
+            legal_entity_type:
+              ModernTreasury::LegalEntityCreateRequest::LegalEntityType::OrSymbol,
+            addresses:
+              T::Array[ModernTreasury::LegalEntityAddressCreateRequest],
+            bank_settings: T.nilable(ModernTreasury::LegalEntityBankSettings),
+            business_description: T.nilable(String),
+            business_designation:
+              T.nilable(
+                ModernTreasury::LegalEntityCreateRequest::BusinessDesignation::OrSymbol
+              ),
+            business_name: T.nilable(String),
+            citizenship_country: T.nilable(String),
+            compliance_details: T.nilable(T.anything),
+            connection_id: T.nilable(String),
+            country_of_incorporation: T.nilable(String),
+            date_formed: T.nilable(Date),
+            date_of_birth: T.nilable(Date),
+            documents:
+              T::Array[ModernTreasury::LegalEntityCreateRequest::Document],
+            doing_business_as_names: T::Array[String],
+            email: T.nilable(String),
+            expected_activity_volume: T.nilable(Integer),
+            external_id: T.nilable(String),
+            first_name: T.nilable(String),
+            identifications:
+              T::Array[ModernTreasury::IdentificationCreateRequest],
+            industry_classifications:
+              T::Array[ModernTreasury::LegalEntityIndustryClassification],
+            intended_use: T.nilable(String),
+            last_name: T.nilable(String),
+            legal_entity_associations:
+              T.nilable(
+                T::Array[ModernTreasury::LegalEntityAssociationInlineCreate]
+              ),
+            legal_structure:
+              T.nilable(
+                ModernTreasury::LegalEntityCreateRequest::LegalStructure::OrSymbol
+              ),
+            listed_exchange: T.nilable(String),
+            metadata: T::Hash[Symbol, String],
+            middle_name: T.nilable(String),
+            operating_jurisdictions: T::Array[String],
+            phone_numbers:
+              T::Array[ModernTreasury::LegalEntityCreateRequest::PhoneNumber],
+            politically_exposed_person: T.nilable(T::Boolean),
+            preferred_name: T.nilable(String),
+            prefix: T.nilable(String),
+            primary_social_media_sites: T::Array[String],
+            regulators:
+              T.nilable(T::Array[ModernTreasury::LegalEntityRegulator]),
+            risk_rating:
+              T.nilable(
+                ModernTreasury::LegalEntityCreateRequest::RiskRating::OrSymbol
+              ),
+            service_provider_legal_entity_id: T.nilable(String),
+            status: ModernTreasury::LegalEntityCreateRequest::Status::OrSymbol,
+            suffix: T.nilable(String),
+            terms_of_use:
+              T.nilable(ModernTreasury::LegalEntityCreateRequest::TermsOfUse),
+            third_party_verification:
+              T.nilable(ModernTreasury::ThirdPartyVerification),
+            third_party_verifications:
+              T::Array[ModernTreasury::ThirdPartyVerification],
+            ticker_symbol: T.nilable(String),
+            wealth_and_employment_details:
+              T.nilable(ModernTreasury::LegalEntityWealthEmploymentDetail),
+            website: T.nilable(String)
+          }
+        )
+      end
+      def to_hash
+      end
+
+      # The type of legal entity.
+      module LegalEntityType
+        extend ModernTreasury::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::LegalEntityCreateRequest::LegalEntityType
+            )
+          end
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        BUSINESS =
+          T.let(
+            :business,
+            ModernTreasury::LegalEntityCreateRequest::LegalEntityType::TaggedSymbol
+          )
+        INDIVIDUAL =
+          T.let(
+            :individual,
+            ModernTreasury::LegalEntityCreateRequest::LegalEntityType::TaggedSymbol
+          )
+
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::LegalEntityCreateRequest::LegalEntityType::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
+      end
+
+      # Legal designation associated with the business.
+      module BusinessDesignation
+        extend ModernTreasury::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::LegalEntityCreateRequest::BusinessDesignation
+            )
+          end
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        EXEMPT_FINANCIAL_INSTITUTION =
+          T.let(
+            :exempt_financial_institution,
+            ModernTreasury::LegalEntityCreateRequest::BusinessDesignation::TaggedSymbol
+          )
+        NON_OPERATING_BUSINESS =
+          T.let(
+            :non_operating_business,
+            ModernTreasury::LegalEntityCreateRequest::BusinessDesignation::TaggedSymbol
+          )
+
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::LegalEntityCreateRequest::BusinessDesignation::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
+      end
+
+      class Document < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              ModernTreasury::LegalEntityCreateRequest::Document,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
+
+        # A category given to the document, can be `null`.
+        sig do
+          returns(
+            ModernTreasury::LegalEntityCreateRequest::Document::DocumentType::OrSymbol
+          )
+        end
+        attr_accessor :document_type
+
+        # Base64-encoded file content for the document.
+        sig { returns(String) }
+        attr_accessor :file_data
+
+        # The original filename of the document.
+        sig { returns(T.nilable(String)) }
+        attr_reader :filename
+
+        sig { params(filename: String).void }
+        attr_writer :filename
+
+        sig do
+          params(
+            document_type:
+              ModernTreasury::LegalEntityCreateRequest::Document::DocumentType::OrSymbol,
+            file_data: String,
+            filename: String
+          ).returns(T.attached_class)
+        end
+        def self.new(
+          # A category given to the document, can be `null`.
+          document_type:,
+          # Base64-encoded file content for the document.
+          file_data:,
+          # The original filename of the document.
+          filename: nil
+        )
+        end
+
+        sig do
+          override.returns(
+            {
+              document_type:
+                ModernTreasury::LegalEntityCreateRequest::Document::DocumentType::OrSymbol,
+              file_data: String,
+              filename: String
+            }
+          )
+        end
+        def to_hash
+        end
+
+        # A category given to the document, can be `null`.
+        module DocumentType
+          extend ModernTreasury::Internal::Type::Enum
+
+          TaggedSymbol =
+            T.type_alias do
+              T.all(
+                Symbol,
+                ModernTreasury::LegalEntityCreateRequest::Document::DocumentType
+              )
+            end
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          ARTICLES_OF_INCORPORATION =
+            T.let(
+              :articles_of_incorporation,
+              ModernTreasury::LegalEntityCreateRequest::Document::DocumentType::TaggedSymbol
+            )
+          CERTIFICATE_OF_GOOD_STANDING =
+            T.let(
+              :certificate_of_good_standing,
+              ModernTreasury::LegalEntityCreateRequest::Document::DocumentType::TaggedSymbol
+            )
+          EIN_LETTER =
+            T.let(
+              :ein_letter,
+              ModernTreasury::LegalEntityCreateRequest::Document::DocumentType::TaggedSymbol
+            )
+          GENERIC =
+            T.let(
+              :generic,
+              ModernTreasury::LegalEntityCreateRequest::Document::DocumentType::TaggedSymbol
+            )
+          IDENTIFICATION_BACK =
+            T.let(
+              :identification_back,
+              ModernTreasury::LegalEntityCreateRequest::Document::DocumentType::TaggedSymbol
+            )
+          IDENTIFICATION_FRONT =
+            T.let(
+              :identification_front,
+              ModernTreasury::LegalEntityCreateRequest::Document::DocumentType::TaggedSymbol
+            )
+          PROOF_OF_ADDRESS =
+            T.let(
+              :proof_of_address,
+              ModernTreasury::LegalEntityCreateRequest::Document::DocumentType::TaggedSymbol
+            )
+
+          sig do
+            override.returns(
+              T::Array[
+                ModernTreasury::LegalEntityCreateRequest::Document::DocumentType::TaggedSymbol
+              ]
+            )
+          end
+          def self.values
+          end
+        end
+      end
+
+      # The business's legal structure.
+      module LegalStructure
+        extend ModernTreasury::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias do
+            T.all(
+              Symbol,
+              ModernTreasury::LegalEntityCreateRequest::LegalStructure
+            )
+          end
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        CORPORATION =
+          T.let(
+            :corporation,
+            ModernTreasury::LegalEntityCreateRequest::LegalStructure::TaggedSymbol
+          )
+        LLC =
+          T.let(
+            :llc,
+            ModernTreasury::LegalEntityCreateRequest::LegalStructure::TaggedSymbol
+          )
+        NON_PROFIT =
+          T.let(
+            :non_profit,
+            ModernTreasury::LegalEntityCreateRequest::LegalStructure::TaggedSymbol
+          )
+        PARTNERSHIP =
+          T.let(
+            :partnership,
+            ModernTreasury::LegalEntityCreateRequest::LegalStructure::TaggedSymbol
+          )
+        SOLE_PROPRIETORSHIP =
+          T.let(
+            :sole_proprietorship,
+            ModernTreasury::LegalEntityCreateRequest::LegalStructure::TaggedSymbol
+          )
+        TRUST =
+          T.let(
+            :trust,
+            ModernTreasury::LegalEntityCreateRequest::LegalStructure::TaggedSymbol
+          )
+
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::LegalEntityCreateRequest::LegalStructure::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
+      end
+
+      class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              ModernTreasury::LegalEntityCreateRequest::PhoneNumber,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
+
+        # A phone number in E.164 format. This format is strictly validated: include a
+        # leading + and country code, followed by digits only (no spaces or dashes), e.g.
+        # +12025551234.
+        sig { returns(T.nilable(String)) }
+        attr_reader :phone_number
+
+        sig { params(phone_number: String).void }
+        attr_writer :phone_number
+
+        # A list of phone numbers in E.164 format.
+        sig { params(phone_number: String).returns(T.attached_class) }
+        def self.new(
+          # A phone number in E.164 format. This format is strictly validated: include a
+          # leading + and country code, followed by digits only (no spaces or dashes), e.g.
+          # +12025551234.
+          phone_number: nil
+        )
+        end
+
+        sig { override.returns({ phone_number: String }) }
+        def to_hash
+        end
+      end
+
+      # The risk rating of the legal entity. One of low, medium, high.
+      module RiskRating
+        extend ModernTreasury::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::LegalEntityCreateRequest::RiskRating)
+          end
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        LOW =
+          T.let(
+            :low,
+            ModernTreasury::LegalEntityCreateRequest::RiskRating::TaggedSymbol
+          )
+        MEDIUM =
+          T.let(
+            :medium,
+            ModernTreasury::LegalEntityCreateRequest::RiskRating::TaggedSymbol
+          )
+        HIGH =
+          T.let(
+            :high,
+            ModernTreasury::LegalEntityCreateRequest::RiskRating::TaggedSymbol
+          )
+
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::LegalEntityCreateRequest::RiskRating::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
+      end
+
+      # Set to draft to create the legal entity as a draft. Omit to create it as
+      # pending. Inline child legal entities take the parent's status.
+      module Status
+        extend ModernTreasury::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, ModernTreasury::LegalEntityCreateRequest::Status)
+          end
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        DRAFT =
+          T.let(
+            :draft,
+            ModernTreasury::LegalEntityCreateRequest::Status::TaggedSymbol
+          )
+
+        sig do
+          override.returns(
+            T::Array[
+              ModernTreasury::LegalEntityCreateRequest::Status::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
+      end
+
+      class TermsOfUse < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              ModernTreasury::LegalEntityCreateRequest::TermsOfUse,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
+
+        # The ISO 8601 timestamp indicating when the terms of use were accepted.
+        sig { returns(T.nilable(Time)) }
+        attr_reader :accepted_at
+
+        sig { params(accepted_at: Time).void }
+        attr_writer :accepted_at
+
+        # The IP address from which the terms of use were accepted. Supports both IPv4 and
+        # IPv6 formats.
+        sig { returns(T.nilable(String)) }
+        attr_reader :ip_address
+
+        sig { params(ip_address: String).void }
+        attr_writer :ip_address
+
+        # Acceptance of terms of use by the legal entity.
+        sig do
+          params(accepted_at: Time, ip_address: String).returns(
+            T.attached_class
+          )
+        end
+        def self.new(
+          # The ISO 8601 timestamp indicating when the terms of use were accepted.
+          accepted_at: nil,
+          # The IP address from which the terms of use were accepted. Supports both IPv4 and
+          # IPv6 formats.
+          ip_address: nil
+        )
+        end
+
+        sig { override.returns({ accepted_at: Time, ip_address: String }) }
+        def to_hash
+        end
+      end
+    end
+  end
+end
