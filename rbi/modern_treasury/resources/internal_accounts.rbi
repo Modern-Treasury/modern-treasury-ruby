@@ -15,9 +15,7 @@ module ModernTreasury
             ModernTreasury::InternalAccountCreateParams::Currency::OrSymbol,
           name: String,
           account_capabilities:
-            T::Array[
-              ModernTreasury::InternalAccountCreateParams::AccountCapability::OrHash
-            ],
+            T::Array[ModernTreasury::AccountCapability::OrHash],
           account_type:
             ModernTreasury::InternalAccountCreateParams::AccountType::OrSymbol,
           allowed_ach_debit_company_ids: T.nilable(T::Array[String]),
@@ -234,9 +232,7 @@ module ModernTreasury
           internal_account_id: String,
           identifier: String,
           request_options: ModernTreasury::RequestOptions::OrHash
-        ).returns(
-          ModernTreasury::Models::InternalAccountUpdateAccountCapabilityResponse
-        )
+        ).returns(ModernTreasury::AccountCapability)
       end
       def update_account_capability(
         # Path param: Unique identifier for the account capability.

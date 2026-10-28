@@ -3,10 +3,10 @@
 require_relative "../test_helper"
 
 class ModernTreasury::Test::Resources::DocumentsTest < ModernTreasury::Test::ResourceTest
-  def test_create_required_params
+  def test_create
     skip("multipart/form-data not yet supported")
 
-    response = @modern_treasury.documents.create(file: StringIO.new("Example data"))
+    response = @modern_treasury.documents.create
 
     assert_pattern do
       response => ModernTreasury::Document

@@ -14,9 +14,6 @@ module ModernTreasury
           )
         end
 
-      sig { returns(ModernTreasury::Internal::FileInput) }
-      attr_accessor :file
-
       # A category given to the document, can be `null`.
       sig { returns(T.nilable(String)) }
       attr_reader :document_type
@@ -48,23 +45,29 @@ module ModernTreasury
       end
       attr_writer :documentable_type
 
+      sig { returns(T.nilable(ModernTreasury::Internal::FileInput)) }
+      attr_reader :file
+
+      sig { params(file: ModernTreasury::Internal::FileInput).void }
+      attr_writer :file
+
       sig do
         params(
-          file: ModernTreasury::Internal::FileInput,
           document_type: String,
           documentable_id: String,
           documentable_type:
             ModernTreasury::DocumentCreateParams::DocumentableType::OrSymbol,
+          file: ModernTreasury::Internal::FileInput,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
       def self.new(
-        file:,
         # A category given to the document, can be `null`.
         document_type: nil,
         # The unique identifier for the associated object.
         documentable_id: nil,
         documentable_type: nil,
+        file: nil,
         request_options: {}
       )
       end
@@ -72,11 +75,11 @@ module ModernTreasury
       sig do
         override.returns(
           {
-            file: ModernTreasury::Internal::FileInput,
             document_type: String,
             documentable_id: String,
             documentable_type:
               ModernTreasury::DocumentCreateParams::DocumentableType::OrSymbol,
+            file: ModernTreasury::Internal::FileInput,
             request_options: ModernTreasury::RequestOptions
           }
         )

@@ -5,9 +5,7 @@ module ModernTreasury
     class Documents
       # Create a document.
       #
-      # @overload create(file:, document_type: nil, documentable_id: nil, documentable_type: nil, request_options: {})
-      #
-      # @param file [Pathname, StringIO, IO, String, ModernTreasury::FilePart]
+      # @overload create(document_type: nil, documentable_id: nil, documentable_type: nil, file: nil, request_options: {})
       #
       # @param document_type [String] A category given to the document, can be `null`.
       #
@@ -15,12 +13,14 @@ module ModernTreasury
       #
       # @param documentable_type [Symbol, ModernTreasury::Models::DocumentCreateParams::DocumentableType]
       #
+      # @param file [Pathname, StringIO, IO, String, ModernTreasury::FilePart]
+      #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::Document]
       #
       # @see ModernTreasury::Models::DocumentCreateParams
-      def create(params)
+      def create(params = {})
         parsed, options = ModernTreasury::DocumentCreateParams.dump_request(params)
         @client.request(
           method: :post,
