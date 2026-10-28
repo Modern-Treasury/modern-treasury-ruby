@@ -19,7 +19,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           posted: T::Boolean,
           type:
-            T.nilable(ModernTreasury::TransactionCreateParams::Type::OrSymbol),
+            T.nilable(ModernTreasury::TransactionCreateRequest::Type::OrSymbol),
           vendor_customer_id: T.nilable(String),
           vendor_description: T.nilable(String),
           request_options: ModernTreasury::RequestOptions::OrHash

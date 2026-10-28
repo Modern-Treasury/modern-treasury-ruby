@@ -10,7 +10,7 @@ module ModernTreasury
           payment_types: T::Array[String],
           receiving_countries:
             T::Array[
-              ModernTreasury::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol
+              ModernTreasury::AccountCollectionFlowCreateRequest::ReceivingCountry::OrSymbol
             ],
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::AccountCollectionFlow)
