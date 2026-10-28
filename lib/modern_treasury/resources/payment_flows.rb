@@ -18,7 +18,7 @@ module ModernTreasury
       #
       # @param currency [String] Required. The currency of the payment.
       #
-      # @param direction [Symbol, ModernTreasury::Models::PaymentFlowCreateParams::Direction] Required. Describes the direction money is flowing in the transaction. Can only
+      # @param direction [Symbol, ModernTreasury::Models::PaymentFlowCreateRequest::Direction] Required. Describes the direction money is flowing in the transaction. Can only
       #
       # @param originating_account_id [String] Required. The ID of one of your organization's internal accounts.
       #

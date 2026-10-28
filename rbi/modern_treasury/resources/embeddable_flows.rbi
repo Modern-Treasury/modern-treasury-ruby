@@ -8,8 +8,8 @@ module ModernTreasury
         params(
           options:
             T.any(
-              ModernTreasury::EmbeddableFlowCreateParams::Options::AccountCollectionFlowCreateRequest::OrHash,
-              ModernTreasury::EmbeddableFlowCreateParams::Options::PaymentFlowCreateRequest::OrHash,
+              ModernTreasury::AccountCollectionFlowCreateRequest::OrHash,
+              ModernTreasury::PaymentFlowCreateRequest::OrHash,
               ModernTreasury::EmbeddableFlowCreateParams::Options::Type::OrHash
             ),
           template:

@@ -3,41 +3,33 @@ module ModernTreasury
     type account_detail_create_params =
       {
         accounts_type: ModernTreasury::Models::AccountDetailCreateParams::accounts_type,
-        account_id: String,
-        account_number: String,
-        account_number_type: ModernTreasury::Models::AccountDetailCreateParams::account_number_type
+        account_id: String
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class AccountDetailCreateParams < ModernTreasury::Internal::Type::BaseModel
+    class AccountDetailCreateParams < ModernTreasury::Models::AccountDetailCreateRequest
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
-      attr_accessor accounts_type: ModernTreasury::Models::AccountDetailCreateParams::accounts_type
+      def accounts_type: -> ModernTreasury::Models::AccountDetailCreateParams::accounts_type
 
-      attr_accessor account_id: String
+      def accounts_type=: (
+        ModernTreasury::Models::AccountDetailCreateParams::accounts_type _
+      ) -> ModernTreasury::Models::AccountDetailCreateParams::accounts_type
 
-      attr_accessor account_number: String
+      def account_id: -> String
 
-      attr_reader account_number_type: ModernTreasury::Models::AccountDetailCreateParams::account_number_type?
-
-      def account_number_type=: (
-        ModernTreasury::Models::AccountDetailCreateParams::account_number_type
-      ) -> ModernTreasury::Models::AccountDetailCreateParams::account_number_type
+      def account_id=: (String _) -> String
 
       def initialize: (
         accounts_type: ModernTreasury::Models::AccountDetailCreateParams::accounts_type,
         account_id: String,
-        account_number: String,
-        ?account_number_type: ModernTreasury::Models::AccountDetailCreateParams::account_number_type,
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
       def to_hash: -> {
         accounts_type: ModernTreasury::Models::AccountDetailCreateParams::accounts_type,
         account_id: String,
-        account_number: String,
-        account_number_type: ModernTreasury::Models::AccountDetailCreateParams::account_number_type,
         request_options: ModernTreasury::RequestOptions
       }
 
@@ -49,47 +41,6 @@ module ModernTreasury
         EXTERNAL_ACCOUNTS: :external_accounts
 
         def self?.values: -> ::Array[ModernTreasury::Models::AccountDetailCreateParams::accounts_type]
-      end
-
-      type account_number_type =
-        :arbitrum_address
-        | :au_number
-        | :avalanche_address
-        | :base_address
-        | :card_token
-        | :clabe
-        | :ethereum_address
-        | :hk_number
-        | :iban
-        | :id_number
-        | :nz_number
-        | :other
-        | :pan
-        | :polygon_address
-        | :sg_number
-        | :solana_address
-
-      module AccountNumberType
-        extend ModernTreasury::Internal::Type::Enum
-
-        ARBITRUM_ADDRESS: :arbitrum_address
-        AU_NUMBER: :au_number
-        AVALANCHE_ADDRESS: :avalanche_address
-        BASE_ADDRESS: :base_address
-        CARD_TOKEN: :card_token
-        CLABE: :clabe
-        ETHEREUM_ADDRESS: :ethereum_address
-        HK_NUMBER: :hk_number
-        IBAN: :iban
-        ID_NUMBER: :id_number
-        NZ_NUMBER: :nz_number
-        OTHER: :other
-        PAN: :pan
-        POLYGON_ADDRESS: :polygon_address
-        SG_NUMBER: :sg_number
-        SOLANA_ADDRESS: :solana_address
-
-        def self?.values: -> ::Array[ModernTreasury::Models::AccountDetailCreateParams::account_number_type]
       end
     end
   end
