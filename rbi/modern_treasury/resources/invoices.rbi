@@ -28,7 +28,7 @@ module ModernTreasury
           invoice_line_items:
             T.nilable(
               T::Array[
-                ModernTreasury::InvoiceCreateParams::InvoiceLineItem::OrHash
+                ModernTreasury::Invoices::InvoiceLineItemCreateRequest::OrHash
               ]
             ),
           invoicer_address:
@@ -160,7 +160,7 @@ module ModernTreasury
           invoice_line_items:
             T.nilable(
               T::Array[
-                ModernTreasury::InvoiceUpdateParams::InvoiceLineItem::OrHash
+                ModernTreasury::Invoices::InvoiceLineItemCreateRequest::OrHash
               ]
             ),
           invoicer_address:
