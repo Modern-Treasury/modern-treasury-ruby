@@ -13,7 +13,7 @@ module ModernTreasury
       #
       # @param payment_types [Array<String>]
       #
-      # @param receiving_countries [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>]
+      # @param receiving_countries [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateRequest::ReceivingCountry>]
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
