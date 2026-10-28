@@ -147,6 +147,7 @@ module ModernTreasury
       module Type
         extend ModernTreasury::Internal::Type::Enum
 
+        VOID = :void
         STOP = :stop
         ISSUE = :issue
 

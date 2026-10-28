@@ -285,6 +285,11 @@ module ModernTreasury
           end
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
+        VOID =
+          T.let(
+            :void,
+            ModernTreasury::PaymentActionListParams::Type::TaggedSymbol
+          )
         STOP =
           T.let(
             :stop,
