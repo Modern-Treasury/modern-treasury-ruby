@@ -266,11 +266,13 @@ module ModernTreasury
         :cash
         | :checking
         | :general_ledger
+        | :hosted_wallet
         | :loan
         | :non_resident
         | :other
         | :overdraft
         | :savings
+        | :self_hosted_wallet
 
       module AccountType
         extend ModernTreasury::Internal::Type::Enum
@@ -278,11 +280,13 @@ module ModernTreasury
         CASH: :cash
         CHECKING: :checking
         GENERAL_LEDGER: :general_ledger
+        HOSTED_WALLET: :hosted_wallet
         LOAN: :loan
         NON_RESIDENT: :non_resident
         OTHER: :other
         OVERDRAFT: :overdraft
         SAVINGS: :savings
+        SELF_HOSTED_WALLET: :self_hosted_wallet
 
         def self?.values: -> ::Array[ModernTreasury::Models::InternalAccount::account_type]
       end

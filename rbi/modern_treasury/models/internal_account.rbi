@@ -578,6 +578,11 @@ module ModernTreasury
             :general_ledger,
             ModernTreasury::InternalAccount::AccountType::TaggedSymbol
           )
+        HOSTED_WALLET =
+          T.let(
+            :hosted_wallet,
+            ModernTreasury::InternalAccount::AccountType::TaggedSymbol
+          )
         LOAN =
           T.let(
             :loan,
@@ -601,6 +606,11 @@ module ModernTreasury
         SAVINGS =
           T.let(
             :savings,
+            ModernTreasury::InternalAccount::AccountType::TaggedSymbol
+          )
+        SELF_HOSTED_WALLET =
+          T.let(
+            :self_hosted_wallet,
             ModernTreasury::InternalAccount::AccountType::TaggedSymbol
           )
 
