@@ -7,7 +7,7 @@ module ModernTreasury
       sig do
         params(
           legal_entity_type:
-            ModernTreasury::LegalEntityCreateParams::LegalEntityType::OrSymbol,
+            ModernTreasury::LegalEntityCreateRequest::LegalEntityType::OrSymbol,
           addresses:
             T::Array[ModernTreasury::LegalEntityAddressCreateRequest::OrHash],
           bank_settings:
@@ -15,7 +15,7 @@ module ModernTreasury
           business_description: T.nilable(String),
           business_designation:
             T.nilable(
-              ModernTreasury::LegalEntityCreateParams::BusinessDesignation::OrSymbol
+              ModernTreasury::LegalEntityCreateRequest::BusinessDesignation::OrSymbol
             ),
           business_name: T.nilable(String),
           citizenship_country: T.nilable(String),
@@ -25,7 +25,9 @@ module ModernTreasury
           date_formed: T.nilable(Date),
           date_of_birth: T.nilable(Date),
           documents:
-            T::Array[ModernTreasury::LegalEntityCreateParams::Document::OrHash],
+            T::Array[
+              ModernTreasury::LegalEntityCreateRequest::Document::OrHash
+            ],
           doing_business_as_names: T::Array[String],
           email: T.nilable(String),
           expected_activity_volume: T.nilable(Integer),
@@ -45,7 +47,7 @@ module ModernTreasury
             ),
           legal_structure:
             T.nilable(
-              ModernTreasury::LegalEntityCreateParams::LegalStructure::OrSymbol
+              ModernTreasury::LegalEntityCreateRequest::LegalStructure::OrSymbol
             ),
           listed_exchange: T.nilable(String),
           metadata: T::Hash[Symbol, String],
@@ -53,28 +55,24 @@ module ModernTreasury
           operating_jurisdictions: T::Array[String],
           phone_numbers:
             T::Array[
-              ModernTreasury::LegalEntityCreateParams::PhoneNumber::OrHash
+              ModernTreasury::LegalEntityCreateRequest::PhoneNumber::OrHash
             ],
           politically_exposed_person: T.nilable(T::Boolean),
           preferred_name: T.nilable(String),
           prefix: T.nilable(String),
           primary_social_media_sites: T::Array[String],
           regulators:
-            T.nilable(
-              T::Array[
-                ModernTreasury::LegalEntityCreateParams::Regulator::OrHash
-              ]
-            ),
+            T.nilable(T::Array[ModernTreasury::LegalEntityRegulator::OrHash]),
           risk_rating:
             T.nilable(
-              ModernTreasury::LegalEntityCreateParams::RiskRating::OrSymbol
+              ModernTreasury::LegalEntityCreateRequest::RiskRating::OrSymbol
             ),
           service_provider_legal_entity_id: T.nilable(String),
-          status: ModernTreasury::LegalEntityCreateParams::Status::OrSymbol,
+          status: ModernTreasury::LegalEntityCreateRequest::Status::OrSymbol,
           suffix: T.nilable(String),
           terms_of_use:
             T.nilable(
-              ModernTreasury::LegalEntityCreateParams::TermsOfUse::OrHash
+              ModernTreasury::LegalEntityCreateRequest::TermsOfUse::OrHash
             ),
           third_party_verification:
             T.nilable(ModernTreasury::ThirdPartyVerification::OrHash),
@@ -246,11 +244,7 @@ module ModernTreasury
           prefix: T.nilable(String),
           primary_social_media_sites: T::Array[String],
           regulators:
-            T.nilable(
-              T::Array[
-                ModernTreasury::LegalEntityUpdateParams::Regulator::OrHash
-              ]
-            ),
+            T.nilable(T::Array[ModernTreasury::LegalEntityRegulator::OrHash]),
           risk_rating:
             T.nilable(
               ModernTreasury::LegalEntityUpdateParams::RiskRating::OrSymbol

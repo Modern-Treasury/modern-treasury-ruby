@@ -12,8 +12,8 @@ module ModernTreasury
       # @!attribute accounting
       #   @deprecated
       #
-      #   @return [ModernTreasury::Models::LineItem::Accounting]
-      required :accounting, -> { ModernTreasury::LineItem::Accounting }
+      #   @return [ModernTreasury::Models::Accounting]
+      required :accounting, -> { ModernTreasury::Accounting }
 
       # @!attribute accounting_category_id
       #   @deprecated
@@ -94,7 +94,7 @@ module ModernTreasury
       #
       #   @param id [String]
       #
-      #   @param accounting [ModernTreasury::Models::LineItem::Accounting]
+      #   @param accounting [ModernTreasury::Models::Accounting]
       #
       #   @param accounting_category_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
       #
@@ -117,38 +117,6 @@ module ModernTreasury
       #   @param object [String]
       #
       #   @param updated_at [Time]
-
-      # @deprecated
-      #
-      # @see ModernTreasury::Models::LineItem#accounting
-      class Accounting < ModernTreasury::Internal::Type::BaseModel
-        # @!attribute account_id
-        #   @deprecated
-        #
-        #   The ID of one of your accounting categories. Note that these will only be
-        #   accessible if your accounting system has been connected.
-        #
-        #   @return [String, nil]
-        optional :account_id, String, nil?: true
-
-        # @!attribute class_id
-        #   @deprecated
-        #
-        #   The ID of one of the class objects in your accounting system. Class objects
-        #   track segments of your business independent of client or project. Note that
-        #   these will only be accessible if your accounting system has been connected.
-        #
-        #   @return [String, nil]
-        optional :class_id, String, nil?: true
-
-        # @!method initialize(account_id: nil, class_id: nil)
-        #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Models::LineItem::Accounting} for more details.
-        #
-        #   @param account_id [String, nil] The ID of one of your accounting categories. Note that these will only be access
-        #
-        #   @param class_id [String, nil] The ID of one of the class objects in your accounting system. Class objects trac
-      end
 
       # One of `payment_orders` or `expected_payments`.
       #

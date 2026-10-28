@@ -7,7 +7,7 @@ module ModernTreasury
       #
       # @overload create(options:, template:, request_options: {})
       #
-      # @param options [ModernTreasury::Models::EmbeddableFlowCreateParams::Options::AccountCollectionFlowCreateRequest, ModernTreasury::Models::EmbeddableFlowCreateParams::Options::PaymentFlowCreateRequest, ModernTreasury::Models::EmbeddableFlowCreateParams::Options::Type] The parameters for the selected template's flow.
+      # @param options [ModernTreasury::Models::AccountCollectionFlowCreateRequest, ModernTreasury::Models::PaymentFlowCreateRequest, ModernTreasury::Models::EmbeddableFlowCreateParams::Options::Type] The parameters for the selected template's flow.
       #
       # @param template [Symbol, ModernTreasury::Models::EmbeddableFlowCreateParams::Template]
       #

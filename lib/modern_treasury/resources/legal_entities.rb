@@ -10,7 +10,7 @@ module ModernTreasury
       #
       # @overload create(legal_entity_type:, addresses: nil, bank_settings: nil, business_description: nil, business_designation: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, connection_id: nil, country_of_incorporation: nil, date_formed: nil, date_of_birth: nil, documents: nil, doing_business_as_names: nil, email: nil, expected_activity_volume: nil, external_id: nil, first_name: nil, identifications: nil, industry_classifications: nil, intended_use: nil, last_name: nil, legal_entity_associations: nil, legal_structure: nil, listed_exchange: nil, metadata: nil, middle_name: nil, operating_jurisdictions: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, primary_social_media_sites: nil, regulators: nil, risk_rating: nil, service_provider_legal_entity_id: nil, status: nil, suffix: nil, terms_of_use: nil, third_party_verification: nil, third_party_verifications: nil, ticker_symbol: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
       #
-      # @param legal_entity_type [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityType] The type of legal entity.
+      # @param legal_entity_type [Symbol, ModernTreasury::Models::LegalEntityCreateRequest::LegalEntityType] The type of legal entity.
       #
       # @param addresses [Array<ModernTreasury::Models::LegalEntityAddressCreateRequest>] A list of addresses for the entity.
       #
@@ -18,7 +18,7 @@ module ModernTreasury
       #
       # @param business_description [String, nil] A description of the business.
       #
-      # @param business_designation [Symbol, ModernTreasury::Models::LegalEntityCreateParams::BusinessDesignation, nil] Legal designation associated with the business.
+      # @param business_designation [Symbol, ModernTreasury::Models::LegalEntityCreateRequest::BusinessDesignation, nil] Legal designation associated with the business.
       #
       # @param business_name [String, nil] The business's legal business name.
       #
@@ -34,7 +34,7 @@ module ModernTreasury
       #
       # @param date_of_birth [Date, nil] An individual's date of birth (YYYY-MM-DD).
       #
-      # @param documents [Array<ModernTreasury::Models::LegalEntityCreateParams::Document>] A list of documents to attach to the legal entity (e.g. articles of incorporatio
+      # @param documents [Array<ModernTreasury::Models::LegalEntityCreateRequest::Document>] A list of documents to attach to the legal entity (e.g. articles of incorporatio
       #
       # @param doing_business_as_names [Array<String>]
       #
@@ -56,7 +56,7 @@ module ModernTreasury
       #
       # @param legal_entity_associations [Array<ModernTreasury::Models::LegalEntityAssociationInlineCreate>, nil] The legal entity associations and its child legal entities.
       #
-      # @param legal_structure [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalStructure, nil] The business's legal structure.
+      # @param legal_structure [Symbol, ModernTreasury::Models::LegalEntityCreateRequest::LegalStructure, nil] The business's legal structure.
       #
       # @param listed_exchange [String, nil] ISO 10383 market identifier code.
       #
@@ -66,7 +66,7 @@ module ModernTreasury
       #
       # @param operating_jurisdictions [Array<String>] A list of countries where the business operates, as ISO 3166-1 alpha-2 country c
       #
-      # @param phone_numbers [Array<ModernTreasury::Models::LegalEntityCreateParams::PhoneNumber>]
+      # @param phone_numbers [Array<ModernTreasury::Models::LegalEntityCreateRequest::PhoneNumber>]
       #
       # @param politically_exposed_person [Boolean, nil] Whether the individual is a politically exposed person.
       #
@@ -76,17 +76,17 @@ module ModernTreasury
       #
       # @param primary_social_media_sites [Array<String>] A list of the entity's primary social media URLs.
       #
-      # @param regulators [Array<ModernTreasury::Models::LegalEntityCreateParams::Regulator>, nil] Array of regulatory bodies overseeing this institution.
+      # @param regulators [Array<ModernTreasury::Models::LegalEntityRegulator>, nil] Array of regulatory bodies overseeing this institution.
       #
-      # @param risk_rating [Symbol, ModernTreasury::Models::LegalEntityCreateParams::RiskRating, nil] The risk rating of the legal entity. One of low, medium, high.
+      # @param risk_rating [Symbol, ModernTreasury::Models::LegalEntityCreateRequest::RiskRating, nil] The risk rating of the legal entity. One of low, medium, high.
       #
       # @param service_provider_legal_entity_id [String, nil] The UUID of the parent legal entity in the service provider tree.
       #
-      # @param status [Symbol, ModernTreasury::Models::LegalEntityCreateParams::Status] Set to draft to create the legal entity as a draft. Omit to create it as pending
+      # @param status [Symbol, ModernTreasury::Models::LegalEntityCreateRequest::Status] Set to draft to create the legal entity as a draft. Omit to create it as pending
       #
       # @param suffix [String, nil] An individual's suffix.
       #
-      # @param terms_of_use [ModernTreasury::Models::LegalEntityCreateParams::TermsOfUse, nil] Acceptance of terms of use by the legal entity.
+      # @param terms_of_use [ModernTreasury::Models::LegalEntityCreateRequest::TermsOfUse, nil] Acceptance of terms of use by the legal entity.
       #
       # @param third_party_verification [ModernTreasury::Models::ThirdPartyVerification, nil] Deprecated. Use `third_party_verifications` instead.
       #
@@ -199,7 +199,7 @@ module ModernTreasury
       #
       # @param primary_social_media_sites [Array<String>] A list of the entity's primary social media URLs.
       #
-      # @param regulators [Array<ModernTreasury::Models::LegalEntityUpdateParams::Regulator>, nil] Array of regulatory bodies overseeing this institution.
+      # @param regulators [Array<ModernTreasury::Models::LegalEntityRegulator>, nil] Array of regulatory bodies overseeing this institution.
       #
       # @param risk_rating [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::RiskRating, nil] The risk rating of the legal entity. One of low, medium, high.
       #

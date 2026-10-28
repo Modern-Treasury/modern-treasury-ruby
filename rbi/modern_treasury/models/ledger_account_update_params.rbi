@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LedgerAccountUpdateParams < ModernTreasury::Internal::Type::BaseModel
+    class LedgerAccountUpdateParams < ModernTreasury::Models::LedgerAccountUpdateRequest
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -17,64 +17,18 @@ module ModernTreasury
       sig { returns(String) }
       attr_accessor :id
 
-      # The description of the ledger account.
-      sig { returns(T.nilable(String)) }
-      attr_accessor :description
-
-      # An optional user-defined 180 character unique identifier.
-      sig { returns(T.nilable(String)) }
-      attr_accessor :external_id
-
-      # Additional data represented as key-value pairs. Both the key and value must be
-      # strings.
-      sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :metadata
-
-      sig { params(metadata: T::Hash[Symbol, String]).void }
-      attr_writer :metadata
-
-      # The name of the ledger account.
-      sig { returns(T.nilable(String)) }
-      attr_reader :name
-
-      sig { params(name: String).void }
-      attr_writer :name
-
       sig do
         params(
           id: String,
-          description: T.nilable(String),
-          external_id: T.nilable(String),
-          metadata: T::Hash[Symbol, String],
-          name: String,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
-      def self.new(
-        id:,
-        # The description of the ledger account.
-        description: nil,
-        # An optional user-defined 180 character unique identifier.
-        external_id: nil,
-        # Additional data represented as key-value pairs. Both the key and value must be
-        # strings.
-        metadata: nil,
-        # The name of the ledger account.
-        name: nil,
-        request_options: {}
-      )
+      def self.new(id:, request_options: {})
       end
 
       sig do
         override.returns(
-          {
-            id: String,
-            description: T.nilable(String),
-            external_id: T.nilable(String),
-            metadata: T::Hash[Symbol, String],
-            name: String,
-            request_options: ModernTreasury::RequestOptions
-          }
+          { id: String, request_options: ModernTreasury::RequestOptions }
         )
       end
       def to_hash

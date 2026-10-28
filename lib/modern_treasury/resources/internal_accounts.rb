@@ -17,7 +17,7 @@ module ModernTreasury
       #
       # @param name [String] The nickname of the account.
       #
-      # @param account_capabilities [Array<ModernTreasury::Models::InternalAccountCreateParams::AccountCapability>] An array of AccountCapability objects that list the originating abilities of the
+      # @param account_capabilities [Array<ModernTreasury::Models::AccountCapability>] An array of AccountCapability objects that list the originating abilities of the
       #
       # @param account_type [Symbol, ModernTreasury::Models::InternalAccountCreateParams::AccountType] The account type, used to provision the appropriate account at the financial ins
       #
@@ -214,7 +214,7 @@ module ModernTreasury
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Models::InternalAccountUpdateAccountCapabilityResponse]
+      # @return [ModernTreasury::Models::AccountCapability]
       #
       # @see ModernTreasury::Models::InternalAccountUpdateAccountCapabilityParams
       def update_account_capability(id, params)
@@ -227,7 +227,7 @@ module ModernTreasury
           method: :patch,
           path: ["api/internal_accounts/%1$s/account_capabilities/%2$s", internal_account_id, id],
           body: parsed,
-          model: ModernTreasury::Models::InternalAccountUpdateAccountCapabilityResponse,
+          model: ModernTreasury::AccountCapability,
           options: options
         )
       end
