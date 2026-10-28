@@ -11,7 +11,7 @@ module ModernTreasury
         metadata: ::Hash[Symbol, String],
         name: String,
         parent_account_id: String,
-        party_address: ModernTreasury::AddressRequest,
+        party_address: ModernTreasury::AddressRequest?,
         party_type: ModernTreasury::Models::InternalAccountUpdateParams::party_type?,
         status: ModernTreasury::Models::InternalAccountUpdateParams::status
       }
@@ -51,11 +51,7 @@ module ModernTreasury
 
       def parent_account_id=: (String) -> String
 
-      attr_reader party_address: ModernTreasury::AddressRequest?
-
-      def party_address=: (
-        ModernTreasury::AddressRequest
-      ) -> ModernTreasury::AddressRequest
+      attr_accessor party_address: ModernTreasury::AddressRequest?
 
       attr_accessor party_type: ModernTreasury::Models::InternalAccountUpdateParams::party_type?
 
@@ -75,7 +71,7 @@ module ModernTreasury
         ?metadata: ::Hash[Symbol, String],
         ?name: String,
         ?parent_account_id: String,
-        ?party_address: ModernTreasury::AddressRequest,
+        ?party_address: ModernTreasury::AddressRequest?,
         ?party_type: ModernTreasury::Models::InternalAccountUpdateParams::party_type?,
         ?status: ModernTreasury::Models::InternalAccountUpdateParams::status,
         ?request_options: ModernTreasury::request_opts
@@ -91,7 +87,7 @@ module ModernTreasury
         metadata: ::Hash[Symbol, String],
         name: String,
         parent_account_id: String,
-        party_address: ModernTreasury::AddressRequest,
+        party_address: ModernTreasury::AddressRequest?,
         party_type: ModernTreasury::Models::InternalAccountUpdateParams::party_type?,
         status: ModernTreasury::Models::InternalAccountUpdateParams::status,
         request_options: ModernTreasury::RequestOptions

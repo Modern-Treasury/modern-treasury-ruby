@@ -86,6 +86,15 @@ module ModernTreasury
       #   @return [Date, nil]
       optional :effective_date, Date
 
+      # @!attribute end_to_end_id
+      #   A unique identifier passed through to the receiving bank. Only supported for
+      #   `ach` (maximum 15 characters) and `wire` (maximum 35 characters). If not
+      #   provided, Modern Treasury generates one. Some banks may truncate this value or
+      #   use their own identifier instead.
+      #
+      #   @return [String, nil]
+      optional :end_to_end_id, String, nil?: true
+
       # @!attribute expires_at
       #   RFP payments require an expires_at. This value must be past the effective_date.
       #
@@ -307,7 +316,7 @@ module ModernTreasury
       #   @return [String, nil]
       optional :ultimate_receiving_party_name, String, nil?: true
 
-      # @!method initialize(id:, accounting: nil, accounting_category_id: nil, accounting_ledger_class_id: nil, amount: nil, charge_bearer: nil, counterparty_id: nil, currency: nil, description: nil, direction: nil, effective_date: nil, expires_at: nil, external_id: nil, fallback_type: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, line_items: nil, metadata: nil, nsf_protected: nil, originating_account_id: nil, originating_party_address: nil, originating_party_name: nil, originating_secondary_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account: nil, receiving_account_id: nil, reconciliation_status: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, status: nil, subtype: nil, type: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil, request_options: {})
+      # @!method initialize(id:, accounting: nil, accounting_category_id: nil, accounting_ledger_class_id: nil, amount: nil, charge_bearer: nil, counterparty_id: nil, currency: nil, description: nil, direction: nil, effective_date: nil, end_to_end_id: nil, expires_at: nil, external_id: nil, fallback_type: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, line_items: nil, metadata: nil, nsf_protected: nil, originating_account_id: nil, originating_party_address: nil, originating_party_name: nil, originating_secondary_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account: nil, receiving_account_id: nil, reconciliation_status: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, status: nil, subtype: nil, type: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::PaymentOrderUpdateParams} for more details.
       #
@@ -332,6 +341,8 @@ module ModernTreasury
       #   @param direction [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Direction] One of `credit`, `debit`. Describes the direction money is flowing in the transa
       #
       #   @param effective_date [Date] Date transactions are to be posted to the participants' account. Defaults to the
+      #
+      #   @param end_to_end_id [String, nil] A unique identifier passed through to the receiving bank. Only supported for `ac
       #
       #   @param expires_at [Time, nil] RFP payments require an expires_at. This value must be past the effective_date.
       #

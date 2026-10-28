@@ -29,6 +29,7 @@ module ModernTreasury
               ModernTreasury::PaymentOrderCreateParams::Document::OrHash
             ],
           effective_date: Date,
+          end_to_end_id: T.nilable(String),
           expires_at: T.nilable(Time),
           external_id: T.nilable(String),
           fallback_type:
@@ -116,6 +117,11 @@ module ModernTreasury
         # current business day or the next business day if the current day is a bank
         # holiday or weekend. Format: yyyy-mm-dd.
         effective_date: nil,
+        # A unique identifier passed through to the receiving bank. Only supported for
+        # `ach` (maximum 15 characters) and `wire` (maximum 35 characters). If not
+        # provided, Modern Treasury generates one. Some banks may truncate this value or
+        # use their own identifier instead.
+        end_to_end_id: nil,
         # RFP payments require an expires_at. This value must be past the effective_date.
         expires_at: nil,
         # An optional user-defined 180 character unique identifier.
@@ -256,6 +262,7 @@ module ModernTreasury
           direction:
             ModernTreasury::PaymentOrderUpdateParams::Direction::OrSymbol,
           effective_date: Date,
+          end_to_end_id: T.nilable(String),
           expires_at: T.nilable(Time),
           external_id: T.nilable(String),
           fallback_type:
@@ -331,6 +338,11 @@ module ModernTreasury
         # current business day or the next business day if the current day is a bank
         # holiday or weekend. Format: yyyy-mm-dd.
         effective_date: nil,
+        # A unique identifier passed through to the receiving bank. Only supported for
+        # `ach` (maximum 15 characters) and `wire` (maximum 35 characters). If not
+        # provided, Modern Treasury generates one. Some banks may truncate this value or
+        # use their own identifier instead.
+        end_to_end_id: nil,
         # RFP payments require an expires_at. This value must be past the effective_date.
         expires_at: nil,
         # An optional user-defined 180 character unique identifier.
@@ -518,6 +530,7 @@ module ModernTreasury
           currency: ModernTreasury::Currency::OrSymbol,
           description: T.nilable(String),
           effective_date: Date,
+          end_to_end_id: T.nilable(String),
           expires_at: T.nilable(Time),
           external_id: T.nilable(String),
           fallback_type:
@@ -602,6 +615,11 @@ module ModernTreasury
         # current business day or the next business day if the current day is a bank
         # holiday or weekend. Format: yyyy-mm-dd.
         effective_date: nil,
+        # A unique identifier passed through to the receiving bank. Only supported for
+        # `ach` (maximum 15 characters) and `wire` (maximum 35 characters). If not
+        # provided, Modern Treasury generates one. Some banks may truncate this value or
+        # use their own identifier instead.
+        end_to_end_id: nil,
         # RFP payments require an expires_at. This value must be past the effective_date.
         expires_at: nil,
         # An optional user-defined 180 character unique identifier.

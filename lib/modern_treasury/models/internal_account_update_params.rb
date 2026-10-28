@@ -71,7 +71,7 @@ module ModernTreasury
       #   accurate.
       #
       #   @return [ModernTreasury::Models::AddressRequest, nil]
-      optional :party_address, -> { ModernTreasury::AddressRequest }
+      optional :party_address, -> { ModernTreasury::AddressRequest }, nil?: true
 
       # @!attribute party_type
       #   Either individual or business. Inherits from associated LegalEntity
@@ -109,7 +109,7 @@ module ModernTreasury
       #
       #   @param parent_account_id [String] The parent internal account for this account.
       #
-      #   @param party_address [ModernTreasury::Models::AddressRequest] The address associated with the owner of the internal account. Updating this val
+      #   @param party_address [ModernTreasury::Models::AddressRequest, nil] The address associated with the owner of the internal account. Updating this val
       #
       #   @param party_type [Symbol, ModernTreasury::Models::InternalAccountUpdateParams::PartyType, nil] Either individual or business. Inherits from associated LegalEntity legal_entity
       #
