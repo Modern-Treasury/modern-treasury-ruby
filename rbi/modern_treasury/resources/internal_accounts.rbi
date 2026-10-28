@@ -127,7 +127,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           name: String,
           parent_account_id: String,
-          party_address: ModernTreasury::AddressRequest::OrHash,
+          party_address: T.nilable(ModernTreasury::AddressRequest::OrHash),
           party_type:
             T.nilable(
               ModernTreasury::InternalAccountUpdateParams::PartyType::OrSymbol

@@ -40,7 +40,7 @@ module ModernTreasury
       # @!attribute party_address
       #
       #   @return [ModernTreasury::Models::AddressRequest, nil]
-      optional :party_address, -> { ModernTreasury::AddressRequest }
+      optional :party_address, -> { ModernTreasury::AddressRequest }, nil?: true
 
       # @!attribute party_name
       #   If this value isn't provided, it will be inherited from the counterparty's name.
@@ -68,7 +68,7 @@ module ModernTreasury
       #
       #   @param name [String, nil] A nickname for the external account. This is only for internal usage and won't a
       #
-      #   @param party_address [ModernTreasury::Models::AddressRequest]
+      #   @param party_address [ModernTreasury::Models::AddressRequest, nil]
       #
       #   @param party_name [String] If this value isn't provided, it will be inherited from the counterparty's name.
       #
