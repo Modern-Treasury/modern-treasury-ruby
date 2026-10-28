@@ -3,6 +3,7 @@ module ModernTreasury
     type internal_account_update_params =
       {
         id: String,
+        allowed_ach_debit_company_ids: ::Array[String]?,
         contra_ledger_account_id: String,
         counterparty_id: String,
         external_id: String?,
@@ -21,6 +22,8 @@ module ModernTreasury
       include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor id: String
+
+      attr_accessor allowed_ach_debit_company_ids: ::Array[String]?
 
       attr_reader contra_ledger_account_id: String?
 
@@ -64,6 +67,7 @@ module ModernTreasury
 
       def initialize: (
         id: String,
+        ?allowed_ach_debit_company_ids: ::Array[String]?,
         ?contra_ledger_account_id: String,
         ?counterparty_id: String,
         ?external_id: String?,
@@ -79,6 +83,7 @@ module ModernTreasury
 
       def to_hash: -> {
         id: String,
+        allowed_ach_debit_company_ids: ::Array[String]?,
         contra_ledger_account_id: String,
         counterparty_id: String,
         external_id: String?,
