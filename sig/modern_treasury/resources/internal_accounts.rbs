@@ -40,7 +40,7 @@ module ModernTreasury
         ?metadata: ::Hash[Symbol, String],
         ?name: String,
         ?parent_account_id: String,
-        ?party_address: ModernTreasury::AddressRequest,
+        ?party_address: ModernTreasury::AddressRequest?,
         ?party_type: ModernTreasury::Models::InternalAccountUpdateParams::party_type?,
         ?status: ModernTreasury::Models::InternalAccountUpdateParams::status,
         ?request_options: ModernTreasury::request_opts

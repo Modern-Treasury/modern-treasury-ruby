@@ -92,7 +92,7 @@ module ModernTreasury
           ledger_account_id: String,
           metadata: T::Hash[Symbol, String],
           name: T.nilable(String),
-          party_address: ModernTreasury::AddressRequest::OrHash,
+          party_address: T.nilable(ModernTreasury::AddressRequest::OrHash),
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::VirtualAccount)
       end
@@ -105,8 +105,8 @@ module ModernTreasury
         metadata: nil,
         name: nil,
         # The address of the owner of the virtual account. Omit to leave it unchanged;
-        # pass all fields blank to clear it, after which the internal account's party
-        # address is used.
+        # pass `null` to clear it, after which the internal account's party address is
+        # used.
         party_address: nil,
         request_options: {}
       )

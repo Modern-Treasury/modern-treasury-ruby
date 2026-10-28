@@ -7,7 +7,7 @@ module ModernTreasury
         ledger_account_id: String,
         metadata: ::Hash[Symbol, String],
         name: String?,
-        party_address: ModernTreasury::AddressRequest
+        party_address: ModernTreasury::AddressRequest?
       }
       & ModernTreasury::Internal::Type::request_parameters
 
@@ -31,11 +31,7 @@ module ModernTreasury
 
       attr_accessor name: String?
 
-      attr_reader party_address: ModernTreasury::AddressRequest?
-
-      def party_address=: (
-        ModernTreasury::AddressRequest
-      ) -> ModernTreasury::AddressRequest
+      attr_accessor party_address: ModernTreasury::AddressRequest?
 
       def initialize: (
         id: String,
@@ -43,7 +39,7 @@ module ModernTreasury
         ?ledger_account_id: String,
         ?metadata: ::Hash[Symbol, String],
         ?name: String?,
-        ?party_address: ModernTreasury::AddressRequest,
+        ?party_address: ModernTreasury::AddressRequest?,
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
@@ -53,7 +49,7 @@ module ModernTreasury
         ledger_account_id: String,
         metadata: ::Hash[Symbol, String],
         name: String?,
-        party_address: ModernTreasury::AddressRequest,
+        party_address: ModernTreasury::AddressRequest?,
         request_options: ModernTreasury::RequestOptions
       }
     end

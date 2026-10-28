@@ -90,7 +90,7 @@ module ModernTreasury
           counterparty_id: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           name: T.nilable(String),
-          party_address: ModernTreasury::AddressRequest::OrHash,
+          party_address: T.nilable(ModernTreasury::AddressRequest::OrHash),
           party_name: String,
           party_type:
             T.nilable(

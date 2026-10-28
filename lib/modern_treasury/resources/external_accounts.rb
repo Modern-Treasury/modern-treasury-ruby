@@ -91,7 +91,7 @@ module ModernTreasury
       #
       # @param name [String, nil] A nickname for the external account. This is only for internal usage and won't a
       #
-      # @param party_address [ModernTreasury::Models::AddressRequest]
+      # @param party_address [ModernTreasury::Models::AddressRequest, nil]
       #
       # @param party_name [String] If this value isn't provided, it will be inherited from the counterparty's name.
       #

@@ -45,7 +45,11 @@ module ModernTreasury
       sig { returns(T.nilable(ModernTreasury::AddressRequest)) }
       attr_reader :party_address
 
-      sig { params(party_address: ModernTreasury::AddressRequest::OrHash).void }
+      sig do
+        params(
+          party_address: T.nilable(ModernTreasury::AddressRequest::OrHash)
+        ).void
+      end
       attr_writer :party_address
 
       # If this value isn't provided, it will be inherited from the counterparty's name.
@@ -72,7 +76,7 @@ module ModernTreasury
           counterparty_id: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           name: T.nilable(String),
-          party_address: ModernTreasury::AddressRequest::OrHash,
+          party_address: T.nilable(ModernTreasury::AddressRequest::OrHash),
           party_name: String,
           party_type:
             T.nilable(
@@ -109,7 +113,7 @@ module ModernTreasury
             counterparty_id: T.nilable(String),
             metadata: T::Hash[Symbol, String],
             name: T.nilable(String),
-            party_address: ModernTreasury::AddressRequest,
+            party_address: T.nilable(ModernTreasury::AddressRequest),
             party_name: String,
             party_type:
               T.nilable(
