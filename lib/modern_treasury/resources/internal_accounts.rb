@@ -90,9 +90,11 @@ module ModernTreasury
       #
       # update internal account
       #
-      # @overload update(id, contra_ledger_account_id: nil, counterparty_id: nil, external_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, party_address: nil, party_type: nil, status: nil, request_options: {})
+      # @overload update(id, allowed_ach_debit_company_ids: nil, contra_ledger_account_id: nil, counterparty_id: nil, external_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, party_address: nil, party_type: nil, status: nil, request_options: {})
       #
       # @param id [String] Unique identifier for the account.
+      #
+      # @param allowed_ach_debit_company_ids [Array<String>, nil] The ACH Company IDs allowed to debit this account. `null` allows every company.
       #
       # @param contra_ledger_account_id [String] The Contra Ledger Account associated to this account.
       #
