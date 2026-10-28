@@ -80,10 +80,10 @@ module ModernTreasury
             T::Array[ModernTreasury::LedgerEntryCreateRequest::OrHash],
           ledgerable_id: String,
           ledgerable_type:
-            ModernTreasury::LedgerTransactionUpdateParams::LedgerableType::OrSymbol,
+            ModernTreasury::LedgerTransactionUpdateRequest::LedgerableType::OrSymbol,
           metadata: T::Hash[Symbol, String],
           status:
-            ModernTreasury::LedgerTransactionUpdateParams::Status::OrSymbol,
+            ModernTreasury::LedgerTransactionUpdateRequest::Status::OrSymbol,
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(ModernTreasury::LedgerTransaction)
       end

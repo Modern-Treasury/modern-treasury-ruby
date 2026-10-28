@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class TransactionUpdateParams < ModernTreasury::Internal::Type::BaseModel
+    class TransactionUpdateParams < ModernTreasury::Models::TransactionUpdateRequest
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -17,37 +17,18 @@ module ModernTreasury
       sig { returns(String) }
       attr_accessor :id
 
-      # Additional data in the form of key-value pairs. Pairs can be removed by passing
-      # an empty string or `null` as the value.
-      sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :metadata
-
-      sig { params(metadata: T::Hash[Symbol, String]).void }
-      attr_writer :metadata
-
       sig do
         params(
           id: String,
-          metadata: T::Hash[Symbol, String],
           request_options: ModernTreasury::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
-      def self.new(
-        id:,
-        # Additional data in the form of key-value pairs. Pairs can be removed by passing
-        # an empty string or `null` as the value.
-        metadata: nil,
-        request_options: {}
-      )
+      def self.new(id:, request_options: {})
       end
 
       sig do
         override.returns(
-          {
-            id: String,
-            metadata: T::Hash[Symbol, String],
-            request_options: ModernTreasury::RequestOptions
-          }
+          { id: String, request_options: ModernTreasury::RequestOptions }
         )
       end
       def to_hash
