@@ -12,6 +12,15 @@ module ModernTreasury
       #   @return [String]
       required :id, String
 
+      # @!attribute allowed_ach_debit_company_ids
+      #   The ACH Company IDs allowed to debit this account. `null` allows every company.
+      #   An empty array allows none. Debits from any other company are returned with code
+      #   R10. Only applicable to debitable accounts under a Modern Treasury PSP
+      #   connection.
+      #
+      #   @return [Array<String>, nil]
+      optional :allowed_ach_debit_company_ids, ModernTreasury::Internal::Type::ArrayOf[String], nil?: true
+
       # @!attribute contra_ledger_account_id
       #   The Contra Ledger Account associated to this account.
       #
@@ -78,11 +87,13 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::InternalAccountUpdateParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::InternalAccountUpdateParams::Status }
 
-      # @!method initialize(id:, contra_ledger_account_id: nil, counterparty_id: nil, external_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, party_address: nil, party_type: nil, status: nil, request_options: {})
+      # @!method initialize(id:, allowed_ach_debit_company_ids: nil, contra_ledger_account_id: nil, counterparty_id: nil, external_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, party_address: nil, party_type: nil, status: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::InternalAccountUpdateParams} for more details.
       #
       #   @param id [String]
+      #
+      #   @param allowed_ach_debit_company_ids [Array<String>, nil] The ACH Company IDs allowed to debit this account. `null` allows every company.
       #
       #   @param contra_ledger_account_id [String] The Contra Ledger Account associated to this account.
       #
