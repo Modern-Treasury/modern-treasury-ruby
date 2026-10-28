@@ -78,7 +78,11 @@ module ModernTreasury
       sig { returns(T.nilable(ModernTreasury::AddressRequest)) }
       attr_reader :party_address
 
-      sig { params(party_address: ModernTreasury::AddressRequest::OrHash).void }
+      sig do
+        params(
+          party_address: T.nilable(ModernTreasury::AddressRequest::OrHash)
+        ).void
+      end
       attr_writer :party_address
 
       # Either individual or business. Inherits from associated LegalEntity
@@ -121,7 +125,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           name: String,
           parent_account_id: String,
-          party_address: ModernTreasury::AddressRequest::OrHash,
+          party_address: T.nilable(ModernTreasury::AddressRequest::OrHash),
           party_type:
             T.nilable(
               ModernTreasury::InternalAccountUpdateParams::PartyType::OrSymbol
@@ -179,7 +183,7 @@ module ModernTreasury
             metadata: T::Hash[Symbol, String],
             name: String,
             parent_account_id: String,
-            party_address: ModernTreasury::AddressRequest,
+            party_address: T.nilable(ModernTreasury::AddressRequest),
             party_type:
               T.nilable(
                 ModernTreasury::InternalAccountUpdateParams::PartyType::OrSymbol

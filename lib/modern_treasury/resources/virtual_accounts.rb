@@ -91,7 +91,7 @@ module ModernTreasury
       #
       # @param name [String, nil]
       #
-      # @param party_address [ModernTreasury::Models::AddressRequest] The address of the owner of the virtual account. Omit to leave it unchanged; pas
+      # @param party_address [ModernTreasury::Models::AddressRequest, nil] The address of the owner of the virtual account. Omit to leave it unchanged; pas
       #
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
