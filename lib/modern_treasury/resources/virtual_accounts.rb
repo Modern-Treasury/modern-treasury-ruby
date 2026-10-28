@@ -14,7 +14,7 @@ module ModernTreasury
       #
       # @param name [String] The name of the virtual account.
       #
-      # @param account_details [Array<ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail>] An array of account detail objects.
+      # @param account_details [Array<ModernTreasury::Models::AccountDetailCreateRequest>] An array of account detail objects.
       #
       # @param counterparty_id [String] The ID of the counterparty that the virtual account belongs to.
       #
@@ -34,7 +34,7 @@ module ModernTreasury
       #
       # @param party_address [ModernTreasury::Models::AddressRequest] The address of the owner of the virtual account. When absent, the internal accou
       #
-      # @param routing_details [Array<ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail>] An array of routing detail objects.
+      # @param routing_details [Array<ModernTreasury::Models::RoutingDetailCreateRequest>] An array of routing detail objects.
       #
       # @param virtual_account_setting_id [String] The ID of the virtual account setting used to allocate this virtual account.
       #

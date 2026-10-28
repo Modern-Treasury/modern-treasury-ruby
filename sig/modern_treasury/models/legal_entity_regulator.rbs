@@ -1,0 +1,26 @@
+module ModernTreasury
+  module Models
+    type legal_entity_regulator =
+      { jurisdiction: String, name: String, registration_number: String }
+
+    class LegalEntityRegulator < ModernTreasury::Internal::Type::BaseModel
+      attr_accessor jurisdiction: String
+
+      attr_accessor name: String
+
+      attr_accessor registration_number: String
+
+      def initialize: (
+        jurisdiction: String,
+        name: String,
+        registration_number: String
+      ) -> void
+
+      def to_hash: -> {
+        jurisdiction: String,
+        name: String,
+        registration_number: String
+      }
+    end
+  end
+end

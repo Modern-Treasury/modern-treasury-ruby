@@ -1,0 +1,79 @@
+module ModernTreasury
+  module Models
+    type account_collection_flow_create_request =
+      {
+        counterparty_id: String,
+        payment_types: ::Array[String],
+        receiving_countries: ::Array[ModernTreasury::Models::AccountCollectionFlowCreateRequest::receiving_country]
+      }
+
+    class AccountCollectionFlowCreateRequest < ModernTreasury::Internal::Type::BaseModel
+      attr_accessor counterparty_id: String
+
+      attr_accessor payment_types: ::Array[String]
+
+      attr_reader receiving_countries: ::Array[ModernTreasury::Models::AccountCollectionFlowCreateRequest::receiving_country]?
+
+      def receiving_countries=: (
+        ::Array[ModernTreasury::Models::AccountCollectionFlowCreateRequest::receiving_country]
+      ) -> ::Array[ModernTreasury::Models::AccountCollectionFlowCreateRequest::receiving_country]
+
+      def initialize: (
+        counterparty_id: String,
+        payment_types: ::Array[String],
+        ?receiving_countries: ::Array[ModernTreasury::Models::AccountCollectionFlowCreateRequest::receiving_country]
+      ) -> void
+
+      def to_hash: -> {
+        counterparty_id: String,
+        payment_types: ::Array[String],
+        receiving_countries: ::Array[ModernTreasury::Models::AccountCollectionFlowCreateRequest::receiving_country]
+      }
+
+      type receiving_country =
+        :USA
+        | :AUS
+        | :BEL
+        | :CAN
+        | :CHL
+        | :CHN
+        | :COL
+        | :FRA
+        | :DEU
+        | :HKG
+        | :IND
+        | :IRL
+        | :ITA
+        | :MEX
+        | :NLD
+        | :PER
+        | :ESP
+        | :GBR
+
+      module ReceivingCountry
+        extend ModernTreasury::Internal::Type::Enum
+
+        USA: :USA
+        AUS: :AUS
+        BEL: :BEL
+        CAN: :CAN
+        CHL: :CHL
+        CHN: :CHN
+        COL: :COL
+        FRA: :FRA
+        DEU: :DEU
+        HKG: :HKG
+        IND: :IND
+        IRL: :IRL
+        ITA: :ITA
+        MEX: :MEX
+        NLD: :NLD
+        PER: :PER
+        ESP: :ESP
+        GBR: :GBR
+
+        def self?.values: -> ::Array[ModernTreasury::Models::AccountCollectionFlowCreateRequest::receiving_country]
+      end
+    end
+  end
+end
