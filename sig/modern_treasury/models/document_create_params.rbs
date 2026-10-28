@@ -2,18 +2,16 @@ module ModernTreasury
   module Models
     type document_create_params =
       {
-        file: ModernTreasury::Internal::file_input,
         document_type: String,
         documentable_id: String,
-        documentable_type: ModernTreasury::Models::DocumentCreateParams::documentable_type
+        documentable_type: ModernTreasury::Models::DocumentCreateParams::documentable_type,
+        file: ModernTreasury::Internal::file_input
       }
       & ModernTreasury::Internal::Type::request_parameters
 
     class DocumentCreateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
-
-      attr_accessor file: ModernTreasury::Internal::file_input
 
       attr_reader document_type: String?
 
@@ -29,19 +27,25 @@ module ModernTreasury
         ModernTreasury::Models::DocumentCreateParams::documentable_type
       ) -> ModernTreasury::Models::DocumentCreateParams::documentable_type
 
+      attr_reader file: ModernTreasury::Internal::file_input?
+
+      def file=: (
+        ModernTreasury::Internal::file_input
+      ) -> ModernTreasury::Internal::file_input
+
       def initialize: (
-        file: ModernTreasury::Internal::file_input,
         ?document_type: String,
         ?documentable_id: String,
         ?documentable_type: ModernTreasury::Models::DocumentCreateParams::documentable_type,
+        ?file: ModernTreasury::Internal::file_input,
         ?request_options: ModernTreasury::request_opts
       ) -> void
 
       def to_hash: -> {
-        file: ModernTreasury::Internal::file_input,
         document_type: String,
         documentable_id: String,
         documentable_type: ModernTreasury::Models::DocumentCreateParams::documentable_type,
+        file: ModernTreasury::Internal::file_input,
         request_options: ModernTreasury::RequestOptions
       }
 

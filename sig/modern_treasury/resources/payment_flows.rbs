@@ -5,7 +5,7 @@ module ModernTreasury
         amount: Integer,
         counterparty_id: String,
         currency: String,
-        direction: ModernTreasury::Models::PaymentFlowCreateParams::direction,
+        direction: ModernTreasury::Models::PaymentFlowCreateRequest::direction,
         originating_account_id: String,
         ?due_date: Date,
         ?request_options: ModernTreasury::request_opts

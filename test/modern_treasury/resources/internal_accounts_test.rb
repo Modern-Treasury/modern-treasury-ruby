@@ -13,7 +13,7 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
     assert_pattern do
       response => {
         id: String,
-        account_capabilities: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccount::AccountCapability]),
+        account_capabilities: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountCapability]),
         account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail]),
         account_type: ModernTreasury::InternalAccount::AccountType | nil,
         allowed_ach_debit_company_ids: ^(ModernTreasury::Internal::Type::ArrayOf[String]) | nil,
@@ -53,7 +53,7 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
     assert_pattern do
       response => {
         id: String,
-        account_capabilities: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccount::AccountCapability]),
+        account_capabilities: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountCapability]),
         account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail]),
         account_type: ModernTreasury::InternalAccount::AccountType | nil,
         allowed_ach_debit_company_ids: ^(ModernTreasury::Internal::Type::ArrayOf[String]) | nil,
@@ -93,7 +93,7 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
     assert_pattern do
       response => {
         id: String,
-        account_capabilities: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccount::AccountCapability]),
+        account_capabilities: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountCapability]),
         account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail]),
         account_type: ModernTreasury::InternalAccount::AccountType | nil,
         allowed_ach_debit_company_ids: ^(ModernTreasury::Internal::Type::ArrayOf[String]) | nil,
@@ -140,7 +140,7 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
     assert_pattern do
       row => {
         id: String,
-        account_capabilities: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccount::AccountCapability]),
+        account_capabilities: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountCapability]),
         account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail]),
         account_type: ModernTreasury::InternalAccount::AccountType | nil,
         allowed_ach_debit_company_ids: ^(ModernTreasury::Internal::Type::ArrayOf[String]) | nil,
@@ -180,7 +180,7 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
     assert_pattern do
       response => {
         id: String,
-        account_capabilities: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccount::AccountCapability]),
+        account_capabilities: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountCapability]),
         account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail]),
         account_type: ModernTreasury::InternalAccount::AccountType | nil,
         allowed_ach_debit_company_ids: ^(ModernTreasury::Internal::Type::ArrayOf[String]) | nil,
@@ -219,7 +219,7 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
       )
 
     assert_pattern do
-      response => ModernTreasury::Models::InternalAccountUpdateAccountCapabilityResponse
+      response => ModernTreasury::AccountCapability
     end
 
     assert_pattern do
@@ -231,7 +231,7 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
         identifier: String | nil,
         live_mode: ModernTreasury::Internal::Type::Boolean,
         object: String,
-        payment_type: ModernTreasury::Models::InternalAccountUpdateAccountCapabilityResponse::PaymentType,
+        payment_type: ModernTreasury::AccountCapability::PaymentType,
         updated_at: Time
       }
     end

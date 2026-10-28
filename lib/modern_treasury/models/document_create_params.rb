@@ -7,11 +7,6 @@ module ModernTreasury
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
-      # @!attribute file
-      #
-      #   @return [Pathname, StringIO, IO, String, ModernTreasury::FilePart]
-      required :file, ModernTreasury::Internal::Type::FileInput
-
       # @!attribute document_type
       #   A category given to the document, can be `null`.
       #
@@ -29,14 +24,19 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::DocumentCreateParams::DocumentableType, nil]
       optional :documentable_type, enum: -> { ModernTreasury::DocumentCreateParams::DocumentableType }
 
-      # @!method initialize(file:, document_type: nil, documentable_id: nil, documentable_type: nil, request_options: {})
-      #   @param file [Pathname, StringIO, IO, String, ModernTreasury::FilePart]
+      # @!attribute file
       #
+      #   @return [Pathname, StringIO, IO, String, ModernTreasury::FilePart, nil]
+      optional :file, ModernTreasury::Internal::Type::FileInput
+
+      # @!method initialize(document_type: nil, documentable_id: nil, documentable_type: nil, file: nil, request_options: {})
       #   @param document_type [String] A category given to the document, can be `null`.
       #
       #   @param documentable_id [String] The unique identifier for the associated object.
       #
       #   @param documentable_type [Symbol, ModernTreasury::Models::DocumentCreateParams::DocumentableType]
+      #
+      #   @param file [Pathname, StringIO, IO, String, ModernTreasury::FilePart]
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
 
