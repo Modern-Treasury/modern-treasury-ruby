@@ -1483,6 +1483,11 @@ module ModernTreasury
               :eft_trace_number,
               ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
+          END_TO_END_IDENTIFICATION =
+            T.let(
+              :end_to_end_identification,
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
           EVOLVE_CORE_BATCH =
             T.let(
               :evolve_core_batch,
@@ -1546,6 +1551,11 @@ module ModernTreasury
           GOLDMAN_SACHS_UNIQUE_PAYMENT_ID =
             T.let(
               :goldman_sachs_unique_payment_id,
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
+          INSTRUCTION_IDENTIFICATION =
+            T.let(
+              :instruction_identification,
               ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           JPMC_CCN =
@@ -1678,6 +1688,11 @@ module ModernTreasury
               :rbc_wire_reference_id,
               ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
+          RETURN_IDENTIFICATION =
+            T.let(
+              :return_identification,
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
           RTP_INSTRUCTION_ID =
             T.let(
               :rtp_instruction_id,
@@ -1708,6 +1723,11 @@ module ModernTreasury
               :swift_uetr,
               ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
+          TRANSACTION_IDENTIFICATION =
+            T.let(
+              :transaction_identification,
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
           TURNKEY_ACTIVITY_ID =
             T.let(
               :turnkey_activity_id,
@@ -1716,6 +1736,11 @@ module ModernTreasury
           TURNKEY_SEND_TRANSACTION_STATUS_ID =
             T.let(
               :turnkey_send_transaction_status_id,
+              ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
+          UETR =
+            T.let(
+              :uetr,
               ModernTreasury::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           UMB_PRODUCT_PARTNER_ACCOUNT_NUMBER =
