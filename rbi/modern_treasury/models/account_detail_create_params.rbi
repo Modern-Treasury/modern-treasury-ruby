@@ -192,11 +192,6 @@ module ModernTreasury
             :other,
             ModernTreasury::AccountDetailCreateParams::AccountNumberType::TaggedSymbol
           )
-        PAN =
-          T.let(
-            :pan,
-            ModernTreasury::AccountDetailCreateParams::AccountNumberType::TaggedSymbol
-          )
         POLYGON_ADDRESS =
           T.let(
             :polygon_address,
