@@ -304,7 +304,6 @@ module ModernTreasury
         ID_NUMBER = :id_number
         NZ_NUMBER = :nz_number
         OTHER = :other
-        PAN = :pan
         POLYGON_ADDRESS = :polygon_address
         SG_NUMBER = :sg_number
         SOLANA_ADDRESS = :solana_address
