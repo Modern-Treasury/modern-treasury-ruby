@@ -30,7 +30,7 @@ module ModernTreasury
         ?ledger_account_id: String,
         ?metadata: ::Hash[Symbol, String],
         ?name: String?,
-        ?party_address: ModernTreasury::AddressRequest,
+        ?party_address: ModernTreasury::AddressRequest?,
         ?request_options: ModernTreasury::request_opts
       ) -> ModernTreasury::VirtualAccount
 
