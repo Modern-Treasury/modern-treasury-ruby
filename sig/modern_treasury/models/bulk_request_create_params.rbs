@@ -101,6 +101,7 @@ module ModernTreasury
             currency: ModernTreasury::Models::currency,
             description: String?,
             effective_date: Date,
+            end_to_end_id: String?,
             expires_at: Time?,
             external_id: String?,
             fallback_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::fallback_type,
@@ -166,6 +167,8 @@ module ModernTreasury
           attr_reader effective_date: Date?
 
           def effective_date=: (Date) -> Date
+
+          attr_accessor end_to_end_id: String?
 
           attr_accessor expires_at: Time?
 
@@ -279,6 +282,7 @@ module ModernTreasury
             ?currency: ModernTreasury::Models::currency,
             ?description: String?,
             ?effective_date: Date,
+            ?end_to_end_id: String?,
             ?expires_at: Time?,
             ?external_id: String?,
             ?fallback_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::fallback_type,
@@ -324,6 +328,7 @@ module ModernTreasury
             currency: ModernTreasury::Models::currency,
             description: String?,
             effective_date: Date,
+            end_to_end_id: String?,
             expires_at: Time?,
             external_id: String?,
             fallback_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::fallback_type,
@@ -1278,6 +1283,7 @@ module ModernTreasury
             description: String?,
             direction: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::direction,
             effective_date: Date,
+            end_to_end_id: String?,
             expires_at: Time?,
             external_id: String?,
             fallback_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::fallback_type,
@@ -1348,6 +1354,8 @@ module ModernTreasury
           attr_reader effective_date: Date?
 
           def effective_date=: (Date) -> Date
+
+          attr_accessor end_to_end_id: String?
 
           attr_accessor expires_at: Time?
 
@@ -1453,6 +1461,7 @@ module ModernTreasury
             ?description: String?,
             ?direction: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::direction,
             ?effective_date: Date,
+            ?end_to_end_id: String?,
             ?expires_at: Time?,
             ?external_id: String?,
             ?fallback_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::fallback_type,
@@ -1495,6 +1504,7 @@ module ModernTreasury
             description: String?,
             direction: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::direction,
             effective_date: Date,
+            end_to_end_id: String?,
             expires_at: Time?,
             external_id: String?,
             fallback_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::fallback_type,
