@@ -509,6 +509,7 @@ module ModernTreasury
           CURRENCYCLOUD_CONVERSION_ID = :currencycloud_conversion_id
           CURRENCYCLOUD_PAYMENT_ID = :currencycloud_payment_id
           EFT_TRACE_NUMBER = :eft_trace_number
+          END_TO_END_IDENTIFICATION = :end_to_end_identification
           EVOLVE_CORE_BATCH = :evolve_core_batch
           EVOLVE_CORE_FILE_KEY = :evolve_core_file_key
           EVOLVE_CORE_SEQ = :evolve_core_seq
@@ -522,6 +523,7 @@ module ModernTreasury
           GOLDMAN_SACHS_PAYMENT_REQUEST_ID = :goldman_sachs_payment_request_id
           GOLDMAN_SACHS_REQUEST_ID = :goldman_sachs_request_id
           GOLDMAN_SACHS_UNIQUE_PAYMENT_ID = :goldman_sachs_unique_payment_id
+          INSTRUCTION_IDENTIFICATION = :instruction_identification
           JPMC_CCN = :jpmc_ccn
           JPMC_CLEARING_SYSTEM_REFERENCE = :jpmc_clearing_system_reference
           JPMC_CUSTOMER_REFERENCE_ID = :jpmc_customer_reference_id
@@ -548,14 +550,17 @@ module ModernTreasury
           PNC_REQUEST_FOR_PAYMENT_ID = :pnc_request_for_payment_id
           PNC_TRANSACTION_REFERENCE_NUMBER = :pnc_transaction_reference_number
           RBC_WIRE_REFERENCE_ID = :rbc_wire_reference_id
+          RETURN_IDENTIFICATION = :return_identification
           RTP_INSTRUCTION_ID = :rtp_instruction_id
           SILVERGATE_PAYMENT_ID = :silvergate_payment_id
           SVB_END_TO_END_ID = :svb_end_to_end_id
           SVB_PAYMENT_ID = :svb_payment_id
           SWIFT_MIR = :swift_mir
           SWIFT_UETR = :swift_uetr
+          TRANSACTION_IDENTIFICATION = :transaction_identification
           TURNKEY_ACTIVITY_ID = :turnkey_activity_id
           TURNKEY_SEND_TRANSACTION_STATUS_ID = :turnkey_send_transaction_status_id
+          UETR = :uetr
           UMB_PRODUCT_PARTNER_ACCOUNT_NUMBER = :umb_product_partner_account_number
           USBANK_PAYMENT_APPLICATION_REFERENCE_ID = :usbank_payment_application_reference_id
           USBANK_PAYMENT_ID = :usbank_payment_id
