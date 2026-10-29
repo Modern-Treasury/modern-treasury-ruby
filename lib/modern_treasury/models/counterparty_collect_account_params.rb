@@ -75,7 +75,6 @@ module ModernTreasury
         IBAN_NUMBER = :ibanNumber
         CLABE_NUMBER = :clabeNumber
         WALLET_ADDRESS = :walletAddress
-        PAN_NUMBER = :panNumber
         ROUTING_NUMBER = :routingNumber
         ABA_WIRE_ROUTING_NUMBER = :abaWireRoutingNumber
         SWIFT_CODE = :swiftCode
