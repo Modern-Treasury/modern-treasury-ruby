@@ -176,11 +176,6 @@ module ModernTreasury
             :walletAddress,
             ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
           )
-        PAN_NUMBER =
-          T.let(
-            :panNumber,
-            ModernTreasury::CounterpartyCollectAccountParams::Field::TaggedSymbol
-          )
         ROUTING_NUMBER =
           T.let(
             :routingNumber,
