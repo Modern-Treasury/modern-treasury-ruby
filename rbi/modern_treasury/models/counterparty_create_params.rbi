@@ -18,19 +18,6 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :name
 
-      sig do
-        returns(T.nilable(ModernTreasury::CounterpartyCreateParams::Accounting))
-      end
-      attr_reader :accounting
-
-      sig do
-        params(
-          accounting:
-            ModernTreasury::CounterpartyCreateParams::Accounting::OrHash
-        ).void
-      end
-      attr_writer :accounting
-
       # The accounts for this counterparty.
       sig do
         returns(
@@ -54,25 +41,6 @@ module ModernTreasury
       # An optional user-defined 180 character unique identifier.
       sig { returns(T.nilable(String)) }
       attr_accessor :external_id
-
-      # An optional type to auto-sync the counterparty to your ledger. Either `customer`
-      # or `vendor`.
-      sig do
-        returns(
-          T.nilable(
-            ModernTreasury::CounterpartyCreateParams::LedgerType::OrSymbol
-          )
-        )
-      end
-      attr_reader :ledger_type
-
-      sig do
-        params(
-          ledger_type:
-            ModernTreasury::CounterpartyCreateParams::LedgerType::OrSymbol
-        ).void
-      end
-      attr_writer :ledger_type
 
       sig do
         returns(
@@ -126,14 +94,10 @@ module ModernTreasury
       sig do
         params(
           name: T.nilable(String),
-          accounting:
-            ModernTreasury::CounterpartyCreateParams::Accounting::OrHash,
           accounts:
             T::Array[ModernTreasury::CounterpartyCreateParams::Account::OrHash],
           email: T.nilable(String),
           external_id: T.nilable(String),
-          ledger_type:
-            ModernTreasury::CounterpartyCreateParams::LedgerType::OrSymbol,
           legal_entity:
             ModernTreasury::CounterpartyCreateParams::LegalEntity::OrHash,
           legal_entity_id: T.nilable(String),
@@ -147,16 +111,12 @@ module ModernTreasury
       def self.new(
         # A human friendly name for this counterparty.
         name:,
-        accounting: nil,
         # The accounts for this counterparty.
         accounts: nil,
         # The counterparty's email.
         email: nil,
         # An optional user-defined 180 character unique identifier.
         external_id: nil,
-        # An optional type to auto-sync the counterparty to your ledger. Either `customer`
-        # or `vendor`.
-        ledger_type: nil,
         legal_entity: nil,
         # The id of the legal entity.
         legal_entity_id: nil,
@@ -178,13 +138,10 @@ module ModernTreasury
         override.returns(
           {
             name: T.nilable(String),
-            accounting: ModernTreasury::CounterpartyCreateParams::Accounting,
             accounts:
               T::Array[ModernTreasury::CounterpartyCreateParams::Account],
             email: T.nilable(String),
             external_id: T.nilable(String),
-            ledger_type:
-              ModernTreasury::CounterpartyCreateParams::LedgerType::OrSymbol,
             legal_entity: ModernTreasury::CounterpartyCreateParams::LegalEntity,
             legal_entity_id: T.nilable(String),
             metadata: T::Hash[Symbol, String],
@@ -196,95 +153,6 @@ module ModernTreasury
         )
       end
       def to_hash
-      end
-
-      class Accounting < ModernTreasury::Internal::Type::BaseModel
-        OrHash =
-          T.type_alias do
-            T.any(
-              ModernTreasury::CounterpartyCreateParams::Accounting,
-              ModernTreasury::Internal::AnyHash
-            )
-          end
-
-        # An optional type to auto-sync the counterparty to your ledger. Either `customer`
-        # or `vendor`.
-        sig do
-          returns(
-            T.nilable(
-              ModernTreasury::CounterpartyCreateParams::Accounting::Type::OrSymbol
-            )
-          )
-        end
-        attr_reader :type
-
-        sig do
-          params(
-            type:
-              ModernTreasury::CounterpartyCreateParams::Accounting::Type::OrSymbol
-          ).void
-        end
-        attr_writer :type
-
-        sig do
-          params(
-            type:
-              ModernTreasury::CounterpartyCreateParams::Accounting::Type::OrSymbol
-          ).returns(T.attached_class)
-        end
-        def self.new(
-          # An optional type to auto-sync the counterparty to your ledger. Either `customer`
-          # or `vendor`.
-          type: nil
-        )
-        end
-
-        sig do
-          override.returns(
-            {
-              type:
-                ModernTreasury::CounterpartyCreateParams::Accounting::Type::OrSymbol
-            }
-          )
-        end
-        def to_hash
-        end
-
-        # An optional type to auto-sync the counterparty to your ledger. Either `customer`
-        # or `vendor`.
-        module Type
-          extend ModernTreasury::Internal::Type::Enum
-
-          TaggedSymbol =
-            T.type_alias do
-              T.all(
-                Symbol,
-                ModernTreasury::CounterpartyCreateParams::Accounting::Type
-              )
-            end
-          OrSymbol = T.type_alias { T.any(Symbol, String) }
-
-          CUSTOMER =
-            T.let(
-              :customer,
-              ModernTreasury::CounterpartyCreateParams::Accounting::Type::TaggedSymbol
-            )
-          VENDOR =
-            T.let(
-              :vendor,
-              ModernTreasury::CounterpartyCreateParams::Accounting::Type::TaggedSymbol
-            )
-
-          sig do
-            override.returns(
-              T::Array[
-                ModernTreasury::CounterpartyCreateParams::Accounting::Type::TaggedSymbol
-              ]
-            )
-          end
-          def self.values
-          end
-        end
       end
 
       class Account < ModernTreasury::Internal::Type::BaseModel
@@ -1055,39 +923,6 @@ module ModernTreasury
             def self.values
             end
           end
-        end
-      end
-
-      # An optional type to auto-sync the counterparty to your ledger. Either `customer`
-      # or `vendor`.
-      module LedgerType
-        extend ModernTreasury::Internal::Type::Enum
-
-        TaggedSymbol =
-          T.type_alias do
-            T.all(Symbol, ModernTreasury::CounterpartyCreateParams::LedgerType)
-          end
-        OrSymbol = T.type_alias { T.any(Symbol, String) }
-
-        CUSTOMER =
-          T.let(
-            :customer,
-            ModernTreasury::CounterpartyCreateParams::LedgerType::TaggedSymbol
-          )
-        VENDOR =
-          T.let(
-            :vendor,
-            ModernTreasury::CounterpartyCreateParams::LedgerType::TaggedSymbol
-          )
-
-        sig do
-          override.returns(
-            T::Array[
-              ModernTreasury::CounterpartyCreateParams::LedgerType::TaggedSymbol
-            ]
-          )
-        end
-        def self.values
         end
       end
 
