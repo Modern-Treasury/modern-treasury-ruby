@@ -8,19 +8,15 @@ module ModernTreasury
       #
       # Create a new counterparty.
       #
-      # @overload create(name:, accounting: nil, accounts: nil, email: nil, external_id: nil, ledger_type: nil, legal_entity: nil, legal_entity_id: nil, metadata: nil, send_remittance_advice: nil, taxpayer_identifier: nil, verification_status: nil, request_options: {})
+      # @overload create(name:, accounts: nil, email: nil, external_id: nil, legal_entity: nil, legal_entity_id: nil, metadata: nil, send_remittance_advice: nil, taxpayer_identifier: nil, verification_status: nil, request_options: {})
       #
       # @param name [String, nil] A human friendly name for this counterparty.
-      #
-      # @param accounting [ModernTreasury::Models::CounterpartyCreateParams::Accounting]
       #
       # @param accounts [Array<ModernTreasury::Models::CounterpartyCreateParams::Account>] The accounts for this counterparty.
       #
       # @param email [String, nil] The counterparty's email.
       #
       # @param external_id [String, nil] An optional user-defined 180 character unique identifier.
-      #
-      # @param ledger_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LedgerType] An optional type to auto-sync the counterparty to your ledger. Either `customer`
       #
       # @param legal_entity [ModernTreasury::Models::CounterpartyCreateParams::LegalEntity]
       #
