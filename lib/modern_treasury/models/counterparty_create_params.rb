@@ -13,12 +13,6 @@ module ModernTreasury
       #   @return [String, nil]
       required :name, String, nil?: true
 
-      # @!attribute accounting
-      #   @deprecated
-      #
-      #   @return [ModernTreasury::Models::CounterpartyCreateParams::Accounting, nil]
-      optional :accounting, -> { ModernTreasury::CounterpartyCreateParams::Accounting }
-
       # @!attribute accounts
       #   The accounts for this counterparty.
       #
@@ -37,15 +31,6 @@ module ModernTreasury
       #
       #   @return [String, nil]
       optional :external_id, String, nil?: true
-
-      # @!attribute ledger_type
-      #   @deprecated
-      #
-      #   An optional type to auto-sync the counterparty to your ledger. Either `customer`
-      #   or `vendor`.
-      #
-      #   @return [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LedgerType, nil]
-      optional :ledger_type, enum: -> { ModernTreasury::CounterpartyCreateParams::LedgerType }
 
       # @!attribute legal_entity
       #
@@ -86,21 +71,17 @@ module ModernTreasury
       #   @return [String, nil]
       optional :verification_status, String
 
-      # @!method initialize(name:, accounting: nil, accounts: nil, email: nil, external_id: nil, ledger_type: nil, legal_entity: nil, legal_entity_id: nil, metadata: nil, send_remittance_advice: nil, taxpayer_identifier: nil, verification_status: nil, request_options: {})
+      # @!method initialize(name:, accounts: nil, email: nil, external_id: nil, legal_entity: nil, legal_entity_id: nil, metadata: nil, send_remittance_advice: nil, taxpayer_identifier: nil, verification_status: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::CounterpartyCreateParams} for more details.
       #
       #   @param name [String, nil] A human friendly name for this counterparty.
-      #
-      #   @param accounting [ModernTreasury::Models::CounterpartyCreateParams::Accounting]
       #
       #   @param accounts [Array<ModernTreasury::Models::CounterpartyCreateParams::Account>] The accounts for this counterparty.
       #
       #   @param email [String, nil] The counterparty's email.
       #
       #   @param external_id [String, nil] An optional user-defined 180 character unique identifier.
-      #
-      #   @param ledger_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LedgerType] An optional type to auto-sync the counterparty to your ledger. Either `customer`
       #
       #   @param legal_entity [ModernTreasury::Models::CounterpartyCreateParams::LegalEntity]
       #
@@ -115,36 +96,6 @@ module ModernTreasury
       #   @param verification_status [String] The verification status of the counterparty.
       #
       #   @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
-
-      # @deprecated
-      class Accounting < ModernTreasury::Internal::Type::BaseModel
-        # @!attribute type
-        #   An optional type to auto-sync the counterparty to your ledger. Either `customer`
-        #   or `vendor`.
-        #
-        #   @return [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Accounting::Type, nil]
-        optional :type, enum: -> { ModernTreasury::CounterpartyCreateParams::Accounting::Type }
-
-        # @!method initialize(type: nil)
-        #   Some parameter documentations has been truncated, see
-        #   {ModernTreasury::Models::CounterpartyCreateParams::Accounting} for more details.
-        #
-        #   @param type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Accounting::Type] An optional type to auto-sync the counterparty to your ledger. Either `customer`
-
-        # An optional type to auto-sync the counterparty to your ledger. Either `customer`
-        # or `vendor`.
-        #
-        # @see ModernTreasury::Models::CounterpartyCreateParams::Accounting#type
-        module Type
-          extend ModernTreasury::Internal::Type::Enum
-
-          CUSTOMER = :customer
-          VENDOR = :vendor
-
-          # @!method self.values
-          #   @return [Array<Symbol>]
-        end
-      end
 
       class Account < ModernTreasury::Internal::Type::BaseModel
         # @!attribute account_details
@@ -404,20 +355,6 @@ module ModernTreasury
             #   @return [Array<Symbol>]
           end
         end
-      end
-
-      # @deprecated
-      #
-      # An optional type to auto-sync the counterparty to your ledger. Either `customer`
-      # or `vendor`.
-      module LedgerType
-        extend ModernTreasury::Internal::Type::Enum
-
-        CUSTOMER = :customer
-        VENDOR = :vendor
-
-        # @!method self.values
-        #   @return [Array<Symbol>]
       end
 
       class LegalEntity < ModernTreasury::Internal::Type::BaseModel

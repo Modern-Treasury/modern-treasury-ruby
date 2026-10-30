@@ -7,14 +7,10 @@ module ModernTreasury
       sig do
         params(
           name: T.nilable(String),
-          accounting:
-            ModernTreasury::CounterpartyCreateParams::Accounting::OrHash,
           accounts:
             T::Array[ModernTreasury::CounterpartyCreateParams::Account::OrHash],
           email: T.nilable(String),
           external_id: T.nilable(String),
-          ledger_type:
-            ModernTreasury::CounterpartyCreateParams::LedgerType::OrSymbol,
           legal_entity:
             ModernTreasury::CounterpartyCreateParams::LegalEntity::OrHash,
           legal_entity_id: T.nilable(String),
@@ -28,16 +24,12 @@ module ModernTreasury
       def create(
         # A human friendly name for this counterparty.
         name:,
-        accounting: nil,
         # The accounts for this counterparty.
         accounts: nil,
         # The counterparty's email.
         email: nil,
         # An optional user-defined 180 character unique identifier.
         external_id: nil,
-        # An optional type to auto-sync the counterparty to your ledger. Either `customer`
-        # or `vendor`.
-        ledger_type: nil,
         legal_entity: nil,
         # The id of the legal entity.
         legal_entity_id: nil,
