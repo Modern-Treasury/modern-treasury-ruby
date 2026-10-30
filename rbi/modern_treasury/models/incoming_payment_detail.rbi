@@ -431,11 +431,6 @@ module ModernTreasury
             :other,
             ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
           )
-        PAN =
-          T.let(
-            :pan,
-            ModernTreasury::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
-          )
         POLYGON_ADDRESS =
           T.let(
             :polygon_address,

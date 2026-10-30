@@ -1695,11 +1695,6 @@ module ModernTreasury
                     :other,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
                   )
-                PAN =
-                  T.let(
-                    :pan,
-                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
-                  )
                 POLYGON_ADDRESS =
                   T.let(
                     :polygon_address,
@@ -4535,11 +4530,6 @@ module ModernTreasury
                 OTHER =
                   T.let(
                     :other,
-                    ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
-                  )
-                PAN =
-                  T.let(
-                    :pan,
                     ModernTreasury::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
                   )
                 POLYGON_ADDRESS =
