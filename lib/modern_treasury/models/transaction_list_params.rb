@@ -73,11 +73,6 @@ module ModernTreasury
       #   @return [Boolean, nil]
       optional :posted, ModernTreasury::Internal::Type::Boolean
 
-      # @!attribute transactable_type
-      #
-      #   @return [String, nil]
-      optional :transactable_type, String
-
       # @!attribute vendor_id
       #   Filters for transactions including the queried vendor id (an identifier given to
       #   transactions by the bank).
@@ -90,7 +85,7 @@ module ModernTreasury
       #   @return [String, nil]
       optional :virtual_account_id, String
 
-      # @!method initialize(after_cursor: nil, as_of_date_end: nil, as_of_date_start: nil, counterparty_id: nil, description: nil, direction: nil, internal_account_id: nil, metadata: nil, payment_type: nil, per_page: nil, posted: nil, transactable_type: nil, vendor_id: nil, virtual_account_id: nil, request_options: {})
+      # @!method initialize(after_cursor: nil, as_of_date_end: nil, as_of_date_start: nil, counterparty_id: nil, description: nil, direction: nil, internal_account_id: nil, metadata: nil, payment_type: nil, per_page: nil, posted: nil, vendor_id: nil, virtual_account_id: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::TransactionListParams} for more details.
       #
@@ -115,8 +110,6 @@ module ModernTreasury
       #   @param per_page [Integer]
       #
       #   @param posted [Boolean] Either `true` or `false`.
-      #
-      #   @param transactable_type [String]
       #
       #   @param vendor_id [String] Filters for transactions including the queried vendor id (an identifier given to
       #
