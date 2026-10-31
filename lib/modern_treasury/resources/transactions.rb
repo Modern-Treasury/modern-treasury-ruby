@@ -105,7 +105,7 @@ module ModernTreasury
       #
       # Get a list of all transactions.
       #
-      # @overload list(after_cursor: nil, as_of_date_end: nil, as_of_date_start: nil, counterparty_id: nil, description: nil, direction: nil, internal_account_id: nil, metadata: nil, payment_type: nil, per_page: nil, posted: nil, transactable_type: nil, vendor_id: nil, virtual_account_id: nil, request_options: {})
+      # @overload list(after_cursor: nil, as_of_date_end: nil, as_of_date_start: nil, counterparty_id: nil, description: nil, direction: nil, internal_account_id: nil, metadata: nil, payment_type: nil, per_page: nil, posted: nil, vendor_id: nil, virtual_account_id: nil, request_options: {})
       #
       # @param after_cursor [String, nil]
       #
@@ -128,8 +128,6 @@ module ModernTreasury
       # @param per_page [Integer]
       #
       # @param posted [Boolean] Either `true` or `false`.
-      #
-      # @param transactable_type [String]
       #
       # @param vendor_id [String] Filters for transactions including the queried vendor id (an identifier given to
       #

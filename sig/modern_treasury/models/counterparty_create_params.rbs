@@ -3,11 +3,9 @@ module ModernTreasury
     type counterparty_create_params =
       {
         name: String?,
-        accounting: ModernTreasury::CounterpartyCreateParams::Accounting,
         accounts: ::Array[ModernTreasury::CounterpartyCreateParams::Account],
         email: String?,
         external_id: String?,
-        ledger_type: ModernTreasury::Models::CounterpartyCreateParams::ledger_type,
         legal_entity: ModernTreasury::CounterpartyCreateParams::LegalEntity,
         legal_entity_id: String?,
         metadata: ::Hash[Symbol, String],
@@ -23,12 +21,6 @@ module ModernTreasury
 
       attr_accessor name: String?
 
-      attr_reader accounting: ModernTreasury::CounterpartyCreateParams::Accounting?
-
-      def accounting=: (
-        ModernTreasury::CounterpartyCreateParams::Accounting
-      ) -> ModernTreasury::CounterpartyCreateParams::Accounting
-
       attr_reader accounts: ::Array[ModernTreasury::CounterpartyCreateParams::Account]?
 
       def accounts=: (
@@ -38,12 +30,6 @@ module ModernTreasury
       attr_accessor email: String?
 
       attr_accessor external_id: String?
-
-      attr_reader ledger_type: ModernTreasury::Models::CounterpartyCreateParams::ledger_type?
-
-      def ledger_type=: (
-        ModernTreasury::Models::CounterpartyCreateParams::ledger_type
-      ) -> ModernTreasury::Models::CounterpartyCreateParams::ledger_type
 
       attr_reader legal_entity: ModernTreasury::CounterpartyCreateParams::LegalEntity?
 
@@ -71,11 +57,9 @@ module ModernTreasury
 
       def initialize: (
         name: String?,
-        ?accounting: ModernTreasury::CounterpartyCreateParams::Accounting,
         ?accounts: ::Array[ModernTreasury::CounterpartyCreateParams::Account],
         ?email: String?,
         ?external_id: String?,
-        ?ledger_type: ModernTreasury::Models::CounterpartyCreateParams::ledger_type,
         ?legal_entity: ModernTreasury::CounterpartyCreateParams::LegalEntity,
         ?legal_entity_id: String?,
         ?metadata: ::Hash[Symbol, String],
@@ -87,11 +71,9 @@ module ModernTreasury
 
       def to_hash: -> {
         name: String?,
-        accounting: ModernTreasury::CounterpartyCreateParams::Accounting,
         accounts: ::Array[ModernTreasury::CounterpartyCreateParams::Account],
         email: String?,
         external_id: String?,
-        ledger_type: ModernTreasury::Models::CounterpartyCreateParams::ledger_type,
         legal_entity: ModernTreasury::CounterpartyCreateParams::LegalEntity,
         legal_entity_id: String?,
         metadata: ::Hash[Symbol, String],
@@ -100,38 +82,6 @@ module ModernTreasury
         verification_status: String,
         request_options: ModernTreasury::RequestOptions
       }
-
-      type accounting =
-        {
-          type: ModernTreasury::Models::CounterpartyCreateParams::Accounting::type_
-        }
-
-      class Accounting < ModernTreasury::Internal::Type::BaseModel
-        attr_reader type: ModernTreasury::Models::CounterpartyCreateParams::Accounting::type_?
-
-        def type=: (
-          ModernTreasury::Models::CounterpartyCreateParams::Accounting::type_
-        ) -> ModernTreasury::Models::CounterpartyCreateParams::Accounting::type_
-
-        def initialize: (
-          ?type: ModernTreasury::Models::CounterpartyCreateParams::Accounting::type_
-        ) -> void
-
-        def to_hash: -> {
-          type: ModernTreasury::Models::CounterpartyCreateParams::Accounting::type_
-        }
-
-        type type_ = :customer | :vendor
-
-        module Type
-          extend ModernTreasury::Internal::Type::Enum
-
-          CUSTOMER: :customer
-          VENDOR: :vendor
-
-          def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::Accounting::type_]
-        end
-      end
 
       type account =
         {
@@ -457,17 +407,6 @@ module ModernTreasury
             def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::payment_type]
           end
         end
-      end
-
-      type ledger_type = :customer | :vendor
-
-      module LedgerType
-        extend ModernTreasury::Internal::Type::Enum
-
-        CUSTOMER: :customer
-        VENDOR: :vendor
-
-        def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::ledger_type]
       end
 
       type legal_entity =

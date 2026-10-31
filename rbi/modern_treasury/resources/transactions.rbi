@@ -109,7 +109,6 @@ module ModernTreasury
           payment_type: String,
           per_page: Integer,
           posted: T::Boolean,
-          transactable_type: String,
           vendor_id: String,
           virtual_account_id: String,
           request_options: ModernTreasury::RequestOptions::OrHash
@@ -138,7 +137,6 @@ module ModernTreasury
         per_page: nil,
         # Either `true` or `false`.
         posted: nil,
-        transactable_type: nil,
         # Filters for transactions including the queried vendor id (an identifier given to
         # transactions by the bank).
         vendor_id: nil,
