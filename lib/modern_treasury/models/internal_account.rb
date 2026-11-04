@@ -177,7 +177,14 @@ module ModernTreasury
       #   @return [String, nil]
       required :vendor_id, String, nil?: true
 
-      # @!method initialize(id:, account_capabilities:, account_details:, account_type:, allowed_ach_debit_company_ids:, connection:, contra_ledger_account_id:, counterparty_id:, created_at:, currency:, debitable:, external_id:, ledger_account_id:, legal_entity_id:, live_mode:, metadata:, name:, object:, parent_account_id:, party_address:, party_name:, party_type:, routing_details:, status:, title:, updated_at:, vendor_id:)
+      # @!attribute latest_balances
+      #   An array of `Balance` objects from the account's latest balance report.
+      #
+      #   @return [Array<ModernTreasury::Models::InternalAccount::LatestBalance>, nil]
+      optional :latest_balances,
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccount::LatestBalance] }
+
+      # @!method initialize(id:, account_capabilities:, account_details:, account_type:, allowed_ach_debit_company_ids:, connection:, contra_ledger_account_id:, counterparty_id:, created_at:, currency:, debitable:, external_id:, ledger_account_id:, legal_entity_id:, live_mode:, metadata:, name:, object:, parent_account_id:, party_address:, party_name:, party_type:, routing_details:, status:, title:, updated_at:, vendor_id:, latest_balances: nil)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::InternalAccount} for more details.
       #
@@ -234,6 +241,8 @@ module ModernTreasury
       #   @param updated_at [Time]
       #
       #   @param vendor_id [String, nil] The vendor ID associated with this account.
+      #
+      #   @param latest_balances [Array<ModernTreasury::Models::InternalAccount::LatestBalance>] An array of `Balance` objects from the account's latest balance report.
 
       class AccountCapability < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
@@ -398,6 +407,158 @@ module ModernTreasury
 
         # @!method self.values
         #   @return [Array<Symbol>]
+      end
+
+      class LatestBalance < ModernTreasury::Internal::Type::BaseModel
+        # @!attribute id
+        #
+        #   @return [String]
+        required :id, String
+
+        # @!attribute amount
+        #   The balance amount.
+        #
+        #   @return [Integer]
+        required :amount, Integer
+
+        # @!attribute amount_string
+        #   The amount of the balance as a string, preserving full precision for values that
+        #   may exceed safe integer limits in some languages.
+        #
+        #   @return [String]
+        required :amount_string, String
+
+        # @!attribute as_of_date
+        #   The date on which the balance became true for the account.
+        #
+        #   @return [Date, nil]
+        required :as_of_date, Date, nil?: true
+
+        # @!attribute as_of_time
+        #   The time on which the balance became true for the account.
+        #
+        #   @return [Time, nil]
+        required :as_of_time, Time, nil?: true
+
+        # @!attribute balance_type
+        #   The specific type of balance reported. One of `opening_ledger`,
+        #   `closing_ledger`, `current_ledger`, `opening_available`,
+        #   `opening_available_next_business_day`, `closing_available`,
+        #   `closing_pending_inflows`, `closing_pending_outflows`, `current_available`,
+        #   'previously_closed_book', `current_pending_inflows`, `current_pending_outflows`,
+        #   or `other`.
+        #
+        #   @return [Symbol, ModernTreasury::Models::InternalAccount::LatestBalance::BalanceType]
+        required :balance_type, enum: -> { ModernTreasury::InternalAccount::LatestBalance::BalanceType }
+
+        # @!attribute created_at
+        #
+        #   @return [Time]
+        required :created_at, Time
+
+        # @!attribute currency
+        #   The currency of the balance.
+        #
+        #   @return [Symbol, ModernTreasury::Models::Currency]
+        required :currency, enum: -> { ModernTreasury::Currency }
+
+        # @!attribute live_mode
+        #   This field will be true if this object exists in the live environment or false
+        #   if it exists in the test environment.
+        #
+        #   @return [Boolean]
+        required :live_mode, ModernTreasury::Internal::Type::Boolean
+
+        # @!attribute object
+        #
+        #   @return [String]
+        required :object, String
+
+        # @!attribute updated_at
+        #
+        #   @return [Time]
+        required :updated_at, Time
+
+        # @!attribute value_date
+        #   The date on which the balance becomes available.
+        #
+        #   @return [Date, nil]
+        required :value_date, Date, nil?: true
+
+        # @!attribute vendor_code
+        #   The code used by the bank when reporting this specific balance.
+        #
+        #   @return [String]
+        required :vendor_code, String
+
+        # @!attribute vendor_code_type
+        #   The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
+        #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dwolla`, `evolve`,
+        #   `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`, or `us_bank`.
+        #
+        #   @return [String, nil]
+        required :vendor_code_type, String, nil?: true
+
+        # @!method initialize(id:, amount:, amount_string:, as_of_date:, as_of_time:, balance_type:, created_at:, currency:, live_mode:, object:, updated_at:, value_date:, vendor_code:, vendor_code_type:)
+        #   Some parameter documentations has been truncated, see
+        #   {ModernTreasury::Models::InternalAccount::LatestBalance} for more details.
+        #
+        #   @param id [String]
+        #
+        #   @param amount [Integer] The balance amount.
+        #
+        #   @param amount_string [String] The amount of the balance as a string, preserving full precision for values that
+        #
+        #   @param as_of_date [Date, nil] The date on which the balance became true for the account.
+        #
+        #   @param as_of_time [Time, nil] The time on which the balance became true for the account.
+        #
+        #   @param balance_type [Symbol, ModernTreasury::Models::InternalAccount::LatestBalance::BalanceType] The specific type of balance reported. One of `opening_ledger`, `closing_ledger`
+        #
+        #   @param created_at [Time]
+        #
+        #   @param currency [Symbol, ModernTreasury::Models::Currency] The currency of the balance.
+        #
+        #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
+        #
+        #   @param object [String]
+        #
+        #   @param updated_at [Time]
+        #
+        #   @param value_date [Date, nil] The date on which the balance becomes available.
+        #
+        #   @param vendor_code [String] The code used by the bank when reporting this specific balance.
+        #
+        #   @param vendor_code_type [String, nil] The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`, `bnk
+
+        # The specific type of balance reported. One of `opening_ledger`,
+        # `closing_ledger`, `current_ledger`, `opening_available`,
+        # `opening_available_next_business_day`, `closing_available`,
+        # `closing_pending_inflows`, `closing_pending_outflows`, `current_available`,
+        # 'previously_closed_book', `current_pending_inflows`, `current_pending_outflows`,
+        # or `other`.
+        #
+        # @see ModernTreasury::Models::InternalAccount::LatestBalance#balance_type
+        module BalanceType
+          extend ModernTreasury::Internal::Type::Enum
+
+          CLOSING_AVAILABLE = :closing_available
+          CLOSING_LEDGER = :closing_ledger
+          CLOSING_PENDING_INFLOWS = :closing_pending_inflows
+          CLOSING_PENDING_OUTFLOWS = :closing_pending_outflows
+          CURRENT_AVAILABLE = :current_available
+          CURRENT_LEDGER = :current_ledger
+          CURRENT_PENDING_INFLOWS = :current_pending_inflows
+          CURRENT_PENDING_OUTFLOWS = :current_pending_outflows
+          OPENING_AVAILABLE = :opening_available
+          OPENING_AVAILABLE_NEXT_BUSINESS_DAY = :opening_available_next_business_day
+          OPENING_LEDGER = :opening_ledger
+          OTHER = :other
+          PREVIOUSLY_CLOSED_BOOK = :previously_closed_book
+
+          # @!method self.values
+          #   @return [Array<Symbol>]
+        end
       end
     end
   end
