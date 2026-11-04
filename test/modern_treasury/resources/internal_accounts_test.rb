@@ -38,7 +38,8 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
         status: ModernTreasury::InternalAccount::Status | nil,
         title: String,
         updated_at: Time,
-        vendor_id: String | nil
+        vendor_id: String | nil,
+        latest_balances: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccount::LatestBalance]) | nil
       }
     end
   end
@@ -78,7 +79,8 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
         status: ModernTreasury::InternalAccount::Status | nil,
         title: String,
         updated_at: Time,
-        vendor_id: String | nil
+        vendor_id: String | nil,
+        latest_balances: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccount::LatestBalance]) | nil
       }
     end
   end
@@ -118,7 +120,8 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
         status: ModernTreasury::InternalAccount::Status | nil,
         title: String,
         updated_at: Time,
-        vendor_id: String | nil
+        vendor_id: String | nil,
+        latest_balances: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccount::LatestBalance]) | nil
       }
     end
   end
@@ -165,7 +168,8 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
         status: ModernTreasury::InternalAccount::Status | nil,
         title: String,
         updated_at: Time,
-        vendor_id: String | nil
+        vendor_id: String | nil,
+        latest_balances: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccount::LatestBalance]) | nil
       }
     end
   end
@@ -205,7 +209,8 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
         status: ModernTreasury::InternalAccount::Status | nil,
         title: String,
         updated_at: Time,
-        vendor_id: String | nil
+        vendor_id: String | nil,
+        latest_balances: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccount::LatestBalance]) | nil
       }
     end
   end

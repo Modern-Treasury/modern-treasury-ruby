@@ -151,6 +151,22 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :vendor_id
 
+      # An array of `Balance` objects from the account's latest balance report.
+      sig do
+        returns(
+          T.nilable(T::Array[ModernTreasury::InternalAccount::LatestBalance])
+        )
+      end
+      attr_reader :latest_balances
+
+      sig do
+        params(
+          latest_balances:
+            T::Array[ModernTreasury::InternalAccount::LatestBalance::OrHash]
+        ).void
+      end
+      attr_writer :latest_balances
+
       sig do
         params(
           id: String,
@@ -184,7 +200,9 @@ module ModernTreasury
           status: T.nilable(ModernTreasury::InternalAccount::Status::OrSymbol),
           title: String,
           updated_at: Time,
-          vendor_id: T.nilable(String)
+          vendor_id: T.nilable(String),
+          latest_balances:
+            T::Array[ModernTreasury::InternalAccount::LatestBalance::OrHash]
         ).returns(T.attached_class)
       end
       def self.new(
@@ -251,7 +269,9 @@ module ModernTreasury
         title:,
         updated_at:,
         # The vendor ID associated with this account.
-        vendor_id:
+        vendor_id:,
+        # An array of `Balance` objects from the account's latest balance report.
+        latest_balances: nil
       )
       end
 
@@ -292,7 +312,9 @@ module ModernTreasury
               T.nilable(ModernTreasury::InternalAccount::Status::TaggedSymbol),
             title: String,
             updated_at: Time,
-            vendor_id: T.nilable(String)
+            vendor_id: T.nilable(String),
+            latest_balances:
+              T::Array[ModernTreasury::InternalAccount::LatestBalance]
           }
         )
       end
@@ -690,6 +712,256 @@ module ModernTreasury
           )
         end
         def self.values
+        end
+      end
+
+      class LatestBalance < ModernTreasury::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              ModernTreasury::InternalAccount::LatestBalance,
+              ModernTreasury::Internal::AnyHash
+            )
+          end
+
+        sig { returns(String) }
+        attr_accessor :id
+
+        # The balance amount.
+        sig { returns(Integer) }
+        attr_accessor :amount
+
+        # The amount of the balance as a string, preserving full precision for values that
+        # may exceed safe integer limits in some languages.
+        sig { returns(String) }
+        attr_accessor :amount_string
+
+        # The date on which the balance became true for the account.
+        sig { returns(T.nilable(Date)) }
+        attr_accessor :as_of_date
+
+        # The time on which the balance became true for the account.
+        sig { returns(T.nilable(Time)) }
+        attr_accessor :as_of_time
+
+        # The specific type of balance reported. One of `opening_ledger`,
+        # `closing_ledger`, `current_ledger`, `opening_available`,
+        # `opening_available_next_business_day`, `closing_available`,
+        # `closing_pending_inflows`, `closing_pending_outflows`, `current_available`,
+        # 'previously_closed_book', `current_pending_inflows`, `current_pending_outflows`,
+        # or `other`.
+        sig do
+          returns(
+            ModernTreasury::InternalAccount::LatestBalance::BalanceType::TaggedSymbol
+          )
+        end
+        attr_accessor :balance_type
+
+        sig { returns(Time) }
+        attr_accessor :created_at
+
+        # The currency of the balance.
+        sig { returns(ModernTreasury::Currency::TaggedSymbol) }
+        attr_accessor :currency
+
+        # This field will be true if this object exists in the live environment or false
+        # if it exists in the test environment.
+        sig { returns(T::Boolean) }
+        attr_accessor :live_mode
+
+        sig { returns(String) }
+        attr_accessor :object
+
+        sig { returns(Time) }
+        attr_accessor :updated_at
+
+        # The date on which the balance becomes available.
+        sig { returns(T.nilable(Date)) }
+        attr_accessor :value_date
+
+        # The code used by the bank when reporting this specific balance.
+        sig { returns(String) }
+        attr_accessor :vendor_code
+
+        # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
+        # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dwolla`, `evolve`,
+        # `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`, or `us_bank`.
+        sig { returns(T.nilable(String)) }
+        attr_accessor :vendor_code_type
+
+        sig do
+          params(
+            id: String,
+            amount: Integer,
+            amount_string: String,
+            as_of_date: T.nilable(Date),
+            as_of_time: T.nilable(Time),
+            balance_type:
+              ModernTreasury::InternalAccount::LatestBalance::BalanceType::OrSymbol,
+            created_at: Time,
+            currency: ModernTreasury::Currency::OrSymbol,
+            live_mode: T::Boolean,
+            object: String,
+            updated_at: Time,
+            value_date: T.nilable(Date),
+            vendor_code: String,
+            vendor_code_type: T.nilable(String)
+          ).returns(T.attached_class)
+        end
+        def self.new(
+          id:,
+          # The balance amount.
+          amount:,
+          # The amount of the balance as a string, preserving full precision for values that
+          # may exceed safe integer limits in some languages.
+          amount_string:,
+          # The date on which the balance became true for the account.
+          as_of_date:,
+          # The time on which the balance became true for the account.
+          as_of_time:,
+          # The specific type of balance reported. One of `opening_ledger`,
+          # `closing_ledger`, `current_ledger`, `opening_available`,
+          # `opening_available_next_business_day`, `closing_available`,
+          # `closing_pending_inflows`, `closing_pending_outflows`, `current_available`,
+          # 'previously_closed_book', `current_pending_inflows`, `current_pending_outflows`,
+          # or `other`.
+          balance_type:,
+          created_at:,
+          # The currency of the balance.
+          currency:,
+          # This field will be true if this object exists in the live environment or false
+          # if it exists in the test environment.
+          live_mode:,
+          object:,
+          updated_at:,
+          # The date on which the balance becomes available.
+          value_date:,
+          # The code used by the bank when reporting this specific balance.
+          vendor_code:,
+          # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
+          # `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dwolla`, `evolve`,
+          # `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `silvergate`, `swift`, or `us_bank`.
+          vendor_code_type:
+        )
+        end
+
+        sig do
+          override.returns(
+            {
+              id: String,
+              amount: Integer,
+              amount_string: String,
+              as_of_date: T.nilable(Date),
+              as_of_time: T.nilable(Time),
+              balance_type:
+                ModernTreasury::InternalAccount::LatestBalance::BalanceType::TaggedSymbol,
+              created_at: Time,
+              currency: ModernTreasury::Currency::TaggedSymbol,
+              live_mode: T::Boolean,
+              object: String,
+              updated_at: Time,
+              value_date: T.nilable(Date),
+              vendor_code: String,
+              vendor_code_type: T.nilable(String)
+            }
+          )
+        end
+        def to_hash
+        end
+
+        # The specific type of balance reported. One of `opening_ledger`,
+        # `closing_ledger`, `current_ledger`, `opening_available`,
+        # `opening_available_next_business_day`, `closing_available`,
+        # `closing_pending_inflows`, `closing_pending_outflows`, `current_available`,
+        # 'previously_closed_book', `current_pending_inflows`, `current_pending_outflows`,
+        # or `other`.
+        module BalanceType
+          extend ModernTreasury::Internal::Type::Enum
+
+          TaggedSymbol =
+            T.type_alias do
+              T.all(
+                Symbol,
+                ModernTreasury::InternalAccount::LatestBalance::BalanceType
+              )
+            end
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          CLOSING_AVAILABLE =
+            T.let(
+              :closing_available,
+              ModernTreasury::InternalAccount::LatestBalance::BalanceType::TaggedSymbol
+            )
+          CLOSING_LEDGER =
+            T.let(
+              :closing_ledger,
+              ModernTreasury::InternalAccount::LatestBalance::BalanceType::TaggedSymbol
+            )
+          CLOSING_PENDING_INFLOWS =
+            T.let(
+              :closing_pending_inflows,
+              ModernTreasury::InternalAccount::LatestBalance::BalanceType::TaggedSymbol
+            )
+          CLOSING_PENDING_OUTFLOWS =
+            T.let(
+              :closing_pending_outflows,
+              ModernTreasury::InternalAccount::LatestBalance::BalanceType::TaggedSymbol
+            )
+          CURRENT_AVAILABLE =
+            T.let(
+              :current_available,
+              ModernTreasury::InternalAccount::LatestBalance::BalanceType::TaggedSymbol
+            )
+          CURRENT_LEDGER =
+            T.let(
+              :current_ledger,
+              ModernTreasury::InternalAccount::LatestBalance::BalanceType::TaggedSymbol
+            )
+          CURRENT_PENDING_INFLOWS =
+            T.let(
+              :current_pending_inflows,
+              ModernTreasury::InternalAccount::LatestBalance::BalanceType::TaggedSymbol
+            )
+          CURRENT_PENDING_OUTFLOWS =
+            T.let(
+              :current_pending_outflows,
+              ModernTreasury::InternalAccount::LatestBalance::BalanceType::TaggedSymbol
+            )
+          OPENING_AVAILABLE =
+            T.let(
+              :opening_available,
+              ModernTreasury::InternalAccount::LatestBalance::BalanceType::TaggedSymbol
+            )
+          OPENING_AVAILABLE_NEXT_BUSINESS_DAY =
+            T.let(
+              :opening_available_next_business_day,
+              ModernTreasury::InternalAccount::LatestBalance::BalanceType::TaggedSymbol
+            )
+          OPENING_LEDGER =
+            T.let(
+              :opening_ledger,
+              ModernTreasury::InternalAccount::LatestBalance::BalanceType::TaggedSymbol
+            )
+          OTHER =
+            T.let(
+              :other,
+              ModernTreasury::InternalAccount::LatestBalance::BalanceType::TaggedSymbol
+            )
+          PREVIOUSLY_CLOSED_BOOK =
+            T.let(
+              :previously_closed_book,
+              ModernTreasury::InternalAccount::LatestBalance::BalanceType::TaggedSymbol
+            )
+
+          sig do
+            override.returns(
+              T::Array[
+                ModernTreasury::InternalAccount::LatestBalance::BalanceType::TaggedSymbol
+              ]
+            )
+          end
+          def self.values
+          end
         end
       end
     end
