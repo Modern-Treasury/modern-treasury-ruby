@@ -197,6 +197,16 @@ module ModernTreasury
             :wire,
             ModernTreasury::AccountCollectionFlow::PaymentType::TaggedSymbol
           )
+        CHECK =
+          T.let(
+            :check,
+            ModernTreasury::AccountCollectionFlow::PaymentType::TaggedSymbol
+          )
+        CARD =
+          T.let(
+            :card,
+            ModernTreasury::AccountCollectionFlow::PaymentType::TaggedSymbol
+          )
 
         sig do
           override.returns(
