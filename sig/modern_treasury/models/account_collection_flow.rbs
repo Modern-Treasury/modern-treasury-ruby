@@ -86,13 +86,15 @@ module ModernTreasury
         updated_at: Time
       }
 
-      type payment_type = :ach | :wire
+      type payment_type = :ach | :wire | :check | :card
 
       module PaymentType
         extend ModernTreasury::Internal::Type::Enum
 
         ACH: :ach
         WIRE: :wire
+        CHECK: :check
+        CARD: :card
 
         def self?.values: -> ::Array[ModernTreasury::Models::AccountCollectionFlow::payment_type]
       end

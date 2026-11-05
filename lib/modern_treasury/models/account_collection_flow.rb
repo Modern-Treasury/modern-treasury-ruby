@@ -102,6 +102,8 @@ module ModernTreasury
 
         ACH = :ach
         WIRE = :wire
+        CHECK = :check
+        CARD = :card
 
         # @!method self.values
         #   @return [Array<Symbol>]
