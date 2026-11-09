@@ -6,6 +6,7 @@ module ModernTreasury
         client_token: String,
         created_at: Time,
         expires_at: Time,
+        hosted_url: String?,
         live_mode: bool,
         object: String,
         options: ModernTreasury::Models::EmbeddableFlow::options,
@@ -22,6 +23,8 @@ module ModernTreasury
       attr_accessor created_at: Time
 
       attr_accessor expires_at: Time
+
+      attr_accessor hosted_url: String?
 
       attr_accessor live_mode: bool
 
@@ -40,6 +43,7 @@ module ModernTreasury
         client_token: String,
         created_at: Time,
         expires_at: Time,
+        hosted_url: String?,
         live_mode: bool,
         object: String,
         options: ModernTreasury::Models::EmbeddableFlow::options,
@@ -53,6 +57,7 @@ module ModernTreasury
         client_token: String,
         created_at: Time,
         expires_at: Time,
+        hosted_url: String?,
         live_mode: bool,
         object: String,
         options: ModernTreasury::Models::EmbeddableFlow::options,
@@ -72,7 +77,8 @@ module ModernTreasury
         type union_member0 =
           {
             legal_entity_id: String,
-            type: ModernTreasury::Models::EmbeddableFlow::Options::UnionMember0::type_
+            type: ModernTreasury::Models::EmbeddableFlow::Options::UnionMember0::type_,
+            return_url: String
           }
 
         class UnionMember0 < ModernTreasury::Internal::Type::BaseModel
@@ -80,14 +86,20 @@ module ModernTreasury
 
           attr_accessor type: ModernTreasury::Models::EmbeddableFlow::Options::UnionMember0::type_
 
+          attr_reader return_url: String?
+
+          def return_url=: (String) -> String
+
           def initialize: (
             legal_entity_id: String,
-            type: ModernTreasury::Models::EmbeddableFlow::Options::UnionMember0::type_
+            type: ModernTreasury::Models::EmbeddableFlow::Options::UnionMember0::type_,
+            ?return_url: String
           ) -> void
 
           def to_hash: -> {
             legal_entity_id: String,
-            type: ModernTreasury::Models::EmbeddableFlow::Options::UnionMember0::type_
+            type: ModernTreasury::Models::EmbeddableFlow::Options::UnionMember0::type_,
+            return_url: String
           }
 
           type type_ = :individual

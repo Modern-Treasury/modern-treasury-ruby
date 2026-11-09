@@ -10,7 +10,7 @@ module ModernTreasury
       # @!attribute options
       #   The parameters for the selected template's flow.
       #
-      #   @return [ModernTreasury::Models::EmbeddableFlowCreateParams::Options::AccountCollectionFlowCreateRequest, ModernTreasury::Models::EmbeddableFlowCreateParams::Options::PaymentFlowCreateRequest, ModernTreasury::Models::EmbeddableFlowCreateParams::Options::Type]
+      #   @return [ModernTreasury::Models::EmbeddableFlowCreateParams::Options::AccountCollectionFlowCreateRequest, ModernTreasury::Models::EmbeddableFlowCreateParams::Options::PaymentFlowCreateRequest, ModernTreasury::Models::EmbeddableFlowCreateParams::Options::UnionMember2]
       required :options, union: -> { ModernTreasury::EmbeddableFlowCreateParams::Options }
 
       # @!attribute template
@@ -19,7 +19,7 @@ module ModernTreasury
       required :template, enum: -> { ModernTreasury::EmbeddableFlowCreateParams::Template }
 
       # @!method initialize(options:, template:, request_options: {})
-      #   @param options [ModernTreasury::Models::EmbeddableFlowCreateParams::Options::AccountCollectionFlowCreateRequest, ModernTreasury::Models::EmbeddableFlowCreateParams::Options::PaymentFlowCreateRequest, ModernTreasury::Models::EmbeddableFlowCreateParams::Options::Type] The parameters for the selected template's flow.
+      #   @param options [ModernTreasury::Models::EmbeddableFlowCreateParams::Options::AccountCollectionFlowCreateRequest, ModernTreasury::Models::EmbeddableFlowCreateParams::Options::PaymentFlowCreateRequest, ModernTreasury::Models::EmbeddableFlowCreateParams::Options::UnionMember2] The parameters for the selected template's flow.
       #
       #   @param template [Symbol, ModernTreasury::Models::EmbeddableFlowCreateParams::Template]
       #
@@ -33,7 +33,7 @@ module ModernTreasury
 
         variant -> { ModernTreasury::EmbeddableFlowCreateParams::Options::PaymentFlowCreateRequest }
 
-        variant -> { ModernTreasury::EmbeddableFlowCreateParams::Options::Type }
+        variant -> { ModernTreasury::EmbeddableFlowCreateParams::Options::UnionMember2 }
 
         class AccountCollectionFlowCreateRequest < ModernTreasury::Internal::Type::BaseModel
           # @!attribute counterparty_id
@@ -167,16 +167,29 @@ module ModernTreasury
           end
         end
 
-        class Type < ModernTreasury::Internal::Type::BaseModel
+        class UnionMember2 < ModernTreasury::Internal::Type::BaseModel
           # @!attribute type
           #
-          #   @return [Symbol, ModernTreasury::Models::EmbeddableFlowCreateParams::Options::Type::Type]
-          required :type, enum: -> { ModernTreasury::EmbeddableFlowCreateParams::Options::Type::Type }
+          #   @return [Symbol, ModernTreasury::Models::EmbeddableFlowCreateParams::Options::UnionMember2::Type]
+          required :type, enum: -> { ModernTreasury::EmbeddableFlowCreateParams::Options::UnionMember2::Type }
 
-          # @!method initialize(type:)
-          #   @param type [Symbol, ModernTreasury::Models::EmbeddableFlowCreateParams::Options::Type::Type]
+          # @!attribute return_url
+          #   The URL you want your customer redirected to upon completing the flow. This must
+          #   be a valid HTTPS URL if set.
+          #
+          #   @return [String, nil]
+          optional :return_url, String
 
-          # @see ModernTreasury::Models::EmbeddableFlowCreateParams::Options::Type#type
+          # @!method initialize(type:, return_url: nil)
+          #   Some parameter documentations has been truncated, see
+          #   {ModernTreasury::Models::EmbeddableFlowCreateParams::Options::UnionMember2} for
+          #   more details.
+          #
+          #   @param type [Symbol, ModernTreasury::Models::EmbeddableFlowCreateParams::Options::UnionMember2::Type]
+          #
+          #   @param return_url [String] The URL you want your customer redirected to upon completing the flow. This must
+
+          # @see ModernTreasury::Models::EmbeddableFlowCreateParams::Options::UnionMember2#type
           module Type
             extend ModernTreasury::Internal::Type::Enum
 
@@ -188,7 +201,7 @@ module ModernTreasury
         end
 
         # @!method self.variants
-        #   @return [Array(ModernTreasury::Models::EmbeddableFlowCreateParams::Options::AccountCollectionFlowCreateRequest, ModernTreasury::Models::EmbeddableFlowCreateParams::Options::PaymentFlowCreateRequest, ModernTreasury::Models::EmbeddableFlowCreateParams::Options::Type)]
+        #   @return [Array(ModernTreasury::Models::EmbeddableFlowCreateParams::Options::AccountCollectionFlowCreateRequest, ModernTreasury::Models::EmbeddableFlowCreateParams::Options::PaymentFlowCreateRequest, ModernTreasury::Models::EmbeddableFlowCreateParams::Options::UnionMember2)]
       end
 
       module Template
