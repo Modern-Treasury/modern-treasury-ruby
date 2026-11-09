@@ -23,6 +23,12 @@ module ModernTreasury
       sig { returns(Time) }
       attr_accessor :expires_at
 
+      # The Modern Treasury hosted URL for completing the flow. Only present for
+      # legal_entity_onboarding flows. Each response mints a fresh link that expires
+      # after 7 days.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :hosted_url
+
       # This field will be true if this object exists in the live environment or false
       # if it exists in the test environment.
       sig { returns(T::Boolean) }
@@ -50,6 +56,7 @@ module ModernTreasury
           client_token: String,
           created_at: Time,
           expires_at: Time,
+          hosted_url: T.nilable(String),
           live_mode: T::Boolean,
           object: String,
           options:
@@ -68,6 +75,10 @@ module ModernTreasury
         client_token:,
         created_at:,
         expires_at:,
+        # The Modern Treasury hosted URL for completing the flow. Only present for
+        # legal_entity_onboarding flows. Each response mints a fresh link that expires
+        # after 7 days.
+        hosted_url:,
         # This field will be true if this object exists in the live environment or false
         # if it exists in the test environment.
         live_mode:,
@@ -87,6 +98,7 @@ module ModernTreasury
             client_token: String,
             created_at: Time,
             expires_at: Time,
+            hosted_url: T.nilable(String),
             live_mode: T::Boolean,
             object: String,
             options: ModernTreasury::EmbeddableFlow::Options::Variants,
@@ -130,14 +142,21 @@ module ModernTreasury
           end
           attr_accessor :type
 
+          sig { returns(T.nilable(String)) }
+          attr_reader :return_url
+
+          sig { params(return_url: String).void }
+          attr_writer :return_url
+
           sig do
             params(
               legal_entity_id: String,
               type:
-                ModernTreasury::EmbeddableFlow::Options::UnionMember0::Type::OrSymbol
+                ModernTreasury::EmbeddableFlow::Options::UnionMember0::Type::OrSymbol,
+              return_url: String
             ).returns(T.attached_class)
           end
-          def self.new(legal_entity_id:, type:)
+          def self.new(legal_entity_id:, type:, return_url: nil)
           end
 
           sig do
@@ -145,7 +164,8 @@ module ModernTreasury
               {
                 legal_entity_id: String,
                 type:
-                  ModernTreasury::EmbeddableFlow::Options::UnionMember0::Type::TaggedSymbol
+                  ModernTreasury::EmbeddableFlow::Options::UnionMember0::Type::TaggedSymbol,
+                return_url: String
               }
             )
           end

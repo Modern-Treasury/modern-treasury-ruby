@@ -30,7 +30,7 @@ module ModernTreasury
       type options =
         ModernTreasury::EmbeddableFlowCreateParams::Options::AccountCollectionFlowCreateRequest
         | ModernTreasury::EmbeddableFlowCreateParams::Options::PaymentFlowCreateRequest
-        | ModernTreasury::EmbeddableFlowCreateParams::Options::Type
+        | ModernTreasury::EmbeddableFlowCreateParams::Options::UnionMember2
 
       module Options
         extend ModernTreasury::Internal::Type::Union
@@ -166,20 +166,27 @@ module ModernTreasury
           end
         end
 
-        type type_ =
+        type union_member2 =
           {
-            type: ModernTreasury::Models::EmbeddableFlowCreateParams::Options::Type::type_
+            type: ModernTreasury::Models::EmbeddableFlowCreateParams::Options::UnionMember2::type_,
+            return_url: String
           }
 
-        class Type < ModernTreasury::Internal::Type::BaseModel
-          attr_accessor type: ModernTreasury::Models::EmbeddableFlowCreateParams::Options::Type::type_
+        class UnionMember2 < ModernTreasury::Internal::Type::BaseModel
+          attr_accessor type: ModernTreasury::Models::EmbeddableFlowCreateParams::Options::UnionMember2::type_
+
+          attr_reader return_url: String?
+
+          def return_url=: (String) -> String
 
           def initialize: (
-            type: ModernTreasury::Models::EmbeddableFlowCreateParams::Options::Type::type_
+            type: ModernTreasury::Models::EmbeddableFlowCreateParams::Options::UnionMember2::type_,
+            ?return_url: String
           ) -> void
 
           def to_hash: -> {
-            type: ModernTreasury::Models::EmbeddableFlowCreateParams::Options::Type::type_
+            type: ModernTreasury::Models::EmbeddableFlowCreateParams::Options::UnionMember2::type_,
+            return_url: String
           }
 
           type type_ = :individual
@@ -189,7 +196,7 @@ module ModernTreasury
 
             INDIVIDUAL: :individual
 
-            def self?.values: -> ::Array[ModernTreasury::Models::EmbeddableFlowCreateParams::Options::Type::type_]
+            def self?.values: -> ::Array[ModernTreasury::Models::EmbeddableFlowCreateParams::Options::UnionMember2::type_]
           end
         end
 
