@@ -10,7 +10,7 @@ module ModernTreasury
             T.any(
               ModernTreasury::EmbeddableFlowCreateParams::Options::AccountCollectionFlowCreateRequest::OrHash,
               ModernTreasury::EmbeddableFlowCreateParams::Options::PaymentFlowCreateRequest::OrHash,
-              ModernTreasury::EmbeddableFlowCreateParams::Options::Type::OrHash
+              ModernTreasury::EmbeddableFlowCreateParams::Options::UnionMember2::OrHash
             ),
           template:
             ModernTreasury::EmbeddableFlowCreateParams::Template::OrSymbol,

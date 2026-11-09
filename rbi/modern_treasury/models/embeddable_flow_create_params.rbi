@@ -20,7 +20,7 @@ module ModernTreasury
           T.any(
             ModernTreasury::EmbeddableFlowCreateParams::Options::AccountCollectionFlowCreateRequest,
             ModernTreasury::EmbeddableFlowCreateParams::Options::PaymentFlowCreateRequest,
-            ModernTreasury::EmbeddableFlowCreateParams::Options::Type
+            ModernTreasury::EmbeddableFlowCreateParams::Options::UnionMember2
           )
         )
       end
@@ -37,7 +37,7 @@ module ModernTreasury
             T.any(
               ModernTreasury::EmbeddableFlowCreateParams::Options::AccountCollectionFlowCreateRequest::OrHash,
               ModernTreasury::EmbeddableFlowCreateParams::Options::PaymentFlowCreateRequest::OrHash,
-              ModernTreasury::EmbeddableFlowCreateParams::Options::Type::OrHash
+              ModernTreasury::EmbeddableFlowCreateParams::Options::UnionMember2::OrHash
             ),
           template:
             ModernTreasury::EmbeddableFlowCreateParams::Template::OrSymbol,
@@ -59,7 +59,7 @@ module ModernTreasury
               T.any(
                 ModernTreasury::EmbeddableFlowCreateParams::Options::AccountCollectionFlowCreateRequest,
                 ModernTreasury::EmbeddableFlowCreateParams::Options::PaymentFlowCreateRequest,
-                ModernTreasury::EmbeddableFlowCreateParams::Options::Type
+                ModernTreasury::EmbeddableFlowCreateParams::Options::UnionMember2
               ),
             template:
               ModernTreasury::EmbeddableFlowCreateParams::Template::OrSymbol,
@@ -79,7 +79,7 @@ module ModernTreasury
             T.any(
               ModernTreasury::EmbeddableFlowCreateParams::Options::AccountCollectionFlowCreateRequest,
               ModernTreasury::EmbeddableFlowCreateParams::Options::PaymentFlowCreateRequest,
-              ModernTreasury::EmbeddableFlowCreateParams::Options::Type
+              ModernTreasury::EmbeddableFlowCreateParams::Options::UnionMember2
             )
           end
 
@@ -399,36 +399,51 @@ module ModernTreasury
           end
         end
 
-        class Type < ModernTreasury::Internal::Type::BaseModel
+        class UnionMember2 < ModernTreasury::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
               T.any(
-                ModernTreasury::EmbeddableFlowCreateParams::Options::Type,
+                ModernTreasury::EmbeddableFlowCreateParams::Options::UnionMember2,
                 ModernTreasury::Internal::AnyHash
               )
             end
 
           sig do
             returns(
-              ModernTreasury::EmbeddableFlowCreateParams::Options::Type::Type::OrSymbol
+              ModernTreasury::EmbeddableFlowCreateParams::Options::UnionMember2::Type::OrSymbol
             )
           end
           attr_accessor :type
 
+          # The URL you want your customer redirected to upon completing the flow. This must
+          # be a valid HTTPS URL if set.
+          sig { returns(T.nilable(String)) }
+          attr_reader :return_url
+
+          sig { params(return_url: String).void }
+          attr_writer :return_url
+
           sig do
             params(
               type:
-                ModernTreasury::EmbeddableFlowCreateParams::Options::Type::Type::OrSymbol
+                ModernTreasury::EmbeddableFlowCreateParams::Options::UnionMember2::Type::OrSymbol,
+              return_url: String
             ).returns(T.attached_class)
           end
-          def self.new(type:)
+          def self.new(
+            type:,
+            # The URL you want your customer redirected to upon completing the flow. This must
+            # be a valid HTTPS URL if set.
+            return_url: nil
+          )
           end
 
           sig do
             override.returns(
               {
                 type:
-                  ModernTreasury::EmbeddableFlowCreateParams::Options::Type::Type::OrSymbol
+                  ModernTreasury::EmbeddableFlowCreateParams::Options::UnionMember2::Type::OrSymbol,
+                return_url: String
               }
             )
           end
@@ -442,7 +457,7 @@ module ModernTreasury
               T.type_alias do
                 T.all(
                   Symbol,
-                  ModernTreasury::EmbeddableFlowCreateParams::Options::Type::Type
+                  ModernTreasury::EmbeddableFlowCreateParams::Options::UnionMember2::Type
                 )
               end
             OrSymbol = T.type_alias { T.any(Symbol, String) }
@@ -450,13 +465,13 @@ module ModernTreasury
             INDIVIDUAL =
               T.let(
                 :individual,
-                ModernTreasury::EmbeddableFlowCreateParams::Options::Type::Type::TaggedSymbol
+                ModernTreasury::EmbeddableFlowCreateParams::Options::UnionMember2::Type::TaggedSymbol
               )
 
             sig do
               override.returns(
                 T::Array[
-                  ModernTreasury::EmbeddableFlowCreateParams::Options::Type::Type::TaggedSymbol
+                  ModernTreasury::EmbeddableFlowCreateParams::Options::UnionMember2::Type::TaggedSymbol
                 ]
               )
             end
