@@ -24,6 +24,14 @@ module ModernTreasury
       #   @return [Time]
       required :expires_at, Time
 
+      # @!attribute hosted_url
+      #   The Modern Treasury hosted URL for completing the flow. Only present for
+      #   legal_entity_onboarding flows. Each response mints a fresh link that expires
+      #   after 7 days.
+      #
+      #   @return [String, nil]
+      required :hosted_url, String, nil?: true
+
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false
       #   if it exists in the test environment.
@@ -57,7 +65,7 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!method initialize(id:, client_token:, created_at:, expires_at:, live_mode:, object:, options:, status:, template:, updated_at:)
+      # @!method initialize(id:, client_token:, created_at:, expires_at:, hosted_url:, live_mode:, object:, options:, status:, template:, updated_at:)
       #   Some parameter documentations has been truncated, see
       #   {ModernTreasury::Models::EmbeddableFlow} for more details.
       #
@@ -68,6 +76,8 @@ module ModernTreasury
       #   @param created_at [Time]
       #
       #   @param expires_at [Time]
+      #
+      #   @param hosted_url [String, nil] The Modern Treasury hosted URL for completing the flow. Only present for legal_e
       #
       #   @param live_mode [Boolean] This field will be true if this object exists in the live environment or false i
       #
@@ -102,9 +112,15 @@ module ModernTreasury
           #   @return [Symbol, ModernTreasury::Models::EmbeddableFlow::Options::UnionMember0::Type]
           required :type, enum: -> { ModernTreasury::EmbeddableFlow::Options::UnionMember0::Type }
 
-          # @!method initialize(legal_entity_id:, type:)
+          # @!attribute return_url
+          #
+          #   @return [String, nil]
+          optional :return_url, String
+
+          # @!method initialize(legal_entity_id:, type:, return_url: nil)
           #   @param legal_entity_id [String]
           #   @param type [Symbol, ModernTreasury::Models::EmbeddableFlow::Options::UnionMember0::Type]
+          #   @param return_url [String]
 
           # @see ModernTreasury::Models::EmbeddableFlow::Options::UnionMember0#type
           module Type
