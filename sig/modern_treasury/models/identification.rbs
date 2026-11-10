@@ -93,6 +93,7 @@ module ModernTreasury
         | :bh_cpr
         | :bh_vat
         | :bj_ifu
+        | :bm_crn
         | :bo_nit
         | :br_cnpj
         | :br_cpf
@@ -136,6 +137,7 @@ module ModernTreasury
         | :fr_nif
         | :fr_siren
         | :fr_vat
+        | :ga_nif
         | :gb_nino
         | :gb_utr
         | :gb_vat
@@ -151,6 +153,7 @@ module ModernTreasury
         | :gl_cpr
         | :gl_ger
         | :gm_tin
+        | :gr_afm
         | :gr_vat
         | :gt_nit
         | :hk_brn
@@ -184,12 +187,14 @@ module ModernTreasury
         | :kr_crn
         | :kr_rrn
         | :kw_cid
+        | :ky_crn
         | :kz_bin
         | :kz_iin
         | :la_tin
         | :lc_tin
         | :li_peid
         | :lk_tin
+        | :lr_tin
         | :ls_tin
         | :lt_ak
         | :lt_jak
@@ -197,11 +202,13 @@ module ModernTreasury
         | :lu_vat
         | :lv_pk
         | :lv_rn
+        | :ma_ice
         | :md_idnp
         | :me_jmbg
         | :me_pib
         | :mg_nif
         | :mh_ssn
+        | :ml_nif
         | :mo_bir
         | :mo_tin_b
         | :mo_tin_i
@@ -209,6 +216,7 @@ module ModernTreasury
         | :mt_tin
         | :mt_vat
         | :mu_tan
+        | :mv_tin
         | :mw_tpin
         | :mx_curp
         | :mx_ine
@@ -219,6 +227,7 @@ module ModernTreasury
         | :mz_nuit
         | :na_tin
         | :national_id
+        | :ng_tin
         | :nl_bsn
         | :nl_btw
         | :nl_rsin
@@ -234,17 +243,23 @@ module ModernTreasury
         | :pe_ruc
         | :pg_tin
         | :ph_tin
+        | :pk_cnic
+        | :pk_ntn
         | :pl_nip
         | :pl_pesel
         | :pt_nif
         | :py_ruc
+        | :qa_qfc_tin
         | :qa_qid
         | :qa_tin
         | :ro_cnp
         | :ro_cui
+        | :rs_jmbg
+        | :rs_pib
         | :rw_tin
         | :sa_tin
         | :sa_vat
+        | :sc_tin
         | :se_orgnr
         | :se_pnmr
         | :sg_fin
@@ -256,6 +271,7 @@ module ModernTreasury
         | :sk_rc
         | :sl_tin
         | :sm_ssi
+        | :sn_ninea
         | :sz_tin
         | :tg_nif
         | :th_jid
@@ -273,7 +289,9 @@ module ModernTreasury
         | :uy_rut
         | :uz_inn
         | :uz_pin
+        | :vg_crn
         | :vn_tin
+        | :xk_fn
         | :za_trn
         | :za_vat
         | :zm_tpin
@@ -307,6 +325,7 @@ module ModernTreasury
         BH_CPR: :bh_cpr
         BH_VAT: :bh_vat
         BJ_IFU: :bj_ifu
+        BM_CRN: :bm_crn
         BO_NIT: :bo_nit
         BR_CNPJ: :br_cnpj
         BR_CPF: :br_cpf
@@ -350,6 +369,7 @@ module ModernTreasury
         FR_NIF: :fr_nif
         FR_SIREN: :fr_siren
         FR_VAT: :fr_vat
+        GA_NIF: :ga_nif
         GB_NINO: :gb_nino
         GB_UTR: :gb_utr
         GB_VAT: :gb_vat
@@ -365,6 +385,7 @@ module ModernTreasury
         GL_CPR: :gl_cpr
         GL_GER: :gl_ger
         GM_TIN: :gm_tin
+        GR_AFM: :gr_afm
         GR_VAT: :gr_vat
         GT_NIT: :gt_nit
         HK_BRN: :hk_brn
@@ -398,12 +419,14 @@ module ModernTreasury
         KR_CRN: :kr_crn
         KR_RRN: :kr_rrn
         KW_CID: :kw_cid
+        KY_CRN: :ky_crn
         KZ_BIN: :kz_bin
         KZ_IIN: :kz_iin
         LA_TIN: :la_tin
         LC_TIN: :lc_tin
         LI_PEID: :li_peid
         LK_TIN: :lk_tin
+        LR_TIN: :lr_tin
         LS_TIN: :ls_tin
         LT_AK: :lt_ak
         LT_JAK: :lt_jak
@@ -411,11 +434,13 @@ module ModernTreasury
         LU_VAT: :lu_vat
         LV_PK: :lv_pk
         LV_RN: :lv_rn
+        MA_ICE: :ma_ice
         MD_IDNP: :md_idnp
         ME_JMBG: :me_jmbg
         ME_PIB: :me_pib
         MG_NIF: :mg_nif
         MH_SSN: :mh_ssn
+        ML_NIF: :ml_nif
         MO_BIR: :mo_bir
         MO_TIN_B: :mo_tin_b
         MO_TIN_I: :mo_tin_i
@@ -423,6 +448,7 @@ module ModernTreasury
         MT_TIN: :mt_tin
         MT_VAT: :mt_vat
         MU_TAN: :mu_tan
+        MV_TIN: :mv_tin
         MW_TPIN: :mw_tpin
         MX_CURP: :mx_curp
         MX_INE: :mx_ine
@@ -433,6 +459,7 @@ module ModernTreasury
         MZ_NUIT: :mz_nuit
         NA_TIN: :na_tin
         NATIONAL_ID: :national_id
+        NG_TIN: :ng_tin
         NL_BSN: :nl_bsn
         NL_BTW: :nl_btw
         NL_RSIN: :nl_rsin
@@ -448,17 +475,23 @@ module ModernTreasury
         PE_RUC: :pe_ruc
         PG_TIN: :pg_tin
         PH_TIN: :ph_tin
+        PK_CNIC: :pk_cnic
+        PK_NTN: :pk_ntn
         PL_NIP: :pl_nip
         PL_PESEL: :pl_pesel
         PT_NIF: :pt_nif
         PY_RUC: :py_ruc
+        QA_QFC_TIN: :qa_qfc_tin
         QA_QID: :qa_qid
         QA_TIN: :qa_tin
         RO_CNP: :ro_cnp
         RO_CUI: :ro_cui
+        RS_JMBG: :rs_jmbg
+        RS_PIB: :rs_pib
         RW_TIN: :rw_tin
         SA_TIN: :sa_tin
         SA_VAT: :sa_vat
+        SC_TIN: :sc_tin
         SE_ORGNR: :se_orgnr
         SE_PNMR: :se_pnmr
         SG_FIN: :sg_fin
@@ -470,6 +503,7 @@ module ModernTreasury
         SK_RC: :sk_rc
         SL_TIN: :sl_tin
         SM_SSI: :sm_ssi
+        SN_NINEA: :sn_ninea
         SZ_TIN: :sz_tin
         TG_NIF: :tg_nif
         TH_JID: :th_jid
@@ -487,7 +521,9 @@ module ModernTreasury
         UY_RUT: :uy_rut
         UZ_INN: :uz_inn
         UZ_PIN: :uz_pin
+        VG_CRN: :vg_crn
         VN_TIN: :vn_tin
+        XK_FN: :xk_fn
         ZA_TRN: :za_trn
         ZA_VAT: :za_vat
         ZM_TPIN: :zm_tpin
