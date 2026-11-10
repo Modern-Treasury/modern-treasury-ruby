@@ -170,6 +170,7 @@ module ModernTreasury
           ONBOARDING_ARTICLES_OF_INCORPORATION_FAILURE = :onboarding_articles_of_incorporation_failure
           ONBOARDING_BUSINESS_REGISTRY_VERIFICATION_FAILURE = :onboarding_business_registry_verification_failure
           ONBOARDING_DATABASE_FAILURE = :onboarding_database_failure
+          ONBOARDING_GOVERNMENT_ID_FAILURE = :onboarding_government_id_failure
           ONBOARDING_PROOF_OF_ADDRESS_FAILURE = :onboarding_proof_of_address_failure
           ONBOARDING_SSN_CHECK_FAILURE = :onboarding_ssn_check_failure
           ONBOARDING_TIN_CHECK_FAILURE = :onboarding_tin_check_failure
@@ -186,6 +187,7 @@ module ModernTreasury
 
           ARTICLES_OF_INCORPORATION = :articles_of_incorporation
           EIN_LETTER = :ein_letter
+          GOVERNMENT_ID = :government_id
           LEGAL_ENTITY_DETAILS = :legal_entity_details
           PROOF_OF_ADDRESS = :proof_of_address
 
@@ -277,6 +279,7 @@ module ModernTreasury
           ONBOARDING_ARTICLES_OF_INCORPORATION_FAILURE = :onboarding_articles_of_incorporation_failure
           ONBOARDING_BUSINESS_REGISTRY_VERIFICATION_FAILURE = :onboarding_business_registry_verification_failure
           ONBOARDING_DATABASE_FAILURE = :onboarding_database_failure
+          ONBOARDING_GOVERNMENT_ID_FAILURE = :onboarding_government_id_failure
           ONBOARDING_PROOF_OF_ADDRESS_FAILURE = :onboarding_proof_of_address_failure
           ONBOARDING_SSN_CHECK_FAILURE = :onboarding_ssn_check_failure
           ONBOARDING_TIN_CHECK_FAILURE = :onboarding_tin_check_failure
@@ -293,6 +296,7 @@ module ModernTreasury
 
           ARTICLES_OF_INCORPORATION = :articles_of_incorporation
           EIN_LETTER = :ein_letter
+          GOVERNMENT_ID = :government_id
           LEGAL_ENTITY_DETAILS = :legal_entity_details
           PROOF_OF_ADDRESS = :proof_of_address
 

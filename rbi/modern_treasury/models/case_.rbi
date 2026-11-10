@@ -231,6 +231,11 @@ module ModernTreasury
               :onboarding_database_failure,
               ModernTreasury::Case::RequestedAction::Category::TaggedSymbol
             )
+          ONBOARDING_GOVERNMENT_ID_FAILURE =
+            T.let(
+              :onboarding_government_id_failure,
+              ModernTreasury::Case::RequestedAction::Category::TaggedSymbol
+            )
           ONBOARDING_PROOF_OF_ADDRESS_FAILURE =
             T.let(
               :onboarding_proof_of_address_failure,
@@ -276,6 +281,11 @@ module ModernTreasury
           EIN_LETTER =
             T.let(
               :ein_letter,
+              ModernTreasury::Case::RequestedAction::Field::TaggedSymbol
+            )
+          GOVERNMENT_ID =
+            T.let(
+              :government_id,
               ModernTreasury::Case::RequestedAction::Field::TaggedSymbol
             )
           LEGAL_ENTITY_DETAILS =
@@ -429,6 +439,11 @@ module ModernTreasury
               :onboarding_database_failure,
               ModernTreasury::Case::ResolvedAction::Category::TaggedSymbol
             )
+          ONBOARDING_GOVERNMENT_ID_FAILURE =
+            T.let(
+              :onboarding_government_id_failure,
+              ModernTreasury::Case::ResolvedAction::Category::TaggedSymbol
+            )
           ONBOARDING_PROOF_OF_ADDRESS_FAILURE =
             T.let(
               :onboarding_proof_of_address_failure,
@@ -474,6 +489,11 @@ module ModernTreasury
           EIN_LETTER =
             T.let(
               :ein_letter,
+              ModernTreasury::Case::ResolvedAction::Field::TaggedSymbol
+            )
+          GOVERNMENT_ID =
+            T.let(
+              :government_id,
               ModernTreasury::Case::ResolvedAction::Field::TaggedSymbol
             )
           LEGAL_ENTITY_DETAILS =
