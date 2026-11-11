@@ -15,7 +15,7 @@ module ModernTreasury
           live_mode: bool,
           object: String,
           reconcilable: bool,
-          reconciliation_group_id: String?,
+          reconciliation_group_id: String,
           transactable_id: String?,
           transactable_type: ModernTreasury::Models::Transactions::TransactionLineItem::transactable_type?,
           transaction_id: String,
@@ -44,7 +44,7 @@ module ModernTreasury
 
         attr_accessor reconcilable: bool
 
-        attr_accessor reconciliation_group_id: String?
+        attr_accessor reconciliation_group_id: String
 
         attr_accessor transactable_id: String?
 
@@ -67,7 +67,7 @@ module ModernTreasury
           live_mode: bool,
           object: String,
           reconcilable: bool,
-          reconciliation_group_id: String?,
+          reconciliation_group_id: String,
           transactable_id: String?,
           transactable_type: ModernTreasury::Models::Transactions::TransactionLineItem::transactable_type?,
           transaction_id: String,
@@ -86,7 +86,7 @@ module ModernTreasury
           live_mode: bool,
           object: String,
           reconcilable: bool,
-          reconciliation_group_id: String?,
+          reconciliation_group_id: String,
           transactable_id: String?,
           transactable_type: ModernTreasury::Models::Transactions::TransactionLineItem::transactable_type?,
           transaction_id: String,
