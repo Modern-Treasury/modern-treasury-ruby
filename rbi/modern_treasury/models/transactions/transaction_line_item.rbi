@@ -57,8 +57,8 @@ module ModernTreasury
         sig { returns(T::Boolean) }
         attr_accessor :reconcilable
 
-        # The ID of the reconciliation group this line item belongs to, otherwise `null`.
-        sig { returns(T.nilable(String)) }
+        # The ID of the reconciliation group this line item belongs to.
+        sig { returns(String) }
         attr_accessor :reconciliation_group_id
 
         # If a matching object exists in Modern Treasury, the ID will be populated here,
@@ -105,7 +105,7 @@ module ModernTreasury
             live_mode: T::Boolean,
             object: String,
             reconcilable: T::Boolean,
-            reconciliation_group_id: T.nilable(String),
+            reconciliation_group_id: String,
             transactable_id: T.nilable(String),
             transactable_type:
               T.nilable(
@@ -141,7 +141,7 @@ module ModernTreasury
           # Describes whether this line item should be counted towards the corresponding
           # transaction’s reconciliation.
           reconcilable:,
-          # The ID of the reconciliation group this line item belongs to, otherwise `null`.
+          # The ID of the reconciliation group this line item belongs to.
           reconciliation_group_id:,
           # If a matching object exists in Modern Treasury, the ID will be populated here,
           # otherwise `null`.
@@ -171,7 +171,7 @@ module ModernTreasury
               live_mode: T::Boolean,
               object: String,
               reconcilable: T::Boolean,
-              reconciliation_group_id: T.nilable(String),
+              reconciliation_group_id: String,
               transactable_id: T.nilable(String),
               transactable_type:
                 T.nilable(
