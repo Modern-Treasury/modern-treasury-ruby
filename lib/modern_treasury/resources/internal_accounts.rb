@@ -177,29 +177,6 @@ module ModernTreasury
         )
       end
 
-      # @deprecated
-      #
-      # This endpoint has been deprecated. Request closure with PATCH
-      # /api/internal_accounts/{id} and status: "pending_closure".
-      #
-      # @overload request_closure(id, request_options: {})
-      #
-      # @param id [String] Unique identifier for the account.
-      #
-      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
-      #
-      # @return [ModernTreasury::Models::InternalAccount]
-      #
-      # @see ModernTreasury::Models::InternalAccountRequestClosureParams
-      def request_closure(id, params = {})
-        @client.request(
-          method: :post,
-          path: ["api/internal_accounts/%1$s/request_closure", id],
-          model: ModernTreasury::InternalAccount,
-          options: params[:request_options]
-        )
-      end
-
       # Some parameter documentations has been truncated, see
       # {ModernTreasury::Models::InternalAccountUpdateAccountCapabilityParams} for more
       # details.

@@ -218,21 +218,6 @@ module ModernTreasury
       )
       end
 
-      # This endpoint has been deprecated. Request closure with PATCH
-      # /api/internal_accounts/{id} and status: "pending_closure".
-      sig do
-        params(
-          id: String,
-          request_options: ModernTreasury::RequestOptions::OrHash
-        ).returns(ModernTreasury::InternalAccount)
-      end
-      def request_closure(
-        # Unique identifier for the account.
-        id,
-        request_options: {}
-      )
-      end
-
       # update account_capability
       sig do
         params(

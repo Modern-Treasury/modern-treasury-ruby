@@ -174,47 +174,6 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < ModernTreasury::Te
     end
   end
 
-  def test_request_closure
-    response = @modern_treasury.internal_accounts.request_closure("id")
-
-    assert_pattern do
-      response => ModernTreasury::InternalAccount
-    end
-
-    assert_pattern do
-      response => {
-        id: String,
-        account_capabilities: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccount::AccountCapability]),
-        account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::AccountDetail]),
-        account_type: ModernTreasury::InternalAccount::AccountType | nil,
-        allowed_ach_debit_company_ids: ^(ModernTreasury::Internal::Type::ArrayOf[String]) | nil,
-        connection: ModernTreasury::Connection,
-        contra_ledger_account_id: String | nil,
-        counterparty_id: String | nil,
-        created_at: Time,
-        currency: ModernTreasury::Currency,
-        debitable: ModernTreasury::Internal::Type::Boolean | nil,
-        external_id: String | nil,
-        ledger_account_id: String | nil,
-        legal_entity_id: String | nil,
-        live_mode: ModernTreasury::Internal::Type::Boolean,
-        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
-        name: String | nil,
-        object: String,
-        parent_account_id: String | nil,
-        party_address: ModernTreasury::Address | nil,
-        party_name: String,
-        party_type: ModernTreasury::InternalAccount::PartyType | nil,
-        routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::RoutingDetail]),
-        status: ModernTreasury::InternalAccount::Status | nil,
-        title: String,
-        updated_at: Time,
-        vendor_id: String | nil,
-        latest_balances: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::InternalAccount::LatestBalance]) | nil
-      }
-    end
-  end
-
   def test_update_account_capability_required_params
     response =
       @modern_treasury.internal_accounts.update_account_capability(
