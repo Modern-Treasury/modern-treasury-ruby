@@ -1300,6 +1300,9 @@ module ModernTreasury
         end
         attr_writer :contact_details
 
+        sig { returns(T.nilable(String)) }
+        attr_accessor :counterparty_id
+
         # An optional user-defined 180 character unique identifier.
         sig { returns(T.nilable(String)) }
         attr_accessor :external_id
@@ -1405,6 +1408,7 @@ module ModernTreasury
             account_type: ModernTreasury::ExternalAccountType::OrSymbol,
             contact_details:
               T::Array[ModernTreasury::ContactDetailCreateRequest::OrHash],
+            counterparty_id: T.nilable(String),
             external_id: T.nilable(String),
             ledger_account: ModernTreasury::LedgerAccountCreateRequest::OrHash,
             metadata: T::Hash[Symbol, String],
@@ -1428,6 +1432,7 @@ module ModernTreasury
           # Can be `checking`, `savings` or `other`.
           account_type: nil,
           contact_details: nil,
+          counterparty_id: nil,
           # An optional user-defined 180 character unique identifier.
           external_id: nil,
           # Specifies a ledger account object that will be created with the external
@@ -1466,6 +1471,7 @@ module ModernTreasury
               account_type: ModernTreasury::ExternalAccountType::OrSymbol,
               contact_details:
                 T::Array[ModernTreasury::ContactDetailCreateRequest],
+              counterparty_id: T.nilable(String),
               external_id: T.nilable(String),
               ledger_account: ModernTreasury::LedgerAccountCreateRequest,
               metadata: T::Hash[Symbol, String],
