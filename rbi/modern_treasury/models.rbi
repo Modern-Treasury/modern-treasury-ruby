@@ -231,9 +231,6 @@ module ModernTreasury
 
   InternalAccountListParams = ModernTreasury::Models::InternalAccountListParams
 
-  InternalAccountRequestClosureParams =
-    ModernTreasury::Models::InternalAccountRequestClosureParams
-
   InternalAccountRetrieveParams =
     ModernTreasury::Models::InternalAccountRetrieveParams
 
