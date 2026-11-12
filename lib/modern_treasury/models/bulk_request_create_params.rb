@@ -69,7 +69,6 @@ module ModernTreasury
         LEDGER_TRANSACTION = :ledger_transaction
         EXPECTED_PAYMENT = :expected_payment
         TRANSACTION = :transaction
-        TRANSACTION_LINE_ITEM = :transaction_line_item
 
         # @!method self.values
         #   @return [Array<Symbol>]
