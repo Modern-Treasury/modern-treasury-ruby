@@ -506,6 +506,7 @@ module ModernTreasury
           account_details: ::Array[ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::AccountDetail],
           account_type: ModernTreasury::Models::external_account_type,
           contact_details: ::Array[ModernTreasury::ContactDetailCreateRequest],
+          counterparty_id: String?,
           external_id: String?,
           ledger_account: ModernTreasury::LedgerAccountCreateRequest,
           metadata: ::Hash[Symbol, String],
@@ -536,6 +537,8 @@ module ModernTreasury
         def contact_details=: (
           ::Array[ModernTreasury::ContactDetailCreateRequest]
         ) -> ::Array[ModernTreasury::ContactDetailCreateRequest]
+
+        attr_accessor counterparty_id: String?
 
         attr_accessor external_id: String?
 
@@ -581,6 +584,7 @@ module ModernTreasury
           ?account_details: ::Array[ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::AccountDetail],
           ?account_type: ModernTreasury::Models::external_account_type,
           ?contact_details: ::Array[ModernTreasury::ContactDetailCreateRequest],
+          ?counterparty_id: String?,
           ?external_id: String?,
           ?ledger_account: ModernTreasury::LedgerAccountCreateRequest,
           ?metadata: ::Hash[Symbol, String],
@@ -597,6 +601,7 @@ module ModernTreasury
           account_details: ::Array[ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::AccountDetail],
           account_type: ModernTreasury::Models::external_account_type,
           contact_details: ::Array[ModernTreasury::ContactDetailCreateRequest],
+          counterparty_id: String?,
           external_id: String?,
           ledger_account: ModernTreasury::LedgerAccountCreateRequest,
           metadata: ::Hash[Symbol, String],
