@@ -728,7 +728,8 @@ module ModernTreasury
           }
 
           type document_type =
-            :articles_of_incorporation
+            :agent_authorization_letter
+            | :articles_of_incorporation
             | :certificate_of_good_standing
             | :ein_letter
             | :generic
@@ -739,6 +740,7 @@ module ModernTreasury
           module DocumentType
             extend ModernTreasury::Internal::Type::Enum
 
+            AGENT_AUTHORIZATION_LETTER: :agent_authorization_letter
             ARTICLES_OF_INCORPORATION: :articles_of_incorporation
             CERTIFICATE_OF_GOOD_STANDING: :certificate_of_good_standing
             EIN_LETTER: :ein_letter
@@ -753,6 +755,7 @@ module ModernTreasury
 
         type legal_structure =
           :corporation
+          | :government_entity
           | :llc
           | :non_profit
           | :partnership
@@ -763,6 +766,7 @@ module ModernTreasury
           extend ModernTreasury::Internal::Type::Enum
 
           CORPORATION: :corporation
+          GOVERNMENT_ENTITY: :government_entity
           LLC: :llc
           NON_PROFIT: :non_profit
           PARTNERSHIP: :partnership

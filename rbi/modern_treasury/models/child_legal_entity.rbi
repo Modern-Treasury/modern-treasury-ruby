@@ -796,6 +796,11 @@ module ModernTreasury
             :corporation,
             ModernTreasury::ChildLegalEntity::LegalStructure::TaggedSymbol
           )
+        GOVERNMENT_ENTITY =
+          T.let(
+            :government_entity,
+            ModernTreasury::ChildLegalEntity::LegalStructure::TaggedSymbol
+          )
         LLC =
           T.let(
             :llc,

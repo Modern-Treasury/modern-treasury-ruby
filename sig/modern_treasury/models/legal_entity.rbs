@@ -386,6 +386,7 @@ module ModernTreasury
 
       type legal_structure =
         :corporation
+        | :government_entity
         | :llc
         | :non_profit
         | :partnership
@@ -396,6 +397,7 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         CORPORATION: :corporation
+        GOVERNMENT_ENTITY: :government_entity
         LLC: :llc
         NON_PROFIT: :non_profit
         PARTNERSHIP: :partnership

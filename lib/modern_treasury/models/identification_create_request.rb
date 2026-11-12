@@ -329,6 +329,7 @@ module ModernTreasury
         module DocumentType
           extend ModernTreasury::Internal::Type::Enum
 
+          AGENT_AUTHORIZATION_LETTER = :agent_authorization_letter
           ARTICLES_OF_INCORPORATION = :articles_of_incorporation
           CERTIFICATE_OF_GOOD_STANDING = :certificate_of_good_standing
           EIN_LETTER = :ein_letter

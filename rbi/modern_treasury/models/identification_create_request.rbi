@@ -1338,6 +1338,11 @@ module ModernTreasury
             end
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
+          AGENT_AUTHORIZATION_LETTER =
+            T.let(
+              :agent_authorization_letter,
+              ModernTreasury::IdentificationCreateRequest::Document::DocumentType::TaggedSymbol
+            )
           ARTICLES_OF_INCORPORATION =
             T.let(
               :articles_of_incorporation,
