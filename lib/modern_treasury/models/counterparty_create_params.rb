@@ -806,6 +806,7 @@ module ModernTreasury
           module DocumentType
             extend ModernTreasury::Internal::Type::Enum
 
+            AGENT_AUTHORIZATION_LETTER = :agent_authorization_letter
             ARTICLES_OF_INCORPORATION = :articles_of_incorporation
             CERTIFICATE_OF_GOOD_STANDING = :certificate_of_good_standing
             EIN_LETTER = :ein_letter
@@ -826,6 +827,7 @@ module ModernTreasury
           extend ModernTreasury::Internal::Type::Enum
 
           CORPORATION = :corporation
+          GOVERNMENT_ENTITY = :government_entity
           LLC = :llc
           NON_PROFIT = :non_profit
           PARTNERSHIP = :partnership
