@@ -603,6 +603,16 @@ module ModernTreasury
             :corporation,
             ModernTreasury::LegalEntityUpdateParams::LegalStructure::TaggedSymbol
           )
+        ESTATE =
+          T.let(
+            :estate,
+            ModernTreasury::LegalEntityUpdateParams::LegalStructure::TaggedSymbol
+          )
+        GOVERNMENT_ENTITY =
+          T.let(
+            :government_entity,
+            ModernTreasury::LegalEntityUpdateParams::LegalStructure::TaggedSymbol
+          )
         LLC =
           T.let(
             :llc,
