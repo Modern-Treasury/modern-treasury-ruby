@@ -766,6 +766,11 @@ module ModernTreasury
             end
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
+          AGENT_AUTHORIZATION_LETTER =
+            T.let(
+              :agent_authorization_letter,
+              ModernTreasury::LegalEntityCreateParams::Document::DocumentType::TaggedSymbol
+            )
           ARTICLES_OF_INCORPORATION =
             T.let(
               :articles_of_incorporation,
@@ -794,6 +799,11 @@ module ModernTreasury
           IDENTIFICATION_FRONT =
             T.let(
               :identification_front,
+              ModernTreasury::LegalEntityCreateParams::Document::DocumentType::TaggedSymbol
+            )
+          LETTER_OF_ADMINISTRATION =
+            T.let(
+              :letter_of_administration,
               ModernTreasury::LegalEntityCreateParams::Document::DocumentType::TaggedSymbol
             )
           PROOF_OF_ADDRESS =
@@ -830,6 +840,16 @@ module ModernTreasury
         CORPORATION =
           T.let(
             :corporation,
+            ModernTreasury::LegalEntityCreateParams::LegalStructure::TaggedSymbol
+          )
+        ESTATE =
+          T.let(
+            :estate,
+            ModernTreasury::LegalEntityCreateParams::LegalStructure::TaggedSymbol
+          )
+        GOVERNMENT_ENTITY =
+          T.let(
+            :government_entity,
             ModernTreasury::LegalEntityCreateParams::LegalStructure::TaggedSymbol
           )
         LLC =

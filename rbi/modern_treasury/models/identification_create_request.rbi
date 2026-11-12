@@ -1338,6 +1338,11 @@ module ModernTreasury
             end
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
+          AGENT_AUTHORIZATION_LETTER =
+            T.let(
+              :agent_authorization_letter,
+              ModernTreasury::IdentificationCreateRequest::Document::DocumentType::TaggedSymbol
+            )
           ARTICLES_OF_INCORPORATION =
             T.let(
               :articles_of_incorporation,
@@ -1366,6 +1371,11 @@ module ModernTreasury
           IDENTIFICATION_FRONT =
             T.let(
               :identification_front,
+              ModernTreasury::IdentificationCreateRequest::Document::DocumentType::TaggedSymbol
+            )
+          LETTER_OF_ADMINISTRATION =
+            T.let(
+              :letter_of_administration,
               ModernTreasury::IdentificationCreateRequest::Document::DocumentType::TaggedSymbol
             )
           PROOF_OF_ADDRESS =

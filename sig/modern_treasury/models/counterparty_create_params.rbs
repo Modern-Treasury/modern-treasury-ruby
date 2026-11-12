@@ -728,23 +728,27 @@ module ModernTreasury
           }
 
           type document_type =
-            :articles_of_incorporation
+            :agent_authorization_letter
+            | :articles_of_incorporation
             | :certificate_of_good_standing
             | :ein_letter
             | :generic
             | :identification_back
             | :identification_front
+            | :letter_of_administration
             | :proof_of_address
 
           module DocumentType
             extend ModernTreasury::Internal::Type::Enum
 
+            AGENT_AUTHORIZATION_LETTER: :agent_authorization_letter
             ARTICLES_OF_INCORPORATION: :articles_of_incorporation
             CERTIFICATE_OF_GOOD_STANDING: :certificate_of_good_standing
             EIN_LETTER: :ein_letter
             GENERIC: :generic
             IDENTIFICATION_BACK: :identification_back
             IDENTIFICATION_FRONT: :identification_front
+            LETTER_OF_ADMINISTRATION: :letter_of_administration
             PROOF_OF_ADDRESS: :proof_of_address
 
             def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Document::document_type]
@@ -753,6 +757,8 @@ module ModernTreasury
 
         type legal_structure =
           :corporation
+          | :estate
+          | :government_entity
           | :llc
           | :non_profit
           | :partnership
@@ -763,6 +769,8 @@ module ModernTreasury
           extend ModernTreasury::Internal::Type::Enum
 
           CORPORATION: :corporation
+          ESTATE: :estate
+          GOVERNMENT_ENTITY: :government_entity
           LLC: :llc
           NON_PROFIT: :non_profit
           PARTNERSHIP: :partnership
