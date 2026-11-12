@@ -201,11 +201,6 @@ module ModernTreasury
             :transaction,
             ModernTreasury::BulkRequestCreateParams::ResourceType::TaggedSymbol
           )
-        TRANSACTION_LINE_ITEM =
-          T.let(
-            :transaction_line_item,
-            ModernTreasury::BulkRequestCreateParams::ResourceType::TaggedSymbol
-          )
 
         sig do
           override.returns(
