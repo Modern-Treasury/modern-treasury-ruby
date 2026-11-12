@@ -708,6 +708,11 @@ module ModernTreasury
         optional :contact_details,
                  -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::ContactDetailCreateRequest] }
 
+        # @!attribute counterparty_id
+        #
+        #   @return [String, nil]
+        optional :counterparty_id, String, nil?: true
+
         # @!attribute external_id
         #   An optional user-defined 180 character unique identifier.
         #
@@ -776,7 +781,7 @@ module ModernTreasury
         optional :routing_details,
                  -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail] }
 
-        # @!method initialize(account_details: nil, account_type: nil, contact_details: nil, external_id: nil, ledger_account: nil, metadata: nil, name: nil, party_address: nil, party_identifier: nil, party_name: nil, party_type: nil, plaid_processor_token: nil, routing_details: nil)
+        # @!method initialize(account_details: nil, account_type: nil, contact_details: nil, counterparty_id: nil, external_id: nil, ledger_account: nil, metadata: nil, name: nil, party_address: nil, party_identifier: nil, party_name: nil, party_type: nil, plaid_processor_token: nil, routing_details: nil)
         #   Some parameter documentations has been truncated, see
         #   {ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount} for more
         #   details.
@@ -790,6 +795,8 @@ module ModernTreasury
         #   @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType] Can be `checking`, `savings` or `other`.
         #
         #   @param contact_details [Array<ModernTreasury::Models::ContactDetailCreateRequest>]
+        #
+        #   @param counterparty_id [String, nil]
         #
         #   @param external_id [String, nil] An optional user-defined 180 character unique identifier.
         #
