@@ -167,7 +167,6 @@ module ModernTreasury
         module Category
           extend ModernTreasury::Internal::Type::Enum
 
-          ONBOARDING_ARTICLES_OF_INCORPORATION_FAILURE = :onboarding_articles_of_incorporation_failure
           ONBOARDING_BUSINESS_REGISTRY_VERIFICATION_FAILURE = :onboarding_business_registry_verification_failure
           ONBOARDING_DATABASE_FAILURE = :onboarding_database_failure
           ONBOARDING_GOVERNMENT_ID_FAILURE = :onboarding_government_id_failure
@@ -276,7 +275,6 @@ module ModernTreasury
         module Category
           extend ModernTreasury::Internal::Type::Enum
 
-          ONBOARDING_ARTICLES_OF_INCORPORATION_FAILURE = :onboarding_articles_of_incorporation_failure
           ONBOARDING_BUSINESS_REGISTRY_VERIFICATION_FAILURE = :onboarding_business_registry_verification_failure
           ONBOARDING_DATABASE_FAILURE = :onboarding_database_failure
           ONBOARDING_GOVERNMENT_ID_FAILURE = :onboarding_government_id_failure
