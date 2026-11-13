@@ -216,11 +216,6 @@ module ModernTreasury
             end
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-          ONBOARDING_ARTICLES_OF_INCORPORATION_FAILURE =
-            T.let(
-              :onboarding_articles_of_incorporation_failure,
-              ModernTreasury::Case::RequestedAction::Category::TaggedSymbol
-            )
           ONBOARDING_BUSINESS_REGISTRY_VERIFICATION_FAILURE =
             T.let(
               :onboarding_business_registry_verification_failure,
@@ -424,11 +419,6 @@ module ModernTreasury
             end
           OrSymbol = T.type_alias { T.any(Symbol, String) }
 
-          ONBOARDING_ARTICLES_OF_INCORPORATION_FAILURE =
-            T.let(
-              :onboarding_articles_of_incorporation_failure,
-              ModernTreasury::Case::ResolvedAction::Category::TaggedSymbol
-            )
           ONBOARDING_BUSINESS_REGISTRY_VERIFICATION_FAILURE =
             T.let(
               :onboarding_business_registry_verification_failure,
