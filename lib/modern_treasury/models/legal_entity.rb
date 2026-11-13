@@ -574,6 +574,8 @@ module ModernTreasury
         extend ModernTreasury::Internal::Type::Enum
 
         CORPORATION = :corporation
+        ESTATE = :estate
+        GOVERNMENT_ENTITY = :government_entity
         LLC = :llc
         NON_PROFIT = :non_profit
         PARTNERSHIP = :partnership
