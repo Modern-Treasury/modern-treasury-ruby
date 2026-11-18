@@ -495,6 +495,7 @@ module ModernTreasury
           CITIBANK_REFERENCE_NUMBER = :citibank_reference_number
           CITIBANK_WORLDLINK_CLEARING_SYSTEM_REFERENCE_NUMBER =
             :citibank_worldlink_clearing_system_reference_number
+          CITIBANK_WORLDLINK_FNDREF = :citibank_worldlink_fndref
           COLUMN_FX_QUOTE_ID = :column_fx_quote_id
           COLUMN_REVERSAL_PAIR_TRANSFER_ID = :column_reversal_pair_transfer_id
           COLUMN_TRANSFER_ID = :column_transfer_id
