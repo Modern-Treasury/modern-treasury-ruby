@@ -200,6 +200,11 @@ module ModernTreasury
             :citibank_worldlink_clearing_system_reference_number,
             ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
           )
+        CITIBANK_WORLDLINK_FNDREF =
+          T.let(
+            :citibank_worldlink_fndref,
+            ModernTreasury::PaymentReference::ReferenceNumberType::TaggedSymbol
+          )
         COLUMN_FX_QUOTE_ID =
           T.let(
             :column_fx_quote_id,
