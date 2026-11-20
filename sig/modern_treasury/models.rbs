@@ -157,14 +157,6 @@ module ModernTreasury
 
   class ForeignExchangeRate = ModernTreasury::Models::ForeignExchangeRate
 
-  class HoldCreateParams = ModernTreasury::Models::HoldCreateParams
-
-  class HoldListParams = ModernTreasury::Models::HoldListParams
-
-  class HoldRetrieveParams = ModernTreasury::Models::HoldRetrieveParams
-
-  class HoldUpdateParams = ModernTreasury::Models::HoldUpdateParams
-
   class Identification = ModernTreasury::Models::Identification
 
   class IdentificationCreateParams = ModernTreasury::Models::IdentificationCreateParams
